@@ -1,0 +1,4 @@
+.calendar-head{gap:5px}
+.calendar-head input[type="month"]{min-width:0;max-width:145px;flex:1;border:1px solid #4b6154;border-radius:6px;background:#1d3329;color:#f2eee2;padding:5px 6px;font:500 12px var(--sans);color-scheme:dark}
+.calendar-head input[type="month"]:focus-visible,.calendar-head button:focus-visible{outline:2px solid #d5a76f;outline-offset:2px}
+.calendar-head #todayMonth{font-size:12px;padding:4px 5px;border:1px solid #4b6154;border-radius:5px}

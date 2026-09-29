@@ -1,5 +1,6 @@
 const $ = id => document.getElementById(id);
-const TODAY = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
+const todayParts = Object.fromEntries(new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(new Date()).map(part => [part.type, part.value]));
+const TODAY = `${todayParts.year}-${todayParts.month}-${todayParts.day}`;
 const STORAGE = 'second-language-progress-pending-v1';
 const state = { chapters: [], current: null, month: TODAY.slice(0, 7), part: 'one', difficulty: null, progress: {}, demo: false, authenticated: false, installPrompt: null };
 
@@ -57,7 +58,7 @@ function monthShift(value, offset) {
 
 function renderCalendar() {
   const [year, month] = state.month.split('-').map(Number);
-  $('monthTitle').textContent = `${year} 年 ${month} 月`;
+  $('monthPicker').value = state.month;
   const start = new Date(Date.UTC(year, month - 1, 1));
   const days = new Date(Date.UTC(year, month, 0)).getUTCDate();
   const offset = (start.getUTCDay() + 6) % 7;
@@ -205,6 +206,8 @@ async function initialize() {
 
 $('prevMonth').addEventListener('click', () => { state.month = monthShift(state.month, -1); renderCalendar(); });
 $('nextMonth').addEventListener('click', () => { state.month = monthShift(state.month, 1); renderCalendar(); });
+$('monthPicker').addEventListener('change', event => { if (/^\d{4}-\d{2}$/.test(event.target.value)) { state.month = event.target.value; renderCalendar(); } });
+$('todayMonth').addEventListener('click', () => { state.month = TODAY.slice(0, 7); renderCalendar(); });
 $('menuButton').addEventListener('click', () => $('rail').classList.toggle('open'));
 document.querySelectorAll('[data-part]').forEach(button => button.addEventListener('click', () => showPart(button.dataset.part)));
 document.querySelectorAll('[data-difficulty]').forEach(button => button.addEventListener('click', () => { state.difficulty = button.dataset.difficulty; renderProgressChoice(); }));

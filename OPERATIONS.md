@@ -38,6 +38,7 @@ node scripts/publish-chapter.mjs YYYY-MM-DD
 
 1. 在 Worker 配置目录运行 D1 migration：`wrangler d1 migrations apply DB --remote`。
 2. 将 `PUBLISH_TOKEN`、`ENROLLMENT_KEY`、`VAPID_PRIVATE_KEY`、`VAPID_SUBJECT` 设为 Worker secrets；将 VAPID 公钥配置为 `VAPID_PUBLIC_KEY`。发布 token 只给 Codex 的发布环境，不交给浏览器。推送不用时可暂不配置 VAPID。
+   可在 `worker/` 本机运行 `node --input-type=module -e "import { generateVapidKeys } from '@mmmike/web-push'; console.log(await generateVapidKeys())"` 生成公私钥；私钥不要提交到 Git。
 3. `wrangler deploy` 发布 API Worker。执行 `node gateway/build.mjs`，再在 `worker/gateway/` 按该目录配置发布 Pages。Pages `API` service binding 指向已发布的 Worker。
 4. 用 `worker/admin/open-enrollment.sql` 将单人通行密钥登记窗口开放五分钟，再在正式站点输入初始化密钥登记。成功后窗口关闭。需要重置时按 `worker/admin/reset-auth.sql` 明确操作。
 5. 首次真实章节按 `protocol/DAILY_RUN.md` 完成、暂存并提交。确认按日期可读后才发送新章推送。

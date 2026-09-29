@@ -135,7 +135,7 @@ async function route(request, env) {
   if (path === '/api/chapters' && request.method === 'GET') {
     const { results } = await env.DB.prepare(`SELECT p.chapter_id AS id,p.study_date AS date,r.number,r.title,r.subtitle,r.word_count AS wordCount,p.digest
       FROM published_chapters p JOIN chapter_revisions r ON r.digest=p.digest
-      ORDER BY p.study_date DESC LIMIT 730`).all();
+      ORDER BY p.study_date DESC`).all();
     return json({ chapters: results });
   }
   if (path.startsWith('/api/chapters/') && request.method === 'GET') {

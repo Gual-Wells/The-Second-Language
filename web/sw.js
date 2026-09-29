@@ -1,6 +1,6 @@
 const SHELL = 'second-language-shell-v1';
 const CHAPTERS = 'second-language-chapters-v1';
-const CORE = ['/', '/index.html', '/app.js', '/styles.css', '/goal.css', '/manifest.webmanifest', '/icon.svg'];
+const CORE = ['/', '/index.html', '/app.js', '/styles.css', '/calendar.css', '/goal.css', '/manifest.webmanifest', '/icon.svg'];
 self.addEventListener('install', event => { event.waitUntil(caches.open(SHELL).then(cache => cache.addAll(CORE)).then(() => self.skipWaiting())); });
 self.addEventListener('activate', event => { event.waitUntil(Promise.all([self.clients.claim(), caches.keys().then(keys => Promise.all(keys.filter(key => ![SHELL, CHAPTERS].includes(key)).map(key => caches.delete(key))))])); });
 self.addEventListener('message', event => { if (event.data?.type === 'CLEAR_CHAPTER_CACHE') event.waitUntil(caches.delete(CHAPTERS)); });

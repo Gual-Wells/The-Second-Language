@@ -8,6 +8,7 @@
   <link rel="manifest" href="/manifest.webmanifest">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/calendar.css">
   <link rel="stylesheet" href="/goal.css">
   <title>第二语言</title>
 </head>
@@ -20,7 +21,7 @@
         <h1>每天，向前<br><em>一章。</em></h1>
         <p>从词汇进入语境，再把语言带进自己的表达。</p>
       </div>
-      <div class="calendar-head"><button id="prevMonth" type="button" aria-label="上个月">‹</button><strong id="monthTitle"></strong><button id="nextMonth" type="button" aria-label="下个月">›</button></div>
+      <div class="calendar-head"><button id="prevMonth" type="button" aria-label="上个月">‹</button><input id="monthPicker" type="month" aria-label="跳转到月份"><button id="todayMonth" type="button" aria-label="回到本月">今</button><button id="nextMonth" type="button" aria-label="下个月">›</button></div>
       <div class="calendar-weekdays" aria-hidden="true"><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span><span>日</span></div>
       <div id="calendar" class="calendar" aria-label="课程日历"></div>
       <div class="chapter-list-head"><span class="eyebrow">CHAPTERS</span><span id="chapterCount"></span></div>
