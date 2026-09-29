@@ -1,0 +1,12 @@
+import { mkdir, writeFile } from 'node:fs/promises';
+import path from 'node:path';
+const date = process.argv[2];
+if (!/^\d{4}-\d{2}-\d{2}$/.test(date || '')) throw new Error('用法: node scripts/feedback-snapshot.mjs YYYY-MM-DD');
+const base = process.env.SECOND_LANGUAGE_API_URL, token = process.env.SECOND_LANGUAGE_PUBLISH_TOKEN;
+if (!base || !token) throw new Error('缺少 SECOND_LANGUAGE_API_URL 或 SECOND_LANGUAGE_PUBLISH_TOKEN');
+const response = await fetch(new URL('/api/feedback-snapshot', base), { headers: { authorization: `Bearer ${token}` } });
+if (!response.ok) throw new Error(`学习反馈读取失败: HTTP ${response.status}`);
+const target = path.resolve('work/runs', date, 'feedback.json');
+await mkdir(path.dirname(target), { recursive: true });
+await writeFile(target, JSON.stringify({ capturedAt: new Date().toISOString(), data: await response.json() }, null, 2));
+console.log(`学习反馈快照已写入 ${target}`);

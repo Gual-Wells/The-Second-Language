@@ -1,0 +1,10 @@
+node_modules/
+.cache/
+worker/gateway/dist/
+.wrangler/
+work/runs/
+.env
+.env.*
+.dev.vars
+.dev.vars.*
+*.log

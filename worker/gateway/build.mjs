@@ -1,0 +1,11 @@
+import { mkdir, cp, rm } from 'node:fs/promises';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const base = path.dirname(fileURLToPath(import.meta.url));
+const dest = path.resolve(base, 'dist');
+if (path.dirname(dest) !== path.resolve(base) || path.basename(dest) !== 'dist') throw new Error('Unexpected build output path');
+await rm(dest, { recursive: true, force: true });
+await mkdir(dest, { recursive: true });
+await cp(path.resolve(base, '../../web'), dest, { recursive: true });
+await cp(path.join(base, 'src/_worker.js'), path.join(dest, '_worker.js'));
+console.log(`Pages assets ready: ${dest}`);

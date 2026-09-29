@@ -1,0 +1,10 @@
+{
+  "name": "the-second-language-api",
+  "main": "src/index.js",
+  "compatibility_date": "2026-09-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "vars": { "APP_ORIGIN": "https://YOUR-DOMAIN.example", "APP_URL": "https://YOUR-DOMAIN.example/", "VAPID_PUBLIC_KEY": "" },
+  "d1_databases": [{ "binding": "DB", "database_name": "the-second-language", "database_id": "REPLACE_WITH_D1_ID" }],
+  "r2_buckets": [{ "binding": "CHAPTERS", "bucket_name": "the-second-language-chapters" }],
+  "triggers": { "crons": ["* * * * *"] }
+}
