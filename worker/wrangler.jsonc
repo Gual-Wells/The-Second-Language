@@ -2,9 +2,30 @@
   "name": "the-second-language-api",
   "main": "src/index.js",
   "compatibility_date": "2026-09-01",
-  "compatibility_flags": ["nodejs_compat"],
-  "vars": { "APP_ORIGIN": "https://YOUR-DOMAIN.example", "APP_URL": "https://YOUR-DOMAIN.example/", "VAPID_PUBLIC_KEY": "" },
-  "d1_databases": [{ "binding": "DB", "database_name": "the-second-language", "database_id": "REPLACE_WITH_D1_ID" }],
-  "r2_buckets": [{ "binding": "CHAPTERS", "bucket_name": "the-second-language-chapters" }],
-  "triggers": { "crons": ["* * * * *"] }
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "vars": {
+    "APP_ORIGIN": "https://the-second-language.pages.dev",
+    "APP_URL": "https://the-second-language.pages.dev/",
+    "VAPID_PUBLIC_KEY": "BPBIS91ui4rCjRFMZJGwXA7conPmE21VkH3irXpFJNdAlsSTg5HBtw7Jc3KVs-PyycW3zScqSHYgKF1NQiVp1Gk"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "the-second-language",
+      "database_id": "e9d0f4ee-a720-4fa9-8c45-3f1974243092"
+    }
+  ],
+  "kv_namespaces": [
+    {
+      "binding": "CHAPTERS",
+      "id": "c06595e0069247cd8cf702ac9756cdea"
+    }
+  ],
+  "triggers": {
+    "crons": [
+      "* * * * *"
+    ]
+  }
 }

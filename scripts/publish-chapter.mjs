@@ -1,9 +1,9 @@
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
+import { publisherConfig } from './lib/publisher-config.mjs';
 const date = process.argv[2];
 if (!/^\d{4}-\d{2}-\d{2}$/.test(date || '')) throw new Error('用法: node scripts/publish-chapter.mjs YYYY-MM-DD');
-const base = process.env.SECOND_LANGUAGE_API_URL, token = process.env.SECOND_LANGUAGE_PUBLISH_TOKEN;
-if (!base || !token) throw new Error('缺少 SECOND_LANGUAGE_API_URL 或 SECOND_LANGUAGE_PUBLISH_TOKEN');
+const { base, token } = await publisherConfig();
 const folder = path.resolve('chapters', date);
 const chapter = JSON.parse(await readFile(path.join(folder, 'chapter.json'), 'utf8'));
 const meta = JSON.parse(await readFile(path.join(folder, 'meta.json'), 'utf8'));

@@ -103,7 +103,7 @@ async function route(request, env) {
       typeof value.number !== 'string' || value.number.length > 80 ||
       !/^[0-9a-f]{40}$/.test(value.vixCommit || '') || !/^[0-9a-f]{40}$/.test(value.protocolCommit || '')) return json({ error: '章节元数据或结构无效' }, 400);
     const digest = await sha256(value.markdown), key = `chapters/${value.date}/${digest}.md`;
-    await env.CHAPTERS.put(key, value.markdown, { httpMetadata: { contentType: 'text/markdown; charset=utf-8' }, customMetadata: { runId: value.runId, date: value.date } });
+    await env.CHAPTERS.put(key, value.markdown);
     await env.DB.prepare(`INSERT OR IGNORE INTO chapter_revisions
       (digest,chapter_id,study_date,number,title,subtitle,word_count,content_key,run_id,vix_commit,protocol_commit,created_at)
       VALUES (?,?,?,?,?,?,?,?,?,?,?,?)`)
@@ -115,7 +115,7 @@ async function route(request, env) {
     const value = await inputJson(request);
     if (!safeId(value.runId) || !/^[0-9a-f]{64}$/.test(value.digest || '')) return json({ error: '发布参数无效' }, 400);
     const revision = await env.DB.prepare('SELECT * FROM chapter_revisions WHERE digest=? AND run_id=?').bind(value.digest, value.runId).first();
-    if (!revision || !(await env.CHAPTERS.head(revision.content_key))) return json({ error: '暂存章节不存在' }, 404);
+    if (!revision) return json({ error: '暂存章节不存在' }, 404);
     const now = Date.now();
     await env.DB.batch([
       env.DB.prepare(`INSERT INTO published_chapters (chapter_id,study_date,digest,published_at) VALUES (?,?,?,?)
@@ -144,10 +144,10 @@ async function route(request, env) {
     const row = await env.DB.prepare(`SELECT p.chapter_id AS id,p.study_date AS date,r.number,r.title,r.subtitle,r.word_count AS wordCount,r.content_key
       FROM published_chapters p JOIN chapter_revisions r ON r.digest=p.digest WHERE p.chapter_id=?`).bind(id).first();
     if (!row) return json({ error: '章节尚未发布' }, 404);
-    const object = await env.CHAPTERS.get(row.content_key);
-    if (!object) return json({ error: '章节正文暂不可用' }, 503);
+    const markdown = await env.CHAPTERS.get(row.content_key);
+    if (markdown === null) return json({ error: '章节正文暂不可用' }, 503);
     const { content_key, ...meta } = row;
-    return json({ ...meta, markdown: await object.text() });
+    return json({ ...meta, markdown });
   }
   if (path === '/api/settings' && request.method === 'GET') {
     const row = await env.DB.prepare('SELECT goal,updated_at FROM study_settings WHERE id=1').first();
@@ -196,10 +196,11 @@ async function sendDue(env) {
   if (!env.VAPID_PUBLIC_KEY || !env.VAPID_PRIVATE_KEY || !env.VAPID_SUBJECT) return;
   const now = Date.now();
   const { results } = await env.DB.prepare(`SELECT o.*,s.endpoint,s.p256dh,s.auth,r.title
-    FROM push_outbox o JOIN push_subscriptions s ON s.id=o.subscription_id
+    FROM push_outbox o JOIN published_chapters p ON p.chapter_id=o.chapter_id AND p.digest=o.digest
+    JOIN push_subscriptions s ON s.id=o.subscription_id
     JOIN chapter_revisions r ON r.digest=o.digest
-    WHERE o.sent_at IS NULL AND o.attempts<4 AND (o.claim_at IS NULL OR o.claim_at<?)
-    ORDER BY r.study_date LIMIT 20`).bind(now - 120000).all();
+    WHERE o.sent_at IS NULL AND o.attempts<4 AND p.published_at<=? AND (o.claim_at IS NULL OR o.claim_at<?)
+    ORDER BY r.study_date LIMIT 20`).bind(now - 120000, now - 120000).all();
   for (const row of results) {
     const claim = await env.DB.prepare(`UPDATE push_outbox SET claim_at=?,attempts=attempts+1
       WHERE chapter_id=? AND digest=? AND subscription_id=? AND sent_at IS NULL AND (claim_at IS NULL OR claim_at<?)`)

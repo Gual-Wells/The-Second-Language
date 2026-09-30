@@ -6,8 +6,13 @@ import { loadVixIndex, familyRecords } from './lib/vix-index.mjs';
 
 const args = Object.fromEntries(process.argv.slice(2).map(item => item.replace(/^--/, '').split(/=(.*)/s).slice(0, 2)));
 if (!args.vix || !args.selection) throw new Error('用法: node scripts/publish-vix.mjs --vix=<VIX目录> --selection=<selection.json>');
-const token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN;
-if (!token) throw new Error('缺少 GITHUB_TOKEN 或 GH_TOKEN');
+function gitCredentialToken() {
+  const result = spawnSync('git', ['credential', 'fill'], { input: 'protocol=https\nhost=github.com\n\n', encoding: 'utf8', timeout: 10000 });
+  if (result.status !== 0) return null;
+  return result.stdout.split(/\r?\n/).find(line => line.startsWith('password='))?.slice('password='.length) || null;
+}
+const token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || gitCredentialToken();
+if (!token) throw new Error('缺少 GITHUB_TOKEN、GH_TOKEN 或 GitHub Git 凭据');
 const root = path.resolve(args.vix), selection = JSON.parse(await readFile(args.selection, 'utf8'));
 if (!/^[0-9a-f]{40}$/.test(selection.vixInputCommit || '')) throw new Error('selection 缺少 VIX 输入 commit');
 const index = await loadVixIndex(root);

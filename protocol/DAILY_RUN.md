@@ -6,7 +6,7 @@
 
 1. 确定目标日历日期 `YYYY-MM-DD`，读取同日期的 `work/runs/<date>/`；若存在未完成运行，继续它。
 2. 读取 VIX 当前通用英语辅助索引、标注状态和两份 `textbook` 文件，记录各文件的 Git commit 或摘要。读取 PWA 后端的学习目标与反馈快照。主观判断不得被固定打分替代。
-3. 在 `work/runs/<date>/selection.md` 自由写推荐思考，在 `selection.json` 保存最终 100 个主词及同族派生词的 VIX `entryId`、`globalRank` 和文本。`vixMarkLabel` 必须明确记录为 `MM-DD`；它是 VIX 内部标签，不能充当带年份的章节日期。
+3. 在 `work/runs/<date>/selection.md` 自由写推荐思考，在 `selection.json` 保存 `studyDate`、`vixInputCommit`、`vixMarkLabel` 和 `mainWords`。`mainWords` 恰有 100 个主词；每项保存 VIX `entryId`、`globalRank`、`text`，相关派生词放入该项 `family` 并记录相同身份字段（教材有而 VIX 无的派生词仍记其文字，但不填 VIX 身份）。`vixMarkLabel` 必须明确记录为 `MM-DD`；它是 VIX 内部标签，不能充当带年份的章节日期。
 4. **完整确定本次推荐后**，把本次实际纳入建设且存在于 VIX 辅助索引的主词、派生词与同词变体标入 VIX 对应日期文件。运行 VIX 的 `tools/build-seed-access.mjs` 并提交标注与生成结果。记录 commit。若这一步之后中断，继续同一组选词和同一章节，不重新推荐。
 
 ## 课程建设
