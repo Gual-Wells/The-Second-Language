@@ -9,6 +9,12 @@ function toast(message) {
   clearTimeout(toast.timer); toast.timer = setTimeout(() => el.classList.remove('visible'), 3000);
 }
 
+function setNavOpen(open) {
+  document.querySelector('.rail').classList.toggle('open', open);
+  $('navScrim').hidden = !open;
+  $('menuButton').setAttribute('aria-expanded', String(open));
+}
+
 function formatDate(date) {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) return date;
   const [year, month, day] = date.split('-'); return `${year} 年 ${Number(month)} 月 ${Number(day)} 日`;
@@ -135,16 +141,17 @@ async function openChapter(id) {
     $('reader').hidden = false; $('emptyState').hidden = true;
     renderProgress(); renderCalendar(); renderList(); showPart('one');
     history.replaceState(null, '', `/?chapter=${encodeURIComponent(id)}`);
-    $('reader').scrollIntoView({ behavior: 'smooth', block: 'start' });
-    $('rail').classList.remove('open');
+    document.querySelector('.main').scrollTo({ top: 0, behavior: 'smooth' });
+    setNavOpen(false);
   } catch (error) { toast(error.message); }
 }
 
-function showPart(part) {
+function showPart(part, scroll = false) {
   if (!state.current) return;
   state.part = part;
   document.querySelectorAll('[data-part]').forEach(button => button.classList.toggle('active', button.dataset.part === part));
   renderMarkdown(parseParts(state.current.markdown)[part], $('article'));
+  if (scroll) $('article').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 const fromBase64url = value => Uint8Array.from(atob(value.replace(/-/g, '+').replace(/_/g, '/').padEnd(Math.ceil(value.length / 4) * 4, '=')), c => c.charCodeAt(0));
@@ -208,8 +215,10 @@ $('prevMonth').addEventListener('click', () => { state.month = monthShift(state.
 $('nextMonth').addEventListener('click', () => { state.month = monthShift(state.month, 1); renderCalendar(); });
 $('monthPicker').addEventListener('change', event => { if (/^\d{4}-\d{2}$/.test(event.target.value)) { state.month = event.target.value; renderCalendar(); } });
 $('todayMonth').addEventListener('click', () => { state.month = TODAY.slice(0, 7); renderCalendar(); });
-$('menuButton').addEventListener('click', () => $('rail').classList.toggle('open'));
-document.querySelectorAll('[data-part]').forEach(button => button.addEventListener('click', () => showPart(button.dataset.part)));
+$('menuButton').addEventListener('click', () => setNavOpen(!document.querySelector('.rail').classList.contains('open')));
+$('navScrim').addEventListener('click', () => setNavOpen(false));
+document.addEventListener('keydown', event => { if (event.key === 'Escape') setNavOpen(false); });
+document.querySelectorAll('[data-part]').forEach(button => button.addEventListener('click', () => showPart(button.dataset.part, true)));
 document.querySelectorAll('[data-difficulty]').forEach(button => button.addEventListener('click', () => { state.difficulty = button.dataset.difficulty; renderProgressChoice(); }));
 function renderProgressChoice() { document.querySelectorAll('[data-difficulty]').forEach(button => button.classList.toggle('selected', button.dataset.difficulty === state.difficulty)); }
 $('saveProgress').addEventListener('click', async () => {
@@ -240,6 +249,12 @@ $('pushButton').addEventListener('click', async () => {
 $('logoutButton').addEventListener('click', async () => { try { await api('/auth/logout', { method: 'POST', headers: { 'content-type': 'application/json' }, body: '{}' }); navigator.serviceWorker?.controller?.postMessage({ type: 'CLEAR_CHAPTER_CACHE' }); state.authenticated = false; state.chapters = []; state.current = null; renderCalendar(); renderList(); $('reader').hidden = true; $('emptyState').hidden = false; $('loginButton').hidden = false; $('logoutButton').hidden = true; toast('已退出'); } catch (error) { toast(error.message); } });
 window.addEventListener('online', () => flushPending());
 window.addEventListener('beforeinstallprompt', event => { event.preventDefault(); state.installPrompt = event; $('installButton').hidden = false; });
-$('installButton').addEventListener('click', async () => { if (state.installPrompt) { await state.installPrompt.prompt(); state.installPrompt = null; $('installButton').hidden = true; } });
+const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
+const isStandalone = window.matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
+if (isIOS && !isStandalone) $('installButton').hidden = false;
+$('installButton').addEventListener('click', async () => {
+  if (state.installPrompt) { await state.installPrompt.prompt(); state.installPrompt = null; $('installButton').hidden = true; }
+  else if (isIOS) toast('在 Safari 点击分享，再选“添加到主屏幕”');
+});
 if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js').catch(() => {});
 initialize();

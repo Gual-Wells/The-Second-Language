@@ -2,7 +2,7 @@
 
 GitHub 仓库：[Gual-Wells/The-Second-Language](https://github.com/Gual-Wells/The-Second-Language)。本仓库包含课程生成协议、VIX 数据操作工具、阅读 PWA 与 Cloudflare 服务端。
 
-线上阅读器：[the-second-language.pages.dev](https://the-second-language.pages.dev/)。云端服务已部署；首次通行密钥登记和正式 100 词章节仍需完成。
+线上阅读器：[the-second-language.pages.dev](https://the-second-language.pages.dev/)。云端服务已部署，首次通行密钥已登记；正式 100 词章节仍需完成。
 
 一个由 Codex 建设每日英语课程、由 PWA 按日期与章节阅读的个人项目。项目目前处于初建设阶段：优先把推荐、完整内容建设、阅读与反馈通路做成可用的整体。`protocol/` 是供 Codex 定时任务执行的工作说明；`work/` 用来保存运行中的判断和进度；最终课程正文只包含协议规定的三部分。
 
@@ -10,7 +10,7 @@ GitHub 仓库：[Gual-Wells/The-Second-Language](https://github.com/Gual-Wells/T
 
 - `protocol/`：推荐、文档建设及每日运行说明。
 - `scripts/`：读取 VIX 索引、标注 VIX、整理与发布章节的辅助命令。
-- `web/`：日期、章节、正文阅读和学习反馈 PWA。
+- `web/`：面向 iPhone 17 的日期、章节、正文阅读和学习反馈 PWA；沿用课表项目的 2008 年风格蓝色界面。
 - `worker/`：Cloudflare Worker、D1、KV 和单人通行密钥登录。
 - `chapters/`：课程正文。`demo` 是界面演示，不是正式每日课程。
 - `work/`：可自由建立的中间文档；不作为课程正文发布。

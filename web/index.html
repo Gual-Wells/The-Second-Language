@@ -3,13 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#14231f">
+  <meta name="theme-color" content="#174b84">
+  <meta name="color-scheme" content="light">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="第二语言">
   <meta name="description" content="第二语言 · 每日英语课程读书器">
   <link rel="manifest" href="/manifest.webmanifest">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="/calendar.css">
   <link rel="stylesheet" href="/goal.css">
+  <link rel="stylesheet" href="/retro.css">
   <title>第二语言</title>
 </head>
 <body>
@@ -17,9 +23,9 @@
     <aside class="rail" aria-label="课程导航">
       <div class="brand"><span class="brand-mark">二</span><div><strong>第二语言</strong><small>THE SECOND LANGUAGE</small></div></div>
       <div class="rail-section">
-        <span class="eyebrow">YOUR READING PATH</span>
-        <h1>每天，向前<br><em>一章。</em></h1>
-        <p>从词汇进入语境，再把语言带进自己的表达。</p>
+        <span class="eyebrow">DAILY READING PATH</span>
+        <h1>每天，向前 <em>一章。</em></h1>
+        <p>按日期找课程，按章节读词汇、例句和任意文。</p>
       </div>
       <div class="calendar-head"><button id="prevMonth" type="button" aria-label="上个月">‹</button><input id="monthPicker" type="month" aria-label="跳转到月份"><button id="todayMonth" type="button" aria-label="回到本月">今</button><button id="nextMonth" type="button" aria-label="下个月">›</button></div>
       <div class="calendar-weekdays" aria-hidden="true"><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span><span>日</span></div>
@@ -29,9 +35,10 @@
       <details class="goal-panel"><summary>我的学习目标</summary><p>告诉课程你希望怎样学习；下一次推荐会参考这里。</p><textarea id="studyGoal" rows="4" placeholder="例如：重点提高雅思阅读和学术写作…"></textarea><button id="saveGoal" type="button">保存目标</button></details>
       <div class="rail-foot"><span class="status-dot"></span><span id="syncStatus">正在连接课程…</span></div>
     </aside>
+    <button id="navScrim" class="nav-scrim" type="button" aria-label="关闭目录" hidden></button>
     <main class="main">
-      <header class="topbar"><button id="menuButton" class="menu-button" type="button" aria-label="打开目录">☰</button><span>SECOND LANGUAGE / READER</span><div class="top-actions"><button id="pushButton" hidden type="button">开启提醒</button><button id="installButton" hidden type="button">安装到设备</button><button id="loginButton" hidden type="button">登录</button><button id="logoutButton" hidden type="button">退出</button></div></header>
-      <div id="emptyState" class="empty-state" hidden><span class="eyebrow">YOUR NEXT CHAPTER</span><h2>课程正在路上。</h2><p>从左侧选择已经发布的日期。尚未发布的章节不会提前出现。</p></div>
+      <header class="topbar"><button id="menuButton" class="menu-button" type="button" aria-label="打开目录" aria-expanded="false">☰</button><span>第二语言 · 每日课程</span><div class="top-actions"><button id="pushButton" hidden type="button">开启提醒</button><button id="installButton" hidden type="button">添加到主屏幕</button><button id="loginButton" hidden type="button">登录</button><button id="logoutButton" hidden type="button">退出</button></div></header>
+      <div id="emptyState" class="empty-state" hidden><span class="eyebrow">YOUR NEXT CHAPTER</span><h2>课程正在路上。</h2><p>打开左上角目录，选择已经发布的日期和章节。</p></div>
       <div id="reader" class="reader" hidden>
         <div class="reader-head"><div class="reader-meta"><span id="chapterDate"></span><span class="meta-divider"></span><span id="chapterNumber"></span></div><h2 id="chapterTitle"></h2><p id="chapterSubtitle"></p><div class="reader-summary"><span id="wordCount"></span><span id="readState"></span></div></div>
         <nav class="part-tabs" aria-label="章节部分"><button type="button" data-part="one" class="active">01 <span>词汇与用法</span></button><button type="button" data-part="two">02 <span>例句与翻译</span></button><button type="button" data-part="three">03 <span>任意文</span></button></nav>

@@ -1,6 +1,6 @@
-const SHELL = 'second-language-shell-v1';
+const SHELL = 'second-language-shell-v2';
 const CHAPTERS = 'second-language-chapters-v1';
-const CORE = ['/', '/index.html', '/app.js', '/styles.css', '/calendar.css', '/goal.css', '/manifest.webmanifest', '/icon.svg'];
+const CORE = ['/', '/index.html', '/app.js', '/styles.css', '/calendar.css', '/goal.css', '/retro.css', '/manifest.webmanifest', '/icon.svg', '/icon-192.png', '/icon-512.png', '/apple-touch-icon.png'];
 self.addEventListener('install', event => { event.waitUntil(caches.open(SHELL).then(cache => cache.addAll(CORE)).then(() => self.skipWaiting())); });
 self.addEventListener('activate', event => { event.waitUntil(Promise.all([self.clients.claim(), caches.keys().then(keys => Promise.all(keys.filter(key => ![SHELL, CHAPTERS].includes(key)).map(key => caches.delete(key))))])); });
 self.addEventListener('message', event => { if (event.data?.type === 'CLEAR_CHAPTER_CACHE') event.waitUntil(caches.delete(CHAPTERS)); });
@@ -22,7 +22,7 @@ self.addEventListener('fetch', event => {
 self.addEventListener('push', event => {
   let message = {}; try { message = event.data?.json() || {}; } catch {}
   const target = message.chapterId ? `/?chapter=${encodeURIComponent(message.chapterId)}` : '/';
-  event.waitUntil(self.registration.showNotification(message.title || '第二语言 · 今日课程', { body: message.body || '新的章节已经可以阅读。', icon: '/icon.svg', data: { target } }));
+  event.waitUntil(self.registration.showNotification(message.title || '第二语言 · 今日课程', { body: message.body || '新的章节已经可以阅读。', icon: '/icon-192.png', data: { target } }));
 });
 self.addEventListener('notificationclick', event => {
   event.notification.close(); const url = new URL(event.notification.data?.target || '/', self.location.origin).href;
