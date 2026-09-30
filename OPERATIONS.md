@@ -31,6 +31,7 @@ node scripts/pack-chapter.mjs YYYY-MM-DD
 node scripts/publish-chapter.mjs YYYY-MM-DD
 node scripts/build-review.mjs work/temporary/ID/plan.json
 node scripts/publish-temporary.mjs --page=work/temporary/ID/page.json
+node scripts/delete-temporary.mjs 临时页ID
 ```
 
 `prepare-vix` 将 VIX 的当前 `main` 固定到 commit，并分段下载辅助索引、两份 textbook 和构建脚本到 `.cache/vix/<commit>/`，逐文件验证 Git blob 摘要；它要求运行环境可访问 GitHub API 和 raw 文件。若命令行网络不可用，Codex 可用已连接的 GitHub 仓库工具取得同一 commit 的文件。`publish-vix` 优先使用 `GITHUB_TOKEN` 或 `GH_TOKEN`，没有环境变量时读取本机 GitHub Git 凭据。反馈与章节发布优先读取环境变量 `SECOND_LANGUAGE_API_URL`、`SECOND_LANGUAGE_PUBLISH_TOKEN`；本机部署环境也可从忽略的 `.cache/deployment-secrets.json` 自动取得发布 token，默认连接线上站点。给定日期正式正文存于 `chapters/YYYY-MM-DD/chapter.md`；同目录 `meta.json` 需含 `date`、`title`、`subtitle`、`number`、`wordCount: 40`、`runId`、已提交的 `vixCommit` 和 `protocolCommit`。`pack-chapter` 会检查两部分各有相同顺序的 40 个主词。

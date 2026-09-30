@@ -1,12 +1,14 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import path from 'node:path';
+import { validateAnnotatedContent } from '../web/annotations.js';
 
 const date = process.argv[2];
 if (!/^\d{4}-\d{2}-\d{2}$/.test(date || '')) throw new Error('用法: node scripts/pack-chapter.mjs YYYY-MM-DD');
 const folder = path.resolve('chapters', date);
 const markdown = await readFile(path.join(folder, 'chapter.md'), 'utf8');
 const meta = JSON.parse(await readFile(path.join(folder, 'meta.json'), 'utf8'));
+validateAnnotatedContent(markdown, { expectedWordCount: 40 });
 const parts = ['one', 'two', 'three'].map(part => `<!-- PART:${part} -->`);
 const positions = parts.map(part => markdown.indexOf(part));
 if (positions.some(x => x < 0) || positions[0] >= positions[1] || positions[1] >= positions[2]) throw new Error('章节必须按顺序包含三部分标记');

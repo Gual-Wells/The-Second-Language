@@ -1,9 +1,10 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { publisherConfig } from './lib/publisher-config.mjs';
+import { sentenceRecords, splitParts, validateAnnotatedContent } from '../web/annotations.js';
 
 const planPath = process.argv[2];
-if (!planPath) throw new Error('用法: node scripts/build-review.mjs work/reviews/ID/plan.json');
+if (!planPath) throw new Error('用法: node scripts/build-review.mjs work/temporary/ID/plan.json');
 const plan = JSON.parse(await readFile(path.resolve(planPath), 'utf8'));
 if (!/^[A-Za-z0-9._:-]{1,110}$/.test(plan.id || '') || !Array.isArray(plan.entries) || !plan.entries.length || plan.entries.length > 40)
   throw new Error('复习计划须有编号与 1–40 个词条');
@@ -18,32 +19,54 @@ async function source(id) {
     const response = await fetch(new URL(`/api/chapters/${encodeURIComponent(id)}`, base), { headers: { authorization: `Bearer ${token}` } });
     const chapter = await response.json();
     if (!response.ok) throw new Error(`读取原章节 ${id} 失败：${chapter.error || response.status}`);
-    sources.set(id, chapter);
+    validateAnnotatedContent(chapter.markdown);
+    sources.set(id, { chapter, parts: splitParts(chapter.markdown) });
   }
   return sources.get(id);
 }
-function parts(markdown) {
-  const markers = [...markdown.matchAll(/^<!-- PART:(one|two|three) -->\s*$/gm)];
-  if (markers.length !== 3 || markers.map(item => item[1]).join(',') !== 'one,two,three') throw new Error('来源章节缺少三部分');
-  return Object.fromEntries(markers.map((item, index) => [item[1], markdown.slice(item.index + item[0].length, markers[index + 1]?.index ?? markdown.length).trim()]));
-}
 function wordBlock(part, word) {
-  const headings = [...part.matchAll(/^# ([^#\n]+)$/gm)];
-  const index = headings.findIndex(item => item[1].trim() === word);
-  if (index < 0) throw new Error(`原章节缺少词条：${word}`);
-  return part.slice(headings[index].index, headings[index + 1]?.index ?? part.length).trim();
+  const headings = [...part.matchAll(/^<!-- WORD:([A-Za-z][A-Za-z0-9_-]{0,31}) -->\n# ([^#\n]+)$/gm)];
+  const index = headings.findIndex(item => item[2].trim() === word);
+  if (index < 0) throw new Error(`原章节缺少带编码的词条：${word}`);
+  return { id: headings[index][1], text: part.slice(headings[index].index, headings[index + 1]?.index ?? part.length).trim() };
+}
+function remap(block, wordId, newWordId, useIds) {
+  return block
+    .replaceAll(`<!-- WORD:${wordId} -->`, `<!-- WORD:${newWordId} -->`)
+    .replace(/<!-- (USE|EXAMPLE):([A-Za-z][A-Za-z0-9_-]{0,31}) -->/g, (_, kind, id) => {
+      if (!useIds.has(id)) throw new Error(`来源词条出现未映射用法：${id}`);
+      return `<!-- ${kind}:${useIds.get(id)} -->`;
+    });
 }
 const sections = { one: [], two: [], three: [] };
-for (const item of plan.entries) {
-  const chapter = await source(item.chapterId);
-  const original = parts(chapter.markdown);
-  sections.one.push(wordBlock(original.one, item.word));
-  sections.two.push(wordBlock(original.two, item.word));
-  if (!Array.isArray(item.thirdSentences) || !item.thirdSentences.length || item.thirdSentences.some(sentence => typeof sentence !== 'string' || !sentence.trim() || !original.three.includes(sentence.trim())))
-    throw new Error(`${item.word} 的第三部分摘句必须直接取自其来源章节，且至少一条`);
-  sections.three.push(`# ${item.word}\n\n${item.thirdSentences.map(sentence => sentence.trim()).join('\n\n')}`);
+let sentenceNumber = 0;
+for (const [index, item] of plan.entries.entries()) {
+  const { parts } = await source(item.chapterId);
+  const first = wordBlock(parts.one, item.word);
+  const second = wordBlock(parts.two, item.word);
+  if (first.id !== second.id) throw new Error(`${item.word} 在第一、二部分的词条编码不一致`);
+  const newWordId = `W${String(index + 1).padStart(3, '0')}`;
+  const oldUseIds = [...first.text.matchAll(/^<!-- USE:([A-Za-z][A-Za-z0-9_-]{0,31}) -->$/gm)].map(match => match[1]);
+  const useIds = new Map(oldUseIds.map((id, ordinal) => [id, `U${String(index + 1).padStart(3, '0')}_${String(ordinal + 1).padStart(3, '0')}`]));
+  if (!useIds.size) throw new Error(`${item.word} 没有可复习的已编码用法`);
+  sections.one.push(remap(first.text, first.id, newWordId, useIds));
+  sections.two.push(remap(second.text, second.id, newWordId, useIds));
+
+  const originalSentences = sentenceRecords(parts.three).sentences;
+  if (!Array.isArray(item.thirdSentences) || !item.thirdSentences.length) throw new Error(`${item.word} 缺少第三部分摘句`);
+  const selected = [];
+  for (const text of item.thirdSentences) {
+    const record = originalSentences.find(sentence => sentence.text === text?.trim());
+    if (!record) throw new Error(`${item.word} 的摘句必须与来源章节原句完全相同`);
+    const refs = record.refs.filter(id => useIds.has(id)).map(id => useIds.get(id));
+    if (!refs.length) throw new Error(`${item.word} 的摘句没有对应此词条的用法编码`);
+    const sentenceId = `S${String(++sentenceNumber).padStart(3, '0')}`;
+    selected.push(`<!-- SENTENCE:${sentenceId} USE:${refs.join(',')} -->\n${record.text}\n\`${record.translation}\``);
+  }
+  sections.three.push(`# ${item.word}\n\n${selected.join('\n')}`);
 }
 const markdown = ['one', 'two', 'three'].map(part => `<!-- PART:${part} -->\n\n${sections[part].join('\n\n')}`).join('\n\n') + '\n';
+validateAnnotatedContent(markdown, { maxWordCount: 40 });
 const page = { id: plan.id, kind: 'review', title: plan.title || '章节复习', subtitle: plan.subtitle || '', requestId: plan.requestId || null, markdown };
 const folder = path.dirname(path.resolve(planPath));
 await mkdir(folder, { recursive: true });

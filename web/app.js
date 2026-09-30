@@ -1,4 +1,5 @@
-import { parseParts, renderPart } from './render.js?v=7';
+import { parseParts, renderPart } from './render.js?v=8';
+import { validateAnnotatedContent } from './annotations.js?v=8';
 
 const $ = id => document.getElementById(id);
 const todayParts = Object.fromEntries(new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(new Date()).map(part => [part.type, part.value]));
@@ -6,9 +7,10 @@ const TODAY = `${todayParts.year}-${todayParts.month}-${todayParts.day}`;
 const PENDING_KEY = 'second-language-progress-pending-v1';
 const POSITION_KEY = 'second-language-reader-positions-v1';
 const LAST_PART_KEY = 'second-language-last-part-v1';
+const DISPLAY_KEY = 'second-language-article-display-v1';
 const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
 const standalone = () => matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
-const state = { chapters: [], temporary: [], current: null, lastDailyId: null, parts: {}, words: [], month: TODAY.slice(0, 7), part: 'one', difficulty: null, progress: {}, demo: false, authenticated: false, authStatus: null, installPrompt: null, chapterRequest: 0 };
+const state = { chapters: [], temporary: [], current: null, lastDailyId: null, parts: {}, words: [], useLabels: new Map(), hasAnnotations: false, highlight: false, translations: false, month: TODAY.slice(0, 7), part: 'one', difficulty: null, progress: {}, demo: false, authenticated: false, authStatus: null, installPrompt: null, chapterRequest: 0 };
 
 if (standalone()) {
   const stopZoom = event => event.preventDefault();
@@ -231,6 +233,51 @@ function renderIndex(filter = '') {
   if (!list.childElementCount) { const p = document.createElement('p'); p.className = 'chapter-list-empty'; p.textContent = '没有匹配的词条。'; list.append(p); }
 }
 
+function prepareContent(markdown, id) {
+  state.parts = parseParts(markdown);
+  try {
+    const annotated = validateAnnotatedContent(markdown);
+    state.useLabels = new Map([...annotated.uses].map(([code, item]) => [code, item.label]));
+    state.hasAnnotations = true;
+  } catch { state.useLabels = new Map(); state.hasAnnotations = false; }
+  const display = readStored(DISPLAY_KEY)[id] || {};
+  state.highlight = Boolean(display.highlight);
+  state.translations = Boolean(display.translations);
+}
+
+function rememberDisplay() {
+  const display = readStored(DISPLAY_KEY);
+  display[state.current.id] = { highlight: state.highlight, translations: state.translations };
+  const keys = Object.keys(display);
+  for (const key of keys.slice(0, Math.max(0, keys.length - 90))) delete display[key];
+  writeStored(DISPLAY_KEY, display);
+}
+
+function jumpTo(part, code) {
+  showPart(part, true);
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    const target = [...$('article').querySelectorAll('[data-use-id]')].find(element => element.dataset.useId === code);
+    if (!target) { toast(`没有找到 ${code} 的对应内容`); return; }
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }));
+}
+
+function openSentenceReference(codes) {
+  const refs = [...new Set(codes)].filter(code => state.useLabels.has(code));
+  if (!refs.length) { toast('这一句没有可定位的用法'); return; }
+  if (refs.length === 1) { jumpTo('one', refs[0]); return; }
+  const list = $('usageChoices'); list.replaceChildren();
+  for (const code of refs) {
+    const button = document.createElement('button'); button.type = 'button';
+    const small = document.createElement('small'); small.textContent = code;
+    const label = document.createElement('strong'); label.textContent = state.useLabels.get(code);
+    button.append(small, label);
+    button.addEventListener('click', () => { closeDialog('usageDialog'); jumpTo('one', code); });
+    list.append(button);
+  }
+  showDialog('usageDialog');
+}
+
 function showPart(part, restore = false, rememberCurrent = true) {
   if (!state.current || !['one', 'two', 'three'].includes(part)) return;
   if (rememberCurrent) saveReadingPosition();
@@ -244,7 +291,10 @@ function showPart(part, restore = false, rememberCurrent = true) {
     button.classList.toggle('active', active);
     button.setAttribute('aria-selected', String(active));
   }
-  state.words = renderPart(state.parts[part] || '', part, $('article'));
+  state.words = renderPart(state.parts[part] || '', part, $('article'), { highlight: state.highlight, translations: state.translations, onJump: jumpTo, onSentence: openSentenceReference });
+  $('articleTools').hidden = part !== 'three' || !state.hasAnnotations;
+  $('highlightButton').setAttribute('aria-pressed', String(state.highlight));
+  $('translationButton').setAttribute('aria-pressed', String(state.translations));
   $('wordIndexButton').hidden = !state.words.length;
   $('reflection').hidden = part !== 'three' || Boolean(state.current.kind);
   $('indexTitle').textContent = part === 'one' ? '词汇与用法索引' : '例句与翻译索引';
@@ -268,7 +318,7 @@ async function openChapter(id, resume = true) {
     state.current = chapter;
     state.lastDailyId = id;
     state.current.digest = state.chapters.find(item => item.id === id)?.digest || chapter.digest;
-    state.parts = parseParts(chapter.markdown);
+    prepareContent(chapter.markdown, id);
     state.progress = progress;
     state.month = chapter.date.slice(0, 7);
     $('chapterDate').textContent = formatDate(chapter.date);
@@ -351,7 +401,7 @@ async function openTemporary(id, resume = true) {
     const page = await api(`/api/temporary/${encodeURIComponent(id)}`);
     if (request !== state.chapterRequest) return;
     state.current = page;
-    state.parts = parseParts(page.markdown);
+    prepareContent(page.markdown, id);
     $('chapterDate').textContent = page.kind === 'review' ? '复习阅读' : '测试阅读';
     $('chapterNumber').textContent = '48 小时临时页';
     $('chapterTitle').textContent = page.title;
@@ -539,6 +589,8 @@ $('nextMonth').addEventListener('click', () => { state.month = monthShift(state.
 $('todayMonth').addEventListener('click', () => { state.month = TODAY.slice(0, 7); renderCalendar(); });
 $('monthPicker').addEventListener('change', event => { if (/^\d{4}-\d{2}$/.test(event.target.value)) { state.month = event.target.value; renderCalendar(); } });
 $('wordIndexButton').addEventListener('click', () => { $('indexFilter').value = ''; renderIndex(); showDialog('indexDialog'); });
+$('highlightButton').addEventListener('click', () => { state.highlight = !state.highlight; rememberDisplay(); showPart('three', true); });
+$('translationButton').addEventListener('click', () => { state.translations = !state.translations; rememberDisplay(); showPart('three', true); });
 $('indexFilter').addEventListener('input', event => renderIndex(event.target.value));
 for (const button of document.querySelectorAll('[data-close]')) button.addEventListener('click', () => closeDialog(button.dataset.close));
 for (const dialog of document.querySelectorAll('dialog')) dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
@@ -548,6 +600,7 @@ for (const button of document.querySelectorAll('[data-difficulty]')) button.addE
   for (const choice of document.querySelectorAll('[data-difficulty]')) choice.classList.toggle('selected', choice === button);
 });
 $('readingScroll').addEventListener('scroll', () => { updateReadingPosition(); clearTimeout(saveReadingPosition.timer); saveReadingPosition.timer = setTimeout(saveReadingPosition, 250); }, { passive: true });
+window.addEventListener('pagehide', saveReadingPosition);
 $('loginButton').addEventListener('click', signIn);
 $('loginInstallButton').addEventListener('click', () => showDialog('installDialog'));
 $('setupKey').addEventListener('keydown', event => { if (event.key === 'Enter') signIn(); });
@@ -648,6 +701,6 @@ $('chapterNav').addEventListener('touchend', event => {
   if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.5) moveChapter(dx < 0 ? 1 : -1);
   swipeStart = null;
 }, { passive: true });
-if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=7', { updateViaCache: 'none' }).catch(() => {});
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=8', { updateViaCache: 'none' }).catch(() => {});
 refreshInstallStatus();
 initialize();

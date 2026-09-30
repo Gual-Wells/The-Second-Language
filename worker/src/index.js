@@ -1,5 +1,6 @@
 import { rawPayload, sendPushNotification } from '@mmmike/web-push/send';
 import { authRoute, sessionFor } from './auth.js';
+import { validateAnnotatedContent } from '../../web/annotations.js';
 
 const encoder = new TextEncoder();
 const MAX_BODY = 5_000_000;
@@ -118,6 +119,8 @@ async function route(request, env) {
       typeof value.subtitle !== 'string' || value.subtitle.length > 300 ||
       typeof value.number !== 'string' || value.number.length > 80 ||
       !/^[0-9a-f]{40}$/.test(value.vixCommit || '') || !/^[0-9a-f]{40}$/.test(value.protocolCommit || '')) return json({ error: '章节元数据或结构无效' }, 400);
+    try { validateAnnotatedContent(value.markdown, { expectedWordCount: 40 }); }
+    catch (error) { return json({ error: `章节编码与逐句译文无效：${error.message}` }, 400); }
     const runClaim = await env.DB.prepare('SELECT rest_requested FROM run_claims WHERE run_id=? AND study_date=?').bind(value.runId, value.date).first();
     if (!runClaim || runClaim.rest_requested) return json({ error: '本日未领取运行或已选择休息' }, 409);
     const digest = await sha256(value.markdown), key = `chapters/${value.date}/${digest}.md`;
@@ -151,7 +154,11 @@ async function route(request, env) {
   if (path === '/api/temporary' && request.method === 'POST') {
     if (!publisher(request, env)) return json({ error: '发布身份无效' }, 401);
     const value = await inputJson(request);
-    const wordCount = typeof value.markdown === 'string' ? countMainWords(value.markdown) : -1;
+    let wordCount = -1;
+    if (typeof value.markdown === 'string') {
+      try { wordCount = validateAnnotatedContent(value.markdown, { maxWordCount: value.kind === 'review' ? 40 : 200 }).words.length; }
+      catch (error) { return json({ error: `临时页编码与逐句译文无效：${error.message}` }, 400); }
+    }
     if (!safeId(value.id) || !['test', 'review'].includes(value.kind) ||
       typeof value.title !== 'string' || !value.title.trim() || value.title.length > 180 ||
       typeof value.subtitle !== 'string' || value.subtitle.length > 300 ||
@@ -176,6 +183,19 @@ async function route(request, env) {
     if (value.requestId) await env.DB.prepare(`UPDATE study_settings SET temporary_requested=0,temporary_request_text='',temporary_request_id=NULL
       WHERE id=1 AND temporary_request_id=?`).bind(value.requestId).run();
     return json({ ok: true, id: value.id, digest, expiresAt: now + TEMP_LIFETIME });
+  }
+  if (path.startsWith('/api/temporary/') && request.method === 'DELETE') {
+    if (!publisher(request, env)) return json({ error: '发布身份无效' }, 401);
+    const id = decodeURIComponent(path.slice('/api/temporary/'.length));
+    if (!safeId(id)) return json({ error: '临时页编号无效' }, 400);
+    const page = await env.DB.prepare('SELECT content_key FROM temporary_pages WHERE id=?').bind(id).first();
+    if (!page) return json({ ok: true, deleted: false });
+    await env.CHAPTERS.delete(page.content_key);
+    await env.DB.batch([
+      env.DB.prepare('DELETE FROM temporary_push_outbox WHERE page_id=?').bind(id),
+      env.DB.prepare('DELETE FROM temporary_pages WHERE id=?').bind(id)
+    ]);
+    return json({ ok: true, deleted: true, id });
   }
 
   const session = await sessionFor(request, env);

@@ -1,6 +1,6 @@
 # 第二语言 Codex 工作约定
 
-每次每日课程任务从 `protocol/DAILY_RUN.md` 开始，先调用 `scripts/claim-run.mjs` 领取一次性运行控制；临时页任务遵循 `protocol/TEMPORARY.md`。具体选词和创作仍由模型判断。先阅读已有 `work/runs/<run-id>/` 文档，继续未完成的同一运行。
+每次每日课程任务从 `protocol/DAILY_RUN.md` 开始，先调用 `scripts/claim-run.mjs` 领取一次性运行控制；临时页任务遵循 `protocol/TEMPORARY.md`，三部分关联编码与逐句译文遵循 `protocol/ANNOTATIONS.md`。具体选词和创作仍由模型判断。先阅读已有 `work/runs/<run-id>/` 文档，继续未完成的同一运行。
 
 初建设阶段优先让真实学习内容和阅读体验成功具质量地完成。需要时直接创建或改写中间 Markdown 文档，记录当前词族、义项对应、未处理内容和下一步，使模型不用在对话上下文中维持所有细节。中间文档可以自由组织；最终课程正文不得带入这些过程记录。
 

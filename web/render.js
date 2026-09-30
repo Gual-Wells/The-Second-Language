@@ -21,15 +21,65 @@ function appendInline(element, value) {
   element.append(document.createTextNode(value.slice(start)));
 }
 
-export function renderPart(source, part, target) {
+function addExampleJump(container, id, onJump) {
+  if (!id) return;
+  container.dataset.useId = id;
+  const button = document.createElement('button');
+  button.type = 'button'; button.className = 'usage-jump'; button.textContent = '例句 ›';
+  button.title = `查看 ${id} 的例句`;
+  button.setAttribute('aria-label', `查看用法 ${id} 的例句`);
+  button.addEventListener('click', () => onJump?.('two', id));
+  container.append(button);
+}
+
+function renderStory(source, target, options) {
+  let paragraph = null, pending = null, pair = null;
+  target.classList.toggle('highlight-sentences', Boolean(options.highlight));
+  target.classList.toggle('show-translations', Boolean(options.translations));
+  for (const raw of source.replace(/\r\n?/g, '\n').split('\n')) {
+    const line = raw.trim();
+    if (!line) { paragraph = null; continue; }
+    const heading = /^(#{1,3})\s+(.+)$/.exec(line);
+    if (heading && !pending) {
+      const element = document.createElement(`h${heading[1].length}`);
+      element.textContent = heading[2]; target.append(element); paragraph = null; continue;
+    }
+    const marker = /^<!-- SENTENCE:([A-Za-z][A-Za-z0-9_-]{0,31}) USE:([A-Za-z][A-Za-z0-9_-]{0,31}(?:,[A-Za-z][A-Za-z0-9_-]{0,31})*) -->$/.exec(line);
+    if (marker) { pending = { id: marker[1], refs: marker[2].split(',') }; continue; }
+    if (pending && !pair) {
+      if (!paragraph) { paragraph = document.createElement('p'); paragraph.className = 'story-paragraph'; target.append(paragraph); }
+      if (paragraph.childNodes.length) paragraph.append(document.createTextNode(' '));
+      pair = document.createElement('span'); pair.className = 'story-pair';
+      const sentence = document.createElement('span'); sentence.className = 'story-sentence';
+      const refs = [...pending.refs];
+      sentence.dataset.sentenceId = pending.id;
+      sentence.dataset.useRefs = refs.join(',');
+      appendInline(sentence, line);
+      sentence.addEventListener('click', () => { if (options.highlight) options.onSentence?.(refs); });
+      sentence.addEventListener('keydown', event => { if (options.highlight && (event.key === 'Enter' || event.key === ' ')) { event.preventDefault(); options.onSentence?.(refs); } });
+      if (options.highlight) { sentence.tabIndex = 0; sentence.setAttribute('role', 'button'); sentence.setAttribute('aria-label', `查看对应词汇用法 ${refs.join('、')}`); }
+      pair.append(sentence); paragraph.append(pair); continue;
+    }
+    if (pending && pair && /^`[^`]+`$/.test(line)) {
+      const translation = document.createElement('span'); translation.className = 'story-translation mono'; translation.textContent = line.slice(1, -1);
+      pair.append(translation); pending = null; pair = null; continue;
+    }
+  }
+  return [];
+}
+
+export function renderPart(source, part, target, options = {}) {
   target.replaceChildren();
   target.classList.toggle('prose', part === 'three');
+  target.classList.remove('highlight-sentences', 'show-translations');
+  if (part === 'three' && source.includes('<!-- SENTENCE:')) return renderStory(source, target, options);
   const words = [];
   let container = target;
   let paragraph = [];
   let list = null;
   let quote = null;
   let example = null;
+  let pendingWord = null, pendingUse = null, pendingExample = null;
 
   function flushParagraph() {
     if (!paragraph.length) return;
@@ -38,8 +88,13 @@ export function renderPart(source, part, target) {
     if (part === 'two' && container.classList.contains('word-entry') && !quote) {
       example = document.createElement('div');
       example.className = 'example-pair';
+      if (pendingExample) { example.dataset.useId = pendingExample; pendingExample = null; }
       example.append(p);
       container.append(example);
+    } else if (part === 'one' && pendingUse) {
+      const block = document.createElement('div'); block.className = 'usage-detail';
+      block.append(p); addExampleJump(block, pendingUse, options.onJump);
+      container.append(block); pendingUse = null;
     } else (quote || container).append(p);
     paragraph = [];
   }
@@ -48,6 +103,17 @@ export function renderPart(source, part, target) {
     const line = raw.trim();
     if (!line) { flushParagraph(); list = null; quote = null; continue; }
 
+    const wordMarker = /^<!-- WORD:([A-Za-z][A-Za-z0-9_-]{0,31}) -->$/.exec(line);
+    const useMarker = /^<!-- USE:([A-Za-z][A-Za-z0-9_-]{0,31}) -->$/.exec(line);
+    const exampleMarker = /^<!-- EXAMPLE:([A-Za-z][A-Za-z0-9_-]{0,31}) -->$/.exec(line);
+    if (wordMarker || useMarker || exampleMarker) {
+      flushParagraph(); list = null; quote = null; example = null;
+      if (wordMarker) pendingWord = wordMarker[1];
+      if (useMarker) pendingUse = useMarker[1];
+      if (exampleMarker) pendingExample = exampleMarker[1];
+      continue;
+    }
+
     const heading = /^(#{1,3})\s+(.+)$/.exec(line);
     if (heading) {
       flushParagraph(); list = null; quote = null; example = null;
@@ -55,6 +121,7 @@ export function renderPart(source, part, target) {
         const section = document.createElement('section');
         section.className = 'word-entry';
         section.id = `word-${words.length + 1}`;
+        if (pendingWord) { section.dataset.wordId = pendingWord; pendingWord = null; }
         const bar = document.createElement('div');
         bar.className = 'word-heading';
         const order = document.createElement('span');
@@ -70,9 +137,13 @@ export function renderPart(source, part, target) {
       } else if (heading[1] === '##' && part === 'one') {
         const sense = document.createElement('section');
         sense.className = 'sense-block';
+        if (pendingUse) sense.dataset.useId = pendingUse;
+        const head = document.createElement('div'); head.className = 'sense-head';
         const title = document.createElement('h2');
         title.textContent = heading[2];
-        sense.append(title);
+        head.append(title);
+        if (pendingUse) { addExampleJump(head, pendingUse, options.onJump); pendingUse = null; }
+        sense.append(head);
         if (words.length) words.at(-1).element.append(sense);
         else target.append(sense);
         container = sense;
@@ -106,6 +177,7 @@ export function renderPart(source, part, target) {
       if (!list || list.tagName.toLowerCase() !== kind) { list = document.createElement(kind); container.append(list); }
       const item = document.createElement('li');
       appendInline(item, listItem[2]);
+      if (part === 'one' && pendingUse) { addExampleJump(item, pendingUse, options.onJump); pendingUse = null; }
       list.append(item);
       continue;
     }

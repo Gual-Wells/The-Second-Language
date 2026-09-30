@@ -8,7 +8,7 @@ GitHub 仓库：[Gual-Wells/The-Second-Language](https://github.com/Gual-Wells/T
 
 ## 目录
 
-- `protocol/`：推荐、文档建设及每日运行说明。
+- `protocol/`：推荐、文档建设、章节内关联编码及每日运行说明。
 - `scripts/`：读取 VIX 索引、标注 VIX、整理与发布章节的辅助命令。
 - `web/`：面向 iPhone 17 的日期、章节、正文阅读和学习反馈 PWA；[界面基线](web/DESIGN.md)记录从课表项目迁移而来的完整视觉与交互规则。
 - `worker/`：Cloudflare Worker、D1、KV 和单人通行密钥登录。
@@ -40,3 +40,5 @@ node scripts/serve.mjs
 `worker/` 延续课表项目的同域 Pages 网关 → Worker → D1 模式。`worker/migrations/` 建立章节索引、阅读状态和认证表。章节正文以内容摘要作为不可变 KV key 写入 `CHAPTERS`，D1 持有当前发布版本与元数据。KV 跨地区传播可能延迟，因此新章推送在发布至少两分钟后发送。浏览器读写使用通行密钥会话，Codex 发布使用单独的 `PUBLISH_TOKEN`。
 
 临时页有单独的索引、阅读入口与通知队列。测试页可直接复用已有文档；复习页只从正式已发布章节摘取词条、例句与第三部分对应原句。临时页发布后 48 小时失效，Worker 定时物理删除正文与索引；浏览器不会离线缓存临时正文。阅读器设置中的临时需求与休息安排均为一次性开关。
+
+新正文按 `protocol/ANNOTATIONS.md` 在词条、用法、例句和文章句子间建立章节内编码，并为第三部分逐句配对连续可读的译文。阅读器可开关淡色下半划高光、从文章回跳用法、从用法跳例句，以及展开逐句译文。测试临时页的发布与删除均不写正式章节、日课运行或 VIX 标注。

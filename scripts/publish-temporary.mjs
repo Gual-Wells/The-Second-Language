@@ -2,6 +2,7 @@ import { readFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { publisherConfig } from './lib/publisher-config.mjs';
+import { validateAnnotatedContent } from '../web/annotations.js';
 
 const options = Object.fromEntries(process.argv.slice(2).map(arg => {
   const match = /^--([a-z-]+)=(.*)$/.exec(arg);
@@ -13,6 +14,7 @@ let page;
 if (options.page) page = JSON.parse(await readFile(path.resolve(options.page), 'utf8'));
 else page = { id: options.id, kind: options.kind, title: options.title, subtitle: options.subtitle || '', requestId: options['request-id'] || null, markdown: await readFile(path.resolve(options.file), 'utf8') };
 if (page.requestId === undefined) page.requestId = null;
+validateAnnotatedContent(page.markdown, { maxWordCount: page.kind === 'review' ? 40 : 200 });
 const { base, token } = await publisherConfig();
 const response = await fetch(new URL('/api/temporary', base), {
   method: 'POST', headers: { authorization: `Bearer ${token}`, 'content-type': 'application/json' }, body: JSON.stringify(page)
