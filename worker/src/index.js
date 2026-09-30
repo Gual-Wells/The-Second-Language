@@ -189,6 +189,17 @@ async function route(request, env) {
       .bind(id, subscription.endpoint, subscription.keys.p256dh, subscription.keys.auth, now, now).run();
     return json({ ok: true });
   }
+  if (path === '/api/push/unregister' && request.method === 'POST') {
+    if (!sameOrigin(request, env)) return json({ error: '来源不允许' }, 403);
+    const value = await inputJson(request);
+    if (typeof value.endpoint !== 'string' || value.endpoint.length > 1200 || !value.endpoint.startsWith('https://')) return json({ error: '订阅地址无效' }, 400);
+    const id = await sha256(value.endpoint);
+    await env.DB.batch([
+      env.DB.prepare('DELETE FROM push_outbox WHERE subscription_id=?').bind(id),
+      env.DB.prepare('DELETE FROM push_subscriptions WHERE id=?').bind(id)
+    ]);
+    return json({ ok: true });
+  }
   return json({ error: '接口不存在' }, 404);
 }
 

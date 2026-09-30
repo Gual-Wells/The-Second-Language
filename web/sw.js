@@ -1,6 +1,6 @@
-const SHELL = 'second-language-shell-v2';
+const SHELL = 'second-language-shell-v5';
 const CHAPTERS = 'second-language-chapters-v1';
-const CORE = ['/', '/index.html', '/app.js', '/styles.css', '/calendar.css', '/goal.css', '/retro.css', '/manifest.webmanifest', '/icon.svg', '/icon-192.png', '/icon-512.png', '/apple-touch-icon.png'];
+const CORE = ['/', '/index.html', '/app.js?v=5', '/render.js?v=5', '/styles.css?v=5', '/manifest.webmanifest?v=5', '/icon.svg?v=5', '/icon-192.png?v=5', '/icon-512.png?v=5', '/apple-touch-icon.png?v=5'];
 self.addEventListener('install', event => { event.waitUntil(caches.open(SHELL).then(cache => cache.addAll(CORE)).then(() => self.skipWaiting())); });
 self.addEventListener('activate', event => { event.waitUntil(Promise.all([self.clients.claim(), caches.keys().then(keys => Promise.all(keys.filter(key => ![SHELL, CHAPTERS].includes(key)).map(key => caches.delete(key))))])); });
 self.addEventListener('message', event => { if (event.data?.type === 'CLEAR_CHAPTER_CACHE') event.waitUntil(caches.delete(CHAPTERS)); });
@@ -8,7 +8,7 @@ self.addEventListener('fetch', event => {
   if (event.request.method !== 'GET') return;
   const url = new URL(event.request.url);
   if (url.origin !== self.location.origin) return;
-  if (url.pathname.startsWith('/auth/') || url.pathname.startsWith('/api/progress') || url.pathname === '/api/session') return;
+  if (url.pathname.startsWith('/auth/') || (url.pathname.startsWith('/api/') && !url.pathname.startsWith('/api/chapters'))) return;
   if (url.pathname === '/api/chapters' || url.pathname.startsWith('/api/chapters/')) {
     event.respondWith(fetch(event.request).then(response => { if (response.ok) { const copy = response.clone(); caches.open(CHAPTERS).then(cache => cache.put(event.request, copy)); } return response; }).catch(async () => (await caches.match(event.request)) || new Response(JSON.stringify({ error: '章节暂不可用' }), { status: 503, headers: { 'content-type': 'application/json' } })));
     return;
@@ -22,7 +22,10 @@ self.addEventListener('fetch', event => {
 self.addEventListener('push', event => {
   let message = {}; try { message = event.data?.json() || {}; } catch {}
   const target = message.chapterId ? `/?chapter=${encodeURIComponent(message.chapterId)}` : '/';
-  event.waitUntil(self.registration.showNotification(message.title || '第二语言 · 今日课程', { body: message.body || '新的章节已经可以阅读。', icon: '/icon-192.png', data: { target } }));
+  event.waitUntil((async () => {
+    await self.registration.showNotification(message.title || '第二语言 · 今日课程', { body: message.body || '新的章节已经可以阅读。', icon: '/icon-192.png?v=5', badge: '/icon-192.png?v=5', data: { target } });
+    if ('setAppBadge' in self.navigator) { try { await self.navigator.setAppBadge(1); } catch {} }
+  })());
 });
 self.addEventListener('notificationclick', event => {
   event.notification.close(); const url = new URL(event.notification.data?.target || '/', self.location.origin).href;

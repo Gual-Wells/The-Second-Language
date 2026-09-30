@@ -1,12 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <defs>
-    <linearGradient id="blue" x2="0" y2="1"><stop stop-color="#74a9d8"/><stop offset=".48" stop-color="#397bb9"/><stop offset=".5" stop-color="#2166a7"/><stop offset="1" stop-color="#0d4785"/></linearGradient>
-    <linearGradient id="page" x2="0" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#d9e9f8"/></linearGradient>
-  </defs>
-  <rect width="512" height="512" rx="94" fill="#174b84"/>
-  <rect x="18" y="18" width="476" height="476" rx="78" fill="url(#blue)" stroke="#0b3668" stroke-width="8"/>
-  <path d="M101 126h139c25 0 44 8 58 24 14-16 33-24 58-24h55v250h-55c-25 0-45 8-58 24-13-16-33-24-58-24H101z" fill="url(#page)" stroke="#164c84" stroke-width="13" stroke-linejoin="round"/>
-  <path d="M298 150v250" stroke="#7fa6ca" stroke-width="8"/>
-  <path d="M130 190h121m-121 43h121m-121 43h121m-121 43h121m94-129h35m-35 43h35m-35 43h35m-35 43h35" stroke="#7b9ebd" stroke-width="12" stroke-linecap="round"/>
-  <path d="M34 34h444v158H34z" fill="#fff" opacity=".16"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="第二语言">
+  <rect width="512" height="512" fill="#f4f6fa"/>
+  <path d="M80 129c0-13 10-23 23-23h84c30 0 53 9 69 27v264c-17-18-40-27-69-27h-84c-13 0-23-10-23-23V129Z" fill="#3469e6"/>
+  <path d="M432 129c0-13-10-23-23-23h-84c-30 0-53 9-69 27v264c17-18 40-27 69-27h84c13 0 23-10 23-23V129Z" fill="#3469e6"/>
+  <path d="M132 176h77m-77 53h77m-77 53h77m171-106h-77m77 53h-77m77 53h-77" fill="none" stroke="#f4f6fa" stroke-linecap="round" stroke-width="13"/>
 </svg>

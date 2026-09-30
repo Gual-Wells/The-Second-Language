@@ -10,7 +10,7 @@ GitHub 仓库：[Gual-Wells/The-Second-Language](https://github.com/Gual-Wells/T
 
 - `protocol/`：推荐、文档建设及每日运行说明。
 - `scripts/`：读取 VIX 索引、标注 VIX、整理与发布章节的辅助命令。
-- `web/`：面向 iPhone 17 的日期、章节、正文阅读和学习反馈 PWA；沿用课表项目的 2008 年风格蓝色界面。
+- `web/`：面向 iPhone 17 的日期、章节、正文阅读和学习反馈 PWA；[界面基线](web/DESIGN.md)记录从课表项目迁移而来的完整视觉与交互规则。
 - `worker/`：Cloudflare Worker、D1、KV 和单人通行密钥登录。
 - `chapters/`：课程正文。`demo` 是界面演示，不是正式每日课程。
 - `work/`：可自由建立的中间文档；不作为课程正文发布。
