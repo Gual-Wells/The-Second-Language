@@ -1,4 +1,4 @@
-import { parseParts, renderPart } from './render.js?v=5';
+import { parseParts, renderPart } from './render.js?v=7';
 
 const $ = id => document.getElementById(id);
 const todayParts = Object.fromEntries(new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(new Date()).map(part => [part.type, part.value]));
@@ -8,7 +8,7 @@ const POSITION_KEY = 'second-language-reader-positions-v1';
 const LAST_PART_KEY = 'second-language-last-part-v1';
 const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
 const standalone = () => matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
-const state = { chapters: [], current: null, parts: {}, words: [], month: TODAY.slice(0, 7), part: 'one', difficulty: null, progress: {}, demo: false, authenticated: false, authStatus: null, installPrompt: null, chapterRequest: 0 };
+const state = { chapters: [], temporary: [], current: null, lastDailyId: null, parts: {}, words: [], month: TODAY.slice(0, 7), part: 'one', difficulty: null, progress: {}, demo: false, authenticated: false, authStatus: null, installPrompt: null, chapterRequest: 0 };
 
 if (standalone()) {
   const stopZoom = event => event.preventDefault();
@@ -235,7 +235,7 @@ function showPart(part, restore = false, rememberCurrent = true) {
   if (!state.current || !['one', 'two', 'three'].includes(part)) return;
   if (rememberCurrent) saveReadingPosition();
   state.part = part;
-  const labels = { one: ['PART 01', '词汇与用法', '按词序阅读'], two: ['PART 02', '例句与翻译', '联系语境'], three: ['PART 03', '任意文', '完整阅读'] };
+  const labels = { one: ['PART 01', '词汇与用法', '按词序阅读'], two: ['PART 02', '例句与翻译', '联系语境'], three: ['PART 03', state.current.kind === 'review' ? '原文摘句' : '任意文', '完整阅读'] };
   $('partNumber').textContent = labels[part][0];
   $('partTitle').textContent = labels[part][1];
   $('partSummary').textContent = labels[part][2];
@@ -246,7 +246,7 @@ function showPart(part, restore = false, rememberCurrent = true) {
   }
   state.words = renderPart(state.parts[part] || '', part, $('article'));
   $('wordIndexButton').hidden = !state.words.length;
-  $('reflection').hidden = part !== 'three';
+  $('reflection').hidden = part !== 'three' || Boolean(state.current.kind);
   $('indexTitle').textContent = part === 'one' ? '词汇与用法索引' : '例句与翻译索引';
   const lastParts = readStored(LAST_PART_KEY);
   lastParts[state.current.id] = part;
@@ -266,6 +266,7 @@ async function openChapter(id, resume = true) {
     const progress = await loadProgress(id);
     if (request !== state.chapterRequest) return;
     state.current = chapter;
+    state.lastDailyId = id;
     state.current.digest = state.chapters.find(item => item.id === id)?.digest || chapter.digest;
     state.parts = parseParts(chapter.markdown);
     state.progress = progress;
@@ -280,6 +281,8 @@ async function openChapter(id, resume = true) {
     $('emptyState').hidden = true;
     $('reader').hidden = false;
     $('app').classList.remove('empty-mode');
+    $('app').classList.remove('temporary-mode');
+    $('temporaryRibbon').hidden = true;
     renderProgress();
     renderChapterNavigation();
     renderCalendar();
@@ -289,6 +292,91 @@ async function openChapter(id, resume = true) {
     history.replaceState(null, '', `/?chapter=${encodeURIComponent(id)}`);
     setSyncStatus(state.demo ? '演示章节 · 本地预览' : navigator.onLine ? '课程与反馈已同步' : '离线阅读', !navigator.onLine);
   } catch (error) { if (request === state.chapterRequest) { setSyncStatus('章节暂不可用', true); toast(error.message); } }
+}
+
+function expiryText(timestamp) {
+  const remaining = Math.max(0, timestamp - Date.now());
+  if (!remaining) return '已到期';
+  const hours = Math.ceil(remaining / 3600000);
+  return hours >= 24 ? `剩余 ${Math.floor(hours / 24)} 天 ${hours % 24} 小时` : `剩余 ${hours} 小时`;
+}
+
+function renderTemporaryList() {
+  const pages = state.temporary.filter(page => page.expiresAt > Date.now());
+  $('temporaryCount').hidden = pages.length === 0;
+  $('temporaryCount').textContent = String(pages.length);
+  const list = $('temporaryList');
+  list.replaceChildren();
+  if (!pages.length) {
+    const empty = document.createElement('p'); empty.className = 'chapter-list-empty';
+    empty.textContent = '目前没有有效的临时页。'; list.append(empty); return;
+  }
+  for (const page of pages) {
+    const button = document.createElement('button'); button.type = 'button'; button.className = 'temporary-item';
+    if (state.current?.id === page.id) button.classList.add('active');
+    const title = document.createElement('strong'); title.textContent = `${page.kind === 'review' ? '复习' : '测试'} · ${page.title}`;
+    const expiry = document.createElement('small'); expiry.textContent = expiryText(page.expiresAt);
+    const subtitle = document.createElement('span'); subtitle.textContent = page.subtitle || `${page.wordCount} 个词条`;
+    button.append(title, expiry, subtitle);
+    button.addEventListener('click', () => openTemporary(page.id));
+    list.append(button);
+  }
+}
+
+async function refreshTemporary() {
+  if (state.demo || !state.authenticated) return;
+  try { state.temporary = (await api('/api/temporary')).pages || []; renderTemporaryList(); }
+  catch (error) { toast(error.message); }
+}
+
+function showTemporaryRequestBox() { $('temporaryRequestBox').hidden = !$('temporaryRequestToggle').checked; }
+
+async function refreshSettings() {
+  if (!state.authenticated || state.demo) return;
+  try {
+    const settings = await api('/api/settings');
+    $('studyGoal').value = settings.goal || '';
+    $('temporaryRequestToggle').checked = Boolean(settings.temporaryRequested);
+    $('temporaryRequestText').value = settings.temporaryRequestText || '';
+    $('restToggle').checked = Boolean(settings.restRequested);
+    showTemporaryRequestBox();
+  } catch (error) { toast(error.message); }
+}
+
+async function openTemporary(id, resume = true) {
+  const request = ++state.chapterRequest;
+  saveReadingPosition();
+  setSyncStatus('正在打开临时页…');
+  try {
+    const page = await api(`/api/temporary/${encodeURIComponent(id)}`);
+    if (request !== state.chapterRequest) return;
+    state.current = page;
+    state.parts = parseParts(page.markdown);
+    $('chapterDate').textContent = page.kind === 'review' ? '复习阅读' : '测试阅读';
+    $('chapterNumber').textContent = '48 小时临时页';
+    $('chapterTitle').textContent = page.title;
+    $('chapterSubtitle').textContent = page.subtitle || '';
+    $('wordCount').textContent = `${page.wordCount} 个词条`;
+    $('readState').textContent = expiryText(page.expiresAt);
+    $('temporaryKind').textContent = page.kind === 'review' ? '复习页 · 已有章节摘录' : '测试页 · 现有文档';
+    $('temporaryExpiry').textContent = `发布后 48 小时到期 · ${expiryText(page.expiresAt)}`;
+    $('temporaryRibbon').hidden = false;
+    $('loadingState').hidden = true; $('loginState').hidden = true; $('emptyState').hidden = true; $('reader').hidden = false;
+    $('app').classList.remove('empty-mode'); $('app').classList.add('temporary-mode');
+    for (const button of document.querySelectorAll('[data-part]')) button.disabled = false;
+    const saved = readStored(LAST_PART_KEY)[id];
+    showPart(resume && ['one', 'two', 'three'].includes(saved) ? saved : 'one', resume, false);
+    renderTemporaryList(); closeDialog('temporaryDialog');
+    history.replaceState(null, '', `/?temporary=${encodeURIComponent(id)}`);
+    setSyncStatus('临时页已同步 · 到期自动移除');
+    clearTimeout(openTemporary.expiryTimer);
+    openTemporary.expiryTimer = setTimeout(() => { if (state.current?.id === id) { refreshTemporary(); $('backToCourse').click(); } }, Math.max(0, page.expiresAt - Date.now()));
+  } catch (error) {
+    if (request !== state.chapterRequest) return;
+    setSyncStatus('临时页暂不可用', true);
+    toast(error.message);
+    if (error.message === '临时页已过期') { await refreshTemporary(); $('backToCourse').click(); }
+  }
 }
 
 function moveChapter(offset) {
@@ -328,11 +416,13 @@ function showLogin(status, message = '') {
   state.authStatus = status;
   state.authenticated = false;
   state.chapters = [];
+  state.temporary = [];
   state.current = null;
   state.words = [];
   $('readingScroll').scrollTop = 0;
   $('loadingState').hidden = true;
   $('reader').hidden = true;
+  $('app').classList.remove('temporary-mode');
   $('emptyState').hidden = true;
   $('loginState').hidden = false;
   $('loginMessage').textContent = message;
@@ -365,6 +455,7 @@ async function initialize() {
     $('app').classList.remove('login-mode');
     const result = await api('/api/chapters');
     state.chapters = result.chapters || [];
+    if (!state.demo) await refreshTemporary();
     for (const button of document.querySelectorAll('[data-part]')) button.disabled = !state.chapters.length;
     $('logoutButton').hidden = state.demo;
     $('pushButton').disabled = state.demo;
@@ -373,9 +464,11 @@ async function initialize() {
     renderChapterNavigation();
     renderCalendar();
     if (state.demo) $('studyGoal').value = localStorage.getItem('second-language-demo-goal') || '';
-    else { try { $('studyGoal').value = (await api('/api/settings')).goal || ''; } catch {} }
+    else await refreshSettings();
     await flushPending();
     refreshPushStatus();
+    const requestedTemporary = new URLSearchParams(location.search).get('temporary');
+    if (requestedTemporary && state.temporary.some(page => page.id === requestedTemporary)) { await openTemporary(requestedTemporary); return; }
     const requested = new URLSearchParams(location.search).get('chapter');
     const selected = state.chapters.find(chapter => chapter.id === requested) || state.chapters.find(chapter => chapter.date === TODAY) || sortedChapters().at(-1);
     if (selected) await openChapter(selected.id);
@@ -433,7 +526,13 @@ $('previousChapter').addEventListener('click', () => moveChapter(-1));
 $('nextChapter').addEventListener('click', () => moveChapter(1));
 $('calendarButton').addEventListener('click', () => { state.month = (state.current?.date || TODAY).slice(0, 7); renderCalendar(); showDialog('calendarDialog'); });
 $('chapterJump').addEventListener('click', () => { state.month = (state.current?.date || TODAY).slice(0, 7); renderCalendar(); showDialog('calendarDialog'); });
-$('settingsButton').addEventListener('click', () => { refreshInstallStatus(); refreshPushStatus(); showDialog('settingsDialog'); });
+$('settingsButton').addEventListener('click', () => { refreshInstallStatus(); refreshPushStatus(); refreshSettings(); showDialog('settingsDialog'); });
+$('temporaryButton').addEventListener('click', async () => { await refreshTemporary(); renderTemporaryList(); showDialog('temporaryDialog'); });
+$('backToCourse').addEventListener('click', () => {
+  const id = state.lastDailyId || sortedChapters().at(-1)?.id;
+  if (id) openChapter(id);
+  else { state.current = null; $('reader').hidden = true; $('temporaryRibbon').hidden = true; $('emptyState').hidden = false; $('app').classList.remove('temporary-mode'); $('app').classList.add('empty-mode'); history.replaceState(null, '', '/'); }
+});
 $('emptySettingsButton').addEventListener('click', () => showDialog('settingsDialog'));
 $('prevMonth').addEventListener('click', () => { state.month = monthShift(state.month, -1); renderCalendar(); });
 $('nextMonth').addEventListener('click', () => { state.month = monthShift(state.month, 1); renderCalendar(); });
@@ -468,6 +567,29 @@ $('saveGoal').addEventListener('click', async () => {
   if (!state.authenticated) { toast('请先登录再保存学习目标'); return; }
   try { await api('/api/settings', { method: 'PUT', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ goal }) }); toast('学习目标已保存'); }
   catch (error) { toast(error.message); }
+});
+$('temporaryRequestToggle').addEventListener('change', showTemporaryRequestBox);
+$('saveTemporaryRequest').addEventListener('click', async () => {
+  if (!state.authenticated || state.demo) { toast('请先登录再保存需求'); return; }
+  try {
+    const temporaryRequested = $('temporaryRequestToggle').checked;
+    const temporaryRequestText = temporaryRequested ? $('temporaryRequestText').value.trim() : '';
+    await api('/api/settings', { method: 'PUT', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ temporaryRequested, temporaryRequestText }) });
+    await refreshSettings(); toast(temporaryRequested ? '临时推送需求已保存' : '临时推送需求已关闭');
+  } catch (error) { toast(error.message); }
+});
+$('saveRest').addEventListener('click', async () => {
+  if (!state.authenticated || state.demo) { toast('请先登录再安排休息'); return; }
+  try {
+    const restRequested = $('restToggle').checked;
+    await api('/api/settings', { method: 'PUT', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ restRequested }) });
+    await refreshSettings(); toast(restRequested ? '下一次日课已安排休息' : '休息安排已关闭');
+  } catch (error) { toast(error.message); }
+});
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState !== 'visible' || !state.authenticated || state.demo) return;
+  refreshTemporary(); refreshSettings();
+  if (state.current?.kind && state.current.expiresAt <= Date.now()) $('backToCourse').click();
 });
 $('pushButton').addEventListener('click', async () => {
   try {
@@ -526,6 +648,6 @@ $('chapterNav').addEventListener('touchend', event => {
   if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.5) moveChapter(dx < 0 ? 1 : -1);
   swipeStart = null;
 }, { passive: true });
-if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=5', { updateViaCache: 'none' }).catch(() => {});
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=7', { updateViaCache: 'none' }).catch(() => {});
 refreshInstallStatus();
 initialize();

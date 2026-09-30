@@ -3,6 +3,10 @@ node_modules/
 worker/gateway/dist/
 .wrangler/
 work/runs/
+work/scheduler/
+work/temporary/
+work/chrome-preview*/
+work/preview-mobile*.png
 .env
 .env.*
 .dev.vars

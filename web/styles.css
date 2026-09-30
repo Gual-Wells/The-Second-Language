@@ -27,8 +27,10 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
 .app-shell { display: grid; grid-template-rows: auto auto auto minmax(0, 1fr); width: min(960px, 100%); height: 100vh; height: 100dvh; min-height: 100svh; margin: auto; padding: max(8px, var(--safe-top)) 8px max(8px, var(--safe-bottom)); border-left: 1px solid #859bb2; border-right: 1px solid #859bb2; background: var(--shell); box-shadow: 0 0 0 1px #eef4fa inset, 0 0 14px #67819c66; overflow: hidden; }
 .app-shell.login-mode { grid-template-rows: minmax(0, 1fr); }
 .app-shell.empty-mode { grid-template-rows: auto minmax(0, 1fr); }
+.app-shell.temporary-mode { grid-template-rows: auto auto minmax(0, 1fr); }
 .login-mode .app-header, .login-mode .chapter-nav, .login-mode .toolbar, .login-mode .reader-statusbar { display: none; }
 .empty-mode .chapter-nav, .empty-mode .toolbar { display: none; }
+.temporary-mode .chapter-nav { display: none; }
 .login-mode .reader-frame { border: 0; background: transparent; }
 .login-mode .state-card { margin-top: clamp(24px, 9svh, 78px); }
 .app-header { display: flex; justify-content: space-between; align-items: center; gap: 8px; min-height: 61px; padding: 8px 12px; border: 1px solid #0a3766; border-bottom-color: #082e58; background: linear-gradient(#65a0d2 0%, #3d7bb8 46%, #2264a5 47%, #0d4785 100%); color: #fff; text-shadow: 0 1px 1px #123f72; box-shadow: 0 1px 0 #a5c7e8 inset, 0 2px 3px #627d9b88; }
@@ -40,6 +42,7 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
 .header-button { min-height: 31px; border: 1px solid #a9c7e8; border-radius: 3px; padding: 6px 9px; background: linear-gradient(#fff, #dce8f4 49%, #c9d9e9 50%, #e8eff7); color: #1e507f; box-shadow: 0 1px 0 #fff inset, 0 1px 1px #173e67aa; font-size: 10px; font-weight: 700; text-shadow: none; white-space: nowrap; }
 .bevel-button, .toolbar-button, .difficulty button { border: 1px solid #7d9bb9; border-radius: 3px; padding: 6px 9px; background: linear-gradient(#fff, #dce8f4 49%, #c9d9e9 50%, #e8eff7); color: #1e507f; box-shadow: 0 1px 0 #fff inset, 0 1px 1px #7794b366; font-size: 11px; font-weight: 700; }
 .header-button:active, .bevel-button:active, .toolbar-button:active, .difficulty button:active { background: #bbd2e8; box-shadow: 0 1px 2px #516c87 inset; }
+#temporaryCount { display: inline-block; min-width: 16px; border: 1px solid #9fbdda; border-radius: 8px; padding: 0 3px; background: #f7fbff; color: #225a8d; font-size: 9px; text-align: center; }
 .primary-button { border: 1px solid #174b84; border-radius: 3px; padding: 9px 13px; background: linear-gradient(#79aae0, #2162a6 48%, #164c89 49%, #174575); color: #fff; box-shadow: 0 1px 0 #b1d0ec inset, 0 2px 3px #6b819877; font-size: 11px; font-weight: 700; text-shadow: 0 1px #123b68; }
 .primary-button:active { background: #174b84; box-shadow: 0 1px 3px #092d52 inset; }
 .wide-button { width: 100%; min-height: 38px; }
@@ -72,6 +75,11 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
 .reader-frame { display: grid; grid-template-rows: minmax(0, 1fr) auto; min-height: 0; border: 1px solid #7897b7; border-top: 0; background: var(--paper); }
 .reading-scroll { min-height: 0; overflow-y: auto; overflow-x: hidden; overscroll-behavior: contain; scrollbar-width: thin; }
 .reader { max-width: 860px; min-height: 100%; margin: 0 auto; padding: 0 16px 24px; }
+.temporary-ribbon { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 0 -16px; border-bottom: 1px solid #9eb8d0; padding: 7px 12px; background: linear-gradient(#fdf7df, #f4e8bf); color: #785625; }
+.temporary-ribbon strong, .temporary-ribbon span { display: block; }
+.temporary-ribbon strong { font-size: 11px; }
+.temporary-ribbon span { margin-top: 2px; font-size: 9px; }
+.temporary-ribbon button { flex: none; }
 .reader-head { margin: 0 -16px; border-bottom: 1px solid #abc0d3; padding: 15px 17px 12px; background: linear-gradient(#fff, #eef5fb); }
 .chapter-label { display: flex; gap: 7px; align-items: center; color: #52728e; font-size: 10px; font-weight: 700; }
 .label-separator { color: #a7bdd1; }
@@ -172,6 +180,14 @@ textarea.text-input { resize: vertical; }
 .chapter-item span { display: block; color: #627d96; font-size: 9px; }
 .chapter-item strong { display: block; margin-top: 2px; color: #214e79; font-size: 11px; }
 .chapter-list-empty { margin: 0; padding: 13px; color: #607990; font-size: 11px; }
+.temporary-intro { border-bottom: 1px solid #c7d7e5; padding: 10px 12px; background: #f8fbfe; color: #526b83; font-size: 11px; line-height: 1.6; }
+.temporary-list { max-height: min(60dvh, 500px); overflow-y: auto; background: #fff; }
+.temporary-item { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 5px 9px; width: 100%; border: 0; border-bottom: 1px solid #d8e3ed; padding: 10px 12px; background: #fff; text-align: left; }
+.temporary-item:nth-child(even) { background: #f5f9fc; }
+.temporary-item.active { background: linear-gradient(#dcecf9, #c7ddf1); box-shadow: 3px 0 #2c6aa7 inset; }
+.temporary-item strong { color: #214e79; font-size: 12px; }
+.temporary-item small { color: #97631d; font-size: 9px; text-align: right; }
+.temporary-item span { grid-column: 1 / -1; overflow: hidden; color: #627d96; font-size: 10px; text-overflow: ellipsis; white-space: nowrap; }
 .index-search { display: grid; gap: 4px; padding: 10px; background: #e5eef7; color: #315879; font-size: 10px; font-weight: 700; }
 .index-list { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; max-height: min(55dvh, 500px); overflow-y: auto; padding: 7px; background: #dbe6f0; }
 .index-item { display: flex; gap: 7px; align-items: center; min-width: 0; border: 1px solid #b6c9dc; padding: 7px 8px; background: linear-gradient(#fff, #f0f6fb); color: #214e79; text-align: left; }
@@ -181,6 +197,12 @@ textarea.text-input { resize: vertical; }
 .settings-section .section-band { border-right: 0; border-left: 0; }
 .settings-body { display: grid; gap: 9px; padding: 11px; background: #f8fbfe; }
 .settings-body textarea { min-height: 100px; }
+.switch-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; border: 1px solid #b6c9dc; padding: 9px 10px; background: linear-gradient(#fff, #eaf2f9); color: #214e79; font-size: 11px; font-weight: 700; }
+.switch-row input { appearance: none; position: relative; width: 44px; height: 24px; flex: none; margin: 0; border: 1px solid #7d9bb9; border-radius: 13px; background: linear-gradient(#c8d6e2, #eef4f9 48%, #dce9f4); box-shadow: 0 1px 2px #45627c88 inset, 0 1px 0 #fff; transition: background .15s; }
+.switch-row input::after { content: ''; position: absolute; top: 1px; left: 1px; width: 20px; height: 20px; border: 1px solid #8fa9c3; border-radius: 50%; background: linear-gradient(#fff, #dce8f4 48%, #b9cedf 49%, #ecf3f9); box-shadow: 0 1px 2px #365d7b77; transition: transform .15s; }
+.switch-row input:checked { border-color: #265d96; background: linear-gradient(#70a1cc, #2e6da9 48%, #18558e); box-shadow: 0 1px 2px #123f72 inset, 0 1px 0 #fff; }
+.switch-row input:checked::after { transform: translateX(20px); border-color: #8fa9c3; }
+#temporaryRequestBox { display: grid; gap: 6px; }
 .settings-body > button { justify-self: start; }
 .button-row { display: flex; flex-wrap: wrap; gap: 6px; }
 .install-guide { display: grid; grid-template-columns: 60px minmax(0, 1fr); gap: 12px; padding: 16px 13px; }
@@ -191,6 +213,7 @@ textarea.text-input { resize: vertical; }
 #toast.visible { opacity: 1; transform: translateY(0); }
 
 @media (max-width: 560px) {
+  #calendarButton { display: none; }
   .app-shell { padding-right: 5px; padding-left: 5px; }
   .app-header { min-height: 57px; padding: 7px 9px; }
   .app-header h1 { font-size: 18px; }
@@ -205,6 +228,7 @@ textarea.text-input { resize: vertical; }
   .segment b { margin-right: 2px; font-size: 8px; }
   .toolbar-button { margin-left: 1px; padding: 4px 5px; font-size: 9px; }
   .reader { padding-right: 7px; padding-left: 7px; }
+  .temporary-ribbon { margin-right: -7px; margin-left: -7px; }
   .reader-head { margin-right: -7px; margin-left: -7px; padding: 12px 11px 10px; }
   .reader-head h2 { font-size: 22px; }
   .part-heading { padding: 7px 8px; }

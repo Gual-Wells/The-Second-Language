@@ -3,6 +3,7 @@ import { authRoute, sessionFor } from './auth.js';
 
 const encoder = new TextEncoder();
 const MAX_BODY = 5_000_000;
+const TEMP_LIFETIME = 48 * 60 * 60 * 1000;
 const json = (value, status = 200) => new Response(JSON.stringify(value), { status, headers: { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store' } });
 const sha256 = async text => [...new Uint8Array(await crypto.subtle.digest('SHA-256', encoder.encode(text)))].map(x => x.toString(16).padStart(2, '0')).join('');
 const validDate = value => {
@@ -11,6 +12,7 @@ const validDate = value => {
   return !Number.isNaN(date.getTime()) && date.toISOString().slice(0, 10) === value;
 };
 const safeId = value => typeof value === 'string' && /^[A-Za-z0-9._:-]{1,110}$/.test(value);
+const settingsView = row => ({ goal: row?.goal || '', updatedAt: row?.updated_at || '', temporaryRequested: Boolean(row?.temporary_requested), temporaryRequestText: row?.temporary_request_text || '', temporaryRequestId: row?.temporary_request_id || null, restRequested: Boolean(row?.rest_requested) });
 
 function constantEqual(a, b) {
   if (typeof a !== 'string' || typeof b !== 'string') return false;
@@ -60,11 +62,25 @@ async function route(request, env) {
 
   if (path === '/api/feedback-snapshot' && request.method === 'GET') {
     if (!publisher(request, env)) return json({ error: '发布身份无效' }, 401);
-    const settings = await env.DB.prepare('SELECT goal,updated_at FROM study_settings WHERE id=1').first();
+    const settings = await env.DB.prepare('SELECT * FROM study_settings WHERE id=1').first();
     const { results } = await env.DB.prepare(`SELECT p.chapter_id,p.completed,p.difficulty,p.note,p.updated_at,c.study_date
       FROM reading_progress p LEFT JOIN published_chapters c ON c.chapter_id=p.chapter_id
       ORDER BY p.updated_at DESC LIMIT 100`).all();
-    return json({ goal: settings?.goal || '', goalUpdatedAt: settings?.updated_at || '', recentProgress: results });
+    return json({ ...settingsView(settings), recentProgress: results });
+  }
+
+  if (path === '/api/runs/claim' && request.method === 'POST') {
+    if (!publisher(request, env)) return json({ error: '发布身份无效' }, 401);
+    const value = await inputJson(request);
+    if (!safeId(value.runId) || !validDate(value.date) || value.runId !== value.date) return json({ error: '运行日期无效' }, 400);
+    const claim = await env.DB.prepare(`INSERT OR IGNORE INTO run_claims
+      (run_id,study_date,rest_requested,rest_revision,temporary_request_id,temporary_request_text,claimed_at)
+      SELECT ?,?,rest_requested,rest_revision,temporary_request_id,temporary_request_text,? FROM study_settings WHERE id=1`)
+      .bind(value.runId, value.date, Date.now()).run();
+    const row = await env.DB.prepare('SELECT * FROM run_claims WHERE run_id=?').bind(value.runId).first();
+    if (!row) return json({ error: '该日期已被另一运行占用' }, 409);
+    if (claim.meta.changes && row.rest_requested) await env.DB.prepare('UPDATE study_settings SET rest_requested=0 WHERE id=1 AND rest_revision=?').bind(row.rest_revision).run();
+    return json({ runId: row.run_id, date: row.study_date, rest: Boolean(row.rest_requested), temporaryRequest: row.temporary_request_id ? { id: row.temporary_request_id, text: row.temporary_request_text } : null, claimedAt: row.claimed_at });
   }
 
   if (path.startsWith('/api/runs/') && request.method === 'GET') {
@@ -96,18 +112,20 @@ async function route(request, env) {
   if (path === '/api/publish/stage' && request.method === 'POST') {
     if (!publisher(request, env)) return json({ error: '发布身份无效' }, 401);
     const value = await inputJson(request);
-    if (!safeId(value.runId) || !validDate(value.date) || value.id !== value.date || value.wordCount !== 100 ||
-      typeof value.markdown !== 'string' || countMainWords(value.markdown) !== 100 ||
+    if (!safeId(value.runId) || !validDate(value.date) || value.id !== value.date || value.wordCount !== 40 ||
+      typeof value.markdown !== 'string' || countMainWords(value.markdown) !== 40 ||
       typeof value.title !== 'string' || !value.title.trim() || value.title.length > 180 ||
       typeof value.subtitle !== 'string' || value.subtitle.length > 300 ||
       typeof value.number !== 'string' || value.number.length > 80 ||
       !/^[0-9a-f]{40}$/.test(value.vixCommit || '') || !/^[0-9a-f]{40}$/.test(value.protocolCommit || '')) return json({ error: '章节元数据或结构无效' }, 400);
+    const runClaim = await env.DB.prepare('SELECT rest_requested FROM run_claims WHERE run_id=? AND study_date=?').bind(value.runId, value.date).first();
+    if (!runClaim || runClaim.rest_requested) return json({ error: '本日未领取运行或已选择休息' }, 409);
     const digest = await sha256(value.markdown), key = `chapters/${value.date}/${digest}.md`;
     await env.CHAPTERS.put(key, value.markdown);
     await env.DB.prepare(`INSERT OR IGNORE INTO chapter_revisions
       (digest,chapter_id,study_date,number,title,subtitle,word_count,content_key,run_id,vix_commit,protocol_commit,created_at)
       VALUES (?,?,?,?,?,?,?,?,?,?,?,?)`)
-      .bind(digest, value.id, value.date, value.number, value.title, value.subtitle, 100, key, value.runId, value.vixCommit, value.protocolCommit, Date.now()).run();
+      .bind(digest, value.id, value.date, value.number, value.title, value.subtitle, 40, key, value.runId, value.vixCommit, value.protocolCommit, Date.now()).run();
     return json({ ok: true, digest, chapterId: value.id });
   }
   if (path === '/api/publish/commit' && request.method === 'POST') {
@@ -130,8 +148,38 @@ async function route(request, env) {
     return json({ ok: true, id: revision.chapter_id, digest: revision.digest });
   }
 
+  if (path === '/api/temporary' && request.method === 'POST') {
+    if (!publisher(request, env)) return json({ error: '发布身份无效' }, 401);
+    const value = await inputJson(request);
+    const wordCount = typeof value.markdown === 'string' ? countMainWords(value.markdown) : -1;
+    if (!safeId(value.id) || !['test', 'review'].includes(value.kind) ||
+      typeof value.title !== 'string' || !value.title.trim() || value.title.length > 180 ||
+      typeof value.subtitle !== 'string' || value.subtitle.length > 300 ||
+      wordCount < 1 || wordCount > 200 || (value.kind === 'review' && wordCount > 40) ||
+      (value.requestId != null && !safeId(value.requestId))) return json({ error: '临时页元数据或三部分结构无效' }, 400);
+    const digest = await sha256(value.markdown), now = Date.now();
+    const prior = await env.DB.prepare('SELECT digest,expires_at FROM temporary_pages WHERE id=?').bind(value.id).first();
+    if (prior) {
+      if (prior.digest !== digest || prior.expires_at <= now) return json({ error: '临时页编号已使用' }, 409);
+      if (value.requestId) await env.DB.prepare(`UPDATE study_settings SET temporary_requested=0,temporary_request_text='',temporary_request_id=NULL
+        WHERE id=1 AND temporary_request_id=?`).bind(value.requestId).run();
+      return json({ ok: true, id: value.id, digest, expiresAt: prior.expires_at, reused: true });
+    }
+    const key = `temporary/${value.id}/${digest}.md`;
+    await env.CHAPTERS.put(key, value.markdown);
+    await env.DB.batch([
+      env.DB.prepare(`INSERT INTO temporary_pages (id,kind,title,subtitle,word_count,digest,content_key,request_id,created_at,expires_at)
+        VALUES (?,?,?,?,?,?,?,?,?,?)`).bind(value.id, value.kind, value.title.trim(), value.subtitle.trim(), wordCount, digest, key, value.requestId || null, now, now + TEMP_LIFETIME),
+      env.DB.prepare(`INSERT OR IGNORE INTO temporary_push_outbox (page_id,subscription_id)
+        SELECT ?,id FROM push_subscriptions`).bind(value.id)
+    ]);
+    if (value.requestId) await env.DB.prepare(`UPDATE study_settings SET temporary_requested=0,temporary_request_text='',temporary_request_id=NULL
+      WHERE id=1 AND temporary_request_id=?`).bind(value.requestId).run();
+    return json({ ok: true, id: value.id, digest, expiresAt: now + TEMP_LIFETIME });
+  }
+
   const session = await sessionFor(request, env);
-  if (!session) return json({ error: '请先登录' }, 401);
+  if (!session && !publisher(request, env)) return json({ error: '请先登录' }, 401);
   if (path === '/api/chapters' && request.method === 'GET') {
     const { results } = await env.DB.prepare(`SELECT p.chapter_id AS id,p.study_date AS date,r.number,r.title,r.subtitle,r.word_count AS wordCount,p.digest
       FROM published_chapters p JOIN chapter_revisions r ON r.digest=p.digest
@@ -150,16 +198,47 @@ async function route(request, env) {
     return json({ ...meta, markdown });
   }
   if (path === '/api/settings' && request.method === 'GET') {
-    const row = await env.DB.prepare('SELECT goal,updated_at FROM study_settings WHERE id=1').first();
-    return json(row || { goal: '', updated_at: '' });
+    const row = await env.DB.prepare('SELECT * FROM study_settings WHERE id=1').first();
+    return json(settingsView(row));
   }
   if (path === '/api/settings' && request.method === 'PUT') {
     if (!sameOrigin(request, env)) return json({ error: '来源不允许' }, 403);
     const value = await inputJson(request);
-    if (typeof value.goal !== 'string' || value.goal.length > 2000) return json({ error: '学习目标过长' }, 400);
-    const updatedAt = new Date().toISOString();
-    await env.DB.prepare('UPDATE study_settings SET goal=?,updated_at=? WHERE id=1').bind(value.goal.trim(), updatedAt).run();
-    return json({ ok: true, updatedAt });
+    const patch = [];
+    const args = [];
+    if (Object.hasOwn(value, 'goal')) {
+      if (typeof value.goal !== 'string' || value.goal.length > 2000) return json({ error: '学习目标过长' }, 400);
+      patch.push('goal=?', 'updated_at=?'); args.push(value.goal.trim(), new Date().toISOString());
+    }
+    if (Object.hasOwn(value, 'temporaryRequested') || Object.hasOwn(value, 'temporaryRequestText')) {
+      if (typeof value.temporaryRequested !== 'boolean' || typeof value.temporaryRequestText !== 'string' || value.temporaryRequestText.length > 2000 ||
+        (value.temporaryRequested && !value.temporaryRequestText.trim())) return json({ error: '请填写临时推送需求' }, 400);
+      patch.push('temporary_requested=?', 'temporary_request_text=?', 'temporary_request_id=?');
+      args.push(value.temporaryRequested ? 1 : 0, value.temporaryRequested ? value.temporaryRequestText.trim() : '', value.temporaryRequested ? crypto.randomUUID() : null);
+    }
+    if (Object.hasOwn(value, 'restRequested')) {
+      if (typeof value.restRequested !== 'boolean') return json({ error: '休息设置无效' }, 400);
+      patch.push('rest_requested=?', 'rest_revision=rest_revision+1'); args.push(value.restRequested ? 1 : 0);
+    }
+    if (!patch.length) return json({ error: '没有设置可保存' }, 400);
+    await env.DB.prepare(`UPDATE study_settings SET ${patch.join(',')} WHERE id=1`).bind(...args).run();
+    return json({ ok: true, ...settingsView(await env.DB.prepare('SELECT * FROM study_settings WHERE id=1').first()) });
+  }
+  if (path === '/api/temporary' && request.method === 'GET') {
+    const { results } = await env.DB.prepare(`SELECT id,kind,title,subtitle,word_count AS wordCount,created_at AS createdAt,expires_at AS expiresAt
+      FROM temporary_pages WHERE expires_at>? ORDER BY created_at DESC`).bind(Date.now()).all();
+    return json({ pages: results });
+  }
+  if (path.startsWith('/api/temporary/') && request.method === 'GET') {
+    const id = decodeURIComponent(path.slice('/api/temporary/'.length));
+    if (!safeId(id)) return json({ error: '临时页编号无效' }, 400);
+    const row = await env.DB.prepare(`SELECT id,kind,title,subtitle,word_count AS wordCount,digest,content_key,created_at AS createdAt,expires_at AS expiresAt
+      FROM temporary_pages WHERE id=?`).bind(id).first();
+    if (!row || row.expiresAt <= Date.now()) return json({ error: '临时页已过期' }, 410);
+    const markdown = await env.CHAPTERS.get(row.content_key);
+    if (markdown === null) return json({ error: '临时页正文暂不可用' }, 503);
+    const { content_key, ...meta } = row;
+    return json({ ...meta, markdown });
   }
   if (path.startsWith('/api/progress/')) {
     const id = decodeURIComponent(path.slice('/api/progress/'.length));
@@ -196,6 +275,7 @@ async function route(request, env) {
     const id = await sha256(value.endpoint);
     await env.DB.batch([
       env.DB.prepare('DELETE FROM push_outbox WHERE subscription_id=?').bind(id),
+      env.DB.prepare('DELETE FROM temporary_push_outbox WHERE subscription_id=?').bind(id),
       env.DB.prepare('DELETE FROM push_subscriptions WHERE id=?').bind(id)
     ]);
     return json({ ok: true });
@@ -230,6 +310,41 @@ async function sendDue(env) {
         .bind(row.chapter_id, row.digest, row.subscription_id).run();
     }
   }
+  const temporary = await env.DB.prepare(`SELECT o.*,s.endpoint,s.p256dh,s.auth,p.title,p.kind,p.created_at,p.expires_at
+    FROM temporary_push_outbox o JOIN temporary_pages p ON p.id=o.page_id
+    JOIN push_subscriptions s ON s.id=o.subscription_id
+    WHERE o.sent_at IS NULL AND o.attempts<4 AND p.created_at<=? AND p.expires_at>?
+      AND (o.claim_at IS NULL OR o.claim_at<?)
+    ORDER BY p.created_at LIMIT 20`).bind(now - 120000, now, now - 120000).all();
+  for (const row of temporary.results) {
+    const claim = await env.DB.prepare(`UPDATE temporary_push_outbox SET claim_at=?,attempts=attempts+1
+      WHERE page_id=? AND subscription_id=? AND sent_at IS NULL AND (claim_at IS NULL OR claim_at<?)`)
+      .bind(now, row.page_id, row.subscription_id, now - 120000).run();
+    if (!claim.meta.changes) continue;
+    try {
+      const payload = rawPayload(JSON.stringify({ temporaryId: row.page_id, title: `第二语言 · ${row.kind === 'review' ? '复习页' : '测试页'}`, body: row.title }));
+      const sent = await sendPushNotification({ endpoint: row.endpoint, keys: { p256dh: row.p256dh, auth: row.auth } }, payload,
+        { publicKey: env.VAPID_PUBLIC_KEY, privateKey: env.VAPID_PRIVATE_KEY, subject: env.VAPID_SUBJECT }, { ttl: Math.min(3600, Math.max(0, Math.floor((row.expires_at - now) / 1000))), urgency: 'normal', timeoutMs: 10000 });
+      if (!sent) await env.DB.prepare('DELETE FROM push_subscriptions WHERE id=?').bind(row.subscription_id).run();
+      else await env.DB.prepare('UPDATE temporary_push_outbox SET sent_at=?,claim_at=NULL WHERE page_id=? AND subscription_id=?')
+        .bind(Date.now(), row.page_id, row.subscription_id).run();
+    } catch (error) {
+      console.error('Temporary push delivery failed', { pageId: row.page_id, status: error.statusCode || null });
+      await env.DB.prepare('UPDATE temporary_push_outbox SET claim_at=NULL WHERE page_id=? AND subscription_id=?')
+        .bind(row.page_id, row.subscription_id).run();
+    }
+  }
+}
+
+async function removeExpiredTemporary(env) {
+  const { results } = await env.DB.prepare('SELECT id,content_key FROM temporary_pages WHERE expires_at<=? LIMIT 100').bind(Date.now()).all();
+  for (const row of results) {
+    await env.CHAPTERS.delete(row.content_key);
+    await env.DB.batch([
+      env.DB.prepare('DELETE FROM temporary_push_outbox WHERE page_id=?').bind(row.id),
+      env.DB.prepare('DELETE FROM temporary_pages WHERE id=?').bind(row.id)
+    ]);
+  }
 }
 
 export default {
@@ -237,5 +352,5 @@ export default {
     try { return await route(request, env); }
     catch (error) { console.error('Worker error', error); return json({ error: '服务暂不可用' }, 500); }
   },
-  async scheduled(_event, env, context) { context.waitUntil(sendDue(env)); }
+  async scheduled(_event, env, context) { context.waitUntil(Promise.all([sendDue(env), removeExpiredTemporary(env)])); }
 };

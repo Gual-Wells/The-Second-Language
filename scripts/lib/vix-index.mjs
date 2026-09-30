@@ -20,7 +20,7 @@ export async function loadVixIndex(vixDir) {
 }
 
 export function familyRecords(selection) {
-  if (!Array.isArray(selection.mainWords) || selection.mainWords.length !== 100) throw new Error('最终推荐必须恰有 100 个主词');
+  if (!Array.isArray(selection.mainWords) || selection.mainWords.length !== 40) throw new Error('最终推荐必须恰有 40 个主词');
   const values = [];
   for (const main of selection.mainWords) {
     values.push(main);
