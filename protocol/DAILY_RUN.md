@@ -5,6 +5,8 @@
 ## 开始
 
 1. 以北京时间确定目标日历日期 `YYYY-MM-DD`。**先运行** `node scripts/claim-run.mjs YYYY-MM-DD`，读取保存的 `work/runs/<date>/control.json`。同日重试得到同一领取结果，不再次消耗设置。若 `rest=true`，当天整个定时运行到此结束：不建设日课、不标记 VIX、不发布日课或临时页；休息开关已由后端复位，未完成的临时需求保留到后续运行。若本日章节已发布，不重复生产。
+
+Windows 定时入口 `scripts/run-daily.ps1` 在启动 Codex 前确定性地完成上述领取；休息日直接结束，不消耗模型调用。非休息日再启动 Codex，Codex 可以幂等重读同日领取结果并继续协议。
 2. 若领取结果带有 `temporaryRequest`，按 `protocol/TEMPORARY.md` 处理测试或复习需求，可在日课前独立发布。复习使用已发布章节作来源，不把临时页当作新章节，不标记 VIX。同日续作先查中间文档和临时页发布结果，避免重复建设。
 3. 读取 VIX 当前通用英语辅助索引、标注状态和两份 `textbook` 文件，记录各文件的 Git commit 或摘要。读取 PWA 后端的学习目标与反馈快照。主观判断不得被固定打分替代。
 4. 在 `work/runs/<date>/selection.md` 自由写推荐思考，在 `selection.json` 保存 `studyDate`、`vixInputCommit`、`vixMarkLabel` 和 `mainWords`。`mainWords` 恰有 40 个主词；每项保存 VIX `entryId`、`globalRank`、`text`，相关派生词放入该项 `family` 并记录相同身份字段（教材有而 VIX 无的派生词仍记其文字，但不填 VIX 身份）。`vixMarkLabel` 必须明确记录为 `MM-DD`；它是 VIX 内部标签，不能充当带年份的章节日期。
