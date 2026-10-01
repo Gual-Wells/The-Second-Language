@@ -14,9 +14,14 @@ export function splitParts(markdown) {
 
 function firstUnits(source) {
   const words = [], uses = new Map(), allIds = new Set();
-  let pending = null, currentWord = null;
+  let pending = null, currentWord = null, awaitingGloss = null;
   for (const line of linesOf(source)) {
     if (!line) continue;
+    if (awaitingGloss) {
+      if (!mono(line) || /^(?:Oxford|牛津)\s*[:：]|美式音标|美音\s*[:：]/i.test(line.slice(1, -1)))
+        throw new Error(`用法 ${awaitingGloss} 下一行须是无来源或音标说明字的等宽 Oxford 词义`);
+      awaitingGloss = null; continue;
+    }
     const word = WORD.exec(line), use = USE.exec(line);
     if (word || use) {
       if (pending) throw new Error(`第一部分编码 ${pending.id} 未关联内容`);
@@ -33,7 +38,10 @@ function firstUnits(source) {
     }
     if (heading?.[1] === '##') {
       if (pending?.kind !== 'use' || !currentWord) throw new Error(`二级用法缺少 USE 编码：${heading[2]}`);
-      uses.set(pending.id, { label: heading[2].trim(), wordId: currentWord.id }); pending = null; continue;
+      const title = /^(.*?)\s+(\/[^/\n]+\/)\s*$/.exec(heading[2]);
+      if (!title?.[1]) throw new Error(`二级用法须在标题末尾直接写美式音标：${heading[2]}`);
+      uses.set(pending.id, { label: title[1].trim(), wordId: currentWord.id });
+      awaitingGloss = pending.id; pending = null; continue;
     }
     if (pending?.kind === 'word') throw new Error(`WORD 编码 ${pending.id} 后必须是一级词条`);
     if (pending?.kind === 'use') {
@@ -43,7 +51,7 @@ function firstUnits(source) {
     }
     if (/^[-*]\s+\*\*/.test(line)) throw new Error(`短语实例缺少 USE 编码：${line.slice(0, 60)}`);
   }
-  if (pending) throw new Error(`第一部分编码 ${pending.id} 未关联内容`);
+  if (pending || awaitingGloss) throw new Error(`第一部分编码 ${pending?.id || awaitingGloss} 未关联完整内容`);
   if (!words.length || !uses.size) throw new Error('第一部分缺少已编码的词条或用法');
   return { words, uses };
 }

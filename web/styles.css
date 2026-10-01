@@ -92,7 +92,7 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
 .part-heading #partNumber { color: #5f7e9c; font-size: 9px; font-weight: 700; }
 .part-heading strong { flex: 1; font-size: 13px; }
 .part-heading #partSummary { color: #637f98; font-size: 9px; }
-.article-tools { display: flex; align-items: center; gap: 6px; border-right: 1px solid #b5c8da; border-left: 1px solid #b5c8da; padding: 6px 9px; background: linear-gradient(#f8fbfe, #e6f0f9); }
+.article-tools { position: sticky; top: 0; z-index: 4; display: flex; align-items: center; gap: 6px; border: 1px solid #b5c8da; border-top: 0; padding: 6px 9px; background: linear-gradient(#f8fbfe, #e6f0f9); box-shadow: 0 2px 4px #5d7c9d42; }
 .article-tools button { padding: 5px 8px; font-size: 10px; }
 .article-tools button[aria-pressed="true"] { border-color: #275e97; background: linear-gradient(#8bb6de, #467fb7 49%, #2c6aa7 50%, #6c9cc9); color: #fff; text-shadow: 0 1px #174773; }
 .article-tools span { margin-left: auto; color: #617d96; font-size: 9px; }
@@ -110,6 +110,7 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
 .example-pair p { margin-top: 0; }
 .example-pair .mono { margin-bottom: 0; }
 .sense-block h2 { margin: 0 0 6px; color: #214e79; font-size: 14px; line-height: 1.4; }
+.sense-ipa { color: #617d96; font: 12px/1.4 ui-monospace, SFMono-Regular, Consolas, monospace; white-space: nowrap; }
 .sense-head { display: flex; align-items: start; justify-content: space-between; gap: 8px; }
 .sense-head h2 { min-width: 0; flex: 1; }
 .usage-jump { flex: none; border: 1px solid #b9cbdb; border-radius: 2px; padding: 3px 6px; background: linear-gradient(#fff, #e7f0f8); color: #3c6e98; font-size: 9px; line-height: 1.3; white-space: nowrap; }
@@ -139,7 +140,6 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
 .article.prose .story-translation { display: none; }
 .article.prose.highlight-sentences .story-sentence { border-radius: 2px; background: linear-gradient(transparent 56%, #efd77b99 56%, #efd77b99 88%, transparent 88%); -webkit-box-decoration-break: clone; box-decoration-break: clone; cursor: pointer; }
 .article.prose.highlight-sentences .story-sentence:focus-visible { outline: 2px solid #d79030; outline-offset: 2px; }
-.article.prose.show-translations .story-paragraph { line-height: 2.25; }
 .article.prose.show-translations .story-pair { display: block; margin-bottom: 1.05em; }
 .article.prose.show-translations .story-translation { display: block; margin: 4px 0 0; border-left: 3px solid #80a6c9; padding: 6px 9px; background: #edf4fa; color: #3c5e7b; font: 12px/1.7 ui-monospace, SFMono-Regular, Consolas, monospace; white-space: normal; }
 .reader-statusbar { display: flex; align-items: center; gap: 6px; min-height: 28px; border-top: 1px solid #9fb4c8; padding: 4px 8px; background: #e1ebf4; color: #52708b; font-size: 9px; }

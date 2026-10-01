@@ -1,5 +1,5 @@
-import { parseParts, renderPart } from './render.js?v=8';
-import { validateAnnotatedContent } from './annotations.js?v=8';
+import { parseParts, renderPart } from './render.js?v=9';
+import { validateAnnotatedContent } from './annotations.js?v=9';
 
 const $ = id => document.getElementById(id);
 const todayParts = Object.fromEntries(new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(new Date()).map(part => [part.type, part.value]));
@@ -701,6 +701,6 @@ $('chapterNav').addEventListener('touchend', event => {
   if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.5) moveChapter(dx < 0 ? 1 : -1);
   swipeStart = null;
 }, { passive: true });
-if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=8', { updateViaCache: 'none' }).catch(() => {});
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=9', { updateViaCache: 'none' }).catch(() => {});
 refreshInstallStatus();
 initialize();
