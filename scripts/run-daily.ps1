@@ -39,7 +39,7 @@ else {
 }
 if (-not $codexExecutable) { throw '未找到 Codex CLI' }
 $prompt = @"
-执行第二语言项目北京时间 $studyDate 的一次正式定时运行。先阅读本仓库 AGENTS.md、protocol/DAILY_RUN.md 和 protocol/TEMPORARY.md 和 protocol/ANNOTATIONS.md，严格先执行 scripts/claim-run.mjs。若领取到休息标志，立即跳过当天日课和临时推送，保存结果后结束。否则优先处理已领取的一次性临时推送需求，再继续当天恰好 40 主词的正式课程。使用本仓库 work/ 中的中间文档续作；同日期不得重选已确定的词或重复发布。若工作未完成，记录具体 resume.md。按协议进行必要的 GitHub 与 Cloudflare 发布，不把临时页当正式章节，不泄露密钥。
+执行第二语言项目北京时间 $studyDate 的一次正式定时运行。先阅读本仓库 AGENTS.md、protocol/DAILY_RUN.md、protocol/QUALITY_WORKFLOW.md、protocol/CONTENT.md、protocol/TEMPORARY.md 和 protocol/ANNOTATIONS.md。定时入口已先调用 scripts/claim-run.mjs；幂等读取 work/runs/$studyDate/control.json 确认结果。若已领取休息，立即结束。否则优先处理已领取的一次性临时需求，再继续当天恰好 40 主词的正式课程。逐词保存双教材内容和全部相关例句的去向；第一、第二部分按自然词族协同建设；第三部分保留权威草稿与简短连续性记录，发布前分别审阅教材保真和文章真实用法。允许无目标用法句只有句子编码与译文，不附虚假 USE。使用 work/ 中间文档续作，同日期不得重选或重复发布。若未完成，写具体 resume.md。按协议进行必要的 GitHub 与 Cloudflare 发布，不把临时页当正式章节，不泄露密钥。
 "@
 # Windows PowerShell 5.1 promotes native stderr to an error record. Codex may write
 # nonfatal warnings there, so judge this command by its actual process exit code.

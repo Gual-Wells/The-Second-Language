@@ -1,6 +1,6 @@
 # 长篇课程质量研究：百词稿与三词稿
 
-本文件是对两次测试的观察与协议备选设计，不自动成为每日运行约束。对照文件分别是 `../second-language-first-production-test/2026-09-30/chapter.md` 与 `work/temporary/interaction-smoke-20261001/page.md`。百词稿属于旧版内容格式；三词稿是新交互的独立临时页样本。两者任务目标和编码要求不同，不能把差异直接解释为模型在长文中必然退化。
+本文件是对两次测试的观察与协议备选设计；其中逐词材料交接、灵活分批、权威草稿和双重语义审阅已在 `../protocol/QUALITY_WORKFLOW.md` 落为运行要求，其余研究判断不自动成为约束。对照文件分别是 `../second-language-first-production-test/2026-09-30/chapter.md` 与 `work/temporary/interaction-smoke-20261001/page.md`。百词稿属于旧版内容格式；三词稿是新交互的独立临时页样本。两者任务目标和编码要求不同，不能把差异直接解释为模型在长文中必然退化。
 
 ## 实际差距
 

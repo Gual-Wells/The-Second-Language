@@ -2,7 +2,7 @@ const ID = '[A-Za-z][A-Za-z0-9_-]{0,31}';
 const WORD = new RegExp(`^<!-- WORD:(${ID}) -->$`);
 const USE = new RegExp(`^<!-- USE:(${ID}) -->$`);
 const EXAMPLE = new RegExp(`^<!-- EXAMPLE:(${ID}) -->$`);
-const SENTENCE = new RegExp(`^<!-- SENTENCE:(${ID}) USE:(${ID}(?:,${ID})*) -->$`);
+const SENTENCE = new RegExp(`^<!-- SENTENCE:(${ID})(?: USE:(${ID}(?:,${ID})*))? -->$`);
 const mono = line => /^`[^`]+`$/.test(line);
 const linesOf = text => text.replace(/\r\n?/g, '\n').split('\n').map(line => line.trim());
 
@@ -103,7 +103,7 @@ export function sentenceRecords(source, knownUses = null) {
       if (pending) throw new Error(`文章句子 ${pending.id} 缺少原句或译文`);
       if (ids.has(marker[1])) throw new Error(`文章句子编码重复：${marker[1]}`);
       ids.add(marker[1]);
-      const refs = marker[2].split(',');
+      const refs = marker[2] ? marker[2].split(',') : [];
       if (new Set(refs).size !== refs.length || (knownUses && refs.some(id => !knownUses.has(id)))) throw new Error(`文章句子 ${marker[1]} 的用法编码无效`);
       pending = { id: marker[1], refs }; stage = 1; continue;
     }

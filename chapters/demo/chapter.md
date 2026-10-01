@@ -86,16 +86,19 @@ Her resilience helped the group keep going.
 <!-- SENTENCE:S001 USE:U001 -->
 For years, the town had hoped to **achieve** one simple goal: reopen its library.
 `多年来，小镇一直希望实现一个简单的目标：让图书馆重新开放。`
-<!-- SENTENCE:S002 USE:U002,U003 -->
+<!-- SENTENCE:S002 -->
+At dawn, a crowd gathered outside.
+`黎明时，人们聚集在门外。`
+<!-- SENTENCE:S003 USE:U002,U003 -->
 When the doors finally opened, the volunteers **achieved** recognition, though they called the reopening their greatest **achievement**.
 `图书馆终于开门时，志愿者赢得了认可；但在他们看来，重新开放才是最重要的成就。`
 
-<!-- SENTENCE:S003 USE:U004 -->
+<!-- SENTENCE:S004 USE:U004 -->
 They had begun with an **achievable** plan, sorting just one shelf each day.
 `起初他们制定了一个可实现的计划：每天只整理一面书架。`
-<!-- SENTENCE:S004 USE:U005,U007 -->
+<!-- SENTENCE:S005 USE:U005,U007 -->
 After the storm, the **resilient** community discovered that its **resilience** lived in small, repeated acts of care.
 `风暴过后，这个坚韧的社区发现，自己的恢复力就藏在一次次细微而持久的照料之中。`
-<!-- SENTENCE:S005 USE:U006 -->
+<!-- SENTENCE:S006 USE:U006 -->
 Even the **resilient** wood of the new shelves bent under heavy books and then returned to shape.
 `就连新书架富有弹性的木材，也会在重书压迫下弯曲，又恢复原形。`

@@ -44,8 +44,8 @@ function renderStory(source, target, options) {
       const element = document.createElement(`h${heading[1].length}`);
       element.textContent = heading[2]; target.append(element); paragraph = null; continue;
     }
-    const marker = /^<!-- SENTENCE:([A-Za-z][A-Za-z0-9_-]{0,31}) USE:([A-Za-z][A-Za-z0-9_-]{0,31}(?:,[A-Za-z][A-Za-z0-9_-]{0,31})*) -->$/.exec(line);
-    if (marker) { pending = { id: marker[1], refs: marker[2].split(',') }; continue; }
+    const marker = /^<!-- SENTENCE:([A-Za-z][A-Za-z0-9_-]{0,31})(?: USE:([A-Za-z][A-Za-z0-9_-]{0,31}(?:,[A-Za-z][A-Za-z0-9_-]{0,31})*))? -->$/.exec(line);
+    if (marker) { pending = { id: marker[1], refs: marker[2] ? marker[2].split(',') : [] }; continue; }
     if (pending && !pair) {
       if (!paragraph) { paragraph = document.createElement('p'); paragraph.className = 'story-paragraph'; target.append(paragraph); }
       if (paragraph.childNodes.length) paragraph.append(document.createTextNode(' '));
@@ -53,11 +53,13 @@ function renderStory(source, target, options) {
       const sentence = document.createElement('span'); sentence.className = 'story-sentence';
       const refs = [...pending.refs];
       sentence.dataset.sentenceId = pending.id;
-      sentence.dataset.useRefs = refs.join(',');
+      if (refs.length) { sentence.classList.add('linked-use'); sentence.dataset.useRefs = refs.join(','); }
       appendInline(sentence, line);
-      sentence.addEventListener('click', () => { if (options.highlight) options.onSentence?.(refs); });
-      sentence.addEventListener('keydown', event => { if (options.highlight && (event.key === 'Enter' || event.key === ' ')) { event.preventDefault(); options.onSentence?.(refs); } });
-      if (options.highlight) { sentence.tabIndex = 0; sentence.setAttribute('role', 'button'); sentence.setAttribute('aria-label', `查看对应词汇用法 ${refs.join('、')}`); }
+      if (refs.length) {
+        sentence.addEventListener('click', () => { if (options.highlight) options.onSentence?.(refs); });
+        sentence.addEventListener('keydown', event => { if (options.highlight && (event.key === 'Enter' || event.key === ' ')) { event.preventDefault(); options.onSentence?.(refs); } });
+        if (options.highlight) { sentence.tabIndex = 0; sentence.setAttribute('role', 'button'); sentence.setAttribute('aria-label', `查看对应词汇用法 ${refs.join('、')}`); }
+      }
       pair.append(sentence); paragraph.append(pair); continue;
     }
     if (pending && pair && /^`[^`]+`$/.test(line)) {

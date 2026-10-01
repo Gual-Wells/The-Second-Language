@@ -138,7 +138,7 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
 .article.prose .story-paragraph { margin: 0 0 1.15em; }
 .article.prose .story-pair { display: inline; }
 .article.prose .story-translation { display: none; }
-.article.prose.highlight-sentences .story-sentence { border-radius: 2px; background: linear-gradient(transparent 56%, #efd77b99 56%, #efd77b99 88%, transparent 88%); -webkit-box-decoration-break: clone; box-decoration-break: clone; cursor: pointer; }
+.article.prose.highlight-sentences .story-sentence.linked-use { border-radius: 2px; background: linear-gradient(transparent 56%, #efd77b99 56%, #efd77b99 88%, transparent 88%); -webkit-box-decoration-break: clone; box-decoration-break: clone; cursor: pointer; }
 .article.prose.highlight-sentences .story-sentence:focus-visible { outline: 2px solid #d79030; outline-offset: 2px; }
 .article.prose.show-translations .story-pair { display: block; margin-bottom: 1.05em; }
 .article.prose.show-translations .story-translation { display: block; margin: 4px 0 0; border-left: 3px solid #80a6c9; padding: 6px 9px; background: #edf4fa; color: #3c5e7b; font: 12px/1.7 ui-monospace, SFMono-Regular, Consolas, monospace; white-space: normal; }
