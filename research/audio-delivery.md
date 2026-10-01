@@ -12,7 +12,7 @@
 
 | 候选 | 适合之处 | 对本项目的关键边界 |
 | --- | --- | --- |
-| Azure Speech 的支持 IPA 的 en-US 神经语音 | SSML `<phoneme alphabet="ipa">` 能为重音、同形异音词与派生词指定读音；Speech SDK 的 `<bookmark>` 事件可取得文章句子的音频偏移；支持压缩 MP3。 | 要增加 Azure Speech 资源与密钥，并逐一确认所选语音支持需要的 SSML 标签；长文章应分段合成，REST 文档说明单次结果超过 10 分钟会截断。技术上最适合音标教学与句子定位。 |
+| Azure Speech 的支持 IPA 的 en-US 神经语音 | SSML `<phoneme alphabet="ipa">` 能为重音、同形异音词与派生词指定读音；Speech SDK 的 `<bookmark>` 事件可取得文章句子的音频偏移；支持压缩 MP3。 | 要增加 Azure Speech 资源与密钥，并逐一确认所选语音支持需要的 SSML 标签；长文章应分段合成，REST 文档说明单次结果超过 10 分钟会截断。适合音标教学与句子定位。 |
 | Cloudflare Workers AI `@cf/deepgram/aura-2-en` | 沿用当前 Cloudflare 账户，提供多种声音与 MP3/Opus/AAC；官方标价为每千字符 0.03 美元。 | 当前模型接口列出文本、声音和音频格式，未给出 IPA 音素指定或句子书签接口；因此不能只靠它保证标题音标与音频严格一致。适合作为例句或文章候选，仍需听审。 |
 | OpenAI `gpt-4o-mini-tts` | 可用指令调整音色、语速和表达，输出 MP3 等格式，适合自然文章朗读。 | 公开 speech 接口不提供与 Azure SSML 等价的 IPA 音素或句子书签控制；对教学用同形异音词只能靠输入与听审，不能把提示词当作发音保证。 |
 
