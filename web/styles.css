@@ -270,7 +270,9 @@ textarea.text-input { resize: vertical; }
 @media (max-width: 560px) {
   #calendarButton { display: none; }
   .app-shell { padding-right: 5px; padding-left: 5px; }
-  .app-header { min-height: 57px; padding: 7px 9px; }
+  .app-header { display: grid; grid-template-columns: minmax(0, 1fr); gap: 6px; min-height: 0; padding: 7px 9px; }
+  .header-actions { width: 100%; }
+  .header-actions .header-button { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
   .app-header h1 { font-size: 18px; }
   .app-header h1 small { font-size: 8px; }
   .header-button { padding: 6px 7px; }
@@ -278,8 +280,8 @@ textarea.text-input { resize: vertical; }
   .day-strip { gap: 2px; padding-right: 5px; padding-left: 5px; }
   .day-chip { min-height: 37px; }
   .toolbar { min-height: 42px; padding-right: 4px; padding-left: 4px; }
-  .segmented { flex: 1; }
-  .segment { min-width: 0; flex: 1; padding: 4px 2px; font-size: 10px; }
+  .segmented { flex: 1; min-width: 0; }
+  .segment { min-width: 0; flex: 1; overflow: hidden; padding: 4px 2px; font-size: 10px; text-overflow: ellipsis; }
   .segment b { margin-right: 2px; font-size: 8px; }
   .toolbar-button { margin-left: 1px; padding: 4px 5px; font-size: 9px; }
   .reader { padding-right: 7px; padding-left: 7px; }
@@ -303,7 +305,7 @@ textarea.text-input { resize: vertical; }
   .word-heading h1 { font-size: 17px; }
 }
 @media (max-height: 720px) {
-  .app-header { min-height: 49px; padding-top: 5px; padding-bottom: 5px; }
+  .app-header { padding-top: 5px; padding-bottom: 5px; }
   .chapter-nav-row { min-height: 39px; }
   .day-chip { min-height: 34px; }
   .toolbar { min-height: 39px; }

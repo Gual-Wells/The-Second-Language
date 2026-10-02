@@ -128,6 +128,7 @@ export async function practiceRoute(request, env, publisher) {
       typeof set.introduction !== 'string' || set.introduction.length > 3000 || !Array.isArray(set.questions) ||
       set.questions.length < 2 || set.questions.length > 20) return json({ error: '练习册格式无效' }, 400);
     const requestRow = await db.prepare('SELECT * FROM practice_requests WHERE id=?').bind(value.requestId).first();
+    if (requestRow?.status === 'published' && requestRow.set_id === set.id) return json({ ok: true, id: set.id, reused: true });
     if (!requestRow || requestRow.status !== 'building' || requestRow.claim_token !== value.claimToken) return json({ error: '领取版本无效' }, 409);
     const sources = JSON.parse(requestRow.source_json), sourceIds = new Set(sources.map(item => item.id));
     const questionIds = new Set(), rows = [], links = [];
@@ -240,6 +241,7 @@ export async function practiceRoute(request, env, publisher) {
       typeof value.review.nextStep !== 'string' || value.review.nextStep.length > 3000 ||
       JSON.stringify(value.review).length > 18000) return json({ error: '反馈结构无效' }, 400);
     const row = await db.prepare('SELECT status,claim_token FROM practice_attempts WHERE id=?').bind(value.attemptId).first();
+    if (row?.status === 'reviewed') return json({ ok: true, attemptId: value.attemptId, reused: true });
     if (!row || row.status !== 'reviewing' || row.claim_token !== value.claimToken) return json({ error: '批改领取版本无效' }, 409);
     await db.prepare(`UPDATE practice_attempts SET status='reviewed',review_json=?,reviewed_at=?,claim_token=NULL,claim_at=NULL
       WHERE id=? AND claim_token=?`).bind(JSON.stringify(value.review),now(),value.attemptId,value.claimToken).run();
