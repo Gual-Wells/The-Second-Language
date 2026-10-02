@@ -228,6 +228,37 @@ textarea.text-input { resize: vertical; }
 .switch-row input:checked::after { transform: translateX(20px); border-color: #8fa9c3; }
 #temporaryRequestBox { display: grid; gap: 6px; }
 .settings-body > button { justify-self: start; }
+
+.practice-sheet { max-height: inherit; }
+.practice-list { background: #fff; }
+.practice-index-controls { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; padding: 10px; background: #e5eef7; }
+.practice-index-controls input { grid-column: 1 / -1; }
+.practice-index-controls select { min-width: 0; font-size: 11px; }
+.practice-empty { margin: 0; padding: 16px 12px; color: var(--muted); font-size: 11px; }
+.practice-shelf-item { display: grid; gap: 3px; width: 100%; border: 0; border-bottom: 1px solid #d3e0ec; padding: 11px 12px; background: linear-gradient(#fff, #f0f6fb); text-align: left; }
+.practice-shelf-item strong { color: #1c4f80; font-size: 12px; }
+.practice-shelf-item small, .practice-shelf-item span { color: #5b7894; font-size: 10px; }
+.practice-set-head { display: grid; gap: 6px; padding: 12px; border-bottom: 1px solid #b4c8da; background: linear-gradient(#fff, #e8f1f9); }
+.practice-set-head button { justify-self: start; }
+.practice-set-head h3 { margin: 2px 0 0; color: #174b84; font-size: 17px; }
+.practice-set-head p { margin: 0; color: #315675; line-height: 1.6; white-space: pre-wrap; }
+.practice-set-head small { color: #657f98; }
+.practice-question { margin: 10px; border: 1px solid #a7bdd2; background: #fff; box-shadow: 0 1px 0 #fff inset, 0 2px 4px #6e8aa72e; }
+.practice-question-body { display: grid; gap: 11px; padding: 12px; }
+.practice-prompt { margin: 0; color: #193e62; font-size: 15px; line-height: 1.65; white-space: pre-wrap; }
+.practice-guidance { margin: 0; color: #5b7490; font-size: 11px; line-height: 1.55; white-space: pre-wrap; }
+.practice-links { display: flex; flex-wrap: wrap; gap: 5px; }
+.practice-links .bevel-button { font-size: 9px; }
+.practice-answer-input { min-height: 140px; margin-top: 5px; }
+.practice-attempts { display: grid; gap: 7px; }
+.practice-attempt { border: 1px solid #c3d3e1; padding: 9px; background: #f7fbfe; }
+.practice-attempt strong { color: #24547e; font-size: 10px; }
+.practice-attempt p { margin: 6px 0 0; white-space: pre-wrap; }
+.practice-answer { font: 12px/1.65 ui-monospace, SFMono-Regular, Consolas, monospace; white-space: pre-wrap; overflow-wrap: anywhere; }
+.practice-review-point { color: #385d7d; font-size: 11px; }
+.practice-reference { border: 1px solid #d2bb82; padding: 10px; background: #fffbed; }
+.practice-reference p { margin: 0 0 7px; }
+.practice-reference p:last-child { margin-bottom: 0; }
 .button-row { display: flex; flex-wrap: wrap; gap: 6px; }
 .install-guide { display: grid; grid-template-columns: 60px minmax(0, 1fr); gap: 12px; padding: 16px 13px; }
 .install-guide img { width: 58px; height: 58px; border: 1px solid #b3c6d8; }
@@ -239,7 +270,9 @@ textarea.text-input { resize: vertical; }
 @media (max-width: 560px) {
   #calendarButton { display: none; }
   .app-shell { padding-right: 5px; padding-left: 5px; }
-  .app-header { min-height: 57px; padding: 7px 9px; }
+  .app-header { display: grid; grid-template-columns: minmax(0, 1fr); gap: 6px; min-height: 0; padding: 7px 9px; }
+  .header-actions { width: 100%; }
+  .header-actions .header-button { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
   .app-header h1 { font-size: 18px; }
   .app-header h1 small { font-size: 8px; }
   .header-button { padding: 6px 7px; }
@@ -247,8 +280,8 @@ textarea.text-input { resize: vertical; }
   .day-strip { gap: 2px; padding-right: 5px; padding-left: 5px; }
   .day-chip { min-height: 37px; }
   .toolbar { min-height: 42px; padding-right: 4px; padding-left: 4px; }
-  .segmented { flex: 1; }
-  .segment { min-width: 0; flex: 1; padding: 4px 2px; font-size: 10px; }
+  .segmented { flex: 1; min-width: 0; }
+  .segment { min-width: 0; flex: 1; overflow: hidden; padding: 4px 2px; font-size: 10px; text-overflow: ellipsis; }
   .segment b { margin-right: 2px; font-size: 8px; }
   .toolbar-button { margin-left: 1px; padding: 4px 5px; font-size: 9px; }
   .reader { padding-right: 7px; padding-left: 7px; }
@@ -272,7 +305,7 @@ textarea.text-input { resize: vertical; }
   .word-heading h1 { font-size: 17px; }
 }
 @media (max-height: 720px) {
-  .app-header { min-height: 49px; padding-top: 5px; padding-bottom: 5px; }
+  .app-header { padding-top: 5px; padding-bottom: 5px; }
   .chapter-nav-row { min-height: 39px; }
   .day-chip { min-height: 34px; }
   .toolbar { min-height: 39px; }

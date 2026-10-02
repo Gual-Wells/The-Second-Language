@@ -1,5 +1,6 @@
-import { parseParts, renderPart } from './render.js?v=10';
-import { validateAnnotatedContent } from './annotations.js?v=10';
+import { parseParts, renderPart } from './render.js?v=11';
+import { validateAnnotatedContent } from './annotations.js?v=11';
+import { createPracticeUI } from './practice.js?v=11';
 
 const $ = id => document.getElementById(id);
 const todayParts = Object.fromEntries(new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(new Date()).map(part => [part.type, part.value]));
@@ -436,6 +437,10 @@ function moveChapter(offset) {
   if (next) openChapter(next.id);
 }
 
+const practiceUI = createPracticeUI({ api, toast, showDialog,
+  getContext: () => ({ authenticated: state.authenticated, demo: state.demo, chapters: state.chapters, current: state.current }),
+  openSource: async (chapterId, useId) => { await openChapter(chapterId); if (useId) jumpTo('one', useId); } });
+
 const fromBase64url = value => Uint8Array.from(atob(value.replace(/-/g, '+').replace(/_/g, '/').padEnd(Math.ceil(value.length / 4) * 4, '=')), char => char.charCodeAt(0));
 const toBase64url = value => btoa(String.fromCharCode(...new Uint8Array(value))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
 
@@ -578,6 +583,7 @@ $('calendarButton').addEventListener('click', () => { state.month = (state.curre
 $('chapterJump').addEventListener('click', () => { state.month = (state.current?.date || TODAY).slice(0, 7); renderCalendar(); showDialog('calendarDialog'); });
 $('settingsButton').addEventListener('click', () => { refreshInstallStatus(); refreshPushStatus(); refreshSettings(); showDialog('settingsDialog'); });
 $('temporaryButton').addEventListener('click', async () => { await refreshTemporary(); renderTemporaryList(); showDialog('temporaryDialog'); });
+$('practiceButton').addEventListener('click', () => practiceUI.open());
 $('backToCourse').addEventListener('click', () => {
   const id = state.lastDailyId || sortedChapters().at(-1)?.id;
   if (id) openChapter(id);
@@ -701,6 +707,6 @@ $('chapterNav').addEventListener('touchend', event => {
   if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.5) moveChapter(dx < 0 ? 1 : -1);
   swipeStart = null;
 }, { passive: true });
-if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=10', { updateViaCache: 'none' }).catch(() => {});
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=11', { updateViaCache: 'none' }).catch(() => {});
 refreshInstallStatus();
 initialize();

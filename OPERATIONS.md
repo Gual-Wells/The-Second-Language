@@ -42,6 +42,21 @@ node scripts/delete-temporary.mjs 临时页ID
 
 现有站点位于 `https://the-second-language.pages.dev/`。Worker 名为 `the-second-language-api`，Pages 项目名为 `the-second-language`。D1 数据库 `the-second-language` 存章节发布索引、阅读状态和认证资料；KV 命名空间 `the-second-language-chapters` 按摘要存正文。账号 R2 尚未启用，因此项目不依赖 R2。资源 ID、公钥和域名已写入 `worker/wrangler.jsonc`；密钥保存在 Cloudflare secrets 和本机忽略的 `.cache/deployment-secrets.json`，切勿提交。
 
+表达练习使用单独 D1 `the-second-language-practice`，数据库绑定 `PRACTICE_DB`，迁移目录为 `worker/practice_migrations/`。在 `worker/` 运行 `wrangler d1 migrations apply PRACTICE_DB --remote`。表达练习的文字作答不进入原有 `DB` 或 Git；PWA 录音提交未启用，不能用 D1 BLOB 顶替对象存储。可选 `PRACTICE_READ_TOKEN` 是未来 Chat/MCP 只读接入的独立 Worker secret；不得向 Chat 提供 `PUBLISH_TOKEN`。本机 `scripts/practice-job.mjs` 的建设与批改命令仍使用发布令牌。
+
+表达练习监测脚本 `scripts/run-practice.ps1` 先通过 `node scripts/practice-job.mjs next` 轻量检查申请与答卷队列；空队列不启动模型，有工作才使用 `gpt-6-sol`、`high` 继续 `work/expression/` 的中间文档。该脚本与每日 03:00 日课独立，部署与本地凭据确定后可另设周期性 Windows 任务；若在另一 worktree 运行，先设置 `SECOND_LANGUAGE_CREDENTIAL_FILE` 为当前机器上忽略的正式凭据文件。手动命令：
+
+```sh
+node scripts/practice-job.mjs next
+node scripts/practice-job.mjs claim <请求ID>
+node scripts/practice-job.mjs source <章节ID> <固定摘要>
+node scripts/practice-job.mjs publish <请求ID> work/expression/<请求ID>/set.json
+node scripts/practice-job.mjs review-claim
+node scripts/practice-job.mjs review-complete <答卷ID> work/expression/reviews/<答卷ID>/review.json
+```
+
+发布前 Worker 的 `PRACTICE_DB` 迁移必须完成；随后先发布 Worker，再发布 Pages 的新外壳。用户申请只写练习库，不改日课、临时页或 VIX。实际题目经原创研究建设后才发布，不能把演示题混入正式练习册。
+
 1. 在 Worker 配置目录运行 D1 migration：`wrangler d1 migrations apply DB --remote`。
 2. 将 `PUBLISH_TOKEN`、`ENROLLMENT_KEY`、`VAPID_PRIVATE_KEY`、`VAPID_SUBJECT` 设为 Worker secrets；将 VAPID 公钥配置为 `VAPID_PUBLIC_KEY`。发布 token 只给 Codex 的发布环境，不交给浏览器。推送不用时可暂不配置 VAPID。
    可在 `worker/` 本机运行 `node --input-type=module -e "import { generateVapidKeys } from '@mmmike/web-push'; console.log(await generateVapidKeys())"` 生成公私钥；私钥不要提交到 Git。

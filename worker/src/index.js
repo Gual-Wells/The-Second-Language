@@ -1,6 +1,7 @@
 import { rawPayload, sendPushNotification } from '@mmmike/web-push/send';
 import { authRoute, sessionFor } from './auth.js';
 import { validateAnnotatedContent } from '../../web/annotations.js';
+import { practiceRoute } from './practice.js';
 
 const encoder = new TextEncoder();
 const MAX_BODY = 5_000_000;
@@ -58,6 +59,7 @@ async function route(request, env) {
   const url = new URL(request.url), path = url.pathname;
   if (path === '/health') return json({ ok: true });
   if (path.startsWith('/auth/')) return authRoute(request, env, request.method === 'POST' ? await inputJson(request) : {});
+  if (path === '/api/practice' || path.startsWith('/api/practice/')) return practiceRoute(request, env, publisher);
 
   if (path === '/api/session' && request.method === 'GET') return json({ authenticated: Boolean(await sessionFor(request, env)), demo: false });
 
