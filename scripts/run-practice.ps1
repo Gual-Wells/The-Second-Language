@@ -1,3 +1,4 @@
+﻿# Keep UTF-8 BOM for Windows PowerShell 5.1 scheduled tasks.
 param([string]$CredentialFile)
 $ErrorActionPreference = 'Stop'
 $utf8 = New-Object System.Text.UTF8Encoding($false)
