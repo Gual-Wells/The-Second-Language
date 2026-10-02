@@ -15,6 +15,12 @@
       "binding": "DB",
       "database_name": "the-second-language",
       "database_id": "e9d0f4ee-a720-4fa9-8c45-3f1974243092"
+    },
+    {
+      "binding": "PRACTICE_DB",
+      "database_name": "the-second-language-practice",
+      "database_id": "bf3d8fed-55cf-49fc-8c12-4fa62462c034",
+      "migrations_dir": "practice_migrations"
     }
   ],
   "kv_namespaces": [
