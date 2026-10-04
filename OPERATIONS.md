@@ -91,4 +91,4 @@ node scripts/practice-job.mjs review-complete <答卷ID> work/expression/reviews
 本仓库不保存实际 secrets，也不把两词演示章节当作正式课程。需要重新部署到另一账号时，应重建资源并更换配置中的资源 ID 与域名。
 
 
-第四部分 v2：先应用 practice_migrations/0003_profiles_reading.sql 与 0004_speaking_live.sql，再发布 Worker 和 PWA v13。微缩规格与难度见 PRACTICE_SIZES.md；阅读见 READING.md；原声操作见 SPEAKING_RUNTIME.md 和 scripts/speaking-practice.mjs。正式 Worker 已绑定 AI、私有媒体 KV、OpenRouter secret；分钟任务采集原声，Codex 本机转换和分析，日课仍独立北京时间 03:00。日课系统朗读由设备 Web Speech 提供，设置中可选英语声音/语速，第三部分可切点词/点句。长期预生成日课音频仍是可选扩展，不增加每日生产负担。
+第四部分 v2：先应用 practice_migrations/0003_profiles_reading.sql 与 0004_speaking_live.sql，再发布 Worker 和 PWA v13。微缩规格与难度见 PRACTICE_SIZES.md；阅读见 READING.md；原声操作见 SPEAKING_RUNTIME.md 和 scripts/speaking-practice.mjs。正式 Worker 已绑定 AI、私有媒体 KV、OpenRouter secret；分钟任务采集原声，Codex 本机转换和分析，日课仍独立北京时间 03:00。PWA v14 的日课点读固定 Kokoro Bella，由 Cloudflare 按需生成并复用短音频；第三部分仍可切点词/点句。短 TTS 缓存使用 0005 迁移的 pronunciation_audio D1 BLOB，不写 KV；个人原声和长练习音频仍走私有媒体存储。听力通过 practice-audio.mjs cast 冻结授权音色池的人物绑定，后台校验同人同声；口语考官固定 Bella。长期预生成日课音频仍是可选扩展，不增加每日生产负担。

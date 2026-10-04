@@ -1,7 +1,7 @@
-import {installNativeSpeech} from './native-speech.js?v=13';
-import { parseParts, renderPart } from './render.js?v=13';
-import { validateAnnotatedContent } from './annotations.js?v=13';
-import { createPracticeUI } from './practice.js?v=13';
+import {installReaderSpeech} from './reader-speech.js?v=14';
+import { parseParts, renderPart } from './render.js?v=14';
+import { validateAnnotatedContent } from './annotations.js?v=14';
+import { createPracticeUI } from './practice.js?v=14';
 
 const $ = id => document.getElementById(id);
 const todayParts = Object.fromEntries(new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(new Date()).map(part => [part.type, part.value]));
@@ -29,7 +29,7 @@ function toast(message) {
   toast.timer = setTimeout(() => element.classList.remove('visible'), 3300);
 }
 
-const nativeSpeech=installNativeSpeech({toast});
+const nativeSpeech=installReaderSpeech({toast});
 
 function clearBadge() { if ('clearAppBadge' in navigator) { try { Promise.resolve(navigator.clearAppBadge()).catch(() => {}); } catch {} } }
 
@@ -681,7 +681,7 @@ $('disablePushButton').addEventListener('click', async () => {
   } catch (error) { $('pushStatus').textContent = error.message; }
 });
 $('logoutButton').addEventListener('click', async () => {
-  nativeSpeech.stop();
+  nativeSpeech.clear();
   try {
     await api('/auth/logout', { method: 'POST', headers: { 'content-type': 'application/json' }, body: '{}' });
     navigator.serviceWorker?.controller?.postMessage({ type: 'CLEAR_CHAPTER_CACHE' });
@@ -715,6 +715,6 @@ $('chapterNav').addEventListener('touchend', event => {
   if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.5) moveChapter(dx < 0 ? 1 : -1);
   swipeStart = null;
 }, { passive: true });
-if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=13', { updateViaCache: 'none' }).catch(() => {});
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=14', { updateViaCache: 'none' }).catch(() => {});
 refreshInstallStatus();
 initialize();

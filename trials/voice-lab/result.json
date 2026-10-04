@@ -1,0 +1,158 @@
+{
+  "trialId": "voice-lab-20261004",
+  "date": "2026-10-04T08:31:31.426Z",
+  "model": "hexgrad/kokoro-82m",
+  "scope": "all American English presets; other models and British voices excluded",
+  "voiceCount": 20,
+  "female": 11,
+  "male": 9,
+  "clips": 220,
+  "independentWords": 60,
+  "sentences": 40,
+  "dialogueTurns": 120,
+  "pagesProject": "the-second-language-kokoro-lab",
+  "worker": "tsl-kokoro-voice-lab",
+  "production": false,
+  "productionDataTouched": false,
+  "openRouterInferenceLocation": "Cloudflare Worker",
+  "generationCalls": 220,
+  "sourceTextCharacters": 9823,
+  "normalizedClips": 220,
+  "normalizationMethod": "two-pass loudnorm; original timing and content retained",
+  "postEncodingLoudnessSample": {
+    "count": 21,
+    "lufsRange": [
+      -21.76,
+      -20.41
+    ],
+    "highestTruePeakDb": -2.42
+  },
+  "ui": {
+    "phoneViewport": [
+      393,
+      852
+    ],
+    "voiceOptions": 20,
+    "femaleOptions": 11,
+    "maleOptions": 9,
+    "voiceRatingsRetained": true,
+    "dialoguePairRatingsRetained": true,
+    "feedbackSubmitted": true,
+    "overflow": false,
+    "pageErrors": []
+  },
+  "playback": {
+    "assetsReady": 220,
+    "allScenePairsReady": 297,
+    "anonymousAudio": 401,
+    "range": 206,
+    "closedGeneration": 409,
+    "wordPlayback": true,
+    "sentencePlayback": true,
+    "selectorStopsPlayback": true,
+    "threeScenesPlayed": true,
+    "listenedClips": 14,
+    "feedbackSubmitted": true,
+    "narrowOverflow": false,
+    "pageErrors": [],
+    "realIPhoneListening": "awaiting user"
+  },
+  "humanQuality": "awaiting user feedback; no automatic pronunciation certification",
+  "generationClosed": true,
+  "incident": {
+    "date": "2026-10-04",
+    "operation": "KV put",
+    "accountDailyLimit": 1000,
+    "resetBeijing": "2026-10-05 08:00",
+    "cause": "shared account quota exceeded by per-clip process storage; namespace did not isolate quota",
+    "repair": {
+      "audio": "authorized Pages static assets",
+      "manifest": "fixed plan without KV",
+      "feedback": "independent D1",
+      "localExport": true,
+      "localStorageKeyUnchanged": true
+    },
+    "verified": {
+      "restoredFeedback": 17,
+      "notesAndScoresPreserved": true,
+      "staticAudioPlayback": true,
+      "anonymousAudioStatus": 401,
+      "directStaticAudioStatus": 404,
+      "rangeStatus": 206,
+      "d1FeedbackWrite": true,
+      "idempotentSave": true,
+      "exportedFeedback": 17,
+      "narrowOverflow": false,
+      "pageErrors": []
+    },
+    "screenshotFeedback": {
+      "words": 16,
+      "sentences": 1,
+      "numericMissing": "left null",
+      "sourceKeptPrivate": true,
+      "storedSeparateFromBrowserFeedback": true
+    },
+    "newPaidModelCalls": 0,
+    "subscriptionUpgraded": false
+  },
+  "maleTuning": {
+    "date": "2026-10-04T13:01:01.326Z",
+    "voices": [
+      "am_fenrir",
+      "am_michael",
+      "am_liam"
+    ],
+    "profiles": [
+      "original",
+      "clear",
+      "pace",
+      "light",
+      "clean"
+    ],
+    "clips": 75,
+    "newProcessedClips": 60,
+    "apiCalls": 0,
+    "kvWrites": 0,
+    "productionDataTouched": false,
+    "maxMatchedLufsDifference": 0.33,
+    "highestTruePeakDb": -1.2,
+    "pagesDeployment": "0ff7de88",
+    "workerVersion": "6391313e-8f66-4e68-a99f-865d0c4d011c",
+    "verified": {
+      "originalPageAndFeedbackRetained": true,
+      "phoneWidths": [
+        320,
+        393
+      ],
+      "audioPlayback": true,
+      "localRatingPersistence": true,
+      "anonymousAudioStatus": 401,
+      "privateAssetStatus": 404,
+      "rangeStatus": 206
+    },
+    "humanQuality": "all processing versions rejected by owner; do not fetch further feedback"
+  },
+  "ownerVoiceDecision": {
+    "date": "2026-10-04",
+    "nonListening": "af_bella",
+    "listeningMale": [
+      "am_eric",
+      "am_michael",
+      "am_liam",
+      "am_puck",
+      "am_fenrir"
+    ],
+    "listeningFemale": [
+      "af_alloy",
+      "af_aoede",
+      "af_bella",
+      "af_heart",
+      "af_jessica",
+      "af_kore",
+      "af_nova",
+      "af_sarah",
+      "af_sky"
+    ],
+    "maleProcessingAdopted": false
+  }
+}

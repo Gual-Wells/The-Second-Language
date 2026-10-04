@@ -1,6 +1,6 @@
-const SHELL = 'second-language-shell-v13';
+const SHELL = 'second-language-shell-v14';
 const CHAPTERS = 'second-language-chapters-v1';
-const CORE = ['/', '/index.html', '/app.js?v=13', '/practice.js?v=13', '/listening.js?v=13', '/reading.js?v=13', '/objective.js?v=13', '/exam-spec.js?v=13', '/recorder.js?v=13', '/native-speech.js?v=13', '/render.js?v=13', '/annotations.js?v=13', '/styles.css?v=13', '/manifest.webmanifest?v=13', '/icon.svg?v=13', '/icon-192.png?v=13', '/icon-512.png?v=13', '/apple-touch-icon.png?v=13'];
+const CORE = ['/', '/index.html', '/app.js?v=14', '/practice.js?v=14', '/listening.js?v=14', '/reading.js?v=14', '/objective.js?v=14', '/exam-spec.js?v=14', '/recorder.js?v=14', '/reader-speech.js?v=14', '/render.js?v=14', '/annotations.js?v=14', '/styles.css?v=14', '/manifest.webmanifest?v=14', '/icon.svg?v=14', '/icon-192.png?v=14', '/icon-512.png?v=14', '/apple-touch-icon.png?v=14'];
 self.addEventListener('install', event => { event.waitUntil(caches.open(SHELL).then(cache => cache.addAll(CORE)).then(() => self.skipWaiting())); });
 self.addEventListener('activate', event => { event.waitUntil(Promise.all([self.clients.claim(), caches.keys().then(keys => Promise.all(keys.filter(key => ![SHELL, CHAPTERS].includes(key)).map(key => caches.delete(key))))])); });
 self.addEventListener('message', event => { if (event.data?.type === 'CLEAR_CHAPTER_CACHE') event.waitUntil(caches.delete(CHAPTERS)); });
@@ -23,7 +23,7 @@ self.addEventListener('push', event => {
   let message = {}; try { message = event.data?.json() || {}; } catch {}
   const target = message.temporaryId ? `/?temporary=${encodeURIComponent(message.temporaryId)}` : message.chapterId ? `/?chapter=${encodeURIComponent(message.chapterId)}` : '/';
   event.waitUntil((async () => {
-    await self.registration.showNotification(message.title || '第二语言 · 今日课程', { body: message.body || '新的章节已经可以阅读。', icon: '/icon-192.png?v=13', badge: '/icon-192.png?v=13', data: { target } });
+    await self.registration.showNotification(message.title || '第二语言 · 今日课程', { body: message.body || '新的章节已经可以阅读。', icon: '/icon-192.png?v=14', badge: '/icon-192.png?v=14', data: { target } });
     if ('setAppBadge' in self.navigator) { try { await self.navigator.setAppBadge(1); } catch {} }
   })());
 });

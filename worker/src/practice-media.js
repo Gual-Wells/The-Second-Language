@@ -1,4 +1,5 @@
 import {checkOpenRouterFunds,nextBeijingDay} from '../../scripts/lib/speaking/funding.mjs';
+import {ttsModel,synthesisVoice,voicePolicyVersion} from '../../protocol/voices.mjs';
 export const sha256=async value=>[...new Uint8Array(await crypto.subtle.digest('SHA-256',typeof value==='string'?new TextEncoder().encode(value):value))].map(x=>x.toString(16).padStart(2,'0')).join('');
 const idOK=x=>typeof x==='string'&&/^[A-Za-z0-9._:-]{1,110}$/.test(x);
 const json=(v,s=200)=>Response.json(v,{status:s,headers:{'cache-control':'no-store'}});
@@ -33,10 +34,15 @@ export async function mediaRoute(request,env,{isPublisher,isReader,session}){
  if(!env.PRACTICE_MEDIA&&!env.PRACTICE_R2)return json({error:'私有音频存储未配置'},503);
  if(path.endsWith('/synthesize')&&request.method==='POST'){
   const b=await request.json();if(!idOK(b.id)||!idOK(b.setId)||typeof b.text!=='string'||!b.text.trim()||b.text.length>8000)return json({error:'声音片段需有固定编号、练习册及 1–8000 字符文本'},400);
-  const model=b.purpose==='speaking'?'@cf/deepgram/aura-2-en':'microsoft/mai-voice-2.1';
-  const voice=b.purpose==='speaking'?'apollo':(b.voice||'en-GB-Harry:MAI-Voice-2.1');
-  if(model.startsWith('microsoft/')&&!['en-GB-Harry:MAI-Voice-2.1','en-GB-Emily:MAI-Voice-2.1','en-AU-Isla:MAI-Voice-2.1','en-US-Harper:MAI-Voice-2.1'].includes(voice))return json({error:'请选择已列入待验收范围的音色'},400);
-  const descriptor={model,voice,text:b.text,purpose:b.purpose||'listening',format:'mp3'},digest=await sha256(JSON.stringify(descriptor));
+  const model=ttsModel,purpose=b.purpose||'speaking';let voice;
+  try{voice=synthesisVoice(purpose,b.voice);}catch(e){return json({error:e.message},400);}
+  if(purpose==='listening'){
+   if(!idOK(b.speakerId)||!['female','male'].includes(b.gender)||voice[1]!==b.gender[0])return json({error:'听力片段须带稳定人物编号及正确性别'},400);
+   await db.prepare('INSERT OR IGNORE INTO practice_voice_roles(set_id,speaker_id,gender,voice,policy_version) VALUES(?,?,?,?,?)').bind(b.setId,b.speakerId,b.gender,voice,voicePolicyVersion).run();
+   const fixed=await db.prepare('SELECT * FROM practice_voice_roles WHERE set_id=? AND speaker_id=?').bind(b.setId,b.speakerId).first();
+   if(fixed.voice!==voice||fixed.gender!==b.gender)return json({error:'同一人物的声音已固定，请继续使用原音色'},409);
+  }
+  const descriptor={model,voice,text:b.text,purpose,format:'mp3',voicePolicyVersion,...(purpose==='listening'?{speakerId:b.speakerId,gender:b.gender}:{})},digest=await sha256(JSON.stringify(descriptor));
   const old=await db.prepare('SELECT * FROM practice_media WHERE id=?').bind(b.id).first();
   if(old&&(old.digest!==digest||old.set_id!==b.setId))return json({error:'该编号已对应不同声音内容'},409);
   if(old&&!['waiting_credit'].includes(old.state))return json({id:old.id,state:old.state,reused:true,response:old.response_json?JSON.parse(old.response_json):null});

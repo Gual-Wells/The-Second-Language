@@ -8,14 +8,14 @@
 
 先用官方形式提出场景和候选，建设连贯材料与题组，逐题留下唯一答案、允许写法、发言证据、自然转述、干扰项不成立理由及顺序关系。先反向寻找其他成立答案，再冻结材料与题面。资料不足时修改题目，不补造答案证据，不用专业背景或机械堆高级词提高难度。中间文档自由保存在 `work/expression/<request-id>/listening/`，注意力集中于内容建设和下一步，而非维护长聊天上下文。
 
-主声音为本人短试听通过的 Microsoft MAI-Voice-2.1 / Harry；其他人物选支持列表内可辨认的音色，完整对话需核对后使用，不把目录存在视为音色已验收。Aura-2 Apollo 优先用于口语考官问句，不静默替代听力声音。
+声音采用 VOICE_ROUTING.md 的 Kokoro 授权九女声/五男声池。先定稿人物与性别，再全卷一次均衡随机分配；同一人固定音色，同场不同人可辨认。按台词量改善整体声音分布，不为了凑平均或男女轮换破坏雅思情境。口语考官等非听力场景固定 Bella；不采用已否决的调音处理。
 
 按自然段或连续发言建立片段身份，通过 Cloudflare 合成；同一人物声音固定。数字、字母、否定、单复数及所有答案邻近区域是关键核对点。片段不是最终播放材料；加入读题、段间及检查时间后组装四段最终 MP3，全文不再逐句额外插入停顿。总长度按正常速度及真实读题时间full 接近官方完整约三十分钟，mini 约十八分钟，不靠异常语速凑时长。末段结束后读者有检查答案时间；当前个人训练允许主动提交，不伪称监考软件。
 
 ## 可运行命令与数据
 
 1. `node scripts/practice-job.mjs claim <request-id>` 领取；读取 claim.json 中 skills、固定来源，继续已有材料。
-2. 写 `audio-plan.json`：`setId`、`segments`（id、text、purpose=listening、voice）；`assemblies`（最终 id、initialSilenceSeconds、segments）。组装条目包含片段 id、scriptId、speaker、translation、gapAfterSeconds；编号不得复用到不同内容。
+2. 写 `audio-plan.json`：`setId`、`segments`（id、text、purpose=listening、speakerId、gender=female|male，sceneId 或所属 assembly）；`assemblies`（最终 id、initialSilenceSeconds、segments）。组装条目包含片段 id、scriptId、speaker、translation、gapAfterSeconds；编号不得复用到不同内容。先执行 `node scripts/practice-audio.mjs cast audio-plan.json`，确认写回的 voiceAllocation 与各片段 voice；所有同人台词共用绑定，续作不重随机。
 3. `node scripts/practice-audio.mjs synthesize audio-plan.json`。本机只发控制和回收文件，OpenRouter / Workers AI 调用均在 Cloudflare。返回不为 ready 时停止；不要换 ID 自动重付未知结果。
 4. `node scripts/practice-audio.mjs assemble audio-plan.json`。已有 ffmpeg 解码到 24 kHz 单声道 PCM，按实际样本数建立发言区间，添加停顿后编码 MP3，上传最终资产。产物和 cues 位于忽略的 `.cache/practice-audio/`。
 5. `node scripts/practice-audio.mjs verify audio-plan.json`。Cloudflare Whisper 全量转写最终文件，保留原始结果。本地读取核对答案区域、全文忠实度和切点；转写与题文一致不等同所有发音/长文自然度通过。必要时用户试听或已有声音模型辅助核对。

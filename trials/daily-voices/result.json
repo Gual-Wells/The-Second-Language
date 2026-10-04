@@ -1,0 +1,19 @@
+{
+  "trialId": "daily-voices-20261004",
+  "production": false,
+  "publicOrigin": "https://the-second-language-daily-voices.pages.dev",
+  "voicesReady": ["kokoro", "fish", "orpheus", "flash", "mai", "aura"],
+  "sampleWords": 13,
+  "allAudioDecoded": true,
+  "asrFidelity": {
+    "exactText": ["kokoro", "fish", "flash", "mai", "aura"],
+    "uncertain": {"orpheus": "ASR returned smaller sets instead of smaller steps. This alone does not establish a synthesis error; human listening is pending."}
+  },
+  "mobileViewport": {"width": 393, "height": 852, "horizontalOverflow": false, "javascriptErrors": 0},
+  "feedbackRoundTrip": "verified with a synthetic session, removed afterward",
+  "audioRangeStatus": 206,
+  "anonymousApiStatus": 401,
+  "monthlyBudget": {"cnyPerUsd": 7, "onDemandFreshCharacters": 100000, "fullFreshCharacters": [600000, 1200000], "actualUsageMeasured": false},
+  "generation": "disabled after preparation; OpenRouter secret removed from this isolated Worker",
+  "humanVoiceJudgment": "awaiting user ratings"
+}

@@ -31,3 +31,5 @@ Windows 定时入口 `scripts/run-daily.ps1` 在启动 Codex 前确定性地完�
 按 `QUALITY_WORKFLOW.md` 分别完成教材内容去向与第三部分真实用法、作品质量的语义审阅，再生成 `chapters/<date>/chapter.md`。使用 `scripts/pack-chapter.mjs` 检查编码配对并生成阅读器所需章节对象；结构通过不能代替语义审阅。把章节通过发布命令暂存并提交为该日期的当前版本；回读后确认 PWA 可按日期打开。推送只能在章节可读后发送。
 
 如果定时任务接近结束，更新 `work/runs/<date>/resume.md`，具体写清已完成内容、下一步与未解决处。不要仅因为运行窗口结束而宣称章节完成。
+
+Cloudflare 资源不足的续作与测试隔离遵循 `CLOUDFLARE_RESOURCES.md`。KV 发布失败时保留同日期的完整产物与待发布步骤，不重新推荐、重新标记 VIX 或宣称已推送；2026-10-04 本次账户写入限额的已知恢复时间是 2026-10-05 北京时间 08:00。

@@ -3,6 +3,7 @@ import { sessionFor } from './auth.js';
 import {mediaRoute} from './practice-media.js';
 import {validateListening,listeningView,listeningRoute} from './listening.js';
 import {validateReading,readingView,readingRoute} from './reading.js';
+import {pronunciationRoute} from './pronunciation.js';
 
 const json = (value, status = 200) => new Response(JSON.stringify(value), { status, headers: { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store' } });
 const safeId = value => typeof value === 'string' && /^[A-Za-z0-9._:-]{1,110}$/.test(value);
@@ -33,6 +34,7 @@ export async function practiceRoute(request, env, publisher) {
   if (!session && !isPublisher && !isReader) return json({ error: '请先登录' }, 401);
   const sameOrigin = request.headers.get('origin') === env.APP_ORIGIN;
   const context={isPublisher,isReader,session,sameOrigin};
+  const pronunciation=await pronunciationRoute(request,env,context);if(pronunciation)return pronunciation;
   const speaking=await speakingRoute(request,env,context);if(speaking)return speaking;
   const media=await mediaRoute(request,env,context);if(media)return media;
   const listening=await listeningRoute(request,env,context);if(listening)return listening;

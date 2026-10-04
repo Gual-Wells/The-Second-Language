@@ -1,6 +1,6 @@
-import {speakingRecorder} from './recorder.js?v=13';
-import {createReading} from './reading.js?v=13';
-import {createListening} from './listening.js?v=13';
+import {speakingRecorder} from './recorder.js?v=14';
+import {createReading} from './reading.js?v=14';
+import {createListening} from './listening.js?v=14';
 const $ = id => document.getElementById(id);
 const node = (tag, className, text) => {
   const element = document.createElement(tag);

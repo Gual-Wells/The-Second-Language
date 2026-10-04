@@ -8,10 +8,12 @@
 
 `chapters/demo/` 只供界面演示。任何正式每日章节都必须满足用户约定的 40 个推荐主词和完整三部分内容，不能把演示章节发布成正式课程。已有测试文档只能通过独立的临时页通路发布，不视为正式日课，不标记 VIX。
 
-`protocol/AUDIO_EXTENSION.md` 仅预留今后独立语音通路；现阶段不要求定时任务生成音频，也不把供应商选择或语音可用性作为文字日课的发布门槛。
+声音路由读 `protocol/VOICE_ROUTING.md` 和 `protocol/voices.mjs`：非听力固定 Kokoro Bella；听力采用用户授权九女声/五男声池，按完整人物台词量均衡随机，同一人物固定音色，不破坏雅思人物结构。点读由后台按需缓存，不批量写 KV。`protocol/AUDIO_EXTENSION.md` 仍预留独立整章语音，不要求日课定时任务生成音频，也不把声音可用性作为文字日课发布门槛。男声调音实验全部不合格，不继续采用其处理版本。
 
 按申请建设雅思听力、阅读、写作、口语练习时，阅读 `protocol/EXPRESSION.md`，题量与难度阅读 `protocol/PRACTICE_SIZES.md`，听力阅读 `protocol/LISTENING.md`、阅读科目阅读 `protocol/READING.md`；雅思练习有独立来源快照、数据库和批改队列，不加入正式三部分日课、不占临时页，也不触碰 VIX。
 
 真实口语采集与教学接管阅读 `protocol/SPEAKING_PIPELINE.md` 和已上线通路 `protocol/SPEAKING_RUNTIME.md`。固定四路为 Whisper、Gemini Flash、Qwen、GPT Audio，全量原声后 Codex 接管；有增量证据的模型可加入固定主链，不必替代旧模型。要求在 `protocol/speaking/contract.mjs`，路线在 `protocol/speaking/routes.mjs`。OpenRouter 推理只走 Cloudflare；Qwen 可随分析需要多次补听，完整保存每次返回，同模型重复不计独立共识。OpenRouter 整体余额不足保存进度、北京次日核对充值后续作，其他项目任务继续。腾讯不足可用 Qwen 定性代偿，不补造测量。腾讯句子/单词专项使用本人原话；先核对预期音素/重音与实际材料，不用多数票取代听审。正式 PWA 已接原声录制/上传、私有存储、转换、固定多路采集和 Codex 反馈；代码可运行与真机体验/声音判断质量分别核对。
 
 改动 PWA 时先读 `web/DESIGN.md`。2008 风格覆盖信息结构、图标、各交互状态、iPhone 视口和部署缓存；前端只保留一套原生样式，不以附加 CSS 覆盖文件做主题替换。
+
+测试与 Cloudflare 额度处理读 `protocol/CLOUDFLARE_RESOURCES.md`：namespace 只隔离数据，不隔离账户免费配额；试听音频与过程记录优先本机保存，交互试听采用静态文件及独立 D1 反馈，不批量写 KV。已有评分保留本机草稿与导出通路。章节发布遇到额度不足时保留同日期产物续作，不重新选词或标记 VIX。

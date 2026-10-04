@@ -53,3 +53,5 @@ node scripts/serve.mjs
 
 
 正式规模与难度协议：`protocol/PRACTICE_SIZES.md`；阅读：`protocol/READING.md`；PWA 原声闭环：`protocol/SPEAKING_RUNTIME.md`。新申请 format=ielts-v2；0003/0004 迁移分别接入题量/阅读和原声采集数据库。个人原声和全部模型返回只在私有存储或忽略的本机工作目录保存，不提交公开仓库。
+
+声音选择见 `protocol/VOICE_ROUTING.md` 与可执行 `protocol/voices.mjs`：PWA v14 点读、口语考官及其他非听力朗读固定 Kokoro Bella；听力使用用户授权的九女声/五男声，完整脚本先按人物台词量均衡分配、同人固定、同场可辨认，不改变雅思角色。`practice-audio.mjs cast` 将绑定冻结到计划，后台验证续作同人同声。0005 迁移新增短 TTS 缓存与人物绑定；点读按纯英文摘要复用，不写 KV、不增加日课定时生成。男声调音试验已由用户全部否决，旧试听页保留。
