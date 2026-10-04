@@ -1,0 +1,123 @@
+{
+  "date": "2026-10-03",
+  "userReportedUiRegionRestrictionRemoved": true,
+  "apiRegionGateStillObserved": true,
+  "trials": [
+    {
+      "model": "google/gemini-2.5-flash-lite",
+      "httpStatus": 403,
+      "elapsedMs": 826,
+      "provider": null,
+      "contentReturned": false,
+      "costUsd": null,
+      "error": "This model is not available in your region.",
+      "failedRoutingStep": "Gate Endpoints with Geo Restrictions",
+      "responseBytes": null,
+      "nonJsonResponse": false,
+      "finishReason": null,
+      "comparison": null,
+      "audioAccessibleDeclared": null
+    },
+    {
+      "model": "google/gemini-3.8-flash",
+      "httpStatus": 403,
+      "elapsedMs": 1112,
+      "provider": null,
+      "contentReturned": false,
+      "costUsd": null,
+      "error": "This model is not available in your region.",
+      "failedRoutingStep": "Gate Endpoints with Geo Restrictions",
+      "responseBytes": null,
+      "nonJsonResponse": false,
+      "finishReason": null,
+      "comparison": null,
+      "audioAccessibleDeclared": null
+    },
+    {
+      "model": "openai/gpt-audio",
+      "httpStatus": 403,
+      "elapsedMs": 1173,
+      "provider": null,
+      "contentReturned": false,
+      "costUsd": null,
+      "error": "This model is not available in your region.",
+      "failedRoutingStep": "Gate Endpoints with Geo Restrictions",
+      "responseBytes": null,
+      "nonJsonResponse": false,
+      "finishReason": null,
+      "comparison": null,
+      "audioAccessibleDeclared": null
+    },
+    {
+      "model": "thinkingmachines/inkling-small",
+      "httpStatus": 200,
+      "elapsedMs": 18231,
+      "provider": null,
+      "contentReturned": false,
+      "costUsd": null,
+      "error": null,
+      "failedRoutingStep": null,
+      "responseBytes": 44,
+      "nonJsonResponse": true,
+      "finishReason": null,
+      "comparison": null,
+      "audioAccessibleDeclared": null
+    },
+    {
+      "model": "xiaomi/mimo-v2.6-flash",
+      "httpStatus": 200,
+      "elapsedMs": 49598,
+      "provider": "Xiaomi",
+      "contentReturned": true,
+      "costUsd": 0.00055426,
+      "error": null,
+      "failedRoutingStep": null,
+      "responseBytes": null,
+      "nonJsonResponse": false,
+      "finishReason": "stop",
+      "comparison": null,
+      "audioAccessibleDeclared": false
+    },
+    {
+      "model": "perceptron/perceptron-mk1.5",
+      "httpStatus": 200,
+      "elapsedMs": 12178,
+      "provider": "Perceptron",
+      "contentReturned": true,
+      "costUsd": 0.0008619,
+      "error": null,
+      "failedRoutingStep": null,
+      "responseBytes": null,
+      "nonJsonResponse": false,
+      "finishReason": "stop",
+      "comparison": {
+        "referenceWords": 149,
+        "recognizedWords": 156,
+        "wordEdits": 21,
+        "normalizedEditRate": 0.14093959731543623
+      },
+      "audioAccessibleDeclared": true
+    }
+  ],
+  "requests": 7,
+  "previousAttempts": [
+    {
+      "model": "xiaomi/mimo-v2.6-flash",
+      "httpStatus": 522,
+      "provider": "Darkbloom",
+      "error": "Provider returned error"
+    }
+  ],
+  "returnedUsageCostUsd": 0.00141616,
+  "planningExchangeRateCnyPerUsd": 7,
+  "returnedUsageCostPlanningCny": 0.009913120000000001,
+  "totalAccountCreditsUsd": 5,
+  "totalAccountUsageUsd": 0.00438333,
+  "regionRootCause": "Model routing reported Gate Endpoints with Geo Restrictions; exact account/location decision unknown",
+  "teachingConclusion": "Qwen remains most useful among returned full-recording transcripts in this sample; precise pronunciation diagnosis is unverified",
+  "productionWrites": false,
+  "vixMarks": false,
+  "formalAttemptCreated": false,
+  "rawAudioIncluded": false,
+  "credentialsIncluded": false
+}

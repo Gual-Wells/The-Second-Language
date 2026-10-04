@@ -1,3 +1,5 @@
+import {collectNext} from '../speaking/collector.mjs';
+import {speakingEnvironment} from './private-assets.js';
 import { rawPayload, sendPushNotification } from '@mmmike/web-push/send';
 import { authRoute, sessionFor } from './auth.js';
 import { validateAnnotatedContent } from '../../web/annotations.js';
@@ -374,5 +376,5 @@ export default {
     try { return await route(request, env); }
     catch (error) { console.error('Worker error', error); return json({ error: '服务暂不可用' }, 500); }
   },
-  async scheduled(_event, env, context) { context.waitUntil(Promise.all([sendDue(env), removeExpiredTemporary(env)])); }
+  async scheduled(_event, env, context) { context.waitUntil(Promise.all([sendDue(env), removeExpiredTemporary(env),collectNext(speakingEnvironment(env)).catch(error=>console.error('Speaking collection',String(error.message)))])); }
 };

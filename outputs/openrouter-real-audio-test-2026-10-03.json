@@ -1,0 +1,65 @@
+{
+  "date": "2026-10-03",
+  "provider": "openrouter",
+  "model": "qwen/qwen3.8-omni-flash",
+  "upstreamProvider": "Alibaba",
+  "requests": 2,
+  "balanceBeforeUsd": 5,
+  "accountCreditCheckStatus": 200,
+  "accountTotalCreditsUsd": 5,
+  "accountTotalUsageUsd": 0.00065565,
+  "balanceAfterUsd": 4.99934435,
+  "fullRecording": {
+    "seconds": 76.796,
+    "httpStatus": 200,
+    "elapsedMs": 26433,
+    "costUsd": 0.00065565,
+    "inputTokens": 752,
+    "outputTokens": 1155,
+    "reasoningTokens": 629,
+    "comparison": {
+      "referenceWords": 149,
+      "recognizedWords": 153,
+      "wordEdits": 4,
+      "normalizedEditRate": 0.026845637583892617,
+      "edits": [
+        {
+          "inserted": "diffi"
+        },
+        {
+          "inserted": "stay"
+        },
+        {
+          "inserted": "pract"
+        },
+        {
+          "inserted": "solu"
+        }
+      ]
+    },
+    "referenceTranscriptProvided": false
+  },
+  "soundControl": {
+    "httpStatus": 200,
+    "elapsedMs": 8872,
+    "costUsd": 0.0001907,
+    "expectedBeeps": 3,
+    "observedBeeps": 3,
+    "expectedCountProvidedToModel": false,
+    "evidence": "Response identified three high-pitched electronic beeps before the original speech clip.",
+    "transcriptVariationObserved": true,
+    "scope": "Supports processing of non-speech sounds; does not validate phoneme or prosody accuracy."
+  },
+  "totalCostUsd": 0.00084635,
+  "planningExchangeRateCnyPerUsd": 7,
+  "totalCostPlanningCny": 0.00592445,
+  "pronunciationDiagnosisVerified": false,
+  "rawAudibleAdviceTeachingReady": false,
+  "ieltsBand": null,
+  "productionWrites": false,
+  "vixMarks": false,
+  "formalAttemptCreated": false,
+  "pwaDeployment": false,
+  "rawAudioIncluded": false,
+  "credentialsIncluded": false
+}

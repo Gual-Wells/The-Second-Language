@@ -1,0 +1,7 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"><meta name="theme-color" content="#536e87"><meta name="referrer" content="no-referrer"><title>口语试听 · 第二语言</title><link rel="icon" href="/icon.svg"><link rel="stylesheet" href="/styles.css"></head>
+<body><header><div class="brand">第二语言 <span>试听室</span></div><h1>口语题目 · 声音比较</h1><p>同题试听三种声音，再留下你的判断。</p></header>
+<main><section class="sample-panel"><div class="section-title">选择一段题目</div><div id="samples" class="tabs"></div><p id="part" class="hint"></p><pre id="taskCard" hidden></pre><details id="questionText"><summary>查看朗读原文</summary><p id="transcript" lang="en"></p></details></section>
+<p class="intro">先用 A / B / C 比较，避免价格和品牌影响判断。1 分很差，3 分可接受，5 分很好。</p><div id="voices"></div>
+<section class="sample-panel preference"><div class="section-title">你更愿意长期听哪一种？</div><div id="preferred"></div><button id="reveal" class="bevel secondary">查看模型与音色</button><div id="identities" hidden></div></section>
+<div class="save-bar"><button id="save" class="bevel primary" disabled>保存评分</button><p id="status" role="status">正在准备试听…</p></div><p class="foot">评分会保存到独立试听后台，供后续比较。你可以分次保存，也可以修改后重新提交。</p></main><script type="module" src="/app.js"></script></body></html>

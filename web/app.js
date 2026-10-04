@@ -1,6 +1,7 @@
-import { parseParts, renderPart } from './render.js?v=11';
-import { validateAnnotatedContent } from './annotations.js?v=11';
-import { createPracticeUI } from './practice.js?v=11';
+import {installNativeSpeech} from './native-speech.js?v=13';
+import { parseParts, renderPart } from './render.js?v=13';
+import { validateAnnotatedContent } from './annotations.js?v=13';
+import { createPracticeUI } from './practice.js?v=13';
 
 const $ = id => document.getElementById(id);
 const todayParts = Object.fromEntries(new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(new Date()).map(part => [part.type, part.value]));
@@ -28,6 +29,8 @@ function toast(message) {
   toast.timer = setTimeout(() => element.classList.remove('visible'), 3300);
 }
 
+const nativeSpeech=installNativeSpeech({toast});
+
 function clearBadge() { if ('clearAppBadge' in navigator) { try { Promise.resolve(navigator.clearAppBadge()).catch(() => {}); } catch {} } }
 
 function setSyncStatus(message, offline = false) {
@@ -36,6 +39,7 @@ function setSyncStatus(message, offline = false) {
 }
 
 function showDialog(id) {
+  nativeSpeech.stop();
   const dialog = $(id);
   if (!dialog.open) dialog.showModal();
 }
@@ -280,6 +284,7 @@ function openSentenceReference(codes) {
 }
 
 function showPart(part, restore = false, rememberCurrent = true) {
+  nativeSpeech.stop();
   if (!state.current || !['one', 'two', 'three'].includes(part)) return;
   if (rememberCurrent) saveReadingPosition();
   state.part = part;
@@ -309,6 +314,7 @@ function showPart(part, restore = false, rememberCurrent = true) {
 }
 
 async function openChapter(id, resume = true) {
+  nativeSpeech.stop();
   const request = ++state.chapterRequest;
   saveReadingPosition();
   setSyncStatus(navigator.onLine ? '正在打开章节…' : '正在读取离线章节', !navigator.onLine);
@@ -395,6 +401,7 @@ async function refreshSettings() {
 }
 
 async function openTemporary(id, resume = true) {
+  nativeSpeech.stop();
   const request = ++state.chapterRequest;
   saveReadingPosition();
   setSyncStatus('正在打开临时页…');
@@ -674,6 +681,7 @@ $('disablePushButton').addEventListener('click', async () => {
   } catch (error) { $('pushStatus').textContent = error.message; }
 });
 $('logoutButton').addEventListener('click', async () => {
+  nativeSpeech.stop();
   try {
     await api('/auth/logout', { method: 'POST', headers: { 'content-type': 'application/json' }, body: '{}' });
     navigator.serviceWorker?.controller?.postMessage({ type: 'CLEAR_CHAPTER_CACHE' });
@@ -707,6 +715,6 @@ $('chapterNav').addEventListener('touchend', event => {
   if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.5) moveChapter(dx < 0 ? 1 : -1);
   swipeStart = null;
 }, { passive: true });
-if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=11', { updateViaCache: 'none' }).catch(() => {});
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=13', { updateViaCache: 'none' }).catch(() => {});
 refreshInstallStatus();
 initialize();

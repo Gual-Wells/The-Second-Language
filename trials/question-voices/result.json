@@ -1,0 +1,98 @@
+{
+  "trialId": "question-voices-20261004",
+  "date": "2026-10-04",
+  "inferenceLocation": "cloudflare",
+  "audio": [
+    {
+      "id": "a-personal",
+      "model": "microsoft/mai-voice-2.1",
+      "voice": "en-GB-Harry:MAI-Voice-2.1",
+      "seconds": 9.168,
+      "mp3DecodePassed": true,
+      "transcriptMatchesIgnoringPunctuationCase": true
+    },
+    {
+      "id": "a-long-turn",
+      "model": "microsoft/mai-voice-2.1",
+      "voice": "en-GB-Harry:MAI-Voice-2.1",
+      "seconds": 10.032,
+      "mp3DecodePassed": true,
+      "transcriptMatchesIgnoringPunctuationCase": true
+    },
+    {
+      "id": "a-discussion",
+      "model": "microsoft/mai-voice-2.1",
+      "voice": "en-GB-Harry:MAI-Voice-2.1",
+      "seconds": 15.096,
+      "mp3DecodePassed": true,
+      "transcriptMatchesIgnoringPunctuationCase": true
+    },
+    {
+      "id": "b-personal",
+      "model": "hexgrad/kokoro-82m",
+      "voice": "bm_george",
+      "seconds": 10.466,
+      "mp3DecodePassed": true,
+      "transcriptMatchesIgnoringPunctuationCase": true
+    },
+    {
+      "id": "b-long-turn",
+      "model": "hexgrad/kokoro-82m",
+      "voice": "bm_george",
+      "seconds": 12.218,
+      "mp3DecodePassed": true,
+      "transcriptMatchesIgnoringPunctuationCase": true
+    },
+    {
+      "id": "b-discussion",
+      "model": "hexgrad/kokoro-82m",
+      "voice": "bm_george",
+      "seconds": 13.922,
+      "mp3DecodePassed": true,
+      "transcriptMatchesIgnoringPunctuationCase": true
+    },
+    {
+      "id": "c-personal",
+      "model": "@cf/deepgram/aura-2-en",
+      "voice": "apollo",
+      "seconds": 9.384,
+      "mp3DecodePassed": true,
+      "transcriptMatchesIgnoringPunctuationCase": true
+    },
+    {
+      "id": "c-long-turn",
+      "model": "@cf/deepgram/aura-2-en",
+      "voice": "apollo",
+      "seconds": 11.424,
+      "mp3DecodePassed": true,
+      "transcriptMatchesIgnoringPunctuationCase": true
+    },
+    {
+      "id": "c-discussion",
+      "model": "@cf/deepgram/aura-2-en",
+      "voice": "apollo",
+      "seconds": 14.184,
+      "mp3DecodePassed": true,
+      "transcriptMatchesIgnoringPunctuationCase": true
+    }
+  ],
+  "browser": {
+    "viewport": "393 x 852",
+    "noHorizontalOverflow": true,
+    "playbackStarted": true,
+    "ratingsSaved": true,
+    "realIPhoneTested": false
+  },
+  "privateAccessVerified": true,
+  "rangeVerified": true,
+  "generationDisabled": true,
+  "automatedFeedbackRemoved": 2,
+  "google": {
+    "firstPassHttpStatus": 403,
+    "explicitRetryHttpStatus": 403,
+    "failedRoutingStep": "Gate Endpoints with Geo Restrictions"
+  },
+  "openrouterObservedBalanceChangeUsd": 0.00793244,
+  "billingNote": "Observed wallet difference; not itemized, excludes Cloudflare Workers AI. Generation billing lookup returned 404.",
+  "humanAudioQuality": "Awaiting listener feedback"
+}

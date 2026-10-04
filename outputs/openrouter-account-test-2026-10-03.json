@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-03",
+  "provider": "openrouter",
+  "keyValid": true,
+  "keySpendingLimitUsd": 100,
+  "keyLimitRemainingUsd": 100,
+  "keyUsageUsd": 0,
+  "accountTotalCreditsUsd": 0,
+  "accountTotalUsageUsd": 0,
+  "freeModelDailyRequestLimit": 50,
+  "freeTextTrial": {
+    "model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+    "httpStatus": 200,
+    "response": "OK",
+    "costUsd": 0
+  },
+  "audioTrial": {
+    "model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+    "recordingDurationSeconds": 76.796,
+    "httpStatus": 402,
+    "error": "This request requires at least $0.50 in balance for audio",
+    "transcriptReturned": false,
+    "teachingReady": false
+  },
+  "paidModelCalled": false,
+  "productionWrites": false,
+  "userAudioIncludedInArtifact": false,
+  "credentialsIncludedInArtifact": false
+}

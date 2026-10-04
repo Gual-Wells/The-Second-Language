@@ -1,0 +1,26 @@
+import assert from 'node:assert/strict';
+import {compensationPlan,routes} from '../protocol/speaking/routes.mjs';
+import {structureErrors} from './lib/speaking/collect.mjs';
+// Enable a synthetic backup only for routing fault injection, not as a quality approval.
+const registry=routes.map(r=>({...r,enabled:r.id==='or-gemini-flash'?true:r.enabled}));
+const success=id=>({routeId:id,metadata:{state:'complete',timingAvailable:id==='cf-whisper'},parsed:id==='cf-whisper'?{text:'actual speech'}:{audio_access:'processed'}});
+const failure=(id,status)=>({routeId:id,metadata:{state:'failed',httpStatus:status,error:{message:'test failure'}}});
+let plan=compensationPlan([success('cf-whisper'),failure('or-gemini',402),failure('or-qwen',402)],registry);
+assert.equal(plan.readyForCodex,false);assert.equal(plan.waitingForCredit,true);assert.equal(plan.interimMaterialAvailable,true);assert.equal(plan.qualityScope,'transcript-only');assert.deepEqual(plan.candidates,[]);
+assert.equal(plan.billingPools.find(p=>p.id==='openrouter').blocked,true);
+assert.equal(plan.billingPools.find(p=>p.id==='cloudflare-ai').blocked,false);
+assert.equal(plan.targetedFollowups[0].routeId,'tencent-sentence');
+plan=compensationPlan([success('cf-whisper'),failure('or-gemini',429),success('or-qwen')],registry);
+assert.deepEqual(plan.candidates,['or-gemini-flash']);assert.equal(plan.independentAudioSources,1);
+plan=compensationPlan([failure('cf-whisper',429),success('or-gemini'),success('or-qwen')],registry);
+assert.equal(plan.readyForCodex,true);assert.equal(plan.timingAvailable,false);assert.equal(plan.qualityScope,'multiple-audio-observers');
+plan=compensationPlan([success('or-gemini'),success('or-gemini'),success('or-gemini-flash')],registry);
+assert.equal(plan.independentAudioSources,2);assert.equal(plan.distinctAudioAuthors,1);
+plan=compensationPlan([failure('or-qwen',402),success('or-qwen')],registry);
+assert.equal(plan.waitingForCredit,false);assert.equal(plan.billingPools.find(p=>p.id==='openrouter').blocked,false);
+plan=compensationPlan([success('or-qwen'),{...success('or-qwen'),taskId:'detail-2'}],registry);
+assert.equal(plan.independentAudioSources,1);
+assert.ok(structureErrors({verbatim_transcript:'only text'}).length);
+plan=compensationPlan([{routeId:'or-gemini',metadata:{state:'needs_review',httpStatus:200,returnedTextLength:500}}],registry);
+assert.equal(plan.readyForCodex,true);assert.equal(plan.qualityScope,'return-needs-review');assert.equal(plan.independentAudioSources,0);
+console.log(JSON.stringify({routingChecksPassed:true,balanceFailureDoesNotRetrySameWallet:true,completedRoutesReused:true,timingLossExplicit:true,duplicateCallsNotExtraEvidence:true,providerCalled:false}));

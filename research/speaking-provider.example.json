@@ -1,0 +1,8 @@
+{
+  "provider": "tencent-soe-n",
+  "appId": "",
+  "secretId": "",
+  "secretKey": "",
+  "scoreCoeff": 4,
+  "ffmpegPath": ""
+}

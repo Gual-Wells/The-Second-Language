@@ -1,0 +1,247 @@
+{
+  "date": "2026-10-03",
+  "trigger": "Cloudflare Cron",
+  "workerPlacement": "Default scheduling; no explicit region hint",
+  "textState": "complete",
+  "audioState": "complete",
+  "audioError": null,
+  "textStartedAt": "2026-10-03T09:33:27.931Z",
+  "audioStartedAt": "2026-10-03T09:35:32.372Z",
+  "trials": [
+    {
+      "phase": "text",
+      "model": "google/gemini-3.8-flash",
+      "provider": "Google",
+      "workerHttpStatus": 200,
+      "upstreamStatus": 200,
+      "elapsedMs": 1125,
+      "outbound": {
+        "status": 200,
+        "colo": "EWR",
+        "loc": "US",
+        "warp": "off",
+        "gateway": "off"
+      },
+      "error": null,
+      "providerErrorCode": null,
+      "rawProviderError": null,
+      "failedRoutingStep": null,
+      "contentReturned": true,
+      "finishReason": "stop",
+      "usage": {
+        "prompt_tokens": 7,
+        "completion_tokens": 1,
+        "total_tokens": 8,
+        "cost": 0.000009,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.000009,
+          "upstream_inference_prompt_cost": 0.00000525,
+          "upstream_inference_completions_cost": 0.00000375
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "audioAccessible": null,
+      "comparison": null
+    },
+    {
+      "phase": "text",
+      "model": "openai/gpt-audio",
+      "provider": "OpenAI",
+      "workerHttpStatus": 200,
+      "upstreamStatus": 400,
+      "elapsedMs": 647,
+      "outbound": {
+        "status": 200,
+        "colo": "EWR",
+        "loc": "US",
+        "warp": "off",
+        "gateway": "off"
+      },
+      "error": "Provider returned error",
+      "providerErrorCode": "invalid_value",
+      "rawProviderError": "{\n  \"error\": {\n    \"message\": \"This model requires that either input content or output modality contain audio.\",\n    \"type\": \"invalid_request_error\",\n    \"param\": \"model\",\n    \"code\": \"invalid_value\"\n  }\n}",
+      "failedRoutingStep": null,
+      "contentReturned": false,
+      "finishReason": null,
+      "usage": null,
+      "audioAccessible": null,
+      "comparison": null
+    },
+    {
+      "phase": "audio",
+      "model": "google/gemini-3.8-flash",
+      "provider": "Google",
+      "workerHttpStatus": 200,
+      "upstreamStatus": 200,
+      "elapsedMs": 7356,
+      "outbound": {
+        "status": 200,
+        "colo": "EWR",
+        "loc": "US",
+        "warp": "off",
+        "gateway": "off"
+      },
+      "error": null,
+      "providerErrorCode": null,
+      "rawProviderError": null,
+      "failedRoutingStep": null,
+      "contentReturned": true,
+      "finishReason": "stop",
+      "usage": {
+        "prompt_tokens": 2087,
+        "completion_tokens": 603,
+        "total_tokens": 2690,
+        "cost": 0.0038265,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 1920,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0038265,
+          "upstream_inference_prompt_cost": 0.00156525,
+          "upstream_inference_completions_cost": 0.00226125
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "audioAccessible": true,
+      "comparison": {
+        "referenceWords": 149,
+        "recognizedWords": 156,
+        "wordEdits": 9,
+        "normalizedEditRate": 0.06040268456375839
+      }
+    },
+    {
+      "phase": "audio",
+      "model": "openai/gpt-audio",
+      "provider": "OpenAI",
+      "workerHttpStatus": 200,
+      "upstreamStatus": 200,
+      "elapsedMs": 2235,
+      "outbound": {
+        "status": 200,
+        "colo": "EWR",
+        "loc": "US",
+        "warp": "off",
+        "gateway": "off"
+      },
+      "error": null,
+      "providerErrorCode": null,
+      "rawProviderError": null,
+      "failedRoutingStep": null,
+      "contentReturned": true,
+      "finishReason": "stop",
+      "usage": {
+        "prompt_tokens": 946,
+        "completion_tokens": 94,
+        "total_tokens": 1040,
+        "cost": 0.0259315,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 767,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0259315,
+          "upstream_inference_prompt_cost": 0.0249915,
+          "upstream_inference_completions_cost": 0.00094
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "audioAccessible": false,
+      "comparison": null
+    },
+    {
+      "phase": "audio-transcription",
+      "model": "openai/gpt-audio",
+      "provider": "OpenAI",
+      "workerHttpStatus": 200,
+      "upstreamStatus": 200,
+      "elapsedMs": 2729,
+      "outbound": {
+        "status": 200,
+        "colo": "EWR",
+        "loc": "US",
+        "warp": "off",
+        "gateway": "off"
+      },
+      "error": null,
+      "providerErrorCode": null,
+      "rawProviderError": null,
+      "failedRoutingStep": null,
+      "contentReturned": true,
+      "finishReason": "stop",
+      "usage": {
+        "prompt_tokens": 795,
+        "completion_tokens": 169,
+        "total_tokens": 964,
+        "cost": 0.026304,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 767,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.026304,
+          "upstream_inference_prompt_cost": 0.024614,
+          "upstream_inference_completions_cost": 0.00169
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "audioAccessible": null,
+      "comparison": {
+        "referenceWords": 149,
+        "recognizedWords": 149,
+        "wordEdits": 1,
+        "normalizedEditRate": 0.006711409395973154
+      }
+    }
+  ],
+  "costUsd": 0.056070999999999996,
+  "planningCnyPerUsd": 7,
+  "productionWrites": false,
+  "formalAttemptCreated": false,
+  "vixMarks": false,
+  "rawAudioIncluded": false,
+  "credentialsIncluded": false,
+  "costPlanningCny": 0.392497,
+  "cleanup": {
+    "workerDeleted": true,
+    "testKvDeleted": true,
+    "cloudAudioCopyDeleted": true,
+    "deleteApiStatuses": [
+      200,
+      200
+    ]
+  }
+}

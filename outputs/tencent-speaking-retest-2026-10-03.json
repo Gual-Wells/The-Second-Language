@@ -1,0 +1,93 @@
+{
+  "date": "2026-10-03",
+  "actualRequests": 2,
+  "freeSpeech": {
+    "startedAt": "2026-10-03T11:20:08.412Z",
+    "completedAt": "2026-10-03T11:21:44.267Z",
+    "audioDigest": "a992bf376b4379273decf8c59dcb4db45b69a6c515da62c45b04b34582de215d",
+    "seconds": 76.796,
+    "referenceWords": 149,
+    "recognizedWords": 147,
+    "wordEdits": 74,
+    "wordEditRate": 0.4966442953020134,
+    "scores": {
+      "accuracy": 45.467288970947266,
+      "fluency": 0.9290621280670166
+    },
+    "packetCount": 2,
+    "resultKeys": [
+      "SuggestedScore",
+      "PronAccuracy",
+      "PronFluency",
+      "PronCompletion",
+      "Words",
+      "SentenceId",
+      "RefTextId",
+      "KeyWordHits",
+      "UnKeyWordHits"
+    ],
+    "wordKeys": [
+      "MemBeginTime",
+      "MemEndTime",
+      "PronAccuracy",
+      "PronFluency",
+      "ReferenceWord",
+      "Word",
+      "MatchTag",
+      "KeywordTag",
+      "PhoneInfos",
+      "Tone"
+    ],
+    "phonemeEntryCount": 0,
+    "production": false,
+    "normalization": "lowercase, replace non a-z whitespace with spaces",
+    "identicalTranscriptToFirst": true
+  },
+  "sentenceProbe": {
+    "seconds": 7.9,
+    "mode": "sentence",
+    "providerCompleted": true,
+    "resultKeys": [
+      "SuggestedScore",
+      "PronAccuracy",
+      "PronFluency",
+      "PronCompletion",
+      "Words",
+      "SentenceId",
+      "RefTextId",
+      "KeyWordHits",
+      "UnKeyWordHits"
+    ],
+    "wordCount": 13,
+    "phoneCount": 68,
+    "phonemeKeys": [
+      "MemBeginTime",
+      "MemEndTime",
+      "PronAccuracy",
+      "DetectedStress",
+      "Phone",
+      "ReferencePhone",
+      "ReferenceLetter",
+      "Stress",
+      "MatchTag"
+    ],
+    "scores": {
+      "accuracy": 26.450136184692383,
+      "fluency": 0.7733564972877502,
+      "completion": 1
+    },
+    "production": false,
+    "clipStartSeconds": 5.15,
+    "clipEndSeconds": 13.05,
+    "referenceSource": "user-confirmed actual utterance; not model answer",
+    "timingBoundsChecked": true,
+    "phonemeDiagnosisValidated": false
+  },
+  "productionWrites": false,
+  "vixMarks": false,
+  "billingVerified": false,
+  "conclusion": {
+    "defaultProvider": false,
+    "optionalSentenceCandidate": true
+  }
+}

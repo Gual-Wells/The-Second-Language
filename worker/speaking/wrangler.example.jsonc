@@ -1,0 +1,14 @@
+{
+  "name": "the-second-language-speaking",
+  "main": "collector.mjs",
+  "compatibility_date": "2026-10-03",
+  "workers_dev": false,
+  "preview_urls": false,
+  "ai": { "binding": "AI" },
+  "d1_databases": [{ "binding": "PRACTICE_DB", "database_name": "the-second-language-practice", "database_id": "bf3d8fed-55cf-49fc-8c12-4fa62462c034" }],
+  "r2_buckets": [{ "binding": "SPEAKING_ASSETS", "bucket_name": "the-second-language-speaking-private" }],
+  "triggers": { "crons": ["*/3 * * * *"] }
+  // Secrets: OPENROUTER_API_KEY, SPEAKING_CONTROL_TOKEN.
+  // Expose control via an authenticated gateway/service binding, not browser credentials.
+  // Provision private storage and apply schema.sql before deployment.
+}

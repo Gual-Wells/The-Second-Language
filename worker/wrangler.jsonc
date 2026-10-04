@@ -27,8 +27,13 @@
     {
       "binding": "CHAPTERS",
       "id": "c06595e0069247cd8cf702ac9756cdea"
+    },
+    {
+      "binding": "PRACTICE_MEDIA",
+      "id": "cd0a805ac55146d599f70a32fa9aa0f2"
     }
   ],
+  "ai": { "binding": "AI" },
   "triggers": {
     "crons": [
       "* * * * *"

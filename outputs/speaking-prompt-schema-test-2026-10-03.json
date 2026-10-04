@@ -1,0 +1,169 @@
+{
+  "test": true,
+  "productionWrites": false,
+  "originalSeconds": 76.796,
+  "planningUsdCny": 7,
+  "exchangeRateKind": "budget-assumption; not a live FX quote",
+  "sources": [
+    {
+      "routeId": "cf-whisper",
+      "model": "@cf/openai/whisper-large-v3-turbo",
+      "state": "complete",
+      "httpStatus": null,
+      "secondsElapsed": 5.096,
+      "usage": null,
+      "schemaErrors": null,
+      "segmentCount": 9,
+      "dimensionsExamined": null,
+      "audibleFindings": null,
+      "languageFindings": null,
+      "phoneticJudgmentsVerified": false,
+      "automaticCompensationEnabled": true,
+      "semanticReview": "Codex source review; pronunciation claims remain unverified"
+    },
+    {
+      "routeId": "or-gemini",
+      "model": "google/gemini-3.8-flash",
+      "state": "complete",
+      "httpStatus": 200,
+      "secondsElapsed": 11.68,
+      "usage": {
+        "prompt_tokens": 2387,
+        "completion_tokens": 2516,
+        "total_tokens": 4903,
+        "cost": 0.01122525,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 1920,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01122525,
+          "upstream_inference_prompt_cost": 0.00179025,
+          "upstream_inference_completions_cost": 0.009435
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "schemaErrors": [],
+      "segmentCount": 9,
+      "dimensionsExamined": 12,
+      "audibleFindings": 3,
+      "languageFindings": 1,
+      "phoneticJudgmentsVerified": false,
+      "automaticCompensationEnabled": true,
+      "semanticReview": "Codex source review; pronunciation claims remain unverified"
+    },
+    {
+      "routeId": "or-qwen",
+      "model": "qwen/qwen3.8-omni-flash",
+      "state": "complete",
+      "httpStatus": 200,
+      "secondsElapsed": 153.239,
+      "usage": {
+        "prompt_tokens": 3191,
+        "completion_tokens": 10980,
+        "total_tokens": 14171,
+        "cost": 0.00563925,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00563925,
+          "upstream_inference_prompt_cost": 0.00047865,
+          "upstream_inference_completions_cost": 0.0051606
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 7621,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "schemaErrors": [],
+      "segmentCount": 9,
+      "dimensionsExamined": 12,
+      "audibleFindings": 6,
+      "languageFindings": 0,
+      "phoneticJudgmentsVerified": false,
+      "automaticCompensationEnabled": true,
+      "semanticReview": "Codex source review; pronunciation claims remain unverified"
+    },
+    {
+      "routeId": "or-gemini-lite",
+      "model": "google/gemini-2.5-flash-lite",
+      "state": "complete",
+      "httpStatus": 200,
+      "secondsElapsed": 14.377,
+      "usage": {
+        "prompt_tokens": 2364,
+        "completion_tokens": 3864,
+        "total_tokens": 6228,
+        "cost": 0.002167,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 1925,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.002167,
+          "upstream_inference_prompt_cost": 0.0006214,
+          "upstream_inference_completions_cost": 0.0015456
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "schemaErrors": [],
+      "segmentCount": 9,
+      "dimensionsExamined": 12,
+      "audibleFindings": 5,
+      "languageFindings": 3,
+      "phoneticJudgmentsVerified": false,
+      "automaticCompensationEnabled": false,
+      "semanticReview": "rejected: substantial mistranscription and resulting false language criticism"
+    }
+  ],
+  "primaryOpenRouterActualUsd": 0.0168645,
+  "whisperEstimateUsd": 0.0006566058,
+  "primaryEstimatedCny": 0.12264774060000001,
+  "thirtySimilarAttemptsCny": 3.6794322180000005,
+  "limitations": [
+    "单份已确认录音；不是总体准确率或真实雅思评测验证。",
+    "原声、全部返回与校对稿只在私有忽略目录。",
+    "Schema 成功不保证判断正确。"
+  ],
+  "otherBackup": {
+    "model": "google/gemini-2.5-flash",
+    "resultObtained": false,
+    "scheduledStartRecordObtained": false,
+    "enabled": false,
+    "feesUnknown": true
+  },
+  "isolation": {
+    "formalDatabaseWrites": false,
+    "vixWrites": false,
+    "pwaPushes": false,
+    "testWorkersDeleted": 2,
+    "testKvNamespacesDeleted": 2,
+    "deletionStatuses": [
+      200,
+      200,
+      200,
+      200
+    ],
+    "lastScheduleStopStatus": 200
+  }
+}

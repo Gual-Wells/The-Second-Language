@@ -1,0 +1,76 @@
+{
+  "date": "2026-10-03",
+  "trials": [
+    {
+      "model": "thinkingmachines/inkling",
+      "httpStatus": 200,
+      "elapsedMs": 16020,
+      "provider": null,
+      "contentReturned": false,
+      "costUsd": null,
+      "comparison": null,
+      "error": null,
+      "nonJsonResponse": true,
+      "status": "empty-or-invalid-response",
+      "productionWrites": false
+    },
+    {
+      "model": "mistralai/voxtral-small-24b-2507",
+      "httpStatus": 429,
+      "elapsedMs": 2692,
+      "provider": "Mistral",
+      "contentReturned": false,
+      "costUsd": null,
+      "comparison": null,
+      "error": "Provider returned error",
+      "nonJsonResponse": false,
+      "status": "upstream-rate-limited",
+      "productionWrites": false
+    },
+    {
+      "model": "xiaomi/mimo-v2.6-pro",
+      "httpStatus": 200,
+      "elapsedMs": 48360,
+      "provider": "DeepInfra",
+      "contentReturned": true,
+      "costUsd": 0.00212082,
+      "comparison": {
+        "referenceWords": 149,
+        "recognizedWords": 151,
+        "wordEdits": 9,
+        "normalizedEditRate": 0.06040268456375839
+      },
+      "error": null,
+      "nonJsonResponse": false,
+      "status": "content-returned",
+      "productionWrites": false
+    }
+  ],
+  "requestsMadeForAdditionalModels": 5,
+  "returnedUsageCostAdditionalUsd": 0.00212082,
+  "allReturnedUsageCostIncludingQwenUsd": 0.00296717,
+  "allReturnedUsageCostPlanningCny": 0.02077019,
+  "accountTotalCreditsUsd": 5,
+  "accountTotalUsageUsd": 0.00296717,
+  "failedResponseCosts": "No usage returned; do not assume they were billed or free. Compare account ledger separately.",
+  "availableEvidence": {
+    "whisperWordTimeEntries": 147,
+    "wordTimeValuesWithinRecording": true,
+    "wordTimesHumanVerified": false,
+    "pauseSignal": {
+      "noiseDb": -35,
+      "minimumSeconds": 0.3,
+      "detectedSilenceIntervals": 20,
+      "totalThresholdSilenceSeconds": 11.064254,
+      "interpretation": "Energy-threshold silence only; not a fluency score"
+    },
+    "verifiedPhonemeScores": false,
+    "verifiedStressScores": false,
+    "verifiedProsodyScores": false
+  },
+  "productionWrites": false,
+  "formalAttemptCreated": false,
+  "vixMarks": false,
+  "rawAudioIncluded": false,
+  "credentialsIncluded": false
+}

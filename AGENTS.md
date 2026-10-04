@@ -10,6 +10,8 @@
 
 `protocol/AUDIO_EXTENSION.md` 仅预留今后独立语音通路；现阶段不要求定时任务生成音频，也不把供应商选择或语音可用性作为文字日课的发布门槛。
 
-按申请建设雅思口语与写作练习时，阅读 `protocol/EXPRESSION.md`；表达练习有独立来源快照、数据库和批改队列，不加入正式三部分日课、不占临时页，也不触碰 VIX。
+按申请建设雅思听力、阅读、写作、口语练习时，阅读 `protocol/EXPRESSION.md`，题量与难度阅读 `protocol/PRACTICE_SIZES.md`，听力阅读 `protocol/LISTENING.md`、阅读科目阅读 `protocol/READING.md`；雅思练习有独立来源快照、数据库和批改队列，不加入正式三部分日课、不占临时页，也不触碰 VIX。
+
+真实口语采集与教学接管阅读 `protocol/SPEAKING_PIPELINE.md` 和已上线通路 `protocol/SPEAKING_RUNTIME.md`。固定四路为 Whisper、Gemini Flash、Qwen、GPT Audio，全量原声后 Codex 接管；有增量证据的模型可加入固定主链，不必替代旧模型。要求在 `protocol/speaking/contract.mjs`，路线在 `protocol/speaking/routes.mjs`。OpenRouter 推理只走 Cloudflare；Qwen 可随分析需要多次补听，完整保存每次返回，同模型重复不计独立共识。OpenRouter 整体余额不足保存进度、北京次日核对充值后续作，其他项目任务继续。腾讯不足可用 Qwen 定性代偿，不补造测量。腾讯句子/单词专项使用本人原话；先核对预期音素/重音与实际材料，不用多数票取代听审。正式 PWA 已接原声录制/上传、私有存储、转换、固定多路采集和 Codex 反馈；代码可运行与真机体验/声音判断质量分别核对。
 
 改动 PWA 时先读 `web/DESIGN.md`。2008 风格覆盖信息结构、图标、各交互状态、iPhone 视口和部署缓存；前端只保留一套原生样式，不以附加 CSS 覆盖文件做主题替换。

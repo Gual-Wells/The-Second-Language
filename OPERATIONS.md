@@ -38,13 +38,37 @@ node scripts/delete-temporary.mjs 临时页ID
 
 内容续作以 `work/runs/<date>/words/` 的逐词材料、`article-plan.md`、`article.md`、`continuity.md` 和必要时的 `resume.md` 为交接点；这些文件由 Codex 按内容自由写，不进入发布正文。`pack-chapter` 能核对第三部分带或不带 `USE` 的句子都已逐句翻译，并核对每个用法至少被标出一次；教材保真与用法是否真实成立仍由 Codex 在发布前审阅。
 
+## 原声设施（正式录制、采集、接管与反馈）
+
+执行要求见 `protocol/SPEAKING_PIPELINE.md`，上传、私有文件及在线队列设计见 `research/speaking-facilities-engineering.md`。正式 PWA 已接通原声入口，实际主通路见 protocol/SPEAKING_RUNTIME.md；下列工具用于保留的补听与腾讯专项。
+
+```sh
+node scripts/speaking-handoff.mjs .cache/口语采集/manifest.json
+node scripts/speaking-assess-sentence.mjs .cache/口语专项/plan.json --dry-run
+node scripts/speaking-assess-sentence.mjs .cache/口语专项/plan.json
+node scripts/speaking-assess-word.mjs .cache/单词专项/plan.json --dry-run
+node scripts/speaking-assess-word.mjs .cache/单词专项/plan.json
+node scripts/speaking-detail.mjs .cache/补听计划.json --dry-run
+node scripts/speaking-detail.mjs .cache/补听计划.json
+```
+
+本地采集清单包含 attemptId、jobId、test、原声定位与 calls；每项 call 含 routeId 和相对当前清单的 file，该私有 JSON 文件含 raw、parsed、metadata。接管写入忽略目录 `work/expression/reviews/`，全部返回保留。腾讯专项先核对本人实际原话与短句裁剪位置；计划字段及限制见接入设计，不用参考范文评测原答卷。
+
+正式采集器运行在主 Worker，0004 迁移将其数据库接入 PRACTICE_DB，私有 PRACTICE_MEDIA KV 提供存储适配；不依赖尚未开通的 R2。独立 Worker 配置样本和 schema.sql 仍保留作移植参考，不重复应用到正式库。OpenRouter 密钥只放服务端 secret；腾讯密钥只在私有工具配置，不交给浏览器。
+
+默认四路是 Whisper、Gemini Flash、Qwen、GPT Audio；GPT Audio 增加独立声音观察，不取代其他主路。Qwen 可多次补听；专项计划包含 id、attemptId、parentJobId，以及各有 id、provider、focusPrompt 的 tasks。当前 provider 支持 qwen 和 gpt-audio，云队列复用完整 WAV；片段尚需受控上传和原声关系校验。本机 `.cache/speaking-backend.json` 只保存 baseUrl 与 controlToken，控制工具经 HTTPS POST `/speaking/details` 入队，不持有 OpenRouter 推理职责。Worker 用 SPEAKING_CONTROL_TOKEN 验证私有控制身份；正式原声补听使用 publisher 凭据与 speaking-practice.mjs details，独立 Worker 控制配置仅作备用。
+
+额度池分别登记 OpenRouter 整体余额、Cloudflare Whisper、腾讯及以后接入的渠道。OpenRouter 推理与余额核对都在 Cloudflare，钱包/key 不足时保存已完成结果，将该声音任务挂起到北京次日；次日核对 credits 与 key，确认可用后只续作缺失或明确余额失败的请求。未充值每小时轻量核对，不自动付款，不把未完成声音任务包装成最终反馈。成功返回不因另一路不足重采，未确认是否收费的调用保留 outcome_unknown；重复专项不增加独立来源计数。腾讯不足且 OpenRouter 可用时，可用 Qwen 补充定性观察，但不能补造腾讯量化分值。日课、阅读与写作继续运行。
+
+腾讯单词工具支持模式 0/4，字母映射与 IPA 分别调用；录音模式只发一个音频包。裁词边界和不同模式的评分量纲须核查，不用低分直接诊断。全部原包保留。最新实际返回、收费及能力取舍见 `research/openrouter-speech-evidence-2026-10-04.md`。
+
 ## Cloudflare 资源与发布顺序
 
 现有站点位于 `https://the-second-language.pages.dev/`。Worker 名为 `the-second-language-api`，Pages 项目名为 `the-second-language`。D1 数据库 `the-second-language` 存章节发布索引、阅读状态和认证资料；KV 命名空间 `the-second-language-chapters` 按摘要存正文。账号 R2 尚未启用，因此项目不依赖 R2。资源 ID、公钥和域名已写入 `worker/wrangler.jsonc`；密钥保存在 Cloudflare secrets 和本机忽略的 `.cache/deployment-secrets.json`，切勿提交。
 
-表达练习使用单独 D1 `the-second-language-practice`，数据库绑定 `PRACTICE_DB`，迁移目录为 `worker/practice_migrations/`。在 `worker/` 运行 `wrangler d1 migrations apply PRACTICE_DB --remote`。表达练习的文字作答不进入原有 `DB` 或 Git；PWA 录音提交未启用，不能用 D1 BLOB 顶替对象存储。可选 `PRACTICE_READ_TOKEN` 是未来 Chat/MCP 只读接入的独立 Worker secret；不得向 Chat 提供 `PUBLISH_TOKEN`。本机 `scripts/practice-job.mjs` 的建设与批改命令仍使用发布令牌。
+表达练习使用单独 D1 `the-second-language-practice`，数据库绑定 `PRACTICE_DB`，迁移目录为 `worker/practice_migrations/`。在 `worker/` 运行 `wrangler d1 migrations apply PRACTICE_DB --remote`。表达练习的文字作答不进入原有 `DB` 或 Git；PWA 已接录音/已有文件提交，原件和多路返回使用独立私有 PRACTICE_MEDIA KV，不存 D1 BLOB，预留 R2 adapter。可选 `PRACTICE_READ_TOKEN` 是未来 Chat/MCP 只读接入的独立 Worker secret；不得向 Chat 提供 `PUBLISH_TOKEN`。本机 `scripts/practice-job.mjs` 的建设与批改命令仍使用发布令牌。
 
-表达练习监测脚本 `scripts/run-practice.ps1` 先通过 `node scripts/practice-job.mjs next` 轻量检查申请与答卷队列；空队列不启动模型，有工作才使用 `gpt-6-sol`、`high` 继续 `work/expression/` 的中间文档。该脚本与每日 03:00 日课独立，部署与本地凭据确定后可另设周期性 Windows 任务；若在另一 worktree 运行，先设置 `SECOND_LANGUAGE_CREDENTIAL_FILE` 为当前机器上忽略的正式凭据文件。手动命令：
+表达练习监测脚本 `scripts/run-practice.ps1` 先通过 `node scripts/practice-job.mjs next` 轻量检查申请、文字/听力/阅读答卷与原声转换/分析队列；空队列不启动模型，有工作才使用 `gpt-6-sol`、`high` 继续 `work/expression/` 的中间文档。该脚本与每日 03:00 日课独立，部署与本地凭据确定后已有 SecondLanguage-PracticeCodex 每三十分钟 Windows 任务；若在另一 worktree 运行，先设置 `SECOND_LANGUAGE_CREDENTIAL_FILE` 为当前机器上忽略的正式凭据文件。手动命令：
 
 ```sh
 node scripts/practice-job.mjs next
@@ -65,3 +89,6 @@ node scripts/practice-job.mjs review-complete <答卷ID> work/expression/reviews
 5. 首次真实章节按 `protocol/DAILY_RUN.md` 完成、暂存并提交。KV 在不同地区可能延迟可见；后端在发布至少两分钟后才尝试新章推送，并只推送当前版本。正式发布后须从线上按日期回读。
 
 本仓库不保存实际 secrets，也不把两词演示章节当作正式课程。需要重新部署到另一账号时，应重建资源并更换配置中的资源 ID 与域名。
+
+
+第四部分 v2：先应用 practice_migrations/0003_profiles_reading.sql 与 0004_speaking_live.sql，再发布 Worker 和 PWA v13。微缩规格与难度见 PRACTICE_SIZES.md；阅读见 READING.md；原声操作见 SPEAKING_RUNTIME.md 和 scripts/speaking-practice.mjs。正式 Worker 已绑定 AI、私有媒体 KV、OpenRouter secret；分钟任务采集原声，Codex 本机转换和分析，日课仍独立北京时间 03:00。日课系统朗读由设备 Web Speech 提供，设置中可选英语声音/语速，第三部分可切点词/点句。长期预生成日课音频仍是可选扩展，不增加每日生产负担。
