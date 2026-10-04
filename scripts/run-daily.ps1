@@ -41,7 +41,7 @@ else {
 }
 if (-not $codexExecutable) { throw '未找到 Codex CLI' }
 $prompt = @"
-执行第二语言项目北京时间 $studyDate 的一次正式定时运行。先阅读本仓库 AGENTS.md、protocol/DAILY_RUN.md、protocol/QUALITY_WORKFLOW.md、protocol/CONTENT.md、protocol/TEMPORARY.md 和 protocol/ANNOTATIONS.md。定时入口已先调用 scripts/claim-run.mjs；幂等读取 work/runs/$studyDate/control.json 确认结果。若已领取休息，立即结束。否则优先处理已领取的一次性临时需求，再继续当天恰好 40 主词的正式课程。逐词保存双教材内容和全部相关例句的去向；第一、第二部分按自然词族协同建设；第三部分保留权威草稿与简短连续性记录，发布前分别审阅教材保真和文章真实用法。允许无目标用法句只有句子编码与译文，不附虚假 USE。使用 work/ 中间文档续作，同日期不得重选或重复发布。若未完成，写具体 resume.md。按协议进行必要的 GitHub 与 Cloudflare 发布，不把临时页当正式章节，不泄露密钥。
+执行第二语言项目北京时间 $studyDate 的一次正式定时运行。先阅读本仓库 AGENTS.md、protocol/DAILY_RUN.md、protocol/QUALITY_WORKFLOW.md、protocol/CONTENT.md、protocol/TEMPORARY.md 和 protocol/ANNOTATIONS.md。定时入口已先调用 scripts/claim-run.mjs；幂等读取 work/runs/$studyDate/control.json 确认结果。若已领取休息，立即结束。否则优先处理已领取的一次性临时需求，再继续当天恰好 40 主词的正式课程。逐词保存双教材内容和全部相关例句的去向；第一、第二部分按自然词族协同建设；第三部分保留权威草稿与简短连续性记录，发布前分别审阅教材保真和文章真实用法。允许无目标用法句只有句子编码与译文，不附虚假 USE。使用 work/ 中间文档续作，同日期不得重选或重复发布。若未完成，写具体 resume.md。所有工作按 protocol/BALANCES.md 在末尾核对各方额度并更新余额页；不实现额度不足后的自动跨日重试。按协议进行必要的 GitHub 与 Cloudflare 发布，不把临时页当正式章节，不泄露密钥。
 "@
 # Windows PowerShell 5.1 promotes native stderr to an error record. Codex may write
 # nonfatal warnings there, so judge this command by its actual process exit code.
@@ -52,5 +52,10 @@ try {
   $codexExitCode = $LASTEXITCODE
 } finally {
   $ErrorActionPreference = 'Stop'
+}
+try {
+  & node scripts/check-balances.mjs 2>&1 | Out-File -LiteralPath $logFile -Append -Encoding utf8
+} catch {
+  '任务已结束，额度核对暂不可用，请查看余额页的核实状态。' | Out-File -LiteralPath $logFile -Append -Encoding utf8
 }
 if ($codexExitCode -ne 0) { throw "Codex 运行失败：退出码 $codexExitCode；日志 $logFile" }

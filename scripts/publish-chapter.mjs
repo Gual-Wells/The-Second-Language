@@ -1,3 +1,4 @@
+import {finishTaskBalances} from './check-balances.mjs';
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { publisherConfig } from './lib/publisher-config.mjs';
@@ -18,3 +19,5 @@ if (staged.digest !== chapter.digest) throw new Error('后端暂存摘要与本�
 const published = await post('/api/publish/commit', { runId, digest: staged.digest });
 if (published.digest !== chapter.digest) throw new Error('后端发布摘要不一致');
 console.log(`已发布 ${date}，章节 ${published.id}，摘要 ${published.digest}`);
+
+await finishTaskBalances();

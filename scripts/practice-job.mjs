@@ -1,3 +1,4 @@
+import {finishTaskBalances} from './check-balances.mjs';
 import { readFile, mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { publisherConfig } from './lib/publisher-config.mjs';
@@ -45,3 +46,5 @@ if (command === 'next') {
 } else {
   throw new Error('用法: practice-job.mjs next|claim ID|source 章节ID digest|publish 请求ID set.json|review-claim|review-complete 答卷ID review.json|listening-claim|listening-complete 答卷ID review.json|reading-claim|reading-complete 答卷ID review.json');
 }
+
+if(['publish','complete','review-complete','listening-complete','reading-complete'].includes(command))await finishTaskBalances();

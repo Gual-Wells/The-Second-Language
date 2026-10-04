@@ -1,3 +1,4 @@
+import {finishTaskBalances} from './check-balances.mjs';
 import { readFile, writeFile, mkdir, stat } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -49,3 +50,5 @@ try {
     console.log(JSON.stringify({ status: 'assessed', provider: result.provider, seconds, wordCount: result.words.length, scores: result.scores, acousticEvidence: result.quality.acousticEvidence, teachingReady: result.quality.teachingReady, resultFile: complete, ieltsBand: null, productionWrites: false }, null, 2));
   }
 } catch (error) { console.error(error.message); process.exitCode = 1; }
+
+await finishTaskBalances();

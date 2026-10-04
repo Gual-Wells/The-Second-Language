@@ -1,6 +1,15 @@
 import {contractSnapshot,contractVersion} from '../../scripts/lib/speaking/collect.mjs';
 const digest=async bytes=>[...new Uint8Array(await crypto.subtle.digest('SHA-256',bytes))].map(x=>x.toString(16).padStart(2,'0')).join('');
 const validId=id=>/^[a-zA-Z0-9._-]{1,110}$/.test(id??'');
+export async function retryCreditJob(env,id){
+ if(!validId(id))throw Error('任务编号无效');
+ const db=env.PRACTICE_DB,row=await db.prepare('SELECT * FROM speaking_jobs WHERE id=?').bind(id).first();
+ if(!row||row.status!=='waiting_credit')throw Error('任务不处于余额等待状态');
+ // Explicit owner continuation only. The marker allows reuse of successful calls and retry of confirmed 402s.
+ await db.batch([db.prepare("UPDATE speaking_jobs SET status='queued',next_retry_at=0,updated_at=? WHERE id=? AND status='waiting_credit'").bind(Date.now(),id),
+  db.prepare("UPDATE speaking_attempts SET status='collecting' WHERE id=? AND status='waiting_credit'").bind(row.attempt_id)]);
+ return {jobId:id,state:'queued'};
+}
 export async function enqueueSupplement(env,body){
  if(!env.PRACTICE_DB||!env.SPEAKING_ASSETS)throw Error('私有存储尚未接通');
  if(!['jobId','attemptId','parentJobId'].every(k=>validId(body[k]))||!Array.isArray(body.tasks)||!body.tasks.length)throw Error('专项计划无效');

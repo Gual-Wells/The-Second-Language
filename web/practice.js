@@ -1,6 +1,6 @@
-import {speakingRecorder} from './recorder.js?v=15';
-import {createReading} from './reading.js?v=15';
-import {createListening} from './listening.js?v=15';
+import {speakingRecorder} from './recorder.js?v=17';
+import {createReading} from './reading.js?v=17';
+import {createListening} from './listening.js?v=17';
 const $ = id => document.getElementById(id);
 const node = (tag, className, text) => {
   const element = document.createElement(tag);
@@ -101,7 +101,7 @@ export function createPracticeUI({ api, toast, showDialog, getContext, openSourc
     const links = node('div','practice-links');
     for (const link of question.links) {
       const button = node('button','bevel-button',`${dateLabel(link.chapterId)}${link.useId ? ` · ${link.useId}` : ''}`);
-      button.type = 'button'; button.addEventListener('click', () => { $('practiceDialog').close(); openSource(link.chapterId, link.useId); }); links.append(button);
+      button.type = 'button'; button.addEventListener('click', () => { $('practiceDialog').close(); openSource(link.chapterId, link.useId, currentSet.sources.find(source=>source.id===link.chapterId)?.digest); }); links.append(button);
     }
     body.append(links);
     const attemptList = node('div','practice-attempts');

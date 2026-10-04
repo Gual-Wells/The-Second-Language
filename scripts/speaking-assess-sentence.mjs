@@ -1,3 +1,4 @@
+import {finishTaskBalances} from './check-balances.mjs';
 import { readFile,writeFile,mkdir } from 'node:fs/promises';
 import { appendFileSync } from 'node:fs';
 import { createHash,randomUUID } from 'node:crypto';
@@ -29,3 +30,5 @@ else{
  await writeFile(`${stem}.json`,JSON.stringify(normalized,null,2),{flag:'wx'});
  console.log(JSON.stringify({result:`${stem}.json`,seconds,wordCount:normalized.words.length,phoneCount:normalized.words.reduce((n,w)=>n+w.phones.length,0),judgmentsVerified:false,productionWrites:false}));
 }
+
+await finishTaskBalances();

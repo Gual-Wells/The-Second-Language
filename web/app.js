@@ -1,7 +1,8 @@
-import {installReaderSpeech} from './reader-speech.js?v=15';
-import { parseParts, renderPart } from './render.js?v=15';
-import { validateAnnotatedContent } from './annotations.js?v=15';
-import { createPracticeUI } from './practice.js?v=15';
+import {installReaderSpeech} from './reader-speech.js?v=17';
+import { parseParts, renderPart } from './render.js?v=17';
+import { validateAnnotatedContent } from './annotations.js?v=17';
+import { createPracticeUI } from './practice.js?v=17';
+import {createBalanceUI} from './balances.js?v=17';
 
 const $ = id => document.getElementById(id);
 const todayParts = Object.fromEntries(new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(new Date()).map(part => [part.type, part.value]));
@@ -30,6 +31,7 @@ function toast(message) {
 }
 
 const nativeSpeech=installReaderSpeech({toast});
+const balances=createBalanceUI({api,showDialog});
 
 function clearBadge() { if ('clearAppBadge' in navigator) { try { Promise.resolve(navigator.clearAppBadge()).catch(() => {}); } catch {} } }
 
@@ -168,8 +170,6 @@ function saveReadingPosition() {
   if (!state.current) return;
   const positions = readStored(POSITION_KEY);
   positions[positionId()] = Math.round($('readingScroll').scrollTop);
-  const keys = Object.keys(positions);
-  for (const key of keys.slice(0, Math.max(0, keys.length - 90))) delete positions[key];
   writeStored(POSITION_KEY, positions);
 }
 
@@ -302,10 +302,10 @@ function showPart(part, restore = false, rememberCurrent = true) {
   $('highlightButton').setAttribute('aria-pressed', String(state.highlight));
   $('translationButton').setAttribute('aria-pressed', String(state.translations));
   $('wordIndexButton').hidden = !state.words.length;
-  $('reflection').hidden = part !== 'three' || Boolean(state.current.kind);
+  $('reflection').hidden = part !== 'three' || Boolean(state.current.kind) || Boolean(state.current.historical);
   $('indexTitle').textContent = part === 'one' ? '词汇与用法索引' : '例句与翻译索引';
   const lastParts = readStored(LAST_PART_KEY);
-  lastParts[state.current.id] = part;
+  lastParts[state.current.historical ? `${state.current.id}@${state.current.digest}` : state.current.id] = part;
   writeStored(LAST_PART_KEY, lastParts);
   requestAnimationFrame(() => {
     $('readingScroll').scrollTop = restore ? Number(readStored(POSITION_KEY)[positionId(part)] || 0) : 0;
@@ -313,23 +313,23 @@ function showPart(part, restore = false, rememberCurrent = true) {
   });
 }
 
-async function openChapter(id, resume = true) {
+async function openChapter(id, resume = true, digest = null) {
   nativeSpeech.stop();
   const request = ++state.chapterRequest;
   saveReadingPosition();
   setSyncStatus(navigator.onLine ? '正在打开章节…' : '正在读取离线章节', !navigator.onLine);
   try {
-    const chapter = await api(`/api/chapters/${encodeURIComponent(id)}`);
-    const progress = await loadProgress(id);
+    const chapter = await api(`/api/chapters/${encodeURIComponent(id)}${digest ? `?digest=${encodeURIComponent(digest)}` : ''}`);
+    const progress = chapter.historical ? {} : await loadProgress(id);
     if (request !== state.chapterRequest) return;
     state.current = chapter;
     state.lastDailyId = id;
-    state.current.digest = state.chapters.find(item => item.id === id)?.digest || chapter.digest;
+    state.current.digest = chapter.digest || state.chapters.find(item => item.id === id)?.digest;
     prepareContent(chapter.markdown, id);
     state.progress = progress;
     state.month = chapter.date.slice(0, 7);
     $('chapterDate').textContent = formatDate(chapter.date);
-    $('chapterNumber').textContent = chapter.number || '每日课程';
+    $('chapterNumber').textContent = `${chapter.historical ? '原版 · ' : ''}${chapter.number || '每日课程'}`;
     $('chapterTitle').textContent = chapter.title;
     $('chapterSubtitle').textContent = chapter.subtitle || '';
     $('wordCount').textContent = `${chapter.wordCount || 0} 个主词`;
@@ -343,11 +343,12 @@ async function openChapter(id, resume = true) {
     renderProgress();
     renderChapterNavigation();
     renderCalendar();
-    const saved = readStored(LAST_PART_KEY)[id];
+    const saved = readStored(LAST_PART_KEY)[chapter.historical ? `${id}@${chapter.digest}` : id];
     showPart(resume && ['one', 'two', 'three'].includes(saved) ? saved : 'one', resume, false);
     closeDialog('calendarDialog');
-    history.replaceState(null, '', `/?chapter=${encodeURIComponent(id)}`);
-    setSyncStatus(state.demo ? '演示章节 · 本地预览' : navigator.onLine ? '课程与反馈已同步' : '离线阅读', !navigator.onLine);
+    history.replaceState(null, '', `/?chapter=${encodeURIComponent(id)}${digest ? `&digest=${encodeURIComponent(digest)}` : ''}`);
+    setSyncStatus(chapter.historical ? '练习来源 · 固定版本' : state.demo ? '演示章节 · 本地预览' : navigator.onLine ? '课程与反馈已同步' : '离线阅读', !navigator.onLine);
+    return true;
   } catch (error) { if (request === state.chapterRequest) { setSyncStatus('章节暂不可用', true); toast(error.message); } }
 }
 
@@ -446,7 +447,7 @@ function moveChapter(offset) {
 
 const practiceUI = createPracticeUI({ api, toast, showDialog,
   getContext: () => ({ authenticated: state.authenticated, demo: state.demo, chapters: state.chapters, current: state.current }),
-  openSource: async (chapterId, useId) => { await openChapter(chapterId); if (useId) jumpTo('one', useId); } });
+  openSource: async (chapterId, useId, digest) => { if (await openChapter(chapterId, true, digest) && useId) jumpTo('one', useId); } });
 
 const fromBase64url = value => Uint8Array.from(atob(value.replace(/-/g, '+').replace(/_/g, '/').padEnd(Math.ceil(value.length / 4) * 4, '=')), char => char.charCodeAt(0));
 const toBase64url = value => btoa(String.fromCharCode(...new Uint8Array(value))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
@@ -533,7 +534,7 @@ async function initialize() {
     if (requestedTemporary && state.temporary.some(page => page.id === requestedTemporary)) { await openTemporary(requestedTemporary); return; }
     const requested = new URLSearchParams(location.search).get('chapter');
     const selected = state.chapters.find(chapter => chapter.id === requested) || state.chapters.find(chapter => chapter.date === TODAY) || sortedChapters().at(-1);
-    if (selected) await openChapter(selected.id);
+    if (selected) await openChapter(selected.id, true, requested === selected.id ? new URLSearchParams(location.search).get('digest') : null);
     else { $('app').classList.add('empty-mode'); $('reader').hidden = true; $('readingScroll').scrollTop = 0; $('emptyState').hidden = false; setSyncStatus(state.demo ? '本地预览' : '等待第一章发布'); }
   } catch (error) {
     $('loadingState').hidden = true;
@@ -557,7 +558,7 @@ async function signIn() {
     }
     $('loginMessage').textContent = '正在验证通行密钥…';
     await passkey('login');
-    await initialize();
+    await initialize().then(()=>{if(state.authenticated&&new URLSearchParams(location.search).has('balances'))balances.open();});
   } catch (error) {
     $('loginMessage').textContent = error.message || '登录未完成';
     button.disabled = false;
@@ -618,7 +619,7 @@ $('loginButton').addEventListener('click', signIn);
 $('loginInstallButton').addEventListener('click', () => showDialog('installDialog'));
 $('setupKey').addEventListener('keydown', event => { if (event.key === 'Enter') signIn(); });
 $('saveProgress').addEventListener('click', async () => {
-  if (!state.current) return;
+  if (!state.current || state.current.historical) return;
   const progress = { completed: true, difficulty: state.difficulty, note: $('readingNote').value.trim().slice(0, 2000), updatedAt: new Date().toISOString() };
   state.progress = progress;
   renderProgress();
@@ -715,6 +716,6 @@ $('chapterNav').addEventListener('touchend', event => {
   if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.5) moveChapter(dx < 0 ? 1 : -1);
   swipeStart = null;
 }, { passive: true });
-if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=15', { updateViaCache: 'none' }).catch(() => {});
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=17', { updateViaCache: 'none' }).catch(() => {});
 refreshInstallStatus();
-initialize();
+initialize().then(()=>{if(state.authenticated&&new URLSearchParams(location.search).has('balances'))balances.open();});

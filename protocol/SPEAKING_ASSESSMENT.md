@@ -47,3 +47,7 @@ OpenRouter 试验记录与人民币预算见 `research/openrouter-account-and-au
 学生通道与支付复核见 `research/speaking-student-routes-2026-10-03.md`。Azure for Students 无需信用卡，可先验证开通和 Speech 资源；OpenRouter 的支付支持不消除具体模型的地区条件。双学籍只用于证明同一人的真实在读状态，不当作重复领同一优惠的资格。
 
 依据：[腾讯新版接口](https://cloud.tencent.com/document/product/1774/107497)、[自由说](https://cloud.tencent.com/document/product/1774/107389)、[计费](https://cloud.tencent.com/document/product/1774/107342)、[OpenRouter 支付](https://openrouter.ai/docs/faq)、[音频输入](https://openrouter.ai/docs/guides/overview/multimodal/audio)。
+
+## 任务末尾额度更新
+
+执行本协议所涉及的日课、推送、练习建设、批改、声音分析或测试工作时，最后按 `BALANCES.md` 查询各方额度，携带核对时间、核实状态与任务用量估算，发布更新到余额页并提示低额度。页面显示上一次任务的记录，浏览时不实时查询。不自动付款，不安排余额不足后的跨日轮询/重试；已有材料与未知计费保护继续有效。

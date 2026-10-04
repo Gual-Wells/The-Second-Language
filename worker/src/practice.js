@@ -46,8 +46,11 @@ export async function practiceRoute(request, env, publisher) {
     if (chapter && !safeId(chapter)) return json({ error: '章节编号无效' }, 400);
     const { results: sets } = chapter
       ? await db.prepare(`SELECT s.id,s.title,s.introduction,s.profiles_json AS profilesJson,s.created_at AS createdAt,r.focus_chapter_id AS focusChapterId
-        FROM practice_sets s JOIN practice_requests r ON r.id=s.request_id JOIN practice_sources x ON x.set_id=s.id
-        WHERE x.chapter_id=? ORDER BY s.created_at DESC`).bind(chapter).all()
+        FROM practice_sets s JOIN practice_requests r ON r.id=s.request_id
+        WHERE EXISTS(SELECT 1 FROM practice_questions q JOIN practice_links l ON l.question_id=q.id WHERE q.set_id=s.id AND l.chapter_id=?)
+        OR EXISTS(SELECT 1 FROM listening_passages p JOIN json_each(p.links_json) link WHERE p.set_id=s.id AND json_extract(link.value,'$.chapterId')=?)
+        OR EXISTS(SELECT 1 FROM reading_passages p JOIN json_each(p.links_json) link WHERE p.set_id=s.id AND json_extract(link.value,'$.chapterId')=?)
+        ORDER BY s.created_at DESC`).bind(chapter,chapter,chapter).all()
       : await db.prepare(`SELECT s.id,s.title,s.introduction,s.profiles_json AS profilesJson,s.created_at AS createdAt,r.focus_chapter_id AS focusChapterId
         FROM practice_sets s JOIN practice_requests r ON r.id=s.request_id ORDER BY s.created_at DESC LIMIT 100`).all();
     const active = await db.prepare(`SELECT id,focus_chapter_id AS focusChapterId,status,skills_json AS skillsJson,profiles_json AS profilesJson,created_at AS createdAt FROM practice_requests
@@ -71,16 +74,16 @@ export async function practiceRoute(request, env, publisher) {
       (SELECT status FROM (SELECT a.status,a.submitted_at FROM practice_attempts a WHERE a.question_id=q.id UNION ALL SELECT CASE WHEN a.status='reviewed' THEN 'reviewed' WHEN a.status='reviewing' THEN 'reviewing' ELSE 'pending' END AS status,a.submitted_at FROM speaking_attempts a WHERE a.question_id=q.id) ORDER BY submitted_at DESC LIMIT 1) AS lastStatus
       FROM practice_questions q JOIN practice_sets s ON s.id=q.set_id JOIN practice_requests r ON r.id=s.request_id
       WHERE (? IS NULL OR q.kind=?)
-      AND (? IS NULL OR EXISTS (SELECT 1 FROM practice_links l WHERE l.question_id=q.id AND l.chapter_id=?))
-      AND (? IS NULL OR EXISTS (SELECT 1 FROM practice_links l WHERE l.question_id=q.id AND l.use_id=?))
-      AND (?='' OR q.prompt LIKE ? OR s.title LIKE ?)
+      AND ((? IS NULL AND ? IS NULL) OR EXISTS (SELECT 1 FROM practice_links l WHERE l.question_id=q.id
+        AND (? IS NULL OR l.chapter_id=?) AND (? IS NULL OR l.use_id=?)))
+      AND (?='' OR instr(lower(q.prompt),lower(?))>0 OR instr(lower(s.title),lower(?))>0)
       ORDER BY s.created_at DESC,q.position LIMIT 300`)
-      .bind(kind,kind,chapter,chapter,use,use,term,`%${term}%`,`%${term}%`).all();
+      .bind(kind,kind,chapter,use,chapter,chapter,use,use,term,term,term).all();
     const {results: lp}=await db.prepare(`SELECT json_extract(j.value,'$.id') AS id,p.links_json,p.set_id AS setId,'listening' AS kind,'listening-'||(p.position+1) AS part,json_extract(j.value,'$.prompt') AS prompt,s.title AS setTitle,r.focus_chapter_id AS focusChapterId,
       (SELECT a.status FROM listening_attempts a WHERE a.set_id=p.set_id ORDER BY submitted_at DESC LIMIT 1) AS lastStatus
-      FROM listening_passages p JOIN json_each(p.questions_json) j JOIN practice_sets s ON s.id=p.set_id JOIN practice_requests r ON r.id=s.request_id WHERE (? IS NULL OR ?='listening') AND (? IS NULL OR EXISTS(SELECT 1 FROM practice_sources x WHERE x.set_id=p.set_id AND x.chapter_id=?)) AND (?='' OR json_extract(j.value,'$.prompt') LIKE ? OR s.title LIKE ?)`).bind(kind,kind,chapter,chapter,term,`%${term}%`,`%${term}%`).all();
-    const {results:rp}=await db.prepare(`SELECT json_extract(j.value,'$.id') AS id,p.links_json,p.set_id AS setId,'reading' AS kind,'reading-'||(p.position+1) AS part,json_extract(j.value,'$.prompt') AS prompt,s.title AS setTitle,r.focus_chapter_id AS focusChapterId,(SELECT a.status FROM reading_attempts a WHERE a.set_id=p.set_id ORDER BY submitted_at DESC LIMIT 1) AS lastStatus FROM reading_passages p JOIN json_each(p.questions_json) j JOIN practice_sets s ON s.id=p.set_id JOIN practice_requests r ON r.id=s.request_id WHERE (? IS NULL OR ?='reading') AND (? IS NULL OR EXISTS(SELECT 1 FROM practice_sources x WHERE x.set_id=p.set_id AND x.chapter_id=?)) AND (?='' OR json_extract(j.value,'$.prompt') LIKE ? OR s.title LIKE ?)`).bind(kind,kind,chapter,chapter,term,`%${term}%`,`%${term}%`).all();
-    let all=[...results,...lp,...rp];if(use)all=all.filter(x=>!['listening','reading'].includes(x.kind)||JSON.parse(x.links_json||'[]').some(l=>l.useId===use));
+      FROM listening_passages p JOIN json_each(p.questions_json) j JOIN practice_sets s ON s.id=p.set_id JOIN practice_requests r ON r.id=s.request_id WHERE (? IS NULL OR ?='listening') AND ((? IS NULL AND ? IS NULL) OR EXISTS(SELECT 1 FROM json_each(p.links_json) link WHERE (? IS NULL OR json_extract(link.value,'$.chapterId')=?) AND (? IS NULL OR json_extract(link.value,'$.useId')=?))) AND (?='' OR instr(lower(json_extract(j.value,'$.prompt')),lower(?))>0 OR instr(lower(s.title),lower(?))>0)`).bind(kind,kind,chapter,use,chapter,chapter,use,use,term,term,term).all();
+    const {results:rp}=await db.prepare(`SELECT json_extract(j.value,'$.id') AS id,p.links_json,p.set_id AS setId,'reading' AS kind,'reading-'||(p.position+1) AS part,json_extract(j.value,'$.prompt') AS prompt,s.title AS setTitle,r.focus_chapter_id AS focusChapterId,(SELECT a.status FROM reading_attempts a WHERE a.set_id=p.set_id ORDER BY submitted_at DESC LIMIT 1) AS lastStatus FROM reading_passages p JOIN json_each(p.questions_json) j JOIN practice_sets s ON s.id=p.set_id JOIN practice_requests r ON r.id=s.request_id WHERE (? IS NULL OR ?='reading') AND ((? IS NULL AND ? IS NULL) OR EXISTS(SELECT 1 FROM json_each(p.links_json) link WHERE (? IS NULL OR json_extract(link.value,'$.chapterId')=?) AND (? IS NULL OR json_extract(link.value,'$.useId')=?))) AND (?='' OR instr(lower(json_extract(j.value,'$.prompt')),lower(?))>0 OR instr(lower(s.title),lower(?))>0)`).bind(kind,kind,chapter,use,chapter,chapter,use,use,term,term,term).all();
+    let all=[...results,...lp,...rp];
     all=all.map(({links_json,...item})=>item);all.sort((a,b)=>(skillOrder[a.kind]-skillOrder[b.kind])||a.part.localeCompare(b.part));return json({ questions: status ? all.filter(item => status === 'unanswered' ? !item.lastStatus : item.lastStatus === status) : all });
   }
 

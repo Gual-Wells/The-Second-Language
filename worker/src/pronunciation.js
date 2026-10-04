@@ -1,4 +1,4 @@
-import {checkOpenRouterFunds,nextBeijingDay} from '../../scripts/lib/speaking/funding.mjs';
+import {checkOpenRouterFunds} from '../../scripts/lib/speaking/funding.mjs';
 import {ttsModel,defaultVoice,voicePolicyVersion} from '../../protocol/voices.mjs';
 import {sha256} from './practice-media.js';
 const json=(v,s=200)=>Response.json(v,{status:s,headers:{'cache-control':'no-store'}});
@@ -34,11 +34,10 @@ export async function pronunciationRoute(request,env,{isPublisher,isReader,sessi
   if(old.state==='calling'&&Date.now()-old.created_at>300000){await db.prepare("UPDATE pronunciation_audio SET state='outcome_unknown' WHERE id=? AND state='calling'").bind(id).run();old={...old,state:'outcome_unknown'};}
   return json({...view(old),reused:true});
  }
- if(old?.next_retry_at>Date.now())return json({...view(old),reused:true});
  if(!env.OPENROUTER_API_KEY)return json({error:'Bella 声音服务尚未配置'},503);
  const funds=await checkOpenRouterFunds(env.OPENROUTER_API_KEY);if(!funds.verified)return json({error:'声音余额暂时无法核对，请稍后再试'},503);
  if(!funds.usable){
-  const retry=nextBeijingDay();await db.prepare("INSERT INTO pronunciation_audio(id,request_json,state,next_retry_at,created_at) VALUES(?,?,'waiting_credit',?,?) ON CONFLICT(id) DO UPDATE SET next_retry_at=excluded.next_retry_at WHERE pronunciation_audio.state='waiting_credit'").bind(id,JSON.stringify(descriptor),retry,Date.now()).run();
+  const retry=null;await db.prepare("INSERT INTO pronunciation_audio(id,request_json,state,next_retry_at,created_at) VALUES(?,?,'waiting_credit',?,?) ON CONFLICT(id) DO UPDATE SET next_retry_at=excluded.next_retry_at WHERE pronunciation_audio.state='waiting_credit'").bind(id,JSON.stringify(descriptor),retry,Date.now()).run();
   return json(view({id,state:'waiting_credit',next_retry_at:retry}));
  }
  const claim=old?await db.prepare("UPDATE pronunciation_audio SET state='calling',next_retry_at=NULL,created_at=? WHERE id=? AND state='waiting_credit'").bind(Date.now(),id).run():await db.prepare("INSERT OR IGNORE INTO pronunciation_audio(id,request_json,state,created_at) VALUES(?,?,'calling',?)").bind(id,JSON.stringify(descriptor),Date.now()).run();
@@ -47,7 +46,7 @@ export async function pronunciationRoute(request,env,{isPublisher,isReader,sessi
   const r=await fetch('https://openrouter.ai/api/v1/audio/speech',{method:'POST',headers:{authorization:`Bearer ${env.OPENROUTER_API_KEY}`,'content-type':'application/json','X-Title':'The Second Language Bella pronunciation'},body:JSON.stringify({model:ttsModel,voice:defaultVoice,input:text,response_format:'mp3'}),signal:AbortSignal.timeout(240000)});
   const bytes=await r.arrayBuffer(),metadata={status:r.status,model:ttsModel,voice:defaultVoice,generationId:r.headers.get('x-generation-id'),mime:r.headers.get('content-type')};
   if(!r.ok||!metadata.mime?.startsWith('audio/')){
-   const state=r.status===402?'waiting_credit':'failed',retry=state==='waiting_credit'?nextBeijingDay():null;
+   const state=r.status===402?'waiting_credit':'failed',retry=state==='waiting_credit'?null:null;
    await db.prepare('UPDATE pronunciation_audio SET state=?,response_json=?,next_retry_at=? WHERE id=?').bind(state,JSON.stringify({...metadata,raw:new TextDecoder().decode(bytes).slice(0,16000)}),retry,id).run();return json(view({id,state,next_retry_at:retry}));
   }
   const head=new Uint8Array(bytes.slice(0,3));if(bytes.byteLength<100||bytes.byteLength>1048576||!(head[0]===73&&head[1]===68&&head[2]===51||head[0]===255&&(head[1]&224)===224))throw Error('声音文件无效或过大');

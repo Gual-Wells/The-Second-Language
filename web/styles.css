@@ -363,3 +363,11 @@ textarea.text-input { resize: vertical; }
   .toolbar { min-height: 39px; }
 }
 
+.balances-sheet { max-width: 560px; }
+.balance-card { padding: 16px; border-bottom: 1px solid var(--line); background: linear-gradient(#fcfdfe, #eef3f7); }
+.balance-heading { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 16px; }
+.balance-amount { font: bold 20px Georgia, serif; color: var(--ink); }
+.balance-card p, .balance-estimate p { margin: 8px 0; line-height: 1.55; }
+.balance-card small, .balance-estimate small { display: block; color: var(--muted); line-height: 1.6; }
+.balance-card .balance-warning { padding: 9px 12px; border: 1px solid #c7ae69; border-radius: 5px; background: linear-gradient(#fff7d2, #efdf9d); color: #5a4924; }
+.balance-estimate { padding: 14px 16px; border-bottom: 1px solid var(--line); }

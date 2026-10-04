@@ -2,17 +2,17 @@
 
 当前默认设计（v2）：每份录音 Whisper、Gemini Flash、Qwen、GPT Audio 各一次全量独立调用，然后 Codex 完整接管。GPT Audio 是增加的第四路主数据模型，不取代原三路。新增模型可以凭增量证据价值进入固定主链，不要求先全面胜过既有模型。
 
-采集模块和后台配置已经建立；正式录音入口、私有存储及 Codex 在线领取仍须按接入设计完成后才启用。没有录音的文字口语练习只评价文字。日课、VIX、休息与临时页不受本协议改变。
+正式录音入口、私有存储、后台采集与 Codex 在线领取已经启用；当前运行入口见 SPEAKING_RUNTIME.md。没有录音的文字口语练习只评价文字。日课、VIX、休息与临时页不受本协议改变。
 
 ## 协议实体
 
 - `speaking/contract.mjs`：模型 prompt、十二维与声音细节两种产物要求、Whisper 参数及 Codex 接管提示，是请求要求的唯一代码来源。
 - `scripts/lib/speaking/collect.mjs`：请求与保真保存、结构读取、异常及来源标记，不裁决语义。
 - `speaking/routes.mjs`：模型通路与额度池分别登记。当前为 OpenRouter 整体钱包、Cloudflare Whisper、腾讯 SOE；未来渠道保留接口。
-- `scripts/lib/speaking/funding.mjs`：Cloudflare 侧查询余额/key 额度，确定北京次日及续作检查。
+- `scripts/lib/speaking/funding.mjs`：Cloudflare 侧查询余额/key 额度，核实共享钱包和 key 额度，不负责跨日调度。
 - `worker/speaking/collector.mjs`：领取、四路采集、专项补听、私有保存与故障恢复。
 - `worker/speaking/control.mjs`、`scripts/speaking-detail.mjs`：私有专项入队；本机只提交控制请求，模型调用在 Cloudflare 执行。
-- `worker/speaking/schema.sql`、`wrangler.example.jsonc`：独立练习库扩展与后台配置，不由现有迁移命令自动应用。
+- `worker/practice_migrations/0004_speaking_live.sql`：已应用的正式口语迁移；`worker/speaking/schema.sql`、`wrangler.example.jsonc` 保留早期预建设参考，不作为当前部署入口。
 - `research/speaking-facilities-engineering.md`：正式上传、私有文件、队列及上线边界。
 
 每次运行固定 contractVersion 与 digest，专项固定自己的计划与 digest；变化产生新版本，不以新部署默默重评。供应商未公开模型快照时记录真实返回身份与未知项，不编造 pin。
@@ -63,7 +63,7 @@ Qwen 可以在分析任意阶段按需要多次补听，没有固定次数配额
 
 四路为正常默认，单路服务异常不丢弃已取得资料。额度池分为 OpenRouter 整体钱包、Cloudflare Whisper、腾讯；不同模型/厂商/池分别记录。本阶段不为了缺钱扩大账户池，未来渠道只留接口。
 
-遇到 HTTP 402 或确认 OpenRouter 钱包/key 额度不足，保存完成调用与具体下一步，声音任务进入 waiting_credit，首次暂停到北京次日。次日 Cloudflare 查询 credits 与 key，用户充值可用后只继续缺失或明确余额失败的请求，不自动付款。不足时仍挂起，每小时轻量核对；Codex 对同一未变化待充值状态只提醒一次，充值可用后续作。余额无法确认要标异常，不能假定用户没钱。可以保留已做的中间分析，但不能把因缺钱缺资料的声音任务标为最终完成；其他日课、阅读与写作照常。
+遇到 HTTP 402 或确认钱包/key 额度不足，停止新增收费调用。保留已有材料和未知计费状态；取消北京次日恢复及每小时轮询，等待本人充值后明确要求继续。按 BALANCES.md 末尾核对并提醒，余额无法确认不按零处理，缺少必要声音依据的反馈不能标为最终完成。其他无语音依赖工作继续。
 
 腾讯不足且 OpenRouter 可用时，用 Qwen 多次补充定性声音观察；这不产生腾讯音素分值、校准重音或精确边界。OpenRouter 同时不足则按上述挂起。Whisper 失效时保留其他原声模型转写与观察，明确缺失 ASR 时间，不造假时间。
 
@@ -86,3 +86,7 @@ Whisper 原生 avg_logprob、compression_ratio、no_speech_prob 是识别统计�
 测试用独立资源与忽略目录，不写正式 attempt、题目、反馈库，不标 VIX、不发日课、不自动推 PWA。原声及全部返回不进公开 Git；结束后删除测试 Worker、临时存储、触发器及密钥副本。检验目标是完整原声、实际要求、完整返回与 Codex 接管真实可用，不增加无关形式任务。
 
 本轮增量模型与真实费用见 `research/openrouter-speech-evidence-2026-10-04.md`，历史三路试验保留原日期与旧方案。能力来源：[OpenRouter 音频](https://openrouter.ai/docs/guides/overview/multimodal/audio)、[Structured Outputs](https://openrouter.ai/docs/guides/features/structured-outputs)、[GPT Audio](https://developers.openai.com/api/docs/models/gpt-audio)、[Whisper](https://developers.cloudflare.com/workers-ai/models/whisper-large-v3-turbo/)、[腾讯单词纠错](https://cloud.tencent.com/document/product/1774/107390)。
+
+## 任务末尾额度更新
+
+执行本协议所涉及的日课、推送、练习建设、批改、声音分析或测试工作时，最后按 `BALANCES.md` 查询各方额度，携带核对时间、核实状态与任务用量估算，发布更新到余额页并提示低额度。页面显示上一次任务的记录，浏览时不实时查询。不自动付款，不安排余额不足后的跨日轮询/重试；已有材料与未知计费保护继续有效。

@@ -1,6 +1,6 @@
-const SHELL = 'second-language-shell-v15';
+const SHELL = 'second-language-shell-v17';
 const CHAPTERS = 'second-language-chapters-v1';
-const CORE = ['/', '/index.html', '/app.js?v=15', '/practice.js?v=15', '/listening.js?v=15', '/reading.js?v=15', '/objective.js?v=15', '/exam-spec.js?v=15', '/recorder.js?v=15', '/reader-speech.js?v=15', '/render.js?v=15', '/annotations.js?v=15', '/styles.css?v=15', '/manifest.webmanifest?v=15', '/icon.svg?v=15', '/icon-192.png?v=15', '/icon-512.png?v=15', '/apple-touch-icon.png?v=15'];
+const CORE = ['/', '/index.html', '/app.js?v=17', '/balances.js?v=17', '/practice.js?v=17', '/listening.js?v=17', '/reading.js?v=17', '/objective.js?v=17', '/exam-spec.js?v=17', '/recorder.js?v=17', '/reader-speech.js?v=17', '/render.js?v=17', '/annotations.js?v=17', '/styles.css?v=17', '/manifest.webmanifest?v=17', '/icon.svg?v=17', '/icon-192.png?v=17', '/icon-512.png?v=17', '/apple-touch-icon.png?v=17'];
 self.addEventListener('install', event => { event.waitUntil(caches.open(SHELL).then(cache => cache.addAll(CORE)).then(() => self.skipWaiting())); });
 self.addEventListener('activate', event => { event.waitUntil(Promise.all([self.clients.claim(), caches.keys().then(keys => Promise.all(keys.filter(key => ![SHELL, CHAPTERS].includes(key)).map(key => caches.delete(key))))])); });
 self.addEventListener('message', event => { if (event.data?.type === 'CLEAR_CHAPTER_CACHE') event.waitUntil(caches.delete(CHAPTERS)); });
@@ -21,9 +21,9 @@ self.addEventListener('fetch', event => {
 });
 self.addEventListener('push', event => {
   let message = {}; try { message = event.data?.json() || {}; } catch {}
-  const target = message.temporaryId ? `/?temporary=${encodeURIComponent(message.temporaryId)}` : message.chapterId ? `/?chapter=${encodeURIComponent(message.chapterId)}` : '/';
+  const target = message.balances ? '/?balances=1' : message.temporaryId ? `/?temporary=${encodeURIComponent(message.temporaryId)}` : message.chapterId ? `/?chapter=${encodeURIComponent(message.chapterId)}` : '/';
   event.waitUntil((async () => {
-    await self.registration.showNotification(message.title || '第二语言 · 今日课程', { body: message.body || '新的章节已经可以阅读。', icon: '/icon-192.png?v=15', badge: '/icon-192.png?v=15', data: { target } });
+    await self.registration.showNotification(message.title || '第二语言 · 今日课程', { body: message.body || '新的章节已经可以阅读。', icon: '/icon-192.png?v=17', badge: '/icon-192.png?v=17', data: { target } });
     if ('setAppBadge' in self.navigator) { try { await self.navigator.setAppBadge(1); } catch {} }
   })());
 });

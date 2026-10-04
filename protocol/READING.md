@@ -27,3 +27,7 @@ iPhone 在文章/题目间切换，三篇导航保存各篇文章和题面的位
 node scripts/practice-job.mjs reading-claim 回收完整原文、译文、题目、证据、答卷、判分与条件。Codex 区分内容缺陷和理解问题，保持原始判分不变，给有证据的 summary、少量 priorities、nextStep；不要从一个错题直接断言词汇或能力缺陷。若题有缺陷先明确它，不苛责学习者。用 reading-complete <attempt-id> review.json 反馈。微缩不换算官方 band，也不与完整正确数混算。
 
 官方依据：https://ielts.org/take-a-test/test-types/ielts-academic-test/ielts-academic-format-reading 。微缩题量是本项目选择，非官方等值考试。
+
+## 任务末尾额度更新
+
+执行本协议所涉及的日课、推送、练习建设、批改、声音分析或测试工作时，最后按 `BALANCES.md` 查询各方额度，携带核对时间、核实状态与任务用量估算，发布更新到余额页并提示低额度。页面显示上一次任务的记录，浏览时不实时查询。不自动付款，不安排余额不足后的跨日轮询/重试；已有材料与未知计费保护继续有效。

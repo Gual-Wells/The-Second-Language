@@ -1,3 +1,4 @@
+import {finishTaskBalances} from './check-balances.mjs';
 import {readFile,writeFile,mkdir} from 'node:fs/promises';import path from 'node:path';import {spawnSync} from 'node:child_process';import {createHash} from 'node:crypto';import {publisherConfig} from './lib/publisher-config.mjs';
 const [command,id,filename]=process.argv.slice(2),{base,token}=await publisherConfig(),safe=x=>/^[A-Za-z0-9._-]{1,110}$/.test(x||'');
 async function call(p,method='GET',body){const r=await fetch(new URL(p,base),{method,headers:{authorization:`Bearer ${token}`,...(body?{'content-type':'application/json'}:{})},body:body?JSON.stringify(body):undefined,signal:AbortSignal.timeout(60000)});const j=await r.json();if(!r.ok)throw Error(j.error||`API ${r.status}`);return j;}
@@ -15,4 +16,7 @@ else if(command==='prepare'&&safe(id)){
  console.log(`已保真回收原声、全部任务、请求和返回：${dir}`);
 }else if(command==='complete'&&safe(id)&&filename){const claim=JSON.parse(await readFile(path.resolve('work/expression/speaking-reviews',id,'claim.json'),'utf8')),feedback=JSON.parse(await readFile(filename,'utf8'));console.log(JSON.stringify(await call('/api/practice/publisher/speaking/complete','POST',{id,claimToken:claim.claimToken,jobId:claim.attempt.jobs.at(-1).id,feedback})));}
 else if(command==='details'&&filename){console.log(JSON.stringify(await call('/api/practice/publisher/speaking/details','POST',JSON.parse(await readFile(filename,'utf8')))));}
+else if(command==='retry-credit'&&safe(id)){console.log(JSON.stringify(await call('/api/practice/publisher/speaking/retry-credit','POST',{jobId:id})));}
 else throw Error('用法：speaking-practice.mjs next|prepare ID|claim|complete ID feedback.json|details _ plan.json');
+
+if(['publish','complete','review-complete','listening-complete','reading-complete'].includes(command))await finishTaskBalances();

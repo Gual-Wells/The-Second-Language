@@ -1,6 +1,6 @@
 import { collectOpenRouter, collectWhisper, requestDescriptor, contractVersion, contractSnapshot } from '../../scripts/lib/speaking/collect.mjs';
 import { routes,compensationPlan } from '../../protocol/speaking/routes.mjs';
-import { checkOpenRouterFunds,nextBeijingDay } from '../../scripts/lib/speaking/funding.mjs';
+import { checkOpenRouterFunds } from '../../scripts/lib/speaking/funding.mjs';
 import {controlRequest} from './control.mjs';
 
 const jsonPut = (bucket, key, value) => bucket.put(key, JSON.stringify(value), { httpMetadata: { contentType: 'application/json' } });
@@ -15,11 +15,11 @@ function base64(bytes) {
 export async function collectNext(env) {
   if (!env.PRACTICE_DB || !env.SPEAKING_ASSETS) throw new Error('口语数据存储尚未齐备');
   const db = env.PRACTICE_DB, stamp = Date.now();
-  const job = await db.prepare(`SELECT * FROM speaking_jobs WHERE status='queued' OR (status='running' AND lease_until<?) OR (status='waiting_credit' AND next_retry_at<=?) ORDER BY created_at LIMIT 1`).bind(stamp,stamp).first();
+  const job = await db.prepare(`SELECT * FROM speaking_jobs WHERE status='queued' OR (status='running' AND lease_until<?) ORDER BY created_at LIMIT 1`).bind(stamp).first();
   if (!job) return { idle: true };
   const token = crypto.randomUUID();
   const claimed = await db.prepare(`UPDATE speaking_jobs SET status='running',lease_token=?,lease_until=?,updated_at=?
-    WHERE id=? AND (status='queued' OR (status='running' AND lease_until<?) OR (status='waiting_credit' AND next_retry_at<=?))`).bind(token,stamp+1200000,stamp,job.id,stamp,stamp).run();
+    WHERE id=? AND (status='queued' OR (status='running' AND lease_until<?))`).bind(token,stamp+1200000,stamp,job.id,stamp).run();
   if (!claimed.meta.changes) return { idle: true };
   try {
     const prefix = `speaking/${job.attempt_id}/jobs/${job.id}`;
@@ -34,7 +34,7 @@ export async function collectNext(env) {
       const funds=await checkOpenRouterFunds(env.OPENROUTER_API_KEY);
       await jsonPut(env.SPEAKING_ASSETS,`${prefix}/funds/${crypto.randomUUID()}.json`,funds);
       if(!funds.verified)throw new Error('OpenRouter 余额无法确认；保留任务，核对余额接口，不能按没钱处理。');
-      if(!funds.usable)return await waitForCredit(Date.now()+3600000);
+      if(!funds.usable)return await waitForCredit(null);
     }
     if (job.contract_version !== contractVersion) throw new Error('采集协议版本不同；应使用固定版本，不能静默替换');
     const pinned = await env.SPEAKING_ASSETS.get(job.contract_key);
@@ -167,7 +167,7 @@ export async function collectNext(env) {
       extraPlan:job.plan_key?{key:job.plan_key,digest:job.plan_digest}:null,
       results:evidence.map(({parsed,...rest})=>rest),
     });
-    if(compensation.waitingForCredit)return await waitForCredit(nextBeijingDay());
+    if(compensation.waitingForCredit)return await waitForCredit(null);
     const updated = await db.prepare('UPDATE speaking_jobs SET status=?,next_retry_at=NULL,lease_token=NULL,lease_until=NULL,updated_at=? WHERE id=? AND lease_token=?')
       .bind(compensation.readyForCodex?'collected':'needs_attention',Date.now(),job.id,token).run();
     if (updated.meta.changes) await db.prepare("UPDATE speaking_attempts SET status=? WHERE id=? AND status IN ('preparing','collecting','needs_attention','waiting_credit')")

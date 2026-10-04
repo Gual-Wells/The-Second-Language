@@ -21,7 +21,7 @@ export function installReaderSpeech({toast}){
      result=await api('/api/practice/pronunciation/'+result.id);
     }
     if(ticket!==serial)return;
-    if(result.state==='waiting_credit')throw Error('声音余额不足，已保留进度；充值后次日可继续');
+    if(result.state==='waiting_credit')throw Error('声音余额不足，请充值后重新点读；已有声音仍可播放');
     if(result.state!=='ready')throw Error(result.state==='outcome_unknown'?'声音请求结果待核对，不会重复付费重试':'朗读暂不可用，请稍后再试');
     const response=await fetch(result.audioUrl,{credentials:'same-origin'});if(!response.ok)throw Error('声音暂时无法读取');audio=await context.decodeAudioData(await response.arrayBuffer());
     if(buffers.size>=30)buffers.delete(buffers.keys().next().value);buffers.set(cacheKey,audio);

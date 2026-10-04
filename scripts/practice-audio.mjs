@@ -1,3 +1,4 @@
+import {finishTaskBalances} from './check-balances.mjs';
 import {readFile,writeFile,mkdir} from 'node:fs/promises';
 import path from 'node:path';import {spawnSync} from 'node:child_process';import {createHash} from 'node:crypto';
 import {publisherConfig} from './lib/publisher-config.mjs';
@@ -30,3 +31,5 @@ if(command==='cast'||command==='synthesize'){
 }else if(command==='verify'){
  for(const {id}of plan.assemblies||plan.segments){const result=await control(`/api/practice/publisher/media/${encodeURIComponent(id)}/verify`,{});await writeFile(path.join(dir,`${name(id)}.verification.json`),JSON.stringify(result,null,2));console.log(JSON.stringify({id,verified:true,reused:result.reused||false}));}
 }else throw Error('用法：practice-audio.mjs cast|synthesize|assemble|verify plan.json；只由 Cloudflare 调用模型');
+
+if(['synthesize','verify'].includes(command))await finishTaskBalances();

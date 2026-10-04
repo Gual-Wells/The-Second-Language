@@ -1,8 +1,4 @@
 // The owner replenishes the single OpenRouter balance. No automatic payments.
-export function nextBeijingDay(now = Date.now()) {
-  const local = new Date(now + 8*3600000);
-  return Date.UTC(local.getUTCFullYear(),local.getUTCMonth(),local.getUTCDate()+1)-8*3600000;
-}
 export async function checkOpenRouterFunds(apiKey,{fetchImpl=fetch}={}) {
   const replies=await Promise.allSettled(['credits','key'].map(async endpoint=>{
     const r=await fetchImpl(`https://openrouter.ai/api/v1/${endpoint}`,{headers:{authorization:`Bearer ${apiKey}`},signal:AbortSignal.timeout(25000)});

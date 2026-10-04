@@ -1,3 +1,4 @@
+import {finishTaskBalances} from './check-balances.mjs';
 import { readFile,writeFile,mkdir } from 'node:fs/promises';
 import { appendFileSync } from 'node:fs';
 import { createHash,randomUUID } from 'node:crypto';
@@ -30,3 +31,5 @@ else{
   console.log(JSON.stringify({result:`${stem}.json`,mode:result.mode,wordCount:result.words.length,phones:phones.length,referencePhones:phones.filter(p=>p.ReferencePhone).length,letterMappings:phones.filter(p=>p.ReferenceLetter).length,expectedStressTrue:phones.filter(p=>p.Stress===true).length,detectedStressTrue:phones.filter(p=>p.DetectedStress===true).length,judgmentsVerified:false,productionWrites:false}));
  }
 }
+
+await finishTaskBalances();

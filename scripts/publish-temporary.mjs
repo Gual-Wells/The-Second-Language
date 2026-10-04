@@ -1,3 +1,4 @@
+import {finishTaskBalances} from './check-balances.mjs';
 import { readFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import path from 'node:path';
@@ -24,3 +25,5 @@ if (!response.ok) throw new Error(`临时页发布失败：${result.error || res
 const digest = createHash('sha256').update(page.markdown).digest('hex');
 if (result.digest !== digest) throw new Error('临时页发布摘要与本地正文不一致');
 console.log(`临时页已发布：${result.id}，${page.kind}，${new Date(result.expiresAt).toISOString()} 到期，摘要 ${result.digest}`);
+
+await finishTaskBalances();

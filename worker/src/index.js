@@ -4,6 +4,7 @@ import { rawPayload, sendPushNotification } from '@mmmike/web-push/send';
 import { authRoute, sessionFor } from './auth.js';
 import { validateAnnotatedContent } from '../../web/annotations.js';
 import { practiceRoute } from './practice.js';
+import {balanceRoute} from './balances.js';
 
 const encoder = new TextEncoder();
 const MAX_BODY = 5_000_000;
@@ -61,6 +62,7 @@ async function route(request, env) {
   const url = new URL(request.url), path = url.pathname;
   if (path === '/health') return json({ ok: true });
   if (path.startsWith('/auth/')) return authRoute(request, env, request.method === 'POST' ? await inputJson(request) : {});
+  if(path.startsWith('/api/balances'))return balanceRoute(request,env,{isPublisher:publisher(request,env),session:await sessionFor(request,env),sameOrigin:sameOrigin(request,env)});
   if (path === '/api/practice' || path.startsWith('/api/practice/')) return practiceRoute(request, env, publisher);
 
   if (path === '/api/session' && request.method === 'GET') return json({ authenticated: Boolean(await sessionFor(request, env)), demo: false });
@@ -213,8 +215,11 @@ async function route(request, env) {
   if (path.startsWith('/api/chapters/') && request.method === 'GET') {
     const id = decodeURIComponent(path.slice('/api/chapters/'.length));
     if (!safeId(id)) return json({ error: '章节编号无效' }, 400);
-    const row = await env.DB.prepare(`SELECT p.chapter_id AS id,p.study_date AS date,r.number,r.title,r.subtitle,r.word_count AS wordCount,r.content_key
-      FROM published_chapters p JOIN chapter_revisions r ON r.digest=p.digest WHERE p.chapter_id=?`).bind(id).first();
+    const version = url.searchParams.get('digest');
+    if (version && !/^[0-9a-f]{64}$/.test(version)) return json({ error: '章节版本无效' }, 400);
+    const row = await env.DB.prepare(`SELECT p.chapter_id AS id,p.study_date AS date,r.number,r.title,r.subtitle,r.word_count AS wordCount,r.content_key,r.digest,
+      CASE WHEN r.digest!=p.digest THEN 1 ELSE 0 END AS historical
+      FROM published_chapters p JOIN chapter_revisions r ON r.chapter_id=p.chapter_id AND r.digest=COALESCE(?,p.digest) WHERE p.chapter_id=?`).bind(version,id).first();
     if (!row) return json({ error: '章节尚未发布' }, 404);
     const markdown = await env.CHAPTERS.get(row.content_key);
     if (markdown === null) return json({ error: '章节正文暂不可用' }, 503);
@@ -300,6 +305,7 @@ async function route(request, env) {
     await env.DB.batch([
       env.DB.prepare('DELETE FROM push_outbox WHERE subscription_id=?').bind(id),
       env.DB.prepare('DELETE FROM temporary_push_outbox WHERE subscription_id=?').bind(id),
+      env.DB.prepare('DELETE FROM balance_push_outbox WHERE subscription_id=?').bind(id),
       env.DB.prepare('DELETE FROM push_subscriptions WHERE id=?').bind(id)
     ]);
     return json({ ok: true });
@@ -310,6 +316,18 @@ async function route(request, env) {
 async function sendDue(env) {
   if (!env.VAPID_PUBLIC_KEY || !env.VAPID_PRIVATE_KEY || !env.VAPID_SUBJECT) return;
   const now = Date.now();
+  const alerts=await env.DB.prepare(`SELECT o.*,s.endpoint,s.p256dh,s.auth FROM balance_push_outbox o JOIN push_subscriptions s ON s.id=o.subscription_id
+    WHERE o.sent_at IS NULL AND o.attempts<4 AND (o.claim_at IS NULL OR o.claim_at<?) ORDER BY o.created_at LIMIT 10`).bind(now-120000).all();
+  for(const row of alerts.results){
+    const claimed=await env.DB.prepare('UPDATE balance_push_outbox SET claim_at=?,attempts=attempts+1 WHERE id=? AND sent_at IS NULL AND (claim_at IS NULL OR claim_at<?)').bind(now,row.id,now-120000).run();
+    if(!claimed.meta.changes)continue;
+    try{
+      const sent=await sendPushNotification({endpoint:row.endpoint,keys:{p256dh:row.p256dh,auth:row.auth}},rawPayload(JSON.stringify({balances:true,title:'第二语言 · 额度提醒',body:row.body})),
+        {publicKey:env.VAPID_PUBLIC_KEY,privateKey:env.VAPID_PRIVATE_KEY,subject:env.VAPID_SUBJECT},{ttl:3600,urgency:'normal',timeoutMs:10000});
+      if(sent)await env.DB.prepare('UPDATE balance_push_outbox SET sent_at=?,claim_at=NULL WHERE id=?').bind(Date.now(),row.id).run();
+      else await env.DB.prepare('DELETE FROM push_subscriptions WHERE id=?').bind(row.subscription_id).run();
+    }catch{await env.DB.prepare('UPDATE balance_push_outbox SET claim_at=NULL WHERE id=?').bind(row.id).run();}
+  }
   const { results } = await env.DB.prepare(`SELECT o.*,s.endpoint,s.p256dh,s.auth,r.title
     FROM push_outbox o JOIN published_chapters p ON p.chapter_id=o.chapter_id AND p.digest=o.digest
     JOIN push_subscriptions s ON s.id=o.subscription_id

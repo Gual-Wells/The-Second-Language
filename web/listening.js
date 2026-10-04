@@ -1,5 +1,5 @@
-import {examSpec} from './exam-spec.js?v=15';
-import {questionField} from './objective.js?v=15';
+import {examSpec} from './exam-spec.js?v=17';
+import {questionField} from './objective.js?v=17';
 const make=(tag,cls,text)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e;};
 export function createListening({api,toast,openSource,pauseOthers=()=>{}}){
  let active=null;
@@ -33,7 +33,7 @@ export function createListening({api,toast,openSource,pauseOthers=()=>{}}){
   for(const [index,p]of passages.entries()){
    const section=make('section','listening-part');section.id=`practice-${p.id}`;section.append(make('h3','',`Part ${index+1} · ${p.title}`),make('p','practice-guidance',p.instructions));
    const revisit=make('button','bevel-button','精听这一段');revisit.type='button';revisit.disabled=true;selectors.push(revisit);revisit.onclick=()=>{if(submitted)state.mode='review';state.passage=index;state.position=0;play().catch(e=>toast(e.message));};section.append(revisit);
-   const links=make('div','practice-links');for(const link of p.links||[]){const b=make('button','bevel-button',`${link.chapterId}${link.useId?` · ${link.useId}`:''}`);b.type='button';b.onclick=()=>{document.getElementById('practiceDialog').close();openSource(link.chapterId,link.useId);};links.append(b);}section.append(links);
+   const links=make('div','practice-links');for(const link of p.links||[]){const b=make('button','bevel-button',`${link.chapterId}${link.useId?` · ${link.useId}`:''}`);b.type='button';b.onclick=()=>{document.getElementById('practiceDialog').close();openSource(link.chapterId,link.useId,set.sources.find(source=>source.id===link.chapterId)?.digest);};links.append(b);}section.append(links);
    if(p.visual){const v=p.visual,svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.setAttribute('viewBox',`0 0 ${v.width} ${v.height}`);svg.setAttribute('role','img');svg.setAttribute('aria-label',v.title);svg.classList.add('listening-diagram');
     const shape=(tag,attrs,text)=>{const e=document.createElementNS(svg.namespaceURI,tag);for(const [k,val]of Object.entries(attrs))e.setAttribute(k,String(val));if(text)e.textContent=text;svg.append(e);};
     for(const r of v.routes)shape('polyline',{points:r.points.map(pt=>pt.join(',')).join(' '),fill:'none',stroke:'#8b9daf','stroke-width':8});

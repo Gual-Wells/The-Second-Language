@@ -1,3 +1,4 @@
+import {finishTaskBalances} from './check-balances.mjs';
 import { publisherConfig } from './lib/publisher-config.mjs';
 
 const id = process.argv[2];
@@ -9,3 +10,5 @@ const response = await fetch(new URL(`/api/temporary/${encodeURIComponent(id)}`,
 const result = await response.json();
 if (!response.ok) throw new Error(result.error || `删除失败：HTTP ${response.status}`);
 console.log(result.deleted ? `已删除临时页 ${id}` : `临时页 ${id} 已不存在`);
+
+await finishTaskBalances();

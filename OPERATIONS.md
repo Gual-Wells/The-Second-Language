@@ -58,7 +58,7 @@ node scripts/speaking-detail.mjs .cache/补听计划.json
 
 默认四路是 Whisper、Gemini Flash、Qwen、GPT Audio；GPT Audio 增加独立声音观察，不取代其他主路。Qwen 可多次补听；专项计划包含 id、attemptId、parentJobId，以及各有 id、provider、focusPrompt 的 tasks。当前 provider 支持 qwen 和 gpt-audio，云队列复用完整 WAV；片段尚需受控上传和原声关系校验。本机 `.cache/speaking-backend.json` 只保存 baseUrl 与 controlToken，控制工具经 HTTPS POST `/speaking/details` 入队，不持有 OpenRouter 推理职责。Worker 用 SPEAKING_CONTROL_TOKEN 验证私有控制身份；正式原声补听使用 publisher 凭据与 speaking-practice.mjs details，独立 Worker 控制配置仅作备用。
 
-额度池分别登记 OpenRouter 整体余额、Cloudflare Whisper、腾讯及以后接入的渠道。OpenRouter 推理与余额核对都在 Cloudflare，钱包/key 不足时保存已完成结果，将该声音任务挂起到北京次日；次日核对 credits 与 key，确认可用后只续作缺失或明确余额失败的请求。未充值每小时轻量核对，不自动付款，不把未完成声音任务包装成最终反馈。成功返回不因另一路不足重采，未确认是否收费的调用保留 outcome_unknown；重复专项不增加独立来源计数。腾讯不足且 OpenRouter 可用时，可用 Qwen 补充定性观察，但不能补造腾讯量化分值。日课、阅读与写作继续运行。
+额度池为 OpenRouter 共享钱包、Cloudflare Whisper 和腾讯专项。按 protocol/BALANCES.md 在任务末尾查询、携带归一化记录并发布更新余额页，低额度提前提醒。不自动付款，不安排额度不足后的跨日/每小时重试。已得材料保留，已缓存音频复播不生成；未知计费结果不自动重付。腾讯不足可由 Qwen 提供定性代偿，不补造量化分数；无语音依赖任务继续。
 
 腾讯单词工具支持模式 0/4，字母映射与 IPA 分别调用；录音模式只发一个音频包。裁词边界和不同模式的评分量纲须核查，不用低分直接诊断。全部原包保留。最新实际返回、收费及能力取舍见 `research/openrouter-speech-evidence-2026-10-04.md`。
 
@@ -92,3 +92,7 @@ node scripts/practice-job.mjs review-complete <答卷ID> work/expression/reviews
 
 
 第四部分 v2：先应用 practice_migrations/0003_profiles_reading.sql 与 0004_speaking_live.sql，再发布 Worker 和 PWA v13。微缩规格与难度见 PRACTICE_SIZES.md；阅读见 READING.md；原声操作见 SPEAKING_RUNTIME.md 和 scripts/speaking-practice.mjs。正式 Worker 已绑定 AI、私有媒体 KV、OpenRouter secret；分钟任务采集原声，Codex 本机转换和分析，日课仍独立北京时间 03:00。PWA v14 的日课点读固定 Kokoro Bella，由 Cloudflare 按需生成并复用短音频；第三部分仍可切点词/点句。短 TTS 缓存使用 0005 迁移的 pronunciation_audio D1 BLOB，不写 KV；个人原声和长练习音频仍走私有媒体存储。听力通过 practice-audio.mjs cast 冻结授权音色池的人物绑定，后台校验同人同声；口语考官固定 Bella。长期预生成日课音频仍是可选扩展，不增加每日生产负担。
+
+## 任务末尾额度更新
+
+执行本协议所涉及的日课、推送、练习建设、批改、声音分析或测试工作时，最后按 `protocol/BALANCES.md` 查询各方额度，携带核对时间、核实状态与任务用量估算，发布更新到余额页并提示低额度。页面显示上一次任务的记录，浏览时不实时查询。不自动付款，不安排余额不足后的跨日轮询/重试；已有材料与未知计费保护继续有效。

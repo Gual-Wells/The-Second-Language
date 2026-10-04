@@ -2,13 +2,12 @@ import assert from 'node:assert/strict';
 import {DatabaseSync} from 'node:sqlite';
 import {readFile} from 'node:fs/promises';
 import {collectNext} from '../worker/speaking/collector.mjs';
-import {enqueueSupplement,controlRequest} from '../worker/speaking/control.mjs';
+import {enqueueSupplement,controlRequest,retryCreditJob} from '../worker/speaking/control.mjs';
 import {contractSnapshot,contractVersion} from './lib/speaking/collect.mjs';
 import {collectionSchema,detailSchema} from '../protocol/speaking/contract.mjs';
-import {nextBeijingDay} from './lib/speaking/funding.mjs';
 const sql=new DatabaseSync(':memory:');
 sql.exec('PRAGMA foreign_keys=ON;CREATE TABLE practice_questions(id TEXT PRIMARY KEY);INSERT INTO practice_questions VALUES(\'q\');');
-sql.exec(await readFile(new URL('../worker/speaking/schema.sql',import.meta.url),'utf8'));
+sql.exec(await readFile(new URL('../worker/practice_migrations/0004_speaking_live.sql',import.meta.url),'utf8'));
 const db={prepare(query){return{bind(...values){const stmt=sql.prepare(query);return{first:async()=>stmt.get(...values)??null,all:async()=>({results:stmt.all(...values)}),run:async()=>({meta:{changes:Number(stmt.run(...values).changes)}})};}};}};
 db.batch=async statements=>{sql.exec('BEGIN');try{const result=[];for(const stmt of statements)result.push(await stmt.run());sql.exec('COMMIT');return result;}catch(error){sql.exec('ROLLBACK');throw error;}};
 const bytes=value=>typeof value==='string'?new TextEncoder().encode(value):new Uint8Array(value);
@@ -36,11 +35,11 @@ try{
  assert.equal(sql.prepare("SELECT status FROM speaking_jobs WHERE id='j'").get().status,'waiting_credit');
  assert.equal(sql.prepare("SELECT status FROM speaking_attempts WHERE id='a'").get().status,'waiting_credit');
  assert.equal(requests.length,3);assert.ok(objects.has('speaking/a/jobs/j/manifest.json'));
- assert.equal(nextBeijingDay(Date.parse('2026-10-03T15:59:00Z')),Date.parse('2026-10-03T16:00:00Z'));
- assert.equal(nextBeijingDay(Date.parse('2026-10-03T16:01:00Z')),Date.parse('2026-10-04T16:00:00Z'));
+ assert.equal(sql.prepare("SELECT next_retry_at FROM speaking_jobs WHERE id='j'").get().next_retry_at,null);
  phase='no-funds';sql.prepare("UPDATE speaking_jobs SET next_retry_at=0 WHERE id='j'").run();
- await collectNext(env);assert.equal(requests.length,3);
+ assert.equal((await collectNext(env)).idle,true);assert.equal(requests.length,3);
  phase='funded';sql.prepare("UPDATE speaking_jobs SET next_retry_at=0 WHERE id='j'").run();
+ assert.equal((await collectNext(env)).idle,true);await retryCreditJob(env,'j');
  await collectNext(env);
  assert.equal(requests.length,4);assert.equal(requests.filter(m=>m.includes('qwen')).length,2);
  assert.equal(sql.prepare("SELECT status FROM speaking_jobs WHERE id='j'").get().status,'collected');
@@ -58,5 +57,5 @@ try{
  await enqueueSupplement(env,{jobId:'unknown-supplement',attemptId:'a',parentJobId:'j',tasks:[{id:'new-detail',focusPrompt:'Independent additional detail.'}]});
  await collectNext(env);assert.equal(requests.length,6);assert.equal(requests.filter(m=>m==='openai/gpt-audio').length,1);
  assert.equal((await controlRequest(new Request('https://fixture/speaking/details',{method:'POST'}),env)).status,404);
- console.log(JSON.stringify({creditPauseResumePassed:true,fourPrimaryCalls:true,paidSuccessesReused:true,nextBeijingDayVerified:true,focusedRepeatAllowed:true,independentProductionWrites:false,providerCalled:false}));
+ console.log(JSON.stringify({explicitCreditContinuationPassed:true,fourPrimaryCalls:true,paidSuccessesReused:true,noAutomaticCreditRetry:true,focusedRepeatAllowed:true,independentProductionWrites:false,providerCalled:false}));
 }finally{globalThis.fetch=originalFetch;sql.close();}
