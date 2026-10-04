@@ -2,15 +2,12 @@ import { readFile, writeFile } from 'node:fs/promises';
 import { spawnSync } from 'node:child_process';
 import path from 'node:path';
 import { loadVixIndex, familyRecords } from './lib/vix-index.mjs';
+import { validateVixDate } from './lib/vix-date.mjs';
 
 const args = Object.fromEntries(process.argv.slice(2).map(item => item.replace(/^--/, '').split(/=(.*)/s).slice(0, 2)));
 if (!args.vix || !args.selection) throw new Error('用法: node scripts/mark-vix.mjs --vix=<VIX目录> --selection=<selection.json>');
 const vixDir = path.resolve(args.vix), selection = JSON.parse(await readFile(args.selection, 'utf8'));
-const label = selection.vixMarkLabel;
-if (!/^\d{2}-\d{2}$/.test(label) || !/^\d{4}-\d{2}-\d{2}$/.test(selection.studyDate || '')) throw new Error('selection 日期格式无效');
-if (label !== selection.studyDate.slice(5)) throw new Error('VIX MM-DD 标签与课程日期不一致');
-const [month, day] = label.split('-').map(Number);
-if (month < 1 || month > 12 || day < 1 || day > [31,29,31,30,31,30,31,31,30,31,30,31][month - 1]) throw new Error('VIX MM-DD 标签无效');
+const label = validateVixDate(selection);
 const index = await loadVixIndex(vixDir);
 const chosen = familyRecords(selection), unique = new Map();
 for (const item of chosen) {

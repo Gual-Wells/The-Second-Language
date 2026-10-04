@@ -15,6 +15,7 @@ const constantEqual = (a, b) => {
   return diff === 0;
 };
 const now = () => Date.now();
+const skillOrder = { listening: 0, reading: 1, writing: 2, speaking: 3 };
 const body = async request => {
   if (Number(request.headers.get('content-length') || 0) > 1000000) throw new Error('请求过大');
   const raw = await request.text();
@@ -80,7 +81,7 @@ export async function practiceRoute(request, env, publisher) {
       FROM listening_passages p JOIN json_each(p.questions_json) j JOIN practice_sets s ON s.id=p.set_id JOIN practice_requests r ON r.id=s.request_id WHERE (? IS NULL OR ?='listening') AND (? IS NULL OR EXISTS(SELECT 1 FROM practice_sources x WHERE x.set_id=p.set_id AND x.chapter_id=?)) AND (?='' OR json_extract(j.value,'$.prompt') LIKE ? OR s.title LIKE ?)`).bind(kind,kind,chapter,chapter,term,`%${term}%`,`%${term}%`).all();
     const {results:rp}=await db.prepare(`SELECT json_extract(j.value,'$.id') AS id,p.links_json,p.set_id AS setId,'reading' AS kind,'reading-'||(p.position+1) AS part,json_extract(j.value,'$.prompt') AS prompt,s.title AS setTitle,r.focus_chapter_id AS focusChapterId,(SELECT a.status FROM reading_attempts a WHERE a.set_id=p.set_id ORDER BY submitted_at DESC LIMIT 1) AS lastStatus FROM reading_passages p JOIN json_each(p.questions_json) j JOIN practice_sets s ON s.id=p.set_id JOIN practice_requests r ON r.id=s.request_id WHERE (? IS NULL OR ?='reading') AND (? IS NULL OR EXISTS(SELECT 1 FROM practice_sources x WHERE x.set_id=p.set_id AND x.chapter_id=?)) AND (?='' OR json_extract(j.value,'$.prompt') LIKE ? OR s.title LIKE ?)`).bind(kind,kind,chapter,chapter,term,`%${term}%`,`%${term}%`).all();
     let all=[...results,...lp,...rp];if(use)all=all.filter(x=>!['listening','reading'].includes(x.kind)||JSON.parse(x.links_json||'[]').some(l=>l.useId===use));
-    all=all.map(({links_json,...item})=>item);all.sort((a,b)=>({listening:0,reading:1,writing:2,speaking:3}[a.kind]-{listening:0,writing:1,speaking:2}[b.kind])||a.part.localeCompare(b.part));return json({ questions: status ? all.filter(item => status === 'unanswered' ? !item.lastStatus : item.lastStatus === status) : all });
+    all=all.map(({links_json,...item})=>item);all.sort((a,b)=>(skillOrder[a.kind]-skillOrder[b.kind])||a.part.localeCompare(b.part));return json({ questions: status ? all.filter(item => status === 'unanswered' ? !item.lastStatus : item.lastStatus === status) : all });
   }
 
   if (path === '/api/practice/requests' && request.method === 'POST') {

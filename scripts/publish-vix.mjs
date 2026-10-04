@@ -3,6 +3,7 @@ import { readFile } from 'node:fs/promises';
 import { spawnSync } from 'node:child_process';
 import path from 'node:path';
 import { loadVixIndex, familyRecords } from './lib/vix-index.mjs';
+import { validateVixDate } from './lib/vix-date.mjs';
 
 const args = Object.fromEntries(process.argv.slice(2).map(item => item.replace(/^--/, '').split(/=(.*)/s).slice(0, 2)));
 if (!args.vix || !args.selection) throw new Error('用法: node scripts/publish-vix.mjs --vix=<VIX目录> --selection=<selection.json>');
@@ -14,6 +15,7 @@ function gitCredentialToken() {
 const token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || gitCredentialToken();
 if (!token) throw new Error('缺少 GITHUB_TOKEN、GH_TOKEN 或 GitHub Git 凭据');
 const root = path.resolve(args.vix), selection = JSON.parse(await readFile(args.selection, 'utf8'));
+validateVixDate(selection);
 if (!/^[0-9a-f]{40}$/.test(selection.vixInputCommit || '')) throw new Error('selection 缺少 VIX 输入 commit');
 const index = await loadVixIndex(root);
 for (const item of familyRecords(selection)) {

@@ -1,7 +1,7 @@
-import {installReaderSpeech} from './reader-speech.js?v=14';
-import { parseParts, renderPart } from './render.js?v=14';
-import { validateAnnotatedContent } from './annotations.js?v=14';
-import { createPracticeUI } from './practice.js?v=14';
+import {installReaderSpeech} from './reader-speech.js?v=15';
+import { parseParts, renderPart } from './render.js?v=15';
+import { validateAnnotatedContent } from './annotations.js?v=15';
+import { createPracticeUI } from './practice.js?v=15';
 
 const $ = id => document.getElementById(id);
 const todayParts = Object.fromEntries(new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(new Date()).map(part => [part.type, part.value]));
@@ -613,7 +613,7 @@ for (const button of document.querySelectorAll('[data-difficulty]')) button.addE
   for (const choice of document.querySelectorAll('[data-difficulty]')) choice.classList.toggle('selected', choice === button);
 });
 $('readingScroll').addEventListener('scroll', () => { updateReadingPosition(); clearTimeout(saveReadingPosition.timer); saveReadingPosition.timer = setTimeout(saveReadingPosition, 250); }, { passive: true });
-window.addEventListener('pagehide', saveReadingPosition);
+
 $('loginButton').addEventListener('click', signIn);
 $('loginInstallButton').addEventListener('click', () => showDialog('installDialog'));
 $('setupKey').addEventListener('keydown', event => { if (event.key === 'Enter') signIn(); });
@@ -715,6 +715,6 @@ $('chapterNav').addEventListener('touchend', event => {
   if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.5) moveChapter(dx < 0 ? 1 : -1);
   swipeStart = null;
 }, { passive: true });
-if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=14', { updateViaCache: 'none' }).catch(() => {});
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=15', { updateViaCache: 'none' }).catch(() => {});
 refreshInstallStatus();
 initialize();

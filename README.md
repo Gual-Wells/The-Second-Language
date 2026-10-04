@@ -34,7 +34,7 @@ node scripts/serve.mjs
 
 线上尚无正式课程章节。
 
-正式课程使用 `YYYY-MM-DD` 日期；VIX 辅助索引源文件中的已推荐标记只使用 `MM-DD`。`chapters/demo/` 是两词交互演示，不代表正式课程。正式章节须完成 40 个主词及其关联派生词的建设，并按 `protocol/DAILY_RUN.md` 发布。
+正式课程使用 `YYYY-MM-DD` 日期；VIX 辅助索引源文件中的已推荐标记使用真实北京时间的 `YY-MM-DD`（`YY` 为 2000–2099 年）。`chapters/demo/` 是两词交互演示，不代表正式课程。正式章节须完成 40 个主词及其关联派生词的建设，并按 `protocol/DAILY_RUN.md` 发布。
 
 ## 云端架构
 

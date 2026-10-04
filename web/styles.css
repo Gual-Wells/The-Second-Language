@@ -35,6 +35,15 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
 .login-mode .state-card { margin-top: clamp(24px, 9svh, 78px); }
 .app-header { display: flex; justify-content: space-between; align-items: center; gap: 8px; min-height: 61px; padding: 8px 12px; border: 1px solid #0a3766; border-bottom-color: #082e58; background: linear-gradient(#65a0d2 0%, #3d7bb8 46%, #2264a5 47%, #0d4785 100%); color: #fff; text-shadow: 0 1px 1px #123f72; box-shadow: 0 1px 0 #a5c7e8 inset, 0 2px 3px #627d9b88; }
 .app-title { min-width: 0; }
+.title-row { display: flex; flex: 1; min-width: 0; align-items: center; justify-content: space-between; gap: 10px; }
+.speech-controls { display: flex; flex: none; align-items: center; justify-content: flex-end; gap: 4px; }
+.speech-switch { display: inline-flex; align-items: center; justify-content: center; gap: 4px; min-height: 38px; min-width: 76px; padding: 6px 10px; border: 1px solid #acc8e3; border-radius: 14px; background: linear-gradient(#f8fcff, #d7e6f3 48%, #bdd1e5 49%, #e1edf7); color: #194e7c; box-shadow: 0 1px 0 #fff inset, 0 1px 2px #10365c99; font-size: 12px; font-weight: 700; text-shadow: 0 1px #fff; }
+.speech-switch[data-mode="sentence"] { border-color: #b8d2e9; background: linear-gradient(#2b608e, #3b739f 48%, #245581 49%, #35658e); color: #fff; box-shadow: 0 1px 3px #103655 inset, 0 1px 0 #81add0; text-shadow: 0 1px #173e60; }
+.speech-switch:active { box-shadow: 0 2px 4px #183e60 inset; }
+.speech-mode-icon { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.speech-sentence-mark, .speech-switch[data-mode="sentence"] .speech-word-mark { display: none; }
+.speech-switch[data-mode="sentence"] .speech-sentence-mark { display: initial; }
+.speech-stop { min-height: 38px; padding: 4px 7px; border: 1px solid #adc8e0; border-radius: 3px; background: #e1ebf5; color: #244f74; font-size: 10px; text-shadow: none; }
 .header-meta { margin: 0 0 2px; color: #dcecff; font-size: 10px; line-height: 1.1; }
 .app-header h1 { margin: 0; font-size: 20px; line-height: 1.12; letter-spacing: .035em; white-space: nowrap; }
 .app-header h1 small { margin-left: 5px; color: #c8def4; font-size: 9px; font-weight: 400; letter-spacing: .1em; }
@@ -290,6 +299,11 @@ textarea.text-input { resize: vertical; }
 #toast { position: fixed; z-index: 30; right: max(10px, env(safe-area-inset-right)); bottom: max(15px, var(--safe-bottom)); max-width: min(350px, calc(100vw - 20px)); border: 1px solid #164a79; border-radius: 3px; padding: 9px 12px; background: linear-gradient(#4078ae, #174b84); color: #fff; box-shadow: 0 3px 10px #18314d88; font-size: 11px; opacity: 0; transform: translateY(7px); transition: .18s; pointer-events: none; }
 #toast.visible { opacity: 1; transform: translateY(0); }
 
+@media (max-width: 760px) {
+  .app-header { display: grid; grid-template-columns: minmax(0, 1fr); }
+  .header-actions { width: 100%; }
+  .header-actions .header-button { flex: 1; min-width: 0; }
+}
 @media (max-width: 560px) {
   #calendarButton { display: none; }
   .app-shell { padding-right: 5px; padding-left: 5px; }
@@ -327,7 +341,7 @@ textarea.text-input { resize: vertical; }
   .chapter-jump strong { font-size: 14px; }
   .word-heading h1 { font-size: 17px; }
 }
-.objective-stimulus { white-space: pre-wrap; overflow-wrap: anywhere; padding: 10px; border: 1px solid var(--border); background: #f3f7fb; font: 16px/1.6 ui-monospace, SFMono-Regular, Consolas, monospace; }
+.objective-stimulus { white-space: pre-wrap; overflow-wrap: anywhere; padding: 10px; border: 1px solid var(--line); background: #f3f7fb; font: 16px/1.6 ui-monospace, SFMono-Regular, Consolas, monospace; }
 .objective-flow { padding-left: 28px; }
 .objective-flow li { padding: 6px; border-bottom: 1px solid #c5d3e0; }
 .reading-tabs { display: flex; gap: 6px; margin: 12px 0; }
@@ -349,6 +363,3 @@ textarea.text-input { resize: vertical; }
   .toolbar { min-height: 39px; }
 }
 
-.native-tools { display: flex; align-items: center; gap: 7px; padding: 7px 10px; border-bottom: 1px solid #adc1d4; background: #e8f0f8; }
-.native-tools label { font-size: 12px; color: #315474; }
-.native-tools select { width: auto; padding: 4px 8px; min-height: 32px; }

@@ -1,10 +1,12 @@
-﻿$ErrorActionPreference = 'Stop'
+﻿param([string]$CredentialFile)
+$ErrorActionPreference = 'Stop'
 $utf8 = New-Object System.Text.UTF8Encoding($false)
 [Console]::InputEncoding = $utf8
 [Console]::OutputEncoding = $utf8
 $OutputEncoding = $utf8
 $projectRoot = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path
 Set-Location -LiteralPath $projectRoot
+if ($CredentialFile) { $env:SECOND_LANGUAGE_CREDENTIAL_FILE = (Resolve-Path -LiteralPath $CredentialFile).Path }
 $nodeBin = Join-Path $env:USERPROFILE '.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin'
 if (Test-Path -LiteralPath (Join-Path $nodeBin 'node.exe')) {
   $env:PATH = "$nodeBin;$env:PATH"

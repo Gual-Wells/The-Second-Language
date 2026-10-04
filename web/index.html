@@ -11,18 +11,21 @@
   <meta name="format-detection" content="telephone=no">
   <meta name="description" content="第二语言 · 按日期阅读的每日英语课程">
   <title>第二语言</title>
-  <link rel="manifest" href="/manifest.webmanifest?v=14">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=14">
-  <link rel="icon" href="/icon-192.png?v=14" type="image/png">
-  <link rel="stylesheet" href="/styles.css?v=14">
+  <link rel="manifest" href="/manifest.webmanifest?v=15">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=15">
+  <link rel="icon" href="/icon-192.png?v=15" type="image/png">
+  <link rel="stylesheet" href="/styles.css?v=15">
 </head>
 <body>
   <main class="app-shell login-mode" id="app">
     <header class="app-header">
-      <div class="app-title">
+      <div class="title-row"><div class="app-title">
         <p class="header-meta" id="headerMeta">每日阅读 · 正在连接</p>
         <h1>第二语言 <small>SECOND LANGUAGE</small></h1>
-      </div>
+      </div><div class="speech-controls" role="group" aria-label="正文点读方式">
+        <button class="speech-switch" id="speechMode" type="button" data-mode="word" aria-pressed="false" aria-label="当前点词，切换到点句"><svg class="speech-mode-icon" viewBox="0 0 24 24" aria-hidden="true"><path class="speech-word-mark" d="M4 8h8v8H4z"/><path class="speech-sentence-mark" d="M4 8h11M4 12h11M4 16h8"/><path class="speech-sound-mark" d="M18 9q4 3 0 6M16 11q1 1 0 2"/></svg><span id="speechModeLabel">点词</span></button>
+        <button class="speech-stop" id="speechStop" type="button" aria-label="停止朗读" hidden>停止</button>
+      </div></div>
       <div class="header-actions">
         <button class="header-button" id="calendarButton" type="button">日历</button>
         <button class="header-button" id="temporaryButton" type="button">临时页 <span id="temporaryCount" hidden></span></button>
@@ -56,13 +59,13 @@
       <div class="reading-scroll" id="readingScroll" tabindex="0">
         <section class="state-card loading-card" id="loadingState" role="status">
           <div class="state-band"><span>第二语言</span><small>DAILY READER</small></div>
-          <div class="state-body"><img class="state-icon" src="/icon.svg?v=14" alt=""><h2>正在打开课程</h2><p>正在检查登录状态与已发布章节。</p></div>
+          <div class="state-body"><img class="state-icon" src="/icon.svg?v=15" alt=""><h2>正在打开课程</h2><p>正在检查登录状态与已发布章节。</p></div>
         </section>
 
         <section class="state-card" id="loginState" hidden>
           <div class="state-band"><span>个人课程</span><small>SECOND LANGUAGE</small></div>
           <div class="state-body">
-            <img class="state-icon" src="/icon.svg?v=14" alt="">
+            <img class="state-icon" src="/icon.svg?v=15" alt="">
             <h2>打开你的每日读书器</h2>
             <p id="loginDescription">使用已登记的通行密钥登录，继续按日期阅读。</p>
             <label class="field-label" id="setupKeyRow" for="setupKey" hidden>初始化密钥</label>
@@ -75,7 +78,7 @@
 
         <section class="state-card" id="emptyState" hidden>
           <div class="state-band"><span>每日课程</span><small>CHAPTERS</small></div>
-          <div class="state-body"><img class="state-icon" src="/icon.svg?v=14" alt=""><h2>下一章正在建设</h2><p>发布后的课程会出现在日期栏和日历中。你可以先在设置里写下学习目标，供下一次推荐参考。</p><button class="bevel-button" id="emptySettingsButton" type="button">填写学习目标</button></div>
+          <div class="state-body"><img class="state-icon" src="/icon.svg?v=15" alt=""><h2>下一章正在建设</h2><p>发布后的课程会出现在日期栏和日历中。你可以先在设置里写下学习目标，供下一次推荐参考。</p><button class="bevel-button" id="emptySettingsButton" type="button">填写学习目标</button></div>
         </section>
 
         <section class="reader" id="reader" hidden>
@@ -87,7 +90,7 @@
             <div class="chapter-facts"><span id="wordCount"></span><span id="readState"></span></div>
           </div>
           <div class="part-heading"><span id="partNumber">PART 01</span><strong id="partTitle">词汇与用法</strong><span id="partSummary">按词序阅读</span></div>
-          <div class="native-tools"><label for="speechMode">Bella 朗读</label><select id="speechMode" class="text-input"><option value="off">关闭</option><option value="word">点词</option><option value="sentence">点句</option></select><button id="speechStop" class="bevel-button" type="button" hidden>停止</button></div><div class="article-tools" id="articleTools" hidden><button class="bevel-button" id="highlightButton" type="button" aria-pressed="false">标记用法</button><button class="bevel-button" id="translationButton" type="button" aria-pressed="false">逐句译文</button><span>点按标记句可回看对应用法</span></div>
+          <div class="article-tools" id="articleTools" hidden><button class="bevel-button" id="highlightButton" type="button" aria-pressed="false">标记用法</button><button class="bevel-button" id="translationButton" type="button" aria-pressed="false">逐句译文</button><span>点按标记句可回看对应用法</span></div>
           <article class="article" id="article"></article>
           <section class="reflection" id="reflection" hidden>
             <div class="section-band"><strong>读后记录</strong><span>READING NOTE</span></div>
@@ -158,7 +161,7 @@
   <dialog class="sheet-dialog" id="settingsDialog" aria-labelledby="settingsTitle">
     <div class="sheet settings-sheet">
       <div class="sheet-head"><div><small>READER SETTINGS</small><h2 id="settingsTitle">阅读器设置</h2></div><button class="sheet-close" data-close="settingsDialog" type="button" aria-label="关闭">×</button></div>
-        <section class="settings-section"><div class="section-band"><strong>Bella 朗读</strong><span>ENGLISH VOICE</span></div><div class="settings-body"><p>词汇、句子与口语考官提问固定使用 Bella 美式女声、正常语速。点读需要联网，已生成的声音直接复用。正文点读默认关闭；开启点词或点句后接管对应点击，关闭后恢复用法跳转。</p></div></section><section class="settings-section"><div class="section-band"><strong>我的学习目标</strong><span>LEARNING GOAL</span></div><div class="settings-body"><p>这里的目标会进入下一次课程推荐。</p><textarea class="text-input" id="studyGoal" rows="5" placeholder="例如：重点提高雅思阅读和学术写作…"></textarea><button class="bevel-button" id="saveGoal" type="button">保存学习目标</button></div></section>
+        <section class="settings-section"><div class="section-band"><strong>正文点读</strong><span>ENGLISH VOICE</span></div><div class="settings-body"><p>标题旁按钮默认点词，点按切换为点句，再点回到点词。使用清晰的美式女声、正常语速，需要联网，已有声音直接复用。开启“标记用法”时，高亮句优先回看用法；关闭高光后可继续点读。译文、音标与例句跳转按钮保留原有操作，不参与朗读。</p></div></section><section class="settings-section"><div class="section-band"><strong>我的学习目标</strong><span>LEARNING GOAL</span></div><div class="settings-body"><p>这里的目标会进入下一次课程推荐。</p><textarea class="text-input" id="studyGoal" rows="5" placeholder="例如：重点提高雅思阅读和学术写作…"></textarea><button class="bevel-button" id="saveGoal" type="button">保存学习目标</button></div></section>
       <section class="settings-section"><div class="section-band"><strong>临时推送需求</strong><span>ONE-TIME REQUEST</span></div><div class="settings-body"><p>开启后填写复习或测试需求。Codex 完成对应临时页推送后，此项自动关闭。</p><label class="switch-row" for="temporaryRequestToggle"><span>申请下一次临时推送</span><input id="temporaryRequestToggle" type="checkbox" role="switch"></label><div id="temporaryRequestBox" hidden><label class="field-label" for="temporaryRequestText">给 Codex 的需求</label><textarea class="text-input" id="temporaryRequestText" rows="4" maxlength="2000" placeholder="例如：复习最近两章中容易混淆的词；或推送已有测试文档…"></textarea></div><button class="bevel-button" id="saveTemporaryRequest" type="button">保存临时需求</button></div></section>
       <section class="settings-section"><div class="section-band"><strong>休息一天</strong><span>NEXT DAILY RUN</span></div><div class="settings-body"><p>开启后，下一次北京时间 03:00 的 Codex 日课任务会跳过当天推送，并自动复位。</p><label class="switch-row" for="restToggle"><span>下一次日课休息</span><input id="restToggle" type="checkbox" role="switch"></label><button class="bevel-button" id="saveRest" type="button">保存休息安排</button></div></section>
       <section class="settings-section"><div class="section-band"><strong>新章提醒</strong><span>NOTIFICATIONS</span></div><div class="settings-body"><p id="pushStatus">从主屏幕打开 PWA 后，可开启新章节通知。</p><div class="button-row"><button class="bevel-button" id="pushButton" type="button">开启提醒</button><button class="bevel-button" id="disablePushButton" type="button" hidden>关闭提醒</button></div></div></section>
@@ -167,10 +170,10 @@
   </dialog>
 
   <dialog class="sheet-dialog" id="installDialog" aria-labelledby="installTitle">
-    <div class="sheet help-sheet"><div class="sheet-head"><div><small>HOME SCREEN</small><h2 id="installTitle">加入主屏幕</h2></div><button class="sheet-close" data-close="installDialog" type="button" aria-label="关闭">×</button></div><div class="install-guide"><img src="/icon-192.png?v=14" alt="第二语言图标"><div><strong>在 iPhone 的 Safari 中</strong><ol><li>打开本站并点按底部的分享按钮。</li><li>选择“添加到主屏幕”。</li><li>从主屏幕启动“第二语言”。</li></ol></div></div></div>
+    <div class="sheet help-sheet"><div class="sheet-head"><div><small>HOME SCREEN</small><h2 id="installTitle">加入主屏幕</h2></div><button class="sheet-close" data-close="installDialog" type="button" aria-label="关闭">×</button></div><div class="install-guide"><img src="/icon-192.png?v=15" alt="第二语言图标"><div><strong>在 iPhone 的 Safari 中</strong><ol><li>打开本站并点按底部的分享按钮。</li><li>选择“添加到主屏幕”。</li><li>从主屏幕启动“第二语言”。</li></ol></div></div></div>
   </dialog>
 
   <div id="toast" role="status" aria-live="polite"></div>
-  <script type="module" src="/app.js?v=14"></script>
+  <script type="module" src="/app.js?v=15"></script>
 </body>
 </html>

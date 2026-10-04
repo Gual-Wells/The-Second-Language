@@ -9,7 +9,7 @@
 Windows 定时入口 `scripts/run-daily.ps1` 在启动 Codex 前确定性地完成上述领取；休息日直接结束，不消耗模型调用。非休息日再启动 Codex，Codex 可以幂等重读同日领取结果并继续协议。
 2. 若领取结果带有 `temporaryRequest`，按 `protocol/TEMPORARY.md` 处理测试或复习需求，可在日课前独立发布。复习使用已发布章节作来源，不把临时页当作新章节，不标记 VIX。同日续作先查中间文档和临时页发布结果，避免重复建设。
 3. 读取 VIX 当前通用英语辅助索引、标注状态和两份 `textbook` 文件，记录各文件的 Git commit 或摘要。读取 PWA 后端的学习目标与反馈快照。主观判断不得被固定打分替代。
-4. 在 `work/runs/<date>/selection.md` 自由写推荐思考，在 `selection.json` 保存 `studyDate`、`vixInputCommit`、`vixMarkLabel` 和 `mainWords`。`mainWords` 恰有 40 个主词；每项保存 VIX `entryId`、`globalRank`、`text`，相关派生词放入该项 `family` 并记录相同身份字段（教材有而 VIX 无的派生词仍记其文字，但不填 VIX 身份）。`vixMarkLabel` 必须明确记录为 `MM-DD`；它是 VIX 内部标签，不能充当带年份的章节日期。
+4. 在 `work/runs/<date>/selection.md` 自由写推荐思考，在 `selection.json` 保存 `studyDate`、`vixInputCommit`、`vixMarkLabel` 和 `mainWords`。`mainWords` 恰有 40 个主词；每项保存 VIX `entryId`、`globalRank`、`text`，相关派生词放入该项 `family` 并记录相同身份字段（教材有而 VIX 无的派生词仍记其文字，但不填 VIX 身份）。`vixMarkLabel` 必须记录为真实北京时间的 `YY-MM-DD`，由 `studyDate.slice(2)` 得出（例如 `2026-10-04` → `26-10-04`，年份范围 2000–2099）。标注和发布均校验真实日历日期，跨年不复用去年的标签。未完成运行若仍保存旧 `MM-DD` 标签，先保持原选词与目标日期、改正标签，并重新固定最新 VIX；不要重新选词。
 5. **完整确定本次推荐后**，把本次实际纳入建设且存在于 VIX 辅助索引的主词、派生词与同词变体标入 VIX 对应日期文件。运行 VIX 的 `tools/build-seed-access.mjs` 并提交标注与生成结果。记录 commit。若这一步之后中断，继续同一组选词和同一章节，不重新推荐。
 
 ## 课程建设
