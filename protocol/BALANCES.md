@@ -43,3 +43,5 @@ Whisper 为每天 10000 免费 Neurons，按同单位估算/提醒，北京时�
 - OpenRouter 原声多路分析以当前 [GPT Audio](https://openrouter.ai/openai/gpt-audio)、[Gemini Flash](https://openrouter.ai/google/gemini-3.8-flash)、[Qwen](https://openrouter.ai/qwen/qwen3.8-omni-flash) 价格及既有完整原声 usage 为依据，包含音频输入与长 JSON 输出，不以 Whisper 的费用替代多路成本；补听按实际次数另计。真实返回的 usage.cost 保持在口语材料中。
 
 本轮核对日期：2026-10-05。余额为私人账户数据，仅登录用户/发布身份可读，服务工作线程不离线缓存这些接口。
+
+末尾余额脚本同时按 STORAGE.md 排入独立永久归档队列；查询失败不取消资料归档。普通归档不产生语音合成或模型分析费用，不属于充值后恢复生成任务。

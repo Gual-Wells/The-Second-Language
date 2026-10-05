@@ -54,7 +54,7 @@ node scripts/speaking-detail.mjs .cache/补听计划.json
 
 本地采集清单包含 attemptId、jobId、test、原声定位与 calls；每项 call 含 routeId 和相对当前清单的 file，该私有 JSON 文件含 raw、parsed、metadata。接管写入忽略目录 `work/expression/reviews/`，全部返回保留。腾讯专项先核对本人实际原话与短句裁剪位置；计划字段及限制见接入设计，不用参考范文评测原答卷。
 
-正式采集器运行在主 Worker，0004 迁移将其数据库接入 PRACTICE_DB，私有 PRACTICE_MEDIA KV 提供存储适配；不依赖尚未开通的 R2。独立 Worker 配置样本和 schema.sql 仍保留作移植参考，不重复应用到正式库。OpenRouter 密钥只放服务端 secret；腾讯密钥只在私有工具配置，不交给浏览器。
+正式采集器运行在主 Worker，0004 迁移将其数据库接入 PRACTICE_DB。当前 OneDrive 永久文件基座提供私有存储，PRACTICE_MEDIA KV 只作故障兼容；不依赖 R2。独立 Worker 配置样本和 schema.sql 仍保留作移植参考，不重复应用到正式库。OpenRouter 密钥只放服务端 secret；腾讯密钥只在私有工具配置，不交给浏览器。
 
 默认四路是 Whisper、Gemini Flash、Qwen、GPT Audio；GPT Audio 增加独立声音观察，不取代其他主路。Qwen 可多次补听；专项计划包含 id、attemptId、parentJobId，以及各有 id、provider、focusPrompt 的 tasks。当前 provider 支持 qwen 和 gpt-audio，云队列复用完整 WAV；片段尚需受控上传和原声关系校验。本机 `.cache/speaking-backend.json` 只保存 baseUrl 与 controlToken，控制工具经 HTTPS POST `/speaking/details` 入队，不持有 OpenRouter 推理职责。Worker 用 SPEAKING_CONTROL_TOKEN 验证私有控制身份；正式原声补听使用 publisher 凭据与 speaking-practice.mjs details，独立 Worker 控制配置仅作备用。
 
@@ -66,7 +66,7 @@ node scripts/speaking-detail.mjs .cache/补听计划.json
 
 现有站点位于 `https://the-second-language.pages.dev/`。Worker 名为 `the-second-language-api`，Pages 项目名为 `the-second-language`。D1 数据库 `the-second-language` 存章节发布索引、阅读状态和认证资料；KV 命名空间 `the-second-language-chapters` 按摘要存正文。账号 R2 尚未启用，因此项目不依赖 R2。资源 ID、公钥和域名已写入 `worker/wrangler.jsonc`；密钥保存在 Cloudflare secrets 和本机忽略的 `.cache/deployment-secrets.json`，切勿提交。
 
-表达练习使用单独 D1 `the-second-language-practice`，数据库绑定 `PRACTICE_DB`，迁移目录为 `worker/practice_migrations/`。在 `worker/` 运行 `wrangler d1 migrations apply PRACTICE_DB --remote`。表达练习的文字作答不进入原有 `DB` 或 Git；PWA 已接录音/已有文件提交，原件和多路返回使用独立私有 PRACTICE_MEDIA KV，不存 D1 BLOB，预留 R2 adapter。可选 `PRACTICE_READ_TOKEN` 是未来 Chat/MCP 只读接入的独立 Worker secret；不得向 Chat 提供 `PUBLISH_TOKEN`。本机 `scripts/practice-job.mjs` 的建设与批改命令仍使用发布令牌。
+表达练习使用单独 D1 `the-second-language-practice`，数据库绑定 `PRACTICE_DB`，迁移目录为 `worker/practice_migrations/`。在 `worker/` 运行 `wrangler d1 migrations apply PRACTICE_DB --remote`。表达练习的文字作答不进入原有 `DB` 或 Git；PWA 已接录音/已有文件提交，原件和多路返回永久存 OneDrive，故障兼容副本使用私有 PRACTICE_MEDIA KV。可选 `PRACTICE_READ_TOKEN` 是未来 Chat/MCP 只读接入的独立 Worker secret；不得向 Chat 提供 `PUBLISH_TOKEN`。本机 `scripts/practice-job.mjs` 的建设与批改命令仍使用发布令牌。
 
 表达练习监测脚本 `scripts/run-practice.ps1` 先通过 `node scripts/practice-job.mjs next` 轻量检查申请、文字/听力/阅读答卷与原声转换/分析队列；空队列不启动模型，有工作才使用 `gpt-6-sol`、`high` 继续 `work/expression/` 的中间文档。该脚本与每日 03:00 日课独立，部署与本地凭据确定后已有 SecondLanguage-PracticeCodex 每三十分钟 Windows 任务；若在另一 worktree 运行，先设置 `SECOND_LANGUAGE_CREDENTIAL_FILE` 为当前机器上忽略的正式凭据文件。手动命令：
 
@@ -91,7 +91,21 @@ node scripts/practice-job.mjs review-complete <答卷ID> work/expression/reviews
 本仓库不保存实际 secrets，也不把两词演示章节当作正式课程。需要重新部署到另一账号时，应重建资源并更换配置中的资源 ID 与域名。
 
 
-第四部分 v2：先应用 practice_migrations/0003_profiles_reading.sql 与 0004_speaking_live.sql，再发布 Worker 和 PWA v13。微缩规格与难度见 PRACTICE_SIZES.md；阅读见 READING.md；原声操作见 SPEAKING_RUNTIME.md 和 scripts/speaking-practice.mjs。正式 Worker 已绑定 AI、私有媒体 KV、OpenRouter secret；分钟任务采集原声，Codex 本机转换和分析，日课仍独立北京时间 03:00。PWA v14 的日课点读固定 Kokoro Bella，由 Cloudflare 按需生成并复用短音频；第三部分仍可切点词/点句。短 TTS 缓存使用 0005 迁移的 pronunciation_audio D1 BLOB，不写 KV；个人原声和长练习音频仍走私有媒体存储。听力通过 practice-audio.mjs cast 冻结授权音色池的人物绑定，后台校验同人同声；口语考官固定 Bella。长期预生成日课音频仍是可选扩展，不增加每日生产负担。
+第四部分 v2：微缩规格与难度见 PRACTICE_SIZES.md；阅读见 READING.md；原声操作见 SPEAKING_RUNTIME.md 和 scripts/speaking-practice.mjs。正式 Worker 已绑定 AI、私有媒体兼容 KV、OpenRouter secret；分钟任务采集原声，Codex 本机转换和分析，日课仍独立北京时间 03:00。日课点读固定 Kokoro Bella，由 Cloudflare 按需生成并永久复用；第三部分仍可切点词/点句。practice 0006 迁移新增 audio_key，已核验点读移出 D1 BLOB；失败时保留旧副本，不重新生成收费音频。听力通过 practice-audio.mjs cast 冻结授权音色池的人物绑定，后台校验同人同声；口语考官固定 Bella。长期预生成整章朗读仍是可选扩展，不增加每日生产负担。
+
+## 当前答疑与永久存储设施（2026-10-06）
+
+主库应用 migrations/0005 至 0008；练习库应用 practice_migrations/0006。按现行配置先发布 Worker，再 build gateway / 部署 Pages。`ONEDRIVE_ENABLED=true`，`ONEDRIVE_KEY` 只存 Worker secret；本机同一密钥和 Microsoft OAuth 由 DPAPI 保存，不进入 Git。应用仅授权个人 OneDrive 的 Apps/The Second Language 文件夹，应用客户端 ID 是公开标识，不是密码。
+
+首次迁移：`node scripts/onedrive-connect.mjs begin 69e35375-8fe6-497b-9e02-7e7425058e19` 发起设备登录，浏览器授权后执行 `node scripts/onedrive-connect.mjs finish` 保存授权，再用 `verify` 验证应用目录；`node scripts/onedrive-install.mjs` 安装加密连接。先检查 status / 写入回读验证，随后启用开关、部署并运行 `node scripts/storage-upgrade.mjs migrate`。现有正式连接已完成，不为普通发布重新授权或生成加密密钥。部署/恢复到别的 Windows 用户时重新授权，不能把旧 DPAPI 文件当可移植凭据。
+
+`SecondLanguage-ChapterQuestions` 每分钟执行 run-questions.ps1，Codex gpt-6-sol/high 接收全文与会话、回推章节答疑；空队列不启动模型。`SecondLanguage-PermanentArchive` 每五分钟检查 storage-maintain.mjs 的普通归档队列，也接受任务末尾即时触发；同类型任务 IgnoreNew，隐藏运行。两者与原有日课、雅思监测独立，不改休息设置。运行需当前 Windows 用户会话、有效网络及相应登录。正式 credentials 文件通过包装脚本的 CredentialFile 指向本机忽略路径。
+
+末尾 check-balances.mjs 更新余额页，并排入永久归档；migrate/packs/backup 由独立服务执行，不阻塞下一份问答。状态在本机 `.cache/storage-upgrade/request.json`，成功删除，失败保留原因和需要处理标记。Cloudflare OAuth 到期由已有 Wrangler 刷新一次，刷新失败需要重新登录；不把失效凭据当额度归零。
+
+备份恢复：`node scripts/storage-restore.mjs` 根据最近快照在 `.cache/storage-restore/` 新建两库和工作资料，核验摘要、外键、完整性，绝不覆盖生产库。快照按历史摘要读取，后来的工作文稿修改不会破坏以前的备份。详细永久原件、音频包、兼容回退与临时页排除规则见 STORAGE.md；QA 契约见 CHAPTER_QUESTIONS.md。
+
+生产库不可用时使用 `node scripts/storage-restore.mjs --direct`：只需有效 Microsoft 应用目录授权，从 app folder 的 recovery-index.json 读取快照位置，不读 Cloudflare 或 publisher 凭据。快照附有全部分块的直接 itemId，重建的原件目录仍包含永久文件版本索引；恢复后再建立新 Cloudflare 资源与服务器授权。
 
 ## 任务末尾额度更新
 

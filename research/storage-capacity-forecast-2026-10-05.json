@@ -1,0 +1,195 @@
+{
+  "date": "2026-10-05",
+  "status": "research-not-production",
+  "units": "decimal MB and GB",
+  "userInputs": {
+    "setsPerWeek": 1.5,
+    "attemptsPerSet": 1.5,
+    "setsPerYear": 78,
+    "answerCyclesPerYear": 117,
+    "preferredRecurringStorageFeeCny": 0
+  },
+  "measuredExistingKokoro": {
+    "files": 220,
+    "bytes": 4780206,
+    "seconds": 731.95,
+    "weightedKbps": 52.246,
+    "medianEffectiveKbps": 53.028571
+  },
+  "sourceTextbookBytes": 33454522,
+  "courseSensitivity": [
+    {
+      "name": "lighter",
+      "roots": 15000,
+      "examplesPerRoot": 6,
+      "exampleSeconds": 8,
+      "uniqueStorySentencesPerRoot": 1.5,
+      "storySeconds": 9,
+      "wordFamilySeconds": 3,
+      "kbps": 64,
+      "audioGB": 7.74,
+      "retainedRevisionFraction": 0.2,
+      "otherGB": 0.5,
+      "totalGB": 9.788,
+      "audioAssets": 142500
+    },
+    {
+      "name": "central",
+      "roots": 16000,
+      "examplesPerRoot": 12,
+      "exampleSeconds": 9,
+      "uniqueStorySentencesPerRoot": 3,
+      "storySeconds": 10,
+      "wordFamilySeconds": 4.5,
+      "kbps": 64,
+      "audioGB": 18.24,
+      "retainedRevisionFraction": 0.25,
+      "otherGB": 1,
+      "totalGB": 23.8,
+      "audioAssets": 272000
+    },
+    {
+      "name": "dense",
+      "roots": 16000,
+      "examplesPerRoot": 18,
+      "exampleSeconds": 9,
+      "uniqueStorySentencesPerRoot": 4,
+      "storySeconds": 10,
+      "wordFamilySeconds": 6,
+      "kbps": 64,
+      "audioGB": 26.624,
+      "retainedRevisionFraction": 0.25,
+      "otherGB": 1.5,
+      "totalGB": 34.78,
+      "audioAssets": 384000
+    },
+    {
+      "name": "stress",
+      "roots": 16000,
+      "examplesPerRoot": 24,
+      "exampleSeconds": 10,
+      "uniqueStorySentencesPerRoot": 5,
+      "storySeconds": 11,
+      "wordFamilySeconds": 6,
+      "kbps": 80,
+      "audioGB": 48.16,
+      "retainedRevisionFraction": 0.3,
+      "otherGB": 3,
+      "totalGB": 65.608,
+      "audioAssets": 496000
+    }
+  ],
+  "fullIELTS": {
+    "questionAudioAndDocumentsMB": [
+      40.84,
+      46.68
+    ],
+    "oneAnswerCycleMB": [
+      18.8,
+      41.6
+    ],
+    "attemptsPerSet": 1.5,
+    "fullSetBeforeVariationMB": [
+      69.04,
+      109.08
+    ],
+    "retainedVariationFactor": 1.2,
+    "fullSetWithVariationMB": [
+      82.848,
+      130.896
+    ],
+    "calculatedAnnualGB": [
+      6.462,
+      10.21
+    ],
+    "planningAnnualGB": [
+      7,
+      11
+    ],
+    "stressPlanningAnnualGB": 15
+  },
+  "capacityReserveFactor": 1.2,
+  "normalCourseGB": [
+    15,
+    35
+  ],
+  "stressCourseGB": 80,
+  "horizons": [
+    {
+      "yearsOfIELTS": 1,
+      "normalUniqueGB": [
+        22,
+        46
+      ],
+      "normalProvisionedGB": [
+        26.4,
+        55.2
+      ],
+      "stressUniqueGB": 95,
+      "stressProvisionedGB": 114
+    },
+    {
+      "yearsOfIELTS": 3,
+      "normalUniqueGB": [
+        36,
+        68
+      ],
+      "normalProvisionedGB": [
+        43.2,
+        81.6
+      ],
+      "stressUniqueGB": 125,
+      "stressProvisionedGB": 150
+    },
+    {
+      "yearsOfIELTS": 5,
+      "normalUniqueGB": [
+        50,
+        90
+      ],
+      "normalProvisionedGB": [
+        60,
+        108
+      ],
+      "stressUniqueGB": 155,
+      "stressProvisionedGB": 186
+    },
+    {
+      "yearsOfIELTS": 10,
+      "normalUniqueGB": [
+        85,
+        145
+      ],
+      "normalProvisionedGB": [
+        102,
+        174
+      ],
+      "stressUniqueGB": 230,
+      "stressProvisionedGB": 276
+    }
+  ],
+  "indexSensitivity": [
+    {
+      "assets": 200000,
+      "at2000BytesPerAssetGB": 0.4,
+      "at4000BytesPerAssetGB": 0.8
+    },
+    {
+      "assets": 400000,
+      "at2000BytesPerAssetGB": 0.8,
+      "at4000BytesPerAssetGB": 1.6
+    }
+  ],
+  "rules": [
+    "All full IELTS sets for planning; mini sets reduce question-side bytes.",
+    "A repeated answer reuses questions and question audio, but preserves new original audio and evidence.",
+    "Original compressed recording and actual analysis WAV are both counted.",
+    "Archived request descriptors do not contain another full base64 copy for each model.",
+    "Shared story sentences count once; audio reuse is keyed by the actual synthesis descriptor.",
+    "Temporary pages expire; exclusive temporary assets are not accumulated as permanent lessons.",
+    "Derived identical scratch copies are not independent assets; distinct retained versions are counted.",
+    "Reserve is free operating space; backup and cache copies require separate physical capacity.",
+    "No finite free quota is an infinite retention guarantee.",
+    "No complete formal IELTS set or complete dictionary curriculum has been measured yet."
+  ]
+}

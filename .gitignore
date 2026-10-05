@@ -6,6 +6,7 @@ work/runs/
 work/scheduler/
 work/temporary/
 work/expression/
+work/questions/
 work/worker-dry-run/
 work/chrome-preview*/
 work/preview-mobile*.png

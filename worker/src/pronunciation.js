@@ -1,8 +1,15 @@
 import {checkOpenRouterFunds} from '../../scripts/lib/speaking/funding.mjs';
 import {ttsModel,defaultVoice,voicePolicyVersion} from '../../protocol/voices.mjs';
 import {sha256} from './practice-media.js';
+import {permanentBucket} from './storage.js';
 const json=(v,s=200)=>Response.json(v,{status:s,headers:{'cache-control':'no-store'}});
 const view=row=>({id:row.id,state:row.state,nextRetryAt:row.next_retry_at||null,audioUrl:row.state==='ready'?`/api/practice/pronunciation/${row.id}/audio`:null});
+async function associate(env,b,id){
+ if(typeof b.chapterId!=='string'||!/^[a-f0-9]{64}$/.test(b.digest||''))return;
+ const chapter=await env.DB.prepare('SELECT 1 FROM chapter_revisions r JOIN published_chapters p ON p.chapter_id=r.chapter_id WHERE r.chapter_id=? AND r.digest=?').bind(b.chapterId,b.digest).first();
+ if(!chapter)return;const result=await env.PRACTICE_DB.prepare('INSERT OR IGNORE INTO chapter_pronunciation SELECT ?,?,id FROM pronunciation_audio WHERE id=?').bind(b.chapterId,b.digest,id).run();
+ if(result.meta.changes)await env.DB.prepare('INSERT INTO chapter_audio_work VALUES(?,?,?) ON CONFLICT(chapter_id,chapter_digest) DO UPDATE SET requested_at=excluded.requested_at').bind(b.chapterId,b.digest,Date.now()).run();
+}
 function audioResponse(request,row){
  const bytes=new Uint8Array(row.audio),n=bytes.byteLength,headers={'content-type':'audio/mpeg','cache-control':'private, no-store','accept-ranges':'bytes','x-content-type-options':'nosniff'};
  const range=request.headers.get('range');if(range){
@@ -19,7 +26,10 @@ export async function pronunciationRoute(request,env,{isPublisher,isReader,sessi
  if(match&&['GET','HEAD'].includes(request.method)){
   const row=await db.prepare(match[2]?'SELECT * FROM pronunciation_audio WHERE id=?':"SELECT id,state,next_retry_at,created_at FROM pronunciation_audio WHERE id=?").bind(match[1]).first();
   if(!row)return json({error:'这段发音尚未准备好'},404);
-  if(match[2])return row.state==='ready'&&row.audio?audioResponse(request,row):json({error:'声音尚不可用',...view(row)},409);
+  if(match[2]){
+   if(row.state==='ready'&&row.audio_key&&env.ONEDRIVE_ENABLED==='true'){const response=await permanentBucket(env).response(row.audio_key,request);if(response)return response;}
+   return row.state==='ready'&&row.audio?audioResponse(request,row):json({error:'声音尚不可用',...view(row)},409);
+  }
   return json(view(row));
  }
  if(path!==prefix||request.method!=='POST')return json({error:'发音接口不存在'},404);
@@ -29,6 +39,7 @@ export async function pronunciationRoute(request,env,{isPublisher,isReader,sessi
  const text=typeof b.text==='string'?b.text.replace(/\s+/g,' ').trim():'';
  if(!['word','sentence'].includes(b.kind)||!/[A-Za-z]/.test(text)||text.length>(b.kind==='word'?100:1200)||/[\u3400-\u9fff]/.test(text))return json({error:'请选择英文单词或不超过 1200 字符的英文短句'},400);
  const descriptor={model:ttsModel,voice:defaultVoice,input:text,response_format:'mp3',voicePolicyVersion},id=await sha256(JSON.stringify(descriptor));
+ await associate(env,b,id);
  let old=await db.prepare('SELECT id,state,next_retry_at,created_at FROM pronunciation_audio WHERE id=?').bind(id).first();
  if(old&&old.state!=='waiting_credit'){
   if(old.state==='calling'&&Date.now()-old.created_at>300000){await db.prepare("UPDATE pronunciation_audio SET state='outcome_unknown' WHERE id=? AND state='calling'").bind(id).run();old={...old,state:'outcome_unknown'};}
@@ -50,7 +61,10 @@ export async function pronunciationRoute(request,env,{isPublisher,isReader,sessi
    await db.prepare('UPDATE pronunciation_audio SET state=?,response_json=?,next_retry_at=? WHERE id=?').bind(state,JSON.stringify({...metadata,raw:new TextDecoder().decode(bytes).slice(0,16000)}),retry,id).run();return json(view({id,state,next_retry_at:retry}));
   }
   const head=new Uint8Array(bytes.slice(0,3));if(bytes.byteLength<100||bytes.byteLength>1048576||!(head[0]===73&&head[1]===68&&head[2]===51||head[0]===255&&(head[1]&224)===224))throw Error('声音文件无效或过大');
-  await db.prepare("UPDATE pronunciation_audio SET state='ready',audio=?,response_json=? WHERE id=?").bind(bytes,JSON.stringify({...metadata,bytes:bytes.byteLength,digest:await sha256(bytes)}),id).run();
+  let audioKey=null;
+  if(env.ONEDRIVE_ENABLED==='true')try{audioKey=`pronunciation/${id}.mp3`;await permanentBucket(env).put(audioKey,bytes,{httpMetadata:{contentType:'audio/mpeg'}});}catch{audioKey=null;}
+  await db.prepare("UPDATE pronunciation_audio SET state='ready',audio=?,audio_key=?,response_json=? WHERE id=?").bind(audioKey?null:bytes,audioKey,JSON.stringify({...metadata,bytes:bytes.byteLength,digest:await sha256(bytes)}),id).run();
+  await associate(env,b,id);
   return json(view({id,state:'ready'}));
  }catch(e){
   await db.prepare("UPDATE pronunciation_audio SET state='outcome_unknown',response_json=? WHERE id=?").bind(JSON.stringify({error:String(e.message)}),id).run();return json({id,state:'outcome_unknown',error:'声音请求结果待核对，已保留进度'},502);

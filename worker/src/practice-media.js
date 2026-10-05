@@ -1,13 +1,16 @@
 import {checkOpenRouterFunds} from '../../scripts/lib/speaking/funding.mjs';
 import {ttsModel,synthesisVoice,voicePolicyVersion} from '../../protocol/voices.mjs';
+import {permanentBucket,archivalBucket} from './storage.js';
 export const sha256=async value=>[...new Uint8Array(await crypto.subtle.digest('SHA-256',typeof value==='string'?new TextEncoder().encode(value):value))].map(x=>x.toString(16).padStart(2,'0')).join('');
 const idOK=x=>typeof x==='string'&&/^[A-Za-z0-9._:-]{1,110}$/.test(x);
 const json=(v,s=200)=>Response.json(v,{status:s,headers:{'cache-control':'no-store'}});
 export async function mediaBytes(env,key){
+ if(env.ONEDRIVE_ENABLED==='true'){const value=await archivalBucket(env,{get:async key=>{const bytes=await env.PRACTICE_MEDIA.get(key,{type:'arrayBuffer'});return bytes===null?null:{arrayBuffer:async()=>bytes};}}).get(key);if(value)return value.arrayBuffer();}
  if(env.PRACTICE_R2){const o=await env.PRACTICE_R2.get(key);return o?o.arrayBuffer():null;}
  return env.PRACTICE_MEDIA.get(key,{type:'arrayBuffer'});
 }
 async function store(env,key,bytes,mime){
+ if(env.ONEDRIVE_ENABLED==='true')return archivalBucket(env,{put:(key,bytes)=>env.PRACTICE_MEDIA.put(key,bytes,{metadata:{mime}})}).put(key,bytes,{httpMetadata:{contentType:mime}});
  if(env.PRACTICE_R2)return env.PRACTICE_R2.put(key,bytes,{httpMetadata:{contentType:mime}});
  return env.PRACTICE_MEDIA.put(key,bytes,{metadata:{mime}});
 }
@@ -19,6 +22,7 @@ export async function mediaRoute(request,env,{isPublisher,isReader,session}){
   if(!row)return json({error:'音频未准备好'},404);
   const published=await db.prepare('SELECT 1 FROM practice_sets WHERE id=?').bind(row.set_id).first();
   if(!isPublisher&&!published)return json({error:'音频尚未发布'},404);
+  if(env.ONEDRIVE_ENABLED==='true'&&!await env.DB.prepare('SELECT 1 FROM storage_pending WHERE object_key=?').bind(row.object_key).first()){try{const stored=await permanentBucket(env).response(row.object_key,request);if(stored)return stored;}catch{const old=await env.PRACTICE_MEDIA.get(row.object_key,{type:'arrayBuffer'});if(!old)return json({error:'音频暂不可用，请稍后重试'},503);}}
   const bytes=await mediaBytes(env,row.object_key);if(!bytes)return json({error:'音频暂不可用，请稍后重试'},503);
   const n=bytes.byteLength,headers={'content-type':row.mime,'cache-control':'private, no-store','accept-ranges':'bytes','x-content-type-options':'nosniff'};
   const range=request.headers.get('range');if(range){

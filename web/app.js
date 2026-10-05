@@ -1,8 +1,10 @@
-import {installReaderSpeech} from './reader-speech.js?v=18';
-import { parseParts, renderPart } from './render.js?v=18';
-import { validateAnnotatedContent } from './annotations.js?v=18';
-import { createPracticeUI } from './practice.js?v=18';
-import {createBalanceUI} from './balances.js?v=18';
+import {installReaderSpeech} from './reader-speech.js?v=20';
+import { parseParts, renderPart } from './render.js?v=20';
+import { validateAnnotatedContent } from './annotations.js?v=20';
+import { createPracticeUI } from './practice.js?v=20';
+import {createBalanceUI} from './balances.js?v=20';
+import {createQuestionsUI} from './questions.js?v=20';
+import {openAudioChapter,clearAudioLibrary,preloadEnabled,setPreload} from './audio-library.js?v=20';
 
 const $ = id => document.getElementById(id);
 const todayParts = Object.fromEntries(new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(new Date()).map(part => [part.type, part.value]));
@@ -32,6 +34,7 @@ function toast(message) {
 
 const nativeSpeech=installReaderSpeech({toast});
 const balances=createBalanceUI({api,showDialog});
+const questions=createQuestionsUI({api,showDialog,toast,getContext:()=>state});
 
 function clearBadge() { if ('clearAppBadge' in navigator) { try { Promise.resolve(navigator.clearAppBadge()).catch(() => {}); } catch {} } }
 
@@ -325,6 +328,8 @@ async function openChapter(id, resume = true, digest = null) {
     state.current = chapter;
     state.lastDailyId = id;
     state.current.digest = chapter.digest || state.chapters.find(item => item.id === id)?.digest;
+    questions.changed();
+    openAudioChapter(chapter);
     prepareContent(chapter.markdown, id);
     state.progress = progress;
     state.month = chapter.date.slice(0, 7);
@@ -410,6 +415,8 @@ async function openTemporary(id, resume = true) {
     const page = await api(`/api/temporary/${encodeURIComponent(id)}`);
     if (request !== state.chapterRequest) return;
     state.current = page;
+    questions.changed();
+    openAudioChapter(page);
     prepareContent(page.markdown, id);
     $('chapterDate').textContent = page.kind === 'review' ? '复习阅读' : '测试阅读';
     $('chapterNumber').textContent = '48 小时临时页';
@@ -474,6 +481,8 @@ async function passkey(kind, setupKey) {
 }
 
 function showLogin(status, message = '') {
+  questions.clear();
+  clearAudioLibrary();
   $('app').classList.add('login-mode');
   $('app').classList.remove('empty-mode');
   state.authStatus = status;
@@ -590,6 +599,8 @@ $('nextChapter').addEventListener('click', () => moveChapter(1));
 $('calendarButton').addEventListener('click', () => { state.month = (state.current?.date || TODAY).slice(0, 7); renderCalendar(); showDialog('calendarDialog'); });
 $('chapterJump').addEventListener('click', () => { state.month = (state.current?.date || TODAY).slice(0, 7); renderCalendar(); showDialog('calendarDialog'); });
 $('settingsButton').addEventListener('click', () => { refreshInstallStatus(); refreshPushStatus(); refreshSettings(); showDialog('settingsDialog'); });
+$('audioPreloadToggle').checked=preloadEnabled();
+$('audioPreloadToggle').addEventListener('change',event=>setPreload(event.target.checked));
 $('temporaryButton').addEventListener('click', async () => { await refreshTemporary(); renderTemporaryList(); showDialog('temporaryDialog'); });
 $('practiceButton').addEventListener('click', () => practiceUI.open());
 $('backToCourse').addEventListener('click', () => {
@@ -716,6 +727,6 @@ $('chapterNav').addEventListener('touchend', event => {
   if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.5) moveChapter(dx < 0 ? 1 : -1);
   swipeStart = null;
 }, { passive: true });
-if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=18', { updateViaCache: 'none' }).catch(() => {});
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=20', { updateViaCache: 'none' }).catch(() => {});
 refreshInstallStatus();
 initialize().then(()=>{if(state.authenticated&&new URLSearchParams(location.search).has('balances'))balances.open();});

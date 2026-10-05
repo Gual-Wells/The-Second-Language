@@ -143,6 +143,16 @@ export async function collectNext(env) {
       }
     };
     const initial=routes.filter(r=>r.primary&&r.enabled);
+    if(env.ONEDRIVE_ENABLED==='true'){
+      // Keep each free Worker invocation below 50 external subrequests, including storage verification.
+      const tasks=[...initial.map(route=>({route,task:{id:'baseline',focusPrompt:''}})),...details.map(task=>({route:routes.find(r=>r.profile===(task.provider??'qwen')),task}))];
+      let next=tasks.find(({route,task})=>!prior.some(c=>c.route_id===route.id&&c.task_id===task.id));
+      if(!next&&resumingCredit){for(const candidate of tasks){const previous=prior.findLast(c=>c.route_id===candidate.route.id&&c.task_id===candidate.task.id);if(!previous||previous.state==='complete')continue;const saved=await env.SPEAKING_ASSETS.get(previous.metadata_key);if(saved&&(await saved.json()).httpStatus===402){next=candidate;break;}}}
+      if(next){const result=await runRoute(next.route,next.task);if(result.metadata.httpStatus===402)return await waitForCredit(null);
+        await db.prepare("UPDATE speaking_jobs SET status='queued',lease_token=NULL,lease_until=NULL,updated_at=? WHERE id=? AND lease_token=?").bind(Date.now(),job.id,token).run();
+        return {jobId:job.id,state:'queued',completedRoute:next.route.id};
+      }
+    }
     const settled=await Promise.allSettled(initial.map(route=>runRoute(route)));
     const evidence=settled.map((r,i)=>r.status==='fulfilled'?r.value:{routeId:initial[i].id,metadata:{state:'failed',error:String(r.reason?.message ?? r.reason)}});
     let compensation=compensationPlan(evidence);
@@ -157,6 +167,10 @@ export async function collectNext(env) {
       const route=routes.find(r=>r.id===compensation.candidates[0]);
       try{evidence.push(await runRoute(route));}catch(error){evidence.push({routeId:route.id,metadata:{state:'failed',error:String(error.message)}});}
       compensation=compensationPlan(evidence);
+      if(env.ONEDRIVE_ENABLED==='true'&&!prior.some(c=>c.route_id===route.id)){
+        if(compensation.waitingForCredit)return await waitForCredit(null);
+        await db.prepare("UPDATE speaking_jobs SET status='queued',lease_token=NULL,lease_until=NULL,updated_at=? WHERE id=? AND lease_token=?").bind(Date.now(),job.id,token).run();return{jobId:job.id,state:'queued',completedRoute:route.id};
+      }
     }
     const complete=initial.every(route=>evidence.some(c=>c.routeId===route.id && (c.taskId??'baseline')==='baseline' && c.metadata.state==='complete' && (c.parsed?.audio_access==null || c.parsed.audio_access==='processed')));
     const { results: calls } = await db.prepare('SELECT * FROM speaking_calls WHERE job_id=? ORDER BY created_at').bind(job.id).all();

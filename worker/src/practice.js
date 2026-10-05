@@ -4,6 +4,7 @@ import {mediaRoute} from './practice-media.js';
 import {validateListening,listeningView,listeningRoute} from './listening.js';
 import {validateReading,readingView,readingRoute} from './reading.js';
 import {pronunciationRoute} from './pronunciation.js';
+import {chapterText} from './storage.js';
 
 const json = (value, status = 200) => new Response(JSON.stringify(value), { status, headers: { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store' } });
 const safeId = value => typeof value === 'string' && /^[A-Za-z0-9._:-]{1,110}$/.test(value);
@@ -119,7 +120,7 @@ export async function practiceRoute(request, env, publisher) {
     if (!isPublisher) return json({ error: '发布身份无效' }, 401);
     const row = await env.DB.prepare('SELECT content_key FROM chapter_revisions WHERE chapter_id=? AND digest=?').bind(sourceMatch[1],sourceMatch[2]).first();
     if (!row) return json({ error: '固定版本章节不存在' }, 404);
-    const markdown = await env.CHAPTERS.get(row.content_key);
+    const markdown = env.ONEDRIVE_ENABLED==='true'?await chapterText(env,row.content_key):await env.CHAPTERS.get(row.content_key);
     return markdown == null ? json({ error: '固定版本正文暂不可用' }, 503) : json({ id: sourceMatch[1], digest: sourceMatch[2], markdown });
   }
 
