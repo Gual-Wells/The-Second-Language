@@ -11,10 +11,10 @@
   <meta name="format-detection" content="telephone=no">
   <meta name="description" content="第二语言 · 按日期阅读的每日英语课程">
   <title>第二语言</title>
-  <link rel="manifest" href="/manifest.webmanifest?v=18">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=18">
-  <link rel="icon" href="/icon-192.png?v=18" type="image/png">
-  <link rel="stylesheet" href="/styles.css?v=18">
+  <link rel="manifest" href="/manifest.webmanifest?v=20">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20">
+  <link rel="icon" href="/icon-192.png?v=20" type="image/png">
+  <link rel="stylesheet" href="/styles.css?v=20">
 </head>
 <body>
   <main class="app-shell login-mode" id="app">
@@ -59,13 +59,13 @@
       <div class="reading-scroll" id="readingScroll" tabindex="0">
         <section class="state-card loading-card" id="loadingState" role="status">
           <div class="state-band"><span>第二语言</span><small>DAILY READER</small></div>
-          <div class="state-body"><img class="state-icon" src="/icon.svg?v=18" alt=""><h2>正在打开课程</h2><p>正在检查登录状态与已发布章节。</p></div>
+          <div class="state-body"><img class="state-icon" src="/icon.svg?v=20" alt=""><h2>正在打开课程</h2><p>正在检查登录状态与已发布章节。</p></div>
         </section>
 
         <section class="state-card" id="loginState" hidden>
           <div class="state-band"><span>个人课程</span><small>SECOND LANGUAGE</small></div>
           <div class="state-body">
-            <img class="state-icon" src="/icon.svg?v=18" alt="">
+            <img class="state-icon" src="/icon.svg?v=20" alt="">
             <h2>打开你的每日读书器</h2>
             <p id="loginDescription">使用已登记的通行密钥登录，继续按日期阅读。</p>
             <label class="field-label" id="setupKeyRow" for="setupKey" hidden>初始化密钥</label>
@@ -78,12 +78,13 @@
 
         <section class="state-card" id="emptyState" hidden>
           <div class="state-band"><span>每日课程</span><small>CHAPTERS</small></div>
-          <div class="state-body"><img class="state-icon" src="/icon.svg?v=18" alt=""><h2>下一章正在建设</h2><p>发布后的课程会出现在日期栏和日历中。你可以先在设置里写下学习目标，供下一次推荐参考。</p><button class="bevel-button" id="emptySettingsButton" type="button">填写学习目标</button></div>
+          <div class="state-body"><img class="state-icon" src="/icon.svg?v=20" alt=""><h2>下一章正在建设</h2><p>发布后的课程会出现在日期栏和日历中。你可以先在设置里写下学习目标，供下一次推荐参考。</p><button class="bevel-button" id="emptySettingsButton" type="button">填写学习目标</button></div>
         </section>
 
         <section class="reader" id="reader" hidden>
           <div class="temporary-ribbon" id="temporaryRibbon" hidden><div><strong id="temporaryKind"></strong><span id="temporaryExpiry"></span></div><button class="bevel-button" id="backToCourse" type="button">返回日课</button></div>
           <div class="reader-head">
+            <div class="chapter-question-entry"><button class="bevel-button" id="questionsButton" type="button" hidden>章节答疑<span id="questionDot" class="unread-dot" hidden></span></button></div>
             <div class="chapter-label"><span id="chapterDate"></span><span class="label-separator">/</span><span id="chapterNumber"></span></div>
             <h2 id="chapterTitle"></h2>
             <p id="chapterSubtitle"></p>
@@ -158,6 +159,15 @@
     </div>
   </dialog>
 
+  <dialog class="sheet-dialog" id="questionsDialog" aria-labelledby="questionsTitle">
+    <div class="sheet questions-sheet">
+      <div class="sheet-head"><div><small>CHAPTER QUESTIONS</small><h2 id="questionsTitle">章节答疑</h2></div><button class="sheet-close" data-close="questionsDialog" type="button" aria-label="关闭">×</button></div>
+      <div class="question-context"><label for="questionChapter">章节</label><select id="questionChapter" class="text-input"></select></div>
+      <div id="questionMessages" class="question-messages" aria-live="polite" aria-relevant="additions text"></div>
+      <form id="questionForm" class="question-compose"><label class="field-label" for="questionText">继续提问</label><textarea class="text-input" id="questionText" rows="3" maxlength="6000" placeholder="例如：第三部分这句话中的用法为什么这样理解？"></textarea><div class="question-send-row"><p id="questionStatus" role="status"></p><button class="bevel-button" id="questionSend" type="submit">发送</button></div></form>
+    </div>
+  </dialog>
+
   <dialog class="sheet-dialog" id="balancesDialog" aria-labelledby="balancesTitle">
     <div class="sheet balances-sheet">
       <div class="sheet-head"><div><small>SERVICE BALANCES</small><h2 id="balancesTitle">余额与任务用量</h2></div><button class="sheet-close" data-close="balancesDialog" type="button" aria-label="关闭">×</button></div>
@@ -173,6 +183,7 @@
         <section class="settings-section"><div class="section-band"><strong>正文点读</strong><span>ENGLISH VOICE</span></div><div class="settings-body"><p>标题旁按钮默认点词，点按切换为点句，再点回到点词。使用清晰的美式女声、正常语速，需要联网，已有声音直接复用。开启“标记用法”时，高亮句优先回看用法；关闭高光后可继续点读。译文、音标与例句跳转按钮保留原有操作，不参与朗读。</p></div></section><section class="settings-section"><div class="section-band"><strong>我的学习目标</strong><span>LEARNING GOAL</span></div><div class="settings-body"><p>这里的目标会进入下一次课程推荐。</p><textarea class="text-input" id="studyGoal" rows="5" placeholder="例如：重点提高雅思阅读和学术写作…"></textarea><button class="bevel-button" id="saveGoal" type="button">保存学习目标</button></div></section>
       <section class="settings-section"><div class="section-band"><strong>临时推送需求</strong><span>ONE-TIME REQUEST</span></div><div class="settings-body"><p>开启后填写复习或测试需求。Codex 完成对应临时页推送后，此项自动关闭。</p><label class="switch-row" for="temporaryRequestToggle"><span>申请下一次临时推送</span><input id="temporaryRequestToggle" type="checkbox" role="switch"></label><div id="temporaryRequestBox" hidden><label class="field-label" for="temporaryRequestText">给 Codex 的需求</label><textarea class="text-input" id="temporaryRequestText" rows="4" maxlength="2000" placeholder="例如：复习最近两章中容易混淆的词；或推送已有测试文档…"></textarea></div><button class="bevel-button" id="saveTemporaryRequest" type="button">保存临时需求</button></div></section>
       <section class="settings-section"><div class="section-band"><strong>休息一天</strong><span>NEXT DAILY RUN</span></div><div class="settings-body"><p>开启后，下一次北京时间 03:00 的 Codex 日课任务会跳过当天推送，并自动复位。</p><label class="switch-row" for="restToggle"><span>下一次日课休息</span><input id="restToggle" type="checkbox" role="switch"></label><button class="bevel-button" id="saveRest" type="button">保存休息安排</button></div></section>
+      <section class="settings-section"><div class="section-band"><strong>音频下载</strong><span>AUDIO</span></div><div class="settings-body"><label class="switch-row" for="audioPreloadToggle"><span>自动下载本章已有音频</span><input id="audioPreloadToggle" type="checkbox" role="switch" checked></label><p>打开章节后在后台下载，方便之后点读。关闭后按需读取；不会自动生成新音频。</p></div></section>
       <section class="settings-section"><div class="section-band"><strong>服务额度</strong><span>BALANCES</span></div><div class="settings-body"><p>余额记录与学习任务的预计用量。</p><button class="bevel-button" id="balanceButton" type="button">查看余额与用量</button></div></section>
       <section class="settings-section"><div class="section-band"><strong>新章与额度提醒</strong><span>NOTIFICATIONS</span></div><div class="settings-body"><p id="pushStatus">从主屏幕打开 PWA 后，可开启新章节通知。</p><div class="button-row"><button class="bevel-button" id="pushButton" type="button">开启提醒</button><button class="bevel-button" id="disablePushButton" type="button" hidden>关闭提醒</button></div></div></section>
       <section class="settings-section"><div class="section-band"><strong>主屏幕与账户</strong><span>THIS DEVICE</span></div><div class="settings-body"><p id="installStatus">把阅读器加入主屏幕，可获得独立的应用窗口。</p><div class="button-row"><button class="bevel-button" id="installButton" type="button">安装说明</button><button class="bevel-button" id="logoutButton" type="button" hidden>退出登录</button></div></div></section>
@@ -180,10 +191,10 @@
   </dialog>
 
   <dialog class="sheet-dialog" id="installDialog" aria-labelledby="installTitle">
-    <div class="sheet help-sheet"><div class="sheet-head"><div><small>HOME SCREEN</small><h2 id="installTitle">加入主屏幕</h2></div><button class="sheet-close" data-close="installDialog" type="button" aria-label="关闭">×</button></div><div class="install-guide"><img src="/icon-192.png?v=18" alt="第二语言图标"><div><strong>在 iPhone 的 Safari 中</strong><ol><li>打开本站并点按底部的分享按钮。</li><li>选择“添加到主屏幕”。</li><li>从主屏幕启动“第二语言”。</li></ol></div></div></div>
+    <div class="sheet help-sheet"><div class="sheet-head"><div><small>HOME SCREEN</small><h2 id="installTitle">加入主屏幕</h2></div><button class="sheet-close" data-close="installDialog" type="button" aria-label="关闭">×</button></div><div class="install-guide"><img src="/icon-192.png?v=20" alt="第二语言图标"><div><strong>在 iPhone 的 Safari 中</strong><ol><li>打开本站并点按底部的分享按钮。</li><li>选择“添加到主屏幕”。</li><li>从主屏幕启动“第二语言”。</li></ol></div></div></div>
   </dialog>
 
   <div id="toast" role="status" aria-live="polite"></div>
-  <script type="module" src="/app.js?v=18"></script>
+  <script type="module" src="/app.js?v=20"></script>
 </body>
 </html>

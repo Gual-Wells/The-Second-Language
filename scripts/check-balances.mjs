@@ -3,7 +3,9 @@ import {fileURLToPath} from 'node:url';
 import {publisherConfig} from './lib/publisher-config.mjs';
 import {pendingTencentUsage,markTencentUsageReported} from './lib/tencent-quota-ledger.mjs';
 import {tencentBalance,cloudflareQuota} from './lib/account-quotas.mjs';
+import {finishTaskStorage} from './lib/storage-finish.mjs';
 export async function checkTaskBalances(){
+ try {
  const reports=await Promise.all(['cloudflare','tencent'].map(async pool=>{
   try{return pool==='cloudflare'?await cloudflareQuota():await tencentBalance(JSON.parse(await readFile(new URL('../.cache/speaking-provider.json',import.meta.url),'utf8')));}
   catch{return {pool,verified:false,remaining:null,checkedAt:new Date().toISOString()};}
@@ -19,6 +21,7 @@ export async function checkTaskBalances(){
  }
  for(const p of result.pools)console.log(`${p.pool}: ${p.verified||p.estimated?p.remaining+' '+p.unit+(p.estimated?'（估算）':''):'未核实'}${p.low?'；'+p.warning:''}`);
  return result;
+ } finally { await finishTaskStorage(); }
 }
 export async function finishTaskBalances(){try{return await checkTaskBalances();}catch{console.warn('任务已完成，但额度核对暂不可用；请在设置中查看余额。');}}
 if(process.argv[1]&&fileURLToPath(import.meta.url)===process.argv[1])await checkTaskBalances();

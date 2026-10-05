@@ -1,5 +1,6 @@
 import {createHash,createHmac} from 'node:crypto';
 import {readFile} from 'node:fs/promises';
+import {cloudflareRequest} from './cloudflare-local.mjs';
 const hash=s=>createHash('sha256').update(s).digest('hex'),hmac=(key,s)=>createHmac('sha256',key).update(s).digest();
 export async function tencentBalance(config,{fetchImpl=fetch}={}){
  const timestamp=Math.floor(Date.now()/1000),date=new Date(timestamp*1000).toISOString().slice(0,10),payload='{}',host='billing.tencentcloudapi.com';
@@ -17,7 +18,7 @@ export async function cloudflareQuota({fetchImpl=fetch}={}){
  const token=(await readFile(configPath,'utf8')).match(/^oauth_token\s*=\s*"([^"\r\n]+)"/m)?.[1];if(!token)throw Error('Cloudflare 登录凭证不可用');
  const now=new Date(),period=now.toISOString().slice(0,10),start=period+'T00:00:00Z';
  const query=`{viewer{accounts(filter:{accountTag:"5410a3d3a18318f1da25db1dc5629e86"}){aiInferenceAdaptiveGroups(limit:1,filter:{datetime_geq:"${start}",datetime_lt:"${now.toISOString()}"}){sum{totalNeurons}}}}}`;
- const response=await fetchImpl('https://api.cloudflare.com/client/v4/graphql',{method:'POST',headers:{authorization:`Bearer ${token}`,'content-type':'application/json'},body:JSON.stringify({query}),signal:AbortSignal.timeout(25000)}),data=await response.json();
+ const options={method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({query}),signal:AbortSignal.timeout(25000)},response=fetchImpl===fetch?await cloudflareRequest('/graphql',options):await fetchImpl('https://api.cloudflare.com/client/v4/graphql',{...options,headers:{...options.headers,authorization:`Bearer ${token}`}}),data=await response.json();
  if(!response.ok||data.errors?.length||!data.data?.viewer?.accounts?.length)throw Error('Cloudflare 账户用量无法核对');
  const groups=data.data.viewer.accounts[0].aiInferenceAdaptiveGroups,used=groups.reduce((sum,g)=>sum+g.sum.totalNeurons,0);
  if(!Number.isFinite(used))throw Error('Cloudflare 用量数据无效');

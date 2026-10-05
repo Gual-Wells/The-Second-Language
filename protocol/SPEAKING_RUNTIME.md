@@ -16,7 +16,7 @@
 
 preparing、collecting、waiting_credit、ready、reviewing、reviewed、needs_attention 对应准备、采集、充值等待、待分析、分析中、已反馈、需核对。needs_attention 用 inspect ID 回收 manifest 和任务；针对已知失败处理原因，不通过反复重建任务消耗余额。缺钱不把中间文字建议冒充声音最终完成。原声不能支撑某维度时明确未评估，不补造音素分、校准 confidence 或 IELTS 分数。
 
-当前私有资产使用专用 PRACTICE_MEDIA KV 的 speaking 前缀和 bucket adapter，与试题音频分开身份，单文件 20 MiB；SPEAKING_ASSETS/R2 可直接替换适配，不能把未启用 R2 当停工理由。正文阅读缓存不存私人录音。申请、题目、答卷、采集任务与反馈均通过独立 PRACTICE_DB 关联。
+当前私有资产按 STORAGE.md 使用 OneDrive 永久基座，speaking 前缀与试题音频分开身份，单份上传仍限制 20 MiB；PRACTICE_MEDIA KV 是写入故障的兼容副本，并保留待归档标记。原声、所有 request/raw/metadata/parsed 及反馈永久保存。启用永久存储时分钟采集器每轮只增加一个模型调用，再重新入队；最终整合复用全部结果，避免超出免费 Worker 单轮外部请求上限。正文阅读缓存不存私人录音。申请、题目、答卷、采集任务与反馈均通过独立 PRACTICE_DB 关联。
 
 ## 任务末尾额度更新
 

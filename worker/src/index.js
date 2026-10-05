@@ -5,6 +5,8 @@ import { authRoute, sessionFor } from './auth.js';
 import { validateAnnotatedContent } from '../../web/annotations.js';
 import { practiceRoute } from './practice.js';
 import {balanceRoute} from './balances.js';
+import {questionsRoute} from './questions.js';
+import {storageRoute,permanentBucket,chapterText} from './storage.js';
 
 const encoder = new TextEncoder();
 const MAX_BODY = 5_000_000;
@@ -63,6 +65,8 @@ async function route(request, env) {
   if (path === '/health') return json({ ok: true });
   if (path.startsWith('/auth/')) return authRoute(request, env, request.method === 'POST' ? await inputJson(request) : {});
   if(path.startsWith('/api/balances'))return balanceRoute(request,env,{isPublisher:publisher(request,env),session:await sessionFor(request,env),sameOrigin:sameOrigin(request,env)});
+  if(path==='/api/questions'||path.startsWith('/api/questions/'))return questionsRoute(request,env,{isPublisher:publisher(request,env),session:await sessionFor(request,env),sameOrigin:sameOrigin(request,env)});
+  if(path==='/api/storage'||path.startsWith('/api/storage/'))return storageRoute(request,env,{isPublisher:publisher(request,env),session:await sessionFor(request,env),sameOrigin:sameOrigin(request,env)});
   if (path === '/api/practice' || path.startsWith('/api/practice/')) return practiceRoute(request, env, publisher);
 
   if (path === '/api/session' && request.method === 'GET') return json({ authenticated: Boolean(await sessionFor(request, env)), demo: false });
@@ -130,7 +134,8 @@ async function route(request, env) {
     const runClaim = await env.DB.prepare('SELECT rest_requested FROM run_claims WHERE run_id=? AND study_date=?').bind(value.runId, value.date).first();
     if (!runClaim || runClaim.rest_requested) return json({ error: '本日未领取运行或已选择休息' }, 409);
     const digest = await sha256(value.markdown), key = `chapters/${value.date}/${digest}.md`;
-    await env.CHAPTERS.put(key, value.markdown);
+    if(env.ONEDRIVE_ENABLED==='true')await permanentBucket(env).put(key,value.markdown,{httpMetadata:{contentType:'text/markdown; charset=utf-8'}});
+    await env.CHAPTERS.put(key, value.markdown,env.ONEDRIVE_ENABLED==='true'?{expirationTtl:30*86400}:{});
     await env.DB.prepare(`INSERT OR IGNORE INTO chapter_revisions
       (digest,chapter_id,study_date,number,title,subtitle,word_count,content_key,run_id,vix_commit,protocol_commit,created_at)
       VALUES (?,?,?,?,?,?,?,?,?,?,?,?)`)
@@ -221,7 +226,7 @@ async function route(request, env) {
       CASE WHEN r.digest!=p.digest THEN 1 ELSE 0 END AS historical
       FROM published_chapters p JOIN chapter_revisions r ON r.chapter_id=p.chapter_id AND r.digest=COALESCE(?,p.digest) WHERE p.chapter_id=?`).bind(version,id).first();
     if (!row) return json({ error: '章节尚未发布' }, 404);
-    const markdown = await env.CHAPTERS.get(row.content_key);
+    const markdown = env.ONEDRIVE_ENABLED==='true'?await chapterText(env,row.content_key):await env.CHAPTERS.get(row.content_key);
     if (markdown === null) return json({ error: '章节正文暂不可用' }, 503);
     const { content_key, ...meta } = row;
     return json({ ...meta, markdown });

@@ -6,6 +6,7 @@
     "nodejs_compat"
   ],
   "vars": {
+    "ONEDRIVE_ENABLED": "true",
     "APP_ORIGIN": "https://the-second-language.pages.dev",
     "APP_URL": "https://the-second-language.pages.dev/",
     "VAPID_PUBLIC_KEY": "BPBIS91ui4rCjRFMZJGwXA7conPmE21VkH3irXpFJNdAlsSTg5HBtw7Jc3KVs-PyycW3zScqSHYgKF1NQiVp1Gk"
