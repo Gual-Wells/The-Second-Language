@@ -8,7 +8,7 @@ const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const {base,token}=await publisherConfig();
 async function call(route,body){const r=await fetch(new URL(`/api/questions${route}`,base),{method:'POST',headers:{authorization:`Bearer ${token}`,'content-type':'application/json'},body:JSON.stringify(body),signal:AbortSignal.timeout(30000)});const data=await r.json();if(!r.ok)throw Error(data.error||`HTTP ${r.status}`);return data;}
 const claim=randomBytes(32).toString('hex'),{job}=await call('/jobs/claim',{claim});
-if(!job){console.log('没有待处理问题');process.exit(0);}
+if(!job)process.exit(0);
 const directory=path.join(root,'work/questions',job.id);await mkdir(directory,{recursive:true});
 await writeFile(path.join(directory,'request.json'),JSON.stringify(job,null,2));
 await writeFile(path.join(directory,'chapter.md'),job.chapter.markdown);

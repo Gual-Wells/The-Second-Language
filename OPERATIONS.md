@@ -12,6 +12,20 @@ node scripts/serve.mjs
 
 ## 每日 Codex 任务
 
+### Windows 后台启动
+
+四个本机计划任务（日课、雅思、章节答疑、永久归档）统一使用 `scripts/BackgroundTask.cs` 编译的无控制台 Windows 程序。子 PowerShell 使用 `UseShellExecute=false`、`CreateNoWindow=true`，输出进入私有 `.cache/background/` 日志，进程退出码原样交还计划任务；日课/雅思原有工作日志继续保留。空答疑队列安静退出，不启动 Codex 或查询模型余额。
+
+安装或更换工作树后，用 Windows PowerShell 5.1 执行：
+
+```powershell
+powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File scripts/install-background-tasks.ps1 -CredentialFile <本机发布配置文件>
+```
+
+安装脚本先编译版本化启动器、备份四个任务 XML，仅替换已有任务的 action；保留触发时间、用户、登录方式、休息流程及 IgnoreNew 设置。安装失败还原已修改的 action。它不新建定时安排、不启动模型，也不停止已经运行的日课。恢复旧 action 可使用 `.cache/task-runner/<安装时间>/` 内的任务 XML；重新注册时保留原用户身份。计划任务需维持当前 Windows 用户可运行状态，不能据此宣称电脑关机后仍能答疑。
+
+直接用 PowerShell 的 `-WindowStyle Hidden` 可能先分配控制台再隐藏，不能作为无闪窗保证。当前原生启动器不依赖 VBScript、常驻窗口、Windows 服务或管理员密码；源码纳入仓库，生成的 exe、任务 XML 和日志留在忽略目录。纯轮询仍产生正常网络请求，零模型调用不等于零 Cloudflare 用量。
+
 本机的定时任务每日北京时间 **03:00** 调用 `scripts/run-daily.ps1`，由已登录的 Codex CLI 以 `gpt-6-sol`、`high` 运行本协议。先领取后端一次性控制状态；休息开关只跳过下一次定时运行并自动复位。任务提示词核心为：
 
 > 定时入口先领取当天运行控制，休息则直接结束；非休息日 Codex 阅读 AGENTS.md、protocol/DAILY_RUN.md、protocol/QUALITY_WORKFLOW.md、protocol/CONTENT.md、protocol/TEMPORARY.md 和 protocol/ANNOTATIONS.md，先处理已领取的临时需求，再完成 40 个主词的推荐、VIX 标注、逐词双教材交接、三部分正文、语义审阅与发布。续作写入 work/，未完成时记录 resume.md。
