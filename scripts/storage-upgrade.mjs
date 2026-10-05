@@ -3,13 +3,17 @@ import {DatabaseSync} from 'node:sqlite';
 import path from 'node:path';
 import {createHash} from 'node:crypto';
 import {publisherConfig} from './lib/publisher-config.mjs';
-import {cloudflare,kvKeys,query,mainDatabase,practiceDatabase} from './lib/cloudflare-local.mjs';
+import {cloudflare,kvKeys,queryDetailed,mainDatabase,practiceDatabase} from './lib/cloudflare-local.mjs';
 import {root} from './lib/onedrive-local.mjs';
 import {archiveWorking} from './lib/work-archives.mjs';
+import {rowidPages,permanentRows,storageTableOrder} from './lib/storage-scan.mjs';
+import {archiveQuery} from './lib/archive-read-budget.mjs';
+try{
 const {base,token}=await publisherConfig(),mode=process.argv[2]||'migrate',directory=path.join(root,'.cache/storage-upgrade');await mkdir(directory,{recursive:true});
+const query=await archiveQuery(queryDetailed,path.join(directory,'read-budget.json'));
 const digest=bytes=>createHash('sha256').update(bytes).digest('hex');
 let ledger={};try{ledger=JSON.parse(await readFile(path.join(directory,'upload-ledger.json'),'utf8'));}catch(e){if(e.code!=='ENOENT')throw e;
- for(let offset=0;;offset+=1000){const rows=await query(mainDatabase,"SELECT object_key AS key,digest,bytes FROM storage_objects JOIN storage_blobs USING(digest) ORDER BY object_key LIMIT 1000 OFFSET ?",[offset]);for(const row of rows)ledger[row.key]=row;if(rows.length<1000)break;}
+ for await(const rows of rowidPages(query,mainDatabase,'storage_objects',{pageSize:1000,projection:'t.object_key AS key,t.digest,b.bytes',join:'JOIN storage_blobs b ON b.digest=t.digest'}))for(const row of rows)ledger[row.key]=row;
  await writeFile(path.join(directory,'upload-ledger.json'),JSON.stringify(ledger));
 }
 async function api(route,body=null,method='POST',mime='application/json'){const r=await fetch(new URL(`/api/storage${route}`,base),{method,headers:{authorization:`Bearer ${token}`,'content-type':mime},...(body!==null?{body:Buffer.isBuffer(body)?body:JSON.stringify(body)}:{}),signal:AbortSignal.timeout(180000)});if(!r.ok){const error=await r.json().catch(()=>({}));throw Error(`归档接口 ${r.status}: ${error.error||'request_failed'}`);}return r;}
@@ -25,15 +29,16 @@ if(mode==='backup'){
   const schemaBytes=Buffer.from(JSON.stringify(preserved)),schemaKey=`backups/chunks/${name}/schema/${digest(schemaBytes)}.json`;await put(schemaKey,schemaBytes,'application/json');
   manifest.databases.push({database:name,schemaKey,digest:digest(schemaBytes)});
   const tables=await query(id,"SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%' AND name NOT LIKE '_cf_%' AND name NOT LIKE 'd1_%' ORDER BY name");
-  for(const {name:table} of tables){if(/^temporary_|^auth_challenges$|^auth_sessions$/.test(table))continue;
-   const safe='"'+table.replaceAll('"','""')+'"';let offset=0;
-   const filter=table==='storage_objects'||table==='storage_versions'?"WHERE object_key NOT LIKE 'backups/%'":table==='storage_blobs'?"WHERE digest IN (SELECT digest FROM storage_versions WHERE object_key NOT LIKE 'backups/%')":'';
-   do{const rows=await query(id,`SELECT * FROM ${safe} ${filter} ORDER BY rowid LIMIT 200 OFFSET ?`,[offset]);
-    if(!rows.length)break;const bytes=Buffer.from(JSON.stringify({table,rows}));if(bytes.length>20*1024*1024)throw Error(`请为 ${table} 配置更小的分页`);
+  const neededDigests=new Set();
+  for(const {name:table} of tables.sort(storageTableOrder)){if(/^temporary_|^auth_challenges$|^auth_sessions$/.test(table))continue;
+   const safe='"'+table.replaceAll('"','""')+'"';
+   for await(const page of rowidPages(query,id,table)){
+    const rows=permanentRows(table,page,neededDigests);
+    if(!rows.length)continue;const bytes=Buffer.from(JSON.stringify({table,rows}));if(bytes.length>20*1024*1024)throw Error(`请为 ${table} 配置更小的分页`);
     const types=Object.fromEntries(validation.prepare(`PRAGMA table_info(${safe})`).all().map(x=>[x.name,x.type]));
     for(const row of rows){const columns=Object.keys(row),insert=`INSERT INTO ${safe} (${columns.map(c=>'"'+c.replaceAll('"','""')+'"').join(',')}) VALUES (${columns.map(()=>'?').join(',')})`;validation.prepare(insert).run(...columns.map(c=>types[c]==='BLOB'&&Array.isArray(row[c])?Buffer.from(row[c]):row[c]));}
-    const key=`backups/chunks/${name}/${table}/${digest(bytes)}.json`;await put(key,bytes,'application/json');manifest.databases.push({database:name,table,key,digest:digest(bytes),rows:rows.length});offset+=rows.length;if(rows.length<200)break;
-   }while(true);
+    const key=`backups/chunks/${name}/${table}/${digest(bytes)}.json`;await put(key,bytes,'application/json');manifest.databases.push({database:name,table,key,digest:digest(bytes),rows:rows.length});
+   }
   }
   for(const object of preserved.filter(x=>x.type!=='table'))validation.exec(object.sql);
   if(validation.prepare('PRAGMA integrity_check').get().integrity_check!=='ok'||validation.prepare('PRAGMA foreign_key_check').all().length)throw Error(`${name} 快照发生并发变化，未发布恢复清单，请稍后重新归档`);validation.close();
@@ -68,3 +73,4 @@ if(mode==='backup'){
  }
  console.log('章节音频包已更新，仅打包已经生成的点读');
 }else throw Error('使用 migrate、backup 或 packs');
+}catch(error){if(error.code==='D1_ARCHIVE_READ_BUDGET'){console.error(error.message);process.exitCode=78;}else throw error;}
