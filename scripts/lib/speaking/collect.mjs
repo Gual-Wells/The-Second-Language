@@ -82,6 +82,11 @@ export async function collectOpenRouter(provider, audio, { apiKey, fetchImpl = f
       try{if(!fenced)throw Error();parsed=JSON.parse(fenced[1]);parseMethod='single-json-fence';}catch{parseError = '模型正文不是完整 JSON；保留原文';}
     }
   }
+  // Some providers wrap one complete report in an array despite the object schema.
+  // Unwrap only a single independently valid report; preserve the original raw return.
+  if(Array.isArray(parsed)&&parsed.length===1&&!structureErrors(parsed[0],detail?detailSchema:collectionSchema).length){
+    parsed=parsed[0];parseMethod+='-single-object-array';
+  }
   const validationErrors = parsed ? structureErrors(parsed,detail?detailSchema:collectionSchema) : [];
   const structurallyValid = Boolean(parsed && !validationErrors.length);
   const truncated = choice?.finish_reason === 'length';
