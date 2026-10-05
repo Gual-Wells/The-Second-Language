@@ -1,6 +1,6 @@
-const SHELL = 'second-language-shell-v17';
+const SHELL = 'second-language-shell-v18';
 const CHAPTERS = 'second-language-chapters-v1';
-const CORE = ['/', '/index.html', '/app.js?v=17', '/balances.js?v=17', '/practice.js?v=17', '/listening.js?v=17', '/reading.js?v=17', '/objective.js?v=17', '/exam-spec.js?v=17', '/recorder.js?v=17', '/reader-speech.js?v=17', '/render.js?v=17', '/annotations.js?v=17', '/styles.css?v=17', '/manifest.webmanifest?v=17', '/icon.svg?v=17', '/icon-192.png?v=17', '/icon-512.png?v=17', '/apple-touch-icon.png?v=17'];
+const CORE = ['/', '/index.html', '/app.js?v=18', '/balances.js?v=18', '/practice.js?v=18', '/listening.js?v=18', '/reading.js?v=18', '/objective.js?v=18', '/exam-spec.js?v=18', '/recorder.js?v=18', '/reader-speech.js?v=18', '/render.js?v=18', '/annotations.js?v=18', '/styles.css?v=18', '/manifest.webmanifest?v=18', '/icon.svg?v=18', '/icon-192.png?v=18', '/icon-512.png?v=18', '/apple-touch-icon.png?v=18'];
 self.addEventListener('install', event => { event.waitUntil(caches.open(SHELL).then(cache => cache.addAll(CORE)).then(() => self.skipWaiting())); });
 self.addEventListener('activate', event => { event.waitUntil(Promise.all([self.clients.claim(), caches.keys().then(keys => Promise.all(keys.filter(key => ![SHELL, CHAPTERS].includes(key)).map(key => caches.delete(key))))])); });
 self.addEventListener('message', event => { if (event.data?.type === 'CLEAR_CHAPTER_CACHE') event.waitUntil(caches.delete(CHAPTERS)); });
@@ -23,7 +23,7 @@ self.addEventListener('push', event => {
   let message = {}; try { message = event.data?.json() || {}; } catch {}
   const target = message.balances ? '/?balances=1' : message.temporaryId ? `/?temporary=${encodeURIComponent(message.temporaryId)}` : message.chapterId ? `/?chapter=${encodeURIComponent(message.chapterId)}` : '/';
   event.waitUntil((async () => {
-    await self.registration.showNotification(message.title || '第二语言 · 今日课程', { body: message.body || '新的章节已经可以阅读。', icon: '/icon-192.png?v=17', badge: '/icon-192.png?v=17', data: { target } });
+    await self.registration.showNotification(message.title || '第二语言 · 今日课程', { body: message.body || '新的章节已经可以阅读。', icon: '/icon-192.png?v=18', badge: '/icon-192.png?v=18', data: { target } });
     if ('setAppBadge' in self.navigator) { try { await self.navigator.setAppBadge(1); } catch {} }
   })());
 });

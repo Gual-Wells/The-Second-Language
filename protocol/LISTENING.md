@@ -1,6 +1,6 @@
 # 第四部分听力建设与交接
 
-从 EXPRESSION.md 的有序 skills 读取申请，仅在包含 listening 时建设。申请在 profiles.listening 明确选择 full 或 mini，详见 PRACTICE_SIZES.md；两者均正式长期保存。full 四段四十题，mini 四段二十四题并覆盖完整题型、平均及以上难度。测试只走隔离数据；不建立专项训练入口。来源为申请时固定的第一章至最新章，当前焦点章显著优先，题面不设用词配额。
+从 EXPRESSION.md 的四科申请读取规格；新申请必须建设听力，申请在 profiles.listening 明确选择 full 或 mini，详见 PRACTICE_SIZES.md；两者均正式长期保存。full 四段四十题，mini 四段二十四题并覆盖完整题型、平均及以上难度。测试只走隔离数据；不建立专项训练入口。来源为申请时固定的第一章至最新章，当前焦点章显著优先，题面不设用词配额。
 
 ## 内容与声音
 
@@ -19,7 +19,7 @@
 3. `node scripts/practice-audio.mjs synthesize audio-plan.json`。本机只发控制和回收文件，OpenRouter / Workers AI 调用均在 Cloudflare。返回不为 ready 时停止；不要换 ID 自动重付未知结果。
 4. `node scripts/practice-audio.mjs assemble audio-plan.json`。已有 ffmpeg 解码到 24 kHz 单声道 PCM，按实际样本数建立发言区间，添加停顿后编码 MP3，上传最终资产。产物和 cues 位于忽略的 `.cache/practice-audio/`。
 5. `node scripts/practice-audio.mjs verify audio-plan.json`。Cloudflare Whisper 全量转写最终文件，保留原始结果。本地读取核对答案区域、全文忠实度和切点；转写与题文一致不等同所有发音/长文自然度通过。必要时用户试听或已有声音模型辅助核对。
-6. 定稿 set.json，`format` 为 `ielts-v2`，profiles 与申请逐项一致，questions 为所选写作/口语题（听力单科为 []）；`listening` 含四个材料对象。然后 `node scripts/practice-job.mjs publish <request-id> set.json`。发布前检查文字、音频、答案与来源版本对应，不能为凑发章略过不确定题。
+6. 定稿 set.json，`format` 为 `ielts-v2`，profiles 与申请逐项一致，questions 包含完整写作/口语题；`listening` 含四个材料对象。然后 `node scripts/practice-job.mjs publish <request-id> set.json`。发布前检查文字、音频、答案与来源版本对应，不能为凑发章略过不确定题。
 
 每题额外记录 family、groupId、instructions、difficulty、difficultyReason，family 使用 web/exam-spec.js 的完整题型目录；mini 不能遗漏目录或申报 lower。共享题面 stimulus.text，表格用 headers/rows，流程图用 steps。真实题面及图表须完整可读，不能以题型名称冒充内容。
 
@@ -48,4 +48,4 @@ OpenRouter 与原声分析共用钱包。waiting_credit 时保留全部成稿与
 
 ## 任务末尾额度更新
 
-执行本协议所涉及的日课、推送、练习建设、批改、声音分析或测试工作时，最后按 `BALANCES.md` 查询各方额度，携带核对时间、核实状态与任务用量估算，发布更新到余额页并提示低额度。页面显示上一次任务的记录，浏览时不实时查询。不自动付款，不安排余额不足后的跨日轮询/重试；已有材料与未知计费保护继续有效。
+执行本协议所涉及的日课、推送、练习建设、批改、声音分析或测试工作时，最后按 `BALANCES.md` 查询各方额度，携带核对时间、核实/估算状态与用户完整学习流程的用量范围，发布更新到余额页；各方仅在不足三次最大消耗任务的预留时提醒。页面显示上一次任务的记录，浏览时不实时查询。不自动付款，不安排余额不足后的跨日轮询/重试；已有材料与未知计费保护继续有效。

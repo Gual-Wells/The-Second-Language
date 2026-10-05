@@ -371,3 +371,15 @@ textarea.text-input { resize: vertical; }
 .balance-card small, .balance-estimate small { display: block; color: var(--muted); line-height: 1.6; }
 .balance-card .balance-warning { padding: 9px 12px; border: 1px solid #c7ae69; border-radius: 5px; background: linear-gradient(#fff7d2, #efdf9d); color: #5a4924; }
 .balance-estimate { padding: 14px 16px; border-bottom: 1px solid var(--line); }
+
+.balance-costs { margin: 10px 0 0; display: grid; gap: 6px; font-size: 13px; }
+.balance-costs > div { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+.balance-costs dt { color: var(--muted); }
+.balance-costs dd { margin: 0; text-align: right; font-variant-numeric: tabular-nums; }
+.practice-size-options { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 0; margin: 14px 0 10px; border: 0; }
+.practice-size-options legend { padding: 0 0 8px; font-size: 13px; color: var(--muted); }
+.practice-size-options label { display: flex; align-items: center; gap: 8px; padding: 12px 9px; border: 1px solid var(--line); border-radius: 6px; background: linear-gradient(#fff, #dce6ee); box-shadow: inset 0 1px #fff; cursor: pointer; }
+.practice-size-options label:has(input:checked) { color: #fff; border-color: #4c657a; background: linear-gradient(#7895ab, #4e7088); box-shadow: inset 0 2px 4px #263c4f55; }
+.practice-size-options input { margin: 0; accent-color: #315b79; }
+.practice-size-options strong { display: block; font-size: 14px; }
+.practice-size-options small { display: block; margin-top: 4px; font-size: 12px; opacity: .8; }

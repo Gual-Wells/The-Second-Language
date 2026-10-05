@@ -92,11 +92,9 @@ export async function practiceRoute(request, env, publisher) {
     const value = await body(request);
     if (value.focusChapterId != null && !safeId(value.focusChapterId)) return json({ error: '焦点章节无效' }, 400);
     if (value.note != null && (typeof value.note !== 'string' || value.note.length > 1000)) return json({ error: '练习需求过长' }, 400);
-    const skills=value.skills??['writing','speaking'];
-    if(!Array.isArray(skills)||!skills.length||skills.some(x=>!['listening','reading','writing','speaking'].includes(x))||new Set(skills).size!==skills.length)return json({error:'请选择听力、阅读、写作、口语中的至少一项'},400);
-    const selected=['listening','reading','writing','speaking'].filter(x=>skills.includes(x));
-    const incoming=value.profiles||{};if(typeof incoming!=='object'||Array.isArray(incoming)||Object.entries(incoming).some(([k,v])=>!['listening','reading'].includes(k)||!selected.includes(k)||!['full','mini'].includes(v)))return json({error:'听力和阅读须分别选择完整或微缩题量'},400);
-    const profiles=Object.fromEntries(selected.filter(x=>['listening','reading'].includes(x)).map(x=>[x,incoming[x]||'full']));
+    if(!['full','mini'].includes(value.size)||value.skills!=null||value.profiles!=null)return json({error:'请选择完整雅思或微缩雅思；请刷新后重试'},400);
+    const selected=['listening','reading','writing','speaking'];
+    const profiles={listening:value.size,reading:value.size};
     const active = await db.prepare("SELECT id FROM practice_requests WHERE status IN ('queued','building') LIMIT 1").first();
     if (active) return json({ error: '已有表达练习正在建设', requestId: active.id }, 409);
     const { results } = await env.DB.prepare(`SELECT p.chapter_id AS id,p.study_date AS date,p.digest FROM published_chapters p ORDER BY p.study_date`).all();
@@ -105,7 +103,7 @@ export async function practiceRoute(request, env, publisher) {
     if (!focus) return json({ error: '焦点章节未发布' }, 404);
     const id = crypto.randomUUID(), stamp = now();
     await db.prepare(`INSERT INTO practice_requests(id,focus_chapter_id,focus_digest,source_json,note,status,created_at,updated_at,skills_json,profiles_json,protocol_version)
-      VALUES(?,?,?,?,?,'queued',?,?,?,?,'ielts-v2')`).bind(id, focus.id, focus.digest, JSON.stringify(results), (value.note || '').trim(), stamp, stamp,JSON.stringify(selected),JSON.stringify(profiles)).run();
+      VALUES(?,?,?,?,?,'queued',?,?,?,?,'ielts-bundle-v1')`).bind(id, focus.id, focus.digest, JSON.stringify(results), (value.note || '').trim(), stamp, stamp,JSON.stringify(selected),JSON.stringify(profiles)).run();
     return json({ id, status: 'queued', skills:selected,profiles,focusChapterId: focus.id, sourceCount: results.length }, 201);
   }
 
@@ -157,7 +155,7 @@ export async function practiceRoute(request, env, publisher) {
     if (requestRow?.status === 'published' && requestRow.set_id === set.id) return json({ ok: true, id: set.id, reused: true });
     if (!requestRow || requestRow.status !== 'building' || requestRow.claim_token !== value.claimToken) return json({ error: '领取版本无效' }, 409);
     const sources = JSON.parse(requestRow.source_json), sourceIds = new Set(sources.map(item => item.id));
-    const skills=JSON.parse(requestRow.skills_json),profiles=JSON.parse(requestRow.profiles_json),strict=requestRow.protocol_version==='ielts-v2';
+    const skills=JSON.parse(requestRow.skills_json),profiles=JSON.parse(requestRow.profiles_json),strict=['ielts-v2','ielts-bundle-v1'].includes(requestRow.protocol_version);
     if(strict&&set.format!=='ielts-v2')return json({error:'新申请须按完整或微缩规格 v2 发布'},400);
     if(Object.keys(set.profiles||{}).length!==Object.keys(profiles).length||Object.entries(profiles).some(([k,v])=>set.profiles?.[k]!==v))return json({error:'发布题量规格必须与申请完全一致'},400);
     if(set.questions.some(q=>!skills.includes(q.kind)))return json({error:'包含未申请的练习种类'},400);

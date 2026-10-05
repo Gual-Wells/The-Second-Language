@@ -1,10 +1,11 @@
+import {assessTracked as assess} from './lib/tencent-quota-ledger.mjs';
 import {finishTaskBalances} from './check-balances.mjs';
 import { readFile, writeFile, mkdir, stat } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 import { spawn } from 'node:child_process';
-import { pcmFromWav, assess, normalize } from './lib/speaking/tencent-soe.mjs';
+import { pcmFromWav, normalize } from './lib/speaking/tencent-soe.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2), filename = args[0];

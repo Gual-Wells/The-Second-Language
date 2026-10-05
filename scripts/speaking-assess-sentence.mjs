@@ -1,8 +1,9 @@
+import {assessTracked as assess} from './lib/tencent-quota-ledger.mjs';
 import {finishTaskBalances} from './check-balances.mjs';
 import { readFile,writeFile,mkdir } from 'node:fs/promises';
 import { appendFileSync } from 'node:fs';
 import { createHash,randomUUID } from 'node:crypto';
-import { pcmFromWav,assess,normalizeSentence } from './lib/speaking/tencent-soe.mjs';
+import { pcmFromWav,normalizeSentence } from './lib/speaking/tencent-soe.mjs';
 
 const planFile = process.argv[2];
 if (!planFile) throw new Error('用法：node scripts/speaking-assess-sentence.mjs 私有专项计划.json [--dry-run]');

@@ -1,6 +1,6 @@
-import {speakingRecorder} from './recorder.js?v=17';
-import {createReading} from './reading.js?v=17';
-import {createListening} from './listening.js?v=17';
+import {speakingRecorder} from './recorder.js?v=18';
+import {createReading} from './reading.js?v=18';
+import {createListening} from './listening.js?v=18';
 const $ = id => document.getElementById(id);
 const node = (tag, className, text) => {
   const element = document.createElement(tag);
@@ -153,7 +153,6 @@ export function createPracticeUI({ api, toast, showDialog, getContext, openSourc
     try { await refresh(); } catch (error) { toast(error.message); }
   }
 
-  for(const k of ['listening','reading']){const choice=document.querySelector(`[name=practiceSkill][value=${k}]`),select=$(`practice${k==='listening'?'Listening':'Reading'}Profile`);select.disabled=!choice.checked;choice.addEventListener('change',()=>select.disabled=!choice.checked);}
   $('practiceBack').addEventListener('click', showList);
   for (const id of ['practiceKind','practiceChapter','practiceStatus']) $(id).addEventListener('change', () => refreshIndex().catch(error => toast(error.message)));
   $('practiceSearch').addEventListener('input', () => { clearTimeout(refreshIndex.timer); refreshIndex.timer = setTimeout(() => refreshIndex().catch(error => toast(error.message)),250); });
@@ -161,10 +160,9 @@ export function createPracticeUI({ api, toast, showDialog, getContext, openSourc
   $('practiceRequestButton').addEventListener('click', async () => {
     const chosen = requestState(); if (!chosen || !$('practiceRequestToggle').checked) { toast('请先开启申请'); return; }
     const button = $('practiceRequestButton'); button.disabled = true;
-    const skills=[...document.querySelectorAll('[name="practiceSkill"]:checked')].map(x=>x.value);
-    if(!skills.length){toast('请选择至少一项：听力、阅读、写作、口语');button.disabled=false;return;}
+    const size=document.querySelector('[name=practiceSize]:checked').value;
     try {
-      await api('/api/practice/requests', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ skills,profiles:Object.fromEntries(['listening','reading'].filter(k=>skills.includes(k)).map(k=>[k,$(`practice${k==='listening'?'Listening':'Reading'}Profile`).value])),focusChapterId: chosen.id, note: $('practiceRequestNote').value.trim() }) });
+      await api('/api/practice/requests', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ size,focusChapterId: chosen.id, note: $('practiceRequestNote').value.trim() }) });
       $('practiceRequestToggle').checked = false; $('practiceRequestBox').hidden = true; $('practiceRequestNote').value = '';
       await refresh(); toast('雅思练习申请已保存');
     } catch (error) { toast(error.message); button.disabled = false; }
