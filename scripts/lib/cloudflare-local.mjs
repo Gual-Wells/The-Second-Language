@@ -11,5 +11,6 @@ export async function cloudflareRequest(route,options={}){
  if(!r.ok)throw Error(`Cloudflare 请求失败 (${r.status})`);return r;
 }
 export const cloudflare=(route,options={})=>cloudflareRequest(`/accounts/${account}${route}`,options);
-export async function query(database,sql,params=[]){const r=await(await cloudflare(`/d1/database/${database}/query`,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({sql,params})})).json();if(!r.success||!r.result?.[0]?.success)throw Error('数据库查询未完成');return r.result[0].results;}
+export async function queryDetailed(database,sql,params=[]){const r=await(await cloudflare(`/d1/database/${database}/query`,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({sql,params})})).json();if(!r.success||!r.result?.[0]?.success)throw Error('数据库查询未完成');return{rows:r.result[0].results,meta:r.result[0].meta};}
+export async function query(database,sql,params=[]){return(await queryDetailed(database,sql,params)).rows;}
 export async function kvKeys(namespace){const all=[];let cursor='';do{const r=await(await cloudflare(`/storage/kv/namespaces/${namespace}/keys?limit=1000${cursor?`&cursor=${encodeURIComponent(cursor)}`:''}`)).json();if(!r.success)throw Error('资产目录未完成');all.push(...r.result);cursor=r.result_info?.cursor||'';}while(cursor);return all;}
