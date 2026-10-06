@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-06",
+  "schema": [
+    "worker/practice_migrations/0007_compact_pronunciation.sql",
+    "worker/practice_migrations/0008_compact_chapter_links.sql"
+  ],
+  "scope": "Local SQLite allocation including all three full 32-byte digests and one chapter relation per clip; not total production D1 size",
+  "results": [
+    {
+      "clips": 500000,
+      "chapterLinks": 500000,
+      "bytes": 98611200,
+      "decimalMB": 98.6112,
+      "MiB": 94.04296875,
+      "integrity": "ok",
+      "foreignKeys": 0
+    },
+    {
+      "clips": 700000,
+      "chapterLinks": 700000,
+      "bytes": 138416128,
+      "decimalMB": 138.416128,
+      "MiB": 132.00390625,
+      "integrity": "ok",
+      "foreignKeys": 0
+    },
+    {
+      "clips": 1000000,
+      "chapterLinks": 1000000,
+      "bytes": 197795840,
+      "decimalMB": 197.79584,
+      "MiB": 188.6328125,
+      "integrity": "ok",
+      "foreignKeys": 0
+    }
+  ]
+}

@@ -40,6 +40,22 @@ async function folder(env,name){
  await env.DB.prepare('INSERT OR IGNORE INTO storage_folders VALUES(?,?)').bind(name,item.id).run();return item.id;
 }
 export function permanentBucket(env){return{
+ async contentHead(digest){
+  if(!/^[a-f0-9]{64}$/.test(digest||''))throw Error('资产摘要无效');
+  const parent=await folder(env,`objects-${digest.slice(0,2)}`);
+  try{const item=await(await graph(env,`/me/drive/items/${encodeURIComponent(parent)}:/${digest}.bin`)).json();return{digest,item_id:item.id,bytes:item.size};}
+  catch(e){if(e.message.includes('(404,'))return null;throw e;}
+ },
+ async putContent(value,mime='application/octet-stream'){
+  const bytes=typeof value==='string'?encoder.encode(value):value instanceof Blob?await value.arrayBuffer():value;
+  if(!bytes||bytes.byteLength>24*1024*1024)throw Error('单份资产超过 24 MiB，请分批归档');
+  const digest=await sha256(bytes);let row=await this.contentHead(digest);
+  if(!row){const parent=await folder(env,`objects-${digest.slice(0,2)}`),item=await(await graph(env,`/me/drive/items/${encodeURIComponent(parent)}:/${digest}.bin:/content`,{method:'PUT',headers:{'content-type':mime},body:bytes})).json();row={digest,item_id:item.id,bytes:item.size};}
+  if(row.bytes!==bytes.byteLength||await sha256(await(await itemResponse(env,row.item_id)).arrayBuffer())!==digest)throw Error('存储文件校验失败');
+  return{digest,bytes:row.bytes,itemId:row.item_id};
+ },
+ async getContent(digest){const row=await this.contentHead(digest);if(!row)return null;const bytes=await(await itemResponse(env,row.item_id)).arrayBuffer();if(await sha256(bytes)!==digest)throw Error('存储资产校验失败');return{arrayBuffer:async()=>bytes,text:async()=>decoder.decode(bytes),json:async()=>JSON.parse(decoder.decode(bytes))};},
+ async responseContent(digest,request,mime='application/octet-stream'){const row=await this.contentHead(digest);return row?this.respond({...row,mime},request):null;},
  async put(key,value,options={}){
   const bytes=typeof value==='string'?encoder.encode(value):value instanceof Blob?await value.arrayBuffer():value;
   if(!bytes||bytes.byteLength>24*1024*1024)throw Error('单份资产超过 24 MiB，请分批归档');
@@ -59,7 +75,8 @@ export function permanentBucket(env){return{
  },
  async head(key,digest){return digest?env.DB.prepare('SELECT v.object_key AS key,v.digest,v.mime,b.item_id,b.bytes FROM storage_versions v JOIN storage_blobs b USING(digest) WHERE v.object_key=? AND v.digest=?').bind(key,digest).first():env.DB.prepare('SELECT o.object_key AS key,o.digest,o.mime,b.item_id,b.bytes FROM storage_objects o JOIN storage_blobs b USING(digest) WHERE o.object_key=?').bind(key).first();},
  async get(key){const row=await this.head(key);if(!row)return null;const r=await itemResponse(env,row.item_id);const bytes=await r.arrayBuffer();if(await sha256(bytes)!==row.digest)throw Error('存储资产校验失败');return{arrayBuffer:async()=>bytes,text:async()=>decoder.decode(bytes),json:async()=>JSON.parse(decoder.decode(bytes))};},
- async response(key,request,digest){const row=await this.head(key,digest);if(!row)return null;
+ async response(key,request,digest){const row=await this.head(key,digest);return row?this.respond(row,request):null;},
+ async respond(row,request){
   if(request.method==='HEAD')return new Response(null,{headers:{'content-type':row.mime,'content-length':String(row.bytes),'accept-ranges':'bytes','cache-control':'private, no-store'}});
   const range=request.headers.get('range');if(range&&!/^bytes=(\d*)-(\d*)$/.test(range))return new Response(null,{status:416,headers:{'content-range':`bytes */${row.bytes}`}});
   const r=await itemResponse(env,row.item_id,range),headers=new Headers({'content-type':row.mime,'cache-control':'private, no-store','accept-ranges':'bytes','x-content-type-options':'nosniff'});
@@ -84,11 +101,18 @@ async function handleStorage(request,env,{isPublisher,session,sameOrigin}){
  if(path==='/status'&&request.method==='GET'){if(!isPublisher)return json({error:'发布身份无效'},403);const drive=await(await graph(env,'/me/drive?$select=quota,driveType')).json();const counts=await env.DB.prepare('SELECT count(*) AS files,sum(bytes) AS bytes FROM storage_blobs').first();return json({...drive,...counts,active:env.ONEDRIVE_ENABLED==='true'});}
  if(path==='/recovery-index'&&request.method==='POST'&&isPublisher){
   const b=await request.json();if(!/^backups\/[^/]+\/manifest\.json$/.test(b.key||'')||!/^[a-f0-9]{64}$/.test(b.digest||''))return json({error:'恢复清单无效'},400);
-  const blob=await bucket.head(b.key,b.digest);if(!blob)return json({error:'恢复清单不存在'},404);
+  const blob=await bucket.contentHead(b.digest);if(!blob||b.itemId&&b.itemId!==blob.item_id)return json({error:'恢复清单不存在'},404);
+  const manifestBytes=await(await itemResponse(env,blob.item_id)).arrayBuffer();if(await sha256(manifestBytes)!==b.digest)return json({error:'恢复清单校验失败'},409);
+  const manifest=JSON.parse(decoder.decode(manifestBytes));if(!Array.isArray(manifest.databases)||!manifest.resources)return json({error:'恢复清单结构无效'},400);
   const root=await(await graph(env,'/me/drive/special/approot')).json(),route=`/me/drive/items/${encodeURIComponent(root.id)}`;let index={version:1,snapshots:[]};
   try{const old=await(await graph(env,`${route}:/recovery-index.json`)).json();index=JSON.parse(await(await itemResponse(env,old.id)).text());if(index.version!==1||!Array.isArray(index.snapshots))throw Error('已有恢复索引无效');}catch(e){if(!e.message.includes('(404,'))throw e;}
   if(!index.snapshots.some(x=>x.digest===b.digest))index.snapshots.push({key:b.key,digest:b.digest,itemId:blob.item_id,createdAt:new Date().toISOString()});
   const bytes=encoder.encode(JSON.stringify(index)),uploaded=await(await graph(env,`${route}:/recovery-index.json:/content`,{method:'PUT',headers:{'content-type':'application/json'},body:bytes})).json();if(await sha256(await(await itemResponse(env,uploaded.id)).arrayBuffer())!==await sha256(bytes))throw Error('恢复索引回读失败');return json({ok:true,snapshots:index.snapshots.length});
+ }
+ if(path==='/content'&&isPublisher){
+  if(request.method==='PUT')return json(await bucket.putContent(await request.arrayBuffer(),request.headers.get('content-type')||'application/octet-stream'));
+  const digest=url.searchParams.get('digest');if(!/^[a-f0-9]{64}$/.test(digest||''))return json({error:'资产摘要无效'},400);
+  if(request.method==='GET'||request.method==='HEAD')return(await bucket.responseContent(digest,request))||json({error:'资产不存在'},404);
  }
  if(path==='/objects'&&isPublisher){
   const key=url.searchParams.get('key');if(!key||key.length>1000||key.startsWith('temporary/'))return json({error:'资产身份无效'},400);

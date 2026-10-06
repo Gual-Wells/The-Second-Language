@@ -109,7 +109,7 @@ node scripts/practice-job.mjs review-complete <答卷ID> work/expression/reviews
 
 ## 当前答疑与永久存储设施（2026-10-06）
 
-主库应用 migrations/0005 至 0008；练习库应用 practice_migrations/0006。按现行配置先发布 Worker，再 build gateway / 部署 Pages。`ONEDRIVE_ENABLED=true`，`ONEDRIVE_KEY` 只存 Worker secret；本机同一密钥和 Microsoft OAuth 由 DPAPI 保存，不进入 Git。应用仅授权个人 OneDrive 的 Apps/The Second Language 文件夹，应用客户端 ID 是公开标识，不是密码。
+主库应用 migrations/0005 至 0008；练习库应用 practice_migrations/0006 至 0008。按现行配置先发布 Worker，再 build gateway / 部署 Pages。`ONEDRIVE_ENABLED=true`，`ONEDRIVE_KEY` 只存 Worker secret；本机同一密钥和 Microsoft OAuth 由 DPAPI 保存，不进入 Git。应用仅授权个人 OneDrive 的 Apps/The Second Language 文件夹，应用客户端 ID 是公开标识，不是密码。
 
 首次迁移：`node scripts/onedrive-connect.mjs begin 69e35375-8fe6-497b-9e02-7e7425058e19` 发起设备登录，浏览器授权后执行 `node scripts/onedrive-connect.mjs finish` 保存授权，再用 `verify` 验证应用目录；`node scripts/onedrive-install.mjs` 安装加密连接。先检查 status / 写入回读验证，随后启用开关、部署并运行 `node scripts/storage-upgrade.mjs migrate`。现有正式连接已完成，不为普通发布重新授权或生成加密密钥。部署/恢复到别的 Windows 用户时重新授权，不能把旧 DPAPI 文件当可移植凭据。
 
@@ -120,6 +120,10 @@ node scripts/practice-job.mjs review-complete <答卷ID> work/expression/reviews
 备份恢复：`node scripts/storage-restore.mjs` 根据最近快照在 `.cache/storage-restore/` 新建两库和工作资料，核验摘要、外键、完整性，绝不覆盖生产库。快照按历史摘要读取，后来的工作文稿修改不会破坏以前的备份。详细永久原件、音频包、兼容回退与临时页排除规则见 STORAGE.md；QA 契约见 CHAPTER_QUESTIONS.md。
 
 生产库不可用时使用 `node scripts/storage-restore.mjs --direct`：只需有效 Microsoft 应用目录授权，从 app folder 的 recovery-index.json 读取快照位置，不读 Cloudflare 或 publisher 凭据。快照附有全部分块的直接 itemId，重建的原件目录仍包含永久文件版本索引；恢复后再建立新 Cloudflare 资源与服务器授权。
+
+成功点读现用 pronunciation_results 的二进制摘要与 chapter_audio_scopes/chapter_audio_clips 的紧凑关系；migrate 核验原字节后转存完整描述，不重新合成。旧 URL、既有音频包及旧对象目录可继续读取。备份本身直接写 OneDrive，不为每次快照扩大 D1 目录；成功结果与章节关联采用追加检查点，其他小表完整导出。新数据页 gzip 压缩，旧快照仍兼容。恢复检查点遗失时从独立 OneDrive 恢复索引重建，永久资产不自动清理。
+
+该通路验证：`node scripts/check-compact-pronunciation.mjs`、`node scripts/check-storage-scan.mjs`、`node scripts/check-storage-read.mjs`；真实恢复运行 storage-restore --direct，在独立目录验证。新表容量模型 research/d1-production-registry-capacity-2026-10-06.json 包含完整三摘要与每段一个章节关联，不能等同两库总空间。归档结果保存实际 capacity，120 MiB 提示核查、160 MiB 前安排维护；点读入口在练习库 200 MiB 或应急音频 31 MiB 时停止新的收费调用，原结果继续复用。检查点表不允许直接改行/删除；未来修订应采用新生成身份，结构迁移需要重新核验检查点。
 
 ## 任务末尾额度更新
 
