@@ -1,0 +1,83 @@
+{
+  "status": "research-fixture-not-production",
+  "date": "2026-10-06",
+  "sqliteVersion": "3.53.3",
+  "classes": [
+    {
+      "name": "entries",
+      "slots": 8192,
+      "payloadBytes": 1024
+    },
+    {
+      "name": "locations",
+      "slots": 16384,
+      "payloadBytes": 384
+    },
+    {
+      "name": "jobs",
+      "slots": 2048,
+      "payloadBytes": 4096
+    },
+    {
+      "name": "spool",
+      "slots": 512,
+      "payloadBytes": 8192
+    },
+    {
+      "name": "usage",
+      "slots": 4096,
+      "payloadBytes": 256
+    },
+    {
+      "name": "settings",
+      "slots": 256,
+      "payloadBytes": 1024
+    }
+  ],
+  "fixtureRows": 31488,
+  "payloadBytes": 28573696,
+  "full": {
+    "pages": 8848,
+    "freePages": 0,
+    "pageBytes": 4096
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "pages": 8867,
+      "freePages": 0,
+      "pageBytes": 4096
+    },
+    {
+      "round": 2,
+      "pages": 8867,
+      "freePages": 5518,
+      "pageBytes": 4096
+    },
+    {
+      "round": 3,
+      "pages": 8916,
+      "freePages": 0,
+      "pageBytes": 4096
+    }
+  ],
+  "peakAllocatedBytes": 36519936,
+  "peakDecimalMB": 36.519936,
+  "slotGuards": {
+    "entries": true,
+    "locations": true,
+    "jobs": true,
+    "spool": true,
+    "usage": true,
+    "settings": true
+  },
+  "payloadRejected": true,
+  "integrity": "ok",
+  "limits": [
+    "Synthetic proposed bounded schema, not existing production schema.",
+    "SQLite allocated-page measurement, not Cloudflare D1 file_size.",
+    "No text compression savings assumed.",
+    "Does not measure OneDrive latency, Worker CPU, migrations or online request quotas.",
+    "Caps require bounded input and admission control; unresolved jobs are never evicted to make room."
+  ]
+}
