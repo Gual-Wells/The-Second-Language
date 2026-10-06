@@ -27,6 +27,10 @@ export function createBalanceUI({api,showDialog}){
     const value=n=>pool==='openrouter'?'$'+(n===0?'0':n.toFixed(n<.01?4:3)):Math.ceil(n).toLocaleString();
     return range[0]===range[1]?value(range[1]):value(range[0])+'–'+value(range[1]);
    };
+   const selector=document.createElement('select');selector.className='text-input';selector.setAttribute('aria-label','学习任务用量');
+   const all=document.createElement('option');all.value='all';all.textContent='所有学习任务';selector.append(all);
+   for(const [i,e]of result.estimates.entries()){const option=document.createElement('option');option.value=String(i);option.textContent=e.task;selector.append(option);}
+   $('balanceEstimates').append(selector);const items=[];
    for(const e of result.estimates){
     const item=document.createElement('section');item.className='balance-estimate';
     const title=document.createElement('strong');title.textContent=e.task;
@@ -36,8 +40,9 @@ export function createBalanceUI({api,showDialog}){
      const pair=document.createElement('div'),name=document.createElement('dt'),amount=document.createElement('dd');
      name.textContent=label;amount.textContent=format(e.costs[pool],pool);pair.append(name,amount);values.append(pair);
     }
-    item.append(title,detail,values);$('balanceEstimates').append(item);
+    item.append(title,detail,values);$('balanceEstimates').append(item);items.push(item);
    }
+   const filter=()=>items.forEach((item,i)=>item.hidden=selector.value!=='all'&&selector.value!==String(i));selector.value=result.estimates.length?'0':'all';selector.onchange=filter;filter();
    $('balanceStatus').textContent='上次更新的额度记录';
   }catch(e){$('balanceStatus').textContent=e.message;}
  }

@@ -1,3 +1,4 @@
+import {prose} from './text.js?v=22';
 export function createQuestionsUI({api,showDialog,toast,getContext}) {
  const $=id=>document.getElementById(id),dialog=$('questionsDialog');
  let target=null,threads=[],generation=0,sending=false,pendingId=null;
@@ -10,7 +11,7 @@ export function createQuestionsUI({api,showDialog,toast,getContext}) {
   const current=getContext().current;
   const all=[...(current&&!current.kind?[{chapterId:current.id,digest:current.digest,title:current.title}]:[]),...threads];
   const seen=new Set();
-  for(const t of all){const id=`${t.chapterId}@${t.digest}`;if(seen.has(id))continue;seen.add(id);const o=document.createElement('option');o.value=id;o.textContent=`${t.title}${t.unread?' · 新回复':''}`;select.append(o);}
+  for(const t of all){const id=`${t.chapterId}@${t.digest}`;if(seen.has(id))continue;seen.add(id);const o=document.createElement('option');o.value=id;o.textContent=`${t.chapterId} · ${t.title}${t.unread?' · 新回复':''}${all.some(x=>x.chapterId===t.chapterId&&x.digest!==t.digest)?' · '+t.digest.slice(0,7):''}`;select.append(o);}
   if(target)select.value=`${target.chapterId}@${target.digest}`;
  }
  async function summary() {
@@ -19,6 +20,8 @@ export function createQuestionsUI({api,showDialog,toast,getContext}) {
   const result=await api('/api/questions/summary');threads=result.threads||[];
   const unread=threads.some(t=>t.unread>0);$('questionDot').hidden=!unread;$('questionsButton').setAttribute('aria-label',unread?'章节答疑，有新回复':'章节答疑');
   if(dialog.open)options();
+  const updates=$('questionNewReplies');updates.replaceChildren();updates.hidden=!threads.some(t=>t.unread>0&&!(t.chapterId===target?.chapterId&&t.digest===target?.digest));
+  for(const t of threads.filter(t=>t.unread>0&&!(t.chapterId===target?.chapterId&&t.digest===target?.digest))){const b=document.createElement('button');b.type='button';b.className='bevel-button';b.textContent=`${t.chapterId} · 新回复`;b.onclick=()=>{draft(true);target={chapterId:t.chapterId,digest:t.digest};pendingId=null;generation++;options();draft();refresh();};updates.append(b);}
  }
  async function refresh() {
   if(!target||!dialog.open)return;
@@ -32,7 +35,7 @@ export function createQuestionsUI({api,showDialog,toast,getContext}) {
    for(const m of data.messages){
     const box=document.createElement('section');box.className=`question-message question-${m.role}`;
     const label=document.createElement('strong');label.textContent=m.role==='user'?'我的问题':'答疑';
-    const text=document.createElement('div');text.className='question-content';text.textContent=m.content;
+    const text=document.createElement('div');text.className='question-content';if(m.role==='assistant')prose(text,m.content);else text.textContent=m.content;
     box.append(label,text);
     if(m.role==='user'&&m.status!=='answered'){
      const status=document.createElement('p');status.className='question-status';status.textContent=m.status==='running'?'正在分析…':m.status==='failed'?(m.error||'暂未完成'):'等待处理';box.append(status);
@@ -55,11 +58,12 @@ export function createQuestionsUI({api,showDialog,toast,getContext}) {
  $('questionText').oninput=()=>{pendingId=null;draft(true);};
  $('questionForm').onsubmit=async event=>{
   event.preventDefault();if(sending||!target||!$('questionText').value.trim())return;
-  const who={...target},question=$('questionText').value.trim();sending=true;$('questionSend').disabled=true;
+  const who={...target},raw=$('questionText').value,question=raw.trim();sending=true;$('questionSend').disabled=true;
   pendingId ||= crypto.randomUUID();
   try {await post('/api/questions',{id:pendingId,...who,question});
-   try{localStorage.removeItem(`second-language-question-draft:${who.chapterId}:${who.digest}`);}catch{}
-   if(target.chapterId===who.chapterId&&target.digest===who.digest){$('questionText').value='';pendingId=null;await refresh();}
+   const sentKey=`second-language-question-draft:${who.chapterId}:${who.digest}`;
+   try{if(localStorage.getItem(sentKey)===raw)localStorage.removeItem(sentKey);}catch{}
+   if(target?.chapterId===who.chapterId&&target?.digest===who.digest){if($('questionText').value===raw){$('questionText').value='';pendingId=null;}await refresh();}
   }catch(e){toast(e.message);}finally{sending=false;$('questionSend').disabled=false;}
  };
  dialog.addEventListener('close',()=>{draft(true);generation++;});

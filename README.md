@@ -1,57 +1,80 @@
-# 第二语言
+# 第二语言 · The Second Language
 
-GitHub 仓库：[Gual-Wells/The-Second-Language](https://github.com/Gual-Wells/The-Second-Language)。本仓库包含课程生成协议、VIX 数据操作工具、阅读 PWA 与 Cloudflare 服务端。
+面向个人的英语学习系统：Codex 按协议建设课程与分析答卷，iPhone PWA 提供阅读、点读、雅思练习和章节答疑。课程、原声与反馈保留可核对的版本和来源。
 
-线上阅读器：[the-second-language.pages.dev](https://the-second-language.pages.dev/)。云端服务已部署，首次通行密钥已登记；正式 40 词章节仍需完成。
+[正式阅读器](https://the-second-language.pages.dev/) · [操作与部署](OPERATIONS.md) · [工作约定](AGENTS.md) · [界面设计](web/DESIGN.md)
 
-一个由 Codex 建设每日英语课程、由 PWA 按日期与章节阅读的个人项目。项目目前处于初建设阶段：优先把推荐、完整内容建设、阅读与反馈通路做成可用的整体。`protocol/` 是供 Codex 定时任务执行的工作说明；`work/` 用来保存运行中的判断和进度；最终课程正文只包含协议规定的三部分。
+## 学习功能
 
-## 目录
+| 入口 | 当前能力 |
+| --- | --- |
+| 每日课程 | 40 个主词，词汇与用法、例句与翻译、连续长文；VIX 加权推荐，辅助标签使用真实 `YY-MM-DD` 日期 |
+| 阅读 | 日期、七日条、月历、词条索引、用法回看与逐句译文；保存各部分位置，双击阅读区进入／退出纯净模式 |
+| 点读 | 标题旁切换“点词 / 点句”，默认点词；Kokoro Bella，已有声音复用；默认下载本章已有音频，不自动合成 |
+| 临时页 | 按申请建设测试或复习页，48 小时有效；不改变日课与 VIX |
+| 雅思 | 仅完整／微缩两种全科申请；听力、阅读、写作、口语依次组织，按科目与 Task／Part 作答 |
+| 作答分析 | 原声录制／上传、写作及文字补充草稿、隐藏参考答案、独立答卷与 Codex 教学反馈 |
+| 章节答疑 | 顶栏入口与新回复红点；绑定整章全文和摘要，历史会话可回看，本机 Codex 服务处理并回推 |
+| 设置 | 阅读、学习安排、服务与账户分组；目标、一次性临时需求与休息、通知、上次任务核对的额度记录 |
 
-- `protocol/`：推荐、文档建设、长篇质量工作流、章节内关联编码及每日运行说明。
-- `research/`：百词旧稿与三词交互稿的对照研究；分析依据与尚未固化的备选做法。
-- `scripts/`：读取 VIX 索引、标注 VIX、整理与发布章节的辅助命令。
-- `web/`：面向 iPhone 17 的日期、章节、正文阅读和学习反馈 PWA；[界面基线](web/DESIGN.md)记录从课表项目迁移而来的完整视觉与交互规则。
-- `worker/`：Cloudflare Worker、D1、KV 和单人通行密钥登录。
-- `chapters/`：课程正文。`demo` 是界面演示，不是正式每日课程。
-- `work/`：可自由建立的中间文档；不作为课程正文发布。
+完整雅思听读各 40 题；微缩听读各 24 题，保留完整题型族并采用平均及以上难度；两者写作均为 Task 1／2，口语均为 Part 1／2／3。微缩不换算官方成绩。参考答案由服务器隐藏，主动揭示才下发；口语文字补充不能替代原声发音评价。
 
-命令与部署顺序见 [OPERATIONS.md](OPERATIONS.md)。
+听力采用授权九女声／五男声池，整段脚本先按人物均衡分配，同人同声。其他发音及口语考官固定 Bella。原声分析固定 Whisper、Gemini Flash、Qwen、GPT Audio 四路保存完整返回后交由 Codex；腾讯按需要作专项评测，Qwen 可补听。同模型重复不是独立共识。
 
-## 本地预览
+## 工程组织
 
-需要 Node.js 22 或更新版本。在项目根目录运行：
+```text
+iPhone PWA → 同源 Pages 网关 → Cloudflare Worker
+                                   ├─ D1：认证、工作状态、业务索引
+                                   ├─ 近期缓存与兼容副本
+                                   └─ OneDrive 应用目录：永久文件基座
+本机计划任务 → Codex：课程／练习／反馈／答疑
+普通后台脚本 → 归档、音频包、独立恢复快照（不调用模型）
+```
+
+这是单人系统。通行密钥保护个人界面；供应商密钥、发布凭据与 Microsoft 授权只留在服务端或本机忽略目录。OpenRouter 推理由 Cloudflare 后端发出，浏览器不持有模型密钥。
+
+正式章节及历史版本、音频、参考答案、答卷、模型返回与反馈永久保存。OneDrive 是文件基座，D1 承担状态和紧凑索引；近期缓存与浏览器下载不代替永久原件。未知计费结果不自动重试，存储故障不视为“尚未生成”。临时页按生命周期清理；个人原声不进入 Service Worker 离线音频缓存。
+
+电脑离线时云端已有材料仍可读取；新课程、批改与答疑需要本机任务恢复运行。空队列检查不调用 Codex，但仍有网络请求。正式离线冷启动登录不作完整可用承诺。
+
+## 权威协议入口
+
+| 范围 | 协议 |
+| --- | --- |
+| 日课 | [DAILY_RUN](protocol/DAILY_RUN.md)、[QUALITY_WORKFLOW](protocol/QUALITY_WORKFLOW.md)、[ANNOTATIONS](protocol/ANNOTATIONS.md) |
+| 雅思 | [EXPRESSION](protocol/EXPRESSION.md)、[PRACTICE_SIZES](protocol/PRACTICE_SIZES.md)、[LISTENING](protocol/LISTENING.md)、[READING](protocol/READING.md) |
+| 发音与原声 | [VOICE_ROUTING](protocol/VOICE_ROUTING.md)、[SPEAKING_PIPELINE](protocol/SPEAKING_PIPELINE.md)、[SPEAKING_RUNTIME](protocol/SPEAKING_RUNTIME.md) |
+| 答疑与界面 | [CHAPTER_QUESTIONS](protocol/CHAPTER_QUESTIONS.md)、[READER_INTERACTION](protocol/READER_INTERACTION.md) |
+| 存储与额度 | [STORAGE](protocol/STORAGE.md)、[BALANCES](protocol/BALANCES.md)、[CLOUDFLARE_RESOURCES](protocol/CLOUDFLARE_RESOURCES.md) |
+
+`research/` 是历史研究依据；价格、旧方案和试听结论以现行协议及配置为准。
+
+## 目录与使用
+
+- `web/`：原生 HTML／CSS／JavaScript PWA，唯一界面样式为 `styles.css`。
+- `worker/`：API Worker、Pages 网关、两库增量迁移。
+- `scripts/`：发布、运行控制、VIX、声音采集、归档恢复与验证。
+- `protocol/`：现行协议；`work/` 保存可续作中间文档。
+- `chapters/`：课程产物；`demo/` 仅作演示，不能当正式日课发布。
+
+Node.js 22+（数据库检查需要支持 `node:sqlite` 的版本）：
 
 ```sh
 node scripts/serve.mjs
 ```
 
-浏览器打开 `http://127.0.0.1:4173`。本地预览会使用演示章节和浏览器内的阅读状态；线上使用 Worker、D1 与 KV。
+打开 `http://127.0.0.1:4173`，仅预览演示课程。真实雅思、答疑与私有资料需要正式后端和认证。
 
-## 定时任务入口
+```sh
+node scripts/check-practice-closure.mjs
+node scripts/check-publishing-closure.mjs
+node scripts/check-chapter-questions.mjs
+node scripts/check-reader-ui.mjs
+```
 
-北京时间每日 **03:00** 的本机计划任务调用 `scripts/run-daily.ps1`，使用已登录的 Codex CLI、`gpt-6-sol` 与 `high`。任务先领取后端一次性控制状态，再按 `protocol/DAILY_RUN.md` 执行；临时需求按 `protocol/TEMPORARY.md` 处理。每天的实际运行以 `work/runs/<run-id>/` 的中间文档续作，不依赖聊天历史。定时任务需要本地项目可用、电脑和 Codex 登录状态有效，并预先具备 VIX 写入与后端发布权限。
+界面检查需要 Playwright 与 Chromium；`BROWSER_EXECUTABLE` 可指定浏览器，`UI_CHAPTER_DIR` 可指定本机真实章节。全部请求隔离，不调用付费模型、不写正式数据；截图存入忽略的 `.cache/reader-ui/`。浏览器模拟不等于 iPhone Safari 真机验收。
 
-线上尚无正式课程章节。
+正式发布使用 `node scripts/deploy-app.mjs`，同时部署 API Worker 与带 service binding 的 Pages 网关；不能直接以普通静态 `web/` 部署替代网关。任务结束执行 `node scripts/check-balances.mjs` 更新额度并排入归档。额度不足不自动次日恢复，已有产物保留，需用户明确续作；不自动付款。
 
-正式课程使用 `YYYY-MM-DD` 日期；VIX 辅助索引源文件中的已推荐标记使用真实北京时间的 `YY-MM-DD`（`YY` 为 2000–2099 年）。`chapters/demo/` 是两词交互演示，不代表正式课程。正式章节须完成 40 个主词及其关联派生词的建设，并按 `protocol/DAILY_RUN.md` 发布。
-
-## 云端架构
-
-`worker/` 延续课表项目的同域 Pages 网关 → Worker → D1 模式。`worker/migrations/` 建立章节索引、阅读状态和认证表。章节正文以内容摘要作为不可变 KV key 写入 `CHAPTERS`，D1 持有当前发布版本与元数据。KV 跨地区传播可能延迟，因此新章推送在发布至少两分钟后发送。浏览器读写使用通行密钥会话，Codex 发布使用单独的 `PUBLISH_TOKEN`。
-
-临时页有单独的索引、阅读入口与通知队列。测试页可直接复用已有文档；复习页只从正式已发布章节摘取词条、例句与第三部分对应原句。临时页发布后 48 小时失效，Worker 定时物理删除正文与索引；浏览器不会离线缓存临时正文。阅读器设置中的临时需求与休息安排均为一次性开关。
-
-顶栏“雅思练习”是按申请生成的长期第四部分练习册，可多选听力、阅读、写作、口语，并按此顺序展示。听力和阅读各可选完整四十题或微缩二十四题，微缩覆盖全部题型、平均及以上难度；写作两个 Task、口语三个 Part，参考题音频、独立作答和反馈按照相应规格建设。阅读已按三篇文章接入。练习册来源从第一章累计到申请时的最新章，当前阅读章可作为焦点。题目、来源、写作答案、口语文字练习与反馈存于独立 D1 `PRACTICE_DB`；参考答案仅在主动揭示后返回。原声录制/已有文件上传、私有存储、格式转换、固定多路采集和在线 Codex 接管链路已接通，不把文字练习当作完整口语评分。当前默认设计为 Whisper、Gemini Flash、Qwen、GPT Audio 四路全量采集后由 Codex 分析，Qwen 可按具体目标反复补听。OpenRouter 推理只在 Cloudflare 后端执行；钱包不足时保存结果，挂起该声音任务到北京次日并核对充值后续作，其他功能继续。生成与批改协议见 `protocol/EXPRESSION.md`、`protocol/SPEAKING_PIPELINE.md`；[最新原声实测](research/openrouter-speech-evidence-2026-10-04.md)、原声接入设计 `research/speaking-facilities-engineering.md` 与题目研究 `research/ielts-speaking-writing-questions.md` 分别记录依据与当前接入范围。
-
-新正文按 `protocol/ANNOTATIONS.md` 在词条、用法、例句和文章句子间建立章节内编码，并为第三部分逐句配对连续可读的译文。只有真正使用目标用法的句子附 `USE` 编码与可点高光；承接句仍有译文。正式日课按 `protocol/QUALITY_WORKFLOW.md` 保存逐词材料去向、权威草稿与语义审阅结果。测试临时页的发布与删除均不写正式章节、日课运行或 VIX 标注。
-
-
-第四部分的听力工程见 `protocol/LISTENING.md`，独立私有 KV `PRACTICE_MEDIA` 存放音频并预留 R2 适配；账号尚未开通 R2，当前不绑定空桶。`scripts/practice-audio.mjs` 顺序调用 Cloudflare、保留付费返回、实际解码拼接音频与生成时间编码、上传整段和 Whisper 转写核对。共享 OpenRouter 缺钱后声音任务挂起到北京次日，其他任务继续。Windows `run-practice.ps1` 同时读取申请、文字反馈、听力反馈、阅读反馈、原声转换/分析队列，仍使用 codex gpt-6-sol high。数据库增量迁移 `0002` 至 `0004` 保留旧练习册并接通新组件。
-
-阅读规模研究见 [早期完整与微缩比较（最新规格见 PRACTICE_SIZES.md）](research/ielts-reading-feasibility-2026-10-04.md)。新申请按所选完整/微缩规格发布，已发布旧版练习册保留原规格，不冒充本轮的完整 IELTS 组件。
-
-
-正式规模与难度协议：`protocol/PRACTICE_SIZES.md`；阅读：`protocol/READING.md`；PWA 原声闭环：`protocol/SPEAKING_RUNTIME.md`。新申请 format=ielts-v2；0003/0004 迁移分别接入题量/阅读和原声采集数据库。个人原声和全部模型返回只在私有存储或忽略的本机工作目录保存，不提交公开仓库。
-
-声音选择见 `protocol/VOICE_ROUTING.md` 与可执行 `protocol/voices.mjs`：PWA v14 点读、口语考官及其他非听力朗读固定 Kokoro Bella；听力使用用户授权的九女声/五男声，完整脚本先按人物台词量均衡分配、同人固定、同场可辨认，不改变雅思角色。`practice-audio.mjs cast` 将绑定冻结到计划，后台验证续作同人同声。0005 迁移新增短 TTS 缓存与人物绑定；点读按纯英文摘要复用，不写 KV、不增加日课定时生成。男声调音试验已由用户全部否决，旧试听页保留。
+本机日课北京时间 03:00 执行；一次性休息安排由用户设置。雅思与答疑使用独立队列，安静启动器避免控制台闪窗。任务安装、日志、凭据与恢复命令见 [OPERATIONS.md](OPERATIONS.md)。

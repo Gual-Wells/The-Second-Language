@@ -1,4 +1,4 @@
-import {cachedPronunciation,keepPronunciation,chapterIdentity} from './audio-library.js?v=21';
+import {cachedPronunciation,keepPronunciation,chapterIdentity} from './audio-library.js?v=22';
 export function installReaderSpeech({toast}){
  const mode=document.getElementById('speechMode'),label=document.getElementById('speechModeLabel'),stopButton=document.getElementById('speechStop'),buffers=new Map();let activeMode='word',context,current,serial=0;
  function renderMode(){mode.dataset.mode=activeMode;label.textContent=activeMode==='word'?'点词':'点句';mode.setAttribute('aria-pressed',String(activeMode==='sentence'));mode.setAttribute('aria-label',activeMode==='word'?'当前点词，切换到点句':'当前点句，切换到点词');}
@@ -7,6 +7,7 @@ export function installReaderSpeech({toast}){
  function clear(){stop();buffers.clear();}
  mode.onclick=()=>{stop();activeMode=activeMode==='word'?'sentence':'word';renderMode();};stopButton.onclick=stop;
  async function api(path,options={}){const r=await fetch(path,{credentials:'same-origin',...options});let b;try{b=await r.json();}catch{throw Error('朗读服务暂不可用');}if(!r.ok)throw Error(b.error||'发音请求未完成');return b;}
+ function prepareTap(){try{context??=new(window.AudioContext||window.webkitAudioContext)({latencyHint:'playback'});context.resume().catch(()=>{});}catch{}}
  async function say(text,kind){
   if(!/[A-Za-z]/.test(text))return;stop();const ticket=serial;stopButton.hidden=false;stopButton.textContent='取消';
   try{
@@ -45,5 +46,5 @@ export function installReaderSpeech({toast}){
   if(!text&&event.target.closest('.word-heading h1'))text=event.target.closest('h1').textContent;
   if(text){event.preventDefault();event.stopImmediatePropagation();say(text,activeMode);}
  },true);
- document.addEventListener('visibilitychange',()=>{if(document.hidden)stop();});document.getElementById('practiceButton').addEventListener('click',stop,true);window.addEventListener('tsl-stop-speech',stop);return{stop,clear};
+ document.addEventListener('visibilitychange',()=>{if(document.hidden)stop();});document.getElementById('practiceButton').addEventListener('click',stop,true);window.addEventListener('tsl-stop-speech',stop);return{stop,clear,prepareTap};
 }

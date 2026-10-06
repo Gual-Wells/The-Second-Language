@@ -130,3 +130,9 @@ node scripts/practice-job.mjs review-complete <答卷ID> work/expression/reviews
 ## 任务末尾额度更新
 
 执行本协议所涉及的日课、推送、练习建设、批改、声音分析或测试工作时，最后按 `protocol/BALANCES.md` 查询各方额度，携带核对时间、核实状态与任务用量估算，发布更新到余额页并提示低额度。页面显示上一次任务的记录，浏览时不实时查询。不自动付款，不安排余额不足后的跨日轮询/重试；已有材料与未知计费保护继续有效。
+
+## iPhone 阅读器交互检查
+
+正式交互规则见 `protocol/READER_INTERACTION.md`。`node scripts/check-reader-ui.mjs` 用隔离接口检查前端草稿、手势、雅思科目导航、计时与上传保护；需要 Playwright 和 Chromium，截图留在忽略的 `.cache/reader-ui/`。可设置 `UI_CHAPTER_DIR=chapters/YYYY-MM-DD` 检查真实 40 词长章，`BROWSER_EXECUTABLE` 指定已安装浏览器。与 `check-practice-closure.mjs`、`check-publishing-closure.mjs`、`check-chapter-questions.mjs` 配合验证权限、答案隐藏和状态闭环，不调用真实收费模型、不写正式学习数据。
+
+当前壳版本 v22，新增手势、设置导航、安全文本排版和雅思工作区模块一并预缓存。发布仍使用 `scripts/deploy-app.mjs` 保留 Pages API 网关，最后执行 `scripts/check-balances.mjs`。模拟检查不能宣称真实 iPhone 的键盘、触摸和后台音频全部验收。
