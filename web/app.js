@@ -1,12 +1,13 @@
-import {installPureReader} from './pure-reader.js?v=22';
-import {installSettingsNavigation} from './settings.js?v=22';
-import {installReaderSpeech} from './reader-speech.js?v=22';
-import { parseParts, renderPart } from './render.js?v=22';
-import { validateAnnotatedContent } from './annotations.js?v=22';
-import { createPracticeUI } from './practice.js?v=22';
-import {createBalanceUI} from './balances.js?v=22';
-import {createQuestionsUI} from './questions.js?v=22';
-import {openAudioChapter,clearAudioLibrary,preloadEnabled,setPreload} from './audio-library.js?v=22';
+import {installPureReader} from './pure-reader.js?v=23';
+import {chapterNumber, createChapterBook} from './chapters.js?v=23';
+import {installSettingsNavigation} from './settings.js?v=23';
+import {installReaderSpeech} from './reader-speech.js?v=23';
+import { parseParts, renderPart } from './render.js?v=23';
+import { validateAnnotatedContent } from './annotations.js?v=23';
+import { createPracticeUI } from './practice.js?v=23';
+import {createBalanceUI} from './balances.js?v=23';
+import {createQuestionsUI} from './questions.js?v=23';
+import {openAudioChapter,clearAudioLibrary,preloadEnabled,setPreload} from './audio-library.js?v=23';
 
 const $ = id => document.getElementById(id);
 const todayParts = Object.fromEntries(new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(new Date()).map(part => [part.type, part.value]));
@@ -42,6 +43,7 @@ for(const id of settingFields){const field=$(id);const saved=readStored('second-
 function savedSettings(values){const draft=readStored('second-language-settings-draft');for(const [id,sent] of Object.entries(values)){const field=$(id),current=field.type==='checkbox'?field.checked:field.value;if(current===sent){dirtySettings.delete(id);delete draft[id];}}writeStored('second-language-settings-draft',draft);}
 const balances=createBalanceUI({api,showDialog});
 const questions=createQuestionsUI({api,showDialog,toast,getContext:()=>state});
+const chapterBook=createChapterBook({getContext:()=>state,openChapter,showPart,showDialog,renderCalendar});
 
 function clearBadge() { if ('clearAppBadge' in navigator) { try { Promise.resolve(navigator.clearAppBadge()).catch(() => {}); } catch {} } }
 
@@ -118,9 +120,9 @@ function renderChapterNavigation() {
   $('nextChapter').disabled = index < 0 || index === chapters.length - 1;
   $('chapterJump').disabled = !state.authenticated;
   $('calendarButton').disabled = !state.authenticated;
-  $('currentDateLabel').textContent = state.current ? formatDate(state.current.date) : chapters.length ? '选择阅读日期' : '今日课程';
-  $('chapterNavSubtitle').textContent = state.current ? `${state.current.number || '每日课程'} · ${state.current.title}` : chapters.length ? `${chapters.length} 章已发布` : '按日期阅读每日一章';
-  $('headerMeta').textContent = state.demo ? '本地预览 · 演示章节' : state.authenticated ? `每日阅读 · ${chapters.length} 章已发布` : '个人课程 · 通行密钥登录';
+  $('currentDateLabel').textContent = state.current ? formatDate(state.current.date) : chapters.length ? '选择阅读日期' : '今日章节';
+  $('chapterNavSubtitle').textContent = state.current ? `${chapterNumber(state.current)} · ${state.current.title}` : chapters.length ? `${chapters.length} 章已发布` : '按日期阅读每日一章';
+  $('headerMeta').textContent = state.demo ? '本地预览 · 演示章节' : state.authenticated ? `每日阅读 · ${chapters.length} 章已发布` : '个人章节 · 通行密钥登录';
   renderDayStrip();
 }
 
@@ -157,7 +159,7 @@ function renderCalendar() {
     button.type = 'button';
     if (chapter.id === state.current?.id) button.classList.add('active');
     const date = document.createElement('span');
-    date.textContent = `${formatDate(chapter.date)} · ${chapter.number || '每日课程'}`;
+    date.textContent = `${formatDate(chapter.date)} · ${chapterNumber(chapter)}`;
     const title = document.createElement('strong');
     title.textContent = chapter.title;
     button.append(date, title);
@@ -195,7 +197,7 @@ async function flushPending() {
       writeStored(PENDING_KEY, pending);
     } catch { setSyncStatus('学习反馈等待联网同步', true); return; }
   }
-  setSyncStatus('课程与反馈已同步');
+  setSyncStatus('章节与反馈已同步');
 }
 
 async function loadProgress(id) {
@@ -344,7 +346,7 @@ async function openChapter(id, resume = true, digest = null) {
     state.progress = progress;
     state.month = chapter.date.slice(0, 7);
     $('chapterDate').textContent = formatDate(chapter.date);
-    $('chapterNumber').textContent = `${chapter.historical ? '原版 · ' : ''}${chapter.number || '每日课程'}`;
+    $('chapterNumber').textContent = `${chapter.historical ? '原版 · ' : ''}${chapterNumber(chapter)}`;
     $('chapterTitle').textContent = chapter.title;
     $('chapterSubtitle').textContent = chapter.subtitle || '';
     $('wordCount').textContent = `${chapter.wordCount || 0} 个主词`;
@@ -362,7 +364,7 @@ async function openChapter(id, resume = true, digest = null) {
     showPart(resume && ['one', 'two', 'three'].includes(saved) ? saved : 'one', resume, false);
     closeDialog('calendarDialog');
     history.replaceState(null, '', `/?chapter=${encodeURIComponent(id)}${digest ? `&digest=${encodeURIComponent(digest)}` : ''}`);
-    setSyncStatus(chapter.historical ? '练习来源 · 固定版本' : state.demo ? '演示章节 · 本地预览' : navigator.onLine ? '课程与反馈已同步' : '离线阅读', !navigator.onLine);
+    setSyncStatus(chapter.historical ? '练习来源 · 固定版本' : state.demo ? '演示章节 · 本地预览' : navigator.onLine ? '章节与反馈已同步' : '离线阅读', !navigator.onLine);
     return true;
   } catch (error) { if (request === state.chapterRequest) { setSyncStatus('章节暂不可用', true); toast(error.message); } }
 }
@@ -520,7 +522,7 @@ function showLogin(status, message = '') {
   for (const button of document.querySelectorAll('[data-part]')) button.disabled = true;
   renderChapterNavigation();
   renderCalendar();
-  setSyncStatus(navigator.onLine ? '登录后读取个人课程' : '当前离线，无法登录', !navigator.onLine);
+  setSyncStatus(navigator.onLine ? '登录后读取个人章节' : '当前离线，无法登录', !navigator.onLine);
 }
 
 async function initialize() {
@@ -607,8 +609,9 @@ function refreshInstallStatus() {
 
 $('previousChapter').addEventListener('click', () => moveChapter(-1));
 $('nextChapter').addEventListener('click', () => moveChapter(1));
-$('calendarButton').addEventListener('click', () => { state.month = (state.current?.date || TODAY).slice(0, 7); renderCalendar(); showDialog('calendarDialog'); });
-$('chapterJump').addEventListener('click', () => { state.month = (state.current?.date || TODAY).slice(0, 7); renderCalendar(); showDialog('calendarDialog'); });
+function openChapterBook() { state.month = (state.current?.date || TODAY).slice(0, 7); chapterBook.open(); }
+$('calendarButton').addEventListener('click', openChapterBook);
+$('chapterJump').addEventListener('click', openChapterBook);
 $('settingsButton').addEventListener('click', () => { settingsNavigation.reset(); refreshInstallStatus(); refreshPushStatus(); refreshSettings(); showDialog('settingsDialog'); });
 $('audioPreloadToggle').checked=preloadEnabled();
 $('audioPreloadToggle').addEventListener('change',event=>setPreload(event.target.checked));
@@ -677,7 +680,7 @@ $('saveRest').addEventListener('click', async () => {
   try {
     const restRequested = $('restToggle').checked;
     await api('/api/settings', { method: 'PUT', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ restRequested }) });
-    savedSettings({restToggle:restRequested});await refreshSettings(); toast(restRequested ? '下一次日课已安排休息' : '休息安排已关闭');
+    savedSettings({restToggle:restRequested});await refreshSettings(); toast(restRequested ? '下一章已安排休息' : '休息安排已关闭');
   } catch (error) { toast(error.message); }
 });
 document.addEventListener('visibilitychange', () => {
@@ -743,6 +746,6 @@ $('chapterNav').addEventListener('touchend', event => {
   if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.5) moveChapter(dx < 0 ? 1 : -1);
   swipeStart = null;
 }, { passive: true });
-if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=22', { updateViaCache: 'none' }).catch(() => {});
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=23', { updateViaCache: 'none' }).catch(() => {});
 refreshInstallStatus();
 initialize().then(()=>{if(state.authenticated&&new URLSearchParams(location.search).has('balances'))balances.open();});
