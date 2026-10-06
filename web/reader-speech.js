@@ -1,4 +1,4 @@
-import {cachedPronunciation,keepPronunciation,chapterIdentity} from './audio-library.js?v=22';
+import {cachedPronunciation,keepPronunciation,chapterIdentity} from './audio-library.js?v=23';
 export function installReaderSpeech({toast}){
  const mode=document.getElementById('speechMode'),label=document.getElementById('speechModeLabel'),stopButton=document.getElementById('speechStop'),buffers=new Map();let activeMode='word',context,current,serial=0;
  function renderMode(){mode.dataset.mode=activeMode;label.textContent=activeMode==='word'?'点词':'点句';mode.setAttribute('aria-pressed',String(activeMode==='sentence'));mode.setAttribute('aria-label',activeMode==='word'?'当前点词，切换到点句':'当前点句，切换到点词');}
