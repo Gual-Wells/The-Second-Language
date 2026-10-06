@@ -8,15 +8,25 @@ const plan=JSON.parse(await readFile(filename,'utf8'));if(!plan.setId||!Array.is
 const safe=s=>/^[A-Za-z0-9._:-]{1,110}$/.test(s||'');if(!safe(plan.setId)||plan.segments.some(s=>!safe(s.id)))throw Error('计划编号无效');
 const name=id=>createHash('sha256').update(id).digest('hex').slice(0,24);
 const dir=path.resolve('.cache/practice-audio',name(plan.setId));await mkdir(dir,{recursive:true});
+let construction={};
+if(command==='synthesize'){
+ for(let folder=path.dirname(path.resolve(filename)),root=path.resolve('.');!path.relative(root,folder).startsWith('..');folder=path.dirname(folder)){
+  try{const claim=JSON.parse(await readFile(path.join(folder,'claim.json'),'utf8'));if(!safe(claim.request?.id)||!safe(claim.claimToken))throw Error('建设领取文件无效');construction={requestId:claim.request.id,claimToken:claim.claimToken};break;}
+  catch(e){if(e.code!=='ENOENT')throw e;}
+  if(folder===root)break;
+ }
+ if(!construction.requestId&&path.relative(path.resolve('work/expression'),path.resolve(filename)).split(path.sep)[0]!=='..')throw Error('正式练习合成须先领取申请，音频计划放在对应 claim.json 的目录或子目录');
+}
 async function control(endpoint,body){const r=await fetch(new URL(endpoint,base),{method:'POST',headers:{authorization:`Bearer ${token}`,'content-type':'application/json'},body:JSON.stringify(body),signal:AbortSignal.timeout(300000)});const j=await r.json();if(!r.ok)throw Error(j.error||`API ${r.status}`);return j;}
 async function download(id){const dest=path.join(dir,`${name(id)}.mp3`);try{return await readFile(dest);}catch{}const r=await fetch(new URL(`/api/practice/media/${encodeURIComponent(id)}`,base),{headers:{authorization:`Bearer ${token}`}});if(!r.ok)throw Error(`音频 ${id} 未完成：${r.status}`);const bytes=Buffer.from(await r.arrayBuffer());await writeFile(dest,bytes);return bytes;}
+try{
 if(command==='cast'||command==='synthesize'){
  castAudioPlan(plan);await writeFile(filename,JSON.stringify(plan,null,2)+'\n');
- if(command==='cast'){console.log(JSON.stringify(plan.voiceAllocation||{voice:'af_bella'}));process.exit(0);}
- for(const segment of plan.segments){const result=await control('/api/practice/publisher/media/synthesize',{...segment,setId:plan.setId});await writeFile(path.join(dir,`${name(segment.id)}.json`),JSON.stringify(result,null,2));console.log(JSON.stringify({id:segment.id,state:result.state,reused:result.reused||false}));if(result.state!=='ready'){console.log('已有进度保留；等待充值、核对失败或未确定的结果后续作。');process.exitCode=1;break;}await download(segment.id);}
+ if(command==='cast')console.log(JSON.stringify(plan.voiceAllocation||{voice:'af_bella'}));
+ else for(const segment of plan.segments){const result=await control('/api/practice/publisher/media/synthesize',{...segment,setId:plan.setId,...construction});await writeFile(path.join(dir,`${name(segment.id)}.json`),JSON.stringify(result,null,2));console.log(JSON.stringify({id:segment.id,state:result.state,reused:result.reused||false}));if(result.state!=='ready'){if(construction.requestId)await control('/api/practice/publisher/fail',{id:construction.requestId,claimToken:construction.claimToken}).catch(()=>{});console.log('已有进度保留；停止自动建设，核对失败或充值后由本人明确要求继续。');process.exitCode=1;break;}await download(segment.id);}
 }else if(command==='assemble'){
  const ffmpeg=process.env.SECOND_LANGUAGE_FFMPEG||path.resolve('.cache/tools/ffmpeg.exe');
- const run=args=>{const r=spawnSync(ffmpeg,args,{encoding:'utf8'});if(r.status!==0)throw Error(r.stderr||'ffmpeg 失败');return r.stderr;};
+ const run=args=>{const r=spawnSync(ffmpeg,args,{encoding:'utf8',windowsHide:true});if(r.status!==0)throw Error(r.stderr||'ffmpeg 失败');return r.stderr;};
  for(const assembly of plan.assemblies||[]){
   if(!safe(assembly.id)||!Array.isArray(assembly.segments)||!assembly.segments.length)throw Error('整段计划无效');
   const chunks=[],cues=[];let seconds=0;
@@ -31,5 +41,7 @@ if(command==='cast'||command==='synthesize'){
 }else if(command==='verify'){
  for(const {id}of plan.assemblies||plan.segments){const result=await control(`/api/practice/publisher/media/${encodeURIComponent(id)}/verify`,{});await writeFile(path.join(dir,`${name(id)}.verification.json`),JSON.stringify(result,null,2));console.log(JSON.stringify({id,verified:true,reused:result.reused||false}));}
 }else throw Error('用法：practice-audio.mjs cast|synthesize|assemble|verify plan.json；只由 Cloudflare 调用模型');
-
-if(['synthesize','verify'].includes(command))await finishTaskBalances();
+}catch(error){
+ if(construction.requestId)await control('/api/practice/publisher/fail',{id:construction.requestId,claimToken:construction.claimToken}).catch(()=>{});
+ throw error;
+}finally{if(['synthesize','assemble','verify'].includes(command))await finishTaskBalances();}

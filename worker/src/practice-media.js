@@ -38,6 +38,14 @@ export async function mediaRoute(request,env,{isPublisher,isReader,session}){
  if(!env.PRACTICE_MEDIA&&!env.PRACTICE_R2)return json({error:'私有音频存储未配置'},503);
  if(path.endsWith('/synthesize')&&request.method==='POST'){
   const b=await request.json();if(!idOK(b.id)||!idOK(b.setId)||typeof b.text!=='string'||!b.text.trim()||b.text.length>8000)return json({error:'声音片段需有固定编号、练习册及 1–8000 字符文本'},400);
+  const construction=b.requestId!=null||b.claimToken!=null;
+  if(construction){
+   if(!idOK(b.requestId)||!idOK(b.claimToken))return json({error:'音频建设领取身份不完整'},400);
+   const owner=await db.prepare("SELECT set_id FROM practice_requests WHERE id=? AND status='building' AND claim_token=?").bind(b.requestId,b.claimToken).first();
+   if(!owner||owner.set_id&&owner.set_id!==b.setId)return json({error:'音频建设领取身份无效'},409);
+   await db.prepare('UPDATE practice_requests SET set_id=? WHERE id=? AND claim_token=?').bind(b.setId,b.requestId,b.claimToken).run();
+  }
+  const stopConstruction=async()=>{if(construction)await db.prepare("UPDATE practice_requests SET status='failed',claim_token=NULL,claim_at=NULL,updated_at=? WHERE id=? AND status='building' AND claim_token=?").bind(Date.now(),b.requestId,b.claimToken).run();};
   const model=ttsModel,purpose=b.purpose||'speaking';let voice;
   try{voice=synthesisVoice(purpose,b.voice);}catch(e){return json({error:e.message},400);}
   if(purpose==='listening'){
@@ -49,11 +57,11 @@ export async function mediaRoute(request,env,{isPublisher,isReader,session}){
   const descriptor={model,voice,text:b.text,purpose,format:'mp3',voicePolicyVersion,...(purpose==='listening'?{speakerId:b.speakerId,gender:b.gender}:{})},digest=await sha256(JSON.stringify(descriptor));
   const old=await db.prepare('SELECT * FROM practice_media WHERE id=?').bind(b.id).first();
   if(old&&(old.digest!==digest||old.set_id!==b.setId))return json({error:'该编号已对应不同声音内容'},409);
-  if(old&&!['waiting_credit'].includes(old.state))return json({id:old.id,state:old.state,reused:true,response:old.response_json?JSON.parse(old.response_json):null});
+  if(old&&!['waiting_credit'].includes(old.state)){if(['failed','outcome_unknown'].includes(old.state))await stopConstruction();return json({id:old.id,state:old.state,reused:true,response:old.response_json?JSON.parse(old.response_json):null});}
   const native=model.startsWith('@cf/');if(native&&!env.AI||!native&&!env.OPENROUTER_API_KEY)return json({error:'对应声音通路未配置'},503);
   if(!native){
    const funds=await checkOpenRouterFunds(env.OPENROUTER_API_KEY);if(!funds.verified)return json({error:'余额核对失败，尚未合成'},503);
-   if(!funds.usable){const retry=null;await db.prepare(`INSERT INTO practice_media(id,set_id,digest,object_key,mime,bytes,state,request_json,next_retry_at,created_at) VALUES(?,?,?,?,?,0,'waiting_credit',?,?,?) ON CONFLICT(id) DO UPDATE SET state='waiting_credit',next_retry_at=excluded.next_retry_at WHERE practice_media.state='waiting_credit' AND practice_media.digest=excluded.digest AND practice_media.set_id=excluded.set_id`).bind(b.id,b.setId,digest,`media/${b.setId}/${b.id}/${digest}.mp3`,'audio/mpeg',JSON.stringify(descriptor),retry,Date.now()).run();return json({id:b.id,state:'waiting_credit',nextRetryAt:retry});}
+   if(!funds.usable){const retry=null;await db.prepare(`INSERT INTO practice_media(id,set_id,digest,object_key,mime,bytes,state,request_json,next_retry_at,created_at) VALUES(?,?,?,?,?,0,'waiting_credit',?,?,?) ON CONFLICT(id) DO UPDATE SET state='waiting_credit',next_retry_at=excluded.next_retry_at WHERE practice_media.state='waiting_credit' AND practice_media.digest=excluded.digest AND practice_media.set_id=excluded.set_id`).bind(b.id,b.setId,digest,`media/${b.setId}/${b.id}/${digest}.mp3`,'audio/mpeg',JSON.stringify(descriptor),retry,Date.now()).run();await stopConstruction();return json({id:b.id,state:'waiting_credit',nextRetryAt:retry});}
   }
   const key=`media/${b.setId}/${b.id}/${digest}.mp3`;
   const claim=old?await db.prepare("UPDATE practice_media SET state='calling',next_retry_at=NULL WHERE id=? AND state='waiting_credit'").bind(b.id).run():await db.prepare("INSERT OR IGNORE INTO practice_media(id,set_id,digest,object_key,mime,bytes,state,request_json,created_at) VALUES(?,?,?,?,?,0,'calling',?,?)").bind(b.id,b.setId,digest,key,'audio/mpeg',JSON.stringify(descriptor),Date.now()).run();
@@ -61,11 +69,11 @@ export async function mediaRoute(request,env,{isPublisher,isReader,session}){
   try{
    let bytes,metadata;
    if(native){bytes=await new Response(await env.AI.run(model,{text:b.text,speaker:voice,encoding:'mp3'})).arrayBuffer();metadata={provider:'workers-ai',model,voice};}
-   else{const r=await fetch('https://openrouter.ai/api/v1/audio/speech',{method:'POST',headers:{authorization:`Bearer ${env.OPENROUTER_API_KEY}`,'content-type':'application/json','X-Title':'The Second Language IELTS practice'},body:JSON.stringify({model,voice,input:b.text,response_format:'mp3'}),signal:AbortSignal.timeout(240000)});bytes=await r.arrayBuffer();metadata={provider:'openrouter',status:r.status,generationId:r.headers.get('x-generation-id'),mime:r.headers.get('content-type')};if(!r.ok||!metadata.mime?.startsWith('audio/')){metadata.raw=new TextDecoder().decode(bytes);const state=r.status===402?'waiting_credit':'failed',retry=state==='waiting_credit'?null:null;await db.prepare('UPDATE practice_media SET state=?,response_json=?,next_retry_at=? WHERE id=?').bind(state,JSON.stringify(metadata),retry,b.id).run();return json({id:b.id,state,response:metadata,nextRetryAt:retry});}}
+   else{const r=await fetch('https://openrouter.ai/api/v1/audio/speech',{method:'POST',headers:{authorization:`Bearer ${env.OPENROUTER_API_KEY}`,'content-type':'application/json','X-Title':'The Second Language IELTS practice'},body:JSON.stringify({model,voice,input:b.text,response_format:'mp3'}),signal:AbortSignal.timeout(240000)});bytes=await r.arrayBuffer();metadata={provider:'openrouter',status:r.status,generationId:r.headers.get('x-generation-id'),mime:r.headers.get('content-type')};if(!r.ok||!metadata.mime?.startsWith('audio/')){metadata.raw=new TextDecoder().decode(bytes);const state=r.status===402?'waiting_credit':'failed',retry=null;await db.prepare('UPDATE practice_media SET state=?,response_json=?,next_retry_at=? WHERE id=?').bind(state,JSON.stringify(metadata),retry,b.id).run();await stopConstruction();return json({id:b.id,state,response:metadata,nextRetryAt:retry});}}
    if(bytes.byteLength<100||bytes.byteLength>20*1024*1024)throw Error('音频文件大小无效');
    await store(env,key,bytes,'audio/mpeg');await db.prepare("UPDATE practice_media SET state='ready',bytes=?,response_json=? WHERE id=?").bind(bytes.byteLength,JSON.stringify({...metadata,audioDigest:await sha256(bytes)}),b.id).run();
    return json({id:b.id,state:'ready',bytes:bytes.byteLength,response:metadata});
-  }catch(e){await db.prepare("UPDATE practice_media SET state='outcome_unknown',response_json=? WHERE id=?").bind(JSON.stringify({error:String(e.message)}),b.id).run();return json({id:b.id,state:'outcome_unknown',error:'已保留请求，请核对结果；不会自动重复收费'},502);}
+  }catch(e){await db.prepare("UPDATE practice_media SET state='outcome_unknown',response_json=? WHERE id=?").bind(JSON.stringify({error:String(e.message)}),b.id).run();await stopConstruction();return json({id:b.id,state:'outcome_unknown',error:'已保留请求，请核对结果；不会自动重复收费'},502);}
  }
  const upload=path.match(/^\/api\/practice\/publisher\/media\/([A-Za-z0-9._:-]+)\/upload$/);
  const verify=path.match(/^\/api\/practice\/publisher\/media\/([A-Za-z0-9._:-]+)\/verify$/);

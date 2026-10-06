@@ -26,7 +26,7 @@
 
 PWA 标题旁独立按钮只有点词、点句两个状态，每次打开默认点词，点击切换。开启用法高光时，高亮句仍优先跳转对应第一部分；其余英文按当前点读方式播放，按钮、译文、音标和编码不参与朗读。首次点按向已登录的同域后台申请纯英文，后台固定 Bella；不朗读中文、音标或隐藏编码。文章仍支持点词与点句选择。口语 Part 1/3 提问按原协议持久生成 Bella 音频，Part 2 卡片保持可见，参考答案仍为默认隐藏文本。
 
-`POST /api/practice/pronunciation {text,kind:word|sentence}` 按模型、Bella、纯英文文本和策略版本计算摘要，原子领取，生成后缓存短 MP3。重复点击复用声音；客户端最多保留三十段已解码声音。`GET /api/practice/pronunciation/<摘要>` 取状态，`.../audio` 私有读取并支持 Range。短词/句音频最多 1 MiB，存独立练习 D1 的 `pronunciation_audio`，不写章节 KV、不依赖当前未启用的 R2。此例外只用于可再生成短 TTS 缓存，个人口语原件与长听力仍按原私有媒体存储协议。
+`POST /api/practice/pronunciation {text,kind:word|sentence}` 按模型、Bella、纯英文文本和策略版本计算摘要，原子领取。成功 MP3、完整请求/返回保存在 OneDrive；PRACTICE_DB 的 `pronunciation_results` 保存不可变紧凑摘要索引，章节关联使用 `chapter_audio_scopes/chapter_audio_clips`。重复点击复用声音；客户端最多保留三十段已解码声音，已有章节音频包按 STORAGE.md 的开关预下载。`GET /api/practice/pronunciation/<摘要>` 取状态，`.../audio` 私有读取并支持 Range。短词/句音频最多 1 MiB；`pronunciation_audio` 仅承载在途请求与永久归档失败时的保留副本，补归档不调用 TTS。永久原件暂时不可用返回明确状态，不能将其当作未生成重新收费；不写章节 KV、不要求 R2。
 
 OpenRouter 请求只由 Cloudflare 发出，浏览器不拿密钥。只读 Chat 凭据不能申请收费生成。生成结果未知保留状态、不自动重付；等待余额时保存进度，到仅在用户充值后明确要求继续时处理，不自动跨日重试。已经缓存的声音不依赖充值仍可播放。失败不静默换回系统机械音或其他模型，给出可理解状态。初次生成需要联网，文字课程及阅读位置不受影响。
 

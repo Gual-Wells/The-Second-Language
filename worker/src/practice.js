@@ -56,7 +56,10 @@ export async function practiceRoute(request, env, publisher) {
         FROM practice_sets s JOIN practice_requests r ON r.id=s.request_id ORDER BY s.created_at DESC LIMIT 100`).all();
     const active = await db.prepare(`SELECT id,focus_chapter_id AS focusChapterId,status,skills_json AS skillsJson,profiles_json AS profilesJson,created_at AS createdAt FROM practice_requests
       WHERE status IN ('queued','building') ORDER BY created_at DESC LIMIT 1`).first();
-    return json({ sets:sets.map(({profilesJson,...item})=>({...item,profiles:JSON.parse(profilesJson)})), active:active?{...active,skills:JSON.parse(active.skillsJson),profiles:JSON.parse(active.profilesJson),skillsJson:undefined,profilesJson:undefined}:null });
+    const stopped=await db.prepare(`SELECT id,focus_chapter_id AS focusChapterId,
+      CASE WHEN EXISTS(SELECT 1 FROM practice_media m WHERE m.set_id=r.set_id AND m.state='waiting_credit') THEN 'credit' ELSE 'unfinished' END AS reason
+      FROM practice_requests r WHERE status='failed' AND created_at=(SELECT max(created_at) FROM practice_requests) LIMIT 1`).first();
+    return json({ sets:sets.map(({profilesJson,...item})=>({...item,profiles:JSON.parse(profilesJson)})), active:active?{...active,skills:JSON.parse(active.skillsJson),profiles:JSON.parse(active.profilesJson),skillsJson:undefined,profilesJson:undefined}:null,stopped });
   }
 
   if (path === '/api/practice/index' && request.method === 'GET') {
@@ -127,11 +130,11 @@ export async function practiceRoute(request, env, publisher) {
   if (path === '/api/practice/publisher/claim' && request.method === 'POST') {
     if (!isPublisher) return json({ error: '发布身份无效' }, 401);
     const value = await body(request);
-    if (!safeId(value.id)) return json({ error: '申请编号无效' }, 400);
+    if (!safeId(value.id) || (value.continue != null && value.continue !== true)) return json({ error: '申请编号无效' }, 400);
     const token = crypto.randomUUID(), stamp = now();
     const changed = await db.prepare(`UPDATE practice_requests SET status='building',claim_token=?,claim_at=?,updated_at=?
-      WHERE id=? AND (status='queued' OR (status='building' AND claim_at<?))`)
-      .bind(token, stamp, stamp, value.id, stamp - 21600000).run();
+      WHERE id=? AND (status='queued' OR (status='building' AND claim_at<?) OR (status='failed' AND ?=1))`)
+      .bind(token, stamp, stamp, value.id, stamp - 21600000, value.continue===true?1:0).run();
     if (!changed.meta.changes) return json({ error: '申请已被领取或不存在' }, 409);
     const row = await db.prepare('SELECT * FROM practice_requests WHERE id=?').bind(value.id).first();
     return json({ claimToken: token, request: { id: row.id, skills:JSON.parse(row.skills_json),profiles:JSON.parse(row.profiles_json),protocolVersion:row.protocol_version,focusChapterId: row.focus_chapter_id, focusDigest: row.focus_digest, sources: JSON.parse(row.source_json), note: row.note } });
@@ -155,6 +158,7 @@ export async function practiceRoute(request, env, publisher) {
     const requestRow = await db.prepare('SELECT * FROM practice_requests WHERE id=?').bind(value.requestId).first();
     if (requestRow?.status === 'published' && requestRow.set_id === set.id) return json({ ok: true, id: set.id, reused: true });
     if (!requestRow || requestRow.status !== 'building' || requestRow.claim_token !== value.claimToken) return json({ error: '领取版本无效' }, 409);
+    if (requestRow.set_id && requestRow.set_id !== set.id) return json({ error: '本次建设的练习册编号已固定' }, 409);
     const sources = JSON.parse(requestRow.source_json), sourceIds = new Set(sources.map(item => item.id));
     const skills=JSON.parse(requestRow.skills_json),profiles=JSON.parse(requestRow.profiles_json),strict=['ielts-v2','ielts-bundle-v1'].includes(requestRow.protocol_version);
     if(strict&&set.format!=='ielts-v2')return json({error:'新申请须按完整或微缩规格 v2 发布'},400);
@@ -234,7 +238,7 @@ export async function practiceRoute(request, env, publisher) {
     if (!session || !sameOrigin) return json({ error: '来源不允许' }, 403);
     const id = revealMatch[1], question = await db.prepare('SELECT reference_answer,reference_notes FROM practice_questions WHERE id=?').bind(id).first();
     if (!question) return json({ error: '题目不存在' }, 404);
-    const attempt = await db.prepare('SELECT 1 FROM practice_attempts WHERE question_id=? LIMIT 1').bind(id).first();
+    const attempt = await db.prepare('SELECT 1 FROM practice_attempts WHERE question_id=? UNION ALL SELECT 1 FROM speaking_attempts WHERE question_id=? LIMIT 1').bind(id,id).first();
     await db.prepare('INSERT OR IGNORE INTO practice_reveals(question_id,revealed_at,before_attempt) VALUES(?,?,?)').bind(id,now(),attempt ? 0 : 1).run();
     return json({ referenceAnswer: question.reference_answer, referenceNotes: question.reference_notes });
   }
@@ -248,12 +252,18 @@ export async function practiceRoute(request, env, publisher) {
     if (!textField(value.answerText, 20000)) return json({ error: '请先填写答案' }, 400);
     if (question.kind === 'speaking' && value.medium !== 'speech-transcript') return json({ error: '口语目前只接受明确标为转写的文字练习' }, 400);
     if (question.kind === 'writing' && value.medium !== 'written') return json({ error: '写作媒介无效' }, 400);
+    if (value.id != null && !safeId(value.id)) return json({ error: '答卷编号无效' }, 400);
+    const attemptId = value.id || crypto.randomUUID(), answerText = value.answerText.trim();
+    const existing = await db.prepare('SELECT * FROM practice_attempts WHERE id=?').bind(attemptId).first();
+    if (existing) return existing.question_id===id && existing.answer_text===answerText && existing.medium===value.medium
+      ? json({id:existing.id,status:existing.status,reused:true}) : json({error:'答卷编号已对应其他内容'},409);
     const reveal = await db.prepare('SELECT 1 FROM practice_reveals WHERE question_id=?').bind(id).first();
-    const attemptId = crypto.randomUUID();
     const promptSeen=await db.prepare('SELECT 1 FROM practice_prompt_reveals WHERE question_id=?').bind(id).first();
-    await db.prepare(`INSERT INTO practice_attempts(id,question_id,answer_text,medium,reference_seen_before,status,submitted_at,prompt_seen_before)
-      VALUES(?,?,?,?,?,'pending',?,?)`).bind(attemptId,id,value.answerText.trim(),value.medium,reveal ? 1 : 0,now(),promptSeen?1:0).run();
-    return json({ id: attemptId, status: 'pending' }, 201);
+    const inserted = await db.prepare(`INSERT OR IGNORE INTO practice_attempts(id,question_id,answer_text,medium,reference_seen_before,status,submitted_at,prompt_seen_before)
+      VALUES(?,?,?,?,?,'pending',?,?)`).bind(attemptId,id,answerText,value.medium,reveal ? 1 : 0,now(),promptSeen?1:0).run();
+    const saved = await db.prepare('SELECT question_id,answer_text,medium,status FROM practice_attempts WHERE id=?').bind(attemptId).first();
+    if (!saved || saved.question_id!==id || saved.answer_text!==answerText || saved.medium!==value.medium) return json({error:'答卷编号已对应其他内容'},409);
+    return json({ id: attemptId, status: saved.status, reused:!inserted.meta.changes }, inserted.meta.changes?201:200);
   }
 
   if (path === '/api/practice/publisher/review/claim' && request.method === 'POST') {
