@@ -22,6 +22,7 @@ export async function archiveQuery(detailedQuery,file,{limit=2500000,now=()=>new
   const {rows,meta}=await detailedQuery(database,sql,params),reads=meta?.rows_read;
   if(!Number.isSafeInteger(reads)||reads<0)throw Error('D1 未返回可核对的读取用量');
   state.reads+=reads;state.queries++;state.limit=limit;
+  if(Number.isSafeInteger(meta.size_after)&&meta.size_after>=0){state.sizes||={};state.sizes[database]=meta.size_after;}
   const pending=file+'.pending';await writeFile(pending,JSON.stringify(state));await rename(pending,file);
   if(state.reads>limit)throw new ArchiveReadBudgetError();
   return rows;

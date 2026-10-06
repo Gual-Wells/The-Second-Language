@@ -2,12 +2,17 @@ import {checkOpenRouterFunds} from '../../scripts/lib/speaking/funding.mjs';
 import {ttsModel,defaultVoice,voicePolicyVersion} from '../../protocol/voices.mjs';
 import {sha256} from './practice-media.js';
 import {permanentBucket} from './storage.js';
+import {pronunciationResult,savePronunciationResult,digestHex} from './pronunciation-store.js';
 const json=(v,s=200)=>Response.json(v,{status:s,headers:{'cache-control':'no-store'}});
 const view=row=>({id:row.id,state:row.state,nextRetryAt:row.next_retry_at||null,audioUrl:row.state==='ready'?`/api/practice/pronunciation/${row.id}/audio`:null});
 async function associate(env,b,id){
  if(typeof b.chapterId!=='string'||!/^[a-f0-9]{64}$/.test(b.digest||''))return;
  const chapter=await env.DB.prepare('SELECT 1 FROM chapter_revisions r JOIN published_chapters p ON p.chapter_id=r.chapter_id WHERE r.chapter_id=? AND r.digest=?').bind(b.chapterId,b.digest).first();
- if(!chapter)return;const result=await env.PRACTICE_DB.prepare('INSERT OR IGNORE INTO chapter_pronunciation SELECT ?,?,id FROM pronunciation_audio WHERE id=?').bind(b.chapterId,b.digest,id).run();
+ if(!chapter)return;const saved=await pronunciationResult(env,id);let result;
+ if(saved){const batch=await env.PRACTICE_DB.batch([
+  env.PRACTICE_DB.prepare('INSERT OR IGNORE INTO chapter_audio_scopes(chapter_id,chapter_digest) VALUES(?,?)').bind(b.chapterId,b.digest),
+  env.PRACTICE_DB.prepare('INSERT OR IGNORE INTO chapter_audio_clips SELECT id,? FROM chapter_audio_scopes WHERE chapter_id=? AND chapter_digest=?').bind(saved.id,b.chapterId,b.digest)
+ ]);result=batch[1];}else result=await env.PRACTICE_DB.prepare('INSERT OR IGNORE INTO chapter_pronunciation SELECT ?,?,id FROM pronunciation_audio WHERE id=?').bind(b.chapterId,b.digest,id).run();
  if(result.meta.changes)await env.DB.prepare('INSERT INTO chapter_audio_work VALUES(?,?,?) ON CONFLICT(chapter_id,chapter_digest) DO UPDATE SET requested_at=excluded.requested_at').bind(b.chapterId,b.digest,Date.now()).run();
 }
 function audioResponse(request,row){
@@ -23,7 +28,18 @@ function audioResponse(request,row){
 export async function pronunciationRoute(request,env,{isPublisher,isReader,session,sameOrigin}){
  const path=new URL(request.url).pathname,prefix='/api/practice/pronunciation';if(!path.startsWith(prefix))return null;
  const db=env.PRACTICE_DB,match=path.match(/^\/api\/practice\/pronunciation\/([a-f0-9]{64})(\/audio)?$/);
+ if(path===`${prefix}/compact`&&request.method==='POST'&&isPublisher){
+  const b=await request.json();if(!/^[a-f0-9]{64}$/.test(b.id||''))return json({error:'声音身份无效'},400);
+  const old=await db.prepare("SELECT * FROM pronunciation_audio WHERE id=? AND state='ready'").bind(b.id).first();
+  if(!old)return json({ok:!!await pronunciationResult(env,b.id),reused:true});
+  const descriptor=JSON.parse(old.request_json);if(await sha256(JSON.stringify(descriptor))!==b.id)throw Error('原声音身份不一致');
+  const content=old.audio?old.audio:await(await permanentBucket(env).get(old.audio_key)).arrayBuffer();
+  const metadata=JSON.parse(old.response_json||'{}');if(metadata.digest&&await sha256(content)!==metadata.digest)throw Error('原声音摘要不一致');
+  await savePronunciationResult(env,b.id,descriptor,metadata,content);return json({ok:true,reused:true});
+ }
  if(match&&['GET','HEAD'].includes(request.method)){
+  const saved=await pronunciationResult(env,match[1]);
+  if(saved){if(!match[2])return json(view({id:match[1],state:'ready'}));return(await permanentBucket(env).responseContent(digestHex(saved.content_digest),request,'audio/mpeg'))||json({error:'原声音暂不可用，请稍后再试'},503);}
   const row=await db.prepare(match[2]?'SELECT * FROM pronunciation_audio WHERE id=?':"SELECT id,state,next_retry_at,created_at FROM pronunciation_audio WHERE id=?").bind(match[1]).first();
   if(!row)return json({error:'这段发音尚未准备好'},404);
   if(match[2]){
@@ -40,12 +56,18 @@ export async function pronunciationRoute(request,env,{isPublisher,isReader,sessi
  if(!['word','sentence'].includes(b.kind)||!/[A-Za-z]/.test(text)||text.length>(b.kind==='word'?100:1200)||/[\u3400-\u9fff]/.test(text))return json({error:'请选择英文单词或不超过 1200 字符的英文短句'},400);
  const descriptor={model:ttsModel,voice:defaultVoice,input:text,response_format:'mp3',voicePolicyVersion},id=await sha256(JSON.stringify(descriptor));
  await associate(env,b,id);
+ if(await pronunciationResult(env,id))return json({...view({id,state:'ready'}),reused:true});
  let old=await db.prepare('SELECT id,state,next_retry_at,created_at FROM pronunciation_audio WHERE id=?').bind(id).first();
  if(old&&old.state!=='waiting_credit'){
   if(old.state==='calling'&&Date.now()-old.created_at>300000){await db.prepare("UPDATE pronunciation_audio SET state='outcome_unknown' WHERE id=? AND state='calling'").bind(id).run();old={...old,state:'outcome_unknown'};}
   return json({...view(old),reused:true});
  }
  if(!env.OPENROUTER_API_KEY)return json({error:'Bella 声音服务尚未配置'},503);
+ // Preserve failed/unknown billing records, but stop admitting new paid work well
+ // before a prolonged storage outage could fill the free database with fallback audio.
+ const usage=await db.prepare('SELECT coalesce(sum(length(audio)),0) AS bytes FROM pronunciation_audio WHERE audio IS NOT NULL').all();
+ if(!Number.isFinite(usage.meta?.size_after))return json({error:'声音存储状态暂时无法核对'},503);
+ if(usage.meta.size_after>=200*1024*1024||usage.results[0].bytes>=31*1024*1024)return json({error:'声音存储需要维护，已有发音仍可播放'},503);
  const funds=await checkOpenRouterFunds(env.OPENROUTER_API_KEY);if(!funds.verified)return json({error:'声音余额暂时无法核对，请稍后再试'},503);
  if(!funds.usable){
   const retry=null;await db.prepare("INSERT INTO pronunciation_audio(id,request_json,state,next_retry_at,created_at) VALUES(?,?,'waiting_credit',?,?) ON CONFLICT(id) DO UPDATE SET next_retry_at=excluded.next_retry_at WHERE pronunciation_audio.state='waiting_credit'").bind(id,JSON.stringify(descriptor),retry,Date.now()).run();
@@ -61,9 +83,9 @@ export async function pronunciationRoute(request,env,{isPublisher,isReader,sessi
    await db.prepare('UPDATE pronunciation_audio SET state=?,response_json=?,next_retry_at=? WHERE id=?').bind(state,JSON.stringify({...metadata,raw:new TextDecoder().decode(bytes).slice(0,16000)}),retry,id).run();return json(view({id,state,next_retry_at:retry}));
   }
   const head=new Uint8Array(bytes.slice(0,3));if(bytes.byteLength<100||bytes.byteLength>1048576||!(head[0]===73&&head[1]===68&&head[2]===51||head[0]===255&&(head[1]&224)===224))throw Error('声音文件无效或过大');
-  let audioKey=null;
-  if(env.ONEDRIVE_ENABLED==='true')try{audioKey=`pronunciation/${id}.mp3`;await permanentBucket(env).put(audioKey,bytes,{httpMetadata:{contentType:'audio/mpeg'}});}catch{audioKey=null;}
-  await db.prepare("UPDATE pronunciation_audio SET state='ready',audio=?,audio_key=?,response_json=? WHERE id=?").bind(audioKey?null:bytes,audioKey,JSON.stringify({...metadata,bytes:bytes.byteLength,digest:await sha256(bytes)}),id).run();
+  let saved=false;
+  if(env.ONEDRIVE_ENABLED==='true')try{await savePronunciationResult(env,id,descriptor,metadata,bytes);saved=true;}catch{saved=false;}
+  if(!saved)await db.prepare("UPDATE pronunciation_audio SET state='ready',audio=?,audio_key=NULL,response_json=? WHERE id=?").bind(bytes,JSON.stringify({...metadata,bytes:bytes.byteLength,digest:await sha256(bytes)}),id).run();
   await associate(env,b,id);
   return json(view({id,state:'ready'}));
  }catch(e){

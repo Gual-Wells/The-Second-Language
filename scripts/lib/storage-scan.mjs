@@ -2,13 +2,14 @@ export const quoteIdentifier=value=>'"'+value.replaceAll('"','""')+'"';
 
 // Bound each scan at its starting high-water mark; payloads never include the cursor.
 // No OFFSET, and no repeatedly materialized whole-table filtering subquery.
-export async function* rowidPages(query,database,table,{pageSize=200,projection='t.*',join=''}={}){
+export async function* rowidPages(query,database,table,{pageSize=200,projection='t.*',join='',after=null,endAt=null}={}){
  if(!Number.isInteger(pageSize)||pageSize<1||pageSize>1000)throw Error('归档分页大小无效');
  const name=quoteIdentifier(table),alias='__archive_cursor_rowid';
- const [{end_rowid:end}]=await query(database,`SELECT MAX(t.rowid) AS end_rowid FROM ${name} t`);
+ const end=endAt??(await query(database,`SELECT MAX(t.rowid) AS end_rowid FROM ${name} t`))[0].end_rowid;
  if(end===null)return;
  if(!Number.isSafeInteger(end))throw Error('归档 rowid 超出安全范围');
- let cursor=null;
+ if(after!==null&&!Number.isSafeInteger(after))throw Error('归档起点无效');
+ let cursor=after;
  while(true){
   const rows=await query(database,`SELECT t.rowid AS ${alias},${projection} FROM ${name} t ${join} WHERE ${cursor===null?'':'t.rowid>? AND '}t.rowid<=? ORDER BY t.rowid LIMIT ?`,cursor===null?[end,pageSize]:[cursor,end,pageSize]);
   if(!rows.length)return;
