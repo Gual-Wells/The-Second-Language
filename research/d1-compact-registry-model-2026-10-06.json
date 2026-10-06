@@ -1,0 +1,53 @@
+{
+  "status": "research-fixture-not-production",
+  "date": "2026-10-06",
+  "results": [
+    {
+      "rows": 500000,
+      "pages": 15251,
+      "pageBytes": 4096,
+      "allocatedBytes": 62468096,
+      "decimalMB": 62.468096,
+      "allocatedBytesPerAudio": 124.936192,
+      "lookupPlan": [
+        "SEARCH audio_results USING INDEX sqlite_autoindex_audio_results_1 (generation_digest=?)"
+      ],
+      "lookupDigestBytes": 32,
+      "integrity": "ok"
+    },
+    {
+      "rows": 700000,
+      "pages": 21392,
+      "pageBytes": 4096,
+      "allocatedBytes": 87621632,
+      "decimalMB": 87.621632,
+      "allocatedBytesPerAudio": 125.17376,
+      "lookupPlan": [
+        "SEARCH audio_results USING INDEX sqlite_autoindex_audio_results_1 (generation_digest=?)"
+      ],
+      "lookupDigestBytes": 32,
+      "integrity": "ok"
+    },
+    {
+      "rows": 1000000,
+      "pages": 30524,
+      "pageBytes": 4096,
+      "allocatedBytes": 125026304,
+      "decimalMB": 125.026304,
+      "allocatedBytesPerAudio": 125.026304,
+      "lookupPlan": [
+        "SEARCH audio_results USING INDEX sqlite_autoindex_audio_results_1 (generation_digest=?)"
+      ],
+      "lookupDigestBytes": 32,
+      "integrity": "ok"
+    }
+  ],
+  "excluded": [
+    "D1 actual file_size and Worker performance",
+    "Business metadata, question search, sessions and chapter links",
+    "Historical content versions and full generation descriptors, kept as files",
+    "Catalog migration and independent recovery integration",
+    "Large active calls or abnormal backlog"
+  ],
+  "conclusion": "Compact SQL identities are substantially smaller than repeated full descriptors and path/version records. They still grow with assets; byte budgets and an archive fallback remain necessary."
+}
