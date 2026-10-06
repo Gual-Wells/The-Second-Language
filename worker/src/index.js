@@ -151,14 +151,19 @@ async function route(request, env) {
     const now = Date.now();
     await env.DB.batch([
       env.DB.prepare(`INSERT INTO published_chapters (chapter_id,study_date,digest,published_at) VALUES (?,?,?,?)
-        ON CONFLICT(chapter_id) DO UPDATE SET digest=excluded.digest,published_at=excluded.published_at`)
+        ON CONFLICT(chapter_id) DO UPDATE SET digest=excluded.digest,
+        published_at=CASE WHEN published_chapters.digest=excluded.digest THEN published_chapters.published_at ELSE excluded.published_at END
+        WHERE (SELECT rowid FROM chapter_revisions WHERE digest=excluded.digest)>=(SELECT rowid FROM chapter_revisions WHERE digest=published_chapters.digest)`)
         .bind(revision.chapter_id, revision.study_date, revision.digest, now),
-      env.DB.prepare(`INSERT INTO daily_runs (run_id,study_date,phase,vix_commit,chapter_digest,updated_at) VALUES (?,?,'PUBLISHED',?,?,?)
+      env.DB.prepare(`INSERT INTO daily_runs (run_id,study_date,phase,vix_commit,chapter_digest,updated_at)
+        SELECT ?,?,'PUBLISHED',?,?,? WHERE EXISTS(SELECT 1 FROM published_chapters WHERE chapter_id=? AND digest=?)
         ON CONFLICT(run_id) DO UPDATE SET phase='PUBLISHED',vix_commit=excluded.vix_commit,chapter_digest=excluded.chapter_digest,updated_at=excluded.updated_at`)
-        .bind(value.runId, revision.study_date, revision.vix_commit, revision.digest, now),
+        .bind(value.runId, revision.study_date, revision.vix_commit, revision.digest, now,revision.chapter_id,revision.digest),
       env.DB.prepare(`INSERT OR IGNORE INTO push_outbox (chapter_id,digest,subscription_id)
-        SELECT ?,?,id FROM push_subscriptions`).bind(revision.chapter_id, revision.digest)
+        SELECT ?,?,id FROM push_subscriptions WHERE EXISTS(SELECT 1 FROM published_chapters WHERE chapter_id=? AND digest=?)`).bind(revision.chapter_id, revision.digest,revision.chapter_id,revision.digest)
     ]);
+    const current=await env.DB.prepare('SELECT digest FROM published_chapters WHERE chapter_id=?').bind(revision.chapter_id).first();
+    if(current?.digest!==revision.digest)return json({error:'已有较新章节版本，旧发布请求不能覆盖当前版本'},409);
     return json({ ok: true, id: revision.chapter_id, digest: revision.digest });
   }
 

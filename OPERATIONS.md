@@ -4,6 +4,8 @@
 
 ## 本地阅读器
 
+闭环检查命令：`node scripts/check-publishing-closure.mjs` 与 `node scripts/check-practice-closure.mjs`。二者使用独立内存 SQLite 和模拟外部服务，不写正式库、不调用真实推理；检查发布版本、休息、额度记录、完整/微缩四科、答卷重试、原声揭示顺序、建设停止与明确续作。点读永久复用、口语保真/代偿、答疑与存储恢复使用各自已有专项检查，具体证据和限制见 `research/closed-loop-review-2026-10-06.md`。
+
 ```sh
 node scripts/serve.mjs
 ```
@@ -98,7 +100,7 @@ node scripts/practice-job.mjs review-complete <答卷ID> work/expression/reviews
 1. 在 Worker 配置目录运行 D1 migration：`wrangler d1 migrations apply DB --remote`。
 2. 将 `PUBLISH_TOKEN`、`ENROLLMENT_KEY`、`VAPID_PRIVATE_KEY`、`VAPID_SUBJECT` 设为 Worker secrets；将 VAPID 公钥配置为 `VAPID_PUBLIC_KEY`。发布 token 只给 Codex 的发布环境，不交给浏览器。推送不用时可暂不配置 VAPID。
    可在 `worker/` 本机运行 `node --input-type=module -e "import { generateVapidKeys } from '@mmmike/web-push'; console.log(await generateVapidKeys())"` 生成公私钥；私钥不要提交到 Git。
-3. 在 `worker/` 运行 `wrangler deploy` 发布 API Worker，执行 `node gateway/build.mjs`，再运行 `wrangler pages deploy dist --project-name the-second-language --branch main --cwd gateway` 发布 Pages。Pages `API` service binding 指向已发布的 Worker。
+3. 从项目根目录运行 `node scripts/deploy-app.mjs`，顺序发布 API Worker、构建网关并发布 Pages，随后核验同源会话 JSON 与私有接口认证。Pages `API` service binding 指向已发布的 Worker；前端发布必须包含 `worker/gateway/dist` 的代理，不能直接部署 `web/`，否则 `/api/*` 会退化成静态网页。手动等价步骤是在 `worker/` 运行 `wrangler deploy`、`node gateway/build.mjs`、`wrangler pages deploy dist --project-name the-second-language --branch main --cwd gateway`。
 4. 在 `worker/` 运行 `pnpm exec wrangler d1 execute DB --remote --file=admin/open-enrollment.sql`，将单人通行密钥登记窗口开放五分钟。读者在正式站点点击“登录”，输入本机 `.cache/deployment-secrets.json` 中的 `ENROLLMENT_KEY`，完成设备通行密钥登记与登录。成功后窗口关闭。需要重置时按 `worker/admin/reset-auth.sql` 明确操作。
 5. 首次真实章节按 `protocol/DAILY_RUN.md` 完成、暂存并提交。KV 在不同地区可能延迟可见；后端在发布至少两分钟后才尝试新章推送，并只推送当前版本。正式发布后须从线上按日期回读。
 

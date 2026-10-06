@@ -1,10 +1,10 @@
-import {installReaderSpeech} from './reader-speech.js?v=20';
-import { parseParts, renderPart } from './render.js?v=20';
-import { validateAnnotatedContent } from './annotations.js?v=20';
-import { createPracticeUI } from './practice.js?v=20';
-import {createBalanceUI} from './balances.js?v=20';
-import {createQuestionsUI} from './questions.js?v=20';
-import {openAudioChapter,clearAudioLibrary,preloadEnabled,setPreload} from './audio-library.js?v=20';
+import {installReaderSpeech} from './reader-speech.js?v=21';
+import { parseParts, renderPart } from './render.js?v=21';
+import { validateAnnotatedContent } from './annotations.js?v=21';
+import { createPracticeUI } from './practice.js?v=21';
+import {createBalanceUI} from './balances.js?v=21';
+import {createQuestionsUI} from './questions.js?v=21';
+import {openAudioChapter,clearAudioLibrary,preloadEnabled,setPreload} from './audio-library.js?v=21';
 
 const $ = id => document.getElementById(id);
 const todayParts = Object.fromEntries(new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(new Date()).map(part => [part.type, part.value]));
@@ -727,6 +727,6 @@ $('chapterNav').addEventListener('touchend', event => {
   if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.5) moveChapter(dx < 0 ? 1 : -1);
   swipeStart = null;
 }, { passive: true });
-if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=20', { updateViaCache: 'none' }).catch(() => {});
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=21', { updateViaCache: 'none' }).catch(() => {});
 refreshInstallStatus();
 initialize().then(()=>{if(state.authenticated&&new URLSearchParams(location.search).has('balances'))balances.open();});

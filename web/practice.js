@@ -1,6 +1,6 @@
-import {speakingRecorder} from './recorder.js?v=20';
-import {createReading} from './reading.js?v=20';
-import {createListening} from './listening.js?v=20';
+import {speakingRecorder} from './recorder.js?v=21';
+import {createReading} from './reading.js?v=21';
+import {createListening} from './listening.js?v=21';
 const $ = id => document.getElementById(id);
 const node = (tag, className, text) => {
   const element = document.createElement(tag);
@@ -26,7 +26,7 @@ export function createPracticeUI({ api, toast, showDialog, getContext, openSourc
     const chosen = focus || latest;
     $('practiceScope').textContent = chosen ? `覆盖第一章至 ${dateLabel(latest.date)}，重点阅读 ${dateLabel(chosen.date)} · ${chosen.title}` : '正式章节发布后可申请';
     $('practiceRequestButton').disabled = !chosen || Boolean(list.active);
-    $('practiceRequestStatus').textContent = list.active ? `练习册正在${list.active.status === 'building' ? '建设' : '等待建设'} · ${dateLabel(list.active.focusChapterId)}` : '';
+    $('practiceRequestStatus').textContent = list.active ? `练习册正在${list.active.status === 'building' ? '建设' : '等待建设'} · ${dateLabel(list.active.focusChapterId)}` : list.stopped ? `${list.stopped.reason==='credit'?'额度不足，':'上次'}建设已停止；已有材料保留。` : '';
     return chosen;
   }
 
@@ -123,16 +123,24 @@ export function createPracticeUI({ api, toast, showDialog, getContext, openSourc
     const label = node('label','field-label',question.kind === 'writing' ? '我的写作答案' : '文字补充练习（仅分析文字）');
     const input = node('textarea','text-input practice-answer-input'); input.rows = 8; input.maxLength = 20000; input.placeholder = question.kind === 'writing' ? '在这里写下自己的回答…' : '可记下口头练习的文字内容；此项只接受文字维度反馈。'; label.append(input); body.append(label);
     input.spellcheck=false;input.autocapitalize='none';
+    const pendingKey=`tsl-answer-pending-${question.id}`,medium=question.kind==='writing'?'written':'speech-transcript';
+    let pending=null;try{pending=JSON.parse(localStorage.getItem(pendingKey));}catch{}
+    if(pending?.medium===medium)input.value=pending.answerText||'';
     if(question.kind==='writing'){const counter=node('p','practice-guidance'),draftKey=`tsl-writing-${question.id}`;input.value=localStorage.getItem(draftKey)||'';const count=()=>{counter.textContent=`${input.value.trim()?input.value.trim().split(/\s+/).length:0} 词 · ${question.part==='writing-1'?'Task 1 至少 150 词，建议 20 分钟':'Task 2 至少 250 词，建议 40 分钟'}。提交不足字数的真实答案仍可获得反馈。`;localStorage.setItem(draftKey,input.value);};input.addEventListener('input',count);count();body.append(counter);}
     const actions = node('div','button-row');
     const submit = node('button','primary-button','提交答案'); submit.type = 'button';
     submit.addEventListener('click', async () => {
       if (!input.value.trim()) { toast('请先填写答案'); return; }
-      submit.disabled = true;
+      submit.disabled = true;input.disabled=true;
       try {
-        await api(`/api/practice/questions/${encodeURIComponent(question.id)}/attempts`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ answerText: input.value, medium: question.kind === 'writing' ? 'written' : 'speech-transcript' }) });
+        const answerText=input.value.trim();
+        if(!pending||pending.answerText!==answerText||pending.medium!==medium)pending={id:crypto.randomUUID(),answerText,medium};
+        try{localStorage.setItem(pendingKey,JSON.stringify(pending));}catch{}
+        await api(`/api/practice/questions/${encodeURIComponent(question.id)}/attempts`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(pending) });
+        try{localStorage.removeItem(pendingKey);if(question.kind==='writing')localStorage.removeItem(`tsl-writing-${question.id}`);}catch{}
+        pending=null;input.value='';
         toast('已提交，Codex 批改后可在此查看'); await openSet(currentSet.id);
-      } catch (error) { toast(error.message); submit.disabled = false; }
+      } catch (error) { toast(error.message); submit.disabled = false;input.disabled=false; }
     }); actions.append(submit);
     const reveal = node('button','bevel-button',question.revealed ? '参考答案已展开' : '查看参考答案'); reveal.type = 'button';
     const reference = node('div','practice-reference'); reference.hidden = !question.revealed;

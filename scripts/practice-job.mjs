@@ -12,11 +12,12 @@ async function call(endpoint, method = 'GET', value) {
   return data;
 }
 async function save(file, value) { await mkdir(path.dirname(file), { recursive: true }); await writeFile(file, JSON.stringify(value, null, 2)); }
+try{
 if (command === 'next') {
   const [request, review,listening,reading,speaking] = await Promise.all([call('/api/practice/publisher/next'),call('/api/practice/publisher/review/next'),call('/api/practice/publisher/listening/next'),call('/api/practice/publisher/reading/next'),call('/api/practice/publisher/speaking/next')]);
   console.log(JSON.stringify({ requestId: request.request?.id || null,skills:request.request?.skills||[],profiles:request.request?.profiles||{},attemptId: review.attemptId,listeningAttemptId:listening.attemptId,readingAttemptId:reading.attemptId,speakingPrepareId:speaking.prepareId,speakingAttemptId:speaking.attemptId,speakingAttentionId:speaking.attentionId }));
 } else if (command === 'claim' && id) {
-  const result = await call('/api/practice/publisher/claim','POST',{ id });
+  const result = await call('/api/practice/publisher/claim','POST',{ id,...(filename==='--continue'?{continue:true}:{}) });
   await save(path.resolve('work/expression', id, 'claim.json'), result);
   console.log(`已领取表达练习 ${id}；固定来源 ${result.request.sources.length} 章`);
 } else if (command === 'source' && id && filename) {
@@ -47,4 +48,4 @@ if (command === 'next') {
   throw new Error('用法: practice-job.mjs next|claim ID|source 章节ID digest|publish 请求ID set.json|review-claim|review-complete 答卷ID review.json|listening-claim|listening-complete 答卷ID review.json|reading-claim|reading-complete 答卷ID review.json');
 }
 
-if(['publish','complete','review-complete','listening-complete','reading-complete'].includes(command))await finishTaskBalances();
+}finally{if(['publish','complete','review-complete','listening-complete','reading-complete'].includes(command))await finishTaskBalances();}
