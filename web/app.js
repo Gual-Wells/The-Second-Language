@@ -1,10 +1,12 @@
-import {installReaderSpeech} from './reader-speech.js?v=21';
-import { parseParts, renderPart } from './render.js?v=21';
-import { validateAnnotatedContent } from './annotations.js?v=21';
-import { createPracticeUI } from './practice.js?v=21';
-import {createBalanceUI} from './balances.js?v=21';
-import {createQuestionsUI} from './questions.js?v=21';
-import {openAudioChapter,clearAudioLibrary,preloadEnabled,setPreload} from './audio-library.js?v=21';
+import {installPureReader} from './pure-reader.js?v=22';
+import {installSettingsNavigation} from './settings.js?v=22';
+import {installReaderSpeech} from './reader-speech.js?v=22';
+import { parseParts, renderPart } from './render.js?v=22';
+import { validateAnnotatedContent } from './annotations.js?v=22';
+import { createPracticeUI } from './practice.js?v=22';
+import {createBalanceUI} from './balances.js?v=22';
+import {createQuestionsUI} from './questions.js?v=22';
+import {openAudioChapter,clearAudioLibrary,preloadEnabled,setPreload} from './audio-library.js?v=22';
 
 const $ = id => document.getElementById(id);
 const todayParts = Object.fromEntries(new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(new Date()).map(part => [part.type, part.value]));
@@ -33,6 +35,11 @@ function toast(message) {
 }
 
 const nativeSpeech=installReaderSpeech({toast});
+const pureReader=installPureReader({prepareTap:nativeSpeech.prepareTap,onToggle:saveReadingPosition});
+const settingsNavigation=installSettingsNavigation();
+const settingFields=['studyGoal','temporaryRequestToggle','temporaryRequestText','restToggle'],dirtySettings=new Set();
+for(const id of settingFields){const field=$(id);const saved=readStored('second-language-settings-draft')[id];if(saved!==undefined){if(field.type==='checkbox')field.checked=saved;else field.value=saved;dirtySettings.add(id);}field.addEventListener('input',()=>{dirtySettings.add(id);const draft=readStored('second-language-settings-draft');draft[id]=field.type==='checkbox'?field.checked:field.value;writeStored('second-language-settings-draft',draft);});}
+function savedSettings(values){const draft=readStored('second-language-settings-draft');for(const [id,sent] of Object.entries(values)){const field=$(id),current=field.type==='checkbox'?field.checked:field.value;if(current===sent){dirtySettings.delete(id);delete draft[id];}}writeStored('second-language-settings-draft',draft);}
 const balances=createBalanceUI({api,showDialog});
 const questions=createQuestionsUI({api,showDialog,toast,getContext:()=>state});
 
@@ -44,8 +51,9 @@ function setSyncStatus(message, offline = false) {
 }
 
 function showDialog(id) {
-  nativeSpeech.stop();
-  const dialog = $(id);
+  nativeSpeech.stop();pureReader.clear();
+  const dialog = $(id),parent=document.querySelector('dialog[open]');
+  if(parent&&parent!==dialog){dialog.returnDialog=parent.id;parent.close();}
   if (!dialog.open) dialog.showModal();
 }
 
@@ -199,7 +207,9 @@ async function loadProgress(id) {
 
 function renderProgress() {
   state.difficulty = state.progress.difficulty || null;
-  $('readingNote').value = state.progress.note || '';
+  const draft=readStored('second-language-note-drafts')[state.current?.digest];
+  $('readingNote').value = draft?.note ?? state.progress.note ?? '';
+  state.difficulty=draft?.difficulty ?? state.difficulty;
   $('readState').textContent = state.progress.completed ? '已完成阅读' : '尚未记录完成';
   for (const button of document.querySelectorAll('[data-difficulty]')) button.classList.toggle('selected', button.dataset.difficulty === state.difficulty);
 }
@@ -361,7 +371,7 @@ function expiryText(timestamp) {
   const remaining = Math.max(0, timestamp - Date.now());
   if (!remaining) return '已到期';
   const hours = Math.ceil(remaining / 3600000);
-  return hours >= 24 ? `剩余 ${Math.floor(hours / 24)} 天 ${hours % 24} 小时` : `剩余 ${hours} 小时`;
+  const remainingText=hours >= 24 ? `剩余 ${Math.floor(hours / 24)} 天 ${hours % 24} 小时` : `剩余 ${hours} 小时`;return `${remainingText} · 至 ${new Date(timestamp).toLocaleString('zh-CN',{timeZone:'Asia/Shanghai',month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit',hour12:false})}`;
 }
 
 function renderTemporaryList() {
@@ -398,10 +408,10 @@ async function refreshSettings() {
   if (!state.authenticated || state.demo) return;
   try {
     const settings = await api('/api/settings');
-    $('studyGoal').value = settings.goal || '';
-    $('temporaryRequestToggle').checked = Boolean(settings.temporaryRequested);
-    $('temporaryRequestText').value = settings.temporaryRequestText || '';
-    $('restToggle').checked = Boolean(settings.restRequested);
+    if(!dirtySettings.has('studyGoal'))$('studyGoal').value = settings.goal || '';
+    if(!dirtySettings.has('temporaryRequestToggle'))$('temporaryRequestToggle').checked = Boolean(settings.temporaryRequested);
+    if(!dirtySettings.has('temporaryRequestText'))$('temporaryRequestText').value = settings.temporaryRequestText || '';
+    if(!dirtySettings.has('restToggle'))$('restToggle').checked = Boolean(settings.restRequested);
     showTemporaryRequestBox();
   } catch (error) { toast(error.message); }
 }
@@ -547,11 +557,12 @@ async function initialize() {
     else { $('app').classList.add('empty-mode'); $('reader').hidden = true; $('readingScroll').scrollTop = 0; $('emptyState').hidden = false; setSyncStatus(state.demo ? '本地预览' : '等待第一章发布'); }
   } catch (error) {
     $('loadingState').hidden = true;
-    showLogin({ enrolled: true, enrollmentOpen: false }, `连接暂不可用：${error.message}`);
+    $('loginState').hidden=false;$('loginDescription').textContent='连接暂不可用，请检查网络后重试。';$('loginMessage').textContent=error.message;$('loginButton').textContent='重新连接';$('loginButton').disabled=false;$('loginButton').dataset.retry='true';
   }
 }
 
 async function signIn() {
+  if($('loginButton').dataset.retry){delete $('loginButton').dataset.retry;$('loginButton').disabled=true;await initialize();return;}
   const button = $('loginButton');
   button.disabled = true;
   $('loginMessage').textContent = '正在检查登录状态…';
@@ -598,7 +609,7 @@ $('previousChapter').addEventListener('click', () => moveChapter(-1));
 $('nextChapter').addEventListener('click', () => moveChapter(1));
 $('calendarButton').addEventListener('click', () => { state.month = (state.current?.date || TODAY).slice(0, 7); renderCalendar(); showDialog('calendarDialog'); });
 $('chapterJump').addEventListener('click', () => { state.month = (state.current?.date || TODAY).slice(0, 7); renderCalendar(); showDialog('calendarDialog'); });
-$('settingsButton').addEventListener('click', () => { refreshInstallStatus(); refreshPushStatus(); refreshSettings(); showDialog('settingsDialog'); });
+$('settingsButton').addEventListener('click', () => { settingsNavigation.reset(); refreshInstallStatus(); refreshPushStatus(); refreshSettings(); showDialog('settingsDialog'); });
 $('audioPreloadToggle').checked=preloadEnabled();
 $('audioPreloadToggle').addEventListener('change',event=>setPreload(event.target.checked));
 $('temporaryButton').addEventListener('click', async () => { await refreshTemporary(); renderTemporaryList(); showDialog('temporaryDialog'); });
@@ -614,16 +625,20 @@ $('nextMonth').addEventListener('click', () => { state.month = monthShift(state.
 $('todayMonth').addEventListener('click', () => { state.month = TODAY.slice(0, 7); renderCalendar(); });
 $('monthPicker').addEventListener('change', event => { if (/^\d{4}-\d{2}$/.test(event.target.value)) { state.month = event.target.value; renderCalendar(); } });
 $('wordIndexButton').addEventListener('click', () => { $('indexFilter').value = ''; renderIndex(); showDialog('indexDialog'); });
-$('highlightButton').addEventListener('click', () => { state.highlight = !state.highlight; rememberDisplay(); showPart('three', true); });
-$('translationButton').addEventListener('click', () => { state.translations = !state.translations; rememberDisplay(); showPart('three', true); });
+function toggleDisplay(field){const scope=$('readingScroll'),top=scope.getBoundingClientRect().top+$('articleTools').getBoundingClientRect().height;const anchor=[...$('article').querySelectorAll('[data-sentence-id]')].find(e=>e.getBoundingClientRect().bottom>top),id=anchor?.dataset.sentenceId,y=anchor?.getBoundingClientRect().top;state[field]=!state[field];rememberDisplay();showPart('three',true);requestAnimationFrame(()=>{const next=[...$('article').querySelectorAll('[data-sentence-id]')].find(e=>e.dataset.sentenceId===id);if(next)scope.scrollTop+=next.getBoundingClientRect().top-y;});}
+$('highlightButton').addEventListener('click',()=>toggleDisplay('highlight'));
+$('translationButton').addEventListener('click',()=>toggleDisplay('translations'));
 $('indexFilter').addEventListener('input', event => renderIndex(event.target.value));
 for (const button of document.querySelectorAll('[data-close]')) button.addEventListener('click', () => closeDialog(button.dataset.close));
-for (const dialog of document.querySelectorAll('dialog')) dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
+for (const dialog of document.querySelectorAll('dialog')) {dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });dialog.addEventListener('close',()=>{if(dialog.returnDialog){const parent=dialog.returnDialog;dialog.returnDialog=null;requestAnimationFrame(()=>showDialog(parent));}});}
 for (const button of document.querySelectorAll('[data-part]')) button.addEventListener('click', () => showPart(button.dataset.part, true));
 for (const button of document.querySelectorAll('[data-difficulty]')) button.addEventListener('click', () => {
   state.difficulty = button.dataset.difficulty;
   for (const choice of document.querySelectorAll('[data-difficulty]')) choice.classList.toggle('selected', choice === button);
 });
+function saveNoteDraft(){if(!state.current||state.current.kind||state.current.historical)return;const drafts=readStored('second-language-note-drafts');drafts[state.current.digest]={note:$('readingNote').value,difficulty:state.difficulty};writeStored('second-language-note-drafts',drafts);}
+$('readingNote').addEventListener('input',saveNoteDraft);
+for(const button of document.querySelectorAll('[data-difficulty]'))button.addEventListener('click',saveNoteDraft);
 $('readingScroll').addEventListener('scroll', () => { updateReadingPosition(); clearTimeout(saveReadingPosition.timer); saveReadingPosition.timer = setTimeout(saveReadingPosition, 250); }, { passive: true });
 
 $('loginButton').addEventListener('click', signIn);
@@ -633,6 +648,7 @@ $('saveProgress').addEventListener('click', async () => {
   if (!state.current || state.current.historical) return;
   const progress = { completed: true, difficulty: state.difficulty, note: $('readingNote').value.trim().slice(0, 2000), updatedAt: new Date().toISOString() };
   state.progress = progress;
+  const drafts=readStored('second-language-note-drafts');delete drafts[state.current.digest];writeStored('second-language-note-drafts',drafts);
   renderProgress();
   if (state.demo) { writeStored(`second-language-demo-${state.current.id}`, progress); toast('学习反馈已保存到本机'); return; }
   const pending = localPending(); pending[state.current.id] = progress; writeStored(PENDING_KEY, pending);
@@ -640,10 +656,10 @@ $('saveProgress').addEventListener('click', async () => {
   toast(localPending()[state.current.id] ? '已保存，联网后同步' : '学习反馈已保存');
 });
 $('saveGoal').addEventListener('click', async () => {
-  const goal = $('studyGoal').value.trim();
+  const rawGoal=$('studyGoal').value,goal = rawGoal.trim();
   if (state.demo) { localStorage.setItem('second-language-demo-goal', goal); toast('学习目标已保存在本机'); return; }
   if (!state.authenticated) { toast('请先登录再保存学习目标'); return; }
-  try { await api('/api/settings', { method: 'PUT', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ goal }) }); toast('学习目标已保存'); }
+  try { await api('/api/settings', { method: 'PUT', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ goal }) }); savedSettings({studyGoal:rawGoal});toast('学习目标已保存'); }
   catch (error) { toast(error.message); }
 });
 $('temporaryRequestToggle').addEventListener('change', showTemporaryRequestBox);
@@ -651,9 +667,9 @@ $('saveTemporaryRequest').addEventListener('click', async () => {
   if (!state.authenticated || state.demo) { toast('请先登录再保存需求'); return; }
   try {
     const temporaryRequested = $('temporaryRequestToggle').checked;
-    const temporaryRequestText = temporaryRequested ? $('temporaryRequestText').value.trim() : '';
+    const rawText=$('temporaryRequestText').value,temporaryRequestText = temporaryRequested ? rawText.trim() : '';
     await api('/api/settings', { method: 'PUT', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ temporaryRequested, temporaryRequestText }) });
-    await refreshSettings(); toast(temporaryRequested ? '临时推送需求已保存' : '临时推送需求已关闭');
+    savedSettings({temporaryRequestToggle:temporaryRequested,temporaryRequestText:rawText});await refreshSettings(); toast(temporaryRequested ? '临时推送需求已保存' : '临时推送需求已关闭');
   } catch (error) { toast(error.message); }
 });
 $('saveRest').addEventListener('click', async () => {
@@ -661,7 +677,7 @@ $('saveRest').addEventListener('click', async () => {
   try {
     const restRequested = $('restToggle').checked;
     await api('/api/settings', { method: 'PUT', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ restRequested }) });
-    await refreshSettings(); toast(restRequested ? '下一次日课已安排休息' : '休息安排已关闭');
+    savedSettings({restToggle:restRequested});await refreshSettings(); toast(restRequested ? '下一次日课已安排休息' : '休息安排已关闭');
   } catch (error) { toast(error.message); }
 });
 document.addEventListener('visibilitychange', () => {
@@ -727,6 +743,6 @@ $('chapterNav').addEventListener('touchend', event => {
   if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.5) moveChapter(dx < 0 ? 1 : -1);
   swipeStart = null;
 }, { passive: true });
-if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=21', { updateViaCache: 'none' }).catch(() => {});
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=22', { updateViaCache: 'none' }).catch(() => {});
 refreshInstallStatus();
 initialize().then(()=>{if(state.authenticated&&new URLSearchParams(location.search).has('balances'))balances.open();});

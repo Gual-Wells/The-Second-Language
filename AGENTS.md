@@ -14,7 +14,7 @@
 
 真实口语采集与教学接管阅读 `protocol/SPEAKING_PIPELINE.md` 和已上线通路 `protocol/SPEAKING_RUNTIME.md`。固定四路为 Whisper、Gemini Flash、Qwen、GPT Audio，全量原声后 Codex 接管；有增量证据的模型可加入固定主链，不必替代旧模型。要求在 `protocol/speaking/contract.mjs`，路线在 `protocol/speaking/routes.mjs`。OpenRouter 推理只走 Cloudflare；Qwen 可随分析需要多次补听，完整保存每次返回，同模型重复不计独立共识。OpenRouter 整体余额不足保存进度、仅在用户充值后明确要求继续时处理，不自动跨日重试，其他项目任务继续。腾讯不足可用 Qwen 定性代偿，不补造测量。腾讯句子/单词专项使用本人原话；先核对预期音素/重音与实际材料，不用多数票取代听审。正式 PWA 已接原声录制/上传、私有存储、转换、固定多路采集和 Codex 反馈；代码可运行与真机体验/声音判断质量分别核对。
 
-改动 PWA 时先读 `web/DESIGN.md`。2008 风格覆盖信息结构、图标、各交互状态、iPhone 视口和部署缓存；前端只保留一套原生样式，不以附加 CSS 覆盖文件做主题替换。
+改动 PWA 时先读 `web/DESIGN.md` 与 `protocol/READER_INTERACTION.md`。2008 风格覆盖信息结构、图标、各交互状态、iPhone 视口和部署缓存；前端只保留一套原生样式，不以附加 CSS 覆盖文件做主题替换。纯净模式只作用于正文，保留原常态几何；雅思跨题切换与提交不得丢弃其他草稿，录音与计时独立，上传锁定并只清理同身份草稿。
 
 测试与 Cloudflare 额度处理读 `protocol/CLOUDFLARE_RESOURCES.md`：namespace 只隔离数据，不隔离账户免费配额；试听音频与过程记录优先本机保存，交互试听采用静态文件及独立 D1 反馈，不批量写 KV。已有评分保留本机草稿与导出通路。章节发布遇到额度不足时保留同日期产物续作，不重新选词或标记 VIX。
 
