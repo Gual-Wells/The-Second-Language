@@ -78,3 +78,9 @@ node scripts/check-reader-ui.mjs
 正式发布使用 `node scripts/deploy-app.mjs`，同时部署 API Worker 与带 service binding 的 Pages 网关；不能直接以普通静态 `web/` 部署替代网关。任务结束执行 `node scripts/check-balances.mjs` 更新额度并排入归档。额度不足不自动次日恢复，已有产物保留，需用户明确续作；不自动付款。
 
 本机日课北京时间 03:00 执行；一次性休息安排由用户设置。雅思与答疑使用独立队列，安静启动器避免控制台闪窗。任务安装、日志、凭据与恢复命令见 [OPERATIONS.md](OPERATIONS.md)。
+
+## Intellectual property and third-party materials
+
+Original application code, protocols, workflow design, instructional organization, documentation, project-specific datasets and other material owned or licensable by Gual Wells are governed by [GW-ROL-1.0](LICENSE), a **reference-only, non-open-source** license. External readers may study the system and independently learn from or reimplement ideas and methods that are not protected by exclusive rights, but no permission is granted to copy, republish, adapt, redistribute, commercially exploit, or use substantial protected portions as AI training/retrieval corpora except where applicable law allows or with prior written permission.
+
+Third-party packages, model/provider outputs, voices, APIs, dictionary or textbook material, examination-source material, trademarks and media remain governed by their respective rightsholders and terms. AI-generated or AI-assisted artifacts are protected only to the extent applicable law recognizes protectable human authorship, selection, arrangement, editing or other rights; provenance labels do not expand those rights.
