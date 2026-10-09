@@ -35,7 +35,7 @@ export async function pronunciationRoute(request,env,{isPublisher,isReader,sessi
   const old=await db.prepare("SELECT * FROM pronunciation_audio WHERE id=? AND state='ready'").bind(b.id).first();
   if(!old)return json({ok:!!await pronunciationResult(env,b.id),reused:true});
   const descriptor=JSON.parse(old.request_json);if(await sha256(JSON.stringify(descriptor))!==b.id)throw Error('原声音身份不一致');
-  const content=old.audio?old.audio:await(await permanentBucket(env).get(old.audio_key)).arrayBuffer();
+  const content=old.audio?new Uint8Array(old.audio):await(await permanentBucket(env).get(old.audio_key)).arrayBuffer();
   const metadata=JSON.parse(old.response_json||'{}');if(metadata.digest&&await sha256(content)!==metadata.digest)throw Error('原声音摘要不一致');
   await savePronunciationResult(env,b.id,descriptor,metadata,content);return json({ok:true,reused:true});
  }
