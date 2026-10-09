@@ -6,7 +6,7 @@ import { validateAnnotatedContent } from '../../web/annotations.js';
 import { practiceRoute } from './practice.js';
 import {balanceRoute} from './balances.js';
 import {questionsRoute} from './questions.js';
-import {storageRoute,permanentBucket,chapterText} from './storage.js';
+import {storageRoute,permanentBucket,chapterText,storageRequestEnvironment} from './storage.js';
 import {audioConfigRoute} from './audio-config.js';
 
 const encoder = new TextEncoder();
@@ -410,7 +410,7 @@ async function removeExpiredTemporary(env) {
 
 export default {
   async fetch(request, env) {
-    try { return await route(request, env); }
+    try { return await route(request, storageRequestEnvironment(env)); }
     catch (error) { console.error('Worker error', error); return json({ error: '服务暂不可用' }, 500); }
   },
   async scheduled(_event, env, context) { context.waitUntil(Promise.all([sendDue(env), removeExpiredTemporary(env),collectNext(speakingEnvironment(env)).catch(error=>console.error('Speaking collection',String(error.message)))])); }
