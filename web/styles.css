@@ -515,3 +515,9 @@ textarea.text-input { resize: vertical; }
 
 .app-shell > .temporary-ribbon { margin: 0; padding: 7px 10px; border: 1px solid #bdac77; border-top: 0; }
 .app-shell.pure-reading.temporary-mode { grid-template-rows: minmax(0,1fr); }
+.settings-body .switch-row span strong,.settings-body .switch-row span small { display: block; }
+#audioConfigSection .switch-row small { margin-top: 4px; color: var(--muted); font-size: 12px; font-weight: normal; }
+#audioConfigSection .switch-row { align-items: center; }
+#audioConfigSection select { margin-top: 7px; }
+.audio-confirmation { margin-top: 12px; padding: 10px; border: 1px solid #bdac77; background: linear-gradient(#fff9e7,#f5e7bd); border-radius: 5px; }
+.audio-job { padding: 9px 0; border-top: 1px solid var(--line); font-size: 13px; overflow-wrap: anywhere; }

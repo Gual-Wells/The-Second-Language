@@ -84,3 +84,7 @@ node scripts/check-reader-ui.mjs
 Original application code, protocols, workflow design, instructional organization, documentation, project-specific datasets and other material owned or licensable by Gual Wells are governed by [GW-ROL-1.1](LICENSE), a **reference-only, non-open-source** license. External readers may study the system and independently learn from or reimplement ideas and methods that are not protected by exclusive rights, but no permission is granted to copy, republish, adapt, redistribute, commercially exploit, or use substantial protected portions as AI training/retrieval corpora except where applicable law allows or with prior written permission.
 
 Third-party packages, model/provider outputs, voices, APIs, dictionary or textbook material, examination-source material, trademarks and media remain governed by their respective rightsholders and terms. AI-generated or AI-assisted artifacts are protected only to the extent applicable law recognizes protectable human authorship, selection, arrangement, editing or other rights; provenance labels do not expand those rights.
+
+### 章节音频选配
+
+设置中的“音频配置”可为下一章一次性准备词汇、例句、范文逐句音频，也可对已有章节申请。已有章节先显示费用预估，再确认不可撤销；后台沿用 Kokoro Bella 与永久音频库。相同文字、音色和读音跨部分/章节复用；标题不同读音通过音素覆盖区分。预下载开关仍只下载已生成音频。协议与运行入口见 [AUDIO_CONFIGURATION](protocol/AUDIO_CONFIGURATION.md)。

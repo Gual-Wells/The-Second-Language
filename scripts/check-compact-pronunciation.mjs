@@ -51,6 +51,11 @@ try{
  failUploads=true;files.delete(hash(audio));const fallback=await(await generate('record')).json();assert.equal(fallback.state,'ready');assert.equal(providerCalls,2);assert.equal(db.prepare('SELECT length(audio) n FROM pronunciation_audio WHERE id=?').get(fallback.id).n,audio.length);assert.equal((await(await generate('record')).json()).reused,true);assert.equal(providerCalls,2);
  failUploads=false;assert.equal((await(await pronunciationRoute(new Request('https://test/api/practice/pronunciation/compact',{method:'POST',body:JSON.stringify({id:fallback.id})}),env,context)).json()).ok,true);assert.equal(providerCalls,2);
  databaseSize=200*1024*1024;assert.equal((await generate('object')).status,503);assert.equal(providerCalls,2);
+ databaseSize=327680;
+ const pronounced=async ipa=>pronunciationRoute(new Request('https://test/api/practice/pronunciation',{method:'POST',body:JSON.stringify({kind:'word',text:'record',ipa})}),env,context);
+ const noun=await(await pronounced('/ˈrekərd/')).json(),verb=await(await pronounced('/rɪˈkɔːrd/')).json();assert.notEqual(noun.id,verb.id);assert.equal(noun.state,'ready');assert.equal(verb.state,'ready');
+ const paidBefore=providerCalls;assert.equal((await(await pronounced('/ˈrekərd/')).json()).reused,true);assert.equal(providerCalls,paidBefore);
+ assert.equal((await pronounced('/unsupported☃/')).status,422);assert.equal(providerCalls,paidBefore);
  assert.deepEqual(db.prepare('PRAGMA foreign_key_check').all(),[]);
  console.log('通过：原字节迁移、完整描述保真、零三表重复登记、固定身份复用、Range、不可变保护、增量游标、原件失联不重付、新调用成功/故障副本/无重付补归档、容量入口保护；无真实 API 调用');
 }finally{globalThis.fetch=originalFetch;db.close();}

@@ -1,13 +1,14 @@
-import {installPureReader} from './pure-reader.js?v=23';
-import {chapterNumber, createChapterBook} from './chapters.js?v=23';
-import {installSettingsNavigation} from './settings.js?v=23';
-import {installReaderSpeech} from './reader-speech.js?v=23';
-import { parseParts, renderPart } from './render.js?v=23';
-import { validateAnnotatedContent } from './annotations.js?v=23';
-import { createPracticeUI } from './practice.js?v=23';
-import {createBalanceUI} from './balances.js?v=23';
-import {createQuestionsUI} from './questions.js?v=23';
-import {openAudioChapter,clearAudioLibrary,preloadEnabled,setPreload} from './audio-library.js?v=23';
+import {installPureReader} from './pure-reader.js?v=24';
+import {chapterNumber, createChapterBook} from './chapters.js?v=24';
+import {installSettingsNavigation} from './settings.js?v=24';
+import {createAudioConfig} from './audio-config.js?v=24';
+import {installReaderSpeech} from './reader-speech.js?v=24';
+import { parseParts, renderPart } from './render.js?v=24';
+import { validateAnnotatedContent } from './annotations.js?v=24';
+import { createPracticeUI } from './practice.js?v=24';
+import {createBalanceUI} from './balances.js?v=24';
+import {createQuestionsUI} from './questions.js?v=24';
+import {openAudioChapter,clearAudioLibrary,preloadEnabled,setPreload} from './audio-library.js?v=24';
 
 const $ = id => document.getElementById(id);
 const todayParts = Object.fromEntries(new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(new Date()).map(part => [part.type, part.value]));
@@ -44,6 +45,7 @@ function savedSettings(values){const draft=readStored('second-language-settings-
 const balances=createBalanceUI({api,showDialog});
 const questions=createQuestionsUI({api,showDialog,toast,getContext:()=>state});
 const chapterBook=createChapterBook({getContext:()=>state,openChapter,showPart,showDialog,renderCalendar});
+createAudioConfig({api,getContext:()=>state,toast});
 
 function clearBadge() { if ('clearAppBadge' in navigator) { try { Promise.resolve(navigator.clearAppBadge()).catch(() => {}); } catch {} } }
 
@@ -341,6 +343,7 @@ async function openChapter(id, resume = true, digest = null) {
     state.lastDailyId = id;
     state.current.digest = chapter.digest || state.chapters.find(item => item.id === id)?.digest;
     questions.changed();
+    nativeSpeech.setChapter(chapter.markdown||'');
     openAudioChapter(chapter);
     prepareContent(chapter.markdown, id);
     state.progress = progress;
@@ -428,6 +431,7 @@ async function openTemporary(id, resume = true) {
     if (request !== state.chapterRequest) return;
     state.current = page;
     questions.changed();
+    nativeSpeech.setChapter(page.markdown||'');
     openAudioChapter(page);
     prepareContent(page.markdown, id);
     $('chapterDate').textContent = page.kind === 'review' ? '复习阅读' : '测试阅读';
@@ -746,6 +750,6 @@ $('chapterNav').addEventListener('touchend', event => {
   if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.5) moveChapter(dx < 0 ? 1 : -1);
   swipeStart = null;
 }, { passive: true });
-if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=23', { updateViaCache: 'none' }).catch(() => {});
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=24', { updateViaCache: 'none' }).catch(() => {});
 refreshInstallStatus();
 initialize().then(()=>{if(state.authenticated&&new URLSearchParams(location.search).has('balances'))balances.open();});
