@@ -5,7 +5,7 @@ import {audioUnits,uniqueAudioUnits} from '../web/audio-plan.js';
 import {readFile} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {pronunciationRoute} from '../worker/src/pronunciation.js';
-import {permanentBucket} from '../worker/src/storage.js';
+import {permanentBucket,storageRoute} from '../worker/src/storage.js';
 import {digestBytes} from '../worker/src/pronunciation-store.js';
 import {rowidPages} from './lib/storage-scan.mjs';
 import {ttsModel,defaultVoice,voicePolicyVersion} from '../protocol/voices.mjs';
@@ -57,5 +57,17 @@ try{
  assert.equal(db.prepare('SELECT state FROM audio_requests').get().state,'completed');assert.equal(providerCalls,0);
  const expired=await(await call('/quote',{chapterId:'chapter',digest:chapterHash,parts:['two']})).json();db.prepare('UPDATE audio_requests SET expires_at=0 WHERE id=?').run(expired.quoteId);
  assert.equal((await call('/confirm',{quoteId:expired.quoteId,confirmed:true})).status,409);
+ const speak=body=>pronunciationRoute(new Request('https://test/api/practice/pronunciation',{method:'POST',body:JSON.stringify({chapterId:'chapter',digest:chapterHash,...body})}),env,context);
+ const beforeCalls=providerCalls,beforeLinks=db.prepare('SELECT count(*) n FROM chapter_audio_clips').get().n;
+ for(const body of [{text:'Keep a',kind:'sentence'},{text:'record',kind:'word'},{text:'record',kind:'word',ipa:'/ˈrekɪd/'},{text:'noun',kind:'word',ipa:'/naʊn/'}])assert.equal((await speak(body)).status,422,'Fragments, missing/wrong IPA and explanatory words cannot enter generation');
+ assert.equal(providerCalls,beforeCalls);assert.equal(db.prepare('SELECT count(*) n FROM chapter_audio_clips').get().n,beforeLinks);
+ const noun=await(await speak({text:'record',kind:'word',ipa:'/ˈrekərd/'})).json(),verb=await(await speak({text:'record',kind:'word',ipa:'/rɪˈkɔːrd/'})).json();assert.equal(noun.state,'ready');assert.equal(verb.state,'ready');assert.notEqual(noun.id,verb.id);
+ const paid=providerCalls;assert.equal((await(await speak({text:'record',kind:'word',ipa:'/ˈrekərd/'})).json()).reused,true);assert.equal(providerCalls,paid,'Matching first/second-part title has one generation');
+ const sentence=await(await speak({text:'Keep a record.',kind:'sentence'})).json();assert.equal(sentence.state,'ready');const paidSentence=providerCalls;assert.equal((await(await speak({text:'Keep a record.',kind:'sentence'})).json()).id,sentence.id);assert.equal(providerCalls,paidSentence,'Identical example/story sentence is reused');
+ const publishPack=async clips=>{const manifest={chapterId:'chapter',digest:chapterHash,packs:[],clips},key=`chapter-audio/chapter/${chapterHash}/${hash(JSON.stringify(manifest))}.json`;await permanentBucket(env).put(key,JSON.stringify(manifest));return storageRoute(new Request('https://test/api/storage/publish-pack',{method:'POST',body:JSON.stringify({chapterId:'chapter',digest:chapterHash,manifestKey:key})}),env,context);};
+ assert.equal((await publishPack([{text:'Keep a',voice:'af_bella'}])).status,422,'A fragment cannot re-enter through a pack manifest');
+ assert.equal((await publishPack([{text:'Keep a record.',voice:'am_michael'}])).status,422,'Reader cache retains Bella voice policy');
+ assert.equal((await publishPack([{text:'Keep a record.',voice:'af_bella'}])).status,200);
+ assert.equal((await publishPack([])).status,200,'An empty clean manifest replaces an obsolete pack');
  console.log('通过：付费生成前确认、同一申请幂等、过期报价、处理权、不可撤销、跨部分去重、永久计划与结果；零真实收费调用。');
 }finally{globalThis.fetch=originalFetch;db.close();}

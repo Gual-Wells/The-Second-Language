@@ -1,10 +1,10 @@
 import {checkOpenRouterFunds} from '../../scripts/lib/speaking/funding.mjs';
 import {ttsModel,defaultVoice,voicePolicyVersion} from '../../protocol/voices.mjs';
 import {sha256} from './practice-media.js';
-import {permanentBucket} from './storage.js';
+import {permanentBucket,chapterText} from './storage.js';
 import {pronunciationResult,savePronunciationResult,digestHex} from './pronunciation-store.js';
 import {audioDescriptor} from './audio-config.js';
-import {ipaToKokoro} from '../../web/audio-plan.js';
+import {ipaToKokoro,isChapterAudioRequest} from '../../web/audio-plan.js';
 const json=(v,s=200)=>Response.json(v,{status:s,headers:{'cache-control':'no-store'}});
 const view=row=>({id:row.id,state:row.state,nextRetryAt:row.next_retry_at||null,audioUrl:row.state==='ready'?`/api/practice/pronunciation/${row.id}/audio`:null});
 async function associate(env,b,id){
@@ -57,6 +57,14 @@ export async function pronunciationRoute(request,env,{isPublisher,isReader,sessi
  const text=typeof b.text==='string'?b.text.replace(/\s+/g,' ').trim():'';
  if(!['word','sentence'].includes(b.kind)||!/[A-Za-z]/.test(text)||text.length>(b.kind==='word'?100:1200)||/[\u3400-\u9fff]/.test(text))return json({error:'请选择英文单词或不超过 1200 字符的英文短句'},400);
  let phonemes='';if(b.ipa){phonemes=ipaToKokoro(String(b.ipa));if(!phonemes||b.kind!=='word')return json({error:'这个读音需要单独核对，未发起收费生成'},422);}
+ if(b.chapterId!==undefined||b.digest!==undefined){
+  if(typeof b.chapterId!=='string'||!/^[a-f0-9]{64}$/.test(b.digest||''))return json({error:'章节版本无效'},400);
+  const chapter=await env.DB.prepare('SELECT r.content_key FROM chapter_revisions r JOIN published_chapters p ON p.chapter_id=r.chapter_id WHERE r.chapter_id=? AND r.digest=?').bind(b.chapterId,b.digest).first();
+  if(!chapter)return json({error:'章节版本不存在'},404);
+  let markdown;try{markdown=await chapterText(env,chapter.content_key);}catch{return json({error:'章节原件暂不可用，未发起生成'},503);}
+  if(!markdown||await sha256(markdown)!==b.digest)return json({error:'章节原件暂不可核对，未发起生成'},503);
+  if(!isChapterAudioRequest(markdown,text,b.kind,phonemes))return json({error:'请点按词汇标题或完整例句、范文句子'},422);
+ }
  const descriptor=audioDescriptor(text,phonemes),id=await sha256(JSON.stringify(descriptor));
  await associate(env,b,id);
  if(await pronunciationResult(env,id))return json({...view({id,state:'ready'}),reused:true});
