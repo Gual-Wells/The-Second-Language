@@ -1,22 +1,32 @@
 import {pointAudioKeys,isPointAudioClip} from '../../web/audio-plan.js';
 import {sha256} from './practice-media.js';
 const encoder=new TextEncoder(),decoder=new TextDecoder(),json=(v,s=200)=>Response.json(v,{status:s,headers:{'cache-control':'no-store'}});
+const requestStorageState=Symbol('request storage access');
+// Each HTTP invocation gets its own state; never reuse account credentials across requests.
+export const storageRequestEnvironment=env=>({...env,[requestStorageState]:{}});
 const b64=v=>{let s='';for(const x of v)s+=String.fromCharCode(x);return btoa(s);};
 const un64=v=>Uint8Array.from(atob(v),x=>x.charCodeAt(0));
 async function encryptionKey(env){if(!env.ONEDRIVE_KEY)throw Error('永久存储尚未配置');return crypto.subtle.importKey('raw',un64(env.ONEDRIVE_KEY),'AES-GCM',false,['encrypt','decrypt']);}
 async function seal(env,value){const iv=crypto.getRandomValues(new Uint8Array(12)),encrypted=await crypto.subtle.encrypt({name:'AES-GCM',iv},await encryptionKey(env),encoder.encode(JSON.stringify(value)));return JSON.stringify({iv:b64(iv),data:b64(new Uint8Array(encrypted))});}
 async function credentials(env){const row=await env.DB.prepare('SELECT credentials FROM storage_connection WHERE id=1').first();if(!row)throw Error('永久存储尚未连接');const b=JSON.parse(row.credentials);return JSON.parse(decoder.decode(await crypto.subtle.decrypt({name:'AES-GCM',iv:un64(b.iv)},await encryptionKey(env),un64(b.data))));}
-async function access(env){
- let c=await credentials(env);if(c.expiresAt>Date.now()+120000)return c.accessToken;
+async function accessRecord(env){
+ let c=await credentials(env);if(c.expiresAt>Date.now()+120000)return c;
  const now=Date.now(),locked=await env.DB.prepare('UPDATE storage_connection SET refresh_lock=? WHERE id=1 AND refresh_lock<?').bind(now+60000,now).run();
  if(!locked.meta.changes)throw Error('存储凭据正在更新，请稍后再试');
  try{
-  c=await credentials(env);if(c.expiresAt>Date.now()+120000)return c.accessToken;
+  c=await credentials(env);if(c.expiresAt>Date.now()+120000)return c;
   const r=await fetch('https://login.microsoftonline.com/consumers/oauth2/v2.0/token',{method:'POST',headers:{'content-type':'application/x-www-form-urlencoded'},body:new URLSearchParams({client_id:c.clientId,grant_type:'refresh_token',refresh_token:c.refreshToken,scope:c.scope}),signal:AbortSignal.timeout(30000)});
   const value=await r.json();if(!r.ok||!value.access_token)throw Error('OneDrive 需要重新授权');
   c={...c,accessToken:value.access_token,refreshToken:value.refresh_token||c.refreshToken,expiresAt:Date.now()+value.expires_in*1000};
-  await env.DB.prepare('UPDATE storage_connection SET credentials=?,updated_at=? WHERE id=1').bind(await seal(env,c),Date.now()).run();return c.accessToken;
+  await env.DB.prepare('UPDATE storage_connection SET credentials=?,updated_at=? WHERE id=1').bind(await seal(env,c),Date.now()).run();return c;
  }finally{await env.DB.prepare('UPDATE storage_connection SET refresh_lock=0 WHERE id=1').run();}
+}
+async function access(env){
+ const state=env[requestStorageState];if(!state)return(await accessRecord(env)).accessToken;
+ if(state.record?.expiresAt>Date.now()+120000)return state.record.accessToken;
+ state.pending||=accessRecord(env);
+ try{const record=await state.pending;state.record={accessToken:record.accessToken,expiresAt:record.expiresAt};return record.accessToken;}
+ finally{state.pending=null;}
 }
 async function graph(env,route,options={}){
  const headers=new Headers(options.headers);headers.set('authorization',`Bearer ${await access(env)}`);

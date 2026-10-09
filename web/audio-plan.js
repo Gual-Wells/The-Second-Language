@@ -33,6 +33,28 @@ export function audioUnits(markdown){
 export function uniqueAudioUnits(units){const seen=new Set();return units.filter(u=>{const k=pronunciationKey(u.text,u.phonemes);if(seen.has(k))return false;seen.add(k);return true;});}
 export function pointAudioKeys(markdown){return new Set(audioUnits(markdown).filter(u=>!u.unsupported&&(u.kind!=='word'||u.ipa)).map(u=>pronunciationKey(u.text,u.phonemes||'')));}
 export function isPointAudioClip(clip,keys){return clip.voice==='af_bella'&&keys.has(pronunciationKey(clip.text,clip.phonemes||''));}
-export function isChapterAudioRequest(markdown,text,kind,phonemes=''){return audioUnits(markdown).some(u=>!u.unsupported&&u.kind===kind&&(kind!=='word'||u.ipa)&&pronunciationKey(u.text,u.phonemes||'')===pronunciationKey(text,phonemes));}
+export function isChapterAudioRequest(markdown,text,kind,phonemes=''){
+ if(!['word','sentence'].includes(kind)||kind==='word'&&!phonemes||kind==='sentence'&&phonemes)return false;
+ // Validate only the requested unit. Building every heading/IPA/sentence for each
+ // click can exhaust the free Worker's CPU before a paid response is saved.
+ const wanted=normalizeAudioText(text);let part='',example=false,sentence=false;
+ for(const raw of markdown.split('\n')){
+  const line=raw.trim();if(!line)continue;
+  if(line.startsWith('<!-- PART:')){const m=line.match(/^<!-- PART:(one|two|three) -->$/);if(m){part=m[1];continue;}}
+  if(kind==='word'){
+   if(part!=='one'||!/^#{2,3} /.test(line))continue;
+   const h=line.replace(/^#{2,3} /,'').match(/^(.*?)\s+(\/[^/]+\/)$/);
+   if(h&&headingWord(h[1])===wanted&&ipaToKokoro(h[2])===phonemes)return true;
+  }else{
+   if(part==='two'&&line.startsWith('<!-- EXAMPLE:')){example=true;continue;}
+   if(part==='three'&&line.startsWith('<!-- SENTENCE:')){sentence=true;continue;}
+   if((part==='two'&&example||part==='three'&&sentence)&&!line.startsWith('<!--')){
+    if(part==='two')example=false;else sentence=false;
+    if(normalizeAudioText(line.replace(/\*|`/g,''))===wanted)return true;
+   }
+  }
+ }
+ return false;
+}
 export function audioCost(characters){return audioPrice.usdPerMillion.map(rate=>characters*rate/1e6*audioPrice.usdCny);}
 export function costLabel(range){return range[1]===0?'¥0':range[1]<.01?'不足 ¥0.01':`约 ¥${range[0].toFixed(2)}–${range[1].toFixed(2)}`;}
