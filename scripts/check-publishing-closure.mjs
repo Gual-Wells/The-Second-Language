@@ -28,7 +28,9 @@ try{
  assert.equal((await get('')).digest,b);const old=await get('?digest='+a);assert.equal(old.digest,a);assert.equal(old.historical,1);assert.equal(old.markdown,'old chapter');
  const commit=async digest=>worker.fetch(new Request('https://fixture/api/publish/commit',{method:'POST',headers:{authorization:'Bearer fixture','content-type':'application/json'},body:JSON.stringify({runId:'2026-10-02',digest})}),env);
  const stamp=sql.prepare("SELECT published_at FROM published_chapters WHERE chapter_id='2026-10-02'").get().published_at;
+ sql.exec("UPDATE audio_next_config SET parts='[\"one\",\"three\"]',revision=1 WHERE id=1");
  assert.equal((await commit(b)).status,200);
+ assert.equal(sql.prepare('SELECT parts FROM audio_next_config').get().parts,'["one","three"]','Republishing an existing chapter does not consume next-chapter preferences');
  assert.equal(sql.prepare("SELECT published_at FROM published_chapters WHERE chapter_id='2026-10-02'").get().published_at,stamp);
  assert.equal((await commit(a)).status,409);
  assert.equal(sql.prepare("SELECT digest FROM published_chapters WHERE chapter_id='2026-10-02'").get().digest,b);
@@ -37,6 +39,14 @@ try{
  sql.exec('UPDATE study_settings SET rest_requested=1 WHERE id=1');
  const claim=async date=>(await worker.fetch(new Request('https://fixture/api/runs/claim',{method:'POST',headers:{authorization:'Bearer fixture','content-type':'application/json'},body:JSON.stringify({date,runId:date})}),env)).json();
  assert.equal((await claim('2026-10-03')).rest,true);assert.equal((await claim('2026-10-03')).rest,true);assert.equal((await claim('2026-10-04')).rest,false);
+ assert.equal(sql.prepare('SELECT count(*) n FROM audio_requests').get().n,0,'Rest/claims do not enqueue audio');
+ const nextDigest='e'.repeat(64);
+ sql.prepare(`INSERT INTO chapter_revisions(digest,chapter_id,study_date,number,title,subtitle,word_count,content_key,run_id,vix_commit,protocol_commit,created_at) SELECT ?,'2026-10-04','2026-10-04','2','next','',40,'next','2026-10-04',vix_commit,protocol_commit,1 FROM chapter_revisions LIMIT 1`).run(nextDigest);
+ const nextCommit=()=>worker.fetch(new Request('https://fixture/api/publish/commit',{method:'POST',headers:{authorization:'Bearer fixture','content-type':'application/json'},body:JSON.stringify({runId:'2026-10-04',digest:nextDigest})}),env);
+ assert.equal((await nextCommit()).status,200);assert.equal((await nextCommit()).status,200);
+ assert.equal(sql.prepare('SELECT count(*) n FROM audio_requests').get().n,1);
+ assert.equal(sql.prepare('SELECT chapter_digest FROM audio_requests').get().chapter_digest,nextDigest);
+ assert.equal(sql.prepare('SELECT parts FROM audio_next_config').get().parts,'[]');
  assert.equal((await worker.fetch(new Request('https://fixture/api/feedback',{method:'POST',headers:{'content-type':'application/json'},body:'{}'}),env)).status,401);
  console.log('通过：发布重发不改发布时间，旧提交不能回滚最新章节/运行/推送，休息仅消耗一次且幂等；隔离模拟。');
  const result={immutableRevisionRead:true,currentDigestReturned:true,privateBalances:true,viewDoesNotQueryAccounts:true,unknownIsNotZero:true,lowBalanceNotificationDeduplicated:true,noPaidModels:true,noProductionDataWrites:true};

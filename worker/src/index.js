@@ -7,6 +7,7 @@ import { practiceRoute } from './practice.js';
 import {balanceRoute} from './balances.js';
 import {questionsRoute} from './questions.js';
 import {storageRoute,permanentBucket,chapterText} from './storage.js';
+import {audioConfigRoute} from './audio-config.js';
 
 const encoder = new TextEncoder();
 const MAX_BODY = 5_000_000;
@@ -67,6 +68,7 @@ async function route(request, env) {
   if(path.startsWith('/api/balances'))return balanceRoute(request,env,{isPublisher:publisher(request,env),session:await sessionFor(request,env),sameOrigin:sameOrigin(request,env)});
   if(path==='/api/questions'||path.startsWith('/api/questions/'))return questionsRoute(request,env,{isPublisher:publisher(request,env),session:await sessionFor(request,env),sameOrigin:sameOrigin(request,env)});
   if(path==='/api/storage'||path.startsWith('/api/storage/'))return storageRoute(request,env,{isPublisher:publisher(request,env),session:await sessionFor(request,env),sameOrigin:sameOrigin(request,env)});
+  if(path==='/api/audio-config'||path.startsWith('/api/audio-config/'))return audioConfigRoute(request,env,{isPublisher:publisher(request,env),session:await sessionFor(request,env),sameOrigin:sameOrigin(request,env)});
   if (path === '/api/practice' || path.startsWith('/api/practice/')) return practiceRoute(request, env, publisher);
 
   if (path === '/api/session' && request.method === 'GET') return json({ authenticated: Boolean(await sessionFor(request, env)), demo: false });
@@ -150,6 +152,13 @@ async function route(request, env) {
     if (!revision) return json({ error: '暂存章节不存在' }, 404);
     const now = Date.now();
     await env.DB.batch([
+      env.DB.prepare(`INSERT OR IGNORE INTO audio_requests(id,chapter_id,chapter_digest,parts,source,state,created_at)
+        SELECT 'next-'||revision||'-'||?,?,?,parts,'next','pending',? FROM audio_next_config
+        WHERE id=1 AND parts!='[]' AND NOT EXISTS(SELECT 1 FROM published_chapters WHERE chapter_id=?)`)
+        .bind(revision.chapter_id,revision.chapter_id,revision.digest,now,revision.chapter_id),
+      env.DB.prepare(`UPDATE audio_next_config SET parts='[]',revision=revision+1,updated_at=? WHERE id=1
+        AND EXISTS(SELECT 1 FROM audio_requests WHERE id='next-'||audio_next_config.revision||'-'||? AND source='next')`)
+        .bind(now,revision.chapter_id),
       env.DB.prepare(`INSERT INTO published_chapters (chapter_id,study_date,digest,published_at) VALUES (?,?,?,?)
         ON CONFLICT(chapter_id) DO UPDATE SET digest=excluded.digest,
         published_at=CASE WHEN published_chapters.digest=excluded.digest THEN published_chapters.published_at ELSE excluded.published_at END

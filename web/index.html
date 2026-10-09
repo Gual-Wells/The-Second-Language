@@ -11,10 +11,10 @@
   <meta name="format-detection" content="telephone=no">
   <meta name="description" content="第二语言 · 按日期阅读的每日英语章节">
   <title>第二语言</title>
-  <link rel="manifest" href="/manifest.webmanifest?v=23">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=23">
-  <link rel="icon" href="/icon-192.png?v=23" type="image/png">
-  <link rel="stylesheet" href="/styles.css?v=23">
+  <link rel="manifest" href="/manifest.webmanifest?v=24">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=24">
+  <link rel="icon" href="/icon-192.png?v=24" type="image/png">
+  <link rel="stylesheet" href="/styles.css?v=24">
 </head>
 <body>
   <main class="app-shell login-mode" id="app">
@@ -62,13 +62,13 @@
       <div class="reading-scroll" id="readingScroll" tabindex="0">
         <section class="state-card loading-card" id="loadingState" role="status">
           <div class="state-band"><span>第二语言</span><small>DAILY READER</small></div>
-          <div class="state-body"><img class="state-icon" src="/icon.svg?v=23" alt=""><h2>正在打开章节</h2><p>正在检查登录状态与已发布章节。</p></div>
+          <div class="state-body"><img class="state-icon" src="/icon.svg?v=24" alt=""><h2>正在打开章节</h2><p>正在检查登录状态与已发布章节。</p></div>
         </section>
 
         <section class="state-card" id="loginState" hidden>
           <div class="state-band"><span>个人章节</span><small>SECOND LANGUAGE</small></div>
           <div class="state-body">
-            <img class="state-icon" src="/icon.svg?v=23" alt="">
+            <img class="state-icon" src="/icon.svg?v=24" alt="">
             <h2>打开你的每日读书器</h2>
             <p id="loginDescription">使用已登记的通行密钥登录，继续按日期阅读。</p>
             <label class="field-label" id="setupKeyRow" for="setupKey" hidden>初始化密钥</label>
@@ -81,7 +81,7 @@
 
         <section class="state-card" id="emptyState" hidden>
           <div class="state-band"><span>每日章节</span><small>CHAPTERS</small></div>
-          <div class="state-body"><img class="state-icon" src="/icon.svg?v=23" alt=""><h2>下一章正在建设</h2><p>发布后的章节会出现在章节册、日期栏和日历中。你可以先在设置里写下学习目标，供下一次推荐参考。</p><button class="bevel-button" id="emptySettingsButton" type="button">填写学习目标</button></div>
+          <div class="state-body"><img class="state-icon" src="/icon.svg?v=24" alt=""><h2>下一章正在建设</h2><p>发布后的章节会出现在章节册、日期栏和日历中。你可以先在设置里写下学习目标，供下一次推荐参考。</p><button class="bevel-button" id="emptySettingsButton" type="button">填写学习目标</button></div>
         </section>
 
         <section class="reader" id="reader" hidden>
@@ -197,14 +197,24 @@
       <section class="settings-section"><div class="section-band"><strong>服务额度</strong><span>BALANCES</span></div><div class="settings-body"><p>余额记录与学习任务的预计用量。</p><button class="bevel-button" id="balanceButton" type="button">查看余额与用量</button></div></section>
       <section class="settings-section"><div class="section-band"><strong>新章与额度提醒</strong><span>NOTIFICATIONS</span></div><div class="settings-body"><p id="pushStatus">从主屏幕打开 PWA 后，可开启新章节通知。</p><div class="button-row"><button class="bevel-button" id="pushButton" type="button">开启提醒</button><button class="bevel-button" id="disablePushButton" type="button" hidden>关闭提醒</button></div></div></section>
       <section class="settings-section"><div class="section-band"><strong>主屏幕与账户</strong><span>THIS DEVICE</span></div><div class="settings-body"><p id="installStatus">把阅读器加入主屏幕，可获得独立的应用窗口。</p><div class="button-row"><button class="bevel-button" id="installButton" type="button">安装说明</button><button class="bevel-button" id="logoutButton" type="button" hidden>退出登录</button></div></div></section>
+      <section class="settings-section" id="audioConfigSection"><div class="section-band"><strong>音频配置</strong><span>AUDIO LIBRARY</span></div><div class="settings-body">
+        <div id="audioConfigChoices"><p>提前准备点读音频，之后直接复用。</p><button class="settings-row" id="audioNextChoice" type="button"><span>下一章日课</span><b>›</b></button><button class="settings-row" id="audioExistingChoice" type="button"><span>已有章节</span><b>›</b></button></div>
+        <div id="audioConfigDetail" hidden><button class="bevel-button" id="audioConfigBack" type="button">‹ 音频配置</button><h3 id="audioModeTitle"></h3><label id="audioChapterRow" class="field-label">选择章节<select id="audioChapter" class="text-input"></select></label>
+          <label class="switch-row" for="audioPart-one"><span><strong>第一部分词汇</strong><small>一、二级标题的词汇点读</small><small id="audioCost-one">正在核对…</small></span><input id="audioPart-one" type="checkbox"></label>
+          <label class="switch-row" for="audioPart-two"><span><strong>第二部分例句</strong><small>每条例句独立点读</small><small id="audioCost-two">正在核对…</small></span><input id="audioPart-two" type="checkbox"></label>
+          <label class="switch-row" for="audioPart-three"><span><strong>第三部分逐句</strong><small>范文每句独立点读</small><small id="audioCost-three">正在核对…</small></span><input id="audioPart-three" type="checkbox"></label>
+          <p id="audioConfigStatus" role="status"></p><button class="bevel-button" id="audioSave" type="button">保存选配</button>
+          <div id="audioConfirmation" class="audio-confirmation" hidden><p id="audioConfirmSummary"></p><p><strong>确认后即进入生成队列，不能撤销。</strong></p><div class="button-row"><button class="bevel-button" id="audioConfirmBack" type="button">返回修改</button><button class="bevel-button" id="audioConfirm" type="button">确认并生成</button></div></div>
+        </div><p>人民币费用为估算，复用不收费；下一章的选配用后复位。</p><div id="audioJobs" aria-live="polite"></div>
+      </div></section>
     </div>
   </dialog>
 
   <dialog class="sheet-dialog" id="installDialog" aria-labelledby="installTitle">
-    <div class="sheet help-sheet"><div class="sheet-head"><div><small>HOME SCREEN</small><h2 id="installTitle">加入主屏幕</h2></div><button class="sheet-close" data-close="installDialog" type="button" aria-label="关闭">×</button></div><div class="install-guide"><img src="/icon-192.png?v=23" alt="第二语言图标"><div><strong>在 iPhone 的 Safari 中</strong><ol><li>打开本站并点按分享按钮（也可能位于浏览器菜单中）。</li><li>选择“添加到主屏幕”。</li><li>从主屏幕启动“第二语言”。</li></ol></div></div></div>
+    <div class="sheet help-sheet"><div class="sheet-head"><div><small>HOME SCREEN</small><h2 id="installTitle">加入主屏幕</h2></div><button class="sheet-close" data-close="installDialog" type="button" aria-label="关闭">×</button></div><div class="install-guide"><img src="/icon-192.png?v=24" alt="第二语言图标"><div><strong>在 iPhone 的 Safari 中</strong><ol><li>打开本站并点按分享按钮（也可能位于浏览器菜单中）。</li><li>选择“添加到主屏幕”。</li><li>从主屏幕启动“第二语言”。</li></ol></div></div></div>
   </dialog>
 
   <div id="toast" role="status" aria-live="polite"></div>
-  <script type="module" src="/app.js?v=23"></script>
+  <script type="module" src="/app.js?v=24"></script>
 </body>
 </html>

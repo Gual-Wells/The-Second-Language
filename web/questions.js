@@ -1,4 +1,4 @@
-import {prose} from './text.js?v=23';
+import {prose} from './text.js?v=24';
 export function createQuestionsUI({api,showDialog,toast,getContext}) {
  const $=id=>document.getElementById(id),dialog=$('questionsDialog');
  let target=null,threads=[],generation=0,sending=false,pendingId=null;

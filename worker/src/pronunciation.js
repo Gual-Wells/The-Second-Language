@@ -3,6 +3,8 @@ import {ttsModel,defaultVoice,voicePolicyVersion} from '../../protocol/voices.mj
 import {sha256} from './practice-media.js';
 import {permanentBucket} from './storage.js';
 import {pronunciationResult,savePronunciationResult,digestHex} from './pronunciation-store.js';
+import {audioDescriptor} from './audio-config.js';
+import {ipaToKokoro} from '../../web/audio-plan.js';
 const json=(v,s=200)=>Response.json(v,{status:s,headers:{'cache-control':'no-store'}});
 const view=row=>({id:row.id,state:row.state,nextRetryAt:row.next_retry_at||null,audioUrl:row.state==='ready'?`/api/practice/pronunciation/${row.id}/audio`:null});
 async function associate(env,b,id){
@@ -54,7 +56,8 @@ export async function pronunciationRoute(request,env,{isPublisher,isReader,sessi
  let b;try{const raw=await request.text();if(raw.length>6000)throw Error();b=JSON.parse(raw);}catch{return json({error:'发音请求无效'},400);}
  const text=typeof b.text==='string'?b.text.replace(/\s+/g,' ').trim():'';
  if(!['word','sentence'].includes(b.kind)||!/[A-Za-z]/.test(text)||text.length>(b.kind==='word'?100:1200)||/[\u3400-\u9fff]/.test(text))return json({error:'请选择英文单词或不超过 1200 字符的英文短句'},400);
- const descriptor={model:ttsModel,voice:defaultVoice,input:text,response_format:'mp3',voicePolicyVersion},id=await sha256(JSON.stringify(descriptor));
+ let phonemes='';if(b.ipa){phonemes=ipaToKokoro(String(b.ipa));if(!phonemes||b.kind!=='word')return json({error:'这个读音需要单独核对，未发起收费生成'},422);}
+ const descriptor=audioDescriptor(text,phonemes),id=await sha256(JSON.stringify(descriptor));
  await associate(env,b,id);
  if(await pronunciationResult(env,id))return json({...view({id,state:'ready'}),reused:true});
  let old=await db.prepare('SELECT id,state,next_retry_at,created_at FROM pronunciation_audio WHERE id=?').bind(id).first();
@@ -76,7 +79,7 @@ export async function pronunciationRoute(request,env,{isPublisher,isReader,sessi
  const claim=old?await db.prepare("UPDATE pronunciation_audio SET state='calling',next_retry_at=NULL,created_at=? WHERE id=? AND state='waiting_credit'").bind(Date.now(),id).run():await db.prepare("INSERT OR IGNORE INTO pronunciation_audio(id,request_json,state,created_at) VALUES(?,?,'calling',?)").bind(id,JSON.stringify(descriptor),Date.now()).run();
  if(!claim.meta.changes){const row=await db.prepare('SELECT id,state,next_retry_at FROM pronunciation_audio WHERE id=?').bind(id).first();return json({...view(row),reused:true});}
  try{
-  const r=await fetch('https://openrouter.ai/api/v1/audio/speech',{method:'POST',headers:{authorization:`Bearer ${env.OPENROUTER_API_KEY}`,'content-type':'application/json','X-Title':'The Second Language Bella pronunciation'},body:JSON.stringify({model:ttsModel,voice:defaultVoice,input:text,response_format:'mp3'}),signal:AbortSignal.timeout(240000)});
+  const r=await fetch('https://openrouter.ai/api/v1/audio/speech',{method:'POST',headers:{authorization:`Bearer ${env.OPENROUTER_API_KEY}`,'content-type':'application/json','X-Title':'The Second Language Bella pronunciation'},body:JSON.stringify({model:ttsModel,voice:defaultVoice,input:descriptor.input,response_format:'mp3'}),signal:AbortSignal.timeout(240000)});
   const bytes=await r.arrayBuffer(),metadata={status:r.status,model:ttsModel,voice:defaultVoice,generationId:r.headers.get('x-generation-id'),mime:r.headers.get('content-type')};
   if(!r.ok||!metadata.mime?.startsWith('audio/')){
    const state=r.status===402?'waiting_credit':'failed',retry=state==='waiting_credit'?null:null;

@@ -1,6 +1,6 @@
-const SHELL = 'second-language-shell-v23';
+const SHELL = 'second-language-shell-v24';
 const CHAPTERS = 'second-language-chapters-v1';
-const CORE = ['/', '/index.html', '/app.js?v=23', '/pure-reader.js?v=23', '/chapters.js?v=23', '/settings.js?v=23', '/text.js?v=23', '/practice-workspace.js?v=23', '/balances.js?v=23', '/questions.js?v=23', '/audio-library.js?v=23', '/practice.js?v=23', '/listening.js?v=23', '/reading.js?v=23', '/objective.js?v=23', '/exam-spec.js?v=23', '/recorder.js?v=23', '/reader-speech.js?v=23', '/render.js?v=23', '/annotations.js?v=23', '/styles.css?v=23', '/manifest.webmanifest?v=23', '/icon.svg?v=23', '/icon-192.png?v=23', '/icon-512.png?v=23', '/apple-touch-icon.png?v=23'];
+const CORE = ['/', '/index.html', '/app.js?v=24', '/pure-reader.js?v=24', '/chapters.js?v=24', '/settings.js?v=24', '/audio-config.js?v=24', '/audio-plan.js?v=24', '/text.js?v=24', '/practice-workspace.js?v=24', '/balances.js?v=24', '/questions.js?v=24', '/audio-library.js?v=24', '/practice.js?v=24', '/listening.js?v=24', '/reading.js?v=24', '/objective.js?v=24', '/exam-spec.js?v=24', '/recorder.js?v=24', '/reader-speech.js?v=24', '/render.js?v=24', '/annotations.js?v=24', '/styles.css?v=24', '/manifest.webmanifest?v=24', '/icon.svg?v=24', '/icon-192.png?v=24', '/icon-512.png?v=24', '/apple-touch-icon.png?v=24'];
 self.addEventListener('install', event => { event.waitUntil(caches.open(SHELL).then(cache => cache.addAll(CORE)).then(() => self.skipWaiting())); });
 self.addEventListener('activate', event => { event.waitUntil(Promise.all([self.clients.claim(), caches.keys().then(keys => Promise.all(keys.filter(key => ![SHELL, CHAPTERS, 'second-language-point-audio-v1'].includes(key)).map(key => caches.delete(key))))])); });
 self.addEventListener('message', event => { if (event.data?.type === 'CLEAR_CHAPTER_CACHE') event.waitUntil(caches.delete(CHAPTERS)); });
@@ -23,7 +23,7 @@ self.addEventListener('push', event => {
   let message = {}; try { message = event.data?.json() || {}; } catch {}
   const target = message.balances ? '/?balances=1' : message.temporaryId ? `/?temporary=${encodeURIComponent(message.temporaryId)}` : message.chapterId ? `/?chapter=${encodeURIComponent(message.chapterId)}` : '/';
   event.waitUntil((async () => {
-    await self.registration.showNotification(message.title || '第二语言 · 今日章节', { body: message.body || '新的章节已经可以阅读。', icon: '/icon-192.png?v=23', badge: '/icon-192.png?v=23', data: { target } });
+    await self.registration.showNotification(message.title || '第二语言 · 今日章节', { body: message.body || '新的章节已经可以阅读。', icon: '/icon-192.png?v=24', badge: '/icon-192.png?v=24', data: { target } });
     if ('setAppBadge' in self.navigator) { try { await self.navigator.setAppBadge(1); } catch {} }
   })());
 });

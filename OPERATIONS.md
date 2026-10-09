@@ -136,3 +136,7 @@ node scripts/practice-job.mjs review-complete <答卷ID> work/expression/reviews
 正式交互规则见 `protocol/READER_INTERACTION.md`。`node scripts/check-reader-ui.mjs` 用隔离接口检查前端草稿、手势、雅思科目导航、计时与上传保护；需要 Playwright 和 Chromium，截图留在忽略的 `.cache/reader-ui/`。可设置 `UI_CHAPTER_DIR=chapters/YYYY-MM-DD` 检查真实 40 词长章，`BROWSER_EXECUTABLE` 指定已安装浏览器。与 `check-practice-closure.mjs`、`check-publishing-closure.mjs`、`check-chapter-questions.mjs` 配合验证权限、答案隐藏和状态闭环，不调用真实收费模型、不写正式学习数据。
 
 当前壳版本 v22，新增手势、设置导航、安全文本排版和雅思工作区模块一并预缓存。发布仍使用 `scripts/deploy-app.mjs` 保留 Pages API 网关，最后执行 `scripts/check-balances.mjs`。模拟检查不能宣称真实 iPhone 的键盘、触摸和后台音频全部验收。
+
+## 章节音频选配（v24）
+
+见 protocol/AUDIO_CONFIGURATION.md。main D1 增量迁移 0009_audio_requests.sql，原有练习库不改。node scripts/deploy-app.mjs 保留同源 Pages 网关。scripts/install-audio-task.ps1 -CredentialFile <忽略的发布凭据文件> 安装独立无窗口 SecondLanguage-AudioPreparation，每分钟检查一次，在本机在线时执行已确认的申请，不调用 Codex；其他四个任务时刻不改。node scripts/check-audio-config.mjs 检查确认与不可撤销、版本/游标和去重；现有发布/发音/UI检查同步覆盖本功能。

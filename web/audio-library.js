@@ -1,9 +1,10 @@
+import {pronunciationKey} from './audio-plan.js?v=24';
 const CACHE='second-language-point-audio-v1',SETTING='second-language-audio-preload',sha=async bytes=>[...new Uint8Array(await crypto.subtle.digest('SHA-256',bytes))].map(x=>x.toString(16).padStart(2,'0')).join('');
 let chapter=null,clips=new Map(),serial=0,controller=null;
 export const preloadEnabled=()=>{try{return localStorage.getItem(SETTING)!=='off';}catch{return true;}};
 export function setPreload(enabled){try{localStorage.setItem(SETTING,enabled?'on':'off');}catch{}if(enabled&&chapter)openAudioChapter(chapter);else{serial++;controller?.abort();}}
-export async function cachedPronunciation(text){const clip=clips.get(text.replace(/\s+/g,' ').trim());if(!clip)return null;try{return(await caches.open(CACHE)).match(`/api/practice/pronunciation/${clip.id}/audio`);}catch{return null;}}
-export async function keepPronunciation(id,response,text){if(text)clips.set(text.replace(/\s+/g,' ').trim(),{id});try{if(response.ok)await(await caches.open(CACHE)).put(`/api/practice/pronunciation/${id}/audio`,response.clone());}catch{}}
+export async function cachedPronunciation(text,phonemes=''){const clip=clips.get(pronunciationKey(text,phonemes));if(!clip)return null;try{return(await caches.open(CACHE)).match(`/api/practice/pronunciation/${clip.id}/audio`);}catch{return null;}}
+export async function keepPronunciation(id,response,text,phonemes=''){if(text)clips.set(pronunciationKey(text,phonemes),{id});try{if(response.ok)await(await caches.open(CACHE)).put(`/api/practice/pronunciation/${id}/audio`,response.clone());}catch{}}
 export function clearAudioLibrary(){serial++;controller?.abort();chapter=null;clips.clear();return caches.delete(CACHE);}
 export async function openAudioChapter(current){
  serial++;controller?.abort();controller=new AbortController();chapter=current;clips.clear();
@@ -13,7 +14,7 @@ export async function openAudioChapter(current){
   const cache=await caches.open(CACHE),manifestUrl=`/api/storage/chapters/${encodeURIComponent(current.id)}?digest=${current.digest}`;
   let r;if(navigator.onLine)try{r=await fetch(manifestUrl,{credentials:'same-origin',signal});if(r.ok)await cache.put(manifestUrl,r.clone());}catch{}if(!r?.ok)r=await cache.match(manifestUrl);if(!r?.ok)return;
   const manifest=await r.json();if(ticket!==serial)return;
-  for(const clip of manifest.clips||[])if(clip.voice==='af_bella')clips.set(clip.text,clip);
+  for(const clip of manifest.clips||[])if(clip.voice==='af_bella')clips.set(pronunciationKey(clip.text,clip.phonemes||''),clip);
   if(!preloadEnabled()||!navigator.onLine)return;
   // One chapter unit, sequential 8 MiB packs: no scroll prediction or per-word network prefetch.
   for(const [index,pack] of (manifest.packs||[]).entries()){
