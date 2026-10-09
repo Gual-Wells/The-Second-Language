@@ -4,6 +4,14 @@
 
 ## 本地阅读器
 
+### 独立认证与纪念币试验
+
+入口 `/labs/certification/`，API `/api/certification-lab`，复用正式通行密钥会话和同源校验。只绑定 `CERTIFICATION_LAB_DB`（`the-second-language-certification-lab`），初始化 SQL 为 `trials/certification-lab/schema.sql`；不对正式 `DB`／`PRACTICE_DB` 应用该 SQL。此库保留试验答卷、测试认证和反馈，不能视作已完成正式资产归档。正式读后记录不动。
+
+`node scripts/check-certification-lab.mjs` 检查随机组卷、隐藏答案、固定章节版本、幂等及唯一证书；`node scripts/check-certification-ui.mjs` 使用真实页面、内存数据库与软件 WebGL 检查触控流程、三维碰撞、运动权限及反馈。全部在隔离环境，不调用收费 API。截图和测量在 `.cache/certification-lab/`，不能据此宣称真机帧率。
+
+Three.js 0.186.1 和 Rapier 0.21.0 仅在打开场景时加载，锁定包版本与 SHA-512，库源码及 MIT／Apache 2.0 许可保留在 `web/labs/certification/vendor/`。如需恢复供应商文件，执行 `node trials/certification-lab/prepare-assets.mjs`，需要 Python 安全解包。声音使用版本化确定性合成，无 TTS 请求；碰撞不上传、不写 KV，退出场景停止声音与物理。试验完成后仍按 BALANCES 更新额度。
+
 闭环检查命令：`node scripts/check-publishing-closure.mjs` 与 `node scripts/check-practice-closure.mjs`。二者使用独立内存 SQLite 和模拟外部服务，不写正式库、不调用真实推理；检查发布版本、休息、额度记录、完整/微缩四科、答卷重试、原声揭示顺序、建设停止与明确续作。点读永久复用、口语保真/代偿、答疑与存储恢复使用各自已有专项检查，具体证据和限制见 `research/closed-loop-review-2026-10-06.md`。
 
 ```sh

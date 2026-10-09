@@ -1,0 +1,12 @@
+[
+  {
+    "name": "three",
+    "version": "0.186.1",
+    "integrity": "sha512-blFeqb49wRCSGUGj7gtpfnSGHy2lwDk94RhUmS1c/hTby70kvChbWpkJ4Pm1390LqzzvTmzgXKHPEafJwCb8jA=="
+  },
+  {
+    "name": "@dimforge/rapier3d-compat",
+    "version": "0.21.0",
+    "integrity": "sha512-tCl1HPGwOhn5aCQbgqWbOH+Nx/5fnr3IPAnzQuR7zIhC/raqi2yxC6LhvZqjdI2El5hQgY5RDAwDrAjAi2FdPA=="
+  }
+]
