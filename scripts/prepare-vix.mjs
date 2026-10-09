@@ -1,5 +1,5 @@
 import { createHash } from 'node:crypto';
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, readdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 
 const repo = 'Gual-Wells/IELTS-Vocabulary-Index-List';
@@ -46,6 +46,8 @@ const files = tree.tree.filter(item => item.type === 'blob' &&
   (/^data\/seed5-runtime\//.test(item.path) || /^data\/seed-access\//.test(item.path) || /^textbook\/.*\.md$/.test(item.path) || item.path === 'tools/build-seed-access.mjs'));
 const dest = path.resolve('.cache/vix', commit);
 await mkdir(dest, { recursive: true });
+const cachedCommits = (await readdir(path.resolve('.cache/vix'), { withFileTypes: true }))
+  .filter(item => item.isDirectory() && item.name !== commit).map(item => item.name);
 let next = 0;
 async function worker() {
   while (next < files.length) {
@@ -54,10 +56,29 @@ async function worker() {
     const target = path.join(dest, ...item.path.split('/'));
     try { if (gitBlobSha(await readFile(target)) === item.sha) continue; }
     catch (error) { if (error.code !== 'ENOENT') throw error; }
+    let reused = false;
+    for (const oldCommit of cachedCommits) {
+      try {
+        const candidate = await readFile(path.resolve('.cache/vix', oldCommit, ...item.path.split('/')));
+        if (gitBlobSha(candidate) !== item.sha) continue;
+        await mkdir(path.dirname(target), { recursive: true });
+        await writeFile(target, candidate);
+        reused = true;
+        break;
+      } catch (error) { if (error.code !== 'ENOENT') throw error; }
+    }
+    if (reused) continue;
     const url = `https://raw.githubusercontent.com/${repo}/${commit}/${item.path.split('/').map(encodeURIComponent).join('/')}`;
-    const chunks = [];
-    for (let start = 0; start < item.size; start += CHUNK) chunks.push(await rangeBytes(url, start, Math.min(start + CHUNK, item.size) - 1, item.size));
-    const bytes = Buffer.concat(chunks);
+    let bytes;
+    try {
+      const blob = await getJson(`https://api.github.com/repos/${repo}/git/blobs/${item.sha}`);
+      if (blob.encoding !== 'base64' || typeof blob.content !== 'string') throw new Error('GitHub blob 响应无效');
+      bytes = Buffer.from(blob.content.replace(/\s/g, ''), 'base64');
+    } catch (apiError) {
+      const chunks = [];
+      for (let start = 0; start < item.size; start += CHUNK) chunks.push(await rangeBytes(url, start, Math.min(start + CHUNK, item.size) - 1, item.size));
+      bytes = Buffer.concat(chunks);
+    }
     const blob = gitBlobSha(bytes);
     if (blob !== item.sha) throw new Error(`VIX 文件 Git blob 摘要不匹配: ${item.path}`);
     await mkdir(path.dirname(target), { recursive: true });
