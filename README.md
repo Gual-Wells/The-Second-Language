@@ -54,6 +54,8 @@ iPhone PWA → 同源 Pages 网关 → Cloudflare Worker
 
 [独立测试页](https://the-second-language.pages.dev/labs/certification/)沿用正式站登录。第三章八道理解题由原创样题库独立随机组卷，可以不限次重测；满分只生成一份测试认证及固定声音身份。祭坛可拖动观赏、点币试听；玻璃罐用真实三维碰撞，提供 32／128／500 枚示意币、手机摇晃与手动摇晃，并保存反馈草稿。试验不替换正式读后记录，不授予正式认证，不调用付费模型。500 枚的手机性能和听感尚需真机验收。范围见 [CERTIFICATION_RESEARCH](protocol/CERTIFICATION_RESEARCH.md)。
 
+首轮用户体验未通过：部分理解题可保留，八题容量不足，场景、美术、声音与摇晃方案均未采用。原测试页保留作比较；[反馈与成熟实现研究](research/certification-feedback-review-2026-10-09.md)明确下一轮的题目质量、约十分钟容量、材质美术及正确运动要求，不能以已有逻辑检查替代产品验收。
+
 ## 目录与使用
 
 - `web/`：原生 HTML／CSS／JavaScript PWA，唯一界面样式为 `styles.css`。
