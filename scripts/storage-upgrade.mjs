@@ -19,7 +19,15 @@ let ledger={};try{ledger=JSON.parse(await readFile(path.join(directory,'upload-l
  for await(const rows of rowidPages(query,mainDatabase,'storage_objects',{pageSize:1000,projection:'t.object_key AS key,t.digest,b.bytes',join:'JOIN storage_blobs b ON b.digest=t.digest'}))for(const row of rows)ledger[row.key]=row;
  await writeFile(path.join(directory,'upload-ledger.json'),JSON.stringify(ledger));
 }
-async function api(route,body=null,method='POST',mime='application/json'){const r=await fetch(new URL(`/api/storage${route}`,base),{method,headers:{authorization:`Bearer ${token}`,'content-type':mime},...(body!==null?{body:Buffer.isBuffer(body)?body:JSON.stringify(body)}:{}),signal:AbortSignal.timeout(180000)});if(!r.ok){const error=await r.json().catch(()=>({}));throw Error(`归档接口 ${r.status}: ${error.error||'request_failed'}`);}return r;}
+async function api(route,body=null,method='POST',mime='application/json'){
+ const started=Date.now();
+ for(;;){const r=await fetch(new URL(`/api/storage${route}`,base),{method,headers:{authorization:`Bearer ${token}`,'content-type':mime},...(body!==null?{body:Buffer.isBuffer(body)?body:JSON.stringify(body)}:{}),signal:AbortSignal.timeout(180000)});if(r.ok)return r;
+  const error=await r.json().catch(()=>({}));
+  // Only a read that explicitly lost the credential refresh lock may be repeated.
+  if(method==='GET'&&r.status===503&&error.error==='存储凭据正在更新，请稍后再试'&&Date.now()-started<65000){await new Promise(resolve=>setTimeout(resolve,1000));continue;}
+  throw Error(`归档接口 ${r.status}: ${error.error||'request_failed'}`);
+ }
+}
 async function put(key,bytes,mime='application/octet-stream'){const hash=digest(bytes);if(ledger[key]?.digest===hash&&(mode!=='backup'||ledger[key].itemId))return ledger[key];const result=await(await api(mode==='backup'?'/content':`/objects?key=${encodeURIComponent(key)}`,bytes,'PUT',mime)).json();if(result.digest!==hash)throw Error('上传摘要不同');ledger[key]={key,...result};await writeFile(path.join(directory,'upload-ledger.json'),JSON.stringify(ledger));return ledger[key];}
 if(mode==='backup'){
  const stamp=new Date().toISOString().replace(/[:.]/g,'-'),manifest={version:2,createdAt:new Date().toISOString(),databases:[],directResources:true,temporaryPolicy:'48-hour temporary content is excluded from permanent exports'};
