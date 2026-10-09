@@ -91,10 +91,16 @@ if(mode==='backup'){
   const compactIds=new Set(compact.map(x=>x.id)),clips=[...compact,...legacy.filter(x=>!compactIds.has(x.id))];
   const chunks=[],packs=[],entries=[];let length=0;
   async function flush(){if(!chunks.length)return;const bytes=Buffer.concat(chunks),key=`chapter-audio/${c.chapter_id}/${c.digest}/${digest(bytes)}.bin`;await put(key,bytes);packs.push({key,bytes:bytes.length,digest:digest(bytes)});chunks.length=0;length=0;}
-  for(const clip of clips){let descriptor;if(clip.record_digest){const record=Buffer.from(await(await api(`/content?digest=${clip.record_digest}`,null,'GET')).arrayBuffer());if(digest(record)!==clip.record_digest)throw Error('点读描述摘要不一致');descriptor=JSON.parse(record.toString('utf8')).request;}else descriptor=JSON.parse(clip.request_json);
+  async function readClip(clip){let descriptor;if(clip.record_digest){const record=Buffer.from(await(await api(`/content?digest=${clip.record_digest}`,null,'GET')).arrayBuffer());if(digest(record)!==clip.record_digest)throw Error('点读描述摘要不一致');descriptor=JSON.parse(record.toString('utf8')).request;}else descriptor=JSON.parse(clip.request_json);
    if(digest(Buffer.from(JSON.stringify(descriptor)))!==clip.id)throw Error('点读生成身份不一致');
-   const entry={id:clip.id,text:descriptor.pronunciation?.text||descriptor.input,phonemes:descriptor.pronunciation?.phonemes||'',voice:descriptor.voice};if(!isPointAudioClip(entry,eligible))continue;
-   const bytes=Buffer.from(await(await api(clip.content_digest?`/content?digest=${clip.content_digest}`:`/objects?key=${encodeURIComponent(clip.audio_key)}`,null,'GET')).arrayBuffer());if(clip.content_digest&&digest(bytes)!==clip.content_digest)throw Error('点读原件摘要不一致');if(length+bytes.length>8*1024*1024)await flush();entries.push({...entry,pack:packs.length,offset:length,length:bytes.length,digest:digest(bytes)});chunks.push(bytes);length+=bytes.length;
+   const entry={id:clip.id,text:descriptor.pronunciation?.text||descriptor.input,phonemes:descriptor.pronunciation?.phonemes||'',voice:descriptor.voice};if(!isPointAudioClip(entry,eligible))return null;
+   const bytes=Buffer.from(await(await api(clip.content_digest?`/content?digest=${clip.content_digest}`:`/objects?key=${encodeURIComponent(clip.audio_key)}`,null,'GET')).arrayBuffer());if(clip.content_digest&&digest(bytes)!==clip.content_digest)throw Error('点读原件摘要不一致');return{entry,bytes};
+  }
+  // Bound read concurrency and memory; publishing and ledger writes stay sequential.
+  for(let start=0;start<clips.length;start+=4){
+   const batch=await Promise.all(clips.slice(start,start+4).map(readClip));
+   for(const result of batch){if(!result)continue;const{entry,bytes}=result;if(length+bytes.length>8*1024*1024)await flush();entries.push({...entry,pack:packs.length,offset:length,length:bytes.length,digest:digest(bytes)});chunks.push(bytes);length+=bytes.length;}
+   if((start+4)%100===0||start+4>=clips.length)console.log(`章节 ${c.chapter_id} 点读包：${Math.min(start+4,clips.length)}/${clips.length} 已核验`);
   }
   await flush();const manifest={chapterId:c.chapter_id,digest:c.digest,pointAudioPolicy,packs,clips:entries},bytes=Buffer.from(JSON.stringify(manifest)),key=`chapter-audio/${c.chapter_id}/${c.digest}/${digest(bytes)}.json`;await put(key,bytes,'application/json');await api('/publish-pack',{chapterId:c.chapter_id,digest:c.digest,manifestKey:key});
   await query(mainDatabase,'DELETE FROM chapter_audio_work WHERE chapter_id=? AND chapter_digest=? AND requested_at<=?',[c.chapter_id,c.digest,c.requested_at]);
