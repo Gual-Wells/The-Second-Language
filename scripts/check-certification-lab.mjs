@@ -1,0 +1,33 @@
+import assert from 'node:assert/strict';
+import {readFile,mkdir,writeFile} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+import {fixture,correctAnswers} from '../trials/certification-lab/fixture.mjs';
+import {bank,chapter} from '../worker/src/certification-bank.js';
+import {createPaper} from '../worker/src/certification-lab.js';
+import {coinSamples} from '../web/labs/certification/sound.js';
+const checks=[],check=(name,value)=>{assert.ok(value,name);checks.push(name);};
+const f=await fixture();
+try{
+ const actual=await readFile('chapters/2026-10-09/chapter.md');check('bank binds actual chapter digest',createHash('sha256').update(actual).digest('hex')===chapter.digest);
+ check('28 reviewed questions, fourteen distinct learning targets',bank.length===28&&new Set(bank.map(q=>q.target)).size===14);
+ const seen=new Set();for(let i=0;i<200;i++){const p=createPaper();assert.equal(p.items.length,8);assert.equal(new Set(p.items.map(q=>q.target)).size,8);assert.equal(new Set(p.items.map(q=>q.type)).size,3);assert(!seen.has(p.seed));seen.add(p.seed);}check('200 independent draws preserve eight targets and three formats',true);
+ check('anonymous blocked',(await f.request('',null,{session:null})).status===401);
+ check('cross origin mutation blocked',(await f.request('/attempts',{id:crypto.randomUUID()},{session:true,sameOrigin:false})).status===403);
+ const id=crypto.randomUUID(),first=await f.request('/attempts',{id});check('create paper',first.status===200);
+ const data=first.data;check('answers and explanations hidden before submission',data.items.every(q=>!('correct'in q)&&!('explanation'in q)&&!('sourceId'in q)&&!('target'in q)));
+ check('network retry returns identical paper',JSON.stringify((await f.request('/attempts',{id})).data)===JSON.stringify(data));
+ const priorTitle=chapter.title;chapter.title='future changed title';check('stored paper retains original title',(await f.request('/attempts/'+id)).data.chapter.title===priorTitle);chapter.title=priorTitle;
+ check('incomplete submission rejected',(await f.request('/attempts/'+id+'/submit',{answers:{}})).status===400);
+ const answers=correctAnswers(f.privatePaper(id));const q=f.privatePaper(id).items.find(q=>q.type==='single');answers[q.id]=q.options.find(o=>!q.correct.includes(o.id)).id;
+ const wrong=await f.request('/attempts/'+id+'/submit',{answers});check('wrong answer can fail and exposes review only afterwards',wrong.data.result.score===87.5&&!wrong.data.result.passed&&wrong.data.result.details.length===8);
+ check('failed test produces no certificate',!(await f.request()).data.certificate);
+ check('same submission idempotent',JSON.stringify((await f.request('/attempts/'+id+'/submit',{answers})).data)===JSON.stringify(wrong.data));
+ check('sealed answer cannot be rewritten',(await f.request('/attempts/'+id+'/submit',{answers:correctAnswers(f.privatePaper(id))})).status===409);
+ const secondId=crypto.randomUUID();await f.request('/attempts',{id:secondId});check('reroll has fresh question identities',(await f.request('/attempts/'+secondId)).data.items.every(q=>!data.items.some(old=>old.id===q.id)));
+ const secondAnswers=correctAnswers(f.privatePaper(secondId));check('perfect test passes',(await f.request('/attempts/'+secondId+'/submit',{answers:secondAnswers})).data.result.passed);
+ const cert=(await f.request()).data.certificate;check('first perfect record creates preview certificate',cert.attempt_id===secondId&&cert.preview);
+ for(let i=0;i<12;i++){const rid=crypto.randomUUID();await f.request('/attempts',{id:rid});await f.request('/attempts/'+rid+'/submit',{answers:correctAnswers(f.privatePaper(rid))});}check('further independent perfect attempts reuse one certificate',JSON.stringify((await f.request()).data.certificate)===JSON.stringify(cert)&&f.sqlite.prepare('SELECT count(*) AS n FROM lab_certificates').get().n===1);
+ const fid=crypto.randomUUID(),feedback={note:'isolated check',preview:true};check('feedback persists',(await f.request('/feedback',{id:fid,feedback})).status===200);check('feedback retry does not duplicate',(await f.request('/feedback',{id:fid,feedback})).status===200&&f.sqlite.prepare('SELECT count(*) AS n FROM lab_feedback').get().n===1);check('feedback conflict rejected',(await f.request('/feedback',{id:fid,feedback:{note:'changed'}})).status===409);check('feedback private to publisher',(await f.request('/feedback')).status===404&&(await f.request('/feedback',null,{isPublisher:true})).data.feedback.length===1);
+ const hashes=new Set();let peak=0;for(let i=0;i<500;i++){const audio=coinSamples('sample-'+i);const repeat=coinSamples('sample-'+i);assert.deepEqual(audio,repeat);hashes.add(createHash('sha256').update(Buffer.from(audio.buffer)).digest('hex'));for(const x of audio){assert(Number.isFinite(x));peak=Math.max(peak,Math.abs(x));}}check('500 deterministic distinct bounded sound assets',hashes.size===500&&peak<1);
+ await mkdir('.cache/certification-lab',{recursive:true});await writeFile('.cache/certification-lab/backend-results.json',JSON.stringify({checks,draws:200,uniqueSounds:hashes.size,peak,paidCalls:0},null,2));console.log(JSON.stringify({checks:checks.length,draws:200,uniqueSounds:hashes.size,peak,paidCalls:0}));
+}finally{f.close();}

@@ -22,6 +22,11 @@
       "database_name": "the-second-language-practice",
       "database_id": "bf3d8fed-55cf-49fc-8c12-4fa62462c034",
       "migrations_dir": "practice_migrations"
+    },
+    {
+      "binding": "CERTIFICATION_LAB_DB",
+      "database_name": "the-second-language-certification-lab",
+      "database_id": "e9670929-9f45-40b9-89c7-e03c20a43fe3"
     }
   ],
   "kv_namespaces": [
@@ -34,7 +39,9 @@
       "id": "cd0a805ac55146d599f70a32fa9aa0f2"
     }
   ],
-  "ai": { "binding": "AI" },
+  "ai": {
+    "binding": "AI"
+  },
   "triggers": {
     "crons": [
       "* * * * *"
