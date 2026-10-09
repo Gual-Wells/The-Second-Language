@@ -1,0 +1,65 @@
+{
+  "tools": {
+    "gltfTransform": "4.5.1",
+    "meshoptimizer": "1.3.0"
+  },
+  "reports": [
+    {
+      "file": "cloister-full.glb",
+      "dest": "cloister.glb",
+      "sourceSha256": "f2ac5158f0341c35f43beaffef8b8adc87333d15cca63397acf76d345610f631",
+      "trianglesBefore": 1013385,
+      "trianglesAfter": 250656,
+      "animationClips": 0,
+      "images": [
+        {
+          "original": [
+            8192,
+            8192
+          ],
+          "maximum": 4096
+        }
+      ],
+      "targetRatio": 0.12,
+      "relativeError": 0.002
+    },
+    {
+      "file": "shark.glb",
+      "dest": "shark.glb",
+      "sourceSha256": "6c290b68c0d974591c29a623975156656e0ece2002cf65c09f0f4d209b4bb0c6",
+      "trianglesBefore": 51199,
+      "trianglesAfter": 51199,
+      "animationClips": 3,
+      "images": [
+        {
+          "original": [
+            2048,
+            2048
+          ],
+          "maximum": 1024
+        },
+        {
+          "original": [
+            512,
+            512
+          ],
+          "maximum": 1024
+        },
+        {
+          "original": [
+            2048,
+            2048
+          ],
+          "maximum": 1024
+        },
+        {
+          "original": [
+            2048,
+            2048
+          ],
+          "maximum": 1024
+        }
+      ]
+    }
+  ]
+}

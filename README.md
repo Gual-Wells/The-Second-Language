@@ -96,3 +96,7 @@ Third-party packages, model/provider outputs, voices, APIs, dictionary or textbo
 ### 章节音频选配
 
 设置中的“音频配置”可为下一章一次性准备词汇、例句、范文逐句音频，也可对已有章节申请。已有章节先显示费用预估，再确认不可撤销；后台沿用 Kokoro Bella 与永久音频库。相同文字、音色和读音跨部分/章节复用；标题不同读音通过音素覆盖区分。预下载开关仍只下载已生成音频。协议与运行入口见 [AUDIO_CONFIGURATION](protocol/AUDIO_CONFIGURATION.md)。
+
+### 月度纪念展厅实验
+
+[月度展厅样件](https://the-second-language.pages.dev/labs/monthly-gallery/) 使用固定版本 Babylon.js、授权立体资产和静态象征声音，支持横竖屏、慢速环游、近看、三种环境及三十台布局。三枚样币与反馈独立于正式章节认证；原两轮测试页继续保留。实体 iPhone 的艺术、声音及性能仍待用户验收，正式申领/场景演化及纪念日历尚未启用。现行决定见 [CERTIFICATION_RESEARCH](protocol/CERTIFICATION_RESEARCH.md)，选型与验证见 [本轮研究](research/monthly-gallery-implementation-2026-10-10.md)，素材许可见 [CREDITS](web/labs/monthly-gallery/CREDITS.md)。
