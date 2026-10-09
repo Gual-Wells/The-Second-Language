@@ -1,14 +1,14 @@
-import {installPureReader} from './pure-reader.js?v=25';
-import {chapterNumber, createChapterBook} from './chapters.js?v=25';
-import {installSettingsNavigation} from './settings.js?v=25';
-import {createAudioConfig} from './audio-config.js?v=25';
-import {installReaderSpeech} from './reader-speech.js?v=25';
-import { parseParts, renderPart } from './render.js?v=25';
-import { validateAnnotatedContent } from './annotations.js?v=25';
-import { createPracticeUI } from './practice.js?v=25';
-import {createBalanceUI} from './balances.js?v=25';
-import {createQuestionsUI} from './questions.js?v=25';
-import {openAudioChapter,clearAudioLibrary,preloadEnabled,setPreload} from './audio-library.js?v=25';
+import {installPureReader} from './pure-reader.js?v=26';
+import {chapterNumber, createChapterBook} from './chapters.js?v=26';
+import {installSettingsNavigation} from './settings.js?v=26';
+import {createAudioConfig} from './audio-config.js?v=26';
+import {installReaderSpeech} from './reader-speech.js?v=26';
+import { parseParts, renderPart } from './render.js?v=26';
+import { validateAnnotatedContent } from './annotations.js?v=26';
+import { createPracticeUI } from './practice.js?v=26';
+import {createBalanceUI} from './balances.js?v=26';
+import {createQuestionsUI} from './questions.js?v=26';
+import {openAudioChapter,clearAudioLibrary,preloadEnabled,setPreload} from './audio-library.js?v=26';
 
 const $ = id => document.getElementById(id);
 const todayParts = Object.fromEntries(new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(new Date()).map(part => [part.type, part.value]));
@@ -36,15 +36,15 @@ function toast(message) {
   toast.timer = setTimeout(() => element.classList.remove('visible'), 3300);
 }
 
-const nativeSpeech=installReaderSpeech({toast});
-const pureReader=installPureReader({prepareTap:nativeSpeech.prepareTap,onToggle:saveReadingPosition});
+const nativeSpeech=installReaderSpeech({toast,onWordJump:jumpToWord});
+const pureReader=installPureReader({prepareTap:nativeSpeech.prepareTap,onToggle:saveReadingPosition,onQuestion:focus=>questions.submitFocus(focus)});
 const settingsNavigation=installSettingsNavigation();
 const settingFields=['studyGoal','temporaryRequestToggle','temporaryRequestText','restToggle'],dirtySettings=new Set();
 for(const id of settingFields){const field=$(id);const saved=readStored('second-language-settings-draft')[id];if(saved!==undefined){if(field.type==='checkbox')field.checked=saved;else field.value=saved;dirtySettings.add(id);}field.addEventListener('input',()=>{dirtySettings.add(id);const draft=readStored('second-language-settings-draft');draft[id]=field.type==='checkbox'?field.checked:field.value;writeStored('second-language-settings-draft',draft);});}
 function savedSettings(values){const draft=readStored('second-language-settings-draft');for(const [id,sent] of Object.entries(values)){const field=$(id),current=field.type==='checkbox'?field.checked:field.value;if(current===sent){dirtySettings.delete(id);delete draft[id];}}writeStored('second-language-settings-draft',draft);}
 const balances=createBalanceUI({api,showDialog});
 const questions=createQuestionsUI({api,showDialog,toast,getContext:()=>state});
-const chapterBook=createChapterBook({getContext:()=>state,openChapter,showPart,showDialog,renderCalendar});
+const chapterBook=createChapterBook({getContext:()=>state,openChapter,showDialog,renderCalendar});
 createAudioConfig({api,getContext:()=>state,toast});
 
 function clearBadge() { if ('clearAppBadge' in navigator) { try { Promise.resolve(navigator.clearAppBadge()).catch(() => {}); } catch {} } }
@@ -145,7 +145,7 @@ function renderCalendar() {
     button.textContent = String(day);
     button.disabled = !byDate.has(date);
     button.setAttribute('aria-label', `${formatDate(date)}${byDate.has(date) ? `，${byDate.get(date).title}` : '，尚未发布'}`);
-    if (byDate.has(date)) { button.classList.add('has-chapter'); button.addEventListener('click', () => openChapter(byDate.get(date).id)); }
+    if (byDate.has(date)) { button.classList.add('has-chapter'); button.addEventListener('click', () => openChapter(byDate.get(date).id, false)); }
     if (date === TODAY) button.classList.add('today');
     if (date === state.current?.date) button.classList.add('selected');
     calendar.append(button);
@@ -165,7 +165,7 @@ function renderCalendar() {
     const title = document.createElement('strong');
     title.textContent = chapter.title;
     button.append(date, title);
-    button.addEventListener('click', () => openChapter(chapter.id));
+    button.addEventListener('click', () => openChapter(chapter.id, false));
     list.append(button);
   }
 }
@@ -284,6 +284,14 @@ function jumpTo(part, code) {
   }));
 }
 
+function jumpToWord(wordId){
+ showPart('one',false);
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  const target=[...$('article').querySelectorAll('.word-entry')].find(e=>e.dataset.wordId===wordId);
+  if(target)target.scrollIntoView({behavior:'smooth',block:'start'});else toast('没有找到对应词汇标题');
+ }));
+}
+
 function openSentenceReference(codes) {
   const refs = [...new Set(codes)].filter(code => state.useLabels.has(code));
   if (!refs.length) { toast('这一句没有可定位的用法'); return; }
@@ -301,7 +309,7 @@ function openSentenceReference(codes) {
 }
 
 function showPart(part, restore = false, rememberCurrent = true) {
-  nativeSpeech.stop();
+  nativeSpeech.stop();pureReader.clear();
   if (!state.current || !['one', 'two', 'three'].includes(part)) return;
   if (rememberCurrent) saveReadingPosition();
   state.part = part;
@@ -331,7 +339,7 @@ function showPart(part, restore = false, rememberCurrent = true) {
 }
 
 async function openChapter(id, resume = true, digest = null) {
-  nativeSpeech.stop();
+  nativeSpeech.stop();pureReader.clear();
   const request = ++state.chapterRequest;
   saveReadingPosition();
   setSyncStatus(navigator.onLine ? '正在打开章节…' : '正在读取离线章节', !navigator.onLine);
@@ -750,6 +758,6 @@ $('chapterNav').addEventListener('touchend', event => {
   if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.5) moveChapter(dx < 0 ? 1 : -1);
   swipeStart = null;
 }, { passive: true });
-if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=25', { updateViaCache: 'none' }).catch(() => {});
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=26', { updateViaCache: 'none' }).catch(() => {});
 refreshInstallStatus();
 initialize().then(()=>{if(state.authenticated&&new URLSearchParams(location.search).has('balances'))balances.open();});

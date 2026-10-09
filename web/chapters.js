@@ -3,7 +3,7 @@ export function chapterNumber(chapter) {
   return String(chapter.number || '每日章节').replace(/课/g, '章');
 }
 
-export function createChapterBook({getContext, openChapter, showPart, showDialog, renderCalendar}) {
+export function createChapterBook({getContext, openChapter, showDialog, renderCalendar}) {
   const $ = id => document.getElementById(id);
   const tabs = [$('chapterBookTab'), $('chapterCalendarTab')];
   const panels = [$('chapterBookPanel'), $('chapterCalendarPanel')];
@@ -20,11 +20,11 @@ export function createChapterBook({getContext, openChapter, showPart, showDialog
     });
   });
   let opening = false;
-  async function read(id, part) {
+  async function read(id) {
     if (opening) return;
     opening = true;
     $('chapterBookPanel').setAttribute('aria-busy', 'true');
-    try { if (await openChapter(id) && part) showPart(part, true, false); }
+    try { await openChapter(id, false); }
     finally { opening = false; $('chapterBookPanel').removeAttribute('aria-busy'); }
   }
   function render() {
@@ -56,16 +56,13 @@ export function createChapterBook({getContext, openChapter, showPart, showDialog
       const entry = make('section', 'chapter-book-entry');
       if (active?.id === chapter.id && !current?.historical) entry.classList.add('active');
       const title = make('button', 'chapter-book-title'); title.type = 'button';
-      title.append(make('small', '', `${chapterNumber(chapter)} · ${chapter.date.slice(2)}`), make('strong', '', chapter.title));
-      if (chapter.subtitle) title.append(make('span', '', chapter.subtitle));
+      const label = make('span', 'chapter-book-label');
+      label.append(make('small', '', `${chapterNumber(chapter)} · ${chapter.date.slice(2)}`), make('strong', '', chapter.title));
+      if (chapter.subtitle) label.append(make('span', '', chapter.subtitle));
+      const arrow = make('b', '', '›'); arrow.setAttribute('aria-hidden', 'true'); title.append(label, arrow);
       title.setAttribute('aria-label', `打开${chapterNumber(chapter)}：${chapter.title}`);
       title.onclick = () => read(chapter.id);
-      const contents = make('div', 'chapter-book-contents');
-      contents.setAttribute('role','group'); contents.setAttribute('aria-label', `${chapter.title}目录`);
-      for (const [part, label] of [['one','01 词汇与用法'],['two','02 例句与翻译'],['three','03 任意文']]) {
-        const button = make('button','',label); button.type = 'button'; button.onclick = () => read(chapter.id, part); contents.append(button);
-      }
-      entry.append(title, contents); list.append(entry);
+      entry.append(title); list.append(entry);
     }
   }
   $('chapterBookSearch').addEventListener('input', render);
