@@ -246,17 +246,22 @@ textarea.text-input { resize: vertical; }
 .chapter-book-resume strong { grid-row: 2; color: #24567e; font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .chapter-book-resume b { grid-column: 2; grid-row: 1 / 3; align-self: center; color: #487a9f; font-size: 23px; font-weight: 400; }
 .chapter-book-month { margin: 0; padding: 6px 11px; border-top: 1px solid #bccddd; border-bottom: 1px solid #bccddd; background: linear-gradient(#edf4fa, #dce8f2); color: #496980; font-size: 11px; }
-.chapter-book-entry { padding: 0 11px 10px; border-bottom: 1px solid #d8e3ed; background: #fff; }
+.chapter-book-entry { padding: 0 11px; border-bottom: 1px solid #d8e3ed; background: #fff; }
 .chapter-book-entry:nth-child(odd) { background: #f6f9fc; }
 .chapter-book-entry.active { box-shadow: 3px 0 #427ca8 inset; background: #edf5fc; }
-.chapter-book-title { display: block; width: 100%; min-height: 57px; padding: 10px 0 8px; border: 0; background: transparent; text-align: left; }
+.chapter-book-title { display: grid; grid-template-columns: minmax(0,1fr) auto; align-items: center; gap: 12px; width: 100%; min-height: 67px; padding: 11px 2px; border: 0; background: transparent; text-align: left; }
 .chapter-book-title small { display: block; color: #607c93; font-size: 10px; }
 .chapter-book-title strong { display: block; margin: 3px 0; color: #214f78; font-size: 15px; overflow-wrap: anywhere; }
-.chapter-book-title span { display: block; color: #667e93; font-size: 11px; overflow-wrap: anywhere; }
-.chapter-book-contents { display: flex; border: 1px solid #afc3d5; border-radius: 2px; overflow: hidden; }
-.chapter-book-contents button { flex: 1; min-width: 0; min-height: 38px; border: 0; border-right: 1px solid #afc3d5; padding: 5px 2px; background: linear-gradient(#fff, #e6eff7); color: #3c6486; font-size: 10px; }
-.chapter-book-contents button:last-child { border-right: 0; }
-.chapter-book-contents button:active, .chapter-book-resume:active { background: #c8ddeb; }
+.chapter-book-label > span { display: block; color: #667e93; font-size: 11px; overflow-wrap: anywhere; }
+.chapter-book-title > b { color: #688aa5; font-size: 25px; font-weight: 400; }
+.chapter-book-title:active, .chapter-book-resume:active { background: #dceaf6; }
+
+/* Reserve only these precise targets for holds; keep scrolling native. */
+#article[data-audio-part="one"] .word-entry h1,
+#article[data-audio-part="one"] .word-entry h2,
+#article[data-audio-part="one"] .word-entry h3,
+#article[data-audio-part="two"] .example-pair p,
+#article[data-audio-part="three"] .story-sentence { -webkit-touch-callout: none; -webkit-user-select: none; user-select: none; touch-action: pan-y; }
 .temporary-intro { border-bottom: 1px solid #c7d7e5; padding: 10px 12px; background: #f8fbfe; color: #526b83; font-size: 11px; line-height: 1.6; }
 .temporary-list { max-height: min(60dvh, 500px); overflow-y: auto; background: #fff; }
 .temporary-item { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 5px 9px; width: 100%; border: 0; border-bottom: 1px solid #d8e3ed; padding: 10px 12px; background: #fff; text-align: left; }

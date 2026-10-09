@@ -1,5 +1,5 @@
 const make=(tag,cls,text)=>{const e=document.createElement(tag);e.className=cls||'';if(text)e.textContent=text;return e;};
-export function practiceWorkspace({root,set,onLeave}) {
+export function practiceWorkspace({root,set,onLeave,start=false}) {
  const tabs=make('nav','practice-subject-tabs'),panes=make('div','practice-panes'),footer=make('div','practice-work-foot');
  tabs.setAttribute('aria-label','练习科目');const groups=new Map(),positions=new Map();let active='',observer=null;
  const labels={listening:'听力',reading:'阅读',writing:'写作',speaking:'口语'};
@@ -45,6 +45,6 @@ export function practiceWorkspace({root,set,onLeave}) {
  }
  function select(kind){if(active===kind||!groups.has(kind))return;const prior=groups.get(active);if(prior)onLeave(prior.pane);active=kind;try{localStorage.setItem(`tsl-practice-subject-${set.id}`,kind);}catch{}for(const [k,g]of groups){g.pane.hidden=k!==kind;g.button.classList.toggle('active',k===kind);g.button.setAttribute('aria-selected',String(k===kind));}syncFooter();}
  let remembered;try{remembered=localStorage.getItem(`tsl-practice-subject-${set.id}`);}catch{}
- select(groups.has(remembered)?remembered:groups.keys().next().value);
+ select(!start&&groups.has(remembered)?remembered:groups.keys().next().value);
  return {select,focus(id){const card=document.getElementById(`practice-${id}`);if(!card)return;const pane=card.closest('.practice-pane');if(!pane)return;select(pane.dataset.kind);pane.showQuestion?.(id);requestAnimationFrame(()=>card.scrollIntoView({block:'start'}));},refresh(){syncFooter();},dispose(){observer?.disconnect();}};
 }

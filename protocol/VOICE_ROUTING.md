@@ -24,7 +24,7 @@
 
 ## Bella 点读
 
-PWA 点读范围按 READER_INTERACTION.md 固定：第一部分已登记词汇标题对应音标；第二部分标题复用第一部分读音、例句整句；第三部分整句。标题旁“点读”为规则说明入口，不切换任意点词模式。高光句保留用法跳转优先级，释义、杂文、译文及原有控件不申请声音。第一部分不同义项读音按各自音标，不能以同拼写冒充同读音。口语 Part 1/3 提问按原协议持久生成 Bella 音频，Part 2 卡片保持可见，参考答案仍为默认隐藏文本。
+PWA 点读范围按 READER_INTERACTION.md 固定：第一部分已登记词汇标题对应音标；第二部分标题跳转第一部分对应词汇、例句整句；第三部分整句。标题旁“点读”为规则说明入口，不切换任意点词模式。高光句单击保留用法跳转优先级，释义、杂文、译文及原有控件不申请声音。第一部分不同义项读音按各自音标，不能以同拼写冒充同读音。长按和句中词双击答疑不生成音频，现有原件与缓存身份保持兼容。口语 Part 1/3 提问按原协议持久生成 Bella 音频，Part 2 卡片保持可见，参考答案仍为默认隐藏文本。
 
 `POST /api/practice/pronunciation {text,kind:word|sentence}` 按模型、Bella、纯英文文本和策略版本计算摘要，原子领取。成功 MP3、完整请求/返回保存在 OneDrive；PRACTICE_DB 的 `pronunciation_results` 保存不可变紧凑摘要索引，章节关联使用 `chapter_audio_scopes/chapter_audio_clips`。重复点击复用声音；客户端最多保留三十段已解码声音，已有章节音频包按 STORAGE.md 的开关预下载。`GET /api/practice/pronunciation/<摘要>` 取状态，`.../audio` 私有读取并支持 Range。短词/句音频最多 1 MiB；`pronunciation_audio` 仅承载在途请求与永久归档失败时的保留副本，补归档不调用 TTS。永久原件暂时不可用返回明确状态，不能将其当作未生成重新收费；不写章节 KV、不要求 R2。
 

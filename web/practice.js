@@ -1,7 +1,7 @@
-import {practiceWorkspace} from './practice-workspace.js?v=25';
-import {speakingRecorder} from './recorder.js?v=25';
-import {createReading} from './reading.js?v=25';
-import {createListening} from './listening.js?v=25';
+import {practiceWorkspace} from './practice-workspace.js?v=26';
+import {speakingRecorder} from './recorder.js?v=26';
+import {createReading} from './reading.js?v=26';
+import {createListening} from './listening.js?v=26';
 const $ = id => document.getElementById(id);
 const node = (tag, className, text) => {
   const element = document.createElement(tag);
@@ -83,7 +83,7 @@ export function createPracticeUI({ api, toast, showDialog, getContext, openSourc
       clearInterval(clockInterval);
       if(currentSet.questions.some(q=>q.kind==='writing')){const bar=node('div','practice-clock writing-clock'),label=node('span','', '写作 · 两个 Task 共 60 分钟'),start=node('button','bevel-button','开始计时'),key=`tsl-writing-clock-${currentSet.id}`;start.type='button';let end=Number(localStorage.getItem(key)||0);const tick=()=>{if(end){const seconds=Math.max(0,Math.ceil((end-Date.now())/1000));label.textContent=seconds?`写作剩余 ${String(Math.floor(seconds/60)).padStart(2,'0')}:${String(seconds%60).padStart(2,'0')}`:'60 分钟已结束 · 保留答案，请提交';} };start.textContent=end?'继续当前计时':'开始计时';start.onclick=()=>{if(!end){end=Date.now()+3600000;localStorage.setItem(key,String(end));}start.disabled=true;start.textContent='计时进行中';tick();};bar.append(label,start);questions.append(bar);clockInterval=setInterval(tick,1000);tick();}
       for (const question of currentSet.questions) if(question.kind==='writing'||question.kind==='speaking')questions.append(questionCard(question));
-      workspace=practiceWorkspace({root:questions,set:currentSet,onLeave:panel=>{for(const r of recorders)if(panel.contains(r))r.pauseForNavigation();if(panel.querySelector('.listening-paper'))listeningCard?.interrupt();}});
+      workspace=practiceWorkspace({root:questions,set:currentSet,start:!questionId,onLeave:panel=>{for(const r of recorders)if(panel.contains(r))r.pauseForNavigation();if(panel.querySelector('.listening-paper'))listeningCard?.interrupt();}});
       if(questionId){const reading=currentSet.reading?.passages?.some(p=>p.questions.some(q=>q.id===questionId));if(reading){workspace.select('reading');readingCard.focusQuestion(questionId);}else workspace.focus(questionId);}
     } catch (error) { toast(error.message); }
   }

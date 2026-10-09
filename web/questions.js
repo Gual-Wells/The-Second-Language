@@ -1,4 +1,5 @@
-import {prose} from './text.js?v=25';
+import {prose} from './text.js?v=26';
+import {focusQuestion} from './reader-focus.js?v=26';
 export function createQuestionsUI({api,showDialog,toast,getContext}) {
  const $=id=>document.getElementById(id),dialog=$('questionsDialog');
  let target=null,threads=[],generation=0,sending=false,pendingId=null;
@@ -69,5 +70,18 @@ export function createQuestionsUI({api,showDialog,toast,getContext}) {
  dialog.addEventListener('close',()=>{draft(true);generation++;});
  const poll=()=>{if(document.visibilityState==='visible'&&eligible()){if(dialog.open)refresh();else summary().catch(()=>{});}};
  setInterval(poll,30000);document.addEventListener('visibilitychange',poll);window.addEventListener('online',poll);
- return {changed(){summary().catch(()=>{});},clear(){generation++;target=null;threads=[];dialog.close();$('questionMessages').replaceChildren();$('questionsButton').hidden=true;$('questionDot').hidden=true;}};
+ const quickSending=new Set(),recent=new Map();
+ async function submitFocus(focus){
+  if(!eligible()){toast('请在已登录的正式章节中申请答疑');return;}
+  if(!navigator.onLine){toast('当前离线，请联网后再申请答疑');return;}
+  const c=getContext().current,who={chapterId:c.id,digest:c.digest},question=focusQuestion(focus),storageKey=`second-language-quick-question:${c.id}:${c.digest}:${question}`;
+  if(quickSending.has(storageKey)||Date.now()-(recent.get(storageKey)||0)<5000)return;
+  let id;try{id=localStorage.getItem(storageKey);}catch{}id||=crypto.randomUUID();
+  try{localStorage.setItem(storageKey,id);}catch{}quickSending.add(storageKey);
+  toast('正在提交答疑…');
+  try{await post('/api/questions',{id,...who,question});try{localStorage.removeItem(storageKey);}catch{}recent.set(storageKey,Date.now());if(recent.size>30)recent.delete(recent.keys().next().value);toast('已提交，回复将在章节答疑中显示');summary().catch(()=>{});}
+  catch(e){toast(e.message||'提交暂未确认，请重做同一手势重试');}
+  finally{quickSending.delete(storageKey);}
+ }
+ return {submitFocus,changed(){summary().catch(()=>{});},clear(){generation++;target=null;threads=[];recent.clear();dialog.close();$('questionMessages').replaceChildren();$('questionsButton').hidden=true;$('questionDot').hidden=true;}};
 }
