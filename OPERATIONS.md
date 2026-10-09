@@ -150,3 +150,11 @@ node scripts/practice-job.mjs review-complete <答卷ID> work/expression/reviews
 v25 点读范围见 READER_INTERACTION.md 和 research/reader-point-audio-scope-2026-10-09.md。无需 D1 迁移；清洗运行 `node scripts/clean-point-audio.mjs --apply`，再运行 `node scripts/storage-upgrade.mjs packs` 并回读历史和现行版本清单。核查先于清洗写入；清洗只调整可变清单，保留收费原件及不可变恢复索引，不调用模型。
 
 见 protocol/AUDIO_CONFIGURATION.md。main D1 增量迁移 0009_audio_requests.sql，原有练习库不改。node scripts/deploy-app.mjs 保留同源 Pages 网关。scripts/install-audio-task.ps1 -CredentialFile <忽略的发布凭据文件> 安装独立无窗口 SecondLanguage-AudioPreparation，每分钟检查一次，在本机在线时执行已确认的申请，不调用 Codex；其他四个任务时刻不改。node scripts/check-audio-config.mjs 检查确认与不可撤销、版本/游标和去重；现有发布/发音/UI检查同步覆盖本功能。
+
+## Windows 构建存储（2026-10-10）
+
+`worker/gateway/build-path.mjs` 是构建与发布输出的共同定位入口。Windows 默认输出到 `D:/CodexStorage/builds/the-second-language/pages`；可用 `SECOND_LANGUAGE_BUILD_ROOT` 指定 D 盘父目录，构建会检查其实际路径仍在 D，拒绝 C 盘或符号链接目标。非 Windows 仍使用原 `worker/gateway/dist`。
+
+`deploy-app.mjs` 仅为当前发布进程设置 D 盘 TEMP/TMP 和 Wrangler 日志，不改用户全局环境。现有旧 checkout 的 `worker/gateway/dist` 已联接到当前 D 构建，`worker/.wrangler/tmp` 已联接到 `D:/CodexStorage/tmp/the-second-language/wrangler`。重新构建和 Wrangler dry-run 已验证实际落盘；不要让新的普通 C 目录替代这些联接。独立纪念币第二轮实验缓存也已校验迁往 D。
+
+正式旧 checkout 与共享运行时尚未整仓迁移，生产队列仍运行在既有入口。此状态是等待安全停写窗口，不表示所有 C 数据已迁完；不能热搬活动数据库或以旧恢复副本覆盖新状态。新项目默认在 D workspace 创建。
