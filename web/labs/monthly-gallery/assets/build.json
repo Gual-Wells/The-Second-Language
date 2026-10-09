@@ -1,0 +1,16 @@
+{
+  "source": "BabylonJS/Assets meshes/GothicCloisterCorner/gothic_cloister_corner.glb",
+  "originalTriangles": 1013385,
+  "triangles": 250656,
+  "relativeError": 0.002,
+  "targetRatio": 0.12,
+  "images": [
+    {
+      "original": [
+        8192,
+        8192
+      ],
+      "maximum": 4096
+    }
+  ]
+}

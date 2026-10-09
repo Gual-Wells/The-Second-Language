@@ -1,0 +1,47 @@
+{
+  "scope": "symbol studies; user sound-quality acceptance pending",
+  "records": [
+    {
+      "name": "vegetation",
+      "seconds": 4,
+      "inputs": [
+        "rustle03.flac"
+      ],
+      "processing": "[0:a]atrim=duration=3,asetpts=PTS-STARTPTS,highpass=f=160,lowpass=f=8500,aecho=.6:.3:120|310:.22|.13,afade=t=in:d=0.15,afade=t=out:st=2.5:d=0.5"
+    },
+    {
+      "name": "aquatic",
+      "seconds": 3,
+      "inputs": [
+        "bubbles.wav"
+      ],
+      "processing": "[0:a]asetpts=PTS-STARTPTS,lowpass=f=1800,aecho=.7:.4:240|510:.3|.17,afade=t=in:d=0.1,afade=t=out:st=1:d=1"
+    },
+    {
+      "name": "ordinance",
+      "seconds": 4,
+      "inputs": [
+        "bell.wav"
+      ],
+      "processing": "[0:a]asetpts=PTS-STARTPTS,lowpass=f=6000,aecho=.7:.5:170|490:.22|.13,afade=t=out:st=2:d=1"
+    },
+    {
+      "name": "ambient-garden",
+      "seconds": 20,
+      "inputs": [
+        "amb_forest.flac",
+        "amb_wind_1.flac"
+      ],
+      "processing": "[0:a]atrim=duration=20,volume=.8,afade=t=in:d=2,afade=t=out:st=18:d=2[a];[1:a]atrim=duration=20,volume=.3,afade=t=in:d=2,afade=t=out:st=18:d=2[b];[a][b]amix=inputs=2:normalize=0"
+    },
+    {
+      "name": "ambient-ocean",
+      "seconds": 20,
+      "inputs": [
+        "amb_wind_1.flac"
+      ],
+      "processing": "[0:a]atrim=duration=20,lowpass=f=420,highpass=f=40,aecho=.6:.4:300:.15,afade=t=in:d=2,afade=t=out:st=18:d=2"
+    }
+  ],
+  "paidCalls": 0
+}

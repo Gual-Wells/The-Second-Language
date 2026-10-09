@@ -1,0 +1,18 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#182721"><title>月度展厅 · 第二语言</title><link rel="stylesheet" href="gallery.css"></head><body>
+<main id="experience"><canvas id="world" aria-label="月度纪念展厅，可拖动环视，点按纪念币近看"></canvas>
+<div id="loading" role="status"><span class="loading-mark">◈</span><h1>十月 · 苔庭回廊</h1><p id="loadStatus">准备展厅</p><button id="retry" hidden>重新打开</button></div>
+<header class="bar"><a href="/">‹ 第二语言</a><div><span class="eyebrow">月度展厅 · 独立样件</span><strong id="hallName">2026 / 10</strong></div><button id="menuButton" aria-label="打开展厅选项" aria-expanded="false">☷</button></header>
+<div id="rotateHint">横过手机，回廊会更开阔</div>
+<div class="caption"><span id="sceneName">苔庭遗迹</span><small id="hallCount">1 座展台 · 尚未放币</small></div>
+<section id="coinCard" hidden><span class="eyebrow">象征样件 · 非正式收藏</span><h2 id="coinName"></h2><p id="coinMeaning"></p><button id="playCoin">聆听纪念声</button><button id="closeCoin">回到展厅</button></section>
+<nav class="dock" aria-label="观赏控制"><button id="previous" aria-label="上一个展台">‹</button><button id="tour">暂停环游</button><button id="next" aria-label="下一个展台">›</button><button id="ambience" aria-pressed="false">环境声</button><button id="fullscreen">沉浸</button></nav>
+<div id="notice" role="status" aria-live="polite"></div>
+</main>
+<dialog id="options"><form method="dialog"><header><h2>展厅样件</h2><button aria-label="关闭">×</button></header></form><p class="muted">场景及放币均为预览，不改变章节认证。</p>
+<label>展厅环境<select id="environment"><option value="garden">苔庭遗迹</option><option value="poison">枯庭 · 毒雾侵入</option><option value="ocean">海底 · 潮水收回</option></select></label>
+<label>展示进度<select id="progress"><option value="empty">首章 · 1 座空台</option><option value="three">三章 · 3 枚象征样币</option><option value="thirty">月末 · 30 座展台 / 3 枚样币</option></select></label>
+<p class="muted">切换环境只展示介入效果。相容的币可以保留原场景；正式申领时再决定是否及如何介入。</p>
+<button id="feedbackButton">评价这轮样件</button><div class="links"><a href="/labs/certification-v2/">上一轮测试</a><a href="/labs/certification/">第一轮测试</a><a href="CREDITS.md">素材与授权</a></div></dialog>
+<dialog id="feedback"><form method="dialog"><header><h2>观赏反馈</h2><button aria-label="关闭">×</button></header></form><p class="muted">1 不可用 · 3 可用 · 5 很满意；没测试的留空。</p><div id="ratings"></div><textarea id="note" rows="4" maxlength="3000" placeholder="画面、币、声音或操作有哪些具体问题？" aria-label="反馈说明"></textarea><div class="feedback-actions"><button id="send">提交反馈</button><button id="export">导出备份</button></div><p id="feedbackStatus" role="status"></p></dialog>
+<script src="vendor/babylon.js"></script><script src="vendor/babylonjs.loaders.min.js"></script><script type="module" src="app.js"></script></body></html>
+
