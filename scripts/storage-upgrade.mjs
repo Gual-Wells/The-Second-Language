@@ -10,6 +10,7 @@ import {archiveWorking} from './lib/work-archives.mjs';
 import {rowidPages,permanentRows,storageTableOrder} from './lib/storage-scan.mjs';
 import {archiveQuery} from './lib/archive-read-budget.mjs';
 import {latestRecoverySnapshot} from './lib/recovery-snapshot.mjs';
+import {pointAudioKeys,isPointAudioClip,pointAudioPolicy} from '../web/audio-plan.js';
 try{
 const {base,token}=await publisherConfig(),mode=process.argv[2]||'migrate',directory=path.join(root,'.cache/storage-upgrade');await mkdir(directory,{recursive:true});
 const query=await archiveQuery(queryDetailed,path.join(directory,'read-budget.json'));
@@ -83,13 +84,19 @@ if(mode==='backup'){
 }else if(mode==='packs'){
  const chapters=await query(mainDatabase,'SELECT chapter_id,chapter_digest AS digest,requested_at FROM chapter_audio_work');
  for(const c of chapters){
+  const response=await fetch(new URL(`/api/chapters/${encodeURIComponent(c.chapter_id)}?digest=${c.digest}`,base),{headers:{authorization:`Bearer ${token}`},signal:AbortSignal.timeout(60000)});
+  if(!response.ok)throw Error('音频包对应的章节原件暂不可读');const chapter=await response.json();if(digest(Buffer.from(chapter.markdown))!==c.digest)throw Error('音频包对应章节摘要不一致');const eligible=pointAudioKeys(chapter.markdown);
   const compact=await query(practiceDatabase,`SELECT lower(hex(p.generation_digest)) AS id,lower(hex(p.content_digest)) AS content_digest,lower(hex(p.record_digest)) AS record_digest FROM chapter_audio_scopes s JOIN chapter_audio_clips l ON l.scope_id=s.id JOIN pronunciation_results p ON p.id=l.result_id WHERE s.chapter_id=? AND s.chapter_digest=?`,[c.chapter_id,c.digest]);
   const legacy=await query(practiceDatabase,`SELECT p.id,p.request_json,p.audio_key FROM chapter_pronunciation l JOIN pronunciation_audio p ON p.id=l.audio_id WHERE l.chapter_id=? AND l.chapter_digest=? AND p.state='ready' AND p.audio_key IS NOT NULL`,[c.chapter_id,c.digest]);
   const compactIds=new Set(compact.map(x=>x.id)),clips=[...compact,...legacy.filter(x=>!compactIds.has(x.id))];
-  if(!clips.length)continue;const chunks=[],packs=[],entries=[];let length=0;
+  const chunks=[],packs=[],entries=[];let length=0;
   async function flush(){if(!chunks.length)return;const bytes=Buffer.concat(chunks),key=`chapter-audio/${c.chapter_id}/${c.digest}/${digest(bytes)}.bin`;await put(key,bytes);packs.push({key,bytes:bytes.length,digest:digest(bytes)});chunks.length=0;length=0;}
-  for(const clip of clips){const bytes=Buffer.from(await(await api(clip.content_digest?`/content?digest=${clip.content_digest}`:`/objects?key=${encodeURIComponent(clip.audio_key)}`,null,'GET')).arrayBuffer());if(clip.content_digest&&digest(bytes)!==clip.content_digest)throw Error('点读原件摘要不一致');if(length+bytes.length>8*1024*1024)await flush();let descriptor;if(clip.record_digest){const record=Buffer.from(await(await api(`/content?digest=${clip.record_digest}`,null,'GET')).arrayBuffer());if(digest(record)!==clip.record_digest)throw Error('点读描述摘要不一致');descriptor=JSON.parse(record.toString('utf8')).request;if(digest(Buffer.from(JSON.stringify(descriptor)))!==clip.id)throw Error('点读生成身份不一致');}else descriptor=JSON.parse(clip.request_json);entries.push({id:clip.id,text:descriptor.pronunciation?.text||descriptor.input,phonemes:descriptor.pronunciation?.phonemes||'',voice:descriptor.voice,pack:packs.length,offset:length,length:bytes.length,digest:digest(bytes)});chunks.push(bytes);length+=bytes.length;}
-  await flush();const manifest={chapterId:c.chapter_id,digest:c.digest,packs,clips:entries},bytes=Buffer.from(JSON.stringify(manifest)),key=`chapter-audio/${c.chapter_id}/${c.digest}/${digest(bytes)}.json`;await put(key,bytes,'application/json');await api('/publish-pack',{chapterId:c.chapter_id,digest:c.digest,manifestKey:key});
+  for(const clip of clips){let descriptor;if(clip.record_digest){const record=Buffer.from(await(await api(`/content?digest=${clip.record_digest}`,null,'GET')).arrayBuffer());if(digest(record)!==clip.record_digest)throw Error('点读描述摘要不一致');descriptor=JSON.parse(record.toString('utf8')).request;}else descriptor=JSON.parse(clip.request_json);
+   if(digest(Buffer.from(JSON.stringify(descriptor)))!==clip.id)throw Error('点读生成身份不一致');
+   const entry={id:clip.id,text:descriptor.pronunciation?.text||descriptor.input,phonemes:descriptor.pronunciation?.phonemes||'',voice:descriptor.voice};if(!isPointAudioClip(entry,eligible))continue;
+   const bytes=Buffer.from(await(await api(clip.content_digest?`/content?digest=${clip.content_digest}`:`/objects?key=${encodeURIComponent(clip.audio_key)}`,null,'GET')).arrayBuffer());if(clip.content_digest&&digest(bytes)!==clip.content_digest)throw Error('点读原件摘要不一致');if(length+bytes.length>8*1024*1024)await flush();entries.push({...entry,pack:packs.length,offset:length,length:bytes.length,digest:digest(bytes)});chunks.push(bytes);length+=bytes.length;
+  }
+  await flush();const manifest={chapterId:c.chapter_id,digest:c.digest,pointAudioPolicy,packs,clips:entries},bytes=Buffer.from(JSON.stringify(manifest)),key=`chapter-audio/${c.chapter_id}/${c.digest}/${digest(bytes)}.json`;await put(key,bytes,'application/json');await api('/publish-pack',{chapterId:c.chapter_id,digest:c.digest,manifestKey:key});
   await query(mainDatabase,'DELETE FROM chapter_audio_work WHERE chapter_id=? AND chapter_digest=? AND requested_at<=?',[c.chapter_id,c.digest,c.requested_at]);
  }
  console.log('章节音频包已更新，仅打包已经生成的点读');

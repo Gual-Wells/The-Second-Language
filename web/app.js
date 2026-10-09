@@ -1,14 +1,14 @@
-import {installPureReader} from './pure-reader.js?v=24';
-import {chapterNumber, createChapterBook} from './chapters.js?v=24';
-import {installSettingsNavigation} from './settings.js?v=24';
-import {createAudioConfig} from './audio-config.js?v=24';
-import {installReaderSpeech} from './reader-speech.js?v=24';
-import { parseParts, renderPart } from './render.js?v=24';
-import { validateAnnotatedContent } from './annotations.js?v=24';
-import { createPracticeUI } from './practice.js?v=24';
-import {createBalanceUI} from './balances.js?v=24';
-import {createQuestionsUI} from './questions.js?v=24';
-import {openAudioChapter,clearAudioLibrary,preloadEnabled,setPreload} from './audio-library.js?v=24';
+import {installPureReader} from './pure-reader.js?v=25';
+import {chapterNumber, createChapterBook} from './chapters.js?v=25';
+import {installSettingsNavigation} from './settings.js?v=25';
+import {createAudioConfig} from './audio-config.js?v=25';
+import {installReaderSpeech} from './reader-speech.js?v=25';
+import { parseParts, renderPart } from './render.js?v=25';
+import { validateAnnotatedContent } from './annotations.js?v=25';
+import { createPracticeUI } from './practice.js?v=25';
+import {createBalanceUI} from './balances.js?v=25';
+import {createQuestionsUI} from './questions.js?v=25';
+import {openAudioChapter,clearAudioLibrary,preloadEnabled,setPreload} from './audio-library.js?v=25';
 
 const $ = id => document.getElementById(id);
 const todayParts = Object.fromEntries(new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(new Date()).map(part => [part.type, part.value]));
@@ -750,6 +750,6 @@ $('chapterNav').addEventListener('touchend', event => {
   if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.5) moveChapter(dx < 0 ? 1 : -1);
   swipeStart = null;
 }, { passive: true });
-if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=24', { updateViaCache: 'none' }).catch(() => {});
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=25', { updateViaCache: 'none' }).catch(() => {});
 refreshInstallStatus();
 initialize().then(()=>{if(state.authenticated&&new URLSearchParams(location.search).has('balances'))balances.open();});

@@ -1,3 +1,4 @@
+import {pointAudioKeys,isPointAudioClip} from '../../web/audio-plan.js';
 import {sha256} from './practice-media.js';
 const encoder=new TextEncoder(),decoder=new TextDecoder(),json=(v,s=200)=>Response.json(v,{status:s,headers:{'cache-control':'no-store'}});
 const b64=v=>{let s='';for(const x of v)s+=String.fromCharCode(x);return btoa(s);};
@@ -130,6 +131,9 @@ async function handleStorage(request,env,{isPublisher,session,sameOrigin}){
  }
  if(path==='/publish-pack'&&request.method==='POST'&&isPublisher){const b=await request.json();if(typeof b.chapterId!=='string'||!/^chapter-audio\//.test(b.manifestKey)||!/^[a-f0-9]{64}$/.test(b.digest))return json({error:'清单无效'},400);
   const manifest=await bucket.get(b.manifestKey);if(!manifest)return json({error:'清单未存储'},409);const m=await manifest.json();if(m.chapterId!==b.chapterId||m.digest!==b.digest)return json({error:'章节版本不一致'},409);
+  const chapter=await env.DB.prepare('SELECT content_key FROM chapter_revisions WHERE chapter_id=? AND digest=?').bind(b.chapterId,b.digest).first();
+  const markdown=chapter&&await chapterText(env,chapter.content_key);if(!markdown||await sha256(markdown)!==b.digest)return json({error:'章节原件暂不可核对'},503);
+  const keys=pointAudioKeys(markdown);if(!Array.isArray(m.clips)||m.clips.some(clip=>!isPointAudioClip(clip,keys)))return json({error:'音频包包含不属于标题或完整句子的声音'},422);
   await env.DB.prepare('INSERT INTO chapter_audio_packs VALUES(?,?,?,?) ON CONFLICT(chapter_id,chapter_digest) DO UPDATE SET manifest_key=excluded.manifest_key,updated_at=excluded.updated_at').bind(b.chapterId,b.digest,b.manifestKey,Date.now()).run();return json({ok:true});
  }
  return json({error:'接口不存在'},404);

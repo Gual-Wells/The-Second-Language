@@ -1,5 +1,5 @@
-import {describe,prose} from './text.js?v=24';
-import {el} from './objective.js?v=24';
+import {describe,prose} from './text.js?v=25';
+import {el} from './objective.js?v=25';
 export function speakingRecorder({question,set,api,toast,pauseOthers,reload}){
  const draftDB=new Promise((resolve,reject)=>{const r=indexedDB.open('tsl-speaking-drafts',1);r.onupgradeneeded=()=>r.result.createObjectStore('drafts');r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error);});
  async function draft(operation,value){try{const db=await draftDB;return await new Promise((resolve,reject)=>{const t=db.transaction('drafts',operation==='get'?'readonly':'readwrite'),store=t.objectStore('drafts'),r=operation==='get'?store.get(question.id):operation==='put'?store.put(value,question.id):store.delete(question.id);r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error);});}catch{return null;}}

@@ -71,6 +71,7 @@ function renderStory(source, target, options) {
 }
 
 export function renderPart(source, part, target, options = {}) {
+  target.dataset.audioPart = part;
   target.replaceChildren();
   target.classList.toggle('prose', part === 'three');
   target.classList.remove('highlight-sentences', 'show-translations');
