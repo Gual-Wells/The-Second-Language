@@ -1,0 +1,294 @@
+{
+  "version": "theme-arrangements-v2",
+  "sampleRate": 44100,
+  "channels": 2,
+  "codec": "MP3 128kbps",
+  "natureLayerLoudness": "-24 LUFS / -8 dBTP",
+  "themeLoudness": "-21 LUFS / -3 dBTP",
+  "collisionPeakTargetDb": -8,
+  "records": [
+    {
+      "name": "theme-map",
+      "duration": 12,
+      "layers": [
+        {
+          "file": "casino/Audio/card-fan-1.ogg",
+          "duration": 0.7,
+          "gain": 1.25,
+          "delay": 0
+        },
+        {
+          "file": "ambient/ambient_mountains_forest_river_waterfall_wind/amb_forest.flac",
+          "duration": 10.3,
+          "gain": 0.6,
+          "delay": 0.8,
+          "fadeIn": 1.8,
+          "fadeOut": 1.2,
+          "loop": true
+        },
+        {
+          "file": "ambient/ambient_mountains_forest_river_waterfall_wind/amb_river.flac",
+          "duration": 7.8,
+          "gain": 0.38,
+          "delay": 2.5,
+          "fadeIn": 2,
+          "fadeOut": 1.6,
+          "loop": true
+        },
+        {
+          "file": "casino/Audio/card-slide-1.ogg",
+          "duration": 0.5,
+          "gain": 0.7,
+          "delay": 4.1
+        },
+        {
+          "file": "casino/Audio/card-fan-2.ogg",
+          "duration": 0.7,
+          "gain": 1,
+          "delay": 10.5
+        }
+      ]
+    },
+    {
+      "name": "theme-ledger",
+      "duration": 12,
+      "layers": [
+        {
+          "file": "casino/Audio/card-shuffle.ogg",
+          "duration": 1.4,
+          "gain": 0.95,
+          "delay": 0
+        },
+        {
+          "file": "ambient/ambient_mountains_forest_river_waterfall_wind/amb_stream.flac",
+          "duration": 10.7,
+          "gain": 0.5,
+          "delay": 0.8,
+          "fadeIn": 1.5,
+          "fadeOut": 1.2,
+          "loop": true
+        },
+        {
+          "file": "impact/Audio/impactMetal_light_000.ogg",
+          "duration": 0.45,
+          "gain": 0.22,
+          "delay": 2.2
+        },
+        {
+          "file": "impact/Audio/impactMetal_light_001.ogg",
+          "duration": 0.45,
+          "gain": 0.22,
+          "delay": 4.7
+        },
+        {
+          "file": "impact/Audio/impactMetal_light_002.ogg",
+          "duration": 0.45,
+          "gain": 0.22,
+          "delay": 7.2
+        },
+        {
+          "file": "casino/Audio/card-slide-3.ogg",
+          "duration": 0.6,
+          "gain": 0.9,
+          "delay": 5.3
+        },
+        {
+          "file": "ambient/ambient_mountains_forest_river_waterfall_wind/amb_river.flac",
+          "duration": 5.1,
+          "gain": 0.4,
+          "delay": 6.2,
+          "fadeIn": 2,
+          "fadeOut": 1.4,
+          "loop": true
+        },
+        {
+          "file": "casino/Audio/card-fan-1.ogg",
+          "duration": 0.7,
+          "gain": 1,
+          "delay": 10.7
+        }
+      ]
+    },
+    {
+      "name": "theme-wetland",
+      "duration": 14,
+      "layers": [
+        {
+          "file": "ambient/ambient_mountains_forest_river_waterfall_wind/amb_wind_1.flac",
+          "duration": 4.2,
+          "gain": 0.36,
+          "delay": 0,
+          "fadeIn": 0.8,
+          "fadeOut": 1.6,
+          "loop": true
+        },
+        {
+          "file": "stream/stream-waterfall/stream2.ogg",
+          "duration": 7.2,
+          "gain": 0.55,
+          "delay": 2.2,
+          "fadeIn": 2,
+          "fadeOut": 1.5,
+          "loop": true
+        },
+        {
+          "file": "ambient/ambient_mountains_forest_river_waterfall_wind/amb_river.flac",
+          "duration": 8.1,
+          "gain": 0.58,
+          "delay": 5.3,
+          "fadeIn": 2.1,
+          "fadeOut": 0.7,
+          "loop": true
+        },
+        {
+          "file": "ambient/ambient_mountains_forest_river_waterfall_wind/amb_forest.flac",
+          "duration": 7.4,
+          "gain": 0.7,
+          "delay": 6,
+          "fadeIn": 1.8,
+          "fadeOut": 0.8,
+          "loop": true
+        }
+      ]
+    },
+    {
+      "name": "glass-1",
+      "duration": 0.8,
+      "layers": [
+        {
+          "file": "coin-glass.mp3",
+          "start": 0.17,
+          "duration": 0.8,
+          "gain": 0.85,
+          "fadeIn": 0.001,
+          "fadeOut": 0.15
+        }
+      ]
+    },
+    {
+      "name": "glass-2",
+      "duration": 0.8,
+      "layers": [
+        {
+          "file": "coin-glass.mp3",
+          "start": 3.55,
+          "duration": 0.8,
+          "gain": 0.85,
+          "fadeIn": 0.001,
+          "fadeOut": 0.15
+        }
+      ]
+    },
+    {
+      "name": "glass-3",
+      "duration": 1.1,
+      "layers": [
+        {
+          "file": "coin-glass.mp3",
+          "start": 7.28,
+          "duration": 1.1,
+          "gain": 0.85,
+          "fadeIn": 0.001,
+          "fadeOut": 0.15
+        }
+      ]
+    },
+    {
+      "name": "metal-1",
+      "duration": 0.7,
+      "layers": [
+        {
+          "file": "impact/Audio/impactMetal_light_000.ogg",
+          "duration": 0.7,
+          "gain": 0.75,
+          "fadeIn": 0.001,
+          "fadeOut": 0.15
+        }
+      ]
+    },
+    {
+      "name": "metal-2",
+      "duration": 0.7,
+      "layers": [
+        {
+          "file": "impact/Audio/impactMetal_light_001.ogg",
+          "duration": 0.7,
+          "gain": 0.75,
+          "fadeIn": 0.001,
+          "fadeOut": 0.15
+        }
+      ]
+    },
+    {
+      "name": "metal-3",
+      "duration": 0.7,
+      "layers": [
+        {
+          "file": "impact/Audio/impactMetal_light_002.ogg",
+          "duration": 0.7,
+          "gain": 0.75,
+          "fadeIn": 0.001,
+          "fadeOut": 0.15
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "file": "casino/Audio/card-fan-1.ogg",
+      "sha256": "7a9758ccad8899baef1b9f60b4064e4baa724a548293832fdaea07e6e07e638d"
+    },
+    {
+      "file": "ambient/ambient_mountains_forest_river_waterfall_wind/amb_forest.flac",
+      "sha256": "8af3318e24feb41025dc7705e28fe460276291b5790249df4c7d7e872965ca5c"
+    },
+    {
+      "file": "ambient/ambient_mountains_forest_river_waterfall_wind/amb_river.flac",
+      "sha256": "1816383c2b65a5c2babc2ff9a7a19ed26a2c9ca8664018954f3d42d481c79b1f"
+    },
+    {
+      "file": "casino/Audio/card-slide-1.ogg",
+      "sha256": "006cf9822d15d7063f8899e56041f41646df30adb6fbd8b974ee5d5420012690"
+    },
+    {
+      "file": "casino/Audio/card-fan-2.ogg",
+      "sha256": "5743373c9dde00c6eee949a2c8e65d75946522768999167e1f5632451630e848"
+    },
+    {
+      "file": "casino/Audio/card-shuffle.ogg",
+      "sha256": "96c84883a30845ede723a4cf2e8369e9837e7dd4e0d4eb0212b0a7ed21b0f544"
+    },
+    {
+      "file": "ambient/ambient_mountains_forest_river_waterfall_wind/amb_stream.flac",
+      "sha256": "e613a45a04b80c6336bf5354dacafb3c707a9d163ce939eb742fd8372d25b1ca"
+    },
+    {
+      "file": "impact/Audio/impactMetal_light_000.ogg",
+      "sha256": "33b5e6e37c6e9d54e07bf5a89b12c76e879f40c1ea83cdd82714df1d6f9fec6d"
+    },
+    {
+      "file": "impact/Audio/impactMetal_light_001.ogg",
+      "sha256": "fba69c467ddd85da7b1d82e259f936b876d9ba6a3d6f1b24bdd10468e46bfe08"
+    },
+    {
+      "file": "impact/Audio/impactMetal_light_002.ogg",
+      "sha256": "25a96f90a9a1f88a531e824e126f0519504625e5635e65a72e4f31611428db29"
+    },
+    {
+      "file": "casino/Audio/card-slide-3.ogg",
+      "sha256": "af2ab62656cb3df73316ce5771b8ee1111a840962b21607e3202151e7413c52c"
+    },
+    {
+      "file": "ambient/ambient_mountains_forest_river_waterfall_wind/amb_wind_1.flac",
+      "sha256": "83ebb7da229da833594d655a63515ccb565a747aeb302e710df1184430aad81a"
+    },
+    {
+      "file": "stream/stream-waterfall/stream2.ogg",
+      "sha256": "54def3252844f87149d32aa41d1b7f6b7949805428eaaf2799ca022fee3d22bc"
+    },
+    {
+      "file": "coin-glass.mp3",
+      "sha256": "9be147ff24ed8da9e0871ee7478649b1fe3cdff1366b46df137a4f13c82729e6"
+    }
+  ]
+}
