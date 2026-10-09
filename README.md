@@ -56,6 +56,8 @@ iPhone PWA → 同源 Pages 网关 → Cloudflare Worker
 
 首轮用户体验未通过：部分理解题可保留，八题容量不足，场景、美术、声音与摇晃方案均未采用。原测试页保留作比较；[反馈与成熟实现研究](research/certification-feedback-review-2026-10-09.md)明确下一轮的题目质量、约十分钟容量、材质美术及正确运动要求，不能以已有逻辑检查替代产品验收。
 
+第二轮已提供 [新版测试页](https://the-second-language.pages.dev/labs/certification-v2/)：十六道独立随机理解题、常驻提交栏、三枚原创主题币面和三份主题声音、成熟自然碰撞音、独立物理 Worker 与稳定手机校准。第一轮仍可比较；不替换正式认证。500 枚保持真实币间接触，但性能与主题听感仍须 iPhone 真机验收，软件 WebGL 检查不能冒称流畅。详见 [第二轮研究与实测](research/certification-v2-research-and-tests-2026-10-10.md)及 [素材授权](web/labs/certification-v2/CREDITS.md)。
+
 ## 目录与使用
 
 - `web/`：原生 HTML／CSS／JavaScript PWA，唯一界面样式为 `styles.css`。
