@@ -1,5 +1,5 @@
 import {chapterText} from './storage.js';
-import {claimChapterTest,chapterTestsRoute} from './chapter-tests.js';
+import {claimChapterTest,chapterTestsRoute,chapterTestQueueTime} from './chapter-tests.js';
 const json = (v,s=200) => Response.json(v,{status:s,headers:{'cache-control':'no-store'}});
 const uuid = v => typeof v==='string' && /^[a-f0-9-]{36}$/.test(v);
 const sha = async v => [...new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(v)))].map(x=>x.toString(16).padStart(2,'0')).join('');
@@ -24,7 +24,7 @@ export async function questionsRoute(request,env,{isPublisher,session,sameOrigin
      WHERE earlier.conversation_id=m.conversation_id AND earlier.seq<m.seq AND ej.status IN ('pending','running','failed'))
     ORDER BY m.seq LIMIT 1`).first();
    await db.prepare("UPDATE chapter_tests SET status='failed',claim=NULL,error='出题被中断，可重新处理',updated_at=? WHERE status='running' AND lease_until<?").bind(now,now).run();
-   const test=await db.prepare("SELECT created_at FROM chapter_tests WHERE status='pending' ORDER BY created_at LIMIT 1").first();
+   const test=await chapterTestQueueTime(env);
    if(test&&(!candidate||test.created_at<candidate.created_at))return json({job:await claimChapterTest(env,b.claim)});
    if(!candidate)return json({job:null});
    if(typeof b.claim!=='string'||b.claim.length!==64)return json({error:'领取凭据无效'},400);

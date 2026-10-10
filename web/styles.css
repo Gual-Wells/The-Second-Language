@@ -558,3 +558,7 @@ textarea.text-input { resize: vertical; }
 .chapter-test-foot { flex: none; display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 8px; padding: 10px 12px; border-top: 1px solid #a6bdd2; background: linear-gradient(#edf5fb,#d8e6f1); }
 .chapter-test-foot small { width: 100%; font-size: 11px; color: #607e97; }
 .chapter-test-body button,.chapter-test-foot button { min-height: 38px; }
+.chapter-test-question audio { display: block; width: 100%; max-width: 100%; margin: 8px 0 12px; }
+.chapter-test-recorder .button-row { display: flex; gap: 8px; flex-wrap: wrap; }
+.chapter-test-recorder .practice-guidance { margin: 10px 0; font-size: 12px; line-height: 1.6; color: var(--muted); }
+.chapter-test-recorder button { flex: 1; min-width: 105px; }
