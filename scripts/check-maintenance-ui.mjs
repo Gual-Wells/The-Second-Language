@@ -5,12 +5,19 @@ const output='.cache/maintenance-ui';await mkdir(output,{recursive:true});
 const browser=await chromium.launch({executablePath:process.env.CHROME_PATH||'C:/Users/huawei/AppData/Local/ms-playwright/chromium-1223/chrome-win64/chrome.exe',headless:true});
 const page=await browser.newPage({viewport:{width:402,height:874},isMobile:true,hasTouch:true});
 const digest='a'.repeat(64),id=crypto.randomUUID(),messages=[1,2,3].map(i=>({id:'Q'+i,seq:i,role:'user',content:'问题 '+i+'\n'+('原句语境说明。'.repeat(20)),status:'pending'}));
+let seenSeq=0,delayOpen=false,releaseOpen,delaySummary=false,releaseSummary;
 let testStatus='pending',answerResponseLost=false,submitBodies=[],pendingResponseLost=true,applications=[];
 const items=Array.from({length:20},(_,i)=>({id:'q'+(i+1),type:i%2?'multi':'single',prompt:'Which sentence uses this sense in an appropriate new situation?',options:'ABCD'.split('').map(id=>({id,text:'Choice '+id+' with a distinct contextual meaning.'}))}));
 const result={score:100,right:20,total:20,passed:true,details:items.map(q=>({id:q.id,ok:true,answer:q.type==='single'?'A':['A','B'],correct:q.type==='single'?['A']:['A','B'],explanation:'从语境和所指对象核对本章义项，不仅辨认拼写。',quote:'Source sentence quoted here.',options:q.options.map(o=>({...o,reason:'逐项说明为何符合或不符合语境。'}))}))};
 await page.route('https://maintenance.test/**',async route=>{const r=route.request(),url=new URL(r.url()),p=url.pathname;let data={ok:true};
  if(p.startsWith('/api/')){
-  if(p==='/api/questions/summary')data={threads:[{chapterId:'chapter',digest,title:'章节',unread:3}]};
+  if(p==='/api/questions/summary'){data={threads:[{chapterId:'chapter',digest,title:'章节',unread:messages.filter(m=>m.role==='assistant'&&m.seq>seenSeq).length}]};if(delaySummary){delaySummary=false;await new Promise(r=>releaseSummary=r);}}
+  else if(p==='/api/questions/open'){
+   const firstUnread=messages.filter(q=>q.role==='user'&&messages.some(a=>a.replyTo===q.id&&a.seq>seenSeq)).sort((a,b)=>a.seq-b.seq)[0]?.id;
+   data={threadId:'thread',chapterId:'chapter',digest,threads:[{chapterId:'chapter',digest,title:'章节',firstUnreadQuestionId:firstUnread}],firstUnreadQuestionId:firstUnread,messages:structuredClone(messages)};
+   seenSeq=Math.max(0,...messages.filter(m=>m.role==='assistant').map(m=>m.seq));if(delayOpen)await new Promise(r=>releaseOpen=r);
+  }
+  else if(p==='/api/questions/thread/seen')seenSeq=Math.max(seenSeq,r.postDataJSON().seq);
   else if(p==='/api/questions')data={threadId:'thread',messages};
   else if(p==='/api/chapter-tests'&&r.method()==='POST'){applications.push(r.postDataJSON());if(pendingResponseLost){pendingResponseLost=false;return route.abort();}data={id};}
   else if(p==='/api/chapter-tests')data={tests:[{id,digest,status:testStatus,createdAt:Date.now()}]};
@@ -20,13 +27,27 @@ await page.route('https://maintenance.test/**',async route=>{const r=route.reque
  }
  const name=p==='/'?'index.html':p.slice(1),type={html:'text/html',js:'text/javascript',css:'text/css'}[name.split('.').at(-1)]||'application/octet-stream';try{let content=await readFile('web/'+name);if(name==='index.html')content=Buffer.from(content.toString().replace(/<script\b[^>]*>[\s\S]*?<\/script>/g,''));return route.fulfill({body:content,contentType:type});}catch{return route.fulfill({status:404,body:''});}
 });
-async function setup(){await page.goto('https://maintenance.test/');await page.evaluate(async digest=>{const api=async(path,options={})=>{const r=await fetch(path,options);return r.json();},getContext=()=>({authenticated:true,demo:false,current:{id:'chapter',digest,title:'章节'}}),showDialog=id=>document.getElementById(id).showModal(),toast=()=>{};const {createQuestionsUI}=await import('/questions.js?v=27'),{createChapterTestsUI}=await import('/chapter-tests.js?v=27');window.questions=createQuestionsUI({api,getContext,showDialog,toast});window.tests=createChapterTestsUI({api,getContext,showDialog,toast});questions.changed();tests.changed();for(const b of document.querySelectorAll('[data-close]'))b.onclick=()=>document.getElementById(b.dataset.close).close();document.getElementById('app').classList.remove('empty-mode','login-mode');document.getElementById('loadingState').hidden=true;document.getElementById('reader').hidden=false;},digest);}
+async function setup(){await page.goto('https://maintenance.test/');await page.evaluate(async digest=>{const api=async(path,options={})=>{const r=await fetch(path,options);return r.json();},getContext=()=>({authenticated:true,demo:false,current:{id:'chapter',digest,title:'章节'}}),showDialog=id=>document.getElementById(id).showModal(),toast=()=>{};const {createQuestionsUI}=await import('/questions.js?v=28'),{createChapterTestsUI}=await import('/chapter-tests.js?v=28');window.questions=createQuestionsUI({api,getContext,showDialog,toast});window.tests=createChapterTestsUI({api,getContext,showDialog,toast});questions.changed();tests.changed();for(const b of document.querySelectorAll('[data-close]'))b.onclick=()=>document.getElementById(b.dataset.close).close();document.getElementById('app').classList.remove('empty-mode','login-mode');document.getElementById('loadingState').hidden=true;document.getElementById('reader').hidden=false;},digest);}
 try{
  await setup();await page.locator('#questionsButton').click();await page.locator('.question-turn').nth(2).waitFor();
  messages.push({id:'A3',replyTo:'Q3',seq:4,role:'assistant',content:'第三问答案'},{id:'A1',replyTo:'Q1',seq:5,role:'assistant',content:'第一问答案'});messages[0].status=messages[2].status='answered';await page.evaluate(()=>document.dispatchEvent(new Event('visibilitychange')));await page.locator('[data-message-id=A1]').waitFor();
  assert.deepEqual(await page.locator('.question-turn').evaluateAll(nodes=>nodes.map(n=>[...n.querySelectorAll('[data-message-id]')].map(m=>m.dataset.messageId))),[['Q1','A1'],['Q2'],['Q3','A3']]);
  await page.locator('#questionText').fill('保留下一问草稿');await page.locator('#questionMessages').evaluate(e=>e.scrollTop=50);const oldTop=await page.locator('[data-message-id=Q1]').evaluate(e=>e.getBoundingClientRect().top);
  messages.push({id:'A2',replyTo:'Q2',seq:6,role:'assistant',content:'第二问答案'});messages[1].status='answered';await page.evaluate(()=>document.dispatchEvent(new Event('visibilitychange')));await page.locator('[data-message-id=A2]').waitFor();assert.equal(await page.locator('#questionText').inputValue(),'保留下一问草稿');assert(Math.abs(oldTop-await page.locator('[data-message-id=Q1]').evaluate(e=>e.getBoundingClientRect().top))<2);
+ await page.locator('[data-close=questionsDialog]').click();
+ // Open from the first unread question (Q2), retain the temporary boundary through
+ // polling, and prevent a pre-opening summary response from relighting the dot.
+ seenSeq=5;await page.evaluate(()=>questions.changed());await page.locator('#questionDot').waitFor({state:'visible'});
+ delaySummary=true;await page.evaluate(()=>questions.changed());await page.waitForTimeout(60);assert(releaseSummary);
+ delayOpen=true;await page.locator('#questionsButton').click();assert(await page.locator('#questionDot').isHidden());
+ releaseSummary();await page.waitForTimeout(60);assert(await page.locator('#questionDot').isHidden());releaseOpen();delayOpen=false;
+ await page.locator('.question-unread-divider').waitFor();await page.waitForFunction(()=>!document.getElementById('questionChapter').disabled);
+ assert.equal(await page.locator('.question-unread-divider').evaluate(e=>e.nextElementSibling.dataset.questionId),'Q2');
+ assert(Math.abs(await page.locator('.question-unread-divider').evaluate(e=>e.getBoundingClientRect().top-document.getElementById('questionMessages').getBoundingClientRect().top))<2);
+ assert.equal(await page.locator('#questionText').inputValue(),'保留下一问草稿');
+ await page.evaluate(()=>document.dispatchEvent(new Event('visibilitychange')));await page.waitForTimeout(80);assert.equal(await page.locator('.question-unread-divider').count(),1);
+ await page.screenshot({path:output+'/question-unread.png',scale:'css'});
+ await page.locator('[data-close=questionsDialog]').click();await page.locator('#questionsButton').click();await page.waitForFunction(()=>!document.getElementById('questionChapter').disabled);assert.equal(await page.locator('.question-unread-divider').count(),0);
  await page.locator('[data-close=questionsDialog]').click();await page.locator('#chapterTestsButton').click();await page.locator('.chapter-test-record').waitFor();await page.locator('#chapterTestApply').click();await page.waitForFunction(()=>!document.querySelector('#chapterTestApply').disabled);await page.locator('[data-close=chapterTestsDialog]').click();await page.locator('#chapterTestsButton').click();await page.locator('.chapter-test-record').waitFor();await page.locator('#chapterTestApply').click();await page.waitForFunction(()=>!document.querySelector('#chapterTestApply').disabled);assert.equal(applications.length,2);assert.equal(applications[0].id,applications[1].id,'Lost application response must keep identity across reopening');
  testStatus='ready';await page.evaluate(()=>document.dispatchEvent(new Event('visibilitychange')));await page.locator('.chapter-test-question').nth(19).waitFor();await page.locator('[name=q1][value=A]').check();await page.locator('[name=q2][value=A]').check();await page.locator('[name=q2][value=B]').check();
  await page.locator('[data-close=chapterTestsDialog]').click();await setup();await page.locator('#chapterTestsButton').click();await page.locator('.chapter-test-record').click();await page.locator('.chapter-test-question').nth(19).waitFor();assert(await page.locator('[name=q1][value=A]').isChecked());assert(await page.locator('[name=q2][value=B]').isChecked());

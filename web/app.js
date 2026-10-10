@@ -1,15 +1,16 @@
-import {installPureReader} from './pure-reader.js?v=27';
-import {chapterNumber, createChapterBook} from './chapters.js?v=27';
-import {installSettingsNavigation} from './settings.js?v=27';
-import {createAudioConfig} from './audio-config.js?v=27';
-import {installReaderSpeech} from './reader-speech.js?v=27';
-import { parseParts, renderPart } from './render.js?v=27';
-import { validateAnnotatedContent } from './annotations.js?v=27';
-import { createPracticeUI } from './practice.js?v=27';
-import {createBalanceUI} from './balances.js?v=27';
-import {createChapterTestsUI} from './chapter-tests.js?v=27';
-import {createQuestionsUI} from './questions.js?v=27';
-import {openAudioChapter,clearAudioLibrary,preloadEnabled,setPreload} from './audio-library.js?v=27';
+import {createReaderJump} from './reader-jump.js?v=28';
+import {installPureReader} from './pure-reader.js?v=28';
+import {chapterNumber, createChapterBook} from './chapters.js?v=28';
+import {installSettingsNavigation} from './settings.js?v=28';
+import {createAudioConfig} from './audio-config.js?v=28';
+import {installReaderSpeech} from './reader-speech.js?v=28';
+import { parseParts, renderPart } from './render.js?v=28';
+import { validateAnnotatedContent } from './annotations.js?v=28';
+import { createPracticeUI } from './practice.js?v=28';
+import {createBalanceUI} from './balances.js?v=28';
+import {createChapterTestsUI} from './chapter-tests.js?v=28';
+import {createQuestionsUI} from './questions.js?v=28';
+import {openAudioChapter,clearAudioLibrary,preloadEnabled,setPreload} from './audio-library.js?v=28';
 
 const $ = id => document.getElementById(id);
 const todayParts = Object.fromEntries(new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(new Date()).map(part => [part.type, part.value]));
@@ -37,6 +38,7 @@ function toast(message) {
   toast.timer = setTimeout(() => element.classList.remove('visible'), 3300);
 }
 
+const readerJump=createReaderJump({shell:$('app'),scope:$('readingScroll'),notice:$('readerJumpStatus')});
 const nativeSpeech=installReaderSpeech({toast,onWordJump:jumpToWord});
 const pureReader=installPureReader({prepareTap:nativeSpeech.prepareTap,onToggle:saveReadingPosition,onQuestion:focus=>questions.submitFocus(focus)});
 const settingsNavigation=installSettingsNavigation();
@@ -58,6 +60,7 @@ function setSyncStatus(message, offline = false) {
 
 function showDialog(id) {
   nativeSpeech.stop();pureReader.clear();
+  readerJump.cancel();
   const dialog = $(id),parent=document.querySelector('dialog[open]');
   if(parent&&parent!==dialog){dialog.returnDialog=parent.id;parent.close();}
   if (!dialog.open) dialog.showModal();
@@ -211,10 +214,6 @@ async function loadProgress(id) {
   try { return await api(`/api/progress/${encodeURIComponent(id)}`); } catch { return {}; }
 }
 
-function renderProgress() {
-  $('readState').textContent = state.progress.completed ? '已完成阅读' : '';
-}
-
 function updateReadingPosition() {
   if (!state.current) { $('readingPosition').textContent = ''; return; }
   if (state.words.length) {
@@ -246,7 +245,7 @@ function renderIndex(filter = '') {
     const label = document.createElement('strong');
     label.textContent = word.text;
     button.append(number, label);
-    button.addEventListener('click', () => { closeDialog('indexDialog'); word.element.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
+    button.addEventListener('click', () => { closeDialog('indexDialog');jumpWithin(()=>[...$('article').querySelectorAll('.word-entry')].find(e=>e.id===word.element.id)); });
     list.append(button);
   }
   if (!list.childElementCount) { const p = document.createElement('p'); p.className = 'chapter-list-empty'; p.textContent = '没有匹配的词条。'; list.append(p); }
@@ -272,21 +271,14 @@ function rememberDisplay() {
   writeStored(DISPLAY_KEY, display);
 }
 
-function jumpTo(part, code) {
-  showPart(part, true);
-  requestAnimationFrame(() => requestAnimationFrame(() => {
-    const target = [...$('article').querySelectorAll('[data-use-id]')].find(element => element.dataset.useId === code);
-    if (!target) { toast(`没有找到 ${code} 的对应内容`); return; }
-    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }));
+function jumpWithin(findTarget, part=state.part) {
+  readerJump.run(()=>showPart(part,false,true,false),findTarget,()=>{updateReadingPosition();saveReadingPosition();}).catch(e=>toast(e.message));
 }
-
+function jumpTo(part, code) {
+  jumpWithin(()=>[...$('article').querySelectorAll('[data-use-id]')].find(e=>e.dataset.useId===code),part);
+}
 function jumpToWord(wordId){
- showPart('one',false);
- requestAnimationFrame(()=>requestAnimationFrame(()=>{
-  const target=[...$('article').querySelectorAll('.word-entry')].find(e=>e.dataset.wordId===wordId);
-  if(target)target.scrollIntoView({behavior:'smooth',block:'start'});else toast('没有找到对应词汇标题');
- }));
+  jumpWithin(()=>[...$('article').querySelectorAll('.word-entry')].find(e=>e.dataset.wordId===wordId),'one');
 }
 
 function openSentenceReference(codes) {
@@ -305,7 +297,8 @@ function openSentenceReference(codes) {
   showDialog('usageDialog');
 }
 
-function showPart(part, restore = false, rememberCurrent = true) {
+function showPart(part, restore = false, rememberCurrent = true, managePosition = true) {
+  if(managePosition)readerJump.cancel();
   nativeSpeech.stop();pureReader.clear();
   if (!state.current || !['one', 'two', 'three'].includes(part)) return;
   if (rememberCurrent) saveReadingPosition();
@@ -329,13 +322,14 @@ function showPart(part, restore = false, rememberCurrent = true) {
   const lastParts = readStored(LAST_PART_KEY);
   lastParts[state.current.historical ? `${state.current.id}@${state.current.digest}` : state.current.id] = part;
   writeStored(LAST_PART_KEY, lastParts);
-  requestAnimationFrame(() => {
+  if(managePosition)requestAnimationFrame(() => {
     $('readingScroll').scrollTop = restore ? Number(readStored(POSITION_KEY)[positionId(part)] || 0) : 0;
     updateReadingPosition();
   });
 }
 
 async function openChapter(id, resume = true, digest = null) {
+  readerJump.cancel();
   nativeSpeech.stop();pureReader.clear();
   const request = ++state.chapterRequest;
   saveReadingPosition();
@@ -357,7 +351,6 @@ async function openChapter(id, resume = true, digest = null) {
     $('chapterNumber').textContent = `${chapter.historical ? '原版 · ' : ''}${chapterNumber(chapter)}`;
     $('chapterTitle').textContent = chapter.title;
     $('chapterSubtitle').textContent = chapter.subtitle || '';
-    $('wordCount').textContent = `${chapter.wordCount || 0} 个主词`;
     $('loadingState').hidden = true;
     $('loginState').hidden = true;
     $('emptyState').hidden = true;
@@ -365,7 +358,6 @@ async function openChapter(id, resume = true, digest = null) {
     $('app').classList.remove('empty-mode');
     $('app').classList.remove('temporary-mode');
     $('temporaryRibbon').hidden = true;
-    renderProgress();
     renderChapterNavigation();
     renderCalendar();
     const saved = readStored(LAST_PART_KEY)[chapter.historical ? `${id}@${chapter.digest}` : id];
@@ -443,8 +435,6 @@ async function openTemporary(id, resume = true) {
     $('chapterNumber').textContent = '48 小时临时页';
     $('chapterTitle').textContent = page.title;
     $('chapterSubtitle').textContent = page.subtitle || '';
-    $('wordCount').textContent = `${page.wordCount} 个词条`;
-    $('readState').textContent = expiryText(page.expiresAt);
     $('temporaryKind').textContent = page.kind === 'review' ? '复习页 · 已有章节摘录' : '测试页 · 现有文档';
     $('temporaryExpiry').textContent = `发布后 48 小时到期 · ${expiryText(page.expiresAt)}`;
     $('temporaryRibbon').hidden = false;
@@ -737,6 +727,6 @@ $('chapterNav').addEventListener('touchend', event => {
   if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.5) moveChapter(dx < 0 ? 1 : -1);
   swipeStart = null;
 }, { passive: true });
-if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=27', { updateViaCache: 'none' }).catch(() => {});
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=28', { updateViaCache: 'none' }).catch(() => {});
 refreshInstallStatus();
 initialize().then(()=>{if(state.authenticated&&new URLSearchParams(location.search).has('balances'))balances.open();});

@@ -1,9 +1,10 @@
-import {prose} from './text.js?v=27';
-import {focusQuestion} from './reader-focus.js?v=27';
-import {questionPairs} from './question-pairs.js?v=27';
+import {prose} from './text.js?v=28';
+import {focusQuestion} from './reader-focus.js?v=28';
+import {questionPairs} from './question-pairs.js?v=28';
 export function createQuestionsUI({api,showDialog,toast,getContext}) {
  const $=id=>document.getElementById(id),dialog=$('questionsDialog');
- let target=null,threads=[],generation=0,sending=false,pendingId=null;
+ let target=null,threads=[],generation=0,summaryGeneration=0,opening=false,sending=false,pendingId=null,initialPosition=false;
+ const boundaries=new Map(),identity=t=>`${t.chapterId}@${t.digest}`;
  const key=()=>target?`second-language-question-draft:${target.chapterId}:${target.digest}`:'';
  const post=(path,body)=>api(path,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(body)});
  function draft(save=false) {try{if(save&&key())localStorage.setItem(key(),$('questionText').value);else $('questionText').value=key()?localStorage.getItem(key())||'':'';}catch{}}
@@ -18,19 +19,25 @@ export function createQuestionsUI({api,showDialog,toast,getContext}) {
  }
  async function summary() {
   const active=eligible();$('questionsButton').hidden=!active;
-  if(!active)return;
-  const result=await api('/api/questions/summary');threads=result.threads||[];
+  if(!active||opening)return;
+  const ticket=++summaryGeneration,result=await api('/api/questions/summary');
+  if(ticket!==summaryGeneration||opening||!eligible())return;threads=result.threads||[];
   const unread=threads.some(t=>t.unread>0);$('questionDot').hidden=!unread;$('questionsButton').setAttribute('aria-label',unread?'章节答疑，有新回复':'章节答疑');
   if(dialog.open)options();
   const updates=$('questionNewReplies');updates.replaceChildren();updates.hidden=!threads.some(t=>t.unread>0&&!(t.chapterId===target?.chapterId&&t.digest===target?.digest));
-  for(const t of threads.filter(t=>t.unread>0&&!(t.chapterId===target?.chapterId&&t.digest===target?.digest))){const b=document.createElement('button');b.type='button';b.className='bevel-button';b.textContent=`${t.chapterId} · 新回复`;b.onclick=()=>{draft(true);target={chapterId:t.chapterId,digest:t.digest};pendingId=null;generation++;options();draft();refresh();};updates.append(b);}
+  for(const t of threads.filter(t=>t.unread>0&&!(t.chapterId===target?.chapterId&&t.digest===target?.digest))){const b=document.createElement('button');b.type='button';b.className='bevel-button';b.textContent=`${t.chapterId} · 新回复`;b.onclick=()=>{draft(true);target={chapterId:t.chapterId,digest:t.digest};pendingId=null;initialPosition=true;generation++;options();draft();refresh();};updates.append(b);}
  }
  async function refresh() {
-  if(!target||!dialog.open)return;
+  if(!target||!dialog.open||opening)return;
   const request=++generation,who={...target};
   try {
    const data=await api(`/api/questions?chapter=${encodeURIComponent(who.chapterId)}&digest=${who.digest}`);
    if(request!==generation||!dialog.open)return;
+   await display(data);
+   await summary();
+  }catch(e){$('questionStatus').textContent=e.message;}
+ }
+ async function display(data) {
    const list=$('questionMessages'),nearBottom=list.scrollHeight-list.scrollTop-list.clientHeight<80,prior=list.scrollTop;
    const anchor=[...list.querySelectorAll('[data-message-id]')].find(el=>el.getBoundingClientRect().bottom>list.getBoundingClientRect().top),anchorId=anchor?.dataset.messageId,anchorOffset=anchor?anchor.getBoundingClientRect().top-list.getBoundingClientRect().top:0;
    list.replaceChildren();
@@ -47,31 +54,47 @@ export function createQuestionsUI({api,showDialog,toast,getContext}) {
     }
     return box;
    }
-   for(const {question,answer} of questionPairs(data.messages)){const turn=document.createElement('div');turn.className='question-turn';turn.dataset.questionId=question.id;turn.append(message(question));if(answer)turn.append(message(answer));list.append(turn);}
-   if(nearBottom)list.scrollTop=list.scrollHeight;else{const next=anchorId?[...list.querySelectorAll('[data-message-id]')].find(el=>el.dataset.messageId===anchorId):null;list.scrollTop=prior;if(next)list.scrollTop+=next.getBoundingClientRect().top-list.getBoundingClientRect().top-anchorOffset;}
+   const boundary=boundaries.get(identity(target));
+   for(const {question,answer} of questionPairs(data.messages)){
+    if(question.id===boundary){const divider=document.createElement('div');divider.className='question-unread-divider';divider.textContent='未读消息';list.append(divider);}
+    const turn=document.createElement('div');turn.className='question-turn';turn.dataset.questionId=question.id;turn.append(message(question));if(answer)turn.append(message(answer));list.append(turn);
+   }
+   if(initialPosition){const divider=list.querySelector('.question-unread-divider');if(divider)list.scrollTop+=divider.getBoundingClientRect().top-list.getBoundingClientRect().top;else list.scrollTop=list.scrollHeight;initialPosition=false;}
+   else if(nearBottom)list.scrollTop=list.scrollHeight;else{const next=anchorId?[...list.querySelectorAll('[data-message-id]')].find(el=>el.dataset.messageId===anchorId):null;list.scrollTop=prior;if(next)list.scrollTop+=next.getBoundingClientRect().top-list.getBoundingClientRect().top-anchorOffset;}
    $('questionStatus').textContent='回复会保存在本章答疑中。本机服务在线时自动处理。';
    const seq=Math.max(0,...data.messages.filter(m=>m.role==='assistant').map(m=>m.seq));
    if(data.threadId&&seq&&nearBottom&&document.visibilityState==='visible')await post(`/api/questions/${data.threadId}/seen`,{seq});
-   await summary();
-  }catch(e){$('questionStatus').textContent=e.message;}
  }
  $('questionsButton').onclick=async()=>{
   draft(true);const current=getContext().current;target={chapterId:current.id,digest:current.digest};pendingId=null;
-  options();draft();showDialog('questionsDialog');await refresh();
+  opening=true;summaryGeneration++;const ticket=++generation;boundaries.clear();initialPosition=true;
+  $('questionChapter').disabled=true;$('questionSend').disabled=true;
+  $('questionDot').hidden=true;$('questionsButton').setAttribute('aria-label','章节答疑');
+  $('questionNewReplies').replaceChildren();$('questionNewReplies').hidden=true;
+  options();draft();$('questionMessages').replaceChildren();$('questionStatus').textContent='正在打开…';showDialog('questionsDialog');
+  try{
+   const data=await post('/api/questions/open',target);
+   if(ticket!==generation||!dialog.open)return;
+   for(const t of data.threads||[])if(t.firstUnreadQuestionId)boundaries.set(identity(t),t.firstUnreadQuestionId);
+   threads=(data.threads||[]).map(t=>({...t,unread:0}));
+   draft(true);target={chapterId:data.chapterId,digest:data.digest};options();draft();
+   await display(data);
+  }catch(e){if(ticket===generation&&dialog.open)$('questionStatus').textContent=e.message;}
+  finally{if(ticket===generation){opening=false;$('questionChapter').disabled=false;$('questionSend').disabled=sending;summary().catch(()=>{});}}
  };
- $('questionChapter').onchange=()=>{draft(true);const [chapterId,digest]=$('questionChapter').value.split('@');target={chapterId,digest};pendingId=null;generation++;draft();refresh();};
+ $('questionChapter').onchange=()=>{draft(true);const [chapterId,digest]=$('questionChapter').value.split('@');target={chapterId,digest};pendingId=null;initialPosition=true;generation++;draft();refresh();};
  $('questionText').oninput=()=>{pendingId=null;draft(true);};
  $('questionForm').onsubmit=async event=>{
-  event.preventDefault();if(sending||!target||!$('questionText').value.trim())return;
+  event.preventDefault();if(sending||opening||!target||!$('questionText').value.trim())return;
   const who={...target},raw=$('questionText').value,question=raw.trim();sending=true;$('questionSend').disabled=true;
   pendingId ||= crypto.randomUUID();
   try {await post('/api/questions',{id:pendingId,...who,question});
    const sentKey=`second-language-question-draft:${who.chapterId}:${who.digest}`;
    try{if(localStorage.getItem(sentKey)===raw)localStorage.removeItem(sentKey);}catch{}
    if(target?.chapterId===who.chapterId&&target?.digest===who.digest){if($('questionText').value===raw){$('questionText').value='';pendingId=null;}await refresh();}
-  }catch(e){toast(e.message);}finally{sending=false;$('questionSend').disabled=false;}
+  }catch(e){toast(e.message);}finally{sending=false;$('questionSend').disabled=opening;}
  };
- dialog.addEventListener('close',()=>{draft(true);generation++;});
+ dialog.addEventListener('close',()=>{draft(true);generation++;summaryGeneration++;opening=false;initialPosition=false;boundaries.clear();$('questionChapter').disabled=false;$('questionSend').disabled=sending;});
  const poll=()=>{if(document.visibilityState==='visible'&&eligible()){if(dialog.open)refresh();else summary().catch(()=>{});}};
  setInterval(poll,30000);document.addEventListener('visibilitychange',poll);window.addEventListener('online',poll);
  const quickSending=new Set(),recent=new Map();
@@ -87,5 +110,5 @@ export function createQuestionsUI({api,showDialog,toast,getContext}) {
   catch(e){toast(e.message||'提交暂未确认，请重做同一手势重试');}
   finally{quickSending.delete(storageKey);}
  }
- return {submitFocus,changed(){summary().catch(()=>{});},clear(){generation++;target=null;threads=[];recent.clear();dialog.close();$('questionMessages').replaceChildren();$('questionsButton').hidden=true;$('questionDot').hidden=true;}};
+ return {submitFocus,changed(){summary().catch(()=>{});},clear(){generation++;summaryGeneration++;opening=false;boundaries.clear();target=null;threads=[];recent.clear();dialog.close();$('questionMessages').replaceChildren();$('questionsButton').hidden=true;$('questionDot').hidden=true;}};
 }

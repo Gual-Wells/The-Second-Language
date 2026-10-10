@@ -6,7 +6,7 @@ const sqlite=new DatabaseSync(':memory:');
 sqlite.exec(`PRAGMA foreign_keys=ON; CREATE TABLE chapter_revisions(digest TEXT PRIMARY KEY,chapter_id TEXT,content_key TEXT,title TEXT);CREATE TABLE published_chapters(chapter_id TEXT PRIMARY KEY);`);
 sqlite.exec(await readFile(new URL('../worker/migrations/0005_chapter_questions.sql',import.meta.url),'utf8'));
 sqlite.exec(await readFile(new URL('../worker/migrations/0010_chapter_tests.sql',import.meta.url),'utf8'));
-const db={prepare(sql){let values=[];return {bind(...v){values=v;return this;},async first(){return sqlite.prepare(sql).get(...values)||null;},async all(){return {results:sqlite.prepare(sql).all(...values)};},async run(){const result=sqlite.prepare(sql).run(...values);return {meta:{changes:Number(result.changes)}};}};},async batch(items){sqlite.exec('BEGIN');try{const results=[];for(const i of items)results.push(await i.run());sqlite.exec('COMMIT');return results;}catch(e){sqlite.exec('ROLLBACK');throw e;}}};
+const db={prepare(sql){let values=[];return {bind(...v){values=v;return this;},async first(){return sqlite.prepare(sql).get(...values)||null;},async all(){return {results:sqlite.prepare(sql).all(...values)};},async run(){if(/^\s*(SELECT|WITH)/i.test(sql))return {results:sqlite.prepare(sql).all(...values),meta:{changes:0}};const result=sqlite.prepare(sql).run(...values);return {meta:{changes:Number(result.changes)}};}};},async batch(items){sqlite.exec('BEGIN');try{const results=[];for(const i of items)results.push(await i.run());sqlite.exec('COMMIT');return results;}catch(e){sqlite.exec('ROLLBACK');throw e;}}};
 const digest='a'.repeat(64);sqlite.prepare('INSERT INTO chapter_revisions VALUES(?,?,?,?)').run(digest,'chapter-1','original','原版');sqlite.prepare('INSERT INTO published_chapters VALUES(?)').run('chapter-1');
 const env={DB:db,CHAPTERS:{async get(key){assert.equal(key,'original');return 'The original full chapter.';}}};
 async function request(path='',body=null,context={session:true,sameOrigin:true,isPublisher:false}){const r=await questionsRoute(new Request('https://example.test/api/questions'+path,{method:body?'POST':'GET',...(body?{body:JSON.stringify(body)}:{})}),env,context);return {status:r.status,data:await r.json()};}
@@ -28,4 +28,29 @@ assert.equal((await request('/summary')).data.threads[0].unread,2);
 const thread=(await request(`?chapter=chapter-1&digest=${digest}`)).data;
 assert.equal(thread.messages.find(m=>m.content==='第一条解释').replyTo,first);assert.equal(thread.messages.find(m=>m.content==='第二条解释').replyTo,second);
 await request(`/${thread.threadId}/seen`,{seq:thread.messages.at(-1).seq});assert.equal((await request('/summary')).data.threads[0].unread,0);
+
+// Opening snapshots all unread replies; landing follows question order, not answer arrival.
+const otherDigest='b'.repeat(64),otherThread=crypto.randomUUID(),otherQ=crypto.randomUUID();
+sqlite.prepare('INSERT INTO chapter_revisions VALUES(?,?,?,?)').run(otherDigest,'chapter-2','original','另一章');
+sqlite.prepare('INSERT INTO chapter_conversations(id,chapter_id,chapter_digest,created_at) VALUES(?,?,?,?)').run(otherThread,'chapter-2',otherDigest,0);
+sqlite.prepare("INSERT INTO chapter_messages(id,conversation_id,role,content,created_at) VALUES(?,?,'user',?,?)").run(otherQ,otherThread,'历史问题',0);
+sqlite.prepare("INSERT INTO chapter_messages(id,conversation_id,role,content,reply_to,created_at) VALUES(?,?,'assistant',?,?,?)").run(crypto.randomUUID(),otherThread,'历史未读',otherQ,0);
+const third=crypto.randomUUID(),fourth=crypto.randomUUID();
+for(const q of [third,fourth])sqlite.prepare("INSERT INTO chapter_messages(id,conversation_id,role,content,created_at) VALUES(?,?,'user',?,?)").run(q,thread.threadId,'新问题',Date.now());
+sqlite.prepare("INSERT INTO chapter_messages(id,conversation_id,role,content,reply_to,created_at) VALUES(?,?,'assistant',?,?,?)").run(crypto.randomUUID(),thread.threadId,'第四问先到',fourth,Date.now());
+sqlite.prepare("INSERT INTO chapter_messages(id,conversation_id,role,content,reply_to,created_at) VALUES(?,?,'assistant',?,?,?)").run(crypto.randomUUID(),thread.threadId,'第三问晚到',third,Date.now());
+assert.equal((await request('/open',{chapterId:'chapter-1',digest},{session:true,sameOrigin:false})).status,403);
+assert.equal((await request('/open',{chapterId:'chapter-1',digest:'invalid'})).status,400);
+const opened=(await request('/open',{chapterId:'chapter-1',digest})).data;
+assert.equal(opened.threadId,thread.threadId);assert.equal(opened.firstUnreadQuestionId,third);
+assert.equal(opened.threads.find(t=>t.id===otherThread).unread,1);assert(opened.messages.some(m=>m.content==='第三问晚到'));
+assert((await request('/summary')).data.threads.every(t=>t.unread===0));
+const otherLateQ=crypto.randomUUID();
+sqlite.prepare("INSERT INTO chapter_messages(id,conversation_id,role,content,created_at) VALUES(?,?,'user',?,?)").run(otherLateQ,otherThread,'等待中的历史问题',Date.now());
+sqlite.prepare("INSERT INTO chapter_messages(id,conversation_id,role,content,reply_to,created_at) VALUES(?,?,'assistant',?,?,?)").run(crypto.randomUUID(),otherThread,'打开之后的新回复',otherLateQ,Date.now());
+assert.equal((await request('/summary')).data.threads.find(t=>t.id===otherThread).unread,1);
+const history=(await request('/open',{chapterId:'chapter-1',digest})).data;
+assert.equal(history.threadId,otherThread);assert.equal(history.firstUnreadQuestionId,otherLateQ);
+const clean=(await request('/open',{chapterId:'chapter-1',digest})).data;assert.equal(clean.firstUnreadQuestionId,null);assert.equal(clean.threadId,thread.threadId);
+const empty=(await request('/open',{chapterId:'unseen',digest:'c'.repeat(64)})).data;assert.equal(empty.threadId,null);assert.deepEqual(empty.messages,[]);
 sqlite.close();console.log('通过：认证、CSRF、版本全文、重发去重、串行领取、追问上下文、重复回推、未读确认');
