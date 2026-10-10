@@ -5,6 +5,7 @@ import {questionsRoute} from '../worker/src/questions.js';
 const sqlite=new DatabaseSync(':memory:');
 sqlite.exec(`PRAGMA foreign_keys=ON; CREATE TABLE chapter_revisions(digest TEXT PRIMARY KEY,chapter_id TEXT,content_key TEXT,title TEXT);CREATE TABLE published_chapters(chapter_id TEXT PRIMARY KEY);`);
 sqlite.exec(await readFile(new URL('../worker/migrations/0005_chapter_questions.sql',import.meta.url),'utf8'));
+sqlite.exec(await readFile(new URL('../worker/migrations/0010_chapter_tests.sql',import.meta.url),'utf8'));
 const db={prepare(sql){let values=[];return {bind(...v){values=v;return this;},async first(){return sqlite.prepare(sql).get(...values)||null;},async all(){return {results:sqlite.prepare(sql).all(...values)};},async run(){const result=sqlite.prepare(sql).run(...values);return {meta:{changes:Number(result.changes)}};}};},async batch(items){sqlite.exec('BEGIN');try{const results=[];for(const i of items)results.push(await i.run());sqlite.exec('COMMIT');return results;}catch(e){sqlite.exec('ROLLBACK');throw e;}}};
 const digest='a'.repeat(64);sqlite.prepare('INSERT INTO chapter_revisions VALUES(?,?,?,?)').run(digest,'chapter-1','original','原版');sqlite.prepare('INSERT INTO published_chapters VALUES(?)').run('chapter-1');
 const env={DB:db,CHAPTERS:{async get(key){assert.equal(key,'original');return 'The original full chapter.';}}};
@@ -25,5 +26,6 @@ const two=(await request('/jobs/claim',{claim},publisher)).data.job;assert.equal
 await request(`/jobs/${second}/complete`,{claim,answer:'第二条解释'},publisher);
 assert.equal((await request('/summary')).data.threads[0].unread,2);
 const thread=(await request(`?chapter=chapter-1&digest=${digest}`)).data;
+assert.equal(thread.messages.find(m=>m.content==='第一条解释').replyTo,first);assert.equal(thread.messages.find(m=>m.content==='第二条解释').replyTo,second);
 await request(`/${thread.threadId}/seen`,{seq:thread.messages.at(-1).seq});assert.equal((await request('/summary')).data.threads[0].unread,0);
 sqlite.close();console.log('通过：认证、CSRF、版本全文、重发去重、串行领取、追问上下文、重复回推、未读确认');

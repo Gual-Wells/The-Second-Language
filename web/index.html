@@ -11,10 +11,10 @@
   <meta name="format-detection" content="telephone=no">
   <meta name="description" content="第二语言 · 按日期阅读的每日英语章节">
   <title>第二语言</title>
-  <link rel="manifest" href="/manifest.webmanifest?v=26">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=26">
-  <link rel="icon" href="/icon-192.png?v=26" type="image/png">
-  <link rel="stylesheet" href="/styles.css?v=26">
+  <link rel="manifest" href="/manifest.webmanifest?v=27">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=27">
+  <link rel="icon" href="/icon-192.png?v=27" type="image/png">
+  <link rel="stylesheet" href="/styles.css?v=27">
 </head>
 <body>
   <main class="app-shell login-mode" id="app">
@@ -62,13 +62,13 @@
       <div class="reading-scroll" id="readingScroll" tabindex="0">
         <section class="state-card loading-card" id="loadingState" role="status">
           <div class="state-band"><span>第二语言</span><small>DAILY READER</small></div>
-          <div class="state-body"><img class="state-icon" src="/icon.svg?v=26" alt=""><h2>正在打开章节</h2><p>正在检查登录状态与已发布章节。</p></div>
+          <div class="state-body"><img class="state-icon" src="/icon.svg?v=27" alt=""><h2>正在打开章节</h2><p>正在检查登录状态与已发布章节。</p></div>
         </section>
 
         <section class="state-card" id="loginState" hidden>
           <div class="state-band"><span>个人章节</span><small>SECOND LANGUAGE</small></div>
           <div class="state-body">
-            <img class="state-icon" src="/icon.svg?v=26" alt="">
+            <img class="state-icon" src="/icon.svg?v=27" alt="">
             <h2>打开你的每日读书器</h2>
             <p id="loginDescription">使用已登记的通行密钥登录，继续按日期阅读。</p>
             <label class="field-label" id="setupKeyRow" for="setupKey" hidden>初始化密钥</label>
@@ -81,7 +81,7 @@
 
         <section class="state-card" id="emptyState" hidden>
           <div class="state-band"><span>每日章节</span><small>CHAPTERS</small></div>
-          <div class="state-body"><img class="state-icon" src="/icon.svg?v=26" alt=""><h2>下一章正在建设</h2><p>发布后的章节会出现在章节册、日期栏和日历中。你可以先在设置里写下学习目标，供下一次推荐参考。</p><button class="bevel-button" id="emptySettingsButton" type="button">填写学习目标</button></div>
+          <div class="state-body"><img class="state-icon" src="/icon.svg?v=27" alt=""><h2>下一章正在建设</h2><p>发布后的章节会出现在章节册、日期栏和日历中。你可以先在设置里写下学习目标，供下一次推荐参考。</p><button class="bevel-button" id="emptySettingsButton" type="button">填写学习目标</button></div>
         </section>
 
         <section class="reader" id="reader" hidden>
@@ -90,30 +90,28 @@
             <div class="chapter-label"><span id="chapterDate"></span><span class="label-separator">/</span><span id="chapterNumber"></span></div>
             <h2 id="chapterTitle"></h2>
             <p id="chapterSubtitle"></p>
+            <div class="chapter-test-entry"><button class="bevel-button" id="chapterTestsButton" type="button" hidden>章节测试</button></div>
             <div class="chapter-facts"><span id="wordCount"></span><span id="readState"></span></div>
           </div>
           <div class="part-heading"><span id="partNumber">PART 01</span><strong id="partTitle">词汇与用法</strong><span id="partSummary">按词序阅读</span></div>
           <div class="article-tools" id="articleTools" hidden><button class="bevel-button" id="highlightButton" type="button" aria-pressed="false">标记用法</button><button class="bevel-button" id="translationButton" type="button" aria-pressed="false">逐句译文</button><span>点按标记句可回看对应用法</span></div>
           <article class="article" id="article"></article>
           <section class="reflection" id="reflection" hidden>
-            <div class="section-band"><strong>读后记录</strong><span>READING NOTE</span></div>
-            <div class="reflection-body">
-              <p>记下这一章的学习感受，下一次推荐会参考它。</p>
-              <div class="difficulty" role="group" aria-label="学习感受">
-                <button type="button" data-difficulty="easy">已掌握</button>
-                <button type="button" data-difficulty="right">适中</button>
-                <button type="button" data-difficulty="hard">偏难</button>
-              </div>
-              <label class="field-label" for="readingNote">阅读笔记</label>
-              <textarea class="text-input" id="readingNote" rows="4" placeholder="记下想再读的词或用法…"></textarea>
-              <button class="primary-button" id="saveProgress" type="button">保存学习反馈</button>
-            </div>
+            <div class="section-band"><strong>章节测试</strong><span>CHAPTER TEST</span></div>
+            <div class="reflection-body"><p>用一份独立测试检查本章的理解；完成后查看逐题解析。</p><button class="primary-button" id="chapterTestsEndButton" type="button">申请与查看测试</button></div>
           </section>
         </section>
       </div>
       <div class="reader-statusbar"><span class="status-lamp" id="statusLamp"></span><span id="syncStatus">正在连接章节…</span><span id="readingPosition"></span></div>
     </section>
   </main>
+
+  <dialog class="sheet-dialog" id="chapterTestsDialog" aria-labelledby="chapterTestsTitle">
+    <div class="sheet chapter-test-sheet"><div class="sheet-head"><div><small>CHAPTER TEST</small><h2 id="chapterTestsTitle">章节测试</h2></div><button class="sheet-close" data-close="chapterTestsDialog" type="button" aria-label="关闭">×</button></div>
+      <p class="chapter-test-status" id="chapterTestStatus" role="status"></p><div id="chapterTestBody" class="chapter-test-body"></div>
+      <div class="chapter-test-foot"><small id="chapterTestFootnote"></small><button class="bevel-button" id="chapterTestBack" type="button" hidden>返回列表</button><button class="primary-button" id="chapterTestApply" type="button">申请新测试</button><button class="primary-button" id="chapterTestSubmit" type="button" hidden>提交答卷</button></div>
+    </div>
+  </dialog>
 
   <dialog class="sheet-dialog" id="calendarDialog" aria-labelledby="calendarTitle">
     <div class="sheet chapter-book-sheet">
@@ -190,7 +188,7 @@
   <dialog class="sheet-dialog" id="settingsDialog" aria-labelledby="settingsTitle">
     <div class="sheet settings-sheet">
       <div class="sheet-head"><div><small>READER SETTINGS</small><h2 id="settingsTitle">阅读器设置</h2></div><button class="sheet-close" data-close="settingsDialog" type="button" aria-label="关闭">×</button></div>
-        <section class="settings-section"><div class="section-band"><strong>正文点读</strong><span>ENGLISH VOICE</span></div><div class="settings-body"><p>第一部分点词汇标题，按对应音标发音；第二部分点标题返回对应词汇，点例句读整句；第三部分点句子读整句。使用清晰的美式女声，已有声音直接复用。开启“标记用法”时，高亮句单击优先回看用法。释义、补充说明和译文不参与朗读。</p><p>长按第一部分词汇标题，或第二、三部分英文句子，可直接申请详细答疑；双击句中英文词，申请该处用法解析。双击其他正文区域，进入或退出纯净阅读。回复在章节答疑中查看。</p></div></section><section class="settings-section"><div class="section-band"><strong>我的学习目标</strong><span>LEARNING GOAL</span></div><div class="settings-body"><p>这里的目标会进入下一次课程推荐。</p><textarea class="text-input" id="studyGoal" rows="5" placeholder="例如：重点提高雅思阅读和学术写作…"></textarea><button class="bevel-button" id="saveGoal" type="button">保存学习目标</button></div></section>
+        <section class="settings-section"><div class="section-band"><strong>正文点读</strong><span>ENGLISH VOICE</span></div><div class="settings-body"><p>第二部分点标题返回对应词汇，点例句读整句；第三部分点句子读整句。词汇标题不再朗读。使用清晰的美式女声，已有声音直接复用。开启“标记用法”时，高亮句单击优先回看用法。释义、补充说明和译文不参与朗读。</p><p>长按第一部分词汇标题，或第二、三部分英文句子，可直接申请详细答疑；双击句中英文词，申请该处用法解析。双击其他正文区域，进入或退出纯净阅读。回复在章节答疑中查看。</p></div></section><section class="settings-section"><div class="section-band"><strong>我的学习目标</strong><span>LEARNING GOAL</span></div><div class="settings-body"><p>这里的目标会进入下一次课程推荐。</p><textarea class="text-input" id="studyGoal" rows="5" placeholder="例如：重点提高雅思阅读和学术写作…"></textarea><button class="bevel-button" id="saveGoal" type="button">保存学习目标</button></div></section>
       <section class="settings-section"><div class="section-band"><strong>临时推送需求</strong><span>ONE-TIME REQUEST</span></div><div class="settings-body"><p>开启后填写复习或测试需求。Codex 完成对应临时页推送后，此项自动关闭。</p><label class="switch-row" for="temporaryRequestToggle"><span>申请下一次临时推送</span><input id="temporaryRequestToggle" type="checkbox" role="switch"></label><div id="temporaryRequestBox" hidden><label class="field-label" for="temporaryRequestText">给 Codex 的需求</label><textarea class="text-input" id="temporaryRequestText" rows="4" maxlength="2000" placeholder="例如：复习最近两章中容易混淆的词；或推送已有测试文档…"></textarea></div><button class="bevel-button" id="saveTemporaryRequest" type="button">保存临时需求</button></div></section>
       <section class="settings-section"><div class="section-band"><strong>休息一天</strong><span>NEXT DAILY RUN</span></div><div class="settings-body"><p>开启后，下一次北京时间 03:00 的章节生成任务会跳过当天推送，并自动复位。</p><label class="switch-row" for="restToggle"><span>下一章休息</span><input id="restToggle" type="checkbox" role="switch"></label><button class="bevel-button" id="saveRest" type="button">保存休息安排</button></div></section>
       <section class="settings-section"><div class="section-band"><strong>音频下载</strong><span>AUDIO</span></div><div class="settings-body"><label class="switch-row" for="audioPreloadToggle"><span>自动下载本章已有音频</span><input id="audioPreloadToggle" type="checkbox" role="switch" checked></label><p>打开章节后在后台下载，方便之后点读。关闭后按需读取；不会自动生成新音频。</p></div></section>
@@ -200,7 +198,6 @@
       <section class="settings-section" id="audioConfigSection"><div class="section-band"><strong>音频配置</strong><span>AUDIO LIBRARY</span></div><div class="settings-body">
         <div id="audioConfigChoices"><p>提前准备点读音频，之后直接复用。</p><button class="settings-row" id="audioNextChoice" type="button"><span>下一章日课</span><b>›</b></button><button class="settings-row" id="audioExistingChoice" type="button"><span>已有章节</span><b>›</b></button></div>
         <div id="audioConfigDetail" hidden><button class="bevel-button" id="audioConfigBack" type="button">‹ 音频配置</button><h3 id="audioModeTitle"></h3><label id="audioChapterRow" class="field-label">选择章节<select id="audioChapter" class="text-input"></select></label>
-          <label class="switch-row" for="audioPart-one"><span><strong>第一部分词汇</strong><small>一、二级标题的词汇点读</small><small id="audioCost-one">正在核对…</small></span><input id="audioPart-one" type="checkbox"></label>
           <label class="switch-row" for="audioPart-two"><span><strong>第二部分例句</strong><small>每条例句独立点读</small><small id="audioCost-two">正在核对…</small></span><input id="audioPart-two" type="checkbox"></label>
           <label class="switch-row" for="audioPart-three"><span><strong>第三部分逐句</strong><small>范文每句独立点读</small><small id="audioCost-three">正在核对…</small></span><input id="audioPart-three" type="checkbox"></label>
           <p id="audioConfigStatus" role="status"></p><button class="bevel-button" id="audioSave" type="button">保存选配</button>
@@ -211,10 +208,10 @@
   </dialog>
 
   <dialog class="sheet-dialog" id="installDialog" aria-labelledby="installTitle">
-    <div class="sheet help-sheet"><div class="sheet-head"><div><small>HOME SCREEN</small><h2 id="installTitle">加入主屏幕</h2></div><button class="sheet-close" data-close="installDialog" type="button" aria-label="关闭">×</button></div><div class="install-guide"><img src="/icon-192.png?v=26" alt="第二语言图标"><div><strong>在 iPhone 的 Safari 中</strong><ol><li>打开本站并点按分享按钮（也可能位于浏览器菜单中）。</li><li>选择“添加到主屏幕”。</li><li>从主屏幕启动“第二语言”。</li></ol></div></div></div>
+    <div class="sheet help-sheet"><div class="sheet-head"><div><small>HOME SCREEN</small><h2 id="installTitle">加入主屏幕</h2></div><button class="sheet-close" data-close="installDialog" type="button" aria-label="关闭">×</button></div><div class="install-guide"><img src="/icon-192.png?v=27" alt="第二语言图标"><div><strong>在 iPhone 的 Safari 中</strong><ol><li>打开本站并点按分享按钮（也可能位于浏览器菜单中）。</li><li>选择“添加到主屏幕”。</li><li>从主屏幕启动“第二语言”。</li></ol></div></div></div>
   </dialog>
 
   <div id="toast" role="status" aria-live="polite"></div>
-  <script type="module" src="/app.js?v=26"></script>
+  <script type="module" src="/app.js?v=27"></script>
 </body>
 </html>

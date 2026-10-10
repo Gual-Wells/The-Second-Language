@@ -1,4 +1,4 @@
-import {pronunciationKey,pointAudioKeys,isPointAudioClip} from './audio-plan.js?v=26';
+import {pronunciationKey,pointAudioKeys,isPointAudioClip} from './audio-plan.js?v=27';
 const CACHE='second-language-point-audio-v1',SETTING='second-language-audio-preload',sha=async bytes=>[...new Uint8Array(await crypto.subtle.digest('SHA-256',bytes))].map(x=>x.toString(16).padStart(2,'0')).join('');
 let chapter=null,clips=new Map(),serial=0,controller=null;
 export const preloadEnabled=()=>{try{return localStorage.getItem(SETTING)!=='off';}catch{return true;}};

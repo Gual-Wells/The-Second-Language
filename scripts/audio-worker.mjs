@@ -11,7 +11,7 @@ const progress=()=>api('/api/audio-config/jobs/progress',{id:job.id,claim,cursor
 const heartbeat=setInterval(()=>progress().catch(()=>{}),60000);
 try{
  for(;cursor<job.units.length;){
-  const u=job.units[cursor];if(u.unsupported){cursor++;await progress();continue;}
+  const u=job.units[cursor];if(u.kind==='word'){cursor++;await progress();continue;}if(u.unsupported){cursor++;await progress();continue;}
   const body={text:u.text,kind:u.kind,...(u.ipa?{ipa:u.ipa}:{}),chapterId:job.chapterId,digest:job.digest};
   let r=await api('/api/practice/pronunciation',body);
   for(let wait=0;r.state==='calling'&&wait<240;wait++){

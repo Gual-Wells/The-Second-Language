@@ -1,7 +1,7 @@
-import {costLabel} from './audio-plan.js?v=26';
-import {chapterNumber} from './chapters.js?v=26';
+import {costLabel} from './audio-plan.js?v=27';
+import {chapterNumber} from './chapters.js?v=27';
 export function createAudioConfig({api,getContext,toast}){
- const $=id=>document.getElementById(id),names={one:'第一部分词汇',two:'第二部分例句',three:'第三部分逐句'};
+ const $=id=>document.getElementById(id),names={two:'第二部分例句',three:'第三部分逐句'};
  let mode=null,revision=0,quote=null,serial=0,busy=false;
  const post=(path,body,method='POST')=>api('/api/audio-config'+path,{method,headers:{'content-type':'application/json'},body:JSON.stringify(body)});
  const selected=()=>Object.keys(names).filter(part=>$('audioPart-'+part).checked);

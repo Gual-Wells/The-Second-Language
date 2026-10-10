@@ -29,7 +29,7 @@ export async function audioConfigRoute(request,env,{isPublisher,session,sameOrig
  let b={};if(request.method!=='GET'){try{const raw=await request.text();if(raw.length>6000)throw Error();b=JSON.parse(raw);}catch{return json({error:'申请无效'},400);}}
  if(p===''&&request.method==='GET'){
   const next=await db.prepare('SELECT parts,revision FROM audio_next_config WHERE id=1').first(),jobs=await db.prepare("SELECT id,chapter_id,parts,state,cursor,total,error FROM audio_requests WHERE state!='quoted' ORDER BY created_at DESC LIMIT 15").all();
-  return json({next:JSON.parse(next.parts),revision:next.revision,jobs:jobs.results,price:audioPrice});
+  return json({next:JSON.parse(next.parts).filter(p=>audioParts.includes(p)),revision:next.revision,jobs:jobs.results,price:audioPrice});
  }
  if(p==='/next'&&request.method==='PUT'){
   const parts=partsOf(b.parts);if(!parts)return json({error:'请选择有效的音频项目'},400);

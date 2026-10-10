@@ -1,5 +1,6 @@
-import {prose} from './text.js?v=26';
-import {focusQuestion} from './reader-focus.js?v=26';
+import {prose} from './text.js?v=27';
+import {focusQuestion} from './reader-focus.js?v=27';
+import {questionPairs} from './question-pairs.js?v=27';
 export function createQuestionsUI({api,showDialog,toast,getContext}) {
  const $=id=>document.getElementById(id),dialog=$('questionsDialog');
  let target=null,threads=[],generation=0,sending=false,pendingId=null;
@@ -31,10 +32,12 @@ export function createQuestionsUI({api,showDialog,toast,getContext}) {
    const data=await api(`/api/questions?chapter=${encodeURIComponent(who.chapterId)}&digest=${who.digest}`);
    if(request!==generation||!dialog.open)return;
    const list=$('questionMessages'),nearBottom=list.scrollHeight-list.scrollTop-list.clientHeight<80,prior=list.scrollTop;
+   const anchor=[...list.querySelectorAll('[data-message-id]')].find(el=>el.getBoundingClientRect().bottom>list.getBoundingClientRect().top),anchorId=anchor?.dataset.messageId,anchorOffset=anchor?anchor.getBoundingClientRect().top-list.getBoundingClientRect().top:0;
    list.replaceChildren();
    if(!data.messages.length){const p=document.createElement('p');p.className='question-empty';p.textContent='写下你对这一章的疑问，也可以引用原句。';list.append(p);}
-   for(const m of data.messages){
+   function message(m){
     const box=document.createElement('section');box.className=`question-message question-${m.role}`;
+    box.dataset.messageId=m.id;
     const label=document.createElement('strong');label.textContent=m.role==='user'?'我的问题':'答疑';
     const text=document.createElement('div');text.className='question-content';if(m.role==='assistant')prose(text,m.content);else text.textContent=m.content;
     box.append(label,text);
@@ -42,9 +45,10 @@ export function createQuestionsUI({api,showDialog,toast,getContext}) {
      const status=document.createElement('p');status.className='question-status';status.textContent=m.status==='running'?'正在分析…':m.status==='failed'?(m.error||'暂未完成'):'等待处理';box.append(status);
      if(m.status==='failed'){const retry=document.createElement('button');retry.type='button';retry.className='bevel-button';retry.textContent='重新处理';retry.onclick=async()=>{retry.disabled=true;try{await post(`/api/questions/${m.id}/retry`,{});await refresh();}catch(e){toast(e.message);retry.disabled=false;}};box.append(retry);}
     }
-    list.append(box);
+    return box;
    }
-   list.scrollTop=nearBottom?list.scrollHeight:prior;
+   for(const {question,answer} of questionPairs(data.messages)){const turn=document.createElement('div');turn.className='question-turn';turn.dataset.questionId=question.id;turn.append(message(question));if(answer)turn.append(message(answer));list.append(turn);}
+   if(nearBottom)list.scrollTop=list.scrollHeight;else{const next=anchorId?[...list.querySelectorAll('[data-message-id]')].find(el=>el.dataset.messageId===anchorId):null;list.scrollTop=prior;if(next)list.scrollTop+=next.getBoundingClientRect().top-list.getBoundingClientRect().top-anchorOffset;}
    $('questionStatus').textContent='回复会保存在本章答疑中。本机服务在线时自动处理。';
    const seq=Math.max(0,...data.messages.filter(m=>m.role==='assistant').map(m=>m.seq));
    if(data.threadId&&seq&&nearBottom&&document.visibilityState==='visible')await post(`/api/questions/${data.threadId}/seen`,{seq});

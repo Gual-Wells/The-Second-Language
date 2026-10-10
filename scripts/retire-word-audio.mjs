@@ -1,0 +1,17 @@
+import {createHash} from 'node:crypto';
+import {mkdir,writeFile} from 'node:fs/promises';
+import {publisherConfig} from './lib/publisher-config.mjs';
+import {query,mainDatabase} from './lib/cloudflare-local.mjs';
+import {pointAudioKeys,isPointAudioClip,pointAudioPolicy} from '../web/audio-plan.js';
+// Repack known immutable chapter manifests, without scanning or regenerating paid clips.
+const {base,token}=await publisherConfig(),apply=process.argv.includes('--apply'),hash=b=>createHash('sha256').update(b).digest('hex');
+async function api(route,body,method='GET'){const r=await fetch(new URL(route,base),{method,headers:{authorization:`Bearer ${token}`,'content-type':'application/octet-stream'},...(body?{body}:{}),signal:AbortSignal.timeout(180000)});if(!r.ok)throw Error('音频清单维护 HTTP '+r.status);return r;}
+const revisions=await query(mainDatabase,'SELECT chapter_id,digest FROM chapter_revisions WHERE EXISTS(SELECT 1 FROM published_chapters p WHERE p.chapter_id=chapter_revisions.chapter_id) ORDER BY created_at'),report=[];
+for(const c of revisions){const path=encodeURIComponent(c.chapter_id)+'?digest='+c.digest,chapter=await(await api('/api/chapters/'+path)).json();if(hash(Buffer.from(chapter.markdown))!==c.digest)throw Error('章节版本校验失败');const old=await(await api('/api/storage/chapters/'+path)).json(),keys=pointAudioKeys(chapter.markdown),kept=(old.clips||[]).filter(clip=>isPointAudioClip(clip,keys));report.push({...c,before:old.clips?.length||0,after:kept.length});if(!apply)continue;
+ const originals=new Map(),packs=[],clips=[],chunks=[];let size=0;
+ async function put(key,bytes){const saved=await(await api('/api/storage/objects?key='+encodeURIComponent(key),bytes,'PUT')).json();if(saved.digest!==hash(bytes))throw Error('新音频包摘要不一致');}
+ async function flush(){if(!chunks.length)return;const bytes=Buffer.concat(chunks),digest=hash(bytes),key=`chapter-audio/${c.chapter_id}/${c.digest}/${digest}.bin`;await put(key,bytes);packs.push({key,bytes:bytes.length,digest});chunks.length=0;size=0;}
+ for(const clip of kept){if(!originals.has(clip.pack)){const p=old.packs[clip.pack];if(!p)throw Error('旧音频包索引不完整');const bytes=Buffer.from(await(await api('/api/storage/objects?key='+encodeURIComponent(p.key))).arrayBuffer());if(hash(bytes)!==p.digest)throw Error('旧音频包摘要不一致');originals.set(clip.pack,bytes);}const bytes=originals.get(clip.pack).subarray(clip.offset,clip.offset+clip.length);if(bytes.length!==clip.length||hash(bytes)!==clip.digest)throw Error('句子原件摘要不一致');if(size+bytes.length>4*1024*1024)await flush();clips.push({...clip,pack:packs.length,offset:size});chunks.push(bytes);size+=bytes.length;}
+ await flush();const manifest={chapterId:c.chapter_id,digest:c.digest,pointAudioPolicy,packs,clips},bytes=Buffer.from(JSON.stringify(manifest)),key=`chapter-audio/${c.chapter_id}/${c.digest}/${hash(bytes)}.json`;await put(key,bytes);const r=await fetch(new URL('/api/storage/publish-pack',base),{method:'POST',headers:{authorization:`Bearer ${token}`,'content-type':'application/json'},body:JSON.stringify({chapterId:c.chapter_id,digest:c.digest,manifestKey:key}),signal:AbortSignal.timeout(60000)});if(!r.ok)throw Error('清单发布失败 '+r.status);console.log(c.chapter_id,report.at(-1).before+' → '+kept.length);
+}
+await mkdir('.cache/audio-retirement',{recursive:true});await writeFile('.cache/audio-retirement/report.json',JSON.stringify({at:new Date().toISOString(),apply,pointAudioPolicy,revisions:report},null,2));console.log(JSON.stringify({apply,revisions:report,paidCalls:0,deletedOriginals:0}));
