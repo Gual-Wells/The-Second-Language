@@ -97,6 +97,10 @@ Third-party packages, model/provider outputs, voices, APIs, dictionary or textbo
 
 设置中的“音频配置”可为下一章一次性准备词汇、例句、范文逐句音频，也可对已有章节申请。已有章节先显示费用预估，再确认不可撤销；后台沿用 Kokoro Bella 与永久音频库。相同文字、音色和读音跨部分/章节复用；标题不同读音通过音素覆盖区分。预下载开关仍只下载已生成音频。协议与运行入口见 [AUDIO_CONFIGURATION](protocol/AUDIO_CONFIGURATION.md)。
 
-### 月度纪念展厅实验
+### 月度纪念展厅实验（历史样件）
 
-[月度展厅样件](https://the-second-language.pages.dev/labs/monthly-gallery/) 使用固定版本 Babylon.js、授权立体资产和静态象征声音，支持横竖屏、慢速环游、近看、三种环境及三十台布局。三枚样币与反馈独立于正式章节认证；原两轮测试页继续保留。实体 iPhone 的艺术、声音及性能仍待用户验收，正式申领/场景演化及纪念日历尚未启用。现行决定见 [CERTIFICATION_RESEARCH](protocol/CERTIFICATION_RESEARCH.md)，选型与验证见 [本轮研究](research/monthly-gallery-implementation-2026-10-10.md)，素材许可见 [CREDITS](web/labs/monthly-gallery/CREDITS.md)。
+[月度展厅样件](https://the-second-language.pages.dev/labs/monthly-gallery/) 使用固定版本 Babylon.js、授权立体资产和静态象征声音，支持横竖屏、慢速环游、近看、三种环境及三十台布局。三枚样币与反馈独立于正式章节认证；原两轮测试页继续保留。实体 iPhone 的艺术、声音及性能仍待用户验收，正式申领/场景演化及纪念日历尚未启用。用户反馈已取消展厅和图书馆日历展柜，样件仅保留比较；现行决定见 [CERTIFICATION_RESEARCH](protocol/CERTIFICATION_RESEARCH.md)，选型与验证见 [本轮研究](research/monthly-gallery-implementation-2026-10-10.md)，素材许可见 [CREDITS](web/labs/monthly-gallery/CREDITS.md)。
+
+### 单枚精品纪念币制作
+
+现行研究集中在用户指定的“仇视之龙”：整体定制雕塑、正侧背与币缘连续、真实抓握和破口、分区金属、局部烟光、原页面透明把玩。此前样品均不作为高标准基准。制作及逐项返工标准见 [COIN_CRAFT](protocol/COIN_CRAFT.md)，专业依据及能力边界见 [制作标准研究](research/dragon-coin-production-standard-2026-10-10.md)。当前仅协议已制定，尚无获采用的新样币或正式认证接入。
