@@ -64,6 +64,30 @@ export async function questionsRoute(request,env,{isPublisher,session,sameOrigin
    FROM chapter_conversations c JOIN chapter_revisions r ON r.digest=c.chapter_digest ORDER BY c.created_at DESC`).all();
   return json({threads});
  }
+ if(path==='/open'&&request.method==='POST') {
+  const b=await input(request);
+  if(typeof b.chapterId!=='string'||typeof b.digest!=='string'||!/^[a-f0-9]{64}$/.test(b.digest))return json({error:'章节版本无效'},400);
+  const threadSQL=`SELECT c.id,c.chapter_id AS chapterId,c.chapter_digest AS digest,r.title,c.created_at AS createdAt,c.seen_seq AS seenSeq,
+   (SELECT count(*) FROM chapter_messages a WHERE a.conversation_id=c.id AND a.role='assistant' AND a.seq>c.seen_seq) AS unread,
+   (SELECT q.id FROM chapter_messages q JOIN chapter_messages a ON a.reply_to=q.id
+    WHERE q.conversation_id=c.id AND q.role='user' AND a.role='assistant' AND a.seq>c.seen_seq ORDER BY q.seq LIMIT 1) AS firstUnreadQuestionId
+   FROM chapter_conversations c JOIN chapter_revisions r ON r.digest=c.chapter_digest`;
+  // Read the unread boundary and acknowledge the same snapshot atomically. A reply
+  // committed after this batch remains unread, even if its question is much older.
+  const [snapshot,selected]=await db.batch([
+   db.prepare(threadSQL+' ORDER BY c.created_at DESC'),
+   db.prepare(`WITH threads AS (${threadSQL}),chosen AS (
+    SELECT * FROM threads WHERE (chapterId=? AND digest=?) OR unread>0
+    ORDER BY CASE WHEN chapterId=? AND digest=? AND unread>0 THEN 0 WHEN unread>0 THEN 1 ELSE 2 END,createdAt LIMIT 1)
+    SELECT c.id AS threadId,c.chapterId,c.digest,c.firstUnreadQuestionId,m.id,m.seq,m.role,m.content,m.reply_to AS replyTo,m.created_at AS createdAt,j.status,j.error
+    FROM chosen c LEFT JOIN chapter_messages m ON m.conversation_id=c.id LEFT JOIN chapter_question_jobs j ON j.id=m.id ORDER BY m.seq`).bind(b.chapterId,b.digest,b.chapterId,b.digest),
+   db.prepare(`UPDATE chapter_conversations SET seen_seq=max(seen_seq,coalesce((SELECT max(seq) FROM chapter_messages a
+    WHERE a.conversation_id=chapter_conversations.id AND a.role='assistant'),seen_seq))`)
+  ]);
+  const rows=selected.results||[],chosen=rows[0];
+  return json({threads:snapshot.results||[],threadId:chosen?.threadId||null,chapterId:chosen?.chapterId||b.chapterId,digest:chosen?.digest||b.digest,
+   firstUnreadQuestionId:chosen?.firstUnreadQuestionId||null,messages:rows.filter(m=>m.id).map(({threadId,chapterId,digest,firstUnreadQuestionId,...m})=>m)});
+ }
  if(path===''&&request.method==='GET') {
   const thread=await db.prepare('SELECT * FROM chapter_conversations WHERE chapter_id=? AND chapter_digest=?').bind(url.searchParams.get('chapter'),url.searchParams.get('digest')).first();
   if(!thread)return json({messages:[]});

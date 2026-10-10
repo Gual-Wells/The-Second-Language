@@ -1,4 +1,4 @@
-import {readerFocus,sentenceElement,wordAtPoint} from './reader-focus.js?v=27';
+import {readerFocus,sentenceElement,wordAtPoint} from './reader-focus.js?v=28';
 // A single arbiter owns taps, holds and scrolling, so one gesture has one action.
 export function installPureReader({prepareTap=()=>{},onToggle=()=>{},onQuestion=()=>{}}={}){
  const scope=document.getElementById('readingScroll'),shell=document.getElementById('app'),forwarded=new WeakSet();
@@ -7,15 +7,17 @@ export function installPureReader({prepareTap=()=>{},onToggle=()=>{},onQuestion=
  const clearHold=()=>{clearTimeout(holdTimer);holdTimer=null;};
  const clear=()=>{if(pending)clearTimeout(pending.timer);pending=null;clearHold();};
  function toggle(target){
-  const bounds=scope.getBoundingClientRect(),tools=document.getElementById('articleTools');
+  const bounds=scope.getBoundingClientRect(),article=document.getElementById('article'),tools=document.getElementById('articleTools');
   const visibleTop=bounds.top+(tools.offsetParent?tools.getBoundingClientRect().height:0);
-  const candidates=[...scope.querySelectorAll('.story-sentence,.word-heading,.example-pair,.sense-block,h1,h2,p')];
-  const anchor=target.closest('.story-sentence,.word-heading,.example-pair,.sense-block,h1,h2,p')||candidates.find(e=>e.getBoundingClientRect().bottom>visibleTop&&e.getBoundingClientRect().top<bounds.bottom);
+  const candidates=[...article.querySelectorAll('.story-sentence,.word-heading,.example-pair,.sense-block,h1,h2,p')];
+  const clicked=article.contains(target)?target.closest('.story-sentence,.word-heading,.example-pair,.sense-block,h1,h2,p'):null;
+  const anchor=clicked||candidates.find(e=>e.getBoundingClientRect().bottom>visibleTop&&e.getBoundingClientRect().top<bounds.bottom)||article;
   const y=anchor?.getBoundingClientRect().top;
   shell.classList.toggle('pure-reading');
   window.dispatchEvent(new Event('tsl-stop-speech'));
-  const next=scope.getBoundingClientRect(),nextTop=next.top+(tools.offsetParent?tools.getBoundingClientRect().height:0);
-  if(anchor){const desired=Math.min(next.bottom-24,Math.max(nextTop+10,y));scope.scrollTop+=anchor.getBoundingClientRect().top-desired;}
+  // Native scroll bounds define the two unavoidable edge regions. Everywhere
+  // else preserve the exact viewport coordinate, without clamping to a new inset.
+  if(anchor)scope.scrollTop+=anchor.getBoundingClientRect().top-y;
   onToggle(shell.classList.contains('pure-reading'));
  }
  scope.addEventListener('pointerdown',e=>{

@@ -1,5 +1,5 @@
-import {costLabel} from './audio-plan.js?v=27';
-import {chapterNumber} from './chapters.js?v=27';
+import {costLabel} from './audio-plan.js?v=28';
+import {chapterNumber} from './chapters.js?v=28';
 export function createAudioConfig({api,getContext,toast}){
  const $=id=>document.getElementById(id),names={two:'第二部分例句',three:'第三部分逐句'};
  let mode=null,revision=0,quote=null,serial=0,busy=false;
