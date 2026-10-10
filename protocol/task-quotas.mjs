@@ -1,6 +1,6 @@
 // User-requested learning flows, including one answer/review cycle and first-use audio.
 // Estimates are planning ranges, not execution limits or provider bills.
-export const quotaEstimateVersion = 'learning-flow-v2-calibrated';
+export const quotaEstimateVersion = 'learning-flow-v3-chapter-oral7';
 export const quotaAssumptions = Object.freeze({
   kokoroUsdPerCharacter: 0.62 / 1e6,
   whisperNeuronsPerMinute: 46.63,
@@ -68,6 +68,10 @@ export const estimates = Object.freeze([
   flow('ielts-mini', '微缩雅思', '四科 · 含一次作答与反馈', mini, s),
   flow('review', '复习', '10–40 词 · 原文与音频优先复用', d),
   flow('content-test', '内容测试', '3 词 · 含首次点读', {openrouter: [0, 3000 * a.kokoroUsdPerCharacter], cloudflare: zero(), tencent: zero()}),
+  // Seven prompts (up to 650 characters each); allow one Qwen clarification per answer.
+  // 18 audio minutes is a planning reserve for prompts + answers, not a runtime bound.
+  // Cached prompts and silent answers can consume no fresh inference quota.
+  flow('chapter-test', '章节测试', '20 题 · 7 道听说 · 含题目音频及一次作答', {openrouter:[0,4550*a.kokoroUsdPerCharacter+7*a.qwenUsdPerRecording[1]],cloudflare:[0,18*a.whisperNeuronsPerMinute],tencent:zero()}),
   flow('voice-test', '音色试听', '20 音色 · 词汇、短句与三种对话', {openrouter: [0, 20000 * a.kokoroUsdPerCharacter], cloudflare: [0, 40 * a.whisperNeuronsPerMinute], tencent: zero()}),
   flow('speaking-test', '口语测试', '一段 2 分钟回答 · 含分析与核对', {openrouter: speakingCostFor([120]).planning, cloudflare: [2 * a.whisperNeuronsPerMinute, 4 * a.whisperNeuronsPerMinute], tencent: [0, 5]}),
 ]);

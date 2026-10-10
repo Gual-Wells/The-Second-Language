@@ -6,6 +6,7 @@ const sqlite=new DatabaseSync(':memory:');
 sqlite.exec(`PRAGMA foreign_keys=ON; CREATE TABLE chapter_revisions(digest TEXT PRIMARY KEY,chapter_id TEXT,content_key TEXT,title TEXT);CREATE TABLE published_chapters(chapter_id TEXT PRIMARY KEY);`);
 sqlite.exec(await readFile(new URL('../worker/migrations/0005_chapter_questions.sql',import.meta.url),'utf8'));
 sqlite.exec(await readFile(new URL('../worker/migrations/0010_chapter_tests.sql',import.meta.url),'utf8'));
+sqlite.exec(await readFile(new URL('../worker/migrations/0012_chapter_test_oral.sql',import.meta.url),'utf8'));
 const db={prepare(sql){let values=[];return {bind(...v){values=v;return this;},async first(){return sqlite.prepare(sql).get(...values)||null;},async all(){return {results:sqlite.prepare(sql).all(...values)};},async run(){if(/^\s*(SELECT|WITH)/i.test(sql))return {results:sqlite.prepare(sql).all(...values),meta:{changes:0}};const result=sqlite.prepare(sql).run(...values);return {meta:{changes:Number(result.changes)}};}};},async batch(items){sqlite.exec('BEGIN');try{const results=[];for(const i of items)results.push(await i.run());sqlite.exec('COMMIT');return results;}catch(e){sqlite.exec('ROLLBACK');throw e;}}};
 const digest='a'.repeat(64);sqlite.prepare('INSERT INTO chapter_revisions VALUES(?,?,?,?)').run(digest,'chapter-1','original','原版');sqlite.prepare('INSERT INTO published_chapters VALUES(?)').run('chapter-1');
 const env={DB:db,CHAPTERS:{async get(key){assert.equal(key,'original');return 'The original full chapter.';}}};
