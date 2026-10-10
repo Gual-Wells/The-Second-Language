@@ -1,4 +1,4 @@
-import {headingWord} from './audio-plan.js?v=28';
+import {headingWord} from './audio-plan.js?v=29';
 
 export function sentenceElement(target){
  const article=target.closest('#article');if(!article)return null;
@@ -10,8 +10,9 @@ export function readerFocus(target){
  if(sentence)return{kind:'sentence',part:target.closest('#article').dataset.audioPart,text:sentence.textContent,sentenceNumber:[...target.closest('#article').querySelectorAll('.example-pair p,.story-sentence')].indexOf(sentence)+1,heading:sentence.closest('.word-entry')?.querySelector('.word-heading h1')?.textContent||''};
  const article=target.closest('#article'),heading=target.closest('h1,h2,h3');
  if(article?.dataset.audioPart!=='one'||!heading||!heading.closest('.word-entry'))return null;
- if(heading.tagName!=='H1'&&!/\/[^/]+\/\s*$/.test(heading.textContent))return null;
- return{kind:'vocabulary',part:'one',word:headingWord(heading.textContent),heading:heading.textContent};
+ const original=heading.dataset.heading||heading.textContent;
+ if(heading.tagName!=='H1'&&!/\/[^/]+\/\s*$/.test(original))return null;
+ return{kind:'vocabulary',part:'one',word:headingWord(original),heading:original};
 }
 // Resolve the actual glyph under the finger, including text split by inline markup.
 export function wordAtPoint(sentence,x,y){

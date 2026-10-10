@@ -6,6 +6,7 @@ export function createReaderJump({shell,scope,notice}) {
  async function run(render,findTarget,complete=()=>{}) {
   cancel();const ticket=serial,bounds=shell.getBoundingClientRect(),snapshot=shell.cloneNode(true);
   snapshot.removeAttribute('id');for(const node of snapshot.querySelectorAll('[id]'))node.removeAttribute('id');
+  for(const node of snapshot.querySelectorAll('[data-part]'))node.removeAttribute('data-part');
   snapshot.inert=true;snapshot.setAttribute('aria-hidden','true');snapshot.classList.add('reader-jump-cover');
   Object.assign(snapshot.style,{top:bounds.top+'px',left:bounds.left+'px',width:bounds.width+'px',height:bounds.height+'px'});
   const before=[shell,...shell.querySelectorAll('*')],after=[snapshot,...snapshot.querySelectorAll('*')];

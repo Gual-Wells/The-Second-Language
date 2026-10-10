@@ -31,6 +31,9 @@ try{
  await page.addStyleTag({content:':root {--safe-top:62px;--safe-bottom:34px}'});
  assert.equal(await page.locator('#wordCount,#readState,.chapter-facts').count(),0);
  assert(await page.locator('.chapter-title-row').evaluate(e=>{const t=e.querySelector('h2').getBoundingClientRect(),b=e.querySelector('button').getBoundingClientRect();return Math.abs(t.bottom-b.bottom)<4;}));
+ assert(await page.locator('#wordIndexButton').evaluate(e=>e.closest('#articleTools')!==null));
+ assert(await page.locator('.sense-head h2').first().evaluate(e=>e.textContent==='amphibian /æmˈfɪbiən/'&&e.dataset.heading.includes('两栖动物')));
+ assert.equal(await page.locator('.sense-definition').first().innerText(),'能在水中和陆上生活的两栖动物；也可作形容词');
  await page.screenshot({path:out+'/title.png',scale:'css'});
  for(const [part,translations] of [['one',false],['two',false],['three',false],['three',true]]){
   await page.locator(`[data-part="${part}"]`).click();await page.waitForTimeout(40);
@@ -47,6 +50,21 @@ try{
   }
  }
  assert(interior>20&&edges>0);await page.screenshot({path:out+'/story.png',scale:'css'});
+ // The transient controls reuse real handlers and are entirely out of document
+ // flow: showing and hiding them must not move text, even at scroll boundaries.
+ await page.locator('[data-part="one"]').click();await page.waitForTimeout(40);await page.locator('#readingScroll').evaluate(e=>e.scrollTop=1000);await page.waitForTimeout(30);await toggle();
+ const blankTap=async()=>{const b=await page.locator('#readingScroll').boundingBox();await page.touchscreen.tap(b.x+10,Math.min(b.y+b.height/2,500));};
+ const position=await geometry();await blankTap();await page.locator('.pure-controls-visible').waitFor();
+ assert(await page.locator('.toolbar').isVisible());assert(await page.locator('#wordIndexButton').isVisible());assert(await page.locator('.reader-statusbar').isVisible());
+ assert.deepEqual(await geometry(),position);await page.screenshot({path:out+'/immersive-controls.png',scale:'css'});
+ await page.locator('#wordIndexButton').click();await page.locator('#indexDialog').waitFor({state:'visible'});await page.locator('[data-close="indexDialog"]').click();
+ await page.waitForFunction(()=>!document.getElementById('app').classList.contains('pure-controls-visible'));assert.deepEqual(await geometry(),position);
+ await blankTap();await page.locator('.pure-controls-visible').waitFor();await page.locator('[data-part="two"]').click();assert(await page.locator('#wordIndexButton').isVisible());
+ await page.locator('[data-part="three"]').click();assert(await page.locator('#translationButton').isVisible());assert(await page.locator('#wordIndexButton').isHidden());
+ const translated=await page.locator('#article').evaluate(e=>e.classList.contains('show-translations'));await page.locator('#translationButton').click();await page.waitForTimeout(40);assert.notEqual(await page.locator('#article').evaluate(e=>e.classList.contains('show-translations')),translated);
+ await page.locator('#highlightButton').click();await page.waitForTimeout(40);assert(await page.locator('#article').evaluate(e=>e.classList.contains('highlight-sentences')));
+ const paragraphPosition=await geometry();await page.waitForFunction(()=>!document.getElementById('app').classList.contains('pure-controls-visible'));assert.deepEqual(await geometry(),paragraphPosition);
+ assert(await page.locator('.toolbar').isHidden());assert(await page.locator('#translationButton').isHidden());assert(await page.locator('.reader-statusbar').isHidden());await toggle();
  // Observe the cover while the actual destination renders behind it. No animated
  // scrollIntoView may occur, and cancellation must retire both cover and notice.
  await page.locator('[data-part="one"]').click();await page.waitForTimeout(40);
@@ -61,5 +79,5 @@ try{
  await page.locator('[data-part="three"]').click();await page.waitForTimeout(40);await page.locator('#readingScroll').evaluate(e=>e.scrollTop=0);await page.screenshot({path:out+'/story-heading.png',scale:'css'});
  assert.equal((await page.evaluate(()=>window.scrollCalls)).filter(o=>o?.behavior==='smooth').length,0);
  assert(await page.locator('#readerJumpStatus').isHidden());assert.deepEqual(errors,[]);
- console.log(JSON.stringify({interiorCoordinateChecks:interior,naturalEdgeChecks:edges,staticJumps:3,errors,paidCalls:0}));
+ console.log(JSON.stringify({interiorCoordinateChecks:interior,naturalEdgeChecks:edges,staticJumps:3,transientControls:true,errors,paidCalls:0}));
 }catch(e){console.log(await page.evaluate(()=>({errors:window.jumpObservations,part:document.getElementById('partTitle').textContent,cover:!!document.querySelector('.reader-jump-cover'),notice:document.getElementById('readerJumpStatus').hidden,toast:document.getElementById('toast').textContent})));await page.screenshot({path:out+'/failure.png',scale:'css'});throw e;}finally{await browser.close();}
