@@ -1,4 +1,5 @@
 import {chapterText} from './storage.js';
+import {claimChapterTest,chapterTestsRoute} from './chapter-tests.js';
 const json = (v,s=200) => Response.json(v,{status:s,headers:{'cache-control':'no-store'}});
 const uuid = v => typeof v==='string' && /^[a-f0-9-]{36}$/.test(v);
 const sha = async v => [...new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(v)))].map(x=>x.toString(16).padStart(2,'0')).join('');
@@ -11,14 +12,20 @@ export async function questionsRoute(request,env,{isPublisher,session,sameOrigin
  if(request.method!=='GET'&&!isPublisher&&!sameOrigin)return json({error:'请从阅读器提交'},403);
  if(path.startsWith('/jobs')) {
   if(!isPublisher)return json({error:'发布身份无效'},403);
+  const testAction=path.match(/^\/jobs\/([a-f0-9-]{36})\/(heartbeat|complete|fail)$/);
+  if(testAction&&await db.prepare('SELECT id FROM chapter_tests WHERE id=?').bind(testAction[1]).first())return chapterTestsRoute(new Request(request.url.replace('/api/questions','/api/chapter-tests'),request),env,{isPublisher,session,sameOrigin});
   if(path==='/jobs/claim'&&request.method==='POST') {
    const b=await input(request);
    // An expired worker is stopped for manual retry; never pay for an uncertain run again.
    await db.prepare("UPDATE chapter_question_jobs SET status='failed',error='处理被中断，请重试',claim=NULL WHERE status='running' AND lease_until<?").bind(now).run();
-   const candidate=await db.prepare(`SELECT j.id FROM chapter_question_jobs j JOIN chapter_messages m ON m.id=j.id
+   if(typeof b.claim!=='string'||!/^[a-f0-9]{64}$/.test(b.claim))return json({error:'领取凭据无效'},400);
+   const candidate=await db.prepare(`SELECT j.id,m.created_at FROM chapter_question_jobs j JOIN chapter_messages m ON m.id=j.id
     WHERE j.status='pending' AND NOT EXISTS(SELECT 1 FROM chapter_messages earlier JOIN chapter_question_jobs ej ON ej.id=earlier.id
      WHERE earlier.conversation_id=m.conversation_id AND earlier.seq<m.seq AND ej.status IN ('pending','running','failed'))
     ORDER BY m.seq LIMIT 1`).first();
+   await db.prepare("UPDATE chapter_tests SET status='failed',claim=NULL,error='出题被中断，可重新处理',updated_at=? WHERE status='running' AND lease_until<?").bind(now,now).run();
+   const test=await db.prepare("SELECT created_at FROM chapter_tests WHERE status='pending' ORDER BY created_at LIMIT 1").first();
+   if(test&&(!candidate||test.created_at<candidate.created_at))return json({job:await claimChapterTest(env,b.claim)});
    if(!candidate)return json({job:null});
    if(typeof b.claim!=='string'||b.claim.length!==64)return json({error:'领取凭据无效'},400);
    const row=await db.prepare("UPDATE chapter_question_jobs SET status='running',claim=?,lease_until=?,attempts=attempts+1,updated_at=? WHERE id=? AND status='pending' RETURNING id").bind(await sha(b.claim),now+300000,now,candidate.id).first();
@@ -60,7 +67,7 @@ export async function questionsRoute(request,env,{isPublisher,session,sameOrigin
  if(path===''&&request.method==='GET') {
   const thread=await db.prepare('SELECT * FROM chapter_conversations WHERE chapter_id=? AND chapter_digest=?').bind(url.searchParams.get('chapter'),url.searchParams.get('digest')).first();
   if(!thread)return json({messages:[]});
-  const {results:messages}=await db.prepare(`SELECT m.id,m.seq,m.role,m.content,m.created_at AS createdAt,j.status,j.error FROM chapter_messages m LEFT JOIN chapter_question_jobs j ON j.id=m.id WHERE m.conversation_id=? ORDER BY m.seq`).bind(thread.id).all();
+  const {results:messages}=await db.prepare(`SELECT m.id,m.seq,m.role,m.content,m.reply_to AS replyTo,m.created_at AS createdAt,j.status,j.error FROM chapter_messages m LEFT JOIN chapter_question_jobs j ON j.id=m.id WHERE m.conversation_id=? ORDER BY m.seq`).bind(thread.id).all();
   return json({threadId:thread.id,messages});
  }
  if(path===''&&request.method==='POST') {

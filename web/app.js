@@ -1,14 +1,15 @@
-import {installPureReader} from './pure-reader.js?v=26';
-import {chapterNumber, createChapterBook} from './chapters.js?v=26';
-import {installSettingsNavigation} from './settings.js?v=26';
-import {createAudioConfig} from './audio-config.js?v=26';
-import {installReaderSpeech} from './reader-speech.js?v=26';
-import { parseParts, renderPart } from './render.js?v=26';
-import { validateAnnotatedContent } from './annotations.js?v=26';
-import { createPracticeUI } from './practice.js?v=26';
-import {createBalanceUI} from './balances.js?v=26';
-import {createQuestionsUI} from './questions.js?v=26';
-import {openAudioChapter,clearAudioLibrary,preloadEnabled,setPreload} from './audio-library.js?v=26';
+import {installPureReader} from './pure-reader.js?v=27';
+import {chapterNumber, createChapterBook} from './chapters.js?v=27';
+import {installSettingsNavigation} from './settings.js?v=27';
+import {createAudioConfig} from './audio-config.js?v=27';
+import {installReaderSpeech} from './reader-speech.js?v=27';
+import { parseParts, renderPart } from './render.js?v=27';
+import { validateAnnotatedContent } from './annotations.js?v=27';
+import { createPracticeUI } from './practice.js?v=27';
+import {createBalanceUI} from './balances.js?v=27';
+import {createChapterTestsUI} from './chapter-tests.js?v=27';
+import {createQuestionsUI} from './questions.js?v=27';
+import {openAudioChapter,clearAudioLibrary,preloadEnabled,setPreload} from './audio-library.js?v=27';
 
 const $ = id => document.getElementById(id);
 const todayParts = Object.fromEntries(new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(new Date()).map(part => [part.type, part.value]));
@@ -44,6 +45,7 @@ for(const id of settingFields){const field=$(id);const saved=readStored('second-
 function savedSettings(values){const draft=readStored('second-language-settings-draft');for(const [id,sent] of Object.entries(values)){const field=$(id),current=field.type==='checkbox'?field.checked:field.value;if(current===sent){dirtySettings.delete(id);delete draft[id];}}writeStored('second-language-settings-draft',draft);}
 const balances=createBalanceUI({api,showDialog});
 const questions=createQuestionsUI({api,showDialog,toast,getContext:()=>state});
+const chapterTests=createChapterTestsUI({api,showDialog,toast,getContext:()=>state});
 const chapterBook=createChapterBook({getContext:()=>state,openChapter,showDialog,renderCalendar});
 createAudioConfig({api,getContext:()=>state,toast});
 
@@ -210,12 +212,7 @@ async function loadProgress(id) {
 }
 
 function renderProgress() {
-  state.difficulty = state.progress.difficulty || null;
-  const draft=readStored('second-language-note-drafts')[state.current?.digest];
-  $('readingNote').value = draft?.note ?? state.progress.note ?? '';
-  state.difficulty=draft?.difficulty ?? state.difficulty;
-  $('readState').textContent = state.progress.completed ? '已完成阅读' : '尚未记录完成';
-  for (const button of document.querySelectorAll('[data-difficulty]')) button.classList.toggle('selected', button.dataset.difficulty === state.difficulty);
+  $('readState').textContent = state.progress.completed ? '已完成阅读' : '';
 }
 
 function updateReadingPosition() {
@@ -350,7 +347,7 @@ async function openChapter(id, resume = true, digest = null) {
     state.current = chapter;
     state.lastDailyId = id;
     state.current.digest = chapter.digest || state.chapters.find(item => item.id === id)?.digest;
-    questions.changed();
+    questions.changed();chapterTests.changed();
     nativeSpeech.setChapter(chapter.markdown||'');
     openAudioChapter(chapter);
     prepareContent(chapter.markdown, id);
@@ -438,7 +435,7 @@ async function openTemporary(id, resume = true) {
     const page = await api(`/api/temporary/${encodeURIComponent(id)}`);
     if (request !== state.chapterRequest) return;
     state.current = page;
-    questions.changed();
+    questions.changed();chapterTests.changed();
     nativeSpeech.setChapter(page.markdown||'');
     openAudioChapter(page);
     prepareContent(page.markdown, id);
@@ -505,7 +502,7 @@ async function passkey(kind, setupKey) {
 }
 
 function showLogin(status, message = '') {
-  questions.clear();
+  questions.clear();chapterTests.clear();
   clearAudioLibrary();
   $('app').classList.add('login-mode');
   $('app').classList.remove('empty-mode');
@@ -647,29 +644,11 @@ $('indexFilter').addEventListener('input', event => renderIndex(event.target.val
 for (const button of document.querySelectorAll('[data-close]')) button.addEventListener('click', () => closeDialog(button.dataset.close));
 for (const dialog of document.querySelectorAll('dialog')) {dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });dialog.addEventListener('close',()=>{if(dialog.returnDialog){const parent=dialog.returnDialog;dialog.returnDialog=null;requestAnimationFrame(()=>showDialog(parent));}});}
 for (const button of document.querySelectorAll('[data-part]')) button.addEventListener('click', () => showPart(button.dataset.part, true));
-for (const button of document.querySelectorAll('[data-difficulty]')) button.addEventListener('click', () => {
-  state.difficulty = button.dataset.difficulty;
-  for (const choice of document.querySelectorAll('[data-difficulty]')) choice.classList.toggle('selected', choice === button);
-});
-function saveNoteDraft(){if(!state.current||state.current.kind||state.current.historical)return;const drafts=readStored('second-language-note-drafts');drafts[state.current.digest]={note:$('readingNote').value,difficulty:state.difficulty};writeStored('second-language-note-drafts',drafts);}
-$('readingNote').addEventListener('input',saveNoteDraft);
-for(const button of document.querySelectorAll('[data-difficulty]'))button.addEventListener('click',saveNoteDraft);
 $('readingScroll').addEventListener('scroll', () => { updateReadingPosition(); clearTimeout(saveReadingPosition.timer); saveReadingPosition.timer = setTimeout(saveReadingPosition, 250); }, { passive: true });
 
 $('loginButton').addEventListener('click', signIn);
 $('loginInstallButton').addEventListener('click', () => showDialog('installDialog'));
 $('setupKey').addEventListener('keydown', event => { if (event.key === 'Enter') signIn(); });
-$('saveProgress').addEventListener('click', async () => {
-  if (!state.current || state.current.historical) return;
-  const progress = { completed: true, difficulty: state.difficulty, note: $('readingNote').value.trim().slice(0, 2000), updatedAt: new Date().toISOString() };
-  state.progress = progress;
-  const drafts=readStored('second-language-note-drafts');delete drafts[state.current.digest];writeStored('second-language-note-drafts',drafts);
-  renderProgress();
-  if (state.demo) { writeStored(`second-language-demo-${state.current.id}`, progress); toast('学习反馈已保存到本机'); return; }
-  const pending = localPending(); pending[state.current.id] = progress; writeStored(PENDING_KEY, pending);
-  await flushPending();
-  toast(localPending()[state.current.id] ? '已保存，联网后同步' : '学习反馈已保存');
-});
 $('saveGoal').addEventListener('click', async () => {
   const rawGoal=$('studyGoal').value,goal = rawGoal.trim();
   if (state.demo) { localStorage.setItem('second-language-demo-goal', goal); toast('学习目标已保存在本机'); return; }
@@ -758,6 +737,6 @@ $('chapterNav').addEventListener('touchend', event => {
   if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.5) moveChapter(dx < 0 ? 1 : -1);
   swipeStart = null;
 }, { passive: true });
-if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=26', { updateViaCache: 'none' }).catch(() => {});
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=27', { updateViaCache: 'none' }).catch(() => {});
 refreshInstallStatus();
 initialize().then(()=>{if(state.authenticated&&new URLSearchParams(location.search).has('balances'))balances.open();});

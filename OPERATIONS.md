@@ -158,3 +158,13 @@ v25 点读范围见 READER_INTERACTION.md 和 research/reader-point-audio-scope-
 `deploy-app.mjs` 仅为当前发布进程设置 D 盘 TEMP/TMP 和 Wrangler 日志，不改用户全局环境。现有旧 checkout 的 `worker/gateway/dist` 已联接到当前 D 构建，`worker/.wrangler/tmp` 已联接到 `D:/CodexStorage/tmp/the-second-language/wrangler`。重新构建和 Wrangler dry-run 已验证实际落盘；不要让新的普通 C 目录替代这些联接。独立纪念币第二轮实验缓存也已校验迁往 D。
 
 正式旧 checkout 与共享运行时尚未整仓迁移，生产队列仍运行在既有入口。此状态是等待安全停写窗口，不表示所有 C 数据已迁完；不能热搬活动数据库或以旧恢复副本覆盖新状态。新项目默认在 D workspace 创建。
+
+## 句子点读与章节测试维护（2026-10-10）
+
+当前答疑/章节测试、音频准备与归档运行器位于 `D:/CodexStorage/workspaces/second-language-maintenance`。同一隐藏 WindowsApplication 启动器与原任务互斥/触发/用户保持；新工作产物、日志、临时目录在 D。原日课与雅思运行器暂留既有工作路径，不热搬共享运行时和其他对话在用目录。
+
+本机忽略文件 `.cache/runtime-sources.json` 的 `roots` 记录原生产工作目录。归档服务同时检查这些目录的既有待归档记录，并保存旧工作成果与新 D 工作成果，不遗落旧日课/雅思产物。既有预算计数、恢复快照、上传账本迁入 D；不能通过换目录重置归档预算保护。路径调整前保存任务 XML，核对任务空闲及互斥锁，不更改原排期或身份。
+
+`retire-word-audio.mjs --apply` 从既有不可变章节清单按原件摘要重新打包句子，下载每个旧包一次；不调用模型，不删除收费原件及历史索引。`clean-point-audio.mjs` 的全池关联修复仍保留供单独维护，常规取消词汇功能无需扫描全部付费返回。
+
+章节测试运行 `question-worker.mjs` 与现有答疑共用排队；`--tests-only` 可进行明确的实际出题验收。数据库迁移 0010 新增测试状态、0011 清除未执行下一章选配中的词汇项，原件未删除。测试前后均查询额度，正式认证与纪念币仍不启用。

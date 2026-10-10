@@ -5,6 +5,10 @@ import {createHash} from 'node:crypto';
 const hash=b=>createHash('sha256').update(b).digest('hex'),LIMIT=8*1024*1024;
 async function entries(dir){try{return await readdir(dir,{withFileTypes:true});}catch(e){if(e.code==='ENOENT')return[];throw e;}}
 export async function archiveWorking(root,put){
+ let roots=[];try{roots=JSON.parse(await readFile(path.join(root,'.cache/runtime-sources.json'),'utf8')).roots||[];}catch(e){if(e.code!=='ENOENT')throw e;}
+ const merged=new Map();for(const source of [...roots.filter(p=>path.resolve(p)!==path.resolve(root)),root])for(const entry of await archiveSingle(source,put))merged.set(entry.key,entry);return [...merged.values()];
+}
+async function archiveSingle(root,put){
  const groups=[];
  for(const category of ['runs','questions'])for(const entry of await entries(path.join(root,'work',category)))if(entry.isDirectory())groups.push({id:`${category}/${entry.name}`,dir:path.join(root,'work',category,entry.name)});
  for(const category of await entries(path.join(root,'work/expression'))){if(!category.isDirectory())continue;

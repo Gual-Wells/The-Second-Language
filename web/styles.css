@@ -526,3 +526,23 @@ textarea.text-input { resize: vertical; }
 #audioConfigSection select { margin-top: 7px; }
 .audio-confirmation { margin-top: 12px; padding: 10px; border: 1px solid #bdac77; background: linear-gradient(#fff9e7,#f5e7bd); border-radius: 5px; }
 .audio-job { padding: 9px 0; border-top: 1px solid var(--line); font-size: 13px; overflow-wrap: anywhere; }
+
+.question-turn + .question-turn { margin-top: 18px; padding-top: 13px; border-top: 1px solid #c6d4df; }
+.chapter-test-entry { display: flex; justify-content: flex-end; margin: 9px 0 0; }
+.chapter-test-sheet { display: flex; flex-direction: column; height: calc(100dvh - max(12px,var(--safe-top)) - max(12px,var(--safe-bottom))); overflow: hidden; }
+.chapter-test-sheet > .sheet-head { position: static; flex: none; }
+.chapter-test-status { flex: none; margin: 0; padding: 10px 13px; font-size: 12px; color: #315b7b; border-bottom: 1px solid #c6d4df; }
+.chapter-test-body { min-height: 0; flex: 1; overflow: auto; overscroll-behavior: contain; padding: 12px; background: #fff; }
+.chapter-test-empty { font-size: 14px; line-height: 1.7; color: var(--muted); }
+.chapter-test-record { display: flex; justify-content: space-between; gap: 10px; width: 100%; text-align: left; border: 1px solid #a6bdd2; border-radius: 4px; padding: 13px 10px; margin-bottom: 9px; color: #315b7b; background: linear-gradient(#fff,#e6eff7); }
+.chapter-test-record span { font-size: 11px; }
+.chapter-test-question { margin: 8px 0 18px; padding: 10px; border: 1px solid #b3c7da; border-radius: 4px; min-width: 0; }
+.chapter-test-question legend { font-size: 12px; font-weight: bold; color: #315b7b; }
+.chapter-test-question > p { margin: 3px 0 12px; font-size: 16px; line-height: 1.7; }
+.chapter-test-option { display: flex; align-items: flex-start; gap: 10px; padding: 11px 5px; border-top: 1px solid #e0e8f0; font-size: 15px; line-height: 1.6; }
+.chapter-test-option input { flex: none; margin-top: 5px; width: 18px; height: 18px; accent-color: #315b7b; }
+.chapter-test-explanation { padding: 12px 0 0; border-top: 1px solid #b3c7da; font-size: 14px; line-height: 1.7; color: #315b7b; }
+.chapter-test-explanation blockquote { margin: 10px 0; padding: 8px; border-left: 2px solid #91abc0; background: #f1f6fa; }
+.chapter-test-foot { flex: none; display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 8px; padding: 10px 12px; border-top: 1px solid #a6bdd2; background: linear-gradient(#edf5fb,#d8e6f1); }
+.chapter-test-foot small { width: 100%; font-size: 11px; color: #607e97; }
+.chapter-test-body button,.chapter-test-foot button { min-height: 38px; }

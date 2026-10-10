@@ -6,6 +6,7 @@ import { validateAnnotatedContent } from '../../web/annotations.js';
 import { practiceRoute } from './practice.js';
 import {balanceRoute} from './balances.js';
 import {questionsRoute} from './questions.js';
+import {chapterTestsRoute} from './chapter-tests.js';
 import {certificationLabRoute} from './certification-lab.js';
 import {storageRoute,permanentBucket,chapterText,storageRequestEnvironment} from './storage.js';
 import {audioConfigRoute} from './audio-config.js';
@@ -68,6 +69,7 @@ async function route(request, env) {
   if (path.startsWith('/auth/')) return authRoute(request, env, request.method === 'POST' ? await inputJson(request) : {});
   if(path.startsWith('/api/balances'))return balanceRoute(request,env,{isPublisher:publisher(request,env),session:await sessionFor(request,env),sameOrigin:sameOrigin(request,env)});
   if(path==='/api/questions'||path.startsWith('/api/questions/'))return questionsRoute(request,env,{isPublisher:publisher(request,env),session:await sessionFor(request,env),sameOrigin:sameOrigin(request,env)});
+  if(path==='/api/chapter-tests'||path.startsWith('/api/chapter-tests/'))return chapterTestsRoute(request,env,{isPublisher:publisher(request,env),session:await sessionFor(request,env),sameOrigin:sameOrigin(request,env)});
   if(path==='/api/certification-lab'||path.startsWith('/api/certification-lab/'))return certificationLabRoute(request,env,{isPublisher:publisher(request,env),session:await sessionFor(request,env),sameOrigin:sameOrigin(request,env)});
   if(path==='/api/storage'||path.startsWith('/api/storage/'))return storageRoute(request,env,{isPublisher:publisher(request,env),session:await sessionFor(request,env),sameOrigin:sameOrigin(request,env)});
   if(path==='/api/audio-config'||path.startsWith('/api/audio-config/'))return audioConfigRoute(request,env,{isPublisher:publisher(request,env),session:await sessionFor(request,env),sameOrigin:sameOrigin(request,env)});
