@@ -143,15 +143,19 @@ export function renderPart(source, part, target, options = {}) {
         if (pendingUse) sense.dataset.useId = pendingUse;
         const head = document.createElement('div'); head.className = 'sense-head';
         const title = document.createElement('h2');
+        title.dataset.heading = heading[2];
         const pronunciation = /^(.*?)\s+(\/[^/\n]+\/)\s*$/.exec(heading[2]);
+        const label = pronunciation ? pronunciation[1] : heading[2], split = label.indexOf(' · ');
+        const word = split < 0 ? label : label.slice(0,split), definition = split < 0 ? '' : label.slice(split+3);
+        title.append(document.createTextNode(word));
         if (pronunciation) {
-          title.append(document.createTextNode(pronunciation[1]));
           const ipa = document.createElement('span'); ipa.className = 'sense-ipa'; ipa.textContent = pronunciation[2];
           title.append(document.createTextNode(' '), ipa);
-        } else title.textContent = heading[2];
+        }
         head.append(title);
         if (pendingUse) { addExampleJump(head, pendingUse, options.onJump); pendingUse = null; }
         sense.append(head);
+        if (definition) { const summary=document.createElement('p');summary.className='sense-definition';summary.textContent=definition;sense.append(summary); }
         if (words.length) words.at(-1).element.append(sense);
         else target.append(sense);
         container = sense;

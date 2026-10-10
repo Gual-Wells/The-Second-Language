@@ -1,16 +1,16 @@
-import {createReaderJump} from './reader-jump.js?v=28';
-import {installPureReader} from './pure-reader.js?v=28';
-import {chapterNumber, createChapterBook} from './chapters.js?v=28';
-import {installSettingsNavigation} from './settings.js?v=28';
-import {createAudioConfig} from './audio-config.js?v=28';
-import {installReaderSpeech} from './reader-speech.js?v=28';
-import { parseParts, renderPart } from './render.js?v=28';
-import { validateAnnotatedContent } from './annotations.js?v=28';
-import { createPracticeUI } from './practice.js?v=28';
-import {createBalanceUI} from './balances.js?v=28';
-import {createChapterTestsUI} from './chapter-tests.js?v=28';
-import {createQuestionsUI} from './questions.js?v=28';
-import {openAudioChapter,clearAudioLibrary,preloadEnabled,setPreload} from './audio-library.js?v=28';
+import {createReaderJump} from './reader-jump.js?v=29';
+import {installPureReader} from './pure-reader.js?v=29';
+import {chapterNumber, createChapterBook} from './chapters.js?v=29';
+import {installSettingsNavigation} from './settings.js?v=29';
+import {createAudioConfig} from './audio-config.js?v=29';
+import {installReaderSpeech} from './reader-speech.js?v=29';
+import { parseParts, renderPart } from './render.js?v=29';
+import { validateAnnotatedContent } from './annotations.js?v=29';
+import { createPracticeUI } from './practice.js?v=29';
+import {createBalanceUI} from './balances.js?v=29';
+import {createChapterTestsUI} from './chapter-tests.js?v=29';
+import {createQuestionsUI} from './questions.js?v=29';
+import {openAudioChapter,clearAudioLibrary,preloadEnabled,setPreload} from './audio-library.js?v=29';
 
 const $ = id => document.getElementById(id);
 const todayParts = Object.fromEntries(new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(new Date()).map(part => [part.type, part.value]));
@@ -307,13 +307,15 @@ function showPart(part, restore = false, rememberCurrent = true, managePosition 
   $('partNumber').textContent = labels[part][0];
   $('partTitle').textContent = labels[part][1];
   $('partSummary').textContent = labels[part][2];
-  for (const button of document.querySelectorAll('[data-part]')) {
+  for (const button of $('app').querySelectorAll('[data-part]')) {
     const active = button.dataset.part === part;
     button.classList.toggle('active', active);
     button.setAttribute('aria-selected', String(active));
   }
   state.words = renderPart(state.parts[part] || '', part, $('article'), { highlight: state.highlight, translations: state.translations, onJump: jumpTo, onSentence: openSentenceReference });
-  $('articleTools').hidden = part !== 'three' || !state.hasAnnotations;
+  $('articleTools').hidden = part === 'three' ? !state.hasAnnotations : !state.words.length;
+  $('highlightButton').hidden = $('translationButton').hidden = part !== 'three';
+  $('articleToolsHint').textContent = part === 'three' ? '点按标记句可回看对应用法' : '按词条定位';
   $('highlightButton').setAttribute('aria-pressed', String(state.highlight));
   $('translationButton').setAttribute('aria-pressed', String(state.translations));
   $('wordIndexButton').hidden = !state.words.length;
@@ -727,6 +729,6 @@ $('chapterNav').addEventListener('touchend', event => {
   if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.5) moveChapter(dx < 0 ? 1 : -1);
   swipeStart = null;
 }, { passive: true });
-if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=28', { updateViaCache: 'none' }).catch(() => {});
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=29', { updateViaCache: 'none' }).catch(() => {});
 refreshInstallStatus();
 initialize().then(()=>{if(state.authenticated&&new URLSearchParams(location.search).has('balances'))balances.open();});
