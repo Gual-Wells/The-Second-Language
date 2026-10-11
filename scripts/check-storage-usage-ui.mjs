@@ -1,0 +1,30 @@
+import assert from 'node:assert/strict';
+import {readFile,mkdir} from 'node:fs/promises';
+const {chromium}=await import('playwright').catch(()=>import('../.cache/browser-tools/package/index.mjs'));
+const output='.cache/storage-capacity-ui';await mkdir(output,{recursive:true});
+const browser=await chromium.launch({headless:true,executablePath:process.env.BROWSER_EXECUTABLE||'C:/Users/huawei/AppData/Local/ms-playwright/chromium-1223/chrome-win64/chrome.exe'});
+const context=await browser.newContext({viewport:{width:402,height:874},deviceScaleFactor:3,isMobile:true,hasTouch:true,serviceWorkers:'block'}),page=await context.newPage(),errors=[];
+page.on('pageerror',e=>errors.push(e.message));
+const bootstrap=`import {installSettingsNavigation} from '/settings.js';import {createStorageUsageUI} from '/storage-usage.js';
+const showDialog=id=>{const d=document.getElementById(id),parent=document.querySelector('dialog[open]');if(parent&&parent!==d){d.returnDialog=parent.id;parent.close();}if(!d.open)d.showModal();};
+document.getElementById('app').classList.remove('login-mode');const nav=installSettingsNavigation();document.getElementById('settingsButton').onclick=()=>{nav.reset();showDialog('settingsDialog');};
+for(const d of document.querySelectorAll('dialog'))d.addEventListener('close',()=>{if(d.returnDialog){const id=d.returnDialog;d.returnDialog=null;requestAnimationFrame(()=>showDialog(id));}});
+for(const b of document.querySelectorAll('[data-close]'))b.onclick=()=>document.getElementById(b.dataset.close).close();
+window.reads=0;window.fixture={pools:[{pool:'onedrive',name:'OneDrive',note:'永久正文、音频与备份',usedBytes:107374183,projectBytes:182560992,limitBytes:1104880336896,freeFits:true,statisticsDiffer:true},...['main','practice','lab'].map((pool,i)=>({pool,name:['章节数据库','雅思数据库','实验数据库'][i],note:'状态与索引',usedBytes:[933888,503808,86016][i],limitBytes:500000000})),{pool:'kv',name:'近期缓存',note:'Cloudflare KV · 账户共享',usedBytes:18582145,limitBytes:1000000000,chapterCacheBytes:406995,practiceCacheBytes:0,measurementDate:'2026-10-11'}].map(p=>({...p,checkedAt:Date.now(),updateFailed:false,stale:false}))};
+createStorageUsageUI({showDialog,api:async p=>{if(p!='/api/storage/usage')throw Error('Unexpected request');window.reads++;return window.fixture;}});`;
+await page.route('**/*',async route=>{const p=new URL(route.request().url()).pathname;if(p==='/bootstrap.js')return route.fulfill({body:bootstrap,contentType:'text/javascript'});const file=p==='/'?'index.html':p.slice(1);try{let content=await readFile('web/'+file);if(file==='index.html')content=Buffer.from(content.toString().replace('/app.js?v=32','/bootstrap.js'));await route.fulfill({body:content,contentType:file.endsWith('.js')?'text/javascript':file.endsWith('.css')?'text/css':file.endsWith('.html')?'text/html':'application/octet-stream'});}catch{await route.fulfill({status:404,body:''});}});
+try{
+ await page.goto('https://local.test/');await page.locator('#settingsButton').click();
+ await page.locator('.settings-row').filter({hasText:'存储空间'}).click();await page.locator('#storageUsageButton').click();
+ await page.locator('#storageUsagePools .balance-card').nth(4).waitFor();
+ assert.equal(await page.locator('dialog[open]').count(),1);assert.equal(await page.locator('#storageUsagePools .balance-card').count(),5);
+ const text=await page.locator('#storageUsageDialog').innerText();assert(text.includes('182.56 MB'));assert(text.includes('500 MB（单库）'));assert(text.includes('1 GB（账户共享）'));assert(text.includes('免费版 5 GB 可容纳'));
+ assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth&&document.querySelector('#storageUsageDialog .sheet').scrollWidth<=document.querySelector('#storageUsageDialog .sheet').clientWidth));
+ await page.screenshot({path:output+'/storage.png',scale:'css'});
+ await page.locator('[data-close="storageUsageDialog"]').click();await page.locator('#settingsDialog').waitFor({state:'visible'});await page.locator('.settings-home').waitFor({state:'visible'});
+ assert.equal(await page.locator('.settings-home > .settings-row').count(),9);assert(await page.locator('#settingsDialog .settings-audio-row').isVisible());await page.screenshot({path:output+'/settings.png',scale:'css'});
+ await page.evaluate(()=>{window.fixture={pools:[{pool:'onedrive',name:'OneDrive',usedBytes:null,projectBytes:null,limitBytes:null,freeFits:null,checkedAt:null,updateFailed:true}]};});
+ await page.locator('.settings-row').filter({hasText:'存储空间'}).click();await page.locator('#storageUsageButton').click();await page.locator('#storageUsagePools').getByText('未核实',{exact:true}).waitFor();
+ assert.equal(await page.locator('#storageUsagePools progress').count(),0);assert(!((await page.locator('#storageUsagePools').innerText()).includes('免费版 5 GB')));assert.equal(await page.evaluate(()=>window.reads),2);assert.deepEqual(errors,[]);
+ console.log('通过：iPhone 402×874 原生设置导航、五座存储卡片、单窗返回、无横向溢出、未知值不冒充零；两次打开仅读取两次快照。未代替真实 iOS Safari 验收。');
+}finally{await browser.close();}
