@@ -1,0 +1,157 @@
+Processing /kaggle/temp/dragon-geometry/nvdiffrast
+  Preparing metadata (pyproject.toml): started
+  Running command Preparing metadata (pyproject.toml)
+  running dist_info
+  creating /kaggle/temp/dragon-geometry/tmp/pip-modern-metadata-3gjbuxfx/nvdiffrast.egg-info
+  writing /kaggle/temp/dragon-geometry/tmp/pip-modern-metadata-3gjbuxfx/nvdiffrast.egg-info/PKG-INFO
+  writing dependency_links to /kaggle/temp/dragon-geometry/tmp/pip-modern-metadata-3gjbuxfx/nvdiffrast.egg-info/dependency_links.txt
+  writing requirements to /kaggle/temp/dragon-geometry/tmp/pip-modern-metadata-3gjbuxfx/nvdiffrast.egg-info/requires.txt
+  writing top-level names to /kaggle/temp/dragon-geometry/tmp/pip-modern-metadata-3gjbuxfx/nvdiffrast.egg-info/top_level.txt
+  writing manifest file '/kaggle/temp/dragon-geometry/tmp/pip-modern-metadata-3gjbuxfx/nvdiffrast.egg-info/SOURCES.txt'
+  reading manifest file '/kaggle/temp/dragon-geometry/tmp/pip-modern-metadata-3gjbuxfx/nvdiffrast.egg-info/SOURCES.txt'
+  reading manifest template 'MANIFEST.in'
+  warning: no previously-included files matching '*~' found anywhere in distribution
+  warning: no previously-included files matching '*.py[cod]' found anywhere in distribution
+  warning: no previously-included files matching '*.so' found anywhere in distribution
+  warning: no previously-included files matching '__pycache__' found anywhere in distribution
+  warning: no previously-included files matching '.git*' found anywhere in distribution
+  warning: no previously-included files matching '.DS_Store' found anywhere in distribution
+  warning: no previously-included files matching '*.egg-info' found anywhere in distribution
+  warning: no previously-included files matching 'build' found anywhere in distribution
+  warning: no previously-included files matching 'dist' found anywhere in distribution
+  adding license file 'LICENSE.txt'
+  writing manifest file '/kaggle/temp/dragon-geometry/tmp/pip-modern-metadata-3gjbuxfx/nvdiffrast.egg-info/SOURCES.txt'
+  creating '/kaggle/temp/dragon-geometry/tmp/pip-modern-metadata-3gjbuxfx/nvdiffrast-0.4.0.dist-info'
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: nvdiffrast
+  Building wheel for nvdiffrast (pyproject.toml): started
+  Running command Building wheel for nvdiffrast (pyproject.toml)
+  running bdist_wheel
+  running build
+  running build_py
+  creating build/lib.linux-x86_64-cpython-313/nvdiffrast
+  copying nvdiffrast/__init__.py -> build/lib.linux-x86_64-cpython-313/nvdiffrast
+  creating build/lib.linux-x86_64-cpython-313/nvdiffrast/torch
+  copying nvdiffrast/torch/__init__.py -> build/lib.linux-x86_64-cpython-313/nvdiffrast/torch
+  copying nvdiffrast/torch/ops.py -> build/lib.linux-x86_64-cpython-313/nvdiffrast/torch
+  running egg_info
+  creating nvdiffrast.egg-info
+  writing nvdiffrast.egg-info/PKG-INFO
+  writing dependency_links to nvdiffrast.egg-info/dependency_links.txt
+  writing requirements to nvdiffrast.egg-info/requires.txt
+  writing top-level names to nvdiffrast.egg-info/top_level.txt
+  writing manifest file 'nvdiffrast.egg-info/SOURCES.txt'
+  reading manifest file 'nvdiffrast.egg-info/SOURCES.txt'
+  reading manifest template 'MANIFEST.in'
+  warning: no previously-included files matching '*~' found anywhere in distribution
+  warning: no previously-included files matching '*.py[cod]' found anywhere in distribution
+  warning: no previously-included files matching '*.so' found anywhere in distribution
+  warning: no previously-included files matching '__pycache__' found anywhere in distribution
+  warning: no previously-included files matching '.git*' found anywhere in distribution
+  warning: no previously-included files matching '.DS_Store' found anywhere in distribution
+  warning: no previously-included files matching '*.egg-info' found anywhere in distribution
+  warning: no previously-included files matching 'build' found anywhere in distribution
+  warning: no previously-included files matching 'dist' found anywhere in distribution
+  adding license file 'LICENSE.txt'
+  writing manifest file 'nvdiffrast.egg-info/SOURCES.txt'
+  running build_ext
+  building '_nvdiffrast_c' extension
+  creating /kaggle/temp/dragon-geometry/nvdiffrast/build/temp.linux-x86_64-cpython-313/csrc/common
+  creating /kaggle/temp/dragon-geometry/nvdiffrast/build/temp.linux-x86_64-cpython-313/csrc/common/cudaraster/impl
+  creating /kaggle/temp/dragon-geometry/nvdiffrast/build/temp.linux-x86_64-cpython-313/csrc/torch
+  [1/15] c++ -MMD -MF /kaggle/temp/dragon-geometry/nvdiffrast/build/temp.linux-x86_64-cpython-313/csrc/common/common.o.d -fno-strict-overflow -Wsign-compare -DNDEBUG -g -O2 -Wall -g -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -fcf-protection -g -fwrapv -O2 -fPIC -I/usr/local/lib/python3.13/dist-packages/torch/include -I/usr/local/lib/python3.13/dist-packages/torch/include/torch/csrc/api/include -I/usr/local/cuda/include -I/usr/include/python3.13 -c -c /kaggle/temp/dragon-geometry/nvdiffrast/csrc/common/common.cpp -o /kaggle/temp/dragon-geometry/nvdiffrast/build/temp.linux-x86_64-cpython-313/csrc/common/common.o -DNVDR_TORCH -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=_nvdiffrast_c -std=c++17
+  [2/15] c++ -MMD -MF /kaggle/temp/dragon-geometry/nvdiffrast/build/temp.linux-x86_64-cpython-313/csrc/common/cudaraster/impl/CudaRaster.o.d -fno-strict-overflow -Wsign-compare -DNDEBUG -g -O2 -Wall -g -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -fcf-protection -g -fwrapv -O2 -fPIC -I/usr/local/lib/python3.13/dist-packages/torch/include -I/usr/local/lib/python3.13/dist-packages/torch/include/torch/csrc/api/include -I/usr/local/cuda/include -I/usr/include/python3.13 -c -c /kaggle/temp/dragon-geometry/nvdiffrast/csrc/common/cudaraster/impl/CudaRaster.cpp -o /kaggle/temp/dragon-geometry/nvdiffrast/build/temp.linux-x86_64-cpython-313/csrc/common/cudaraster/impl/CudaRaster.o -DNVDR_TORCH -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=_nvdiffrast_c -std=c++17
+  [3/15] /usr/local/cuda/bin/nvcc -MD -MF /kaggle/temp/dragon-geometry/nvdiffrast/build/temp.linux-x86_64-cpython-313/csrc/common/antialias.o.d -I/usr/local/lib/python3.13/dist-packages/torch/include -I/usr/local/lib/python3.13/dist-packages/torch/include/torch/csrc/api/include -I/usr/local/cuda/include -I/usr/include/python3.13 -c -c /kaggle/temp/dragon-geometry/nvdiffrast/csrc/common/antialias.cu -o /kaggle/temp/dragon-geometry/nvdiffrast/build/temp.linux-x86_64-cpython-313/csrc/common/antialias.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options ''"'"'-fPIC'"'"'' -DNVDR_TORCH -lineinfo -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=_nvdiffrast_c -gencode=arch=compute_75,code=sm_75 -std=c++17
+  [4/15] /usr/local/cuda/bin/nvcc -MD -MF /kaggle/temp/dragon-geometry/nvdiffrast/build/temp.linux-x86_64-cpython-313/csrc/common/cudaraster/impl/RasterImpl_kernel.o.d -I/usr/local/lib/python3.13/dist-packages/torch/include -I/usr/local/lib/python3.13/dist-packages/torch/include/torch/csrc/api/include -I/usr/local/cuda/include -I/usr/include/python3.13 -c -c /kaggle/temp/dragon-geometry/nvdiffrast/csrc/common/cudaraster/impl/RasterImpl_kernel.cu -o /kaggle/temp/dragon-geometry/nvdiffrast/build/temp.linux-x86_64-cpython-313/csrc/common/cudaraster/impl/RasterImpl_kernel.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options ''"'"'-fPIC'"'"'' -DNVDR_TORCH -lineinfo -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=_nvdiffrast_c -gencode=arch=compute_75,code=sm_75 -std=c++17
+  [5/15] /usr/local/cuda/bin/nvcc -MD -MF /kaggle/temp/dragon-geometry/nvdiffrast/build/temp.linux-x86_64-cpython-313/csrc/common/interpolate.o.d -I/usr/local/lib/python3.13/dist-packages/torch/include -I/usr/local/lib/python3.13/dist-packages/torch/include/torch/csrc/api/include -I/usr/local/cuda/include -I/usr/include/python3.13 -c -c /kaggle/temp/dragon-geometry/nvdiffrast/csrc/common/interpolate.cu -o /kaggle/temp/dragon-geometry/nvdiffrast/build/temp.linux-x86_64-cpython-313/csrc/common/interpolate.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options ''"'"'-fPIC'"'"'' -DNVDR_TORCH -lineinfo -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=_nvdiffrast_c -gencode=arch=compute_75,code=sm_75 -std=c++17
+  [6/15] /usr/local/cuda/bin/nvcc -MD -MF /kaggle/temp/dragon-geometry/nvdiffrast/build/temp.linux-x86_64-cpython-313/csrc/common/rasterize.o.d -I/usr/local/lib/python3.13/dist-packages/torch/include -I/usr/local/lib/python3.13/dist-packages/torch/include/torch/csrc/api/include -I/usr/local/cuda/include -I/usr/include/python3.13 -c -c /kaggle/temp/dragon-geometry/nvdiffrast/csrc/common/rasterize.cu -o /kaggle/temp/dragon-geometry/nvdiffrast/build/temp.linux-x86_64-cpython-313/csrc/common/rasterize.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options ''"'"'-fPIC'"'"'' -DNVDR_TORCH -lineinfo -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=_nvdiffrast_c -gencode=arch=compute_75,code=sm_75 -std=c++17
+  [7/15] /usr/local/cuda/bin/nvcc -MD -MF /kaggle/temp/dragon-geometry/nvdiffrast/build/temp.linux-x86_64-cpython-313/csrc/common/texture_kernel.o.d -I/usr/local/lib/python3.13/dist-packages/torch/include -I/usr/local/lib/python3.13/dist-packages/torch/include/torch/csrc/api/include -I/usr/local/cuda/include -I/usr/include/python3.13 -c -c /kaggle/temp/dragon-geometry/nvdiffrast/csrc/common/texture_kernel.cu -o /kaggle/temp/dragon-geometry/nvdiffrast/build/temp.linux-x86_64-cpython-313/csrc/common/texture_kernel.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options ''"'"'-fPIC'"'"'' -DNVDR_TORCH -lineinfo -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=_nvdiffrast_c -gencode=arch=compute_75,code=sm_75 -std=c++17
+  [8/15] c++ -MMD -MF /kaggle/temp/dragon-geometry/nvdiffrast/build/temp.linux-x86_64-cpython-313/csrc/common/cudaraster/impl/Buffer.o.d -fno-strict-overflow -Wsign-compare -DNDEBUG -g -O2 -Wall -g -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -fcf-protection -g -fwrapv -O2 -fPIC -I/usr/local/lib/python3.13/dist-packages/torch/include -I/usr/local/lib/python3.13/dist-packages/torch/include/torch/csrc/api/include -I/usr/local/cuda/include -I/usr/include/python3.13 -c -c /kaggle/temp/dragon-geometry/nvdiffrast/csrc/common/cudaraster/impl/Buffer.cpp -o /kaggle/temp/dragon-geometry/nvdiffrast/build/temp.linux-x86_64-cpython-313/csrc/common/cudaraster/impl/Buffer.o -DNVDR_TORCH -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=_nvdiffrast_c -std=c++17
+  [9/15] c++ -MMD -MF /kaggle/temp/dragon-geometry/nvdiffrast/build/temp.linux-x86_64-cpython-313/csrc/common/cudaraster/impl/RasterImpl.o.d -fno-strict-overflow -Wsign-compare -DNDEBUG -g -O2 -Wall -g -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -fcf-protection -g -fwrapv -O2 -fPIC -I/usr/local/lib/python3.13/dist-packages/torch/include -I/usr/local/lib/python3.13/dist-packages/torch/include/torch/csrc/api/include -I/usr/local/cuda/include -I/usr/include/python3.13 -c -c /kaggle/temp/dragon-geometry/nvdiffrast/csrc/common/cudaraster/impl/RasterImpl.cpp -o /kaggle/temp/dragon-geometry/nvdiffrast/build/temp.linux-x86_64-cpython-313/csrc/common/cudaraster/impl/RasterImpl.o -DNVDR_TORCH -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=_nvdiffrast_c -std=c++17
+  [10/15] c++ -MMD -MF /kaggle/temp/dragon-geometry/nvdiffrast/build/temp.linux-x86_64-cpython-313/csrc/common/texture.o.d -fno-strict-overflow -Wsign-compare -DNDEBUG -g -O2 -Wall -g -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -fcf-protection -g -fwrapv -O2 -fPIC -I/usr/local/lib/python3.13/dist-packages/torch/include -I/usr/local/lib/python3.13/dist-packages/torch/include/torch/csrc/api/include -I/usr/local/cuda/include -I/usr/include/python3.13 -c -c /kaggle/temp/dragon-geometry/nvdiffrast/csrc/common/texture.cpp -o /kaggle/temp/dragon-geometry/nvdiffrast/build/temp.linux-x86_64-cpython-313/csrc/common/texture.o -DNVDR_TORCH -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=_nvdiffrast_c -std=c++17
+  /kaggle/temp/dragon-geometry/nvdiffrast/csrc/common/texture.cpp: In function ‘void raiseMipSizeError(const TextureKernelParams&)’:
+  /kaggle/temp/dragon-geometry/nvdiffrast/csrc/common/texture.cpp:33:9: warning: unused variable ‘mipTotal’ [-Wunused-variable]
+     33 |     int mipTotal = 0;
+        |         ^~~~~~~~
+  [11/15] c++ -MMD -MF /kaggle/temp/dragon-geometry/nvdiffrast/build/temp.linux-x86_64-cpython-313/csrc/torch/torch_antialias.o.d -fno-strict-overflow -Wsign-compare -DNDEBUG -g -O2 -Wall -g -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -fcf-protection -g -fwrapv -O2 -fPIC -I/usr/local/lib/python3.13/dist-packages/torch/include -I/usr/local/lib/python3.13/dist-packages/torch/include/torch/csrc/api/include -I/usr/local/cuda/include -I/usr/include/python3.13 -c -c /kaggle/temp/dragon-geometry/nvdiffrast/csrc/torch/torch_antialias.cpp -o /kaggle/temp/dragon-geometry/nvdiffrast/build/temp.linux-x86_64-cpython-313/csrc/torch/torch_antialias.o -DNVDR_TORCH -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=_nvdiffrast_c -std=c++17
+  /kaggle/temp/dragon-geometry/nvdiffrast/csrc/torch/torch_antialias.cpp: In function ‘TopologyHashWrapper antialias_construct_topology_hash(at::Tensor)’:
+  /kaggle/temp/dragon-geometry/nvdiffrast/csrc/torch/torch_antialias.cpp:49:120: warning: narrowing conversion of ‘((((uint64_t)p.AntialiasKernelParams::allocTriangles) * ((uint64_t)((p.AntialiasKernelParams::allocTriangles >= (2 << 25)) ? 4 : 8))) * 4)’ from ‘uint64_t’ {aka ‘long unsigned int’} to ‘long int’ [-Wnarrowing]
+     49 |     torch::Tensor ev_hash = torch::zeros({(uint64_t)p.allocTriangles * AA_HASH_ELEMENTS_PER_TRIANGLE(p.allocTriangles) * 4}, opts);
+        |                                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~
+  /kaggle/temp/dragon-geometry/nvdiffrast/csrc/torch/torch_antialias.cpp:49:120: warning: narrowing conversion of ‘((((uint64_t)p.AntialiasKernelParams::allocTriangles) * ((uint64_t)((p.AntialiasKernelParams::allocTriangles >= (2 << 25)) ? 4 : 8))) * 4)’ from ‘uint64_t’ {aka ‘long unsigned int’} to ‘long int’ [-Wnarrowing]
+  [12/15] c++ -MMD -MF /kaggle/temp/dragon-geometry/nvdiffrast/build/temp.linux-x86_64-cpython-313/csrc/torch/torch_interpolate.o.d -fno-strict-overflow -Wsign-compare -DNDEBUG -g -O2 -Wall -g -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -fcf-protection -g -fwrapv -O2 -fPIC -I/usr/local/lib/python3.13/dist-packages/torch/include -I/usr/local/lib/python3.13/dist-packages/torch/include/torch/csrc/api/include -I/usr/local/cuda/include -I/usr/include/python3.13 -c -c /kaggle/temp/dragon-geometry/nvdiffrast/csrc/torch/torch_interpolate.cpp -o /kaggle/temp/dragon-geometry/nvdiffrast/build/temp.linux-x86_64-cpython-313/csrc/torch/torch_interpolate.o -DNVDR_TORCH -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=_nvdiffrast_c -std=c++17
+  /kaggle/temp/dragon-geometry/nvdiffrast/csrc/torch/torch_interpolate.cpp: In function ‘std::tuple<at::Tensor, at::Tensor, at::Tensor> interpolate_grad_da(at::Tensor, at::Tensor, at::Tensor, at::Tensor, at::Tensor, at::Tensor, bool, std::vector<int>&)’:
+  /kaggle/temp/dragon-geometry/nvdiffrast/csrc/torch/torch_interpolate.cpp:210:26: warning: variable ‘opts’ set but not used [-Wunused-but-set-variable]
+    210 |     torch::TensorOptions opts = torch::TensorOptions().dtype(torch::kFloat32).device(torch::kCUDA);
+        |                          ^~~~
+  [13/15] c++ -MMD -MF /kaggle/temp/dragon-geometry/nvdiffrast/build/temp.linux-x86_64-cpython-313/csrc/torch/torch_rasterize.o.d -fno-strict-overflow -Wsign-compare -DNDEBUG -g -O2 -Wall -g -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -fcf-protection -g -fwrapv -O2 -fPIC -I/usr/local/lib/python3.13/dist-packages/torch/include -I/usr/local/lib/python3.13/dist-packages/torch/include/torch/csrc/api/include -I/usr/local/cuda/include -I/usr/include/python3.13 -c -c /kaggle/temp/dragon-geometry/nvdiffrast/csrc/torch/torch_rasterize.cpp -o /kaggle/temp/dragon-geometry/nvdiffrast/build/temp.linux-x86_64-cpython-313/csrc/torch/torch_rasterize.o -DNVDR_TORCH -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=_nvdiffrast_c -std=c++17
+  [14/15] c++ -MMD -MF /kaggle/temp/dragon-geometry/nvdiffrast/build/temp.linux-x86_64-cpython-313/csrc/torch/torch_bindings.o.d -fno-strict-overflow -Wsign-compare -DNDEBUG -g -O2 -Wall -g -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -fcf-protection -g -fwrapv -O2 -fPIC -I/usr/local/lib/python3.13/dist-packages/torch/include -I/usr/local/lib/python3.13/dist-packages/torch/include/torch/csrc/api/include -I/usr/local/cuda/include -I/usr/include/python3.13 -c -c /kaggle/temp/dragon-geometry/nvdiffrast/csrc/torch/torch_bindings.cpp -o /kaggle/temp/dragon-geometry/nvdiffrast/build/temp.linux-x86_64-cpython-313/csrc/torch/torch_bindings.o -DNVDR_TORCH -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=_nvdiffrast_c -std=c++17
+  In file included from /usr/local/lib/python3.13/dist-packages/torch/include/torch/csrc/Exceptions.h:13,
+                   from /usr/local/lib/python3.13/dist-packages/torch/include/torch/csrc/api/include/torch/python.h:12,
+                   from /usr/local/lib/python3.13/dist-packages/torch/include/torch/extension.h:10,
+                   from /kaggle/temp/dragon-geometry/nvdiffrast/csrc/torch/../common/framework.h:18,
+                   from /kaggle/temp/dragon-geometry/nvdiffrast/csrc/torch/torch_common.inl:10,
+                   from /kaggle/temp/dragon-geometry/nvdiffrast/csrc/torch/torch_bindings.cpp:9:
+  /usr/local/lib/python3.13/dist-packages/torch/include/pybind11/pybind11.h: In instantiation of ‘class pybind11::class_<RasterizeCRStateWrapper>’:
+  /kaggle/temp/dragon-geometry/nvdiffrast/csrc/torch/torch_bindings.cpp:45:75:   required from here
+  /usr/local/lib/python3.13/dist-packages/torch/include/pybind11/pybind11.h:2042:7: warning: ‘pybind11::class_<RasterizeCRStateWrapper>’ declared with greater visibility than its base ‘pybind11::detail::generic_type’ [-Wattributes]
+   2042 | class class_ : public detail::generic_type {
+        |       ^~~~~~
+  /usr/local/lib/python3.13/dist-packages/torch/include/pybind11/pybind11.h: In instantiation of ‘class pybind11::class_<TextureMipWrapper>’:
+  /kaggle/temp/dragon-geometry/nvdiffrast/csrc/torch/torch_bindings.cpp:46:63:   required from here
+  /usr/local/lib/python3.13/dist-packages/torch/include/pybind11/pybind11.h:2042:7: warning: ‘pybind11::class_<TextureMipWrapper>’ declared with greater visibility than its base ‘pybind11::detail::generic_type’ [-Wattributes]
+  /usr/local/lib/python3.13/dist-packages/torch/include/pybind11/pybind11.h: In instantiation of ‘class pybind11::class_<TopologyHashWrapper>’:
+  /kaggle/temp/dragon-geometry/nvdiffrast/csrc/torch/torch_bindings.cpp:47:67:   required from here
+  /usr/local/lib/python3.13/dist-packages/torch/include/pybind11/pybind11.h:2042:7: warning: ‘pybind11::class_<TopologyHashWrapper>’ declared with greater visibility than its base ‘pybind11::detail::generic_type’ [-Wattributes]
+  /usr/local/lib/python3.13/dist-packages/torch/include/pybind11/pybind11.h: In instantiation of ‘pybind11::class_< <template-parameter-1-1>, <template-parameter-1-2> >::class_(pybind11::handle, const char*, const Extra& ...) [with Extra = {}; type_ = RasterizeCRStateWrapper; options = {}]’:
+  /kaggle/temp/dragon-geometry/nvdiffrast/csrc/torch/torch_bindings.cpp:45:75:   required from here
+  /usr/local/lib/python3.13/dist-packages/torch/include/pybind11/pybind11.h:2140:28: warning: ‘pybind11::class_<RasterizeCRStateWrapper>::class_<>(pybind11::handle, const char*)::<lambda(pybind11::detail::internals&)>’ declared with greater visibility than the type of its field ‘pybind11::class_<RasterizeCRStateWrapper>::class_<>(pybind11::handle, const char*)::<lambda(pybind11::detail::internals&)>::<record capture>’ [-Wattributes]
+   2140 |             with_internals([&](internals &internals) {
+        |                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   2141 |                 auto &instances = record.module_local ? get_local_internals().registered_types_cpp
+        |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   2142 |                                                       : internals.registered_types_cpp;
+        |                                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   2143 |                 instances[std::type_index(typeid(type_alias))]
+        |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   2144 |                     = instances[std::type_index(typeid(type))];
+        |                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   2145 |             });
+        |             ~
+  /usr/local/lib/python3.13/dist-packages/torch/include/pybind11/pybind11.h: In instantiation of ‘pybind11::class_< <template-parameter-1-1>, <template-parameter-1-2> >::class_(pybind11::handle, const char*, const Extra& ...) [with Extra = {}; type_ = TextureMipWrapper; options = {}]’:
+  /kaggle/temp/dragon-geometry/nvdiffrast/csrc/torch/torch_bindings.cpp:46:63:   required from here
+  /usr/local/lib/python3.13/dist-packages/torch/include/pybind11/pybind11.h:2140:28: warning: ‘pybind11::class_<TextureMipWrapper>::class_<>(pybind11::handle, const char*)::<lambda(pybind11::detail::internals&)>’ declared with greater visibility than the type of its field ‘pybind11::class_<TextureMipWrapper>::class_<>(pybind11::handle, const char*)::<lambda(pybind11::detail::internals&)>::<record capture>’ [-Wattributes]
+  /usr/local/lib/python3.13/dist-packages/torch/include/pybind11/pybind11.h: In instantiation of ‘pybind11::class_< <template-parameter-1-1>, <template-parameter-1-2> >::class_(pybind11::handle, const char*, const Extra& ...) [with Extra = {}; type_ = TopologyHashWrapper; options = {}]’:
+  /kaggle/temp/dragon-geometry/nvdiffrast/csrc/torch/torch_bindings.cpp:47:67:   required from here
+  /usr/local/lib/python3.13/dist-packages/torch/include/pybind11/pybind11.h:2140:28: warning: ‘pybind11::class_<TopologyHashWrapper>::class_<>(pybind11::handle, const char*)::<lambda(pybind11::detail::internals&)>’ declared with greater visibility than the type of its field ‘pybind11::class_<TopologyHashWrapper>::class_<>(pybind11::handle, const char*)::<lambda(pybind11::detail::internals&)>::<record capture>’ [-Wattributes]
+  [15/15] c++ -MMD -MF /kaggle/temp/dragon-geometry/nvdiffrast/build/temp.linux-x86_64-cpython-313/csrc/torch/torch_texture.o.d -fno-strict-overflow -Wsign-compare -DNDEBUG -g -O2 -Wall -g -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -fcf-protection -g -fwrapv -O2 -fPIC -I/usr/local/lib/python3.13/dist-packages/torch/include -I/usr/local/lib/python3.13/dist-packages/torch/include/torch/csrc/api/include -I/usr/local/cuda/include -I/usr/include/python3.13 -c -c /kaggle/temp/dragon-geometry/nvdiffrast/csrc/torch/torch_texture.cpp -o /kaggle/temp/dragon-geometry/nvdiffrast/build/temp.linux-x86_64-cpython-313/csrc/torch/torch_texture.o -DNVDR_TORCH -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=_nvdiffrast_c -std=c++17
+  x86_64-linux-gnu-g++ -fno-strict-overflow -Wsign-compare -DNDEBUG -g -O2 -Wall -g -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -fcf-protection -g -fwrapv -O2 -shared -Wl,-O1 -Wl,-Bsymbolic-functions -Wl,-Bsymbolic-functions -g -fwrapv -O2 /kaggle/temp/dragon-geometry/nvdiffrast/build/temp.linux-x86_64-cpython-313/csrc/common/antialias.o /kaggle/temp/dragon-geometry/nvdiffrast/build/temp.linux-x86_64-cpython-313/csrc/common/common.o /kaggle/temp/dragon-geometry/nvdiffrast/build/temp.linux-x86_64-cpython-313/csrc/common/cudaraster/impl/Buffer.o /kaggle/temp/dragon-geometry/nvdiffrast/build/temp.linux-x86_64-cpython-313/csrc/common/cudaraster/impl/CudaRaster.o /kaggle/temp/dragon-geometry/nvdiffrast/build/temp.linux-x86_64-cpython-313/csrc/common/cudaraster/impl/RasterImpl.o /kaggle/temp/dragon-geometry/nvdiffrast/build/temp.linux-x86_64-cpython-313/csrc/common/cudaraster/impl/RasterImpl_kernel.o /kaggle/temp/dragon-geometry/nvdiffrast/build/temp.linux-x86_64-cpython-313/csrc/common/interpolate.o /kaggle/temp/dragon-geometry/nvdiffrast/build/temp.linux-x86_64-cpython-313/csrc/common/rasterize.o /kaggle/temp/dragon-geometry/nvdiffrast/build/temp.linux-x86_64-cpython-313/csrc/common/texture.o /kaggle/temp/dragon-geometry/nvdiffrast/build/temp.linux-x86_64-cpython-313/csrc/common/texture_kernel.o /kaggle/temp/dragon-geometry/nvdiffrast/build/temp.linux-x86_64-cpython-313/csrc/torch/torch_antialias.o /kaggle/temp/dragon-geometry/nvdiffrast/build/temp.linux-x86_64-cpython-313/csrc/torch/torch_bindings.o /kaggle/temp/dragon-geometry/nvdiffrast/build/temp.linux-x86_64-cpython-313/csrc/torch/torch_interpolate.o /kaggle/temp/dragon-geometry/nvdiffrast/build/temp.linux-x86_64-cpython-313/csrc/torch/torch_rasterize.o /kaggle/temp/dragon-geometry/nvdiffrast/build/temp.linux-x86_64-cpython-313/csrc/torch/torch_texture.o -L/usr/local/lib/python3.13/dist-packages/torch/lib -L/usr/local/cuda/lib64 -L/usr/lib/x86_64-linux-gnu -lc10 -ltorch -ltorch_cpu -ltorch_python -lcudart -lc10_cuda -ltorch_cuda -o build/lib.linux-x86_64-cpython-313/_nvdiffrast_c.cpython-313-x86_64-linux-gnu.so
+  installing to build/bdist.linux-x86_64/wheel
+  running install
+  running install_lib
+  creating build/bdist.linux-x86_64/wheel
+  copying build/lib.linux-x86_64-cpython-313/_nvdiffrast_c.cpython-313-x86_64-linux-gnu.so -> build/bdist.linux-x86_64/wheel/.
+  creating build/bdist.linux-x86_64/wheel/nvdiffrast
+  copying build/lib.linux-x86_64-cpython-313/nvdiffrast/__init__.py -> build/bdist.linux-x86_64/wheel/./nvdiffrast
+  creating build/bdist.linux-x86_64/wheel/nvdiffrast/torch
+  copying build/lib.linux-x86_64-cpython-313/nvdiffrast/torch/__init__.py -> build/bdist.linux-x86_64/wheel/./nvdiffrast/torch
+  copying build/lib.linux-x86_64-cpython-313/nvdiffrast/torch/ops.py -> build/bdist.linux-x86_64/wheel/./nvdiffrast/torch
+  running install_egg_info
+  Copying nvdiffrast.egg-info to build/bdist.linux-x86_64/wheel/./nvdiffrast-0.4.0-py3.13.egg-info
+  running install_scripts
+  creating build/bdist.linux-x86_64/wheel/nvdiffrast-0.4.0.dist-info/WHEEL
+  creating '/kaggle/temp/dragon-geometry/tmp/pip-wheel-yiao__ia/.tmp-up52evsp/nvdiffrast-0.4.0-cp313-cp313-linux_x86_64.whl' and adding 'build/bdist.linux-x86_64/wheel' to it
+  adding '_nvdiffrast_c.cpython-313-x86_64-linux-gnu.so'
+  adding 'nvdiffrast/__init__.py'
+  adding 'nvdiffrast/torch/__init__.py'
+  adding 'nvdiffrast/torch/ops.py'
+  adding 'nvdiffrast-0.4.0.dist-info/licenses/LICENSE.txt'
+  adding 'nvdiffrast-0.4.0.dist-info/METADATA'
+  adding 'nvdiffrast-0.4.0.dist-info/WHEEL'
+  adding 'nvdiffrast-0.4.0.dist-info/top_level.txt'
+  adding 'nvdiffrast-0.4.0.dist-info/RECORD'
+  removing build/bdist.linux-x86_64/wheel
+  Building wheel for nvdiffrast (pyproject.toml): finished with status 'done'
+  Created wheel for nvdiffrast: filename=nvdiffrast-0.4.0-cp313-cp313-linux_x86_64.whl size=16110219 sha256=992d930c68af3c40f9261d81adbd10dc53b1ee7dd5e97b67b3762f309c4be3c0
+  Stored in directory: /kaggle/temp/dragon-geometry/tmp/pip-ephem-wheel-cache-149flz1l/wheels/d4/83/41/45da9252373f650ad2c58dabe32646a601e8e71bec958fc9ac
+Successfully built nvdiffrast

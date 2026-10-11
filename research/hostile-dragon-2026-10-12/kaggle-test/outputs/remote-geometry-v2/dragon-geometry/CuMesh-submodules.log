@@ -1,0 +1,7 @@
+Submodule 'third_party/cubvh' (https://github.com/JeffreyXiang/cubvh.git) registered for path 'third_party/cubvh'
+Cloning into '/kaggle/temp/dragon-geometry/CuMesh/third_party/cubvh'...
+Submodule path 'third_party/cubvh': checked out 'ce92267a24ef6ad7d2c8ccbc2ae2c021a6597e70'
+Submodule 'third_party/eigen' (https://gitlab.com/libeigen/eigen) registered for path 'third_party/cubvh/third_party/eigen'
+Cloning into '/kaggle/temp/dragon-geometry/CuMesh/third_party/cubvh/third_party/eigen'...
+warning: redirecting to https://gitlab.com/libeigen/eigen.git/
+Submodule path 'third_party/cubvh/third_party/eigen': checked out 'e63d9f6ccb7f6f29f31241b87c542f3f0ab3112b'

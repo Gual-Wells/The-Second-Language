@@ -1,0 +1,71 @@
+{
+  "started_at": "2026-10-11T13:03:38.271656+00:00",
+  "stage": "editable_candidate_saved",
+  "art_accepted": false,
+  "pipeline_type": "512",
+  "seed": 38017,
+  "source_sha": "75fbf0183001ed9876c8dbb35de6b68552ee08bd",
+  "model_revisions": {
+    "microsoft/TRELLIS.2-4B": "af44b45f2e35a493886929c6d786e563ec68364d",
+    "microsoft/TRELLIS-image-large": "25e0d31ffbebe4b5a97464dd851910efc3002d96"
+  },
+  "phase_seconds": {
+    "get_cond": 3.32,
+    "sample_tex_slat": 91.73,
+    "decode_shape_slat": 19.57,
+    "decode_tex_slat": 13.94
+  },
+  "torch": "2.11.0+cu128",
+  "gpu": "Tesla T4",
+  "vram_gib": 14.56219482421875,
+  "elapsed_seconds": 381.24,
+  "adaptations": [
+    "BF16 attention evaluated in FP32 efficient kernel then returned as BF16",
+    "per-sequence sparse SDPA",
+    "stage-wise checkpoint reload from disk",
+    "bounded explicit im2col",
+    "preprocessed input: no background model"
+  ],
+  "attention_validation": {
+    "max_abs_vs_fp32": [
+      0.0037736892700195312,
+      0.003336310386657715
+    ],
+    "dtype": "BF16"
+  },
+  "bounded_convolution_validation": [
+    {
+      "dtype": "torch.float16",
+      "max_abs": 0.0
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "max_abs": 0.0
+    }
+  ],
+  "dino_copy": {
+    "server_source": "hark99/facebookdinov3-vitl16-pretrain-lvd1689m/transformers/default/1",
+    "original_official_sha_verified": true,
+    "license": "original Meta DINOv3 license; authorized account"
+  },
+  "input_sha256": "994f98db7bdf194fa4dabfbe6a3b1b1ae2e958ae31d7eb771473bd8e32d7d606",
+  "resume": {
+    "source_kernel": "gualwells/hostile-dragon-generation-20261011/1",
+    "shape_checkpoint_sha256": "32944f6bdaaa9e78ea9d17858d08b696e149263dc2b2d8b19af242310a0c214b",
+    "geometry_resampled": false,
+    "texture_seed": 38018
+  },
+  "loading_model": "microsoft/TRELLIS.2-4B/ckpts/tex_dec_next_dc_f16c32_fp16",
+  "checkpoints": [
+    "sample_tex_slat-checkpoint.pt",
+    "decoded-shape-checkpoint.ply"
+  ],
+  "actual_resolution": 512,
+  "vertices": 1206198,
+  "faces": 2433300,
+  "source_assets_saved": true,
+  "glb": {
+    "bytes": 18865188,
+    "sha256": "594c78b555d39980d6ff7015acb3358239b18c36c9a1f4f04b6acf200547bbfa"
+  }
+}

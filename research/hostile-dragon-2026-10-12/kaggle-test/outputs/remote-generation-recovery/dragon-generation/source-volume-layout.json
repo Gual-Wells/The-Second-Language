@@ -1,0 +1,36 @@
+{
+  "origin": [
+    -0.5,
+    -0.5,
+    -0.5
+  ],
+  "voxel_shape": [
+    1,
+    6,
+    512,
+    334,
+    489
+  ],
+  "layout": {
+    "base_color": [
+      0,
+      3,
+      null
+    ],
+    "metallic": [
+      3,
+      4,
+      null
+    ],
+    "roughness": [
+      4,
+      5,
+      null
+    ],
+    "alpha": [
+      5,
+      6,
+      null
+    ]
+  }
+}

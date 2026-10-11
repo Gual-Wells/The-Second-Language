@@ -1,0 +1,32 @@
+{
+  "source": "D:\\CodexStorage\\workspaces\\hostile-dragon-coin\\kaggle-test\\outputs\\remote-mesh-repair-512\\dragon-mesh-repair\\hostile-dragon-repaired.glb",
+  "stage": "ready_for_art_review",
+  "art_accepted": false,
+  "dimensions": [
+    1.0020776987075806,
+    0.292851984500885,
+    0.9092111587524414
+  ],
+  "vertices": 692339,
+  "faces": 970260,
+  "renderer_device": "CPU",
+  "cuda_devices": [
+    "GeForce MX250"
+  ],
+  "views": [
+    {
+      "file": "clay-minus-y.png",
+      "seconds": 66.77
+    },
+    {
+      "file": "clay-side.png",
+      "seconds": 41.38
+    },
+    {
+      "file": "clay-plus-y.png",
+      "seconds": 27.91
+    }
+  ],
+  "note": "Canonical axis names; front identified from actual views, never inferred from name.",
+  "gpu_render_failure": "Error: Failed to load CUDA kernel from 'D:\\CodexStorage\\tools\\blender-4.5.3-windows-x64\\4.5\\scripts\\addons_core\\cycles\\lib/kernel_sm_61.cubin.zst' (Invalid kernel image)\nError: Failed to load CUDA kernel from 'D:\\CodexStorage\\tools\\blender-4.5.3-windows-x64\\4.5\\scripts\\addons_core\\cycles\\lib/kernel_sm_61.cubin.zst' (Invalid kernel image)\n"
+}

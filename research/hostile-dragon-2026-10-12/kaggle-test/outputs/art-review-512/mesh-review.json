@@ -1,0 +1,60 @@
+{
+  "source": "D:\\CodexStorage\\workspaces\\hostile-dragon-coin\\kaggle-test\\outputs\\remote-generation-recovery\\dragon-generation\\hostile-dragon-source.glb",
+  "stage": "ready_for_art_review",
+  "art_accepted": false,
+  "dimensions": [
+    0.998359203338623,
+    0.2894933223724365,
+    0.9055337905883789
+  ],
+  "vertices": 370709,
+  "faces": 476593,
+  "renderer_device": "CPU",
+  "cuda_devices": [
+    "GeForce MX250"
+  ],
+  "views": [
+    {
+      "file": "clay-minus-y.png",
+      "seconds": 132.89
+    },
+    {
+      "file": "clay-left-quarter.png",
+      "seconds": 87.17
+    },
+    {
+      "file": "clay-right-quarter.png",
+      "seconds": 100.94
+    },
+    {
+      "file": "clay-side.png",
+      "seconds": 61.27
+    },
+    {
+      "file": "clay-plus-y.png",
+      "seconds": 94.36
+    },
+    {
+      "file": "pbr-minus-y.png",
+      "seconds": 123.92
+    },
+    {
+      "file": "pbr-left-quarter.png",
+      "seconds": 111.23
+    },
+    {
+      "file": "pbr-right-quarter.png",
+      "seconds": 113.41
+    },
+    {
+      "file": "pbr-side.png",
+      "seconds": 86.19
+    },
+    {
+      "file": "pbr-plus-y.png",
+      "seconds": 112.48
+    }
+  ],
+  "note": "Canonical axis names; front identified from actual views, never inferred from name.",
+  "gpu_render_failure": "Error: Failed to load CUDA kernel from 'D:\\CodexStorage\\tools\\blender-4.5.3-windows-x64\\4.5\\scripts\\addons_core\\cycles\\lib/kernel_sm_61.cubin.zst' (Invalid kernel image)\nError: Failed to load CUDA kernel from 'D:\\CodexStorage\\tools\\blender-4.5.3-windows-x64\\4.5\\scripts\\addons_core\\cycles\\lib/kernel_sm_61.cubin.zst' (Invalid kernel image)\n"
+}

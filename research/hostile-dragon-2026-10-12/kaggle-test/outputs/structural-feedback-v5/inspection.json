@@ -1,0 +1,8 @@
+{
+  "stage": "structural_feedback_inspection",
+  "eye_preserved": true,
+  "art_accepted": false,
+  "views": [
+    "nose-mouth-root.png"
+  ]
+}

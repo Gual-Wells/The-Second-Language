@@ -1,0 +1,9 @@
+Processing /kaggle/temp/dragon-compat/FlexGEMM
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: flex_gemm
+  Building wheel for flex_gemm (pyproject.toml): started
+  Building wheel for flex_gemm (pyproject.toml): finished with status 'done'
+  Created wheel for flex_gemm: filename=flex_gemm-1.0.0-cp313-cp313-linux_x86_64.whl size=3301361 sha256=07b57660b62a728c8e44a7902127127a8e28f2b548cfd274fd3f3f6a3573527c
+  Stored in directory: /kaggle/temp/dragon-compat/tmp/pip-ephem-wheel-cache-x64fh7by/wheels/6c/e0/e9/8c35431ad8eb2a1022a65581ba5f27068ed4bcbe25dc70678c
+Successfully built flex_gemm

@@ -1,0 +1,56 @@
+{
+  "started_at": "2026-10-11T12:13:49.987781+00:00",
+  "stage": "generation_failed",
+  "art_accepted": false,
+  "pipeline_type": "512",
+  "seed": 38017,
+  "source_sha": "75fbf0183001ed9876c8dbb35de6b68552ee08bd",
+  "model_revisions": {
+    "microsoft/TRELLIS.2-4B": "af44b45f2e35a493886929c6d786e563ec68364d",
+    "microsoft/TRELLIS-image-large": "25e0d31ffbebe4b5a97464dd851910efc3002d96"
+  },
+  "phase_seconds": {
+    "get_cond": 2.65,
+    "sample_sparse_structure": 167.69,
+    "sample_shape_slat": 122.07
+  },
+  "torch": "2.11.0+cu128",
+  "gpu": "Tesla T4",
+  "vram_gib": 14.56219482421875,
+  "elapsed_seconds": 396.55,
+  "adaptations": [
+    "BF16 attention evaluated in FP32 efficient kernel then returned as BF16",
+    "per-sequence sparse SDPA",
+    "stage-wise checkpoint reload from disk",
+    "bounded explicit im2col",
+    "preprocessed input: no background model"
+  ],
+  "attention_validation": {
+    "max_abs_vs_fp32": [
+      0.0038781166076660156,
+      0.0034825801849365234
+    ],
+    "dtype": "BF16"
+  },
+  "bounded_convolution_validation": [
+    {
+      "dtype": "torch.float16",
+      "max_abs": 0.0
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "max_abs": 0.0
+    }
+  ],
+  "dino_copy": {
+    "server_source": "hark99/facebookdinov3-vitl16-pretrain-lvd1689m/transformers/default/1",
+    "original_official_sha_verified": true,
+    "license": "original Meta DINOv3 license; authorized account"
+  },
+  "input_sha256": "994f98db7bdf194fa4dabfbe6a3b1b1ae2e958ae31d7eb771473bd8e32d7d606",
+  "loading_model": "microsoft/TRELLIS.2-4B/ckpts/slat_flow_img2shape_dit_1_3B_512_bf16",
+  "checkpoints": [
+    "sample_shape_slat-checkpoint.pt"
+  ],
+  "error": "Traceback (most recent call last):\n  File \"/tmp/ipykernel_22/3950577884.py\", line 135, in <cell line: 0>\n    meshes,latent=pipeline.run(image,seed=38017,preprocess_image=False,pipeline_type=PIPELINE_TYPE,return_latent=True)\n                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/torch/utils/_contextlib.py\", line 124, in decorate_context\n    return func(*args, **kwargs)\n  File \"/kaggle/temp/dragon-generation/TRELLIS.2/trellis2/pipelines/trellis2_image_to_3d.py\", line 551, in run\n    tex_slat = self.sample_tex_slat(\n        cond_512, self.models['tex_slat_flow_model_512'],\n        shape_slat, tex_slat_sampler_params\n    )\n  File \"/tmp/ipykernel_22/3950577884.py\", line 117, in hook\n    REPORT['stage']=_name;save();start=time.monotonic();value=_original(*a,**kw)\n                                                              ~~~~~~~~~^^^^^^^^^\n  File \"/kaggle/temp/dragon-generation/TRELLIS.2/trellis2/pipelines/trellis2_image_to_3d.py\", line 411, in sample_tex_slat\n    in_channels = flow_model.in_channels if isinstance(flow_model, nn.Module) else flow_model[0].in_channels\n                                                                                   ~~~~~~~~~~^^^\nTypeError: 'LazyModel' object is not subscriptable\n"
+}

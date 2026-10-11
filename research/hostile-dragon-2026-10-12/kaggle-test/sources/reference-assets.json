@@ -1,0 +1,12 @@
+{
+  "concept-v1.png": {
+    "sha256": "a70c394e3a432bae7ba54aa9d3507c2173269b2258016c37d792d09bf007d2a8",
+    "bytes": 3204435,
+    "status": "unapproved_concept_reference"
+  },
+  "concept-back-v1.png": {
+    "sha256": "4905fc092d102c7e26e9e765f9bc5ce9f6c012c2aa267472d7112cd3caea7572",
+    "bytes": 3126048,
+    "status": "unapproved_concept_reference"
+  }
+}

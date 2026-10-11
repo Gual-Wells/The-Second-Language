@@ -1,0 +1,79 @@
+{
+  "microsoft/TRELLIS.2": {
+    "sha": "75fbf0183001ed9876c8dbb35de6b68552ee08bd",
+    "files": {
+      "README.md": {
+        "url": "https://raw.githubusercontent.com/microsoft/TRELLIS.2/75fbf0183001ed9876c8dbb35de6b68552ee08bd/README.md",
+        "sha256": "adc985d5a71fda0a5cb7287f58b6baa7de8db1568c4483ac210f3447b786552b",
+        "bytes": 16212
+      },
+      "setup.sh": {
+        "url": "https://raw.githubusercontent.com/microsoft/TRELLIS.2/75fbf0183001ed9876c8dbb35de6b68552ee08bd/setup.sh",
+        "sha256": "76ae48346aa8596be366baf8f3e801ed90bbe352404052f912ce6dd4d9ec5ef6",
+        "bytes": 4506
+      },
+      "example.py": {
+        "url": "https://raw.githubusercontent.com/microsoft/TRELLIS.2/75fbf0183001ed9876c8dbb35de6b68552ee08bd/example.py",
+        "sha256": "e0d9edaa2aff3cf8067a3272f0d68c044db9a7497d6117295c0f89e93c2ed9dc",
+        "bytes": 1584
+      },
+      "trellis2/modules/sparse/attention/full_attn.py": {
+        "url": "https://raw.githubusercontent.com/microsoft/TRELLIS.2/75fbf0183001ed9876c8dbb35de6b68552ee08bd/trellis2/modules/sparse/attention/full_attn.py",
+        "sha256": "bee0c32089f060c8136292f41a2cc7a952a8679a8b6d113d14c772f2c681e520",
+        "bytes": 9645
+      },
+      "trellis2/modules/attention/config.py": {
+        "url": "https://raw.githubusercontent.com/microsoft/TRELLIS.2/75fbf0183001ed9876c8dbb35de6b68552ee08bd/trellis2/modules/attention/config.py",
+        "sha256": "c6205b4419b2e2436d2fb8a918d317abc5427c31a3d5db96f4aa2302215754a5",
+        "bytes": 724
+      },
+      "trellis2/pipelines/trellis2_image_to_3d.py": {
+        "url": "https://raw.githubusercontent.com/microsoft/TRELLIS.2/75fbf0183001ed9876c8dbb35de6b68552ee08bd/trellis2/pipelines/trellis2_image_to_3d.py",
+        "sha256": "e2addfca672354284b23d1541a8f49228d5a727d49220fcb8512cca2cdd38ce9",
+        "bytes": 24143
+      },
+      "trellis2/models/structured_latent_flow.py": {
+        "url": "https://raw.githubusercontent.com/microsoft/TRELLIS.2/75fbf0183001ed9876c8dbb35de6b68552ee08bd/trellis2/models/structured_latent_flow.py",
+        "sha256": "76454ead55d112214e36db8de5e9b3d1d4128f05d25256fb6c581b4c1a588021",
+        "bytes": 7966
+      }
+    },
+    "errors": {
+      "trellis2/modules/sparse/attention/config.py": "HTTPError: HTTP Error 404: Not Found"
+    }
+  },
+  "Kaggle/kaggle-cli": {
+    "sha": "9c57dd74c29904c40ff7879eed33644be89d2e2f",
+    "files": {
+      "docs/README.md": {
+        "url": "https://raw.githubusercontent.com/Kaggle/kaggle-cli/9c57dd74c29904c40ff7879eed33644be89d2e2f/docs/README.md",
+        "sha256": "e428ea8595f7e7bbee7b6ec9afe799c5af5a55f8ee95f97090cb6be71a8a636b",
+        "bytes": 4239
+      },
+      "docs/kernels.md": {
+        "url": "https://raw.githubusercontent.com/Kaggle/kaggle-cli/9c57dd74c29904c40ff7879eed33644be89d2e2f/docs/kernels.md",
+        "sha256": "f0e709005cd6d1b822ed8c65f9b0a55bdd1e2901e80b60b09d19fe199247c476",
+        "bytes": 13168
+      },
+      "docs/configuration.md": {
+        "url": "https://raw.githubusercontent.com/Kaggle/kaggle-cli/9c57dd74c29904c40ff7879eed33644be89d2e2f/docs/configuration.md",
+        "sha256": "708e339d3da3a86461b451d85c321f465823f548a0f86757990ab8a8c5013a54",
+        "bytes": 2427
+      }
+    },
+    "errors": {
+      "kaggle/api/kaggle_api_extended.py": "HTTPError: HTTP Error 404: Not Found"
+    }
+  },
+  "soundling/TRELLIS.2-Colab": {
+    "sha": "e815c628fb95ca35e6c24967c947661110878a6f",
+    "files": {
+      "README.md": {
+        "url": "https://raw.githubusercontent.com/soundling/TRELLIS.2-Colab/e815c628fb95ca35e6c24967c947661110878a6f/README.md",
+        "sha256": "ada77f6388c5208d030a597f0af45436ee84e3f3612f9d328d77397ab2e987f5",
+        "bytes": 12556
+      }
+    },
+    "errors": {}
+  }
+}

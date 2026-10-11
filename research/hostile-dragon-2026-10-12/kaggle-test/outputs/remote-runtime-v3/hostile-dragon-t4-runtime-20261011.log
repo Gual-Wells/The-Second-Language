@@ -1,0 +1,68 @@
+[{"stream_name":"stderr","time":7.134572878,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.134624396,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.134628862,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.13463165,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":7.784203769,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.784240899,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.784245476,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.784248357,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":17.367110919,"data":"Collecting trimesh\n"}
+,{"stream_name":"stdout","time":17.42281586,"data":"  Downloading trimesh-5.1.1-py3-none-any.whl.metadata (13 kB)\n"}
+,{"stream_name":"stdout","time":17.447197307,"data":"Requirement already satisfied: opencv-python-headless in /usr/local/lib/python3.13/dist-packages (4.14.0.94)\n"}
+,{"stream_name":"stdout","time":17.448645568,"data":"Requirement already satisfied: pillow in /usr/local/lib/python3.13/dist-packages (12.3.0)\n"}
+,{"stream_name":"stdout","time":17.456189812,"data":"Requirement already satisfied: scipy in /usr/local/lib/python3.13/dist-packages (1.16.3)\n"}
+,{"stream_name":"stdout","time":17.457257579,"data":"Requirement already satisfied: zstandard in /usr/local/lib/python3.13/dist-packages (0.25.0)\n"}
+,{"stream_name":"stdout","time":17.460468093,"data":"Requirement already satisfied: tqdm in /usr/local/lib/python3.13/dist-packages (4.67.3)\n"}
+,{"stream_name":"stdout","time":17.505897236,"data":"Collecting plyfile\n"}
+,{"stream_name":"stdout","time":17.522509982,"data":"  Downloading plyfile-1.1.5-py3-none-any.whl.metadata (43 kB)\n"}
+,{"stream_name":"stdout","time":17.549999395,"data":"     �������������������������������������������������������������������������������� 43.3/43.3 kB 1.4 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":17.562938617,"data":"Requirement already satisfied: easydict in /usr/local/lib/python3.13/dist-packages (1.13)\n"}
+,{"stream_name":"stdout","time":17.56946956,"data":"Collecting trimesh\n"}
+,{"stream_name":"stdout","time":17.56949314,"data":"  Downloading trimesh-5.1.1-py3-none-any.whl.metadata (13 kB)\n"}
+,{"stream_name":"stdout","time":17.569497964,"data":"Requirement already satisfied: opencv-python-headless in /usr/local/lib/python3.13/dist-packages (4.14.0.94)\n"}
+,{"stream_name":"stdout","time":17.569502405,"data":"Requirement already satisfied: pillow in /usr/local/lib/python3.13/dist-packages (12.3.0)\n"}
+,{"stream_name":"stdout","time":17.569506667,"data":"Requirement already satisfied: scipy in /usr/local/lib/python3.13/dist-packages (1.16.3)\n"}
+,{"stream_name":"stdout","time":17.56951078,"data":"Requirement already satisfied: zstandard in /usr/local/lib/python3.13/dist-packages (0.25.0)\n"}
+,{"stream_name":"stdout","time":17.569514969,"data":"Requirement already satisfied: tqdm in /usr/local/lib/python3.13/dist-packages (4.67.3)\n"}
+,{"stream_name":"stdout","time":17.569519085,"data":"Collecting plyfile\n"}
+,{"stream_name":"stdout","time":17.569523057,"data":"  Downloading plyfile-1.1.5-py3-none-any.whl.metadata (43 kB)\n"}
+,{"stream_name":"stdout","time":17.569527175,"data":"     �������������������������������������������������������������������������������� 43.3/43.3 kB 1.4 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":17.56954551,"data":"Requirement already satisfied: easydict in /usr/local/lib/python3.13/dist-packages (1.13)\n"}
+,{"stream_name":"stdout","time":17.575078895,"data":"Requirement already satisfied: numpy\u003e=1.21 in /usr/local/lib/python3.13/dist-packages (from trimesh) (2.1.3)\n"}
+,{"stream_name":"stdout","time":17.629370388,"data":"Downloading trimesh-5.1.1-py3-none-any.whl (750 kB)\n"}
+,{"stream_name":"stdout","time":17.687723372,"data":"   �������������������������������������������������������������������������������� 750.4/750.4 kB 13.3 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":17.703696564,"data":"Downloading plyfile-1.1.5-py3-none-any.whl (36 kB)\n"}
+,{"stream_name":"stdout","time":17.777863103,"data":"Requirement already satisfied: numpy\u003e=1.21 in /usr/local/lib/python3.13/dist-packages (from trimesh) (2.1.3)\n"}
+,{"stream_name":"stdout","time":17.777903566,"data":"Downloading trimesh-5.1.1-py3-none-any.whl (750 kB)\n"}
+,{"stream_name":"stdout","time":17.777907774,"data":"   �������������������������������������������������������������������������������� 750.4/750.4 kB 13.3 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":17.777912019,"data":"Downloading plyfile-1.1.5-py3-none-any.whl (36 kB)\n"}
+,{"stream_name":"stdout","time":19.986661721,"data":"Installing collected packages: trimesh, plyfile\n"}
+,{"stream_name":"stdout","time":20.189653434,"data":"Installing collected packages: trimesh, plyfile\n"}
+,{"stream_name":"stdout","time":20.430774625,"data":"Successfully installed plyfile-1.1.5 trimesh-5.1.1\n"}
+,{"stream_name":"stdout","time":20.633504627,"data":"Successfully installed plyfile-1.1.5 trimesh-5.1.1\n"}
+,{"stream_name":"stdout","time":22.358124793,"data":"Processing /kaggle/input/notebooks/gualwells/hostile-dragon-t4-geometry-20261011/dragon-geometry/wheels/cumesh-0.0.1-cp313-cp313-linux_x86_64.whl\n"}
+,{"stream_name":"stdout","time":22.416068337,"data":"Processing /kaggle/input/notebooks/gualwells/hostile-dragon-t4-geometry-20261011/dragon-geometry/wheels/nvdiffrast-0.4.0-cp313-cp313-linux_x86_64.whl\n"}
+,{"stream_name":"stdout","time":22.47368202,"data":"Processing /kaggle/input/notebooks/gualwells/hostile-dragon-t4-geometry-20261011/dragon-geometry/wheels/o_voxel-0.0.1-cp313-cp313-linux_x86_64.whl\n"}
+,{"stream_name":"stdout","time":22.536397416,"data":"Processing /kaggle/input/notebooks/gualwells/hostile-dragon-t4-compatibility-20261011/dragon-compat/wheels/flex_gemm-1.0.0-cp313-cp313-linux_x86_64.whl\n"}
+,{"stream_name":"stdout","time":22.553602805,"data":"Installing collected packages: o-voxel, nvdiffrast, flex-gemm, cumesh\n"}
+,{"stream_name":"stdout","time":22.560471039,"data":"Processing /kaggle/input/notebooks/gualwells/hostile-dragon-t4-geometry-20261011/dragon-geometry/wheels/cumesh-0.0.1-cp313-cp313-linux_x86_64.whl\n"}
+,{"stream_name":"stdout","time":22.560494503,"data":"Processing /kaggle/input/notebooks/gualwells/hostile-dragon-t4-geometry-20261011/dragon-geometry/wheels/nvdiffrast-0.4.0-cp313-cp313-linux_x86_64.whl\n"}
+,{"stream_name":"stdout","time":22.560500891,"data":"Processing /kaggle/input/notebooks/gualwells/hostile-dragon-t4-geometry-20261011/dragon-geometry/wheels/o_voxel-0.0.1-cp313-cp313-linux_x86_64.whl\n"}
+,{"stream_name":"stdout","time":22.560506078,"data":"Processing /kaggle/input/notebooks/gualwells/hostile-dragon-t4-compatibility-20261011/dragon-compat/wheels/flex_gemm-1.0.0-cp313-cp313-linux_x86_64.whl\n"}
+,{"stream_name":"stdout","time":22.560511103,"data":"Installing collected packages: o-voxel, nvdiffrast, flex-gemm, cumesh\n"}
+,{"stream_name":"stdout","time":23.676116105,"data":"Successfully installed cumesh-0.0.1 flex-gemm-1.0.0 nvdiffrast-0.4.0 o-voxel-0.0.1\n"}
+,{"stream_name":"stdout","time":23.808803652,"data":"Successfully installed cumesh-0.0.1 flex-gemm-1.0.0 nvdiffrast-0.4.0 o-voxel-0.0.1\n"}
+,{"stream_name":"stdout","time":23.80883323,"data":"{\"started_at\": \"2026-10-11T11:34:32.471044+00:00\", \"model_generated\": false, \"tests\": {}, \"stage\": \"attention_test\", \"elapsed_seconds\": 14.85}\n"}
+,{"stream_name":"stdout","time":24.580034406,"data":"{\"started_at\": \"2026-10-11T11:34:32.471044+00:00\", \"model_generated\": false, \"tests\": {\"memory_efficient_fp32_attention\": {\"finite\": true, \"max_abs_vs_math\": 1.239776611328125e-05}}, \"stage\": \"tiny_glb_export\", \"elapsed_seconds\": 15.64}\n"}
+,{"stream_name":"stdout","time":28.015124045,"data":"Original mesh: 4 vertices, 4 faces\n"}
+,{"stream_name":"stdout","time":28.015156881,"data":"After filling holes: 4 vertices, 4 faces\n"}
+,{"stream_name":"stdout","time":28.018649286,"data":"Building BVH for current mesh...{\"started_at\": \"2026-10-11T11:34:32.471044+00:00\", \"model_generated\": false, \"tests\": {\"memory_efficient_fp32_attention\": {\"finite\": true, \"max_abs_vs_math\": 1.239776611328125e-05}}, \"stage\": \"runtime_export_failed\", \"elapsed_seconds\": 19.08, \"error\": \"Traceback (most recent call last):\\n  File \\\"/tmp/ipykernel_22/1833180182.py\\\", line 42, in \u003ccell line: 0\u003e\\n    glb=o_voxel.postprocess.to_glb(vertices=v,faces=f,attr_volume=attrs,coords=coords,attr_layout={'base_color':slice(0,3),'metallic':slice(3,4),'roughness':slice(4,5),'alpha':slice(5,6)},aabb=[[-0.5,-0.5,-0.5],[0.5,0.5,0.5]],grid_size=8,decimation_target=4,texture_size=64,remesh=False,verbose=True)\\n  File \\\"/usr/local/lib/python3.13/dist-packages/o_voxel/postprocess.py\\\", line 122, in to_glb\\n    bvh = cumesh.cuBVH(vertices, faces)\\n  File \\\"/usr/local/lib/python3.13/dist-packages/cumesh/bvh.py\\\", line 20, in __init__\\n    assert triangles.shape[0] \u003e 8, \\\"BVH needs at least 8 triangles.\\\"\\n           ^^^^^^^^^^^^^^^^^^^^^^\\nAssertionError: BVH needs at least 8 triangles.\\n\"}\n"}
+,{"stream_name":"stderr","time":33.715435453,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":33.715463946,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":33.887567696,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":33.887597283,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":34.716966304,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":34.799461502,"data":"[NbConvertApp] Writing 10186 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":37.564373003,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":38.136556402,"data":"[NbConvertApp] Writing 300390 bytes to __results__.html\n"}
+]

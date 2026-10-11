@@ -1,0 +1,257 @@
+Processing /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel
+  Preparing metadata (pyproject.toml): started
+  Running command Preparing metadata (pyproject.toml)
+  running dist_info
+  creating /kaggle/temp/dragon-geometry/tmp/pip-modern-metadata-6ots0vvk/o_voxel.egg-info
+  writing /kaggle/temp/dragon-geometry/tmp/pip-modern-metadata-6ots0vvk/o_voxel.egg-info/PKG-INFO
+  writing dependency_links to /kaggle/temp/dragon-geometry/tmp/pip-modern-metadata-6ots0vvk/o_voxel.egg-info/dependency_links.txt
+  writing requirements to /kaggle/temp/dragon-geometry/tmp/pip-modern-metadata-6ots0vvk/o_voxel.egg-info/requires.txt
+  writing top-level names to /kaggle/temp/dragon-geometry/tmp/pip-modern-metadata-6ots0vvk/o_voxel.egg-info/top_level.txt
+  writing manifest file '/kaggle/temp/dragon-geometry/tmp/pip-modern-metadata-6ots0vvk/o_voxel.egg-info/SOURCES.txt'
+  reading manifest file '/kaggle/temp/dragon-geometry/tmp/pip-modern-metadata-6ots0vvk/o_voxel.egg-info/SOURCES.txt'
+  writing manifest file '/kaggle/temp/dragon-geometry/tmp/pip-modern-metadata-6ots0vvk/o_voxel.egg-info/SOURCES.txt'
+  creating '/kaggle/temp/dragon-geometry/tmp/pip-modern-metadata-6ots0vvk/o_voxel-0.0.1.dist-info'
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: o_voxel
+  Building wheel for o_voxel (pyproject.toml): started
+  Running command Building wheel for o_voxel (pyproject.toml)
+  running bdist_wheel
+  running build
+  running build_py
+  creating build/lib.linux-x86_64-cpython-313/o_voxel
+  copying o_voxel/__init__.py -> build/lib.linux-x86_64-cpython-313/o_voxel
+  copying o_voxel/serialize.py -> build/lib.linux-x86_64-cpython-313/o_voxel
+  copying o_voxel/rasterize.py -> build/lib.linux-x86_64-cpython-313/o_voxel
+  copying o_voxel/postprocess.py -> build/lib.linux-x86_64-cpython-313/o_voxel
+  creating build/lib.linux-x86_64-cpython-313/o_voxel/convert
+  copying o_voxel/convert/volumetic_attr.py -> build/lib.linux-x86_64-cpython-313/o_voxel/convert
+  copying o_voxel/convert/__init__.py -> build/lib.linux-x86_64-cpython-313/o_voxel/convert
+  copying o_voxel/convert/flexible_dual_grid.py -> build/lib.linux-x86_64-cpython-313/o_voxel/convert
+  creating build/lib.linux-x86_64-cpython-313/o_voxel/io
+  copying o_voxel/io/__init__.py -> build/lib.linux-x86_64-cpython-313/o_voxel/io
+  copying o_voxel/io/npz.py -> build/lib.linux-x86_64-cpython-313/o_voxel/io
+  copying o_voxel/io/vxz.py -> build/lib.linux-x86_64-cpython-313/o_voxel/io
+  copying o_voxel/io/ply.py -> build/lib.linux-x86_64-cpython-313/o_voxel/io
+  running egg_info
+  creating o_voxel.egg-info
+  writing o_voxel.egg-info/PKG-INFO
+  writing dependency_links to o_voxel.egg-info/dependency_links.txt
+  writing requirements to o_voxel.egg-info/requires.txt
+  writing top-level names to o_voxel.egg-info/top_level.txt
+  writing manifest file 'o_voxel.egg-info/SOURCES.txt'
+  reading manifest file 'o_voxel.egg-info/SOURCES.txt'
+  writing manifest file 'o_voxel.egg-info/SOURCES.txt'
+  running build_ext
+  building 'o_voxel._C' extension
+  creating /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/build/temp.linux-x86_64-cpython-313/src/convert
+  creating /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/build/temp.linux-x86_64-cpython-313/src/hash
+  creating /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/build/temp.linux-x86_64-cpython-313/src/io
+  creating /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/build/temp.linux-x86_64-cpython-313/src/rasterize
+  creating /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/build/temp.linux-x86_64-cpython-313/src/serialize
+  [1/11] c++ -MMD -MF /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/build/temp.linux-x86_64-cpython-313/src/ext.o.d -fno-strict-overflow -Wsign-compare -DNDEBUG -g -O2 -Wall -g -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -fcf-protection -g -fwrapv -O2 -fPIC -I/kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/third_party/eigen -I/usr/local/lib/python3.13/dist-packages/torch/include -I/usr/local/lib/python3.13/dist-packages/torch/include/torch/csrc/api/include -I/usr/local/cuda/include -I/usr/include/python3.13 -c -c /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/ext.cpp -o /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/build/temp.linux-x86_64-cpython-313/src/ext.o -O3 -std=c++17 -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=_C
+  [2/11] c++ -MMD -MF /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/build/temp.linux-x86_64-cpython-313/src/convert/volumetic_attr.o.d -fno-strict-overflow -Wsign-compare -DNDEBUG -g -O2 -Wall -g -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -fcf-protection -g -fwrapv -O2 -fPIC -I/kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/third_party/eigen -I/usr/local/lib/python3.13/dist-packages/torch/include -I/usr/local/lib/python3.13/dist-packages/torch/include/torch/csrc/api/include -I/usr/local/cuda/include -I/usr/include/python3.13 -c -c /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/convert/volumetic_attr.cpp -o /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/build/temp.linux-x86_64-cpython-313/src/convert/volumetic_attr.o -O3 -std=c++17 -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=_C
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/convert/volumetic_attr.cpp: In function ‘std::tuple<std::vector<int, std::allocator<int> >, std::vector<float, std::allocator<float> >, std::vector<float, std::allocator<float> >, std::vector<float, std::allocator<float> >, std::vector<float, std::allocator<float> >, std::vector<float, std::allocator<float> >, std::vector<float, std::allocator<float> > > voxelize_trimesh_pbr_impl(const float*, const int*, int, const float*, const float*, const float*, const int*, std::vector<float*>, std::vector<unsigned char*>, std::vector<int>, std::vector<int>, std::vector<int>, std::vector<int>, std::vector<float, std::allocator<float> >, std::vector<unsigned char*>, std::vector<int>, std::vector<int>, std::vector<int>, std::vector<int>, std::vector<float, std::allocator<float> >, std::vector<unsigned char*>, std::vector<int>, std::vector<int>, std::vector<int>, std::vector<int>, std::vector<float*>, std::vector<unsigned char*>, std::vector<int>, std::vector<int>, std::vector<int>, std::vector<int>, std::vector<int>, std::vector<float, std::allocator<float> >, std::vector<float, std::allocator<float> >, std::vector<unsigned char*>, std::vector<int>, std::vector<int>, std::vector<int>, std::vector<int>, std::vector<unsigned char*>, std::vector<int>, std::vector<int>, std::vector<int>, std::vector<int>, float, bool)’:
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/convert/volumetic_attr.cpp:395:30: warning: comparison of integer expressions of different signedness: ‘size_t’ {aka ‘long unsigned int’} and ‘const int’ [-Wsign-compare]
+    395 |     for (size_t tid = 0; tid < N_tri; tid++) {
+        |                          ~~~~^~~~~~~
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/convert/volumetic_attr.cpp:646:23: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<VoxelCoord>::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
+    646 |     for (int i = 0; i < coords.size(); i++) {
+        |                     ~~^~~~~~~~~~~~~~~
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/convert/volumetic_attr.cpp: In function ‘std::tuple<at::Tensor, at::Tensor, at::Tensor, at::Tensor, at::Tensor, at::Tensor, at::Tensor> textured_mesh_to_volumetric_attr_cpu(const at::Tensor&, const at::Tensor&, const at::Tensor&, const at::Tensor&, const at::Tensor&, const at::Tensor&, const std::vector<at::Tensor>&, const std::vector<at::Tensor>&, const std::vector<int>&, const std::vector<int>&, const std::vector<float, std::allocator<float> >&, const std::vector<at::Tensor>&, const std::vector<int>&, const std::vector<int>&, const std::vector<float, std::allocator<float> >&, const std::vector<at::Tensor>&, const std::vector<int>&, const std::vector<int>&, const std::vector<at::Tensor>&, const std::vector<at::Tensor>&, const std::vector<int>&, const std::vector<int>&, const std::vector<int>&, const std::vector<float, std::allocator<float> >&, const std::vector<float, std::allocator<float> >&, const std::vector<at::Tensor>&, const std::vector<int>&, const std::vector<int>&, const std::vector<at::Tensor>&, const std::vector<int>&, const std::vector<int>&, float, bool)’:
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/convert/volumetic_attr.cpp:738:23: warning: comparison of integer expressions of different signedness: ‘int’ and ‘long unsigned int’ [-Wsign-compare]
+    738 |     for (int i = 0; i < N_mat; ++i) {
+        |                     ~~^~~~~~~
+  [3/11] /usr/local/cuda/bin/nvcc -MD -MF /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/build/temp.linux-x86_64-cpython-313/src/hash/hash.o.d -I/kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/third_party/eigen -I/usr/local/lib/python3.13/dist-packages/torch/include -I/usr/local/lib/python3.13/dist-packages/torch/include/torch/csrc/api/include -I/usr/local/cuda/include -I/usr/include/python3.13 -c -c /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/hash/hash.cu -o /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/build/temp.linux-x86_64-cpython-313/src/hash/hash.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options ''"'"'-fPIC'"'"'' -O3 -std=c++17 -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=_C -gencode=arch=compute_75,code=sm_75
+  [4/11] c++ -MMD -MF /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/build/temp.linux-x86_64-cpython-313/src/convert/flexible_dual_grid.o.d -fno-strict-overflow -Wsign-compare -DNDEBUG -g -O2 -Wall -g -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -fcf-protection -g -fwrapv -O2 -fPIC -I/kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/third_party/eigen -I/usr/local/lib/python3.13/dist-packages/torch/include -I/usr/local/lib/python3.13/dist-packages/torch/include/torch/csrc/api/include -I/usr/local/cuda/include -I/usr/include/python3.13 -c -c /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/convert/flexible_dual_grid.cpp -o /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/build/temp.linux-x86_64-cpython-313/src/convert/flexible_dual_grid.o -O3 -std=c++17 -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=_C
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/convert/flexible_dual_grid.cpp: In function ‘void boundry_qef(const Eigen::Vector3f&, const Eigen::Vector3i&, const Eigen::Vector3i&, const std::vector<Eigen::Matrix<float, 3, 1> >&, float, std::unordered_map<VoxelCoord, long unsigned int>&, std::vector<Eigen::Matrix<float, 4, 4> >&)’:
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/convert/flexible_dual_grid.cpp:330:25: warning: variable ‘v1_voxel’ set but not used [-Wunused-but-set-variable]
+    330 |         Eigen::Vector3i v1_voxel = (v1.cwiseQuotient(voxel_size)).array().floor().cast<int>();
+        |                         ^~~~~~~~
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/convert/flexible_dual_grid.cpp: In function ‘void face_from_dual_vertices(const std::unordered_map<VoxelCoord, long unsigned int>&, const std::vector<int3>&, const std::vector<float3>&, const std::vector<bool3>&, std::vector<int3>&)’:
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/convert/flexible_dual_grid.cpp:425:23: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<float3>::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
+    425 |     for (int i = 0; i < dual_vertices.size(); ++i) {
+        |                     ~~^~~~~~~~~~~~~~~~~~~~~~
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/convert/flexible_dual_grid.cpp:441:49: warning: narrowing conversion of ‘neigh_indices[0]’ from ‘size_t’ {aka ‘long unsigned int’} to ‘int’ [-Wnarrowing]
+    441 |             int4 quad_indices{i, neigh_indices[0], neigh_indices[2], neigh_indices[1]};
+        |                                  ~~~~~~~~~~~~~~~^
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/convert/flexible_dual_grid.cpp:441:67: warning: narrowing conversion of ‘neigh_indices[2]’ from ‘size_t’ {aka ‘long unsigned int’} to ‘int’ [-Wnarrowing]
+    441 |             int4 quad_indices{i, neigh_indices[0], neigh_indices[2], neigh_indices[1]};
+        |                                                    ~~~~~~~~~~~~~~~^
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/convert/flexible_dual_grid.cpp:441:85: warning: narrowing conversion of ‘neigh_indices[1]’ from ‘size_t’ {aka ‘long unsigned int’} to ‘int’ [-Wnarrowing]
+    441 |             int4 quad_indices{i, neigh_indices[0], neigh_indices[2], neigh_indices[1]};
+        |                                                                      ~~~~~~~~~~~~~~~^
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/convert/flexible_dual_grid.cpp:447:49: warning: narrowing conversion of ‘neigh_indices[1]’ from ‘size_t’ {aka ‘long unsigned int’} to ‘int’ [-Wnarrowing]
+    447 |             int4 quad_indices{i, neigh_indices[1], neigh_indices[5], neigh_indices[3]};
+        |                                  ~~~~~~~~~~~~~~~^
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/convert/flexible_dual_grid.cpp:447:67: warning: narrowing conversion of ‘neigh_indices[5]’ from ‘size_t’ {aka ‘long unsigned int’} to ‘int’ [-Wnarrowing]
+    447 |             int4 quad_indices{i, neigh_indices[1], neigh_indices[5], neigh_indices[3]};
+        |                                                    ~~~~~~~~~~~~~~~^
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/convert/flexible_dual_grid.cpp:447:85: warning: narrowing conversion of ‘neigh_indices[3]’ from ‘size_t’ {aka ‘long unsigned int’} to ‘int’ [-Wnarrowing]
+    447 |             int4 quad_indices{i, neigh_indices[1], neigh_indices[5], neigh_indices[3]};
+        |                                                                      ~~~~~~~~~~~~~~~^
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/convert/flexible_dual_grid.cpp:453:49: warning: narrowing conversion of ‘neigh_indices[0]’ from ‘size_t’ {aka ‘long unsigned int’} to ‘int’ [-Wnarrowing]
+    453 |             int4 quad_indices{i, neigh_indices[0], neigh_indices[4], neigh_indices[3]};
+        |                                  ~~~~~~~~~~~~~~~^
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/convert/flexible_dual_grid.cpp:453:67: warning: narrowing conversion of ‘neigh_indices[4]’ from ‘size_t’ {aka ‘long unsigned int’} to ‘int’ [-Wnarrowing]
+    453 |             int4 quad_indices{i, neigh_indices[0], neigh_indices[4], neigh_indices[3]};
+        |                                                    ~~~~~~~~~~~~~~~^
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/convert/flexible_dual_grid.cpp:453:85: warning: narrowing conversion of ‘neigh_indices[3]’ from ‘size_t’ {aka ‘long unsigned int’} to ‘int’ [-Wnarrowing]
+    453 |             int4 quad_indices{i, neigh_indices[0], neigh_indices[4], neigh_indices[3]};
+        |                                                                      ~~~~~~~~~~~~~~~^
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/convert/flexible_dual_grid.cpp: In function ‘std::tuple<at::Tensor, at::Tensor, at::Tensor> mesh_to_flexible_dual_grid_cpu(const at::Tensor&, const at::Tensor&, const at::Tensor&, const at::Tensor&, float, float, float, bool)’:
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/convert/flexible_dual_grid.cpp:564:23: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<int3>::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
+    564 |     for (int i = 0; i < voxels.size(); ++i) {
+        |                     ~~^~~~~~~~~~~~~~~
+  [5/11] c++ -MMD -MF /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/build/temp.linux-x86_64-cpython-313/src/io/filter_neighbor.o.d -fno-strict-overflow -Wsign-compare -DNDEBUG -g -O2 -Wall -g -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -fcf-protection -g -fwrapv -O2 -fPIC -I/kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/third_party/eigen -I/usr/local/lib/python3.13/dist-packages/torch/include -I/usr/local/lib/python3.13/dist-packages/torch/include/torch/csrc/api/include -I/usr/local/cuda/include -I/usr/include/python3.13 -c -c /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/io/filter_neighbor.cpp -o /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/build/temp.linux-x86_64-cpython-313/src/io/filter_neighbor.o -O3 -std=c++17 -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=_C
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/io/filter_neighbor.cpp: In function ‘at::Tensor encode_sparse_voxel_octree_attr_neighbor_cpu(const at::Tensor&, uint32_t, const at::Tensor&)’:
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/io/filter_neighbor.cpp:30:23: warning: comparison of integer expressions of different signedness: ‘int’ and ‘size_t’ {aka ‘long unsigned int’} [-Wsign-compare]
+     30 |     for (int i = 0; i < N; i++) {
+        |                     ~~^~~
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/io/filter_neighbor.cpp:36:27: warning: comparison of integer expressions of different signedness: ‘int’ and ‘size_t’ {aka ‘long unsigned int’} [-Wsign-compare]
+     36 |         for (int c = 0; c < C; c++) {
+        |                         ~~^~~
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/io/filter_neighbor.cpp:71:39: warning: comparison of integer expressions of different signedness: ‘int’ and ‘size_t’ {aka ‘long unsigned int’} [-Wsign-compare]
+     71 |                     for (int c = 0; c < C; c++) {
+        |                                     ~~^~~
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/io/filter_neighbor.cpp:80:41: warning: narrowing conversion of ‘N’ from ‘size_t’ {aka ‘long unsigned int’} to ‘long int’ [-Wnarrowing]
+     80 |     torch::Tensor delta = torch::zeros({N, C}, torch::dtype(torch::kUInt8));
+        |                                         ^
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/io/filter_neighbor.cpp:80:41: warning: narrowing conversion of ‘N’ from ‘size_t’ {aka ‘long unsigned int’} to ‘long int’ [-Wnarrowing]
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/io/filter_neighbor.cpp:80:44: warning: narrowing conversion of ‘C’ from ‘size_t’ {aka ‘long unsigned int’} to ‘long int’ [-Wnarrowing]
+     80 |     torch::Tensor delta = torch::zeros({N, C}, torch::dtype(torch::kUInt8));
+        |                                            ^
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/io/filter_neighbor.cpp:80:44: warning: narrowing conversion of ‘C’ from ‘size_t’ {aka ‘long unsigned int’} to ‘long int’ [-Wnarrowing]
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/io/filter_neighbor.cpp:82:23: warning: comparison of integer expressions of different signedness: ‘int’ and ‘size_t’ {aka ‘long unsigned int’} [-Wsign-compare]
+     82 |     for (int i = 0; i < N; i++) {
+        |                     ~~^~~
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/io/filter_neighbor.cpp:87:27: warning: comparison of integer expressions of different signedness: ‘int’ and ‘size_t’ {aka ‘long unsigned int’} [-Wsign-compare]
+     87 |         for (int c = 0; c < C; c++) {
+        |                         ~~^~~
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/io/filter_neighbor.cpp: In function ‘at::Tensor decode_sparse_voxel_octree_attr_neighbor_cpu(const at::Tensor&, uint32_t, const at::Tensor&)’:
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/io/filter_neighbor.cpp:116:23: warning: comparison of integer expressions of different signedness: ‘int’ and ‘size_t’ {aka ‘long unsigned int’} [-Wsign-compare]
+    116 |     for (int i = 0; i < N; i++) {
+        |                     ~~^~~
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/io/filter_neighbor.cpp:122:27: warning: comparison of integer expressions of different signedness: ‘int’ and ‘size_t’ {aka ‘long unsigned int’} [-Wsign-compare]
+    122 |         for (int c = 0; c < C; c++) {
+        |                         ~~^~~
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/io/filter_neighbor.cpp:128:23: warning: comparison of integer expressions of different signedness: ‘int’ and ‘const uint32_t’ {aka ‘const unsigned int’} [-Wsign-compare]
+    128 |     for (int z = 0; z < res; z++) {
+        |                     ~~^~~~~
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/io/filter_neighbor.cpp:129:27: warning: comparison of integer expressions of different signedness: ‘int’ and ‘const uint32_t’ {aka ‘const unsigned int’} [-Wsign-compare]
+    129 |         for (int y = 0; y < res; y++) {
+        |                         ~~^~~~~
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/io/filter_neighbor.cpp:130:31: warning: comparison of integer expressions of different signedness: ‘int’ and ‘const uint32_t’ {aka ‘const unsigned int’} [-Wsign-compare]
+    130 |             for (int x = 0; x < res; x++) {
+        |                             ~~^~~~~
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/io/filter_neighbor.cpp:157:39: warning: comparison of integer expressions of different signedness: ‘int’ and ‘size_t’ {aka ‘long unsigned int’} [-Wsign-compare]
+    157 |                     for (int c = 0; c < C; c++) {
+        |                                     ~~^~~
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/io/filter_neighbor.cpp:166:40: warning: narrowing conversion of ‘N’ from ‘size_t’ {aka ‘long unsigned int’} to ‘long int’ [-Wnarrowing]
+    166 |     torch::Tensor attr = torch::zeros({N, C}, torch::dtype(torch::kUInt8));
+        |                                        ^
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/io/filter_neighbor.cpp:166:40: warning: narrowing conversion of ‘N’ from ‘size_t’ {aka ‘long unsigned int’} to ‘long int’ [-Wnarrowing]
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/io/filter_neighbor.cpp:166:43: warning: narrowing conversion of ‘C’ from ‘size_t’ {aka ‘long unsigned int’} to ‘long int’ [-Wnarrowing]
+    166 |     torch::Tensor attr = torch::zeros({N, C}, torch::dtype(torch::kUInt8));
+        |                                           ^
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/io/filter_neighbor.cpp:166:43: warning: narrowing conversion of ‘C’ from ‘size_t’ {aka ‘long unsigned int’} to ‘long int’ [-Wnarrowing]
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/io/filter_neighbor.cpp:168:23: warning: comparison of integer expressions of different signedness: ‘int’ and ‘size_t’ {aka ‘long unsigned int’} [-Wsign-compare]
+    168 |     for (int i = 0; i < N; i++) {
+        |                     ~~^~~
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/io/filter_neighbor.cpp:173:27: warning: comparison of integer expressions of different signedness: ‘int’ and ‘size_t’ {aka ‘long unsigned int’} [-Wsign-compare]
+    173 |         for (int c = 0; c < C; c++) {
+        |                         ~~^~~
+  [6/11] c++ -MMD -MF /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/build/temp.linux-x86_64-cpython-313/src/io/filter_parent.o.d -fno-strict-overflow -Wsign-compare -DNDEBUG -g -O2 -Wall -g -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -fcf-protection -g -fwrapv -O2 -fPIC -I/kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/third_party/eigen -I/usr/local/lib/python3.13/dist-packages/torch/include -I/usr/local/lib/python3.13/dist-packages/torch/include/torch/csrc/api/include -I/usr/local/cuda/include -I/usr/include/python3.13 -c -c /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/io/filter_parent.cpp -o /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/build/temp.linux-x86_64-cpython-313/src/io/filter_parent.o -O3 -std=c++17 -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=_C
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/io/filter_parent.cpp: In function ‘at::Tensor encode_sparse_voxel_octree_attr_parent_cpu(const at::Tensor&, uint32_t, const at::Tensor&)’:
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/io/filter_parent.cpp:83:41: warning: narrowing conversion of ‘N_leaf’ from ‘size_t’ {aka ‘long unsigned int’} to ‘long int’ [-Wnarrowing]
+     83 |     torch::Tensor delta = torch::zeros({N_leaf, C}, torch::kUInt8);
+        |                                         ^~~~~~
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/io/filter_parent.cpp:83:41: warning: narrowing conversion of ‘N_leaf’ from ‘size_t’ {aka ‘long unsigned int’} to ‘long int’ [-Wnarrowing]
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/io/filter_parent.cpp:83:49: warning: narrowing conversion of ‘C’ from ‘size_t’ {aka ‘long unsigned int’} to ‘long int’ [-Wnarrowing]
+     83 |     torch::Tensor delta = torch::zeros({N_leaf, C}, torch::kUInt8);
+        |                                                 ^
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/io/filter_parent.cpp:83:49: warning: narrowing conversion of ‘C’ from ‘size_t’ {aka ‘long unsigned int’} to ‘long int’ [-Wnarrowing]
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/io/filter_parent.cpp:78:12: warning: unused variable ‘N_node’ [-Wunused-variable]
+     78 |     size_t N_node = octree.size(0);
+        |            ^~~~~~
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/io/filter_parent.cpp: In function ‘at::Tensor decode_sparse_voxel_octree_attr_parent_cpu(const at::Tensor&, uint32_t, const at::Tensor&)’:
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/io/filter_parent.cpp:154:40: warning: narrowing conversion of ‘N_leaf’ from ‘size_t’ {aka ‘long unsigned int’} to ‘long int’ [-Wnarrowing]
+    154 |     torch::Tensor attr = torch::zeros({N_leaf, C}, torch::kUInt8);
+        |                                        ^~~~~~
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/io/filter_parent.cpp:154:40: warning: narrowing conversion of ‘N_leaf’ from ‘size_t’ {aka ‘long unsigned int’} to ‘long int’ [-Wnarrowing]
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/io/filter_parent.cpp:154:48: warning: narrowing conversion of ‘C’ from ‘size_t’ {aka ‘long unsigned int’} to ‘long int’ [-Wnarrowing]
+    154 |     torch::Tensor attr = torch::zeros({N_leaf, C}, torch::kUInt8);
+        |                                                ^
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/io/filter_parent.cpp:154:48: warning: narrowing conversion of ‘C’ from ‘size_t’ {aka ‘long unsigned int’} to ‘long int’ [-Wnarrowing]
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/io/filter_parent.cpp:148:12: warning: unused variable ‘N_node’ [-Wunused-variable]
+    148 |     size_t N_node = octree.size(0);
+        |            ^~~~~~
+  [7/11] /usr/local/cuda/bin/nvcc -MD -MF /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/build/temp.linux-x86_64-cpython-313/src/serialize/hilbert.o.d -I/kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/third_party/eigen -I/usr/local/lib/python3.13/dist-packages/torch/include -I/usr/local/lib/python3.13/dist-packages/torch/include/torch/csrc/api/include -I/usr/local/cuda/include -I/usr/include/python3.13 -c -c /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/serialize/hilbert.cu -o /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/build/temp.linux-x86_64-cpython-313/src/serialize/hilbert.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options ''"'"'-fPIC'"'"'' -O3 -std=c++17 -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=_C -gencode=arch=compute_75,code=sm_75
+  [8/11] /usr/local/cuda/bin/nvcc -MD -MF /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/build/temp.linux-x86_64-cpython-313/src/serialize/z_order.o.d -I/kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/third_party/eigen -I/usr/local/lib/python3.13/dist-packages/torch/include -I/usr/local/lib/python3.13/dist-packages/torch/include/torch/csrc/api/include -I/usr/local/cuda/include -I/usr/include/python3.13 -c -c /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/serialize/z_order.cu -o /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/build/temp.linux-x86_64-cpython-313/src/serialize/z_order.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options ''"'"'-fPIC'"'"'' -O3 -std=c++17 -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=_C -gencode=arch=compute_75,code=sm_75
+  [9/11] c++ -MMD -MF /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/build/temp.linux-x86_64-cpython-313/src/io/svo.o.d -fno-strict-overflow -Wsign-compare -DNDEBUG -g -O2 -Wall -g -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -fcf-protection -g -fwrapv -O2 -fPIC -I/kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/third_party/eigen -I/usr/local/lib/python3.13/dist-packages/torch/include -I/usr/local/lib/python3.13/dist-packages/torch/include/torch/csrc/api/include -I/usr/local/cuda/include -I/usr/include/python3.13 -c -c /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/io/svo.cpp -o /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/build/temp.linux-x86_64-cpython-313/src/io/svo.o -O3 -std=c++17 -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=_C
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/io/svo.cpp: In function ‘at::Tensor encode_sparse_voxel_octree_cpu(const at::Tensor&, uint32_t)’:
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/io/svo.cpp:35:23: warning: comparison of integer expressions of different signedness: ‘int’ and ‘size_t’ {aka ‘long unsigned int’} [-Wsign-compare]
+     35 |     for (int i = 0; i < N_leaf; i++) {
+        |                     ~~^~~~~~~~
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/io/svo.cpp:74:70: warning: narrowing conversion of ‘svo.std::vector<unsigned char, std::allocator<unsigned char> >::size()’ from ‘std::vector<unsigned char, std::allocator<unsigned char> >::size_type’ {aka ‘long unsigned int’} to ‘long int’ [-Wnarrowing]
+     74 |     torch::Tensor svo_tensor = torch::from_blob(svo.data(), {svo.size()}, torch::kUInt8).clone();
+        |                                                              ~~~~~~~~^~
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/io/svo.cpp:74:70: warning: narrowing conversion of ‘svo.std::vector<unsigned char, std::allocator<unsigned char> >::size()’ from ‘std::vector<unsigned char, std::allocator<unsigned char> >::size_type’ {aka ‘long unsigned int’} to ‘long int’ [-Wnarrowing]
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/io/svo.cpp: In function ‘at::Tensor decode_sparse_voxel_octree_cpu(const at::Tensor&, uint32_t)’:
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/io/svo.cpp:136:76: warning: narrowing conversion of ‘codes.std::vector<unsigned int>::size()’ from ‘std::vector<unsigned int>::size_type’ {aka ‘long unsigned int’} to ‘long int’ [-Wnarrowing]
+    136 |     torch::Tensor codes_tensor = torch::from_blob(codes.data(), {codes.size()}, torch::kInt32).clone();
+        |                                                                  ~~~~~~~~~~^~
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/io/svo.cpp:136:76: warning: narrowing conversion of ‘codes.std::vector<unsigned int>::size()’ from ‘std::vector<unsigned int>::size_type’ {aka ‘long unsigned int’} to ‘long int’ [-Wnarrowing]
+  [10/11] /usr/local/cuda/bin/nvcc -MD -MF /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/build/temp.linux-x86_64-cpython-313/src/rasterize/rasterize.o.d -I/kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/third_party/eigen -I/usr/local/lib/python3.13/dist-packages/torch/include -I/usr/local/lib/python3.13/dist-packages/torch/include/torch/csrc/api/include -I/usr/local/cuda/include -I/usr/include/python3.13 -c -c /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/rasterize/rasterize.cu -o /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/build/temp.linux-x86_64-cpython-313/src/rasterize/rasterize.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options ''"'"'-fPIC'"'"'' -O3 -std=c++17 -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=_C -gencode=arch=compute_75,code=sm_75
+  /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/rasterize/auxiliary.h(132): warning #177-D: variable "p_proj" was declared but never referenced
+     float3 p_proj = { p_hom.x * p_w, p_hom.y * p_w, p_hom.z * p_w };
+            ^
+
+  Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+  [11/11] /usr/local/cuda/bin/nvcc -MD -MF /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/build/temp.linux-x86_64-cpython-313/src/serialize/api.o.d -I/kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/third_party/eigen -I/usr/local/lib/python3.13/dist-packages/torch/include -I/usr/local/lib/python3.13/dist-packages/torch/include/torch/csrc/api/include -I/usr/local/cuda/include -I/usr/include/python3.13 -c -c /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/src/serialize/api.cu -o /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/build/temp.linux-x86_64-cpython-313/src/serialize/api.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options ''"'"'-fPIC'"'"'' -O3 -std=c++17 -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=_C -gencode=arch=compute_75,code=sm_75
+  x86_64-linux-gnu-g++ -fno-strict-overflow -Wsign-compare -DNDEBUG -g -O2 -Wall -g -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -fstack-protector-strong -fstack-clash-protection -Wformat -Werror=format-security -fcf-protection -g -fwrapv -O2 -shared -Wl,-O1 -Wl,-Bsymbolic-functions -Wl,-Bsymbolic-functions -g -fwrapv -O2 /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/build/temp.linux-x86_64-cpython-313/src/convert/flexible_dual_grid.o /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/build/temp.linux-x86_64-cpython-313/src/convert/volumetic_attr.o /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/build/temp.linux-x86_64-cpython-313/src/ext.o /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/build/temp.linux-x86_64-cpython-313/src/hash/hash.o /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/build/temp.linux-x86_64-cpython-313/src/io/filter_neighbor.o /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/build/temp.linux-x86_64-cpython-313/src/io/filter_parent.o /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/build/temp.linux-x86_64-cpython-313/src/io/svo.o /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/build/temp.linux-x86_64-cpython-313/src/rasterize/rasterize.o /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/build/temp.linux-x86_64-cpython-313/src/serialize/api.o /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/build/temp.linux-x86_64-cpython-313/src/serialize/hilbert.o /kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/build/temp.linux-x86_64-cpython-313/src/serialize/z_order.o -L/usr/local/lib/python3.13/dist-packages/torch/lib -L/usr/local/cuda/lib64 -L/usr/lib/x86_64-linux-gnu -lc10 -ltorch -ltorch_cpu -ltorch_python -lcudart -lc10_cuda -ltorch_cuda -o build/lib.linux-x86_64-cpython-313/o_voxel/_C.cpython-313-x86_64-linux-gnu.so
+  installing to build/bdist.linux-x86_64/wheel
+  running install
+  running install_lib
+  creating build/bdist.linux-x86_64/wheel
+  creating build/bdist.linux-x86_64/wheel/o_voxel
+  copying build/lib.linux-x86_64-cpython-313/o_voxel/__init__.py -> build/bdist.linux-x86_64/wheel/./o_voxel
+  copying build/lib.linux-x86_64-cpython-313/o_voxel/serialize.py -> build/bdist.linux-x86_64/wheel/./o_voxel
+  copying build/lib.linux-x86_64-cpython-313/o_voxel/_C.cpython-313-x86_64-linux-gnu.so -> build/bdist.linux-x86_64/wheel/./o_voxel
+  creating build/bdist.linux-x86_64/wheel/o_voxel/io
+  copying build/lib.linux-x86_64-cpython-313/o_voxel/io/__init__.py -> build/bdist.linux-x86_64/wheel/./o_voxel/io
+  copying build/lib.linux-x86_64-cpython-313/o_voxel/io/npz.py -> build/bdist.linux-x86_64/wheel/./o_voxel/io
+  copying build/lib.linux-x86_64-cpython-313/o_voxel/io/vxz.py -> build/bdist.linux-x86_64/wheel/./o_voxel/io
+  copying build/lib.linux-x86_64-cpython-313/o_voxel/io/ply.py -> build/bdist.linux-x86_64/wheel/./o_voxel/io
+  copying build/lib.linux-x86_64-cpython-313/o_voxel/rasterize.py -> build/bdist.linux-x86_64/wheel/./o_voxel
+  creating build/bdist.linux-x86_64/wheel/o_voxel/convert
+  copying build/lib.linux-x86_64-cpython-313/o_voxel/convert/volumetic_attr.py -> build/bdist.linux-x86_64/wheel/./o_voxel/convert
+  copying build/lib.linux-x86_64-cpython-313/o_voxel/convert/__init__.py -> build/bdist.linux-x86_64/wheel/./o_voxel/convert
+  copying build/lib.linux-x86_64-cpython-313/o_voxel/convert/flexible_dual_grid.py -> build/bdist.linux-x86_64/wheel/./o_voxel/convert
+  copying build/lib.linux-x86_64-cpython-313/o_voxel/postprocess.py -> build/bdist.linux-x86_64/wheel/./o_voxel
+  running install_egg_info
+  Copying o_voxel.egg-info to build/bdist.linux-x86_64/wheel/./o_voxel-0.0.1-py3.13.egg-info
+  running install_scripts
+  creating build/bdist.linux-x86_64/wheel/o_voxel-0.0.1.dist-info/WHEEL
+  creating '/kaggle/temp/dragon-geometry/tmp/pip-wheel-mzfu313i/.tmp-fp9tu6y7/o_voxel-0.0.1-cp313-cp313-linux_x86_64.whl' and adding 'build/bdist.linux-x86_64/wheel' to it
+  adding 'o_voxel/_C.cpython-313-x86_64-linux-gnu.so'
+  adding 'o_voxel/__init__.py'
+  adding 'o_voxel/postprocess.py'
+  adding 'o_voxel/rasterize.py'
+  adding 'o_voxel/serialize.py'
+  adding 'o_voxel/convert/__init__.py'
+  adding 'o_voxel/convert/flexible_dual_grid.py'
+  adding 'o_voxel/convert/volumetic_attr.py'
+  adding 'o_voxel/io/__init__.py'
+  adding 'o_voxel/io/npz.py'
+  adding 'o_voxel/io/ply.py'
+  adding 'o_voxel/io/vxz.py'
+  adding 'o_voxel-0.0.1.dist-info/METADATA'
+  adding 'o_voxel-0.0.1.dist-info/WHEEL'
+  adding 'o_voxel-0.0.1.dist-info/top_level.txt'
+  adding 'o_voxel-0.0.1.dist-info/RECORD'
+  removing build/bdist.linux-x86_64/wheel
+  Building wheel for o_voxel (pyproject.toml): finished with status 'done'
+  Created wheel for o_voxel: filename=o_voxel-0.0.1-cp313-cp313-linux_x86_64.whl size=17998794 sha256=10f987ebce9c78c47a269b6321a00a1ad05faa312b31b8151a19b92c7b9fa38c
+  Stored in directory: /kaggle/temp/dragon-geometry/pip/wheels/c3/0b/be/b592fae45c431f2506fab125db2786e9adf28e2a0694b72c62
+Successfully built o_voxel

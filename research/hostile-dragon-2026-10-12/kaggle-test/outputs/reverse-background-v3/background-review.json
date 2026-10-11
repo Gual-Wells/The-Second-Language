@@ -1,0 +1,41 @@
+{
+  "stage": "background_ready_for_actual_review",
+  "art_accepted": false,
+  "source_scene": "D:\\CodexStorage\\workspaces\\hostile-dragon-coin\\kaggle-test\\outputs\\reverse-sculpt-v2\\reverse-master.blend",
+  "user_decision": "reverse supports the front and does not introduce another focal emblem",
+  "removed_competing_components": [
+    "Chased dragon armour 00",
+    "Chased dragon armour 01",
+    "Chased dragon armour 02",
+    "Chased dragon armour 03",
+    "Chased dragon armour 04",
+    "Chased dragon armour 05",
+    "Chased dragon armour 06",
+    "Chased dragon armour 07",
+    "Chased dragon armour 08",
+    "Chased dragon armour 09",
+    "Chased dragon armour 10",
+    "Chased dragon armour 11",
+    "Chased dragon armour 12",
+    "Solid silver ocular relief",
+    "Angular upper socket and lid",
+    "Lower socket undercut",
+    "Oxidised floor inside pupil",
+    "Upper armour chase",
+    "Right armour chase",
+    "Lower armour chase",
+    "Left armour chase"
+  ],
+  "preserved": [
+    "original front",
+    "original wrapped claw vertices",
+    "original rim and fragments"
+  ],
+  "transition": "thin inset blank with interrupted narrow lips; requires side and contact review",
+  "views": [
+    "back.png",
+    "side.png",
+    "upper-claw-join.png",
+    "lower-claw-join.png"
+  ]
+}

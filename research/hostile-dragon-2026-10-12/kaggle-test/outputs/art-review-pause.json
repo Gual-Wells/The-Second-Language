@@ -1,0 +1,11 @@
+{
+  "paused": true,
+  "reason": "User requires joint review of source design and image-to-mesh mapping before further fabrication.",
+  "original_eye_preserved": true,
+  "local_inspection_render_stopped": true,
+  "hf_next_reset_waiter_stopped": true,
+  "new_generation_authorized_while_paused": false,
+  "cloud_existing_job_status": "CANCEL_ACKNOWLEDGED",
+  "existing_output_collection_only": true,
+  "art_accepted": false
+}

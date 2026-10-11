@@ -1,0 +1,6 @@
+{
+  "stage": "submitted",
+  "kernel": "gualwells/hostile-dragon-mesh-repair-20261011",
+  "response": "{\"ref\": \"/code/gualwells/hostile-dragon-mesh-repair-20261011\", \"url\": \"https://www.kaggle.com/code/gualwells/hostile-dragon-mesh-repair-20261011\", \"versionNumber\": 1, \"error\": null, \"invalidTags\": [], \"invalidDatasetSources\": [], \"invalidCompetitionSources\": [], \"invalidKernelSources\": [], \"invalidModelSources\": [], \"kernelId\": 138184350}",
+  "source_npz_sha256": "761c6520b1d38cef68e4fdd3f4898916e49648bd8413e2c3a79abd4ade5ac6b2"
+}

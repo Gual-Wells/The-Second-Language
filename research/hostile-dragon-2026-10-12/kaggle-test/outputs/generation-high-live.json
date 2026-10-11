@@ -1,0 +1,46 @@
+{
+  "started_at": "2026-10-11T14:32:33.164509+00:00",
+  "stage": "sample_shape_slat_cascade",
+  "art_accepted": false,
+  "pipeline_type": "1536_cascade",
+  "seed": 38017,
+  "source_sha": "75fbf0183001ed9876c8dbb35de6b68552ee08bd",
+  "model_revisions": {
+    "microsoft/TRELLIS.2-4B": "af44b45f2e35a493886929c6d786e563ec68364d",
+    "microsoft/TRELLIS-image-large": "25e0d31ffbebe4b5a97464dd851910efc3002d96"
+  },
+  "phase_seconds": {
+    "get_cond": 4.4799999999999995,
+    "sample_sparse_structure": 171.92
+  },
+  "torch": "2.11.0+cu128",
+  "gpu": "Tesla T4",
+  "vram_gib": 14.56219482421875,
+  "elapsed_seconds": 425.67,
+  "adaptations": [
+    "BF16 attention evaluated in FP32 efficient kernel then returned as BF16",
+    "per-sequence sparse SDPA",
+    "stage-wise checkpoint reload from disk",
+    "bounded explicit im2col",
+    "preprocessed input: no background model"
+  ],
+  "attention_validation": {
+    "max_abs_vs_fp32": [
+      0.0039048194885253906,
+      0.0032657384872436523
+    ],
+    "dtype": "BF16"
+  },
+  "bounded_convolution_validation": [
+    {
+      "dtype": "torch.float16",
+      "max_abs": 0.0
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "max_abs": 0.0
+    }
+  ],
+  "input_sha256": "994f98db7bdf194fa4dabfbe6a3b1b1ae2e958ae31d7eb771473bd8e32d7d606",
+  "loading_model": "microsoft/TRELLIS.2-4B/ckpts/slat_flow_img2shape_dit_1_3B_1024_bf16"
+}

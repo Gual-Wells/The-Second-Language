@@ -1,0 +1,10 @@
+{
+  "source": "https://poke-holo.simey.me/",
+  "scope": "External reference, not project artwork, desktop headless observation only",
+  "state": {
+    "classes": "card lightning / interactive masked active interacting",
+    "style": "\n    --pointer-x: 78.84830259133224%;\n    --pointer-y: 31.548214702888245%;\n    --pointer-from-center: 0.6848920916616795;\n    --pointer-from-top: 0.31548214702888244;\n    --pointer-from-left: 0.7884830259133224;\n    --card-opacity: 1;\n    --rotate-x: -8.484511779446473deg;\n    --rotate-y: -5.263495364156382deg;\n    --background-x: 57.38787256342339%;\n    --background-y: 43.64874863013655%;\n    --card-scale: 1;\n    --translate-x: 0px;\n    --translate-y: 0px;\n\t",
+    "transform": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0.01, 1)"
+  },
+  "errors": []
+}

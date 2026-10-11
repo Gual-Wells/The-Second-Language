@@ -1,0 +1,19 @@
+{
+  "stage": "authenticated",
+  "username": "gualwells",
+  "gpu_submitted": false,
+  "quota": {
+    "queried_at": "2026-10-11T09:37:10.761485+00:00",
+    "refresh_at": "2026-10-17 00:00:00",
+    "gpu": {
+      "total_seconds": 108000.0,
+      "used_seconds": 0.0,
+      "remaining_seconds": 108000.0
+    },
+    "tpu": {
+      "total_seconds": 72000.0,
+      "used_seconds": 0.0,
+      "remaining_seconds": 72000.0
+    }
+  }
+}

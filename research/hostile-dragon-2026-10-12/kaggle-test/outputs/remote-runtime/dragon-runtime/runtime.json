@@ -1,0 +1,13 @@
+{
+  "started_at": "2026-10-11T11:08:06.043514+00:00",
+  "model_generated": false,
+  "tests": {
+    "memory_efficient_fp32_attention": {
+      "finite": true,
+      "max_abs_vs_math": 1.0967254638671875e-05
+    }
+  },
+  "stage": "runtime_export_failed",
+  "elapsed_seconds": 13.68,
+  "error": "Traceback (most recent call last):\n  File \"/tmp/ipykernel_23/753108155.py\", line 35, in <cell line: 0>\n    import o_voxel.postprocess\n  File \"/usr/local/lib/python3.13/dist-packages/o_voxel/__init__.py\", line 1, in <module>\n    from . import (\n    ...<5 lines>...\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/o_voxel/convert/__init__.py\", line 2, in <module>\n    from .volumetic_attr import *\n  File \"/usr/local/lib/python3.13/dist-packages/o_voxel/convert/volumetic_attr.py\", line 7, in <module>\n    import trimesh\nModuleNotFoundError: No module named 'trimesh'\n"
+}

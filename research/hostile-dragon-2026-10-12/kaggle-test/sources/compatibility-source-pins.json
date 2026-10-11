@@ -1,0 +1,44 @@
+[
+  {
+    "repo": "JeffreyXiang/FlexGEMM",
+    "sha": "6dd94a859c26ee8246888502eada3dd8ad85532e",
+    "path": "README.md",
+    "sha256": "c735b7422e841e24bf2cf11e6d08ef718b0e2104d5648325684bafba2c24b19c"
+  },
+  {
+    "repo": "JeffreyXiang/FlexGEMM",
+    "sha": "6dd94a859c26ee8246888502eada3dd8ad85532e",
+    "path": "setup.py",
+    "sha256": "9411c37c682d32417d5963b9dec3511ede1c89ef5c6014d54b1d73ea90028b6c"
+  },
+  {
+    "repo": "JeffreyXiang/FlexGEMM",
+    "sha": "6dd94a859c26ee8246888502eada3dd8ad85532e",
+    "path": "flex_gemm/ops/spconv/__init__.py",
+    "sha256": "37bfa7f40329ec04d29cf75c69ca4bae59ea2694e7ac218a48e954aeccf8539c"
+  },
+  {
+    "repo": "JeffreyXiang/CuMesh",
+    "sha": "12289e1062f0603f2f0d0771b02e1395d247f26f",
+    "path": "README.md",
+    "sha256": "e7ea55534dc8a70ee4f2ca735ab36e243963815a7f708b1241d9007206a9847b"
+  },
+  {
+    "repo": "JeffreyXiang/CuMesh",
+    "sha": "12289e1062f0603f2f0d0771b02e1395d247f26f",
+    "path": "setup.py",
+    "sha256": "55d493b339f0a8b497ea069f8569bb09c817205d9319dbd24d073b538c35fa9e"
+  },
+  {
+    "repo": "gleaven/trellis2",
+    "sha": "c7183bfe89a5c745bd24ca09998ad90d58c36b5a",
+    "path": "patch_sdpa.py",
+    "sha256": "45433e1f2bbd6ee8ad473af1fdb6a19ec885f8a20aba02459757bdee06b203b0"
+  },
+  {
+    "repo": "gleaven/trellis2",
+    "sha": "c7183bfe89a5c745bd24ca09998ad90d58c36b5a",
+    "path": "README.md",
+    "sha256": "e5d97178771e939e1e521ea71112ef37587b8c0410658aa44bd81afde582b8a7"
+  }
+]

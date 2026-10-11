@@ -1,0 +1,7 @@
+{
+  "stage": "submitting",
+  "kernel": "gualwells/hostile-dragon-recovery-20261011",
+  "created_at": "2026-10-11T12:25:47.541166+00:00",
+  "source_sha256": "98f6ce20b3c85e65e26c8bfaca7ee01d5d210db2cb3d6f6a86a1aede8b4f40fd",
+  "confirmed_error": "409 title/slug conflict; target absent, owner access verified"
+}

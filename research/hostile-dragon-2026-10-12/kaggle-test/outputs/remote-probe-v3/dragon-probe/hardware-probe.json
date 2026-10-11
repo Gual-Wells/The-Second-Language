@@ -1,0 +1,70 @@
+{
+  "stage": "hardware_probe",
+  "generated_at": "2026-10-11T09:37:58.939742+00:00",
+  "python": "3.13.15",
+  "system": "Linux",
+  "gpu_devices": [
+    {
+      "index": 0,
+      "name": "Tesla T4",
+      "total_vram_gib": 14.56,
+      "compute_capability": [
+        7,
+        5
+      ],
+      "bf16_native": false,
+      "sdpa_fp16": {
+        "completed": true,
+        "finite": true
+      },
+      "sdpa_bf16": {
+        "completed": true,
+        "finite": true
+      }
+    },
+    {
+      "index": 1,
+      "name": "Tesla T4",
+      "total_vram_gib": 14.56,
+      "compute_capability": [
+        7,
+        5
+      ],
+      "bf16_native": false,
+      "sdpa_fp16": {
+        "completed": true,
+        "finite": true
+      },
+      "sdpa_bf16": {
+        "completed": true,
+        "finite": true
+      }
+    }
+  ],
+  "model_generated": false,
+  "disk_free_gib": 19.5,
+  "installed_modules": {
+    "torch": true,
+    "flash_attn": false,
+    "xformers": false,
+    "flex_gemm": false,
+    "cumesh": false,
+    "o_voxel": false
+  },
+  "torch_version": "2.11.0+cu128",
+  "torch_cuda_version": "12.8",
+  "cuda_available": true,
+  "candidate_route": "requires_legacy_gpu_adaptation_not_validated",
+  "nvcc": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2025 NVIDIA Corporation\nBuilt on Fri_Feb_21_20:23:50_PST_2025\nCuda compilation tools, release 12.8, V12.8.93\nBuild cuda_12.8.r12.8/compiler.35583870_0\n",
+  "network": {
+    "github": {
+      "status": 200,
+      "bytes_sampled": 4096
+    },
+    "model_config": {
+      "status": 200,
+      "bytes_sampled": 4096
+    }
+  },
+  "elapsed_seconds": 6.75
+}

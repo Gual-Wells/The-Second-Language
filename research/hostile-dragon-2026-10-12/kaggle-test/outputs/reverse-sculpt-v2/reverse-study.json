@@ -1,0 +1,21 @@
+{
+  "stage": "independent_reverse_sculpted",
+  "source": "D:\\CodexStorage\\workspaces\\hostile-dragon-coin\\kaggle-test\\outputs\\remote-generation-recovery\\dragon-generation\\hostile-dragon-source.glb",
+  "source_sha256": "594c78b555d39980d6ff7015acb3358239b18c36c9a1f4f04b6acf200547bbfa",
+  "art_accepted": false,
+  "operations": [
+    {
+      "native_tools": [
+        "bmesh.bisect_plane",
+        "bmesh.delete",
+        "bmesh.holes_fill"
+      ],
+      "removed_false_faces": 146667,
+      "filled_cut_faces": 0,
+      "front_unchanged": true,
+      "claw_vertices_unchanged": true
+    }
+  ],
+  "reverse_components": 28,
+  "design": "slanted metallic dragon eye within spaced chased armour; satin negative space; preserved wrap-around claws"
+}

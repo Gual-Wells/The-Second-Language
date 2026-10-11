@@ -1,0 +1,117 @@
+{
+  "stage": "synthetic_benchmark_complete",
+  "task": "native kernel feasibility and synthetic numerical comparison",
+  "generative_quality_verified": false,
+  "tests": [
+    {
+      "tokens": 256,
+      "heads": 16,
+      "head_dim": 64,
+      "amplitude": 1,
+      "input_max": 5.40625,
+      "fp16_cast_finite": true,
+      "fp16_cast_max_absolute_error": 2.9802322387695312e-08,
+      "fp32_milliseconds": 0.29340800642967224,
+      "fp16_milliseconds": 0.10105600208044052,
+      "output_finite": true,
+      "max_absolute_error": 0.0002509951591491699,
+      "relative_rms_error": 0.0002688921522349119,
+      "bf16_output_max_error": 0.00390625,
+      "speedup": 2.90341988985592
+    },
+    {
+      "tokens": 2048,
+      "heads": 16,
+      "head_dim": 64,
+      "amplitude": 1,
+      "input_max": 5.28125,
+      "fp16_cast_finite": true,
+      "fp16_cast_max_absolute_error": 2.9802322387695312e-08,
+      "fp32_milliseconds": 11.65011215209961,
+      "fp16_milliseconds": 2.512864112854004,
+      "output_finite": true,
+      "max_absolute_error": 9.271502494812012e-05,
+      "relative_rms_error": 0.00028275419026613235,
+      "bf16_output_max_error": 0.0009765625,
+      "speedup": 4.636188679087748
+    },
+    {
+      "tokens": 8192,
+      "heads": 16,
+      "head_dim": 64,
+      "amplitude": 1,
+      "input_max": 5.40625,
+      "fp16_cast_finite": true,
+      "fp16_cast_max_absolute_error": 2.9802322387695312e-08,
+      "fp32_milliseconds": 84.38066864013672,
+      "fp16_milliseconds": 18.617887496948242,
+      "output_finite": true,
+      "max_absolute_error": 6.3285231590271e-05,
+      "relative_rms_error": 0.00028748664772138,
+      "bf16_output_max_error": 0.0009765625,
+      "speedup": 4.532236466353554
+    },
+    {
+      "tokens": 2048,
+      "heads": 16,
+      "head_dim": 64,
+      "amplitude": 8,
+      "input_max": 42.75,
+      "fp16_cast_finite": true,
+      "fp16_cast_max_absolute_error": 2.9802322387695312e-08,
+      "fp32_milliseconds": 5.481823921203613,
+      "fp16_milliseconds": 1.1284480094909668,
+      "output_finite": true,
+      "max_absolute_error": 0.013332366943359375,
+      "relative_rms_error": 0.00012686896661762148,
+      "bf16_output_max_error": 0.125,
+      "speedup": 4.8578435826001565
+    },
+    {
+      "tokens": 2048,
+      "heads": 16,
+      "head_dim": 128,
+      "amplitude": 1,
+      "input_max": 5.28125,
+      "fp16_cast_finite": true,
+      "fp16_cast_max_absolute_error": 2.9802322387695312e-08,
+      "fp32_milliseconds": 8.608256340026855,
+      "fp16_milliseconds": 2.12937593460083,
+      "output_finite": true,
+      "max_absolute_error": 0.0001220703125,
+      "relative_rms_error": 0.00028216184000484645,
+      "bf16_output_max_error": 0.001953125,
+      "speedup": 4.042619342197341
+    }
+  ],
+  "torch": "2.11.0+cu128",
+  "gpu": "Tesla T4",
+  "capability": [
+    7,
+    5
+  ],
+  "linear_tests": [
+    {
+      "tokens": 256,
+      "input_features": 1024,
+      "output_features": 4096,
+      "synthetic": true,
+      "bf16_milliseconds": 0.6264640092849731,
+      "fp16_milliseconds": 0.2226559966802597,
+      "speedup": 2.813595944530491,
+      "relative_rms_error": 0.0016867934027686715,
+      "output_finite": true
+    },
+    {
+      "tokens": 8192,
+      "input_features": 1024,
+      "output_features": 4096,
+      "synthetic": true,
+      "bf16_milliseconds": 17.969951629638672,
+      "fp16_milliseconds": 2.4203200340270996,
+      "speedup": 7.42461797489607,
+      "relative_rms_error": 0.0016869948012754321,
+      "output_finite": true
+    }
+  ]
+}

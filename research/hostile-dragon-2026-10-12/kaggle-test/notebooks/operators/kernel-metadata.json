@@ -1,0 +1,17 @@
+{
+  "id": "gualwells/hostile-dragon-t4-operators-20261011",
+  "title": "Hostile Dragon T4 Operators 20261011",
+  "code_file": "compat.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [
+    "gualwells/hostile-dragon-t4-compatibility-20261011"
+  ],
+  "model_sources": []
+}

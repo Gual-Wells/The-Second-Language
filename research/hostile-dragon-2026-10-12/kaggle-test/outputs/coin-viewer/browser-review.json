@@ -1,0 +1,13 @@
+{
+  "stage": "actual_model_and_controls_verified",
+  "errors": [],
+  "screenshots": [
+    "interactive-front.png",
+    "interactive-back.png",
+    "interactive-clay.png"
+  ],
+  "load": {
+    "loaded": true,
+    "status": "实物模型"
+  }
+}

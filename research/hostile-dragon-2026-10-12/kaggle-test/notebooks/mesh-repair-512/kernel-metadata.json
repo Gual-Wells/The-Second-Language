@@ -1,0 +1,18 @@
+{
+  "id": "gualwells/hostile-dragon-mesh-repair-20261011",
+  "title": "Hostile Dragon Mesh Repair 20261011",
+  "code_file": "repair.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "kernel_sources": [
+    "gualwells/hostile-dragon-t4-geometry-20261011",
+    "gualwells/hostile-dragon-t4-compatibility-20261011",
+    "gualwells/hostile-dragon-recovery-20261011/1"
+  ],
+  "competition_sources": [],
+  "model_sources": []
+}

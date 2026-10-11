@@ -1,0 +1,12 @@
+{
+  "started_at": "2026-10-11T09:53:32.992092+00:00",
+  "model_generated": false,
+  "packages": {},
+  "stage": "geometry_dependencies_failed",
+  "torch": "2.11.0+cu128",
+  "cuda": "12.8",
+  "gpu": "Tesla T4",
+  "disk_free_gib": 1069.92,
+  "elapsed_seconds": 527.53,
+  "error": "Traceback (most recent call last):\n  File \"/tmp/ipykernel_23/2965899437.py\", line 36, in <cell line: 0>\n    REPORT['packages']['cumesh']=build(repo,'cumesh',500)\n                                 ~~~~~^^^^^^^^^^^^^^^^^^^\n  File \"/tmp/ipykernel_23/2965899437.py\", line 25, in build\n    command([sys.executable,'-m','pip','wheel','.', '--no-deps','--no-build-isolation','-w',str(OUT/'wheels')],label+'-build',timeout=timeout,cwd=folder)\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/tmp/ipykernel_23/2965899437.py\", line 16, in command\n    result=subprocess.run(args,cwd=cwd,stdout=log,stderr=subprocess.STDOUT,timeout=timeout)\n  File \"/usr/lib/python3.13/subprocess.py\", line 556, in run\n    stdout, stderr = process.communicate(input, timeout=timeout)\n                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.13/subprocess.py\", line 1222, in communicate\n    stdout, stderr = self._communicate(input, endtime, timeout)\n                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.13/subprocess.py\", line 2180, in _communicate\n    self.wait(timeout=self._remaining_time(endtime))\n    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.13/subprocess.py\", line 1280, in wait\n    return self._wait(timeout=timeout)\n           ~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.13/subprocess.py\", line 2077, in _wait\n    raise TimeoutExpired(self.args, timeout)\nsubprocess.TimeoutExpired: Command '['/usr/bin/python3', '-m', 'pip', 'wheel', '.', '--no-deps', '--no-build-isolation', '-w', '/kaggle/working/dragon-geometry/wheels']' timed out after 500 seconds\n"
+}
