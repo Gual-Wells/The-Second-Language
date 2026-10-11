@@ -4,6 +4,7 @@ import {publisherConfig} from './lib/publisher-config.mjs';
 import {pendingTencentUsage,markTencentUsageReported} from './lib/tencent-quota-ledger.mjs';
 import {tencentBalance,cloudflareQuota} from './lib/account-quotas.mjs';
 import {finishTaskStorage} from './lib/storage-finish.mjs';
+import {reportStorageUsage} from './check-storage-usage.mjs';
 export async function checkTaskBalances(){
  try {
  const reports=await Promise.all(['cloudflare','tencent'].map(async pool=>{
@@ -21,7 +22,7 @@ export async function checkTaskBalances(){
  }
  for(const p of result.pools)console.log(`${p.pool}: ${p.verified||p.estimated?p.remaining+' '+p.unit+(p.estimated?'（估算）':''):'未核实'}${p.low?'；'+p.warning:''}`);
  return result;
- } finally { await finishTaskStorage(); }
+ } finally {try{await reportStorageUsage();}catch{console.warn('存储用量更新暂未完成，保留上次记录。');}await finishTaskStorage(); }
 }
 export async function finishTaskBalances(){try{return await checkTaskBalances();}catch{console.warn('任务已完成，但额度核对暂不可用；请在设置中查看余额。');}}
 if(process.argv[1]&&fileURLToPath(import.meta.url)===process.argv[1])await checkTaskBalances();

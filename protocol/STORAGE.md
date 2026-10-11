@@ -45,3 +45,17 @@ work/runs、expression、questions 及既有语音证据按任务目录分组，
 ## 选配音频兼容
 
 AUDIO_CONFIGURATION.md 的申请沿用紧凑 pronunciation_results 及章节关联；完整计划/结果归档到 audio-requests/，D1 只留单请求状态和位置。包内新增显示文本与 phonemes；旧包缺此字段继续作为普通文本播放。指定音素参与合成身份，不因文件搬迁、两部分标题或不同章节而重复收费。
+
+## 存储用量记录（v32）
+
+设置 → 存储空间沿用额度窗口的蓝银卡片，显示 OneDrive、章节 D1、雅思 D1、实验 D1 与账户共享 KV。页面只读取上次核对结果，不访问外部管理 API、不定时刷新、不展示凭据、账号标识或文件清单。
+
+`scripts/check-storage-usage.mjs` 使用已有本机权限查询 Microsoft Graph drive quota / AppFolder size、Cloudflare 数据库 file_size 和 KV 每日存储高位。OneDrive 同时呈现账户用量与本项目目录大小；两者统计不一致时明示差异，免费 5 GB 的适配判断保守取较大值，不声称异步统计已完全同步。目录统计也不能代替账户其他服务的真实占用。
+
+D1 当前免费单库上限按 500 MB，账户总限 5 GB；KV 免费容量为账户共享 1 GB，不按 namespace 累加免费额度。KV 数字来自最近有记录日期的 namespace 每日高位求和，属于保守统计而非实时精确值，显示日期，包含同账户其他项目。存储大小不代表读写请求额度；KV 日写入触限与容量触限分别判断。
+
+主库 storage_usage 仅保存五份最新的过滤后容量记录。成功核对更新值与时间；失败保留旧值并标识本次失败，未测得数据显示未核实而非零，乱序旧报告不覆盖新报告。24 小时旧记录标记为旧记录；容量达到 90% 提示，D1 另沿用 120 MiB 的既有维护检查门槛。已知免费上限为当前方案配置，未来换套餐须同步 collector 的上限配置。
+
+各任务通过 `checkTaskBalances` 末尾核对容量并排入既有归档队列；`storage-maintain` 完成 migrate、packs、backup 后再次核对。容量接口异常不能取消资料归档，也不重新执行已完成的归档或调用模型。独立查询命令不生成收费音频，不做资料清理、不改变订阅。
+
+验证：`node scripts/check-storage-usage-contract.mjs`（权限、SQLite 真实写入、失败保留、乱序、非法报告与 5 GB 边界）；`node scripts/check-storage-usage-ui.mjs`（iPhone 402×874 原生设置及未知状态）。当前容量及长期估算依据见 research/storage-free-capacity-2026-10-11.md。

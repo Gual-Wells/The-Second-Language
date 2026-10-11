@@ -1,16 +1,17 @@
-import {createReaderJump} from './reader-jump.js?v=31';
-import {installPureReader} from './pure-reader.js?v=31';
-import {chapterNumber, createChapterBook} from './chapters.js?v=31';
-import {installSettingsNavigation} from './settings.js?v=31';
-import {createAudioConfig} from './audio-config.js?v=31';
-import {installReaderSpeech} from './reader-speech.js?v=31';
-import { parseParts, renderPart } from './render.js?v=31';
-import { validateAnnotatedContent } from './annotations.js?v=31';
-import { createPracticeUI } from './practice.js?v=31';
-import {createBalanceUI} from './balances.js?v=31';
-import {createChapterTestsUI} from './chapter-tests.js?v=31';
-import {createQuestionsUI} from './questions.js?v=31';
-import {openAudioChapter,clearAudioLibrary,preloadEnabled,setPreload} from './audio-library.js?v=31';
+import {createReaderJump} from './reader-jump.js?v=32';
+import {installPureReader} from './pure-reader.js?v=32';
+import {chapterNumber, createChapterBook} from './chapters.js?v=32';
+import {installSettingsNavigation} from './settings.js?v=32';
+import {createAudioConfig} from './audio-config.js?v=32';
+import {installReaderSpeech} from './reader-speech.js?v=32';
+import { parseParts, renderPart } from './render.js?v=32';
+import { validateAnnotatedContent } from './annotations.js?v=32';
+import { createPracticeUI } from './practice.js?v=32';
+import {createBalanceUI} from './balances.js?v=32';
+import {createStorageUsageUI} from './storage-usage.js?v=32';
+import {createChapterTestsUI} from './chapter-tests.js?v=32';
+import {createQuestionsUI} from './questions.js?v=32';
+import {openAudioChapter,clearAudioLibrary,preloadEnabled,setPreload} from './audio-library.js?v=32';
 
 const $ = id => document.getElementById(id);
 const todayParts = Object.fromEntries(new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(new Date()).map(part => [part.type, part.value]));
@@ -46,6 +47,7 @@ const settingFields=['studyGoal','temporaryRequestToggle','temporaryRequestText'
 for(const id of settingFields){const field=$(id);const saved=readStored('second-language-settings-draft')[id];if(saved!==undefined){if(field.type==='checkbox')field.checked=saved;else field.value=saved;dirtySettings.add(id);}field.addEventListener('input',()=>{dirtySettings.add(id);const draft=readStored('second-language-settings-draft');draft[id]=field.type==='checkbox'?field.checked:field.value;writeStored('second-language-settings-draft',draft);});}
 function savedSettings(values){const draft=readStored('second-language-settings-draft');for(const [id,sent] of Object.entries(values)){const field=$(id),current=field.type==='checkbox'?field.checked:field.value;if(current===sent){dirtySettings.delete(id);delete draft[id];}}writeStored('second-language-settings-draft',draft);}
 const balances=createBalanceUI({api,showDialog});
+createStorageUsageUI({api,showDialog});
 const questions=createQuestionsUI({api,showDialog,toast,getContext:()=>state});
 const chapterTests=createChapterTestsUI({api,showDialog,toast,getContext:()=>state});
 const chapterBook=createChapterBook({getContext:()=>state,openChapter,showDialog,renderCalendar});
@@ -730,6 +732,6 @@ $('chapterNav').addEventListener('touchend', event => {
   if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.5) moveChapter(dx < 0 ? 1 : -1);
   swipeStart = null;
 }, { passive: true });
-if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=31', { updateViaCache: 'none' }).catch(() => {});
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=32', { updateViaCache: 'none' }).catch(() => {});
 refreshInstallStatus();
 initialize().then(()=>{if(state.authenticated&&new URLSearchParams(location.search).has('balances'))balances.open();});

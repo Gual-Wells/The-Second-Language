@@ -1,4 +1,4 @@
-import {readerFocus,sentenceElement,wordAtPoint} from './reader-focus.js?v=31';
+import {readerFocus,sentenceElement,wordAtPoint} from './reader-focus.js?v=32';
 // A single arbiter owns taps, holds and scrolling, so one gesture has one action.
 export function installPureReader({prepareTap=()=>{},onToggle=()=>{},onQuestion=()=>{}}={}){
  const scope=document.getElementById('readingScroll'),shell=document.getElementById('app'),forwarded=new WeakSet();

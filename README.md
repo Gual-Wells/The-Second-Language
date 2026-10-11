@@ -91,7 +91,7 @@ node scripts/check-reader-ui.mjs
 
 界面检查需要 Playwright 与 Chromium；`BROWSER_EXECUTABLE` 可指定浏览器，`UI_CHAPTER_DIR` 可指定本机真实章节。全部请求隔离，不调用付费模型、不写正式数据；截图存入忽略的 `.cache/reader-ui/`。浏览器模拟不等于 iPhone Safari 真机验收。
 
-正式发布使用 `node scripts/deploy-app.mjs`，同时部署 API Worker 与带 service binding 的 Pages 网关；不能直接以普通静态 `web/` 部署替代网关。任务结束执行 `node scripts/check-balances.mjs` 更新额度并排入归档。额度不足不自动次日恢复，已有产物保留，需用户明确续作；不自动付款。
+正式发布使用 `node scripts/deploy-app.mjs`，同时部署 API Worker 与带 service binding 的 Pages 网关；不能直接以普通静态 `web/` 部署替代网关。任务结束执行 `node scripts/check-balances.mjs` 更新额度、存储用量并排入归档；归档完成后再次核对存储大小。设置中的“存储空间”显示 OneDrive、三座 D1 与账户共享 KV 的上次用量、上限和核对时间；只核对容量可运行 `node scripts/check-storage-usage.mjs`。额度不足不自动次日恢复，已有产物保留，需用户明确续作；不自动付款。
 
 本机日课北京时间 03:00 执行；一次性休息安排由用户设置。雅思与答疑使用独立队列，安静启动器避免控制台闪窗。任务安装、日志、凭据与恢复命令见 [OPERATIONS.md](OPERATIONS.md)。
 

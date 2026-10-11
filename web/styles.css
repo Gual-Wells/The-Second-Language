@@ -424,6 +424,10 @@ textarea.text-input { resize: vertical; }
 .balance-card { padding: 16px; border-bottom: 1px solid var(--line); background: linear-gradient(#fcfdfe, #eef3f7); }
 .balance-heading { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 16px; }
 .balance-amount { font: bold 20px Georgia, serif; color: var(--ink); }
+.storage-meter { display: block; width: 100%; height: 9px; margin: 9px 0; border: 1px solid #aabdcf; border-radius: 4px; overflow: hidden; background: #edf3f8; accent-color: #5d86a8; }
+.storage-meter::-webkit-progress-bar { background: linear-gradient(#e1e9f1,#f8fbfd); }
+.storage-meter::-webkit-progress-value { background: linear-gradient(#91b4d0,#527d9e); }
+.storage-fit { color: #345d4b; }
 .balance-card p, .balance-estimate p { margin: 8px 0; line-height: 1.55; }
 .balance-card small, .balance-estimate small { display: block; color: var(--muted); line-height: 1.6; }
 .balance-card .balance-warning { padding: 9px 12px; border: 1px solid #c7ae69; border-radius: 5px; background: linear-gradient(#fff7d2, #efdf9d); color: #5a4924; }
