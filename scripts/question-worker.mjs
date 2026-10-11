@@ -10,13 +10,15 @@ import {prepareChapterQuestionAudio,interpretChapterAnswers} from './lib/chapter
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const {base,token}=await publisherConfig();
 const queue=process.argv.includes('--tests-only')?'chapter-tests':'questions';
-async function absolute(route,body,method='POST'){const r=await fetch(new URL(route,base),{method,headers:{authorization:`Bearer ${token}`,'content-type':'application/json'},...(body?{body:JSON.stringify(body)}:{}),signal:AbortSignal.timeout(240000)});const data=await r.json();if(!r.ok)throw Object.assign(Error(data.error||`HTTP ${r.status}`),{status:r.status});return data;}
+let temporaryJob=false;
+async function absolute(route,body,method='POST'){if(temporaryJob)route=route.replace('/api/chapter-tests/','/api/temporary-tests/');const r=await fetch(new URL(route,base),{method,headers:{authorization:`Bearer ${token}`,'content-type':'application/json'},...(body?{body:JSON.stringify(body)}:{}),signal:AbortSignal.timeout(240000)});const data=await r.json();if(!r.ok)throw Object.assign(Error(data.error||`HTTP ${r.status}`),{status:r.status});return data;}
 const call=(route,body)=>absolute(`/api/${queue}${route}`,body);
-async function asset(route){const r=await fetch(new URL(route,base),{headers:{authorization:`Bearer ${token}`},signal:AbortSignal.timeout(90000)});if(!r.ok)throw Error('音频原件暂不可用 '+r.status);return Buffer.from(await r.arrayBuffer());}
+async function asset(route){if(temporaryJob)route=route.replace('/api/chapter-tests/','/api/temporary-tests/');const r=await fetch(new URL(route,base),{headers:{authorization:`Bearer ${token}`},signal:AbortSignal.timeout(90000)});if(!r.ok)throw Error('音频原件暂不可用 '+r.status);return Buffer.from(await r.arrayBuffer());}
 const claim=randomBytes(32).toString('hex'),{job}=await call('/jobs/claim',{claim});
 if(!job)process.exit(0);
+temporaryJob=job.temporary===true;
 const isReview=job.kind==='chapter-test-review';job.claim=claim;
-const directory=isReview?path.join(root,'work/questions',job.id,'reviews',job.answersDigest):path.join(root,'work/questions',job.id);await mkdir(directory,{recursive:true});
+const jobRoot=path.join(root,temporaryJob?'work/temporary':'work/questions',job.id);const directory=isReview?path.join(jobRoot,'reviews',job.answersDigest):jobRoot;await mkdir(directory,{recursive:true});
 await writeFile(path.join(directory,'request.json'),JSON.stringify({...job,claim:undefined},null,2));
 await writeFile(path.join(directory,'chapter.md'),job.chapter.markdown);
 const isTest=job.kind==='chapter-test',schema=isTest?chapterTestSchema:{type:'object',properties:{answer:{type:'string'}},required:['answer'],additionalProperties:false};
