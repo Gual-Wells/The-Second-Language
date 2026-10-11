@@ -1,0 +1,7 @@
+{
+  "role": "Actual preprocessed background-removed input used in the Kaggle generation; compare with source concept rather than assuming reconstruction used the original full image.",
+  "sha256": "994f98db7bdf194fa4dabfbe6a3b1b1ae2e958ae31d7eb771473bd8e32d7d606",
+  "bytes": 1454379,
+  "source_reference": "kaggle-test/outputs/remote-generation-recovery/dragon-generation/generation.json",
+  "weights_uploaded": false
+}
