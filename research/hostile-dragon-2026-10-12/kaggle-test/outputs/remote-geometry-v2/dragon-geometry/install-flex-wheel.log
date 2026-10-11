@@ -1,0 +1,3 @@
+Processing /kaggle/input/hostile-dragon-t4-compatibility-20261011/dragon-compat/wheels/flex_gemm-1.0.0-cp313-cp313-linux_x86_64.whl
+Installing collected packages: flex-gemm
+Successfully installed flex-gemm-1.0.0

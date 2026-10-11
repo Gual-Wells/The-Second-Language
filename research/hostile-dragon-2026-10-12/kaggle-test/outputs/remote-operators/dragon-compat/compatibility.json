@@ -1,0 +1,33 @@
+{
+  "started_at": "2026-10-11T09:50:03.496336+00:00",
+  "model_generated": false,
+  "tests": {
+    "fp16": {
+      "finite": true,
+      "max_abs_vs_dense_fp32": 0.0009732246398925781,
+      "shape": [
+        512,
+        16
+      ]
+    },
+    "bf16": {
+      "finite": true,
+      "max_abs_vs_dense_fp32": 0.007805824279785156,
+      "shape": [
+        512,
+        16
+      ]
+    }
+  },
+  "stage": "dependency_probe_completed",
+  "torch": "2.11.0+cu128",
+  "cuda": "12.8",
+  "gpu": "Tesla T4",
+  "disk_free_gib": 1069.92,
+  "elapsed_seconds": 9.24,
+  "wheel": {
+    "file": "flex_gemm-1.0.0-cp313-cp313-linux_x86_64.whl",
+    "bytes": 3301361,
+    "sha256": "07b57660b62a728c8e44a7902127127a8e28f2b548cfd274fd3f3f6a3573527c"
+  }
+}

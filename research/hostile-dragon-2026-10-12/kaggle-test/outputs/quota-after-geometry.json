@@ -1,0 +1,14 @@
+{
+  "queried_at": "2026-10-11T11:07:22.256287+00:00",
+  "refresh_at": "2026-10-17 00:00:00",
+  "gpu": {
+    "total_seconds": 108000.0,
+    "used_seconds": 1661.764,
+    "remaining_seconds": 106338.236
+  },
+  "tpu": {
+    "total_seconds": 72000.0,
+    "used_seconds": 0.0,
+    "remaining_seconds": 72000.0
+  }
+}

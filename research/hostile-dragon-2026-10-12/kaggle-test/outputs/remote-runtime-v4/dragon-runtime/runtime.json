@@ -1,0 +1,17 @@
+{
+  "started_at": "2026-10-11T11:38:10.876880+00:00",
+  "model_generated": false,
+  "tests": {
+    "memory_efficient_fp32_attention": {
+      "finite": true,
+      "max_abs_vs_math": 9.775161743164062e-06
+    },
+    "glb_export": {
+      "bytes": 6692,
+      "sha256": "58830613607d68f2bd53f0f33bdbd8c099d64c8d5d63a5d8fa43d83c6459dbd4",
+      "technical_only": true
+    }
+  },
+  "stage": "runtime_export_completed",
+  "elapsed_seconds": 25.07
+}

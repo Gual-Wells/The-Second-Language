@@ -1,0 +1,18 @@
+{
+  "source": "D:\\CodexStorage\\workspaces\\hostile-dragon-coin\\kaggle-test\\outputs\\remote-generation-recovery\\dragon-generation\\hostile-dragon-source.glb",
+  "stage": "study_rendered",
+  "art_accepted": false,
+  "source_unchanged": true,
+  "changes": [
+    {
+      "operation": "remove mirror relief from central back, preserve outer claws",
+      "vertices_changed": 94624
+    },
+    {
+      "operation": "independent crafted reverse",
+      "materials": "oxidized silver, silver chase, dark garnet",
+      "symbol": "hostile slit eye",
+      "not_a_texture": true
+    }
+  ]
+}

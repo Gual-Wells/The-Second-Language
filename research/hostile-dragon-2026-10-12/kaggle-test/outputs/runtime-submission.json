@@ -1,0 +1,7 @@
+{
+  "stage": "submitted",
+  "kernel": "gualwells/hostile-dragon-t4-runtime-20261011",
+  "retry_timeout": false,
+  "dependency_fix": false,
+  "response": "{\"ref\": \"/code/gualwells/hostile-dragon-t4-runtime-20261011\", \"url\": \"https://www.kaggle.com/code/gualwells/hostile-dragon-t4-runtime-20261011\", \"versionNumber\": 4, \"error\": null, \"invalidTags\": [], \"invalidDatasetSources\": [], \"invalidCompetitionSources\": [], \"invalidKernelSources\": [], \"invalidModelSources\": [], \"kernelId\": 138162231}"
+}

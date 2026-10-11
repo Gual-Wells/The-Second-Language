@@ -1,0 +1,14 @@
+{
+  "release": "r186",
+  "license": "MIT",
+  "files": {
+    "BufferGeometryUtils.js": "82845fdda0d757cb006d88961741fccad5ae5792c6acc96d5c7d15f5209d4ec5",
+    "GLTFLoader.js": "40dbe3d6e74aecee096be0858ca6bd253b71a65e6fcbad9063e86add573908ea",
+    "RoomEnvironment.js": "b8c67d63c0d2bdfbf411813dd572f4d3b7ba2e7989bb4d5900f6335f842acfef",
+    "SkeletonUtils.js": "219f89d236e63a7df9ec32cf45bb61652c8a86191b6a460430985b52699b5b20",
+    "source-manifest.json": "2eb9c660a9afe680304c7d928973bb31c5e2e5fcd4aa70de714ed305f103d832",
+    "three-LICENSE.txt": "8b378ebe60e2fe500158cb0ac71cb5e8b7d92953c2abcc63a0eb90499653b5bc",
+    "three.core.js": "9edde002b066a9a05676a6127f67735b62baf399bdea529f2f7e31657da769e6",
+    "three.module.js": "9052042d676cb0fdc1ddfefe193053f34b7ac0513a616fdac4535d49987812ea"
+  }
+}

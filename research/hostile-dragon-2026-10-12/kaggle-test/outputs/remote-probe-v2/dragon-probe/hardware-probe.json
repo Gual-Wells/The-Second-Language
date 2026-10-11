@@ -1,0 +1,31 @@
+{
+  "stage": "hardware_probe",
+  "generated_at": "2026-10-11T09:17:56.422188+00:00",
+  "python": "3.13.15",
+  "system": "Linux",
+  "gpu_devices": [],
+  "model_generated": false,
+  "disk_free_gib": 19.5,
+  "installed_modules": {
+    "torch": true,
+    "flash_attn": false,
+    "xformers": false,
+    "flex_gemm": false,
+    "cumesh": false,
+    "o_voxel": false
+  },
+  "torch_version": "2.11.0+cpu",
+  "torch_cuda_version": null,
+  "cuda_available": false,
+  "candidate_route": "no_gpu_assigned",
+  "nvcc": "unavailable",
+  "network": {
+    "github": {
+      "error": "<urlopen error [Errno -3] Temporary failure in name resolution>"
+    },
+    "model_config": {
+      "error": "<urlopen error [Errno -3] Temporary failure in name resolution>"
+    }
+  },
+  "elapsed_seconds": 67.81
+}

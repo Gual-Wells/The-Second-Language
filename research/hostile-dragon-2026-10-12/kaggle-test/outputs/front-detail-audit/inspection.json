@@ -1,0 +1,11 @@
+{
+  "stage": "details_ready_for_visual_audit",
+  "art_accepted": false,
+  "source": "D:\\CodexStorage\\workspaces\\hostile-dragon-coin\\kaggle-test\\outputs\\art-review-512\\candidate-master.blend",
+  "views": [
+    "near-eye.png",
+    "mouth-and-teeth.png",
+    "upper-gripping-claw.png",
+    "lower-gripping-claw.png"
+  ]
+}

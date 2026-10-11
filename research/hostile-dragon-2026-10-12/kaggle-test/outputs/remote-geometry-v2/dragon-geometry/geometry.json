@@ -1,0 +1,42 @@
+{
+  "started_at": "2026-10-11T10:05:51.236523+00:00",
+  "model_generated": false,
+  "packages": {
+    "cumesh": {
+      "file": "cumesh-0.0.1-cp313-cp313-linux_x86_64.whl",
+      "bytes": 14564665,
+      "sha256": "a60c661c67d19b96648c98c8d7a6bb80bcd190b446fac4afe01e9b5b0b01650e",
+      "tetrahedron": {
+        "vertices": [
+          4,
+          3
+        ],
+        "faces": [
+          4,
+          3
+        ],
+        "finite": true
+      }
+    },
+    "nvdiffrast": {
+      "file": "nvdiffrast-0.4.0-cp313-cp313-linux_x86_64.whl",
+      "bytes": 16110219,
+      "sha256": "992d930c68af3c40f9261d81adbd10dc53b1ee7dd5e97b67b3762f309c4be3c0",
+      "rasterization": {
+        "covered_pixels": 128
+      }
+    },
+    "o_voxel": {
+      "file": "o_voxel-0.0.1-cp313-cp313-linux_x86_64.whl",
+      "bytes": 17998794,
+      "sha256": "10f987ebce9c78c47a269b6321a00a1ad05faa312b31b8151a19b92c7b9fa38c"
+    }
+  },
+  "stage": "geometry_dependencies_failed",
+  "torch": "2.11.0+cu128",
+  "cuda": "12.8",
+  "gpu": "Tesla T4",
+  "disk_free_gib": 1069.92,
+  "elapsed_seconds": 800.53,
+  "error": "Traceback (most recent call last):\n  File \"/tmp/ipykernel_24/3551858057.py\", line 58, in <cell line: 0>\n    import o_voxel\n  File \"/usr/local/lib/python3.13/dist-packages/o_voxel/__init__.py\", line 1, in <module>\n    from . import (\n    ...<5 lines>...\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/o_voxel/convert/__init__.py\", line 2, in <module>\n    from .volumetic_attr import *\n  File \"/usr/local/lib/python3.13/dist-packages/o_voxel/convert/volumetic_attr.py\", line 7, in <module>\n    import trimesh\nModuleNotFoundError: No module named 'trimesh'\n"
+}

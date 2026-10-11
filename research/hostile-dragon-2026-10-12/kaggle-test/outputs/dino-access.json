@@ -1,0 +1,6 @@
+{
+  "checked_at": "2026-10-11T10:06:52.018498+00:00",
+  "model": "facebook/dinov3-vitl16-pretrain-lvd1689m",
+  "config_http_status": 403,
+  "weights_downloaded": false
+}

@@ -1,0 +1,31 @@
+{
+  "stage": "study_ready_for_review",
+  "source": "D:\\CodexStorage\\workspaces\\hostile-dragon-coin\\kaggle-test\\outputs\\remote-mesh-repair-512\\dragon-mesh-repair\\hostile-dragon-repaired.glb",
+  "source_sha256": "2669b9d02622ba8074d83ca3ee36bcf5b0dd91f8c1214a18d1b1ace571897582",
+  "art_accepted": false,
+  "operations": [
+    {
+      "native_tools": [
+        "bmesh.bisect_plane",
+        "bmesh.delete",
+        "bmesh.holes_fill"
+      ],
+      "removed_false_faces": 297265,
+      "filled_cut_faces": 0,
+      "front_unchanged": true,
+      "claw_vertices_unchanged": true
+    },
+    {
+      "part": "near eye",
+      "action": "socket-seated solid ocular inlay, native Boolean pupil incision, dark recessed floor",
+      "requires_visual_acceptance": true
+    }
+  ],
+  "design": "supporting satin reverse and visible near eye; no reverse emblem; source is official remesh",
+  "views": [
+    "front.png",
+    "back.png",
+    "side.png",
+    "front-clay.png"
+  ]
+}

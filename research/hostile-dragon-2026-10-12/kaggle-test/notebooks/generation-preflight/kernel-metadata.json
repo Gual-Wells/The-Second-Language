@@ -1,0 +1,18 @@
+{
+  "id": "gualwells/hostile-dragon-preflight-20261011",
+  "title": "Hostile Dragon Preflight 20261011",
+  "code_file": "dragon.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "kernel_sources": [
+    "gualwells/hostile-dragon-t4-geometry-20261011",
+    "gualwells/hostile-dragon-t4-compatibility-20261011"
+  ],
+  "competition_sources": [],
+  "model_sources": []
+}

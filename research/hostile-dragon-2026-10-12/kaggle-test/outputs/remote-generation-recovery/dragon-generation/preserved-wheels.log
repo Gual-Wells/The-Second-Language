@@ -1,0 +1,6 @@
+Processing /kaggle/input/notebooks/gualwells/hostile-dragon-t4-geometry-20261011/dragon-geometry/wheels/cumesh-0.0.1-cp313-cp313-linux_x86_64.whl
+Processing /kaggle/input/notebooks/gualwells/hostile-dragon-t4-geometry-20261011/dragon-geometry/wheels/nvdiffrast-0.4.0-cp313-cp313-linux_x86_64.whl
+Processing /kaggle/input/notebooks/gualwells/hostile-dragon-t4-geometry-20261011/dragon-geometry/wheels/o_voxel-0.0.1-cp313-cp313-linux_x86_64.whl
+Processing /kaggle/input/notebooks/gualwells/hostile-dragon-t4-compatibility-20261011/dragon-compat/wheels/flex_gemm-1.0.0-cp313-cp313-linux_x86_64.whl
+Installing collected packages: o-voxel, nvdiffrast, flex-gemm, cumesh
+Successfully installed cumesh-0.0.1 flex-gemm-1.0.0 nvdiffrast-0.4.0 o-voxel-0.0.1

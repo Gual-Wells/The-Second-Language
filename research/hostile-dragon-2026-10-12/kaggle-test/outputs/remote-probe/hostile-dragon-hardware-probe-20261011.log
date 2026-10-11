@@ -1,0 +1,23 @@
+[{"stream_name":"stderr","time":7.338868765,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":7.339814078,"data":"  File \"\u003cstring\u003e\", line 1, in \u003cmodule\u003e\n"}
+,{"stream_name":"stderr","time":7.339839967,"data":"    import sys;import papermill as pm;pm.execute_notebook(\"__notebook__.ipynb\",\"__notebook__.ipynb\",progress_bar=False,log_output=True,stdout_file=sys.stdout,stderr_file=sys.stderr,allow_errors=False,timeout=300)\n"}
+,{"stream_name":"stderr","time":7.339848693,"data":"                                      ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":7.339853508,"data":"  File \"/usr/local/lib/python3.13/dist-packages/papermill/execute.py\", line 113, in execute_notebook\n"}
+,{"stream_name":"stderr","time":7.339857949,"data":"    kernel_name = papermill_engines.nb_kernel_name(engine_name=engine_name, nb=nb, name=kernel_name)\n"}
+,{"stream_name":"stderr","time":7.339862127,"data":"  File \"/usr/local/lib/python3.13/dist-packages/papermill/engines.py\", line 53, in nb_kernel_name\n"}
+,{"stream_name":"stderr","time":7.33986637,"data":"    return self.get_engine(engine_name).nb_kernel_name(nb, name)\n"}
+,{"stream_name":"stderr","time":7.339875433,"data":"           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":7.339878102,"data":"  File \"/usr/local/lib/python3.13/dist-packages/papermill/engines.py\", line 386, in nb_kernel_name\n"}
+,{"stream_name":"stderr","time":7.339880821,"data":"    return nb_kernel_name(nb, name)\n"}
+,{"stream_name":"stderr","time":7.339883393,"data":"  File \"/usr/local/lib/python3.13/dist-packages/papermill/utils.py\", line 52, in nb_kernel_name\n"}
+,{"stream_name":"stderr","time":7.339886153,"data":"    raise ValueError(\"No kernel name found in notebook and no override provided.\")\n"}
+,{"stream_name":"stderr","time":7.339888933,"data":"ValueError: No kernel name found in notebook and no override provided.\n"}
+,{"stream_name":"stderr","time":9.963298038,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":9.963337959,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":10.202769896,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":10.202798859,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":11.213917743,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":11.301915388,"data":"[NbConvertApp] Writing 5832 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":14.465148551,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":15.746139024,"data":"[NbConvertApp] Writing 294713 bytes to __results__.html\n"}
+]

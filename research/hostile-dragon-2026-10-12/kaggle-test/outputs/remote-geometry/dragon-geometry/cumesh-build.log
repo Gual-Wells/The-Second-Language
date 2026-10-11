@@ -1,0 +1,5 @@
+Processing /kaggle/temp/dragon-geometry/CuMesh
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: cumesh
+  Building wheel for cumesh (pyproject.toml): started

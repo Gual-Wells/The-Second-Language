@@ -1,0 +1,13 @@
+{
+  "started_at": "2026-10-11T11:26:50.139468+00:00",
+  "model_generated": false,
+  "tests": {
+    "memory_efficient_fp32_attention": {
+      "finite": true,
+      "max_abs_vs_math": 1.1682510375976562e-05
+    }
+  },
+  "stage": "runtime_export_failed",
+  "elapsed_seconds": 19.23,
+  "error": "Traceback (most recent call last):\n  File \"/tmp/ipykernel_23/1114130556.py\", line 36, in <cell line: 0>\n    import o_voxel.postprocess\n  File \"/usr/local/lib/python3.13/dist-packages/o_voxel/__init__.py\", line 1, in <module>\n    from . import (\n    ...<5 lines>...\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/o_voxel/io/__init__.py\", line 3, in <module>\n    from .ply import *\n  File \"/usr/local/lib/python3.13/dist-packages/o_voxel/io/ply.py\", line 5, in <module>\n    import plyfile\nModuleNotFoundError: No module named 'plyfile'\n"
+}

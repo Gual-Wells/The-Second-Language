@@ -1,0 +1,3 @@
+Submodule 'o-voxel/third_party/eigen' (https://gitlab.com/libeigen/eigen.git) registered for path 'o-voxel/third_party/eigen'
+Cloning into '/kaggle/temp/dragon-geometry/TRELLIS.2/o-voxel/third_party/eigen'...
+Submodule path 'o-voxel/third_party/eigen': checked out '21e4582d1739107337a03460c81412981130373e'

@@ -1,0 +1,32 @@
+Collecting git+https://github.com/EasternJournalist/utils3d.git@9a4eb15e4021b67b12c460c7057d642626897ec8
+  Cloning https://github.com/EasternJournalist/utils3d.git (to revision 9a4eb15e4021b67b12c460c7057d642626897ec8) to /kaggle/temp/dragon-generation/tmp/pip-req-build-oj7s59ae
+  Running command git clone --filter=blob:none --quiet https://github.com/EasternJournalist/utils3d.git /kaggle/temp/dragon-generation/tmp/pip-req-build-oj7s59ae
+  Running command git rev-parse -q --verify 'sha^9a4eb15e4021b67b12c460c7057d642626897ec8'
+  Running command git fetch -q https://github.com/EasternJournalist/utils3d.git 9a4eb15e4021b67b12c460c7057d642626897ec8
+  Running command git checkout -q 9a4eb15e4021b67b12c460c7057d642626897ec8
+  Resolved https://github.com/EasternJournalist/utils3d.git to commit 9a4eb15e4021b67b12c460c7057d642626897ec8
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting moderngl (from utils3d==0.0.2)
+  Downloading moderngl-5.13.0-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (8.1 kB)
+Requirement already satisfied: numpy in /usr/local/lib/python3.13/dist-packages (from utils3d==0.0.2) (2.1.3)
+Requirement already satisfied: plyfile in /usr/local/lib/python3.13/dist-packages (from utils3d==0.0.2) (1.1.5)
+Requirement already satisfied: scipy in /usr/local/lib/python3.13/dist-packages (from utils3d==0.0.2) (1.16.3)
+Collecting glcontext>=3.0.0 (from moderngl->utils3d==0.0.2)
+  Downloading glcontext-3.1.0-cp313-cp313-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (6.2 kB)
+Downloading moderngl-5.13.0-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (308 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 308.3/308.3 kB 5.3 MB/s eta 0:00:00
+Downloading glcontext-3.1.0-cp313-cp313-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (53 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 53.0/53.0 kB 2.1 MB/s eta 0:00:00
+Building wheels for collected packages: utils3d
+  Building wheel for utils3d (pyproject.toml): started
+  Building wheel for utils3d (pyproject.toml): finished with status 'done'
+  Created wheel for utils3d: filename=utils3d-0.0.2-py3-none-any.whl size=88960 sha256=2deda32455a3baf02b6b745c469e31824db7b06a096a75ca68195f7c265be78f
+  Stored in directory: /kaggle/temp/dragon-generation/pip/wheels/a5/73/d2/9bdb48c06f4890aa984a5cddf3219149d0d8f00ad31275b608
+Successfully built utils3d
+Installing collected packages: glcontext, moderngl, utils3d
+Successfully installed glcontext-3.1.0 moderngl-5.13.0 utils3d-0.0.2

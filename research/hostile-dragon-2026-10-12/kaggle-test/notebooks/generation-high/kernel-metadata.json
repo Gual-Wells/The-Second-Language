@@ -1,0 +1,20 @@
+{
+  "id": "gualwells/hostile-dragon-high-20261011",
+  "title": "Hostile Dragon High 20261011",
+  "code_file": "dragon.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [
+    "gualwells/dragon-authorized-input-20261011"
+  ],
+  "kernel_sources": [
+    "gualwells/hostile-dragon-t4-geometry-20261011",
+    "gualwells/hostile-dragon-t4-compatibility-20261011"
+  ],
+  "competition_sources": [],
+  "model_sources": []
+}

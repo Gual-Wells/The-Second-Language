@@ -1,0 +1,7 @@
+{
+  "stage": "submitted",
+  "kernel": "gualwells/hostile-dragon-hardware-probe-20261011",
+  "accelerator": "NvidiaTeslaT4",
+  "after_verification": true,
+  "response": "{\"ref\": \"/code/gualwells/hostile-dragon-hardware-probe-20261011\", \"url\": \"https://www.kaggle.com/code/gualwells/hostile-dragon-hardware-probe-20261011\", \"versionNumber\": 3, \"error\": null, \"invalidTags\": [], \"invalidDatasetSources\": [], \"invalidCompetitionSources\": [], \"invalidKernelSources\": [], \"invalidModelSources\": [], \"kernelId\": 138150418}"
+}

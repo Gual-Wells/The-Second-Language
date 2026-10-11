@@ -1,0 +1,217 @@
+22:48:52 | INFO: Data are loaded, start creating Blender stuff
+22:48:52 | INFO: Blender create Mesh node geometry_0
+22:48:53 | INFO: glTF import finished in 0.82s
+Blender 4.5.3 LTS (hash 67807e1800cc built 2025-09-09 01:33:33)
+Fra:1 Mem:87.66M (Peak 87.94M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | geometry_0
+Fra:1 Mem:87.66M (Peak 87.94M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Interrupted chased silver ring
+Fra:1 Mem:91.71M (Peak 91.71M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Interrupted chased silver ring.001
+Fra:1 Mem:93.61M (Peak 93.61M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Interrupted chased silver ring.002
+Fra:1 Mem:94.08M (Peak 94.08M) | Time:00:00.01 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Interrupted chased silver ring.003
+Fra:1 Mem:95.31M (Peak 95.31M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Interrupted chased silver ring.004
+Fra:1 Mem:103.74M (Peak 103.74M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Interrupted chased silver ring.005
+Fra:1 Mem:104.21M (Peak 104.21M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Interrupted chased silver ring.006
+Fra:1 Mem:105.44M (Peak 105.44M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Interrupted chased silver ring.007
+Fra:1 Mem:107.11M (Peak 107.11M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Interrupted chased silver ring.008
+Fra:1 Mem:107.58M (Peak 107.58M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale
+Fra:1 Mem:107.65M (Peak 107.65M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.001
+Fra:1 Mem:107.73M (Peak 107.73M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.002
+Fra:1 Mem:107.80M (Peak 107.80M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.003
+Fra:1 Mem:107.87M (Peak 107.87M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.004
+Fra:1 Mem:107.95M (Peak 107.95M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.005
+Fra:1 Mem:108.02M (Peak 108.02M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.006
+Fra:1 Mem:108.09M (Peak 108.09M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.007
+Fra:1 Mem:108.17M (Peak 108.17M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.008
+Fra:1 Mem:108.24M (Peak 108.24M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.009
+Fra:1 Mem:108.31M (Peak 108.31M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.010
+Fra:1 Mem:108.39M (Peak 108.39M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.011
+Fra:1 Mem:108.46M (Peak 108.46M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.012
+Fra:1 Mem:108.53M (Peak 108.53M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.013
+Fra:1 Mem:108.61M (Peak 108.61M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.014
+Fra:1 Mem:108.68M (Peak 108.68M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.015
+Fra:1 Mem:108.75M (Peak 108.75M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.016
+Fra:1 Mem:108.83M (Peak 108.83M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.017
+Fra:1 Mem:108.90M (Peak 108.90M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.018
+Fra:1 Mem:108.97M (Peak 108.97M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.019
+Fra:1 Mem:109.05M (Peak 109.05M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.020
+Fra:1 Mem:109.12M (Peak 109.12M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.021
+Fra:1 Mem:109.19M (Peak 109.19M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.022
+Fra:1 Mem:109.27M (Peak 109.27M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.023
+Fra:1 Mem:109.34M (Peak 109.34M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.024
+Fra:1 Mem:109.41M (Peak 109.41M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.025
+Fra:1 Mem:109.49M (Peak 109.49M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.026
+Fra:1 Mem:109.56M (Peak 109.56M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.027
+Fra:1 Mem:109.63M (Peak 109.63M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.028
+Fra:1 Mem:109.71M (Peak 109.71M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.029
+Fra:1 Mem:109.78M (Peak 109.78M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.030
+Fra:1 Mem:109.85M (Peak 109.85M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.031
+Fra:1 Mem:109.93M (Peak 109.93M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.032
+Fra:1 Mem:110.00M (Peak 110.00M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.033
+Fra:1 Mem:110.07M (Peak 110.07M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.034
+Fra:1 Mem:110.15M (Peak 110.15M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.035
+Fra:1 Mem:110.22M (Peak 110.22M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.036
+Fra:1 Mem:110.29M (Peak 110.29M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Chased hostile lid
+Fra:1 Mem:112.26M (Peak 112.26M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Chased hostile lid.001
+Fra:1 Mem:112.48M (Peak 112.48M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Slit carved into reverse garnet
+Fra:1 Mem:112.56M (Peak 112.56M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Swept angular reverse brow
+Fra:1 Mem:112.63M (Peak 112.63M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Lower fang flourish
+Fra:1 Mem:112.70M (Peak 112.70M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Swept angular reverse brow.001
+Fra:1 Mem:112.78M (Peak 112.78M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Lower fang flourish.001
+Fra:1 Mem:112.85M (Peak 112.85M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Back key
+Fra:1 Mem:112.85M (Peak 112.85M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Fill
+Fra:1 Mem:112.85M (Peak 112.85M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Key
+Fra:1 Mem:112.85M (Peak 112.85M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Reverse eye — solid garnet inset
+Fra:1 Mem:155.42M (Peak 213.86M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Initializing
+Fra:1 Mem:136.79M (Peak 213.86M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Images | Loading Image_1
+Fra:1 Mem:136.79M (Peak 213.86M) | Time:00:00.22 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Images | Loading Image_0
+Fra:1 Mem:167.18M (Peak 213.86M) | Time:00:00.36 | Mem:32.00M, Peak:32.00M | Scene, ViewLayer | Waiting for render to start
+Fra:1 Mem:167.18M (Peak 213.86M) | Time:00:00.36 | Mem:32.00M, Peak:32.00M | Scene, ViewLayer | Updating Scene
+Fra:1 Mem:167.18M (Peak 213.86M) | Time:00:00.36 | Mem:32.00M, Peak:32.00M | Scene, ViewLayer | Updating Shaders
+Fra:1 Mem:167.18M (Peak 213.86M) | Time:00:00.36 | Mem:32.00M, Peak:32.00M | Scene, ViewLayer | Loading render kernels (may take a few minutes the first time)
+Fra:1 Mem:167.26M (Peak 213.86M) | Time:00:00.36 | Mem:32.01M, Peak:32.01M | Scene, ViewLayer | Updating Procedurals
+Fra:1 Mem:167.26M (Peak 213.86M) | Time:00:00.36 | Mem:32.01M, Peak:32.01M | Scene, ViewLayer | Updating Background
+Fra:1 Mem:167.26M (Peak 213.86M) | Time:00:00.36 | Mem:32.01M, Peak:32.01M | Scene, ViewLayer | Updating Camera
+Fra:1 Mem:167.26M (Peak 213.86M) | Time:00:00.36 | Mem:32.01M, Peak:32.01M | Scene, ViewLayer | Updating Meshes Flags
+Fra:1 Mem:167.26M (Peak 213.86M) | Time:00:00.36 | Mem:32.01M, Peak:32.01M | Scene, ViewLayer | Updating Objects
+Fra:1 Mem:167.26M (Peak 213.86M) | Time:00:00.36 | Mem:32.01M, Peak:32.01M | Scene, ViewLayer | Updating Objects | Copying Transformations to device
+Fra:1 Mem:167.28M (Peak 213.86M) | Time:00:00.36 | Mem:32.02M, Peak:32.02M | Scene, ViewLayer | Updating Particle Systems
+Fra:1 Mem:167.28M (Peak 213.86M) | Time:00:00.36 | Mem:32.02M, Peak:32.02M | Scene, ViewLayer | Updating Particle Systems | Copying Particles to device
+Fra:1 Mem:167.28M (Peak 213.86M) | Time:00:00.36 | Mem:32.02M, Peak:32.02M | Scene, ViewLayer | Updating Meshes
+Fra:1 Mem:167.28M (Peak 213.86M) | Time:00:00.36 | Mem:32.02M, Peak:32.02M | Scene, ViewLayer | Updating Objects | Applying Static Transformations
+Fra:1 Mem:167.28M (Peak 213.86M) | Time:00:00.36 | Mem:32.02M, Peak:32.02M | Scene, ViewLayer | Updating Mesh | Computing attributes
+Fra:1 Mem:184.39M (Peak 213.86M) | Time:00:00.37 | Mem:32.02M, Peak:32.02M | Scene, ViewLayer | Updating Mesh | Copying Attributes to device
+Fra:1 Mem:184.38M (Peak 213.86M) | Time:00:00.37 | Mem:49.12M, Peak:49.12M | Scene, ViewLayer | Updating Scene BVH | Building
+Fra:1 Mem:184.38M (Peak 213.86M) | Time:00:00.37 | Mem:49.12M, Peak:49.12M | Scene, ViewLayer | Updating Scene BVH | Building BVH
+Fra:1 Mem:184.38M (Peak 213.86M) | Time:00:00.37 | Mem:69.25M, Peak:69.25M | Scene, ViewLayer | Updating Scene BVH | Building BVH 0%
+Fra:1 Mem:184.38M (Peak 213.86M) | Time:00:00.52 | Mem:93.12M, Peak:113.25M | Scene, ViewLayer | Updating Scene BVH | Copying BVH to device
+Fra:1 Mem:184.38M (Peak 213.86M) | Time:00:00.52 | Mem:93.12M, Peak:113.25M | Scene, ViewLayer | Updating Mesh | Computing normals
+Fra:1 Mem:206.83M (Peak 213.86M) | Time:00:00.53 | Mem:93.12M, Peak:113.25M | Scene, ViewLayer | Updating Mesh | Copying Mesh to device
+Fra:1 Mem:206.83M (Peak 213.86M) | Time:00:00.53 | Mem:115.57M, Peak:115.57M | Scene, ViewLayer | Updating Objects Flags
+Fra:1 Mem:206.83M (Peak 213.86M) | Time:00:00.53 | Mem:115.57M, Peak:115.57M | Scene, ViewLayer | Updating Primitive Offsets
+Fra:1 Mem:206.83M (Peak 213.86M) | Time:00:00.53 | Mem:115.57M, Peak:115.57M | Scene, ViewLayer | Updating Images
+Fra:1 Mem:206.83M (Peak 213.86M) | Time:00:00.53 | Mem:115.57M, Peak:115.57M | Scene, ViewLayer | Updating Camera Volume
+Fra:1 Mem:206.83M (Peak 213.86M) | Time:00:00.53 | Mem:115.57M, Peak:115.57M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:206.83M (Peak 213.86M) | Time:00:00.53 | Mem:115.65M, Peak:115.65M | Scene, ViewLayer | Updating Lights
+Fra:1 Mem:206.83M (Peak 213.86M) | Time:00:00.53 | Mem:115.65M, Peak:115.65M | Scene, ViewLayer | Updating Lights | Computing tree
+Fra:1 Mem:206.83M (Peak 213.86M) | Time:00:00.53 | Mem:115.66M, Peak:115.66M | Scene, ViewLayer | Updating Integrator
+Fra:1 Mem:206.83M (Peak 213.86M) | Time:00:00.53 | Mem:115.66M, Peak:115.66M | Scene, ViewLayer | Updating Film
+Fra:1 Mem:206.84M (Peak 213.86M) | Time:00:00.53 | Mem:115.58M, Peak:115.66M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:206.84M (Peak 213.86M) | Time:00:00.53 | Mem:115.66M, Peak:115.66M | Scene, ViewLayer | Updating Baking
+Fra:1 Mem:206.84M (Peak 213.86M) | Time:00:00.53 | Mem:115.66M, Peak:115.66M | Scene, ViewLayer | Updating Device | Writing constant memory
+Fra:1 Mem:206.84M (Peak 213.86M) | Time:00:00.53 | Mem:115.66M, Peak:115.66M | Scene, ViewLayer | Loading denoising kernels (may take a few minutes the first time)
+Fra:1 Mem:206.84M (Peak 213.86M) | Time:00:00.53 | Mem:115.66M, Peak:115.66M | Scene, ViewLayer | Sample 0/24
+Fra:1 Mem:279.34M (Peak 279.34M) | Time:00:02.62 | Remaining:00:48.04 | Mem:188.15M, Peak:188.15M | Scene, ViewLayer | Sample 1/24
+Fra:1 Mem:279.34M (Peak 279.34M) | Time:00:30.51 | Remaining:00:12.34 | Mem:188.15M, Peak:188.15M | Scene, ViewLayer | Sample 17/24
+Fra:1 Mem:309.86M (Peak 355.64M) | Time:01:07.24 | Mem:188.15M, Peak:188.15M | Scene, ViewLayer | Sample 24/24
+Fra:1 Mem:309.86M (Peak 355.64M) | Time:01:07.24 | Mem:188.15M, Peak:188.15M | Scene, ViewLayer | Finished
+Saved: 'D:\CodexStorage\workspaces\hostile-dragon-coin\kaggle-test\outputs\refinement-study-512\back.png'
+Time: 01:07.79 (Saving: 00:00.53)
+
+Fra:1 Mem:102.49M (Peak 102.65M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | geometry_0
+Fra:1 Mem:102.50M (Peak 102.65M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Interrupted chased silver ring
+Fra:1 Mem:107.84M (Peak 107.84M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Interrupted chased silver ring.001
+Fra:1 Mem:118.13M (Peak 118.13M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Interrupted chased silver ring.002
+Fra:1 Mem:118.60M (Peak 118.60M) | Time:00:00.02 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Interrupted chased silver ring.003
+Fra:1 Mem:119.83M (Peak 119.83M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Interrupted chased silver ring.004
+Fra:1 Mem:121.49M (Peak 121.49M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Interrupted chased silver ring.005
+Fra:1 Mem:121.97M (Peak 121.97M) | Time:00:00.03 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Interrupted chased silver ring.006
+Fra:1 Mem:123.20M (Peak 123.20M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Interrupted chased silver ring.007
+Fra:1 Mem:124.86M (Peak 124.86M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Interrupted chased silver ring.008
+Fra:1 Mem:125.33M (Peak 125.33M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale
+Fra:1 Mem:125.41M (Peak 125.41M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.001
+Fra:1 Mem:125.48M (Peak 125.48M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.002
+Fra:1 Mem:125.55M (Peak 125.55M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.003
+Fra:1 Mem:125.63M (Peak 125.63M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.004
+Fra:1 Mem:125.70M (Peak 125.70M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.005
+Fra:1 Mem:125.77M (Peak 125.77M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.006
+Fra:1 Mem:125.85M (Peak 125.85M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.007
+Fra:1 Mem:125.92M (Peak 125.92M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.008
+Fra:1 Mem:125.99M (Peak 125.99M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.009
+Fra:1 Mem:126.07M (Peak 126.07M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.010
+Fra:1 Mem:126.14M (Peak 126.14M) | Time:00:00.04 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.011
+Fra:1 Mem:126.21M (Peak 126.21M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.012
+Fra:1 Mem:126.29M (Peak 126.29M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.013
+Fra:1 Mem:126.36M (Peak 126.36M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.014
+Fra:1 Mem:126.43M (Peak 126.43M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.015
+Fra:1 Mem:126.51M (Peak 126.51M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.016
+Fra:1 Mem:126.58M (Peak 126.58M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.017
+Fra:1 Mem:126.65M (Peak 126.65M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.018
+Fra:1 Mem:126.73M (Peak 126.73M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.019
+Fra:1 Mem:126.80M (Peak 126.80M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.020
+Fra:1 Mem:126.87M (Peak 126.87M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.021
+Fra:1 Mem:126.95M (Peak 126.95M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.022
+Fra:1 Mem:127.02M (Peak 127.02M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.023
+Fra:1 Mem:127.09M (Peak 127.09M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.024
+Fra:1 Mem:127.17M (Peak 127.17M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.025
+Fra:1 Mem:127.24M (Peak 127.24M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.026
+Fra:1 Mem:127.31M (Peak 127.31M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.027
+Fra:1 Mem:129.67M (Peak 129.67M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.028
+Fra:1 Mem:129.75M (Peak 129.75M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.029
+Fra:1 Mem:129.82M (Peak 129.82M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.030
+Fra:1 Mem:129.89M (Peak 129.89M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.031
+Fra:1 Mem:129.97M (Peak 129.97M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.032
+Fra:1 Mem:130.04M (Peak 130.04M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.033
+Fra:1 Mem:130.11M (Peak 130.11M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.034
+Fra:1 Mem:133.29M (Peak 133.29M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.035
+Fra:1 Mem:133.54M (Peak 133.54M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Hand-cut perimeter scale.036
+Fra:1 Mem:133.80M (Peak 133.80M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Chased hostile lid
+Fra:1 Mem:134.40M (Peak 134.40M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Chased hostile lid.001
+Fra:1 Mem:134.91M (Peak 134.91M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Slit carved into reverse garnet
+Fra:1 Mem:135.16M (Peak 135.16M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Swept angular reverse brow
+Fra:1 Mem:135.39M (Peak 135.39M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Lower fang flourish
+Fra:1 Mem:135.61M (Peak 135.61M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Swept angular reverse brow.001
+Fra:1 Mem:135.79M (Peak 135.79M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Lower fang flourish.001
+Fra:1 Mem:135.98M (Peak 135.98M) | Time:00:00.05 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Back key
+Fra:1 Mem:136.00M (Peak 136.00M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Fill
+Fra:1 Mem:136.01M (Peak 136.01M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Key
+Fra:1 Mem:136.02M (Peak 136.02M) | Time:00:00.06 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Synchronizing object | Reverse eye — solid garnet inset
+Fra:1 Mem:155.42M (Peak 213.87M) | Time:00:00.36 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Initializing
+Fra:1 Mem:136.79M (Peak 213.87M) | Time:00:00.36 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Images | Loading Image_1
+Fra:1 Mem:136.79M (Peak 213.87M) | Time:00:00.37 | Mem:0.00M, Peak:0.00M | Scene, ViewLayer | Updating Images | Loading Image_0
+Fra:1 Mem:167.18M (Peak 213.87M) | Time:00:00.55 | Mem:32.00M, Peak:32.00M | Scene, ViewLayer | Waiting for render to start
+Fra:1 Mem:167.18M (Peak 213.87M) | Time:00:00.55 | Mem:32.00M, Peak:32.00M | Scene, ViewLayer | Updating Scene
+Fra:1 Mem:167.18M (Peak 213.87M) | Time:00:00.55 | Mem:32.00M, Peak:32.00M | Scene, ViewLayer | Updating Shaders
+Fra:1 Mem:167.18M (Peak 213.87M) | Time:00:00.55 | Mem:32.00M, Peak:32.00M | Scene, ViewLayer | Loading render kernels (may take a few minutes the first time)
+Fra:1 Mem:167.26M (Peak 213.87M) | Time:00:00.55 | Mem:32.01M, Peak:32.01M | Scene, ViewLayer | Updating Procedurals
+Fra:1 Mem:167.26M (Peak 213.87M) | Time:00:00.55 | Mem:32.01M, Peak:32.01M | Scene, ViewLayer | Updating Background
+Fra:1 Mem:167.26M (Peak 213.87M) | Time:00:00.55 | Mem:32.01M, Peak:32.01M | Scene, ViewLayer | Updating Camera
+Fra:1 Mem:167.26M (Peak 213.87M) | Time:00:00.55 | Mem:32.01M, Peak:32.01M | Scene, ViewLayer | Updating Meshes Flags
+Fra:1 Mem:167.26M (Peak 213.87M) | Time:00:00.55 | Mem:32.01M, Peak:32.01M | Scene, ViewLayer | Updating Objects
+Fra:1 Mem:167.26M (Peak 213.87M) | Time:00:00.55 | Mem:32.01M, Peak:32.01M | Scene, ViewLayer | Updating Objects | Copying Transformations to device
+Fra:1 Mem:167.28M (Peak 213.87M) | Time:00:00.55 | Mem:32.02M, Peak:32.02M | Scene, ViewLayer | Updating Particle Systems
+Fra:1 Mem:167.28M (Peak 213.87M) | Time:00:00.55 | Mem:32.02M, Peak:32.02M | Scene, ViewLayer | Updating Particle Systems | Copying Particles to device
+Fra:1 Mem:167.28M (Peak 213.87M) | Time:00:00.55 | Mem:32.02M, Peak:32.02M | Scene, ViewLayer | Updating Meshes
+Fra:1 Mem:167.28M (Peak 213.87M) | Time:00:00.55 | Mem:32.02M, Peak:32.02M | Scene, ViewLayer | Updating Objects | Applying Static Transformations
+Fra:1 Mem:167.28M (Peak 213.87M) | Time:00:00.55 | Mem:32.02M, Peak:32.02M | Scene, ViewLayer | Updating Mesh | Computing attributes
+Fra:1 Mem:184.39M (Peak 213.87M) | Time:00:00.56 | Mem:32.02M, Peak:32.02M | Scene, ViewLayer | Updating Mesh | Copying Attributes to device
+Fra:1 Mem:184.38M (Peak 213.87M) | Time:00:00.56 | Mem:49.12M, Peak:49.12M | Scene, ViewLayer | Updating Scene BVH | Building
+Fra:1 Mem:184.38M (Peak 213.87M) | Time:00:00.56 | Mem:49.12M, Peak:49.12M | Scene, ViewLayer | Updating Scene BVH | Building BVH
+Fra:1 Mem:184.38M (Peak 213.87M) | Time:00:00.56 | Mem:69.25M, Peak:69.25M | Scene, ViewLayer | Updating Scene BVH | Building BVH 0%
+Fra:1 Mem:184.38M (Peak 213.87M) | Time:00:00.75 | Mem:93.12M, Peak:113.25M | Scene, ViewLayer | Updating Scene BVH | Copying BVH to device
+Fra:1 Mem:184.38M (Peak 213.87M) | Time:00:00.75 | Mem:93.12M, Peak:113.25M | Scene, ViewLayer | Updating Mesh | Computing normals
+Fra:1 Mem:206.83M (Peak 213.87M) | Time:00:00.77 | Mem:93.12M, Peak:113.25M | Scene, ViewLayer | Updating Mesh | Copying Mesh to device
+Fra:1 Mem:206.83M (Peak 213.87M) | Time:00:00.77 | Mem:115.57M, Peak:115.57M | Scene, ViewLayer | Updating Objects Flags
+Fra:1 Mem:206.83M (Peak 213.87M) | Time:00:00.77 | Mem:115.57M, Peak:115.57M | Scene, ViewLayer | Updating Primitive Offsets
+Fra:1 Mem:206.83M (Peak 213.87M) | Time:00:00.77 | Mem:115.57M, Peak:115.57M | Scene, ViewLayer | Updating Images
+Fra:1 Mem:206.83M (Peak 213.87M) | Time:00:00.77 | Mem:115.57M, Peak:115.57M | Scene, ViewLayer | Updating Camera Volume
+Fra:1 Mem:206.83M (Peak 213.87M) | Time:00:00.77 | Mem:115.57M, Peak:115.57M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:206.83M (Peak 213.87M) | Time:00:00.77 | Mem:115.65M, Peak:115.65M | Scene, ViewLayer | Updating Lights
+Fra:1 Mem:206.83M (Peak 213.87M) | Time:00:00.77 | Mem:115.65M, Peak:115.65M | Scene, ViewLayer | Updating Lights | Computing tree
+Fra:1 Mem:206.83M (Peak 213.87M) | Time:00:00.77 | Mem:115.66M, Peak:115.66M | Scene, ViewLayer | Updating Integrator
+Fra:1 Mem:206.83M (Peak 213.87M) | Time:00:00.77 | Mem:115.66M, Peak:115.66M | Scene, ViewLayer | Updating Film
+Fra:1 Mem:206.84M (Peak 213.87M) | Time:00:00.77 | Mem:115.58M, Peak:115.66M | Scene, ViewLayer | Updating Lookup Tables
+Fra:1 Mem:206.84M (Peak 213.87M) | Time:00:00.77 | Mem:115.66M, Peak:115.66M | Scene, ViewLayer | Updating Baking
+Fra:1 Mem:206.84M (Peak 213.87M) | Time:00:00.77 | Mem:115.66M, Peak:115.66M | Scene, ViewLayer | Updating Device | Writing constant memory
+Fra:1 Mem:206.84M (Peak 213.87M) | Time:00:00.77 | Mem:115.66M, Peak:115.66M | Scene, ViewLayer | Loading denoising kernels (may take a few minutes the first time)
+Fra:1 Mem:206.84M (Peak 213.87M) | Time:00:00.77 | Mem:115.66M, Peak:115.66M | Scene, ViewLayer | Sample 0/24
+Fra:1 Mem:279.34M (Peak 279.34M) | Time:00:02.22 | Remaining:00:33.35 | Mem:188.15M, Peak:188.15M | Scene, ViewLayer | Sample 1/24
+Fra:1 Mem:279.34M (Peak 279.34M) | Time:00:24.97 | Remaining:00:09.96 | Mem:188.15M, Peak:188.15M | Scene, ViewLayer | Sample 17/24
+Fra:1 Mem:309.86M (Peak 355.64M) | Time:01:04.35 | Mem:188.15M, Peak:188.15M | Scene, ViewLayer | Sample 24/24
+Fra:1 Mem:309.86M (Peak 355.64M) | Time:01:04.35 | Mem:188.15M, Peak:188.15M | Scene, ViewLayer | Finished
+Saved: 'D:\CodexStorage\workspaces\hostile-dragon-coin\kaggle-test\outputs\refinement-study-512\front.png'
+Time: 01:04.66 (Saving: 00:00.29)
+
+Info: No new files have been packed
+Info: Saved as "refinement-study.blend"
+{"source": "D:\\CodexStorage\\workspaces\\hostile-dragon-coin\\kaggle-test\\outputs\\remote-generation-recovery\\dragon-generation\\hostile-dragon-source.glb", "stage": "study_rendered", "art_accepted": false, "source_unchanged": true, "changes": [{"operation": "remove mirror relief from central back, preserve outer claws", "vertices_changed": 94624}, {"operation": "independent crafted reverse", "materials": "oxidized silver, silver chase, dark garnet", "symbol": "hostile slit eye", "not_a_texture": true}]}
+
+Blender quit

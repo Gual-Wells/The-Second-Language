@@ -1,0 +1,32 @@
+[{"stream_name":"stderr","time":7.704764948,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":7.704807022,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":7.704813634,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":7.704818018,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":8.361837915,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.361871888,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.361875841,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.361878787,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":20.963372021,"data":"Processing /kaggle/input/notebooks/gualwells/hostile-dragon-t4-geometry-20261011/dragon-geometry/wheels/cumesh-0.0.1-cp313-cp313-linux_x86_64.whl\n"}
+,{"stream_name":"stdout","time":21.037653241,"data":"Processing /kaggle/input/notebooks/gualwells/hostile-dragon-t4-geometry-20261011/dragon-geometry/wheels/nvdiffrast-0.4.0-cp313-cp313-linux_x86_64.whl\n"}
+,{"stream_name":"stdout","time":21.090124566,"data":"Processing /kaggle/input/notebooks/gualwells/hostile-dragon-t4-geometry-20261011/dragon-geometry/wheels/o_voxel-0.0.1-cp313-cp313-linux_x86_64.whl\n"}
+,{"stream_name":"stdout","time":21.146749085,"data":"Processing /kaggle/input/notebooks/gualwells/hostile-dragon-t4-compatibility-20261011/dragon-compat/wheels/flex_gemm-1.0.0-cp313-cp313-linux_x86_64.whl\n"}
+,{"stream_name":"stdout","time":21.161876405,"data":"Installing collected packages: o-voxel, nvdiffrast, flex-gemm, cumesh\n"}
+,{"stream_name":"stdout","time":21.16627753,"data":"Processing /kaggle/input/notebooks/gualwells/hostile-dragon-t4-geometry-20261011/dragon-geometry/wheels/cumesh-0.0.1-cp313-cp313-linux_x86_64.whl\n"}
+,{"stream_name":"stdout","time":21.166292934,"data":"Processing /kaggle/input/notebooks/gualwells/hostile-dragon-t4-geometry-20261011/dragon-geometry/wheels/nvdiffrast-0.4.0-cp313-cp313-linux_x86_64.whl\n"}
+,{"stream_name":"stdout","time":21.166297366,"data":"Processing /kaggle/input/notebooks/gualwells/hostile-dragon-t4-geometry-20261011/dragon-geometry/wheels/o_voxel-0.0.1-cp313-cp313-linux_x86_64.whl\n"}
+,{"stream_name":"stdout","time":21.166301488,"data":"Processing /kaggle/input/notebooks/gualwells/hostile-dragon-t4-compatibility-20261011/dragon-compat/wheels/flex_gemm-1.0.0-cp313-cp313-linux_x86_64.whl\n"}
+,{"stream_name":"stdout","time":21.166305818,"data":"Installing collected packages: o-voxel, nvdiffrast, flex-gemm, cumesh\n"}
+,{"stream_name":"stdout","time":22.166585327,"data":"Successfully installed cumesh-0.0.1 flex-gemm-1.0.0 nvdiffrast-0.4.0 o-voxel-0.0.1\n"}
+,{"stream_name":"stdout","time":22.292159023,"data":"Successfully installed cumesh-0.0.1 flex-gemm-1.0.0 nvdiffrast-0.4.0 o-voxel-0.0.1\n"}
+,{"stream_name":"stdout","time":22.292185867,"data":"{\"started_at\": \"2026-10-11T11:08:06.043514+00:00\", \"model_generated\": false, \"tests\": {}, \"stage\": \"attention_test\", \"elapsed_seconds\": 12.71}\n"}
+,{"stream_name":"stdout","time":23.236232864,"data":"{\"started_at\": \"2026-10-11T11:08:06.043514+00:00\", \"model_generated\": false, \"tests\": {\"memory_efficient_fp32_attention\": {\"finite\": true, \"max_abs_vs_math\": 1.0967254638671875e-05}}, \"stage\": \"tiny_glb_export\", \"elapsed_seconds\": 13.67}\n"}
+,{"stream_name":"stdout","time":23.241360281,"data":"{\"started_at\": \"2026-10-11T11:08:06.043514+00:00\", \"model_generated\": false, \"tests\": {\"memory_efficient_fp32_attention\": {\"finite\": true, \"max_abs_vs_math\": 1.0967254638671875e-05}}, \"stage\": \"runtime_export_failed\", \"elapsed_seconds\": 13.68, \"error\": \"Traceback (most recent call last):\\n  File \\\"/tmp/ipykernel_23/753108155.py\\\", line 35, in \u003ccell line: 0\u003e\\n    import o_voxel.postprocess\\n  File \\\"/usr/local/lib/python3.13/dist-packages/o_voxel/__init__.py\\\", line 1, in \u003cmodule\u003e\\n    from . import (\\n    ...\u003c5 lines\u003e...\\n    )\\n  File \\\"/usr/local/lib/python3.13/dist-packages/o_voxel/convert/__init__.py\\\", line 2, in \u003cmodule\u003e\\n    from .volumetic_attr import *\\n  File \\\"/usr/local/lib/python3.13/dist-packages/o_voxel/convert/volumetic_attr.py\\\", line 7, in \u003cmodule\u003e\\n    import trimesh\\nModuleNotFoundError: No module named 'trimesh'\\n\"}\n"}
+,{"stream_name":"stderr","time":29.048986292,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":29.049012027,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":29.214228656,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":29.214251844,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":29.938969607,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":30.008121779,"data":"[NbConvertApp] Writing 8300 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":32.424362829,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":32.921295817,"data":"[NbConvertApp] Writing 297826 bytes to __results__.html\n"}
+]

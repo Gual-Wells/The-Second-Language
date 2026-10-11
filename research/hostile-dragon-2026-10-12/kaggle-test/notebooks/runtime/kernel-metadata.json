@@ -1,0 +1,18 @@
+{
+  "id": "gualwells/hostile-dragon-t4-runtime-20261011",
+  "title": "Hostile Dragon T4 Runtime 20261011",
+  "code_file": "geometry.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [
+    "gualwells/hostile-dragon-t4-geometry-20261011",
+    "gualwells/hostile-dragon-t4-compatibility-20261011"
+  ],
+  "model_sources": []
+}

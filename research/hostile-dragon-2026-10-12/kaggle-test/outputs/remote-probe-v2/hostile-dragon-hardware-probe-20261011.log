@@ -1,0 +1,48 @@
+[{"stream_name":"stderr","time":8.951569704,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":8.951626353,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":8.951633563,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":8.951637622,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":9.742319874,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":9.742360836,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":9.742367294,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":9.742371859,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":78.873091958,"data":"{\n"}
+,{"stream_name":"stdout","time":78.873128979,"data":"  \"stage\": \"hardware_probe\",\n"}
+,{"stream_name":"stdout","time":78.873134629,"data":"  \"generated_at\": \"2026-10-11T09:17:56.422188+00:00\",\n"}
+,{"stream_name":"stdout","time":78.873139876,"data":"  \"python\": \"3.13.15\",\n"}
+,{"stream_name":"stdout","time":78.873143041,"data":"  \"system\": \"Linux\",\n"}
+,{"stream_name":"stdout","time":78.873146118,"data":"  \"gpu_devices\": [],\n"}
+,{"stream_name":"stdout","time":78.873149365,"data":"  \"model_generated\": false,\n"}
+,{"stream_name":"stdout","time":78.873153614,"data":"  \"disk_free_gib\": 19.5,\n"}
+,{"stream_name":"stdout","time":78.873158533,"data":"  \"installed_modules\": {\n"}
+,{"stream_name":"stdout","time":78.873163028,"data":"    \"torch\": true,\n"}
+,{"stream_name":"stdout","time":78.8731675,"data":"    \"flash_attn\": false,\n"}
+,{"stream_name":"stdout","time":78.873172229,"data":"    \"xformers\": false,\n"}
+,{"stream_name":"stdout","time":78.87317713,"data":"    \"flex_gemm\": false,\n"}
+,{"stream_name":"stdout","time":78.873182087,"data":"    \"cumesh\": false,\n"}
+,{"stream_name":"stdout","time":78.87318691,"data":"    \"o_voxel\": false\n"}
+,{"stream_name":"stdout","time":78.873191419,"data":"  },\n"}
+,{"stream_name":"stdout","time":78.873195876,"data":"  \"torch_version\": \"2.11.0+cpu\",\n"}
+,{"stream_name":"stdout","time":78.873200444,"data":"  \"torch_cuda_version\": null,\n"}
+,{"stream_name":"stdout","time":78.873205034,"data":"  \"cuda_available\": false,\n"}
+,{"stream_name":"stdout","time":78.873209714,"data":"  \"candidate_route\": \"no_gpu_assigned\",\n"}
+,{"stream_name":"stdout","time":78.873214412,"data":"  \"nvcc\": \"unavailable\",\n"}
+,{"stream_name":"stdout","time":78.873218909,"data":"  \"network\": {\n"}
+,{"stream_name":"stdout","time":78.873223672,"data":"    \"github\": {\n"}
+,{"stream_name":"stdout","time":78.873228501,"data":"      \"error\": \"\u003curlopen error [Errno -3] Temporary failure in name resolution\u003e\"\n"}
+,{"stream_name":"stdout","time":78.873234116,"data":"    },\n"}
+,{"stream_name":"stdout","time":78.873238524,"data":"    \"model_config\": {\n"}
+,{"stream_name":"stdout","time":78.873242875,"data":"      \"error\": \"\u003curlopen error [Errno -3] Temporary failure in name resolution\u003e\"\n"}
+,{"stream_name":"stdout","time":78.873247666,"data":"    }\n"}
+,{"stream_name":"stdout","time":78.873252032,"data":"  },\n"}
+,{"stream_name":"stdout","time":78.873256561,"data":"  \"elapsed_seconds\": 67.81\n"}
+,{"stream_name":"stdout","time":78.873275114,"data":"}\n"}
+,{"stream_name":"stderr","time":82.73782824,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":82.737863582,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":82.953157884,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":82.953187111,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":83.867590498,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":83.962305656,"data":"[NbConvertApp] Writing 8560 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":87.223060189,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":87.874345347,"data":"[NbConvertApp] Writing 295998 bytes to __results__.html\n"}
+]

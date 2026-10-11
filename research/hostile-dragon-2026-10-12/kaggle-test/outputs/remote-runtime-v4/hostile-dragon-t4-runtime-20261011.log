@@ -1,0 +1,121 @@
+[{"stream_name":"stderr","time":5.941801882,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":5.941862198,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":5.941868948,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":5.94187308,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":6.504233242,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":6.5043049029999995,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":6.504312978,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":6.504316703,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":16.07024943,"data":"Collecting trimesh\n"}
+,{"stream_name":"stdout","time":16.236104559,"data":"  Downloading trimesh-5.1.1-py3-none-any.whl.metadata (13 kB)\n"}
+,{"stream_name":"stdout","time":16.265418141,"data":"Requirement already satisfied: opencv-python-headless in /usr/local/lib/python3.13/dist-packages (4.14.0.94)\n"}
+,{"stream_name":"stdout","time":16.266782389,"data":"Requirement already satisfied: pillow in /usr/local/lib/python3.13/dist-packages (12.3.0)\n"}
+,{"stream_name":"stdout","time":16.27236468,"data":"Collecting trimesh\n"}
+,{"stream_name":"stdout","time":16.27238226,"data":"  Downloading trimesh-5.1.1-py3-none-any.whl.metadata (13 kB)\n"}
+,{"stream_name":"stdout","time":16.272386584,"data":"Requirement already satisfied: opencv-python-headless in /usr/local/lib/python3.13/dist-packages (4.14.0.94)\n"}
+,{"stream_name":"stdout","time":16.272389941,"data":"Requirement already satisfied: pillow in /usr/local/lib/python3.13/dist-packages (12.3.0)\n"}
+,{"stream_name":"stdout","time":16.273913261,"data":"Requirement already satisfied: scipy in /usr/local/lib/python3.13/dist-packages (1.16.3)\n"}
+,{"stream_name":"stdout","time":16.274941252,"data":"Requirement already satisfied: zstandard in /usr/local/lib/python3.13/dist-packages (0.25.0)\n"}
+,{"stream_name":"stdout","time":16.278035565,"data":"Requirement already satisfied: tqdm in /usr/local/lib/python3.13/dist-packages (4.67.3)\n"}
+,{"stream_name":"stdout","time":16.357319623,"data":"Collecting plyfile\n"}
+,{"stream_name":"stdout","time":16.408513355,"data":"  Downloading plyfile-1.1.5-py3-none-any.whl.metadata (43 kB)\n"}
+,{"stream_name":"stdout","time":16.471652493,"data":"     ������������������������������������������������������������������������������ 43.3/43.3 kB 587.2 kB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":16.47595362,"data":"Requirement already satisfied: scipy in /usr/local/lib/python3.13/dist-packages (1.16.3)\n"}
+,{"stream_name":"stdout","time":16.475968855,"data":"Requirement already satisfied: zstandard in /usr/local/lib/python3.13/dist-packages (0.25.0)\n"}
+,{"stream_name":"stdout","time":16.47597379,"data":"Requirement already satisfied: tqdm in /usr/local/lib/python3.13/dist-packages (4.67.3)\n"}
+,{"stream_name":"stdout","time":16.475977717,"data":"Collecting plyfile\n"}
+,{"stream_name":"stdout","time":16.475981282,"data":"  Downloading plyfile-1.1.5-py3-none-any.whl.metadata (43 kB)\n"}
+,{"stream_name":"stdout","time":16.475984624,"data":"     ������������������������������������������������������������������������������ 43.3/43.3 kB 587.2 kB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":16.483167315,"data":"Requirement already satisfied: easydict in /usr/local/lib/python3.13/dist-packages (1.13)\n"}
+,{"stream_name":"stdout","time":16.493091572,"data":"Requirement already satisfied: numpy\u003e=1.21 in /usr/local/lib/python3.13/dist-packages (from trimesh) (2.1.3)\n"}
+,{"stream_name":"stdout","time":16.578430164,"data":"Downloading trimesh-5.1.1-py3-none-any.whl (750 kB)\n"}
+,{"stream_name":"stdout","time":16.68534551,"data":"Requirement already satisfied: easydict in /usr/local/lib/python3.13/dist-packages (1.13)\n"}
+,{"stream_name":"stdout","time":16.685359109,"data":"Requirement already satisfied: numpy\u003e=1.21 in /usr/local/lib/python3.13/dist-packages (from trimesh) (2.1.3)\n"}
+,{"stream_name":"stdout","time":16.685362619,"data":"Downloading trimesh-5.1.1-py3-none-any.whl (750 kB)\n"}
+,{"stream_name":"stdout","time":16.749454299,"data":"   �������������������������������������������������������������������������������� 750.4/750.4 kB 4.4 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":16.799857932,"data":"Downloading plyfile-1.1.5-py3-none-any.whl (36 kB)\n"}
+,{"stream_name":"stdout","time":16.951377825,"data":"   �������������������������������������������������������������������������������� 750.4/750.4 kB 4.4 MB/s eta 0:00:00\n"}
+,{"stream_name":"stdout","time":16.951401713,"data":"Downloading plyfile-1.1.5-py3-none-any.whl (36 kB)\n"}
+,{"stream_name":"stdout","time":18.881156274,"data":"Installing collected packages: trimesh, plyfile\n"}
+,{"stream_name":"stdout","time":19.083891827,"data":"Installing collected packages: trimesh, plyfile\n"}
+,{"stream_name":"stdout","time":19.274351984,"data":"Successfully installed plyfile-1.1.5 trimesh-5.1.1\n"}
+,{"stream_name":"stdout","time":19.476438751,"data":"Successfully installed plyfile-1.1.5 trimesh-5.1.1\n"}
+,{"stream_name":"stdout","time":21.908646893,"data":"Processing /kaggle/input/notebooks/gualwells/hostile-dragon-t4-geometry-20261011/dragon-geometry/wheels/cumesh-0.0.1-cp313-cp313-linux_x86_64.whl\n"}
+,{"stream_name":"stdout","time":21.960710833,"data":"Processing /kaggle/input/notebooks/gualwells/hostile-dragon-t4-geometry-20261011/dragon-geometry/wheels/nvdiffrast-0.4.0-cp313-cp313-linux_x86_64.whl\n"}
+,{"stream_name":"stdout","time":22.013541816,"data":"Processing /kaggle/input/notebooks/gualwells/hostile-dragon-t4-geometry-20261011/dragon-geometry/wheels/o_voxel-0.0.1-cp313-cp313-linux_x86_64.whl\n"}
+,{"stream_name":"stdout","time":22.090117977,"data":"Processing /kaggle/input/notebooks/gualwells/hostile-dragon-t4-compatibility-20261011/dragon-compat/wheels/flex_gemm-1.0.0-cp313-cp313-linux_x86_64.whl\n"}
+,{"stream_name":"stdout","time":22.105697559,"data":"Installing collected packages: o-voxel, nvdiffrast, flex-gemm, cumesh\n"}
+,{"stream_name":"stdout","time":22.110973704,"data":"Processing /kaggle/input/notebooks/gualwells/hostile-dragon-t4-geometry-20261011/dragon-geometry/wheels/cumesh-0.0.1-cp313-cp313-linux_x86_64.whl\n"}
+,{"stream_name":"stdout","time":22.111001457,"data":"Processing /kaggle/input/notebooks/gualwells/hostile-dragon-t4-geometry-20261011/dragon-geometry/wheels/nvdiffrast-0.4.0-cp313-cp313-linux_x86_64.whl\n"}
+,{"stream_name":"stdout","time":22.111006928,"data":"Processing /kaggle/input/notebooks/gualwells/hostile-dragon-t4-geometry-20261011/dragon-geometry/wheels/o_voxel-0.0.1-cp313-cp313-linux_x86_64.whl\n"}
+,{"stream_name":"stdout","time":22.111011472,"data":"Processing /kaggle/input/notebooks/gualwells/hostile-dragon-t4-compatibility-20261011/dragon-compat/wheels/flex_gemm-1.0.0-cp313-cp313-linux_x86_64.whl\n"}
+,{"stream_name":"stdout","time":22.111015986,"data":"Installing collected packages: o-voxel, nvdiffrast, flex-gemm, cumesh\n"}
+,{"stream_name":"stdout","time":23.196452182,"data":"Successfully installed cumesh-0.0.1 flex-gemm-1.0.0 nvdiffrast-0.4.0 o-voxel-0.0.1\n"}
+,{"stream_name":"stdout","time":23.316285335,"data":"Successfully installed cumesh-0.0.1 flex-gemm-1.0.0 nvdiffrast-0.4.0 o-voxel-0.0.1\n"}
+,{"stream_name":"stdout","time":23.316314127,"data":"{\"started_at\": \"2026-10-11T11:38:10.876880+00:00\", \"model_generated\": false, \"tests\": {}, \"stage\": \"attention_test\", \"elapsed_seconds\": 15.79}\n"}
+,{"stream_name":"stdout","time":24.039404134,"data":"{\"started_at\": \"2026-10-11T11:38:10.876880+00:00\", \"model_generated\": false, \"tests\": {\"memory_efficient_fp32_attention\": {\"finite\": true, \"max_abs_vs_math\": 9.775161743164062e-06}}, \"stage\": \"tiny_glb_export\", \"elapsed_seconds\": 16.53}\n"}
+,{"stream_name":"stdout","time":27.064723784,"data":"Original mesh: 8 vertices, 12 faces\n"}
+,{"stream_name":"stdout","time":27.064757227,"data":"After filling holes: 8 vertices, 12 faces\n"}
+,{"stream_name":"stdout","time":27.115379509,"data":"Building BVH for current mesh...Done\n"}
+,{"stream_name":"stdout","time":27.115403025,"data":"Cleaning mesh...\n"}
+,{"stream_name":"stdout","time":27.115407638,"data":"After inital simplification: 8 vertices, 12 faces\n"}
+,{"stream_name":"stdout","time":27.115411062,"data":"After initial cleanup: 8 vertices, 12 faces\n"}
+,{"stream_name":"stdout","time":27.115414586,"data":"After final simplification: 8 vertices, 12 faces\n"}
+,{"stream_name":"stdout","time":27.115417651,"data":"After final cleanup: 8 vertices, 12 faces\n"}
+,{"stream_name":"stdout","time":27.11542084,"data":"Done\n"}
+,{"stream_name":"stdout","time":27.115424465,"data":"Parameterizing new mesh...\n"}
+,{"stream_name":"stdout","time":27.115428372,"data":"Get 3 clusters after fast clustering\n"}
+,{"stream_name":"stderr","time":27.117064744,"data":"\rAdding clusters to xatlas:   0%|          | 0/3 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stderr","time":27.120894691,"data":"\rAdding clusters to xatlas:   0%|          | 0/3 [00:00\u003c?, ?it/s]\rAdding clusters to xatlas: 100%|��������������������| 3/3 [00:00\u003c00:00, 707.22it/s]\n"}
+,{"stream_name":"stderr","time":27.121912875,"data":"\rAdding clusters to xatlas: 100%|��������������������| 3/3 [00:00\u003c00:00, 707.22it/s]\n"}
+,{"stream_name":"stderr","time":27.121931214,"data":"\n"}
+,{"stream_name":"stderr","time":27.121935574,"data":"\n"}
+,{"stream_name":"stderr","time":27.122989511,"data":"\rxatlas: Computing charts:   0%|          | 0/100 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stderr","time":27.124092381,"data":"\rxatlas: Computing charts:   0%|          | 0/100 [00:00\u003c?, ?it/s]\rxatlas: Computing charts:   0%|          | 0/100 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stderr","time":27.125209631,"data":"\rxatlas: Computing charts:   0%|          | 0/100 [00:00\u003c?, ?it/s]\rxatlas: Computing charts:  17%|����        | 17/100 [00:00\u003c00:00, 21361.04it/s]\n"}
+,{"stream_name":"stderr","time":27.126449929,"data":"\rxatlas: Computing charts:  17%|����        | 17/100 [00:00\u003c00:00, 21361.04it/s]\rxatlas: Computing charts:  34%|��������      | 34/100 [00:00\u003c00:00, 21925.94it/s]\n"}
+,{"stream_name":"stderr","time":27.127301843,"data":"\rxatlas: Computing charts:  34%|��������      | 34/100 [00:00\u003c00:00, 21925.94it/s]\rxatlas: Computing charts:  50%|����������     | 50/100 [00:00\u003c00:00, 13041.99it/s]\n"}
+,{"stream_name":"stderr","time":27.128517861,"data":"\rxatlas: Computing charts:  50%|����������     | 50/100 [00:00\u003c00:00, 13041.99it/s]\rxatlas: Computing charts: 100%|��������������������| 100/100 [00:00\u003c00:00, 18735.44it/s]\n"}
+,{"stream_name":"stderr","time":27.129365404,"data":"\rxatlas: Computing charts: 100%|��������������������| 100/100 [00:00\u003c00:00, 18735.44it/s]\rxatlas: Computing charts: 100%|��������������������| 100/100 [00:00\u003c00:00, 16861.52it/s]\n"}
+,{"stream_name":"stderr","time":27.130085733,"data":"\rxatlas: Computing charts: 100%|��������������������| 100/100 [00:00\u003c00:00, 16861.52it/s]\n"}
+,{"stream_name":"stderr","time":27.130098003,"data":"\n"}
+,{"stream_name":"stderr","time":27.130101615,"data":"\n"}
+,{"stream_name":"stderr","time":27.131094195,"data":"\rxatlas: Packing charts:   0%|          | 0/100 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stderr","time":27.131857066,"data":"\rxatlas: Packing charts:   0%|          | 0/100 [00:00\u003c?, ?it/s]\rxatlas: Packing charts:   0%|          | 0/100 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stderr","time":27.134134282,"data":"\rxatlas: Packing charts:   0%|          | 0/100 [00:00\u003c?, ?it/s]\rxatlas: Packing charts:  16%|����        | 16/100 [00:00\u003c00:00, 5862.57it/s]\n"}
+,{"stream_name":"stderr","time":27.136608236,"data":"\rxatlas: Packing charts:  16%|����        | 16/100 [00:00\u003c00:00, 5862.57it/s]\rxatlas: Packing charts:  33%|��������      | 33/100 [00:00\u003c00:00, 6354.42it/s]\n"}
+,{"stream_name":"stderr","time":27.139047654,"data":"\rxatlas: Packing charts:  33%|��������      | 33/100 [00:00\u003c00:00, 6354.42it/s]\rxatlas: Packing charts:  50%|����������     | 50/100 [00:00\u003c00:00, 6556.88it/s]\n"}
+,{"stream_name":"stderr","time":27.141565067,"data":"\rxatlas: Packing charts:  50%|����������     | 50/100 [00:00\u003c00:00, 6556.88it/s]\rxatlas: Packing charts:  66%|��������������   | 66/100 [00:00\u003c00:00, 6497.61it/s]\n"}
+,{"stream_name":"stderr","time":27.144294476,"data":"\rxatlas: Packing charts:  66%|��������������   | 66/100 [00:00\u003c00:00, 6497.61it/s]\rxatlas: Packing charts:  83%|������������������ | 83/100 [00:00\u003c00:00, 6466.92it/s]\n"}
+,{"stream_name":"stderr","time":27.146803387,"data":"\rxatlas: Packing charts:  83%|������������������ | 83/100 [00:00\u003c00:00, 6466.92it/s]\rxatlas: Packing charts: 100%|��������������������| 100/100 [00:00\u003c00:00, 6536.03it/s]\n"}
+,{"stream_name":"stderr","time":27.148531181,"data":"\rxatlas: Packing charts: 100%|��������������������| 100/100 [00:00\u003c00:00, 6536.03it/s]\rxatlas: Packing charts: 100%|��������������������| 100/100 [00:00\u003c00:00, 5922.32it/s]\n"}
+,{"stream_name":"stderr","time":27.149261344,"data":"\rxatlas: Packing charts: 100%|��������������������| 100/100 [00:00\u003c00:00, 5922.32it/s]\n"}
+,{"stream_name":"stderr","time":27.149322566,"data":"\n"}
+,{"stream_name":"stderr","time":27.149328438,"data":"\n"}
+,{"stream_name":"stderr","time":27.150058388,"data":"\rxatlas: Building output meshes:   0%|          | 0/100 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stderr","time":27.150910336,"data":"\rxatlas: Building output meshes:   0%|          | 0/100 [00:00\u003c?, ?it/s]\rxatlas: Building output meshes:   0%|          | 0/100 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stderr","time":27.151677115,"data":"\rxatlas: Building output meshes:   0%|          | 0/100 [00:00\u003c?, ?it/s]\rxatlas: Building output meshes:  33%|��������      | 33/100 [00:00\u003c00:00, 48736.63it/s]\n"}
+,{"stream_name":"stderr","time":27.152499449,"data":"\rxatlas: Building output meshes:  33%|��������      | 33/100 [00:00\u003c00:00, 48736.63it/s]\rxatlas: Building output meshes:  66%|��������������   | 66/100 [00:00\u003c00:00, 47312.27it/s]\n"}
+,{"stream_name":"stderr","time":27.153356347,"data":"\rxatlas: Building output meshes:  66%|��������������   | 66/100 [00:00\u003c00:00, 47312.27it/s]\rxatlas: Building output meshes: 100%|��������������������| 100/100 [00:00\u003c00:00, 42264.25it/s]\n"}
+,{"stream_name":"stderr","time":27.154194506,"data":"\rxatlas: Building output meshes: 100%|��������������������| 100/100 [00:00\u003c00:00, 42264.25it/s]\rxatlas: Building output meshes: 100%|��������������������| 100/100 [00:00\u003c00:00, 34281.19it/s]\n"}
+,{"stream_name":"stderr","time":27.154933991,"data":"\rxatlas: Building output meshes: 100%|��������������������| 100/100 [00:00\u003c00:00, 34281.19it/s]\n"}
+,{"stream_name":"stderr","time":27.15497326,"data":"\n"}
+,{"stream_name":"stderr","time":27.154978449,"data":"\n"}
+,{"stream_name":"stderr","time":27.155760253,"data":"\rGathering results from xatlas:   0%|          | 0/3 [00:00\u003c?, ?it/s]\n"}
+,{"stream_name":"stderr","time":27.160092263,"data":"\rGathering results from xatlas:   0%|          | 0/3 [00:00\u003c?, ?it/s]\rGathering results from xatlas: 100%|��������������������| 3/3 [00:00\u003c00:00, 962.51it/s]\n"}
+,{"stream_name":"stdout","time":27.162152337,"data":"Done\n"}
+,{"stream_name":"stderr","time":27.31681113,"data":"\rGathering results from xatlas: 100%|��������������������| 3/3 [00:00\u003c00:00, 962.51it/s]\n"}
+,{"stream_name":"stderr","time":27.316847785,"data":"\n"}
+,{"stream_name":"stderr","time":27.316852456,"data":"\n"}
+,{"stream_name":"stdout","time":32.491569264,"data":"Sampling attributes...Done\n"}
+,{"stream_name":"stdout","time":32.582587666,"data":"Finalizing mesh...Done\n"}
+,{"stream_name":"stdout","time":32.582611061,"data":"{\"started_at\": \"2026-10-11T11:38:10.876880+00:00\", \"model_generated\": false, \"tests\": {\"memory_efficient_fp32_attention\": {\"finite\": true, \"max_abs_vs_math\": 9.775161743164062e-06}, \"glb_export\": {\"bytes\": 6692, \"sha256\": \"58830613607d68f2bd53f0f33bdbd8c099d64c8d5d63a5d8fa43d83c6459dbd4\", \"technical_only\": true}}, \"stage\": \"runtime_export_completed\", \"elapsed_seconds\": 25.07}\n"}
+,{"stream_name":"stderr","time":38.204041363,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":38.204068646,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":38.361006993,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":38.361033532,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":39.093435631,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":39.173480412,"data":"[NbConvertApp] Writing 10872 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":41.741687157,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":42.276122594,"data":"[NbConvertApp] Writing 302891 bytes to __results__.html\n"}
+]

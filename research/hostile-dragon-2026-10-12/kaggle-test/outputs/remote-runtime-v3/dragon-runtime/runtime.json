@@ -1,0 +1,13 @@
+{
+  "started_at": "2026-10-11T11:34:32.471044+00:00",
+  "model_generated": false,
+  "tests": {
+    "memory_efficient_fp32_attention": {
+      "finite": true,
+      "max_abs_vs_math": 1.239776611328125e-05
+    }
+  },
+  "stage": "runtime_export_failed",
+  "elapsed_seconds": 19.08,
+  "error": "Traceback (most recent call last):\n  File \"/tmp/ipykernel_22/1833180182.py\", line 42, in <cell line: 0>\n    glb=o_voxel.postprocess.to_glb(vertices=v,faces=f,attr_volume=attrs,coords=coords,attr_layout={'base_color':slice(0,3),'metallic':slice(3,4),'roughness':slice(4,5),'alpha':slice(5,6)},aabb=[[-0.5,-0.5,-0.5],[0.5,0.5,0.5]],grid_size=8,decimation_target=4,texture_size=64,remesh=False,verbose=True)\n  File \"/usr/local/lib/python3.13/dist-packages/o_voxel/postprocess.py\", line 122, in to_glb\n    bvh = cumesh.cuBVH(vertices, faces)\n  File \"/usr/local/lib/python3.13/dist-packages/cumesh/bvh.py\", line 20, in __init__\n    assert triangles.shape[0] > 8, \"BVH needs at least 8 triangles.\"\n           ^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: BVH needs at least 8 triangles.\n"
+}

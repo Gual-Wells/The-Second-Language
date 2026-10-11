@@ -1,0 +1,14 @@
+{
+  "id": "gualwells/dragon-native-attention-20261011",
+  "title": "Dragon Native Attention 20261011",
+  "code_file": "benchmark.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": false,
+  "dataset_sources": [],
+  "kernel_sources": [],
+  "competition_sources": [],
+  "model_sources": []
+}

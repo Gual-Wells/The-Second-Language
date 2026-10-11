@@ -1,0 +1,16 @@
+{
+  "stage": "repaired_candidate_saved",
+  "art_accepted": false,
+  "geometry_resampled": false,
+  "source_npz_sha256": "761c6520b1d38cef68e4fdd3f4898916e49648bd8413e2c3a79abd4ade5ac6b2",
+  "elapsed_seconds": 171.19,
+  "remesh": true,
+  "remesh_band": 1,
+  "remesh_project": 0,
+  "decimation_target": 1000000,
+  "texture_size": 2048,
+  "bytes": 35042784,
+  "sha256": "2669b9d02622ba8074d83ca3ee36bcf5b0dd91f8c1214a18d1b1ace571897582",
+  "vertices": 692339,
+  "faces": 970261
+}

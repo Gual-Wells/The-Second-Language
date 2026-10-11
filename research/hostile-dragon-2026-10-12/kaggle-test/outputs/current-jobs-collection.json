@@ -1,0 +1,27 @@
+{
+  "stage": "collecting",
+  "started_at": "2026-10-11T15:30:28.906522+00:00",
+  "art_accepted": false,
+  "generation_resubmitted": false,
+  "jobs": {
+    "generation-high": {
+      "kernel": "gualwells/hostile-dragon-high-20261011",
+      "status": "CANCEL_ACKNOWLEDGED",
+      "failure_message": null
+    },
+    "mesh-repair-512": {
+      "kernel": "gualwells/hostile-dragon-mesh-repair-20261011",
+      "status": "COMPLETE",
+      "failure_message": null,
+      "fetch_exit_code": 0,
+      "fetched": true
+    },
+    "attention-benchmark": {
+      "kernel": "gualwells/dragon-native-attention-20261011",
+      "status": "ERROR",
+      "fetch_exit_code": 0,
+      "fetched": true
+    }
+  },
+  "observed_at": "2026-10-11T16:48:54.068089+00:00"
+}

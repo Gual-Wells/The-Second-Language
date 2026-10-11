@@ -1,0 +1,13 @@
+{
+  "checked_at": "2026-10-11T11:06:35.036256+00:00",
+  "weights_downloaded": false,
+  "models": {
+    "facebook/dinov3-vitl16-pretrain-lvd1689m": {
+      "status": 200,
+      "model_type": "dinov3_vit"
+    },
+    "briaai/RMBG-2.0": {
+      "status": 403
+    }
+  }
+}

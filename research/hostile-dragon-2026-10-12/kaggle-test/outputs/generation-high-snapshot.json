@@ -1,0 +1,9 @@
+{
+  "kernel": "gualwells/hostile-dragon-high-20261011",
+  "queried_at": "2026-10-11T15:24:36.265352+00:00",
+  "status": {
+    "status": "RUNNING",
+    "failureMessage": null
+  },
+  "log_characters": 0
+}

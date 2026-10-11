@@ -1,0 +1,17 @@
+{
+  "source": "https://huggingface.co/spaces/microsoft/TRELLIS.2/raw/ebf60b20fc5a4607f90a1c11c0aab0ceeda5429d/app.py",
+  "sha": "ebf60b20fc5a4607f90a1c11c0aab0ceeda5429d",
+  "decorators": [
+    {
+      "line": 385,
+      "source": "@spaces.GPU(duration=120)\ndef image_to_3d(\n    image: Image.Image,\n    seed: int,"
+    },
+    {
+      "line": 507,
+      "source": "@spaces.GPU(duration=120)\ndef extract_glb(\n    state: dict,\n    decimation_target: int,"
+    }
+  ],
+  "has_xlarge": false,
+  "has_glb_export": true,
+  "has_pack_state": true
+}

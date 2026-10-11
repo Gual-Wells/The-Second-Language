@@ -1,0 +1,23 @@
+{
+  "started_at": "2026-10-11T09:42:58.591700+00:00",
+  "model_generated": false,
+  "tests": {
+    "fp16": {
+      "error": "Traceback (most recent call last):\n  File \"/tmp/ipykernel_24/1298727721.py\", line 60, in <cell line: 0>\n    actual,_=spconv.sparse_submanifold_conv3d(feats,coords,(1,8,8,8),weight,bias)\n             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/flex_gemm/ops/spconv/submanifold_conv3d.py\", line 391, in sparse_submanifold_conv3d\n    return SubMConv3dFunction.apply(feats, coords, shape, neighbor_cache, weight, bias, dilation)\n           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/torch/autograd/function.py\", line 596, in apply\n    return super().apply(*args, **kwargs)  # type: ignore[misc]\n           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/flex_gemm/ops/spconv/submanifold_conv3d.py\", line 336, in forward\n    neighbor_cache = SubMConv3dFunction._compute_neighbor_cache(coords, shape, (Kw, Kh, Kd), dilation, need_grad)\n  File \"/usr/local/lib/python3.13/dist-packages/flex_gemm/ops/spconv/submanifold_conv3d.py\", line 55, in _compute_neighbor_cache\n    N, C, W, H, D = shape\n    ^^^^^^^^^^^^^\nValueError: not enough values to unpack (expected 5, got 4)\n"
+    },
+    "bf16": {
+      "error": "Traceback (most recent call last):\n  File \"/tmp/ipykernel_24/1298727721.py\", line 60, in <cell line: 0>\n    actual,_=spconv.sparse_submanifold_conv3d(feats,coords,(1,8,8,8),weight,bias)\n             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/flex_gemm/ops/spconv/submanifold_conv3d.py\", line 391, in sparse_submanifold_conv3d\n    return SubMConv3dFunction.apply(feats, coords, shape, neighbor_cache, weight, bias, dilation)\n           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/torch/autograd/function.py\", line 596, in apply\n    return super().apply(*args, **kwargs)  # type: ignore[misc]\n           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/flex_gemm/ops/spconv/submanifold_conv3d.py\", line 336, in forward\n    neighbor_cache = SubMConv3dFunction._compute_neighbor_cache(coords, shape, (Kw, Kh, Kd), dilation, need_grad)\n  File \"/usr/local/lib/python3.13/dist-packages/flex_gemm/ops/spconv/submanifold_conv3d.py\", line 55, in _compute_neighbor_cache\n    N, C, W, H, D = shape\n    ^^^^^^^^^^^^^\nValueError: not enough values to unpack (expected 5, got 4)\n"
+    }
+  },
+  "stage": "dependency_probe_completed",
+  "torch": "2.11.0+cu128",
+  "cuda": "12.8",
+  "gpu": "Tesla T4",
+  "disk_free_gib": 1069.92,
+  "elapsed_seconds": 228.93,
+  "wheel": {
+    "file": "flex_gemm-1.0.0-cp313-cp313-linux_x86_64.whl",
+    "bytes": 3301361,
+    "sha256": "07b57660b62a728c8e44a7902127127a8e28f2b548cfd274fd3f3f6a3573527c"
+  }
+}

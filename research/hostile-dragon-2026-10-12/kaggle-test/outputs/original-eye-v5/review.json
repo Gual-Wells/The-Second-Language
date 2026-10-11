@@ -1,0 +1,16 @@
+{
+  "stage": "reverted_model_and_views_saved",
+  "art_accepted": false,
+  "removed": [
+    "Near eye \u2014 socket-seated ocular globe",
+    "Dark floor below pupil incision"
+  ],
+  "source_mesh_preserved": true,
+  "source_geometry_sha256": "67267073e959418d72389f3a64cf2db4a68de28a15935a69045a013d8ec0dba4",
+  "user_correction": "The original eye is not defective; evaluate local anatomy only after understanding the global form.",
+  "retained_experiment": "Quiet reverse and official mesh repair remain separate, unaccepted studies.",
+  "views": [
+    "front.png",
+    "front-clay.png"
+  ]
+}

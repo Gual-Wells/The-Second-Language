@@ -1,0 +1,87 @@
+[{"stream_name":"stderr","time":6.30179777,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":6.301849182,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":6.301854774,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":6.301857533,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":6.879266929,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":6.879306652,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":6.8793105390000004,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":6.879313477,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":14.677684545,"data":"{\n"}
+,{"stream_name":"stdout","time":14.677709461,"data":"  \"stage\": \"hardware_probe\",\n"}
+,{"stream_name":"stdout","time":14.677715158,"data":"  \"generated_at\": \"2026-10-11T09:37:58.939742+00:00\",\n"}
+,{"stream_name":"stdout","time":14.677719795,"data":"  \"python\": \"3.13.15\",\n"}
+,{"stream_name":"stdout","time":14.677723603,"data":"  \"system\": \"Linux\",\n"}
+,{"stream_name":"stdout","time":14.677727155,"data":"  \"gpu_devices\": [\n"}
+,{"stream_name":"stdout","time":14.67773071,"data":"    {\n"}
+,{"stream_name":"stdout","time":14.677734238,"data":"      \"index\": 0,\n"}
+,{"stream_name":"stdout","time":14.677737581,"data":"      \"name\": \"Tesla T4\",\n"}
+,{"stream_name":"stdout","time":14.677742898,"data":"      \"total_vram_gib\": 14.56,\n"}
+,{"stream_name":"stdout","time":14.677751145,"data":"      \"compute_capability\": [\n"}
+,{"stream_name":"stdout","time":14.677753577,"data":"        7,\n"}
+,{"stream_name":"stdout","time":14.677755855000001,"data":"        5\n"}
+,{"stream_name":"stdout","time":14.67775813,"data":"      ],\n"}
+,{"stream_name":"stdout","time":14.677760422,"data":"      \"bf16_native\": false,\n"}
+,{"stream_name":"stdout","time":14.677762971,"data":"      \"sdpa_fp16\": {\n"}
+,{"stream_name":"stdout","time":14.677765292,"data":"        \"completed\": true,\n"}
+,{"stream_name":"stdout","time":14.677767675,"data":"        \"finite\": true\n"}
+,{"stream_name":"stdout","time":14.677770294,"data":"      },\n"}
+,{"stream_name":"stdout","time":14.677772647,"data":"      \"sdpa_bf16\": {\n"}
+,{"stream_name":"stdout","time":14.67777488,"data":"        \"completed\": true,\n"}
+,{"stream_name":"stdout","time":14.677777159,"data":"        \"finite\": true\n"}
+,{"stream_name":"stdout","time":14.677779431,"data":"      }\n"}
+,{"stream_name":"stdout","time":14.677781667,"data":"    },\n"}
+,{"stream_name":"stdout","time":14.677783845,"data":"    {\n"}
+,{"stream_name":"stdout","time":14.677786045,"data":"      \"index\": 1,\n"}
+,{"stream_name":"stdout","time":14.677788325,"data":"      \"name\": \"Tesla T4\",\n"}
+,{"stream_name":"stdout","time":14.677790724,"data":"      \"total_vram_gib\": 14.56,\n"}
+,{"stream_name":"stdout","time":14.677793079,"data":"      \"compute_capability\": [\n"}
+,{"stream_name":"stdout","time":14.6777954,"data":"        7,\n"}
+,{"stream_name":"stdout","time":14.677797624,"data":"        5\n"}
+,{"stream_name":"stdout","time":14.6777999,"data":"      ],\n"}
+,{"stream_name":"stdout","time":14.677802149,"data":"      \"bf16_native\": false,\n"}
+,{"stream_name":"stdout","time":14.677812849,"data":"      \"sdpa_fp16\": {\n"}
+,{"stream_name":"stdout","time":14.677815303,"data":"        \"completed\": true,\n"}
+,{"stream_name":"stdout","time":14.677817586,"data":"        \"finite\": true\n"}
+,{"stream_name":"stdout","time":14.677819881,"data":"      },\n"}
+,{"stream_name":"stdout","time":14.677822092,"data":"      \"sdpa_bf16\": {\n"}
+,{"stream_name":"stdout","time":14.677824361999999,"data":"        \"completed\": true,\n"}
+,{"stream_name":"stdout","time":14.677826651,"data":"        \"finite\": true\n"}
+,{"stream_name":"stdout","time":14.677828922,"data":"      }\n"}
+,{"stream_name":"stdout","time":14.677831132,"data":"    }\n"}
+,{"stream_name":"stdout","time":14.677833356,"data":"  ],\n"}
+,{"stream_name":"stdout","time":14.677835586,"data":"  \"model_generated\": false,\n"}
+,{"stream_name":"stdout","time":14.677837915,"data":"  \"disk_free_gib\": 19.5,\n"}
+,{"stream_name":"stdout","time":14.677840326,"data":"  \"installed_modules\": {\n"}
+,{"stream_name":"stdout","time":14.677842625,"data":"    \"torch\": true,\n"}
+,{"stream_name":"stdout","time":14.677844921,"data":"    \"flash_attn\": false,\n"}
+,{"stream_name":"stdout","time":14.677847227,"data":"    \"xformers\": false,\n"}
+,{"stream_name":"stdout","time":14.677849593,"data":"    \"flex_gemm\": false,\n"}
+,{"stream_name":"stdout","time":14.677851879,"data":"    \"cumesh\": false,\n"}
+,{"stream_name":"stdout","time":14.677854261,"data":"    \"o_voxel\": false\n"}
+,{"stream_name":"stdout","time":14.677856551,"data":"  },\n"}
+,{"stream_name":"stdout","time":14.677858969999999,"data":"  \"torch_version\": \"2.11.0+cu128\",\n"}
+,{"stream_name":"stdout","time":14.67786248,"data":"  \"torch_cuda_version\": \"12.8\",\n"}
+,{"stream_name":"stdout","time":14.677866094,"data":"  \"cuda_available\": true,\n"}
+,{"stream_name":"stdout","time":14.677868486,"data":"  \"candidate_route\": \"requires_legacy_gpu_adaptation_not_validated\",\n"}
+,{"stream_name":"stdout","time":14.67787111,"data":"  \"nvcc\": \"nvcc: NVIDIA (R) Cuda compiler driver\\nCopyright (c) 2005-2025 NVIDIA Corporation\\nBuilt on Fri_Feb_21_20:23:50_PST_2025\\nCuda compilation tools, release 12.8, V12.8.93\\nBuild cuda_12.8.r12.8/compiler.35583870_0\\n\",\n"}
+,{"stream_name":"stdout","time":14.677874992,"data":"  \"network\": {\n"}
+,{"stream_name":"stdout","time":14.677877382,"data":"    \"github\": {\n"}
+,{"stream_name":"stdout","time":14.677879646,"data":"      \"status\": 200,\n"}
+,{"stream_name":"stdout","time":14.67788193,"data":"      \"bytes_sampled\": 4096\n"}
+,{"stream_name":"stdout","time":14.677884258,"data":"    },\n"}
+,{"stream_name":"stdout","time":14.677886534,"data":"    \"model_config\": {\n"}
+,{"stream_name":"stdout","time":14.677888839,"data":"      \"status\": 200,\n"}
+,{"stream_name":"stdout","time":14.677891101,"data":"      \"bytes_sampled\": 4096\n"}
+,{"stream_name":"stdout","time":14.6778934,"data":"    }\n"}
+,{"stream_name":"stdout","time":14.677895672,"data":"  },\n"}
+,{"stream_name":"stdout","time":14.677897904,"data":"  \"elapsed_seconds\": 6.75\n"}
+,{"stream_name":"stdout","time":14.677900237,"data":"}\n"}
+,{"stream_name":"stderr","time":19.553228692,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":19.553255013,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":19.699062157,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":19.69911386,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":20.424214368,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":20.498858506,"data":"[NbConvertApp] Writing 9884 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":23.074197399,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":23.584529527,"data":"[NbConvertApp] Writing 297027 bytes to __results__.html\n"}
+]
