@@ -7,6 +7,8 @@ import { practiceRoute } from './practice.js';
 import {balanceRoute} from './balances.js';
 import {questionsRoute} from './questions.js';
 import {chapterTestsRoute} from './chapter-tests.js';
+import {temporaryTestsRoute} from './temporary-tests.js';
+import {expireTemporaryTests,deleteTemporaryTest} from './temporary-test-store.js';
 import {certificationLabRoute} from './certification-lab.js';
 import {storageRoute,permanentBucket,chapterText,storageRequestEnvironment} from './storage.js';
 import {audioConfigRoute} from './audio-config.js';
@@ -70,6 +72,7 @@ async function route(request, env) {
   if(path.startsWith('/api/balances'))return balanceRoute(request,env,{isPublisher:publisher(request,env),session:await sessionFor(request,env),sameOrigin:sameOrigin(request,env)});
   if(path==='/api/questions'||path.startsWith('/api/questions/'))return questionsRoute(request,env,{isPublisher:publisher(request,env),session:await sessionFor(request,env),sameOrigin:sameOrigin(request,env)});
   if(path==='/api/chapter-tests'||path.startsWith('/api/chapter-tests/'))return chapterTestsRoute(request,env,{isPublisher:publisher(request,env),session:await sessionFor(request,env),sameOrigin:sameOrigin(request,env)});
+  if(path==='/api/temporary-tests'||path.startsWith('/api/temporary-tests/'))return temporaryTestsRoute(request,env,{isPublisher:publisher(request,env),session:await sessionFor(request,env),sameOrigin:sameOrigin(request,env)});
   if(path==='/api/certification-lab'||path.startsWith('/api/certification-lab/'))return certificationLabRoute(request,env,{isPublisher:publisher(request,env),session:await sessionFor(request,env),sameOrigin:sameOrigin(request,env)});
   if(path==='/api/storage'||path.startsWith('/api/storage/'))return storageRoute(request,env,{isPublisher:publisher(request,env),session:await sessionFor(request,env),sameOrigin:sameOrigin(request,env)});
   if(path==='/api/audio-config'||path.startsWith('/api/audio-config/'))return audioConfigRoute(request,env,{isPublisher:publisher(request,env),session:await sessionFor(request,env),sameOrigin:sameOrigin(request,env)});
@@ -217,6 +220,7 @@ async function route(request, env) {
     if (!publisher(request, env)) return json({ error: '发布身份无效' }, 401);
     const id = decodeURIComponent(path.slice('/api/temporary/'.length));
     if (!safeId(id)) return json({ error: '临时页编号无效' }, 400);
+    if(await env.DB.prepare('SELECT id FROM temporary_test_pages WHERE id=?').bind(id).first()){await deleteTemporaryTest(env,id);return json({ok:true,deleted:true,id});}
     const page = await env.DB.prepare('SELECT content_key FROM temporary_pages WHERE id=?').bind(id).first();
     if (!page) return json({ ok: true, deleted: false });
     await env.CHAPTERS.delete(page.content_key);
@@ -279,11 +283,14 @@ async function route(request, env) {
   if (path === '/api/temporary' && request.method === 'GET') {
     const { results } = await env.DB.prepare(`SELECT id,kind,title,subtitle,word_count AS wordCount,created_at AS createdAt,expires_at AS expiresAt
       FROM temporary_pages WHERE expires_at>? ORDER BY created_at DESC`).bind(Date.now()).all();
-    return json({ pages: results });
+    const {results:tests}=request.headers.get('x-temporary-test-policy')==='chapter-understanding-v2-oral7'?await env.DB.prepare("SELECT p.id,'test' AS kind,p.title,p.subtitle,20 AS wordCount,p.created_at AS createdAt,p.expires_at AS expiresAt,p.id AS testId FROM temporary_test_pages p WHERE p.expires_at>? ORDER BY p.created_at DESC").bind(Date.now()).all():{results:[]};
+    return json({ pages: [...results,...tests].sort((a,b)=>b.createdAt-a.createdAt) });
   }
   if (path.startsWith('/api/temporary/') && request.method === 'GET') {
     const id = decodeURIComponent(path.slice('/api/temporary/'.length));
     if (!safeId(id)) return json({ error: '临时页编号无效' }, 400);
+    const preview=await env.DB.prepare("SELECT p.id,'test' AS kind,p.title,p.subtitle,p.created_at AS createdAt,p.expires_at AS expiresAt,p.id AS testId,t.chapter_id AS chapterId,t.chapter_digest AS digest FROM temporary_test_pages p JOIN temporary_chapter_tests t ON t.id=p.id WHERE p.id=?").bind(id).first();
+    if(preview){if(preview.expiresAt<=Date.now())return json({error:'临时测试已过期'},410);if(request.headers.get('x-temporary-test-policy')!=='chapter-understanding-v2-oral7')return json({error:'请刷新阅读器后打开临时测试'},409);return json(preview);}
     const row = await env.DB.prepare(`SELECT id,kind,title,subtitle,word_count AS wordCount,digest,content_key,created_at AS createdAt,expires_at AS expiresAt
       FROM temporary_pages WHERE id=?`).bind(id).first();
     if (!row || row.expiresAt <= Date.now()) return json({ error: '临时页已过期' }, 410);
@@ -402,6 +409,7 @@ async function sendDue(env) {
 }
 
 async function removeExpiredTemporary(env) {
+  await expireTemporaryTests(env);
   const { results } = await env.DB.prepare('SELECT id,content_key FROM temporary_pages WHERE expires_at<=? LIMIT 100').bind(Date.now()).all();
   for (const row of results) {
     await env.CHAPTERS.delete(row.content_key);

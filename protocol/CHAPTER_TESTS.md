@@ -20,6 +20,8 @@
 
 ## 验证和运维
 
+临时生题评判使用同一协议和同一后台教师，但从 `TEMPORARY.md` 路径 C 创建独立临时作用域。`/api/temporary-tests` 只接受 publisher 建设；作答接口、共享队列和处理回调复用本链路，所有操作受 48 小时到期边界约束，成绩不加入正式章节目录。`0013_temporary_chapter_tests.sql` 不迁移或覆盖任何历史正式记录；`check-temporary-chapter-tests.mjs` 验证隔离、到期、收费音频保留，手机录音测试同时覆盖临时接口和草稿到期。
+
 `scripts/check-chapter-tests.mjs` 验证旧版本与文字判分；`scripts/check-chapter-test-oral.mjs` 验证固定七题、原声身份、转写缓存、疑义补录及不可变成绩；`scripts/check-chapter-test-oral-ui.mjs` 验证手机录音、丢响应、关闭/刷新恢复和提交锁定。`scripts/check-maintenance-ui.mjs`：手机问答配对、草稿、提交和重发恢复。真实手机及实际题目理解质量仍以使用反馈验收。
 
 领取器 `scripts/question-worker.mjs` 兼容答疑与测试；`--tests-only` 供明确的运维验收单独领取测试，不影响普通队列公平性。任务末尾查询余额并排入永久归档，无新增订阅或第三方出题 API；新增题目合成、免费转写和必要 Qwen 补听，费用与额度按 `task-quotas.mjs` 记录。

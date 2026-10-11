@@ -10,7 +10,7 @@ const uuid=s=>/^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{
 const encode=bytes=>Buffer.from(bytes).toString('base64');
 async function read(bucket,digest){const r=await bucket.getContent(digest);if(!r)throw Error('原声或转写原件暂不可用');return r;}
 export async function chapterTestSpeechRoute(request,env,context,bucket){
- const path=new URL(request.url).pathname.replace('/api/chapter-tests',''),db=env.DB;
+ const path=new URL(request.url).pathname.replace(context.apiBase||'/api/chapter-tests',''),db=env.DB;
  const question=path.match(/^\/([a-f0-9-]{36})\/questions\/(q\d+)\/audio$/);
  if(question&&request.method==='GET'){
   const row=await db.prepare('SELECT paper_digest FROM chapter_tests WHERE id=?').bind(question[1]).first();if(!row?.paper_digest)return json({error:'题目尚未准备好'},404);

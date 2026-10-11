@@ -1,5 +1,6 @@
 import {chapterText} from './storage.js';
 import {claimChapterTest,chapterTestsRoute,chapterTestQueueTime} from './chapter-tests.js';
+import {temporaryTestQueueTime,claimTemporaryTest,temporaryTestsRoute} from './temporary-tests.js';
 const json = (v,s=200) => Response.json(v,{status:s,headers:{'cache-control':'no-store'}});
 const uuid = v => typeof v==='string' && /^[a-f0-9-]{36}$/.test(v);
 const sha = async v => [...new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(v)))].map(x=>x.toString(16).padStart(2,'0')).join('');
@@ -13,6 +14,7 @@ export async function questionsRoute(request,env,{isPublisher,session,sameOrigin
  if(path.startsWith('/jobs')) {
   if(!isPublisher)return json({error:'发布身份无效'},403);
   const testAction=path.match(/^\/jobs\/([a-f0-9-]{36})\/(heartbeat|complete|fail)$/);
+   if(testAction&&await db.prepare('SELECT id FROM temporary_chapter_tests WHERE id=?').bind(testAction[1]).first())return temporaryTestsRoute(new Request(request.url.replace('/api/questions','/api/temporary-tests'),request),env,{isPublisher,session,sameOrigin});
   if(testAction&&await db.prepare('SELECT id FROM chapter_tests WHERE id=?').bind(testAction[1]).first())return chapterTestsRoute(new Request(request.url.replace('/api/questions','/api/chapter-tests'),request),env,{isPublisher,session,sameOrigin});
   if(path==='/jobs/claim'&&request.method==='POST') {
    const b=await input(request);
@@ -24,8 +26,8 @@ export async function questionsRoute(request,env,{isPublisher,session,sameOrigin
      WHERE earlier.conversation_id=m.conversation_id AND earlier.seq<m.seq AND ej.status IN ('pending','running','failed'))
     ORDER BY m.seq LIMIT 1`).first();
    await db.prepare("UPDATE chapter_tests SET status='failed',claim=NULL,error='出题被中断，可重新处理',updated_at=? WHERE status='running' AND lease_until<?").bind(now,now).run();
-   const test=await chapterTestQueueTime(env);
-   if(test&&(!candidate||test.created_at<candidate.created_at))return json({job:await claimChapterTest(env,b.claim)});
+   const regular=await chapterTestQueueTime(env),temporary=await temporaryTestQueueTime(env),test=temporary&&(!regular||temporary.created_at<regular.created_at)?{...temporary,temporary:true}:regular;
+   if(test&&(!candidate||test.created_at<candidate.created_at))return json({job:test.temporary?await claimTemporaryTest(env,b.claim):await claimChapterTest(env,b.claim)});
    if(!candidate)return json({job:null});
    if(typeof b.claim!=='string'||b.claim.length!==64)return json({error:'领取凭据无效'},400);
    const row=await db.prepare("UPDATE chapter_question_jobs SET status='running',claim=?,lease_until=?,attempts=attempts+1,updated_at=? WHERE id=? AND status='pending' RETURNING id").bind(await sha(b.claim),now+300000,now,candidate.id).first();

@@ -56,6 +56,8 @@ iPhone PWA → 同源 Pages 网关 → Cloudflare Worker
 
 词汇点读已正式取消；只保留第二部分例句及第三部分整句 Bella 点读/提前选配。第二部分词汇标题仍返回第一部分对应标题，词汇长按答疑保留。收费历史原件不删除。
 
+评判生题质量可通过临时页书架打开独立 48 小时章节测试：同正式十三道文字、七道听说及提交判分链路，原章节与正式成绩保持不变。运维入口 `node scripts/publish-temporary-test.mjs --chapter=YYYY-MM-DD --id=UUID --title=标题`，生命周期与隔离见 [TEMPORARY](protocol/TEMPORARY.md)。
+
 ### 章节认证与纪念币功能试验
 
 [独立测试页](https://the-second-language.pages.dev/labs/certification/)沿用正式站登录。第三章八道理解题由原创样题库独立随机组卷，可以不限次重测；满分只生成一份测试认证及固定声音身份。祭坛可拖动观赏、点币试听；玻璃罐用真实三维碰撞，提供 32／128／500 枚示意币、手机摇晃与手动摇晃，并保存反馈草稿。历史试验不授予正式章节认证，不授予正式认证，不调用付费模型。500 枚的手机性能和听感尚需真机验收。范围见 [CERTIFICATION_RESEARCH](protocol/CERTIFICATION_RESEARCH.md)。

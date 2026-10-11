@@ -16,6 +16,16 @@
 
 在 `work/temporary/<id>/plan.json` 写下 `id`、`title`、`subtitle`、可选 `requestId`、`entries`。每个 entry 写 `word`、`chapterId` 和从该章第三部分原样复制的 `thirdSentences` 原句数组。Codex 负责语义判断和摘句，并确保所选句覆盖该词第一部分的全部编码用法；`node scripts/build-review.mjs work/temporary/<id>/plan.json` 再从线上已发布章节抓取原文、完整截取第一和第二部分词条、校对摘句及其原有译文，生成 `page.md` 与 `page.json`。检查排版后运行 `node scripts/publish-temporary.mjs --page=work/temporary/<id>/page.json`。
 
+## 路径 C：验证章节理解生题质量
+
+需要评判真实出题协议时，使用正式 `CHAPTER_TESTS.md`、`chapter-test-contract.mjs` 与 `chapter-test-prompt.mjs` 的同一出题、音频核验及内容判分链路：二十个不同主词，十三道文字、七道零题文听说。不要以演示题库、人工简化样题或三部分讲义代替。本次材料仅取指定已发布章节的固定版本；不重新选日课词、不修改教材或 VIX。
+
+`node scripts/publish-temporary-test.mjs --chapter=YYYY-MM-DD --id=<UUID> --title=<标题>` 创建一次申请。保存输出的编号和到期时间；同编号重发幂等。现有后台队列领取，`node scripts/question-worker.mjs --tests-only` 可用于运维单独处理。就绪后回读题数、七条题音、后台结构与章节逐字依据，再提供 `https://the-second-language.pages.dev/?temporary=<UUID>`；入口位于原临时页书架，使用原测试窗口。回答与提交同样可用，但成绩不进入正式章节测试目录，不授予认证。此路径不消费设置中的临时讲义需求，也不自动发额外通知。
+
+独立 `temporary_chapter_tests`、`temporary_chapter_test_recordings`、`temporary_chapter_test_reviews`、`temporary_test_pages` 表保存紧凑状态；试卷、答卷、原声和取证写入 `temporary/test/<UUID>/` KV，统一在发布后 48 小时到期。所有读取、上传、处理回调在到期后立即拒绝；清理只删除该临时作用域，不修改正式试卷或章节。手机草稿携带同一到期时间，打开或页面恢复时清除已过期草稿；本机工作文件在 `work/temporary/<UUID>`，不进入永久工作归档。
+
+收费 Bella 题音继续使用全局永久内容索引，与临时数据生命周期区分：能复用就复用，成功原件不删除或重复合成，未知计费不自动重试。48 小时页到期不删除已付费声音。旧缓存客户端不列出新型测试；新客户端声明 `x-temporary-test-policy`，防止把测试元数据当三部分正文渲染。
+
 ## 发布确认
 
 用发布命令输出的临时页 ID 在 PWA 临时页书架回读第一、二、三部分，确认文字、排列、48 小时到期时间与通知入口。临时页发布同样等待正文 KV 传播后再发系统通知。复习原章可继续正常按日期阅读；临时页到期后只能重新从正式章节提取并另发新页。
