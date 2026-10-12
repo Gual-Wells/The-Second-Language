@@ -165,8 +165,8 @@ async function route(request, env) {
         SELECT 'next-'||revision||'-'||?,?,?,parts,'next','pending',? FROM audio_next_config
         WHERE id=1 AND parts!='[]' AND NOT EXISTS(SELECT 1 FROM published_chapters WHERE chapter_id=?)`)
         .bind(revision.chapter_id,revision.chapter_id,revision.digest,now,revision.chapter_id),
-      env.DB.prepare(`UPDATE audio_next_config SET parts='[]',revision=revision+1,updated_at=? WHERE id=1
-        AND EXISTS(SELECT 1 FROM audio_requests WHERE id='next-'||audio_next_config.revision||'-'||? AND source='next')`)
+      env.DB.prepare(`UPDATE audio_next_config SET parts='["two","three"]',revision=revision+1,updated_at=? WHERE id=1
+        AND NOT EXISTS(SELECT 1 FROM published_chapters WHERE chapter_id=?)`)
         .bind(now,revision.chapter_id),
       env.DB.prepare(`INSERT INTO published_chapters (chapter_id,study_date,digest,published_at) VALUES (?,?,?,?)
         ON CONFLICT(chapter_id) DO UPDATE SET digest=excluded.digest,
