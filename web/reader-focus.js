@@ -1,4 +1,4 @@
-import {headingWord} from './audio-plan.js?v=32';
+import {headingWord} from './audio-plan.js?v=33';
 
 export function sentenceElement(target){
  const article=target.closest('#article');if(!article)return null;

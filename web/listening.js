@@ -1,5 +1,5 @@
-import {examSpec} from './exam-spec.js?v=32';
-import {questionField} from './objective.js?v=32';
+import {examSpec} from './exam-spec.js?v=33';
+import {questionField} from './objective.js?v=33';
 const make=(tag,cls,text)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e;};
 export function createListening({api,toast,openSource,pauseOthers=()=>{}}){
  let active=null;
