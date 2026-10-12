@@ -1,0 +1,62 @@
+{
+  "source_sha256": "29d468975ebb83d3295f88318c3fcc505c6e73624566455c6aeded65f58b6303",
+  "target_sha256": "6608204082a4036120e0c2b607fad6f27b2aa16fa3122afa37a43ac94d4f967d",
+  "whole_coin_regenerated": false,
+  "new_artistic_meshes_created": false,
+  "source_island_topology_preserved": true,
+  "untouched_vertices_exact": true,
+  "source_geometry_recoverable_exact": true,
+  "old_floating_fragments_preserved_pending_fracture_design": true,
+  "reference_overlay_registered_to_original_camera": true,
+  "vertices_outside_grip_regions": 485573,
+  "changes": [
+    {
+      "name": "Upper grip to approved drawing",
+      "affected_vertices": 13795,
+      "bounds": [
+        [
+          -0.44,
+          -0.15,
+          0.115
+        ],
+        [
+          -0.185,
+          0.06,
+          0.385
+        ]
+      ]
+    },
+    {
+      "name": "Lower grip to approved drawing",
+      "affected_vertices": 8320,
+      "bounds": [
+        [
+          0.205,
+          -0.15,
+          -0.39
+        ],
+        [
+          0.515,
+          0.065,
+          -0.12
+        ]
+      ]
+    }
+  ],
+  "maximum_vertex_displacement": 0.03596537187695503,
+  "art_accepted": false,
+  "scope": "First existing-claw pose retarget; not a replacement for missing detailed sculpt or notch/side/back completion.",
+  "pending": [
+    "Broader joint planes and digit articulation to match drawing",
+    "Upper notch clearance and integrated chip",
+    "Old floating fragment replacement to match approved drawing",
+    "Returning lower digit/side contact",
+    "Reverse extensions cleanup without flattening grasp"
+  ],
+  "views": [
+    "front.png",
+    "quarter.png",
+    "side.png",
+    "back.png"
+  ]
+}
