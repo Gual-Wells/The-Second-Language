@@ -44,9 +44,9 @@
 
 ## 纪念币研究：协同设计临时约束（2026-10-12）
 
-开展纪念币设计、统一币背、制作研究或工具试验前，读取 protocol/COIN_CRAFT_TEMPORARY.md 与 research/certification-coin-execution-state-2026-10-12.md。当前版本v1.1。大型综合报告 research/certification-coin-design-system-2026-10-12.md 是研究母本，不是逐节检查表。
+开展纪念币设计、统一币背、制作研究或工具试验前，读取 protocol/COIN_CRAFT_TEMPORARY.md 与 research/certification-coin-execution-state-2026-10-12.md。当前版本v1.2。临时协议本身已扩展为完整、自包含执行规范；大工作量纪念币任务应完整读取该协议，不以摘要、标题或旧上下文代替。大型综合报告 research/certification-coin-design-system-2026-10-12.md 继续作为研究母本。
 
-核心要求：**新艺术对象初始化时先形成完整C-anchor，再建立第一份M-design；只有已有同谱系有效M-design后，C/M才进入双向协同。** 空白币坯、测试件和自由手搓粗糙blockout属于M-tech，不得取得审美权威。第一张AI图也不自动冻结；高不确定时可探索少量完整Concept Set再选择锚点。局部可以mask/sculpt/inpaint，但不得生成脱离整币的新爪/眼/碎片作为权威资产，且非目标区域变化默认视为collateral drift。K只冻结真正已确认的K-fixed，未决设计保持开放。重大设计变化会使旧M对受影响部分stale，必要时重新bootstrap。高价值审美分歧或设计解释不确定时向用户插入完整候选问答；明显客观缺陷先内部处理。陌生、高风险、昂贵或重复失败的操作先研究项目资源与成熟方案，普通可逆小编辑不做形式化重复调研。不要为表现协议执行制造无价值日志、固定候选数或阶段打勾。
+核心要求：先完整恢复临时协议中的 K/C/M/F/A、Bootstrap、Co-Evolution、局部delta、候选、人类偏好、材质、碎裂和Canonical/Authority Freshness 等完整工程模型；**新艺术对象初始化时先形成完整C-anchor，再建立第一份M-design；只有已有同谱系有效M-design后，C/M才进入双向协同。** 空白币坯、测试件和自由手搓粗糙blockout属于M-tech，不得取得审美权威。第一张AI图也不自动冻结；高不确定时可探索少量完整Concept Set再选择锚点。局部可以mask/sculpt/inpaint，但不得生成脱离整币的新爪/眼/碎片作为权威资产，且非目标区域变化默认视为collateral drift。K只冻结真正已确认的K-fixed，未决设计保持开放。重大设计变化会使旧M对受影响部分stale，必要时重新bootstrap。高价值审美分歧或设计解释不确定时向用户插入完整候选问答；明显客观缺陷先内部处理。陌生、高风险、昂贵或重复失败的操作先研究项目资源与成熟方案，普通可逆小编辑不做形式化重复调研。不要为表现协议执行制造无价值日志、固定候选数或阶段打勾。
 
 ## 陌生高难度操作：成熟方案优先、按风险触发
 
