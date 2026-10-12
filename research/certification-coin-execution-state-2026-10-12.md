@@ -2,7 +2,7 @@
 
 2026-10-12 · 遵循 [纪念币协同设计临时约束协议](../protocol/COIN_CRAFT_TEMPORARY.md)。
 
-**当前协议版本：1.1。** v1.1 在 v1.0 的“协同设计护栏”基础上补上了初始化非对称、M-tech/M-design、Authority Freshness、K-fixed/K-open 与 Collateral Drift。
+**当前协议版本：1.2。** v1.2 将临时协议从摘要扩展为完整、自包含执行规范，并保留初始化非对称、M-tech/M-design、Authority Freshness、K-fixed/K-open 与 Collateral Drift。
 
 ## 当前稳定方法
 
