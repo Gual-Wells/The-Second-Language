@@ -2301,3 +2301,493 @@ Codex 应在内部把明显失败候选淘汰，只把成熟完整方案交给�
 这条路线的目标不是让 AI 更“听话”，也不是让模型更“物理正确”，而是让**设计、建模、材质、数字媒介与人的审美判断形成一个不相互替代、而能相互纠错的生产系统**。
 
 如果做到这一点，认证币才有可能长期保持统一收藏品质，同时允许每一枚币拥有真正独立的设计上限。
+
+
+---
+
+# 附录 A：统一币背的初始几何/浮雕试样包络
+
+以下数值来自前期研究中为第一轮样币提出的**项目内部探索包络**，不是现实铸币行业统一标准。正式协议应通过样币和多设备渲染校准后再冻结。
+
+- 统一币背自身最高浮雕：建议先探索不超过约 0.018D；
+- 中央开卷印玺：约 0.010–0.014D；
+- 铭文：约 0.004–0.006D；
+- 四十微刻阴刻：约 0.002–0.004D；
+- 正面跨币缘而来的真实爪、断口、卷曲金属等结构不受这一低浮雕包络约束，因为它们属于作品本体，而不是统一背面装饰。
+
+其目的不是追求某个数字，而是让统一认证面长期保持**低调、稳定、可读、不给正面抢焦点**。
+
+---
+
+# 附录 B：为什么现有 certification-v2 币背只能算原型
+
+当前 web/labs/certification-v2/scenes.js 中的实验性币背曾采用：
+
+- 512×512 Canvas；
+- 多重圆环；
+- 顶部 THE SECOND LANGUAGE；
+- 中央大号 I / II / III 罗马数字；
+- 底部 CHAPTER COLLECTION；
+- 再将整张 CanvasTexture 用作 bump/纹理表达。
+
+这一方案作为功能样件是有效的，但不适合作为未来数百枚收藏币的最终统一协议，原因包括：
+
+1. 罗马数字不能长期扩展；
+2. 视觉中心被最没有艺术价值的流水号占据；
+3. 背面主要仍是一张纹理，而不是真正的币章雕塑；
+4. 没有为跨币缘爪、断裂、压痕等真实结构留出足够外围结构场；
+5. 统一感主要来自“模板重复”，而不是成熟的系列身份语言。
+
+因此新的 Archive Seal 方案不是简单重画旧背面，而是从“UI 模板”升级到“实体器物的认证权威面”。
+
+当前项目 web/icon.svg 的开卷图形则是一个有价值的品牌原语：它适合被重新雕塑为中央印玺，而不是以蓝白 PWA 图标形式直接贴在币上。
+
+---
+
+# 附录 C：现实彩色币研究中保留的具体判断
+
+研究并没有得出“颜色越少越高级”这种绝对结论，而是得出：
+
+> **颜色必须晚于完整币章结构，并且需要证明自己承担不可由结构/finish替代的语义。**
+
+现实案例中可以观察到：
+
+- Perth Mint 的彩色工艺本身就是在金属压制完成后作为第二工艺层加入；
+- 同一设计可以发行 Proof、Gilded、Proof Coloured、Bullion 等不同 finish/施彩版本，说明“设计身份”和“颜色工艺”可以分离；
+- 红罂粟之类主题中，红色本身就是象征语义；
+- 某些角色/历史人物的特征色可能具有身份信息；
+- 极光、Light Pillars、彩虹等主题的核心对象本来就是光学颜色现象；
+- 对原作艺术的纪念性复制，也可能需要保留原作颜色。
+
+因此协议不应写成“正面永远禁色”，而应写成：
+
+**默认不施彩，材质/浮雕/finish 优先；只有主题信息真正需要时才允许 G4。**
+
+---
+
+# 附录 D：现实币的“动态”并不天然需要数字粒子
+
+Royal Mint Britannia 等案例说明，微刻和表面方向性结构可以产生：
+
+- surface animation；
+- latent image；
+- 旋转时移动的波纹/光学图案；
+- 通过线纹表达纹章色彩的 tincture lines。
+
+这对数字认证币的启发是：
+
+很多“想让它动起来”的设计，不应第一时间交给动画或粒子。
+
+可以优先尝试：
+
+- 微刻方向；
+- anisotropy；
+- normal field；
+- roughness field；
+- 视角相关反射；
+- 潜像式纹理。
+
+这样即使 REST 状态没有任何真正动画，旋转币本体时也会产生高级的动态视觉。
+
+---
+
+# 附录 E：M2 材质层建议进一步拆分
+
+前期研究中提出可把 Material / Finish Design 拆成：
+
+## M2.0 — Substrate
+
+材料是什么：
+
+- silver；
+- gold；
+- copper；
+- bronze；
+- wood；
+- 其他。
+
+## M2.1 — Finish Layout
+
+哪里是什么工艺：
+
+- proof；
+- satin；
+- frost；
+- burnished；
+- machined；
+- patinated。
+
+## M2.2 — Microstructure
+
+- roughness；
+- micro-normal；
+- anisotropy；
+- 微刻方向。
+
+## M2.3 — Aging
+
+- 氧化；
+- 磨损；
+- 污迹；
+- 接触高点变化；
+- 凹槽沉积。
+
+## M2.4 — Lighting Reference
+
+- Neutral IBL；
+- 固定曝光；
+- 固定 tone mapping；
+- 不把戏剧灯光混入材料权威。
+
+## M2.5 — Runtime Validation
+
+- Blender；
+- glTF viewer；
+- Babylon；
+- 手机真机；
+- 压缩前后；
+- specular aliasing；
+- 透明 PWA 页面实测。
+
+这一拆分有助于避免把“银色贴图”和“摄影棚灯光”错误地当成一个材质。
+
+---
+
+# 附录 F：glTF/PBR 运行细节
+
+对 glTF 2.0 metallic-roughness 工作流需要保留以下实现细节：
+
+- Roughness 位于 metallicRoughnessTexture 的 G 通道；
+- Metallic 位于 B 通道；
+- roughness、metallic、normal 等数据贴图属于线性数据，不应错误按 sRGB 颜色处理；
+- Base Color 才是典型颜色数据，需要正确的色彩空间处理；
+- normal map 是表面法线扰动，不等价于真实几何；
+- 需要改变轮廓、厚度、接触阴影、倒扣的结构必须回到真实 mesh；
+- anisotropy 需要正确 tangent space，不应随意打开。
+
+这类细节非常适合以后做自动资产检查。
+
+---
+
+# 附录 G：雾、粒子与 emissive 的完整约束
+
+## Emissive
+
+强规则：
+
+> **没有明确光源，就没有发光。**
+
+允许：
+
+- 眼中能量；
+- 口腔魔火；
+- 符文；
+- 裂缝中的能量。
+
+不允许：
+
+- 普通鳞片为了“酷”大面积自发光；
+- 全币出现统一霓虹线；
+- 用 glow 修补轮廓不清。
+
+Bloom 只是后处理。
+
+关闭 bloom 后，光源本身仍应明确存在，不能整个设计一起消失。
+
+## 大碎片 vs Particle
+
+凡是影响：
+
+- 剪影；
+- 质量感；
+- 接触关系；
+- 真实断裂；
+- 母体缺口
+
+的东西，都不是 particle。
+
+主碎片和重要次级碎片必须是真实 mesh。
+
+只有：
+
+- 微尘；
+- 火星；
+- 灰烬；
+- 极小金属屑
+
+适合 particle。
+
+## Fog / Smoke
+
+全局 Fog 对透明 PWA 单币并不合适。
+
+真正需要黑雾时应使用：
+
+- object-local；
+- emitter-bound；
+- 局部 volume / smoke particle；
+- 有来源；
+- 有方向；
+- 有密度衰减；
+- 遵守遮挡。
+
+仇视之龙的黑雾应从爪/破口附近产生，不应是一张半透明黑云罩在币面上。
+
+半透明效果容易造成：
+
+- overdraw；
+- depth sorting；
+- 边缘混合问题；
+- 移动端性能成本。
+
+因此雾/粒子天然比普通 PBR 材质拥有更高准入门槛。
+
+---
+
+# 附录 H：实体高浮雕制造研究的补充结论
+
+数字币不应被传统压铸限制完全锁死，但实体翻译不能忽略制造事实。
+
+现实高浮雕币常需要：
+
+- 更厚坯体；
+- 更高压力；
+- 多次压制；
+- 模具设计优化；
+- 金属流动控制。
+
+历史上极端高浮雕设计曾因需要多次退火/压制而不适合量产；现代高浮雕工艺也会采用凹面坯体等方法帮助金属流动。
+
+因此项目应避免两个极端：
+
+- 让数字母版完全被实体压铸约束，浪费数字媒介上限；
+- 宣称一个倒扣、独立碎片、包边巨爪的数字 GLB 可以原样去铸币。
+
+正确关系始终是：
+
+**同一个 Design Kernel，不同制造翻译。**
+
+---
+
+# 附录 I：二维—三维协同进化的形式化表达
+
+前期研究中建议用以下抽象表示：
+
+- C_k：第 k 版 AI Visual Design State；
+- M_k：第 k 版 3D Model State；
+- K：Design Kernel；
+- Critique_k：当前审阅反馈。
+
+可写成概念式：
+
+C_(k+1) = G(C_k, RenderPack(M_k), K, Critique_k)
+
+M_(k+1) = F(M_k, DesignDelta(C_(k+1)), K, 3DConstraints)
+
+但严格禁止把目标定义成：
+
+Render(M_k) = C_k
+
+正确目标是：
+
+**SharedIntent(C_k, M_k, K) 持续收敛。**
+
+也就是说，二维和三维可以在具体几何、细节、阴影上不同，只要它们对共享设计事实越来越一致。
+
+---
+
+# 附录 J：为什么 Pixal3D 一类高保真 image-to-3D 仍不是“二维真理转换器”
+
+Pixal3D（2026）把 image-to-3D 的重要瓶颈明确描述为 2D–3D correspondence，并通过 pixel back-projection 建立更显式的像素—3D 对应；其设计可以扩展到 multi-view。
+
+它证明高保真对应正在快速进步。
+
+但这恰好进一步证明本项目为什么不能把高 fidelity 与“设计正确”混为一谈：
+
+- 输入图正确，高 fidelity 很有价值；
+- 输入图里的爪/角/碎片本身有 AI 幻觉，高 fidelity 只会更准确地搬运错误。
+
+所以：
+
+**correspondence 提高的是传输忠实度，不自动提高设计真值。**
+
+参考：  
+https://arxiv.org/abs/2605.10922
+
+---
+
+# 附录 K：局部编辑研究的补充证据
+
+WACV 2025 的 LIME 直接把 localized image editing 的核心挑战描述为：
+
+- 修改特定区域；
+- 同时避免影响其他内容。
+
+ICCV 2025 的 Layered Diffusion Brushes 则进一步强调：
+
+- layer-based；
+- independent；
+- non-destructive；
+- background preservation；
+- sequential editing。
+
+这些研究都支持本报告的资产规则：
+
+> **局部修改应作为完整图上的 mask/layer/delta，而不是脱离母体重新生成一个孤立局部成品。**
+
+参考：
+
+- LIME: Localized Image Editing via Attention Regularization in Diffusion Models  
+  https://openaccess.thecvf.com/content/WACV2025/html/Simsar_LIME_Localized_Image_Editing_via_Attention_Regularization_in_Diffusion_Models_WACV_2025_paper.html
+
+- Streamlining Image Editing with Layered Diffusion Brushes  
+  https://openaccess.thecvf.com/content/ICCV2025/html/Gholami_Streamlining_Image_Editing_with_Layered_Diffusion_Brushes_ICCV_2025_paper.html
+
+---
+
+# 附录 L：人类主观偏好闭环的补充研究
+
+Human Preference Gate 并不是“随便问用户哪个好看”。
+
+研究上有三个值得保留的结论：
+
+## 1. Pairwise comparison 往往比绝对评分更容易区分
+
+2026 年针对主观视觉质量方法的比较研究再次发现，pairwise comparison 在可辨别性上可优于纯 rating。
+
+参考：  
+https://ieeexplore.ieee.org/abstract/document/11400573/
+
+## 2. Pairwise preference 可以直接驱动黑盒优化
+
+Preferential Bayesian Optimization 的基本思想就是：
+
+当真实目标函数无法直接写出来，但人可以回答 A>B 时，用偏好数据学习潜在效用并主动选择下一批值得询问的候选。
+
+参考：  
+https://proceedings.mlr.press/v70/gonzalez17a.html
+
+这与本项目非常契合：
+
+用户无法提前给出“高级感=0.31×负空间+0.27×力量感……”这种公式，但可以可靠地说：
+
+“A 比 B 更像收藏品。”  
+“B 的碎片节奏更好。”  
+“A 已经可以推进，B 仍然廉价。”
+
+## 3. 人类偏好本身有不确定性
+
+2026 年的 heteroscedastic preference research 进一步强调，不同 pair 的比较置信度并不相同。
+
+因此项目应允许：
+
+- 无明显偏好；
+- 难分；
+- 低置信；
+- 混合偏好。
+
+参考：  
+https://proceedings.mlr.press/v327/sinaga26a.html
+
+这也是为什么不应把每次用户反馈硬压成“8.7 分”之类虚假精度。
+
+---
+
+# 附录 M：延性金属断裂的材料学研究补充
+
+碎裂协议并不是纯艺术猜测。
+
+延性金属破坏经典研究和后续综述都反复讨论：
+
+- void nucleation；
+- void growth；
+- void coalescence；
+- plastic deformation；
+- localized shear；
+- fracture surface dimples。
+
+代表性资料：
+
+- Garrison & Moody, Ductile fracture（1987）  
+  https://www.sciencedirect.com/science/article/pii/0022369787901181
+
+- Void nucleation during ductile rupture of metals: A review（2023）  
+  https://www.sciencedirect.com/science/article/pii/S0079642523000178
+
+这些材料学现象不要求认证币做显微物理仿真，但足以支撑一个宏观艺术原则：
+
+> **一般延性币材不能默认像玻璃/石头一样直接碎成规则多面体。**
+
+---
+
+# 附录 N：本报告对本轮连续研究的覆盖索引
+
+为了避免后续再从聊天上下文拼接，本报告已经把本轮研究按主题完整收敛为以下模块：
+
+1. 全系列统一币背；
+2. Archive Seal / 开卷印玺；
+3. 四十微刻；
+4. 章节编号与铭文；
+5. 背面结构场与 S/W/F 类；
+6. 背面默认无施彩；
+7. 正面 G0–G5 层级；
+8. No Applied Chroma；
+9. Surface Optics 优先；
+10. 现实彩色币的适用边界；
+11. REST / AWAKENED；
+12. Digital Master / Physical Translation；
+13. 当前仇视之龙新 AI 稿审阅；
+14. 白模与二维渲染权威分离；
+15. M0–M3；
+16. 四层反 AI 剥离测试；
+17. 高光非设计权威；
+18. diffuse / rough specular 概念拆分；
+19. GGX / microfacet；
+20. Proof / Reverse Proof / Frost / Satin 数字映射；
+21. 五尺度表面实现；
+22. roughness 工艺地图而非 Noise；
+23. Blender → glTF → Babylon；
+24. 中性 IBL；
+25. 宽柔高光目标；
+26. specular aliasing；
+27. neutral tone mapping；
+28. Image-to-Material 的限制；
+29. 真实材质采集；
+30. Surface Finish Protocol；
+31. 不伪造统一 roughness 数值；
+32. KTX2/UASTC 与运行压缩；
+33. 仇视之龙 REST 材质路线；
+34. 碎裂事件模型；
+35. deformation-first / fracture-second；
+36. Houdini MPM / RBD；
+37. M1-D；
+38. fragment provenance；
+39. 回拼不变量；
+40. 三类碎片表面；
+41. 左上破口重建步骤；
+42. 碎裂工具职责；
+43. 碎裂 QA；
+44. AI 图与建模互相不能替代；
+45. C/M/K 双表示；
+46. DreamCraft3D/CraftsMan3D/GeoStyle 等协同研究；
+47. 2D/3D 权威分配；
+48. Bridge Render Pack；
+49. AI proposal → 3D translation；
+50. selective correspondence；
+51. 错误互相强化防护；
+52. Representation Contract；
+53. 禁止孤立局部候选；
+54. 非破坏式原位修改；
+55. 3D 多视图一致性；
+56. 完整资产候选；
+57. Codex 内部筛选；
+58. Human Preference Gate；
+59. pairwise + absolute anchor；
+60. hybrid preference / uncertainty；
+61. 标准化候选展示；
+62. Canonical rebase；
+63. 最终状态机；
+64. 仇视之龙下一阶段推荐；
+65. 统一长期协议拆分建议。
+
+这份文件应当作为当前对话研究的独立归档，不再依赖聊天历史才能恢复上述设计思想。
