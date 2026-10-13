@@ -1,0 +1,287 @@
+{
+  "scope": "Pure analysis; source files read only; no inference",
+  "files": {
+    "original_processed_input": {
+      "path": "D:\\CodexStorage\\workspaces\\hostile-dragon-coin\\kaggle-test\\inputs\\dragon-art-input-20261011\\generation-input.png",
+      "bytes": 1454379,
+      "sha256": "994f98db7bdf194fa4dabfbe6a3b1b1ae2e958ae31d7eb771473bd8e32d7d606"
+    },
+    "original_shape_checkpoint": {
+      "path": "D:\\CodexStorage\\workspaces\\hostile-dragon-coin\\kaggle-test\\outputs\\remote-generation\\dragon-generation\\sample_shape_slat-checkpoint.pt",
+      "bytes": 479501,
+      "sha256": "32944f6bdaaa9e78ea9d17858d08b696e149263dc2b2d8b19af242310a0c214b"
+    },
+    "recovered_source_volume": {
+      "path": "D:\\CodexStorage\\workspaces\\hostile-dragon-coin\\kaggle-test\\outputs\\remote-generation-recovery\\dragon-generation\\source-volume.npz",
+      "bytes": 47583056,
+      "sha256": "761c6520b1d38cef68e4fdd3f4898916e49648bd8413e2c3a79abd4ade5ac6b2"
+    },
+    "official_repaired_glb": {
+      "path": "D:\\CodexStorage\\workspaces\\hostile-dragon-coin\\kaggle-test\\outputs\\remote-mesh-repair-512\\dragon-mesh-repair\\hostile-dragon-repaired.glb",
+      "bytes": 35042784,
+      "sha256": "2669b9d02622ba8074d83ca3ee36bcf5b0dd91f8c1214a18d1b1ace571897582"
+    },
+    "quiet_reverse_blend": {
+      "path": "D:\\CodexStorage\\workspaces\\hostile-dragon-coin\\kaggle-test\\outputs\\quiet-repaired-v4\\reverse-master.blend",
+      "bytes": 74393009,
+      "sha256": "df35d9bf6daf6346d8b8ffcb70441846a12cff6d3bbbf3c385a31ea340f557a6"
+    },
+    "valid_old_blend": {
+      "path": "D:\\CodexStorage\\workspaces\\hostile-dragon-coin\\kaggle-test\\outputs\\original-eye-v5\\working-master.blend",
+      "bytes": 72657631,
+      "sha256": "29d468975ebb83d3295f88318c3fcc505c6e73624566455c6aeded65f58b6303"
+    },
+    "approved_concept": {
+      "path": "D:\\CodexStorage\\workspaces\\ai3d-design-research\\design-engineering\\concept-anchor-v1\\assets\\selected-anchor.png",
+      "bytes": 2286874,
+      "sha256": "6608204082a4036120e0c2b607fad6f27b2aa16fa3122afa37a43ac94d4f967d"
+    },
+    "native_new_conditioning": {
+      "path": "D:\\CodexStorage\\workspaces\\hostile-dragon-coin\\kaggle-test\\production-front-20261013\\input\\front-for-trellis.png",
+      "bytes": 1293181,
+      "sha256": "b68b89558ec5f5db7521f440ad00a37f371247c588fcf3750e7295140ab93008"
+    },
+    "latest_editable_branch": {
+      "path": "D:\\CodexStorage\\workspaces\\hostile-dragon-coin\\studio-20261013\\outputs\\user-selected-regional\\deliverable\\hostile-dragon-selected-working.blend",
+      "bytes": 49544642,
+      "sha256": "67680570fcb15796822444e6a7013b26d5fc9779f9ad2d0f7d4048b57ba5b0d6"
+    }
+  },
+  "original_generation": {
+    "started_at": "2026-10-11T12:13:49.987781+00:00",
+    "stage": "generation_failed",
+    "art_accepted": false,
+    "pipeline_type": "512",
+    "seed": 38017,
+    "source_sha": "75fbf0183001ed9876c8dbb35de6b68552ee08bd",
+    "model_revisions": {
+      "microsoft/TRELLIS.2-4B": "af44b45f2e35a493886929c6d786e563ec68364d",
+      "microsoft/TRELLIS-image-large": "25e0d31ffbebe4b5a97464dd851910efc3002d96"
+    },
+    "phase_seconds": {
+      "get_cond": 2.65,
+      "sample_sparse_structure": 167.69,
+      "sample_shape_slat": 122.07
+    },
+    "torch": "2.11.0+cu128",
+    "gpu": "Tesla T4",
+    "vram_gib": 14.56219482421875,
+    "elapsed_seconds": 396.55,
+    "adaptations": [
+      "BF16 attention evaluated in FP32 efficient kernel then returned as BF16",
+      "per-sequence sparse SDPA",
+      "stage-wise checkpoint reload from disk",
+      "bounded explicit im2col",
+      "preprocessed input: no background model"
+    ],
+    "attention_validation": {
+      "max_abs_vs_fp32": [
+        0.0038781166076660156,
+        0.0034825801849365234
+      ],
+      "dtype": "BF16"
+    },
+    "bounded_convolution_validation": [
+      {
+        "dtype": "torch.float16",
+        "max_abs": 0.0
+      },
+      {
+        "dtype": "torch.bfloat16",
+        "max_abs": 0.0
+      }
+    ],
+    "dino_copy": {
+      "server_source": "hark99/facebookdinov3-vitl16-pretrain-lvd1689m/transformers/default/1",
+      "original_official_sha_verified": true,
+      "license": "original Meta DINOv3 license; authorized account"
+    },
+    "input_sha256": "994f98db7bdf194fa4dabfbe6a3b1b1ae2e958ae31d7eb771473bd8e32d7d606",
+    "loading_model": "microsoft/TRELLIS.2-4B/ckpts/slat_flow_img2shape_dit_1_3B_512_bf16",
+    "checkpoints": [
+      "sample_shape_slat-checkpoint.pt"
+    ],
+    "error": "Traceback (most recent call last):\n  File \"/tmp/ipykernel_22/3950577884.py\", line 135, in <cell line: 0>\n    meshes,latent=pipeline.run(image,seed=38017,preprocess_image=False,pipeline_type=PIPELINE_TYPE,return_latent=True)\n                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/torch/utils/_contextlib.py\", line 124, in decorate_context\n    return func(*args, **kwargs)\n  File \"/kaggle/temp/dragon-generation/TRELLIS.2/trellis2/pipelines/trellis2_image_to_3d.py\", line 551, in run\n    tex_slat = self.sample_tex_slat(\n        cond_512, self.models['tex_slat_flow_model_512'],\n        shape_slat, tex_slat_sampler_params\n    )\n  File \"/tmp/ipykernel_22/3950577884.py\", line 117, in hook\n    REPORT['stage']=_name;save();start=time.monotonic();value=_original(*a,**kw)\n                                                              ~~~~~~~~~^^^^^^^^^\n  File \"/kaggle/temp/dragon-generation/TRELLIS.2/trellis2/pipelines/trellis2_image_to_3d.py\", line 411, in sample_tex_slat\n    in_channels = flow_model.in_channels if isinstance(flow_model, nn.Module) else flow_model[0].in_channels\n                                                                                   ~~~~~~~~~~^^^\nTypeError: 'LazyModel' object is not subscriptable\n"
+  },
+  "recovery": {
+    "started_at": "2026-10-11T13:03:38.271656+00:00",
+    "stage": "editable_candidate_saved",
+    "art_accepted": false,
+    "pipeline_type": "512",
+    "seed": 38017,
+    "source_sha": "75fbf0183001ed9876c8dbb35de6b68552ee08bd",
+    "model_revisions": {
+      "microsoft/TRELLIS.2-4B": "af44b45f2e35a493886929c6d786e563ec68364d",
+      "microsoft/TRELLIS-image-large": "25e0d31ffbebe4b5a97464dd851910efc3002d96"
+    },
+    "phase_seconds": {
+      "get_cond": 3.32,
+      "sample_tex_slat": 91.73,
+      "decode_shape_slat": 19.57,
+      "decode_tex_slat": 13.94
+    },
+    "torch": "2.11.0+cu128",
+    "gpu": "Tesla T4",
+    "vram_gib": 14.56219482421875,
+    "elapsed_seconds": 381.24,
+    "adaptations": [
+      "BF16 attention evaluated in FP32 efficient kernel then returned as BF16",
+      "per-sequence sparse SDPA",
+      "stage-wise checkpoint reload from disk",
+      "bounded explicit im2col",
+      "preprocessed input: no background model"
+    ],
+    "attention_validation": {
+      "max_abs_vs_fp32": [
+        0.0037736892700195312,
+        0.003336310386657715
+      ],
+      "dtype": "BF16"
+    },
+    "bounded_convolution_validation": [
+      {
+        "dtype": "torch.float16",
+        "max_abs": 0.0
+      },
+      {
+        "dtype": "torch.bfloat16",
+        "max_abs": 0.0
+      }
+    ],
+    "dino_copy": {
+      "server_source": "hark99/facebookdinov3-vitl16-pretrain-lvd1689m/transformers/default/1",
+      "original_official_sha_verified": true,
+      "license": "original Meta DINOv3 license; authorized account"
+    },
+    "input_sha256": "994f98db7bdf194fa4dabfbe6a3b1b1ae2e958ae31d7eb771473bd8e32d7d606",
+    "resume": {
+      "source_kernel": "gualwells/hostile-dragon-generation-20261011/1",
+      "shape_checkpoint_sha256": "32944f6bdaaa9e78ea9d17858d08b696e149263dc2b2d8b19af242310a0c214b",
+      "geometry_resampled": false,
+      "texture_seed": 38018
+    },
+    "loading_model": "microsoft/TRELLIS.2-4B/ckpts/tex_dec_next_dc_f16c32_fp16",
+    "checkpoints": [
+      "sample_tex_slat-checkpoint.pt",
+      "decoded-shape-checkpoint.ply"
+    ],
+    "actual_resolution": 512,
+    "vertices": 1206198,
+    "faces": 2433300,
+    "source_assets_saved": true,
+    "glb": {
+      "bytes": 18865188,
+      "sha256": "594c78b555d39980d6ff7015acb3358239b18c36c9a1f4f04b6acf200547bbfa"
+    }
+  },
+  "official_repair": {
+    "stage": "repaired_candidate_saved",
+    "art_accepted": false,
+    "geometry_resampled": false,
+    "source_npz_sha256": "761c6520b1d38cef68e4fdd3f4898916e49648bd8413e2c3a79abd4ade5ac6b2",
+    "elapsed_seconds": 171.19,
+    "remesh": true,
+    "remesh_band": 1,
+    "remesh_project": 0,
+    "decimation_target": 1000000,
+    "texture_size": 2048,
+    "bytes": 35042784,
+    "sha256": "2669b9d02622ba8074d83ca3ee36bcf5b0dd91f8c1214a18d1b1ace571897582",
+    "vertices": 692339,
+    "faces": 970261
+  },
+  "eye_restoration": {
+    "stage": "reverted_model_and_views_saved",
+    "art_accepted": false,
+    "removed": [
+      "Near eye \u2014 socket-seated ocular globe",
+      "Dark floor below pupil incision"
+    ],
+    "source_mesh_preserved": true,
+    "source_geometry_sha256": "67267073e959418d72389f3a64cf2db4a68de28a15935a69045a013d8ec0dba4",
+    "user_correction": "The original eye is not defective; evaluate local anatomy only after understanding the global form.",
+    "retained_experiment": "Quiet reverse and official mesh repair remain separate, unaccepted studies.",
+    "views": [
+      "front.png",
+      "front-clay.png"
+    ]
+  },
+  "new_native_trial_log_only": {
+    "started_at": "2026-10-12T18:57:17.166325+00:00",
+    "stage": "shape_candidate_saved",
+    "art_accepted": false,
+    "pipeline_type": "512",
+    "seed": 38017,
+    "source_sha": "75fbf0183001ed9876c8dbb35de6b68552ee08bd",
+    "model_revisions": {
+      "microsoft/TRELLIS.2-4B": "af44b45f2e35a493886929c6d786e563ec68364d",
+      "microsoft/TRELLIS-image-large": "25e0d31ffbebe4b5a97464dd851910efc3002d96"
+    },
+    "phase_seconds": {
+      "get_cond": 2.63,
+      "sample_sparse_structure": 169.86,
+      "sample_shape_slat": 161.05,
+      "decode_shape_slat": 14.12
+    },
+    "torch": "2.11.0+cu128",
+    "gpu": "Tesla T4",
+    "vram_gib": 14.56219482421875,
+    "elapsed_seconds": 450.01,
+    "adaptations": [
+      "BF16 attention evaluated in FP32 efficient kernel then returned as BF16",
+      "per-sequence sparse SDPA",
+      "stage-wise checkpoint reload from disk",
+      "bounded explicit im2col",
+      "preprocessed input: no background model"
+    ],
+    "attention_validation": {
+      "max_abs_vs_fp32": [
+        0.0038470029830932617,
+        0.0030744075775146484
+      ],
+      "dtype": "BF16"
+    },
+    "bounded_convolution_validation": [
+      {
+        "dtype": "torch.float16",
+        "max_abs": 0.0
+      },
+      {
+        "dtype": "torch.bfloat16",
+        "max_abs": 0.0
+      }
+    ],
+    "dino_copy": {
+      "server_source": "hark99/facebookdinov3-vitl16-pretrain-lvd1689m/transformers/default/1",
+      "original_official_sha_verified": true,
+      "license": "original Meta DINOv3 license; authorized account"
+    },
+    "conditioning_pixel_sha256": "e4adf74e9c2a7ced3bc25a5885a0a78b8784c8f0d61d11044fb430d840fb3818",
+    "input_sha256": "1b5ecb3e1602f020ba74b6fcbfd87d0927adc34cf09ef044b53ab72d70f49db1",
+    "approved_front_used": true,
+    "old_shape_reused": false,
+    "texture_generated": false,
+    "loading_model": "microsoft/TRELLIS.2-4B/ckpts/shape_dec_next_dc_f16c32_fp16",
+    "vertices": 1636278,
+    "faces": 3415134,
+    "actual_resolution": 512,
+    "source_geometry_saved": true,
+    "glb": {
+      "bytes": 60617924,
+      "sha256": "532ceb80b0d652c02ef34a1181e305280922578cf0c4699bf8ddb4140ce0e68b"
+    },
+    "axis_conversion": "official raw-to-GLB x,z,-y; neutral preview only",
+    "backside_approved": false
+  },
+  "rejected_whole_mesh_used_as_geometry": false,
+  "original_checkpoint_zip_members": [
+    "sample_shape_slat-checkpoint/data.pkl",
+    "sample_shape_slat-checkpoint/.format_version",
+    "sample_shape_slat-checkpoint/.storage_alignment",
+    "sample_shape_slat-checkpoint/byteorder",
+    "sample_shape_slat-checkpoint/version",
+    "sample_shape_slat-checkpoint/.data/serialization_id"
+  ],
+  "original_checkpoint_saved_rng_key_present": false,
+  "official_config_read_error": "ConnectTimeout: HTTPSConnectionPool(host='huggingface.co', port=443): Max retries exceeded with url: /microsoft/TRELLIS.2-4B/resolve/af44b45f2e35a493886929c6d786e563ec68364d/pipeline.json (Caused by ConnectTimeoutError(<HTTPSConnection(host='huggingface.co', port=443) at 0x18a411b81a0>, 'Connection to huggingface.co timed out. (connect timeout=15)'))"
+}

@@ -1,0 +1,103 @@
+{
+  "old": {
+    "size": [
+      932,
+      932
+    ],
+    "rgb_pixel_sha256": "2e11ff93381ae49c41148245284d28c7fcaa72549c89f8ea58534c058664b9d2",
+    "nonblack_bounds": [
+      0,
+      34,
+      931,
+      890
+    ],
+    "nonblack_pixel_fraction": 0.6645383963602203
+  },
+  "new_local": {
+    "size": [
+      1067,
+      1067
+    ],
+    "rgb_pixel_sha256": "e4adf74e9c2a7ced3bc25a5885a0a78b8784c8f0d61d11044fb430d840fb3818",
+    "nonblack_bounds": [
+      9,
+      8,
+      1059,
+      1059
+    ],
+    "nonblack_pixel_fraction": 0.7594197221053519
+  },
+  "new_remote": {
+    "size": [
+      1067,
+      1067
+    ],
+    "rgb_pixel_sha256": "e4adf74e9c2a7ced3bc25a5885a0a78b8784c8f0d61d11044fb430d840fb3818",
+    "nonblack_bounds": [
+      9,
+      8,
+      1059,
+      1059
+    ],
+    "nonblack_pixel_fraction": 0.7594197221053519
+  },
+  "new_segmentation": {
+    "internal_excluded_pixels": 3,
+    "internal_holes_larger_than_16_pixels": 0,
+    "largest_holes": [
+      {
+        "pixels": 2,
+        "bounds": [
+          1079,
+          383,
+          1079,
+          384
+        ]
+      },
+      {
+        "pixels": 1,
+        "bounds": [
+          886,
+          731,
+          886,
+          731
+        ]
+      }
+    ]
+  },
+  "original_step_totals_from_log": {
+    "Sampling sparse structure": [
+      12
+    ],
+    "Sampling shape SLat": [
+      12
+    ]
+  },
+  "new_local_matches_recorded_remote_pixels": true,
+  "archived_notebook_runtime_checks": {
+    "original": {
+      "file": "D:\\CodexStorage\\workspaces\\hostile-dragon-coin\\kaggle-test\\notebooks\\generation\\dragon.ipynb",
+      "sha256": "dd2b35ed9d65b1c230016dc789c0ec9dc7e8ab8625bda82ffcc2c079b1fe8c2f",
+      "has_sampling_rng_fork": false,
+      "lazy_model_nn_module": false
+    },
+    "recovery": {
+      "file": "D:\\CodexStorage\\workspaces\\hostile-dragon-coin\\kaggle-test\\notebooks\\generation-recovery\\dragon.ipynb",
+      "sha256": "bed63d232ed86c5f721692e87f285ac3859b0ee37feac070a1c9cd2a3c9bb412",
+      "has_sampling_rng_fork": true,
+      "lazy_model_nn_module": true
+    },
+    "new_native": {
+      "file": "D:\\CodexStorage\\workspaces\\hostile-dragon-coin\\kaggle-test\\production-front-20261013\\notebook\\front.ipynb",
+      "sha256": "00139c80e52745c68ed5fd5354f15f1d94d74422ee142db8df2f3d3cfad9ed2b",
+      "has_sampling_rng_fork": true,
+      "lazy_model_nn_module": true
+    },
+    "regional_v1": {
+      "file": "D:\\CodexStorage\\workspaces\\hostile-dragon-coin\\kaggle-test\\regional-rebuild-20261013\\notebook\\regional.ipynb",
+      "sha256": "b2a4f1667b1a298702847024285b08698bbf604f64fd9aea3dd76808b1454c63",
+      "has_sampling_rng_fork": true,
+      "lazy_model_nn_module": true
+    }
+  }
+}

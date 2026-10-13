@@ -1,0 +1,12 @@
+{
+  "purpose": "Review scope overlap, not automatic jaw face segmentation",
+  "target_image_review_rect": [
+    825,
+    760,
+    900,
+    890
+  ],
+  "front_old_vertices_in_review_area": 2197,
+  "also_inside_lower_grip_edit_box": 1367,
+  "interpretation": "The lower spatial box does not by itself prove complete head/jaw protection."
+}
