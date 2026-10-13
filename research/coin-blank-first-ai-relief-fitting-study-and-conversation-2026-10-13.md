@@ -912,3 +912,73 @@ Codex 可以明确知道：
 
 **下一步最有研究价值的实验，是用同一张原版样币设计图、同一套生成工具，对比“整币直接生成”和“参数化币胚先行、表面拟合浮雕”两种工艺。** 这样才能真正验证你提出的观点，而不仅仅停留在合理的技术推论上。
 
+---
+
+### 第 5 轮 — 用户（本次归档请求）
+
+> 把这些内容附带我们的对话全文以及研究资料放一起做成一份报告上传
+
+**归档说明**：本文件是对截至上述请求的讨论内容、研究推导和可直接访问的参考资料的汇总。对话中的用户原句按显示内容保留；助手答复尽力忠实保留本轮可见文字与表格。原生聊天的图片缩略图、实体链接组件、工具引用标识、可交互卡片和 SVG 绘图不能以纯 Markdown 方式原样重现，已在相关位置注明；本文件不能声称是平台级原始会话导出或逐字节证明。
+
+---
+
+## 附录 B：研究资料、来源与证据矩阵
+
+本附录仅存放研究所依据的公开文档链接、直接支持范围及其不能支持的外推。不复制商业产品图像或全文、不把厂商宣传当作本项目可用性实测。
+
+### B.1 本轮核对的直接外部资料（2026-10-13）
+
+| 编号 | 原始来源 | 直接证据 | 不能据此声称 |
+|---|---|---|---|
+| E01 | [Autodesk Research, How well can AI models edit 3D CAD? (2026-07-20)](https://www.research.autodesk.com/blog/how-well-ai-models-edit-3d-cad/) | 用专业设计师编辑请求构建测试；前沿 AI 相对于专业人工有显著差距，且常见自动几何指标不能可靠替代专家质量判断 | 不能推出所有三维修改都失败，也不能直接量化本项目的成功率 |
+| E02 | [Autodesk Fusion: Emboss a solid body](https://help.autodesk.com/cloudhelp/ENU/Fusion-Model/files/SLD-EMBOSS.htm) | 可对已有实体面、来自草图的轮廓执行指定深度 Emboss/Deboss，保留参数化时间线关联 | 不能推出 Fusion 自动理解龙的复杂艺术造型 |
+| E03 | [Maxon ZBrush: Bas Relief](https://help.maxon.net/zbr/en-us/Content/html/user-guide/3d-modeling/sculpting/bas-relief/bas-relief.html) | 可将三维对象投射为选定 SubTool 上的浮雕，也可生成浮雕 alpha | 不能推出平面 AI 图无需雕塑源数据即可准确重建深度 |
+| E04 | [Blender: Displace Modifier](https://docs.blender.org/manual/en/3.2/modeling/modifiers/deform/displace.html) | 纹理强度可以驱动真实顶点位移，支持法线/轴向位移 | 不能推出颜色明暗与几何高度天然一致；该手册链接为旧版本概念依据，使用时需核对当前版本 |
+| E05 | [Blender 4.5 LTS: Shrinkwrap Modifier](https://docs.blender.org/UATEST/manual/en/4.5/modeling/modifiers/deform/shrinkwrap.html) | 可将受修改对象顶点吸附或投射到目标曲面，并使用 group/mask 限制作用范围 | 不能推出所有复杂接触、布尔并合与拓扑修复都自动可靠 |
+| E06 | [Tripo Developer: Multiview to Model, H Series](https://developers.tripo3d.ai/en/docs/generation-multiview-to-model/standard) | 支持 front/left/back/right 多视角输入；官方指出有利于几何精度和纹理覆盖 | 不能推断其已经接受“输入现成币胚并绝对锁死”这一几何约束；现成项目 API 可用性还须验证 |
+| E07 | [Tripo Developer: Image to Multiview](https://developers.tripo3d.com/zh/docs/generation-image-to-multiview) | 提供从单图先生成多视角的预处理能力 | 不能把自动生成的四视角直接当成真实一致的三维测量 |
+| E08 | [Meshy: 3D Agent docs](https://docs.meshy.ai/en/webapp/3d-agent) | 官方 FAQ 说明其 3D Agent 当前不直接编辑已有模型，建议使用其他后处理能力 | 不能推出 Meshy 平台所有其他工具都不具有编辑功能 |
+| E09 | [Blender MCP（开源项目）](https://github.com/ahujasid/blender-mcp) 与 [MCP for Blender](https://github.com/ahujasid/mcp-for-blender) | 支持场景/对象信息、Blender Python 执行、修改及视图回读等 Agent 操作界面 | MCP 只是工具接口，不能单独保证高级雕塑质量 |
+| E10 | [Autodesk Research CAD Editing benchmark](https://www.research.autodesk.com/blog/how-well-ai-models-edit-3d-cad/) | 人工专家评价不能简单由生成成功/自动几何分数代替 | 该研究主要面向 CAD 编辑，不能不加区分地等同于艺术纪念币浮雕 |
+
+### B.2 先前对话引用、但本轮没有重新逐页核对的资料
+
+- [Towards Scalable and Consistent 3D Editing, ICML 2026](https://proceedings.mlr.press/v306/xia26h.html)：先前答复引用其关于三维编辑一致性的研究方向；本次不新增该论文的具体实验统计或结论。
+- [build123d](https://github.com/gumyr/build123d)：参数化 CAD-as-code 候选，仅代表有此软件路径；未测试该项目在本仓库、Kaggle 或 Codex 环境的兼容性。
+- [Blender 官方手册入口](https://docs.blender.org/manual/en/latest/)：Sculpt、Geometry Nodes、Boolean 等操作进一步使用时，应以当前部署版本的官方说明与真实测试为准。
+- Autodesk Fusion 的自然语言助手、Tripo 网格分割、其他 AI 多视角一致性论文等此前答复曾提及，但没有在本次同一证据矩阵里逐功能重新核对的部分均保持“参考线索”，**不能升级为本次已验证能力**。
+
+### B.3 项目自身的研究资料（目前 main 分支）
+
+- [认证币设计系统综合研究（2026-10-12）](certification-coin-design-system-2026-10-12.md)：系列身份、统一币背、正面艺术语法、材质、碎裂、C/M 双向演化、人类审美关口。
+- [认证币执行状态（2026-10-12，含后续状态更新）](certification-coin-execution-state-2026-10-12.md)：当前 Canonical C/M、用户选定视觉锚点、已保护/否决对象、仍未知的具体抓握和断裂部位。
+- [认证币完整临时约束 v1.2](../protocol/COIN_CRAFT_TEMPORARY.md)：当前可执行设计约束权威，与本文提出的实验计划不同。
+- [仇视之龙制作标准研究（2026-10-10）](dragon-coin-production-standard-2026-10-10.md)：完整定制雕塑、真实厚度和受力、灰模验收、真实 iPhone 展示限制。
+- [仇视之龙专项研究目录](hostile-dragon-2026-10-12/README.md)：具体艺术版本与试验资产索引。
+- [COIN_CRAFT 长期工艺协议](../protocol/COIN_CRAFT.md)：已有质量标准与基础制作方向。
+
+### B.4 必须区分的证据类别
+
+- **[用户观察]**：旧版样币正面与 AI 设计图接近；不改写为研究者测量数据。
+- **[官方工具能力]**：能做几何位移、投射、浮雕、参数化；不等于 Agent 成功调度的经验统计。
+- **[外部研究结果]**：CAD 局部编辑困难、自动评分与专家评估的偏差；不可直接换算成该币的概率。
+- **[项目协议事实]**：现行协议 v1.2、当前 Canonical 锚点和已获确认的局部保护；不因本档案自动变化。
+- **[研究假设]**：币胚先行＋一致多视角＋受控浮雕拟合可能显著改善质量；需要本项目对照试验。
+- **[未知]**：Kaggle 实际 GPU 工况、模型可用性、API 资费、深度模型接收已有几何约束的能力、本项目实际产出质量；本次均未实测。
+
+### B.5 对后续 Codex 的建议读取方式
+
+1. 先读当前正式协议与状态，不从这份研究报告单方面重建当前项目的完整执行约束。
+2. 若用户要求研究工艺或试验，阅读本文第 1～11 节及 B.1/B.3，明确哪些是“工具支持”与“未验证假说”。
+3. 若用户要求恢复本次讨论的因果脉络和其原始表态，阅读附录 A 的四轮技术讨论及第五轮归档请求。
+4. 若实验成功，再依据实测材料和用户反馈提出协议修订；不得把本文的候选路线直接视为用户已采用的新正式工艺。
+
+---
+
+## 结束语
+
+这次讨论的真正进展不是发现某个“自动完成纪念币”的万能生成器，而是提出一个可证伪的工程假设：
+
+> **在完整高质量 AI 艺术设计权威不变、现行 K/C/M 协同约束仍有效的条件下，将币胚这种可明确规格化的实体提前参数化，并在已有币胚上进行多视角约束的艺术浮雕拟合，可能比继续把整币的工业几何与艺术表面混在同一个黑箱生成/编辑过程里更可靠。**
+
+其关键瓶颈不是“有基础币胚后能不能雕刻”，而是**能否形成一致可信的空间设计依据，以及能否让 AI/工具把这种依据转译成高保真、真实且可修改的浮雕几何**。目前工艺基础被官方软件文档支持，项目上限和效率仍待亲自验证。
