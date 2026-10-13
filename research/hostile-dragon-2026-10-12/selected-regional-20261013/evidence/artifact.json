@@ -1,0 +1,18 @@
+{
+  "blend": "D:\\CodexStorage\\workspaces\\hostile-dragon-coin\\studio-20261013\\outputs\\user-selected-regional\\deliverable\\hostile-dragon-selected-working.blend",
+  "glb": "D:\\CodexStorage\\workspaces\\hostile-dragon-coin\\studio-20261013\\outputs\\user-selected-regional\\deliverable\\hostile-dragon-selected-working.glb",
+  "glb_bytes": 18756660,
+  "glb_sha256": "905be030b087de5dd70384f7d02f9975d59574c0fa35907cadb64f8d3c9380bd",
+  "source_old_geometry_exact": true,
+  "gray_geometry_review": true,
+  "formal_target_changed": false,
+  "canonical_promoted": false,
+  "excluded_failed_branches": true,
+  "remaining_issues": [
+    "upper rear hollow shell",
+    "side-edge thin skin and continuity",
+    "target hand articulation and notch translation"
+  ],
+  "native_mesh_validation_repaired_indices": false,
+  "coordinate_change": false
+}

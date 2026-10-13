@@ -1,0 +1,21 @@
+{
+  "vertices": 1247248,
+  "faces": 2486900,
+  "unique_vertex_coordinates": 1247248,
+  "duplicate_faces_same_coordinates": 0,
+  "face_normals_nan": 0,
+  "face_area_tiny": 0,
+  "watertight": false,
+  "bounds": [
+    [
+      -0.4869891405105591,
+      -0.1474689245223999,
+      -0.4514450132846832
+    ],
+    [
+      0.49645882844924927,
+      0.1488853096961975,
+      0.4541513919830322
+    ]
+  ]
+}

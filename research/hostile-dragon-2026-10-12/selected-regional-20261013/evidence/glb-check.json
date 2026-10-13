@@ -1,0 +1,55 @@
+{
+  "glb_read_success": true,
+  "geometry_parts": [
+    {
+      "name": "Inset transition lip.006",
+      "vertices": 2671,
+      "faces": 4816,
+      "finite_vertices_and_valid_indices": true
+    },
+    {
+      "name": "Inset transition lip.007",
+      "vertices": 11911,
+      "faces": 21616,
+      "finite_vertices_and_valid_indices": true
+    },
+    {
+      "name": "Inset transition lip.008",
+      "vertices": 9535,
+      "faces": 17296,
+      "finite_vertices_and_valid_indices": true
+    },
+    {
+      "name": "Inset transition lip.009",
+      "vertices": 2671,
+      "faces": 4816,
+      "finite_vertices_and_valid_indices": true
+    },
+    {
+      "name": "Inset transition lip.010",
+      "vertices": 11911,
+      "faces": 21616,
+      "finite_vertices_and_valid_indices": true
+    },
+    {
+      "name": "Inset transition lip.011",
+      "vertices": 9535,
+      "faces": 17296,
+      "finite_vertices_and_valid_indices": true
+    },
+    {
+      "name": "Cylinder.001",
+      "vertices": 3076,
+      "faces": 4092,
+      "finite_vertices_and_valid_indices": true
+    },
+    {
+      "name": "User-selected regional candidate \u2014 repaired branch",
+      "vertices": 351007,
+      "faces": 699728,
+      "finite_vertices_and_valid_indices": true
+    }
+  ],
+  "unchanged_old_file_sha256_verified": true,
+  "glb_sha256": "905be030b087de5dd70384f7d02f9975d59574c0fa35907cadb64f8d3c9380bd"
+}

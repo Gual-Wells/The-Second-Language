@@ -1,0 +1,14 @@
+{
+  "stage": "repaired_candidate_saved",
+  "source_sha256": "15d1d0d8248b9feb02ac50b3e3f190e4a025800dd0dc0f6e38ca25ce96fa53d9",
+  "geometry_resampled": false,
+  "user_selected_candidate": "regional-rebuild-v1",
+  "art_accepted": false,
+  "elapsed_seconds": 24.83,
+  "source_vertices": 1247248,
+  "source_faces": 2486900,
+  "vertices": 468522,
+  "faces": 944988,
+  "output_sha256": "f0c2d831a90b2cf500f8763fc04e31602f3c22197be597258dc142d0c30e340c",
+  "method": "Official CuMesh narrow-band dual contouring, 512, band=1, project_back=0"
+}

@@ -1,0 +1,16 @@
+{
+  "user_selected": "regional v1 pointed out by screenshot",
+  "repair_resampled_geometry": false,
+  "old_source_unchanged_exact": true,
+  "new_candidate_front_unchanged_by_reverse_operation": true,
+  "new_candidate_wrapping_grips_unchanged_by_reverse_operation": true,
+  "false_rear_faces_removed": 274690,
+  "art_status": "Candidate, not final target-version approval",
+  "views": [
+    "front",
+    "quarter",
+    "opposite-quarter",
+    "side",
+    "back"
+  ]
+}
