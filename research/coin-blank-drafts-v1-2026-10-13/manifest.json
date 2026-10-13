@@ -1,0 +1,103 @@
+{
+  "type": "AI-design-reference-not-model-render",
+  "date": "2026-10-13",
+  "repositoryBaseline": "edd026e98e003dd314eecc0ddf7d399435506d16",
+  "tool": "built-in imagegen",
+  "generationCalls": 7,
+  "currentSheets": 5,
+  "currentViewPositions": 28,
+  "obverse": "empty field + necessary manufacturing rim only",
+  "reverseStatic": "THE SECOND LANGUAGE + project open-book",
+  "reverseDynamic": "XXX · XXX",
+  "aura": "none for empty common base",
+  "canonicalPromoted": false,
+  "images": [
+    {
+      "path": "assets/f-angles.png",
+      "size": [
+        1774,
+        887
+      ],
+      "bytes": 1759791,
+      "sha256": "f5a98395b36b943ba6de8293ed94259c2d94cf23fd52f27045d3ece7118a1ce3",
+      "gitBlobSha1": "45d9b422bd4bc6ce2dee9fbee2814c229ca51b68",
+      "parent": [
+        "g-angles",
+        "f-master-v2"
+      ],
+      "state": "current-draft"
+    },
+    {
+      "path": "assets/f-master-v1.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "bytes": 2248886,
+      "sha256": "d555ef1bc74389b0b278266edb647cb40268357da136d4bb1b87871868b6475c",
+      "gitBlobSha1": "c5e1c507a5ea7754af99098f42f3fd7503673794",
+      "parent": "g-master-v2",
+      "state": "archived-iteration"
+    },
+    {
+      "path": "assets/f-master-v2.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "bytes": 1953245,
+      "sha256": "27cba3a16d6d30646ff67b411d69c43ad44a60472718a11bfe031c865ad9c6c4",
+      "gitBlobSha1": "8d3335b257f07f06338b8130b5f46e8ac6123e39",
+      "parent": "f-master-v1",
+      "state": "current-draft"
+    },
+    {
+      "path": "assets/g-angles.png",
+      "size": [
+        1774,
+        887
+      ],
+      "bytes": 1586800,
+      "sha256": "288f02e0c899445b774f0409c929082a82d45155b5e2bd21dd8f4e8378e4c452",
+      "gitBlobSha1": "c04f980749e7534d3dd263c6a0f94539f0258dfb",
+      "parent": "g-master-v2",
+      "state": "current-draft"
+    },
+    {
+      "path": "assets/g-details.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "bytes": 2209012,
+      "sha256": "99df295367e307f9f6a8f6c0c60fb61b5db71583751a721467a905a5061c2bf5",
+      "gitBlobSha1": "b75cb2f2b2888d41ba08a931efa35cff1dae30d0",
+      "parent": "g-master-v2",
+      "state": "current-draft"
+    },
+    {
+      "path": "assets/g-master-v1.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "bytes": 2089391,
+      "sha256": "79a65f21cc25a5f9e5a84df3594285b84305f066ca91d81b41a8d24ab601e4de",
+      "gitBlobSha1": "c0d1dde6d9173db97623f971019f3c92930f5dab",
+      "parent": "web/icon-512.png",
+      "state": "archived-iteration"
+    },
+    {
+      "path": "assets/g-master-v2.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "bytes": 1934387,
+      "sha256": "aabe594a78285bc22750158dbb72b1d25c3346d246af091328490915d5dc3af8",
+      "gitBlobSha1": "6cba5cec82d34c1ca3a570afcfdf9b32c01dbd07",
+      "parent": "g-master-v1",
+      "state": "current-draft"
+    }
+  ]
+}
