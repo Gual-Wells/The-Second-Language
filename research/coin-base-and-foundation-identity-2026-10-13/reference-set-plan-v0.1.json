@@ -1,0 +1,187 @@
+{
+  "schema": "tsl.coin.reference-set/0.1",
+  "status": "planned-not-rendered",
+  "anchor": {
+    "path": "research/hostile-dragon-2026-10-12/concept-anchor-v1/assets/selected-anchor.png",
+    "localSha256": "6608204082a4036120e0c2b607fad6f27b2aa16fa3122afa37a43ac94d4f967d",
+    "preserve": [
+      "claw scale/position and approved notch coverage",
+      "head, original eye, horns and mouth",
+      "dragon body volume and curve",
+      "allowed lower-left cracks"
+    ]
+  },
+  "geometryId": "foundation-hostile-dragon-new-full-design",
+  "phaseSets": [
+    {
+      "id": "G",
+      "name": "neutral-clay",
+      "metallic": 0,
+      "roughness": 0.72,
+      "emissive": false,
+      "fog": false,
+      "particles": false
+    },
+    {
+      "id": "F",
+      "name": "material-finish",
+      "geometry": "same as G",
+      "emissive": false,
+      "fog": false,
+      "particles": false
+    },
+    {
+      "id": "A",
+      "name": "aura",
+      "geometry": "same as G",
+      "material": "same as F",
+      "effects": "dark-red eye/mouth, local claw fog, limited damage particles",
+      "snapshotTimeSeconds": 0
+    }
+  ],
+  "camera": {
+    "projection": "perspective",
+    "focalLengthMm": 70,
+    "sensorWidthMm": 36,
+    "resolution": [
+      2048,
+      2048
+    ],
+    "preview": [
+      1024,
+      1024
+    ],
+    "origin": "nominal blank center",
+    "pose": "camera orbits stationary coin; world light remains fixed",
+    "frontDirection": [
+      0,
+      -1,
+      0
+    ],
+    "defaultUp": [
+      0,
+      0,
+      1
+    ],
+    "poleUp": [
+      0,
+      1,
+      0
+    ],
+    "framing": "one shared distance for all three phases; fit full art including claws/fragments/effect margin",
+    "yawConvention": "positive yaw towards +X from front",
+    "distanceStartMm": 120
+  },
+  "views": [
+    {
+      "id": "V00",
+      "yawDeg": 0,
+      "elevationDeg": 0,
+      "name": "front"
+    },
+    {
+      "id": "V01",
+      "yawDeg": 45,
+      "elevationDeg": 0,
+      "name": "front-right"
+    },
+    {
+      "id": "V02",
+      "yawDeg": 90,
+      "elevationDeg": 0,
+      "name": "right"
+    },
+    {
+      "id": "V03",
+      "yawDeg": 135,
+      "elevationDeg": 0,
+      "name": "back-right"
+    },
+    {
+      "id": "V04",
+      "yawDeg": 180,
+      "elevationDeg": 0,
+      "name": "back"
+    },
+    {
+      "id": "V05",
+      "yawDeg": 225,
+      "elevationDeg": 0,
+      "name": "back-left"
+    },
+    {
+      "id": "V06",
+      "yawDeg": 270,
+      "elevationDeg": 0,
+      "name": "left"
+    },
+    {
+      "id": "V07",
+      "yawDeg": 315,
+      "elevationDeg": 0,
+      "name": "front-left"
+    },
+    {
+      "id": "V08",
+      "yawDeg": 0,
+      "elevationDeg": 35,
+      "name": "upper-front"
+    },
+    {
+      "id": "V09",
+      "yawDeg": 180,
+      "elevationDeg": 35,
+      "name": "upper-back"
+    },
+    {
+      "id": "V10",
+      "yawDeg": 0,
+      "elevationDeg": 90,
+      "name": "top"
+    },
+    {
+      "id": "V11",
+      "yawDeg": 0,
+      "elevationDeg": -90,
+      "name": "bottom"
+    }
+  ],
+  "additional": {
+    "orthographicClay": [
+      "front",
+      "back",
+      "left",
+      "right"
+    ],
+    "detailClay": [
+      "upper grip and fracture",
+      "fracture inside thickness",
+      "lower grip reverse continuity",
+      "shared reverse identity"
+    ]
+  },
+  "counts": {
+    "pairedMainImages": 36,
+    "additionalClay": 8,
+    "firstSetImages": 44
+  },
+  "outputFolders": [
+    "draft/G",
+    "draft/F",
+    "draft/A",
+    "render/G",
+    "render/F",
+    "render/A"
+  ],
+  "filenames": "<issue>-<phase>-<view-id>-<design-version>.png",
+  "workflow": [
+    "set full blank and identity",
+    "full side/back design using approved front",
+    "coherent G set",
+    "same-shape F set",
+    "same-shape A set",
+    "complete new 3D creation",
+    "actual G/F/A captures at corresponding poses"
+  ],
+  "sourceNote": "AI draft is design input; render uses a real saved model. Existing rejected three-view work is not a source; new multiview research is authorized by this request."
+}

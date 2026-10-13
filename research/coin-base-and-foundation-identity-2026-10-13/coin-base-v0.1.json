@@ -1,0 +1,128 @@
+{
+  "schema": "tsl.coin.base/0.1",
+  "status": "working-design",
+  "date": "2026-10-13",
+  "repositoryBaseline": "4a108da5f8af443d73f10be142e476fa66a92189",
+  "route": "complete-one-pass-rebuild-from-approved-full-design",
+  "units": {
+    "authoringDisplay": "mm",
+    "physical": "m",
+    "mmToM": 0.001
+  },
+  "frame": {
+    "right": "+X",
+    "up": "+Z",
+    "obverseNormal": "-Y",
+    "reverseNormal": "+Y",
+    "faceAlignment": "12h-to-12h"
+  },
+  "body": {
+    "nominalDiameterMm": 40,
+    "fieldToFieldThicknessMm": 2.8,
+    "rimRisePerFaceMm": 0.2,
+    "rimToRimThicknessMm": 3.2,
+    "rimRadialWidthMm": 0.65,
+    "fieldDiameterMm": 38.7,
+    "shoulderRadiusMm": 0.15
+  },
+  "edge": {
+    "metalDefault": "rounded-axial-reeding",
+    "grooveCount": 120,
+    "circumferentialPitchMm": 1.0471975511965976,
+    "grooveWidthMm": 0.4,
+    "radialDepthMm": 0.12,
+    "axialLengthMm": 2.2,
+    "plainVariant": true,
+    "nonmetal": "material-appropriate-edge",
+    "damage": "replace only according to full approved design"
+  },
+  "relief": {
+    "normalStudyMm": [
+      0.3,
+      1.5
+    ],
+    "highStudyMm": [
+      1.5,
+      6
+    ],
+    "foundationHeroStudyMm": [
+      6,
+      9
+    ],
+    "reverseEmblemRiseMm": 0.45,
+    "reverseLegendRiseMm": 0.12,
+    "heroBounds": "study values; do not mechanically clip approved art"
+  },
+  "reverse": {
+    "sharedCore": "open-book-from-web/icon.svg",
+    "legend": "THE SECOND LANGUAGE",
+    "emblemWidthMm": 16.8,
+    "emblemHeightMm": 13.888636363636364,
+    "coreRadiusMm": 11.5,
+    "legendBandRadiusMm": [
+      14.5,
+      17.3
+    ],
+    "structuralOuterRadiusMm": [
+      17.3,
+      20
+    ],
+    "legendCapHeightStartMm": 1.3,
+    "microCapHeightStartMm": 0.8,
+    "fontCandidate": "EB Garamond medium weight (OFL)",
+    "visibleDecorativeRingsRequired": false
+  },
+  "identity": {
+    "chapter": {
+      "namespace": "chapter-certification",
+      "displayExample": "CH-0001",
+      "minimumDigits": 4,
+      "primarySource": "existing stable chapter_id + first certificate binding",
+      "renumberOnSpecialIssue": false
+    },
+    "foundation": {
+      "nameZh": "第二语言诞生特别纪念币 · 仇视之龙",
+      "issueClass": "FOUNDATION ISSUE",
+      "displayCode": "F-001",
+      "assetIdentity": "tsl:foundation:hostile-dragon",
+      "year": 2026,
+      "yearMeaning": "issue year, not verified first-launch date",
+      "reverseLegend": "FOUNDATION · 2026",
+      "privyCandidate": "small I, approximately 1.5 mm",
+      "chapterId": null,
+      "certificateId": null,
+      "displayCodeLocation": "calm edge panel if suitable; otherwise metadata"
+    }
+  },
+  "anchor": {
+    "path": "research/hostile-dragon-2026-10-12/concept-anchor-v1/assets/selected-anchor.png",
+    "localSha256": "6608204082a4036120e0c2b607fad6f27b2aa16fa3122afa37a43ac94d4f967d",
+    "preserve": [
+      "claw scale/position and approved notch coverage",
+      "head, original eye, horns and mouth",
+      "dragon body volume and curve",
+      "allowed lower-left cracks"
+    ]
+  },
+  "artPolicy": {
+    "nominalBlankIsUnbroken": true,
+    "finishedCoinMayBeDamaged": true,
+    "retainCrossRimStructureOnReverse": true,
+    "oldMeshOrLatentAsParent": false,
+    "oldAssetPurpose": "quality comparison and successful pipeline analysis"
+  },
+  "sourceResources": [
+    {
+      "path": "web/icon.svg",
+      "repoCommit": "4a108da5f8af443d73f10be142e476fa66a92189",
+      "copy": "assets/project-icon.svg"
+    },
+    {
+      "font": "EB Garamond",
+      "fontGitBlob": "52d34b86ec20977f222ce37e8158e6b3002c0a31",
+      "metadataGitBlob": "0b771182c0dc4c62e24ef5c8de2c2c696921ce05",
+      "licenseGitBlob": "c1ec5e1818415eab6f8fca95a230af477d64eb61"
+    }
+  ],
+  "limitations": "Working geometric and identity choices; emblem art and multi-angle images are next production work."
+}
