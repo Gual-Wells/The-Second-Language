@@ -1,0 +1,13 @@
+{
+  "blender_version": "5.1.2",
+  "scene_file": "D:\\CodexStorage\\workspaces\\hostile-dragon-coin\\studio-20261013\\outputs\\studio-grip-trial-b.blend",
+  "objects": 12,
+  "vertices": 507778,
+  "saved_trial_exact": true,
+  "protected_coordinates_exact": true,
+  "protected_vertices": 503276,
+  "background": false,
+  "temp": "D:\\CodexStorage\\workspaces\\hostile-dragon-coin\\studio-20261013\\tmp\\blender_a08912\\",
+  "bridge_scope": "loopback trusted local client",
+  "artistic_acceptance": false
+}

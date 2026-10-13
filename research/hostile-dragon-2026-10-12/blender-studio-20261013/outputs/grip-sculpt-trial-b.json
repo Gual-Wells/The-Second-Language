@@ -1,0 +1,38 @@
+{
+  "native_passes": [
+    {
+      "brush": "Scrape/Fill",
+      "purpose": "outer knuckle plane",
+      "operator": [
+        "FINISHED"
+      ],
+      "changed_vertices": 331
+    },
+    {
+      "brush": "Scrape/Fill",
+      "purpose": "inner knuckle plane",
+      "operator": [
+        "FINISHED"
+      ],
+      "changed_vertices": 201
+    },
+    {
+      "brush": "Crease Polish",
+      "purpose": "outer finger joint fold",
+      "operator": [
+        "FINISHED"
+      ],
+      "changed_vertices": 1032
+    },
+    {
+      "brush": "Crease Polish",
+      "purpose": "inner finger joint fold",
+      "operator": [
+        "FINISHED"
+      ],
+      "changed_vertices": 1172
+    }
+  ],
+  "protected_exact": true,
+  "art_status": "Exploratory; whole-coin render review required"
+}

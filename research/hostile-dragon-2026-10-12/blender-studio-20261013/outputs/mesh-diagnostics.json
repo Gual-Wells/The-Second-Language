@@ -1,0 +1,27 @@
+{
+  "vertices": 508977,
+  "triangles": 697174,
+  "exact_edge_connected_face_components": 14878,
+  "largest_components_faces": [
+    24589,
+    7713,
+    5926,
+    5088,
+    4884,
+    4610,
+    4555,
+    4322,
+    4190,
+    3616,
+    3056,
+    2969
+  ],
+  "boundary_edges": 296146,
+  "nonmanifold_edges_more_than_two_faces": 0,
+  "degenerate_triangles_area_below_1e-12": 6,
+  "left_upper_spatial_zone_faces": 87483,
+  "left_upper_zone_components": 1932,
+  "is_watertight": false,
+  "diagnostic_only_original_not_processed": true,
+  "semantic_identity": "Connectivity labels are NOT claw/rim/body labels; depth and visible source shape must be used before editing."
+}

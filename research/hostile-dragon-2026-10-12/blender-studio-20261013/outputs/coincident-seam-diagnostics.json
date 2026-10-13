@@ -1,0 +1,22 @@
+{
+  "original_vertices": 508977,
+  "exact_unique_positions": 351890,
+  "coincident_duplicate_vertices": 157087,
+  "components_after_exact_coordinate_equivalence": 396,
+  "largest_component_faces": [
+    684502,
+    1380,
+    1074,
+    1022,
+    892,
+    840,
+    754,
+    662
+  ],
+  "boundary_edges_after_equivalence": 12919,
+  "nonmanifold_edges_after_equivalence": 1873,
+  "is_watertight_after_equivalence": false,
+  "input_coordinate_positions_changed": false,
+  "original_file_changed": false,
+  "interpretation": "An analysis-only equivalence graph; original-index disconnection can include export seams, not necessarily physically separated objects."
+}
