@@ -1,0 +1,11 @@
+{
+  "sampleOnly": true,
+  "sequenceDecimal": "1",
+  "nonceHex": "F37628A78E01DB9B4B4301036A1E3273",
+  "sha256": "2AD2CC008F6F0647E37C6EF0F7C93B7F3F37F949E652EAFD249C1057E392EF15",
+  "visibleHex": "2AD2CC008F6F0647",
+  "visibleGrouped": "2AD2 CC00 8F6F 0647",
+  "method": "SHA256(CSPRNG 16-byte nonce), first 8 bytes as uppercase hex",
+  "certificationLocal": "2026-10-14T10:35:15.314+08:00",
+  "status": "design sample; not allocated"
+}

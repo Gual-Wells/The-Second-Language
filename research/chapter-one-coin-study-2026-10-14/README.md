@@ -1,6 +1,16 @@
 # 第一章认证铭文试样：中文主标题已选定
 
-**当前稿：[编号修订v3](assets/chapter-one-certified-zh-v3.png)。** 用户采用中文主标题版，进一步要求编号连续、紧凑；设计依据和实做边界见[编号排版研究](NUMBERING_RESEARCH.md)，新提示词见[prompt-set-v3.json](prompt-set-v3.json)。英文主标题仅作未采用的历史对比，以下v2均为过程版本。
+## 当前任务：双编号身份重排 v4
+
+用户要求十进制认证顺序号与十六进制随机哈希码。当前样张使用 `№ 1` 与 `2AD2 CC00 8F6F 0647`，取消旧六位前导零；认证时刻沿用上一轮。已完成A/B完整币设计对照，建议B，待用户审美选择。
+
+**[打开双编号比较页](index.html)** · **[完整研究与接入草案](DUAL_IDENTITY_RESEARCH.md)** · [样本数据](dual-identity-v4.json) · [提示词](prompt-set-v4.json)
+
+![双编号B：标题下签铭](assets/chapter-one-dual-identity-b-v4.png)
+
+以下单编号v3/v2均为过程资料，不再是当前身份方案。
+
+**历史稿：[单编号修订v3](assets/chapter-one-certified-zh-v3.png)。** 用户采用中文主标题版，进一步要求编号连续、紧凑；历史依据见[编号排版研究](NUMBERING_RESEARCH.md)，提示词见[prompt-set-v3.json](prompt-set-v3.json)。英文主标题仅作未采用的历史对比，以下v2均为过程版本。
 
 ![当前中文主标题稿](assets/chapter-one-certified-zh-v3.png)
 

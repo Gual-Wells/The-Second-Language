@@ -72,9 +72,31 @@
         1774,
         887
       ]
+    },
+    {
+      "path": "assets/chapter-one-dual-identity-a-v4.png",
+      "bytes": 2152225,
+      "sha256": "a5f5660a69f671537fc31388d6f490e6cd52888b1b649d07387703221c5c08c6",
+      "gitBlobSha1": "80f81b5123a3ee62b4460a3e14a2ea1dc0359670",
+      "size": [
+        1774,
+        887
+      ]
+    },
+    {
+      "path": "assets/chapter-one-dual-identity-b-v4.png",
+      "bytes": 2175017,
+      "sha256": "831732047a251c449c6ffb43e6d41ea54901af5d7d5f6c3b569eae1b889d0a51",
+      "gitBlobSha1": "2a58749c2a96be9e5200bfc3f99862301be0532b",
+      "size": [
+        1774,
+        887
+      ]
     }
   ],
   "currentImages": [
-    "assets/chapter-one-certified-zh-v3.png"
-  ]
+    "assets/chapter-one-dual-identity-a-v4.png",
+    "assets/chapter-one-dual-identity-b-v4.png"
+  ],
+  "recommendation": "B; user acceptance pending"
 }
