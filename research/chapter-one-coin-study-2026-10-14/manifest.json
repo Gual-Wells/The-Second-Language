@@ -92,11 +92,20 @@
         1774,
         887
       ]
+    },
+    {
+      "path": "assets/chapter-one-centered-identity-v5.png",
+      "bytes": 2161953,
+      "sha256": "09d6c9370f8c07811047a93c27a738096ab619cb04175986cc466016eeab8785",
+      "gitBlobSha1": "c3a516461c2de21e2cd1a38db95b370fa39f7011",
+      "size": [
+        1774,
+        887
+      ]
     }
   ],
   "currentImages": [
-    "assets/chapter-one-dual-identity-a-v4.png",
-    "assets/chapter-one-dual-identity-b-v4.png"
+    "assets/chapter-one-centered-identity-v5.png"
   ],
-  "recommendation": "B; user acceptance pending"
+  "recommendation": "Current v5 direction; final aesthetic acceptance pending"
 }
