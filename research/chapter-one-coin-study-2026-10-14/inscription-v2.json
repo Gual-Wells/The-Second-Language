@@ -1,0 +1,40 @@
+{
+  "type": "visual-design-proof-not-formal-award",
+  "sampleCertification": {
+    "utc": "2026-10-14T02:35:15.314Z",
+    "local": "2026-10-14T10:35:15.314+08:00",
+    "epochMilliseconds": 1791945315314,
+    "zone": "Asia/Shanghai",
+    "offset": "+08:00"
+  },
+  "sampleSerial": {
+    "value": "000001",
+    "display": "№ 000001",
+    "allocation": "not-reserved",
+    "independentOfChapter": true
+  },
+  "display": {
+    "header": [
+      "CHAPTER 01",
+      "№ 000001"
+    ],
+    "signature": [
+      "CERTIFIED · 2026.10.14",
+      "10:35:15.314  +08:00"
+    ]
+  },
+  "decisions": [
+    "Certification passed time replaces chapter publication date.",
+    "No ISSUE, ISSUED or SERIAL caption in artwork.",
+    "Four-digit year; milliseconds, not invented finer precision.",
+    "A future formal award should freeze its first passed event time; retries and art rerenders must not reset it."
+  ],
+  "standard": {
+    "name": "RFC 3339 section 5.6",
+    "url": "https://www.rfc-editor.org/rfc/rfc3339.html#section-5.6",
+    "canonical": "UTC timestamp with exactly three fractional digits",
+    "display": "Asia/Shanghai local time with numeric offset; typography is a display composition, not an RFC wire string",
+    "precision": "millisecond representation, not a claim of calibrated millisecond clock accuracy"
+  }
+}
+

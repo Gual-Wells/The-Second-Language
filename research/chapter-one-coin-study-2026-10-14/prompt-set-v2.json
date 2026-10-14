@@ -1,0 +1,24 @@
+{
+  "mode": "built-in imagegen",
+  "type": "precise-object-edit",
+  "sampleCertification": {
+    "utc": "2026-10-14T02:35:15.314Z",
+    "local": "2026-10-14T10:35:15.314+08:00",
+    "epochMilliseconds": 1791945315314,
+    "zone": "Asia/Shanghai",
+    "offset": "+08:00"
+  },
+  "prompts": [
+    {
+      "id": "chapter-one-certified-zh-v2",
+      "parent": "unpublished serial layout draft exec-4415e96f-9ace-40d9-a648-1d1bb938e53a",
+      "prompt": "Use case: precise-object-edit. Edit this FULL selected silver ex-libris medal triptych, blank obverse left, narrow decorative edge centre, ornate reverse right. Preserve the complete accepted object: original open-book seal with three engraved strokes per page, sunray ground, sculpted foliage, cartouche, rim, alternating engraved/polished side, subtle satin silver, charcoal studio lighting and camera. Obverse remains entirely blank. Only redesign the lettering of the lower register to add an understated collectible serial and the precise moment of certification.\n\nRemove the words ISSUE and No. completely. Header left is exactly \"CHAPTER 01\", header right is exactly \"№ 000001\". Make the serial elegant and small, not a technical field label, separated from chapter with the existing tiny diamond. No ISSUED, SERIAL, DATE, UTC, TIME or explanatory labels anywhere.\nMain title remains exact Chinese \"地图上的那条线\" in beautiful engraved Song/Ming serif, confident one-line title. Secondary English \"The Line on the Map\" centred below. Preserve engraved title dignity and generous hierarchy.\nReplace ALL old lower status/date content, including CHAPTER DATE and 02 OCT 2026, with a refined two-tier certification signature:\nfirst small centred line exactly \"CERTIFIED · 2026.10.14\"\nsecond centred line exactly \"10:35:15.314\", followed on the same baseline at a modest gap by smaller \"+08:00\".\nThese are the actual current sample certification date and local time, precision to milliseconds; preserve every numeral exactly. The second line must look like a precise commemorative watch inscription, elegant serif numerals, not a computer console. Small offset subordinate to the time, but legible. Rebalance the lower separator a little if needed; do not add a huge footer panel or enlarge the cartouche. Two fine inscription lines should breathe, not crush the title. Date/time should be smaller than either chapter title. \"CERTIFIED\" is the sole certification word.\n\nThis is a design proof, not an actual award issuance. No chapter publication date, no edition denominator, no scores, no extraneous text. Entire inscription must be real intaglio silver, fine dark letter recesses with light microbevels, no flat printed overlay. Preserve selected engraved silver material and quietly varied brushed/burnished surfaces; no uniform noisy grey, thick hammering, gold, smoke or particles. Show the whole triptych at the same framing."
+    },
+    {
+      "id": "chapter-one-certified-en-v2",
+      "parent": "chapter-one-certified-zh-v2",
+      "prompt": "Use case: precise-object-edit. Keep this complete silver ex-libris medal triptych unchanged except for ONE title-hierarchy variation in the reverse's cartouche. Preserve blank front, edge, book emblem, foliage, silver finish, studio lighting, camera and all boundaries.\nHeader must remain \"CHAPTER 01\" at left, small \"№ 000001\" at right, with tiny diamond. No ISSUE or SERIAL or other field labels.\nReplace the current central bilingual title with English primary in TWO tastefully spaced engraved serif lines:\n\"THE LINE\"\n\"ON THE MAP\"\nBelow it put the smaller Chinese title exactly \"地图上的那条线\".\nLower certification signature MUST remain two small centred lines:\n\"CERTIFIED · 2026.10.14\"\n\"10:35:15.314  +08:00\"\nKeep the offset slightly smaller than the time and retain all three milliseconds digits 314. The complete title/date/serial register must feel like a fine engraved collectible bookplate, not a technical record sheet. Rebalance only its inner whitespace and fine separators to allow the two-line English title; do not compress the lower lettering into the border. Keep enough breathing room, even if primary title becomes moderately smaller than the preceding Chinese design. Text dark intaglio, subtle bright edges, physically coherent engraving.\nNo publication date, no CHAPTER DATE, no extra labels, no new symbols besides existing ornaments, no added front art, no effects or gold. This is the SAME current-time sample certification moment and the SAME serial, just the alternate language hierarchy. Preserve the complete object and the dignified engraved silver aesthetic."
+    }
+  ]
+}
+

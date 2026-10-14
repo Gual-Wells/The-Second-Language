@@ -32,6 +32,49 @@
         1774,
         887
       ]
+    },
+    {
+      "path": "assets/chapter-one-certified-zh-v2.png",
+      "bytes": 2205227,
+      "sha256": "dd096b59c832a8b22d6018de3c7f7263801096e47e09bb9aceec50fe03ea58ae",
+      "gitBlobSha1": "c56ca33cef4ca1c3aa012ea5249616b7ed379575",
+      "size": [
+        1774,
+        887
+      ]
+    },
+    {
+      "path": "assets/chapter-one-certified-en-v2.png",
+      "bytes": 2128065,
+      "sha256": "c7ecae090b0bbd2ed52d4ff71c6fd27e03bef27dfe200413f0ff7b48d1cf91b2",
+      "gitBlobSha1": "902962dc150cb36837ade8194c9610f4a22f6a67",
+      "size": [
+        1774,
+        887
+      ]
+    },
+    {
+      "path": "assets/user-selected-zh-v2.png",
+      "bytes": 2495185,
+      "sha256": "63c931656937c75c47dd18e1936cd4262c091c99baece53cce4fd95aff8b8ecd",
+      "gitBlobSha1": "4fa8dc10577a14842c02dfdfdbc7ec4028883fcc",
+      "size": [
+        1774,
+        887
+      ]
+    },
+    {
+      "path": "assets/chapter-one-certified-zh-v3.png",
+      "bytes": 2122042,
+      "sha256": "f810ab6400250f83fd4b7aaf2dca69e00bb02b8d676ecc95bc09aa713c80d959",
+      "gitBlobSha1": "f6ee8b11f07b8de430ed8a434fcb8ad81c072e89",
+      "size": [
+        1774,
+        887
+      ]
     }
+  ],
+  "currentImages": [
+    "assets/chapter-one-certified-zh-v3.png"
   ]
 }
