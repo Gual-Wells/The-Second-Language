@@ -1,0 +1,86 @@
+[
+  {
+    "path": "outputs/A-detail.png",
+    "bytes": 914686,
+    "sha256": "2040df6c55b6f4d4e8175ee89413d440ff050f9e34f599c3a5e4bb1c17b0cf54",
+    "gitBlobSha1": "18e71372ab8f979d821a30d2597fb129de4010d2",
+    "publication": "github"
+  },
+  {
+    "path": "outputs/A-edge-study.blend",
+    "bytes": 2582235,
+    "sha256": "b0d27b4c8780d41330c7cd90f1da0fdb3734659bc9bef81eb00b5a0d1fb009d5",
+    "gitBlobSha1": "fe04562fa086b90896c4ece1c030df4d8390f433",
+    "publication": "local-only"
+  },
+  {
+    "path": "outputs/A-whole.png",
+    "bytes": 867340,
+    "sha256": "122910fe1f9c52d32e914ecce27bb9c2c541e05c84a4f628a337100a07069bfc",
+    "gitBlobSha1": "825253fb18787550abd1e917a2ed0c849e01ad5f",
+    "publication": "github"
+  },
+  {
+    "path": "outputs/B-detail.png",
+    "bytes": 908846,
+    "sha256": "afad54432add3dd069cdf8d67ef4281d18ebff6a95ff88d9303a4c51025473a2",
+    "gitBlobSha1": "3c704c85a094624e9fa693839a727bdca14ff188",
+    "publication": "github"
+  },
+  {
+    "path": "outputs/B-edge-study.blend",
+    "bytes": 2589313,
+    "sha256": "6b7768c1140d03c7e519832c87019163827abc4fb2925706267001f70c08a733",
+    "gitBlobSha1": "a0139664bc50a7d0bffeb5e95cbe702a62b3ce5e",
+    "publication": "local-only"
+  },
+  {
+    "path": "outputs/B-whole.png",
+    "bytes": 863631,
+    "sha256": "96797edebbdd3ea0aef67275a3a8607338dcd30af94cbe3f8c47aa12e6a541f1",
+    "gitBlobSha1": "3b8189719ece9ffda1f02d2da0f60ed07a938294",
+    "publication": "github"
+  },
+  {
+    "path": "outputs/C-detail.png",
+    "bytes": 880816,
+    "sha256": "4874b04a669b0038daa2692d321d58d3d3c2ec40a50863ccd175d91bfbea1c02",
+    "gitBlobSha1": "3c379ad143bdec7460264fbbd73e21095982576b",
+    "publication": "github"
+  },
+  {
+    "path": "outputs/C-edge-study.blend",
+    "bytes": 2594692,
+    "sha256": "4cb750757a067f464d7338fbf5252978357c7d0ec3c2eb4837fe7aa58aec9b6e",
+    "gitBlobSha1": "2e29c6fce3513c3ebf78bf42345f54506f16fa19",
+    "publication": "local-only"
+  },
+  {
+    "path": "outputs/C-whole.png",
+    "bytes": 846571,
+    "sha256": "fd94f335c0d9f2906b959eea37ddbd53f0c265ac54b52bdd74a1da7ad1bfda40",
+    "gitBlobSha1": "f60ab42a95e9d25eb76782cdccf5c10931559125",
+    "publication": "github"
+  },
+  {
+    "path": "outputs/geometry-checks.json",
+    "bytes": 830,
+    "sha256": "4e6bd5d3e332b7b640dc0ca3c59b29d659934a29bc65c37b85a9fccc231d19cb",
+    "gitBlobSha1": "28ef1e83336d4422a17629dac350ef6a9e05239b",
+    "publication": "github"
+  },
+  {
+    "path": "outputs/saved-model-checks.json",
+    "bytes": 683,
+    "sha256": "3e5a3fb9d6c5030b189ce82ae152b7254eb31d29863ecf8bd540acbcffb9d658",
+    "gitBlobSha1": "2cb48a47981a2270124fc1054f1cad01500c79d3",
+    "publication": "github"
+  },
+  {
+    "path": "assets/approved-context-v5.png",
+    "bytes": 2161953,
+    "sha256": "09d6c9370f8c07811047a93c27a738096ab619cb04175986cc466016eeab8785",
+    "gitBlobSha1": "c3a516461c2de21e2cd1a38db95b370fa39f7011",
+    "publication": "github"
+  }
+]

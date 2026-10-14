@@ -1,0 +1,26 @@
+[
+  {
+    "variant": "A",
+    "savedFile": "A-edge-study.blend",
+    "actualVertexCount": 95042,
+    "nonmanifoldEdges": 0,
+    "axialCollarEnvelopeViolations": 0,
+    "maxEnvelopeOvershootMm": 1.010951240942859e-06
+  },
+  {
+    "variant": "B",
+    "savedFile": "B-edge-study.blend",
+    "actualVertexCount": 95042,
+    "nonmanifoldEdges": 0,
+    "axialCollarEnvelopeViolations": 0,
+    "maxEnvelopeOvershootMm": 1.010951240942859e-06
+  },
+  {
+    "variant": "C",
+    "savedFile": "C-edge-study.blend",
+    "actualVertexCount": 95042,
+    "nonmanifoldEdges": 0,
+    "axialCollarEnvelopeViolations": 0,
+    "maxEnvelopeOvershootMm": 9.72283995537282e-07
+  }
+]

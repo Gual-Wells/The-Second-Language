@@ -1,0 +1,55 @@
+{
+  "schema": "tsl.edge-study/1",
+  "status": "engineering-design-study-not-final-series-standard",
+  "units": "mm",
+  "diameter": 40,
+  "fieldThickness": 2.8,
+  "rimToRimThickness": 3.2,
+  "fieldRadius": 19.2,
+  "rimInnerFlatRadius": 19.42,
+  "rimOuterFlatRadius": 19.85,
+  "shoulderRadiusApprox": 0.15,
+  "groove": {
+    "depth": 0.1,
+    "width": 0.3,
+    "fullDepthAxialLength": 2.9,
+    "totalAxialLength": "terminates naturally at the shoulder envelope; no blind end",
+    "crossSection": "raised-cosine axial flute, radial clipping against common shoulder envelope"
+  },
+  "variants": [
+    {
+      "id": "A",
+      "name": "Continuous axial reeding",
+      "grooves": 144,
+      "pitchDegrees": 2.5,
+      "pitchMm": 0.8726646259971648
+    },
+    {
+      "id": "B",
+      "name": "Interrupted axial reeding",
+      "sectors": 12,
+      "sectorDegrees": 30,
+      "reededDegrees": 20,
+      "plainDegrees": 10,
+      "groovesPerSector": 8,
+      "grooves": 96,
+      "pitchDegrees": 2.5
+    },
+    {
+      "id": "C",
+      "name": "Satin plain edge",
+      "grooves": 0
+    }
+  ],
+  "materials": {
+    "model": "Principled BSDF metallic silver",
+    "sideRoughness": 0.27,
+    "shoulderRoughness": 0.18,
+    "faceRoughness": 0.32,
+    "noDisplacementNoise": true
+  },
+  "coordinateNotes": "Study mesh uses axis Z and mm-to-m geometry conversion; it is not the canonical artistic M or a replacement for its documented frame.",
+  "faces": "Plain geometric fields used for structural comparison; no artistic reverse fabricated.",
+  "sourceContext": "../chapter-one-coin-study-20261014/assets/chapter-one-centered-identity-v5.png",
+  "releaseRule": "r(theta,z)=min(baseProfileRadius(z),20mm-grooveDepth(theta)); every axial section stays inside the collar aperture"
+}

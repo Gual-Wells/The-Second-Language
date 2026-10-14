@@ -1,0 +1,35 @@
+[
+  {
+    "variant": "A",
+    "vertices": 95042,
+    "faces": 97920,
+    "nonmanifoldEdges": 0,
+    "signedVolumeMm3": 3544.633135750475,
+    "maximumRadiusMm": 20.000000000000004,
+    "thicknessMm": 3.2,
+    "sampledGrooveCount": 144,
+    "expectedGrooves": 144
+  },
+  {
+    "variant": "B",
+    "vertices": 95042,
+    "faces": 97920,
+    "nonmanifoldEdges": 0,
+    "signedVolumeMm3": 3546.8396884239028,
+    "maximumRadiusMm": 20.000000000000004,
+    "thicknessMm": 3.2,
+    "sampledGrooveCount": 96,
+    "expectedGrooves": 96
+  },
+  {
+    "variant": "C",
+    "vertices": 95042,
+    "faces": 97920,
+    "nonmanifoldEdges": 0,
+    "signedVolumeMm3": 3551.2531992720506,
+    "maximumRadiusMm": 20.000000000000004,
+    "thicknessMm": 3.2,
+    "sampledGrooveCount": 0,
+    "expectedGrooves": 0
+  }
+]
