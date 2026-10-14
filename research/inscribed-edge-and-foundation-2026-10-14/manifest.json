@@ -1,0 +1,119 @@
+{
+  "started": "2026-10-14",
+  "completed": "2026-10-15",
+  "stage": "AI_design_candidates_not_mesh_renders",
+  "method": "built-in imagegen, 12 attempts, 10 image outputs, 2 network failures without outputs",
+  "current_outputs": [
+    "assets/blank-triptych-a1.png",
+    "assets/blank-four-edge-final.png",
+    "assets/foundation-rest-master-v2.png",
+    "assets/foundation-front-obliques-profiles.png",
+    "assets/foundation-rear-obliques-and-edges.png"
+  ],
+  "authority": "User approval pending; previous approved dragon source preserved. No canonical promotion, certification, production frontend or database change.",
+  "source_repository_base": "0c192a28ef5099ee8993db801dfa4218b6388813",
+  "files": [
+    {
+      "path": "foundation-master-prompt.txt",
+      "bytes": 3842,
+      "sha256": "eef740ed84c7e398e032e05b05d72502f2f46c8c6cb981c4dedfb2df4bb7ef9b",
+      "git_blob_sha": "32358ddaa224d6fdeb39ba963d3812044ce735fe"
+    },
+    {
+      "path": "index.html",
+      "bytes": 3514,
+      "sha256": "ba67711aa97673f56e70e6c0e3c232876b6109816109d18adbd48f3161789d2f",
+      "git_blob_sha": "6f68233ba5fdded9ba3638d64357848aff61a481"
+    },
+    {
+      "path": "prompts.json",
+      "bytes": 27664,
+      "sha256": "d6f264960fd6877b96d0bf3780c613d6541bba61b01be79453f0396f8bf7d0fb",
+      "git_blob_sha": "42def61854e8c0ee0efa707940e849c45189e2b0"
+    },
+    {
+      "path": "README.md",
+      "bytes": 7514,
+      "sha256": "b552fece375e9639e80051aa15fccdf6158fa1d7b43da98bd0628a5c5d909026",
+      "git_blob_sha": "35e0e1aec0d8f9181f5d9db92ee82d0ef068e0c0"
+    },
+    {
+      "path": "side-view-prompt.txt",
+      "bytes": 2459,
+      "sha256": "fa7c67fa6294306272d15433431e6d2f27315f94ea1449ba7204a2504dd337e1",
+      "git_blob_sha": "c43e0f405dfaa23ca64336db08008a7bc52ad31a"
+    },
+    {
+      "path": "assets/blank-four-edge-final.png",
+      "bytes": 1960063,
+      "sha256": "c81f01d6037762da047c4890edbdc37fbd4150a03f6a8e9979db3f8e17fb1205",
+      "git_blob_sha": "12246ca0eb7901621b4a37018fc6831d91eb83ac"
+    },
+    {
+      "path": "assets/blank-four-edge-v1-rejected.png",
+      "bytes": 2015444,
+      "sha256": "97e134bd1fcc1d4c799e8d162c22f93fa6f07d9f7b80e2a0849c6cea45c93fe3",
+      "git_blob_sha": "17b5a39af087658043dd5b8dd30e7d9c4df83b3f"
+    },
+    {
+      "path": "assets/blank-four-edge-v2-superseded.png",
+      "bytes": 2366379,
+      "sha256": "0999e85cd30a876663a2e971530573096facd5fe6848d692a4b8ce22887c4a20",
+      "git_blob_sha": "785587734179a21aaefbf04bbd75a7ea3dc42a2a"
+    },
+    {
+      "path": "assets/blank-triptych-a1.png",
+      "bytes": 2130243,
+      "sha256": "0fad8245c237a4916d14a73d53757d9a89c4dad57a1706916c655b9b3977a69a",
+      "git_blob_sha": "758b16672556065a5fa3dc007418d7ecc0589fd2"
+    },
+    {
+      "path": "assets/blank-triptych-a2-rejected.png",
+      "bytes": 2083467,
+      "sha256": "4f66d8d33e29de00b4be6980602e32a408f6d711df69f63e9f49198ff0c219f8",
+      "git_blob_sha": "c76d46670842ca7248352511ce5ee57719bccd29"
+    },
+    {
+      "path": "assets/foundation-front-obliques-profiles.png",
+      "bytes": 2301306,
+      "sha256": "253a232045cd29c81506bb5d83e28f96d15f3c99d09c47a68d691a86a5d0157f",
+      "git_blob_sha": "bda1271df51563696314d71fe1cd1cdfcd461b2b"
+    },
+    {
+      "path": "assets/foundation-rear-edges-v1-superseded.png",
+      "bytes": 2778500,
+      "sha256": "c3eeafec078ff5009277655c991458e4b248b27473ad7bc5fcf3238ce8b6df5b",
+      "git_blob_sha": "52370f1ce73b1b4378717421c5a420bbdc0f69af"
+    },
+    {
+      "path": "assets/foundation-rear-obliques-and-edges.png",
+      "bytes": 2628051,
+      "sha256": "200a4059e2ca27ec5a47a28082692618a02f828b1db336d36da4dee8721a4980",
+      "git_blob_sha": "d0434b4e759f6b6eac8a3f6a21a18565ff3d646c"
+    },
+    {
+      "path": "assets/foundation-rest-master-v1.png",
+      "bytes": 2949212,
+      "sha256": "4e44cbe0547716f09900fe8299f30543ca7bb6514c35c374be04d1e171d01829",
+      "git_blob_sha": "1d48b616ca61d8c3d8d0f3eb49556547dc74ffca"
+    },
+    {
+      "path": "assets/foundation-rest-master-v2.png",
+      "bytes": 2814876,
+      "sha256": "9e44bdb73e3f2f66f97057b08638d87d4acd1d4ff46812e9fd77b2945847cd27",
+      "git_blob_sha": "fce7ebfb39c33893032347ebec5b710c97a9347d"
+    },
+    {
+      "path": "inputs/approved-dragon-anchor.png",
+      "bytes": 2286874,
+      "sha256": "6608204082a4036120e0c2b607fad6f27b2aa16fa3122afa37a43ac94d4f967d",
+      "git_blob_sha": "2ca9a5bb61e55e58d7a67064b57e1ebda1d7cbef"
+    },
+    {
+      "path": "inputs/user-blank-v5.png",
+      "bytes": 2454755,
+      "sha256": "4773ec40fb7e9ad961a03236378539bc8cb1b235d2818bc16cee50f79fb1391f",
+      "git_blob_sha": "2a4fd9cb9f1fd8ff3111115278ec23b0544f9712"
+    }
+  ]
+}
