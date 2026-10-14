@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-14",
+  "type": "design-study-not-award-record",
+  "source": "user-selected ex-libris submission D",
+  "images": [
+    {
+      "path": "assets/chapter-one-bilingual-en.png",
+      "bytes": 2226634,
+      "sha256": "b67dc90bb60dbf1ee80a2d7de35ed121ec5464bf50d2555731e58390740fed31",
+      "gitBlobSha1": "8cb57f2d592498e1a5a406b9cda273b152ac02f4",
+      "size": [
+        1774,
+        887
+      ]
+    },
+    {
+      "path": "assets/chapter-one-bilingual-zh.png",
+      "bytes": 2390233,
+      "sha256": "c7ef9f616ecb4555ba42f2f4b940a1f557c816a7826fec910264363ddbce9cf7",
+      "gitBlobSha1": "673bccfba5ae8ddc55166de6e13fcf6b93f29c48",
+      "size": [
+        1774,
+        887
+      ]
+    },
+    {
+      "path": "assets/selected-direction.png",
+      "bytes": 2711496,
+      "sha256": "2abcda66ce9d38f9c43f521620234e590ceef3003d9d84568c6aabcf72036e9f",
+      "gitBlobSha1": "4826bbcdcf9da0a33a6ffb2283fb98fc807bce7f",
+      "size": [
+        1774,
+        887
+      ]
+    }
+  ]
+}
