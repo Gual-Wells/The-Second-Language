@@ -1,0 +1,67 @@
+{
+  "stage": "research_not_frozen",
+  "date": "2026-10-14",
+  "base_commit": "db8bf3427b6f38bc1c872fffee92bce5430643ce",
+  "diameter_mm": 40,
+  "circumference_mm": 125.66370614359172,
+  "lettering": "THE SECOND LANGUAGE",
+  "orientation": {
+    "top_towards": "obverse",
+    "baseline_towards": "reverse",
+    "alternating_inversion": false
+  },
+  "measurement": {
+    "method": "System.Drawing GraphicsPath.AddString outline bounds, normalize uppercase ink height then add 18 tracking gaps; estimate only",
+    "uppercase_ink_height_mm": 1.45,
+    "tracking_per_gap_mm": 0.04,
+    "fonts": [
+      {
+        "name": "Times New Roman",
+        "approx_width_mm": 25.719
+      },
+      {
+        "name": "Palatino Linotype",
+        "approx_width_mm": 26.003
+      },
+      {
+        "name": "Baskerville Old Face",
+        "approx_width_mm": 26.373
+      },
+      {
+        "name": "Georgia",
+        "approx_width_mm": 25.14
+      }
+    ]
+  },
+  "candidate_layout": {
+    "preferred_repeats": 3,
+    "period_length_mm": 41.88790204786391,
+    "alternative_repeats": 4,
+    "alternative_period_length_mm": 31.41592653589793,
+    "preferred_ornament_length_mm": 8,
+    "note": "Three repeats and measurements are design proposals; not a symbolic count or final manufacturing values."
+  },
+  "candidates": [
+    {
+      "id": "A",
+      "elements": [
+        "complete inscription",
+        "short foliate separator from adopted reverse language",
+        "narrow integral rounded shoulders"
+      ],
+      "priority": "first_visual_exploration"
+    },
+    {
+      "id": "B",
+      "elements": [
+        "complete inscription",
+        "short fine reed separator",
+        "narrow integral rounded shoulders"
+      ],
+      "priority": "alternative_visual_exploration"
+    }
+  ],
+  "identity_changes": false,
+  "artwork_generated": false,
+  "model_generated": false
+}

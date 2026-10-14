@@ -80,3 +80,6 @@
 
 [比较入口](index.html) · [精确参数](edge-spec.json) · [构建源码](build-edge-studies.py) · [已选币背上下文](assets/approved-context-v5.png)
 
+## 后续：铭文与纹饰组合探索
+
+用户要求在通用边刻之外探索更有系列身份的币侧。当前研究转入[铭文与短草纹/短齿的组合](../edge-inscription-design-2026-10-14/README.md)：三组完整系列名、两种分隔语汇、窄圆肩，保持完整币稿上下文。这里A/B/C仍是可编辑的技术试样，不代表已选定的最终艺术方案。
