@@ -46,6 +46,12 @@
 
 长期索引支持练习册、焦点章、任一来源章、题型、题目、复合 `USE` 身份、申请状态、作答状态与反馈状态。题目版本、参考答案版本、来源 digest 与 attempt 绑定；不能拿后来修订的答案默默重评旧尝试。Codex 读取接口和未来 Chat/MCP 只经后端授权，提供必要范围的题目、索引、个人答案和反馈，不直接暴露 D1 或存储密钥。Chat 手动对话不承担唯一可靠的异步批改队列。
 
+## 发布与反馈的领取权
+
+任务预检通过不代表最终仍拥有领取权。套卷发布在同一 D1 批次的首条 INSERT 中以申请 ID、building 状态和 claim token 查询 request_id；失去领取权时让 NOT NULL 约束中止整批，返回 409，不留下题目、来源或半份练习册。practice_sets.request_id 的 NOT NULL 是这项事务保护的组成部分，不得为形式整理放宽。合法新领取者仍可使用原计划和已生成声音发布，已付费媒体不因旧领取提交失败被删除或重做。
+
+文字反馈写入同时核对 reviewing 状态和 claim token，并检查实际更新行数；被接管后返回冲突，不能把零行更新报告为完成。历史来源链接携带练习册 source snapshot 的 digest；原章修订后仍读取固定版本，不回退最新正文。验证入口：check-practice-closure.mjs、check-practice-source-ui.mjs 及 check-publishing-closure.mjs。
+
 ## 研究依据
 
 详见 `research/ielts-speaking-writing-questions.md`、`research/ielts-reading-feasibility-2026-10-04.md`；该早期比较由 PRACTICE_SIZES.md 的最新二十四题规格取代。题型、评分标准与语音工具在实施相应能力时复核官方当前文档。

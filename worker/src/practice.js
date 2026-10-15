@@ -196,7 +196,12 @@ export async function practiceRoute(request, env, publisher) {
     }
     if (skills.some(kind=>!['listening','reading'].includes(kind)&&!rows.some(item=>item.kind===kind)))return json({error:'缺少已申请练习'},400);
     const stamp = now();
-    const statements = [db.prepare('INSERT INTO practice_sets(id,request_id,title,introduction,created_at,format,profiles_json) VALUES(?,?,?,?,?,?,?)').bind(set.id,value.requestId,set.title.trim(),set.introduction.trim(),stamp,set.format,JSON.stringify(profiles))];
+    // The earlier read is only a preflight. Check ownership inside the write
+    // transaction: a lost claim yields NULL for the NOT NULL request_id, so the
+    // entire batch aborts before any source, question or passage can be inserted.
+    const statements = [db.prepare(`INSERT INTO practice_sets(id,request_id,title,introduction,created_at,format,profiles_json)
+      VALUES(?,(SELECT id FROM practice_requests WHERE id=? AND status='building' AND claim_token=?),?,?,?,?,?)`)
+      .bind(set.id,value.requestId,value.claimToken,set.title.trim(),set.introduction.trim(),stamp,set.format,JSON.stringify(profiles))];
     for (const source of sources) statements.push(db.prepare('INSERT INTO practice_sources(set_id,chapter_id,digest,is_focus) VALUES(?,?,?,?)').bind(set.id,source.id,source.digest,source.id===requestRow.focus_chapter_id ? 1 : 0));
     for (const item of rows) statements.push(db.prepare(`INSERT INTO practice_questions
       (id,set_id,position,kind,part,prompt,guidance,reference_answer,reference_notes,created_at,presentation_json)
@@ -205,8 +210,13 @@ export async function practiceRoute(request, env, publisher) {
     for(const [position,p]of readingPassages.entries())statements.push(db.prepare('INSERT INTO reading_passages(id,set_id,position,title,instructions,paragraphs_json,questions_json,keys_json,links_json,visual_json) VALUES(?,?,?,?,?,?,?,?,?,?)').bind(p.id,set.id,position,p.title,p.instructions,JSON.stringify(p.paragraphs),JSON.stringify(p.questions),JSON.stringify(p.keys),JSON.stringify(p.links),JSON.stringify(p.visual||null)));
     for (const link of links) statements.push(db.prepare('INSERT OR IGNORE INTO practice_links(question_id,chapter_id,use_id) VALUES(?,?,?)').bind(link.questionId,link.chapterId,link.useId));
     statements.push(db.prepare(`UPDATE practice_requests SET status='published',set_id=?,claim_token=NULL,claim_at=NULL,updated_at=?
-      WHERE id=? AND claim_token=?`).bind(set.id,stamp,value.requestId,value.claimToken));
-    await db.batch(statements);
+      WHERE id=? AND status='building' AND claim_token=?`).bind(set.id,stamp,value.requestId,value.claimToken));
+    try { await db.batch(statements); }
+    catch (error) {
+      const current = await db.prepare('SELECT status,claim_token FROM practice_requests WHERE id=?').bind(value.requestId).first();
+      if (!current || current.status !== 'building' || current.claim_token !== value.claimToken) return json({ error: '领取版本无效' }, 409);
+      throw error;
+    }
     return json({ ok: true, id: set.id, questionCount: rows.length });
   }
 
@@ -306,9 +316,9 @@ export async function practiceRoute(request, env, publisher) {
     const row = await db.prepare('SELECT status,claim_token FROM practice_attempts WHERE id=?').bind(value.attemptId).first();
     if (row?.status === 'reviewed') return json({ ok: true, attemptId: value.attemptId, reused: true });
     if (!row || row.status !== 'reviewing' || row.claim_token !== value.claimToken) return json({ error: '批改领取版本无效' }, 409);
-    await db.prepare(`UPDATE practice_attempts SET status='reviewed',review_json=?,reviewed_at=?,claim_token=NULL,claim_at=NULL
-      WHERE id=? AND claim_token=?`).bind(JSON.stringify(value.review),now(),value.attemptId,value.claimToken).run();
-    return json({ ok: true, attemptId: value.attemptId });
+    const changed = await db.prepare(`UPDATE practice_attempts SET status='reviewed',review_json=?,reviewed_at=?,claim_token=NULL,claim_at=NULL
+      WHERE id=? AND status='reviewing' AND claim_token=?`).bind(JSON.stringify(value.review),now(),value.attemptId,value.claimToken).run();
+    return changed.meta.changes ? json({ ok: true, attemptId: value.attemptId }) : json({ error: '批改领取版本无效' }, 409);
   }
 
   return json({ error: '表达练习接口不存在' }, 404);
