@@ -12,6 +12,8 @@
 
 配套研究：[章节质检可行性](chapter-quality-feasibility-2026-10-16.md)。本轮汇总实测数据见 [feature-study-evidence-2026-10-16.json](feature-study-evidence-2026-10-16.json)。
 
+用户寻找专业原始资料可直接使用 [书籍与电子资源获取清单](etymology-source-acquisition-guide-2026-10-16.md)，其中列出准确书名、编者、版本区别与优先顺序。
+
 ## 一、研究依据和可信边界
 
 - 原报告：`research/etymology-and-chapter-quality-2026-10-15.md`；原对话附录另有同目录 `etymology-and-chapter-quality-conversation-2026-10-15.md`。已完整读取并区分用户原话、外部模型建议和演示。
