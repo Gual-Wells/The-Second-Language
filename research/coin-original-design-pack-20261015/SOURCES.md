@@ -28,3 +28,12 @@
 基于已发布原始包b963bbf5367df74462f401bff690d13c1bc905e9增量补齐。系列参考为此前用户79f6bb01完整币胚稿，复制保留原字节；不从新龙币反推系列背面。第一章数据来自既有chapter-facts.json，记录原仓库bf4768ff6a1110d72be04622ecf0f019369c1f6d下的真实章节文件与章节摘要。码与时刻来自此前single-identity-v5.json，不重抽/重取。副本在sources/series-*。
 
 时间格式再次核对[RFC3339 §5.6](https://www.rfc-editor.org/rfc/rfc3339#section-5.6)，采用显式偏移与三位小数秒。毫秒是本项目记录精度选择，未据此宣称时钟物理精度。本次复用已有字体字源及fontTools，无新依赖下载、AI生图、GPU推理、订阅或付费。
+
+
+## v1.2 实际三维制造来源（覆盖上述旧版“无GPU任务”的当前状态）
+
+完整认可正面与币背视觉分别初始化新的TRELLIS.2艺术网格，未使用旧废稿。微软代码pin75fbf0183001ed9876c8dbb35de6b68552ee08bd，权重pin与实际阶段在production/provenance内；DINO权重只由已有授权账户在私有环境使用，未公开转存。包内保存生成后的艺术几何，不要求用户下载门控模型才能本地拟合重建。
+
+[Manifold](https://github.com/elalish/manifold)用于封闭币胚与实际布尔阴刻；[SciPy闭运算说明](https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.binary_closing.html)与[scikit-image Marching Cubes](https://scikit-image.org/docs/stable/api/skimage.measure.html#skimage.measure.marching_cubes)提供隐藏空腔修复方法依据；不是无稿重造爪形。首次尝试的高面数精确Minkowski闭运算因成本过高停止，改用有界体素距离场；独立生成的背爪因形体不一致而弃用。
+
+真实渲染为Blender5.1.2 Cycles，交互为已审计Three.js r186（MIT许可证随包）；字体沿用原包OFL。二维图稿不是实际几何/光照真值。本轮合计免费GPU1984.944秒，无新增订阅或外部付款；实际源几何、脚本、缓存和日志均落D盘。

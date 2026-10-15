@@ -1,0 +1,8 @@
+{
+  "decomposed_extra_shells_examined": 244,
+  "positive_shells_excluded": 45,
+  "negative_cavity_shells_examined": 199,
+  "largest_positive_shell_excluded_mm3": 0.06400112300836922,
+  "protected_main_outer_shell_volume_mm3": 4795.063530811209,
+  "policy": "intersect each original component with the dominant connected outer shell; original enclosed negative cavity shells are preserved by intersection; floating numerical shells may remain below tolerance"
+}

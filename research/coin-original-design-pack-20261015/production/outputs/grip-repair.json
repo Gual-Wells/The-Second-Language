@@ -1,0 +1,16 @@
+{
+  "method": "Euclidean-distance volumetric closing of existing full-concept grip core/rear contacts; Lewiner marching cubes",
+  "radius_mm": 2.25,
+  "voxel_mm": 0.1,
+  "field_smoothing_voxels": 0.65,
+  "input_simplification_bound_mm": 0.035,
+  "changes_restricted_to_y_greater_than_mm": -1.45,
+  "visible_obverse_relief_y_less_than_mm": -1.45,
+  "new_claw_model_used": false,
+  "added_volume_mm3": 526.2225750923558,
+  "seconds": 88.42795409999962,
+  "sources": [
+    "https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.binary_closing.html",
+    "https://scikit-image.org/docs/stable/api/skimage.measure.html#skimage.measure.marching_cubes"
+  ]
+}

@@ -1,13 +1,16 @@
 {
-  "schema": "tsl.coin.original-design/1.1",
-  "version": "1.1.0-working-design",
+  "schema": "tsl.coin.original-design/1.2",
+  "version": "1.2.0-fitted-sample",
   "date": "2026-10-15",
   "authority": {
     "status": "agent-defined revision under user instruction; user aesthetic approval pending",
-    "fixed_geometry": "this JSON and derived editable SVG/CSV",
+    "fixed_geometry": "blank dimensions and edge distribution are normative; reverse technical sheet is dimensional guidance, not the aesthetic master",
     "organic_front": "sources/approved-dragon-front.png; preserve exact approved shapes",
-    "appearance": "visuals/foundation-refined.png only for finish and overall visual intention",
-    "not_authoritative": "withdrawn AI multiview images and their camera labels"
+    "appearance": "visuals/foundation-refined.png controls reverse appearance; sources/approved-dragon-front.png controls obverse design",
+    "not_authoritative": "withdrawn AI multiview images and their camera labels",
+    "latest_user_instruction": "build measured special blank first, fit complete artwork onto it; ONLY side follows parameter drawing strictly",
+    "production_layout": "production/outputs/fitting-layout.json; actual fitted reverse typography and dimensions",
+    "sample_status": "real editable 3D sample delivered; artistic adoption pending"
   },
   "units": "mm",
   "frame": {
@@ -224,6 +227,13 @@
         42,
         74
       ]
+    },
+    "production": {
+      "entry": "production/README.md",
+      "model": "production/outputs/hostile-dragon-fitted-candidate.blend",
+      "glb": "production/outputs/hostile-dragon-fitted-candidate.glb",
+      "independent_chapter_identity": false,
+      "layout": "production/outputs/fitting-layout.json"
     }
   },
   "reverse": {

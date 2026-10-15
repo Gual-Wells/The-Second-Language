@@ -1,0 +1,7 @@
+manifold3d==3.5.4
+numpy==2.5.4
+scipy==1.18.1
+trimesh==5.1.1
+Pillow==12.3.0
+fonttools==4.67.0
+scikit-image==0.26.0

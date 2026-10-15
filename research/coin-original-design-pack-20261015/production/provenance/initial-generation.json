@@ -1,0 +1,90 @@
+{
+  "started_at": "2026-10-15T04:10:46.894661+00:00",
+  "stage": "art_geometry_saved",
+  "art_accepted": false,
+  "pipeline_type": "512",
+  "seed": 38017,
+  "source_sha": "75fbf0183001ed9876c8dbb35de6b68552ee08bd",
+  "model_revisions": {
+    "microsoft/TRELLIS.2-4B": "af44b45f2e35a493886929c6d786e563ec68364d",
+    "microsoft/TRELLIS-image-large": "25e0d31ffbebe4b5a97464dd851910efc3002d96"
+  },
+  "phase_seconds": {},
+  "torch": "2.11.0+cu128",
+  "gpu": "Tesla T4",
+  "vram_gib": 14.56219482421875,
+  "elapsed_seconds": 692.47,
+  "adaptations": [
+    "BF16 attention evaluated in FP32 efficient kernel then returned as BF16",
+    "per-sequence sparse SDPA",
+    "stage-wise checkpoint reload from disk",
+    "bounded explicit im2col",
+    "preprocessed input: no background model"
+  ],
+  "attention_validation": {
+    "max_abs_vs_fp32": [
+      0.003892660140991211,
+      0.0038766860961914062
+    ],
+    "dtype": "BF16"
+  },
+  "bounded_convolution_validation": [
+    {
+      "dtype": "torch.float16",
+      "max_abs": 0.0
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "max_abs": 0.0
+    }
+  ],
+  "dino_copy": {
+    "server_source": "hark99/facebookdinov3-vitl16-pretrain-lvd1689m/transformers/default/1",
+    "original_official_sha_verified": true,
+    "license": "original Meta DINOv3 license; authorized account"
+  },
+  "samplers": {
+    "sparse": {
+      "steps": 12,
+      "guidance_strength": 7.5,
+      "guidance_rescale": 0.7,
+      "guidance_interval": [
+        0.6,
+        1.0
+      ],
+      "rescale_t": 5.0
+    },
+    "shape": {
+      "steps": 12,
+      "guidance_strength": 7.5,
+      "guidance_rescale": 0.5,
+      "guidance_interval": [
+        0.6,
+        1.0
+      ],
+      "rescale_t": 3.0
+    }
+  },
+  "current_art": "reverse",
+  "loading_model": "microsoft/TRELLIS.2-4B/ckpts/shape_dec_next_dc_f16c32_fp16",
+  "art_outputs": [
+    {
+      "name": "front",
+      "source_sha": "6608204082a4036120e0c2b607fad6f27b2aa16fa3122afa37a43ac94d4f967d",
+      "vertices": 485186,
+      "faces": 977712,
+      "old_mesh_reused": false,
+      "conditioning_pixels_sha": "bc7bd3d0cb413c8ccf2a48f43898a536b9edea76512153dbf61544104116fd0e",
+      "repaired_sha": "e8d470a298b5198f7767269748521389ac9746e55daeb03e03b3d1c16beb7dc3"
+    },
+    {
+      "name": "reverse",
+      "source_sha": "67ed805ab249e44b920bad0482277ba9bb3ce59fb21ad3c7988cbb362b3cfafc",
+      "vertices": 468080,
+      "faces": 939700,
+      "old_mesh_reused": false,
+      "conditioning_pixels_sha": "d71160b4187e0667894dca01fffacdb7bcd123051200b3030ca0cc1fc5354c94",
+      "repaired_sha": "b4fcde9a935510a18a05c28f63dfecdd7db9fe1820e71289b4d18d50531ac31b"
+    }
+  ]
+}

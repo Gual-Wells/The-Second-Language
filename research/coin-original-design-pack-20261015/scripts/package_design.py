@@ -10,7 +10,7 @@ for p in files:
     b=p.read_bytes()
     records.append({'path':p.relative_to(ROOT).as_posix(),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest(),'git_blob_sha':hashlib.sha1(b'blob '+str(len(b)).encode()+b'\0'+b).hexdigest()})
 spec=json.loads((ROOT/'spec/design-spec.json').read_text(encoding='utf-8'))
-manifest={'schema':'tsl.original-design-manifest/1','version':spec['version'],'date':'2026-10-15','profiles':list(spec['profiles']),'status':'common + chapter-series + foundation fixed-design handoff; organic 3D not completed; user aesthetic approval pending','exclude':['MANIFEST.json itself','runtime caches outside package'],'files':records}
+manifest={'schema':'tsl.original-design-manifest/1','version':spec['version'],'date':'2026-10-15','profiles':list(spec['profiles']),'status':'common + chapter-series design + real fitted foundation sample and source meshes; user aesthetic approval pending','exclude':['MANIFEST.json itself','runtime caches outside package'],'files':records}
 (ROOT/'MANIFEST.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 subprocess.run([sys.executable,str(ROOT/'scripts/validate_package.py')],check=True)
 temp=output.with_name(output.name+'.tmp')

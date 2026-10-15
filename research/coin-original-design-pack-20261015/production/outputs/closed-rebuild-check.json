@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "stages": [
+    "build_blank",
+    "align_art",
+    "fit_coin",
+    "repair_grip_support",
+    "clean_reconstruction_debris",
+    "verify_model"
+  ],
+  "isolated_from_cloud_working_directories": true,
+  "source_meshes_from_package": true,
+  "api_calls": 0,
+  "gpu_jobs": 0,
+  "geometry_checks": {
+    "closed_components": 10,
+    "actual_letter_floors": 51
+  },
+  "elapsed_seconds": 218.69661899999483,
+  "scope": "stored mesh -> manufactured blank -> fitted geometry; Blender/GLB separately tested in the actual viewer"
+}

@@ -1,4 +1,11 @@
-# 第二语言认证币原始设计包 · v1.1 · 2026-10-15
+# 第二语言认证币原始设计包 · v1.2 · 2026-10-15
+
+## v1.2 · 已加入实际拟合三维样币
+
+[真实多角度视图](production/index.html) · [制造、重建与边界](production/README.md) · [可编辑Blend](production/outputs/hostile-dragon-fitted-candidate.blend) · [GLB](production/outputs/hostile-dragon-fitted-candidate.glb)
+
+按用户最新指示：先制造参数币胚，再拟合正面、币背与跨缘结构；**币侧严格遵循参数，币背参数图只作数值参考，审美以完整视觉稿为准**。以下旧版图05、背面矢量和固定排版属于参考资料，不能覆盖本轮实际拟合布局；实际布局见`production/outputs/fitting-layout.json`。已交付真实模型及本地可重建源，不代表用户已完成艺术采用。系列认证币入口与身份规范完整保留。
+
 
 [工作入口](START_HERE.md) · [图稿总览](index.html) · [建模交接](MODEL_HANDOFF.md) · [清理记录](AUDIT.md) · [唯一设计规范](spec/design-spec.json)
 
@@ -83,5 +90,5 @@ v1.1补齐此前遗漏的系列认证币：独立的第一章实例、变量排�
 - [固定币背组件](vectors/reverse-fixed-components-mm.svg)、[币背文字](vectors/reverse-lettering-mm.svg)、[原图标](sources/project-icon.svg)。
 - [字体来源与许可证](fonts/font-sources.json)、[数值检查](checks/design-checks.json)、[完整哈希清单](MANIFEST.json)。
 
-本包关闭固定设计与资料交接的循环；不声称有机雕塑隐藏形体或最终三维已完成。用户最终审美采用尚未发生。生产应用、数据库和现有模型未改。
+v1.2已加入特别币实际三维样币与可重建源；用户最终艺术采用尚未发生。生产应用、数据库和历史模型原件未改。
 

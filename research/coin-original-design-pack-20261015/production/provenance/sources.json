@@ -1,0 +1,23 @@
+{
+  "design_parent_commit": "956c190feb3697d0af39bb2b222ceee3497163c9",
+  "front_reference": "../sources/approved-dragon-front.png",
+  "reverse_reference": "../visuals/foundation-refined.png right coin",
+  "front_mesh": "art/front.npz",
+  "reverse_mesh": "art/reverse.npz",
+  "front_resolution": 1024,
+  "reverse_resolution": 512,
+  "code_pin": "75fbf0183001ed9876c8dbb35de6b68552ee08bd",
+  "pipeline": "new complete-concept TRELLIS.2 meshes, then exact local blank fitting; original historic models untouched",
+  "seed": 38017,
+  "source_sha256": {
+    "front": "10bd0ce79a542e87a81cbd75df28e7458eb2b3268adf94f6a3469bfa48adfb5f",
+    "reverse": "b4fcde9a935510a18a05c28f63dfecdd7db9fe1820e71289b4d18d50531ac31b"
+  },
+  "local_rebuild_requires_api": false,
+  "cloud_jobs": [
+    "gualwells/dragon-foundation-art-20261015/1",
+    "gualwells/dragon-foundation-hr-20261015/1"
+  ],
+  "paid_cost_added": 0,
+  "gpu_free_seconds_this_round": 1984.944
+}

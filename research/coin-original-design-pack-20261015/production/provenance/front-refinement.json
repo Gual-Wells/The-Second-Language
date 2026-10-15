@@ -1,0 +1,54 @@
+{
+  "started_at": "2026-10-15T05:53:35.769909+00:00",
+  "stage": "high_resolution_art_saved",
+  "art_accepted": false,
+  "pipeline_type": "1024_cascade",
+  "seed": 38017,
+  "source_sha": "75fbf0183001ed9876c8dbb35de6b68552ee08bd",
+  "model_revisions": {
+    "microsoft/TRELLIS.2-4B": "af44b45f2e35a493886929c6d786e563ec68364d",
+    "microsoft/TRELLIS-image-large": "25e0d31ffbebe4b5a97464dd851910efc3002d96"
+  },
+  "phase_seconds": {},
+  "torch": "2.11.0+cu128",
+  "gpu": "Tesla T4",
+  "vram_gib": 14.56219482421875,
+  "elapsed_seconds": 1255.15,
+  "adaptations": [
+    "BF16 attention evaluated in FP32 efficient kernel then returned as BF16",
+    "per-sequence sparse SDPA",
+    "stage-wise checkpoint reload from disk",
+    "bounded explicit im2col",
+    "preprocessed input: no background model"
+  ],
+  "attention_validation": {
+    "max_abs_vs_fp32": [
+      0.003617525100708008,
+      0.0038608312606811523
+    ],
+    "dtype": "BF16"
+  },
+  "bounded_convolution_validation": [
+    {
+      "dtype": "torch.float16",
+      "max_abs": 0.0
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "max_abs": 0.0
+    }
+  ],
+  "dino_copy": {
+    "server_source": "hark99/facebookdinov3-vitl16-pretrain-lvd1689m/transformers/default/1",
+    "original_official_sha_verified": true,
+    "license": "original Meta DINOv3 license; authorized account"
+  },
+  "parent_shape_sha256": "16749b4271cdcb8dd940693810f3e69d2d828fc05b0fec1ac13e1f9690d8b4e6",
+  "old_historic_model_used": false,
+  "actual_resolution": 1024,
+  "loading_model": "microsoft/TRELLIS.2-4B/ckpts/shape_dec_next_dc_f16c32_fp16",
+  "high_resolution_tokens": 18506,
+  "vertices": 880267,
+  "faces": 1773402,
+  "output_sha256": "10bd0ce79a542e87a81cbd75df28e7458eb2b3268adf94f6a3469bfa48adfb5f"
+}

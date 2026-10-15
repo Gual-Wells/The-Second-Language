@@ -1,0 +1,81 @@
+{
+  "visual_source": "package:visuals/foundation-refined.png right coin",
+  "parameter_role": "dimensions/reference; visual controls appearance, side remains exact",
+  "book_and_foliage": "foliage from fresh concept-conditioned TRELLIS mesh; book silhouette from original project SVG with a visual-guided convex page surface",
+  "outer_legend": {
+    "baseline_radius": 16.35,
+    "height": 2.05,
+    "tracking": 0.045
+  },
+  "rows": [
+    {
+      "id": "caption",
+      "text": "启程纪念",
+      "font": "fonts/NotoSerifSC-600-subset.ttf",
+      "height": 1.45,
+      "tracking": 0.3,
+      "z": -2.35,
+      "actual_width_mm": 6.9792021276595735
+    },
+    {
+      "id": "title-zh",
+      "text": "仇视之龙",
+      "font": "fonts/NotoSerifSC-600-subset.ttf",
+      "height": 3.8,
+      "tracking": 0.4,
+      "z": -5.6,
+      "actual_width_mm": 17.332615715823465
+    },
+    {
+      "id": "title-en",
+      "text": "HOSTILE DRAGON",
+      "font": "fonts/Cinzel-600.ttf",
+      "height": 1.28,
+      "tracking": 0.07,
+      "z": -8.7,
+      "actual_width_mm": 17.42601637107776
+    },
+    {
+      "id": "foundation",
+      "text": "FOUNDATION COMMEMORATIVE",
+      "font": "fonts/Cinzel-600.ttf",
+      "height": 0.9,
+      "tracking": 0.018,
+      "z": -12.0,
+      "actual_width_mm": 21.55850474898236
+    }
+  ],
+  "front_depth_fit": {
+    "old_core_front_y": 0.9,
+    "old_core_back_y": 1.22,
+    "new_core": [
+      -1.4,
+      1.4
+    ],
+    "front_relief_scale": 0.65,
+    "rear_contact_scale": 0.45
+  },
+  "reverse_depth_fit": {
+    "old_surface_y": 1.1,
+    "new_surface_y": 1.4,
+    "relief_scale": 0.75
+  },
+  "book_shape_source": "original project SVG page silhouettes, convex two-page relief guided by complete reference, six physical incisions",
+  "front_perimeter_join": {
+    "radial_blend_mm": [
+      18.1,
+      19.0
+    ],
+    "protected_crossover_sectors_degrees": [
+      [
+        278,
+        344
+      ],
+      [
+        110,
+        154
+      ]
+    ],
+    "purpose": "bury the generated old rim and remove abrupt source-sheet perimeter seams while retaining the standard blank side"
+  }
+}

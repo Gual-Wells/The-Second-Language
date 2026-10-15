@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "model": {
+    "meshCount": 15,
+    "dimensionsMetres": [
+      0.043543729931116104,
+      0.041634101420640945,
+      0.011677130125463009
+    ]
+  },
+  "error": "",
+  "status": "\u771f\u5b9e\u4e09\u7ef4 \u00b7 \u53ef\u7ffb\u80cc",
+  "runtimeExceptions": [],
+  "renderer": "isolated headless Chrome / SwiftShader",
+  "checkedAt": "2026-10-15T07:49:59.853Z",
+  "glb_sha256": "3311101d934a8a333472f2b699d30dde786b71e37b39e7165ed944f2bc7e68b9"
+}
