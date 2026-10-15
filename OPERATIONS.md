@@ -165,6 +165,8 @@ v25 点读范围见 READER_INTERACTION.md 和 research/reader-point-audio-scope-
 
 本机忽略文件 `.cache/runtime-sources.json` 的 `roots` 记录原生产工作目录。归档服务同时检查这些目录的既有待归档记录，并保存旧工作成果与新 D 工作成果，不遗落旧日课/雅思产物。既有预算计数、恢复快照、上传账本迁入 D；不能通过换目录重置归档预算保护。路径调整前保存任务 XML，核对任务空闲及互斥锁，不更改原排期或身份。
 
+该文件的 `linkedDirectoryRoots` 记录获准归档的实际任务目录或专用父目录，路径必须绝对且可解析。当前日课 C→D 联接属于正式运行入口，不能按 `Dirent.isDirectory()` 为 false 当成不存在。新建/迁移 D 盘运行目录时同步登记；优先沿用已登记的专用日课目录，不把整个 D 盘列为允许来源。归档核查真实目标，未登记顶层联接会使本轮失败并保留待办，任务内部联接继续跳过；目录名含凭据保护关键字也不打包。`node scripts/check-work-archives.mjs` 验证 Windows junction、超 8 MiB 分块重建、历史摘要复用、凭据目录和外部联接边界。只改此本机归档器不需要部署 Worker 或 Pages。
+
 `retire-word-audio.mjs --apply` 从既有不可变章节清单按原件摘要重新打包句子，下载每个旧包一次；不调用模型，不删除收费原件及历史索引。`clean-point-audio.mjs` 的全池关联修复仍保留供单独维护，常规取消词汇功能无需扫描全部付费返回。
 
 章节测试运行 `question-worker.mjs` 与现有答疑共用排队；`--tests-only` 可进行明确的实际出题验收。数据库迁移 0010 新增测试状态、0011 清除未执行下一章选配中的词汇项，原件未删除。测试前后均查询额度，正式认证与纪念币仍不启用。

@@ -1,0 +1,42 @@
+{
+  "fix": "Explicit trusted physical directories for top-level Windows junction work groups",
+  "snapshotTime": "2026-10-15T16:48:58.634Z",
+  "results": [
+    {
+      "date": "2026-10-11",
+      "manifestDigest": "fdc55174372b29b6c7c5261af761c37b574a5b13d971b7a9622dcd7ddc016f50",
+      "restoredFiles": 65,
+      "verifiedWordDocuments": 40,
+      "allFileDigests": "verified",
+      "baseline": "matches pre-fix captured word-document SHA256 values"
+    },
+    {
+      "date": "2026-10-12",
+      "manifestDigest": "2f48f97a38482be8ddf9ed3a49e358f5adf6cbbbf3d5a2ada5e1a0262d93b347",
+      "restoredFiles": 57,
+      "verifiedWordDocuments": 40,
+      "allFileDigests": "verified",
+      "baseline": "matches pre-fix captured word-document SHA256 values"
+    },
+    {
+      "date": "2026-10-13",
+      "manifestDigest": "b78aed776716790145906d45339f1e0ca99e54cc6e43aa1fb93dd4e2b4f99f06",
+      "restoredFiles": 74,
+      "verifiedWordDocuments": 40,
+      "allFileDigests": "verified",
+      "baseline": "matches pre-fix captured word-document SHA256 values"
+    },
+    {
+      "date": "2026-10-14",
+      "manifestDigest": "7d702f6b57d8c379dc45763fc7e3c8d3a5ab102f93dcec81dd0b7547b60ca788",
+      "restoredFiles": 95,
+      "verifiedWordDocuments": 40,
+      "allFileDigests": "verified",
+      "baseline": "matches pre-fix captured word-document SHA256 values"
+    }
+  ],
+  "run15Present": true,
+  "restoredOnDrive": "D",
+  "databaseRestore": "Not rerun; existing backup writer integrity and foreign-key validation passed. This exercise verifies the affected working-file groups.",
+  "paidModels": 0
+}
