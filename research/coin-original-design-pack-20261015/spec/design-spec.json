@@ -1,0 +1,375 @@
+{
+  "schema": "tsl.coin.original-design/1.0",
+  "version": "1.0.0-working-design",
+  "date": "2026-10-15",
+  "authority": {
+    "status": "agent-defined revision under user instruction; user aesthetic approval pending",
+    "fixed_geometry": "this JSON and derived editable SVG/CSV",
+    "organic_front": "sources/approved-dragon-front.png; preserve exact approved shapes",
+    "appearance": "visuals/foundation-refined.png only for finish and overall visual intention",
+    "not_authoritative": "withdrawn AI multiview images and their camera labels"
+  },
+  "units": "mm",
+  "frame": {
+    "handedness": "right",
+    "world_x": "right in obverse view",
+    "world_y": "coin axis, positive toward reverse",
+    "world_z": "up",
+    "obverse_normal": [
+      0,
+      -1,
+      0
+    ],
+    "reverse_normal": [
+      0,
+      1,
+      0
+    ],
+    "origin": [
+      0,
+      0,
+      0
+    ],
+    "angle_zero": "+Z, 12 o'clock in obverse view",
+    "angle_positive": "clockwise seen from obverse",
+    "cylinder": "P(theta,y)=(R*sin(theta),y,R*cos(theta))",
+    "reverse_screen": "(q,z)=(-X,Z); beta=(-theta) mod 360",
+    "reference_point_P0": [
+      0,
+      0,
+      20
+    ],
+    "reference_ray_OP0": "+Z",
+    "unwrap_cut_angle_degrees": 45,
+    "unwrap": "u=R*radians((45-theta) mod 360); v=-Y; u increases in readable inscription direction",
+    "glyph_surface_orientation": "dP/du cross dP/dv points radially outward; letters are not mirrored"
+  },
+  "blank": {
+    "radius": 20,
+    "field_half_thickness": 1.4,
+    "rim_half_thickness": 1.6,
+    "field_radius": 19.2,
+    "ramp_outer_radius": 19.45,
+    "rim_flat_outer_radius": 19.8,
+    "shoulder_radius": 0.2,
+    "sidewall_axial_extent": [
+      -1.4,
+      1.4
+    ],
+    "decorated_band_axial_extent": [
+      -1.2,
+      1.2
+    ],
+    "cross_section_half": [
+      {
+        "r": 0,
+        "y": 1.4
+      },
+      {
+        "r": 19.2,
+        "y": 1.4
+      },
+      {
+        "r": 19.45,
+        "y": 1.6
+      },
+      {
+        "r": 19.8,
+        "y": 1.6
+      },
+      {
+        "curve": "quarter_circle",
+        "center_r": 19.8,
+        "center_y": 1.4,
+        "radius": 0.2,
+        "start": [
+          19.8,
+          1.6
+        ],
+        "end": [
+          20,
+          1.4
+        ]
+      },
+      {
+        "r": 20,
+        "y": 0
+      }
+    ],
+    "reeding_count": 0,
+    "extra_face_teeth": false,
+    "physical_manufacturing_tolerance": "not specified; design nominal dimensions only"
+  },
+  "edge": {
+    "repeat_count": 3,
+    "period_degrees": 120,
+    "text": "THE SECOND LANGUAGE",
+    "text_centres_degrees": [
+      0,
+      120,
+      240
+    ],
+    "text_reserved_half_span_degrees": 38,
+    "font": "fonts/Cinzel-600.ttf",
+    "uppercase_ink_height": 1.4,
+    "tracking": 0.03,
+    "axial_ink_center": 0,
+    "incuse_depth": 0.055,
+    "ornament_centres_degrees": [
+      60,
+      180,
+      300
+    ],
+    "ornament_span_degrees": 23,
+    "ornament_ink_height": 1.05,
+    "ornament": "vectors/foliate-separator-mm.svg",
+    "ornament_min_stroke": 0.075,
+    "ornament_incuse_depth": 0.045,
+    "gaps_per_120_period_degrees": [
+      10.5,
+      10.5
+    ],
+    "count_symbolism": "none",
+    "occlusion_rule": "engrave the common master, remove actual missing metal, then let claws occlude remaining marks; do not reflow or add replacement text",
+    "reading_direction": "theta decreases as Latin text reads left-to-right; caps toward -Y/obverse"
+  },
+  "foundation": {
+    "identity_type": "project-foundation-special-commemorative",
+    "not_a_chapter_award": true,
+    "sequence": null,
+    "certification_timestamp": null,
+    "chapter": null,
+    "hash": null,
+    "edition_fraction": null,
+    "year": null,
+    "reverse_labels": [
+      "THE SECOND LANGUAGE",
+      "启程纪念",
+      "仇视之龙",
+      "HOSTILE DRAGON",
+      "FOUNDATION COMMEMORATIVE"
+    ],
+    "phase_offset_degrees": 0,
+    "protected_front_features": [
+      "original eye and lids",
+      "original long horns",
+      "coiled body and left-lower relief",
+      "two prominent front talons in upper-left grip",
+      "two prominent front talons in lower-right grip"
+    ],
+    "overrides": {
+      "upper_grip_sector_degrees": [
+        282,
+        326
+      ],
+      "upper_grip_centre": 304,
+      "lower_grip_sector_degrees": [
+        116,
+        152
+      ],
+      "lower_grip_centre": 134,
+      "notch_sector_degrees": [
+        286,
+        318
+      ],
+      "notch_profile_knots": [
+        {
+          "theta": 286,
+          "depth": 0
+        },
+        {
+          "theta": 290,
+          "depth": 0.65
+        },
+        {
+          "theta": 296,
+          "depth": 1.2
+        },
+        {
+          "theta": 302,
+          "depth": 1.5
+        },
+        {
+          "theta": 308,
+          "depth": 1.15
+        },
+        {
+          "theta": 314,
+          "depth": 0.55
+        },
+        {
+          "theta": 318,
+          "depth": 0
+        }
+      ],
+      "notch_max_radial_depth": 1.5,
+      "upper_grip_min_radial_reach": 2.6,
+      "engraving_clearance_policy": "construction-access envelope only; do not suppress or rearrange glyphs automatically",
+      "notch_envelope_interpolation": "piecewise-linear between knots; this is a construction envelope, not a replacement for fracture sculpt",
+      "engraving_clearance_sector_degrees": [
+        282,
+        326
+      ],
+      "notch_rule": "same missing metal passes through base thickness, front and reverse share the same world-space cut; this profile is the outer-envelope construction guide, not a replacement for organic fracture sculpt",
+      "grip_rule": "sectors locate construction envelopes only; finger anatomy/face silhouette remain governed by approved source, do not extrude an angular wedge into a claw",
+      "rear_upper_sector_beta": [
+        34,
+        78
+      ],
+      "rear_lower_sector_beta": [
+        208,
+        244
+      ],
+      "rear_notch_sector_beta": [
+        42,
+        74
+      ]
+    }
+  },
+  "reverse": {
+    "space": "q=-worldX, z=worldZ",
+    "face_y": 1.4,
+    "outer_border_radii": [
+      18.9,
+      18.65
+    ],
+    "top_legend": {
+      "text": "THE SECOND LANGUAGE",
+      "font": "fonts/Cinzel-600.ttf",
+      "baseline_radius": 16.35,
+      "uppercase_ink_height": 2.05,
+      "tracking": 0.045,
+      "centre_beta_degrees": 0,
+      "reserved_beta_extent": [
+        -74,
+        74
+      ]
+    },
+    "book": {
+      "source": "sources/project-icon.svg",
+      "fit": "uniform contain; preserve original SVG aspect ratio",
+      "original_bounds_xy": [80, 106, 432, 397],
+      "box_qz": [
+        -3.75,
+        5.2,
+        3.75,
+        11.45
+      ],
+      "bars_per_page": 3,
+      "medallion_center": [
+        0,
+        8.1
+      ],
+      "medallion_radius": 5.15,
+      "rays": 48,
+      "ray_pitch_degrees": 7.5,
+      "ray_inner_radius": 2.9,
+      "ray_outer_radius": 5
+    },
+    "foliage_regions": [
+      {
+        "id": "REV-FOL-L",
+        "box_qz": [
+          -16.2,
+          2.4,
+          -5.4,
+          12.6
+        ]
+      },
+      {
+        "id": "REV-FOL-R",
+        "box_qz": [
+          5.4,
+          2.4,
+          16.2,
+          12.6
+        ]
+      }
+    ],
+    "cartouche": {
+      "bounds_qz": [
+        -14.6,
+        -13.8,
+        14.6,
+        2.5
+      ],
+      "path": "M -11.8 2.5 L 11.8 2.5 C 12.1 1.1 13.3 .6 14.6 .5 L 14.6 -8.7 L 11.8 -13.8 L -11.8 -13.8 L -14.6 -8.7 L -14.6 .5 C -13.3 .6 -12.1 1.1 -11.8 2.5 Z",
+      "border_inset": 0.35
+    },
+    "foundation_text": [
+      {
+        "id": "REV-01",
+        "text": "启程纪念",
+        "font": "fonts/NotoSerifSC-600-subset.ttf",
+        "ink_height": 1.3,
+        "tracking": 0.18,
+        "center_q": 0,
+        "center_z": 0.2,
+        "max_width": 10.8
+      },
+      {
+        "id": "REV-02",
+        "text": "仇视之龙",
+        "font": "fonts/NotoSerifSC-600-subset.ttf",
+        "ink_height": 3.1,
+        "tracking": 0.24,
+        "center_q": 0,
+        "center_z": -3.25,
+        "max_width": 19.4
+      },
+      {
+        "id": "REV-03",
+        "text": "HOSTILE DRAGON",
+        "font": "fonts/Cinzel-600.ttf",
+        "ink_height": 1.12,
+        "tracking": 0.055,
+        "center_q": 0,
+        "center_z": -6.1,
+        "max_width": 20.4
+      },
+      {
+        "id": "REV-04",
+        "text": "FOUNDATION COMMEMORATIVE",
+        "font": "fonts/Cinzel-600.ttf",
+        "ink_height": 0.86,
+        "tracking": 0.018,
+        "center_q": 0,
+        "center_z": -10.75,
+        "max_width": 23.5
+      }
+    ],
+    "divider_z": -8.1,
+    "incuse_text_depth": 0.055,
+    "book_relief_max": 0.55,
+    "ornamental_relief_max": 0.3,
+    "organic_foliage_rule": "retain visual language of the complete reference within bounded regions; region boxes define placement, not new botanical species or exact freehand leaf topology"
+  },
+  "appearance": {
+    "state": "REST",
+    "metallic": 1,
+    "finish_values_are_render_targets_not_Ra": true,
+    "field_roughness": 0.32,
+    "shoulder_roughness": 0.2,
+    "relief_high_roughness": 0.24,
+    "recess_roughness": 0.42,
+    "painted_black_letters": false,
+    "random_noise_displacement": false,
+    "smoke": false,
+    "particles": false,
+    "emission": false
+  },
+  "construction_order": [
+    "establish world datum and common blank section",
+    "place exact outlined glyphs and separator at fixed angles",
+    "apply foundation base-metal notch in world frame",
+    "build approved front sculpture and wrap grips without changing its visible shape",
+    "compose reverse from exact layout and original icon, retain organic ornament reference inside given regions",
+    "apply local material finishes",
+    "compare SVG/JSON/CSV and source-bound silhouette before any visual promotion"
+  ],
+  "decisions_vs_measurements": {
+    "all_geometry_values": "new working design nominal values, not recovered camera calibration or measurements from AI pixels",
+    "source_front_projection": "approved visual source; perspective not guaranteed orthographic",
+    "organic_hidden_shapes": "must be resolved during actual 3D work; this package does not fabricate hidden geometry"
+  }
+}

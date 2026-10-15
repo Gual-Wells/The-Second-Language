@@ -1,0 +1,26 @@
+{
+  "schema": "tsl.appearance-refinement/1",
+  "date": "2026-10-15",
+  "tool": "built-in imagegen",
+  "parent": "sources/appearance-parent-v2.png",
+  "requests": [
+    {
+      "prompt": "refinement-prompt.txt",
+      "references": [
+        "sources/appearance-parent-v2.png",
+        "drawings/03-four-side-elevations.png"
+      ],
+      "status": "failed_without_output",
+      "error": "network error: error sending request"
+    },
+    {
+      "prompt": "refinement-retry-prompt.txt",
+      "references": [
+        "sources/appearance-parent-v2.png"
+      ],
+      "status": "returned_candidate",
+      "output": "foundation-refined.png"
+    }
+  ],
+  "authority": "appearance only; exact structure, text shapes and placement governed by vector/JSON/CSV files"
+}

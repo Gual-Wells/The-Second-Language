@@ -1,0 +1,49 @@
+{
+  "top_legend_width_mm": 37.13667121418827,
+  "rows": [
+    {
+      "id": "REV-01",
+      "text": "启程纪念",
+      "width_mm": 5.9903191489361705,
+      "height_mm": 1.3,
+      "center_qz": [
+        0,
+        0.2
+      ],
+      "max_width": 10.8
+    },
+    {
+      "id": "REV-02",
+      "text": "仇视之龙",
+      "width_mm": 13.88081808396125,
+      "height_mm": 3.1,
+      "center_qz": [
+        0,
+        -3.25
+      ],
+      "max_width": 19.4
+    },
+    {
+      "id": "REV-03",
+      "text": "HOSTILE DRAGON",
+      "width_mm": 15.166514324693043,
+      "height_mm": 1.12,
+      "center_qz": [
+        0,
+        -6.1
+      ],
+      "max_width": 20.4
+    },
+    {
+      "id": "REV-04",
+      "text": "FOUNDATION COMMEMORATIVE",
+      "width_mm": 20.618748982360923,
+      "height_mm": 0.86,
+      "center_qz": [
+        0,
+        -10.75
+      ],
+      "max_width": 23.5
+    }
+  ]
+}

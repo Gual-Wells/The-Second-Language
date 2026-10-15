@@ -1,0 +1,186 @@
+{
+  "schema": "tsl.design-checks/1",
+  "passed": true,
+  "checks": [
+    {
+      "name": "three_periods_close",
+      "passed": true,
+      "detail": "3 x 120 = 360"
+    },
+    {
+      "name": "angular_coverage",
+      "passed": true,
+      "detail": "Reserved text, ornament and gaps cover 360 without overlap"
+    },
+    {
+      "name": "text_fits_reserved_window",
+      "passed": true,
+      "detail": {
+        "text_span": 72.61798414600716,
+        "window": 76
+      }
+    },
+    {
+      "name": "glyph_count",
+      "passed": true,
+      "detail": 57
+    },
+    {
+      "name": "text_and_motif_axial_fit",
+      "passed": true,
+      "detail": "Artwork fits decorated band"
+    },
+    {
+      "name": "depth_less_than_base_radius",
+      "passed": true,
+      "detail": "Shallow incisions, independent from main relief"
+    },
+    {
+      "name": "reverse_width_REV-01",
+      "passed": true,
+      "detail": {
+        "id": "REV-01",
+        "text": "启程纪念",
+        "width_mm": 5.9903191489361705,
+        "height_mm": 1.3,
+        "center_qz": [
+          0,
+          0.2
+        ],
+        "max_width": 10.8
+      }
+    },
+    {
+      "name": "reverse_width_REV-02",
+      "passed": true,
+      "detail": {
+        "id": "REV-02",
+        "text": "仇视之龙",
+        "width_mm": 13.88081808396125,
+        "height_mm": 3.1,
+        "center_qz": [
+          0,
+          -3.25
+        ],
+        "max_width": 19.4
+      }
+    },
+    {
+      "name": "reverse_width_REV-03",
+      "passed": true,
+      "detail": {
+        "id": "REV-03",
+        "text": "HOSTILE DRAGON",
+        "width_mm": 15.166514324693043,
+        "height_mm": 1.12,
+        "center_qz": [
+          0,
+          -6.1
+        ],
+        "max_width": 20.4
+      }
+    },
+    {
+      "name": "reverse_width_REV-04",
+      "passed": true,
+      "detail": {
+        "id": "REV-04",
+        "text": "FOUNDATION COMMEMORATIVE",
+        "width_mm": 20.618748982360923,
+        "height_mm": 0.86,
+        "center_qz": [
+          0,
+          -10.75
+        ],
+        "max_width": 23.5
+      }
+    },
+    {
+      "name": "notch_within_upper_grip_sector",
+      "passed": true,
+      "detail": "Notch is within upper grip construction envelope"
+    },
+    {
+      "name": "notch_depth_less_than_grip_reach",
+      "passed": true,
+      "detail": "1.5 <= 2.6"
+    },
+    {
+      "name": "reverse_mapping_0",
+      "passed": true,
+      "detail": {
+        "theta": 0,
+        "beta": 0
+      }
+    },
+    {
+      "name": "reverse_mapping_60",
+      "passed": true,
+      "detail": {
+        "theta": 60,
+        "beta": 300
+      }
+    },
+    {
+      "name": "reverse_mapping_90",
+      "passed": true,
+      "detail": {
+        "theta": 90,
+        "beta": 270
+      }
+    },
+    {
+      "name": "reverse_mapping_120",
+      "passed": true,
+      "detail": {
+        "theta": 120,
+        "beta": 240
+      }
+    },
+    {
+      "name": "reverse_mapping_180",
+      "passed": true,
+      "detail": {
+        "theta": 180,
+        "beta": 180
+      }
+    },
+    {
+      "name": "reverse_mapping_240",
+      "passed": true,
+      "detail": {
+        "theta": 240,
+        "beta": 120
+      }
+    },
+    {
+      "name": "reverse_mapping_270",
+      "passed": true,
+      "detail": {
+        "theta": 270,
+        "beta": 90
+      }
+    },
+    {
+      "name": "reverse_mapping_300",
+      "passed": true,
+      "detail": {
+        "theta": 300,
+        "beta": 60
+      }
+    },
+    {
+      "name": "edge_text_normal_outward",
+      "passed": true,
+      "detail": {
+        "finite_difference_normal_cosines": [
+          1.0000000000000002,
+          1.0000000000000002,
+          1.0,
+          1.0
+        ]
+      }
+    }
+  ],
+  "scope": "Numerical/asset consistency only; not artistic approval, hidden geometry proof, manufacturing validation or calibrated photo matching."
+}

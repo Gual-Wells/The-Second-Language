@@ -1,0 +1,80 @@
+{
+  "baseline": "5e17c6ff844ebb2b317b176e38ed01de10ad7213",
+  "action": "remove eight failed images from active package and current Git tree; preserve recoverability in historical commit and local quarantine",
+  "removed": [
+    {
+      "path": "assets/blank-triptych-a2-rejected.png",
+      "reason": "朝向修正失败，新增拼写瑕疵",
+      "recover_from_commit": "5e17c6ff844ebb2b317b176e38ed01de10ad7213"
+    },
+    {
+      "path": "assets/blank-four-edge-v1-rejected.png",
+      "reason": "相位重复，完整名称被饰纹拆开",
+      "recover_from_commit": "5e17c6ff844ebb2b317b176e38ed01de10ad7213"
+    },
+    {
+      "path": "assets/blank-four-edge-v2-superseded.png",
+      "reason": "后两图错误翻到币背",
+      "recover_from_commit": "5e17c6ff844ebb2b317b176e38ed01de10ad7213"
+    },
+    {
+      "path": "assets/blank-four-edge-final.png",
+      "reason": "生成式四方位不能可靠维持固定相位/字形及轮廓，被确定性投影图替代",
+      "recover_from_commit": "5e17c6ff844ebb2b317b176e38ed01de10ad7213"
+    },
+    {
+      "path": "assets/foundation-front-obliques-profiles.png",
+      "reason": "角度标注与实际画面不符，侧视有形体/指节漂移",
+      "recover_from_commit": "5e17c6ff844ebb2b317b176e38ed01de10ad7213"
+    },
+    {
+      "path": "assets/foundation-rear-edges-v1-superseded.png",
+      "reason": "背面稿中混入正面",
+      "recover_from_commit": "5e17c6ff844ebb2b317b176e38ed01de10ad7213"
+    },
+    {
+      "path": "assets/foundation-rear-obliques-and-edges.png",
+      "reason": "边缘齿纹重现，上下缘视角和跨缘体量不可靠",
+      "recover_from_commit": "5e17c6ff844ebb2b317b176e38ed01de10ad7213"
+    },
+    {
+      "path": "assets/foundation-rest-master-v1.png",
+      "reason": "背面缺口与正面不对应，已被后续主稿替代",
+      "recover_from_commit": "5e17c6ff844ebb2b317b176e38ed01de10ad7213"
+    }
+  ],
+  "retained_references": [
+    {
+      "path": "sources/approved-dragon-front.png",
+      "role": "approved organic front authority"
+    },
+    {
+      "path": "sources/user-blank-reference.png",
+      "role": "original user reverse and blank reference; old side not authoritative"
+    },
+    {
+      "historical_path": "assets/foundation-rest-master-v2.png",
+      "role": "appearance parent; replaced visually by new refined image, never exact layout authority"
+    },
+    {
+      "historical_path": "assets/blank-triptych-a1.png",
+      "role": "series context only; old AI side typography not authority"
+    }
+  ],
+  "new_appearance": "visuals/foundation-refined.png",
+  "appearance_tool": {
+    "method": "built-in imagegen",
+    "attempts": 2,
+    "returned_images": 1,
+    "failed_without_file": 1,
+    "error": "network error: error sending request"
+  },
+  "fixed_authority": [
+    "spec/design-spec.json",
+    "vectors/edge-curves.json",
+    "spec/glyph-placement.csv",
+    "drawings/*.svg"
+  ],
+  "no_original_user_asset_deleted": true,
+  "no_existing_mesh_modified": true
+}

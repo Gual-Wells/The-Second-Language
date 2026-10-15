@@ -1,0 +1,50 @@
+{
+  "circumference_mm": 125.66370614359172,
+  "text_actual_width_mm": 25.348458390177353,
+  "text_actual_span_degrees": 72.61798414600716,
+  "actual_ink_gap_degrees": 12.19100792699642,
+  "placements": [
+    {
+      "kind": "text",
+      "centre_theta": 0,
+      "centre_u": 15.707963267948966,
+      "width_mm": 25.348458390177353,
+      "actual_half_angle": 36.30899207300358
+    },
+    {
+      "kind": "text",
+      "centre_theta": 120,
+      "centre_u": 99.48376736367678,
+      "width_mm": 25.348458390177353,
+      "actual_half_angle": 36.30899207300358
+    },
+    {
+      "kind": "text",
+      "centre_theta": 240,
+      "centre_u": 57.59586531581287,
+      "width_mm": 25.348458390177353,
+      "actual_half_angle": 36.30899207300358
+    },
+    {
+      "kind": "foliate",
+      "centre_theta": 60,
+      "centre_u": 120.42771838760873,
+      "width_mm": 8.028514559173916,
+      "half_angle": 11.5
+    },
+    {
+      "kind": "foliate",
+      "centre_theta": 180,
+      "centre_u": 78.53981633974483,
+      "width_mm": 8.028514559173916,
+      "half_angle": 11.5
+    },
+    {
+      "kind": "foliate",
+      "centre_theta": 300,
+      "centre_u": 36.65191429188092,
+      "width_mm": 8.028514559173916,
+      "half_angle": 11.5
+    }
+  ]
+}
