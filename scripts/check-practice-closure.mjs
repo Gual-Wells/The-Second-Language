@@ -45,6 +45,25 @@ try{
   const before=JSON.stringify(files.get(`speaking/${audioId}/original/`+createHash('sha256').update(bytes).digest('hex')));assert.ok(before);
   const bad=structuredClone(set);bad.listening[0].script[0].end=99999;assert.throws(()=>validateListening(bad.listening,['chapter-one','chapter-two'],size,true));if(size==='mini'){const low=structuredClone(set);low.listening[0].questions[0].difficulty='lower';assert.throws(()=>validateListening(low.listening,['chapter-one','chapter-two'],size,true),/平均以下/);const missing=structuredClone(set);for(const p of missing.reading)for(const q of p.questions)if(q.family==='summary-completion')q.family='note-completion';assert.throws(()=>validateReading(missing.reading,['chapter-one','chapter-two'],size),/覆盖/);}
  }
+ // Reclaim exactly after validation, before the first transaction statement.
+ const raced=JSON.parse(JSON.stringify(fixture('mini')).replaceAll('set-mini','claim-race'));
+ const racedRequest=await call('/api/practice/requests','POST',{size:'mini'}),racedClaim=await call('/api/practice/publisher/claim','POST',{id:racedRequest.data.id},true);
+ for(const id of [...raced.listening.map(p=>p.audioId),...raced.questions.filter(q=>q.kind==='speaking').map(q=>q.presentation.questionAudioId)])sql.prepare("INSERT INTO practice_media(id,set_id,digest,object_key,mime,bytes,seconds,state,request_json,created_at)VALUES(?,?,?,?,'audio/mpeg',1000,121,'ready','{}',1)").run(id,raced.id,'fixture',id);
+ const batch=env.PRACTICE_DB.batch;env.PRACTICE_DB.batch=async items=>{env.PRACTICE_DB.batch=batch;sql.prepare("UPDATE practice_requests SET claim_token='replacement-claim',claim_at=? WHERE id=?").run(Date.now(),racedRequest.data.id);return batch(items);};
+ assert.equal((await call('/api/practice/publisher/sets','POST',{requestId:racedRequest.data.id,claimToken:racedClaim.data.claimToken,set:raced},true)).status,409,'An old claimant cannot consume the request after a concurrent reclaim');
+ assert.equal(sql.prepare('SELECT count(*) n FROM practice_sets WHERE request_id=?').get(racedRequest.data.id).n,0);
+ for(const table of ['practice_sources','practice_questions','listening_passages','reading_passages'])assert.equal(sql.prepare(`SELECT count(*) n FROM ${table} WHERE set_id=?`).get(raced.id).n,0,'No partially published '+table);
+ assert.equal(sql.prepare('SELECT claim_token FROM practice_requests WHERE id=?').get(racedRequest.data.id).claim_token,'replacement-claim');
+ const recovered={requestId:racedRequest.data.id,claimToken:'replacement-claim',set:raced};assert.equal((await call('/api/practice/publisher/sets','POST',recovered,true)).status,200);assert.equal((await call('/api/practice/publisher/sets','POST',recovered,true)).data.reused,true);
+ // A late feedback writer must also report lost ownership, not false success.
+ const claimedReview=await call('/api/practice/publisher/review/claim','POST',{},true),attemptId=claimedReview.data.attempt.id,prepare=env.PRACTICE_DB.prepare;
+ env.PRACTICE_DB.prepare=q=>{const statement=prepare(q);if(q.includes("UPDATE practice_attempts SET status='reviewed'")){const run=statement.run;statement.run=async()=>{env.PRACTICE_DB.prepare=prepare;sql.prepare("UPDATE practice_attempts SET claim_token='replacement-review' WHERE id=?").run(attemptId);return run();};}return statement;};
+ const feedback={summary:'New owner feedback',strengths:[],priorities:[],nextStep:'Fixture next step'};
+ assert.equal((await call('/api/practice/publisher/review/complete','POST',{attemptId,claimToken:claimedReview.data.claimToken,review:feedback},true)).status,409);
+ assert.equal(sql.prepare('SELECT status FROM practice_attempts WHERE id=?').get(attemptId).status,'reviewing');
+ assert.equal((await call('/api/practice/publisher/review/complete','POST',{attemptId,claimToken:'replacement-review',review:feedback},true)).status,200);
+ assert.deepEqual(JSON.parse(sql.prepare('SELECT review_json FROM practice_attempts WHERE id=?').get(attemptId).review_json),feedback);
+ console.log('通过：验证与提交之间的真实抢占窗口被拒绝，半份套卷回滚，新领取者及批改可正常完成。');
  // Insufficient funds must stop the parent construction as well as the audio call.
  const request=await call('/api/practice/requests','POST',{size:'mini'}),claim=await call('/api/practice/publisher/claim','POST',{id:request.data.id},true);const segment={id:'credit-clip',setId:'credit-set',text:'Short fixture.',requestId:request.data.id,claimToken:claim.data.claimToken};
  funds=0;assert.equal((await call('/api/practice/publisher/media/synthesize','POST',segment,true)).data.state,'waiting_credit');assert.equal(ttsCalls,0);sql.prepare('UPDATE practice_requests SET claim_at=0 WHERE id=?').run(request.data.id);assert.equal((await call('/api/practice/publisher/next','GET',null,true)).data.request,null);assert.equal((await call('/api/practice/publisher/claim','POST',{id:request.data.id},true)).status,409);
