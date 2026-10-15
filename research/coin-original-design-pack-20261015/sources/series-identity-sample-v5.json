@@ -1,0 +1,32 @@
+{
+  "sampleOnly": true,
+  "chapter": {
+    "number": 1,
+    "titleZh": "地图上的那条线",
+    "titleEn": "The Line on the Map"
+  },
+  "identity": {
+    "rawHex": "2AD2CC008F6F0647",
+    "display": "2AD2 CC00 8F6F 0647",
+    "bits": 64,
+    "method": "SHA256 of 16-byte CSPRNG nonce; first 8 bytes",
+    "nonceHex": "F37628A78E01DB9B4B4301036A1E3273",
+    "fullDigest": "2AD2CC008F6F0647E37C6EF0F7C93B7F3F37F949E652EAFD249C1057E392EF15"
+  },
+  "certification": {
+    "local": "2026-10-14T10:35:15.314+08:00",
+    "utc": "2026-10-14T02:35:15.314Z",
+    "zone": "Asia/Shanghai",
+    "display": [
+      "CERTIFIED · 2026.10.14",
+      "10:35:15.314  +08:00"
+    ]
+  },
+  "status": "design sample; no formal award allocated",
+  "art": {
+    "version": "v5",
+    "path": "assets/chapter-one-centered-identity-v5.png",
+    "direction": "A inscription style; B approximate lower location; whole-cartouche centering"
+  }
+}
+

@@ -37,6 +37,50 @@ for i,name in enumerate(['datum-and-orientation','edge-distribution','four-side-
     for ext in ['svg','png']:check((ROOT/'drawings'/f'{i:02d}-{name}.{ext}').is_file(),'Drawing missing')
 for p in ['visuals/foundation-refined.png','fonts/Cinzel-OFL.txt','fonts/NotoSerifSC-OFL.txt','sources/approved-dragon-front.png','sources/project-icon.svg','index.html']:
     check((ROOT/p).is_file(),'Missing '+p)
+
+# Series is a required peer of foundation, not inferred from shared blank geometry.
+from datetime import datetime,timezone
+record=json.loads((ROOT/'spec/series-sample.json').read_text(encoding='utf-8'))
+series=json.loads((ROOT/'spec/series-resolved.json').read_text(encoding='utf-8'))
+check(series['record']==record,'Series uses a stale record')
+check(set(spec['profiles'])=={'common','series','foundation'},'Missing design profile')
+check(record['sample_only'] is True,'This specimen must not allocate a real award')
+check(''.join(r['text'] for r in series['rows'] if r['id'].startswith('SER-ZH'))==record['chapter']['title_zh'],'Incomplete Chinese title')
+check(' '.join(r['text'] for r in series['rows'] if r['id'].startswith('SER-EN'))==record['chapter']['title_en'],'Incomplete English title')
+rowmap={r['id']:r for r in series['rows']}
+check(rowmap['SER-CHAPTER']['text']=='CHAPTER 01','Chapter number lost or mistaken for issue sequence')
+check(rowmap['SER-HASH']['text'].replace(' ','')==record['identity']['raw_hex'],'Identity changed while formatting')
+check(rowmap['SER-HASH']['text']=='2AD2 CC00 8F6F 0647','Chosen design specimen changed')
+check(rowmap['SER-DATE']['text']=='CERTIFIED · 2026.10.14' and rowmap['SER-TIME']['text']=='10:35:15.314  +08:00','First-passage specimen timestamp changed')
+dt=datetime.fromisoformat(record['certification']['passed_at'])
+check(dt.astimezone(timezone.utc).isoformat(timespec='milliseconds').replace('+00:00','Z')==record['certification']['passed_at_utc'],'Inconsistent event instant')
+check(not series['foundation_overrides_applied'] and not series['identity_is_sequence'],'Special coin or sequence leaked into series')
+for r in series['rows']:
+    b=r['bbox_qz']
+    check(abs(b[0]+b[2])<1e-8,'Identity row not centered by real ink bounds')
+    check(r['width_mm']<=r['max_width']+1e-7,'Series row overflow')
+for clearance in series['row_clearances']:
+    check(clearance['gap_mm']>=spec['series']['minimum_row_gap']-1e-8,'Series ink regions crowd')
+rows=list(csv.DictReader((ROOT/'spec/series-glyph-placement.csv').open(encoding='utf-8-sig')))
+check(len(rows)==len(series['glyphs']),'Series glyph schedule incomplete')
+glyphmap={g['id']:g for g in series['glyphs']}
+for r in rows:
+    g=glyphmap[r['ID']]
+    if g['ink_bbox_qz']:
+        check(max(abs(float(r[k])-v) for k,v in zip(['Q_MIN_MM','Z_MIN_MM','Q_MAX_MM','Z_MAX_MM'],g['ink_bbox_qz']))<1e-7,'Series CSV/outline mismatch')
+world=json.loads((ROOT/'vectors/series-reverse-world-guides.json').read_text(encoding='utf-8'))
+for g in world['curves']:
+    source=glyphmap[g['id']]
+    for poly,original in zip(g['contours_xyz_mm'],source['contours_qz_mm']):
+        check(len(poly)==len(original),'Guide lost outline samples')
+        for (x,y,z),(q,zz) in zip(poly,original):
+            check(max(abs(x+q),abs(y-spec['reverse']['face_y']),abs(z-zz))<1e-9,'Reverse/XYZ mapping error')
+for basename in ['09-series-reverse-layout','10-series-fields-and-identity','11-series-master-and-variants']:
+    for ext in ['svg','png']:check((ROOT/'drawings'/(basename+'.'+ext)).is_file(),'Series drawing missing')
+for p in ['vectors/series-reverse-fixed-components-mm.svg','vectors/series-reverse-lettering-mm.svg','vectors/reverse-common-frame-mm.svg','vectors/series-blank-front-mm.svg','sources/user-blank-reference.png','SERIES_HANDOFF.md']:
+    check((ROOT/p).is_file(),'Missing series deliverable '+p)
+serieschecks=json.loads((ROOT/'checks/series-checks.json').read_text(encoding='utf-8'))
+check(serieschecks['passed'] and all(c['passed'] for c in serieschecks['checks']),'Series design checks failed')
 manifest_path=ROOT/'MANIFEST.json'
 checked=0
 if manifest_path.exists():
@@ -51,5 +95,5 @@ if manifest_path.exists():
         check(hashlib.sha256(data).hexdigest()==entry['sha256'],'Hash mismatch '+entry['path'])
         check(len(data)==entry['bytes'],'Length mismatch')
         checked+=1
-print(json.dumps({'passed':True,'glyph_positions':len(glyphs),'world_curves':len(guides['curves']),'max_world_radius_error_mm':rerr,'manifest_files_checked':checked,'artistic_approval':False},indent=2))
+print(json.dumps({'passed':True,'profiles':list(spec['profiles']),'glyph_positions':len(glyphs),'world_curves':len(guides['curves']),'series_rows':len(series['rows']),'series_glyph_positions':len(series['glyphs']),'series_world_curves':len(world['curves']),'max_world_radius_error_mm':rerr,'manifest_files_checked':checked,'artistic_approval':False},indent=2))
 

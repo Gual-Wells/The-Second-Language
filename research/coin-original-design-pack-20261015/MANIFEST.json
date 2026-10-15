@@ -1,8 +1,13 @@
 {
   "schema": "tsl.original-design-manifest/1",
-  "version": "1.0.0-working-design",
+  "version": "1.1.0-working-design",
   "date": "2026-10-15",
-  "status": "fixed-design-handoff; organic 3D not completed; user aesthetic approval pending",
+  "profiles": [
+    "common",
+    "series",
+    "foundation"
+  ],
+  "status": "common + chapter-series + foundation fixed-design handoff; organic 3D not completed; user aesthetic approval pending",
   "exclude": [
     "MANIFEST.json itself",
     "runtime caches outside package"
@@ -10,9 +15,9 @@
   "files": [
     {
       "path": "AUDIT.md",
-      "bytes": 2188,
-      "sha256": "5fa42c867f7b18733842eb4310acac3612d1fed8c45882a5c0eccd4371b71173",
-      "git_blob_sha": "9c329cfc6ba1e7c3eac3c428253284538646a855"
+      "bytes": 2867,
+      "sha256": "c659a3e95f366295abf6b4e5699adf8c91479095792c44fc591eb2625ffee45b",
+      "git_blob_sha": "9bc15a5b1774dacda8da16d945605008374c0ed7"
     },
     {
       "path": "checks/design-checks.json",
@@ -21,106 +26,148 @@
       "git_blob_sha": "4444e0c79ae8a782b3178b9af1031d11c1209efc"
     },
     {
+      "path": "checks/series-checks.json",
+      "bytes": 3027,
+      "sha256": "67fe78f10f78a0df8c24fa21bb5dcdad9d44ff8923aa1b2086275ec6a84c3d5d",
+      "git_blob_sha": "bef60a60ce7b0652e3ea4f514b46a86339240a54"
+    },
+    {
       "path": "drawings/01-datum-and-orientation.png",
-      "bytes": 157922,
-      "sha256": "ea9e5f33749b6b5d93c639f69d1b98f196c86121d522453516640e1107786fa4",
-      "git_blob_sha": "216d828807ba9260768ccb9f34f941c3ef2722b8"
+      "bytes": 168379,
+      "sha256": "3adfbe2a2b50de3003b8ea7f09e51cffe94cdae4365a9f85a055ab7f99994819",
+      "git_blob_sha": "dc25cc47c7e9ccc03ae50ce85d0cba3b063556ae"
     },
     {
       "path": "drawings/01-datum-and-orientation.svg",
-      "bytes": 245240,
-      "sha256": "e6640bb62bb014e82a2b4c55aaac6f8c58b26045611a3ac13eb3be7a78f22876",
-      "git_blob_sha": "c98ffba8df9d33820f7418913930f6bfef5b3b22"
+      "bytes": 291872,
+      "sha256": "e84d9da22bf12a9628503cce82daa80b549a2b7f6cd145e365b6e1e49095a0df",
+      "git_blob_sha": "9a62721fa0d1c905b6db8a930479c166614cdd2c"
     },
     {
       "path": "drawings/02-edge-distribution.png",
-      "bytes": 222981,
-      "sha256": "5c110272e9faf4f847af8bf6134c6e2e00f2f4c5b6ee8b1be80c72c0437a7ce2",
-      "git_blob_sha": "b7da48dd6d485e011c7ca0ff8681d99a267c3ef0"
+      "bytes": 231600,
+      "sha256": "785fc5a9143d85932e610505cf4a80707128a2974319e65068abf39ee32d7452",
+      "git_blob_sha": "f21411f305b50de71cd6fc6cc1c4fa6f9fdbd16f"
     },
     {
       "path": "drawings/02-edge-distribution.svg",
-      "bytes": 269834,
-      "sha256": "0b29042164560d343522c6651a4343030505fa78768990aa4acd5a8643a18d6b",
-      "git_blob_sha": "95ef2f9d2fc042c1ce3743ea579b7808dcef53e2"
+      "bytes": 316466,
+      "sha256": "a3f31f39284638b9f949b4866c3b32b642b025b797d5fbd868bef01c78142dfa",
+      "git_blob_sha": "efe62abe6ea7c67e4831cc8b9de8a28cf3b47930"
     },
     {
       "path": "drawings/03-four-side-elevations.png",
-      "bytes": 203909,
-      "sha256": "abe944a900d2b44210bf3e44d416236143df8e4d18b2697912b767a504944771",
-      "git_blob_sha": "9f9c5871cfdb830b765031003db6338962241f8c"
+      "bytes": 203640,
+      "sha256": "0147f5912eed3366ba022499d09dcc2b8e81a739b0aca6e98ea01b71eb2eeaf0",
+      "git_blob_sha": "02672ec9227e1a635d3077139fc40da9a7aa8caa"
     },
     {
       "path": "drawings/03-four-side-elevations.svg",
-      "bytes": 1009839,
-      "sha256": "5fc7e01d2c495b20ebe9021c3a6241aa664d8f6b7209b2976a609f6de54a7781",
-      "git_blob_sha": "0dab84dc1f25acd31aa819578af079cb061aa863"
+      "bytes": 1056471,
+      "sha256": "0a1198d60cc8ec5eae14ce6b51df7b117656bfd6d349006cfc4fb7d78414c78f",
+      "git_blob_sha": "d52ca2570f9bccc42d80ed6a6f86bdf626703495"
     },
     {
       "path": "drawings/04-shared-section.png",
-      "bytes": 142066,
-      "sha256": "34b4a78987183861ff6b58e4711ecf1ffc6c8cf573445bb4bce1c8f1d8f81e99",
-      "git_blob_sha": "d9ff274b329c90756e9b6b92c5a9441f4b29a99b"
+      "bytes": 150622,
+      "sha256": "9d7e5a7ad7f7b695883afdcb2a353b2b2bc585f1716adf172b9b92027b46b63a",
+      "git_blob_sha": "817b245d23e06bf93d80e39c3be00d668e99514d"
     },
     {
       "path": "drawings/04-shared-section.svg",
-      "bytes": 220485,
-      "sha256": "83351ba81c419ca81f6ba9f5df70b48799f1258f07841b82b7ac32f650452164",
-      "git_blob_sha": "bf64926510b8eb3e543a7dca312c4d3cdad32b16"
+      "bytes": 267117,
+      "sha256": "2bdddc784eab76eba449aa153a3fbb4751e89ed78053d3a01f9d8fcb82c2064b",
+      "git_blob_sha": "91edba17defd6c276d2693df087c36701c74ff1e"
     },
     {
       "path": "drawings/05-reverse-layout.png",
-      "bytes": 246874,
-      "sha256": "6342a27e1caa194209512dcc7ef54c7a27d0b7cce65970d96871a8c0f7632110",
-      "git_blob_sha": "7b7f335814be1f0af4849a852d4016d1d13f6bd2"
+      "bytes": 253361,
+      "sha256": "36cbeb61bd5c44f0c420b49b32b36c60180cec426bef19afdc4286d4679ceba6",
+      "git_blob_sha": "3297617a300561a9cddfc48585ef637598b6eac9"
     },
     {
       "path": "drawings/05-reverse-layout.svg",
-      "bytes": 367470,
-      "sha256": "c7ebaa7b4cf29a1e718622dd36177e8cc42bbea135416bf50008b62485a964b6",
-      "git_blob_sha": "010affb1cf85b4cd5645d3a0d84d9e7bbf64b15d"
+      "bytes": 414102,
+      "sha256": "ea4d314fb85f2ba32f6c3c5567d92829d2010f3340c2cefbfcf014e02a7f3821",
+      "git_blob_sha": "f0afa718dcc61c3bfc1d65fc5e94f5e425a0ccd6"
     },
     {
       "path": "drawings/06-foundation-overrides.png",
-      "bytes": 202427,
-      "sha256": "35d9becc12f4bf0fdf7bae481f001f139ddc3405c28980575f3e7aa4f8a84888",
-      "git_blob_sha": "478aa71038871128d53075624bdb2aac2a773cbb"
+      "bytes": 211313,
+      "sha256": "92d4652851d2bb6c9e62e1c1c1b122ea2259356e6621eb0c9b5d15dc6c787d09",
+      "git_blob_sha": "2bb090ed346c2aba0691b775179e4d292b39a946"
     },
     {
       "path": "drawings/06-foundation-overrides.svg",
-      "bytes": 255970,
-      "sha256": "a182de4aa1abaeddc362625f8283de3ccc2c9e83a37be3b5bb9963bcb13323ae",
-      "git_blob_sha": "5a8f896845cb3e63dd94b557c28669f66f3c3987"
+      "bytes": 302602,
+      "sha256": "8ebc9df45e6c4924419bc00b866e53687bda86fa92103e37810e83848aa72924",
+      "git_blob_sha": "2125a8768a1e10685f09e59c8f4b573aa02a29bc"
     },
     {
       "path": "drawings/07-glyph-schedule.png",
-      "bytes": 131343,
-      "sha256": "7e3d511829e78431838eee36f8c506fb97f5862b002e95bbf86cf8afb7c37a6f",
-      "git_blob_sha": "b7e1f21bf4080643d9ef6a20a5ccdb1532f8db26"
+      "bytes": 183451,
+      "sha256": "83407ddc149a3636ad9f57b3610dc946dc07f8aa76f0cefce311bd9b20a8e9e7",
+      "git_blob_sha": "a9e3c5dac64ea45a98419d58b05c83d474da3fbb"
     },
     {
       "path": "drawings/07-glyph-schedule.svg",
-      "bytes": 228992,
-      "sha256": "6791cf3ab0d1fdc706d942dd2f04765ab287130e633c6039066dd494cbcd1b1e",
-      "git_blob_sha": "96b19dac5fea9aa46fe1d4f3a2da9ab80b8115c1"
+      "bytes": 275624,
+      "sha256": "d135c6fc46702f5e6a6e6cadb63750d7e5fb46276f7a538044e6afd39c99fb52",
+      "git_blob_sha": "92efcff3f640430308b68fe81d638904b9c9b703"
     },
     {
       "path": "drawings/08-foliate-master.png",
-      "bytes": 190884,
-      "sha256": "18f282d141259b2600a474253b7123fe26f6f61295877b64d8d80d8ebfc48c26",
-      "git_blob_sha": "31f5fd9db7cea8f4278d46ba332fc134be6f0049"
+      "bytes": 195195,
+      "sha256": "a23fdf88c87e62d42aecd49f6b692a257d7f99b3b19e5689a77bde773356113a",
+      "git_blob_sha": "805c91fb56acce4b660c929e2a7e8be6afc30745"
     },
     {
       "path": "drawings/08-foliate-master.svg",
-      "bytes": 220118,
-      "sha256": "437cb74001d91b914c964702e7f8d36a597539f6c92ec83bdeec53e7046deece",
-      "git_blob_sha": "c41a86cce8ed95abc194bf6b27265807dc43acc2"
+      "bytes": 266750,
+      "sha256": "abc79c94b4bca127476fc7e4a8f4d7f7afa337ba83de36884b620681e1547087",
+      "git_blob_sha": "c140e23acee22ed5474ae0a9845eced3dc8b18d6"
+    },
+    {
+      "path": "drawings/09-series-reverse-layout.png",
+      "bytes": 270682,
+      "sha256": "f072188e6cc03597a07acf2c15e1f2b29d3743aadc864613f48e899736c244b2",
+      "git_blob_sha": "4f83bc7281bbaf42ac9da1e5d2cebcf21dda298b"
+    },
+    {
+      "path": "drawings/09-series-reverse-layout.svg",
+      "bytes": 437403,
+      "sha256": "f2665b04fccfa83aa97c7603b42ae045749b3374c2d559ee635a22a119c05af1",
+      "git_blob_sha": "087c07b7e034273e62d9f146c0a0267c09fe746d"
+    },
+    {
+      "path": "drawings/10-series-fields-and-identity.png",
+      "bytes": 162845,
+      "sha256": "5253c30dcdfb1789e5ddc45460054ef6726ab21690df51e4e617f652ea1e5e6e",
+      "git_blob_sha": "506c2f1de3401c7dd8106070a9fe282951139fff"
+    },
+    {
+      "path": "drawings/10-series-fields-and-identity.svg",
+      "bytes": 265719,
+      "sha256": "3f029e3f08fde8c9ea513369a37f44529e43ab5b081b6fe3db126f62b0f4284f",
+      "git_blob_sha": "9d1e9f6e1bfac7ac72afa01903a8017f635aa791"
+    },
+    {
+      "path": "drawings/11-series-master-and-variants.png",
+      "bytes": 212234,
+      "sha256": "02656929f4905a90efc5caf82c9071b9900c0cb137f7d4642c516614ad59469c",
+      "git_blob_sha": "487be54922a3dc86e719cedb19cebe27395365c3"
+    },
+    {
+      "path": "drawings/11-series-master-and-variants.svg",
+      "bytes": 436683,
+      "sha256": "a52d1a1c0083c207b53a7d1c8060ab4cf9f51acae4b11cfddc4dccecf71e79bf",
+      "git_blob_sha": "e915954c00bd3586bf434c6957d26d9b903a1f86"
     },
     {
       "path": "fonts/Cinzel-600.ttf",
-      "bytes": 10076,
-      "sha256": "ce72f13ee13776bafc64ae746cb30627f245994106d8e45b3ff91b93e5093ce3",
-      "git_blob_sha": "b1a40a800acf5cdc4f0b90cb768d3312c32daf08"
+      "bytes": 17932,
+      "sha256": "5cf5f97e0418de89fc0d6314206944e7e4390f7d2b06e759998773604bf601fb",
+      "git_blob_sha": "b3b3155228eecada88e9ecfec831ef239b038fbf"
     },
     {
       "path": "fonts/Cinzel-OFL.txt",
@@ -130,15 +177,15 @@
     },
     {
       "path": "fonts/font-sources.json",
-      "bytes": 2397,
-      "sha256": "156511a0571212bb3f33e6109aa53b3b35654d2bbecca6b919b36125060028ef",
-      "git_blob_sha": "978c14beebecd019b5542978ca624208fd4ac2df"
+      "bytes": 2656,
+      "sha256": "ea30266291e70920e9bedde7cd349301a5e867e4f668ddf964bc04846f09df31",
+      "git_blob_sha": "29771a1ac58db77cf8553d6f066c1be2acd69ede"
     },
     {
       "path": "fonts/NotoSerifSC-600-subset.ttf",
-      "bytes": 161476,
-      "sha256": "84c8ef2fb5b708c15f8047a3d700f389f9e1a41859a27607e5b785612c4b65df",
-      "git_blob_sha": "1d06bece341b3ae0d292b3680a753aa113523f44"
+      "bytes": 196452,
+      "sha256": "e35c91e43cf5142a700b258b764bdd26eb5886dfeab903adf4a97c83f03f1d46",
+      "git_blob_sha": "8c61b96354181eade2a2c3d2c5d88c7399008417"
     },
     {
       "path": "fonts/NotoSerifSC-OFL.txt",
@@ -148,39 +195,39 @@
     },
     {
       "path": "index.html",
-      "bytes": 5344,
-      "sha256": "87375dfed3e3ad7d7f3e6a57ece1c3574f0094f7983fb635c814ce2cb7b76669",
-      "git_blob_sha": "1dc30263b14a4b49489bff76e7e0683064ce3b33"
+      "bytes": 7698,
+      "sha256": "c3da28bbf9a80b1f5b7584f66510bcf60b37e83044599c4d87be3b2bb396e78e",
+      "git_blob_sha": "a3c13cffdbc220c048ee5121720043a46103717b"
     },
     {
       "path": "MODEL_HANDOFF.md",
-      "bytes": 4971,
-      "sha256": "3ca488c9ab52a409c65f7255c3e9ebb79508b031240ccd1b51f03d6ccf94230a",
-      "git_blob_sha": "0c7f94656c7d4cb27f1e07c73927b6d7a7109e31"
+      "bytes": 5498,
+      "sha256": "991b9178d2666308d0cf7113e912312542383c98db397854421b2adb2df9678b",
+      "git_blob_sha": "f77fbdc1cbf7ba0ad56f33e5d4b36cf3e72d0e85"
     },
     {
       "path": "README.md",
-      "bytes": 2830,
-      "sha256": "efae6b93c0df40a0b83acbe1682a2f7d19d8beaef505b98b3dde152fce440110",
-      "git_blob_sha": "c7e53a5dd86f1fb2f079b21e393c2a3a6f75fed8"
+      "bytes": 4020,
+      "sha256": "7374ec9b453290b83b9e9ab1dbe4b649cd938c6ac4298577a152172d1b6b37ad",
+      "git_blob_sha": "093041fc6aeca363661f70c38e4ac328856a3d96"
     },
     {
       "path": "scripts/build_design.py",
-      "bytes": 35121,
-      "sha256": "ae15a192dd2ac0a0b39409125e3bc09f8da10dc2ba93dfca6cef7c83b20d4a87",
-      "git_blob_sha": "c5190dc8a2ab2be3d3aa835dfcef5939a90b8c94"
+      "bytes": 35786,
+      "sha256": "1edb55047449d02c11cc6a6370f661ec8a724eb2ee654b62d21cafd98ba1a551",
+      "git_blob_sha": "28bf5f16760a9fed640b9ceef318488287365202"
     },
     {
       "path": "scripts/package_design.py",
-      "bytes": 2187,
-      "sha256": "d360161734c3bc214fca3d14456dc9f2b279cbf883b8bdb004b36bf80fa7d2dd",
-      "git_blob_sha": "dad75925b66900729db53bf4eb98470dfd22d686"
+      "bytes": 2327,
+      "sha256": "a7b46dae6e2e106c4932fac38aa0d3546553ff554fcda584aebddaed5989921e",
+      "git_blob_sha": "401f8b5cbe3ad6124212d718b406f40d673b4727"
     },
     {
       "path": "scripts/prepare_fonts.py",
-      "bytes": 2481,
-      "sha256": "2264ca9d21a312d830892be9a4ca5e2a45008d0f040a187a25e46555b90eaa93",
-      "git_blob_sha": "970a6dc26d810b68f690720a104a1236af1ed82d"
+      "bytes": 2597,
+      "sha256": "d69b11e00cc8b3ca935b401fdd4d4979d2a7f11b7964529c6e9535038441e531",
+      "git_blob_sha": "5ed5f8a28b733c860992b4a990dd53ac4e9392a6"
     },
     {
       "path": "scripts/render_drawings.ps1",
@@ -195,16 +242,28 @@
       "git_blob_sha": "e563d28dd76f9adb6c35c05a59457d6bf24edce7"
     },
     {
+      "path": "scripts/series_design.py",
+      "bytes": 19322,
+      "sha256": "1767f278e93e99d0a34d4f59774d88b0f718c7fdea1118f3a3271e41983e6c75",
+      "git_blob_sha": "6cb49164561079f0d658a35cd7578c355a8427d8"
+    },
+    {
       "path": "scripts/validate_package.py",
-      "bytes": 3956,
-      "sha256": "8e8070fb587396edb4b50c05609fd1f1f5863dd20222d5071efcd4c1fa6c54d9",
-      "git_blob_sha": "6d0bc6ebf4fa617c7f48933413367398f7c7101f"
+      "bytes": 7822,
+      "sha256": "f1889fa3c29254d988a28e9cf6511eaa38f0b001670c7e0965f0bc1d4efe67b5",
+      "git_blob_sha": "b18e65836c17393052160051af0d1cbf9597d313"
     },
     {
       "path": "scripts/wrap_fixed_guides.py",
       "bytes": 1587,
       "sha256": "0e98d4a2f48a72c94aba762942b12f772aae411ebdad63b48c5fd87a3e5d72c8",
       "git_blob_sha": "c2d8b4cdf8eb700e4912a27a5255c8259e66929e"
+    },
+    {
+      "path": "SERIES_HANDOFF.md",
+      "bytes": 7876,
+      "sha256": "c7a00cb48c5204898a5bdb034cf38e2120907211ba9fd5e181dc36ed6b743e96",
+      "git_blob_sha": "9c01716b0822d7a714542174f8146455f8f25a80"
     },
     {
       "path": "sources/appearance-parent-v2.png",
@@ -225,6 +284,18 @@
       "git_blob_sha": "66ba98af3ffb37d343da6ea1e28470c07d2bcb4c"
     },
     {
+      "path": "sources/series-chapter-facts.json",
+      "bytes": 600,
+      "sha256": "9638cf9e164dbdc58d6c2559cce957378389c36e623d810a83589bf5cdb1b377",
+      "git_blob_sha": "42f7d1a0d0d5a045750aff1733c850628da2ebdd"
+    },
+    {
+      "path": "sources/series-identity-sample-v5.json",
+      "bytes": 922,
+      "sha256": "894219e5c28169d6a4e2aad040754d6d3449b0b36ac15af023ae88f5b5dd92f5",
+      "git_blob_sha": "cb40333f1c8b8f4c813a64b94ff2ed215db134df"
+    },
+    {
       "path": "sources/user-blank-reference.png",
       "bytes": 2454755,
       "sha256": "4773ec40fb7e9ad961a03236378539bc8cb1b235d2818bc16cee50f79fb1391f",
@@ -232,9 +303,9 @@
     },
     {
       "path": "SOURCES.md",
-      "bytes": 1886,
-      "sha256": "7c27a8cf4b96cef570a7b3cf7946f04292f59ffe8f328bbcd07a1203ca737592",
-      "git_blob_sha": "8cb5fe4c8e7965aa31fb6815d3578383ebecf33c"
+      "bytes": 2697,
+      "sha256": "af3114ae83dda2641c8d174cc4e9d8dd592ea6ba6392ee32a4ced85121909e0f",
+      "git_blob_sha": "9b3e31e03a8289e18bebc7d99aa5159996595665"
     },
     {
       "path": "spec/audit-and-removal.json",
@@ -244,9 +315,9 @@
     },
     {
       "path": "spec/design-spec.json",
-      "bytes": 10175,
-      "sha256": "54c225a74eb1294599a35fe8fac76e7beb4d6e3621d922dde5fdb9a3c316b7c1",
-      "git_blob_sha": "87afd913271a214a4548b8fa0c07b106fca3776d"
+      "bytes": 14465,
+      "sha256": "32dec07f57bfec71428da87d7dfdd62d1ad2c31fb8c30a7385bcd15f0d83ab29",
+      "git_blob_sha": "389608ef72484ce588934f7ebdb738f7f3541cd8"
     },
     {
       "path": "spec/foliate-control-points.csv",
@@ -273,10 +344,28 @@
       "git_blob_sha": "b80189a8fe0cdabca432a6f98061d9b1b62c3cea"
     },
     {
+      "path": "spec/series-glyph-placement.csv",
+      "bytes": 13529,
+      "sha256": "e23fdbf22aa2a0aed7b0f652403398f50f9f7df82f7693ede9eb8117bb32659a",
+      "git_blob_sha": "c06c8bf0ddcfc9c8e65eff48d34b50c06b8cbee0"
+    },
+    {
+      "path": "spec/series-resolved.json",
+      "bytes": 2404028,
+      "sha256": "a4c78bf9fea1c9e0243c720b4e0a4d1cb9878f9e9934033bbc511d2fe71be0d2",
+      "git_blob_sha": "22ed424192d5eeeddd0f02816b3da56de6f26bdf"
+    },
+    {
+      "path": "spec/series-sample.json",
+      "bytes": 724,
+      "sha256": "66122ab331d6639bf311e2a74d0790c9cdde1e4d02ca217ba5a7768294ce7d84",
+      "git_blob_sha": "cca81afc90578eea1446c29f73c3394bc68c1295"
+    },
+    {
       "path": "START_HERE.md",
-      "bytes": 4944,
-      "sha256": "c51f0c0a818c0ccb45319a8d53de01a03e0c70b236ac51dcdb3a6c060372ba5b",
-      "git_blob_sha": "839131aa1c5a7f6fe2426092edaaecc697e56b61"
+      "bytes": 6041,
+      "sha256": "a8e3bcba93ecbdef6ab780fcee8ef5419e95d3b7084da2ac91d37c5debf73c9e",
+      "git_blob_sha": "af1d087e2d25b9a8895498e7c161539d204bbfe7"
     },
     {
       "path": "vectors/edge-curves.json",
@@ -287,8 +376,8 @@
     {
       "path": "vectors/edge-layout-mm.svg",
       "bytes": 35540,
-      "sha256": "72b963645624bc3c509c18827e01162068344108ef8e65231126bdb2de209707",
-      "git_blob_sha": "ea13506d5c5ce2cc0e5d91d87ca98fa3d4a94839"
+      "sha256": "c72a73b235004b039bf2c5a6ff95a9d921e521f9a35f2c39dbf253b77849c800",
+      "git_blob_sha": "918eef504f7889022d09a45415ab635c44b9eb8c"
     },
     {
       "path": "vectors/edge-world-guides.json",
@@ -303,16 +392,46 @@
       "git_blob_sha": "57c33bd4162dc8e0de9c585b1b9473d9df2926a8"
     },
     {
+      "path": "vectors/reverse-common-frame-mm.svg",
+      "bytes": 117896,
+      "sha256": "b9f8f5c348edc935f17ed442ecb60455a84623c4bdcafaf60fd0798405cbe967",
+      "git_blob_sha": "043e138b077dccd39833f011b138c0bc95c1f091"
+    },
+    {
       "path": "vectors/reverse-fixed-components-mm.svg",
       "bytes": 149868,
-      "sha256": "067afe86edc6fdba7c68669c050c79485b1dbf73ab876ec36c3e0d7f1280fc17",
-      "git_blob_sha": "a699234cceb2113c9d0f18e16b2545cc416c131f"
+      "sha256": "aef878d620e72db2cffe7fbeb0dee6d273ff75ae73302ce06ab2a5a659ac5a53",
+      "git_blob_sha": "57dadc23831c7ce5abc93971cf68f89fdf0ba09a"
     },
     {
       "path": "vectors/reverse-lettering-mm.svg",
       "bytes": 142380,
-      "sha256": "b5e844f6f445f224e00b93437ee72505888a8696d20d73429854b5a6089ea7c1",
-      "git_blob_sha": "4a93872a026786cc90f520b3723030a1d8e11c4a"
+      "sha256": "00092145222f592890789738c25a8f1b02d6f2af63a5fee4dff0ce5b4780ba9b",
+      "git_blob_sha": "ac052b08b2df87b65628d12a545929f818b96496"
+    },
+    {
+      "path": "vectors/series-blank-front-mm.svg",
+      "bytes": 255,
+      "sha256": "31475765f228516a8dae696a8a6aa776a01976dc16afd476e68e94b58b347931",
+      "git_blob_sha": "6beedd42fe3310904da6c386f6e7cefeffa0c2e1"
+    },
+    {
+      "path": "vectors/series-reverse-fixed-components-mm.svg",
+      "bytes": 172295,
+      "sha256": "85558d366e6a6d0f1d177cde82124770266d169d8ee1efd5297a8e495e3f029c",
+      "git_blob_sha": "649a4a558997a4c959550acd54aa5eb5c0cb5f4e"
+    },
+    {
+      "path": "vectors/series-reverse-lettering-mm.svg",
+      "bytes": 50938,
+      "sha256": "52caebb4f4024c3c70e9d7557198ef4e4f61f2a00f834d82fa01d6c35eb78972",
+      "git_blob_sha": "62159b666f81cf558209f49f217ef9b57d8d6c3b"
+    },
+    {
+      "path": "vectors/series-reverse-world-guides.json",
+      "bytes": 1115670,
+      "sha256": "4cf5a7140164dc1d0482db684533aa5a2d197546a578fed567da391ea9311f65",
+      "git_blob_sha": "f72790df587c2d9e4271c6bc164f5de6a48ee338"
     },
     {
       "path": "visuals/foundation-refined.png",

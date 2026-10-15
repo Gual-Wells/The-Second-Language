@@ -1,0 +1,25 @@
+{
+  "schema": "tsl.series.record/1",
+  "coin_type": "chapter-certification",
+  "sample_only": true,
+  "chapter": {
+    "id": "2026-10-02",
+    "number": 1,
+    "title_zh": "地图上的那条线",
+    "title_en": "The Line on the Map"
+  },
+  "identity": {
+    "raw_hex": "2AD2CC008F6F0647"
+  },
+  "certification": {
+    "passed_at": "2026-10-14T10:35:15.314+08:00",
+    "passed_at_utc": "2026-10-14T02:35:15.314Z",
+    "time_zone": "Asia/Shanghai"
+  },
+  "provenance": {
+    "chapter_fact_source": "sources/series-chapter-facts.json",
+    "identity_sample_source": "sources/series-identity-sample-v5.json",
+    "not_a_real_award": true,
+    "art_reference": "sources/user-blank-reference.png"
+  }
+}

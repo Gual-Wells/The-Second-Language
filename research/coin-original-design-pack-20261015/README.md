@@ -1,10 +1,26 @@
-# 第二语言认证币原始设计包 · 2026-10-15
+# 第二语言认证币原始设计包 · v1.1 · 2026-10-15
 
 [工作入口](START_HERE.md) · [图稿总览](index.html) · [建模交接](MODEL_HANDOFF.md) · [清理记录](AUDIT.md) · [唯一设计规范](spec/design-spec.json)
 
-已从当前版本删除八份明显错误的旧稿。保留认可龙正面与用户原图，形成一份修订观感主稿，以及八份非AI固定设计分解图。固定数据均有SVG/JSON/CSV源文件、字体及许可证、原始曲线、世界坐标导引与可重建脚本。
+v1.1补齐此前遗漏的系列认证币：独立的第一章实例、变量排版、字形与世界坐标、重建和验收。共用币胚、系列币、启动特别币三个入口均在同一包内。
 
-## 修订观感
+已从当前版本删除八份明显错误的旧稿。保留认可龙正面与用户原图，形成一份修订观感主稿，以及十一份非AI固定设计分解图。固定数据均有SVG/JSON/CSV源文件、字体及许可证、原始曲线、世界坐标导引与可重建脚本。
+
+## 系列认证币 · 已补齐
+
+[系列交接与排版规则](SERIES_HANDOFF.md) · [系列输入](spec/series-sample.json) · [系列完整固定矢量](vectors/series-reverse-fixed-components-mm.svg)
+
+![系列币背分解](drawings/09-series-reverse-layout.png)
+
+![系列字段与永久身份](drawings/10-series-fields-and-identity.png)
+
+![系列母版边界](drawings/11-series-master-and-variants.png)
+
+章号、双语章题、居中随机码、首次通过毫秒时刻完整保留；不恢复认证顺序号。第一章身份与时间仍为此前样张，未颁发正式认证。正面是有意留空的币胚，不冒称已完成第一章主题艺术币。
+
+[原先选定的完整系列观感稿](sources/user-blank-reference.png)仅提供艺术方向，旧侧纹不覆盖当前工程规范。图09—11是设计说明，不是删去艺术纹样后的新审美提案。
+
+## 特别币修订观感
 
 ![修订主稿](visuals/foundation-refined.png)
 

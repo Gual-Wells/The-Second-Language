@@ -1,0 +1,136 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "source_titles_preserved",
+      "passed": true,
+      "detail": "Verified chapter-one source, no improvised English translation"
+    },
+    {
+      "name": "six_identity_rows",
+      "passed": true,
+      "detail": [
+        "SER-CHAPTER",
+        "SER-ZH-1",
+        "SER-EN-1",
+        "SER-HASH",
+        "SER-DATE",
+        "SER-TIME"
+      ]
+    },
+    {
+      "name": "identity_no_issue_sequence",
+      "passed": true,
+      "detail": "No issue number, dragon override, date substitution or production write"
+    },
+    {
+      "name": "sample_timezone_ms",
+      "passed": true,
+      "detail": 1791945315314
+    },
+    {
+      "name": "wrap_cn-long",
+      "passed": true,
+      "detail": [
+        [
+          "SER-CHAPTER",
+          "CHAPTER 1200"
+        ],
+        [
+          "SER-ZH-1",
+          "地图上的那条线"
+        ],
+        [
+          "SER-ZH-2",
+          "地图上的那条线"
+        ],
+        [
+          "SER-EN-1",
+          "The Line on the Map"
+        ],
+        [
+          "SER-HASH",
+          "2AD2 CC00 8F6F 0647"
+        ],
+        [
+          "SER-DATE",
+          "CERTIFIED · 2026.10.14"
+        ],
+        [
+          "SER-TIME",
+          "10:35:15.314  +08:00"
+        ]
+      ]
+    },
+    {
+      "name": "complete_cn-long",
+      "passed": true,
+      "detail": "No dropped title words or CJK characters"
+    },
+    {
+      "name": "wrap_en-long",
+      "passed": true,
+      "detail": [
+        [
+          "SER-CHAPTER",
+          "CHAPTER 01"
+        ],
+        [
+          "SER-ZH-1",
+          "地图上的那条线"
+        ],
+        [
+          "SER-EN-1",
+          "The Line on the Map and The Line on the Map"
+        ],
+        [
+          "SER-EN-2",
+          "and The Line on the Map and The Line on the Map"
+        ],
+        [
+          "SER-HASH",
+          "2AD2 CC00 8F6F 0647"
+        ],
+        [
+          "SER-DATE",
+          "CERTIFIED · 2026.10.14"
+        ],
+        [
+          "SER-TIME",
+          "10:35:15.314  +08:00"
+        ]
+      ]
+    },
+    {
+      "name": "complete_en-long",
+      "passed": true,
+      "detail": "No dropped title words or CJK characters"
+    },
+    {
+      "name": "reject_missing_ms",
+      "passed": true,
+      "detail": "Rejected before export"
+    },
+    {
+      "name": "reject_utc_mismatch",
+      "passed": true,
+      "detail": "Rejected before export"
+    },
+    {
+      "name": "reject_bad_hex",
+      "passed": true,
+      "detail": "Rejected before export"
+    },
+    {
+      "name": "reject_restored_sequence",
+      "passed": true,
+      "detail": "Rejected before export"
+    },
+    {
+      "name": "reject_oversize_title",
+      "passed": true,
+      "detail": "Rejected before export"
+    }
+  ],
+  "scope": "Fixed series typography, identity and data consistency, not artistic or 3D approval"
+}

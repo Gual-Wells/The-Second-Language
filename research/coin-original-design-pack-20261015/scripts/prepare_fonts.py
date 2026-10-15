@@ -11,12 +11,13 @@ OUT=ROOT/'fonts'
 OUT.mkdir(exist_ok=True)
 records=[]
 for folder, filename, outname, text, weight in [
- ('cinzel','Cinzel-variable.ttf','Cinzel-600.ttf','ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 .:-+',600),
+ ('cinzel','Cinzel-variable.ttf','Cinzel-600.ttf','ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 .:-+·',600),
  ('notoserifsc','NotoSerifSC-variable.ttf','NotoSerifSC-600-subset.ttf','启程纪念仇视之龙地图上的那条线第二语言年月日章认证通过',600)]:
     src=SOURCE/filename
     font=instantiateVariableFont(TTFont(src),{'wght':weight},inplace=False)
     if folder == 'notoserifsc':
         texts = ''.join(p.read_text(encoding='utf-8') for p in [*ROOT.glob('scripts/*.py'), *ROOT.glob('spec/*.json')])
+        text += 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 .:-+·'
         text += ''.join(sorted(set(re.findall(r'[\u4e00-\u9fff]', texts))))
     options=subset.Options()
     options.name_IDs=['*']

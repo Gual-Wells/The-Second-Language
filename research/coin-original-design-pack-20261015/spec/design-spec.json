@@ -1,6 +1,6 @@
 {
-  "schema": "tsl.coin.original-design/1.0",
-  "version": "1.0.0-working-design",
+  "schema": "tsl.coin.original-design/1.1",
+  "version": "1.1.0-working-design",
   "date": "2026-10-15",
   "authority": {
     "status": "agent-defined revision under user instruction; user aesthetic approval pending",
@@ -248,7 +248,12 @@
     "book": {
       "source": "sources/project-icon.svg",
       "fit": "uniform contain; preserve original SVG aspect ratio",
-      "original_bounds_xy": [80, 106, 432, 397],
+      "original_bounds_xy": [
+        80,
+        106,
+        432,
+        397
+      ],
       "box_qz": [
         -3.75,
         5.2,
@@ -371,5 +376,112 @@
     "all_geometry_values": "new working design nominal values, not recovered camera calibration or measurements from AI pixels",
     "source_front_projection": "approved visual source; perspective not guaranteed orthographic",
     "organic_hidden_shapes": "must be resolved during actual 3D work; this package does not fabricate hidden geometry"
+  },
+  "profiles": {
+    "common": {
+      "blank": "blank",
+      "edge": "edge",
+      "reverse_frame": "vectors/reverse-common-frame-mm.svg"
+    },
+    "series": {
+      "config": "series",
+      "record": "spec/series-sample.json",
+      "reverse": "vectors/series-reverse-fixed-components-mm.svg",
+      "front": "intentional blank until an individual chapter theme is designed"
+    },
+    "foundation": {
+      "config": "foundation",
+      "reverse": "vectors/reverse-fixed-components-mm.svg",
+      "front": "sources/approved-dragon-front.png"
+    }
+  },
+  "series": {
+    "identity_type": "chapter-certification",
+    "sample_record": "spec/series-sample.json",
+    "appearance_reference": "sources/user-blank-reference.png",
+    "fonts": {
+      "title": "fonts/NotoSerifSC-600-subset.ttf",
+      "inscription": "fonts/Cinzel-600.ttf"
+    },
+    "title_zh": {
+      "preferred_height": 3.1,
+      "minimum_height": 2.2,
+      "max_width": 25.8,
+      "tracking": 0.16
+    },
+    "title_en": {
+      "preferred_height": 1.14,
+      "minimum_height": 0.88,
+      "max_width": 25.2,
+      "tracking": 0.018
+    },
+    "minimum_row_gap": 0.3,
+    "standard": {
+      "title_zh_one": -3.0,
+      "title_zh_two": [
+        -2.25,
+        -4.95
+      ],
+      "title_en_one": -5.9,
+      "title_en_two": [
+        -6.9,
+        -8.1
+      ],
+      "hash_z": -7.95,
+      "hash_height": 0.95,
+      "divider_z": -9.25,
+      "date_z": -10.85,
+      "date_height": 0.95,
+      "time_z": -12.25,
+      "time_height": 0.85
+    },
+    "compact": {
+      "title_zh_one": -3.0,
+      "title_zh_two": [
+        -2.25,
+        -4.95
+      ],
+      "title_en_one": -7.1,
+      "title_en_two": [
+        -6.95,
+        -8.15
+      ],
+      "hash_z": -9.6,
+      "hash_height": 0.82,
+      "divider_z": -10.35,
+      "date_z": -11.35,
+      "date_height": 0.82,
+      "time_z": -12.65,
+      "time_height": 0.75
+    },
+    "identity": {
+      "format": "16 uppercase hex digits",
+      "display": "4 groups of 4, one space between groups",
+      "label": null,
+      "centering": "actual outline bounding box, q=0",
+      "allocation": "first successful chapter certification; stable through art revisions; uniqueness checked by future production registry",
+      "source": "CSPRNG 128-bit nonce -> SHA256 -> first 64 bits; sample reuses previous registered design specimen only"
+    },
+    "timestamp": {
+      "source": "first successful certification event, never chapter publication, rendering or claim time",
+      "format": "RFC3339 with explicit offset and 3 decimal second digits",
+      "time_zone": "Asia/Shanghai",
+      "precision_note": "milliseconds of recorded software event time, not proof of physical-clock millisecond accuracy",
+      "rebuild": "never query current time or regenerate identity"
+    },
+    "overflow_policy": "uniform size adjustment down to listed minimum, then at most two complete lines at natural text boundaries; preserve source text and fail for reviewed alternate layout if it still does not fit",
+    "front": {
+      "state": "blank chapter-series master, no invented chapter-one artwork",
+      "default_cross_edge_or_damage": false,
+      "foundation_grips_inherited": false,
+      "individual_theme": "approved chapter-specific symbolic concept must supply its own front and any crossover envelope"
+    },
+    "construction_order": [
+      "use shared blank, coordinates and complete side inscription",
+      "place common reverse frame and original book icon",
+      "resolve series fields from immutable certification specimen",
+      "place exact glyph contours and identity ornaments",
+      "add individually approved theme sculpture and explicitly authorized crossover; never inherit dragon notch automatically"
+    ]
   }
 }

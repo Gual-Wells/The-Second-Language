@@ -156,7 +156,7 @@ def edge_vector_content():
 EC=edge_vector_content()
 def simple_svg(w,h,view,body):
     return f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="{view}">{body}</svg>'
-(VEC/'edge-layout-mm.svg').write_text(simple_svg(f'{C}mm','3.2mm',f'0 -1.6 {C} 3.2',f'<g transform="scale(1 -1)" fill="#263546" fill-rule="evenodd">{EC}</g>'),encoding='utf-8')
+(VEC/'edge-layout-mm.svg').write_text(simple_svg(f'{C}mm','3.2mm',f'0 -1.6 {C} 3.2',f'<g transform="scale(1 -1)" fill="#263546" fill-rule="nonzero">{EC}</g>'),encoding='utf-8')
 (VEC/'foliate-separator-mm.svg').write_text(simple_svg(f'{motif_width}mm','1.2mm',f'{-motif_width/2} -.6 {motif_width} 1.2',f'<g transform="scale({motif_scale_x} {-motif_scale_y}) translate(0 {-motif_center_y})">{motif_svg()}</g>'),encoding='utf-8')
 
 # Shared technical drawing typography, locally embedded for offline SVG viewing.
@@ -170,7 +170,7 @@ def line(x1,y1,x2,y2,cl='dim',color=None):
 def circle(cx,cy,r,fill='none',stroke='#8c9c9e',sw=1):
     return f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="{fill}" stroke="{stroke}" stroke-width="{sw}"/>'
 def board(name,title,subtitle,body,w=1800,h=1200):
-    svg=f'<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="{w}" height="{h}" viewBox="0 0 {w} {h}"><defs><style>{CSS}</style><linearGradient id="metal"><stop stop-color="#d5d5cf"/><stop offset=".48" stop-color="#f5f4ed"/><stop offset="1" stop-color="#c3c7c3"/></linearGradient></defs><rect width="100%" height="100%" fill="#f8f6ef"/>{txt(60,62,title,"title")}{txt(60,96,subtitle,"sub")}{body}{txt(60,h-26,"TSL · ORIGINAL DESIGN PACK 1.0 · mm · 固定参数以 JSON / CSV / SVG 为准","small")}</svg>'
+    svg=f'<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="{w}" height="{h}" viewBox="0 0 {w} {h}"><defs><style>{CSS}</style><linearGradient id="metal"><stop stop-color="#d5d5cf"/><stop offset=".48" stop-color="#f5f4ed"/><stop offset="1" stop-color="#c3c7c3"/></linearGradient></defs><rect width="100%" height="100%" fill="#f8f6ef"/>{txt(60,62,title,"title")}{txt(60,96,subtitle,"sub")}{body}{txt(60,h-26,"TSL · ORIGINAL DESIGN PACK 1.1 · mm · 固定参数以 JSON / CSV / SVG 为准","small")}</svg>'
     (OUT/f'{name}.svg').write_text(svg,encoding='utf-8')
 def pp(theta,cx,cy,rad,reverse=False):
     a=math.radians(theta)
@@ -214,7 +214,7 @@ body+=txt(750,660,'预留区间隙 10.5°；3 × (76 + 23 + 21) = 360°','label'
 body+=txt(750,695,f'字形未填满预留区；实际墨迹与草纹之间留白约 {60-11.5-math.degrees(text_width/R)/2:.4f}°。','small')
 sx=12.7; sy=12.7; x0=100;y0=845
 body+=f'<rect x="{x0}" y="{y0-1.4*sy}" width="{C*sx}" height="{2.8*sy}" fill="url(#metal)" stroke="#78878d"/>'
-body+=f'<g transform="translate({x0} {y0}) scale({sx} {-sy})" fill-rule="evenodd">{EC}</g>'
+body+=f'<g transform="translate({x0} {y0}) scale({sx} {-sy})" fill-rule="nonzero">{EC}</g>'
 for theta in range(0,360,30):
     u=R*math.radians((CUT-theta)%360);xx=x0+u*sx
     body+=line(xx,y0+64,xx,y0+74)+txt(xx,y0+98,str(theta)+'°','small','middle')
@@ -259,7 +259,7 @@ def side(alpha,cx,cy,scale=17):
                 contours.append(projected)
         if contours:
             d=polygon_path(contours,close=shape['type']=='fill')
-            if shape['type']=='fill':out+=f'<path d="{d}" fill="#324448" fill-rule="evenodd"/>'
+            if shape['type']=='fill':out+=f'<path d="{d}" fill="#324448" fill-rule="nonzero"/>'
             else:out+=f'<path d="{d}" fill="none" stroke="#324448" stroke-width="{shape.get("width",.075)*scale}" stroke-linecap="round"/>'
     return out
 body=''
@@ -318,7 +318,7 @@ for it in legend:
             radius=REV['top_legend']['baseline_radius']+y+REV['top_legend']['uppercase_ink_height']/2
             qz.append((radius*math.sin(a),radius*math.cos(a)))
         legendcontours.append(qz)
-rbody+=f'<g transform="translate({cx} {cy}) scale({sc} {-sc})"><path d="{polygon_path(legendcontours)}" fill="#304650" fill-rule="evenodd"/></g>'
+rbody+=f'<g transform="translate({cx} {cy}) scale({sc} {-sc})"><path d="{polygon_path(legendcontours)}" fill="#304650" fill-rule="nonzero"/></g>'
 # Medallion rays, original open-book icon paths converted from original SVG source.
 rbody+=circle(cx,cy-REV['book']['medallion_center'][1]*sc,REV['book']['medallion_radius']*sc,'#dbe3db','#50696f',1.2)
 medz=REV['book']['medallion_center'][1]
@@ -354,7 +354,7 @@ rbody+=txt(80,1030,'本图规范固定排版与原图标；虚线框不代表发
 board('05-reverse-layout','05 / 启动特别币背：固定信息与排版','坐标为背面屏幕 q = −X、z = Z；字形已转轮廓；无章节认证字段',rbody)
 (ROOT/'spec/reverse-text-bounds.json').write_text(json.dumps({'top_legend_width_mm':lw,'rows':bounds},ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 # Importable reverse type vector, in q,z mm. Organic art intentionally not fabricated.
-rt=f'<g transform="scale(1 -1)"><path d="{polygon_path(legendcontours)}" fill="#263546" fill-rule="evenodd"/>'
+rt=f'<g transform="scale(1 -1)"><path d="{polygon_path(legendcontours)}" fill="#263546" fill-rule="nonzero"/>'
 for row in REV['foundation_text']:
     its,_=text_geometry(row['text'],row['font'],row['ink_height'],row['tracking']);rt+=vector_text(its,row['center_q'],row['center_z'])
 rt+='</g>'
@@ -368,7 +368,8 @@ for k in range(REV['book']['rays']):
     fixed+=f'<line x1="{r1*math.sin(a)}" y1="{medz+r1*math.cos(a)}" x2="{r2*math.sin(a)}" y2="{medz+r2*math.cos(a)}" stroke="#263546" stroke-width=".035"/>'
 fixed+=f'<g transform="translate({icon_q} {icon_z}) scale({icon_scale} {-icon_scale}) translate(-80 -106)">{iconpaths}</g>'
 fixed+=f'<path d="{REV["cartouche"]["path"]}" fill="none" stroke="#263546" stroke-width=".09"/>'
-fixed+=f'<path d="{polygon_path(legendcontours)}" fill="#263546" fill-rule="evenodd"/>'
+fixed+=f'<path d="{polygon_path(legendcontours)}" fill="#263546" fill-rule="nonzero"/>'
+(VEC/'reverse-common-frame-mm.svg').write_text(simple_svg('40mm','40mm','-20 -20 40 40',fixed+'</g>'),encoding='utf-8')
 for row in REV['foundation_text']:
     its,_=text_geometry(row['text'],row['font'],row['ink_height'],row['tracking']);fixed+=vector_text(its,row['center_q'],row['center_z'])
 fixed+=f'<line x1="-10.8" y1="{REV["divider_z"]}" x2="10.8" y2="{REV["divider_z"]}" stroke="#263546" stroke-width=".06"/></g>'
@@ -474,4 +475,7 @@ report['scope']='Numerical/asset consistency only; not artistic approval, hidden
 (ROOT/'checks/design-checks.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 print(json.dumps({'passed':report['passed'],'checks':len(report['checks']),'SVG_drawings':len(list(OUT.glob('*.svg'))),'glyphs':len(glyphs),'text_width_mm':text_width},indent=2))
 if not report['passed']:raise SystemExit(1)
+
+from series_design import build_series
+build_series(globals())
 
