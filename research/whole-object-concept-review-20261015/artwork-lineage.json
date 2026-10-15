@@ -1,0 +1,155 @@
+{
+  "date": "2026-10-15",
+  "tool": "built-in image_gen; no API/CLI fallback",
+  "latest_direction": "separate straight-on front and reverse; smooth sidewall; no teeth or side inscription",
+  "modeling_performed": false,
+  "original_blend_sha256_verified": "29d468975ebb83d3295f88318c3fcc505c6e73624566455c6aeded65f58b6303",
+  "image_calls": [
+    {
+      "prompt": "01-rest-edit.txt",
+      "status": "returned",
+      "output": "rest-v1.png",
+      "state": "superseded reeded intermediate"
+    },
+    {
+      "prompt": "02-rest-cleanup.txt",
+      "status": "returned",
+      "output": "rest-v2.png",
+      "state": "superseded reeded intermediate"
+    },
+    {
+      "prompt": "03-reverse-notch.txt",
+      "status": "returned",
+      "output": "rest-v3.png",
+      "state": "superseded reeded intermediate"
+    },
+    {
+      "prompt": "04-front-orthographic-smooth.txt",
+      "status": "network error; no image returned"
+    },
+    {
+      "prompt": "04-front-orthographic-smooth.txt",
+      "status": "returned",
+      "output": "front-frontal-smooth.png",
+      "state": "candidate, not user adopted"
+    },
+    {
+      "prompt": "05-reverse-orthographic-smooth.txt",
+      "status": "network error; no image returned"
+    },
+    {
+      "prompt": "05-reverse-orthographic-smooth.txt",
+      "status": "network error; no image returned"
+    },
+    {
+      "prompt": "06-reverse-short-retry.txt",
+      "status": "returned",
+      "output": "reverse-frontal-intermediate.png",
+      "state": "not suitable as modeling input; duplicated rear talons remain"
+    },
+    {
+      "prompt": "07-reverse-remove-duplicate-talons.txt",
+      "status": "network error; no image returned"
+    }
+  ],
+  "files": [
+    {
+      "path": "inputs/aura-reference.png",
+      "bytes": 2889496,
+      "sha256": "73d667edd165046111722f0c7c498c5fb129398742e5255d2c9f368b0899f0ba",
+      "pixels": [
+        1308,
+        1202
+      ]
+    },
+    {
+      "path": "inputs/rest-source.png",
+      "bytes": 3017234,
+      "sha256": "4193aa37e7737c9ad965c09b5f20415d62727528782a0a7feab44e68ceaa3b48",
+      "pixels": [
+        1774,
+        887
+      ]
+    },
+    {
+      "path": "prompts/01-rest-edit.txt",
+      "bytes": 5022,
+      "sha256": "e683e5444f4b574e786a69a52d21c036ea306b9cd1a481d68ffe57f52bd667fc"
+    },
+    {
+      "path": "prompts/02-rest-cleanup.txt",
+      "bytes": 2050,
+      "sha256": "af9ca12e8163d742526659917798bbaa136bd518754748bc6523985f7af9e779"
+    },
+    {
+      "path": "prompts/03-reverse-notch.txt",
+      "bytes": 1748,
+      "sha256": "94c153cc98571b777fecf904effff855f87008840d986e087eccd84c41fbf1ae"
+    },
+    {
+      "path": "prompts/04-front-orthographic-smooth.txt",
+      "bytes": 2714,
+      "sha256": "971d4461255473d39dd4de6f3bb8f4d8b9c5ea6286bd1a326ec6e7cee7ee221a"
+    },
+    {
+      "path": "prompts/05-reverse-orthographic-smooth.txt",
+      "bytes": 3565,
+      "sha256": "e766041f132c9cde45f4ea8b200576c3f3ebbde1c65c7d920fe2f03f61c5d951"
+    },
+    {
+      "path": "prompts/06-reverse-short-retry.txt",
+      "bytes": 1531,
+      "sha256": "d697ccab8eeb96487e57435bd9386299f7e6431439c2f049830908a8de7cc8b1"
+    },
+    {
+      "path": "prompts/07-reverse-remove-duplicate-talons.txt",
+      "bytes": 1227,
+      "sha256": "e4043c799f19104c508c87045f86466da1028fedb5c9a79c7082666b00f3bbd4"
+    },
+    {
+      "path": "outputs/front-frontal-smooth.png",
+      "bytes": 2647507,
+      "sha256": "5c0fa7893ddb442e565fd48b0549b48bedaff07081f19ccbb9a4abf358711782",
+      "pixels": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "path": "outputs/rest-v1.png",
+      "bytes": 2823680,
+      "sha256": "eabc7c578c7fba7da6120936f2d6563135d828c6a218458b99ea12b2a67f1129",
+      "pixels": [
+        1774,
+        887
+      ]
+    },
+    {
+      "path": "outputs/rest-v2.png",
+      "bytes": 2732301,
+      "sha256": "7201216fc09d507256966c3c9e7f681f840939ac0a47798f81b77159d8d4d00b",
+      "pixels": [
+        1774,
+        887
+      ]
+    },
+    {
+      "path": "outputs/rest-v3.png",
+      "bytes": 2645689,
+      "sha256": "15618f7867469b0724b6e0a88b27c2065924229e0b933be219ed345fce613adc",
+      "pixels": [
+        1774,
+        887
+      ]
+    },
+    {
+      "path": "outputs/reverse-frontal-intermediate.png",
+      "bytes": 2595951,
+      "sha256": "d7425e94a76ae9c9aeb0f0a5d3d79dc1e933afe49579cc0e60b8236f1f31b345",
+      "pixels": [
+        1254,
+        1254
+      ]
+    }
+  ]
+}
