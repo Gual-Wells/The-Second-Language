@@ -1,0 +1,779 @@
+{
+  "status": "Research only; no production feature or certification was implemented",
+  "generatedAt": "2026-10-15T16:30:02.784Z",
+  "repository": "Gual-Wells/The-Second-Language",
+  "repositoryRef": "565d3dac8db471642d21527bd46a9762fa4d89e9",
+  "reportPaths": [
+    "research/etymology-and-chapter-quality-2026-10-15.md",
+    "research/etymology-and-chapter-quality-conversation-2026-10-15.md"
+  ],
+  "vix": {
+    "commit": "1c68bc512a1c81039d205c224697a1d7128291d9",
+    "records": 15644,
+    "protocol": "vix-seed-access/2",
+    "scope": {
+      "domainId": "domain_general_english",
+      "domainName": "通用英语",
+      "domainAbsoluteOrdinal": 1,
+      "section": "word",
+      "records": 15644
+    },
+    "recordShards": [
+      {
+        "path": "data/seed-access/records-000.json",
+        "gitBlobSha": "1fd72fa2928030426c2868a5d5ef4df84c4b1b58",
+        "sha256": "2ae0fc5459d08fe85cc67ce205f4eb8923b94303f17aa25fb61ccf72022e34c7"
+      },
+      {
+        "path": "data/seed-access/records-001.json",
+        "gitBlobSha": "daf2b3dc6546f2e7f63fea91c2863eebbf319c0a",
+        "sha256": "db65fb9a44416d1ed586db8fab2c887ceb9d3f11bd9f57efa8f5ae833176116c"
+      }
+    ]
+  },
+  "gcide": {
+    "capturedAt": "2026-10-15T16:20:39.810537+00:00",
+    "vixCommit": "1c68bc512a1c81039d205c224697a1d7128291d9",
+    "vixRecords": 15644,
+    "source": "GCIDE_XML 0.53, ibiblio official complete ZIP",
+    "sourceZipSha256": "02a57fc9057d7f790dd5773af66c85e687ab8950b832dd9c0e1fda8749e4fcbb",
+    "sourceBytes": 14333424,
+    "entryParagraphs": 124186,
+    "entryParagraphsWithEtymology": 55290,
+    "matchedVixRecords": 13632,
+    "withEtymologyVixRecords": 10095,
+    "limitations": [
+      "GCIDE heading casefold only; no stemming, aliases or fuzzy matches",
+      "Only ety tags within same p as direct ent are counted; cross-referenced material can be missed",
+      "Tag presence is not academic verification or evidence of complete origin history",
+      "Historical dictionary, modern word coverage expected incomplete"
+    ],
+    "missingCount": 2012,
+    "missingExamples": [
+      "airport",
+      "bathroom",
+      "boyfriend",
+      "burger",
+      "café",
+      "classroom",
+      "Dr",
+      "DVD",
+      "email",
+      "excited",
+      "favourite",
+      "grandma",
+      "grandpa",
+      "grandparent",
+      "haircut",
+      "hamburger",
+      "hi",
+      "hometown",
+      "jeans",
+      "'m",
+      "maths",
+      "mom",
+      "mommie",
+      "mommy",
+      "Mr",
+      "Mrs",
+      "neighbour",
+      "o'clock",
+      "OK",
+      "pizza"
+    ],
+    "matchingMethod": "Parse all 26 XML letter files with package internal character definitions; no external SYSTEM entity resolution; direct p/ent heading matched after casefold, ety descendants of same p. No stemming or fuzzy matching.",
+    "candidateJsonBytes": 5671846
+  },
+  "kaikki": {
+    "capturedAt": "2026-10-15T16:21:16.246Z",
+    "sampling": "Purposive diagnostics: homographs, misleading segmentation, recent vocabulary and loans. Not a random sample or VIX-wide coverage estimate.",
+    "proposed": [
+      "island",
+      "female",
+      "salary",
+      "hamburger",
+      "cleave",
+      "bank",
+      "sound",
+      "lead",
+      "minute",
+      "record",
+      "algorithm",
+      "robot",
+      "vaccine",
+      "ecology",
+      "earphone",
+      "app",
+      "airline",
+      "adversity",
+      "marsh",
+      "biodiversity",
+      "tsunami",
+      "nice",
+      "poison",
+      "bravery"
+    ],
+    "notInVix": [
+      "earphone",
+      "tsunami"
+    ],
+    "results": [
+      {
+        "word": "adversity",
+        "url": "https://kaikki.org/dictionary/English/meaning/a/ad/adversity.jsonl",
+        "bytes": 19354,
+        "sha256": "c664d696562bf9a2950317079d19ec19175da8093ab540fbd18c3e119123c063",
+        "entries": 1,
+        "etymologyTexts": 1,
+        "numberedGroups": [],
+        "hasTemplates": true,
+        "hasLinks": true
+      },
+      {
+        "word": "airline",
+        "url": "https://kaikki.org/dictionary/English/meaning/a/ai/airline.jsonl",
+        "bytes": 22732,
+        "sha256": "38e37c4e33fd1bd7e904067d2790f020b0bad069a4a1ecf157fabac2f93d415b",
+        "entries": 1,
+        "etymologyTexts": 1,
+        "numberedGroups": [],
+        "hasTemplates": true,
+        "hasLinks": true
+      },
+      {
+        "word": "algorithm",
+        "url": "https://kaikki.org/dictionary/English/meaning/a/al/algorithm.jsonl",
+        "bytes": 36388,
+        "sha256": "d0ff0f0415a3b73c3649d4bcff13d4397a86454cf4b16ffa1f9021ccc9625327",
+        "entries": 1,
+        "etymologyTexts": 1,
+        "numberedGroups": [],
+        "hasTemplates": true,
+        "hasLinks": true
+      },
+      {
+        "word": "app",
+        "url": "https://kaikki.org/dictionary/English/meaning/a/ap/app.jsonl",
+        "bytes": 37168,
+        "sha256": "510dbf4331fbce8205b61701048b053a1f66e0fafafe9b5081aed43edbfe1157",
+        "entries": 3,
+        "etymologyTexts": 3,
+        "numberedGroups": [
+          "1",
+          "2",
+          "3"
+        ],
+        "hasTemplates": true,
+        "hasLinks": true
+      },
+      {
+        "word": "bank",
+        "url": "https://kaikki.org/dictionary/English/meaning/b/ba/bank.jsonl",
+        "bytes": 171054,
+        "sha256": "6dffdba49d0a37a9a4e5cb4b2b012d3d13261e6adb54310a8de4a39b61eb3fb1",
+        "entries": 7,
+        "etymologyTexts": 4,
+        "numberedGroups": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "hasTemplates": true,
+        "hasLinks": true
+      },
+      {
+        "word": "biodiversity",
+        "url": "https://kaikki.org/dictionary/English/meaning/b/bi/biodiversity.jsonl",
+        "bytes": 17747,
+        "sha256": "31e568f758593f6e398509097186940099f36e12129dfddd37754f20eb147fd2",
+        "entries": 1,
+        "etymologyTexts": 1,
+        "numberedGroups": [],
+        "hasTemplates": true,
+        "hasLinks": true
+      },
+      {
+        "word": "bravery",
+        "url": "https://kaikki.org/dictionary/English/meaning/b/br/bravery.jsonl",
+        "bytes": 20233,
+        "sha256": "3e67038cb5add8f0c1d395511195eb4c31908e30bc60d97be8a4179c427ffb57",
+        "entries": 1,
+        "etymologyTexts": 1,
+        "numberedGroups": [],
+        "hasTemplates": true,
+        "hasLinks": true
+      },
+      {
+        "word": "cleave",
+        "url": "https://kaikki.org/dictionary/English/meaning/c/cl/cleave.jsonl",
+        "bytes": 43264,
+        "sha256": "f08efad9cc1b8c93eeeb65063d75e58ad590e8dfcd42d2dbd7129c566aaad034",
+        "entries": 3,
+        "etymologyTexts": 2,
+        "numberedGroups": [
+          "1",
+          "2"
+        ],
+        "hasTemplates": true,
+        "hasLinks": true
+      },
+      {
+        "word": "ecology",
+        "url": "https://kaikki.org/dictionary/English/meaning/e/ec/ecology.jsonl",
+        "bytes": 23097,
+        "sha256": "ede2d94658e6238d2e787482b76bd4710b6de93b3306a5e74159cb3211ba0ec4",
+        "entries": 1,
+        "etymologyTexts": 1,
+        "numberedGroups": [],
+        "hasTemplates": true,
+        "hasLinks": true
+      },
+      {
+        "word": "female",
+        "url": "https://kaikki.org/dictionary/English/meaning/f/fe/female.jsonl",
+        "bytes": 114220,
+        "sha256": "62daa1b0478ed6a870da2cde4050e287806bdecd0e80445acfac3ddcd56f5c16",
+        "entries": 2,
+        "etymologyTexts": 1,
+        "numberedGroups": [],
+        "hasTemplates": true,
+        "hasLinks": true
+      },
+      {
+        "word": "hamburger",
+        "url": "https://kaikki.org/dictionary/English/meaning/h/ha/hamburger.jsonl",
+        "bytes": 51001,
+        "sha256": "93eac0ef92d51eebaa82c20623974b63d73e68ef09da3042b909f452b48064bf",
+        "entries": 2,
+        "etymologyTexts": 1,
+        "numberedGroups": [],
+        "hasTemplates": true,
+        "hasLinks": true
+      },
+      {
+        "word": "island",
+        "url": "https://kaikki.org/dictionary/English/meaning/i/is/island.jsonl",
+        "bytes": 157088,
+        "sha256": "f09402b5ab37b688c280cc1a43e26ee8013fab1f5f30ee978397faf590e07e39",
+        "entries": 2,
+        "etymologyTexts": 1,
+        "numberedGroups": [],
+        "hasTemplates": true,
+        "hasLinks": true
+      },
+      {
+        "word": "lead",
+        "url": "https://kaikki.org/dictionary/English/meaning/l/le/lead.jsonl",
+        "bytes": 217102,
+        "sha256": "99881ee4f2c0b53867d6c693afa639e4e5339f34d9ea326baaa0a61df309f60e",
+        "entries": 6,
+        "etymologyTexts": 3,
+        "numberedGroups": [
+          "1",
+          "2",
+          "3"
+        ],
+        "hasTemplates": true,
+        "hasLinks": true
+      },
+      {
+        "word": "marsh",
+        "url": "https://kaikki.org/dictionary/English/meaning/m/ma/marsh.jsonl",
+        "bytes": 32392,
+        "sha256": "43f5638d5c886bc5744b422cbc49aa354fab0237ce6dd45591196736545d8aa4",
+        "entries": 1,
+        "etymologyTexts": 1,
+        "numberedGroups": [],
+        "hasTemplates": true,
+        "hasLinks": true
+      },
+      {
+        "word": "minute",
+        "url": "https://kaikki.org/dictionary/English/meaning/m/mi/minute.jsonl",
+        "bytes": 104412,
+        "sha256": "ab8503720bb0d3542e89a1555fe0cb3369250de8e159ada75bb4f0cf75aa9732",
+        "entries": 3,
+        "etymologyTexts": 2,
+        "numberedGroups": [
+          "1",
+          "2"
+        ],
+        "hasTemplates": true,
+        "hasLinks": true
+      },
+      {
+        "word": "nice",
+        "url": "https://kaikki.org/dictionary/English/meaning/n/ni/nice.jsonl",
+        "bytes": 76899,
+        "sha256": "9940094857cf881396f2692f324fa9c69f4c10742983e0f641540b12d562b018",
+        "entries": 5,
+        "etymologyTexts": 2,
+        "numberedGroups": [
+          "1",
+          "2"
+        ],
+        "hasTemplates": true,
+        "hasLinks": true
+      },
+      {
+        "word": "poison",
+        "url": "https://kaikki.org/dictionary/English/meaning/p/po/poison.jsonl",
+        "bytes": 95941,
+        "sha256": "d7e0572612094031fea81bc10021ca04be716b833e3965c5fccd41fec5ebe8d7",
+        "entries": 2,
+        "etymologyTexts": 1,
+        "numberedGroups": [],
+        "hasTemplates": true,
+        "hasLinks": true
+      },
+      {
+        "word": "record",
+        "url": "https://kaikki.org/dictionary/English/meaning/r/re/record.jsonl",
+        "bytes": 92436,
+        "sha256": "0834baf3c71b90df16241dcdbd8f1680d1bde77daef711ed3c2aef40c500e2f6",
+        "entries": 3,
+        "etymologyTexts": 2,
+        "numberedGroups": [
+          "1",
+          "2"
+        ],
+        "hasTemplates": true,
+        "hasLinks": true
+      },
+      {
+        "word": "robot",
+        "url": "https://kaikki.org/dictionary/English/meaning/r/ro/robot.jsonl",
+        "bytes": 68539,
+        "sha256": "a4b4dcca8e2f55bf6e6261bc57ab1556f7f3d5992c3e4a2d8cb59215d4a55619",
+        "entries": 3,
+        "etymologyTexts": 3,
+        "numberedGroups": [
+          "1",
+          "2",
+          "3"
+        ],
+        "hasTemplates": true,
+        "hasLinks": true
+      },
+      {
+        "word": "salary",
+        "url": "https://kaikki.org/dictionary/English/meaning/s/sa/salary.jsonl",
+        "bytes": 59235,
+        "sha256": "e5b3aa6e641476a87d4f73b85ca0fa0409418e6a3625989d383acbdafba0156d",
+        "entries": 3,
+        "etymologyTexts": 1,
+        "numberedGroups": [],
+        "hasTemplates": true,
+        "hasLinks": true
+      },
+      {
+        "word": "sound",
+        "url": "https://kaikki.org/dictionary/English/meaning/s/so/sound.jsonl",
+        "bytes": 184286,
+        "sha256": "1be6be2a65216f6d49d199565e19409d1a3477c45778391f7cc66ef5cdde021a",
+        "entries": 8,
+        "etymologyTexts": 4,
+        "numberedGroups": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "hasTemplates": true,
+        "hasLinks": true
+      },
+      {
+        "word": "vaccine",
+        "url": "https://kaikki.org/dictionary/English/meaning/v/va/vaccine.jsonl",
+        "bytes": 62923,
+        "sha256": "016824f68e108aa1f598c7b5137a4e8ff2b52153fceedc55da7299e984f00a9a",
+        "entries": 3,
+        "etymologyTexts": 2,
+        "numberedGroups": [
+          "1",
+          "2"
+        ],
+        "hasTemplates": true,
+        "hasLinks": true
+      }
+    ],
+    "fullVixCoverage": "Not measured; slow full English export transfer stopped. Diagnostic samples are not a random estimate.",
+    "exportHead": {
+      "url": "https://kaikki.org/dictionary/English/kaikki.org-dictionary-English.jsonl.gz",
+      "bytes": 523331798,
+      "etag": "\"6ac0e279-1f3168d6\""
+    },
+    "rawHead": {
+      "url": "https://kaikki.org/dictionary/raw-wiktextract-data.jsonl.gz",
+      "bytes": 2981058381
+    }
+  },
+  "chapters": {
+    "capturedAt": "2026-10-15T16:19:10.993Z",
+    "source": "Authenticated read-only production API plus existing local run evidence; headings/IDs present do not prove semantic truth",
+    "chapters": [
+      {
+        "chapterId": "2026-10-14",
+        "chapterDigest": "d2030747e2061ddde30c614b9632068822dac61a8b55cdad40ee354261ab6ef2",
+        "chapterBytes": 216646,
+        "uses": 473,
+        "examples": 571,
+        "articleSentences": 240,
+        "sourceLock": {
+          "commit": "59f2c5931dd16664b997c13216354af74fe61b76",
+          "capturedAt": "2026-10-13T19:53:39.005Z"
+        },
+        "books": [
+          {
+            "name": "Collins_COBUILD_Chat_Project.md",
+            "bytes": 14747007,
+            "sha256": "cf35b72932429ca37060862d409094fee8bbadef8b9e34f3cc3886f19b087634"
+          },
+          {
+            "name": "Oxford_English_Chinese_Chat_Project.md",
+            "bytes": 18081731,
+            "sha256": "2bb3812361347c869af310843e013ee41af1078317376e34470cf94b8b6f6cd8"
+          }
+        ],
+        "wordDocuments": 40,
+        "matchedWordDocuments": 40,
+        "wordDocumentBytes": 219684,
+        "structural": "passed",
+        "limitation": "Document presence and source hashes do not establish semantic completeness or correctness"
+      },
+      {
+        "chapterId": "2026-10-13",
+        "chapterDigest": "ccb42e767c320193322906ff51fcdd4ade514dd459a76d184ee0e818facfe888",
+        "chapterBytes": 107075,
+        "uses": 241,
+        "examples": 256,
+        "articleSentences": 174,
+        "sourceLock": {
+          "commit": "f159209321a7fbf966b4fb0504efad2ebe13249d",
+          "capturedAt": "2026-10-12T19:05:16.467Z"
+        },
+        "books": [
+          {
+            "name": "Collins_COBUILD_Chat_Project.md",
+            "bytes": 14747007,
+            "sha256": "cf35b72932429ca37060862d409094fee8bbadef8b9e34f3cc3886f19b087634"
+          },
+          {
+            "name": "Oxford_English_Chinese_Chat_Project.md",
+            "bytes": 18081731,
+            "sha256": "2bb3812361347c869af310843e013ee41af1078317376e34470cf94b8b6f6cd8"
+          }
+        ],
+        "wordDocuments": 40,
+        "matchedWordDocuments": 40,
+        "wordDocumentBytes": 153293,
+        "structural": "passed",
+        "limitation": "Document presence and source hashes do not establish semantic completeness or correctness"
+      },
+      {
+        "chapterId": "2026-10-12",
+        "chapterDigest": "a4c1758afd768f1a61c49f7a88828b4d522d1aa46baf840d3d03764a3bc9eee7",
+        "chapterBytes": 69294,
+        "uses": 173,
+        "examples": 180,
+        "articleSentences": 74,
+        "sourceLock": {
+          "commit": "95c980ed973f8b91315e075a867fc4808f44928a",
+          "capturedAt": "2026-10-11T19:03:17.894Z"
+        },
+        "books": [
+          {
+            "name": "Collins_COBUILD_Chat_Project.md",
+            "bytes": 14747007,
+            "sha256": "cf35b72932429ca37060862d409094fee8bbadef8b9e34f3cc3886f19b087634"
+          },
+          {
+            "name": "Oxford_English_Chinese_Chat_Project.md",
+            "bytes": 18081731,
+            "sha256": "2bb3812361347c869af310843e013ee41af1078317376e34470cf94b8b6f6cd8"
+          }
+        ],
+        "wordDocuments": 40,
+        "matchedWordDocuments": 40,
+        "wordDocumentBytes": 52675,
+        "structural": "passed",
+        "limitation": "Document presence and source hashes do not establish semantic completeness or correctness"
+      },
+      {
+        "chapterId": "2026-10-11",
+        "chapterDigest": "daa9360faab703cba95e36af03551aae99266a60e85e257095f4788c0c810995",
+        "chapterBytes": 76962,
+        "uses": 161,
+        "examples": 187,
+        "articleSentences": 135,
+        "sourceLock": {
+          "commit": "e2dbe4d4ef11845ab0cf52142760941faee98fa7",
+          "capturedAt": "2026-10-10T19:38:59.312Z"
+        },
+        "books": [
+          {
+            "name": "Collins_COBUILD_Chat_Project.md",
+            "bytes": 14747007,
+            "sha256": "cf35b72932429ca37060862d409094fee8bbadef8b9e34f3cc3886f19b087634"
+          },
+          {
+            "name": "Oxford_English_Chinese_Chat_Project.md",
+            "bytes": 18081731,
+            "sha256": "2bb3812361347c869af310843e013ee41af1078317376e34470cf94b8b6f6cd8"
+          }
+        ],
+        "wordDocuments": 40,
+        "matchedWordDocuments": 40,
+        "wordDocumentBytes": 78179,
+        "structural": "passed",
+        "limitation": "Document presence and source hashes do not establish semantic completeness or correctness"
+      },
+      {
+        "chapterId": "2026-10-09",
+        "chapterDigest": "40be00ad89aa366e033f6f36905278822d3963a17787119e60db5a2305cd2dc0",
+        "chapterBytes": 78515,
+        "uses": 130,
+        "examples": 148,
+        "articleSentences": 128,
+        "sourceLock": {
+          "commit": "8dbe5ba9cc6a7b761cfc5dd0f8a813c1dcb94150",
+          "capturedAt": "2026-10-08T19:06:56.906Z"
+        },
+        "books": [
+          {
+            "name": "Collins_COBUILD_Chat_Project.md",
+            "bytes": 14747007,
+            "sha256": "cf35b72932429ca37060862d409094fee8bbadef8b9e34f3cc3886f19b087634"
+          },
+          {
+            "name": "Oxford_English_Chinese_Chat_Project.md",
+            "bytes": 18081731,
+            "sha256": "2bb3812361347c869af310843e013ee41af1078317376e34470cf94b8b6f6cd8"
+          }
+        ],
+        "wordDocuments": 40,
+        "matchedWordDocuments": 40,
+        "wordDocumentBytes": 79986,
+        "structural": "passed",
+        "limitation": "Document presence and source hashes do not establish semantic completeness or correctness"
+      },
+      {
+        "chapterId": "2026-10-06",
+        "chapterDigest": "f6d03fa2adc3dd9bb2c9a25d22cace6193f0df439c785d5283827f72279cee2e",
+        "chapterBytes": 87866,
+        "uses": 167,
+        "examples": 185,
+        "articleSentences": 116,
+        "sourceLock": {
+          "commit": "5828da746b7a697e6b74ee9e39c95e00de7aa4ef",
+          "capturedAt": "2026-10-05T19:05:46.838Z"
+        },
+        "books": [
+          {
+            "name": "Collins_COBUILD_Chat_Project.md",
+            "bytes": 14747007,
+            "sha256": "cf35b72932429ca37060862d409094fee8bbadef8b9e34f3cc3886f19b087634"
+          },
+          {
+            "name": "Oxford_English_Chinese_Chat_Project.md",
+            "bytes": 18081731,
+            "sha256": "2bb3812361347c869af310843e013ee41af1078317376e34470cf94b8b6f6cd8"
+          }
+        ],
+        "wordDocuments": 40,
+        "matchedWordDocuments": 40,
+        "wordDocumentBytes": 107975,
+        "structural": "passed",
+        "limitation": "Document presence and source hashes do not establish semantic completeness or correctness"
+      },
+      {
+        "chapterId": "2026-10-02",
+        "chapterDigest": "7da715756425dc8fa657e250760b9fb4d62212643655e49cae7bc2ca0349ff92",
+        "chapterBytes": 36409,
+        "uses": 66,
+        "examples": 68,
+        "articleSentences": 49,
+        "sourceLock": {
+          "commit": "d30ac624549048ce1dc4a1827f38090919011105",
+          "capturedAt": "2026-10-01T19:02:51.641Z"
+        },
+        "books": [
+          {
+            "name": "Collins_COBUILD_Chat_Project.md",
+            "bytes": 14747007,
+            "sha256": "cf35b72932429ca37060862d409094fee8bbadef8b9e34f3cc3886f19b087634"
+          },
+          {
+            "name": "Oxford_English_Chinese_Chat_Project.md",
+            "bytes": 18081731,
+            "sha256": "2bb3812361347c869af310843e013ee41af1078317376e34470cf94b8b6f6cd8"
+          }
+        ],
+        "wordDocuments": 40,
+        "matchedWordDocuments": 40,
+        "wordDocumentBytes": 44948,
+        "structural": "passed",
+        "limitation": "Document presence and source hashes do not establish semantic completeness or correctness"
+      }
+    ]
+  },
+  "structuralBoundaryExperiment": {
+    "chapterId": "2026-10-02",
+    "chapterDigest": "7da715756425dc8fa657e250760b9fb4d62212643655e49cae7bc2ca0349ff92",
+    "results": [
+      {
+        "id": "clean",
+        "type": "control",
+        "expected": "pass",
+        "observed": "pass"
+      },
+      {
+        "id": "wrong-example-semantics",
+        "type": "semantic",
+        "expected": "pass",
+        "observed": "pass"
+      },
+      {
+        "id": "mismatched-example-translation",
+        "type": "semantic",
+        "expected": "pass",
+        "observed": "pass"
+      },
+      {
+        "id": "unrelated-article-sentence",
+        "type": "semantic",
+        "expected": "pass",
+        "observed": "pass"
+      },
+      {
+        "id": "nonexistent-use-id",
+        "type": "structural",
+        "expected": "reject",
+        "observed": "reject",
+        "error": "文章句子 S001 的用法编码无效"
+      },
+      {
+        "id": "unpaired-translation",
+        "type": "structural",
+        "expected": "reject",
+        "observed": "reject",
+        "error": "文章句子 S001 缺少原句或译文"
+      }
+    ],
+    "scope": "In-memory synthetic research fixtures only. Existing deterministic structure validator, not a new semantic CQA implementation. No production text was modified and no model was called."
+  },
+  "recoveryManifest": {
+    "createdAt": "2026-10-15T13:29:14.148Z",
+    "workingRunGroups": [
+      {
+        "key": "working-bundles/runs/2026-09-30/manifest.json",
+        "digest": "050110c0895bb499adf211f56246ed53736ae705b727546c459591df311cc5bf",
+        "files": 135,
+        "chunks": 2
+      },
+      {
+        "key": "working-bundles/runs/2026-10-01/manifest.json",
+        "digest": "73ec40c54cba7a8e146a688c1a4ae35741e71005f4953ff88c022ac1e738fc4e",
+        "files": 1,
+        "chunks": 1
+      },
+      {
+        "key": "working-bundles/runs/2026-10-02/manifest.json",
+        "digest": "1d7d5b26b5b12dcc1a4e3b020f7fcf2b58dae002aec409061f5afbed5b986339",
+        "files": 67,
+        "chunks": 1
+      },
+      {
+        "key": "working-bundles/runs/2026-10-03/manifest.json",
+        "digest": "e680e15ff95e19e8f80e5a5e72f2cdeb2644576383eb3c255c8576dc5112f89e",
+        "files": 1,
+        "chunks": 1
+      },
+      {
+        "key": "working-bundles/runs/2026-10-04/manifest.json",
+        "digest": "62072aa4f69224e11a972d3456583c26a23d089aeb09f5c5f35cc56ca138fecf",
+        "files": 1,
+        "chunks": 1
+      },
+      {
+        "key": "working-bundles/runs/2026-10-05/manifest.json",
+        "digest": "0194531d852e8c197a75564d6adc50a5142413f930eddd7ea7b9bce7bb9deca5",
+        "files": 1,
+        "chunks": 1
+      },
+      {
+        "key": "working-bundles/runs/2026-10-06/manifest.json",
+        "digest": "e4e197fde96d8853cc74bf32da219deb5c08f7a5eade0b3407fa350eca68a797",
+        "files": 105,
+        "chunks": 1
+      },
+      {
+        "key": "working-bundles/runs/2026-10-07/manifest.json",
+        "digest": "6635fd59b865a7ed4bf686a15a5213e04b748b13f1655a59f506dbf3295095f0",
+        "files": 1,
+        "chunks": 1
+      },
+      {
+        "key": "working-bundles/runs/2026-10-08/manifest.json",
+        "digest": "7c67b7fc0c9e9e2e3de6902730a570c7228dac9cbfbb9d89ec8074d29bd270cc",
+        "files": 56,
+        "chunks": 1
+      },
+      {
+        "key": "working-bundles/runs/2026-10-09/manifest.json",
+        "digest": "bd5970e914f91a06d97b0e93a360ecd277459ce1bffaa634b522dbc88afc3cdd",
+        "files": 69,
+        "chunks": 1
+      },
+      {
+        "key": "working-bundles/runs/2026-10-10/manifest.json",
+        "digest": "4c2867650bb4e0ec8e8a1894e1acbe57d5eccad2dd3f9aae5f87fbc0e842edb9",
+        "files": 1,
+        "chunks": 1
+      }
+    ],
+    "note": "Only latest recovery manifest digest was checked; working chunks were not restored in this study",
+    "rootCause": {
+      "file": "scripts/lib/work-archives.mjs",
+      "symbol": "archiveSingle",
+      "codeBehavior": "Top-level runs are only included if Dirent.isDirectory() is true; Windows junctions are excluded.",
+      "observedRuns": [
+        {
+          "date": "2026-10-11",
+          "isDirectory": false,
+          "isSymbolicLink": true,
+          "actualDrive": "D:"
+        },
+        {
+          "date": "2026-10-12",
+          "isDirectory": false,
+          "isSymbolicLink": true,
+          "actualDrive": "D:"
+        },
+        {
+          "date": "2026-10-13",
+          "isDirectory": false,
+          "isSymbolicLink": true,
+          "actualDrive": "D:"
+        },
+        {
+          "date": "2026-10-14",
+          "isDirectory": false,
+          "isSymbolicLink": true,
+          "actualDrive": "D:"
+        },
+        {
+          "date": "2026-10-15",
+          "isDirectory": false,
+          "isSymbolicLink": true,
+          "actualDrive": "D:"
+        }
+      ],
+      "productionFixApplied": false
+    }
+  },
+  "noPaidModelCalls": true,
+  "noPurchases": true,
+  "noProductionContentChanges": true
+}
