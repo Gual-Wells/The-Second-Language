@@ -603,3 +603,8 @@ textarea.text-input { resize: vertical; }
 .scroll-lab.scroll-object-only .app-header,.scroll-lab.scroll-object-only .scroll-chapter,.scroll-lab.scroll-object-only .scroll-controls,.scroll-lab.scroll-object-only .scroll-footer { display: none; }
 .scroll-lab.scroll-object-only,.scroll-lab.scroll-object-only .app-shell { background: #e0e5e4; max-width: none; }
 .scroll-lab.scroll-object-only .scroll-stage { background: radial-gradient(ellipse at center,#ecedE8,#c5d0d2); }
+.scroll-lab-v2 .scroll-appearance { position: absolute; right: 12px; top: 12px; min-height: 38px; padding: 5px 12px; font-size: 13px; }
+.scroll-lab-v2.scroll-object-only .scroll-appearance { top: max(14px,env(safe-area-inset-top)); right: auto; left: 14px; }
+.scroll-lab-v2 .scroll-options { padding: 12px 20px; }
+.scroll-lab-v2 .scroll-options label { display: flex; align-items: center; gap: 8px; min-height: 48px; border-bottom: 1px solid #c7d3dd; font-size: 16px; }
+.scroll-lab-v2 .scroll-options input { width: 20px; height: 20px; accent-color: #5e809c; }

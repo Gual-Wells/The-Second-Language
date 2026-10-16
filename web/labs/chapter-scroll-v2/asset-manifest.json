@@ -1,0 +1,55 @@
+{
+  "specimen": true,
+  "productionCertification": false,
+  "date": "2026-10-16",
+  "assets": [
+    {
+      "file": "assets/wood-Diffuse.jpg",
+      "bytes": 761543,
+      "sha256": "092ab3465a6a24b24d092ea86865f332c3bd239b8eb2fd664b70357082031a3f",
+      "license": "CC0",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/wood_table_worn/wood_table_worn_diff_1k.jpg"
+    },
+    {
+      "file": "assets/wood-nor_gl.jpg",
+      "bytes": 747433,
+      "sha256": "0d494f3fe08320a05f0f966a7a3ca3c4cd6e3f7cde5b176b9bc167b5593fd00d",
+      "license": "CC0",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/wood_table_worn/wood_table_worn_nor_gl_1k.jpg"
+    },
+    {
+      "file": "assets/wood-Rough.jpg",
+      "bytes": 655232,
+      "sha256": "ebc4a15d7d3495ee1b67ba18f67bffcefac3f93881d1394fa3e22a25f9fe5c72",
+      "license": "CC0",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/wood_table_worn/wood_table_worn_rough_1k.jpg"
+    },
+    {
+      "file": "assets/jangafx-cloud.png",
+      "bytes": 154365,
+      "sha256": "bffbd916fa95736ac43701db7b7052e5e36b7fd57273fb918fa765948de013a1",
+      "license": "CC0",
+      "source": "JangaFX CloudPack / cloud_04_variant_0000.vdb; bake_cloud.py"
+    },
+    {
+      "file": "vendor/drei-cloud.js",
+      "bytes": 9821,
+      "sha256": "f2eae28000cfcab5837b71c34418e2c3ead6bb15aed66392db1557387733e2ab",
+      "license": "MIT",
+      "source": "https://github.com/pmndrs/drei-vanilla/tree/28978f680f9071e4f4794611781c19f46de48e35",
+      "changes": "esbuild ESM bundle; local Three import; removed unused remote default texture"
+    }
+  ],
+  "inheritedCredits": "../chapter-scroll/CREDITS.md",
+  "bake": {
+    "source": "JangaFX CC0 CloudPack cloud_04_variant_0000.vdb",
+    "tool": "Blender 5.1.2 Cycles CPU",
+    "resolution": [
+      512,
+      512
+    ],
+    "samples": 24,
+    "density": 0.22,
+    "script": "research/scroll-lab-v2/bake_cloud.py"
+  }
+}

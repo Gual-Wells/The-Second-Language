@@ -1,0 +1,65 @@
+{
+  "checks": [
+    "first chapter is an unissued specimen",
+    "authored medieval font loaded",
+    "fits iPhone viewport",
+    "band unwraps before paper begins opening",
+    "opening actually changes the mesh over time",
+    "opening ends at the complete page",
+    "closing restores the retained horizontal roll",
+    "front-facing camera retained at mid-motion",
+    "ambient mist animates without deforming static paper",
+    "idle does not run a continuous rendering loop",
+    "appearance controls change the actual object",
+    "real readable English remains available",
+    "isolated asset view hides the app controls",
+    "reduced motion skips animation",
+    "reduced motion keeps enabled mist static",
+    "reduced motion starts at the readable final page",
+    "context loss retains a static page and transcript",
+    "no external calls or backend writes",
+    "no unhandled JavaScript errors"
+  ],
+  "errors": [],
+  "snapshot": {
+    "progress": 0,
+    "paperProgress": 0,
+    "bandRelease": 0,
+    "renderCount": 4,
+    "deformations": 1,
+    "mistTime": 0.24,
+    "options": {
+      "mist": true,
+      "shaft": true,
+      "band": true
+    },
+    "shaftPosition": [
+      0,
+      0.004449388737515658,
+      0.223435411916086
+    ],
+    "bounds": {
+      "minY": -0.2223880216354872,
+      "maxY": 0.22238802163548677,
+      "rollY": 0.004449388737515658
+    },
+    "vertices": 23569,
+    "camera": [
+      0,
+      0,
+      12
+    ],
+    "template": "late-medieval-parchment-v1",
+    "ready": true,
+    "animating": false,
+    "chapterId": "2026-10-02",
+    "issued": false,
+    "layout": {
+      "lastBaseline": 1744,
+      "width": 1536,
+      "height": 2112
+    }
+  },
+  "environment": "Chromium 402x874 mobile emulation with software WebGL; not a physical iPhone or Safari",
+  "paidCalls": 0
+}

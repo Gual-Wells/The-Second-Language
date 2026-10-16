@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#174b84">
+  <title>第一章 · 古卷增强试样 · 第二语言</title>
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="preload" href="../chapter-scroll/assets/Aboensis-Regular.otf" as="font" type="font/otf" crossorigin>
+</head>
+<body class="scroll-lab scroll-lab-v2">
+  <main class="app-shell">
+    <header class="app-header">
+      <div class="title-row"><div class="app-title"><p class="header-meta">第一章 · 古卷试样</p><h1>第二语言 <small>SECOND LANGUAGE</small></h1></div><a class="header-button scroll-back" href="../chapter-scroll/">前版</a></div>
+    </header>
+    <div class="scroll-chapter"><strong>地图上的那条线</strong><span>2026.10.02</span></div>
+    <section class="scroll-stage" id="stage" aria-label="第一章羊皮卷轴，可点按展开，拖动上下边缘收展">
+      <canvas id="scrollCanvas" aria-label="可展开的三维羊皮卷轴"></canvas>
+      <div id="loading" class="scroll-loading" role="status">正在准备卷轴…</div>
+      <div id="fallback" class="scroll-fallback" hidden><article id="fallbackDocument" lang="en"></article></div>
+      <button id="unfoldHint" class="scroll-unfold-hint" type="button" hidden>轻触展开</button>
+      <button id="leaveObject" class="header-button scroll-leave" type="button" hidden>返回</button>
+      <button id="appearance" class="header-button scroll-appearance" type="button" aria-label="卷轴外观选项">外观</button>
+    </section>
+    <nav class="scroll-controls" aria-label="卷轴操作">
+      <button class="bevel-button" id="toggle" type="button" disabled>展开</button>
+      <button class="bevel-button" id="replay" type="button" disabled>重播</button>
+      <button class="bevel-button" id="transcription" type="button" aria-expanded="false">释读</button>
+      <button class="bevel-button" id="objectOnly" type="button" disabled>只看卷轴</button>
+    </nav>
+    <footer class="scroll-footer"><span id="status" role="status" aria-live="polite">设计试样 · 尚未颁发</span><a href="CREDITS.md">素材来源</a></footer>
+  </main>
+  <dialog id="transcriptDialog" class="scroll-transcript"><form method="dialog"><header><h2>卷轴释读</h2><button class="bevel-button" aria-label="关闭">关闭</button></header></form><div id="transcriptContent" lang="en"></div><p class="scroll-specimen-note">第一章设计试样，不产生认证或学习记录。</p></dialog>
+  <dialog id="appearanceDialog" class="scroll-transcript scroll-appearance-dialog"><form method="dialog"><header><h2>卷轴外观</h2><button class="bevel-button" aria-label="关闭外观选项">完成</button></header></form>
+    <div class="scroll-options"><label><input type="checkbox" id="option-mist" checked> 环境雾染</label><label><input type="checkbox" id="option-shaft" checked> 木轴</label><label><input type="checkbox" id="option-band" checked> 收束带</label></div>
+    <p class="scroll-specimen-note">可分别开关，对照观看。系统开启减少动态效果时，雾染静置。</p>
+  </dialog>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
