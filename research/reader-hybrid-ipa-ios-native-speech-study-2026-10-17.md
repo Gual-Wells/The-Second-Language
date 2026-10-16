@@ -1,28 +1,36 @@
-# 第二语言：全阅读器 IPA 二级标题例外 + 其余 iPhone 原生点读的独立研究
+# 第二语言补充点读研究：Bella 原有核心音频保持不变，IPA H2 与 iPhone 原生仅填补空白
 
-**2026-10-17｜研究报告，不是已实施的功能。** 本轮基于 `Gual-Wells/The-Second-Language@9532fbca9dcea808b27f79bc9cc2ef4f2f3a8eb6` 的源码、正式音频协议、历史试听/撤销记录、真实五章及供应商/Apple/WebKit 官方文档研究。项目审计基线见 `research/project-complete-architecture-history-audit-2026-10-17.md`。不改日课、考试、历史付费音频或待批旧章升级计划，不开通/收费测试第三方语音。本报告**取代此前“保留 Bella 整句点读”的方案建议**；该方案不符合用户最新要求。
+> **2026-10-17 纠错修订。** 本研究原初提交 fae8995a00a8fcc18db6be82ab997c33e83f68ad **错误理解用户需求**，建议将整个章节阅读器的 Bella 整句替换成 iPhone 声音并关停自动音频队列。那是错误提案，不应实施。**本版本整体替换该错误建议，明确保留 Bella 原有权限、自动生产、资产与原声音色协议，只增加 Bella 未覆盖的点读能力。** 这是研究建议，非生产协议变更，未实际部署或发生付费声音请求。
 
-## 1. 不可改变的目标语义
+证据版本：源仓库 `Gual-Wells/The-Second-Language@9532fbca9dcea808b27f79bc9cc2ef4f2f3a8eb6`，完整项目前置审计 `research/project-complete-architecture-history-audit-2026-10-17.md`。既有协议 `AGENTS.md`、`protocol/VOICE_ROUTING.md`、`AUDIO_CONFIGURATION.md`、`READER_INTERACTION.md`、`STORAGE.md` 的 Bella 范围仍是权威；本文件的研究不能私自取代其实际运行规则。
 
-项目**整个章节阅读器**的点读分为且仅分为两类：
+## 1. 正确的三路读音架构——**补充**而非替代
 
-**唯一的专用音标音频：第一部分，确有对应 IPA 的二级标题 H2。** 用户明确点按这个 H2（可让可视 IPA 作为同一目标）时，读取这个 H2 所属的原始 IPA，经真正支持音素控制的发音合成器输出。不是第一部分全部文字，也不是第一部分所有 USE，不需要先根据中文释义/英文拼写做词义消歧。无 IPA 的 H2 也不进入特殊路线。成功音频可永久缓存；不兼容/错误提示，不悄悄用英文拼写朗读冒充 IPA。
+| 对象 | 现有/拟新增声音 | 权限优先级 |
+| --- | --- | --- |
+| 第二部分例句整句点读 | **既有 Kokoro Bella 原件/按需生成/章节默认预备**，原样保持 | 最高：Bella 已覆盖 |
+| 第三部分范文整句点读 | **既有 Kokoro Bella**，含原本高光跳义项优先级 | 最高：Bella 已覆盖 |
+| 非听力教学考官、章节测试有声题、雅思与其它音频业务 | **既有正式 Bella/角色音色/原声分析链路** | 既有范围，不得触碰 |
+| **第一部分具有对应 `/IPA/` 的二级标题 H2** | 专用受控音标发音生成器；按所属 H2 的实际 IPA 发声 | Bella 原本已停用词汇点读，作为新增补充 |
+| 第一部分 H1 主词标题、非 H2 细用法/列表、其它可点读英文词 | **iPhone `speechSynthesis` 原生英语朗读** | 不覆盖 Bella 现行完整句 |
+| 第二/第三部分句内**单词单独点读**、其它 Bella 未覆盖的独立词 | **iPhone 原生英语朗读** | 须用不同的用户动作避免和 Bella 单击整句冲突 |
+| 译文/中文正文、非点读控件 | 不自动朗读；如另申请中文点读再单独定义原生语言 | 不抢既存交互 |
 
-**其余全部章节内点读：iPhone 原生 Web Speech API。** 第一部分一级词头、词源、释义与例句、细用法/列表，第二部分所有英文词及整句，第三部分所有英文词及整句以及符合点读意图的其它英文正文，统一 `SpeechSynthesisUtterance` → `speechSynthesis.speak()`。不走 Bella、OpenRouter、OneDrive MP3 获取、后台付费合成或普通单词词典/TTS 查询。句子是否按完整句朗读是**点读单位**问题，不是例外声源：第二、三部分仍可点句并由 iPhone 自己完整朗读。
+一句话：**Bella 管已有的完整句子与全项目正式语音；音标引擎只管第一部分带音标 H2；iPhone 只管目前没有归 Bella 的“词级点读空白”。**
 
-本报告针对**章节阅读器点读**。正式章节测试七道音频题、雅思听力材料、口语考官及已有考试音频是其它独立业务，尚不在此次决定的替换范围内，不能通过替换全局 `protocol/voices.mjs` 把它们也破坏。中文段落默认不属于“英语点读”；若要中文点读也可用 iPhone 系统 `zh-CN`，需在产品明确选择，不应自动给所有中文释义配音。
+“第一部分二级标题用 IPA”中的**二级标题**是精确边界。即使某个列表细用法有 `USE` 编码，也不能以此冒充 H2 音标发音。没有 IPA 的 H2 应进入原生/不可点读的正常文字政策，而不是编造 IPA。
 
-## 2. 当前真实工程状态与以前方案的冲突
+“其它全部使用原生”指**Bella 已有权限之外用户新增的点读功能**；绝不是说第二、三部分原有整句 Bella 朗读要改成 iPhone。**原有句音自动生成、费用预测、下章一次性配置、预下载、不可变录音索引等全部保留。**
 
-检视 `web/app.js`、`reader-speech.js`、`native-speech.js`、`pure-reader.js`、`reader-focus.js`、`render.js`、`audio-plan.js`、`audio-library.js`、`audio-config.js`、`index.html`、`sw.js`；`worker/src/pronunciation.js`、`worker/src/audio-config.js`、`scripts/audio-worker.mjs`、`migrations/0011_sentence_audio_only.sql`、`0015_daily_full_audio.sql`；`AGENTS.md`、`protocol/AUDIO_CONFIGURATION.md`、`READER_INTERACTION.md`、`VOICE_ROUTING.md`、`STORAGE.md`、`web/DESIGN.md`。
+## 2. 在当前代码中，补充层应落在哪里
 
-1. **Native 实现有基础，但不能直接激活旧文件。** 当前 `web/app.js` 初始化 `installReaderSpeech`，不是 `installNativeSpeech`。历史 `web/native-speech.js` 用了 Web Speech 和 caret 坐标识词，但初始化需要 `#speechVoice` 与 `#speechRate` 等已不在现行 `index.html` 中的旧控件，也认为 `#speechMode` 是 select，而当前它只是“点读”说明按钮。直接一行替换 import 会运行失败。
-2. **H2 已具备精确 IPA DOM 定位。** `render.js` 第一部分给 H2 建 `sense-block`、`sense-head`，`h2.dataset.heading` 保留完整原词条，`span.sense-ipa` 单独显示末尾 `/IPA/`，`sense.dataset.useId` 对应用法身份。应仅以 `part=one + h2 + span.sense-ipa` 作为专用触发条件。这样不会把一级主词、词源、列表 USE 和第一部分其它正文误路由到云端。
-3. **现有原生/远程朗读与手势存在捕获顺序冲突。** `reader-speech.js` 在 `#article` 捕获 click；`pure-reader.js` 在外层阅读滚动区处理 pointer、单/双击，然后 300ms 定时器合成 `new MouseEvent('click')` 重发；650ms 长按打开答疑，第二/三部分双击英文词打开句内解析，双击其它阅读区切纯净模式。直接给全局 click 加 speechSynthesis 既会抢答疑/跳转，又可能在 WebKit 里因**模拟事件不带可信用户激活**而发不出声。必须由一个语音/手势仲裁入口拥有本次操作。
-4. **第二部分一级标题目前点击是跳回第一部分，第三部分开启 USE 高光后点击优先跳义项。** 若要求这些正文**也能原生点读**，需要提供保留跳转的独立可见操作（如标题旁“词义 ›”或句子的既有用法导航），而不是偷偷删掉原有跳转，或保留它致使“其它全部原生”名存实亡。高光处不得一次点击同时跳转/朗读。
-5. `reader-focus.js:wordAtPoint` 已能处理句中英文目标坐标和跨行文本节点，应扩展复用来判断任意普通英文单词；不是每个点击全文 NLP，也不是误把中文、按钮、音标字符当英文单词。
-6. 原停止控件管理 `AudioBufferSource`，新方案必须同时取消 native `speechSynthesis.cancel()` 与 IPA 音频播放器，清理在途异步请求，并在切章、切部分、读者隐藏、弹窗、转练习、退出登录时同步停声。
-7. `web/sw.js` shell `v35` 正缓存旧 `reader-speech.js`、`audio-library.js`。正式切换时必须变更模块 cache keys/Service Worker 核心列表与版本，测试 iOS 更新时新旧 JS 混用及历史包仍可读取。
+源码已核对：`web/app.js` 装载的是 `installReaderSpeech`，它调用 `/api/practice/pronunciation` 完成既有 Bella 整句点读，使用 `web/audio-library.js` 检索永久缓存与音频包；`web/audio-plan.js` 将允许类型严格限于 `part two/three` 的 `kind=sentence`。**该旧 API 的 sentence-only 门禁应原样保留**；不能为补词音而放开收费入口，更不能停用 Bella 句音。
+
+第一部分 H2 则已有 `web/render.js` 中 `.sense-block > .sense-head > h2`、`span.sense-ipa` 与 `dataset.useId`。新增的 IPA 点击必须从**当前 H2 的末尾 IPA**取值，并经独立、权限隔离的音素生成服务处理，严格过滤 Part1/H2/真实 IPA，不得重用句子 POST 冒充 `kind=sentence`。同一 H2 里英文展示文本可能有“flute 或 flutist”，不应按第一个英文词猜语音目标；受控 IPA 的要求来自标题原标注。
+
+现存 `web/native-speech.js` 虽已具备 `SpeechSynthesisUtterance`、`en-US`、坐标抽词和停止功能，但是**旧界面依赖** `speechVoice`、`speechRate` 和下拉 `speechMode` 不存在于当前 `web/index.html`。应提取纯语音服务能力，作为补充点读适配器装入现有 `reader-speech.js` 或单个仲裁层，而不是把 `app.js` 的 Bella 实例替换成旧 native 实例。
+
+现有 `web/pure-reader.js` 具有 300 ms 单击/双击判别、650 ms 长按答疑、`reader-focus.js` 的 `wordAtPoint`、`reader-speech.js` 的 article click 捕获。**同一次触摸序列必须只有一个动作**；双击句内词答疑、长按答疑、第二部分标题跳词、第三部分高光跳 USE 以及已有整句 Bella 都不能被新增补读抢走。
 
 ## 3. 五个真实章节的 IPA 输入证据，不能简写为“合成器自然支持”
 
@@ -79,68 +87,75 @@ Safari/WebKit 提供 `window.speechSynthesis`、`SpeechSynthesisUtterance` 和 `
 - `speechSynthesis.speak()` 的调用应位于可信用户手势中。当前 `pure-reader.js` 用 300 ms timer 构造程序 click，**不能由它的模拟 click 通过桌面测试就推定 iOS 必然允许合成发声**。可先在小型 PWA 试验里比较 (A) 单击 300ms 后直接发声与 (B) 首次可信 pointerup/click 内发声、第二击立即 cancel；前者更不打扰双击，后者更稳于用户激活但可能在双击开始瞬间出现极短声音。待真机实验选定，不能凭空给出首音延迟或无闪断承诺。
 - 原生声音应即时一次性播放目标文字，不会返回音频字节。因此无需对普通词和整句在云端生成 MP3、存 D1 或做永久音频包；`speechSynthesis.cancel()` 控制停止；`onerror` 只显示错误，不触发 Bella fallback。
 
-## 6. 保持原书阅读交互、但让所有非 H2 读音实际可用
+## 6. 两种补充点读如何不抢 Bella 的交互
 
-阅读器现有语义比一个 click 复杂。建议**一处统一 handoff** 负责用户指令优先级：
-1. 浏览器/页面显式控制（跳转按钮、设置、链接、考试按钮）按原职责工作；
-2. 第一部分符合 H2 + IPA 才触发专用 `IPAClipPlayer`，不要响应所有 `sense-block`；
-3. 其它阅读区域中明确识别出的英语单词/句子由 `NativeSpeechPlayer` 播放；已确立的第二/三部分整句仍可作为一个 utterance 来念，额外词级选择复用 `wordAtPoint`；
-4. 长按 650ms 答疑、双击句内单词、双击其它空白纯净阅读、触屏拖动、文本选择等必须保持可达，不能单击抢占这些动作；
-5. 第一部分普通 H1 点读应是 native（此前完全不朗读），第二部分一级标题单击原先是“跳第一部分”，按新目标应允许 native 点读，同时给词义跳转保留**清晰独立的可见入口**；第三部分高光开启时的 USE 跳转优先级也应保留，并提供可主动选取的 native 读句/读词操作。不要一次动作同时触发两个效果。
+**基本原则：对“同一块句子文本”的既有轻点动作保留 Bella 完整句读；若用户想要该句中的单个词，请以另一种明确手势/可见指令选择“读词”原生。** 例如选中英语词后在轻量动作菜单里出现“读词”；要在 iPhone 真机检查它与原有双击句中词答疑、650ms 长按答疑和原生文本选择的竞争，不可想当然地劫持原长按。必要时可让顶部原“点读”入口开放**仅影响补充词音交互的词级模式**，但默认 Bella 的句读绝不消失。
 
-控件保持原 2008 蓝灰主题和常态阅读位置，不另铺显眼浮层；音频停止按钮统一同时取消 IPA 音频、native speech 与尚未完成的异步请求。切章/切部分/打开练习/隐藏页面/退出登录/用户明确停音均停止，避免上次点读迟到后跨章节播放。
+- `part=one` 且当前命中**带 span.sense-ipa 的 H2**，优先音标发音；此路径不要自动调用 iPhone 拼写朗读作为“伪 IPA”降级。
+- `part=one` 的 H1/其它英文单词、列表里细用法、词源说明的英文词，经明确词级点按→iPhone 原生（不会启动 Bella）。
+- `part=two` 的完整 `.example-pair p` 轻点→现有 Bella 流程，**与当前行为一致**。标题 H1 原来的单击跳 Part1，保留；若要对这个 H1 读词，新增不冲突的入口，不能为了原生词音废除跳转。
+- `part=three` 的完整 `.story-sentence` 轻点→现有 Bella；开启 USE 高光时优先保留跳转。这是现存正式约束。对里面的单个英文 token 发出独立“读词”指令才进入 iPhone 原生；禁止一次普通点击既发 Bella 整句又发原生单词。
+- 所有控件、中文译文、纯净模式与测试页维持历史语义；中文是否启用系统朗读另行授权。
+- 新增统一 `speechStop` 停止协调：Bella Web Audio/等待状态按原逻辑；IPAClipPlayer 停自身缓存/请求；NativeSpeechPlayer 用 `speechSynthesis.cancel()`。停止其它补充播放器不能删除 Bella 的已付费缓存；切章/切部分/弹窗/练习/后台/退出账号都停全部正在播放的声音。
+- iOS WebKit 对 `speechSynthesis.speak()` 的用户激活处理不应假设与 Web Audio `prepareTap()` 相同。原有 `pure-reader` 在 300ms 计时器后转发 `new MouseEvent`，非可信手势。先独立实机试验直接 gesture 和延迟 gesture 的朗读可用性，再整合 native 服务，防止为保留 Bella 双击保护而引入不出声 bug。
 
-**设计原则**：新架构“声源二分类”很简单，复杂度应只保留在现有阅读器的手势仲裁和任务可靠性层。不得为普通单词做 POS/大模型词义推断、外部词典检索、跨章语音 MP3 生产或专用缓存数据库。
+**不会增加第二套阅读器“主点读模式”。** 完整句仍以 Bella 为最高优先级，补读只是处理新的显式词级意图。视觉需按原 2008 蓝灰主题、保持正文位置/可读性，新增控件越少越好。
 
-## 7. 不能忽略的后台费用：取消“无人播放却继续自动生成 Bella”的路径
+## 7. **绝不可干预**的 Bella 生产、计费与永久资产
 
-现行 `protocol/AUDIO_CONFIGURATION.md` 和 `worker/migrations/0015_daily_full_audio.sql` 固定下一章默认 `["two","three"]`，发布正式章节时原子创建 Bella 整句音频请求，`scripts/audio-worker.mjs` 独立每分钟运行并通过 `/api/practice/pronunciation` 从 OpenRouter 申请收费。项目对一章“配音完成”的历史定义建立在这些申请完成之上。**如果只改前端，Bella 句音在阅读器无需求时仍会照常付费生成**，必须将它作为迁移阻断点。
+以下是对初稿错误建议的明确撤销：
 
-推荐正式迁移（此次只做研究，不执行）：
-- 章发布保持原子事务和正文/VIX 不变，但是将新章节**阅读器 Bella 句音默认计划改为关闭**。不仅要调整当前 `audio_next_config`，还要改其“消费一次性选择后恢复满配”以及现行自动入队逻辑，以免一天后重新生效。用新的迁移/策略版本实现，不反写 0015 等历史迁移。
-- 音频配置的“新章满配 Bella、已有章补配”界面应改为历史状态只读或退出**阅读器日常生成**入口；迁移前需检查已有待执行的用户批准申请和一次性配置。停止新自动扣费不代表能无记录丢弃先前明确同意的收费任务。
-- 已开始实际供应商调用或结果未知的历史任务保留原状态，未知收费不自动重新调用；已成功的旧 MP3、请求/返回、OneDrive 永久音频、D1 不可变 `pronunciation_results`、`chapter_audio_scopes/chapter_audio_clips`、旧包、旧章节版本均保留。已有考试题音另存的身份与关联继续工作。旧业务是否提供只读复播接口可另定，但不能把云盘无法访问当作尚未生成而重付。
-- `worker/src/pronunciation.js` 目前先于付费硬拒绝非 `kind=sentence` 及任何 `ipa`。新 IPA 生成不能偷用原 kind=sentence 接口或删除门禁后让任意客户端提交 IPA 花钱。采用独立受鉴权/预算/章节版本校验的 IPA 生成入口或扩展有明确读音类型的新策略版本；只有服务端从真实固定 H2/USE 取到 IPA 后才允许收费。调用未知仍执行原项目“保留账本、禁止重复付费”原则。
-- 新 IPA 声音使用最小身份：`SHA256(canonicalIPA, locale=en-US, phonemeTransformVersion, engine, voice, engineVersion, format)`，并以 `(chapterDigest, useId, originalIPA, assetId)` 做章节关联。必须把原始课程 IPA 与供应商转换结果同时保留，音标相同的 H2 可跨章节复用；**不能**按英语拼写缓存相同读音或按 USE 全部预生。H2 已有 335 种不同 IPA 的五章样本；先按需首次合成、成功永久保存，是否允许提前批量预备应另经实际费用和权限确认。
-- 更新 `AGENTS.md`、`protocol/READER_INTERACTION.md`、`AUDIO_CONFIGURATION.md`、`VOICE_ROUTING.md`、`STORAGE.md`、`web/DESIGN.md` 与真实 settings 文案：非考试的 Bella 句音不再是默认日课成本。**不要全局替换 `protocol/voices.mjs`：雅思人物声线、口语考官、独立章节测试的冻结题音继续原路线。**
-- `web/audio-library.js` 和 `sw.js` 退出阅读器句音自动预下载，保留历史音频缓存兼容、账户退出清理和考试私有音频缓存界线；将无意义的“自动下载本章句音”设置移除或解释为“已准备好的 IPA H2 音频可选预取”，前者更简单。
+1. **保留** `protocol/AUDIO_CONFIGURATION.md` 对第二部分例句和第三部分范文的默认满配策略；新章首次发布原子入队、已有章节可报价补齐、下一章一次性调整及使用后恢复 `["two","three"]` 全部保留。
+2. **保留** `worker/src/audio-config.js`、`scripts/audio-worker.mjs` 的句子准备队列与失败/未知计费状态处理；**保留** `worker/migrations/0015_daily_full_audio.sql` 默认值及发布配套代码。**不引入**关闭自动生成的迁移，也不把语音额度从日课预算中删除。
+3. **保留** `web/reader-speech.js` 对 Bella 完整例句/范文点读；`web/audio-library.js` 现行缓存、预下载与老包 Range 保持；`web/index.html` 原有“自动下载本章已有音频”和章节音频配置入口保留。这些均非“无效设置”。
+4. **保留** `worker/src/pronunciation.js` 在收费前拒绝词汇与 IPA 请求的旧 API 门禁。新的 H2 IPA 生成应有**独立**、经授权和账本保护的实现；不要偷改旧接口令其既管理 Bella 又处理另一供应商而扩大损失面。
+5. **保留** `protocol/VOICE_ROUTING.md` 既有 Bella/其它角色完整规则。正式雅思、听力、口语、章节测试、临时测试用声、原声分析独立管理且不改声线。
+6. **保留** 所有已付费 Bella MP3、请求/返回、OneDrive 内容、`pronunciation_results`、`chapter_audio_scopes`、`chapter_audio_clips` 以及历史包和快照。**不要让新增 IPA clip 与 Bella 完整句共享易冲突的音频 identity。**
+7. 对新 H2 IPA，另设少量授权受控生成，校验 `chapterDigest + USE/H2 + rawIPA`，生成资产按 `IPA + phonemeTransformVersion + engine + voice + format` 等去重；未知收费结果不重付，成功后长期缓存。**不要在每次登录、每次点开章节或者默认日课中批量生成所有 H2 IPA**；实际费用报价后再安排适合的批量许可。
+8. Native 补读只依赖用户 iPhone 的 Web Speech，不向 OpenRouter、D1、OneDrive 发音频生成请求，也不会影响现有 Bella 的收费身份。它的声音“不够自然”是受接受的取舍，但不意味上下文同形异音全正确。
 
-## 8. 可证伪的验收矩阵与优先实验
+**最容易测试的架构不变量**：发布一个新的正式日课以后，原本的 Bella 二三部分音频准备计划与身份和原协议完全一样；与此同时 Part1 带 IPA H2 只产生专用 IPA 请求，普通原生读词无收费音频请求。
 
-| 验收焦点 | 真实用例与判据 |
+## 8. 可执行的验收矩阵（含 Bella 非破坏性证明）
+
+| 测试场景 | 正确结果 |
 |---|---|
-| 唯一 IPA 门禁 | 五章 667 个带 IPA H2 命中专用音源；另 30 个非 H2 USE、所有 H1、所有第一部分普通英语及第二/三部分英文均不能命中专用音源 |
-| 同形异音 | `concert` 名词/动词、`viola` 中提琴/植物、`upstream/downstream` 重音变体分别按所属 H2 的**真正 IPA**定位；`flute 或 flutist` 不按第一英语 token 猜 |
-| 符号适配 | 五章 335 个 IPA 全量离线预校验，257 个严格直接匹配/410 个记法需处理有逐项结果；转换版本锁定，失败不假冒成功 |
-| 多词 IPA | 16 个多词 IPA 逐项测试；英文词和音素组数量一一对齐不能直接替代真人语言学/听觉测试 |
-| 全原生非 IPA | Part1 H1/词源/正文、Part2 标题/例句、Part3 正文/整句在实际 iPhone 主屏幕 PWA 调用 speechSynthesis，不出现旧 Bella 生成/读文件请求 |
-| 用户操作 | 单击、快双击、长按、页面拖动、选字、纯净阅读、句内答疑、亮色 USE 高光跳转、第二部分回词义，无意外双动作与不可访问的朗读区域 |
-| 生命周期 | 连续点读不同单词、混用 IPA/native、点停止、切章/切部分、打开练习、断网、后台恢复和退出登录后无滞留声音 |
-| 声线兼容 | iOS Safari 和主屏幕 PWA、`getVoices` 初始空及 `voiceschanged`，默认 en-US 和可用本地声音，系统拒绝时明确报错而非云声 fallback |
-| 账本与付费 | 新章发布时**Bella 句音自动付费申请=0**，之后恢复设置也不重新启动；旧 pending/calling/outcome_unknown 数据有安全归档/人工核对 |
-| 全站隔离 | 已付费 MP3、OneDrive/D1 旧索引和 876 单元历史核对记录不丢；正式七道音频章测试、雅思题音和原声答卷均保持 |
-| PWA 发布 | 320/393px 手机视口、Service Worker 预缓存/壳新版本、模块 import 版本一致、蓝灰主题/阅读坐标不漂移 |
+| Part1 带 IPA 的 667 个 H2（现存五章） | 准确归属 H2 → IPAClipPlayer；其它 30 个非 H2 USE 无专用 IPA |
+| Part1 H1、词源、普通词、非 H2 用法 | 只在明确触发读词时由 NativeSpeechPlayer 读取对应英文目标 |
+| Part2 例句整句轻点 | 原 Bella 音频按旧身份、旧缓存/按需播放，**不改变成 iPhone** |
+| Part3 范文整句轻点 | 原 Bella 句音；高光 USE 跳转仍优先 |
+| Part2/3 句内单词显式“读词” | iPhone 原生语音；不顺便触发 Bella 整句、长按/双击答疑 |
+| Part2 主词标题轻点 | 原“返回第一部分对应主词”稳定帧跳转；独立词音才是 native |
+| 同形异音 H2：concert、viola；flute/flutist | 依标题 IPA 而非首个英文 token 生成 |
+| IPA 静态兼容 | 335 种不同 IPA 校验；257/667 字面兼容、410/667 存在记法差异是离线预筛，非语音质量指标 |
+| 16 条多词 IPA | 分词映射不影响 Bella，实际读音需额外受控合成和真人听审 |
+| 单击/双击/长按/滚动/纯净/切页 | 每个手势唯一动作；三种播放器可共享停止/离开生命周期 |
+| **正式新章发布** | **Bella [two,three] 现行默认入队，费用预估、后台队列和复用行为不变** |
+| **旧章及历史声音** | Bella 音频包、OneDrive/D1 索引、未知扣费与旧版本继续受保护；不迁移、不清理 |
+| **正式考试/雅思/口语** | 继续既有 Bella/多角色声音体系与用户录音/答卷系统 |
+| iPhone 原生补读 | Safari 和添加主屏幕的 PWA 实测 `getVoices`、空列表、用户激活、断网和停止，失败不绕过协议回退付费 Bella |
 
-**下一次真正工程任务最值得先做的 3 个小实测**：
-1. 先在真实 iPhone 主屏幕 PWA 用一个隔离控件检验 speechSynthesis 的首次 tap、延迟 300ms 再调用、停止/前后台、空 voices 和双击竞争；不应先大改正式阅读器。
-2. 选真实 H2 的 20–30 个 IPA，对 Google/Azure/既有 Misaki 条件化做有限、用户明确授权的真人听审；尤其测试 410 条记号映射群里的代表样本与 16 个短语。如果用户根本没有可用的云支付渠道，则如实报告供应商可行性边界，转而验证一个**真正接受音素序列**的免费本地引擎，不依赖无契约的网页 IPA Reader。
-3. 用已有主库/音频服务身份**只读核实**七章当前 H2 IPA、下一章自动请求配置与所有非终态 Bella 任务，先预演“停止新句音生成但保留历史资产”的变更，再形成可回滚的生产 PR。
+## 9. 技术选型和下一步的**窄范围**研究
 
-## 9. 结论
+**IPA 供应商**：Google Cloud 与 Azure Speech 的 `<phoneme alphabet="ipa" ph="...">` 均为有文档的读音控制入口，Amazon Polly 的部分引擎也支持，现有 Kokoro/Misaki 强制音素为项目历史参照。上述事实不等于用户账号现在已开通成功或 335 种 IPA 都能不加校验直接上传。当前五章 667 H2 中有 410 处不符合所用 Google 官方 en-US 音素表**严格书写匹配**（i/u、ɝ、r、e、长音及多词等差异）；这是记法适配工作量，不是供应商实际拒绝率。
 
-**方案价值高且边界清晰：H2 有 IPA 才用音素合成，其余阅读器点读完全 iPhone 原生；不需要额外词典库、机器学习上下文判读或保留 Bella 整句阅读路径。** 最大两个真实风险不是概念可行性，而是（1）IPA 文本不完全符合供应商 en-US 音素规格以及多词标签约束，（2）项目现有 300ms 模拟点击与 iOS speechSynthesis 用户激活、后台默认 Bella 付费队列彼此冲突。两者都可以通过隔离先验验证和小范围 non-destructive 迁移解决。未经 iPhone 真机、供应商真实合成及历史任务确认时，只应称“可实现、需验证”，**绝不称已上线或音质已达标**。
+**iOS 原生**：已有历史模块能调用 Web Speech，但现行界面不再有该模块依赖的旧 `speechVoice/speechRate` 控件，不能直接恢复。应开发独立的小型 NativeSpeechPlayer 并与现行 Bella 播放器并行复用 gesture coordinator。`getVoices` 可延迟就绪，语音系统可能提供不同质量声线；不保证所有已下载 iPhone Voice 在 PWA 中可选或完全离线。Safari 与主屏幕 PWA 要分别真机验收。
 
-**官方依据**：
-- Google SSML: https://docs.cloud.google.com/text-to-speech/docs/ssml
-- Google en-US 音素表: https://cloud.google.com/text-to-speech/docs/phonemes
-- Azure IPA: https://learn.microsoft.com/en-us/azure/ai-services/speech-service/speech-synthesis-markup-pronunciation
-- Amazon Polly SSML: https://docs.aws.amazon.com/polly/latest/dg/supportedtags.html
-- Web Speech: https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesisUtterance
-- SSML 非保证: https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesisUtterance/text
-- WebKit getVoices: https://developer.apple.com/documentation/webkitjs/speechsynthesis/1634378-getvoices
-- WebKit voices bug: https://bugs.webkit.org/show_bug.cgi?id=290497
-- WebKit iOS embedder history: https://bugs.webkit.org/show_bug.cgi?id=239816
-- eSpeak NG: https://github.com/espeak-ng/espeak-ng
-- eSpeak NG CLI: https://manpages.debian.org/trixie/espeak-ng/speak-ng.1.en.html
+**分步证据优先级**：
+1. 使用正式 PWA 相同手势架构，真机测试“**Bella 单句轻点保持不变 + 选中句内单词用 native 补读**”的双动作防护与用户激活。不同手势必须互不污染。
+2. 对五章 335 种独立 IPA 做离线规范适配单测；用约 20–30 个高信息量标题对合成服务进行小样听审（需要实际可用账号和明确计费授权）。对 16 个多词 IPA 做字词/音素对齐核查。
+3. 对二、三部分 Bella 真实再生/存储行为做只读回归，验证任何补读改造后新章仍正常产生所需句音与永久索引。**无需**改自动音频计划，无需停音频后台服务，也不必迁移历史章。
 
-**证据说明**：仓库源码、五章音标统计、WebKit/云服务文档均做了只读核对；此次**未**取得私人 iPhone 设备上的新手势测试、在线七章完整内容、Google/Azure/Polly 真实收费调用、用户账户付款条件，也未建立一份 DIGR 正式可核验运行账本。以上未测项均在正文中单独标注，不能以文字方案或脚本测试替代实际音频/付费安全验收。
+**未验收内容**：本次没有 iPhone 真机，未请求 Google/Azure/Polly 付费 API，未取得所有七章线上原始 IPA，未完成语言学真人听审；不能把“理论上可实现”说成已上线，更不应撤销 Bella 核心能力。
+
+## 10. 可核对的关键来源
+
+主仓库：`AGENTS.md`；`protocol/VOICE_ROUTING.md`、`AUDIO_CONFIGURATION.md`、`READER_INTERACTION.md`、`STORAGE.md`；`web/DESIGN.md`、`app.js`、`reader-speech.js`、`native-speech.js`、`pure-reader.js`、`reader-focus.js`、`render.js`、`audio-plan.js`、`audio-library.js`、`index.html`；`worker/src/pronunciation.js`、`audio-config.js`；`scripts/audio-worker.mjs`；`chapters/2026-10-{02,06,09,11,12}/chapter.md`；历史 10/9 PR #14/#16/#17/#18、10/10 PR #27、10/12 PR #34。原报告 fae8995a 的取消 Bella 建议为**错误且不适用**的历史提交内容。
+
+官方文档：
+- Google Cloud SSML：https://docs.cloud.google.com/text-to-speech/docs/ssml
+- Google en-US 音素表：https://cloud.google.com/text-to-speech/docs/phonemes
+- Azure 读音控制：https://learn.microsoft.com/en-us/azure/ai-services/speech-service/speech-synthesis-markup-pronunciation
+- Polly SSML：https://docs.aws.amazon.com/polly/latest/dg/supportedtags.html
+- Apple/Web Speech：https://developer.apple.com/documentation/webkitjs/speechsynthesis/1634378-getvoices 与 https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesisUtterance
+- WebKit 声线覆盖历史：https://bugs.webkit.org/show_bug.cgi?id=290497
