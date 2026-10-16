@@ -2,6 +2,12 @@
 
 2026-10-16。用户恢复工程工作：结合原生能力与外部资源，以第一章展示可运行样品。此次授权替代上一轮“只研究、不制作”的任务范围；此前全部设计稿仍为否决状态，不恢复其美术母版。
 
+**实际预览：** https://scroll-lab.the-second-language.pages.dev/labs/chapter-scroll/ 。固定部署：https://fbce8985.the-second-language.pages.dev/labs/chapter-scroll/ 。已从公网打开，字体/材质/正文与收展正常，未捕获脚本错误。下图来自实际浏览器，不是视觉概念稿。
+
+![展开态，402×874手机模拟](sample-open-iphone.png)
+
+[闭合态](sample-closed-iphone.png) · [展开中途](sample-half-open-iphone.png)。实际触摸、色彩与流畅度仍待实体iPhone评价。
+
 ## 当前产物与边界
 
 - 独立实验入口：`/labs/chapter-scroll/`。第一章实际标题、日期、编号与摘要来自`chapters/2026-10-02/chapter.json`，英文标题也与第三部分标题一致。
@@ -64,3 +70,5 @@ chapter-sample.json（章节数据／specimen身份）
 开发基线：`dbb9bd3257648d98283f13d85105aa7c038c2e23`，独立D盘工作树`second-language-scroll-lab`，分支`codex/medieval-scroll-lab-2026-10-16`。原维护树含独立音频任务未跟踪文件，未改动它们。
 
 只发布独立预览分支，保留原Pages API网关；不以较旧开发基线覆盖已经前进的生产main。样品验收后是否接入正式通过体验是后续产品决定，不在本轮偷偷打开认证。新增实体、依赖复用、构建与日志均在D盘；未新增素材购买、API调用或持续订阅成本。
+
+实际代码提交`d7ffdc7`已推送GitHub；Pages预览完成，线上字体/纹理/章节JSON返回200，会话API保持JSON，私有练习API保持401。14项模拟检查通过、零未捕获错误。对象PNG已检查为RGBA、含完全透明背景。任务末尾已按现有通路更新服务额度与存储用量，归档排入原服务；没有重新合成声音或调用模型。
