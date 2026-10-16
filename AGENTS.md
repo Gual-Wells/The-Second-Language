@@ -54,4 +54,4 @@
 
 新章词源教学按 protocol/ETYMOLOGY.md 执行，集中一级词头下、辅助理解记忆，不要求逐义对应或学术完备。双教材讲解按 CONTENT.md 融合、保留全部独有内容与原例句。章节教材质检按 protocol/CHAPTER_QUALITY.md 独立申请与只读执行，不是章节测试或学习者认证。
 
-旧章升级研究见 `protocol/LEGACY_CHAPTER_UPGRADE_TEMPORARY.md`：当前为待批准提案，文档发布不是执行授权。用户批准前不得据此修改、暂存或发布旧章，也不加入每日自动任务；新日课继续遵循现有正式协议。
+旧章升级研究见 `protocol/LEGACY_CHAPTER_UPGRADE_TEMPORARY.md`：当前为 v1.1 待批准提案，仅升级第一部分释义与词源，直接采用正式内容协议；第二、三部分原样保留，不申请新音频或预算。文档发布不是执行授权，用户批准前不得修改、暂存或发布旧章；不加入每日自动任务。
