@@ -9,6 +9,8 @@
 | 入口 | 当前能力 |
 | --- | --- |
 | 每日章节 | 40 个主词，词汇与用法、例句与翻译、连续长文；VIX 加权推荐，辅助标签使用真实 `YY-MM-DD` 日期 |
+| 词源与讲解 | 新启动日课在一级词头下集中讲词源，辅助理解记忆；双教材同一用法融合讲解，保留独有信息与原例句 |
+| 章节质检 | 标题旁“质检”按需申请，固定原章与教材来源；逐项核查、反证复核、永久报告；与章节测试及学习者认证分开 |
 | 阅读 | 章节册搜索与月历从章首打开；七日条、词条索引、用法回看与逐句译文；保存各部分位置，双击非英文句子区域进入／退出纯净模式 |
 | 点读 | 第一部分不发音；第二部分标题返回第一部分、例句整句；第三部分整句。固定 Kokoro Bella，日课默认满配句子音频，阅读时复用/下载，不自动播放 |
 | 临时页 | 按申请建设测试或复习页，48 小时有效；不改变日课与 VIX |
@@ -42,6 +44,7 @@ iPhone PWA → 同源 Pages 网关 → Cloudflare Worker
 
 | 范围 | 协议 |
 | --- | --- |
+| 词源与教材质检 | [ETYMOLOGY](protocol/ETYMOLOGY.md)、[CONTENT](protocol/CONTENT.md)、[CHAPTER_QUALITY](protocol/CHAPTER_QUALITY.md) |
 | 日课 | [DAILY_RUN](protocol/DAILY_RUN.md)、[QUALITY_WORKFLOW](protocol/QUALITY_WORKFLOW.md)、[ANNOTATIONS](protocol/ANNOTATIONS.md) |
 | 雅思 | [EXPRESSION](protocol/EXPRESSION.md)、[PRACTICE_SIZES](protocol/PRACTICE_SIZES.md)、[LISTENING](protocol/LISTENING.md)、[READING](protocol/READING.md) |
 | 发音与原声 | [VOICE_ROUTING](protocol/VOICE_ROUTING.md)、[SPEAKING_PIPELINE](protocol/SPEAKING_PIPELINE.md)、[SPEAKING_RUNTIME](protocol/SPEAKING_RUNTIME.md) |

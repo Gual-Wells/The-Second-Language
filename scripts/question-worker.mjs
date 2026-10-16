@@ -1,3 +1,5 @@
+import {qualityModelArgs,qualityModelEnvironment} from './lib/quality-model.mjs';
+import {processQualityJob} from './lib/chapter-quality-runner.mjs';
 import {spawn} from 'node:child_process';
 import {mkdir,readFile,writeFile,rename} from 'node:fs/promises';
 import path from 'node:path';
@@ -10,15 +12,15 @@ import {prepareChapterQuestionAudio,interpretChapterAnswers} from './lib/chapter
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const {base,token}=await publisherConfig();
 const queue=process.argv.includes('--tests-only')?'chapter-tests':'questions';
-let temporaryJob=false;
-async function absolute(route,body,method='POST'){if(temporaryJob)route=route.replace('/api/chapter-tests/','/api/temporary-tests/');const r=await fetch(new URL(route,base),{method,headers:{authorization:`Bearer ${token}`,'content-type':'application/json'},...(body?{body:JSON.stringify(body)}:{}),signal:AbortSignal.timeout(240000)});const data=await r.json();if(!r.ok)throw Object.assign(Error(data.error||`HTTP ${r.status}`),{status:r.status});return data;}
-const call=(route,body)=>absolute(`/api/${queue}${route}`,body);
+let temporaryJob=false,qualityJob=false,qualityAttempt=null;
+async function absolute(route,body,method='POST'){if(temporaryJob)route=route.replace('/api/chapter-tests/','/api/temporary-tests/');const r=await fetch(new URL(route,base),{method,headers:{authorization:`Bearer ${token}`,'content-type':'application/json'},...(body?{body:typeof body==='string'?body:JSON.stringify(body)}:{}),signal:AbortSignal.timeout(240000)});const data=await r.json();if(!r.ok)throw Object.assign(Error(data.error||`HTTP ${r.status}`),{status:r.status});return data;}
+const call=(route,body)=>absolute(`/api/${qualityJob?'chapter-quality':queue}${route}`,qualityJob?{...body,attemptId:qualityAttempt}:body);
 async function asset(route){if(temporaryJob)route=route.replace('/api/chapter-tests/','/api/temporary-tests/');const r=await fetch(new URL(route,base),{headers:{authorization:`Bearer ${token}`},signal:AbortSignal.timeout(90000)});if(!r.ok)throw Error('音频原件暂不可用 '+r.status);return Buffer.from(await r.arrayBuffer());}
 const claim=randomBytes(32).toString('hex'),{job}=await call('/jobs/claim',{claim});
 if(!job)process.exit(0);
-temporaryJob=job.temporary===true;
+temporaryJob=job.temporary===true;qualityJob=job.kind==='chapter-quality';qualityAttempt=job.attemptId;
 const isReview=job.kind==='chapter-test-review';job.claim=claim;
-const jobRoot=path.join(root,temporaryJob?'work/temporary':'work/questions',job.id);const directory=isReview?path.join(jobRoot,'reviews',job.answersDigest):jobRoot;await mkdir(directory,{recursive:true});
+const jobRoot=path.join(root,qualityJob?'work/quality':temporaryJob?'work/temporary':'work/questions',job.id);const directory=isReview?path.join(jobRoot,'reviews',job.answersDigest):jobRoot;await mkdir(directory,{recursive:true});
 await writeFile(path.join(directory,'request.json'),JSON.stringify({...job,claim:undefined},null,2));
 await writeFile(path.join(directory,'chapter.md'),job.chapter.markdown);
 const isTest=job.kind==='chapter-test',schema=isTest?chapterTestSchema:{type:'object',properties:{answer:{type:'string'}},required:['answer'],additionalProperties:false};
@@ -27,10 +29,11 @@ let heartbeatError=null;
 const timer=setInterval(()=>call(`/jobs/${job.id}/heartbeat`,{claim,review:isReview}).catch(e=>{heartbeatError=e;}),60000);
 async function runModel(schema,prompt,name){
  const executable=process.env.SECOND_LANGUAGE_CODEX_EXECUTABLE;if(!executable)throw Error('缺少 Codex CLI 路径');const schemaFile=path.join(directory,name+'.schema.json'),output=path.join(directory,name+'.pending.json');await writeFile(schemaFile,JSON.stringify(schema));
- const code=await new Promise((resolve,reject)=>{const child=spawn(executable,['-a','never','exec','--ignore-user-config','--skip-git-repo-check','-C',directory,'-m','gpt-6-sol','-c','model_reasoning_effort="high"','-c','model_provider="openai_qa"','-c','model_providers.openai_qa.name="OpenAI chapter questions"','-c','model_providers.openai_qa.base_url="https://chatgpt.com/backend-api/codex"','-c','model_providers.openai_qa.wire_api="responses"','-c','model_providers.openai_qa.requires_openai_auth=true','-c','model_providers.openai_qa.supports_websockets=false','-s','read-only','--output-schema',schemaFile,'-o',output,'-'],{windowsHide:true,stdio:['pipe','pipe','pipe']});let log='';child.stdout.on('data',chunk=>log+=chunk);child.stderr.on('data',chunk=>log+=chunk);child.on('error',reject);child.on('close',async code=>{await writeFile(path.join(directory,name+'.log'),log);resolve(code);});child.stdin.on('error',()=>{});child.stdin.end(prompt);});if(code!==0)throw Error(`Codex 执行未完成 (${code})`);return JSON.parse(await readFile(output,'utf8'));
+ const code=await new Promise((resolve,reject)=>{const child=spawn(executable,['-a','never','exec','--ignore-user-config','--skip-git-repo-check','-C',directory,'-m','gpt-6-sol','-c','model_reasoning_effort="high"','-c','model_provider="openai_qa"','-c','model_providers.openai_qa.name="OpenAI chapter questions"','-c','model_providers.openai_qa.base_url="https://chatgpt.com/backend-api/codex"','-c','model_providers.openai_qa.wire_api="responses"','-c','model_providers.openai_qa.requires_openai_auth=true','-c','model_providers.openai_qa.supports_websockets=false','-s','read-only',...(qualityJob?qualityModelArgs:[]),'--output-schema',schemaFile,'-o',output,'-'],{windowsHide:true,stdio:['pipe','pipe','pipe'],...(qualityJob?{env:qualityModelEnvironment()}: {})});let log='';child.stdout.on('data',chunk=>log+=chunk);child.stderr.on('data',chunk=>log+=chunk);child.on('error',reject);child.on('close',async code=>{await writeFile(path.join(directory,name+'.log'),log);resolve(code);});child.stdin.on('error',()=>{});child.stdin.end(prompt);});if(code!==0)throw Error(`Codex 执行未完成 (${code})`);return JSON.parse(await readFile(output,'utf8'));
 }
 try {
- if(isReview){const interpretation=await interpretChapterAnswers({job,directory,root,call:absolute,asset,runModel});await call(`/jobs/${job.id}/complete`,{claim,review:true,interpretation});console.log(`已核对七道口头回答 ${job.id}`);}
+ if(qualityJob){const result=await processQualityJob({job,root,directory,request:absolute,runModel});console.log('章节质检 '+job.id+' '+JSON.stringify(result));}
+ else if(isReview){const interpretation=await interpretChapterAnswers({job,directory,root,call:absolute,asset,runModel});await call(`/jobs/${job.id}/complete`,{claim,review:true,interpretation});console.log(`已核对七道口头回答 ${job.id}`);}
  else {
  let value;
  try{value=JSON.parse(await readFile(path.join(directory,'answer.json'),'utf8'));}catch{}

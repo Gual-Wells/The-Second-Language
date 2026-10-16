@@ -2,9 +2,10 @@ import {collectNext} from '../speaking/collector.mjs';
 import {speakingEnvironment} from './private-assets.js';
 import { rawPayload, sendPushNotification } from '@mmmike/web-push/send';
 import { authRoute, sessionFor } from './auth.js';
-import { validateAnnotatedContent } from '../../web/annotations.js';
+import { validateAnnotatedContent, validateTeachingLayout } from '../../web/annotations.js';
 import { practiceRoute } from './practice.js';
 import {balanceRoute} from './balances.js';
+import {chapterQualityRoute} from './chapter-quality.js';
 import {questionsRoute} from './questions.js';
 import {chapterTestsRoute} from './chapter-tests.js';
 import {temporaryTestsRoute} from './temporary-tests.js';
@@ -71,6 +72,7 @@ async function route(request, env) {
   if (path === '/health') return json({ ok: true });
   if (path.startsWith('/auth/')) return authRoute(request, env, request.method === 'POST' ? await inputJson(request) : {});
   if(path.startsWith('/api/balances'))return balanceRoute(request,env,{isPublisher:publisher(request,env),session:await sessionFor(request,env),sameOrigin:sameOrigin(request,env)});
+  if(path==='/api/chapter-quality'||path.startsWith('/api/chapter-quality/'))return chapterQualityRoute(request,env,{isPublisher:publisher(request,env),session:await sessionFor(request,env),sameOrigin:sameOrigin(request,env)});
   if(path==='/api/questions'||path.startsWith('/api/questions/'))return questionsRoute(request,env,{isPublisher:publisher(request,env),session:await sessionFor(request,env),sameOrigin:sameOrigin(request,env)});
   if(path==='/api/chapter-tests'||path.startsWith('/api/chapter-tests/'))return chapterTestsRoute(request,env,{isPublisher:publisher(request,env),session:await sessionFor(request,env),sameOrigin:sameOrigin(request,env)});
   if(path==='/api/temporary-tests'||path.startsWith('/api/temporary-tests/'))return temporaryTestsRoute(request,env,{isPublisher:publisher(request,env),session:await sessionFor(request,env),sameOrigin:sameOrigin(request,env)});
@@ -140,7 +142,7 @@ async function route(request, env) {
       typeof value.subtitle !== 'string' || value.subtitle.length > 300 ||
       typeof value.number !== 'string' || value.number.length > 80 ||
       !/^[0-9a-f]{40}$/.test(value.vixCommit || '') || !/^[0-9a-f]{40}$/.test(value.protocolCommit || '')) return json({ error: '章节元数据或结构无效' }, 400);
-    try { validateAnnotatedContent(value.markdown, { expectedWordCount: 40 }); }
+    try { validateTeachingLayout(value.markdown, value.contentPolicy); }
     catch (error) { return json({ error: `章节编码与逐句译文无效：${error.message}` }, 400); }
     const runClaim = await env.DB.prepare('SELECT rest_requested FROM run_claims WHERE run_id=? AND study_date=?').bind(value.runId, value.date).first();
     if (!runClaim || runClaim.rest_requested) return json({ error: '本日未领取运行或已选择休息' }, 409);

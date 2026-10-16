@@ -7,7 +7,7 @@ import {questionsRoute} from '../worker/src/questions.js';
 import {chapterTestTargets,validateChapterPaper} from '../protocol/chapter-test-contract.mjs';
 const sqlite=new DatabaseSync(':memory:');
 sqlite.exec('CREATE TABLE chapter_revisions(chapter_id TEXT,digest TEXT,content_key TEXT,title TEXT);CREATE TABLE published_chapters(chapter_id TEXT);');
-for(const name of ['0005_chapter_questions','0010_chapter_tests','0012_chapter_test_oral','0013_temporary_chapter_tests'])sqlite.exec(await readFile(`worker/migrations/${name}.sql`,'utf8'));
+for(const name of ['0005_chapter_questions','0010_chapter_tests','0012_chapter_test_oral','0013_temporary_chapter_tests','0014_chapter_quality'])sqlite.exec(await readFile(`worker/migrations/${name}.sql`,'utf8'));
 const db={prepare(sql){let values=[];return{bind(...v){values=v;return this;},async first(){return sqlite.prepare(sql).get(...values)||null;},async all(){return{results:sqlite.prepare(sql).all(...values)};},async run(){return{meta:{changes:Number(sqlite.prepare(sql).run(...values).changes)}};}};},async batch(items){sqlite.exec('BEGIN');try{const results=[];for(const i of items)results.push(await i.run());sqlite.exec('COMMIT');return results;}catch(e){sqlite.exec('ROLLBACK');throw e;}}};
 const markdown='<!-- PART:one -->\n'+Array.from({length:40},(_,i)=>`<!-- WORD:W${i} -->\n# word${i}\nMeaning ${i}: context distinguishes this sense from the other choices.\n`).join('')+'<!-- PART:two -->\n<!-- PART:three -->',sha=s=>createHash('sha256').update(s).digest('hex'),digest=sha(markdown);
 sqlite.prepare('INSERT INTO chapter_revisions VALUES(?,?,?,?)').run('chapter',digest,'source','测试章');sqlite.prepare('INSERT INTO published_chapters VALUES(?)').run('chapter');

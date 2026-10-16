@@ -1,0 +1,72 @@
+{
+  "checkedAt": "2026-10-16T10:49:40.407Z",
+  "model": "gpt-6-sol/high",
+  "toolRestrictions": [
+    "--disable",
+    "shell_tool",
+    "--disable",
+    "code_mode",
+    "--disable",
+    "code_mode_host",
+    "--disable",
+    "apps",
+    "--disable",
+    "plugins",
+    "--disable",
+    "multi_agent",
+    "--disable",
+    "browser_use",
+    "--disable",
+    "browser_use_external",
+    "--disable",
+    "computer_use",
+    "--disable",
+    "view_image",
+    "--disable",
+    "image_generation",
+    "--disable",
+    "workspace_dependencies",
+    "--disable",
+    "memories",
+    "-c",
+    "web_search=\"disabled\""
+  ],
+  "scope": "一个真实词族的独立清单、两处已知缺陷与两处对照；不是整库准确率或正式全章质检。",
+  "sourceDigests": [
+    {
+      "book": "collins",
+      "digest": "cf35b72932429ca37060862d409094fee8bbadef8b9e34f3cc3886f19b087634"
+    },
+    {
+      "book": "oxford",
+      "digest": "2bb3812361347c869af310843e013ee41af1078317376e34470cf94b8b6f6cd8"
+    }
+  ],
+  "inventoryFacts": 9,
+  "inventoryDigest": "3c05630d2887712cb13a6ee86690986a206a6e68663083af74947cb6506e24eb",
+  "checks": [
+    {
+      "targetId": "a",
+      "expected": "issue",
+      "actual": "issue"
+    },
+    {
+      "targetId": "b",
+      "expected": "issue",
+      "actual": "issue"
+    },
+    {
+      "targetId": "c",
+      "expected": "supported",
+      "actual": "supported"
+    },
+    {
+      "targetId": "d",
+      "expected": "supported",
+      "actual": "supported"
+    }
+  ],
+  "missingOxfordSenseDetected": true,
+  "passed": true,
+  "thirdPartyPaidCalls": 0
+}
