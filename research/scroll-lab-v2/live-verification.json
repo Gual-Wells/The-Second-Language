@@ -1,0 +1,86 @@
+{
+  "base": "https://scroll-lab.the-second-language.pages.dev",
+  "results": [
+    {
+      "path": "/labs/chapter-scroll-v2/",
+      "status": 200,
+      "type": "text/html; charset=utf-8"
+    },
+    {
+      "path": "/labs/chapter-scroll-v2/chapter-sample.json",
+      "status": 200,
+      "type": "application/json"
+    },
+    {
+      "path": "/labs/chapter-scroll/assets/Aboensis-Regular.otf",
+      "status": 200,
+      "type": "font/otf"
+    },
+    {
+      "path": "/labs/chapter-scroll-v2/assets/jangafx-cloud.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "path": "/labs/chapter-scroll-v2/assets/wood-Diffuse.jpg",
+      "status": 200,
+      "type": "image/jpeg"
+    },
+    {
+      "path": "/labs/chapter-scroll-v2/vendor/drei-cloud.js",
+      "status": 200,
+      "type": "application/javascript"
+    },
+    {
+      "path": "/api/session",
+      "status": 200,
+      "type": "application/json; charset=utf-8"
+    },
+    {
+      "path": "/api/practice",
+      "status": 401,
+      "type": "application/json; charset=utf-8"
+    }
+  ],
+  "errors": [],
+  "ready": true,
+  "snapshot": {
+    "progress": 1,
+    "paperProgress": 1,
+    "bandRelease": 1,
+    "renderCount": 24,
+    "deformations": 16,
+    "mistTime": 2.5533000000000023,
+    "options": {
+      "mist": true,
+      "shaft": true,
+      "band": true
+    },
+    "shaftPosition": [
+      0,
+      -2.9359302792448454,
+      0.12468326106683947
+    ],
+    "bounds": {
+      "minY": -3.064069625387723,
+      "maxY": 3.064069625387723,
+      "rollY": -2.9359302792448454
+    },
+    "vertices": 23569,
+    "camera": [
+      0,
+      0,
+      12
+    ],
+    "template": "late-medieval-parchment-v1",
+    "ready": true,
+    "animating": false,
+    "chapterId": "2026-10-02",
+    "issued": false,
+    "layout": {
+      "lastBaseline": 1744,
+      "width": 1536,
+      "height": 2112
+    }
+  }
+}

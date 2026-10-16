@@ -62,4 +62,18 @@ chapter-sample.json + templates.js
 
 **验收边界：**以上手机截图与检查是 Chromium 402×874 触摸模拟、软件WebGL；实体iPhone/Safari上的色彩、触感、发热与流畅度仍待实测。工程通过不能替代用户审美验收。
 
-发布记录与最终截图见后续本文件补充。新增持续成本为零。
+## 实际发布与收尾
+
+工程代码 `5b54bf8df04b8462413a236fe1d51c7f3173e34d` 已推送 `codex/medieval-scroll-lab-2026-10-16`。
+
+- [新版预览](https://scroll-lab.the-second-language.pages.dev/labs/chapter-scroll-v2/)
+- [固定部署](https://82583ce1.the-second-language.pages.dev/labs/chapter-scroll-v2/)
+- [已认可前版](https://scroll-lab.the-second-language.pages.dev/labs/chapter-scroll/)
+
+![线上展开态，手机模拟](sample-open-iphone.png)
+
+[闭合](sample-closed-iphone.png) · [松带](sample-band-release-iphone.png) · [半开](sample-half-open-iphone.png)。展开截图来自公网实际浏览器，其余来自同版本本地浏览器，均非概念图。
+
+新版19项交互检查、前版14项回归检查通过，未捕获脚本/着色器错误。线上已另查实际字体、材质、组件加载、收展及静置雾染；保留原Pages网关，会话API返回200 JSON、受保护练习API仍返回401。`check-results.json`、`live-verification.json` 保存结果，未将许可不明照片或源VDB加入仓库。
+
+仅发布独立预览分支，没有以旧基线覆盖生产main。任务末尾通过原通路更新额度与容量并排入永久归档队列。新增持续成本为零。
