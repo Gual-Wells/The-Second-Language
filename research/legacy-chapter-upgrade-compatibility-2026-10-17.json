@@ -1,0 +1,274 @@
+{
+  "checkedAt": "2026-10-16T16:10:41.574Z",
+  "scope": "Read-only production snapshot and in-memory structure probe; no teaching content upgraded, staged, published, or synthesized.",
+  "repositoryHead": "471a9fbf2d12351e5e579cd387556ac8f1e2679e",
+  "chapters": [
+    {
+      "id": "2026-10-02",
+      "digest": "7da715756425dc8fa657e250760b9fb4d62212643655e49cae7bc2ca0349ff92",
+      "words": 40,
+      "uses": 66,
+      "etymologyBlocks": 0,
+      "audioUnits": 117,
+      "audioCharacters": 10070
+    },
+    {
+      "id": "2026-10-06",
+      "digest": "f6d03fa2adc3dd9bb2c9a25d22cace6193f0df439c785d5283827f72279cee2e",
+      "words": 40,
+      "uses": 167,
+      "etymologyBlocks": 0,
+      "audioUnits": 301,
+      "audioCharacters": 25378
+    },
+    {
+      "id": "2026-10-09",
+      "digest": "40be00ad89aa366e033f6f36905278822d3963a17787119e60db5a2305cd2dc0",
+      "words": 40,
+      "uses": 130,
+      "etymologyBlocks": 0,
+      "audioUnits": 276,
+      "audioCharacters": 22118
+    },
+    {
+      "id": "2026-10-11",
+      "digest": "daa9360faab703cba95e36af03551aae99266a60e85e257095f4788c0c810995",
+      "words": 40,
+      "uses": 161,
+      "etymologyBlocks": 0,
+      "audioUnits": 322,
+      "audioCharacters": 22262
+    },
+    {
+      "id": "2026-10-12",
+      "digest": "a4c1758afd768f1a61c49f7a88828b4d522d1aa46baf840d3d03764a3bc9eee7",
+      "words": 40,
+      "uses": 173,
+      "etymologyBlocks": 0,
+      "audioUnits": 254,
+      "audioCharacters": 19286
+    },
+    {
+      "id": "2026-10-13",
+      "digest": "ccb42e767c320193322906ff51fcdd4ade514dd459a76d184ee0e818facfe888",
+      "words": 40,
+      "uses": 241,
+      "etymologyBlocks": 0,
+      "audioUnits": 430,
+      "audioCharacters": 31179
+    },
+    {
+      "id": "2026-10-14",
+      "digest": "d2030747e2061ddde30c614b9632068822dac61a8b55cdad40ee354261ab6ef2",
+      "words": 40,
+      "uses": 473,
+      "etymologyBlocks": 0,
+      "audioUnits": 811,
+      "audioCharacters": 67850
+    }
+  ],
+  "totals": {
+    "chapters": 7,
+    "words": 280,
+    "uses": 1411,
+    "audioUnits": 2511,
+    "audioCharacters": 198143
+  },
+  "upgradeSourcePin": "821651446af60912b242ea389bd6891b00381a47",
+  "allLearnerBooksIdentical": true,
+  "sourceCompatibility": [
+    {
+      "chapterId": "2026-10-02",
+      "originalCommit": "8836e601cad6a5f7ff3c04c2a341faf782450dd1",
+      "books": [
+        {
+          "file": "Collins_COBUILD_Chat_Project.md",
+          "oldBlob": "6b565901a13f62fa0a1c989a014eedc22ac2e93b",
+          "newBlob": "6b565901a13f62fa0a1c989a014eedc22ac2e93b",
+          "equal": true
+        },
+        {
+          "file": "Oxford_English_Chinese_Chat_Project.md",
+          "oldBlob": "86ab80076dac48a416de81e48718d1ecbfd12933",
+          "newBlob": "86ab80076dac48a416de81e48718d1ecbfd12933",
+          "equal": true
+        }
+      ]
+    },
+    {
+      "chapterId": "2026-10-06",
+      "originalCommit": "d09d5565eadae105f0914c2771e79c21f5efd86a",
+      "books": [
+        {
+          "file": "Collins_COBUILD_Chat_Project.md",
+          "oldBlob": "6b565901a13f62fa0a1c989a014eedc22ac2e93b",
+          "newBlob": "6b565901a13f62fa0a1c989a014eedc22ac2e93b",
+          "equal": true
+        },
+        {
+          "file": "Oxford_English_Chinese_Chat_Project.md",
+          "oldBlob": "86ab80076dac48a416de81e48718d1ecbfd12933",
+          "newBlob": "86ab80076dac48a416de81e48718d1ecbfd12933",
+          "equal": true
+        }
+      ]
+    },
+    {
+      "chapterId": "2026-10-09",
+      "originalCommit": "e52fa66413c31db8bc5a0305b103a5b5f25e0828",
+      "books": [
+        {
+          "file": "Collins_COBUILD_Chat_Project.md",
+          "oldBlob": "6b565901a13f62fa0a1c989a014eedc22ac2e93b",
+          "newBlob": "6b565901a13f62fa0a1c989a014eedc22ac2e93b",
+          "equal": true
+        },
+        {
+          "file": "Oxford_English_Chinese_Chat_Project.md",
+          "oldBlob": "86ab80076dac48a416de81e48718d1ecbfd12933",
+          "newBlob": "86ab80076dac48a416de81e48718d1ecbfd12933",
+          "equal": true
+        }
+      ]
+    },
+    {
+      "chapterId": "2026-10-11",
+      "originalCommit": "95c980ed973f8b91315e075a867fc4808f44928a",
+      "books": [
+        {
+          "file": "Collins_COBUILD_Chat_Project.md",
+          "oldBlob": "6b565901a13f62fa0a1c989a014eedc22ac2e93b",
+          "newBlob": "6b565901a13f62fa0a1c989a014eedc22ac2e93b",
+          "equal": true
+        },
+        {
+          "file": "Oxford_English_Chinese_Chat_Project.md",
+          "oldBlob": "86ab80076dac48a416de81e48718d1ecbfd12933",
+          "newBlob": "86ab80076dac48a416de81e48718d1ecbfd12933",
+          "equal": true
+        }
+      ]
+    },
+    {
+      "chapterId": "2026-10-12",
+      "originalCommit": "f159209321a7fbf966b4fb0504efad2ebe13249d",
+      "books": [
+        {
+          "file": "Collins_COBUILD_Chat_Project.md",
+          "oldBlob": "6b565901a13f62fa0a1c989a014eedc22ac2e93b",
+          "newBlob": "6b565901a13f62fa0a1c989a014eedc22ac2e93b",
+          "equal": true
+        },
+        {
+          "file": "Oxford_English_Chinese_Chat_Project.md",
+          "oldBlob": "86ab80076dac48a416de81e48718d1ecbfd12933",
+          "newBlob": "86ab80076dac48a416de81e48718d1ecbfd12933",
+          "equal": true
+        }
+      ]
+    },
+    {
+      "chapterId": "2026-10-13",
+      "originalCommit": "502375fa8ffc5ad4fe2a0743337d704ccf46e25a",
+      "books": [
+        {
+          "file": "Collins_COBUILD_Chat_Project.md",
+          "oldBlob": "6b565901a13f62fa0a1c989a014eedc22ac2e93b",
+          "newBlob": "6b565901a13f62fa0a1c989a014eedc22ac2e93b",
+          "equal": true
+        },
+        {
+          "file": "Oxford_English_Chinese_Chat_Project.md",
+          "oldBlob": "86ab80076dac48a416de81e48718d1ecbfd12933",
+          "newBlob": "86ab80076dac48a416de81e48718d1ecbfd12933",
+          "equal": true
+        }
+      ]
+    },
+    {
+      "chapterId": "2026-10-14",
+      "originalCommit": "1c68bc512a1c81039d205c224697a1d7128291d9",
+      "books": [
+        {
+          "file": "Collins_COBUILD_Chat_Project.md",
+          "oldBlob": "6b565901a13f62fa0a1c989a014eedc22ac2e93b",
+          "newBlob": "6b565901a13f62fa0a1c989a014eedc22ac2e93b",
+          "equal": true
+        },
+        {
+          "file": "Oxford_English_Chinese_Chat_Project.md",
+          "oldBlob": "86ab80076dac48a416de81e48718d1ecbfd12933",
+          "newBlob": "86ab80076dac48a416de81e48718d1ecbfd12933",
+          "equal": true
+        }
+      ]
+    }
+  ],
+  "structuralProbe": [
+    {
+      "chapterId": "2026-10-02",
+      "teachingLayoutAccepted": true,
+      "mainWords": 40,
+      "partsTwoThreeByteIdentical": true,
+      "audioDescriptorsIdentical": true,
+      "units": 117,
+      "probeChapterSaved": false
+    },
+    {
+      "chapterId": "2026-10-06",
+      "teachingLayoutAccepted": true,
+      "mainWords": 40,
+      "partsTwoThreeByteIdentical": true,
+      "audioDescriptorsIdentical": true,
+      "units": 301,
+      "probeChapterSaved": false
+    },
+    {
+      "chapterId": "2026-10-09",
+      "teachingLayoutAccepted": true,
+      "mainWords": 40,
+      "partsTwoThreeByteIdentical": true,
+      "audioDescriptorsIdentical": true,
+      "units": 276,
+      "probeChapterSaved": false
+    },
+    {
+      "chapterId": "2026-10-11",
+      "teachingLayoutAccepted": true,
+      "mainWords": 40,
+      "partsTwoThreeByteIdentical": true,
+      "audioDescriptorsIdentical": true,
+      "units": 322,
+      "probeChapterSaved": false
+    },
+    {
+      "chapterId": "2026-10-12",
+      "teachingLayoutAccepted": true,
+      "mainWords": 40,
+      "partsTwoThreeByteIdentical": true,
+      "audioDescriptorsIdentical": true,
+      "units": 254,
+      "probeChapterSaved": false
+    },
+    {
+      "chapterId": "2026-10-13",
+      "teachingLayoutAccepted": true,
+      "mainWords": 40,
+      "partsTwoThreeByteIdentical": true,
+      "audioDescriptorsIdentical": true,
+      "units": 430,
+      "probeChapterSaved": false
+    },
+    {
+      "chapterId": "2026-10-14",
+      "teachingLayoutAccepted": true,
+      "mainWords": 40,
+      "partsTwoThreeByteIdentical": true,
+      "audioDescriptorsIdentical": true,
+      "units": 811,
+      "probeChapterSaved": false
+    }
+  ],
+  "ttsCalls": 0,
+  "productionWrites": 0
+}
