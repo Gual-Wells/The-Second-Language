@@ -19,7 +19,7 @@ function firstUnits(source) {
     if (!line) continue;
     if (awaitingGloss) {
       if (!mono(line) || /^(?:Oxford|牛津)\s*[:：]|美式音标|美音\s*[:：]/i.test(line.slice(1, -1)))
-        throw new Error(`用法 ${awaitingGloss} 下一行须是无来源或音标说明字的等宽 Oxford 词义`);
+        throw new Error(`用法 ${awaitingGloss} 下一行须是无来源或音标说明字的等宽融合词义`);
       awaitingGloss = null; continue;
     }
     const word = WORD.exec(line), use = USE.exec(line);
@@ -135,4 +135,14 @@ export function validateAnnotatedContent(markdown, { expectedWordCount, maxWordC
   const { sentences, covered } = sentenceRecords(parts.three, uses);
   for (const id of uses.keys()) if (!covered.has(id)) throw new Error(`文章未使用第一部分的用法：${id}`);
   return { parts, words, uses, sentences };
+}
+
+// Opt-in for new production runs; historical chapters keep their original format.
+export function validateTeachingLayout(markdown,policy) {
+  const parsed=validateAnnotatedContent(markdown,{expectedWordCount:40});
+  if(!policy||policy==='legacy')return parsed;
+  if(policy!=='etymology-fused-v1')throw Error('未知章节教学协议');
+  const blocks=parsed.parts.one.split(/^<!-- WORD:/m).slice(1);
+  for(const block of blocks){const intro=block.split(/^<!-- USE:/m)[0],labels=[...intro.matchAll(/\*\*词源\*\*\s*[：:]/g)];if(labels.length!==1||!intro.slice(labels[0].index+labels[0][0].length).trim())throw Error('新章每个一级词头须有一个完整词源区块');}
+  return parsed;
 }

@@ -43,7 +43,7 @@ if (!/^[0-9a-f]{40}$/.test(commit || '')) throw new Error('VIX 当前 HEAD 无�
 const tree = await getJson(`https://api.github.com/repos/${repo}/git/trees/${commit}?recursive=1`);
 if (tree.truncated) throw new Error('VIX 文件树被截断');
 const files = tree.tree.filter(item => item.type === 'blob' &&
-  (/^data\/seed5-runtime\//.test(item.path) || /^data\/seed-access\//.test(item.path) || /^textbook\/.*\.md$/.test(item.path) || item.path === 'tools/build-seed-access.mjs'));
+  (/^data\/seed5-runtime\//.test(item.path) || /^data\/seed-access\//.test(item.path) || /^textbook\/.*\.md$/.test(item.path) || item.path === 'textbook/Etymology_Sources.json' || item.path === 'tools/build-seed-access.mjs'));
 const dest = path.resolve('.cache/vix', commit);
 await mkdir(dest, { recursive: true });
 const cachedCommits = (await readdir(path.resolve('.cache/vix'), { withFileTypes: true }))

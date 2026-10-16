@@ -6,7 +6,7 @@ const hash=b=>createHash('sha256').update(b).digest('hex'),LIMIT=8*1024*1024;
 const privateName=name=>/secret|credential|\.dpapi$|^\.env|^\.dev\.vars|^speaking-provider\.json$/i.test(name);
 async function entries(dir){try{return await readdir(dir,{withFileTypes:true});}catch(e){if(e.code==='ENOENT')return[];throw e;}}
 export async function archiveWorking(root,put){
- let config={};try{config=JSON.parse(await readFile(path.join(root,'.cache/runtime-sources.json'),'utf8'));}catch(e){if(e.code!=='ENOENT')throw e;}
+ let config={};try{config=JSON.parse((await readFile(path.join(root,'.cache/runtime-sources.json'),'utf8')).replace(/^\uFEFF/,''));}catch(e){if(e.code!=='ENOENT')throw e;}
  const roots=config.roots||[],linked=config.linkedDirectoryRoots||[];
  if(!Array.isArray(roots)||!Array.isArray(linked)||[...roots,...linked].some(p=>typeof p!=='string'||!path.isAbsolute(p)))throw Error('归档来源目录配置无效');
  const sources=[...new Set([...roots.filter(p=>path.resolve(p)!==path.resolve(root)),root])];
@@ -22,7 +22,7 @@ async function directory(target,allowed,required=false){
 }
 async function archiveSingle(root,put,allowed){
  const groups=[];
- for(const category of ['runs','questions']){const container=await directory(path.join(root,'work',category),allowed);if(!container)continue;
+ for(const category of ['runs','questions','quality']){const container=await directory(path.join(root,'work',category),allowed);if(!container)continue;
   for(const entry of await entries(container)){if(privateName(entry.name)||!(entry.isDirectory()||entry.isSymbolicLink()))continue;const dir=await directory(path.join(container,entry.name),allowed,true);if(dir)groups.push({id:`${category}/${entry.name}`,dir});}
  }
  const expression=await directory(path.join(root,'work/expression'),allowed);

@@ -235,3 +235,6 @@ Cloudflare 官方说明 `batch()` 为事务，语句失败会使整个序列回�
 **建议实现顺序**：取证包和来源身份 → 离线盲测/误报校准 → 阶段结果/领取权/恢复 → 申请与手机报告 → 实际全章试用。词源来源可以继续收集，不是教材正文质检的必需前置条件。
 
 **仍须实测或决定**：完整原教材版次核验、盲测有效性、合格措辞和评分是否保留、全章执行的合理工作块、主动让出任务的等待表现。提出设计不等于这些问题已经解决。
+
+## 后续正式实施（同日）
+用户已要求本设计正式接入。当前权威为 protocol/CHAPTER_QUALITY.md，工程为 worker/src/chapter-quality.js、protocol/chapter-quality-contract.mjs、scripts/lib/chapter-quality-runner.mjs 及 web/chapter-quality.js；原“尚未实现”的段落保留为研究时状态。词源按用户修订的 ETYMOLOGY.md 执行，不建立逐义词源映射，不追求学术完备。小样语义校准见 chapter-quality-semantic-calibration-2026-10-16.json，不能当作整库准确率。

@@ -1,17 +1,18 @@
-import {createReaderJump} from './reader-jump.js?v=33';
-import {installPureReader} from './pure-reader.js?v=33';
-import {chapterNumber, createChapterBook} from './chapters.js?v=33';
-import {installSettingsNavigation} from './settings.js?v=33';
-import {createAudioConfig} from './audio-config.js?v=33';
-import {installReaderSpeech} from './reader-speech.js?v=33';
-import { parseParts, renderPart } from './render.js?v=33';
-import { validateAnnotatedContent } from './annotations.js?v=33';
-import { createPracticeUI } from './practice.js?v=33';
-import {createBalanceUI} from './balances.js?v=33';
-import {createStorageUsageUI} from './storage-usage.js?v=33';
-import {createChapterTestsUI} from './chapter-tests.js?v=33';
-import {createQuestionsUI} from './questions.js?v=33';
-import {openAudioChapter,clearAudioLibrary,preloadEnabled,setPreload} from './audio-library.js?v=33';
+import {createChapterQualityUI} from './chapter-quality.js?v=35';
+import {createReaderJump} from './reader-jump.js?v=35';
+import {installPureReader} from './pure-reader.js?v=35';
+import {chapterNumber, createChapterBook} from './chapters.js?v=35';
+import {installSettingsNavigation} from './settings.js?v=35';
+import {createAudioConfig} from './audio-config.js?v=35';
+import {installReaderSpeech} from './reader-speech.js?v=35';
+import { parseParts, renderPart } from './render.js?v=35';
+import { validateAnnotatedContent } from './annotations.js?v=35';
+import { createPracticeUI } from './practice.js?v=35';
+import {createBalanceUI} from './balances.js?v=35';
+import {createStorageUsageUI} from './storage-usage.js?v=35';
+import {createChapterTestsUI} from './chapter-tests.js?v=35';
+import {createQuestionsUI} from './questions.js?v=35';
+import {openAudioChapter,clearAudioLibrary,preloadEnabled,setPreload} from './audio-library.js?v=35';
 
 const $ = id => document.getElementById(id);
 const todayParts = Object.fromEntries(new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(new Date()).map(part => [part.type, part.value]));
@@ -50,6 +51,7 @@ const balances=createBalanceUI({api,showDialog});
 createStorageUsageUI({api,showDialog});
 const questions=createQuestionsUI({api,showDialog,toast,getContext:()=>state});
 const chapterTests=createChapterTestsUI({api,showDialog,toast,getContext:()=>state});
+const chapterQuality=createChapterQualityUI({api,showDialog,toast,getContext:()=>state,openSource:async(chapter,location)=>{if(await openChapter(chapter.id,true,chapter.digest)){const part=location?.part||'one';jumpWithin(()=>{if(location?.sentenceId)return [...$('article').querySelectorAll('[data-sentence-id]')].find(n=>n.dataset.sentenceId===location.sentenceId);if(location?.useId){const matches=[...$('article').querySelectorAll('[data-use-id]')].filter(n=>n.dataset.useId===location.useId);return matches[Math.max(0,(location.ordinal||1)-1)]||matches[0];}return [...$('article').querySelectorAll('[data-word-id]')].find(n=>n.dataset.wordId===location?.wordId)||$('article');},part);}}});
 const chapterBook=createChapterBook({getContext:()=>state,openChapter,showDialog,renderCalendar});
 createAudioConfig({api,getContext:()=>state,toast});
 
@@ -345,7 +347,7 @@ async function openChapter(id, resume = true, digest = null) {
     state.current = chapter;
     state.lastDailyId = id;
     state.current.digest = chapter.digest || state.chapters.find(item => item.id === id)?.digest;
-    questions.changed();chapterTests.changed();
+    questions.changed();chapterTests.changed();chapterQuality.changed();
     nativeSpeech.setChapter(chapter.markdown||'');
     openAudioChapter(chapter);
     prepareContent(chapter.markdown, id);
@@ -432,7 +434,7 @@ async function openTemporary(id, resume = true) {
     if (request !== state.chapterRequest) return;
     if(page.testId){if(!state.current)await openChapter(page.chapterId,true,page.digest);closeDialog('temporaryDialog');history.replaceState(null,'',`/?temporary=${encodeURIComponent(id)}`);await chapterTests.preview(page);setSyncStatus('临时测试已打开 · 48 小时到期');return;}
     state.current = page;
-    questions.changed();chapterTests.changed();
+    questions.changed();chapterTests.changed();chapterQuality.changed();
     nativeSpeech.setChapter(page.markdown||'');
     openAudioChapter(page);
     prepareContent(page.markdown, id);
@@ -497,7 +499,7 @@ async function passkey(kind, setupKey) {
 }
 
 function showLogin(status, message = '') {
-  questions.clear();chapterTests.clear();
+  questions.clear();chapterTests.clear();chapterQuality.clear();
   clearAudioLibrary();
   $('app').classList.add('login-mode');
   $('app').classList.remove('empty-mode');
@@ -732,6 +734,6 @@ $('chapterNav').addEventListener('touchend', event => {
   if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.5) moveChapter(dx < 0 ? 1 : -1);
   swipeStart = null;
 }, { passive: true });
-if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=33', { updateViaCache: 'none' }).catch(() => {});
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=35', { updateViaCache: 'none' }).catch(() => {});
 refreshInstallStatus();
 initialize().then(()=>{if(state.authenticated&&new URLSearchParams(location.search).has('balances'))balances.open();});

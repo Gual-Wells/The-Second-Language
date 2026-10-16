@@ -1,14 +1,14 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import path from 'node:path';
-import { validateAnnotatedContent } from '../web/annotations.js';
+import { validateTeachingLayout } from '../web/annotations.js';
 
 const date = process.argv[2];
 if (!/^\d{4}-\d{2}-\d{2}$/.test(date || '')) throw new Error('用法: node scripts/pack-chapter.mjs YYYY-MM-DD');
 const folder = path.resolve('chapters', date);
 const markdown = await readFile(path.join(folder, 'chapter.md'), 'utf8');
 const meta = JSON.parse(await readFile(path.join(folder, 'meta.json'), 'utf8'));
-validateAnnotatedContent(markdown, { expectedWordCount: 40 });
+validateTeachingLayout(markdown, meta.contentPolicy);
 const parts = ['one', 'two', 'three'].map(part => `<!-- PART:${part} -->`);
 const positions = parts.map(part => markdown.indexOf(part));
 if (positions.some(x => x < 0) || positions[0] >= positions[1] || positions[1] >= positions[2]) throw new Error('章节必须按顺序包含三部分标记');
@@ -20,6 +20,6 @@ if (words.length !== 40 || new Set(words).size !== 40 || JSON.stringify(words) !
 if (words.some((word, i) => i > 0 && words[i - 1].localeCompare(word, 'en') > 0)) throw new Error('主词未按字典序排列');
 if (meta.date !== date || meta.wordCount !== 40 || !meta.title || !meta.number) throw new Error('章节元数据不匹配');
 const digest = createHash('sha256').update(markdown).digest('hex');
-const packed = { id: date, date, title: meta.title, subtitle: meta.subtitle || '', number: meta.number, wordCount: 40, digest, markdown };
+const packed = { id: date, date, title: meta.title, subtitle: meta.subtitle || '', number: meta.number, wordCount: 40, contentPolicy: meta.contentPolicy || 'legacy', digest, markdown };
 await writeFile(path.join(folder, 'chapter.json'), JSON.stringify(packed));
 console.log(`章节已整理：${date}，40 主词，SHA-256 ${digest}`);

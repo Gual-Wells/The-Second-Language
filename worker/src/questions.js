@@ -1,3 +1,4 @@
+import {qualityQueueTime,claimQuality} from './chapter-quality.js';
 import {chapterText} from './storage.js';
 import {claimChapterTest,chapterTestsRoute,chapterTestQueueTime} from './chapter-tests.js';
 import {temporaryTestQueueTime,claimTemporaryTest,temporaryTestsRoute} from './temporary-tests.js';
@@ -28,7 +29,7 @@ export async function questionsRoute(request,env,{isPublisher,session,sameOrigin
    await db.prepare("UPDATE chapter_tests SET status='failed',claim=NULL,error='出题被中断，可重新处理',updated_at=? WHERE status='running' AND lease_until<?").bind(now,now).run();
    const regular=await chapterTestQueueTime(env),temporary=await temporaryTestQueueTime(env),test=temporary&&(!regular||temporary.created_at<regular.created_at)?{...temporary,temporary:true}:regular;
    if(test&&(!candidate||test.created_at<candidate.created_at))return json({job:test.temporary?await claimTemporaryTest(env,b.claim):await claimChapterTest(env,b.claim)});
-   if(!candidate)return json({job:null});
+   if(!candidate){if(await qualityQueueTime(env))return json({job:await claimQuality(env,b.claim)});return json({job:null});}
    if(typeof b.claim!=='string'||b.claim.length!==64)return json({error:'领取凭据无效'},400);
    const row=await db.prepare("UPDATE chapter_question_jobs SET status='running',claim=?,lease_until=?,attempts=attempts+1,updated_at=? WHERE id=? AND status='pending' RETURNING id").bind(await sha(b.claim),now+300000,now,candidate.id).first();
    if(!row)return json({job:null});

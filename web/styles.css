@@ -114,6 +114,7 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
 .reader-head p { margin: 0; color: #526b83; font-size: 11px; line-height: 1.55; }
 .chapter-title-row { display: flex; align-items: flex-end; gap: 10px; margin: 6px 0 4px; }
 .chapter-title-row h2 { flex: 1; min-width: 0; margin: 0; }
+.chapter-actions { display: flex; align-items: flex-end; gap: 5px; flex: none; }
 .chapter-title-row button { flex: none; margin-bottom: 2px; }
 .reader-head p:empty { display: none; }
 .part-heading, .section-band { display: flex; justify-content: space-between; align-items: center; gap: 7px; border: 1px solid #8daac5; background: linear-gradient(#f8fbff, #d7e6f5); color: #214e79; box-shadow: 0 1px 0 #fff inset; }
@@ -127,6 +128,8 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
 .article-tools span { margin-left: auto; color: #617d96; font-size: 9px; }
 .article { min-height: 50vh; border: 1px solid #b5c8da; border-top: 0; padding: 12px; background: #fff; overflow-wrap: anywhere; }
 .word-entry { margin: 0 0 14px; border: 1px solid #b3c7d9; background: #fff; box-shadow: 0 1px 0 #fff inset, 0 1px 2px #9fb1c355; }
+.article .word-entry > p { margin-left: 11px; margin-right: 11px; }
+.article .word-entry > ol, .article .word-entry > ul { margin-left: 11px; margin-right: 11px; }
 .word-entry:last-child { margin-bottom: 0; }
 .word-heading { display: flex; align-items: baseline; gap: 9px; min-height: 39px; border-bottom: 1px solid #7897b7; padding: 7px 9px 6px; background: linear-gradient(#f8fbff, #d6e6f5); }
 .word-heading .word-order { color: #6687a5; font-size: 10px; font-weight: 700; font-variant-numeric: tabular-nums; }
@@ -566,3 +569,20 @@ textarea.text-input { resize: vertical; }
 .chapter-test-recorder .button-row { display: flex; gap: 8px; flex-wrap: wrap; }
 .chapter-test-recorder .practice-guidance { margin: 10px 0; font-size: 12px; line-height: 1.6; color: var(--muted); }
 .chapter-test-recorder button { flex: 1; min-width: 105px; }
+
+/* Native chapter quality sheet; long findings scroll inside the dialog. */
+#chapterQualityDialog .sheet { display: flex; flex-direction: column; max-height: min(86dvh, 850px); }
+.quality-status { margin: 0; padding: 10px 13px; border-bottom: 1px solid #b3c7d9; color: #315b80; background: #eef5fb; font-size: 13px; }
+.quality-body { overflow-y: auto; min-height: 80px; padding: 12px; -webkit-overflow-scrolling: touch; overflow-wrap: anywhere; }
+.quality-summary { color: #214e79; font-size: 13px; }
+.quality-finding { margin: 10px 0; padding: 10px; border: 1px solid #b3c7d9; background: #fff; }
+.quality-finding h3 { margin: 0 0 8px; color: #214e79; font-size: 15px; }
+.quality-finding p, .quality-details p { font-size: 14px; line-height: 1.7; white-space: pre-wrap; }
+.quality-finding blockquote { margin: 8px 0; padding: 7px 9px; border-left: 3px solid #7299bd; background: #edf4fa; font-size: 14px; line-height: 1.6; white-space: pre-wrap; }
+.quality-limitation { color: #65778a; font-size: 12px; line-height: 1.65; }
+.quality-details { margin: 12px 0; padding: 9px; border: 1px solid #b3c7d9; background: #f6f9fc; }
+.quality-details details { padding: 8px 0; border-bottom: 1px solid #d5e1ec; }
+.quality-details summary { color: #214e79; cursor: pointer; }
+.quality-footer { flex: none; padding: 9px 12px; border-top: 1px solid #9cb5cb; background: linear-gradient(#f8fbff,#e0ebf5); }
+.quality-footer p { margin: 0 0 7px; color: #65778a; font-size: 11px; }
+@media (max-width: 600px) { .article .word-entry > p, .article .word-entry > ol, .article .word-entry > ul { margin-left: 9px; margin-right: 9px; } }

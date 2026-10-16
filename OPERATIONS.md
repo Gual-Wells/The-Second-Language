@@ -170,3 +170,8 @@ v25 点读范围见 READER_INTERACTION.md 和 research/reader-point-audio-scope-
 `retire-word-audio.mjs --apply` 从既有不可变章节清单按原件摘要重新打包句子，下载每个旧包一次；不调用模型，不删除收费原件及历史索引。`clean-point-audio.mjs` 的全池关联修复仍保留供单独维护，常规取消词汇功能无需扫描全部付费返回。
 
 章节测试运行 `question-worker.mjs` 与现有答疑共用排队；`--tests-only` 可进行明确的实际出题验收。数据库迁移 0010 新增测试状态、0011 清除未执行下一章选配中的词汇项，原件未删除。测试前后均查询额度，正式认证与纪念币仍不启用。
+
+## 词源与章节质检（v34）
+新课先读 ETYMOLOGY.md；`node scripts/lookup-textbooks.mjs YYYY-MM-DD word [related-word]` 从固定 VIX 资料取得候选和原文定位。首次安装本更新对主库执行 `0014_chapter_quality.sql` 迁移，再部署 Worker 和 Pages。原 `run-questions.ps1` 自动处理 chapter-quality，无新监测器或订阅；work/quality 纳入永久工作归档。每个自然工作块可让出给答疑/测试，失败由界面明确继续。
+
+确定性检查：`node scripts/check-chapter-quality.mjs`（内存库、来源引用、范围、签发竞争及完整执行器夹具）；`node scripts/check-reader-ui.mjs`（iPhone 视口隔离界面）；原答疑/章节测试检查继续适用。语义校准仅显式执行 `node scripts/calibrate-chapter-quality.mjs --execute`，使用既有 Codex 额度；结果是小样，不等于全章准确率。完整报告、证据和模型返回在文件基座，D1 仅指针和进度。

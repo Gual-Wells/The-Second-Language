@@ -27,7 +27,8 @@ try{
  await link(path.join(approved,'practice'),path.join(project,'work/expression'));
  await file(path.join(approved,'speaking/record.json'),'{}');await file(path.join(approved,'speaking/run.mjs'),'not an evidence format');
  await link(path.join(approved,'speaking'),path.join(project,'.cache/speaking'));
- const config=path.join(project,'.cache/runtime-sources.json');await file(config,JSON.stringify({roots:[],linkedDirectoryRoots:[approved]}));
+ const config=path.join(project,'.cache/runtime-sources.json');await file(config,'\uFEFF'+JSON.stringify({roots:[],linkedDirectoryRoots:[approved]}));
+ await file(path.join(project,'work/quality/report-one/result.json'),'{"decision":"needs_evidence"}');
  groups=await archiveWorking(project,put);let rebuilt=rebuild(groups);
  assert.equal(rebuilt.get('runs/2026-10-11/words/语义.md').toString(),'immutable evidence — 词义、例句与出处');
  assert.deepEqual(rebuilt.get('runs/2026-10-11/large.bin'),big,'multipart original must restore exactly');
@@ -38,6 +39,7 @@ try{
  const newer=await archiveWorking(project,put);assert.notEqual(newer.find(g=>g.key.includes('2026-10-11')).digest,groups.find(g=>g.key.includes('2026-10-11')).digest);
  assert.equal(rebuild(groups).get('runs/2026-10-11/words/语义.md').toString(),'immutable evidence — 词义、例句与出处','older content-addressed snapshot remains restorable');
  assert.equal(rebuild(newer).get('runs/2026-10-11/words/语义.md').toString(),'new version');
+ assert.equal(rebuild(newer).get('quality/report-one/result.json').toString(),'{"decision":"needs_evidence"}');
  await link(outside,path.join(project,'work/questions/unapproved'));
  await assert.rejects(archiveWorking(project,put),/未登记/,'unapproved top-level link must fail rather than silently omit evidence');
  console.log('Working archives: ordinary roots, approved Windows junctions, expression/evidence groups, exact multipart recovery, version identities, privacy filters, nested cycles and unapproved targets passed.');

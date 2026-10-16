@@ -1,0 +1,55 @@
+{
+  "checkedAt": "2026-10-16T09:31:08.319Z",
+  "scope": "Isolated two-usage fragment; not a complete source-conserving chapter or iOS Safari acceptance.",
+  "checks": {
+    "plainEtymologyAccepted": true,
+    "fusedSummaryStructurallyAccepted": true,
+    "wordUseAndSentenceIdsUnchanged": true,
+    "partsTwoThreeUnchanged": true,
+    "audioUnitsUnchanged": true,
+    "pointAudioKeysUnchanged": true
+  },
+  "counts": {
+    "words": 1,
+    "uses": 2,
+    "audioUnits": 4,
+    "uniqueAudioKeys": 4
+  },
+  "rejected": {
+    "missingSummary": "用法 U001 下一行须是无来源或音标说明字的等宽 Oxford 词义",
+    "unsupportedMarker": "第一部分出现未知编码：<!-- ETY:E001 -->"
+  },
+  "rendered": {
+    "wordCount": 1,
+    "senseCount": 2,
+    "etymologyAtWordLevel": true,
+    "etymologyBeforeFirstSense": true,
+    "jumpUseIds": [
+      "U001",
+      "U002"
+    ],
+    "summaries": [
+      "劈开某物；某物因劈砍而裂开。",
+      "坚定地忠于某人或坚持某种信念。"
+    ],
+    "viewportWidth": 402,
+    "documentWidth": 402
+  },
+  "etymologyGeometry": {
+    "paragraphInset": 1,
+    "sensePadding": 9
+  },
+  "proposedLayout": {
+    "paragraphInset": 10,
+    "documentWidth": 402
+  },
+  "browserErrors": [],
+  "inputs": {
+    "fixtureSha256": "e7bcf1522f4e0cf89567503969b09cc2bf87b18a799c5665e5a272c9635c77ff",
+    "annotationSha256": "c603f609eb84de0f435fe04a12f2525968e5c6463cca9c0e7bffb0e54a959620",
+    "renderSha256": "e57e1d5607d1b653b08cd5ba3d35e88e3fc01f621b1db4418f43bc8f89857b9c",
+    "audioPlanSha256": "2f562a8ac0f472c3f431827c82f039872b41bfe3481f27184b1ef70171b5e490",
+    "stylesSha256": "16f69efeced169fdf70122196d174d5e753c4ca15400df05fe31239e75ae421b"
+  },
+  "paidCalls": 0
+}

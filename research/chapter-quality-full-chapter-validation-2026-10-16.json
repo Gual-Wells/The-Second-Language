@@ -1,0 +1,38 @@
+{
+  "checkedAt": "2026-10-16T15:03:35.582Z",
+  "chapter": {
+    "id": "2026-10-02",
+    "digest": "7da715756425dc8fa657e250760b9fb4d62212643655e49cae7bc2ca0349ff92",
+    "title": "地图上的那条线"
+  },
+  "requestId": "5e6a3e65-c53c-4b1e-9601-cb19c538dd52",
+  "previousRequestId": "a6029c53-ba86-4a3f-ba24-785cfc2b0c6a",
+  "reportDigest": "572b5d846104f9f2add05c436e83e7b585681aec980928187439ffc08a8fbf78",
+  "decision": "revision_required",
+  "coverage": {
+    "expected": 492,
+    "completed": 492,
+    "words": 40
+  },
+  "findings": 40,
+  "verification": {
+    "confirmed": 11
+  },
+  "confirmedSeverity": {
+    "minor": 8,
+    "major": 3
+  },
+  "unresolvedChecks": 4,
+  "priorStagesReused": true,
+  "signedReadbackIdentical": true,
+  "chapterNotRewritten": true,
+  "audioNotRegenerated": true,
+  "sameEvidenceDigest": true,
+  "sameChecksAndInventory": true,
+  "followupModelCalls": 2,
+  "followupModelStages": [
+    "finding-links",
+    "verification"
+  ],
+  "blockingLocationsNotIndependentDefects": true
+}
