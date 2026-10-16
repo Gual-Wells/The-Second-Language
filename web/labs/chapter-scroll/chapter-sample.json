@@ -1,0 +1,19 @@
+{
+  "template": "late-medieval-parchment-v1",
+  "status": "specimen",
+  "chapterId": "2026-10-02",
+  "chapterDigest": "7da715756425dc8fa657e250760b9fb4d62212643655e49cae7bc2ca0349ff92",
+  "chapterNumber": 1,
+  "chapterTitle": "地图上的那条线",
+  "displayTitle": "The Line on the Map",
+  "heading": "Be it remembered",
+  "institution": "The Second Language",
+  "introduction": "that the first chapter, bearing the name",
+  "paragraphs": [
+    "is here preserved as a remembrance of learning: of words considered in their several meanings, of sentences understood, and of meaning carried through a whole account.",
+    "Here are adversity and courage; the life of a forest and the shelter of its creatures; a flood, a disputed boundary, and voices heard in public. A line upon a map may divide the land, yet it cannot tell the whole of what is lived there.",
+    "Let understanding endure beyond these leaves, and let what has been learned find use in speech and writing."
+  ],
+  "colophon": "Chapter I",
+  "specimenNote": "A specimen, not an issued record."
+}
