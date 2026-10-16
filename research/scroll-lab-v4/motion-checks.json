@@ -1,0 +1,15 @@
+{
+  "checks": [
+    "slower page movement creates a smaller disturbance",
+    "motion impulse has a calibrated speed ceiling",
+    "motion speed does not depend on frame rate",
+    "a long pause creates no resume impulse",
+    "opening creates no additional smoke density",
+    "all ongoing fog sources are outside the visible viewport",
+    "continuous emission rate is stable across frame rates",
+    "disabled atmosphere performs no simulation work"
+  ],
+  "nominalDocumentWidthM": 0.3,
+  "maximumInducedAirSpeedMps": 0.015,
+  "assumptions": "Art-directed 2D surrogate; not experimentally validated parchment aerodynamics"
+}

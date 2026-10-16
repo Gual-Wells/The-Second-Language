@@ -624,3 +624,9 @@ textarea.text-input { resize: vertical; }
 .scroll-lab-v3 .scroll-document-detail { overflow: auto; padding: 8px; background: #282c2b; }
 .scroll-lab-v3 .scroll-document-detail img { display: block; width: 100%; height: auto; }
 .scroll-lab-v3 .scroll-detail-transcript summary { padding: 13px 20px; font-size: 14px; color: #315b7b; }
+
+/* Overscan the flow field: broad atmospheric inputs stay beyond the viewport. */
+.scroll-lab-v4 #mistCanvas { inset: auto; left: -30%; top: -15%; width: 160%; height: 130%; opacity: .48; }
+.scroll-lab-v4 .scroll-fallback { background-image: url('/labs/chapter-scroll-v4/assets/charter.webp'); }
+.scroll-lab-v4 .scroll-keeper-detail summary { padding: 13px 20px; font-size: 14px; color: #315b7b; }
+.scroll-lab-v4 .scroll-keeper-detail img { display: block; max-width: 65%; max-height: 600px; margin: 0 auto 15px; background: #282c2b; }

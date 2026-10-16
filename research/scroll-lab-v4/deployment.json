@@ -1,0 +1,91 @@
+{
+  "deployedAt": "2026-10-16T22:12:51.033Z",
+  "immutableBase": "https://2410a87b.the-second-language.pages.dev",
+  "alias": "https://scroll-lab.the-second-language.pages.dev",
+  "path": "/labs/chapter-scroll-v4/",
+  "results": [
+    {
+      "path": "/labs/chapter-scroll-v4/",
+      "status": 200,
+      "type": "text/html; charset=utf-8"
+    },
+    {
+      "path": "/labs/chapter-scroll-v4/assets/charter.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/labs/chapter-scroll-v4/assets/skin-normal.jpg",
+      "status": 200,
+      "type": "image/jpeg"
+    },
+    {
+      "path": "/labs/chapter-scroll-v4/assets/keeper.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/labs/chapter-scroll-v3/assets/studio.hdr",
+      "status": 200,
+      "type": "application/octet-stream"
+    },
+    {
+      "path": "/labs/chapter-scroll-v4/vendor/fluid.js",
+      "status": 200,
+      "type": "application/javascript"
+    },
+    {
+      "path": "/labs/chapter-scroll/assets/Aboensis-Regular.otf",
+      "status": 200,
+      "type": "font/otf"
+    },
+    {
+      "path": "/api/session",
+      "status": 200,
+      "type": "application/json; charset=utf-8"
+    },
+    {
+      "path": "/api/practice",
+      "status": 401,
+      "type": "application/json; charset=utf-8"
+    }
+  ],
+  "errors": [],
+  "snapshot": {
+    "progress": 1,
+    "paperProgress": 1,
+    "renderCount": 17,
+    "vertices": 12341,
+    "camera": [
+      0,
+      0,
+      12
+    ],
+    "keeperVisible": false,
+    "viewHeight": 10.89,
+    "ready": true,
+    "animating": false,
+    "chapterId": "2026-10-02",
+    "issued": false,
+    "layout": {
+      "lastBaseline": 1974.429999999999,
+      "bodyFontSize": 59,
+      "width": 1536,
+      "height": 2304
+    },
+    "mist": {
+      "available": true,
+      "enabled": true,
+      "frames": 17,
+      "motionPeakMps": 0,
+      "ambientDose": 0.19741341193816225,
+      "visibleDomain": {
+        "left": 0.18749999999999997,
+        "right": 0.8125,
+        "bottom": 0.11538461538461538,
+        "top": 0.8846153846153845
+      }
+    }
+  },
+  "verified": "Public HTTP and Chromium 402x874 software WebGL; not physical iPhone/Safari"
+}

@@ -1,0 +1,67 @@
+{
+  "date": "2026-10-17",
+  "specimen": true,
+  "productionCertification": false,
+  "art": {
+    "tool": "built-in imagegen",
+    "editOperations": 2,
+    "prompts": "PROMPTS.md",
+    "raw": "source-art/",
+    "encoding": "Browser Canvas WebP 0.94"
+  },
+  "assets": [
+    {
+      "file": "research/scroll-lab-v4/source-art/charter.png",
+      "bytes": 3506344,
+      "sha256": "f33a2bc1b48633f73537812b076f458daededb30aaeb309af69c9b1d24bcf23e"
+    },
+    {
+      "file": "research/scroll-lab-v4/source-art/keeper.png",
+      "bytes": 1797125,
+      "sha256": "f4eca6c49dc621487cfe991ca547404c2f6d79b3712850169655e83280ff8992"
+    },
+    {
+      "file": "web/labs/chapter-scroll-v4/assets/charter.webp",
+      "bytes": 826396,
+      "sha256": "11a058c479a3b6ba8b6665a308b05f1ad2b5b300427bc2ce22da8cbec3269361"
+    },
+    {
+      "file": "web/labs/chapter-scroll-v4/assets/keeper.webp",
+      "bytes": 377776,
+      "sha256": "12e242bbbcdeac517ff317ea46d141127ff407029f8fadcf645d65cfc5d50128"
+    },
+    {
+      "file": "web/labs/chapter-scroll-v4/assets/skin-normal.jpg",
+      "bytes": 1033319,
+      "sha256": "d0057cdbee5be6223b35f0a463441404144fcdae699f69ff610eec4d86d48970"
+    },
+    {
+      "file": "web/labs/chapter-scroll-v4/assets/skin-roughness.jpg",
+      "bytes": 879217,
+      "sha256": "dd3b860a9510a44fd857c04e0c8cc63ea1f944c25abe9bdcbf844cc4a22c88d8"
+    },
+    {
+      "file": "web/labs/chapter-scroll-v4/vendor/fluid.js",
+      "bytes": 43961,
+      "sha256": "441c3c5ce79fc0ffa63541dd82689fbb19c52bda44b1e93e583bd137b7b764d9"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Pavel Dobryakov WebGL Fluid Simulation",
+      "pin": "a2d292931f19d9b3b9f564e23e6c32729d2121c3",
+      "license": "MIT",
+      "changes": "Separate density and velocity channels; calmer vorticity and time step. Solver preserved."
+    },
+    {
+      "name": "Rob Tuytel / Leather Red 02",
+      "license": "CC0",
+      "page": "https://polyhaven.com/a/leather_red_02",
+      "urls": [
+        "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/leather_red_02/leather_red_02_nor_gl_1k.jpg",
+        "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/leather_red_02/leather_red_02_rough_1k.jpg"
+      ],
+      "use": "Fine surface reference only, not measured parchment"
+    }
+  ]
+}
