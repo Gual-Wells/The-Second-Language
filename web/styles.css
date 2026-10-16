@@ -608,3 +608,19 @@ textarea.text-input { resize: vertical; }
 .scroll-lab-v2 .scroll-options { padding: 12px 20px; }
 .scroll-lab-v2 .scroll-options label { display: flex; align-items: center; gap: 8px; min-height: 48px; border-bottom: 1px solid #c7d3dd; font-size: 16px; }
 .scroll-lab-v2 .scroll-options input { width: 20px; height: 20px; accent-color: #5e809c; }
+
+/* The collection object gets a dark exhibition field; the original app shell
+   and every other reader/lab keep their existing blue/silver design. */
+.scroll-lab-v3 .scroll-stage,.scroll-lab-v3.scroll-object-only .scroll-stage { background: radial-gradient(ellipse at 42% 40%,#3f3a31 0,#242a2c 48%,#111b21 100%); }
+.scroll-lab-v3 #scrollCanvas { position: absolute; inset: 0; z-index: 2; filter: drop-shadow(7px 14px 12px #0008); }
+.scroll-lab-v3 #mistCanvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; opacity: .54; }
+.scroll-lab-v3 .scroll-loading { z-index: 3; color: #c6bdaa; }
+.scroll-lab-v3 .scroll-unfold-hint { z-index: 3; color: #cbbd9e; letter-spacing: 3px; top: calc(50% + 54px); font-size: 12px; }
+.scroll-lab-v3 .scroll-mist-toggle,.scroll-lab-v3 .scroll-leave { z-index: 4; min-height: 36px; font-size: 12px; }
+.scroll-lab-v3 .scroll-mist-toggle { position: absolute; top: 12px; left: 12px; padding: 5px 12px; opacity: .8; }
+.scroll-lab-v3 .scroll-mist-toggle[aria-pressed=false] { opacity: .5; }
+.scroll-lab-v3.scroll-object-only .scroll-mist-toggle { top: max(14px,env(safe-area-inset-top)); }
+.scroll-lab-v3 .scroll-fallback { z-index: 3; }
+.scroll-lab-v3 .scroll-document-detail { overflow: auto; padding: 8px; background: #282c2b; }
+.scroll-lab-v3 .scroll-document-detail img { display: block; width: 100%; height: auto; }
+.scroll-lab-v3 .scroll-detail-transcript summary { padding: 13px 20px; font-size: 14px; color: #315b7b; }

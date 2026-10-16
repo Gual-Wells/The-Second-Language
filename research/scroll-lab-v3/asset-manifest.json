@@ -1,0 +1,77 @@
+{
+  "date": "2026-10-17",
+  "specimen": true,
+  "productionCertification": false,
+  "assets": [
+    {
+      "file": "research/scroll-lab-v3/source-art/vellum-illuminated.png",
+      "bytes": 3130490,
+      "sha256": "a698a39f3b6011c91ac3a6f8add4127e8d44ba4549527ec4ea92b09d43fdffff"
+    },
+    {
+      "file": "research/scroll-lab-v3/source-art/reverse.png",
+      "bytes": 2688719,
+      "sha256": "9e0ba0dd4b85a51ab2515049b403e20f2ade0b19bb64378565217932a8b66b02"
+    },
+    {
+      "file": "research/scroll-lab-v3/source-art/keeper.png",
+      "bytes": 1673434,
+      "sha256": "333a6bfb6a74c6c4144a89c392806beeb10128dde517560f8f7b4766f1c59605"
+    },
+    {
+      "file": "web/labs/chapter-scroll-v3/assets/vellum.webp",
+      "bytes": 686892,
+      "sha256": "01c6e208a3a76f155ce62fd5472d7d6e8eea1d743c6df9c3098b3d374d1b123e"
+    },
+    {
+      "file": "web/labs/chapter-scroll-v3/assets/reverse.webp",
+      "bytes": 448808,
+      "sha256": "ad58a6aaaa5d8fd1792dbf52a4ba750eb340d1337e3480c0ed21ab8d8e55cb11"
+    },
+    {
+      "file": "web/labs/chapter-scroll-v3/assets/keeper.webp",
+      "bytes": 428478,
+      "sha256": "deca5935fb23db5ad5b3695b1880ccb35161dfa799f4645c9bb4140500f80433"
+    },
+    {
+      "file": "web/labs/chapter-scroll-v3/assets/studio.hdr",
+      "bytes": 1615248,
+      "sha256": "e7cfda5f4e98e623db12b8bfd0184e048488e4855d9c83e2751fb44a32e80c45"
+    },
+    {
+      "file": "web/labs/chapter-scroll-v3/vendor/fluid.js",
+      "bytes": 43090,
+      "sha256": "c81520127e5341fc159316b7dcc81f43e89c4ceaad5b95f67539b82298414c52"
+    },
+    {
+      "file": "web/labs/chapter-scroll-v3/vendor/HDRLoader.js",
+      "bytes": 12116,
+      "sha256": "f82ae35114740aee07344503e81e009d1890b4c49a849064b8dff287c166a9eb"
+    }
+  ],
+  "externalSources": [
+    {
+      "resource": "WebGL Fluid Simulation",
+      "pin": "a2d292931f19d9b3b9f564e23e6c32729d2121c3",
+      "license": "MIT"
+    },
+    {
+      "resource": "Three HDRLoader",
+      "pin": "r186",
+      "license": "MIT"
+    },
+    {
+      "resource": "Studio Small 09 / Sergej Majboroda",
+      "source": "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/studio_small_09_1k.hdr",
+      "license": "CC0"
+    }
+  ],
+  "art": {
+    "tool": "built-in imagegen",
+    "operations": 3,
+    "raw": "source-art/",
+    "prompts": "PROMPTS.md",
+    "encoding": "Browser Canvas WebP quality 0.94, no repaint"
+  },
+  "runtimeAssetBytes": 3179426
+}

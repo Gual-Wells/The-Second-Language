@@ -1,0 +1,23 @@
+# 图像制作记录
+
+2026-10-17，使用内置 imagegen，不使用外部收费API。三次生成均使用真实透明背景；纸膜与文字、收束件各自独立，不生成一张带假字的完整卷轴场景。原件在 `source-art/`；部署版本仅用浏览器Canvas编码为质量0.94的WebP，未通过程序重画图案。
+
+## 1. 无字正面
+
+输出 `source-art/vellum-illuminated.png` → `web/labs/chapter-scroll-v3/assets/vellum.webp`。
+
+> Create a production-ready isolated material/art asset for an interactive medieval parchment scroll, not a scene or mockup. One single unrolled rectangular vellum membrane viewed exactly orthographically straight on, portrait aspect ratio approximately 0.73 width to height. It fills 94% of the canvas height, centered, entire irregular outline visible on genuinely transparent background. Museum-quality aged late medieval European calfskin parchment. Rich tactile physical character: warm ivory center, translucent thin spots near edges, fine follicle marks and faint scraped grain, softly darkened exposed edges, tiny corner losses, localized old water tide marks near bottom left and top right, delicate creases left by centuries of rolling. A few old tiny worm pinholes in the very outer margins, never across center. Not burned paper, not noisy cloth, not uniformly brown. Broad clear quiet unmarked writing area covering central 76% width and 80% height. In narrow upper left and lower right margins only, extremely fine medieval illuminated botanical penwork, understated aged dark red and faded blue ink with a little cracked dull gold leaf, asymmetrical delicate vines, fine actual calligraphic linework; restrained monastic legal charter aesthetic, not baroque frame or fantasy game panel. Narrow double red ruling near the margins, subtly imperfect hand ruled. NO letters, NO text, NO words, NO symbols pretending to be letters, NO seals, NO wax, NO ribbon, NO sticks or handles, NO cord, NO drop shadow or background. Soft flat diffuse material photography, no strong directional highlights, no perspective, no curl hiding content. This is an unlettered UV albedo artwork that will wrap a real animated 3D parchment mesh, so every feature belongs on the same skin plane. Aim for exquisite crafted old manuscript material rather than slick digital fantasy illustration. Return a high resolution portrait PNG asset.
+
+## 2. 独立皮环
+
+输出 `source-art/keeper.png` → `web/labs/chapter-scroll-v3/assets/keeper.webp`。
+
+> A single isolated reusable 2.5D game prop asset, exactly straight-on orthographic FRONT view, a short antique dark oxblood leather keeper collar with a small tarnished medieval brass buckle. The collar is a vertically oriented broad leather ring around an invisible horizontal rolled parchment cylinder, viewed from the front: silhouette is about 2.2 times taller than wide, tapered curved ends foreshortened around that invisible cylinder, center face broad and visible. Small honest bronze oval buckle with a clearly separate pin on front, short worn rounded leather tongue through the buckle, two tiny punched holes and subtle rubbed burnished edges. Elegant restrained 14th century European belt hardware, hand hammered tiny irregularities, dark oxidized crevices and worn raised brass corners. Leather is clearly animal leather with cut edge thickness, scratched fine grain, faded brown-red patina and soft creases. Physically coherent designed object, not a tangle, no extra straps, no symbols, no filigree, no gems, no modern stitching. Isolated collar only, with the empty background visible through side gaps; no parchment, no scroll, no hands, no background, no ground, no cast shadow outside object. GENUINE transparent PNG background. Warm soft key light upper left, gentle broad reflected light right, subtle rich tactile material, museum quality macro prop photography. Full complete object uncropped centered with modest padding; around 500x1000 object within portrait canvas. This is an independent prop for a fixed frontal interactive website, so do not make an illustration, contact sheet or scene.
+
+## 3. 无字背面
+
+编辑输入为第一张无字正面，输出 `source-art/reverse.png` → `web/labs/chapter-scroll-v3/assets/reverse.webp`。
+
+> Make the uninscribed reverse side texture of exactly this same old vellum sheet for a real two-sided interactive 3D scroll. Preserve exactly the portrait framing, edge outline, existing genuinely transparent background, ivory/brown aged color, grain, faint creases and the position of the two water tide stains. Only remove all botanical painted decoration, all red ruling lines and all gold/blue/red ink so the reverse is entirely unlettered plain parchment. Preserve material patina, do not smooth it to plastic. Same straight-on flat orthographic material capture with soft flat light, no cast shadow. Absolutely no words or new marks. One portrait PNG.
+
+提示词中的museum quality等是制作目标，不是鉴定或完成质量认证。最终生成件的反面纹理、正面纹理并非逐像素互逆；在固定正视卷展中核对实际衔接，不宣称可作为实体文物测绘数据。

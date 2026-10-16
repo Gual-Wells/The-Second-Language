@@ -1,0 +1,82 @@
+{
+  "checks": [
+    "first chapter is an unissued specimen",
+    "fits the iPhone-sized viewport",
+    "real medieval font is loaded",
+    "independent fluid is available",
+    "fluid produces visible dye after transparent compositing",
+    "keeper releases before the page opens",
+    "full page hides the separate keeper",
+    "camera remains exactly frontal",
+    "real-time opening changes the mesh",
+    "opening can reverse back to a closed roll",
+    "disabling mist stops all idle draws",
+    "isolated artifact exports a transparent PNG",
+    "high-resolution document and English transcript remain available",
+    "object view removes app chrome",
+    "reduced motion starts open without allocating fluid",
+    "context loss keeps the static text fallback",
+    "sample makes no external requests or backend writes",
+    "no script or shader errors"
+  ],
+  "errors": [],
+  "initial": {
+    "progress": 0,
+    "paperProgress": 0,
+    "renderCount": 3,
+    "vertices": 12341,
+    "camera": [
+      0,
+      0,
+      12
+    ],
+    "keeperVisible": true,
+    "viewHeight": 8.487385817307693,
+    "ready": true,
+    "animating": false,
+    "chapterId": "2026-10-02",
+    "issued": false,
+    "layout": {
+      "lastBaseline": 1958.75,
+      "bodyFontSize": 59,
+      "width": 1536,
+      "height": 2304
+    },
+    "mist": {
+      "available": true,
+      "enabled": true,
+      "frames": 2
+    }
+  },
+  "open": {
+    "progress": 1,
+    "paperProgress": 1,
+    "renderCount": 6,
+    "vertices": 12341,
+    "camera": [
+      0,
+      0,
+      12
+    ],
+    "keeperVisible": false,
+    "viewHeight": 8.487385817307693,
+    "ready": true,
+    "animating": false,
+    "chapterId": "2026-10-02",
+    "issued": false,
+    "layout": {
+      "lastBaseline": 1958.75,
+      "bodyFontSize": 59,
+      "width": 1536,
+      "height": 2304
+    },
+    "mist": {
+      "available": true,
+      "enabled": true,
+      "frames": 66
+    }
+  },
+  "visibleFluidPixels": 499,
+  "environment": "Chromium 402x874 mobile emulation; software WebGL, not physical iPhone or Safari",
+  "paidExternalCalls": 0
+}
