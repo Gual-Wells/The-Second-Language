@@ -1,0 +1,121 @@
+{
+  "deployedAt": "2026-10-16T23:47:41.257Z",
+  "immutableBase": "https://763b9b09.the-second-language.pages.dev",
+  "alias": "https://scroll-lab.the-second-language.pages.dev",
+  "path": "/labs/chapter-scroll-v5/",
+  "results": [
+    {
+      "path": "/labs/chapter-scroll-v5/",
+      "status": 200,
+      "type": "text/html; charset=utf-8"
+    },
+    {
+      "path": "/labs/chapter-scroll-v5/scroll-object.js",
+      "status": 200,
+      "type": "application/javascript"
+    },
+    {
+      "path": "/labs/chapter-scroll-v5/assets/charter.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/labs/chapter-scroll-v5/vendor/cannon-es.js",
+      "status": 200,
+      "type": "application/javascript"
+    },
+    {
+      "path": "/labs/chapter-scroll-v5/vendor/fluid.js",
+      "status": 200,
+      "type": "application/javascript"
+    },
+    {
+      "path": "/labs/chapter-scroll-v4/assets/keeper.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/labs/chapter-scroll-v3/assets/studio.hdr",
+      "status": 200,
+      "type": "application/octet-stream"
+    },
+    {
+      "path": "/labs/chapter-scroll/assets/Aboensis-Regular.otf",
+      "status": 200,
+      "type": "font/otf"
+    },
+    {
+      "path": "/labs/chapter-scroll/",
+      "status": 200,
+      "type": "text/html; charset=utf-8"
+    },
+    {
+      "path": "/labs/chapter-scroll-v4/",
+      "status": 200,
+      "type": "text/html; charset=utf-8"
+    },
+    {
+      "path": "/api/session",
+      "status": 200,
+      "type": "application/json; charset=utf-8"
+    },
+    {
+      "path": "/api/practice",
+      "status": 401,
+      "type": "application/json; charset=utf-8"
+    }
+  ],
+  "errors": [],
+  "snapshot": {
+    "progress": 1,
+    "paperProgress": 1,
+    "renderCount": 15,
+    "vertices": 14893,
+    "camera": [
+      0,
+      0,
+      12
+    ],
+    "keeperVisible": false,
+    "viewHeight": 10.89,
+    "drawBuffer": {
+      "width": 1170,
+      "height": 2574
+    },
+    "deformation": "GPU Paperlab winding + persistent rest curvature",
+    "keeperMotion": "Cannon spring mass; flexible leather; rigid frame",
+    "keeperEnergy": 1043.7552580182783,
+    "restCurl": true,
+    "ready": true,
+    "animating": false,
+    "chapterId": "2026-10-02",
+    "issued": false,
+    "layout": {
+      "lastBaseline": 2438.3999999999996,
+      "bodyFontSize": 84,
+      "lineCount": 12,
+      "width": 2048,
+      "height": 2868,
+      "nominalSizeMM": [
+        300,
+        420
+      ],
+      "marginFraction": 0.11376953125,
+      "blurredInk": false
+    },
+    "mist": {
+      "available": true,
+      "enabled": true,
+      "frames": 20,
+      "motionPeakMps": 0,
+      "ambientDose": 1.013162315496641,
+      "visibleDomain": {
+        "left": 0.18749999999999997,
+        "right": 0.8125,
+        "bottom": 0.11538461538461538,
+        "top": 0.8846153846153845
+      }
+    }
+  },
+  "verified": "Public HTTP and Chromium 402x874 DPR3 software WebGL; not physical iPhone/Safari or an iPhone frame rate measurement"
+}

@@ -1,0 +1,51 @@
+{
+  "generatedAt": "2026-10-16T23:34:16.026Z",
+  "art": {
+    "tool": "built-in imagegen",
+    "operations": 1,
+    "width": 1024,
+    "height": 1536,
+    "prompts": "PROMPTS.md",
+    "encoding": "Browser Canvas WebP .96"
+  },
+  "fontCanvas": [
+    2048,
+    2868
+  ],
+  "assets": [
+    {
+      "file": "research/scroll-lab-v5/source-art/charter.png",
+      "bytes": 3667549,
+      "sha256": "f22674931f4ae46813041a9f28910051abf52b901bed9ba8545398e4a4fe5eea"
+    },
+    {
+      "file": "web/labs/chapter-scroll-v5/assets/charter.webp",
+      "bytes": 978600,
+      "sha256": "364a25befa93a1e011686acfd9f6031c3e4335216093f2f52322fec283215d2a"
+    },
+    {
+      "file": "web/labs/chapter-scroll-v5/vendor/fluid.js",
+      "bytes": 44003,
+      "sha256": "3639319ce10beb319f22cec251c4e59696425b59d35801ae1aa6c6cdab8a158b"
+    },
+    {
+      "file": "web/labs/chapter-scroll-v5/vendor/cannon-es.js",
+      "bytes": 346256,
+      "sha256": "f0700cbd3a482954949b9d58c1b0f76dcc74767750297647a39d8c40dd63d37c"
+    },
+    {
+      "file": "web/labs/chapter-scroll-v5/vendor/cannon-LICENSE.txt",
+      "bytes": 1125,
+      "sha256": "4714d0272f50cb21fe46fe29333c7c600d3c85b5ebd2a80f4db07e8cfccbf5b2"
+    }
+  ],
+  "source": {
+    "cannon": "https://cdn.jsdelivr.net/npm/cannon-es@0.20.0/dist/cannon-es.js",
+    "license": "MIT",
+    "fluidPin": "a2d292931f19d9b3b9f564e23e6c32729d2121c3",
+    "paperlabPin": "41914833cb9ae12b32a8cbbdee4723f5b12158af"
+  },
+  "paidExternalCalls": 0,
+  "newRecurringCosts": 0,
+  "productionRecordsWritten": false
+}

@@ -630,3 +630,11 @@ textarea.text-input { resize: vertical; }
 .scroll-lab-v4 .scroll-fallback { background-image: url('/labs/chapter-scroll-v4/assets/charter.webp'); }
 .scroll-lab-v4 .scroll-keeper-detail summary { padding: 13px 20px; font-size: 14px; color: #315b7b; }
 .scroll-lab-v4 .scroll-keeper-detail img { display: block; max-width: 65%; max-height: 600px; margin: 0 auto 15px; background: #282c2b; }
+.scroll-lab-v5 #scrollCanvas { filter: none; }
+.scroll-lab-v5 #mistCanvas { opacity: .70; }
+.scroll-lab-v5 .scroll-fallback { background-image: url('/labs/chapter-scroll-v5/assets/charter.webp'); }
+.scroll-lab-v5 .scroll-document-detail { overflow: auto; touch-action: pan-x pan-y pinch-zoom; }
+.scroll-lab-v5 .scroll-document-detail img { max-width: none; width: 100%; }
+.scroll-lab-v5 .scroll-document-detail[data-zoom=true] img { width: 850px; }
+.scroll-lab-v5 .scroll-transcript header { gap: 8px; }
+.scroll-lab-v5 .scroll-transcript header h2 { margin-right: auto; }
