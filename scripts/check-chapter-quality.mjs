@@ -3,7 +3,7 @@ import {validateTeachingLayout} from '../web/annotations.js';
 import assert from 'node:assert/strict';
 import {DatabaseSync} from 'node:sqlite';
 import {readFile,readdir,mkdir,writeFile} from 'node:fs/promises';
-import {qualityPolicy,qualityPolicyDigest,qualityTargets,factTargets,finalizeQuality,validateReview,validateRefs,digestText} from '../protocol/chapter-quality-contract.mjs';
+import {qualityPolicy,qualityPolicyDigest,qualityTargets,factTargets,finalizeQuality,validateReview,validateRefs,validateInventory,scopedQualitySchema,reviewSchema,digestText} from '../protocol/chapter-quality-contract.mjs';
 import {chapterQualityRoute,claimQuality} from '../worker/src/chapter-quality.js';
 import {questionsRoute} from '../worker/src/questions.js';
 import {indexTextbook,hash} from './lib/textbook-sources.mjs';
@@ -34,7 +34,14 @@ assert.throws(()=>validateReview({checks:[{targetId:targets[0].id,state:'issue',
 const major={id:'bad',targetId:targets[0].id,severity:'major',category:'meaning',quote:'# '+words[0].text,explanation:'isolated defect',action:'correct',refs:[]},withMajor=[{checks:reviews[0].checks.map((c,i)=>i?c:{...c,state:'issue'}),findings:[major]}];
 const omission={...major,quote:words[0].text+' meaning',refs:inventory[0].facts[0].refs};assert.doesNotThrow(()=>validateReview({checks:[{targetId:targets[0].id,state:'issue',reason:'omitted source meaning',refs:omission.refs}],findings:[omission]},[targets[0]],evidence.words[0].entries));
 const useTarget=targets.find(t=>t.kind==='use');assert.throws(()=>validateReview({checks:[{targetId:useTarget.id,state:'issue',reason:'wrong quote scope',refs:omission.refs}],findings:[{...omission,targetId:useTarget.id}]},[useTarget],evidence.words[0].entries),/引文不属于/);
+// Chapter citations are legitimate review evidence, but cannot replace the
+// independent dictionary inventory or cite generated fact summaries as originals.
+assert.doesNotThrow(()=>validateReview({checks:[{targetId:useTarget.id,state:'supported',reason:'chapter usage inspected',refs:[{sourceId:useTarget.id,quote:useTarget.text}]}],findings:[]},[useTarget],[]));
+assert.throws(()=>validateInventory({...inventory[0],facts:[{...inventory[0].facts[0],refs:[{sourceId:useTarget.id,quote:useTarget.text}]}]},parsed.words[0],evidence.words[0].entries),/固定原文/);
+const factTarget=targets.find(t=>t.kind==='source-fact');assert.throws(()=>validateReview({checks:[{targetId:factTarget.id,state:'supported',reason:'not original evidence',refs:[{sourceId:factTarget.id,quote:factTarget.text}]}],findings:[]},[factTarget],[]),/固定原文/);
+const scoped=scopedQualitySchema(reviewSchema,{targetIds:[useTarget.id],sourceIds:[useTarget.id,'dictionary:fixed']});assert.deepEqual(scoped.properties.checks.items.properties.targetId.enum,[useTarget.id]);assert.deepEqual(scoped.properties.findings.items.properties.refs.items.properties.sourceId.enum,[useTarget.id,'dictionary:fixed']);assert.equal(reviewSchema.properties.checks.items.properties.targetId.enum,undefined);
 assert.equal(finalizeQuality({...args,reviews:withMajor,verification:{items:[{findingId:'b0_bad',state:'confirmed',reason:'confirmed fixture',refs:[]}]}}).decision,'revision_required');
+assert.equal(finalizeQuality({...args,reviews:withMajor,verification:{items:[{findingId:'b0_bad',state:'confirmed',severity:'minor',reason:'real but non-blocking',refs:[]}]}}).decision,'passed');
 assert.equal(finalizeQuality({...args,reviews:withMajor,verification:{items:[{findingId:'b0_bad',state:'withdrawn',reason:'withdrawn fixture',refs:[]}]}}).decision,'passed');
 assert.equal(finalizeQuality({...args,inventory:inventory.map((v,i)=>i?v:{...v,closure:'unresolved'})}).decision,'needs_evidence');
 const checkpointDigest=(await bucket.putContent(JSON.stringify(state))).digest,checkpoint={...owned,checkpointDigest,evidenceDigest:state.evidenceDigest};assert.equal((await call('/jobs/'+id+'/checkpoint',checkpoint,publisher)).status,200);

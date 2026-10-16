@@ -1,5 +1,5 @@
-import {cachedPronunciation,keepPronunciation,chapterIdentity} from './audio-library.js?v=34';
-import {ipaToKokoro,pronunciationKey} from './audio-plan.js?v=34';
+import {cachedPronunciation,keepPronunciation,chapterIdentity} from './audio-library.js?v=35';
+import {ipaToKokoro,pronunciationKey} from './audio-plan.js?v=35';
 export function installReaderSpeech({toast,onWordJump=()=>{}}){
  const mode=document.getElementById('speechMode'),label=document.getElementById('speechModeLabel'),stopButton=document.getElementById('speechStop'),buffers=new Map();let context,current,serial=0;
  function renderMode(){mode.dataset.mode='word';label.textContent='点读';mode.removeAttribute('aria-pressed');mode.setAttribute('aria-label','点读说明');}

@@ -1,6 +1,6 @@
-import {prose} from './text.js?v=34';
-import {focusQuestion} from './reader-focus.js?v=34';
-import {questionPairs} from './question-pairs.js?v=34';
+import {prose} from './text.js?v=35';
+import {focusQuestion} from './reader-focus.js?v=35';
+import {questionPairs} from './question-pairs.js?v=35';
 export function createQuestionsUI({api,showDialog,toast,getContext}) {
  const $=id=>document.getElementById(id),dialog=$('questionsDialog');
  let target=null,threads=[],generation=0,summaryGeneration=0,opening=false,sending=false,pendingId=null,initialPosition=false;

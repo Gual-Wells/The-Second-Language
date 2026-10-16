@@ -1,6 +1,6 @@
-const SHELL = 'second-language-shell-v34';
+const SHELL = 'second-language-shell-v35';
 const CHAPTERS = 'second-language-chapters-v1';
-const CORE = ['/', '/index.html', '/app.js?v=34', '/pure-reader.js?v=34', '/reader-jump.js?v=34', '/reader-focus.js?v=34', '/chapters.js?v=34', '/settings.js?v=34', '/audio-config.js?v=34', '/audio-plan.js?v=34', '/text.js?v=34', '/practice-workspace.js?v=34', '/balances.js?v=34', '/storage-usage.js?v=34', '/questions.js?v=34', '/question-pairs.js?v=34', '/chapter-quality.js?v=34', '/chapter-tests.js?v=34', '/chapter-test-recorder.js?v=34', '/audio-library.js?v=34', '/practice.js?v=34', '/listening.js?v=34', '/reading.js?v=34', '/objective.js?v=34', '/exam-spec.js?v=34', '/recorder.js?v=34', '/reader-speech.js?v=34', '/render.js?v=34', '/annotations.js?v=34', '/styles.css?v=34', '/manifest.webmanifest?v=34', '/icon.svg?v=34', '/icon-192.png?v=34', '/icon-512.png?v=34', '/apple-touch-icon.png?v=34'];
+const CORE = ['/', '/index.html', '/app.js?v=35', '/pure-reader.js?v=35', '/reader-jump.js?v=35', '/reader-focus.js?v=35', '/chapters.js?v=35', '/settings.js?v=35', '/audio-config.js?v=35', '/audio-plan.js?v=35', '/text.js?v=35', '/practice-workspace.js?v=35', '/balances.js?v=35', '/storage-usage.js?v=35', '/questions.js?v=35', '/question-pairs.js?v=35', '/chapter-quality.js?v=35', '/chapter-tests.js?v=35', '/chapter-test-recorder.js?v=35', '/audio-library.js?v=35', '/practice.js?v=35', '/listening.js?v=35', '/reading.js?v=35', '/objective.js?v=35', '/exam-spec.js?v=35', '/recorder.js?v=35', '/reader-speech.js?v=35', '/render.js?v=35', '/annotations.js?v=35', '/styles.css?v=35', '/manifest.webmanifest?v=35', '/icon.svg?v=35', '/icon-192.png?v=35', '/icon-512.png?v=35', '/apple-touch-icon.png?v=35'];
 self.addEventListener('install', event => { event.waitUntil(caches.open(SHELL).then(cache => cache.addAll(CORE)).then(() => self.skipWaiting())); });
 self.addEventListener('activate', event => { event.waitUntil(Promise.all([self.clients.claim(), caches.keys().then(keys => Promise.all(keys.filter(key => ![SHELL, CHAPTERS, 'second-language-point-audio-v1'].includes(key)).map(key => caches.delete(key))))])); });
 self.addEventListener('message', event => { if (event.data?.type === 'CLEAR_CHAPTER_CACHE') event.waitUntil(caches.delete(CHAPTERS)); });
@@ -23,7 +23,7 @@ self.addEventListener('push', event => {
   let message = {}; try { message = event.data?.json() || {}; } catch {}
   const target = message.balances ? '/?balances=1' : message.temporaryId ? `/?temporary=${encodeURIComponent(message.temporaryId)}` : message.chapterId ? `/?chapter=${encodeURIComponent(message.chapterId)}` : '/';
   event.waitUntil((async () => {
-    await self.registration.showNotification(message.title || '第二语言 · 今日章节', { body: message.body || '新的章节已经可以阅读。', icon: '/icon-192.png?v=34', badge: '/icon-192.png?v=34', data: { target } });
+    await self.registration.showNotification(message.title || '第二语言 · 今日章节', { body: message.body || '新的章节已经可以阅读。', icon: '/icon-192.png?v=35', badge: '/icon-192.png?v=35', data: { target } });
     if ('setAppBadge' in self.navigator) { try { await self.navigator.setAppBadge(1); } catch {} }
   })());
 });
