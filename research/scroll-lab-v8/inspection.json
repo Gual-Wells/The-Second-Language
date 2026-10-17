@@ -1,0 +1,635 @@
+{
+  "snapshots": [
+    {
+      "name": "closed",
+      "progress": 0,
+      "paperProgress": 0,
+      "renderCount": 4,
+      "vertices": 14893,
+      "camera": [
+        0,
+        0,
+        12
+      ],
+      "keeperVisible": true,
+      "viewHeight": 8.744579326923077,
+      "drawBuffer": {
+        "width": 780,
+        "height": 1337
+      },
+      "deformation": "Continuous GPU winding and shared rest displacement",
+      "keeperMotion": "loosen, unthread, then approach; exact reverse on closing",
+      "keeperSize": [
+        0.41,
+        0.77
+      ],
+      "specularIntensity": 0,
+      "toneMapping": "none; preserve source colors",
+      "restCurl": true,
+      "cameraType": "PerspectiveCamera",
+      "keeperPose": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "rotationZ": 0,
+        "rotationY": 0,
+        "loosen": 0,
+        "opacity": 1,
+        "visible": true,
+        "phase": "loosen",
+        "radius": 0.30201379091612,
+        "paperProgress": 0,
+        "model": "layered hoop + rigid buckle + authored tight/loose morph",
+        "depthTest": true,
+        "depthWrite": true
+      },
+      "sealRelief": true,
+      "ready": true,
+      "animating": false,
+      "chapterId": "2026-10-02",
+      "issued": false,
+      "layout": {
+        "lastBaseline": 2172,
+        "bodyFontSize": 88,
+        "lineCount": 10,
+        "titleLines": 1,
+        "width": 2048,
+        "height": 2868,
+        "nominalSizeMM": [
+          300,
+          420
+        ],
+        "marginFraction": 0.11376953125,
+        "blurredInk": false,
+        "sealBox": {
+          "x": 824,
+          "y": 2300,
+          "width": 400,
+          "height": 400
+        },
+        "sealVersion": "SL-CHAPTER-2",
+        "printedFonts": [
+          "Aboensis"
+        ],
+        "issued": false
+      },
+      "mist": {
+        "available": true,
+        "enabled": false,
+        "frames": 2,
+        "motionPeakMps": 0,
+        "ambientDose": 0.1085090577550464,
+        "visibleDomain": {
+          "left": 0.18749999999999997,
+          "right": 0.8125,
+          "bottom": 0.11538461538461538,
+          "top": 0.8846153846153845
+        }
+      }
+    },
+    {
+      "name": "loose",
+      "progress": 0.06,
+      "paperProgress": 0,
+      "renderCount": 5,
+      "vertices": 14893,
+      "camera": [
+        0,
+        0,
+        12
+      ],
+      "keeperVisible": true,
+      "viewHeight": 8.744579326923077,
+      "drawBuffer": {
+        "width": 780,
+        "height": 1337
+      },
+      "deformation": "Continuous GPU winding and shared rest displacement",
+      "keeperMotion": "loosen, unthread, then approach; exact reverse on closing",
+      "keeperSize": [
+        0.41,
+        0.77
+      ],
+      "specularIntensity": 0,
+      "toneMapping": "none; preserve source colors",
+      "restCurl": true,
+      "cameraType": "PerspectiveCamera",
+      "keeperPose": {
+        "x": 0,
+        "y": 0,
+        "z": 0.044295839048925464,
+        "rotationZ": 0,
+        "rotationY": 0,
+        "loosen": 0.9843519788650104,
+        "opacity": 1,
+        "visible": true,
+        "phase": "loosen",
+        "radius": 0.30201379091612,
+        "paperProgress": 0,
+        "model": "layered hoop + rigid buckle + authored tight/loose morph",
+        "depthTest": true,
+        "depthWrite": true
+      },
+      "sealRelief": true,
+      "ready": true,
+      "animating": false,
+      "chapterId": "2026-10-02",
+      "issued": false,
+      "layout": {
+        "lastBaseline": 2172,
+        "bodyFontSize": 88,
+        "lineCount": 10,
+        "titleLines": 1,
+        "width": 2048,
+        "height": 2868,
+        "nominalSizeMM": [
+          300,
+          420
+        ],
+        "marginFraction": 0.11376953125,
+        "blurredInk": false,
+        "sealBox": {
+          "x": 824,
+          "y": 2300,
+          "width": 400,
+          "height": 400
+        },
+        "sealVersion": "SL-CHAPTER-2",
+        "printedFonts": [
+          "Aboensis"
+        ],
+        "issued": false
+      },
+      "mist": {
+        "available": true,
+        "enabled": false,
+        "frames": 2,
+        "motionPeakMps": 0,
+        "ambientDose": 0.1085090577550464,
+        "visibleDomain": {
+          "left": 0.18749999999999997,
+          "right": 0.8125,
+          "bottom": 0.11538461538461538,
+          "top": 0.8846153846153845
+        }
+      }
+    },
+    {
+      "name": "middle",
+      "progress": 0.13,
+      "paperProgress": 0,
+      "renderCount": 6,
+      "vertices": 14893,
+      "camera": [
+        0,
+        0,
+        12
+      ],
+      "keeperVisible": true,
+      "viewHeight": 8.744579326923077,
+      "drawBuffer": {
+        "width": 780,
+        "height": 1337
+      },
+      "deformation": "Continuous GPU winding and shared rest displacement",
+      "keeperMotion": "loosen, unthread, then approach; exact reverse on closing",
+      "keeperSize": [
+        0.41,
+        0.77
+      ],
+      "specularIntensity": 0,
+      "toneMapping": "none; preserve source colors",
+      "restCurl": true,
+      "cameraType": "PerspectiveCamera",
+      "keeperPose": {
+        "x": -1.2591829601803162,
+        "y": 0,
+        "z": 0.045,
+        "rotationZ": 0,
+        "rotationY": 0,
+        "loosen": 1,
+        "opacity": 1,
+        "visible": true,
+        "phase": "unthread",
+        "radius": 0.30201379091612,
+        "paperProgress": 0,
+        "model": "layered hoop + rigid buckle + authored tight/loose morph",
+        "depthTest": true,
+        "depthWrite": true
+      },
+      "sealRelief": true,
+      "ready": true,
+      "animating": false,
+      "chapterId": "2026-10-02",
+      "issued": false,
+      "layout": {
+        "lastBaseline": 2172,
+        "bodyFontSize": 88,
+        "lineCount": 10,
+        "titleLines": 1,
+        "width": 2048,
+        "height": 2868,
+        "nominalSizeMM": [
+          300,
+          420
+        ],
+        "marginFraction": 0.11376953125,
+        "blurredInk": false,
+        "sealBox": {
+          "x": 824,
+          "y": 2300,
+          "width": 400,
+          "height": 400
+        },
+        "sealVersion": "SL-CHAPTER-2",
+        "printedFonts": [
+          "Aboensis"
+        ],
+        "issued": false
+      },
+      "mist": {
+        "available": true,
+        "enabled": false,
+        "frames": 2,
+        "motionPeakMps": 0,
+        "ambientDose": 0.1085090577550464,
+        "visibleDomain": {
+          "left": 0.18749999999999997,
+          "right": 0.8125,
+          "bottom": 0.11538461538461538,
+          "top": 0.8846153846153845
+        }
+      }
+    },
+    {
+      "name": "end",
+      "progress": 0.195,
+      "paperProgress": 0,
+      "renderCount": 7,
+      "vertices": 14893,
+      "camera": [
+        0,
+        0,
+        12
+      ],
+      "keeperVisible": true,
+      "viewHeight": 8.744579326923077,
+      "drawBuffer": {
+        "width": 780,
+        "height": 1337
+      },
+      "deformation": "Continuous GPU winding and shared rest displacement",
+      "keeperMotion": "loosen, unthread, then approach; exact reverse on closing",
+      "keeperSize": [
+        0.41,
+        0.77
+      ],
+      "specularIntensity": 0,
+      "toneMapping": "none; preserve source colors",
+      "restCurl": true,
+      "cameraType": "PerspectiveCamera",
+      "keeperPose": {
+        "x": -2.563582119646882,
+        "y": 0,
+        "z": 0.045,
+        "rotationZ": 0,
+        "rotationY": 0,
+        "loosen": 1,
+        "opacity": 1,
+        "visible": true,
+        "phase": "unthread",
+        "radius": 0.30201379091612,
+        "paperProgress": 0,
+        "model": "layered hoop + rigid buckle + authored tight/loose morph",
+        "depthTest": true,
+        "depthWrite": true
+      },
+      "sealRelief": true,
+      "ready": true,
+      "animating": false,
+      "chapterId": "2026-10-02",
+      "issued": false,
+      "layout": {
+        "lastBaseline": 2172,
+        "bodyFontSize": 88,
+        "lineCount": 10,
+        "titleLines": 1,
+        "width": 2048,
+        "height": 2868,
+        "nominalSizeMM": [
+          300,
+          420
+        ],
+        "marginFraction": 0.11376953125,
+        "blurredInk": false,
+        "sealBox": {
+          "x": 824,
+          "y": 2300,
+          "width": 400,
+          "height": 400
+        },
+        "sealVersion": "SL-CHAPTER-2",
+        "printedFonts": [
+          "Aboensis"
+        ],
+        "issued": false
+      },
+      "mist": {
+        "available": true,
+        "enabled": false,
+        "frames": 2,
+        "motionPeakMps": 0,
+        "ambientDose": 0.1085090577550464,
+        "visibleDomain": {
+          "left": 0.18749999999999997,
+          "right": 0.8125,
+          "bottom": 0.11538461538461538,
+          "top": 0.8846153846153845
+        }
+      }
+    },
+    {
+      "name": "away",
+      "progress": 0.22,
+      "paperProgress": 0,
+      "renderCount": 8,
+      "vertices": 14893,
+      "camera": [
+        0,
+        0,
+        12
+      ],
+      "keeperVisible": true,
+      "viewHeight": 8.744579326923077,
+      "drawBuffer": {
+        "width": 780,
+        "height": 1337
+      },
+      "deformation": "Continuous GPU winding and shared rest displacement",
+      "keeperMotion": "loosen, unthread, then approach; exact reverse on closing",
+      "keeperSize": [
+        0.41,
+        0.77
+      ],
+      "specularIntensity": 0,
+      "toneMapping": "none; preserve source colors",
+      "restCurl": true,
+      "cameraType": "PerspectiveCamera",
+      "keeperPose": {
+        "x": -2.953817761520094,
+        "y": -0.013886348625717644,
+        "z": 0.5171358532743998,
+        "rotationZ": -0.06109993395315763,
+        "rotationY": 0.08887263120459292,
+        "loosen": 1,
+        "opacity": 0.8521857695411408,
+        "visible": true,
+        "phase": "depart",
+        "radius": 0.30201379091612,
+        "paperProgress": 0,
+        "model": "layered hoop + rigid buckle + authored tight/loose morph",
+        "depthTest": true,
+        "depthWrite": true
+      },
+      "sealRelief": true,
+      "ready": true,
+      "animating": false,
+      "chapterId": "2026-10-02",
+      "issued": false,
+      "layout": {
+        "lastBaseline": 2172,
+        "bodyFontSize": 88,
+        "lineCount": 10,
+        "titleLines": 1,
+        "width": 2048,
+        "height": 2868,
+        "nominalSizeMM": [
+          300,
+          420
+        ],
+        "marginFraction": 0.11376953125,
+        "blurredInk": false,
+        "sealBox": {
+          "x": 824,
+          "y": 2300,
+          "width": 400,
+          "height": 400
+        },
+        "sealVersion": "SL-CHAPTER-2",
+        "printedFonts": [
+          "Aboensis"
+        ],
+        "issued": false
+      },
+      "mist": {
+        "available": true,
+        "enabled": false,
+        "frames": 2,
+        "motionPeakMps": 0,
+        "ambientDose": 0.1085090577550464,
+        "visibleDomain": {
+          "left": 0.18749999999999997,
+          "right": 0.8125,
+          "bottom": 0.11538461538461538,
+          "top": 0.8846153846153845
+        }
+      }
+    },
+    {
+      "name": "half",
+      "progress": 0.58,
+      "paperProgress": 0.44736842105263147,
+      "renderCount": 9,
+      "vertices": 14893,
+      "camera": [
+        0,
+        0,
+        12
+      ],
+      "keeperVisible": false,
+      "viewHeight": 8.744579326923077,
+      "drawBuffer": {
+        "width": 780,
+        "height": 1337
+      },
+      "deformation": "Continuous GPU winding and shared rest displacement",
+      "keeperMotion": "loosen, unthread, then approach; exact reverse on closing",
+      "keeperSize": [
+        0.41,
+        0.77
+      ],
+      "specularIntensity": 0,
+      "toneMapping": "none; preserve source colors",
+      "restCurl": true,
+      "cameraType": "PerspectiveCamera",
+      "keeperPose": {
+        "x": -3.2649999999999997,
+        "y": -0.025,
+        "z": 0.895,
+        "rotationZ": -0.11,
+        "rotationY": 0.16,
+        "loosen": 1,
+        "opacity": 0,
+        "visible": false,
+        "phase": "off",
+        "radius": 0.30201379091612,
+        "paperProgress": 0.4473684210526315,
+        "model": "layered hoop + rigid buckle + authored tight/loose morph",
+        "depthTest": true,
+        "depthWrite": true
+      },
+      "sealRelief": true,
+      "ready": true,
+      "animating": false,
+      "chapterId": "2026-10-02",
+      "issued": false,
+      "layout": {
+        "lastBaseline": 2172,
+        "bodyFontSize": 88,
+        "lineCount": 10,
+        "titleLines": 1,
+        "width": 2048,
+        "height": 2868,
+        "nominalSizeMM": [
+          300,
+          420
+        ],
+        "marginFraction": 0.11376953125,
+        "blurredInk": false,
+        "sealBox": {
+          "x": 824,
+          "y": 2300,
+          "width": 400,
+          "height": 400
+        },
+        "sealVersion": "SL-CHAPTER-2",
+        "printedFonts": [
+          "Aboensis"
+        ],
+        "issued": false
+      },
+      "mist": {
+        "available": true,
+        "enabled": false,
+        "frames": 2,
+        "motionPeakMps": 0,
+        "ambientDose": 0.1085090577550464,
+        "visibleDomain": {
+          "left": 0.18749999999999997,
+          "right": 0.8125,
+          "bottom": 0.11538461538461538,
+          "top": 0.8846153846153845
+        }
+      }
+    },
+    {
+      "name": "open",
+      "progress": 1,
+      "paperProgress": 1,
+      "renderCount": 10,
+      "vertices": 14893,
+      "camera": [
+        0,
+        0,
+        12
+      ],
+      "keeperVisible": false,
+      "viewHeight": 8.744579326923077,
+      "drawBuffer": {
+        "width": 780,
+        "height": 1337
+      },
+      "deformation": "Continuous GPU winding and shared rest displacement",
+      "keeperMotion": "loosen, unthread, then approach; exact reverse on closing",
+      "keeperSize": [
+        0.41,
+        0.77
+      ],
+      "specularIntensity": 0,
+      "toneMapping": "none; preserve source colors",
+      "restCurl": true,
+      "cameraType": "PerspectiveCamera",
+      "keeperPose": {
+        "x": -3.2649999999999997,
+        "y": -0.025,
+        "z": 0.895,
+        "rotationZ": -0.11,
+        "rotationY": 0.16,
+        "loosen": 1,
+        "opacity": 0,
+        "visible": false,
+        "phase": "off",
+        "radius": 0.30201379091612,
+        "paperProgress": 1,
+        "model": "layered hoop + rigid buckle + authored tight/loose morph",
+        "depthTest": true,
+        "depthWrite": true
+      },
+      "sealRelief": true,
+      "ready": true,
+      "animating": false,
+      "chapterId": "2026-10-02",
+      "issued": false,
+      "layout": {
+        "lastBaseline": 2172,
+        "bodyFontSize": 88,
+        "lineCount": 10,
+        "titleLines": 1,
+        "width": 2048,
+        "height": 2868,
+        "nominalSizeMM": [
+          300,
+          420
+        ],
+        "marginFraction": 0.11376953125,
+        "blurredInk": false,
+        "sealBox": {
+          "x": 824,
+          "y": 2300,
+          "width": 400,
+          "height": 400
+        },
+        "sealVersion": "SL-CHAPTER-2",
+        "printedFonts": [
+          "Aboensis"
+        ],
+        "issued": false
+      },
+      "mist": {
+        "available": true,
+        "enabled": false,
+        "frames": 2,
+        "motionPeakMps": 0,
+        "ambientDose": 0.1085090577550464,
+        "visibleDomain": {
+          "left": 0.18749999999999997,
+          "right": 0.8125,
+          "bottom": 0.11538461538461538,
+          "top": 0.8846153846153845
+        }
+      }
+    }
+  ],
+  "geometry": {
+    "minimumInnerHoopClearance": 0.01499997575274753,
+    "rigidPlateHeightDrift": 0,
+    "fadeClear": true,
+    "tiltClear": true
+  },
+  "errors": [],
+  "checks": [
+    "real morph geometry clears conservative wound-paper envelope",
+    "rigid metal plate does not stretch",
+    "departure tilt/fade only after clearing the end",
+    "actual perspective projection",
+    "Aboensis-only printed document",
+    "reverse mid-motion",
+    "idle stops without fog",
+    "document zoom",
+    "mist enabled",
+    "reduced-motion fallback",
+    "context-loss fallback",
+    "no external or write requests"
+  ],
+  "environment": "Chromium DPR2 software WebGL, not iPhone performance"
+}

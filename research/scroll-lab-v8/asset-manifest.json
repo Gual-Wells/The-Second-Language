@@ -1,0 +1,50 @@
+{
+  "seal": "SL-CHAPTER-2",
+  "hashes": [
+    {
+      "path": "web/icon.svg",
+      "bytes": 551,
+      "sha256": "a6187d27e9c733a2470bedcefbe3947166706b06fa9c4be05a6dd577cba25b2b"
+    },
+    {
+      "path": "web/labs/chapter-scroll/assets/Aboensis-Regular.otf",
+      "bytes": 137860,
+      "sha256": "0ad00fb94899b3a8277680377eb7270c5fb3ee73dd9fefbd6fb31d9f94c4707b"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v4/assets/keeper.webp",
+      "bytes": 377776,
+      "sha256": "12e242bbbcdeac517ff317ea46d141127ff407029f8fadcf645d65cfc5d50128"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v6/assets/charter.webp",
+      "bytes": 735602,
+      "sha256": "d01394d89626dff45630d4ecefb4592dbdea49e7fea6667083a1bca8756624f8"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v8/seal.js",
+      "bytes": 3837,
+      "sha256": "eb73181ff47b04c888b3590826ff7aa025fc9b7889e8f964a65d0a6eb1f7a1d4"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v8/keeper.js",
+      "bytes": 3874,
+      "sha256": "c7cff0fedcbd61b544e164e42f9c42725c8537a3ff6a17f90a40e3fea0c39984"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v8/keeper-path.js",
+      "bytes": 1019,
+      "sha256": "4fb2d7e3df2aeb0885dcf245587a44b212c67b07c1ea16c42d15e8a425949579"
+    },
+    {
+      "path": "research/scroll-lab-v8/seal-master.png",
+      "bytes": 222151,
+      "sha256": "f697d8b5e75c5948b0491c170e6d4240595f965fb26af904961c7835e974b5df"
+    },
+    {
+      "path": "research/scroll-lab-v8/seal-height.png",
+      "bytes": 184558,
+      "sha256": "17627b2eb10fb7aeb373d6719b8538189fbbe012465793dab0389af5fd04ff59"
+    }
+  ]
+}
