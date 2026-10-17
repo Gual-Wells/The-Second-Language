@@ -1,0 +1,141 @@
+{
+  "immutable": "https://86e62553.the-second-language.pages.dev/labs/chapter-scroll-v9/",
+  "alias": "https://scroll-lab.the-second-language.pages.dev/labs/chapter-scroll-v9/",
+  "verifiedAt": "2026-10-17T09:04:59.556Z",
+  "state": {
+    "progress": 1,
+    "paperProgress": 1,
+    "renderCount": 16,
+    "vertices": 14893,
+    "camera": [
+      0,
+      0,
+      12
+    ],
+    "keeperVisible": false,
+    "viewHeight": 8.744579326923077,
+    "drawBuffer": {
+      "width": 780,
+      "height": 1337
+    },
+    "deformation": "Continuous GPU winding and shared rest displacement",
+    "keeperMotion": "loosen, unthread, then approach; exact reverse on closing",
+    "keeperSize": [
+      0.41,
+      0.77
+    ],
+    "specularIntensity": 0,
+    "toneMapping": "none; preserve source colors",
+    "restCurl": true,
+    "cameraType": "PerspectiveCamera",
+    "keeperPose": {
+      "x": -3.2649999999999997,
+      "y": -0.025,
+      "z": 0.895,
+      "rotationZ": -0.11,
+      "rotationY": 0.16,
+      "loosen": 1,
+      "opacity": 0,
+      "visible": false,
+      "phase": "off",
+      "radius": 0.30201379091612,
+      "paperProgress": 1,
+      "model": "layered hoop + rigid buckle + authored tight/loose morph",
+      "depthTest": true,
+      "depthWrite": true
+    },
+    "sealRelief": true,
+    "ready": true,
+    "animating": false,
+    "chapterId": "2026-10-02",
+    "issued": false,
+    "layout": {
+      "lastBaseline": 2172,
+      "bodyFontSize": 88,
+      "lineCount": 10,
+      "titleLines": 1,
+      "width": 2048,
+      "height": 2868,
+      "nominalSizeMM": [
+        300,
+        420
+      ],
+      "marginFraction": 0.11376953125,
+      "blurredInk": false,
+      "sealBox": {
+        "x": 824,
+        "y": 2300,
+        "width": 400,
+        "height": 400
+      },
+      "sealVersion": "SL-CHAPTER-3",
+      "sealContact": {
+        "markedPixels": 98155,
+        "lowContactPixels": 9143,
+        "variableContactPixels": 43748
+      },
+      "printedFonts": [
+        "Aboensis"
+      ],
+      "issued": false
+    },
+    "mist": {
+      "available": true,
+      "enabled": false,
+      "frames": 3,
+      "motionPeakMps": 0,
+      "ambientDose": 0.12652215405748937,
+      "visibleDomain": {
+        "left": 0.18749999999999997,
+        "right": 0.8125,
+        "bottom": 0.11538461538461538,
+        "top": 0.8846153846153845
+      }
+    }
+  },
+  "assets": [
+    {
+      "path": "/labs/chapter-scroll-v8/keeper.js",
+      "status": 200,
+      "type": "application/javascript"
+    },
+    {
+      "path": "/labs/chapter-scroll-v9/seal.js",
+      "status": 200,
+      "type": "application/javascript"
+    },
+    {
+      "path": "/labs/chapter-scroll-v6/",
+      "status": 200,
+      "type": "text/html; charset=utf-8"
+    },
+    {
+      "path": "/labs/chapter-scroll-v7/",
+      "status": 200,
+      "type": "text/html; charset=utf-8"
+    },
+    {
+      "path": "/labs/chapter-scroll/assets/Aboensis-Regular.otf",
+      "status": 200,
+      "type": "font/otf"
+    },
+    {
+      "path": "/icon.svg",
+      "status": 200,
+      "type": "image/svg+xml"
+    },
+    {
+      "path": "/api/session",
+      "status": 200,
+      "type": "application/json; charset=utf-8"
+    },
+    {
+      "path": "/api/practice",
+      "status": 401,
+      "type": "application/json; charset=utf-8"
+    }
+  ],
+  "errors": [],
+  "environment": "402x874 DPR2 Chromium software WebGL; actual touchscreen event; not physical iPhone/Safari performance",
+  "newPaidCalls": 0
+}

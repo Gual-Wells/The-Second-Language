@@ -1,0 +1,108 @@
+{
+  "checks": {
+    "same": true,
+    "seedIsolated": true,
+    "pinholes": 6203,
+    "partial": 45113,
+    "total": 83659,
+    "stats": {
+      "markedPixels": 98155,
+      "lowContactPixels": 9143,
+      "variableContactPixels": 43748
+    }
+  },
+  "state": {
+    "progress": 1,
+    "paperProgress": 1,
+    "renderCount": 5,
+    "vertices": 14893,
+    "camera": [
+      0,
+      0,
+      12
+    ],
+    "keeperVisible": false,
+    "viewHeight": 8.744579326923077,
+    "drawBuffer": {
+      "width": 1170,
+      "height": 2006
+    },
+    "deformation": "Continuous GPU winding and shared rest displacement",
+    "keeperMotion": "loosen, unthread, then approach; exact reverse on closing",
+    "keeperSize": [
+      0.41,
+      0.77
+    ],
+    "specularIntensity": 0,
+    "toneMapping": "none; preserve source colors",
+    "restCurl": true,
+    "cameraType": "PerspectiveCamera",
+    "keeperPose": {
+      "x": -3.2649999999999997,
+      "y": -0.025,
+      "z": 0.895,
+      "rotationZ": -0.11,
+      "rotationY": 0.16,
+      "loosen": 1,
+      "opacity": 0,
+      "visible": false,
+      "phase": "off",
+      "radius": 0.30201379091612,
+      "paperProgress": 1,
+      "model": "layered hoop + rigid buckle + authored tight/loose morph",
+      "depthTest": true,
+      "depthWrite": true
+    },
+    "sealRelief": true,
+    "ready": true,
+    "animating": false,
+    "chapterId": "2026-10-02",
+    "issued": false,
+    "layout": {
+      "lastBaseline": 2172,
+      "bodyFontSize": 88,
+      "lineCount": 10,
+      "titleLines": 1,
+      "width": 2048,
+      "height": 2868,
+      "nominalSizeMM": [
+        300,
+        420
+      ],
+      "marginFraction": 0.11376953125,
+      "blurredInk": false,
+      "sealBox": {
+        "x": 824,
+        "y": 2300,
+        "width": 400,
+        "height": 400
+      },
+      "sealVersion": "SL-CHAPTER-3",
+      "sealContact": {
+        "markedPixels": 98155,
+        "lowContactPixels": 9143,
+        "variableContactPixels": 43748
+      },
+      "printedFonts": [
+        "Aboensis"
+      ],
+      "issued": false
+    },
+    "mist": {
+      "available": true,
+      "enabled": false,
+      "frames": 2,
+      "motionPeakMps": 0,
+      "ambientDose": 0.1085090577550464,
+      "visibleDomain": {
+        "left": 0.18749999999999997,
+        "right": 0.8125,
+        "bottom": 0.11538461538461538,
+        "top": 0.8846153846153845
+      }
+    }
+  },
+  "errors": [],
+  "environment": "402x874 mobile emulation, DPR3 software WebGL, not physical iPhone/Safari performance",
+  "limits": "ink/pressure fields are art-directed; no physical chemistry claim; unissued specimen only"
+}
