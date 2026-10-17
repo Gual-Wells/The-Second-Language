@@ -59,6 +59,8 @@ iPhone PWA → 同源 Pages 网关 → Cloudflare Worker
 
 词汇点读已正式取消；只保留第二部分例句及第三部分整句 Bella 点读/默认提前备齐（下一章可一次性调整）。第二部分词汇标题仍返回第一部分对应标题，词汇长按答疑保留。收费历史原件不删除。
 
+2026-10-18 已完成获批七章的第一部分释义融合与词源升级：280 个主词、1,411 个原用法编号保留，第二、三部分逐字节不变，2,511 条句子音频复用，无新增 TTS。新旧正文及音频包已核验；范围外用法和待核实例外见 [执行记录](research/legacy-first-part-upgrade-2026-10-18.json)，不等同于全章重新质检。
+
 评判生题质量可通过临时页书架打开独立 48 小时章节测试：同正式十三道文字、七道听说及提交判分链路，原章节与正式成绩保持不变。运维入口 `node scripts/publish-temporary-test.mjs --chapter=YYYY-MM-DD --id=UUID --title=标题`，生命周期与隔离见 [TEMPORARY](protocol/TEMPORARY.md)。
 
 ### 章节认证与纪念币功能试验

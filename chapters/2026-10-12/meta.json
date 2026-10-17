@@ -1,10 +1,11 @@
 {
   "date": "2026-10-12",
   "title": "河谷里未说完的话",
-  "subtitle": "旧磨坊、实地调查与一座新资料馆",
   "number": "第 5 章",
+  "subtitle": "旧磨坊、实地调查与一座新资料馆",
   "wordCount": 40,
-  "vixCommit": "f159209321a7fbf966b4fb0504efad2ebe13249d",
-  "protocolCommit": "9cdc8a8e20b14b80576e2d2b46c4a0ef5e82cf56",
-  "runId": "2026-10-12"
+  "runId": "upgrade-20261018-2026-10-12",
+  "vixCommit": "821651446af60912b242ea389bd6891b00381a47",
+  "protocolCommit": "0b76e5d840da0dd80e74206b8c5bb9bfa61df7ae",
+  "contentPolicy": "etymology-fused-v1"
 }

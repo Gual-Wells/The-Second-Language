@@ -1,0 +1,471 @@
+{
+  "checkedAt": "2026-10-17T20:26:50.281Z",
+  "protocol": "LEGACY_CHAPTER_UPGRADE_TEMPORARY.md v1.1",
+  "approval": "用户 2026-10-18：批准协议，现在动工",
+  "scope": "first-part-only",
+  "sourcePin": "821651446af60912b242ea389bd6891b00381a47",
+  "plannedChapters": 7,
+  "completedChapters": 7,
+  "completedWords": 280,
+  "completedUses": 1411,
+  "status": "completed",
+  "chapters": [
+    {
+      "chapterId": "2026-10-02",
+      "status": "published-verified",
+      "reviewedWords": 40,
+      "baseDigest": "7da715756425dc8fa657e250760b9fb4d62212643655e49cae7bc2ca0349ff92",
+      "targetDigest": "f7222060476c8c4309c8d46f18110ab0c7e7a02beee54d9ffda471f91e00c7bc",
+      "words": 40,
+      "uses": 66,
+      "secondThirdByteIdentical": true,
+      "oldVersionReadable": true,
+      "originalPublishedAt": 1791521008263,
+      "audioPackClips": 117,
+      "audioPackFilesReused": true,
+      "sampleAudioHashVerified": true,
+      "preloadPackHashVerified": true,
+      "preloadClipExtractionVerified": true,
+      "permanentOldOriginalVerified": true,
+      "permanentNewOriginalVerified": true,
+      "resolvedSourceIssues": [],
+      "supplementarySourceChecks": null,
+      "semanticStatus": "reviewed",
+      "ttsCalls": 0,
+      "exceptions": []
+    },
+    {
+      "chapterId": "2026-10-06",
+      "status": "published-verified",
+      "reviewedWords": 40,
+      "baseDigest": "f6d03fa2adc3dd9bb2c9a25d22cace6193f0df439c785d5283827f72279cee2e",
+      "targetDigest": "2f3a634eb77499eaa2f6a3598c282f3ead48ac26c3aef48325982e021b24869a",
+      "words": 40,
+      "uses": 167,
+      "secondThirdByteIdentical": true,
+      "oldVersionReadable": true,
+      "originalPublishedAt": 1791521013367,
+      "audioPackClips": 301,
+      "audioPackFilesReused": true,
+      "sampleAudioHashVerified": true,
+      "preloadPackHashVerified": true,
+      "preloadClipExtractionVerified": true,
+      "permanentOldOriginalVerified": true,
+      "permanentNewOriginalVerified": true,
+      "resolvedSourceIssues": [],
+      "supplementarySourceChecks": null,
+      "semanticStatus": "reviewed-with-scope-notes",
+      "ttsCalls": 0,
+      "exceptions": [
+        {
+          "wordId": "W001",
+          "text": "Oxford 的“经改造的事物”还可泛指非文艺成品；现有 U001 是改编作品义，U002 是过程义。若要独立教授这一更宽的结果义，须另定 USE，本轮未新增。",
+          "category": "outside-scope-extension",
+          "word": "adaptation"
+        },
+        {
+          "wordId": "W012",
+          "text": "Oxford 的 dam¹ 名词第 3 义可泛指起坝作用的物体，现有 U051 限于水道上的坝；纳入此义需另定用法范围。",
+          "category": "outside-scope-extension",
+          "word": "dam"
+        },
+        {
+          "wordId": "W012",
+          "text": "Oxford 的 dam¹ 动词第 2 义表示“堵住、阻碍”，只是常与 up 连用；现有 U053 限于 dam up，未覆盖不带 up 的用法。",
+          "category": "outside-scope-extension",
+          "word": "dam"
+        },
+        {
+          "wordId": "W012",
+          "text": "Oxford 另列同形异源的 dam²“母兽”；现有词条没有对应 USE。",
+          "category": "outside-scope-extension",
+          "word": "dam"
+        },
+        {
+          "wordId": "W037",
+          "text": "U148 的疾病易感性未在所给词典条目中单列；应另核对该专义及其原有例句，本轮未改动其他部分。",
+          "category": "source-verification",
+          "word": "vulnerability"
+        }
+      ]
+    },
+    {
+      "chapterId": "2026-10-09",
+      "status": "published-verified",
+      "reviewedWords": 40,
+      "baseDigest": "40be00ad89aa366e033f6f36905278822d3963a17787119e60db5a2305cd2dc0",
+      "targetDigest": "1415039d75e1fd9514082363168d3f098be314fbc361cf5fdb7c287f843c4b27",
+      "words": 40,
+      "uses": 130,
+      "secondThirdByteIdentical": true,
+      "oldVersionReadable": true,
+      "originalPublishedAt": 1791521017403,
+      "audioPackClips": 276,
+      "audioPackFilesReused": true,
+      "sampleAudioHashVerified": true,
+      "preloadPackHashVerified": true,
+      "preloadClipExtractionVerified": true,
+      "permanentOldOriginalVerified": true,
+      "permanentNewOriginalVerified": true,
+      "resolvedSourceIssues": [],
+      "supplementarySourceChecks": null,
+      "semanticStatus": "reviewed-with-scope-notes",
+      "ttsCalls": 0,
+      "exceptions": [
+        {
+          "wordId": "W031",
+          "text": "Oxford 另列异源的 shrub2，指由甜果汁与烈酒调成的酒饮。原词条无对应 USE，本次未新增；是否纳入须另行决定。",
+          "category": "outside-scope-extension",
+          "word": "shrub"
+        }
+      ]
+    },
+    {
+      "chapterId": "2026-10-11",
+      "status": "published-verified",
+      "reviewedWords": 40,
+      "baseDigest": "daa9360faab703cba95e36af03551aae99266a60e85e257095f4788c0c810995",
+      "targetDigest": "e7b91abfd952098f9154d4011455626ce00ff57bdac606d9e3c448c8e2084ee4",
+      "words": 40,
+      "uses": 161,
+      "secondThirdByteIdentical": true,
+      "oldVersionReadable": true,
+      "originalPublishedAt": 1791661377129,
+      "audioPackClips": 322,
+      "audioPackFilesReused": true,
+      "sampleAudioHashVerified": true,
+      "preloadPackHashVerified": true,
+      "preloadClipExtractionVerified": true,
+      "permanentOldOriginalVerified": true,
+      "permanentNewOriginalVerified": true,
+      "resolvedSourceIssues": [],
+      "supplementarySourceChecks": null,
+      "semanticStatus": "reviewed-with-scope-notes",
+      "ttsCalls": 0,
+      "exceptions": [
+        {
+          "wordId": "W010",
+          "text": "Oxford 的 composer 还可泛指创作者，范围宽于现有 U040 的音乐义；若要纳入教学，需另行评估用法及第二、三部分的对应内容。",
+          "category": "outside-scope-extension",
+          "word": "composer"
+        },
+        {
+          "wordId": "W030",
+          "text": "原词条未给 rehearse 动词设置 USE，但所给词典含有其独立用法，如在心中预练将说的话，以及“叙述、列举”。若计划教授这些用法，需另行确定新增 USE 及跨部分影响；本次未增改。",
+          "category": "outside-scope-extension",
+          "word": "rehearsal"
+        }
+      ]
+    },
+    {
+      "chapterId": "2026-10-12",
+      "status": "published-verified",
+      "reviewedWords": 40,
+      "baseDigest": "a4c1758afd768f1a61c49f7a88828b4d522d1aa46baf840d3d03764a3bc9eee7",
+      "targetDigest": "0da38ab64e21652d49f32283cba6cc85f7dabe26d107a453c004d5af54d6a8ed",
+      "words": 40,
+      "uses": 173,
+      "secondThirdByteIdentical": true,
+      "oldVersionReadable": true,
+      "originalPublishedAt": 1791746788549,
+      "audioPackClips": 254,
+      "audioPackFilesReused": true,
+      "sampleAudioHashVerified": true,
+      "preloadPackHashVerified": true,
+      "preloadClipExtractionVerified": true,
+      "permanentOldOriginalVerified": true,
+      "permanentNewOriginalVerified": true,
+      "resolvedSourceIssues": [],
+      "supplementarySourceChecks": {
+        "checkedAt": "2026-10-17T19:16:38.722Z",
+        "sources": [
+          {
+            "url": "https://www.collinsdictionary.com/dictionary/english/germinative",
+            "publisher": "Collins",
+            "entry": "germinative",
+            "excerpt": "capable of germinating, developing, or creating; of or pertaining to germination",
+            "supports": [
+              "U063"
+            ]
+          },
+          {
+            "url": "https://www.seedtest.org/api/rm/2346XE3QX287V56/guidelines-for-the-establishment-and-management-of.pdf",
+            "publisher": "International Seed Testing Association",
+            "section": "How to define the type of germinator needed",
+            "summary": "使用 germinator 统称种子萌发实验设备，包括控温萌发室、柜与台。",
+            "supports": [
+              "U064 equipment"
+            ]
+          },
+          {
+            "id": "external:collins-pinery:08060277d61367d9",
+            "book": "supplementary-collins",
+            "heading": "pinery",
+            "url": "https://www.collinsdictionary.com/dictionary/english/pinery",
+            "checkedAt": "2026-10-17T19:23:13.945Z",
+            "text": "pinery, noun; plural pineries.\nBritish English: 1. a place, esp a hothouse, where pineapples are grown; 2. a forest of pine trees, esp one cultivated for timber.\n标签核对：Webster’s New World 的美式条目对松树林义标 US；其他英美条目也列两义，不应把此义绝对限定为美式。",
+            "supports": [
+              "U134",
+              "U135"
+            ]
+          },
+          {
+            "url": "https://dictionary.cambridge.org/us/dictionary/english/orchardist",
+            "publisher": "Cambridge University Press",
+            "entry": "orchardist",
+            "excerpt": "a person who owns or runs an orchard",
+            "supports": [
+              "U108"
+            ],
+            "checkedAt": "2026-10-17T19:27:40.991Z"
+          },
+          {
+            "url": "https://www.oxfordlearnersdictionaries.com/definition/english/night-owl",
+            "publisher": "Oxford University Press",
+            "entry": "night owl",
+            "excerpt": "a person who enjoys staying up late at night",
+            "label": "informal",
+            "supports": [
+              "U121"
+            ],
+            "checkedAt": "2026-10-17T19:27:40.994Z"
+          }
+        ],
+        "unresolved": [
+          "U064 person reference remains original and unverified"
+        ],
+        "action": "保留 U064 原文，避免用无依据重写加强其确定性；未改动第二、三部分。",
+        "wordIds": [
+          "W013",
+          "W027",
+          "W029",
+          "W031"
+        ]
+      },
+      "semanticStatus": "reviewed-with-scope-notes",
+      "ttsCalls": 0,
+      "exceptions": [
+        {
+          "wordId": "W013",
+          "text": "U064 原章将 germinator 同时解释为设备及催芽的人。ISTA 一手资料支持设备义，但本轮尚未找到足以确认“催芽的人”为常规词义的权威释义；该 USE 原文保留，若需收窄或联动原例句，另定范围。本项不标记为已核实。",
+          "category": "source-verification",
+          "word": "germinate"
+        },
+        {
+          "wordId": "W034",
+          "text": "U153 的词典英文释义为“make (straw) into reed”，同条中文译注却作“用（禾杆）制作管笛”。现有材料不足以确定这里的 reed 专指盖顶麦秆还是管笛；须另核该确切动词义，再决定是否修订释义。",
+          "category": "source-verification",
+          "word": "reed"
+        }
+      ]
+    },
+    {
+      "chapterId": "2026-10-13",
+      "status": "published-verified",
+      "reviewedWords": 40,
+      "baseDigest": "ccb42e767c320193322906ff51fcdd4ade514dd459a76d184ee0e818facfe888",
+      "targetDigest": "2f1b56543d395528c49a5e92189819b30c01d29c44c9b840f6be6e91c4a8a8f2",
+      "words": 40,
+      "uses": 241,
+      "secondThirdByteIdentical": true,
+      "oldVersionReadable": true,
+      "originalPublishedAt": 1791834643744,
+      "audioPackClips": 430,
+      "audioPackFilesReused": true,
+      "sampleAudioHashVerified": true,
+      "preloadPackHashVerified": true,
+      "preloadClipExtractionVerified": true,
+      "permanentOldOriginalVerified": true,
+      "permanentNewOriginalVerified": true,
+      "resolvedSourceIssues": [],
+      "supplementarySourceChecks": null,
+      "semanticStatus": "reviewed-with-scope-notes",
+      "ttsCalls": 0,
+      "exceptions": [
+        {
+          "wordId": "W031",
+          "text": "spectrally 也可能承接 spectral 的“幽灵般的”意义，但现有 U184 只教授谱义。若要将该副词义纳入课程，需另行确定用法范围。",
+          "category": "possible-extension",
+          "word": "spectrum"
+        }
+      ]
+    },
+    {
+      "chapterId": "2026-10-14",
+      "status": "published-verified",
+      "reviewedWords": 40,
+      "baseDigest": "d2030747e2061ddde30c614b9632068822dac61a8b55cdad40ee354261ab6ef2",
+      "targetDigest": "c2ca5638b06f85871e44b75879cdf37bdef5c4d7dcd1748fbc57e8482ab8c2a6",
+      "words": 40,
+      "uses": 473,
+      "secondThirdByteIdentical": true,
+      "oldVersionReadable": true,
+      "originalPublishedAt": 1791923140629,
+      "audioPackClips": 811,
+      "audioPackFilesReused": true,
+      "sampleAudioHashVerified": true,
+      "preloadPackHashVerified": true,
+      "preloadClipExtractionVerified": true,
+      "permanentOldOriginalVerified": true,
+      "permanentNewOriginalVerified": true,
+      "resolvedSourceIssues": [
+        {
+          "wordId": "W015",
+          "reason": "权威补证后修正同一既有 USE 的解释；不改变用法身份、句子或历史原件。",
+          "sources": [
+            "https://dictionary.cambridge.org/us/dictionary/english/damagingly"
+          ]
+        }
+      ],
+      "supplementarySourceChecks": {
+        "checkedAt": "2026-10-17T20:05:26.193Z",
+        "wordIds": [
+          "W015"
+        ],
+        "sources": [
+          {
+            "url": "https://dictionary.cambridge.org/us/dictionary/english/damagingly",
+            "publisher": "Cambridge University Press",
+            "entry": "damagingly",
+            "excerpt": "in a way that causes harm",
+            "checkedAt": "2026-10-17T20:05:26.189Z",
+            "supports": [
+              "U185"
+            ]
+          }
+        ],
+        "resolved": [
+          "U185 不作为 very 的通用程度替换词；现有例句与范文已有损害语境。"
+        ],
+        "unresolved": []
+      },
+      "semanticStatus": "reviewed-with-scope-notes",
+      "ttsCalls": 0,
+      "exceptions": [
+        {
+          "wordId": "W002",
+          "text": "U019：所给词典另有 adaptation 指任何“经过改造的东西”的宽泛结果义，超出原条目“根据原作改编成的作品”范围；本轮未扩展该 USE，需另行决定是否补义。",
+          "category": "outside-scope-extension",
+          "word": "adapt"
+        },
+        {
+          "wordId": "W002",
+          "text": "U021：原条目标题包含生物学中的“特征”义，但所给词典原文明确说明的是适应过程，未明确把形成的特征单列为词义；本轮保留原 USE 与标题，具体边界待核实。",
+          "category": "source-verification",
+          "word": "adapt"
+        },
+        {
+          "wordId": "W010",
+          "text": "Oxford 的 collapse 名词第 1 义还包含“折叠、收拢”。现有 U112 限于结构坍塌，U119、U120 均为动词；若要明确教授家具收拢的名词用法，需另行决定是否调整或新增 USE，本轮未改。",
+          "category": "outside-scope-extension",
+          "word": "collapse"
+        },
+        {
+          "wordId": "W023",
+          "text": "Oxford 的同形动词 found 另有熔铸金属、熔化玻璃原料等义，原章没有对应 USE；若要教授，须另定范围。",
+          "category": "word-family-exclusion",
+          "word": "foundation"
+        },
+        {
+          "wordId": "W023",
+          "text": "给定 founder 条目另收船只沉没、计划失败、地面坍塌及马匹疾病等用法；原章 U252 只对应“创办人”，这些义项不能并入。",
+          "category": "word-family-exclusion",
+          "word": "foundation"
+        },
+        {
+          "wordId": "W025",
+          "text": "Oxford 另收 fund-raiser，指为事业等寻求资金支持的人；原章只有 fund-raising 的活动义，没有对应 USE，不能并入 U266。",
+          "category": "outside-scope-extension",
+          "word": "fund"
+        },
+        {
+          "wordId": "W027",
+          "text": "Oxford 的 insulate 第 2 义还可泛指使“物”与周围环境隔开。现有 U280 限于人与社会影响，U281、U282 限于热、声、电；一般物体隔离义无法在不改变既有用法边界的情况下完整纳入，需另行决定是否补 USE 及联动其他部分。",
+          "category": "outside-scope-extension",
+          "word": "insulate"
+        },
+        {
+          "wordId": "W032",
+          "text": "Oxford 另列名词 preserve，指为保护猎物或鱼类而保留的猎场、水域。现有 U347 是动词义，U346 专指美式 nature preserve；该普通名词义需要独立用法，须另定处理范围。",
+          "category": "outside-scope-extension",
+          "word": "preserve"
+        },
+        {
+          "wordId": "W034",
+          "text": "Klein 词源条目另列 regulative 的名词词性，但所给双教材仅列形容词，且未给出名词释义；若要增设名词用法，需另行核查并决定是否新增 USE。",
+          "category": "outside-teaching-sources",
+          "word": "regulation"
+        }
+      ]
+    }
+  ],
+  "reusedSentenceClips": 2511,
+  "exceptionCategories": {
+    "outside-scope-extension": "既有 USE 无法直接纳入的补义，按批准边界未扩入；不自动认定为真实缺陷。",
+    "word-family-exclusion": "不同词族的同形词，按 CONTENT 范围排除，不是遗漏。",
+    "outside-teaching-sources": "词源书额外词性不自动成为现代双教材教学义。",
+    "possible-extension": "尚未确认的扩展候选，不作为实锤缺陷。",
+    "source-verification": "资料不足或中英说明有歧义的待核实边界；未声称已修复。"
+  },
+  "exceptionCounting": "记录不是独立错误数，同一问题可能在不同章重复。",
+  "paidAudioCalls": 0,
+  "audioPolicy": "仅衔接已有成功引用与音频包；没有生成词汇或任何新增音频",
+  "semanticMethod": "固定真实双教材与词源条目，逐词重写后独立语义复核；明确例外不扩范围",
+  "checks": {
+    "firstPartUpgrade": "隔离 SQLite：身份、字节、历史、音频复用、幂等、并发与旧请求覆盖保护通过",
+    "existingRegressions": [
+      "publishing-closure",
+      "chapter-questions",
+      "chapter-tests",
+      "chapter-test-oral",
+      "audio-config"
+    ],
+    "readerUI": {
+      "chapterId": "2026-10-02",
+      "checks": 103,
+      "viewport": "402x874 Chromium touch emulation; not actual iOS Safari"
+    },
+    "allSentenceAudioUnitsCovered": true,
+    "noProcessSourceNamesInLearnerContent": true
+  },
+  "limitations": [
+    "只验收第一部分升级，未宣称全章重新质检。",
+    "新增 USE、遗漏词族及跨部分修订仅记录，不自动执行。",
+    "未完成工作保存在原 D 盘工作目录，不安排额度触限后的自动重试。"
+  ],
+  "operations": {
+    "workerVersion": "f78da153-3795-4af3-b059-8d6abb75ca60",
+    "migration": "0016_first_part_upgrades.sql applied",
+    "archiveFix": "兼容已有 UTF-8 BOM 配置；恢复实际归档与数据库快照核验",
+    "newRecurringCost": 0,
+    "balanceSnapshot": [
+      {
+        "pool": "openrouter",
+        "remaining": 4.224450686,
+        "unit": "USD",
+        "checkedAt": "2026-10-17T20:25:56.163Z",
+        "verified": true,
+        "low": false
+      },
+      {
+        "pool": "cloudflare",
+        "remaining": 10000,
+        "unit": "Neurons",
+        "checkedAt": "2026-10-17T20:25:56.070Z",
+        "verified": true,
+        "estimated": false,
+        "low": false
+      },
+      {
+        "pool": "tencent",
+        "remaining": 9978,
+        "unit": "calls",
+        "checkedAt": "2026-10-17T20:25:55.535Z",
+        "verified": false,
+        "estimated": true,
+        "low": false
+      }
+    ],
+    "liveUpgradeRecordsVerified": 7
+  }
+}
