@@ -1,0 +1,114 @@
+{
+  "checks": {
+    "same": true,
+    "seedIsolated": true,
+    "pinholes": 2325,
+    "partial": 4255,
+    "total": 75457,
+    "surplusPixels": 2411,
+    "denseInkMeanRGB": 14.781824372126762,
+    "issuedWithoutEventBlocked": true,
+    "proofHasUnissuedLabel": true,
+    "stats": {
+      "markedPixels": 101204,
+      "lowContactPixels": 3681,
+      "variableContactPixels": 5752
+    }
+  },
+  "state": {
+    "progress": 1,
+    "paperProgress": 1,
+    "renderCount": 5,
+    "vertices": 14893,
+    "camera": [
+      0,
+      0,
+      12
+    ],
+    "keeperVisible": false,
+    "viewHeight": 8.744579326923077,
+    "drawBuffer": {
+      "width": 1170,
+      "height": 2006
+    },
+    "deformation": "Continuous GPU winding and shared rest displacement",
+    "keeperMotion": "loosen, unthread, then approach; exact reverse on closing",
+    "keeperSize": [
+      0.41,
+      0.77
+    ],
+    "specularIntensity": 0,
+    "toneMapping": "none; preserve source colors",
+    "restCurl": true,
+    "cameraType": "PerspectiveCamera",
+    "keeperPose": {
+      "x": -3.2649999999999997,
+      "y": -0.025,
+      "z": 0.895,
+      "rotationZ": -0.11,
+      "rotationY": 0.16,
+      "loosen": 1,
+      "opacity": 0,
+      "visible": false,
+      "phase": "off",
+      "radius": 0.30201379091612,
+      "paperProgress": 1,
+      "model": "layered hoop + rigid buckle + authored tight/loose morph",
+      "depthTest": true,
+      "depthWrite": true
+    },
+    "sealRelief": true,
+    "ready": true,
+    "animating": false,
+    "chapterId": "2026-10-02",
+    "issued": false,
+    "layout": {
+      "lastBaseline": 2327,
+      "lastInkBottom": 2239,
+      "bodyFontSize": 88,
+      "lineCount": 10,
+      "titleLines": 1,
+      "width": 2048,
+      "height": 2868,
+      "nominalSizeMM": [
+        300,
+        420
+      ],
+      "marginFraction": 0.11376953125,
+      "blurredInk": false,
+      "sealBox": {
+        "x": 789,
+        "y": 2250,
+        "width": 470,
+        "height": 470
+      },
+      "sealVersion": "SL-CHAPTER-4",
+      "sealContact": {
+        "markedPixels": 101204,
+        "lowContactPixels": 3681,
+        "variableContactPixels": 5752
+      },
+      "printedFonts": [
+        "Aboensis"
+      ],
+      "issued": false,
+      "presentation": "unissued-formal-proof"
+    },
+    "mist": {
+      "available": true,
+      "enabled": false,
+      "frames": 2,
+      "motionPeakMps": 0,
+      "ambientDose": 0.1085090577550464,
+      "visibleDomain": {
+        "left": 0.18749999999999997,
+        "right": 0.8125,
+        "bottom": 0.11538461538461538,
+        "top": 0.8846153846153845
+      }
+    }
+  },
+  "errors": [],
+  "environment": "402x874 mobile emulation, DPR3 software WebGL, not physical iPhone/Safari performance",
+  "limits": "ink/pressure fields are art-directed; no physical chemistry claim; unissued specimen only"
+}

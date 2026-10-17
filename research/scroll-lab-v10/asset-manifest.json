@@ -1,0 +1,70 @@
+{
+  "seal": "SL-CHAPTER-4",
+  "hashes": [
+    {
+      "path": "web/icon.svg",
+      "bytes": 551,
+      "sha256": "a6187d27e9c733a2470bedcefbe3947166706b06fa9c4be05a6dd577cba25b2b"
+    },
+    {
+      "path": "web/labs/chapter-scroll/assets/Aboensis-Regular.otf",
+      "bytes": 137860,
+      "sha256": "0ad00fb94899b3a8277680377eb7270c5fb3ee73dd9fefbd6fb31d9f94c4707b"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v4/assets/keeper.webp",
+      "bytes": 377776,
+      "sha256": "12e242bbbcdeac517ff317ea46d141127ff407029f8fadcf645d65cfc5d50128"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v6/assets/charter.webp",
+      "bytes": 735602,
+      "sha256": "d01394d89626dff45630d4ecefb4592dbdea49e7fea6667083a1bca8756624f8"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v10/seal.js",
+      "bytes": 6915,
+      "sha256": "a1bb1199d774d51193415d8f922241f035874212b0a4efae3f3bb21ced6b6d63"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v10/assets/scholarly-codex.png",
+      "bytes": 1389664,
+      "sha256": "aae713cf5aa703b7e1f54dfb7009dd5ffc0d8e73aa9356d8e01bc1399a0aa785"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v10/assets/ink-shoulder.png",
+      "bytes": 758302,
+      "sha256": "5dbfab038a6ba4a9cb7f047beed26c4c105fa1cab46143479fb3bbab4c66dd2c"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v10/charter.js",
+      "bytes": 3207,
+      "sha256": "c8a31f8231e1aa6af59ceb7c3ee42738e57f8bb1c34d84d590bc33a698b65678"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v10/ink-transfer.js",
+      "bytes": 2753,
+      "sha256": "39917ab44e27182ccea269f4d7d31cedce2abee1fad965b932a068f05400d178"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v8/keeper.js",
+      "bytes": 3874,
+      "sha256": "c7cff0fedcbd61b544e164e42f9c42725c8537a3ff6a17f90a40e3fea0c39984"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v8/keeper-path.js",
+      "bytes": 1019,
+      "sha256": "4fb2d7e3df2aeb0885dcf245587a44b212c67b07c1ea16c42d15e8a425949579"
+    },
+    {
+      "path": "research/scroll-lab-v10/seal-master.png",
+      "bytes": 586370,
+      "sha256": "718cea7e924232f559238b46e64194f01e2863e0988af238a93882bf20ad8a6b"
+    },
+    {
+      "path": "research/scroll-lab-v10/seal-height.png",
+      "bytes": 212250,
+      "sha256": "8127c0852e69ebc72c0528e038bc253e344b897c6ffcd92e67b213b2ea318bb4"
+    }
+  ]
+}
