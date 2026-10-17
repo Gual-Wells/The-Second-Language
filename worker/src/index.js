@@ -6,6 +6,7 @@ import { validateAnnotatedContent, validateTeachingLayout } from '../../web/anno
 import { practiceRoute } from './practice.js';
 import {balanceRoute} from './balances.js';
 import {chapterQualityRoute} from './chapter-quality.js';
+import {firstPartUpgradeRoute} from './chapter-upgrade.js';
 import {questionsRoute} from './questions.js';
 import {chapterTestsRoute} from './chapter-tests.js';
 import {temporaryTestsRoute} from './temporary-tests.js';
@@ -70,6 +71,7 @@ function subscriptionValid(value) {
 async function route(request, env) {
   const url = new URL(request.url), path = url.pathname;
   if (path === '/health') return json({ ok: true });
+  if(path==='/api/publish/upgrade-first-part')return firstPartUpgradeRoute(request,env,publisher(request,env));
   if (path.startsWith('/auth/')) return authRoute(request, env, request.method === 'POST' ? await inputJson(request) : {});
   if(path.startsWith('/api/balances'))return balanceRoute(request,env,{isPublisher:publisher(request,env),session:await sessionFor(request,env),sameOrigin:sameOrigin(request,env)});
   if(path==='/api/chapter-quality'||path.startsWith('/api/chapter-quality/'))return chapterQualityRoute(request,env,{isPublisher:publisher(request,env),session:await sessionFor(request,env),sameOrigin:sameOrigin(request,env)});
@@ -161,6 +163,8 @@ async function route(request, env) {
     if (!safeId(value.runId) || !/^[0-9a-f]{64}$/.test(value.digest || '')) return json({ error: '发布参数无效' }, 400);
     const revision = await env.DB.prepare('SELECT * FROM chapter_revisions WHERE digest=? AND run_id=?').bind(value.digest, value.runId).first();
     if (!revision) return json({ error: '暂存章节不存在' }, 404);
+    const upgraded=await env.DB.prepare('SELECT 1 FROM chapter_first_part_upgrades WHERE chapter_id=? LIMIT 1').bind(revision.chapter_id).first();
+    if(upgraded){const current=await env.DB.prepare('SELECT digest FROM published_chapters WHERE chapter_id=?').bind(revision.chapter_id).first();return current?.digest===revision.digest?json({ok:true,id:revision.chapter_id,digest:revision.digest,reused:true}):json({error:'此章已有第一部分升级，旧日课请求不能覆盖'},409);}
     const now = Date.now();
     await env.DB.batch([
       env.DB.prepare(`INSERT OR IGNORE INTO audio_requests(id,chapter_id,chapter_digest,parts,source,state,created_at)
@@ -173,7 +177,8 @@ async function route(request, env) {
       env.DB.prepare(`INSERT INTO published_chapters (chapter_id,study_date,digest,published_at) VALUES (?,?,?,?)
         ON CONFLICT(chapter_id) DO UPDATE SET digest=excluded.digest,
         published_at=CASE WHEN published_chapters.digest=excluded.digest THEN published_chapters.published_at ELSE excluded.published_at END
-        WHERE (SELECT rowid FROM chapter_revisions WHERE digest=excluded.digest)>=(SELECT rowid FROM chapter_revisions WHERE digest=published_chapters.digest)`)
+        WHERE (SELECT rowid FROM chapter_revisions WHERE digest=excluded.digest)>=(SELECT rowid FROM chapter_revisions WHERE digest=published_chapters.digest)
+        AND NOT EXISTS(SELECT 1 FROM chapter_first_part_upgrades WHERE chapter_id=excluded.chapter_id)`)
         .bind(revision.chapter_id, revision.study_date, revision.digest, now),
       env.DB.prepare(`INSERT INTO daily_runs (run_id,study_date,phase,vix_commit,chapter_digest,updated_at)
         SELECT ?,?,'PUBLISHED',?,?,? WHERE EXISTS(SELECT 1 FROM published_chapters WHERE chapter_id=? AND digest=?)
