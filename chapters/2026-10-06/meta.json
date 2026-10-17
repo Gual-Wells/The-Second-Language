@@ -1,10 +1,11 @@
 {
   "date": "2026-10-06",
   "title": "河流的账本",
-  "subtitle": "从干旱、洪水到一场公开听证",
   "number": "第 2 章",
+  "subtitle": "从干旱、洪水到一场公开听证",
   "wordCount": 40,
-  "vixCommit": "d09d5565eadae105f0914c2771e79c21f5efd86a",
-  "protocolCommit": "13c872dc9391d826329038d6cf44cdab53df6534",
-  "runId": "2026-10-06"
+  "runId": "upgrade-20261018-2026-10-06",
+  "vixCommit": "821651446af60912b242ea389bd6891b00381a47",
+  "protocolCommit": "fb5802eba51d1010923c01307b162c8e85f75522",
+  "contentPolicy": "etymology-fused-v1"
 }
