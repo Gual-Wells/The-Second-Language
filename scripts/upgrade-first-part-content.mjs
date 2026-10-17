@@ -57,5 +57,8 @@ for(const batch of groups){let current=batch;let result;for(let extra=0;extra<3;
   for(const w of reviewed.words)if(!w.additionalTerms.length)settled.set(w.wordId,w);
  }
  reviewed={words:batch.map(w=>settled.get(w.id))};outputs.push(...reviewed.words);await writeFile(path.join(directory,'reviewed-words.json'),JSON.stringify(outputs,null,2));console.log('已重写并复核 '+outputs.length+'/'+material.length+' 主词');}
-const markdown='<!-- PART:one -->\n\n'+blocks.map(w=>outputs.find(v=>v.wordId===w.id).markdown.trim()).join('\n\n')+'\n\n'+original.markdown.slice(original.markdown.indexOf('<!-- PART:two -->'));
+// Canonical renderer syntax needs a space before the final IPA group.
+// Only normalize this separator; never rewrite pronunciation or teaching text.
+const formatWord=text=>text.trim().replace(/^(## [^/\n]*\S)(\/[^/\n]+\/)[ \t]*$/gm,'$1 $2');
+const markdown='<!-- PART:one -->\n\n'+blocks.map(w=>formatWord(outputs.find(v=>v.wordId===w.id).markdown)).join('\n\n')+'\n\n'+original.markdown.slice(original.markdown.indexOf('<!-- PART:two -->'));
 validateFirstPartUpgrade(original.markdown,markdown);await writeFile(path.join(directory,'chapter.md'),markdown);await writeFile(path.join(directory,'content-result.json'),JSON.stringify({chapterId,baseDigest:original.digest,targetDigest:hash(Buffer.from(markdown)),sourcePin:pin,words:outputs.length,exceptions:outputs.flatMap(w=>w.exceptions.map(text=>({wordId:w.wordId,text}))),secondThirdByteIdentical:true,ttsCalls:0},null,2));console.log('第一部分候选完成：'+chapterId);
