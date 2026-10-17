@@ -1,0 +1,49 @@
+{
+  "generatedAt": "2026-10-17T01:30:59.305Z",
+  "art": {
+    "tool": "built-in imagegen",
+    "operations": 2,
+    "adopted": "second revision; no mold-style speckles",
+    "width": 1060,
+    "height": 1484,
+    "prompts": "PROMPTS.md",
+    "encoding": "Browser Canvas WebP .96"
+  },
+  "fontCanvas": [
+    2048,
+    2868
+  ],
+  "assets": [
+    {
+      "file": "research/scroll-lab-v6/source-art/charter.png",
+      "bytes": 3374608,
+      "sha256": "cf442d74c5372dd0d9871d4faa0e727194d0f89f4020cf3d4988e47eeb3d3ac5"
+    },
+    {
+      "file": "web/labs/chapter-scroll-v6/assets/charter.webp",
+      "bytes": 735602,
+      "sha256": "d01394d89626dff45630d4ecefb4592dbdea49e7fea6667083a1bca8756624f8"
+    },
+    {
+      "file": "web/labs/chapter-scroll-v6/scroll-object.js",
+      "bytes": 8082,
+      "sha256": "e948caa22cd03dbe08e1a5020c5d0628b7333a350a6a7e03476942c2c29a1e0d"
+    },
+    {
+      "file": "web/labs/chapter-scroll-v6/document.js",
+      "bytes": 2295,
+      "sha256": "68173e8df4ab001359a5d20464bdc7ee899b03def385703d3515717913a4c603"
+    }
+  ],
+  "reuses": [
+    "v4 approved keeper",
+    "v4 CC0 microstructure maps",
+    "v3 CC0 studio HDR",
+    "v5 fixed MIT fluid solver",
+    "v1 OFL Aboensis and Apache2 Paperlab"
+  ],
+  "keeper": "v4 rigid action; .41 x .77; no Cannon import",
+  "productionRecordsWritten": false,
+  "paidExternalCalls": 0,
+  "newRecurringCosts": 0
+}

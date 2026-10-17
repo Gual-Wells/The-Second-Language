@@ -1,0 +1,21 @@
+import assert from 'node:assert/strict';
+import {Atmosphere,motionSpeeds,FIELD} from '../web/labs/chapter-scroll-v6/mist.js';
+const checks=[];const check=(name,ok)=>{assert.ok(ok,name);checks.push(name);};
+const old={top:1,bottom:-1};
+const slow=motionSpeeds(old,{top:1.01,bottom:-1.01},.1,8.5,130);
+const fast=motionSpeeds(old,{top:1.08,bottom:-1.08},.1,8.5,130);
+check('slower page movement creates a smaller disturbance',slow.peakMps<fast.peakMps);
+const capped=motionSpeeds(old,{top:10,bottom:-10},.001,8.5,130);
+check('motion impulse has a calibrated speed ceiling',Math.abs(capped.peakMps-FIELD.maxAirSpeedMps)<1e-9);
+const a=motionSpeeds(old,{top:1+.4/60,bottom:-1-.4/60},1/60,8.5,130),b=motionSpeeds(old,{top:1+.4/24,bottom:-1-.4/24},1/24,8.5,130);
+check('motion speed does not depend on frame rate',Math.abs(a.top-b.top)<1e-10);
+check('a long pause creates no resume impulse',motionSpeeds(old,{top:2,bottom:-2},2,8.5,130).peakMps===0);
+function run(moving,hz){const seeds=[],forces=[];const fluid={seed:(...x)=>seeds.push(x),stir:(...x)=>forces.push(x),tick:()=>{},resolution:()=>({width:64,height:130})};const fog=new Atmosphere({hidden:false},{fluidFactory:()=>fluid});seeds.length=0;forces.length=0;
+for(let i=0;i<hz;i++){const p=moving?i/hz*.4:0;fog.tick(1/hz,p,{top:1+p,bottom:-1-p},8.5,1/hz);}return{seeds,forces,fog};}
+const still=run(false,24),moving=run(true,24),fps60=run(false,60);
+check('opening creates no additional smoke density',JSON.stringify(still.seeds)===JSON.stringify(moving.seeds));
+const domain=still.fog.snapshot().visibleDomain;
+check('all ongoing fog sources are outside the visible viewport',still.seeds.every(([x,y])=>x<domain.left||x>domain.right||y<domain.bottom||y>domain.top));
+check('continuous emission rate is stable across frame rates',Math.abs(still.fog.ambientDose-fps60.fog.ambientDose)<.0001);
+const before=still.fog.count;still.fog.setEnabled(false);still.fog.tick(.04,0,old,8.5);check('disabled atmosphere performs no simulation work',still.fog.count===before);
+console.log(JSON.stringify({checks,nominalDocumentWidthM:.30,maximumInducedAirSpeedMps:FIELD.maxAirSpeedMps,assumptions:'Art-directed 2D surrogate; not experimentally validated parchment aerodynamics'},null,2));

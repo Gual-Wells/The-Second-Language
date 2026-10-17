@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="zh-CN"><head>
+ <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+ <meta name="theme-color" content="#174b84"><title>第一章 · 藏卷 · 第二语言</title>
+ <link rel="icon" href="/icon.svg" type="image/svg+xml"><link rel="stylesheet" href="/styles.css">
+ <link rel="preload" href="../chapter-scroll/assets/Aboensis-Regular.otf" as="font" type="font/otf" crossorigin>
+</head><body class="scroll-lab scroll-lab-v3 scroll-lab-v4 scroll-lab-v5 scroll-lab-v6">
+ <main class="app-shell">
+  <header class="app-header"><div class="title-row"><div class="app-title"><p class="header-meta">第一章 · 藏卷试样</p><h1>第二语言 <small>SECOND LANGUAGE</small></h1></div><a class="header-button scroll-back" href="/">返回</a></div></header>
+  <div class="scroll-chapter"><strong>地图上的那条线</strong><span>CHAPTER I</span></div>
+  <section class="scroll-stage" id="stage" aria-label="古旧羊皮藏卷，轻触展开，沿纵向拖动收展">
+   <canvas id="mistCanvas" aria-hidden="true"></canvas>
+   <canvas id="scrollCanvas" aria-label="第一章藏卷，可轻触展开"></canvas>
+   <div id="loading" class="scroll-loading" role="status">正在取出藏卷…</div>
+   <div id="fallback" class="scroll-fallback" hidden><article id="fallbackDocument" lang="en"></article></div>
+   <button id="unfoldHint" class="scroll-unfold-hint" type="button" hidden>轻触启卷</button>
+   <button id="mistToggle" class="header-button scroll-mist-toggle" type="button" aria-pressed="true">雾染</button>
+   <button id="leaveObject" class="header-button scroll-leave" type="button" hidden>返回</button>
+  </section>
+  <nav class="scroll-controls" aria-label="藏卷操作"><button class="bevel-button" id="toggle" type="button" disabled>启卷</button><button class="bevel-button" id="replay" type="button" disabled>重播</button><button class="bevel-button" id="detail" type="button" disabled>细看</button><button class="bevel-button" id="objectOnly" type="button" disabled>只看藏卷</button></nav>
+  <footer class="scroll-footer"><span id="status" role="status" aria-live="polite">设计试样 · 尚未颁发</span><a href="CREDITS.md">来源</a></footer>
+ </main>
+ <dialog id="transcriptDialog" class="scroll-transcript"><form method="dialog"><header><h2>第一章藏卷</h2><button class="bevel-button" id="detailZoom" type="button" aria-pressed="false">放大</button><button class="bevel-button" aria-label="关闭">关闭</button></header></form><div class="scroll-document-detail"><img id="detailImage" alt="第一章英文羊皮文书，可以缩放查看"></div><details class="scroll-detail-transcript"><summary>查看释读</summary><div id="transcriptContent" lang="en"></div></details><details class="scroll-keeper-detail"><summary>皮扣细节</summary><img src="../chapter-scroll-v4/assets/keeper.webp" alt="古旧皮环与铜扣细节" loading="lazy"></details><p class="scroll-specimen-note">设计试样，不产生认证或学习记录。</p></dialog>
+ <script type="module" src="app.js"></script>
+</body></html>

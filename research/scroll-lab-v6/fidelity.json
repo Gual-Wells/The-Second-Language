@@ -1,0 +1,11 @@
+{
+  "sampleCount": 260,
+  "sourceMean": 205.17176263736258,
+  "renderMean": 206.90742522762946,
+  "brightnessShift": 1.7356625902668839,
+  "sourceStd": 8.818289635986078,
+  "renderStd": 9.218283460534112,
+  "contrastRatio": 1.0453595698326488,
+  "correlation": 0.979872975262317,
+  "method": "Same uncurled interior UV positions and matching physical area averages, real source document vs actual GPU render PNG; ink edges excluded. Broad wear/color preservation, not a microtexture-resolution score."
+}

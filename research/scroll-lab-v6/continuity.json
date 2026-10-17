@@ -1,0 +1,87 @@
+{
+  "method": "Actual vertex shader sampled through WebGL2 transform feedback on both sides of winding boundary; no replacement CPU deformation",
+  "beforeMaxGap": 0.3158236313861974,
+  "afterMaxGap": 0.000046945847611557675,
+  "result": [
+    {
+      "version": "v5",
+      "samples": [
+        {
+          "paperProgress": 0.9,
+          "gap": 0.000043157096926309976,
+          "epsilon": 0.00002
+        },
+        {
+          "paperProgress": 0.93,
+          "gap": 0.01295960696924805,
+          "epsilon": 0.00002
+        },
+        {
+          "paperProgress": 0.95,
+          "gap": 0.05471081468483306,
+          "epsilon": 0.00002
+        },
+        {
+          "paperProgress": 0.97,
+          "gap": 0.1397775253781662,
+          "epsilon": 0.00002
+        },
+        {
+          "paperProgress": 0.98,
+          "gap": 0.2072029713516719,
+          "epsilon": 0.00002
+        },
+        {
+          "paperProgress": 0.99,
+          "gap": 0.280427120887874,
+          "epsilon": 0.00002
+        },
+        {
+          "paperProgress": 0.995,
+          "gap": 0.3158236313861974,
+          "epsilon": 0.00002
+        }
+      ]
+    },
+    {
+      "version": "v6",
+      "samples": [
+        {
+          "paperProgress": 0.9,
+          "gap": 0.000043626180671083724,
+          "epsilon": 0.00002
+        },
+        {
+          "paperProgress": 0.93,
+          "gap": 0.000042270681101976136,
+          "epsilon": 0.00002
+        },
+        {
+          "paperProgress": 0.95,
+          "gap": 0.00004188445934987445,
+          "epsilon": 0.00002
+        },
+        {
+          "paperProgress": 0.97,
+          "gap": 0.00004261532025209014,
+          "epsilon": 0.00002
+        },
+        {
+          "paperProgress": 0.98,
+          "gap": 0.000044248490709812764,
+          "epsilon": 0.00002
+        },
+        {
+          "paperProgress": 0.99,
+          "gap": 0.0000459828201657816,
+          "epsilon": 0.00002
+        },
+        {
+          "paperProgress": 0.995,
+          "gap": 0.000046945847611557675,
+          "epsilon": 0.00002
+        }
+      ]
+    }
+  ]
+}
