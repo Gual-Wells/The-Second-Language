@@ -639,3 +639,4 @@ textarea.text-input { resize: vertical; }
 .scroll-lab-v5 .scroll-transcript header { gap: 8px; }
 .scroll-lab-v5 .scroll-transcript header h2 { margin-right: auto; }
 .scroll-lab-v6 .scroll-fallback { background-image: url('/labs/chapter-scroll-v6/assets/charter.webp'); }
+.scroll-record-identity { white-space: pre-wrap; overflow-wrap: anywhere; }

@@ -1,0 +1,168 @@
+{
+  "immutable": "https://6b757877.the-second-language.pages.dev/labs/chapter-scroll-v11/",
+  "alias": "https://scroll-lab.the-second-language.pages.dev/labs/chapter-scroll-v11/",
+  "verifiedAt": "2026-10-17T18:15:24.555Z",
+  "state": {
+    "progress": 1,
+    "paperProgress": 1,
+    "renderCount": 16,
+    "vertices": 14893,
+    "camera": [
+      0,
+      0,
+      12
+    ],
+    "keeperVisible": false,
+    "viewHeight": 9.087504006410256,
+    "drawBuffer": {
+      "width": 780,
+      "height": 1337
+    },
+    "deformation": "Continuous GPU winding and shared rest displacement",
+    "keeperMotion": "loosen, unthread, then approach; exact reverse on closing",
+    "keeperSize": [
+      0.41,
+      0.77
+    ],
+    "specularIntensity": 0,
+    "toneMapping": "none; preserve source colors",
+    "restCurl": true,
+    "cameraType": "PerspectiveCamera",
+    "keeperPose": {
+      "x": -3.365,
+      "y": -0.025,
+      "z": 0.895,
+      "rotationZ": -0.11,
+      "rotationY": 0.16,
+      "loosen": 1,
+      "opacity": 0,
+      "visible": false,
+      "phase": "off",
+      "radius": 0.3013983549557232,
+      "paperProgress": 1,
+      "model": "layered hoop + rigid buckle + authored tight/loose morph",
+      "depthTest": true,
+      "depthWrite": true
+    },
+    "sealRelief": true,
+    "ready": true,
+    "animating": false,
+    "chapterId": "2026-10-02",
+    "issued": false,
+    "layout": {
+      "width": 2048,
+      "height": 2732,
+      "nominalSizeMM": [
+        270,
+        360
+      ],
+      "lastInkBottom": 2173,
+      "lineCount": 9,
+      "titleLines": 1,
+      "bodyFontSize": 78,
+      "sealBox": {
+        "x": 253,
+        "y": 2220,
+        "width": 390,
+        "height": 390
+      },
+      "sealVersion": "SL-TEXT-SQUARE-1",
+      "sealContact": {
+        "markedPixels": 115085,
+        "lowContactPixels": 3326,
+        "variableContactPixels": 4334
+      },
+      "printedFonts": [
+        "Aboensis"
+      ],
+      "issued": false,
+      "presentation": "dated-design-proof",
+      "recipient": "Gual Wells",
+      "identity": [
+        "D5DD B985 EF45 F62A",
+        "18 October 2026",
+        "00:05:59.135  +08:00"
+      ],
+      "artifactDigest": "d5ddb985ef45f62a30086dd652408400e322c44455318c580c6d98908d05f806",
+      "artSeed": 3588077957
+    },
+    "mist": {
+      "available": true,
+      "enabled": false,
+      "frames": 2,
+      "motionPeakMps": 0,
+      "ambientDose": 0.1085090577550464,
+      "visibleDomain": {
+        "left": 0.18749999999999997,
+        "right": 0.8125,
+        "bottom": 0.11538461538461538,
+        "top": 0.8846153846153845
+      }
+    }
+  },
+  "initialMist": {
+    "available": true,
+    "enabled": true,
+    "frames": 2,
+    "motionPeakMps": 0,
+    "ambientDose": 0.1085090577550464,
+    "visibleDomain": {
+      "left": 0.18749999999999997,
+      "right": 0.8125,
+      "bottom": 0.11538461538461538,
+      "top": 0.8846153846153845
+    }
+  },
+  "assets": [
+    {
+      "path": "/owner-identity.js",
+      "status": 200,
+      "type": "application/javascript"
+    },
+    {
+      "path": "/labs/chapter-scroll-v11/charter.js",
+      "status": 200,
+      "type": "application/javascript"
+    },
+    {
+      "path": "/labs/chapter-scroll-v11/seal.js",
+      "status": 200,
+      "type": "application/javascript"
+    },
+    {
+      "path": "/labs/chapter-scroll-v8/keeper.js",
+      "status": 200,
+      "type": "application/javascript"
+    },
+    {
+      "path": "/labs/chapter-scroll-v10/",
+      "status": 200,
+      "type": "text/html; charset=utf-8"
+    },
+    {
+      "path": "/labs/chapter-scroll-v6/",
+      "status": 200,
+      "type": "text/html; charset=utf-8"
+    },
+    {
+      "path": "/labs/chapter-scroll/assets/Aboensis-Regular.otf",
+      "status": 200,
+      "type": "font/otf"
+    },
+    {
+      "path": "/api/session",
+      "status": 200,
+      "type": "application/json; charset=utf-8"
+    },
+    {
+      "path": "/api/practice",
+      "status": 401,
+      "type": "application/json; charset=utf-8"
+    }
+  ],
+  "errors": [],
+  "touchOpenClose": true,
+  "environment": "402x874 DPR2 Chromium software WebGL; not physical iPhone/Safari performance",
+  "newPaidCalls": 0,
+  "newImageGenerations": 0
+}

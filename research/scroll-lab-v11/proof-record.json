@@ -1,0 +1,9 @@
+{
+  "status": "specimen",
+  "recipient": "Gual Wells",
+  "sha256": "d5ddb985ef45f62a30086dd652408400e322c44455318c580c6d98908d05f806",
+  "canonicalPayload": "[\"second-language.charter.v1\",\"specimen\",\"2026-10-02\",1,\"7da715756425dc8fa657e250760b9fb4d62212643655e49cae7bc2ca0349ff92\",\"The Line on the Map\",\"second-language-owner\",\"Gual Wells\",null,null,null,null,\"2026-10-17T16:05:59.135Z\",\"SL-CHARTER-11\",\"memorial-charter-v11\",\"The Second Language\",\"Charter of Attainment\",\"Granted unto\",\"Chapter I\",\"Record\",[\"Be it known that Gual Wells has passed the prescribed examination for the chapter herein named, having answered every question correctly.\",\"In recognition of this attainment, The Second Language grants this charter unto Gual Wells, to stand in its permanent record as a memorial of the achievement.\",\"In witness whereof, this charter bears the mark of The Second Language.\"],[\"The\",\"Second\",\"Language\",\"Attested\"],\"Specimen — Not issued\"]",
+  "proof": {
+    "sampleTime": "2026-10-18T00:05:59.135+08:00"
+  }
+}

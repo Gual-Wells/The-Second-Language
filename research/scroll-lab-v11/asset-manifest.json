@@ -1,0 +1,60 @@
+{
+  "edition": "SL-CHARTER-11",
+  "hashes": [
+    {
+      "path": "web/owner-identity.js",
+      "bytes": 251,
+      "sha256": "26ed977f96217f9978d18ceea3277eb1ec4bb4c3a99548bdb6b1ee539b803a0d"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v11/charter.js",
+      "bytes": 4044,
+      "sha256": "61eea3863b35bb8300ea8f1f09797024744842a8d1e77f29e5deffa04d0d4233"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v11/document.js",
+      "bytes": 5123,
+      "sha256": "be827c33fada9490708d0a9ace026f0dab5ee2f1c315fba7d340136054823996"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v11/seal.js",
+      "bytes": 3067,
+      "sha256": "13af190a350b9949f4b56fe82e6395fe8966fc084d8564fdc598c3e764c7eea5"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v11/templates.js",
+      "bytes": 548,
+      "sha256": "6286849e2dc90eec7dbed5e6a6bd500b4c99269310eff162d93d4609898c01bf"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v11/chapter-sample.json",
+      "bytes": 370,
+      "sha256": "f5dcebd0df49fea40a635f462d735410950b93fb9e669e9b21430d63ecc91de1"
+    },
+    {
+      "path": "web/labs/chapter-scroll/assets/Aboensis-Regular.otf",
+      "bytes": 137860,
+      "sha256": "0ad00fb94899b3a8277680377eb7270c5fb3ee73dd9fefbd6fb31d9f94c4707b"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v6/assets/charter.webp",
+      "bytes": 735602,
+      "sha256": "d01394d89626dff45630d4ecefb4592dbdea49e7fea6667083a1bca8756624f8"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v10/assets/ink-shoulder.png",
+      "bytes": 758302,
+      "sha256": "5dbfab038a6ba4a9cb7f047beed26c4c105fa1cab46143479fb3bbab4c66dd2c"
+    },
+    {
+      "path": "research/scroll-lab-v11/document.png",
+      "bytes": 10274527,
+      "sha256": "d30d379d0665babd18941f006bca3661f6aec35795c4b92356da92e49a6fc446"
+    },
+    {
+      "path": "research/scroll-lab-v11/proof-record.json",
+      "bytes": 1067,
+      "sha256": "96b3c89fe939aa3db493d31e7ed4775970c61e856fe9e3f3547ee8a017398949"
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "checks": {
+    "blocked": 4,
+    "deterministic": true,
+    "contentBound": true,
+    "timeBound": true,
+    "equivalentInstant": true,
+    "sealStable": true,
+    "differentImpressions": true,
+    "longTitleLines": 2,
+    "longTitleBottom": 2188,
+    "surplus": 2166,
+    "denseInkMeanRGB": 15.04376791985497,
+    "identity": [
+      "D5DD B985 EF45 F62A",
+      "18 October 2026",
+      "00:05:59.135  +08:00"
+    ],
+    "copy": {
+      "institution": "The Second Language",
+      "heading": "Charter of Attainment",
+      "recipient": "Gual Wells",
+      "address": "Granted unto",
+      "chapter": "Chapter I",
+      "title": "The Line on the Map",
+      "paragraphs": [
+        "Be it known that Gual Wells has passed the prescribed examination for the chapter herein named, having answered every question correctly.",
+        "In recognition of this attainment, The Second Language grants this charter unto Gual Wells, to stand in its permanent record as a memorial of the achievement.",
+        "In witness whereof, this charter bears the mark of The Second Language."
+      ],
+      "recordLabel": "Record",
+      "sealLegends": [
+        "The",
+        "Second",
+        "Language",
+        "Attested"
+      ],
+      "note": "Specimen — Not issued",
+      "issued": false,
+      "presentation": "dated-design-proof",
+      "edition": "SL-CHARTER-11"
+    },
+    "payload": "[\"second-language.charter.v1\",\"specimen\",\"2026-10-02\",1,\"7da715756425dc8fa657e250760b9fb4d62212643655e49cae7bc2ca0349ff92\",\"The Line on the Map\",\"second-language-owner\",\"Gual Wells\",null,null,null,null,\"2026-10-17T16:05:59.135Z\",\"SL-CHARTER-11\",\"memorial-charter-v11\",\"The Second Language\",\"Charter of Attainment\",\"Granted unto\",\"Chapter I\",\"Record\",[\"Be it known that Gual Wells has passed the prescribed examination for the chapter herein named, having answered every question correctly.\",\"In recognition of this attainment, The Second Language grants this charter unto Gual Wells, to stand in its permanent record as a memorial of the achievement.\",\"In witness whereof, this charter bears the mark of The Second Language.\"],[\"The\",\"Second\",\"Language\",\"Attested\"],\"Specimen — Not issued\"]"
+  },
+  "state": {
+    "progress": 1,
+    "paperProgress": 1,
+    "renderCount": 5,
+    "vertices": 14893,
+    "camera": [
+      0,
+      0,
+      12
+    ],
+    "keeperVisible": false,
+    "viewHeight": 9.087504006410256,
+    "drawBuffer": {
+      "width": 1170,
+      "height": 2006
+    },
+    "deformation": "Continuous GPU winding and shared rest displacement",
+    "keeperMotion": "loosen, unthread, then approach; exact reverse on closing",
+    "keeperSize": [
+      0.41,
+      0.77
+    ],
+    "specularIntensity": 0,
+    "toneMapping": "none; preserve source colors",
+    "restCurl": true,
+    "cameraType": "PerspectiveCamera",
+    "keeperPose": {
+      "x": -3.365,
+      "y": -0.025,
+      "z": 0.895,
+      "rotationZ": -0.11,
+      "rotationY": 0.16,
+      "loosen": 1,
+      "opacity": 0,
+      "visible": false,
+      "phase": "off",
+      "radius": 0.3013983549557232,
+      "paperProgress": 1,
+      "model": "layered hoop + rigid buckle + authored tight/loose morph",
+      "depthTest": true,
+      "depthWrite": true
+    },
+    "sealRelief": true,
+    "ready": true,
+    "animating": false,
+    "chapterId": "2026-10-02",
+    "issued": false,
+    "layout": {
+      "width": 2048,
+      "height": 2732,
+      "nominalSizeMM": [
+        270,
+        360
+      ],
+      "lastInkBottom": 2173,
+      "lineCount": 9,
+      "titleLines": 1,
+      "bodyFontSize": 78,
+      "sealBox": {
+        "x": 253,
+        "y": 2220,
+        "width": 390,
+        "height": 390
+      },
+      "sealVersion": "SL-TEXT-SQUARE-1",
+      "sealContact": {
+        "markedPixels": 115085,
+        "lowContactPixels": 3326,
+        "variableContactPixels": 4334
+      },
+      "printedFonts": [
+        "Aboensis"
+      ],
+      "issued": false,
+      "presentation": "dated-design-proof",
+      "recipient": "Gual Wells",
+      "identity": [
+        "D5DD B985 EF45 F62A",
+        "18 October 2026",
+        "00:05:59.135  +08:00"
+      ],
+      "artifactDigest": "d5ddb985ef45f62a30086dd652408400e322c44455318c580c6d98908d05f806",
+      "artSeed": 3588077957
+    },
+    "mist": {
+      "available": true,
+      "enabled": false,
+      "frames": 2,
+      "motionPeakMps": 0,
+      "ambientDose": 0.1085090577550464,
+      "visibleDomain": {
+        "left": 0.18749999999999997,
+        "right": 0.8125,
+        "bottom": 0.11538461538461538,
+        "top": 0.8846153846153845
+      }
+    }
+  },
+  "errors": [],
+  "environment": "402x874 mobile emulation, DPR3 software WebGL; not physical iPhone/Safari performance",
+  "limits": "unissued dated proof, no actual passing event or production certification; short digest is an identifier, not an authentication credential"
+}
