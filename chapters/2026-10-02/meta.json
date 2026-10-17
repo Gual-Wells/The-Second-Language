@@ -1,10 +1,11 @@
 {
   "date": "2026-10-02",
   "title": "地图上的那条线",
-  "subtitle": "从雨林、洪水到一场公开听证",
   "number": "第 1 章",
+  "subtitle": "从雨林、洪水到一场公开听证",
   "wordCount": 40,
-  "runId": "2026-10-02",
-  "vixCommit": "8836e601cad6a5f7ff3c04c2a341faf782450dd1",
-  "protocolCommit": "13c872dc9391d826329038d6cf44cdab53df6534"
+  "runId": "upgrade-20261018-2026-10-02",
+  "vixCommit": "821651446af60912b242ea389bd6891b00381a47",
+  "protocolCommit": "5d1ced4b94200e1ccbfc052d4c42aeee21064382",
+  "contentPolicy": "etymology-fused-v1"
 }

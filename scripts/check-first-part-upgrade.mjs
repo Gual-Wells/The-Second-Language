@@ -5,6 +5,8 @@ import {firstPartUpgradeRoute} from '../worker/src/chapter-upgrade.js';
 import {validateFirstPartUpgrade} from '../protocol/first-part-upgrade.mjs';
 import {digestText} from '../protocol/chapter-quality-contract.mjs';
 import worker from '../worker/src/index.js';
+import {reuseFirstPartAudioPack} from './lib/first-part-audio-reuse.mjs';
+import {audioUnits} from '../web/audio-plan.js';
 
 const sql=new DatabaseSync(':memory:');
 for(const f of (await readdir('worker/migrations')).filter(f=>f.endsWith('.sql')).sort())sql.exec(await readFile('worker/migrations/'+f,'utf8'));
@@ -37,4 +39,6 @@ const late=await seed('2026-10-11','\n\n\n'),normalDigest='f'.repeat(64);
 for(const [digest,run,key]of [[late.targetDigest,late.runId,'prepared-upgrade'],[normalDigest,late.chapterId,'later-normal-stage']])sql.prepare('INSERT INTO chapter_revisions(digest,chapter_id,study_date,number,title,subtitle,word_count,content_key,run_id,vix_commit,protocol_commit,created_at) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)').run(digest,late.chapterId,late.chapterId,'第 1 章','夹具','',40,key,run,'a'.repeat(40),'b'.repeat(40),2);
 let interleaved=false;const interleaving={...db,prepare(q){const statement=db.prepare(q);if(!q.startsWith('SELECT 1 FROM chapter_first_part_upgrades'))return statement;return{bind(){return this;},async first(){assert.equal(interleaved,false);interleaved=true;assert.equal((await post(late)).status,200);return null;}};}};
 const stale=await worker.fetch(new Request('https://fixture/api/publish/commit',{method:'POST',headers:{authorization:'Bearer fixture','content-type':'application/json'},body:JSON.stringify({runId:late.chapterId,digest:normalDigest})}),{...env,DB:interleaving});assert.equal(stale.status,409);assert.equal(sql.prepare('SELECT digest FROM published_chapters WHERE chapter_id=?').get(late.chapterId).digest,late.targetDigest);
+const sourcePack={chapterId:b.chapterId,digest:b.baseDigest,packs:[{key:'original-paid-pack.bin'}],clips:[{id:'clip',voice:'af_bella',text:audioUnits(original)[0].text,pack:0},{id:'old-word',voice:'af_bella',text:'adversity',pack:0}]};let savedManifest=null,packReads=0;
+const pack=await reuseFirstPartAudioPack({chapterId:b.chapterId,baseDigest:b.baseDigest,targetDigest:b.targetDigest,markdown:b.markdown,request:async(route,method='GET',body)=>{assert.ok(route.startsWith('/api/storage/'),'Never invoke a synthesis endpoint');if(route.startsWith('/api/storage/chapters/'))return ++packReads===1?sourcePack:savedManifest;if(method==='PUT'){savedManifest=JSON.parse(body);return{digest:await digestText(body)};}if(route==='/api/storage/publish-pack')return{ok:true};throw Error('Unexpected request');}});assert.equal(pack.clips,1);assert.equal(savedManifest.packs[0].key,sourcePack.packs[0].key);assert.equal(sourcePack.digest,b.baseDigest);assert.equal(savedManifest.digest,b.targetDigest);
 console.log(JSON.stringify({scopeAndByteProtection:true,immutableOldRecords:true,audioReusedWithoutGeneration:true,idempotence:true,preservedDateAndSettings:true,noPushOrAudioRequests:true,oldPublisherReplayBlocked:true,concurrentPointerProtected:true,audioLinkFailureDoesNotPublish:true,paidCalls:0}));sql.close();
