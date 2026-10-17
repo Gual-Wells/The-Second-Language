@@ -19,7 +19,8 @@ if(hash(Buffer.from(original.markdown))!==original.digest)throw Error('原章摘
 const parsed=qualityTargets(original.markdown),first=original.markdown.slice(0,original.markdown.indexOf('<!-- PART:two -->')),blocks=wordBlocks(first),books=await loadTextbooks({root,commit:pin,etymology:true});
 let sourceTerms={};try{sourceTerms=JSON.parse((await readFile(path.join(directory,'source-terms.json'),'utf8')).replace(/^\uFEFF/,''));}catch(e){if(e.code!=='ENOENT')throw e;}
 let sourceSelection={};try{sourceSelection=JSON.parse((await readFile(path.join(directory,'source-selection.json'),'utf8')).replace(/^\uFEFF/,''));}catch(e){if(e.code!=='ENOENT')throw e;}
-const entriesFor=(word,terms)=>lookupBooks(books,terms).filter(e=>!sourceSelection[word.id]?.excluded?.includes(e.id));
+let sourceSupplements={};try{sourceSupplements=JSON.parse((await readFile(path.join(directory,'source-supplements.json'),'utf8')).replace(/^\uFEFF/,''));}catch(e){if(e.code!=='ENOENT')throw e;}
+const entriesFor=(word,terms)=>[...lookupBooks(books,terms).filter(e=>!sourceSelection[word.id]?.excluded?.includes(e.id)),...(sourceSupplements[word.id]||[])];
 const material=blocks.map(w=>{const terms=[...new Set([w.text,...[...w.markdown.matchAll(/^## (.+)$/gm)].map(m=>headingWord(m[1])),...(sourceTerms[w.id]||[])].filter(Boolean))];return{...w,terms,entries:entriesFor(w,terms)};});
 const formal=await Promise.all(['CONTENT.md','ETYMOLOGY.md','USAGE_LABELS.md','LEGACY_CHAPTER_UPGRADE_TEMPORARY.md'].map(async file=>({file,text:await readFile(path.join(root,'protocol',file),'utf8')})));
 await writeFile(path.join(directory,'material.json'),JSON.stringify(material));
