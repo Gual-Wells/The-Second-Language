@@ -1,0 +1,55 @@
+{
+  "date": "2026-10-17",
+  "assets": [
+    {
+      "file": "web/icon.svg",
+      "bytes": 551,
+      "sha256": "a6187d27e9c733a2470bedcefbe3947166706b06fa9c4be05a6dd577cba25b2b"
+    },
+    {
+      "file": "web/labs/chapter-scroll-v7/assets/project-seal.svg",
+      "bytes": 86208,
+      "sha256": "e72d1497ba80337cd988fd577a3066145e4425fc932530eee93fa6e5fddb6d2d"
+    },
+    {
+      "file": "web/labs/chapter-scroll-v7/assets/UncialAntiqua-Regular.ttf",
+      "bytes": 63404,
+      "sha256": "33a5128b59d1c95d4f3788164f4ab3a1196f0a982263cb2cd278c47418366766"
+    },
+    {
+      "file": "web/labs/chapter-scroll-v7/assets/UncialAntiqua-OFL.txt",
+      "bytes": 4437,
+      "sha256": "244ca4ef7b106d8c660e9a00cecf5d581b6a222f447d7d59a8f61711b2ad3400"
+    },
+    {
+      "file": "web/labs/chapter-scroll-v7/keeper-path.js",
+      "bytes": 1037,
+      "sha256": "c9031c9c2f72eb3e6caf5a1197b6cab9a4a90a353e3865b1c50cbc033b40884f"
+    },
+    {
+      "file": "web/labs/chapter-scroll-v7/charter.js",
+      "bytes": 3214,
+      "sha256": "1c7e06a02e49358d725765aa5b2e376e2735499c2ddcbce253a58b592326d926"
+    },
+    {
+      "file": "web/labs/chapter-scroll-v7/document.js",
+      "bytes": 3600,
+      "sha256": "b80a8a236fdc969240cf3af898567d12b499e0b554b302994fbe2d6f40732619"
+    }
+  ],
+  "sealVersion": "SL-CHAPTER-1",
+  "chapterDigest": "7da715756425dc8fa657e250760b9fb4d62212643655e49cae7bc2ca0349ff92",
+  "font": {
+    "name": "Uncial Antiqua",
+    "author": "Brian J. Bonislawsky / Astigmatic",
+    "license": "SIL OFL 1.1",
+    "repository": "google/fonts",
+    "pin": "f006ade507ba4f5ced8b279d8658cfd885302ceb"
+  },
+  "authority": "protocol/CHARTER.md",
+  "specimen": true,
+  "issued": false,
+  "paidExternalCalls": 0,
+  "imageGenerations": 0,
+  "newRecurringCosts": 0
+}

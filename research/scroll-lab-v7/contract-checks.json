@@ -1,0 +1,20 @@
+{
+  "checks": [
+    "visible keeper remains in front of conservative complete roll bounds",
+    "fade starts only outside the rotated rectangular keeper footprint",
+    "paper stays wound until the keeper has departed",
+    "phase boundaries have no pose or opacity jumps",
+    "published specimen has no invented passing event",
+    "specimen prose does not grant certification",
+    "missing real-event fields prevent an issued presentation",
+    "identity preserves four hex groups, milliseconds and explicit display offset",
+    "impossible calendar dates are not silently normalized",
+    "issued prose limits its claim to the saved assessment",
+    "a failed result cannot become a specimen-shaped issued document",
+    "all three original project icon paths are reused unchanged",
+    "seal contains exact English institution and purpose legends"
+  ],
+  "minimumClosedRollDepthClearance": 0.030000000000000027,
+  "poseBoundaryJump": 0.000002258487285162442,
+  "limits": "2.5D plane and conservative roll envelope, not a 360-degree strap/collision model; no production certification events written"
+}

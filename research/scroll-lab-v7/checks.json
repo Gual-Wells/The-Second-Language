@@ -1,0 +1,183 @@
+{
+  "checks": [
+    "first chapter is an unissued specimen",
+    "fits the iPhone-sized viewport",
+    "body and seal lettering use loaded real fonts",
+    "independent fluid is available",
+    "native DPR3 drawing buffer is used",
+    "document keeps crisp lettering and a separate seal reserve",
+    "actual cropped scene visibly contains fog, beyond the button",
+    "fluid produces visible dye after transparent compositing",
+    "keeper releases before the page opens",
+    "full page hides the separate keeper",
+    "camera remains exactly frontal",
+    "keeper uses the staged clear-of-paper path at the retained small size",
+    "real-time opening changes the mesh",
+    "opening can reverse back to a closed roll",
+    "disabling mist stops all idle draws",
+    "isolated artifact exports a transparent PNG",
+    "high-resolution document and English transcript remain available",
+    "document detail enlarges without blurring the source",
+    "object view removes app chrome",
+    "reduced motion starts open without allocating fluid",
+    "context loss keeps the static text fallback",
+    "sample makes no external requests or backend writes",
+    "no spring library is loaded by this revision",
+    "paper specular highlight is disabled",
+    "no script or shader errors"
+  ],
+  "errors": [],
+  "initial": {
+    "progress": 0,
+    "paperProgress": 0,
+    "renderCount": 3,
+    "vertices": 14893,
+    "camera": [
+      0,
+      0,
+      12
+    ],
+    "keeperVisible": true,
+    "viewHeight": 8.487385817307693,
+    "drawBuffer": {
+      "width": 1170,
+      "height": 2006
+    },
+    "deformation": "Continuous GPU winding and shared rest displacement",
+    "keeperMotion": "lift, slide clear, depart; reverse on closing",
+    "keeperSize": [
+      0.41,
+      0.77
+    ],
+    "specularIntensity": 0,
+    "toneMapping": "none; preserve source colors",
+    "restCurl": true,
+    "keeperPose": {
+      "x": 0,
+      "y": -0.01,
+      "z": 0.6740275818322401,
+      "rotationZ": 0,
+      "opacity": 1,
+      "visible": true,
+      "phase": "lift",
+      "paperFront": 0.6740275818322401
+    },
+    "ready": true,
+    "animating": false,
+    "chapterId": "2026-10-02",
+    "issued": false,
+    "layout": {
+      "lastBaseline": 1960,
+      "bodyFontSize": 87,
+      "lineCount": 10,
+      "titleLines": 1,
+      "width": 2048,
+      "height": 2868,
+      "nominalSizeMM": [
+        300,
+        420
+      ],
+      "marginFraction": 0.1171875,
+      "blurredInk": false,
+      "sealBox": {
+        "x": 1304,
+        "y": 2000,
+        "width": 496,
+        "height": 496
+      },
+      "sealVersion": "SL-CHAPTER-1",
+      "issued": false
+    },
+    "mist": {
+      "available": true,
+      "enabled": true,
+      "frames": 2,
+      "motionPeakMps": 0,
+      "ambientDose": 0.1085090577550464,
+      "visibleDomain": {
+        "left": 0.18749999999999997,
+        "right": 0.8125,
+        "bottom": 0.11538461538461538,
+        "top": 0.8846153846153845
+      }
+    }
+  },
+  "open": {
+    "progress": 1,
+    "paperProgress": 1,
+    "renderCount": 6,
+    "vertices": 14893,
+    "camera": [
+      0,
+      0,
+      12
+    ],
+    "keeperVisible": false,
+    "viewHeight": 8.487385817307693,
+    "drawBuffer": {
+      "width": 1170,
+      "height": 2006
+    },
+    "deformation": "Continuous GPU winding and shared rest displacement",
+    "keeperMotion": "lift, slide clear, depart; reverse on closing",
+    "keeperSize": [
+      0.41,
+      0.77
+    ],
+    "specularIntensity": 0,
+    "toneMapping": "none; preserve source colors",
+    "restCurl": true,
+    "keeperPose": {
+      "x": -3.3350000000000004,
+      "y": -0.15000000000000002,
+      "z": 0.9940275818322402,
+      "rotationZ": -0.1,
+      "opacity": 0,
+      "visible": false,
+      "phase": "off",
+      "paperFront": 0.6740275818322401
+    },
+    "ready": true,
+    "animating": false,
+    "chapterId": "2026-10-02",
+    "issued": false,
+    "layout": {
+      "lastBaseline": 1960,
+      "bodyFontSize": 87,
+      "lineCount": 10,
+      "titleLines": 1,
+      "width": 2048,
+      "height": 2868,
+      "nominalSizeMM": [
+        300,
+        420
+      ],
+      "marginFraction": 0.1171875,
+      "blurredInk": false,
+      "sealBox": {
+        "x": 1304,
+        "y": 2000,
+        "width": 496,
+        "height": 496
+      },
+      "sealVersion": "SL-CHAPTER-1",
+      "issued": false
+    },
+    "mist": {
+      "available": true,
+      "enabled": true,
+      "frames": 58,
+      "motionPeakMps": 0,
+      "ambientDose": 2.7158455017403504,
+      "visibleDomain": {
+        "left": 0.18749999999999997,
+        "right": 0.8125,
+        "bottom": 0.11538461538461538,
+        "top": 0.8846153846153845
+      }
+    }
+  },
+  "visibleFluidPixels": 15390,
+  "environment": "Chromium 402x874 mobile emulation; DPR3 software WebGL; frame throughput is not an iPhone benchmark, not physical iPhone or Safari",
+  "paidExternalCalls": 0
+}

@@ -1,0 +1,150 @@
+{
+  "deployedAt": "2026-10-17T06:17:00.166Z",
+  "immutableBase": "https://6b0397fd.the-second-language.pages.dev",
+  "alias": "https://scroll-lab.the-second-language.pages.dev",
+  "path": "/labs/chapter-scroll-v7/",
+  "results": [
+    {
+      "path": "/labs/chapter-scroll-v7/",
+      "status": 200,
+      "type": "text/html; charset=utf-8"
+    },
+    {
+      "path": "/labs/chapter-scroll-v7/scroll-object.js",
+      "status": 200,
+      "type": "application/javascript"
+    },
+    {
+      "path": "/labs/chapter-scroll-v6/assets/charter.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/labs/chapter-scroll-v7/assets/project-seal.svg",
+      "status": 200,
+      "type": "image/svg+xml"
+    },
+    {
+      "path": "/labs/chapter-scroll-v7/assets/UncialAntiqua-Regular.ttf",
+      "status": 200,
+      "type": "font/ttf"
+    },
+    {
+      "path": "/labs/chapter-scroll-v5/vendor/fluid.js",
+      "status": 200,
+      "type": "application/javascript"
+    },
+    {
+      "path": "/labs/chapter-scroll-v4/assets/keeper.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/labs/chapter-scroll-v3/assets/studio.hdr",
+      "status": 200,
+      "type": "application/octet-stream"
+    },
+    {
+      "path": "/labs/chapter-scroll/assets/Aboensis-Regular.otf",
+      "status": 200,
+      "type": "font/otf"
+    },
+    {
+      "path": "/labs/chapter-scroll/",
+      "status": 200,
+      "type": "text/html; charset=utf-8"
+    },
+    {
+      "path": "/labs/chapter-scroll-v4/",
+      "status": 200,
+      "type": "text/html; charset=utf-8"
+    },
+    {
+      "path": "/api/session",
+      "status": 200,
+      "type": "application/json; charset=utf-8"
+    },
+    {
+      "path": "/api/practice",
+      "status": 401,
+      "type": "application/json; charset=utf-8"
+    }
+  ],
+  "errors": [],
+  "snapshot": {
+    "progress": 1,
+    "paperProgress": 1,
+    "renderCount": 18,
+    "vertices": 14893,
+    "camera": [
+      0,
+      0,
+      12
+    ],
+    "keeperVisible": false,
+    "viewHeight": 10.89,
+    "drawBuffer": {
+      "width": 780,
+      "height": 1716
+    },
+    "deformation": "Continuous GPU winding and shared rest displacement",
+    "keeperMotion": "lift, slide clear, depart; reverse on closing",
+    "keeperSize": [
+      0.41,
+      0.77
+    ],
+    "specularIntensity": 0,
+    "toneMapping": "none; preserve source colors",
+    "restCurl": true,
+    "keeperPose": {
+      "x": -3.3350000000000004,
+      "y": -0.15000000000000002,
+      "z": 0.9940275818322402,
+      "rotationZ": -0.1,
+      "opacity": 0,
+      "visible": false,
+      "phase": "off",
+      "paperFront": 0.6740275818322401
+    },
+    "ready": true,
+    "animating": false,
+    "chapterId": "2026-10-02",
+    "issued": false,
+    "layout": {
+      "lastBaseline": 1960,
+      "bodyFontSize": 87,
+      "lineCount": 10,
+      "titleLines": 1,
+      "width": 2048,
+      "height": 2868,
+      "nominalSizeMM": [
+        300,
+        420
+      ],
+      "marginFraction": 0.1171875,
+      "blurredInk": false,
+      "sealBox": {
+        "x": 1304,
+        "y": 2000,
+        "width": 496,
+        "height": 496
+      },
+      "sealVersion": "SL-CHAPTER-1",
+      "issued": false
+    },
+    "mist": {
+      "available": true,
+      "enabled": true,
+      "frames": 3,
+      "motionPeakMps": 0,
+      "ambientDose": 0.1266306681216087,
+      "visibleDomain": {
+        "left": 0.18749999999999997,
+        "right": 0.8125,
+        "bottom": 0.11538461538461538,
+        "top": 0.8846153846153845
+      }
+    }
+  },
+  "verified": "Public HTTP and Chromium 402x874 DPR2 software WebGL, real touch event; fog paused during opening then resumed. Local DPR3 passed; public DPR3 software runs hit action/frame waits, so no iPhone/Safari frame rate claim."
+}
