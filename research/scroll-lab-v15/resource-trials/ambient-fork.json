@@ -1,0 +1,13 @@
+{
+  "upstream": "https://github.com/zlollo/realistic-webgl-smoke",
+  "commit": "87c1d57fded21f60b0ae18f7f7d979bcf4d8ab60",
+  "sourceSHA256": "021b53eb762b891cf6e8ccae3bcc5485fbfe8a297feb79a9b6157513997fec8e",
+  "changes": [
+    "distributed birth and initial ages",
+    "no mandatory upward velocity",
+    "screen sheet/keeper velocity response",
+    "age-based entry fade",
+    "external scheduler step; original point/blur/blend renderer retained"
+  ],
+  "status": "exploration, not user accepted"
+}

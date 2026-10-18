@@ -1,0 +1,468 @@
+{
+  "initial": {
+    "progress": 1,
+    "paperProgress": 1,
+    "renderCount": 10,
+    "vertices": 14893,
+    "camera": [
+      0,
+      0,
+      12
+    ],
+    "keeperVisible": false,
+    "viewHeight": 8.116887019230768,
+    "drawBuffer": {
+      "width": 1170,
+      "height": 1862
+    },
+    "deformation": "Continuous GPU winding and shared rest displacement",
+    "keeperMotion": "pin lifts, leather feeds, keeper slides outside roll; no scale/alpha disappearance",
+    "keeperSize": [
+      0.41,
+      0.77
+    ],
+    "specularIntensity": 0,
+    "toneMapping": "none; preserve source colors",
+    "restCurl": true,
+    "cameraType": "PerspectiveCamera",
+    "keeperPose": {
+      "phase": "off",
+      "x": -3.1750000000000003,
+      "y": 3.165,
+      "z": 0.068,
+      "visible": false,
+      "loosen": 1,
+      "pinAngle": 0.87,
+      "minimumRadialClearance": 0.053,
+      "opacity": 1,
+      "model": "broad flattened frame; separate pin/bar; stitched fixed fold and two-hole free tongue; controlled loose band",
+      "meshCount": 12,
+      "bones": 64,
+      "usesFrontCutout": false,
+      "usesFade": false,
+      "materials": "co-registered bronze oxide/metalness and worn leather",
+      "structure": "historic buckle construction adapted to a fictional removable scroll keeper"
+    },
+    "sealRelief": true,
+    "runtime": {
+      "motionPrepared": true,
+      "preparationMs": 3547.699999999255,
+      "preparedPrograms": 17,
+      "programs": 17
+    },
+    "edition": "v15",
+    "paperMaterial": "independently authored chapter-five sheet",
+    "ready": true,
+    "animating": false,
+    "chapterId": "2026-10-12",
+    "issued": false,
+    "layout": {
+      "width": 2048,
+      "height": 2868,
+      "nominalSizeMM": [
+        300,
+        420
+      ],
+      "artPlanId": "SL-CH05-LEAF-LETTER-3",
+      "artPlanDigest": "6b4e30b5017ec3985ba4faae96c8fba1b081574f5c82bc311803593e724f1b14",
+      "composition": "horizontal-miniature-and-centered-verse",
+      "paperVariant": "individually-authored-sheet",
+      "sealVersion": "SL-KEEPSAKE-1",
+      "sealVariant": "oblong",
+      "sealBox": {
+        "x": 338,
+        "y": 2500,
+        "width": 285,
+        "height": 131
+      },
+      "ornamentBox": {
+        "x": 300,
+        "y": 900,
+        "width": 1448,
+        "height": 640,
+        "opacity": 0.91
+      },
+      "ornamentDigest": "e5aa04af52dde8cc3f32d0d9dfac3fe1696ef6d275c0514d7e0c0065f517d9c5",
+      "printedFonts": [
+        "Aboensis"
+      ],
+      "textBounds": [
+        {
+          "block": "chapter",
+          "text": "Chapter V",
+          "left": 889.7440338134766,
+          "right": 1162.1279754638672,
+          "top": 248,
+          "bottom": 344
+        },
+        {
+          "block": "artTitle",
+          "text": "Of Leaf",
+          "left": 822.0690155029297,
+          "right": 1250.3350067138672,
+          "top": 395,
+          "bottom": 551
+        },
+        {
+          "block": "artTitle",
+          "text": "and Letter",
+          "left": 756.8250122070312,
+          "right": 1301.9209594726562,
+          "top": 553,
+          "bottom": 662
+        },
+        {
+          "block": "chapterTitle",
+          "text": "Words Unfinished in the Valley",
+          "left": 671.2451171875,
+          "right": 1377.8028564453125,
+          "top": 728,
+          "bottom": 814
+        },
+        {
+          "block": "stanza1",
+          "text": "A reed gives breath a voice.",
+          "left": 535.3700256347656,
+          "right": 1509.8699645996094,
+          "top": 1602,
+          "bottom": 1704
+        },
+        {
+          "block": "stanza1",
+          "text": "Old ink outlives the hand.",
+          "left": 557.5850524902344,
+          "right": 1490.6549987792969,
+          "top": 1741,
+          "bottom": 1857
+        },
+        {
+          "block": "stanza2",
+          "text": "A seed lies in the fold,",
+          "left": 622.3099975585938,
+          "right": 1424.6900024414062,
+          "top": 1932,
+          "bottom": 2037
+        },
+        {
+          "block": "stanza2",
+          "text": "holding a season yet to come.",
+          "left": 504.58502197265625,
+          "right": 1535.6549682617188,
+          "top": 2078,
+          "bottom": 2192
+        },
+        {
+          "block": "colophon",
+          "text": "For Gual Wells, in remembrance of Chapter V",
+          "left": 494.84814453125,
+          "right": 1555.2958984375,
+          "top": 2268,
+          "bottom": 2353
+        },
+        {
+          "block": "colophon",
+          "text": "and its trial successfully completed.",
+          "left": 642.1156311035156,
+          "right": 1405.1923522949219,
+          "top": 2361,
+          "bottom": 2423
+        },
+        {
+          "block": "identity",
+          "text": "19 October 2026",
+          "left": 825,
+          "right": 1137.0339050292969,
+          "top": 2474,
+          "bottom": 2528
+        },
+        {
+          "block": "identity",
+          "text": "00:25:25.806  +08:00",
+          "left": 824,
+          "right": 1217.3338623046875,
+          "top": 2546,
+          "bottom": 2605
+        },
+        {
+          "block": "identity",
+          "text": "43D2 AFDC DA6E FEAC",
+          "left": 824,
+          "right": 1387.8739013671875,
+          "top": 2616,
+          "bottom": 2682
+        },
+        {
+          "block": "status",
+          "text": "Specimen — Not issued",
+          "left": 820.2784729003906,
+          "right": 1230.2015075683594,
+          "top": 2732,
+          "bottom": 2792
+        }
+      ],
+      "issued": false,
+      "recipient": "Gual Wells",
+      "identity": [
+        "43D2 AFDC DA6E FEAC",
+        "19 October 2026",
+        "00:25:25.806  +08:00"
+      ],
+      "artifactDigest": "43d2afdcda6efeac53c65edb821dcda9a4b4fe2407e22ade4b539197266a96bd",
+      "artSeed": 1137881052
+    },
+    "mist": {
+      "available": true,
+      "enabled": true,
+      "frames": 49,
+      "time": 3.3821999999999965,
+      "interactionEnergy": 0,
+      "model": "2D advected dye; drifting 5-15s source regions, independently timed large/medium/wisp curl and signed sheet/keeper motion",
+      "simulationHz": 30,
+      "dyeResolution": 512,
+      "fixedDirectionalInlet": false
+    }
+  },
+  "final": {
+    "progress": 0,
+    "paperProgress": 0,
+    "renderCount": 634,
+    "vertices": 14893,
+    "camera": [
+      0,
+      0,
+      12
+    ],
+    "keeperVisible": true,
+    "viewHeight": 8.116887019230768,
+    "drawBuffer": {
+      "width": 1170,
+      "height": 1862
+    },
+    "deformation": "Continuous GPU winding and shared rest displacement",
+    "keeperMotion": "pin lifts, leather feeds, keeper slides outside roll; no scale/alpha disappearance",
+    "keeperSize": [
+      0.41,
+      0.77
+    ],
+    "specularIntensity": 0,
+    "toneMapping": "none; preserve source colors",
+    "restCurl": true,
+    "cameraType": "PerspectiveCamera",
+    "keeperPose": {
+      "phase": "release-pin",
+      "x": 0,
+      "y": 0.008683982907575327,
+      "z": 0,
+      "visible": true,
+      "loosen": 0,
+      "pinAngle": 0,
+      "minimumRadialClearance": 0.015,
+      "opacity": 1,
+      "model": "broad flattened frame; separate pin/bar; stitched fixed fold and two-hole free tongue; controlled loose band",
+      "meshCount": 12,
+      "bones": 64,
+      "usesFrontCutout": false,
+      "usesFade": false,
+      "materials": "co-registered bronze oxide/metalness and worn leather",
+      "structure": "historic buckle construction adapted to a fictional removable scroll keeper"
+    },
+    "sealRelief": true,
+    "runtime": {
+      "motionPrepared": true,
+      "preparationMs": 3547.699999999255,
+      "preparedPrograms": 17,
+      "programs": 17
+    },
+    "edition": "v15",
+    "paperMaterial": "independently authored chapter-five sheet",
+    "ready": true,
+    "animating": false,
+    "chapterId": "2026-10-12",
+    "issued": false,
+    "layout": {
+      "width": 2048,
+      "height": 2868,
+      "nominalSizeMM": [
+        300,
+        420
+      ],
+      "artPlanId": "SL-CH05-LEAF-LETTER-3",
+      "artPlanDigest": "6b4e30b5017ec3985ba4faae96c8fba1b081574f5c82bc311803593e724f1b14",
+      "composition": "horizontal-miniature-and-centered-verse",
+      "paperVariant": "individually-authored-sheet",
+      "sealVersion": "SL-KEEPSAKE-1",
+      "sealVariant": "oblong",
+      "sealBox": {
+        "x": 338,
+        "y": 2500,
+        "width": 285,
+        "height": 131
+      },
+      "ornamentBox": {
+        "x": 300,
+        "y": 900,
+        "width": 1448,
+        "height": 640,
+        "opacity": 0.91
+      },
+      "ornamentDigest": "e5aa04af52dde8cc3f32d0d9dfac3fe1696ef6d275c0514d7e0c0065f517d9c5",
+      "printedFonts": [
+        "Aboensis"
+      ],
+      "textBounds": [
+        {
+          "block": "chapter",
+          "text": "Chapter V",
+          "left": 889.7440338134766,
+          "right": 1162.1279754638672,
+          "top": 248,
+          "bottom": 344
+        },
+        {
+          "block": "artTitle",
+          "text": "Of Leaf",
+          "left": 822.0690155029297,
+          "right": 1250.3350067138672,
+          "top": 395,
+          "bottom": 551
+        },
+        {
+          "block": "artTitle",
+          "text": "and Letter",
+          "left": 756.8250122070312,
+          "right": 1301.9209594726562,
+          "top": 553,
+          "bottom": 662
+        },
+        {
+          "block": "chapterTitle",
+          "text": "Words Unfinished in the Valley",
+          "left": 671.2451171875,
+          "right": 1377.8028564453125,
+          "top": 728,
+          "bottom": 814
+        },
+        {
+          "block": "stanza1",
+          "text": "A reed gives breath a voice.",
+          "left": 535.3700256347656,
+          "right": 1509.8699645996094,
+          "top": 1602,
+          "bottom": 1704
+        },
+        {
+          "block": "stanza1",
+          "text": "Old ink outlives the hand.",
+          "left": 557.5850524902344,
+          "right": 1490.6549987792969,
+          "top": 1741,
+          "bottom": 1857
+        },
+        {
+          "block": "stanza2",
+          "text": "A seed lies in the fold,",
+          "left": 622.3099975585938,
+          "right": 1424.6900024414062,
+          "top": 1932,
+          "bottom": 2037
+        },
+        {
+          "block": "stanza2",
+          "text": "holding a season yet to come.",
+          "left": 504.58502197265625,
+          "right": 1535.6549682617188,
+          "top": 2078,
+          "bottom": 2192
+        },
+        {
+          "block": "colophon",
+          "text": "For Gual Wells, in remembrance of Chapter V",
+          "left": 494.84814453125,
+          "right": 1555.2958984375,
+          "top": 2268,
+          "bottom": 2353
+        },
+        {
+          "block": "colophon",
+          "text": "and its trial successfully completed.",
+          "left": 642.1156311035156,
+          "right": 1405.1923522949219,
+          "top": 2361,
+          "bottom": 2423
+        },
+        {
+          "block": "identity",
+          "text": "19 October 2026",
+          "left": 825,
+          "right": 1137.0339050292969,
+          "top": 2474,
+          "bottom": 2528
+        },
+        {
+          "block": "identity",
+          "text": "00:25:25.806  +08:00",
+          "left": 824,
+          "right": 1217.3338623046875,
+          "top": 2546,
+          "bottom": 2605
+        },
+        {
+          "block": "identity",
+          "text": "43D2 AFDC DA6E FEAC",
+          "left": 824,
+          "right": 1387.8739013671875,
+          "top": 2616,
+          "bottom": 2682
+        },
+        {
+          "block": "status",
+          "text": "Specimen — Not issued",
+          "left": 820.2784729003906,
+          "right": 1230.2015075683594,
+          "top": 2732,
+          "bottom": 2792
+        }
+      ],
+      "issued": false,
+      "recipient": "Gual Wells",
+      "identity": [
+        "43D2 AFDC DA6E FEAC",
+        "19 October 2026",
+        "00:25:25.806  +08:00"
+      ],
+      "artifactDigest": "43d2afdcda6efeac53c65edb821dcda9a4b4fe2407e22ade4b539197266a96bd",
+      "artSeed": 1137881052
+    },
+    "mist": {
+      "available": true,
+      "enabled": true,
+      "frames": 299,
+      "time": 14.74720000000004,
+      "interactionEnergy": 1.7873056644064915,
+      "model": "2D advected dye; drifting 5-15s source regions, independently timed large/medium/wisp curl and signed sheet/keeper motion",
+      "simulationHz": 30,
+      "dyeResolution": 512,
+      "fixedDirectionalInlet": false
+    }
+  },
+  "record": {
+    "status": "specimen",
+    "recipient": "Gual Wells",
+    "sha256": "43d2afdcda6efeac53c65edb821dcda9a4b4fe2407e22ade4b539197266a96bd",
+    "canonicalPayload": "[\"second-language.memento.v3\",\"specimen\",\"2026-10-12\",5,\"0da38ab64e21652d49f32283cba6cc85f7dabe26d107a453c004d5af54d6a8ed\",\"河谷里未说完的话\",\"Words Unfinished in the Valley\",\"second-language-owner\",\"Gual Wells\",null,null,null,null,\"2026-10-18T16:25:25.806Z\",\"SL-MEMENTO-15\",\"manuscript-memento-v15\",\"6b4e30b5017ec3985ba4faae96c8fba1b081574f5c82bc311803593e724f1b14\",\"e5aa04af52dde8cc3f32d0d9dfac3fe1696ef6d275c0514d7e0c0065f517d9c5\",\"oblong\",\"The Second Language\",\"Chapter V\",\"Of Leaf and Letter\",\"Words Unfinished in the Valley\",[[\"A reed gives breath a voice.\",\"Old ink outlives the hand.\"],[\"A seed lies in the fold,\",\"holding a season yet to come.\"]],[\"For Gual Wells, in remembrance of Chapter V\",\"and its trial successfully completed.\"],[\"The Second Language\",\"In remembrance\"],\"Specimen — Not issued\"]",
+    "proof": {
+      "sampleTime": "2026-10-18T16:25:25.806Z"
+    },
+    "sealVariant": "oblong",
+    "artPlanDigest": "6b4e30b5017ec3985ba4faae96c8fba1b081574f5c82bc311803593e724f1b14",
+    "source": {
+      "commit": "21bd29066df595c3ae7bd08ee638a5a8cc77c12b",
+      "chapterId": "2026-10-12",
+      "chapterNumber": 5,
+      "chapterDigest": "0da38ab64e21652d49f32283cba6cc85f7dabe26d107a453c004d5af54d6a8ed",
+      "title": "河谷里未说完的话"
+    }
+  },
+  "errors": [],
+  "environment": "402x874 DPR3 Chromium / local GPU; not a physical iPhone"
+}

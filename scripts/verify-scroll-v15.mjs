@@ -1,0 +1,32 @@
+import {mkdir,readFile,writeFile} from 'node:fs/promises';
+import assert from 'node:assert/strict';
+import {createHash} from 'node:crypto';
+import {pathToFileURL} from 'node:url';
+import {createServer} from './serve-scroll-lab.mjs';
+const out='research/scroll-lab-v15';await mkdir('.cache/scroll-v15/video',{recursive:true});process.env.TEMP=process.env.TMP=process.cwd()+'/.cache/scroll-v15/tmp';
+const {chromium}=await import(pathToFileURL('D:/CodexStorage/workspaces/second-language-maintenance/.cache/browser-tools/package/index.mjs'));
+const remote=process.argv[2],server=remote?null:createServer();if(server)await new Promise(r=>server.listen(0,'127.0.0.1',r));const base=remote??`http://127.0.0.1:${server.address().port}`;
+const browser=await chromium.launch({headless:true,executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe',...(remote?{proxy:{server:'http://127.0.0.1:6987'}}:{}),args:['--no-first-run']});
+try{
+ const context=await browser.newContext({viewport:{width:402,height:874},deviceScaleFactor:3,isMobile:true,hasTouch:true,serviceWorkers:'block',recordVideo:{dir:'.cache/scroll-v15/video',size:{width:402,height:874}}}),page=await context.newPage(),errors=[],requests=[];
+ page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>requests.push({method:r.method(),url:r.url()}));
+ await page.addInitScript(()=>{window.visualProbe=[];const raf=window.requestAnimationFrame;window.requestAnimationFrame=fn=>raf.call(window,t=>{fn(t);const s=window.scrollSpecimen?.snapshot();if(s?.animating)visualProbe.push({t,progress:s.progress,phase:s.keeperPose.phase,programs:s.runtime.programs});});});
+ await page.goto(base+'/labs/chapter-scroll-v15/');await page.waitForFunction(()=>window.scrollSpecimen?.snapshot().ready,null,{timeout:90000});
+ const cold=await page.evaluate(()=>scrollSpecimen.snapshot());assert.equal(cold.progress,0);assert.equal(cold.keeperPose.usesFrontCutout,false);assert.equal(cold.keeperPose.usesFade,false);assert.equal(cold.keeperPose.bones,64);assert.equal(cold.issued,false);assert.equal(cold.layout.paperVariant,'individually-authored-sheet');
+ await page.evaluate(()=>scrollSpecimen.open());await page.waitForFunction(()=>!scrollSpecimen.snapshot().animating&&scrollSpecimen.snapshot().progress===1,null,{timeout:60000});
+ const frames=await page.evaluate(()=>visualProbe),phases=[...new Set(frames.map(f=>f.phase))];for(const phase of ['release-pin','feed-and-loosen','slide-clear','depart','off'])assert.ok(phases.includes(phase),phase);
+ assert.ok(frames.every(f=>f.programs===cold.runtime.programs),'No first-action shader program creation');
+ const maxStep=Math.max(...frames.slice(1).map((f,i)=>Math.abs(f.progress-frames[i].progress)));assert.ok(maxStep<.06,'Cold action must not jump over a mechanism phase');
+ const record=await page.evaluate(()=>scrollSpecimen.exportRecord());assert.equal(createHash('sha256').update(record.canonicalPayload).digest('hex'),record.sha256);
+ const before=await page.evaluate(()=>scrollSpecimen.snapshot().mist.interactionEnergy);await page.evaluate(()=>scrollSpecimen.close());await page.waitForFunction(()=>scrollSpecimen.snapshot().progress<.55);await page.locator('#scrollCanvas').tap();await page.waitForFunction(()=>!scrollSpecimen.snapshot().animating);assert.equal((await page.evaluate(()=>scrollSpecimen.snapshot())).progress,1);
+ const after=await page.evaluate(()=>scrollSpecimen.snapshot().mist.interactionEnergy);assert.ok(after>before);
+ await page.locator('#detail').tap();await page.locator('#detailZoom').tap();assert.ok(await page.locator('.scroll-document-detail').evaluate(e=>e.scrollWidth>e.clientWidth));assert.match(await page.locator('#transcriptContent').textContent(),/Of Leaf and Letter[\s\S]*Gual Wells[\s\S]*Specimen/);await page.locator('button[aria-label="关闭"]').tap();
+ const loss=await page.evaluate(()=>{const gl=document.querySelector('#scrollCanvas').getContext('webgl2');window.contextExtension=gl.getExtension('WEBGL_lose_context');contextExtension.loseContext();return true;});assert.ok(loss);await page.waitForFunction(()=>!document.querySelector('#fallback').hidden);await page.evaluate(()=>contextExtension.restoreContext());await page.waitForFunction(()=>document.querySelector('#fallback').hidden&&scrollSpecimen.snapshot().ready,null,{timeout:60000});
+ assert.equal((await page.evaluate(()=>scrollSpecimen.exportRecord())).sha256,record.sha256);
+ const legacy=await context.newPage();await legacy.goto(base+'/labs/chapter-scroll-v13/?open=1');await legacy.waitForFunction(()=>window.scrollSpecimen?.snapshot().ready,null,{timeout:60000});const old=JSON.parse(await readFile('research/scroll-lab-v13-sample/inspection.json'));assert.equal((await legacy.evaluate(()=>scrollSpecimen.exportRecord())).sha256,old.record.sha256);await legacy.close();
+ const reduced=await browser.newPage({viewport:{width:402,height:874},reducedMotion:'reduce'});await reduced.goto(base+'/labs/chapter-scroll-v15/');await reduced.waitForFunction(()=>window.scrollSpecimen?.snapshot().ready,null,{timeout:60000});assert.equal((await reduced.evaluate(()=>scrollSpecimen.snapshot())).progress,1);await reduced.locator('#toggle').click();assert.equal((await reduced.evaluate(()=>scrollSpecimen.snapshot())).progress,0);await reduced.close();
+ assert.deepEqual(errors,[]);assert.ok(requests.every(r=>r.method==='GET'&&r.url.startsWith(base)));
+ const gaps=frames.slice(1).map((f,i)=>f.t-frames[i].t).filter(x=>x>0).sort((a,b)=>a-b);
+ const result={checks:{firstOpenAllPhases:true,noFirstActionNewPrograms:true,reversal:true,liveMistCoupling:true,legacyIdentityUnchanged:true,detailAndTranscript:true,contextRestore:true,reducedMotion:true,noPaidOrWriteRequests:true},coldPreparationMs:cold.runtime.preparationMs,firstOpenMaxProgressStep:maxStep,firstOpenDurationMs:frames.at(-1).t-frames[0].t,firstOpenFrameGapMs:{median:gaps[Math.floor(gaps.length*.5)],p95:gaps[Math.floor(gaps.length*.95)],max:Math.max(...gaps)},phases,interactionEnergyIncrease:after-before,artifactSHA256:record.sha256,errors,environment:'402x874 DPR3 Chromium / local GPU, not physical iPhone Safari'};
+ const video=page.video();await context.close();result.video=await video.path();await writeFile(out+(remote?'/live-verification.json':'/verification.json'),JSON.stringify(result,null,2));console.log(JSON.stringify(result));
+}finally{await browser.close();if(server)await new Promise(r=>server.close(r));}

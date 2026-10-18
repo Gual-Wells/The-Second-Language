@@ -1,0 +1,30 @@
+{
+  "submission": {
+    "stage": "submitted",
+    "kernel": "gualwells/scroll-keeper-material-study-20261019",
+    "response": "{\"ref\": \"/code/gualwells/scroll-keeper-material-study-20261019\", \"url\": \"https://www.kaggle.com/code/gualwells/scroll-keeper-material-study-20261019\", \"versionNumber\": 2, \"error\": null, \"invalidTags\": [], \"invalidDatasetSources\": [], \"invalidCompetitionSources\": [], \"invalidKernelSources\": [], \"invalidModelSources\": [], \"kernelId\": 139457018}"
+  },
+  "reference": {
+    "source": "web\\labs\\chapter-scroll-v4\\assets\\keeper.webp",
+    "source_sha256": "12e242bbbcdeac517ff317ea46d141127ff407029f8fadcf645d65cfc5d50128",
+    "conditioning_sha256": "3e229b792f6e6b140f836c12669dec1f17dcacef3389743cfd5ed60dcca5e609",
+    "processing": "aspect-preserving thumbnail, alpha composited onto black, square padding only",
+    "goal": "complete 3D asset candidate; old visual material reference is not an infallible mechanical drawing"
+  },
+  "build": {
+    "kernel": "gualwells/scroll-keeper-material-study-20261019",
+    "input_sha256": "3e229b792f6e6b140f836c12669dec1f17dcacef3389743cfd5ed60dcca5e609",
+    "notebook_sha256": "9cc32910d5f735c2ecd8a71f96f7af6503232e9b1be2124218e8760862ca1bed",
+    "maximum_runtime_seconds": 1800,
+    "source_sha": "75fbf0183001ed9876c8dbb35de6b68552ee08bd",
+    "art_accepted": false
+  },
+  "status": {
+    "queried_at": "2026-10-18T18:35:00.200223+00:00",
+    "dataset": "ready",
+    "kernel": "{\"status\": \"RUNNING\", \"failureMessage\": null}"
+  },
+  "art_accepted": false,
+  "model_downloaded": false,
+  "credentials_uploaded": false
+}
