@@ -1,0 +1,59 @@
+{
+  "source": "D:/CodexStorage/workspaces/second-language-scroll-lab/.cache/scroll-keeper-kaggle/output-v2/keeper-generation/keeper-source.glb",
+  "stage": "ready_for_art_review",
+  "art_accepted": false,
+  "dimensions": [
+    0.4209991991519928,
+    0.9431858658790588,
+    0.8926432728767395
+  ],
+  "vertices": 355244,
+  "faces": 485773,
+  "renderer_device": "GPU",
+  "cuda_devices": [
+    "GeForce MX250"
+  ],
+  "views": [
+    {
+      "file": "clay-minus-y.png",
+      "seconds": 19.95
+    },
+    {
+      "file": "clay-left-quarter.png",
+      "seconds": 20.67
+    },
+    {
+      "file": "clay-right-quarter.png",
+      "seconds": 19.99
+    },
+    {
+      "file": "clay-side.png",
+      "seconds": 16.84
+    },
+    {
+      "file": "clay-plus-y.png",
+      "seconds": 18.07
+    },
+    {
+      "file": "pbr-minus-y.png",
+      "seconds": 18.05
+    },
+    {
+      "file": "pbr-left-quarter.png",
+      "seconds": 19.12
+    },
+    {
+      "file": "pbr-right-quarter.png",
+      "seconds": 21.55
+    },
+    {
+      "file": "pbr-side.png",
+      "seconds": 16.98
+    },
+    {
+      "file": "pbr-plus-y.png",
+      "seconds": 19.16
+    }
+  ],
+  "note": "Canonical axis names; front identified from actual views, never inferred from name."
+}

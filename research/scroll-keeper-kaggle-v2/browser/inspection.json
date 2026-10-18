@@ -1,0 +1,13 @@
+{
+  "viewport": "402x874 Chromium; not iPhone Safari",
+  "state": {
+    "ready": true,
+    "vertices": 355244,
+    "triangles": 485773,
+    "meshes": 1,
+    "clay": true,
+    "source": "Kaggle complete asset trial; not browser primitive geometry"
+  },
+  "errors": [],
+  "failed": []
+}

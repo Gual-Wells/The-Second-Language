@@ -23,13 +23,13 @@
 - `scripts/build-scroll-v15-assets.py`、`scripts/build-scroll-v15.mjs`和检视程序保留为历史恢复工具；只在明确恢复该失败试验到原web位置后运行。不要作为新采用版本发布。作品身份/时间只属本失败试样，不是认证。
 - `scripts/keeper-kaggle.py`：新私有资产试制的准备、上传、构建、提交、状态与下载。凭据只由既有D盘私有配置读取，不进入Dataset或Notebook。
 - `.cache/scroll-keeper-kaggle/`：真实提交回执、原始输出与额度；该目录不入Git。发生未知提交结果先查询，禁止盲目重复生成。
-- 三维候选检视器已在该缓存的`prepared-viewer/`准备GLTFLoader/OrbitControls及灰模/材质视图，尚未取得模型，所以不发布空壳页。失败原型的可再生bundle只留缓存；原始源码和构建入口保留于仓库。
+- 三维候选已取得，`web/labs/keeper-asset-study/`提供真实GLB及GLTFLoader/OrbitControls灰模/材质视图；实际评估见`../scroll-keeper-kaggle-v2/README.md`。失败v15原型的可再生bundle只留缓存；原始源码和构建入口保留于仓库。
 - `scripts/prepare-ambient-smoke.py`及`web/labs/scroll-atmosphere-study/`：原作验证后的独立粒子雾研究，不宣称已获艺术通过。
 
 未新购订阅、未调用外部付费三维API，未写生产认证、教材或学习记录。Cloudflare尚未发布本轮内容。
 
 ## 当前实际前沿
 
-截至本轮最后记录，私有Kaggle v2 API返回RUNNING，未返回日志、模型或输出文件；不能确认已经进入推理。网页调试连接未建立，已请用户提供网页实际状态；不盲目重提任务。`kaggle-candidate-state.json`固定了已观察到的状态，而非保证作业完成。后续先查询同一作业，终态后按版本下载到`output-v2/`，避免误读v1失败日志；取得真实GLB后再恢复检视器并做多面实物审阅。
+`kaggle-candidate-state.json`保留早期RUNNING的历史观察。之后v2成功，已按版本下载至`output-v2/`并核对GLB SHA，完成真实PBR/灰模各五视角检视及浏览器402×874验证，无脚本或请求失败。模型有结构和表面缺陷，未通过艺术验收；下一步先明确定义固定端、扣针与穿带路径，再做资产修订，不把候选直接塞回第五章。生成/实际额度与长等待说明见`../scroll-keeper-kaggle-v2/`。
 
 `check-balances.mjs`再次执行仍因缺少项目发布凭据失败：余额/容量页保留上次记录，永久归档排队。这与Kaggle授权和Cloudflare预览OAuth是不同凭据，不能声称已经同步。

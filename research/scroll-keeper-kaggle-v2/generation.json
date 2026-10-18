@@ -1,0 +1,68 @@
+{
+  "started_at": "2026-10-18T19:16:37.740694+00:00",
+  "stage": "editable_candidate_saved",
+  "art_accepted": false,
+  "pipeline_type": "512",
+  "seed": 38017,
+  "source_sha": "75fbf0183001ed9876c8dbb35de6b68552ee08bd",
+  "model_revisions": {
+    "microsoft/TRELLIS.2-4B": "af44b45f2e35a493886929c6d786e563ec68364d",
+    "microsoft/TRELLIS-image-large": "25e0d31ffbebe4b5a97464dd851910efc3002d96"
+  },
+  "phase_seconds": {
+    "get_cond": 2.63,
+    "sample_sparse_structure": 161.13,
+    "sample_shape_slat": 96.39,
+    "sample_tex_slat": 71.26,
+    "decode_shape_slat": 16.45,
+    "decode_tex_slat": 11.77
+  },
+  "torch": "2.11.0+cu128",
+  "gpu": "Tesla T4",
+  "vram_gib": 14.56219482421875,
+  "elapsed_seconds": 648.99,
+  "adaptations": [
+    "BF16 attention evaluated in FP32 efficient kernel then returned as BF16",
+    "per-sequence sparse SDPA",
+    "stage-wise checkpoint reload from disk",
+    "bounded explicit im2col",
+    "preprocessed input: no background model"
+  ],
+  "attention_validation": {
+    "max_abs_vs_fp32": [
+      0.003815770149230957,
+      0.0035462379455566406
+    ],
+    "dtype": "BF16"
+  },
+  "bounded_convolution_validation": [
+    {
+      "dtype": "torch.float16",
+      "max_abs": 0.0
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "max_abs": 0.0
+    }
+  ],
+  "dino_copy": {
+    "server_source": "hark99/facebookdinov3-vitl16-pretrain-lvd1689m/transformers/default/1",
+    "original_official_sha_verified": true,
+    "license": "original Meta DINOv3 license; authorized account"
+  },
+  "input_sha256": "3e229b792f6e6b140f836c12669dec1f17dcacef3389743cfd5ed60dcca5e609",
+  "loading_model": "microsoft/TRELLIS.2-4B/ckpts/tex_dec_next_dc_f16c32_fp16",
+  "checkpoints": [
+    "sample_shape_slat-checkpoint.pt",
+    "sample_tex_slat-checkpoint.pt",
+    "decoded-shape-checkpoint.ply"
+  ],
+  "actual_resolution": 512,
+  "vertices": 984035,
+  "faces": 2008528,
+  "source_assets_saved": true,
+  "glb": {
+    "bytes": 18194680,
+    "sha256": "dbdfdc978501c7647ca8edcdfa70a1500f45bb7899dfa232c4c5f832079e2d46"
+  }
+}
