@@ -1,0 +1,125 @@
+{
+  "status": "in-progress",
+  "updatedAt": "2026-10-18T06:43:59.822Z",
+  "userAuthorization": "按正式主协议修正，并明确包括补齐必要的第二、三部分内容。",
+  "formalAuthority": [
+    "CONTENT.md",
+    "QUALITY_WORKFLOW.md",
+    "ETYMOLOGY.md",
+    "USAGE_LABELS.md",
+    "ANNOTATIONS.md"
+  ],
+  "numbering": {
+    "fixed": true,
+    "chapter20261018": "第 8 章",
+    "rule": "已发布正式章节按日期排序，每个日期计一章；修订、临时页、草稿与休息不计章",
+    "bodyDigestUnchanged": true
+  },
+  "plannedChapters": 7,
+  "completedChapters": 1,
+  "chapters": [
+    {
+      "chapterId": "2026-10-02",
+      "status": "published-verified",
+      "scope": "chapter-correction",
+      "baseDigest": "f7222060476c8c4309c8d46f18110ab0c7e7a02beee54d9ffda471f91e00c7bc",
+      "targetDigest": "3c085020398f255ba980668375a14ca972e1b59c4df205dbe275f5be52d3a8c5",
+      "sourcePin": "821651446af60912b242ea389bd6891b00381a47",
+      "words": 40,
+      "addedUses": {
+        "NEW_W013_01": "U067",
+        "NEW_W023_01": "U068",
+        "NEW_W023_02": "U069",
+        "NEW_W023_03": "U070",
+        "NEW_W023_04": "U071",
+        "NEW_W023_05": "U072",
+        "NEW_W024_01": "U073",
+        "NEW_W024_02": "U074",
+        "NEW_W024_03": "U075",
+        "NEW_W024_04": "U076"
+      },
+      "articleReplacements": 2,
+      "articleInsertions": 7,
+      "semanticReview": "修正 S011 对 U048 的误标并改用具体物质语境；为 S017 补列 U067。新增句在温室、印刷店和避难学校的原有情节中运用 U068—U076，并配齐逐句译文。",
+      "nativeReviewedAt": "2026-10-18T06:39:34.904Z",
+      "receipt": {
+        "ok": true,
+        "digest": "3c085020398f255ba980668375a14ca972e1b59c4df205dbe275f5be52d3a8c5",
+        "manifestDigest": "ce736599a6ac188522a0ae0a060a524c3512fe8c209fb65aab0dfc11f628c999",
+        "audioReused": true,
+        "audioQueued": true,
+        "ttsCalls": 0,
+        "audioPack": {
+          "clips": 116,
+          "packs": 1,
+          "originalPackFilesReused": true,
+          "ttsCalls": 0
+        },
+        "checkedAt": "2026-10-18T06:42:43.817Z",
+        "oldVersionReadable": true,
+        "newVersionReadbackIdentical": true
+      },
+      "incrementalAudio": {
+        "uniqueSentences": 27,
+        "characters": 2213,
+        "estimatedCny": [
+          0.00960442,
+          0.015336089999999998
+        ],
+        "generation": "正常后台队列，非在发布脚本内重复合成"
+      }
+    },
+    {
+      "chapterId": "2026-10-06",
+      "status": "in-progress",
+      "directory": "work/runs/correction-20261018-2026-10-06/full"
+    },
+    {
+      "chapterId": "2026-10-09",
+      "status": "in-progress",
+      "directory": "work/runs/correction-20261018-2026-10-09/full"
+    },
+    {
+      "chapterId": "2026-10-11",
+      "status": "in-progress",
+      "directory": "work/runs/correction-20261018-2026-10-11/full"
+    },
+    {
+      "chapterId": "2026-10-12",
+      "status": "in-progress",
+      "directory": "work/runs/correction-20261018-2026-10-12/full"
+    },
+    {
+      "chapterId": "2026-10-13",
+      "status": "in-progress",
+      "directory": "work/runs/correction-20261018-2026-10-13/full"
+    },
+    {
+      "chapterId": "2026-10-14",
+      "status": "in-progress",
+      "directory": "work/runs/correction-20261018-2026-10-14/full"
+    }
+  ],
+  "verification": {
+    "chapterNumberAPI": "线上列表与单章均为1至8",
+    "readerUI": {
+      "checks": 103,
+      "viewport": "402x874 Chromium touch emulation, not real Safari",
+      "liveRequests": 0,
+      "paidCalls": 0
+    },
+    "regressions": [
+      "check-first-part-upgrade",
+      "check-publishing-closure"
+    ]
+  },
+  "operations": {
+    "workerVersion": "e855ace2-24ce-431e-90a9-a71e4ab7cee5",
+    "newRecurringCost": 0,
+    "paidAudioPolicy": "复用原成功索引，只为真实新增或变更文本生成；未知计费保护继续有效"
+  },
+  "limitations": [
+    "尚未完成的章节不声称已修正。",
+    "结构检查不作为语义正确证明，逐词来源去向和完整范文审阅保留在工作资料。"
+  ]
+}
