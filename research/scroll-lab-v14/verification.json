@@ -1,0 +1,27 @@
+{
+  "checks": {
+    "firstOpenAllPhases": true,
+    "noFirstActionNewPrograms": true,
+    "reversal": true,
+    "liveMistCoupling": true,
+    "legacyIdentityUnchanged": true,
+    "detailAndTranscript": true,
+    "contextRestore": true,
+    "reducedMotion": true,
+    "noPaidOrWriteRequests": true
+  },
+  "coldPreparationMs": 4083.2000000011176,
+  "firstOpenMaxProgressStep": 0.013265278659120971,
+  "phases": [
+    "release-pin",
+    "feed-and-loosen",
+    "slide-clear",
+    "depart",
+    "off"
+  ],
+  "interactionEnergyIncrease": 0.8593755278305051,
+  "artifactSHA256": "a2a75215f25dc0fc40f047fd6f6648a4625ae13be7b3fa2ffca5fe72e37f43a0",
+  "errors": [],
+  "environment": "402x874 DPR3 Chromium / local GPU, not physical iPhone Safari",
+  "video": "D:\\CodexStorage\\workspaces\\second-language-scroll-lab\\.cache\\scroll-v14\\video\\page@877f20fc43fc5fd1b8e30932df12fd55.webm"
+}

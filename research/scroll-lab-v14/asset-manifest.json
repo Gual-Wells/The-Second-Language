@@ -1,0 +1,131 @@
+{
+  "baseline": "0b5409dd5fe7f5616f13a0650ed15c8ad020c55d",
+  "createdAt": "2026-10-18T14:47:54.070Z",
+  "files": [
+    {
+      "file": "web/labs/chapter-scroll-v14/app.bundle.js",
+      "bytes": 667671,
+      "sha256": "aa1bd209dfd6b75bb3af84ce4dd354b2c631f7c05da84c2cc6e0c74cca4f5651"
+    },
+    {
+      "file": "web/labs/chapter-scroll-v14/app.js",
+      "bytes": 9783,
+      "sha256": "344d09ac440024c0b9dc71cb92c38413a2f6842d9553470c0de22736249f758f"
+    },
+    {
+      "file": "web/labs/chapter-scroll-v14/art-plan.json",
+      "bytes": 4604,
+      "sha256": "3104ec4b67859f64268c11a327f37a65d1bdfc48c6f75adc24ee702d3f6318fb"
+    },
+    {
+      "file": "web/labs/chapter-scroll-v14/chapter-sample.json",
+      "bytes": 430,
+      "sha256": "c24c98334170826b344253109b3ae8cde775515846e9fb413cbe620b31444d2a"
+    },
+    {
+      "file": "web/labs/chapter-scroll-v14/charter.js",
+      "bytes": 2737,
+      "sha256": "a935a7c4017dcef526094ebfa99ed9e4cfaaca7318c210e9161222aa81e728a8"
+    },
+    {
+      "file": "web/labs/chapter-scroll-v14/CREDITS.md",
+      "bytes": 2153,
+      "sha256": "5415c3e6b55c7adc8b07606bbf2283c7b1bdee151aa24c97a64c9763c9df697f"
+    },
+    {
+      "file": "web/labs/chapter-scroll-v14/document.js",
+      "bytes": 3982,
+      "sha256": "cb4b191b00ef59f445c7e95f1891b3f13d9f2bf1c8a8b45fbcb75af6bcc93c97"
+    },
+    {
+      "file": "web/labs/chapter-scroll-v14/flow.js",
+      "bytes": 2531,
+      "sha256": "5caa29f47da01054c52df75081a0a062ff6e4da29c16ff299af2aa2a45758ee7"
+    },
+    {
+      "file": "web/labs/chapter-scroll-v14/index.html",
+      "bytes": 4465,
+      "sha256": "f6157ded6c06ef99a1c4e394988ea35857d02ce4391fdba1c56a61bc9bc36974"
+    },
+    {
+      "file": "web/labs/chapter-scroll-v14/keeper.js",
+      "bytes": 7431,
+      "sha256": "1c159d623b3647b8c44f1f6c8ec272d9c8a050a6c476bf38f0b8e0876530bb7b"
+    },
+    {
+      "file": "web/labs/chapter-scroll-v14/mist.js",
+      "bytes": 3587,
+      "sha256": "d4c8e22a1959417df667af9ababd6fbf755623e684fd7d821bb77778d3978f82"
+    },
+    {
+      "file": "web/labs/chapter-scroll-v14/scroll-object.js",
+      "bytes": 3018,
+      "sha256": "1ddcfd38a61aba8f976a23cbf4f96d57a0b9131cb33cd7d4616efb57827b9208"
+    },
+    {
+      "file": "web/labs/chapter-scroll-v14/templates.js",
+      "bytes": 803,
+      "sha256": "6a40d79b61871ac36f4b3fb04eb7a123cca4180bdb305598016dca81746f1b6e"
+    },
+    {
+      "file": "web/labs/chapter-scroll-v14/assets/leather-color.jpg",
+      "bytes": 202039,
+      "sha256": "acfa793dcac5b5619b1b7627c3e7156912c0f9f4ec5833bb1cfa77cc33ae904c"
+    },
+    {
+      "file": "web/labs/chapter-scroll-v14/assets/leather-normalgl.jpg",
+      "bytes": 49833,
+      "sha256": "7b8fbffef82bc15a049b5a911cf2c1a94ee493570d2b7dc78dc23f3791e2e9dd"
+    },
+    {
+      "file": "web/labs/chapter-scroll-v14/assets/leather-roughness.jpg",
+      "bytes": 150554,
+      "sha256": "1fd0ab1f3226c147964454915590ec6de545213501e91d50d4a61c5969bf1d6f"
+    },
+    {
+      "file": "web/labs/chapter-scroll-v14/assets/metal-color.jpg",
+      "bytes": 190755,
+      "sha256": "9473e7cdafab4f09d144686d32b6775a9a993c9cec93a8c1575f449676855fba"
+    },
+    {
+      "file": "web/labs/chapter-scroll-v14/assets/metal-normal.jpg",
+      "bytes": 4815,
+      "sha256": "b4ca9c41b83baccebb2d2c4d86cdcf7cf26707fd9867e1cada15b6cd3450ddaf"
+    },
+    {
+      "file": "web/labs/chapter-scroll-v14/assets/metal-roughness.jpg",
+      "bytes": 29372,
+      "sha256": "e2bb3c94d5a9a986a97e97e68791921f54eaecb241fe06ed36c530f9a932e7ef"
+    },
+    {
+      "file": "web/labs/chapter-scroll-v14/assets/parchment-normal.jpg",
+      "bytes": 533431,
+      "sha256": "7fdde5d978bcd45b3b426fb8021d9507e0d46fc7fda5a1d2e82c6c46b7dfaa66"
+    },
+    {
+      "file": "web/labs/chapter-scroll-v14/assets/parchment-roughness.jpg",
+      "bytes": 213753,
+      "sha256": "8c2aa0299c197c7fc5f5bc96a66c8675ee781594fff28e7de0db2b9360e9a893"
+    },
+    {
+      "file": "web/labs/chapter-scroll-v14/assets/parchment.webp",
+      "bytes": 713606,
+      "sha256": "bd9f3e4653c871ec56f29976cfe65508ad7fed7f95864ee8e8eaa9d5464b545b"
+    },
+    {
+      "file": "web/labs/chapter-scroll-v14/assets/unused-keeper.png",
+      "bytes": 70,
+      "sha256": "c2153f77e11087fcb078ae38527fa83bef29791e3700e30cc87fec4405a66d0f"
+    },
+    {
+      "file": "web/labs/chapter-scroll-v14/vendor/noise2D.glsl",
+      "bytes": 2162,
+      "sha256": "b0f27c923227e8b2d7618f09dc666e2397f608ca7929f798da632647c3f41884"
+    },
+    {
+      "file": "web/labs/chapter-scroll-v14/vendor/webgl-noise-LICENSE.txt",
+      "bytes": 1145,
+      "sha256": "bdafce1bb01517c9ae6c4f3620c01340790b5e9d039ae9e356347d1174250916"
+    }
+  ]
+}

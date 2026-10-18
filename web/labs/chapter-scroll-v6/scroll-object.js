@@ -75,7 +75,7 @@ export class ScrollObject extends BaseScroll {
   const shadow=new THREE.Mesh(new THREE.PlaneGeometry(20,20),new THREE.ShadowMaterial({opacity:.20}));shadow.position.z=-.10;shadow.receiveShadow=true;this.scene.add(shadow);
   this.renderer.shadowMap.autoUpdate=false;
   const loader=new THREE.TextureLoader(),environment=this.environmentReady;
-  this.environmentReady=Promise.all([environment,loader.loadAsync('../chapter-scroll-v4/assets/skin-normal.jpg'),loader.loadAsync('../chapter-scroll-v4/assets/skin-roughness.jpg')]).then(([,normal,rough])=>{
+  this.environmentReady=Promise.all([environment,loader.loadAsync(template.paperNormal||'../chapter-scroll-v4/assets/skin-normal.jpg'),loader.loadAsync(template.paperRoughness||'../chapter-scroll-v4/assets/skin-roughness.jpg')]).then(([,normal,rough])=>{
    for(const map of [normal,rough]){map.wrapS=map.wrapT=THREE.RepeatWrapping;map.repeat.set(1.4,2.1);this.maps.push(map);}
    this.material.normalMap=normal;this.material.normalScale.set(.035,.035);this.material.roughnessMap=rough;this.material.needsUpdate=true;
   });this.dirty=true;

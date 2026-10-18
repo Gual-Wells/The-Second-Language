@@ -1,0 +1,54 @@
+{
+  "origin": "http://127.0.0.1:2317",
+  "verifiedAt": "2026-10-18T14:11:29.858Z",
+  "versions": [
+    {
+      "version": "v13",
+      "initialRuntime": {
+        "motionPrepared": true,
+        "preparationMs": 8399.199999999255,
+        "preparedPrograms": 17,
+        "programs": 17
+      },
+      "record": "d3206a2291e2e6e7312053763c3c6a599f16efd2eb5e5a5736a64ec187b89a05",
+      "documentBytesUnchanged": true,
+      "errors": [],
+      "checks": {
+        "ambientActive": true,
+        "idlePaperNotRedrawn": true,
+        "rapidCanvasTapReverses": true,
+        "firstCloseHasNoNewPrograms": true,
+        "contextRestoreRewarms": true,
+        "impressionSwitch": false
+      }
+    },
+    {
+      "version": "v12",
+      "initialRuntime": {
+        "motionPrepared": true,
+        "preparationMs": 1839.800000000745,
+        "preparedPrograms": 17,
+        "programs": 17
+      },
+      "record": "590cc91ffca8634b7864f24825afbfc3f5fb286de5321087edd2c336f74732ea",
+      "documentBytesUnchanged": true,
+      "errors": [],
+      "checks": {
+        "ambientActive": true,
+        "idlePaperNotRedrawn": true,
+        "rapidCanvasTapReverses": true,
+        "firstCloseHasNoNewPrograms": true,
+        "contextRestoreRewarms": false,
+        "impressionSwitch": true
+      }
+    }
+  ],
+  "assets": [],
+  "checks": {
+    "stallKeepsLooseningPhase": true,
+    "allKeeperPhasesRetained": true,
+    "resumeExcludesHiddenTime": true,
+    "reducedMotion": true
+  },
+  "environment": "402x874 DPR3 Chromium Intel UHD/D3D11 hardware rendering; iPhone/Safari still needs user visual verification"
+}

@@ -29,14 +29,14 @@ export function createFluid(canvas, settings = {}) {
 resizeCanvas();
 
 let config = {
-    SIM_RESOLUTION: 64,
+    SIM_RESOLUTION: settings.simResolution || 64,
     DYE_RESOLUTION: 512,
     CAPTURE_RESOLUTION: 512,
-    DENSITY_DISSIPATION: 0.70,
+    DENSITY_DISSIPATION: settings.densityDissipation ?? 0.70,
     VELOCITY_DISSIPATION: 0.65,
     PRESSURE: 0.8,
     PRESSURE_ITERATIONS: 12,
-    CURL: 12.0,
+    CURL: settings.curl ?? 12.0,
     SPLAT_RADIUS: 0.10,
     SPLAT_FORCE: 6000,
     SHADING: false,
@@ -1398,8 +1398,11 @@ function hashCode (s) {
     }
     return hash;
 };
+// Optional field forcing. Legacy samples do not supply a factory.
+const fieldForcing = settings.fieldFactory?.({gl, Program, baseVertexShader, compileShader, blit, velocity:()=>velocity, dye:()=>dye});
 // Host adaptation: ambient density and motion impulse are separate channels.
 return {
+ fields(time,dt,motion) { fieldForcing?.(time,dt,motion); },
  tick(dt) { if(resizeCanvas()) initFramebuffers(); step(Math.min(dt,0.05)); render(null); },
  seed(x,y,amount,radius=.8) { splatProgram.bind(); gl.uniform1f(splatProgram.uniforms.aspectRatio,canvas.width/canvas.height); gl.uniform2f(splatProgram.uniforms.point,x,y); gl.uniform1f(splatProgram.uniforms.radius,correctRadius(radius/100)); gl.uniform1i(splatProgram.uniforms.uTarget,dye.read.attach(0)); gl.uniform3f(splatProgram.uniforms.color,amount,amount*.96,amount*.9); blit(dye.write); dye.swap(); },
  stir(x,y,dx,dy,radius=1) { splatProgram.bind(); gl.uniform1f(splatProgram.uniforms.aspectRatio,canvas.width/canvas.height); gl.uniform2f(splatProgram.uniforms.point,x,y); gl.uniform1f(splatProgram.uniforms.radius,correctRadius(radius/100)); gl.uniform1i(splatProgram.uniforms.uTarget,velocity.read.attach(0)); gl.uniform3f(splatProgram.uniforms.color,dx,dy,0); blit(velocity.write); velocity.swap(); },
