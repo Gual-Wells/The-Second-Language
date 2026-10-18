@@ -33,6 +33,9 @@ async function model(prompt,schema,label){
  // less descriptive transport schema. Reuse their returned data; the current
  // word/source/coverage validators still decide whether it is complete.
  if(label.startsWith('word-review-')){
+  const previous=JSON.parse(JSON.stringify(schema));delete previous.properties.words.items.properties.coverage.items.properties.sourceId.enum;
+  const previousStem=label+'-'+hash(Buffer.from(JSON.stringify({prompt,schema:previous}))).slice(0,20);
+  if(previousStem!==stem)try{const saved=JSON.parse(await readFile(path.join(out,previousStem+'.json'),'utf8'));await writeFile(file,JSON.stringify(saved));return saved;}catch(e){if(e.code!=='ENOENT')throw e;}
   const legacy=JSON.parse(JSON.stringify(schema)),p=legacy.properties.words.items.properties;
   delete p.markdown.description;delete p.examples.description;delete p.sourceIds.minItems;
   delete p.coverage.items.properties.sourceId.enum;
