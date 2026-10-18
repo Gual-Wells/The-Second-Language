@@ -29,24 +29,35 @@ async function model(prompt,schema,label){
 const inputs=first.map(w=>({...material.find(m=>m.id===w.id),markdown:w.markdown,examples:second.find(v=>v.id===w.id).markdown,article:parsed.sentences.filter(s=>s.refs.some(u=>parsed.uses.get(u)?.wordId===w.id)),previousReview:baseReview.find(v=>v.wordId===w.id)?.coverage||[]}));
 const groups=[];let group=[],size=0;for(const w of inputs){const n=JSON.stringify(w).length;if(group.length&&size+n>46000){groups.push(group);group=[];size=0;}group.push(w);size+=n;}if(group.length)groups.push(group);
 let books;const outputs=[];
+function normalizeSections(word){
+ const examples=word.examples.trim();let markdown=word.markdown.trim().replace(/^第一部分\s*\n+/, '');
+ const divider='\n\n第二部分\n\n',at=markdown.indexOf(divider);
+ // Recover a duplicated section only when it is exactly the separate output.
+ // Never trim teaching prose by heading count or silently discard unknown data.
+ if(at>=0&&markdown.slice(at+divider.length).trim()===examples)markdown=markdown.slice(0,at).trim();
+ return{...word,markdown,examples};
+}
 for(let index=0;index<groups.length;index++){
- let batch=groups[index],result;
+ let batch=groups[index],result;const settled=new Map(),allInputs=new Map(batch.map(w=>[w.id,w]));
  for(let round=0;round<4;round++){
   const scoped=JSON.parse(JSON.stringify(wordSchema));scoped.properties.words.minItems=scoped.properties.words.maxItems=batch.length;scoped.properties.words.items.properties.wordId.enum=batch.map(w=>w.id);scoped.properties.words.items.properties.sourceIds.items.enum=[...new Set(batch.flatMap(w=>w.entries.map(e=>e.id)))];
+  if(round){scoped.properties.words.items.properties.coverage.minItems=1;scoped.properties.words.items.properties.notes.minLength=1;}
   const prompt=common+'\n本轮为逐词独立内容闭环审阅。逐一完整阅读 Collins 后 Oxford 的所给原条目及相关引用，对照第一部分、第二部分全部例句、第三部分关联原句。输出修正后的本词完整第一部分 WORD 区块 markdown 与第二部分 WORD 区块 examples。核心义在等宽摘要，标题仅简短必要标识，真实搭配/句法/标签/限制在后文；保留互补信息，不重复解释。\n现已允许补齐此前被迁移范围排除的真实教材用法和原例句。新增 USE 使用 NEW_<WORD编号>_<两位编号>（如 NEW_W001_01），例句引用同一新编号；旧 USE 不改号。新增用法先做双教材语义对齐，不能见到编号就各造一义，不能硬并独立词义。不同词族的同形词不硬拉为派生；源书 OCR 或中英错译不能盲从，所给可靠补证优先核实。逐一保留相关原例句，原片段用恰当完整例句承载，不把片段冒充完整句；补足实际缺例。既有正确例句及其措辞和译文不为文风重写，确切错误才纠正。\n对每份相关现代教材条目在 coverage 记录各语义、词性、搭配、标签等事实及全部原例句的去向；非本词族条目说明排除理由。sourceIds 只列实际给出的出处ID。词源仅修实际误导，不追求考据完备。articleIssues 记现有范文真实错义/漏用/译文问题和新增义项的衔接要求，本轮不写范文补丁。需要补读的具体词头放 additionalTerms，不以缺资料捏造。\n正式协议：'+JSON.stringify(formal)+'\n资料：'+JSON.stringify(batch);
   result=await model(prompt,scoped,'word-review-'+index+'-'+round);
   if(result.words.length!==batch.length||new Set(result.words.map(w=>w.wordId)).size!==batch.length||result.words.some(w=>!batch.some(v=>v.id===w.wordId)))throw Error('逐词审阅缺项');
-  if(!result.words.some(w=>w.additionalTerms.length))break;
+  for(const w of result.words)if(!w.additionalTerms.length&&w.coverage.length)settled.set(w.wordId,normalizeSections(w));
+  if(settled.size===groups[index].length){result={words:groups[index].map(w=>settled.get(w.id))};break;}
+  if(!result.words.some(w=>w.additionalTerms.length))throw Error('本轮返回不完整且无补读要求；已保留此前完整逐词结果');
   if(round===3)throw Error('资料补读尚未闭合');books ||= await loadTextbooks({root,commit:pin,etymology:true});
-  batch=batch.map(w=>{const additions=lookupBooks(books,result.words.find(v=>v.wordId===w.id).additionalTerms),entries=[...w.entries];for(const e of additions)if(!entries.some(v=>v.id===e.id))entries.push(e);return{...w,entries};});
+  batch=batch.filter(w=>!settled.has(w.id)).map(w=>{const additions=lookupBooks(books,result.words.find(v=>v.wordId===w.id).additionalTerms),entries=[...w.entries];for(const e of additions)if(!entries.some(v=>v.id===e.id))entries.push(e);const updated={...w,entries};allInputs.set(w.id,updated);return updated;});
  }
  for(const w of result.words){
-  const input=batch.find(v=>v.id===w.wordId),oldUses=[...input.markdown.matchAll(/^<!-- USE:([^ ]+) -->/gm)].map(m=>m[1]),newUses=[...w.markdown.matchAll(/^<!-- USE:([^ ]+) -->/gm)].map(m=>m[1]);
+  const input=allInputs.get(w.wordId),oldUses=[...input.markdown.matchAll(/^<!-- USE:([^ ]+) -->/gm)].map(m=>m[1]),newUses=[...w.markdown.matchAll(/^<!-- USE:([^ ]+) -->/gm)].map(m=>m[1]);
   if(wordBlocks(w.markdown).length!==1||wordBlocks(w.markdown)[0].id!==w.wordId||wordBlocks(w.examples).length!==1||wordBlocks(w.examples)[0].id!==w.wordId||oldUses.some(u=>!newUses.includes(u))||newUses.some(u=>!oldUses.includes(u)&&!new RegExp('^NEW_'+w.wordId+'_\\d{2}$').test(u)))throw Error('词条或用法身份改变：'+w.wordId);
   const refs=new Set(input.entries.map(e=>e.id));if(!w.coverage.length||[...w.sourceIds,...w.coverage.map(c=>c.sourceId)].some(r=>!refs.has(r)))throw Error('来源去向无效：'+w.wordId);
   for(const e of input.entries.filter(e=>['collins','oxford'].includes(e.book)))if(!w.coverage.some(c=>c.sourceId===e.id))throw Error('教材条目未交代去向：'+w.wordId+' '+e.id);
  }
- outputs.push(...result.words);material=material.map(w=>batch.find(v=>v.id===w.id)||w);await writeFile(path.join(out,'material.json'),JSON.stringify(material));await writeFile(path.join(out,'reviewed-words.json'),JSON.stringify(outputs,null,2));console.log(id+' 全内容闭环审阅 '+outputs.length+'/40');
+ outputs.push(...result.words);material=material.map(w=>allInputs.get(w.id)||w);await writeFile(path.join(out,'material.json'),JSON.stringify(material));await writeFile(path.join(out,'reviewed-words.json'),JSON.stringify(outputs,null,2));console.log(id+' 全内容闭环审阅 '+outputs.length+'/40');
 }
 // Assign permanent new USE ids once, preserving every original id.
 let nextUse=Math.max(...[...parsed.uses.keys()].map(u=>Number(u.replace(/^U/,''))).filter(Number.isFinite))+1;
