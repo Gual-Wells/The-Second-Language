@@ -13,6 +13,7 @@ const batchId=process.argv.find(a=>a.startsWith('--batch='))?.slice(8)||'upgrade
 if(!/^(upgrade|correction)-20261018$/.test(batchId))throw Error('未知第一部分修订批次');
 const runId=batchId+'-'+chapterId;
 const rootDirectory=path.resolve('work/runs',runId),full=process.argv.includes('--full'),directory=full?path.join(rootDirectory,'full'):rootDirectory,original=JSON.parse(await readFile(path.join(rootDirectory,'original.json'),'utf8')),result=JSON.parse(await readFile(path.join(directory,'content-result.json'),'utf8')),markdown=await readFile(path.join(directory,'chapter.md'),'utf8'),reviewed=JSON.parse(await readFile(path.join(directory,full?'word-result.json':'reviewed-words.json'),'utf8'));
+if(full&&result.scope!=='chapter-correction')throw Error('完整修正尚未形成最终产物');
 (full?validateChapterCorrection:validateFirstPartUpgrade)(original.markdown,markdown);
 if(hash(Buffer.from(markdown))!==result.targetDigest||result.baseDigest!==original.digest||reviewed.length!==40)throw Error('产物或审阅身份不一致');
 const protocolCommit=execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8',windowsHide:true}).trim();

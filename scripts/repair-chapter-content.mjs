@@ -1,4 +1,4 @@
-import {readFile,writeFile,mkdir,open} from 'node:fs/promises';
+import {readFile,writeFile,mkdir,open,rename} from 'node:fs/promises';
 import {readFileSync,unlinkSync} from 'node:fs';
 import {spawn} from 'node:child_process';
 import path from 'node:path';
@@ -13,14 +13,16 @@ if(!['2026-10-02','2026-10-06','2026-10-09','2026-10-11','2026-10-12','2026-10-1
 const root=process.cwd(),directory=path.resolve('work/runs','correction-20261018-'+id),out=path.join(directory,'full');await mkdir(out,{recursive:true});
 const original=JSON.parse(await readFile(path.join(directory,'original.json'),'utf8')),firstCandidate=await readFile(path.join(directory,'chapter.md'),'utf8'),baseReview=JSON.parse(await readFile(path.join(directory,'reviewed-words.json'),'utf8'));
 async function completed(){try{const saved=JSON.parse(await readFile(path.join(out,'content-result.json'),'utf8')),markdown=await readFile(path.join(out,'chapter.md'),'utf8');if(saved.baseDigest!==original.digest||hash(Buffer.from(markdown))!==saved.targetDigest)throw Error('既有修正产物身份不符');validateChapterCorrection(original.markdown,markdown);return true;}catch(e){if(e.code!=='ENOENT')throw e;return false;}}
+const articleOnly=process.argv.includes('--resume-article');
 const repairWords=process.argv.find(a=>a.startsWith('--repair-words='))?.slice(15).split(',')||[];
 if(repairWords.some(w=>!/^W\d{3}$/.test(w)))throw Error('修正词条编号无效');
-if(repairWords.length){try{await readFile(path.join(out,'published.json'));throw Error('已发布修订不得复用同一批次重写');}catch(e){if(e.code!=='ENOENT')throw e;}}
-if(!repairWords.length&&await completed()){console.log(id+' 已有完整修正产物，未重复调用');process.exit(0);}
+if(repairWords.length||articleOnly){try{await readFile(path.join(out,'published.json'));throw Error('已发布修订不得复用同一批次重写');}catch(e){if(e.code!=='ENOENT')throw e;}}
+if(!repairWords.length&&!articleOnly&&await completed()){console.log(id+' 已有完整修正产物，未重复调用');process.exit(0);}
 const lockFile=path.join(out,'execution.lock');let waited=false;
 for(;;){try{const lock=await open(lockFile,'wx');await lock.writeFile(JSON.stringify({pid:process.pid}));await lock.close();break;}catch(e){if(e.code!=='EEXIST')throw e;const lock=JSON.parse(await readFile(lockFile,'utf8'));let active=true;try{process.kill(lock.pid,0);}catch{active=false;}if(!active)throw Error('发现中断的修正锁；先核对模型原返回，不自动重试');if(!waited)console.log(id+' 已有同章执行，等待已有结果，不重复调用');waited=true;await new Promise(r=>setTimeout(r,10000));if(await completed()){console.log(id+' 已接续同章完整结果');process.exit(0);}}}
 process.on('exit',()=>{try{if(JSON.parse(readFileSync(lockFile,'utf8')).pid===process.pid)unlinkSync(lockFile);}catch{}});
 if(waited)throw Error('前一执行结束但未形成完整产物，先核对故障，不自动重试');
+if(repairWords.length||articleOnly)try{await rename(path.join(out,'content-result.json'),path.join(out,'content-result.prior-'+Date.now()+'.json'));}catch(e){if(e.code!=='ENOENT')throw e;}
 const parts=splitParts(firstCandidate),parsed=validateAnnotatedContent(original.markdown),first=wordBlocks(parts.one),second=wordBlocks(parts.two),pin='821651446af60912b242ea389bd6891b00381a47';
 const formal=await Promise.all(['CONTENT.md','QUALITY_WORKFLOW.md','ETYMOLOGY.md','USAGE_LABELS.md','ANNOTATIONS.md'].map(async file=>({file,text:await readFile('protocol/'+file,'utf8')})));
 let material=JSON.parse(await readFile(path.join(directory,'material.json'),'utf8')),supplements={};
@@ -56,7 +58,6 @@ const inputs=first.map(w=>({...material.find(m=>m.id===w.id),markdown:w.markdown
 let nativeFindings={};try{nativeFindings=JSON.parse(await readFile(path.join(directory,'native-word-findings.json'),'utf8'));}catch(e){if(e.code!=='ENOENT')throw e;}
 for(const w of inputs)if(nativeFindings[w.id])w.nativeFinding=nativeFindings[w.id];
 const groups=[];let group=[],size=0;for(const w of inputs.filter(w=>!repairWords.length||repairWords.includes(w.id))){const n=JSON.stringify(w).length;if(group.length&&size+n>46000){groups.push(group);group=[];size=0;}group.push(w);size+=n;}if(group.length)groups.push(group);
-const articleOnly=process.argv.includes('--resume-article');
 let books;const outputs=articleOnly||repairWords.length?JSON.parse(await readFile(path.join(out,'reviewed-words.json'),'utf8')).filter(w=>articleOnly||!repairWords.includes(w.wordId)):[];
 if(articleOnly&&(outputs.length!==40||new Set(outputs.map(w=>w.wordId)).size!==40||first.some(w=>!outputs.some(v=>v.wordId===w.id&&v.coverage.length))))throw Error('没有完整可续作的逐词审阅');
 function normalizeSections(word){
