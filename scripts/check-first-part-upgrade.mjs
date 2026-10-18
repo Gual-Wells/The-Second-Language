@@ -19,6 +19,7 @@ async function seed(chapterId,suffix=''){const markdown=original+suffix,baseDige
 const post=async(b,store=bucket,publisher=true,environment=env)=>{const r=await firstPartUpgradeRoute(new Request('https://fixture/api/publish/upgrade-first-part',{method:'POST',body:JSON.stringify(b)}),environment,publisher,store);return{status:r.status,value:await r.json()};};
 const b=await seed('2026-10-02');assert.equal((await post(b,bucket,false)).status,403);assert.equal((await post(null)).status,400);
 assert.throws(()=>validateFirstPartUpgrade(original,changed(original)+'\n'),/逐字节/);
+assert.throws(()=>validateFirstPartUpgrade(original,changed(original).replace('<!-- USE:U001 -->','内部参见 U001。\n<!-- USE:U001 -->')),/不能显示内部编码/);
 assert.throws(()=>validateFirstPartUpgrade(original,changed(original).replace('USE:U001','USE:TEMP').replace('USE:U002','USE:U001').replace('USE:TEMP','USE:U002')),/USE 身份/);
 sql.prepare('INSERT INTO chapter_audio_scopes(chapter_id,chapter_digest) VALUES(?,?)').run(b.chapterId,b.baseDigest);
 sql.prepare('INSERT INTO pronunciation_results(generation_digest,content_digest,record_digest,bytes,created_at) VALUES(?,?,?,?,?)').run(Buffer.alloc(32,1),Buffer.alloc(32,2),Buffer.alloc(32,3),123,1);

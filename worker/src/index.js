@@ -8,6 +8,7 @@ import {balanceRoute} from './balances.js';
 import {chapterQualityRoute} from './chapter-quality.js';
 import {firstPartUpgradeRoute} from './chapter-upgrade.js';
 import {chapterNumber,numberForDate} from './chapter-number.js';
+import {assertTeachingText} from '../../protocol/teaching-text.mjs';
 import {questionsRoute} from './questions.js';
 import {chapterTestsRoute} from './chapter-tests.js';
 import {temporaryTestsRoute} from './temporary-tests.js';
@@ -145,7 +146,7 @@ async function route(request, env) {
       typeof value.subtitle !== 'string' || value.subtitle.length > 300 ||
       typeof value.number !== 'string' || value.number.length > 80 ||
       !/^[0-9a-f]{40}$/.test(value.vixCommit || '') || !/^[0-9a-f]{40}$/.test(value.protocolCommit || '')) return json({ error: '章节元数据或结构无效' }, 400);
-    try { validateTeachingLayout(value.markdown, value.contentPolicy); }
+    try { const parsed=validateTeachingLayout(value.markdown, value.contentPolicy);if(value.contentPolicy==='etymology-fused-v1')assertTeachingText(parsed); }
     catch (error) { return json({ error: `章节编码与逐句译文无效：${error.message}` }, 400); }
     const runClaim = await env.DB.prepare('SELECT rest_requested FROM run_claims WHERE run_id=? AND study_date=?').bind(value.runId, value.date).first();
     if (!runClaim || runClaim.rest_requested) return json({ error: '本日未领取运行或已选择休息' }, 409);

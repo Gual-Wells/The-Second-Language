@@ -2,13 +2,14 @@ import { readFile, writeFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { validateTeachingLayout } from '../web/annotations.js';
+import {assertTeachingText} from '../protocol/teaching-text.mjs';
 
 const date = process.argv[2];
 if (!/^\d{4}-\d{2}-\d{2}$/.test(date || '')) throw new Error('用法: node scripts/pack-chapter.mjs YYYY-MM-DD');
 const folder = path.resolve('chapters', date);
 const markdown = await readFile(path.join(folder, 'chapter.md'), 'utf8');
 const meta = JSON.parse(await readFile(path.join(folder, 'meta.json'), 'utf8'));
-validateTeachingLayout(markdown, meta.contentPolicy);
+const parsed=validateTeachingLayout(markdown, meta.contentPolicy);if(meta.contentPolicy==='etymology-fused-v1')assertTeachingText(parsed);
 const parts = ['one', 'two', 'three'].map(part => `<!-- PART:${part} -->`);
 const positions = parts.map(part => markdown.indexOf(part));
 if (positions.some(x => x < 0) || positions[0] >= positions[1] || positions[1] >= positions[2]) throw new Error('章节必须按顺序包含三部分标记');
