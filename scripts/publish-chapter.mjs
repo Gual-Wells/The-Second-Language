@@ -1,5 +1,5 @@
 import {finishTaskBalances} from './check-balances.mjs';
-import { readFile } from 'node:fs/promises';
+import { readFile,writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { publisherConfig } from './lib/publisher-config.mjs';
 const date = process.argv[2];
@@ -16,6 +16,11 @@ async function post(route, body) {
 }
 const staged = await post('/api/publish/stage', { ...chapter, runId, vixCommit: meta.vixCommit, protocolCommit: meta.protocolCommit });
 if (staged.digest !== chapter.digest) throw new Error('后端暂存摘要与本地章节不一致');
+if(staged.number && staged.number!==chapter.number){
+  chapter.number=meta.number=staged.number;
+  await writeFile(path.join(folder,'chapter.json'),JSON.stringify(chapter));
+  await writeFile(path.join(folder,'meta.json'),JSON.stringify(meta,null,2));
+}
 const published = await post('/api/publish/commit', { runId, digest: staged.digest });
 if (published.digest !== chapter.digest) throw new Error('后端发布摘要不一致');
 console.log(`已发布 ${date}，章节 ${published.id}，摘要 ${published.digest}`);

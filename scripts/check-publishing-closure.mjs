@@ -57,7 +57,21 @@ try{
  assert.equal(sql.prepare("SELECT count(*) n FROM audio_requests WHERE chapter_id='2026-10-06'").get().n,0,'An explicitly disabled next chapter creates no audio job');
  assert.equal(sql.prepare('SELECT parts FROM audio_next_config').get().parts,'["two","three"]','Even an empty override resets to full after first publication');
  assert.equal((await worker.fetch(new Request('https://fixture/api/feedback',{method:'POST',headers:{'content-type':'application/json'},body:'{}'}),env)).status,401);
- console.log('通过：发布重发不改发布时间，旧提交不能回滚最新章节/运行/推送，休息仅消耗一次且幂等；隔离模拟。');
+ // Wrong model-written labels, revision rows and unpublished dates must not
+ // affect chapter ordinals. Historical reads share the chapter's identity.
+ env.CHAPTERS={get:async()=>await readFile('chapters/2026-10-02/chapter.md','utf8'),put:async()=>{}};
+ const readNumber=async path=>(await worker.fetch(new Request('https://fixture'+path,{headers:{authorization:'Bearer fixture'}}),env)).json();
+ const listed=(await readNumber('/api/chapters')).chapters;
+ assert.deepEqual(listed.map(c=>c.number),['第 4 章','第 3 章','第 2 章','第 1 章']);
+ for(const c of listed)assert.equal((await readNumber('/api/chapters/'+c.id)).number,c.number);
+ assert.equal((await readNumber('/api/chapters/2026-10-02?digest='+a)).number,'第 1 章');
+ const nextDate='2026-10-08';await claim(nextDate);
+ const markdown=await readFile('chapters/2026-10-02/chapter.md','utf8');
+ const staged=await worker.fetch(new Request('https://fixture/api/publish/stage',{method:'POST',headers:{authorization:'Bearer fixture','content-type':'application/json'},body:JSON.stringify({id:nextDate,date:nextDate,runId:nextDate,wordCount:40,markdown,title:'Number fixture',subtitle:'',number:'第 2 章',vixCommit:'a'.repeat(40),protocolCommit:'b'.repeat(40)})}),env);
+ assert.equal(staged.status,200);const stageValue=await staged.json();assert.equal(stageValue.number,'第 5 章');
+ assert.equal(sql.prepare('SELECT number FROM chapter_revisions WHERE digest=?').get(stageValue.digest).number,'第 5 章');
+ assert.equal((await readNumber('/api/chapters')).chapters.length,4,'Staged material does not count as a published chapter');
+ console.log('通过：发布重发保护、休息幂等、章号按正式日期统一且不受错误草稿或修订数量影响；隔离模拟。');
  const result={immutableRevisionRead:true,currentDigestReturned:true,privateBalances:true,viewDoesNotQueryAccounts:true,unknownIsNotZero:true,lowBalanceNotificationDeduplicated:true,noPaidModels:true,noProductionDataWrites:true};
  console.log(JSON.stringify(result));
 }finally{globalThis.fetch=original;sql.close();}
