@@ -1,0 +1,9 @@
+# 第一章独立边饰素材
+
+内置imagegen，透明背景，新生成一次。实际用于可排字羊皮纸的局部边饰，不用于生成整张带字文书。字体、印文、编号和时间分别排印。
+
+原件：D:/CodexData/generated_images/01a12e3a-ffd2-7241-bb08-8a2452e79edb/exec-1d80c2cd-1d8d-4bf7-9c71-630c753ad672.png
+
+## 提示词
+
+Create one isolated transparent manuscript ornament ASSET, not a complete page. Intended use: a restrained late medieval European parchment keepsake, a personal chapter memento, not an official diploma. A very narrow vertical pen-drawn marginal miniature, approximately 1:3 width to height inside a generous fully transparent canvas. Theme: the living river and the ink line of a map. Design a continuous, intelligible slender riverbend traced with tiny faded blue-black hatching; at its upper end one short fine faded red ruling line is offset from the river and terminates cleanly, an echo of a misregistered map line. Near the lower bend just ONE exposed root system and a small modest sprig, a few carefully articulated leaves. River, root, leaves each have unmistakable boundaries and intentionally unfinished open negative space. Like a skilled 15th-century pen artist's restrained marginal drawing, iron-gall dark brown ink, irregular quill width, minute dry ink and subtle age, a tiny muted blue-grey wash only inside the river. Crisp high resolution penwork with visible deliberate strokes. Thin open organic silhouette, balanced, dignified and austere, no filled picture rectangle. No large scene, no landscape panorama, no humans, no lettering or numerals, no book, no medallion, no ornamental gold frame, no cartoon, no generic baroque flourishes, no gradients or glows, no paper texture or white background, no 3D lighting or shadows. Preserve real transparency right through all spaces between the strokes; no soft beige backing. The ornament must remain small and subordinate to adjacent text; unusually sparse beautifully observed inkwork rather than dense fantasy illustration.

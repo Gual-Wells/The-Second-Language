@@ -1,0 +1,252 @@
+{
+  "versions": [
+    {
+      "state": {
+        "progress": 1,
+        "paperProgress": 1,
+        "renderCount": 4,
+        "vertices": 14893,
+        "camera": [
+          0,
+          0,
+          12
+        ],
+        "keeperVisible": false,
+        "viewHeight": 8.116887019230768,
+        "drawBuffer": {
+          "width": 1170,
+          "height": 1862
+        },
+        "deformation": "Continuous GPU winding and shared rest displacement",
+        "keeperMotion": "loosen, unthread, then approach; exact reverse on closing",
+        "keeperSize": [
+          0.41,
+          0.77
+        ],
+        "specularIntensity": 0,
+        "toneMapping": "none; preserve source colors",
+        "restCurl": true,
+        "cameraType": "PerspectiveCamera",
+        "keeperPose": {
+          "x": -3.2649999999999997,
+          "y": -0.025,
+          "z": 0.895,
+          "rotationZ": -0.11,
+          "rotationY": 0.16,
+          "loosen": 1,
+          "opacity": 0,
+          "visible": false,
+          "phase": "off",
+          "radius": 0.30201379091612,
+          "paperProgress": 1,
+          "model": "layered hoop + rigid buckle + authored tight/loose morph",
+          "depthTest": true,
+          "depthWrite": true
+        },
+        "sealRelief": true,
+        "ready": true,
+        "animating": false,
+        "chapterId": "2026-10-02",
+        "issued": false,
+        "layout": {
+          "width": 2048,
+          "height": 2868,
+          "nominalSizeMM": [
+            300,
+            420
+          ],
+          "titleFontSize": 146,
+          "titleLines": 2,
+          "bodyFontSize": 106,
+          "colophonFontSize": 66,
+          "colophonLines": [
+            "For Gual Wells, in remembrance of Chapter I",
+            "and its trial successfully completed."
+          ],
+          "lastInkBottom": 1795,
+          "lineCount": 5,
+          "sealBox": {
+            "x": 315,
+            "y": 2375,
+            "width": 330,
+            "height": 152
+          },
+          "sealVersion": "SL-KEEPSAKE-1",
+          "sealVariant": "oblong",
+          "ornamentBox": {
+            "x": 255,
+            "y": 915,
+            "width": 300,
+            "height": 900
+          },
+          "ornamentDigest": "94462f7c5a469568ee4f68ac9c3de418ab7645832cbd81006f6b34619acca3d1",
+          "printedFonts": [
+            "Aboensis"
+          ],
+          "issued": false,
+          "presentation": "dated-art-proof",
+          "recipient": "Gual Wells",
+          "identity": [
+            "590C C91F FCA8 634B",
+            "18 October 2026",
+            "11:51:50.158  +08:00"
+          ],
+          "artifactDigest": "590cc91ffca8634b7864f24825afbfc3f5fb286de5321087edd2c336f74732ea",
+          "artSeed": 1494010143
+        },
+        "mist": {
+          "available": true,
+          "enabled": false,
+          "frames": 1,
+          "motionPeakMps": 0,
+          "ambientDose": 0.05425345683630088,
+          "visibleDomain": {
+            "left": 0.18749999999999997,
+            "right": 0.8125,
+            "bottom": 0.11538461538461538,
+            "top": 0.8846153846153845
+          }
+        }
+      },
+      "record": {
+        "status": "specimen",
+        "recipient": "Gual Wells",
+        "sha256": "590cc91ffca8634b7864f24825afbfc3f5fb286de5321087edd2c336f74732ea",
+        "canonicalPayload": "[\"second-language.memento.v2\",\"specimen\",\"2026-10-02\",1,\"7da715756425dc8fa657e250760b9fb4d62212643655e49cae7bc2ca0349ff92\",\"The Line on the Map\",\"second-language-owner\",\"Gual Wells\",null,null,null,null,\"2026-10-18T03:51:50.158Z\",\"SL-MEMENTO-12\",\"manuscript-memento-v12\",\"94462f7c5a469568ee4f68ac9c3de418ab7645832cbd81006f6b34619acca3d1\",\"oblong\",\"The Second Language\",\"Chapter I\",\"The Line on the Map\",[\"Upon the map, a river lies in ink.\",\"Beyond the ink, rain gathers, roots hold, and the water finds its course.\"],\"For Gual Wells, in remembrance of Chapter I and its trial successfully completed.\",[\"The Second Language\",\"In remembrance\"],\"Specimen — Not issued\"]",
+        "proof": {
+          "sampleTime": "2026-10-18T11:51:50.158+08:00"
+        },
+        "sealVariant": "oblong"
+      }
+    },
+    {
+      "state": {
+        "progress": 1,
+        "paperProgress": 1,
+        "renderCount": 6,
+        "vertices": 14893,
+        "camera": [
+          0,
+          0,
+          12
+        ],
+        "keeperVisible": false,
+        "viewHeight": 8.116887019230768,
+        "drawBuffer": {
+          "width": 1170,
+          "height": 1862
+        },
+        "deformation": "Continuous GPU winding and shared rest displacement",
+        "keeperMotion": "loosen, unthread, then approach; exact reverse on closing",
+        "keeperSize": [
+          0.41,
+          0.77
+        ],
+        "specularIntensity": 0,
+        "toneMapping": "none; preserve source colors",
+        "restCurl": true,
+        "cameraType": "PerspectiveCamera",
+        "keeperPose": {
+          "x": -3.2649999999999997,
+          "y": -0.025,
+          "z": 0.895,
+          "rotationZ": -0.11,
+          "rotationY": 0.16,
+          "loosen": 1,
+          "opacity": 0,
+          "visible": false,
+          "phase": "off",
+          "radius": 0.30201379091612,
+          "paperProgress": 1,
+          "model": "layered hoop + rigid buckle + authored tight/loose morph",
+          "depthTest": true,
+          "depthWrite": true
+        },
+        "sealRelief": true,
+        "ready": true,
+        "animating": false,
+        "chapterId": "2026-10-02",
+        "issued": false,
+        "layout": {
+          "width": 2048,
+          "height": 2868,
+          "nominalSizeMM": [
+            300,
+            420
+          ],
+          "titleFontSize": 146,
+          "titleLines": 2,
+          "bodyFontSize": 106,
+          "colophonFontSize": 66,
+          "colophonLines": [
+            "For Gual Wells, in remembrance of Chapter I",
+            "and its trial successfully completed."
+          ],
+          "lastInkBottom": 1795,
+          "lineCount": 5,
+          "sealBox": {
+            "x": 360,
+            "y": 2330,
+            "width": 240,
+            "height": 240
+          },
+          "sealVersion": "SL-KEEPSAKE-1",
+          "sealVariant": "round",
+          "ornamentBox": {
+            "x": 255,
+            "y": 915,
+            "width": 300,
+            "height": 900
+          },
+          "ornamentDigest": "94462f7c5a469568ee4f68ac9c3de418ab7645832cbd81006f6b34619acca3d1",
+          "printedFonts": [
+            "Aboensis"
+          ],
+          "issued": false,
+          "presentation": "dated-art-proof",
+          "recipient": "Gual Wells",
+          "identity": [
+            "4AFF DB99 F826 2318",
+            "18 October 2026",
+            "11:51:50.158  +08:00"
+          ],
+          "artifactDigest": "4affdb99f82623185cc7c3329575badb0c4c1ccc0012342b0c6dde074ad96e04",
+          "artSeed": 1258281881
+        },
+        "mist": {
+          "available": true,
+          "enabled": false,
+          "frames": 1,
+          "motionPeakMps": 0,
+          "ambientDose": 0.05425345683630088,
+          "visibleDomain": {
+            "left": 0.18749999999999997,
+            "right": 0.8125,
+            "bottom": 0.11538461538461538,
+            "top": 0.8846153846153845
+          }
+        }
+      },
+      "record": {
+        "status": "specimen",
+        "recipient": "Gual Wells",
+        "sha256": "4affdb99f82623185cc7c3329575badb0c4c1ccc0012342b0c6dde074ad96e04",
+        "canonicalPayload": "[\"second-language.memento.v2\",\"specimen\",\"2026-10-02\",1,\"7da715756425dc8fa657e250760b9fb4d62212643655e49cae7bc2ca0349ff92\",\"The Line on the Map\",\"second-language-owner\",\"Gual Wells\",null,null,null,null,\"2026-10-18T03:51:50.158Z\",\"SL-MEMENTO-12\",\"manuscript-memento-v12\",\"94462f7c5a469568ee4f68ac9c3de418ab7645832cbd81006f6b34619acca3d1\",\"round\",\"The Second Language\",\"Chapter I\",\"The Line on the Map\",[\"Upon the map, a river lies in ink.\",\"Beyond the ink, rain gathers, roots hold, and the water finds its course.\"],\"For Gual Wells, in remembrance of Chapter I and its trial successfully completed.\",[\"The Second Language\",\"SL\",\"In remembrance\"],\"Specimen — Not issued\"]",
+        "proof": {
+          "sampleTime": "2026-10-18T11:51:50.158+08:00"
+        },
+        "sealVariant": "round"
+      }
+    }
+  ],
+  "errors": [],
+  "checks": {
+    "inPlaceImpressionSwitch": true,
+    "progressPreserved": true,
+    "hashesBoundToVariant": true,
+    "returnToPreviousIsStable": true,
+    "allRequestsLocalGet": true,
+    "fontFailurePreservesTranscript": true
+  },
+  "environment": "402x874 DPR3 Chromium software WebGL, not physical iPhone/Safari performance"
+}

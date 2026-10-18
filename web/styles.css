@@ -640,3 +640,7 @@ textarea.text-input { resize: vertical; }
 .scroll-lab-v5 .scroll-transcript header h2 { margin-right: auto; }
 .scroll-lab-v6 .scroll-fallback { background-image: url('/labs/chapter-scroll-v6/assets/charter.webp'); }
 .scroll-record-identity { white-space: pre-wrap; overflow-wrap: anywhere; }
+.scroll-proof-options { display: flex; gap: 7px; padding: 7px 12px; flex: none; background: linear-gradient(#e7eef3,#ccdae5); border-bottom: 1px solid #91a5b5; }
+.scroll-proof-options button { flex: 1; min-height: 33px; font-size: 13px; }
+.scroll-proof-options button[aria-pressed=true] { background: linear-gradient(#547a96,#84a0b3); color: #fff; box-shadow: inset 0 1px 3px #405e73; }
+.scroll-lab.scroll-object-only .scroll-proof-options { display: none; }

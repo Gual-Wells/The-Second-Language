@@ -1,0 +1,65 @@
+{
+  "edition": "SL-MEMENTO-12",
+  "hashes": [
+    {
+      "path": "web/owner-identity.js",
+      "bytes": 251,
+      "sha256": "26ed977f96217f9978d18ceea3277eb1ec4bb4c3a99548bdb6b1ee539b803a0d"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v12/charter.js",
+      "bytes": 2194,
+      "sha256": "b7a5aab1854e6fdff851e2100964ead18709a9e48839d231e1ce8c59f4b61422"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v12/document.js",
+      "bytes": 4432,
+      "sha256": "4cb3aabb3a2532fe9bc41e962a380b74c241119a8fb72e348e8e05800be609ea"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v12/seal.js",
+      "bytes": 4398,
+      "sha256": "fdee222f343df88dccbe8b035724fde16bd41df3b6825e8aaa8aa336ed22fbe1"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v12/templates.js",
+      "bytes": 658,
+      "sha256": "a9db186ebd9f2151597c672315ca9017a471dc65350345ae228318b7f1fd70ce"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v12/app.js",
+      "bytes": 10044,
+      "sha256": "8c7f3bcc4ff3a4192a90e13262ec0fc4422b6b934c79fd0cbf237e294797378a"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v12/chapter-sample.json",
+      "bytes": 378,
+      "sha256": "bdffafcd294693a34394271bc773b51c26c925c09aa694310da83a0c06c0eb2d"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v12/assets/river-margin.png",
+      "bytes": 827699,
+      "sha256": "94462f7c5a469568ee4f68ac9c3de418ab7645832cbd81006f6b34619acca3d1"
+    },
+    {
+      "path": "web/labs/chapter-scroll/assets/Aboensis-Regular.otf",
+      "bytes": 137860,
+      "sha256": "0ad00fb94899b3a8277680377eb7270c5fb3ee73dd9fefbd6fb31d9f94c4707b"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v6/assets/charter.webp",
+      "bytes": 735602,
+      "sha256": "d01394d89626dff45630d4ecefb4592dbdea49e7fea6667083a1bca8756624f8"
+    },
+    {
+      "path": "research/scroll-lab-v12-sample/document-oblong.png",
+      "bytes": 10579732,
+      "sha256": "24b24f89b8f19a68fa6414916986c554bca824246dee926dc15438120ef73533"
+    },
+    {
+      "path": "research/scroll-lab-v12-sample/document-round.png",
+      "bytes": 10585389,
+      "sha256": "d47d45eb49e069e92e564e3893109b39b86ac92a530acd4535041db15445de2b"
+    }
+  ]
+}
