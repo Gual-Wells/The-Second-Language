@@ -22,7 +22,9 @@ const parsed=qualityTargets(original.markdown),first=original.markdown.slice(0,o
 let sourceTerms={};try{sourceTerms=JSON.parse((await readFile(path.join(directory,'source-terms.json'),'utf8')).replace(/^\uFEFF/,''));}catch(e){if(e.code!=='ENOENT')throw e;}
 let sourceSelection={};try{sourceSelection=JSON.parse((await readFile(path.join(directory,'source-selection.json'),'utf8')).replace(/^\uFEFF/,''));}catch(e){if(e.code!=='ENOENT')throw e;}
 let sourceSupplements={};try{sourceSupplements=JSON.parse((await readFile(path.join(directory,'source-supplements.json'),'utf8')).replace(/^\uFEFF/,''));}catch(e){if(e.code!=='ENOENT')throw e;}
-const entriesFor=(word,terms)=>[...lookupBooks(books,terms).filter(e=>!sourceSelection[word.id]?.excluded?.includes(e.id)),...(sourceSupplements[word.id]||[])];
+let supplementaryChecks={};try{supplementaryChecks=JSON.parse((await readFile(path.join(directory,'supplementary-source-checks.json'),'utf8')).replace(/^\uFEFF/,''));}catch(e){if(e.code!=='ENOENT')throw e;}
+const checkedEntries=word=>(supplementaryChecks.sources||[]).filter(s=>(s.supports||[]).some(u=>word.markdown.includes('USE:'+u.split(' ')[0]+' -->'))).map(s=>({id:'verified-supplement:'+hash(Buffer.from(JSON.stringify(s))).slice(0,20),book:'supplementary',heading:s.entry||s.section||s.heading,text:JSON.stringify(s),excerptDigest:hash(Buffer.from(JSON.stringify(s)))}));
+const entriesFor=(word,terms)=>[...lookupBooks(books,terms).filter(e=>!sourceSelection[word.id]?.excluded?.includes(e.id)),...(sourceSupplements[word.id]||[]),...checkedEntries(word)];
 const material=blocks.map(w=>{const terms=[...new Set([w.text,...[...w.markdown.matchAll(/^## (.+)$/gm)].map(m=>headingWord(m[1])),...(sourceTerms[w.id]||[])].filter(Boolean))];return{...w,terms,entries:entriesFor(w,terms)};});
 // Content authority is always the formal teaching protocol. The temporary
 // migration agreement only limits publication scope, not teaching semantics.
