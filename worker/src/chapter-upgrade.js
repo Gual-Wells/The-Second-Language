@@ -1,4 +1,6 @@
 import {validateFirstPartUpgrade} from '../../protocol/first-part-upgrade.mjs';
+import {validateChapterCorrection} from '../../protocol/chapter-correction.mjs';
+import {audioUnits,pronunciationKey} from '../../web/audio-plan.js';
 import {chapterText,permanentBucket} from './storage.js';
 import {digestText} from '../../protocol/chapter-quality-contract.mjs';
 
@@ -10,7 +12,9 @@ export async function firstPartUpgradeRoute(request,env,isPublisher,bucket=perma
  if(!isPublisher)return json({error:'发布身份无效'},403);
  if(request.method!=='POST')return json({error:'操作无效'},405);
  let b;try{const raw=await request.text();if(raw.length>1200000)return json({error:'修订过大'},413);b=JSON.parse(raw);}catch{return json({error:'修订格式无效'},400);}
- if(!b||Array.isArray(b)||!dates.has(b.chapterId)||![`upgrade-20261018-${b.chapterId}`,`correction-20261018-${b.chapterId}`].includes(b.runId)||!digest(b.baseDigest)||!digest(b.targetDigest)||b.vixCommit!==pin||!/^[a-f0-9]{40}$/.test(b.protocolCommit||'')||typeof b.markdown!=='string'||!b.manifest||b.manifest.scope!=='first-part'||b.manifest.baseDigest!==b.baseDigest||b.manifest.targetDigest!==b.targetDigest)return json({error:'不属于批准的第一部分升级'},400);
+ if(!b||Array.isArray(b)||!dates.has(b.chapterId)||![`upgrade-20261018-${b.chapterId}`,`correction-20261018-${b.chapterId}`].includes(b.runId)||!digest(b.baseDigest)||!digest(b.targetDigest)||b.vixCommit!==pin||!/^[a-f0-9]{40}$/.test(b.protocolCommit||'')||typeof b.markdown!=='string'||!b.manifest||!['first-part','chapter-correction'].includes(b.manifest.scope)||b.manifest.baseDigest!==b.baseDigest||b.manifest.targetDigest!==b.targetDigest)return json({error:'不属于批准的章节修订'},400);
+ const complete=b.manifest.scope==='chapter-correction';
+ if(complete&&!b.runId.startsWith('correction-'))return json({error:'完整纠错必须使用独立修正身份'},400);
  if(b.runId.startsWith('correction-')&&(b.manifest.authority!=='formal-main'||!Array.isArray(b.manifest.words)||b.manifest.words.length!==40||b.manifest.words.some(w=>!Array.isArray(w.coverage)||!w.coverage.length)))return json({error:'修正须按正式主协议保留逐词内容去向'},400);
  const prior=await env.DB.prepare('SELECT * FROM chapter_first_part_upgrades WHERE id=?').bind(b.runId).first();
  const current=await env.DB.prepare('SELECT * FROM published_chapters WHERE chapter_id=?').bind(b.chapterId).first();
@@ -21,7 +25,8 @@ export async function firstPartUpgradeRoute(request,env,isPublisher,bucket=perma
  try{
   const old=await chapterText(env,original.content_key);if(!old||await digestText(old)!==b.baseDigest)return json({error:'原件暂不可核对'},503);
   if(await digestText(b.markdown)!==b.targetDigest)return json({error:'新正文摘要不一致'},400);
-  try{validateFirstPartUpgrade(old,b.markdown);}catch(e){return json({error:e.message},400);}
+  try{(complete?validateChapterCorrection:validateFirstPartUpgrade)(old,b.markdown);}catch(e){return json({error:e.message},400);}
+  const oldAudio=new Set(audioUnits(old).map(u=>pronunciationKey(u.text,u.phonemes))),needsAudio=audioUnits(b.markdown).some(u=>!oldAudio.has(pronunciationKey(u.text,u.phonemes)));
   const key=`chapters/${b.chapterId}/${b.targetDigest}.md`,now=Date.now();
   await bucket.put(key,b.markdown,{httpMetadata:{contentType:'text/markdown; charset=utf-8'}});
   const saved=await bucket.get(key);if(!saved||await digestText(await saved.text())!==b.targetDigest)throw Error('新版永久原件未核实');
@@ -42,8 +47,9 @@ export async function firstPartUpgradeRoute(request,env,isPublisher,bucket=perma
    env.DB.prepare(`INSERT OR IGNORE INTO chapter_first_part_upgrades(id,chapter_id,base_digest,target_digest,manifest_digest,created_at) SELECT ?,?,?,?,?,? WHERE EXISTS(SELECT 1 FROM published_chapters WHERE chapter_id=? AND digest=?)`).bind(b.runId,b.chapterId,b.baseDigest,b.targetDigest,manifestDigest,now,b.chapterId,b.baseDigest),
    env.DB.prepare(`UPDATE published_chapters SET digest=? WHERE chapter_id=? AND digest=? AND EXISTS(SELECT 1 FROM chapter_first_part_upgrades WHERE id=? AND target_digest=?)`).bind(b.targetDigest,b.chapterId,b.baseDigest,b.runId,b.targetDigest),
    env.DB.prepare(`INSERT INTO chapter_audio_work(chapter_id,chapter_digest,requested_at) SELECT ?,?,? WHERE EXISTS(SELECT 1 FROM published_chapters WHERE chapter_id=? AND digest=?) ON CONFLICT(chapter_id,chapter_digest) DO NOTHING`).bind(b.chapterId,b.targetDigest,now,b.chapterId,b.targetDigest)
+   ,env.DB.prepare(`INSERT OR IGNORE INTO audio_requests(id,chapter_id,chapter_digest,parts,source,state,created_at) SELECT ?,?,?,'["two","three"]','correction','pending',? WHERE ?=1 AND EXISTS(SELECT 1 FROM published_chapters WHERE chapter_id=? AND digest=?)`).bind('audio-'+b.runId,b.chapterId,b.targetDigest,now,needsAudio?1:0,b.chapterId,b.targetDigest)
   ]);
   if(!result[1].meta.changes)return json({error:'发布期间原章发生变化，未覆盖当前版本'},409);
-  return json({ok:true,digest:b.targetDigest,manifestDigest,audioReused:true,ttsCalls:0});
+  return json({ok:true,digest:b.targetDigest,manifestDigest,audioReused:true,audioQueued:needsAudio,ttsCalls:0});
  }catch(e){console.warn('第一部分升级：'+e.message);return json({error:'升级尚未完成，原件和已存资料保留'},503);}
 }

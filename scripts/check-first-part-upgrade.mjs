@@ -51,4 +51,12 @@ assert.equal((await post(correction)).status,200);assert.equal((await post(corre
 assert.equal((await post(b)).status,409);assert.equal(sql.prepare('SELECT COUNT(*) n FROM chapter_first_part_upgrades WHERE chapter_id=?').get(b.chapterId).n,2);
 assert.equal(files.get('chapters/'+b.chapterId+'/'+b.targetDigest+'.md'),b.markdown);
 assert.equal(sql.prepare('SELECT COUNT(*) n FROM pronunciation_results').get().n,1);assert.equal(sql.prepare('SELECT COUNT(*) n FROM audio_requests').get().n,0);
+const full=await seed('2026-10-12','\n\n\n\n'),p=full.markdown.split('<!-- PART:two -->'),q=p[1].split('<!-- PART:three -->');
+p[0]=p[0].replace('<!-- WORD:W002 -->','<!-- USE:U999 -->\n## adversity · 隔离夹具 /ədˈvɝsəti/\n`仅验证新增用法的非教学数据`\n\n<!-- WORD:W002 -->');
+q[0]=q[0].replace('<!-- WORD:W002 -->','<!-- EXAMPLE:U999 -->\nThis is a fixture sentence.\n`这是隔离夹具。`\n\n<!-- WORD:W002 -->');
+full.markdown=p[0]+'<!-- PART:two -->'+q[0]+'<!-- PART:three -->'+q[1]+'\n<!-- SENTENCE:S999 USE:U999 -->\nThis is a fixture article sentence.\n`这是隔离的范文夹具。`\n';full.targetDigest=await digestText(full.markdown);full.runId='correction-20261018-'+full.chapterId;
+full.manifest={...correction.manifest,scope:'chapter-correction',baseDigest:full.baseDigest,targetDigest:full.targetDigest};
+const repaired=await post(full);assert.equal(repaired.status,200);assert.equal(repaired.value.audioQueued,true);assert.equal((await post(full)).value.reused,true);
+assert.equal(sql.prepare("SELECT COUNT(*) n FROM audio_requests WHERE source='correction'").get().n,1);
+assert.equal(JSON.stringify(sql.prepare('SELECT * FROM audio_next_config').get()),settings,'Repairs do not consume the next daily audio option');
 console.log(JSON.stringify({scopeAndByteProtection:true,immutableOldRecords:true,audioReusedWithoutGeneration:true,idempotence:true,preservedDateAndSettings:true,noPushOrAudioRequests:true,oldPublisherReplayBlocked:true,concurrentPointerProtected:true,audioLinkFailureDoesNotPublish:true,formalProtocolCorrectionIsNewRevision:true,paidCalls:0}));sql.close();

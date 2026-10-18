@@ -72,7 +72,7 @@ function subscriptionValid(value) {
 async function route(request, env) {
   const url = new URL(request.url), path = url.pathname;
   if (path === '/health') return json({ ok: true });
-  if(path==='/api/publish/upgrade-first-part')return firstPartUpgradeRoute(request,env,publisher(request,env));
+  if(path==='/api/publish/upgrade-first-part'||path==='/api/publish/correct-chapter')return firstPartUpgradeRoute(request,env,publisher(request,env));
   if (path.startsWith('/auth/')) return authRoute(request, env, request.method === 'POST' ? await inputJson(request) : {});
   if(path.startsWith('/api/balances'))return balanceRoute(request,env,{isPublisher:publisher(request,env),session:await sessionFor(request,env),sameOrigin:sameOrigin(request,env)});
   if(path==='/api/chapter-quality'||path.startsWith('/api/chapter-quality/'))return chapterQualityRoute(request,env,{isPublisher:publisher(request,env),session:await sessionFor(request,env),sameOrigin:sameOrigin(request,env)});
