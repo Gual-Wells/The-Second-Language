@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1120" viewBox="0 0 1400 1120">
+ <rect width="1400" height="1120" fill="#eeeae2"/>
+ <style>text{fill:#332b24;font-family:'Microsoft YaHei',sans-serif}.title{font-size:30px;font-weight:600}.sub{font-size:18px;fill:#6e6255}.label{font-size:21px}.note{font-size:17px;fill:#6e6255}.ink{font-family:Georgia,serif;fill:#48382a}.rule{stroke:#988571;stroke-width:1.5;fill:none}.guide{stroke:#a79e91;stroke-dasharray:5 6;fill:none}</style>
+ <text x="60" y="56" class="title">章节纪念手稿的两种版式方向</text>
+ <text x="60" y="89" class="sub">结构研究图 · 不代表成品材质、字体与章印效果 · 姓名、通过事实与记录收在尾记</text>
+ <text x="95" y="139" class="label">A 抄本纪念叶</text><text x="770" y="139" class="label">B 行旅藏卷</text>
+ <rect x="88" y="166" width="440" height="616" rx="2" fill="#e6d7b7" stroke="#bca989"/>
+ <rect x="760" y="166" width="402" height="616" rx="2" fill="#e6d7b7" stroke="#bca989"/>
+ <rect x="135" y="218" width="346" height="500" class="guide"/>
+ <rect x="813" y="218" width="296" height="500" class="guide"/>
+ <g text-anchor="middle">
+  <text x="308" y="249" font-size="17" class="ink">Chapter I</text>
+  <text x="308" y="305" font-size="30" class="ink">The Line</text><text x="308" y="343" font-size="30" class="ink">on the Map</text>
+  <text x="961" y="249" font-size="17" class="ink">Chapter I</text>
+  <text x="961" y="299" font-size="27" class="ink">The Line on the Map</text>
+ </g>
+ <g font-size="17" class="ink">
+  <text x="157" y="416">Upon the map, a river lies in ink.</text>
+  <text x="157" y="450">Beyond the ink, rain gathers,</text>
+  <text x="157" y="484">roots hold, and the water</text>
+  <text x="157" y="518">finds its course.</text>
+  <text x="846" y="390">Upon the map,</text><text x="846" y="424">a river lies in ink.</text>
+  <text x="846" y="474">Beyond the ink,</text><text x="846" y="508">rain gathers, roots hold,</text><text x="846" y="542">and the water</text><text x="846" y="576">finds its course.</text>
+ </g>
+ <g font-size="13" class="ink">
+  <text x="157" y="600">For Gual Wells, in remembrance of Chapter I</text><text x="157" y="622">and its trial successfully completed.</text>
+  <text x="840" y="631">For Gual Wells, in remembrance of Chapter I</text><text x="840" y="653">and its trial successfully completed.</text>
+ </g>
+ <rect x="157" y="659" width="90" height="33" fill="none" stroke="#66503b" stroke-width="1.2"/>
+ <g font-size="8.5" text-anchor="middle" class="ink"><text x="202" y="672">The Second Language</text><text x="202" y="685">In remembrance</text></g>
+ <g class="note" font-size="12"><text x="271" y="672">通过时间与时区</text><text x="271" y="691">短摘要与作品记录</text><text x="840" y="709">通过时间 · 时区 · 短摘要</text></g>
+ <path d="M815 325C797 377 822 431 807 479S822 553 811 596" class="rule"/>
+ <text x="550" y="302" class="note">章名主位</text><path d="M540 309H475" class="rule"/>
+ <text x="550" y="453" class="note">原创题辞</text><path d="M540 458H475" class="rule"/>
+ <text x="550" y="618" class="note">归属尾记</text><path d="M540 622H475" class="rule"/>
+ <text x="550" y="685" class="note">小藏记</text><path d="M540 690H475" class="rule"/>
+ <text x="1190" y="453" class="note">纵向书写</text><path d="M1180 458H1114" class="rule"/>
+ <text x="1190" y="574" class="note">侧缘意象</text><path d="M1180 580H1134" class="rule"/>
+ <text x="1190" y="652" class="note">同级归属</text><path d="M1180 658H1114" class="rule"/>
+ <text x="88" y="827" class="label">印记形制比较</text><text x="88" y="855" class="note">以下仅画轮廓与文字职责。小幅长方形是项目试排选择，不能当作统一历史规格。</text>
+ <circle cx="180" cy="946" r="49" class="rule"/><circle cx="180" cy="946" r="43" class="rule"/><text x="180" y="953" text-anchor="middle" font-size="23" class="ink">SL</text>
+ <text x="130" y="1031" class="note">小圆形字印</text>
+ <path d="M435 889Q503 946 435 1003Q367 946 435 889Z" class="rule"/><text x="435" y="952" text-anchor="middle" font-size="21" class="ink">SL</text><text x="383" y="1031" class="note">尖椭圆轮廓</text>
+ <rect x="620" y="922" width="172" height="58" class="rule"/><text x="706" y="945" text-anchor="middle" font-size="13" class="ink">The Second Language</text><text x="706" y="966" text-anchor="middle" font-size="13" class="ink">In remembrance</text><text x="641" y="1031" class="note">横长方文字藏记</text>
+ <text x="1000" y="950" font-size="34" class="ink">SL</text><path d="M984 969C1010 958 1054 980 1083 964M995 978Q1042 990 1076 973" class="rule"/><text x="976" y="1031" class="note">字签与收笔</text>
+ <text x="88" y="1090" class="sub">固定机构身份与记录格式；章节变化体现在题辞、首字或边缘意象。保留古旧纸张与既有卷展工程。</text>
+</svg>
