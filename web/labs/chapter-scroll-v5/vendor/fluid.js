@@ -25,7 +25,7 @@ SOFTWARE.
 'use strict';
 
 
-export function createFluid(canvas) {
+export function createFluid(canvas, settings = {}) {
 resizeCanvas();
 
 let config = {
@@ -84,6 +84,9 @@ if (!ext.supportLinearFiltering) {
     config.BLOOM = false;
     config.SUNRAYS = false;
 }
+
+// Optional host budgets; legacy pages retain the original configuration.
+if (settings.dyeResolution) config.DYE_RESOLUTION = Math.min(config.DYE_RESOLUTION, settings.dyeResolution);
 
 
 
@@ -1382,7 +1385,7 @@ function getTextureScale (texture, width, height) {
 }
 
 function scaleByPixelRatio (input) {
-    let pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+    let pixelRatio = Math.min(window.devicePixelRatio || 1, settings.maxPixelRatio || 2);
     return Math.floor(input * pixelRatio);
 }
 

@@ -16,3 +16,5 @@ assets/leaf-and-letter.png为本轮内置imagegen生成的独立透明小画。�
 [Getty手稿页式分析](https://www.getty.edu/news/breaking-down-a-page-like-a-medievalist/)与[中世纪平面设计研究](https://www.getty.edu/news/getty-presents-graphic-design-in-the-middle-ages/)用于研究文字、图像和留白的共同设计，没有复制其宗教图像或机构身份。本项目是当代的中古风格私人纪念品。
 
 本轮内置生图一次，没有新订阅、外部收费模型或GPU作业。浏览器检查不代替iPhone/Safari实机性能验收。
+
+2026-10-18运行维护：本章与第一章共用chapter-scroll-runtime，使用Three既有纹理预载/着色程序预编译，保留原皮扣模型与轨迹；卷展停顿与后台恢复分开处理。Pavel Fluid仅增加可选雾层预算，旧页默认不变；本轮无新增生图、模型、资源订阅。对照与边界见仓库research/scroll-motion-2026-10-18。

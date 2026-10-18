@@ -1,5 +1,6 @@
-import {ScrollObject} from '../chapter-scroll-v12/scroll-object.js';
-import {Atmosphere} from '../chapter-scroll-v6/mist.js';
+import {ScrollObject} from '../chapter-scroll-runtime/scroll-object.js';
+import {Atmosphere} from '../chapter-scroll-runtime/mist.js';
+import {Motion} from '../chapter-scroll-runtime/motion.js';
 import {getTemplate} from './templates.js';
 import {createDocument,loadImage,populateTranscript,prepareSeal} from './document.js';
 import {prepareCharter} from './charter.js';
@@ -10,14 +11,14 @@ let atmosphereWanted=!reduced.matches;
 let baseRecord;
 const message=t=>$('status').textContent=t;
 function controls(){
- $('toggle').textContent=progress>=.5?'收卷':'启卷';
+ const label=progress>=.5?'收卷':'启卷';if($('toggle').textContent!==label)$('toggle').textContent=label;
  $('toggle').setAttribute('aria-label',progress>=.5?'收起藏卷':'展开藏卷');
  $('unfoldHint').hidden=progress>.025||Boolean(animation)||!ready;
  $('mistToggle').setAttribute('aria-pressed',String(atmosphereWanted));
 }
 function deform(p){progress=Math.max(0,Math.min(1,p));object.setProgress(progress);controls();}
 function schedule(){if(!frame&&!lost&&!document.hidden&&ready&&(animation||object?.needsMotion||(atmosphereWanted&&!reduced.matches)))frame=requestAnimationFrame(tick);}
-function render(){if(object&&!lost&&!document.hidden)object.render();}
+function render(){if(object&&ready&&!lost&&!document.hidden)object.render();}
 function tick(now){
  frame=0;if(lost||document.hidden||!ready)return;
  const elapsed=now-previousTime;
@@ -25,9 +26,8 @@ function tick(now){
  if(elapsed<7){schedule();return;}
  const dt=Math.min(.05,(elapsed||40)/1000);previousTime=now;
  if(animation){
-  const t=Math.min(1,(now-animation.start)/animation.duration),e=t*t*(3-2*t);
-  deform(animation.from+(animation.to-animation.from)*e);
-  if(t===1){animation=null;controls();message('设计试样 · 尚未颁发');}
+  const sample=animation.sample(now);deform(sample.progress);
+  if(sample.done){animation=null;controls();message('设计试样 · 尚未颁发');}
  }
  object.advance(dt);if(animation||object.needsMotion||object.dirty)render();
  if(atmosphereWanted&&!reduced.matches)mist?.tick(dt,progress,object.bounds,object.viewHeight,Math.max(.001,elapsed/1000));
@@ -36,13 +36,14 @@ function tick(now){
 function animate(to,{immediate=false}={}){
  if(!ready||lost)return;
  if(immediate||reduced.matches){animation=null;mist?.resetMotion();deform(to);object.settle();render();message('设计试样 · 尚未颁发');schedule();return;}
- animation={from:progress,to,start:performance.now(),duration:Math.max(280,Math.abs(to-progress)*5600)};
+ animation=new Motion(progress,to,performance.now());
  controls();message(to?'藏卷展开中…':'藏卷收起中…');schedule();
 }
 function toggle(){animate(animation?(animation.to?0:1):(progress>=.5?0:1));}
 function resize(){if(!object||lost)return;const {width,height}=stage.getBoundingClientRect();object.resize(width,height);render();}
 function objectOnly(on){document.body.classList.toggle('scroll-object-only',on);$('leaveObject').hidden=!on;requestAnimationFrame(resize);}
 async function setup(){
+ canvas.style.visibility='hidden';$('mistCanvas').style.visibility='hidden';
  const response=await fetch('chapter-sample.json',{signal:AbortSignal.timeout(20000)});if(!response.ok)throw Error('Chapter unavailable');baseRecord=await response.json();
  const params=new URL(location.href).searchParams;
  const artResponse=await fetch('art-plan.json',{signal:AbortSignal.timeout(20000)});if(!artResponse.ok)throw Error('Artwork plan unavailable');record=await prepareCharter(baseRecord,await artResponse.text());
@@ -53,12 +54,15 @@ async function setup(){
  await prepareSeal();
  textures=createDocument(record,paper,back,template,ornament);updateProof();
  object=new ScrollObject(canvas,textures,keeper,template);
- if(!reduced.matches)mist=new Atmosphere($('mistCanvas'));else $('mistCanvas').hidden=true;
- ready=true;deform(reduced.matches||params.get('open')==='1'?1:0);$('loading').hidden=true;
- for(const id of ['toggle','replay','detail','objectOnly'])$(id).disabled=false;
+ const initialProgress=reduced.matches||params.get('open')==='1'?1:0;
+ new ResizeObserver(resize).observe(stage);resize();
+ $('loading').textContent='正在准备藏卷…';await object.prepareMotion(initialProgress);
+ if(!reduced.matches){mist=new Atmosphere($('mistCanvas'));mist.prepare(initialProgress,object.bounds,object.viewHeight);}else $('mistCanvas').hidden=true;
  if(!mist?.fluid){atmosphereWanted=false;$('mistToggle').disabled=true;$('mistToggle').textContent='静景';}
- controls();
- new ResizeObserver(resize).observe(stage);resize();await object.environmentReady;render();schedule();
+ ready=true;deform(initialProgress);object.settle();render();previousTime=performance.now();
+ canvas.style.visibility='';$('mistCanvas').style.visibility='';$('loading').hidden=true;
+ for(const id of ['toggle','replay','detail','objectOnly'])$(id).disabled=false;
+ controls();schedule();
  if(new URL(location.href).searchParams.get('view')==='object')objectOnly(true);
  window.scrollSpecimen=Object.freeze({
   open:()=>animate(1),close:()=>animate(0),setProgress:p=>animate(p,{immediate:true}),
@@ -88,18 +92,27 @@ $('transcriptDialog').addEventListener('click',e=>{if(e.target===$('transcriptDi
 $('objectOnly').addEventListener('click',()=>objectOnly(true));$('leaveObject').addEventListener('click',()=>objectOnly(false));
 document.addEventListener('keydown',e=>{if(e.key==='Escape')objectOnly(false);});
 canvas.addEventListener('pointerdown',e=>{
- if(!ready||lost||(e.pointerType==='mouse'&&e.button!==0))return;animation=null;
- drag={id:e.pointerId,y:e.clientY,p:progress,moved:false};canvas.setPointerCapture(e.pointerId);
+ if(!ready||lost||(e.pointerType==='mouse'&&e.button!==0))return;
+ const target=animation?.to;animation=null;
+ drag={id:e.pointerId,y:e.clientY,p:progress,moved:false,target};canvas.setPointerCapture(e.pointerId);
 });
 canvas.addEventListener('pointermove',e=>{if(!drag||drag.id!==e.pointerId)return;const dy=e.clientY-drag.y;if(Math.abs(dy)>9)drag.moved=true;if(drag.moved){deform(drag.p+dy/(stage.clientHeight*.64));render();}});
-canvas.addEventListener('pointerup',e=>{if(!drag||drag.id!==e.pointerId)return;const moved=drag.moved;drag=null;if(canvas.hasPointerCapture(e.pointerId))canvas.releasePointerCapture(e.pointerId);if(moved)animate(progress>=.5?1:0);else toggle();});
-canvas.addEventListener('pointercancel',()=>{drag=null;controls();message('设计试样 · 尚未颁发');});
+canvas.addEventListener('pointerup',e=>{if(!drag||drag.id!==e.pointerId)return;const {moved,target}=drag;drag=null;if(canvas.hasPointerCapture(e.pointerId))canvas.releasePointerCapture(e.pointerId);if(moved)animate(progress>=.5?1:0);else if(target!==undefined)animate(target?0:1);else toggle();});
+canvas.addEventListener('pointercancel',()=>{const target=drag?.target;drag=null;if(target!==undefined)animate(target);else{controls();message('设计试样 · 尚未颁发');}});
 canvas.addEventListener('lostpointercapture',()=>{drag=null;});
 document.addEventListener('visibilitychange',()=>{
- if(document.hidden){if(animation)animation.remaining=Math.max(0,animation.duration-(performance.now()-animation.start));cancelAnimationFrame(frame);frame=0;drag=null;}
- else{previousTime=performance.now();if(animation){animation.from=progress;animation.start=performance.now();animation.duration=Math.max(1,animation.remaining??animation.duration);}render();schedule();}
+ if(document.hidden){cancelAnimationFrame(frame);frame=0;drag=null;mist?.resetMotion();}
+ else{previousTime=performance.now();animation?.resume(previousTime);render();schedule();}
 });
 reduced.addEventListener('change',()=>{if(reduced.matches){setAtmosphere(false);if(animation)animate(animation.to,{immediate:true});}});
 canvas.addEventListener('webglcontextlost',e=>{e.preventDefault();lost=true;animation=null;cancelAnimationFrame(frame);frame=0;mist?.setEnabled(false);$('fallback').hidden=false;$('unfoldHint').hidden=true;for(const id of ['toggle','replay','objectOnly'])$(id).disabled=true;message('立体显示中断，可查看静态卷页。');});
-canvas.addEventListener('webglcontextrestored',()=>{lost=false;$('fallback').hidden=true;for(const id of ['toggle','replay','objectOnly'])$(id).disabled=false;mist?.setEnabled(atmosphereWanted);resize();controls();schedule();});
+canvas.addEventListener('webglcontextrestored',async()=>{
+ lost=false;ready=false;canvas.style.visibility='hidden';$('loading').hidden=false;
+ try{
+  resize();await object.prepareMotion(progress);mist?.resetMotion();ready=true;
+  $('fallback').hidden=true;canvas.style.visibility='';$('loading').hidden=true;
+  for(const id of ['toggle','replay','objectOnly'])$(id).disabled=false;
+  mist?.setEnabled(atmosphereWanted);previousTime=performance.now();controls();schedule();
+ }catch(error){console.error(error);$('loading').hidden=true;$('fallback').hidden=false;message('立体显示暂不可用，可查看静态卷页。');}
+});
 setup().catch(error=>{console.error(error);$('loading').hidden=true;canvas.hidden=true;$('fallback').hidden=false;$('unfoldHint').hidden=true;message('藏卷暂不可用，已保留释读。');});

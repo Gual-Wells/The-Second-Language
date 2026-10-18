@@ -1,0 +1,61 @@
+{
+  "origin": "https://3cf5906a.the-second-language.pages.dev",
+  "verifiedAt": "2026-10-18T12:00:35.742Z",
+  "versions": [
+    {
+      "version": "v13",
+      "initialRuntime": {
+        "motionPrepared": true,
+        "preparationMs": 5465.800000000047,
+        "preparedPrograms": 17,
+        "programs": 17
+      },
+      "record": "d3206a2291e2e6e7312053763c3c6a599f16efd2eb5e5a5736a64ec187b89a05",
+      "documentBytesUnchanged": true,
+      "errors": [],
+      "checks": {
+        "ambientActive": true,
+        "idlePaperNotRedrawn": true,
+        "rapidCanvasTapReverses": true,
+        "firstCloseHasNoNewPrograms": true,
+        "contextRestoreRewarms": true,
+        "impressionSwitch": false
+      }
+    },
+    {
+      "version": "v12",
+      "initialRuntime": {
+        "motionPrepared": true,
+        "preparationMs": 2813.600000000093,
+        "preparedPrograms": 17,
+        "programs": 17
+      },
+      "record": "590cc91ffca8634b7864f24825afbfc3f5fb286de5321087edd2c336f74732ea",
+      "documentBytesUnchanged": true,
+      "errors": [],
+      "checks": {
+        "ambientActive": true,
+        "idlePaperNotRedrawn": true,
+        "rapidCanvasTapReverses": true,
+        "firstCloseHasNoNewPrograms": true,
+        "contextRestoreRewarms": false,
+        "impressionSwitch": true
+      }
+    }
+  ],
+  "assets": [
+    "/labs/chapter-scroll-runtime/motion.js",
+    "/labs/chapter-scroll-runtime/scroll-object.js",
+    "/labs/chapter-scroll-runtime/mist.js",
+    "/labs/chapter-scroll-v12/app.js",
+    "/labs/chapter-scroll-v13/app.js",
+    "/labs/chapter-scroll-v5/vendor/fluid.js"
+  ],
+  "checks": {
+    "stallKeepsLooseningPhase": true,
+    "allKeeperPhasesRetained": true,
+    "resumeExcludesHiddenTime": true,
+    "reducedMotion": true
+  },
+  "environment": "402x874 DPR3 Chromium Intel UHD/D3D11 hardware rendering; iPhone/Safari still needs user visual verification"
+}

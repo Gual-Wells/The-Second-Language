@@ -19,3 +19,5 @@ assets/river-margin.png为本轮内置imagegen生成的一份独立透明笔绘�
 长方藏记排The Second Language / In remembrance；圆形增加项目字母组合SL。新题辞为本项目原创，不是史料引文。两种样式分别绑定自己的内容摘要，切换不重置卷展状态。
 
 本轮内置生图一次，无新订阅、外部付费模型或GPU调用。实机iPhone/Safari帧率仍须实际观察。
+
+2026-10-18运行维护：与第五章共同采用chapter-scroll-runtime，首次交互前准备纹理/着色程序，保持原皮扣形态与空间路径，稳定其透明渲染并保留动作阶段。雾层独立运行预算，纸面画布与艺术原件不变。本轮没有生图或新增订阅；对照在仓库research/scroll-motion-2026-10-18，不能将本机GPU结果冒充iPhone实测。

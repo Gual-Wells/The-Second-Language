@@ -1,0 +1,87 @@
+{
+  "baseline": "72650010114ac45f63b8b486ad455de67784474d",
+  "deployed": "https://3cf5906a.the-second-language.pages.dev",
+  "verifiedAt": "2026-10-18T12:00:35.742Z",
+  "artifactDigests": [
+    {
+      "version": "v13",
+      "digest": "d3206a2291e2e6e7312053763c3c6a599f16efd2eb5e5a5736a64ec187b89a05"
+    },
+    {
+      "version": "v12",
+      "digest": "590cc91ffca8634b7864f24825afbfc3f5fb286de5321087edd2c336f74732ea"
+    }
+  ],
+  "files": [
+    {
+      "path": "web/labs/chapter-scroll-runtime/motion.js",
+      "bytes": 497,
+      "sha256": "f4ac736c5128593835ec47f72bf7a00f85c96b6992589327b34a46fed52c4939"
+    },
+    {
+      "path": "web/labs/chapter-scroll-runtime/scroll-object.js",
+      "bytes": 1469,
+      "sha256": "8bdda090a3a83f2f98b82883aea0a0bae5adfeb22614ae6659511331c99266aa"
+    },
+    {
+      "path": "web/labs/chapter-scroll-runtime/mist.js",
+      "bytes": 1198,
+      "sha256": "cf37c1d13133ac14fc5402f159dfc578868eadb180fc1fe297117a856d110b75"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v12/app.js",
+      "bytes": 10678,
+      "sha256": "75a5dedc0e11ad55bc78e0fa365fccb79fe7d509f3e1a09e5872c4bccafe1ce8"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v13/app.js",
+      "bytes": 9619,
+      "sha256": "0f9e9fb4cc5a5fa4a0b4dc6f33d3ef36f4a1ae3875c75b1114dec4d43c7526d2"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v5/vendor/fluid.js",
+      "bytes": 44228,
+      "sha256": "7ed0143b314ddb40fe13c2c60c0d653880d98f51cb6e47622a1fa4cc3e5fe0ce"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v12/charter.js",
+      "bytes": 2194,
+      "sha256": "b7a5aab1854e6fdff851e2100964ead18709a9e48839d231e1ce8c59f4b61422"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v13/charter.js",
+      "bytes": 2707,
+      "sha256": "2d6ec8b37d97ead2f2a22d75ac8322e86d9f44545558b01b709264f79ff22281"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v12/document.js",
+      "bytes": 4432,
+      "sha256": "4cb3aabb3a2532fe9bc41e962a380b74c241119a8fb72e348e8e05800be609ea"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v13/document.js",
+      "bytes": 3982,
+      "sha256": "cb4b191b00ef59f445c7e95f1891b3f13d9f2bf1c8a8b45fbcb75af6bcc93c97"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v13/art-plan.json",
+      "bytes": 4456,
+      "sha256": "babdc4fa311113df30933e359998798c84fe8b329fd8b591ddeb7009973e220a"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v6/assets/charter.webp",
+      "bytes": 735602,
+      "sha256": "d01394d89626dff45630d4ecefb4592dbdea49e7fea6667083a1bca8756624f8"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v12/assets/river-margin.png",
+      "bytes": 827699,
+      "sha256": "94462f7c5a469568ee4f68ac9c3de418ab7645832cbd81006f6b34619acca3d1"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v13/assets/leaf-and-letter.png",
+      "bytes": 1561703,
+      "sha256": "e5aa04af52dde8cc3f32d0d9dfac3fe1696ef6d275c0514d7e0c0065f517d9c5"
+    }
+  ]
+}
