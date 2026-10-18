@@ -1,6 +1,6 @@
 {
   "status": "in-progress",
-  "updatedAt": "2026-10-18T06:43:59.822Z",
+  "updatedAt": "2026-10-18T07:38:13.482Z",
   "userAuthorization": "按正式主协议修正，并明确包括补齐必要的第二、三部分内容。",
   "formalAuthority": [
     "CONTENT.md",
@@ -16,7 +16,7 @@
     "bodyDigestUnchanged": true
   },
   "plannedChapters": 7,
-  "completedChapters": 1,
+  "completedChapters": 2,
   "chapters": [
     {
       "chapterId": "2026-10-02",
@@ -66,7 +66,7 @@
           0.00960442,
           0.015336089999999998
         ],
-        "generation": "正常后台队列，非在发布脚本内重复合成"
+        "generation": "正常后台队列，成功原音频永久复用"
       }
     },
     {
@@ -76,8 +76,62 @@
     },
     {
       "chapterId": "2026-10-09",
-      "status": "in-progress",
-      "directory": "work/runs/correction-20261018-2026-10-09/full"
+      "status": "published-verified",
+      "scope": "chapter-correction",
+      "baseDigest": "1415039d75e1fd9514082363168d3f098be314fbc361cf5fdb7c287f843c4b27",
+      "targetDigest": "e98d95338281c661bb6869916d4cb7837c3f547b03e83d7a6087dbe8c95987dc",
+      "sourcePin": "821651446af60912b242ea389bd6891b00381a47",
+      "words": 40,
+      "addedUses": {
+        "NEW_W020_01": "U131",
+        "NEW_W026_01": "U132",
+        "NEW_W026_02": "U133",
+        "NEW_W026_03": "U134",
+        "NEW_W026_04": "U135",
+        "NEW_W026_05": "U136",
+        "NEW_W026_06": "U137",
+        "NEW_W026_07": "U138",
+        "NEW_W026_08": "U139",
+        "NEW_W026_09": "U140",
+        "NEW_W037_01": "U141",
+        "NEW_W039_01": "U142",
+        "NEW_W039_02": "U143",
+        "NEW_W039_03": "U144",
+        "NEW_W039_04": "U145",
+        "NEW_W039_05": "U146",
+        "NEW_W039_06": "U147",
+        "NEW_W039_07": "U148"
+      },
+      "articleReplacements": 15,
+      "articleInsertions": 19,
+      "semanticReview": "逐句核对并修正了原标注中的语义、搭配、译文和事件衔接问题；为新增用法补入与原有人物、档案、会议及湿地修复相连的情节。",
+      "nativeReviewedAt": "2026-10-18T07:15:44.380Z",
+      "receipt": {
+        "ok": true,
+        "digest": "e98d95338281c661bb6869916d4cb7837c3f547b03e83d7a6087dbe8c95987dc",
+        "manifestDigest": "606700bc34f190909b3f05257ec907dfd4d97208fcde451e6c88e33f2aa4ab3d",
+        "audioReused": true,
+        "audioQueued": true,
+        "ttsCalls": 0,
+        "audioPack": {
+          "clips": 262,
+          "packs": 2,
+          "originalPackFilesReused": true,
+          "ttsCalls": 0
+        },
+        "checkedAt": "2026-10-18T07:32:56.436Z",
+        "oldVersionReadable": true,
+        "newVersionReadbackIdentical": true
+      },
+      "incrementalAudio": {
+        "uniqueSentences": 67,
+        "characters": 5864,
+        "estimatedCny": [
+          0.02544976,
+          0.040637519999999996
+        ],
+        "generation": "正常后台队列，成功原音频永久复用"
+      }
     },
     {
       "chapterId": "2026-10-11",
@@ -114,7 +168,7 @@
     ]
   },
   "operations": {
-    "workerVersion": "e855ace2-24ce-431e-90a9-a71e4ab7cee5",
+    "workerVersion": "cd8c8857-5218-44f9-b366-d73b01bedaab",
     "newRecurringCost": 0,
     "paidAudioPolicy": "复用原成功索引，只为真实新增或变更文本生成；未知计费保护继续有效"
   },

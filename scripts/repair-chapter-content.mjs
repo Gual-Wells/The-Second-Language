@@ -13,7 +13,10 @@ if(!['2026-10-02','2026-10-06','2026-10-09','2026-10-11','2026-10-12','2026-10-1
 const root=process.cwd(),directory=path.resolve('work/runs','correction-20261018-'+id),out=path.join(directory,'full');await mkdir(out,{recursive:true});
 const original=JSON.parse(await readFile(path.join(directory,'original.json'),'utf8')),firstCandidate=await readFile(path.join(directory,'chapter.md'),'utf8'),baseReview=JSON.parse(await readFile(path.join(directory,'reviewed-words.json'),'utf8'));
 async function completed(){try{const saved=JSON.parse(await readFile(path.join(out,'content-result.json'),'utf8')),markdown=await readFile(path.join(out,'chapter.md'),'utf8');if(saved.baseDigest!==original.digest||hash(Buffer.from(markdown))!==saved.targetDigest)throw Error('既有修正产物身份不符');validateChapterCorrection(original.markdown,markdown);return true;}catch(e){if(e.code!=='ENOENT')throw e;return false;}}
-if(await completed()){console.log(id+' 已有完整修正产物，未重复调用');process.exit(0);}
+const repairWords=process.argv.find(a=>a.startsWith('--repair-words='))?.slice(15).split(',')||[];
+if(repairWords.some(w=>!/^W\d{3}$/.test(w)))throw Error('修正词条编号无效');
+if(repairWords.length){try{await readFile(path.join(out,'published.json'));throw Error('已发布修订不得复用同一批次重写');}catch(e){if(e.code!=='ENOENT')throw e;}}
+if(!repairWords.length&&await completed()){console.log(id+' 已有完整修正产物，未重复调用');process.exit(0);}
 const lockFile=path.join(out,'execution.lock');let waited=false;
 for(;;){try{const lock=await open(lockFile,'wx');await lock.writeFile(JSON.stringify({pid:process.pid}));await lock.close();break;}catch(e){if(e.code!=='EEXIST')throw e;const lock=JSON.parse(await readFile(lockFile,'utf8'));let active=true;try{process.kill(lock.pid,0);}catch{active=false;}if(!active)throw Error('发现中断的修正锁；先核对模型原返回，不自动重试');if(!waited)console.log(id+' 已有同章执行，等待已有结果，不重复调用');waited=true;await new Promise(r=>setTimeout(r,10000));if(await completed()){console.log(id+' 已接续同章完整结果');process.exit(0);}}}
 process.on('exit',()=>{try{if(JSON.parse(readFileSync(lockFile,'utf8')).pid===process.pid)unlinkSync(lockFile);}catch{}});
@@ -50,9 +53,11 @@ async function model(prompt,schema,label){
  const value=JSON.parse(await readFile(pending,'utf8'));await writeFile(file,JSON.stringify(value));return value;
 }
 const inputs=first.map(w=>({...material.find(m=>m.id===w.id),markdown:w.markdown,examples:second.find(v=>v.id===w.id).markdown,article:parsed.sentences.filter(s=>s.refs.some(u=>parsed.uses.get(u)?.wordId===w.id)),previousReview:baseReview.find(v=>v.wordId===w.id)?.coverage||[]}));
-const groups=[];let group=[],size=0;for(const w of inputs){const n=JSON.stringify(w).length;if(group.length&&size+n>46000){groups.push(group);group=[];size=0;}group.push(w);size+=n;}if(group.length)groups.push(group);
+let nativeFindings={};try{nativeFindings=JSON.parse(await readFile(path.join(directory,'native-word-findings.json'),'utf8'));}catch(e){if(e.code!=='ENOENT')throw e;}
+for(const w of inputs)if(nativeFindings[w.id])w.nativeFinding=nativeFindings[w.id];
+const groups=[];let group=[],size=0;for(const w of inputs.filter(w=>!repairWords.length||repairWords.includes(w.id))){const n=JSON.stringify(w).length;if(group.length&&size+n>46000){groups.push(group);group=[];size=0;}group.push(w);size+=n;}if(group.length)groups.push(group);
 const articleOnly=process.argv.includes('--resume-article');
-let books;const outputs=articleOnly?JSON.parse(await readFile(path.join(out,'reviewed-words.json'),'utf8')):[];
+let books;const outputs=articleOnly||repairWords.length?JSON.parse(await readFile(path.join(out,'reviewed-words.json'),'utf8')).filter(w=>articleOnly||!repairWords.includes(w.wordId)):[];
 if(articleOnly&&(outputs.length!==40||new Set(outputs.map(w=>w.wordId)).size!==40||first.some(w=>!outputs.some(v=>v.wordId===w.id&&v.coverage.length))))throw Error('没有完整可续作的逐词审阅');
 function normalizeSections(word){
  const examples=word.examples.trim();let markdown=word.markdown.trim().replace(/^第一部分[：:]?\s*\n+/, '');
@@ -64,7 +69,13 @@ function normalizeSections(word){
 }
 function normalizeCoverage(words,inputs){
  const corrected=words.map(w=>({...w,coverage:[]}));
- for(const w of words)for(const c of w.coverage){const owners=inputs.filter(v=>v.entries.some(e=>e.id===c.sourceId)),explicit=owners.filter(v=>new RegExp('\\b'+v.id+'\\b').test(c.destination)),target=owners.length===1?owners[0].id:explicit.length===1?explicit[0].id:w.wordId;const destination=corrected.find(v=>v.wordId===target)||corrected.find(v=>v.wordId===w.wordId);if(!destination.coverage.some(v=>JSON.stringify(v)===JSON.stringify(c)))destination.coverage.push(c);}
+ for(const w of words)for(const c of w.coverage){
+  const owners=inputs.filter(v=>v.entries.some(e=>e.id===c.sourceId));
+  // A shared lookup remains evidence for every word that received it, including
+  // an explicit disposition that its teaching belongs to a different word.
+  const targets=owners.length?owners.map(v=>v.id):[w.wordId];
+  for(const id of targets){const destination=corrected.find(v=>v.wordId===id);if(destination&&!destination.coverage.some(v=>JSON.stringify(v)===JSON.stringify(c)))destination.coverage.push(c);}
+ }
  return corrected;
 }
 function checkWord(w,input){
@@ -85,7 +96,7 @@ for(let index=0;!articleOnly&&index<groups.length;index++){
   result.words=normalizeCoverage(result.words,batch).map(normalizeSections);const invalid=new Map();
   for(const w of result.words)if(!w.additionalTerms.length){try{checkWord(w,allInputs.get(w.wordId));settled.set(w.wordId,w);}catch(e){invalid.set(w.wordId,e.message);}}
   if(settled.size===groups[index].length){result={words:groups[index].map(w=>settled.get(w.id))};break;}
-  if(round===3)throw Error('资料补读或逐词内容去向尚未闭合');
+  if(round===3){await writeFile(path.join(out,'incomplete-words.json'),JSON.stringify({index,inputs:[...allInputs.values()],result,invalid:[...invalid]},null,2));throw Error('资料补读或逐词内容去向尚未闭合：'+JSON.stringify([...invalid]));}
   if(!result.words.some(w=>w.additionalTerms.length)){
    batch=batch.filter(w=>!settled.has(w.id)).map(w=>({...w,incompleteResponse:result.words.find(v=>v.wordId===w.id),repairRequired:'上一份返回不能作为完整逐词审阅：'+invalid.get(w.id)+'。只对这些未完成词重新完整对照原文，返回完整非空事实及原例句去向；不要将输出区块重复拼进 markdown。'}));
    continue;
@@ -96,9 +107,11 @@ for(let index=0;!articleOnly&&index<groups.length;index++){
  for(const w of result.words)checkWord(w,allInputs.get(w.wordId));
  outputs.push(...result.words);material=material.map(w=>allInputs.get(w.id)||w);await writeFile(path.join(out,'material.json'),JSON.stringify(material));await writeFile(path.join(out,'reviewed-words.json'),JSON.stringify(outputs,null,2));console.log(id+' 全内容闭环审阅 '+outputs.length+'/40');
 }
-// Assign permanent new USE ids once, preserving every original id.
-let nextUse=Math.max(...[...parsed.uses.keys()].map(u=>Number(u.replace(/^U/,''))).filter(Number.isFinite))+1;
-const useMap={};for(const w of outputs)for(const m of w.markdown.matchAll(/<!-- USE:(NEW_[^ ]+) -->/g))useMap[m[1]]='U'+String(nextUse++).padStart(3,'0');
+outputs.sort((a,b)=>first.findIndex(w=>w.id===a.wordId)-first.findIndex(w=>w.id===b.wordId));
+// Preserve allocations when a native review repairs a single unfinished word.
+let priorUseMap={};try{priorUseMap=JSON.parse(await readFile(path.join(out,'new-use-map.json'),'utf8'));}catch(e){if(e.code!=='ENOENT')throw e;}
+let nextUse=Math.max(...[...parsed.uses.keys(),...Object.values(priorUseMap)].map(u=>Number(u.replace(/^U/,''))).filter(Number.isFinite))+1;
+const useMap={};for(const w of outputs)for(const m of w.markdown.matchAll(/<!-- USE:(NEW_[^ ]+) -->/g))useMap[m[1]]=priorUseMap[m[1]]||'U'+String(nextUse++).padStart(3,'0');
 const remap=text=>text.replace(/NEW_W\d+_\d{2}/g,v=>{if(!useMap[v])throw Error('未知新增用法 '+v);return useMap[v];});
 const reviewed=outputs.map(w=>({...w,markdown:remap(w.markdown),examples:remap(w.examples),coverage:w.coverage.map(c=>({...c,destination:remap(c.destination)})),articleIssues:w.articleIssues.map(remap)}));
 const firstPart=reviewed.map(w=>w.markdown.trim()).join('\n\n'),secondPart=reviewed.map(w=>w.examples.trim()).join('\n\n'),knownUses=[...firstPart.matchAll(/<!-- USE:([^ ]+) -->/g)].map(m=>m[1]);
