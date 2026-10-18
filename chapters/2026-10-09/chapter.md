@@ -48,12 +48,12 @@
 <!-- USE:U007 -->
 ## canopy · 悬在或支在上方的罩篷 /ˈkænəpi/
 `华盖；罩篷；上方的遮蔽物`
-可罩在宝座、床、座位或人上方，常用布制成，也可具有装饰性；还可泛指向外伸出、提供遮蔽的顶篷。
+可罩在宝座、床、座位或人上方，常用布制成，也可具有装饰性；还可泛指向外伸出、提供遮蔽的顶篷。名词复数为 *canopies*。
 
 <!-- USE:U008 -->
-## canopy · 森林的树冠层 /ˈkænəpi/
-`树林上方由枝叶形成的覆盖层`
-指树木上层枝叶形成的覆盖层，通常用单数；可说 *forest canopy* 或 *tree canopy*，后者也可指单棵树的树冠。
+## canopy · 树冠等覆盖层 /ˈkænəpi/
+`在一片区域上方铺展的覆盖层，尤指森林的树冠层`
+指向外铺展、遮盖下方区域的层状物；谈森林时，通常指树木上层枝叶形成的覆盖层。这个意义通常用单数；可说 *forest canopy* 或 *tree canopy*。
 
 <!-- USE:U009 -->
 ## canopy · 覆盖大地的天穹 /ˈkænəpi/
@@ -78,7 +78,7 @@
 <!-- USE:U013 -->
 ## canopy · 从上方遮盖 /ˈkænəpi/
 `用罩篷覆盖；在上方遮蔽或笼罩`
-及物动词，可表示装上篷盖，也可表示某物本身像篷盖一样覆在上方。
+及物动词，可表示装上篷盖，也可表示某物本身像篷盖一样覆在上方；第三人称单数为 *canopies*，过去式为 *canopied*。
 
 <!-- WORD:W004 -->
 # compost
@@ -102,7 +102,7 @@
 
 <!-- USE:U017 -->
 ## compost · 制成堆肥 /ˈkɑːmpoʊst/
-`把植物残余物等材料制成堆肥`
+`把植物废料、粪肥等材料制成堆肥`
 及物动词，宾语是要制成堆肥的材料。
 
 <!-- USE:U018 -->
@@ -123,7 +123,7 @@
 <!-- USE:U020 -->
 ## consultation · 向医生或其他专家咨询 /ˌkɑːnsəlˈteɪʃən/
 `就具体问题与医生或其他专业人士会面并取得建议；也指求取建议的过程`
-可数时指一次会面，不可数时指咨询过程。这种用法在英式英语中尤其常见；所请教的专家不限于医生。
+可数时指一次会面，不可数时指咨询过程。这种用法在英式英语中尤其常见；所请教的专家不限于医生，通常是事先安排的会面。
 
 <!-- USE:U021 -->
 ## consultation · 医生间的病例讨论会 /ˌkɑːnsəlˈteɪʃən/
@@ -187,67 +187,67 @@
 
 <!-- USE:U029 -->
 ## dune · 风形成的沙丘 /duːn/
-`风把松散沙粒等堆成的丘或脊，尤指沙丘或沙脊`
-可数名词，常见于海边和沙漠；可呈丘状或较长的脊状。
+`风将松散沙粒等堆成的丘或脊`
+可数名词，复数为 *dunes*；尤见于海边和沙漠，可呈丘状或较长的脊状。
 
 <!-- WORD:W010 -->
 # ecology
 
-**词源**：英语借自德语 *Ökologie*。其中的希腊语 *oikos* 意为“家、居所”，*-logy* 表示“……的研究”。可以把生物所处的环境联想为“家园”，帮助记住这个词。
+**词源**：英语借自德语 *Ökologie*；其中的希腊语 *oikos* 意为“家、居所”，*-logy* 表示“……的研究”。可以把生物所处的环境联想为“家园”，帮助记忆。
 
 <!-- USE:U030 -->
-## ecology · 研究生物及其环境关系的生态学 /iˈkɑːlədʒi/
-`研究生物彼此之间及其与物理环境之间的关系和平衡的学科`
+## ecology · 生态学 /iˈkɑːlədʒi/
+`研究生物彼此之间及其与物理环境之间关系和平衡的学科`
 属于生物学的分支，研究对象包括植物、动物和人类；作为学科名通常不可数。
 
 <!-- USE:U031 -->
-## ecology · 某地生物与环境之间的关系格局 /iˈkɑːlədʒi/
-`某地动植物、人与环境之间的关系格局及其平衡`
+## ecology · 地方生态 /iˈkɑːlədʒi/
+`某地生物、人及环境之间的关系格局与平衡`
 谈具体地方时常用 *the ecology of + 地点*。此义可数或不可数；比较不同地方的生态关系时可用复数 *ecologies*。
 
 <!-- USE:U032 -->
-## human ecology · 人类与其环境相互作用的研究 /ˈhjuːmən iˈkɑːlədʒi/
-`人类生态学；研究人与其环境相互作用的学科`
-属于生态学的专门研究方向。
+## human ecology · 人类生态学 /ˈhjuːmən iˈkɑːlədʒi/
+`研究人与其环境相互作用的学科`
+这是 *ecology* 的一个专门研究方向。
 
 <!-- USE:U033 -->
-## ecological · 涉及生物与环境关系的 /ˌiːkəˈlɑːdʒɪkəl/
-`生态学的；与生物和环境的关系有关的`
+## ecological · 生态学的 /ˌiːkəˈlɑːdʒɪkəl/
+`涉及生态学或生物与环境关系的`
 形容词，常置于名词前，如 *ecological balance*（生态平衡）。
 
 <!-- USE:U034 -->
-## ecologically · 从生态关系的角度 /ˌiːkəˈlɑːdʒɪkli/
+## ecologically · 从生态角度 /ˌiːkəˈlɑːdʒɪkli/
 `在生态学上；从生态影响看`
 副词，可修饰形容词、过去分词，也可在动词后作状语。
 
 <!-- USE:U035 -->
-## ecologist · 研究生态学的人 /iˈkɑːlədʒɪst/
-`生态学家`
-可数名词；此义侧重生态学研究，区别于环保倡导者义。
+## ecologist · 生态学家 /iˈkɑːlədʒɪst/
+`研究生态学的人`
+可数名词，复数为 *ecologists*；此义侧重研究工作。
 
 <!-- USE:U060 -->
-## ecological · 致力于保护环境和资源的 /ˌiːkəˈlɑːdʒɪkəl/
-`环保的；主张保护并合理利用自然资源的`
-用于团体、运动和人员，强调保护环境、避免浪费资源的立场。
+## ecological · 环保立场 /ˌiːkəˈlɑːdʒɪkəl/
+`关注环境与自然资源保护及合理利用的`
+形容词，用于团体、运动和人员，强调避免浪费资源的立场。
 
 <!-- USE:U061 -->
-## ecologist · 主张保护环境的人 /iˈkɑːlədʒɪst/
-`生态环境保护者`
-可数名词，指主张保护环境与自然资源并合理利用它们的人；不要求以生态学研究为职业。
+## ecologist · 环保人士 /iˈkɑːlədʒɪst/
+`主张保护并合理利用环境与自然资源的人`
+可数名词；不要求以生态学研究为职业。
 
 <!-- WORD:W011 -->
 # estuary
 
-**词源**：来自拉丁语 *aestuarium*，原指潮水出入的地方，源于表示“潮汐、涌动”的 *aestus*。潮水进退是理解这种河口地貌的线索。
+**词源**：来自拉丁语 *aestuarium*，原与潮水出入的地方有关，源于表示“潮汐、涌动”的 *aestus*。潮水进退是理解这种河口地貌的线索。
 
 <!-- USE:U036 -->
-## estuary · 河流入海处宽阔且受潮汐影响的河口湾 /ˈɛstʃuɛri/
-`河流汇入海洋处宽阔、受潮汐影响的河口湾`
+## estuary · 河口湾 /ˈɛstʃuɛri/
+`河流汇入海洋处宽阔、受潮汐影响的河口`
 可数名词，复数为 *estuaries*。
 
 <!-- USE:U037 -->
-## estuarine · 属于河口湾或河口环境的 /ˈɛstʃuəraɪn/
-`河口湾的；河口环境的`
+## estuarine · 河口湾的 /ˈɛstʃuəraɪn/
+`属于河口湾或河口环境的`
 形容词。
 
 <!-- WORD:W012 -->
@@ -256,18 +256,18 @@
 **词源**：*fern* 来自古英语 *fearn*，与德语 *Farn* 同源。更远的相关词有“羽毛、翅膀”之义；可以联想蕨叶常见的羽状外形来记忆。
 
 <!-- USE:U038 -->
-## fern · 不开花、靠孢子繁殖的蕨类植物 /fɝn/
+## fern · 蕨类 /fɝn/
 `蕨类植物`
-蕨类通常有长茎和羽状叶片。指植株或种类时可数，复数可用 *ferns*，也可与单数同形；泛指蕨类时还可作集合用法。
+蕨类不开花，以孢子繁殖，通常有羽状蕨叶；描述典型植株时也可提到其较长的茎。指植株或种类时可数，复数可用 *ferns*，也可与单数同形；泛指蕨类植物时还可作集合用法。
 
 <!-- USE:U039 -->
-## fernery · 种植或展示蕨类的地方 /ˈfɝnəri/
-`蕨园；蕨类温室`
+## fernery · 蕨园 /ˈfɝnəri/
+`种植或展示蕨类的地方`
 可数名词，复数为 *ferneries*。
 
 <!-- USE:U040 -->
-## ferny · 长满蕨类的；有蕨叶的 /ˈfɝni/
-`蕨类丛生的；有蕨叶的`
+## ferny · 蕨类丛生的 /ˈfɝni/
+`长满蕨类的；有蕨叶的`
 形容词。
 
 <!-- WORD:W013 -->
@@ -276,9 +276,9 @@
 **词源**：*fertilizer* 可从 *fertilize*（使肥沃）加表示施加这种作用的人或物的 *-er* 来理解；在本词条中指使土壤更肥沃的物质。
 
 <!-- USE:U041 -->
-## fertilizer · 施在土壤中帮助植物生长的肥料 /ˈfɝtəlaɪzɚ/
+## fertilizer · 肥料 /ˈfɝtəlaɪzɚ/
 `肥料`
-可为化学制品，也可为粪肥等天然材料。泛指肥料时可作不可数名词；指一种肥料或某种具体产品时可数。英式拼写也作 *fertiliser*。
+施于地面或加入土壤，帮助植物生长、使土壤更肥沃；可为化学制品，也可为粪肥等天然材料。泛指肥料时可作不可数名词；指一种肥料或某种具体产品时可数。英式拼写也作 *fertiliser*。
 
 <!-- WORD:W014 -->
 # fishery
@@ -286,17 +286,17 @@
 **词源**：与 *fish*（鱼、捕鱼）相关。词尾 *-ery* 可表示从事某种活动的场所或行业，便于记住本词的“渔场”和“渔业”两类意思；不必据此断定唯一的历史构词方式。
 
 <!-- USE:U042 -->
-## fishery · 商业捕捞的渔场 /ˈfɪʃəri/
+## fishery · 捕捞渔场 /ˈfɪʃəri/
 `供捕捞鱼类的水域或场所；渔场`
 指商业捕鱼的水域时，尤指大量捕鱼的海域，常用复数 *fisheries*；也可泛指捕捞鱼类的场所。
 
 <!-- USE:U043 -->
-## fishery · 繁育和饲养鱼类的场所 /ˈfɪʃəri/
+## fishery · 养鱼场 /ˈfɪʃəri/
 `鱼类繁育场；养鱼场`
 这里指鱼类被繁育、饲养的场所，区别于捕捞水域。
 
 <!-- USE:U044 -->
-## fishery · 捕鱼或养鱼的行业 /ˈfɪʃəri/
+## fishery · 渔业 /ˈfɪʃəri/
 `渔业；养鱼业`
 指捕捞或饲养鱼类这一职业或产业，不指某一处渔场。
 
@@ -306,14 +306,14 @@
 **词源**：由 *fresh* 与 *water* 构成；在水域语境中，*fresh water* 指不咸的水。可以用它与海水的区别记住主要用法。
 
 <!-- USE:U045 -->
-## freshwater · 淡水的；生活在淡水中的 /ˈfrɛʃˌwɔtɚ/
+## freshwater · 淡水的 /ˈfrɛʃˌwɔtɚ/
 `淡水的；生活在淡水中的；非海洋的`
 形容词，通常置于名词前，可修饰湖泊、鱼及其他生物；可说明水不咸，也可说明生物生活在淡水中。
 
 <!-- USE:U046 -->
-## freshwater · 乡下的或地方性的 /ˈfrɛʃˌwɔtɚ/
+## freshwater · 乡下或地方性的 /ˈfrɛʃˌwɔtɚ/
 `（美式用法）乡下的；地方性的`
-尤用于学校或学院，可形容其乡下或地方性的背景、特点；不表示淡水环境。
+尤用于学校或学院，形容其乡下或地方性的背景、特点；不表示淡水环境。
 
 <!-- WORD:W016 -->
 # hedgerow
@@ -321,9 +321,9 @@
 **词源**：由 *hedge*（树篱）和 *row*（一排）构成，可按“一排形成树篱的植物”来记。
 
 <!-- USE:U047 -->
-## hedgerow · 田界或乡间道路旁的树篱行 /ˈhɛdʒroʊ/
-`由灌木、树木等植物组成的成排树篱`
-常沿田界或乡间小路旁的土堤生长，可为鸟类和小动物提供连续的栖息带。
+## hedgerow · 树篱 /ˈhɛdʒroʊ/
+`灌木、树木等植物排成的树篱`
+通常沿乡间小路边的土堤或田块之间生长。可数名词，复数为 *hedgerows*。
 
 <!-- WORD:W017 -->
 # herbicide
@@ -331,9 +331,9 @@
 **词源**：由 *herb*（草、植物）与表示“杀灭”的 *-icide* 构成，词形提示其作用对象是植物。
 
 <!-- USE:U048 -->
-## herbicide · 杀灭不需要的植物的药剂 /ˈhɝbɪsaɪd/
+## herbicide · 除草药剂 /ˈhɝbɪsaɪd/
 `除草剂；灭草剂`
-名词，指用于杀灭植物的化学药剂，尤其用于清除杂草或其他不需要的植被；不专指杀虫药剂。
+名词，可数或不可数，指用于杀灭植物的化学药剂，尤其用于清除杂草或其他不需要的植被；不专指杀虫药剂。
 
 <!-- WORD:W018 -->
 # invasive
@@ -341,19 +341,19 @@
 **词源**：由拉丁语 *invadere* 的过去分词词干 *invas-* 加 *-ive* 构成，其中“进入、侵入”的意象有助于理解几个现代用法。
 
 <!-- USE:U049 -->
-## invasive · 迅速扩散且难以控制的 /ɪnˈveɪsɪv/
+## invasive · 侵入扩散的 /ɪnˈveɪsɪv/
 `（杂草、癌细胞等）侵入并扩散的`
-通常置于名词前，形容不希望出现、倾向于迅速扩散且难以阻止的事物。可用于杂草、癌细胞等；不能仅凭某种生物来自外地就称其为 *invasive*。
+形容词，通常置于名词前。可形容不希望出现、扩散迅速且难以遏止的事物，也可形容具有扩散倾向的杂草、癌细胞等；不能仅凭某种生物来自外地就称其为 *invasive*。
 
 <!-- USE:U050 -->
-## invasive · 进入人体内部的医疗操作 /ɪnˈveɪsɪv/
+## invasive · 医疗操作侵入身体的 /ɪnˈveɪsɪv/
 `侵入性的；涉及手术或体内检查的`
-通常置于名词前修饰医疗程序，包括对患者动手术，或把器械导入体内检查内部。
+形容词，通常置于名词前修饰医疗程序，包括对患者动手术，或把器械导入体内检查。
 
 <!-- USE:U051 -->
-## invasive · 侵犯他人私人领域或权利的 /ɪnˈveɪsɪv/
+## invasive · 侵犯私人领域的 /ɪnˈveɪsɪv/
 `侵扰隐私或侵害权利的`
-可形容问题、调查、政策等越过个人界限，干扰他人的隐私或权利；这里不指生物扩散。
+形容词，可形容问题、调查、政策等越过个人界限，干扰他人的隐私或权利；这里不指生物扩散。
 
 <!-- WORD:W019 -->
 # lagoon
@@ -361,27 +361,27 @@
 **词源**：英语借入与意大利语 *laguna* 有关的词形，部分传入路径经过法语 *lagune*；更早可追溯到拉丁语 *lacuna*（池塘、洼地）。可用“低洼处的水域”辅助记忆，不用它限定各个现代用法。
 
 <!-- USE:U052 -->
-## lagoon · 与外海隔开的平静水域 /ləˈɡuːn/
+## lagoon · 与外海隔开的水域 /ləˈɡuːn/
 `泻湖`
-通常为咸水水域，由低沙洲、沙坝、珊瑚礁或岩石带与外海隔开。
+可数名词，指由低沙洲、沙坝、珊瑚礁或岩石带与外海隔开的平静咸水水域。
 
 <!-- USE:U053 -->
-## lagoon · 环礁围出的内部水域 /ləˈɡuːn/
+## lagoon · 环礁围出的水域 /ləˈɡuːn/
 `环礁湖`
-特指环状珊瑚礁包围的水域，强调形成其边界的是环礁。
+可数名词，特指环礁包围的内部水域。
 
 <!-- USE:U054 -->
-## lagoon · 大湖或河流旁的小型淡水湖 /ləˈɡuːn/
-`（美、澳、新用法）大水体附近的小淡水湖`
-这一地区用法指靠近较大湖泊或河流的小型淡水湖，区别于海岸的咸水泻湖。
+## lagoon · 大水体旁的淡水湖 /ləˈɡuːn/
+`（美、澳、新用法）大湖或河流附近的小淡水湖`
+可数名词，区别于海岸的咸水泻湖；这一地域限制只针对本义。
 
 <!-- USE:U055 -->
-## lagoon · 处理污水或承接暴雨溢流的人工池 /ləˈɡuːn/
-`人工污水处理池；暴雨溢流蓄水池`
-工程用法，可指处理排出污水的池，也可指暴雨时容纳地表排水系统溢流水的池。
+## lagoon · 人工蓄水或处理池 /ləˈɡuːn/
+`污水处理池；暴雨溢流蓄水池`
+可数名词，可指处理排出污水的人工池，也可指暴雨时承接地表排水系统溢流水的人工池。
 
 <!-- USE:U056 -->
-## lagoonal · 具有泻湖特征的 /ləˈɡuːnəl/
+## lagoonal · 泻湖的 /ləˈɡuːnəl/
 `泻湖的；在泻湖中形成的`
 形容词，可描述与泻湖有关的环境或形成过程。
 
@@ -391,18 +391,21 @@
 **词源**：来自古英语表示湿地的词形，与其他日耳曼语中表示沼地的词同源；*marshy*、*marshiness* 是在此基础上形成的相关词。
 
 <!-- USE:U057 -->
-## marsh · 低洼、潮湿的沼地 /mɑrʃ/
-`沼泽；湿地`
-名词，可作可数或不可数用法，指潮湿泥泞、通常有水的低地，湿雨天气还可能被淹。作名词定语时，*marsh* 可表示“沼泽的”或“生长、栖息于沼泽的”。
+## marsh · 潮湿泥泞的低地 /mɑrʃ/
+`沼泽；沼地`
+名词，可数或不可数，指潮湿泥泞、通常有水的低地，雨湿时还可能被淹。
+
+<!-- USE:U131 -->
+- **marsh 作名词定语**：表示“沼泽的”或“生长、栖息于沼泽的”，如 *marsh birds*。
 
 <!-- USE:U058 -->
 ## marshy · 长期潮湿泥泞的 /ˈmɑrʃi/
 `沼泽般潮湿的；泥泞多水的`
-形容词，常置于名词前修饰土地；比较级为 *marshier*，最高级为 *marshiest*。
+形容词，通常置于名词前修饰土地；比较级为 *marshier*，最高级为 *marshiest*。
 
 <!-- USE:U059 -->
-## marshiness · 潮湿泥泞的状态 /ˈmɑrʃinəs/
-`沼泽性；湿软多水的状态`
+## marshiness · 沼泽般潮湿的状态 /ˈmɑrʃinəs/
+`湿软多水的状态`
 不可数名词，表示土地呈现 *marshy* 状态的性质或程度。
 
 <!-- WORD:W021 -->
@@ -411,17 +414,17 @@
 **词源**：承自古英语表示草地的词形，与 *mow*（割草）有古老的词源联系。可以把草甸与割草、收干草的场景联系起来记；现代 *meadow* 并非直接由现代英语 *mow* 拼成。
 
 <!-- USE:U062 -->
-## meadow · 长草、可收干草的草地 /ˈmɛdoʊ/
+## meadow · 长草的地块 /ˈmɛdoʊ/
 `草地；草甸；牧草地`
 可数名词，指长着草、也可能有野花的一片地，尤可指用于割草收干草的草地。
 
 <!-- USE:U063 -->
-## meadow · 河边或低地的湿润草甸 /ˈmɛdoʊ/
+## meadow · 湿润的低地草甸 /ˈmɛdoʊ/
 `低洼、湿润的草地`
-指水分充足的低地草地，尤其是河边的一片地；范围比一般草地义更具体。
+可数名词，指水分充足的低地草地，尤其是河边的一片地。
 
 <!-- USE:U064 -->
-## meadowy · 像草甸的；草甸遍布的 /ˈmɛdoʊi/
+## meadowy · 草甸般的 /ˈmɛdoʊi/
 `草地般的；草甸多的`
 形容词，可描述具有草甸特征或分布着许多草甸的地方。
 
@@ -431,19 +434,19 @@
 **词源**：源于拉丁语 *mitigare*，意为“使温和、缓和”，与表示“温和、柔和”的 *mitis* 有关。“使程度变轻”可作为理解动词及其派生词的线索。
 
 <!-- USE:U065 -->
-## mitigate · 减轻严重程度或缓和态度 /ˈmɪtɪɡeɪt/
+## mitigate · 减轻或缓和 /ˈmɪtɪɡeɪt/
 `减轻痛苦、损害或严重程度；缓和敌意`
 正式用语，及物动词；宾语是要被减轻的痛苦、影响、严重状况，或要被缓和的敌意等。表示程度降低，不必然表示问题彻底消失。
 
 <!-- USE:U066 -->
-## mitigation · 不利状况的减轻 /ˌmɪtɪˈɡeɪʃən/
-`缓解；减轻痛苦或严重程度的过程或结果`
-正式用语，通常作不可数名词，可用于损害、环境影响或身心状况的缓解。
+## mitigation · 减轻不利状况 /ˌmɪtɪˈɡeɪʃən/
+`缓解；减轻痛苦或严重程度`
+正式用语，通常作不可数名词，指不利状况得到减轻，也可用于身心状况的缓解。
 
 <!-- USE:U067 -->
-## mitigation · 为解释罪行或过错而提出的减轻情节 /ˌmɪtɪˈɡeɪʃən/
+## mitigation · 陈述减轻情节 /ˌmɪtɪˈɡeɪʃən/
 `使罪行或过错较易理解、获得宽恕的情况`
-正式用语，尤其用于法庭；*in mitigation* 可用于引出向法庭陈述的相关情节。
+正式用语，尤其用于法庭；*in mitigation* 可引出向法庭陈述的相关情节。这是法律语境中的短语用法，不等同于一般的损害缓解。
 
 <!-- USE:U068 -->
 ## mitigable · 可以减轻的 /ˈmɪtɪɡəbəl/
@@ -451,7 +454,7 @@
 形容词，描述其程度或影响可以降低的情况。
 
 <!-- USE:U069 -->
-## mitigator · 起减轻作用的人或事物 /ˈmɪtɪɡeɪtɚ/
+## mitigator · 起减轻作用的因素 /ˈmɪtɪɡeɪtɚ/
 `缓解者；缓解因素或措施`
 可数名词，指促成缓解的人、因素或措施。
 
@@ -466,39 +469,39 @@
 **词源**：来自法语 *municipalité*，由表示“市政的”的 *municipal* 派生；更早可追溯到拉丁语 *municipalis*。词尾 *-ity* 有助于辨认其名词形式。
 
 <!-- USE:U071 -->
-## municipality · 设有地方自治机构的市镇或地区 /mjuːˌnɪsɪˈpælɪti/
+## municipality · 有地方政府的地区 /mjuːˌnɪsɪˈpælɪti/
 `设有地方政府的市镇或行政区域`
-可数名词，复数为 *municipalities*。在英国可指由当地任命的官员治理的市镇；在美国尤其指依法设立、能够选出本地政府的市镇。具体法律地位因国家而异。
+可数名词，复数为 *municipalities*。在英国可指由本地任命的官员治理的市镇；在美国尤其指依法设立、能够选出本地政府的市镇。也可泛指设有地方政府的地区；具体法律地位因国家而异。
 
 <!-- USE:U072 -->
-## municipality · 管理当地事务的市政当局 /mjuːˌnɪsɪˈpælɪti/
+## municipality · 市政当局 /mjuːˌnɪsɪˈpælɪti/
 `市政府；市政当局`
-可数名词。同一个词也可指治理该市镇或地区的机构，须根据上下文与地区本身区分。
+可数名词，也可指治理该市镇或地区的机构，须根据上下文与地区本身区分。
 
 <!-- WORD:W024 -->
 # ordinance
 
-**词源**：与古法语 *ordonnance* 及拉丁语 *ordinare*“安排、使有秩序”有关。“作出安排”可以帮助联系规则、命令和旧时的布局义。
+**词源**：来自表示“安排、规定”的古法语 *ordonnance*，与拉丁语 *ordinare*“使有秩序、安排”有关。由“作出安排”可以联想到法令及旧时的布局义。
 
 <!-- USE:U073 -->
-## ordinance · 由权威机关颁布的命令或法令 /ˈɔːrdənəns/
-`有约束力的官方规则、命令或法令`
-正式用语，可数名词，指权威机关制定或发布的规定。
+## ordinance · 法令 /ˈɔːrdənəns/
+`权威机关发布的规则或命令`
+可数名词。此义属正式用语，强调规定具有官方权威；不专指地方政府制定的条例。
 
 <!-- USE:U074 -->
-## ordinance · 市政机关制定的地方条例 /ˈɔːrdənəns/
-`地方性条例`
-可数名词，特指地方当局制定的规定或法令。
+## ordinance · 地方条例 /ˈɔːrdənəns/
+`地方机关制定的条例`
+可数名词，指地方当局颁布的规定，常见于市政管理。
 
 <!-- USE:U075 -->
-## ordinance · 宗教仪式或典礼 /ˈɔːrdənəns/
-`宗教礼仪`
-可数名词，用于宗教语境。
+## ordinance · 宗教礼仪 /ˈɔːrdənəns/
+`宗教仪式或典礼`
+可数名词，指宗教团体奉行的礼仪。
 
 <!-- USE:U076 -->
-## ordinance · 文学或建筑作品的整体布局 /ˈɔːrdənəns/
-`（古义）作品各部分有系统的安排或布局`
-古义，与 *ordonnance* 的布局义相通，尤用于谈论文学或建筑作品。
+## ordinance · 系统布局 /ˈɔːrdənəns/
+`作品各部分有系统的安排`
+古义，源于 *ordonnance* 的布局义，尤用于文学或建筑作品。
 
 <!-- WORD:W025 -->
 # pesticide
@@ -506,9 +509,9 @@
 **词源**：由 *pest*（有害生物）、连接成分 *-i-* 和表示“杀灭”的 *-cide* 构成；可借此记住它的对象不止昆虫。
 
 <!-- USE:U077 -->
-## pesticide · 杀灭危害作物或动物的有害生物的药剂 /ˈpɛstɪsaɪd/
+## pesticide · 杀灭有害生物的药剂 /ˈpɛstɪsaɪd/
 `杀灭有害生物的药剂；农药`
-名词，可指具体药剂，也可统称这类化学药剂。农田中常用于作物；防治对象除昆虫外，还包括危害栽培植物或动物的其他生物。专门针对杂草的 *herbicide* 是其中更具体的一类。
+名词，可数或不可数。农田中常指喷施在作物上以杀灭害虫的化学药剂；范围也包括杀灭危害栽培植物或动物的其他生物的药剂，不限于昆虫。专门针对杂草的 *herbicide* 是更具体的一类。
 
 <!-- USE:U078 -->
 ## pesticidal · 具有杀灭有害生物作用的 /ˌpɛstɪˈsaɪdəl/
@@ -518,167 +521,212 @@
 <!-- WORD:W026 -->
 # proposal
 
-**词源**：与动词 *propose*（提出）相连，词尾 *-al* 构成名词；可据此理解“提出”这一行为及提出的内容。
+**词源**：*propose* 来自古法语 *proposer*，可借“把想法摆出来”理解“提出”。名词 *proposal* 由 *propose* 加名词词尾 *-al* 构成；*proposer* 指提出的人。
 
 <!-- USE:U079 -->
-## proposal · 提出供人讨论或决定的建议及其内容 /prəˈpoʊzəl/
-`提议的行为；所提出的计划或行动方案`
-可数名词。所提内容常是正式或书面的方案，供他人考虑、批准或否决，也可能付诸实施。常用 *proposal to do something*、*proposal for something/doing something*；可 *put forward*、*submit*、*consider*、*approve*、*accept* 或 *reject a proposal*。也常见 *draft proposal*、*detailed proposal*、*reform proposal*。
+## proposal · 提案 /prəˈpoʊzəl/
+`提出供人考虑或决定的计划、想法或行动方案`
+可数名词，常指正式或书面的提案；提出后可供讨论、批准、否决或实施。常见 *proposal to do something*、*proposal for something/doing something*；可说 *put forward*、*submit*、*consider*、*approve*、*accept* 或 *reject a proposal*。修饰语可用 *controversial*、*concrete*、*detailed*、*draft*、*formal*，也可说 *reform proposal*、*peace proposal*。
+
+<!-- USE:U132 -->
+## proposal · 提议行为 /prəˈpoʊzəl/
+`提出建议这一行为，或一次提议`
+可数名词。这里说的是把想法提出这一动作，而非提案的内容；在说明提议发生的时间或过程时尤其容易看出区别。
 
 <!-- USE:U080 -->
-## proposal · 向某人提出结婚请求 /prəˈpoʊzəl/
-`求婚；结婚提议`
-可数名词，可说 *a proposal of marriage* 或 *accept someone's proposal*。
+## proposal · 求婚 /prəˈpoʊzəl/
+`向某人提出结婚请求`
+可数名词，可说 *a proposal of marriage*、*accept someone's proposal*。
+
+<!-- USE:U133 -->
+## propose · 提出建议 /prəˈpoʊz/
+`提出计划或想法，供人考虑或决定`
+及物动词，可接名词、动名词或 *that* 从句；也可不带宾语。说的是向他人提出想法，不表示对方已经采纳。
+
+<!-- USE:U134 -->
+## propose · 打算 /prəˈpoʊz/
+`打算或计划做某事`
+通常接 *to do something*，也可接动名词；这里表达说话人的意图，不必有供别人审议的提案。
+
+<!-- USE:U135 -->
+## propose · 提出理论 /prəˈpoʊz/
+`依据已有证据提出一种可能成立的理论或解释`
+正式用法。可接理论、解释等名词，或接 *that* 从句；所提观点仍有待检验。
+
+<!-- USE:U136 -->
+## propose · 提出动议 /prəˈpoʊz/
+`正式提出动议，以启动讨论或表决`
+用于会议等程序性场合，常说 *propose a motion*；仅仅提出一般想法不一定属于这种用法。
+
+<!-- USE:U137 -->
+## propose · 提名 /prəˈpoʊz/
+`正式提名某人担任职务或成为某组织成员`
+宾语是被提名的人，可接 *for* 加职务，或接 *as* 加身份。
+
+<!-- USE:U138 -->
+## propose · 提议祝酒 /prəˈpoʊz/
+`提议大家为某人或某事举杯祝酒`
+常说 *propose a toast to someone/something*；此处的 *propose* 指发起祝酒。
+
+<!-- USE:U139 -->
+## propose · 求婚 /prəˈpoʊz/
+`向某人提出结婚请求`
+可单独使用，也可说 *propose to someone*、*propose marriage to someone*。
+
+<!-- USE:U140 -->
+## proposer · 提出者 /prəˈpoʊzər/
+`提出建议、动议或提名的人`
+可说 *the proposer of a motion*；具体提出了什么，要看上下文。
 
 <!-- WORD:W027 -->
 # reclaim
 
-**词源**：经古法语传入，源头与拉丁语 *reclamare*“呼喊反对、申诉”有关，其中 *clamare* 意为“呼喊”。后来发展出唤回、取回，以及使土地或材料可用等意思。
+**词源**：经古法语与拉丁语 *reclamare* 相连，原有“呼喊反对、申诉”之义，*clamare* 意为“呼喊”。后来发展出唤回、取回，以及使土地或材料重新可用等意思。
 
 <!-- USE:U081 -->
-## reclaim · 把失去或被拿走的东西取回 /rɪˈkleɪm/
-`要求归还或重新取得财物、权利、身份等`
-及物动词。既可强调提出取回要求，也可表示最终成功收回失去或被拿走的东西。
+## reclaim · 取回 /rɪˈkleɪm/
+`要求归还或重新取得失去的东西`
+及物动词，宾语可为财物、权利或身份。既可指提出归还要求，也可指成功取回；语境须交代结果，不能一律理解为已经拿回。
 
 <!-- USE:U082 -->
-## reclaim · 申请退回已付税款或其他款项 /rɪˈkleɪm/
-`申领退税、返款或应得的退补金额`
-及物动词，宾语是要求退还或取得的金额；常用于已缴税款，也可用于其他可退还或抵扣的款项。
+## reclaim · 申领返款 /rɪˈkleɪm/
+`要求退回税款等金额，或申领应得的返还款`
+及物动词，宾语是款项；常见 *reclaim tax*，也可用于符合条件的退款或抵扣。
 
 <!-- USE:U083 -->
-## reclaim · 把荒地或水下土地改造成可用地 /rɪˈkleɪm/
-`开垦；围垦；使土地适于耕种或建设`
-及物动词，可指通过排水、筑堤等方式使土地适合农业或建设。
+## reclaim · 开垦土地 /rɪˈkleɪm/
+`使原本不适用的土地可供耕种或建设`
+及物动词，可通过排水、围海筑堤等方式进行；常见 *reclaim land from the sea/water*。
 
 <!-- USE:U084 -->
-## reclaim · 自然力量重新吞没原来的人类用地 /rɪˈkleɪm/
-`（海、沙漠或森林）重新占据曾被人使用的土地`
-指曾用于耕种或建设的土地逐渐变回海域、沙漠或森林。通常用被动结构 *be reclaimed by*。
+## reclaim · 自然重新占据土地 /rɪˈkleɪm/
+`（海、沙漠或森林）重新吞没曾供人使用的土地`
+对象是原用于耕种或建设的土地；通常用被动结构 *be reclaimed by the sea/desert/forest*。
 
 <!-- USE:U085 -->
-## reclaim · 使人摆脱错误，或把废物改造后再利用 /rɪˈkleɪm/
-`使人改过；使废弃材料恢复用途`
-及物动词。宾语是人时，指使其摆脱恶习或错误；宾语是废物、原料等时，指回收并处理到能够再利用的状态。
+## reclaim · 使人或材料重新可用 /rɪˈkleɪm/
+`使人摆脱恶习或错误；回收处理废弃材料以供再用`
+及物动词。宾语是人时，指帮助其改过；宾语是废弃材料时，指使其恢复利用价值。两种对象须分别用正确语境理解，不能把单纯修好一座建筑直接等同于材料回收。
 
 <!-- USE:U086 -->
 ## reclaim · 驯服或教化 /rɪˈkleɪm/
 `驯服动物；教化人`
-及物动词，宾语是动物或人，强调使其变得可管束或适应社会生活。
+及物动词，强调使人或动物变得可管束或适应社会生活；与废弃材料的回收不同。
 
 <!-- USE:U087 -->
-## reclaim · 收回、改造或开垦这一行为 /rɪˈkleɪm/
-`收回、开垦、矫正或改造的行为或过程`
-名词用法；也可指被收回、开垦、矫正或改造的过程，具体对象由上下文确定。
+## reclaim · 收回或改造这一行为 /rɪˈkleɪm/
+`收回、开垦或矫正的行为及过程`
+名词，具体所指随对象而定；写作时须让上下文明确是何种收回或改造。
 
 <!-- USE:U088 -->
-## reclaimable · 可以收回或改造利用的 /rɪˈkleɪməbəl/
-`可收回、可开垦或可回收利用的`
-形容词，具体含义取决于所修饰的对象。
+## reclaimable · 可收回或再利用的 /rɪˈkleɪməbəl/
+`能够被收回、开垦或回收利用的`
+形容词，具体意义由所修饰的对象决定。
 
 <!-- USE:U089 -->
-## reclaimer · 收回财物、开垦土地或回收材料的人或设备 /rɪˈkleɪmɚ/
-`收回者；开垦者；回收者或设备`
-可数名词，须根据上下文判断其处理的是财物、土地还是材料。
+## reclaimer · 收回或回收者 /rɪˈkleɪmɚ/
+`收回财物、开垦土地或回收材料的人`
+可数名词，依上下文判断所处理的对象。
 
 <!-- USE:U090 -->
-## reclamation · 将不适用的土地改造成可用地 /ˌrɛkləˈmeɪʃən/
-`土地开垦；围垦；土地改良`
-通常作不可数名词，指把不适合耕种或建设的土地改造成可用地的过程，可涉及排水、筑堤等做法。
+## reclamation · 土地开垦 /ˌrɛkləˈmeɪʃən/
+`使荒地、沼泽地或水下土地可供使用的过程`
+通常为不可数名词，可涉及排水、海堤等工程。
 
 <!-- USE:U130 -->
-## reclamation · 收回财物或把人、废物改造成有用状态 /ˌrɛkləˈmeɪʃən/
+## reclamation · 收回或恢复利用 /ˌrɛkləˈmeɪʃən/
 `收回、矫正、教化或回收再利用的过程`
-可随对象指财物的收回、人的改过或教化、废弃材料的重新利用；区别于专指土地改造的用法。
+对象可以是财物、人或废弃材料，范围不限于土地改造。
 
 <!-- WORD:W028 -->
 # rehabilitate
 
-**词源**：与中世纪拉丁语 *rehabilitare* 有关：*re-* 表“再次”，*habilitare* 表“使适合”。早期用于恢复原有的身份、权利或名誉，后来也用于恢复人的生活能力或事物的良好状态。
+**词源**：与中世纪拉丁语 *rehabilitare* 相连：*re-* 表“再次”，*habilitare* 表“使适合”。早期用于恢复身份、权利或名誉，后来也用于帮助人恢复生活能力或使事物恢复良好状态。
 
 <!-- USE:U091 -->
-## rehabilitate · 帮助病人、戒瘾者或出狱者重返正常生活 /ˌriːhəˈbɪlɪteɪt/
-`通过治疗、训练或支持帮助人恢复正常生活`
-及物动词，宾语是人。用于病后或出狱后的适应；对有药物或酒精依赖的人，也可指帮助其停止使用并重建生活。
+## rehabilitate · 帮助人恢复正常生活 /ˌriːhəˈbɪlɪteɪt/
+`通过治疗、训练或支持帮助人重新适应生活`
+及物动词。可用于病后或出狱后；对有药物或酒精依赖的人，还包括帮助其停止使用并重建生活。
 
 <!-- USE:U092 -->
-## rehabilitate · 恢复曾遭否定者的名誉或权利 /ˌriːhəˈbɪlɪteɪt/
-`使重新获得认可、声誉或原有权利`
-正式用语，可指曾受排斥或严厉批评的人重新被接受，也可指恢复其原有特权或待遇；主动、被动结构均可使用。
+## rehabilitate · 恢复名誉或权利 /ˌriːhəˈbɪlɪteɪt/
+`使重新获得认可、声誉或原有待遇`
+正式用语。可指受排斥或严厉批评后重新被接纳，也可指恢复原有权利或特权；可用主动或被动结构。
 
 <!-- USE:U093 -->
-## rehabilitate · 把建筑或其他事物修复到适当状态 /ˌriːhəˈbɪlɪteɪt/
-`修复事物，使其恢复适当状态或功能`
-及物动词，宾语是建筑等事物，侧重使其重新处于良好或可用的状态。
+## rehabilitate · 修复事物 /ˌriːhəˈbɪlɪteɪt/
+`使建筑等恢复良好状态或功能`
+及物动词，侧重修复后的可用性。
 
 <!-- USE:U094 -->
-## rehabilitation · 康复、改过或恢复名誉的过程 /ˌriːhəˌbɪlɪˈteɪʃən/
-`使人或事物恢复正常、良好状态的过程`
-通常作不可数名词；可随上下文指病人康复、出狱者重新融入社会、名誉或权利的恢复，也可指事物的修复。
+## rehabilitation · 康复或恢复的过程 /ˌriːhəˌbɪlɪˈteɪʃən/
+`帮助人或事物恢复正常、良好状态的过程`
+通常为不可数名词。可随对象指病人康复、出狱者重新融入社会、名誉或权利恢复，以及事物修复。
 
 <!-- USE:U095 -->
-## rehabilitative · 有助于康复或恢复正常状态的 /ˌriːhəˈbɪlɪteɪtɪv/
-`康复性的；有助于恢复的`
-形容词，说明措施或活动具有帮助恢复的作用。
+## rehabilitative · 有助于恢复的 /ˌriːhəˈbɪlɪteɪtɪv/
+`具有康复或恢复作用的`
+形容词，可修饰训练、治疗或其他帮助恢复的措施。
 
 <!-- WORD:W029 -->
 # seedling
 
-**词源**：可从词形把 *seed*（种子）与表示幼小个体的 *-ling* 联系起来，帮助记住它是由种子长出的幼株。
+**词源**：可把 *seed*（种子）与表示幼小个体的 *-ling* 联系起来，帮助记住从种子长出的幼株。
 
 <!-- USE:U096 -->
-## seedling · 从种子长出不久的幼苗 /ˈsiːdlɪŋ/
-`籽苗；幼苗`
-可数名词，尤指由种子培育的幼株，区别于从插条等繁殖出的幼株。
+## seedling · 幼苗 /ˈsiːdlɪŋ/
+`幼小的植物，尤指由种子培育的籽苗`
+可数名词。常用于区别由种子长出的幼株与由插条等方式繁殖的幼株；“尤指”不表示所有语境都必须明确交代繁殖方式。
 
 <!-- WORD:W030 -->
 # sewage
 
-**词源**：与 *sewer*（下水道）及词尾 *-age* 有关；具体形成路径有不同解释。可据 *sewer* 记住它指下水道带走的废物。
+**词源**：与表示下水道、排水道的 *sewer* 及词尾 *-age* 有关；具体形成路径有不同解释。可借 *sewer* 记住它指经下水道带走的废物。
 
 <!-- USE:U097 -->
-## sewage · 经下水道排走的污水及废物 /ˈsuːɪdʒ/
-`生活或工业污水及其中的废物、排泄物`
-不可数名词，指从住宅或工厂经下水道排走的污水与废物，尤其包括排泄物。*Raw sewage* 指未经处理的污水及废物。
+## sewage · 污水与废物 /ˈsuːɪdʒ/
+`经下水道排走的污水及废物，尤包括排泄物`
+不可数名词，可来自住宅或工厂。*Raw sewage* 指未经处理的污水及其中的废物。
 
 <!-- WORD:W031 -->
 # shrub
 
-**词源**：表示“灌木”的 *shrub* 可追溯到古英语中表示灌丛、林下矮木的词。*Shrubby* 由 *shrub* 加 *-y* 构成。
+**词源**：表示“灌木”的 *shrub* 与古英语中表示灌丛、林下矮木的词相连；*shrubby* 由 *shrub* 加 *-y* 构成。另有同形、意为果汁甜酒的 *shrub*，来源不同，不属这里的植物词族。
 
 <!-- USE:U098 -->
-## shrub · 基部多枝的矮木 /ʃrʌb/
-`灌木`
-可数名词。通常比树矮，有多条木质茎，枝条从近地面处生出，而不是形成一根明显的主干。
+## shrub · 灌木 /ʃrʌb/
+`通常比树矮、近地面处分出木质枝条的植物`
+可数名词。与通常有明显主干的树相比，灌木往往有多条木质茎；可说 *flowering shrubs*。
 
 <!-- USE:U099 -->
-## shrubby · 灌木状的；灌木丛生的 /ˈʃrʌbi/
-`像灌木的；长满灌木的`
-形容词，通常放在名词前。可形容植物具有灌木般的形态，也可形容一处地方长满灌木。
+## shrubby · 灌木状的 /ˈʃrʌbi/
+`像灌木的；灌木丛生的`
+形容词，通常放在名词前。用于植物时说其形态像灌木；用于地方时说那里长有较多灌木，两个对象须按语境区分。
 
 <!-- WORD:W032 -->
 # silt
 
-**词源**：*Silt* 的早期来源有不同说法，通常联系到日耳曼语中表示盐沼、盐水一类事物的词。英语动词由名词发展而来；*siltation* 和 *silty* 也由这个名词构成。
+**词源**：*Silt* 的早期来源尚不确定，可能与表示盐沼、盐水的日耳曼语词有关。英语动词由名词发展而来；*siltation* 和 *silty* 也由这个名词构成。
 
 <!-- USE:U100 -->
-## silt · 水流搬运并沉积的细粒泥沙 /sɪlt/
-`淤泥；细沙等沉积物`
-不可数名词，包括细沙、泥土或泥；可指河流携带的细粒物质，也可指沉积在河道、港口等处的淤泥。
+## silt · 细粒泥沙 /sɪlt/
+`水流搬运或沉积的细粒泥沙`
+不可数名词，包括细沙、泥土或泥；既可指河流携带的细粒物质，也可指沉积在水道、港口等处的淤泥。
 
 <!-- USE:U101 -->
-## silt · 被淤泥堵塞；使淤塞 /sɪlt/
-`淤塞；使淤塞`
+## silt · 淤塞 /sɪlt/
+`被淤泥堵塞；使淤塞`
 动词，可及物，也可不及物，常与 *up* 连用。主语可以是逐渐淤塞的水道，也可以是使水道淤塞的泥沙。
 
 <!-- USE:U102 -->
-## siltation · 泥沙逐渐沉积 /sɪlˈteɪʃən/
-`泥沙淤积；淤塞过程`
-名词，指泥沙在水道等处沉积的过程；淤积可能进一步造成堵塞。
+## siltation · 泥沙淤积 /sɪlˈteɪʃən/
+`泥沙沉积、逐渐淤塞的过程`
+名词，指泥沙在水道等处沉积；淤积可能进一步造成堵塞。
 
 <!-- USE:U103 -->
-## silty · 含有细粒泥沙的 /ˈsɪlti/
-`多淤泥的；含细沙的`
-形容词，可形容水、土壤或沉积物的质地。
+## silty · 含细泥沙的 /ˈsɪlti/
+`含淤泥或细沙的`
+形容词，可形容水、土壤或沉积物。
 
 <!-- WORD:W033 -->
 # snail
@@ -686,18 +734,18 @@
 **词源**：*Snail* 沿袭古英语中的相应词形，更早的词根与“爬行”有关；它与 *snake* 有词源联系。可以联想两者都贴近地面移动，但这只是帮助记忆的联想。
 
 <!-- USE:U104 -->
-## snail · 有螺旋形外壳的蜗牛 /sneɪl/
-`蜗牛`
+## snail · 蜗牛 /sneɪl/
+`有螺旋形外壳的蜗牛`
 可数名词，指身体柔软、没有腿、行动缓慢的腹足类动物；其外壳能容纳整个身体。
 
 <!-- USE:U105 -->
 ## at a snail's pace · 极其缓慢地 /æt ə ˈsneɪlz peɪs/
-`以蜗牛般的速度；慢吞吞地`
-习语，用于强调行动或进展很慢，通常还带有“本该快些”的不满或催促意味。
+`以蜗牛般的速度`
+习语，强调行动或进展很慢，通常带有“本该快些”的不满或催促意味。
 
 <!-- USE:U106 -->
-## snail-like · 像蜗牛的；极缓慢的 /ˈsneɪlˌlaɪk/
-`蜗牛般的；行动缓慢的`
+## snail-like · 蜗牛般的 /ˈsneɪlˌlaɪk/
+`像蜗牛的；极缓慢的`
 形容词，可指外形像蜗牛，也可借蜗牛行动缓慢的特点形容动作或进展。
 
 <!-- WORD:W034 -->
@@ -706,28 +754,28 @@
 **词源**：*Species* 来自拉丁语，曾表示“外观、形态”，也表示“种类”；它与表示“看”的拉丁语动词 *specere* 有关。可以从观察事物特征联想到分类，以帮助记忆。
 
 <!-- USE:U107 -->
-## species · 生物分类中的物种 /ˈspiːʃiːz/
-`物种`
-可数名词，单复数同形。指成员具有共同主要特征、彼此相关且能够相互繁殖或交换遗传物质的生物类群；分类等级在属之下，通常用拉丁化双名标示。日常所说的“品种”不能自动等同于独立物种。
+## species · 生物物种 /ˈspiːʃiːz/
+`生物分类中的种`
+可数名词，单复数同形。成员具有共同主要特征，彼此相关且能够相互繁殖或交换遗传物质；分类等级在属之下，通常以拉丁化双名标示。日常说的“品种”不能自动等同于独立物种。
 
 <!-- USE:U108 -->
-## species · 具有共同特点的一类事物 /ˈspiːʃiːz/
-`种类；类型`
+## species · 一类事物 /ˈspiːʃiːz/
+`具有共同特点的种类、类型`
 可数名词，单复数同形；一般分类时所指对象不限于生物。
 
 <!-- USE:U109 -->
-## species · 逻辑分类中隶属于属的种 /ˈspiːʃiːz/
-`逻辑学中位于属之下的类别`
-逻辑学用法：具有共同属性、归在同一个属下的一组个体或事物，通常有共同名称。这里的“属、种”是逻辑分类关系，不专指生物分类。
+## species · 逻辑学中的种 /ˈspiːʃiːz/
+`逻辑分类中隶属于属的类别`
+逻辑学用法：一组具有共同属性、归在同一个属下并有共同名称的个体或事物。这里的“属、种”不专指生物分类。
 
 <!-- USE:U110 -->
-## species · 材料被赋予的形式或形状 /ˈspiːʃiːz/
-`法律用语中材料的形式；式样`
+## species · 材料的形式 /ˈspiːʃiːz/
+`材料被赋予的形式或形状`
 法律专业用法，谈材料获得的形态。
 
 <!-- USE:U111 -->
-## species · 圣餐饼与酒的可见形态 /ˈspiːʃiːz/
-`圣餐礼中饼和酒各自的外在形态`
+## species · 圣餐的可见形态 /ˈspiːʃiːz/
+`圣餐饼与酒各自的外在形态`
 教会用法，指圣餐礼中已祝圣的饼与酒各自呈现的可见形态。
 
 <!-- WORD:W035 -->
@@ -736,8 +784,8 @@
 **词源**：*Thicket* 由表示“稠密的” *thick* 加后缀 *-et* 构成；词形有助于记住树木、灌木挤在一起的样子。
 
 <!-- USE:U112 -->
-## thicket · 密集交错的一小片灌木或树木 /ˈθɪkɪt/
-`灌木丛；密树丛`
+## thicket · 灌木丛 /ˈθɪkɪt/
+`密集交错的一小片灌木或树木`
 可数名词，指灌木或树木紧挨着生长、枝条交错的一片地方。
 
 <!-- WORD:W036 -->
@@ -746,9 +794,9 @@
 **词源**：*Tidal* 由 *tide*（潮汐）加形容词后缀 *-al* 构成；*tidally* 再加 *-ly* 构成副词。
 
 <!-- USE:U113 -->
-## tidal · 与潮汐有关、由潮汐产生或受其影响的 /ˈtaɪdəl/
-`潮汐的；似潮汐的；受潮汐影响的`
-形容词，通常放在名词前。可形容潮汐造成的水流、受潮汐影响的河流或洼地，也可表示变化方式像潮汐。常见搭配有 *tidal current*、*tidal river* 和 *tidal basin*。
+## tidal · 潮汐相关的 /ˈtaɪdəl/
+`与潮汐有关、由潮汐产生或受其影响的`
+形容词，通常放在名词前。可形容潮汐造成的水流、受潮汐影响的河流或洼地，也可表示变化方式像潮汐。常见搭配有 *tidal stream/current*、*tidal river* 和 *tidal basin*。
 
 <!-- USE:U114 -->
 ## tidally · 随潮汐变化地 /ˈtaɪdəli/
@@ -761,24 +809,29 @@
 **词源**：*Tributary* 源自拉丁语 *tributarius*，原与缴纳税赋或贡赋有关。表示“从属、辅助”的意思后来用于汇入较大水体的河流，形成今天常见的“支流”义。
 
 <!-- USE:U115 -->
-## tributary · 汇入较大河流或湖泊的支流 /ˈtrɪbjəteri/
-`支流`
+## tributary · 支流 /ˈtrɪbjəteri/
+`汇入较大河流或湖泊的支流`
 可数名词，指汇入较大河流或湖泊的小河、溪流。常用 *a tributary of ...* 指明汇入的对象。
 
 <!-- USE:U116 -->
-## tributary · 作为支流汇入的 /ˈtrɪbjəteri/
-`支流的；汇入较大水体的`
+## tributary · 支流的 /ˈtrɪbjəteri/
+`作为支流汇入的`
 形容词，用于河流、溪流等，说明它们与较大河流或湖泊的汇入关系。
 
 <!-- USE:U117 -->
-## tributary · 向另一政权进贡的人或国家 /ˈtrɪbjəteri/
-`进贡者；进贡国；属国`
-历史制度用法，可数名词。所指可以是缴纳贡赋的人，也可以是负有纳贡义务的国家。
+## tributary · 进贡者或进贡国 /ˈtrɪbjəteri/
+`负有纳贡义务的人或国家`
+历史制度用法，可数名词；所指可以是人，也可以是国家。
 
 <!-- USE:U118 -->
-## tributary · 纳贡、作为贡赋或处于附属地位的 /ˈtrɪbjəteri/
-`进贡的；作为贡赋的；附属的`
-形容词。在历史语境中可指负有纳贡义务，或指某物作为贡赋献上；用于关系时，也可表达从属、辅助的意味。须按修饰对象辨别具体意思。
+## tributary · 纳贡的 /ˈtrɪbjəteri/
+`负有进贡义务的`
+历史义形容词，修饰负有纳贡义务的人、国家或地区。
+
+<!-- USE:U141 -->
+## tributary · 作为贡品的 /ˈtrɪbjəteri/
+`作为贡赋献上的`
+历史义形容词，修饰所献的财物等；与修饰进贡者的“纳贡的”区分。
 
 <!-- USE:U119 -->
 ## tributarily · 以支流或从属方式 /ˈtrɪbjəˌterəli/
@@ -796,39 +849,74 @@
 **词源**：*Upstream* 由 *up* 与 *stream* 组成，可按“沿水流往上”理解；所指方向是朝河流的源头。
 
 <!-- USE:U121 -->
-## upstream · 朝上游；在上游 /ˌʌpˈstriːm/
-`逆流地；在靠近源头的一侧`
+## upstream · 往上游；在上游 /ˌʌpˈstriːm/
+`朝河流源头方向；位于靠近源头的一侧`
 副词，可说明移动方向，也可说明位置；可接在动词、*be* 或名词之后。*Upstream of* 和 *upstream from* 后接参照地点，表示位于该地点的上游。
 
 <!-- USE:U122 -->
-## upstream · 位于上游或向上游移动的 /ˈʌpstriːm/
-`上游的；逆流而上的`
-形容词，放在名词前修饰河段、位置或向源头方向移动的事物。
+## upstream · 上游的 /ˈʌpstriːm/
+`位于上游或向上游移动的`
+形容词，放在名词前，可修饰河段、位置或向源头方向移动的事物。
 
 <!-- WORD:W039 -->
 # vegetation
 
-**词源**：*Vegetation* 源于晚期拉丁语 *vegetatio*，与动词 *vegetare* 相连。记忆时可以联系“植物生长”和“生长形成的草木”；用于人的呆板生活时则是比喻。
+**词源**：*Vegetation* 来自拉丁语系的 *vegetatio*，与 *vegetare*（使有活力、使生长）有关。可以由“植物生长”联想到“生长形成的草木”；用于人的呆板生活时则是比喻。
 
 <!-- USE:U123 -->
-## vegetation · 一地的植物总体 /ˌvɛdʒəˈteɪʃən/
-`草木；植被`
-正式用语，通常不可数，统称植物、树木、花草等。*Luxuriant vegetation* 指“茂盛的植被”。
+## vegetation · 植被 /ˌvɛdʒəˈteɪʃən/
+`一地的草木总称`
+通常不可数；指植物、树木、花草等的总体。表示这一意义时有正式用语标签。*Luxuriant vegetation* 指茂盛的植被；*no sign of vegetation* 表示看不到植物生长的迹象。
 
 <!-- USE:U124 -->
-## vegetation · 植物生长的过程 /ˌvɛdʒəˈteɪʃən/
-`植物的生长；发育过程`
-过程义，谈植物的生长活动，而非某地已经形成的植被。
+## vegetation · 生长过程 /ˌvɛdʒəˈteɪʃən/
+`植物的生长过程`
+指植物生长这一活动，须与已经形成的植被区分。
 
 <!-- USE:U125 -->
-## vegetation · 缺少活动的呆板生活 /ˌvɛdʒəˈteɪʃən/
-`消极、单调的生活状态`
-比喻人的生活缺少活动或变化，带有消极意味。
+## vegetation · 呆板生活 /ˌvɛdʒəˈteɪʃən/
+`缺少活动和变化的生活`
+比喻人的生活单调、被动或无所事事，带消极意味。
 
 <!-- USE:U126 -->
-## vegetational · 与植被或植物生长有关的 /ˌvɛdʒəˈteɪʃənəl/
+## vegetational · 植被或生长 /ˌvɛdʒəˈteɪʃənəl/
 `植被的；植物生长的`
-形容词，具体涉及植物总体还是生长过程，须看上下文。
+形容词；所指是草木总体还是生长过程，由上下文决定。
+
+<!-- USE:U142 -->
+## vegetate · 无所事事 /ˈvɛdʒəˌteɪt/
+`过单调、消极的生活`
+不及物动词，用于人；常指把时间耗在乏味、缺少有意义活动的事情上，可说 *vegetate in front of the TV*。
+
+<!-- USE:U143 -->
+## vegetate · 如植物般生长 /ˈvɛdʒəˌteɪt/
+`生长；进行植物式生长`
+不及物动词；用于植物或按植物方式生长的对象，与上一项指人的比喻义不同。
+
+<!-- USE:U144 -->
+## vegetative · 医学状态 /ˈvɛdʒəˌteɪtɪv/
+`可有觉醒表现，却没有可观察到的意识反应的`
+医学用语，常见于 *a vegetative state*。人仍有基本生命功能，也可能睁眼，但没有可观察到的自我或环境意识以及有意义的反应；不等于脑死亡，也不能仅凭这个词断定绝无恢复可能。
+
+<!-- USE:U145 -->
+## vegetative · 营养生长 /ˈvɛdʒəˌteɪtɪv/
+`与植物营养生长或无性繁殖有关的`
+植物学语境中，与有性繁殖相区别；*vegetative reproduction* 可指通过匍匐茎等营养器官繁殖。这里的“营养”不是日常所说的膳食营养。
+
+<!-- USE:U146 -->
+## vegetative · 植物相关 /ˈvɛdʒəˌteɪtɪv/
+`植物的；与植物生命有关的`
+范围比上一项宽，不必涉及有性或无性繁殖；具体所指可由 *vegetative cover* 等搭配判断。
+
+<!-- USE:U147 -->
+## vegetatively · 生长方式 /ˈvɛdʒəˌteɪtɪvli/
+`以植物式或营养生长的方式`
+副词，由 *vegetative* 派生；用于植物繁殖等语境时，说明方式而非把它误解为医学状态。
+
+<!-- USE:U148 -->
+## vegetativeness · 生长性质 /ˈvɛdʒəˌteɪtɪvnəs/
+`植物式的性质或状态`
+名词，由 *vegetative* 派生；具体含义随对应的形容词义与语境而定，在植物学讨论中可指植物式生长的特性。
 
 <!-- WORD:W040 -->
 # waterway
@@ -836,18 +924,18 @@
 **词源**：*Waterway* 由 *water*（水）和 *way*（路、通道）组成，字面可理解为“水上的通道”。
 
 <!-- USE:U127 -->
-## waterway · 船只可通行的水道 /ˈwɔːtɚweɪ/
-`可通航的水道；航道`
+## waterway · 可通航水道 /ˈwɔːtɚweɪ/
+`船只能够沿之通行的水道`
 可数名词，指船只能够沿之航行的运河、河流或狭窄海峡，强调实际的水道。
 
 <!-- USE:U128 -->
-## waterway · 经水路行进的路线 /ˈwɔːtɚweɪ/
-`水路；水上交通路线`
+## waterway · 水路 /ˈwɔːtɚweɪ/
+`经水路行进的路线`
 可数名词，侧重从一处到另一处所走的航行路线。
 
 <!-- USE:U129 -->
-## waterway · 甲板外缘开有排水槽的厚木板 /ˈwɔːtɚweɪ/
-`舷侧排水木板`
+## waterway · 舷侧排水木板 /ˈwɔːtɚweɪ/
+`甲板外缘开有排水槽的厚木板`
 造船术语，指船甲板外缘的厚木板，其上凿有供水流走的排水槽。
 
 <!-- PART:two -->
@@ -859,9 +947,21 @@
 The biologist counted three amphibians beside the restored pond.
 `生物学家在修复后的池塘边数到了三只两栖动物。`
 
+<!-- EXAMPLE:U001 -->
+The newt's amphibian life begins in water and continues on land.
+`蝾螈的两栖生活始于水中，随后延续到陆地上。`
+
 <!-- EXAMPLE:U002 -->
 An amphibian carried the survey team across the flooded road and then into the water.
 `一辆水陆两用车载着调查队穿过被淹的道路，随后驶入水中。`
+
+<!-- EXAMPLE:U002 -->
+The rescue crew used an amphibian vehicle to reach the island.
+`救援队使用水陆两用车抵达那座岛。`
+
+<!-- EXAMPLE:U002 -->
+The amphibian landed on the lake before returning to the airfield.
+`那架水陆两用飞机先在湖面降落，后来返回机场。`
 
 <!-- WORD:W002 -->
 # aquatic
@@ -874,6 +974,10 @@ Aquatic birds nested among the reeds.
 The council asked an aquatic consultant to assess its aquatic resources.
 `市议会请一位水域顾问评估当地的水资源。`
 
+<!-- EXAMPLE:U004 -->
+Aquatic consultant Ben Tucker explained how the spill could damage our aquatic resources.
+`水域顾问本·塔克解释了这次泄漏可能怎样损害我们的水资源。`
+
 <!-- EXAMPLE:U005 -->
 The tank held several aquatics collected from the lagoon.
 `水槽中养着从泻湖采集的几种水生动植物。`
@@ -881,6 +985,10 @@ The tank held several aquatics collected from the lagoon.
 <!-- EXAMPLE:U006 -->
 The school suspended its aquatic sports until the water was tested.
 `学校暂停了水上运动，直到水质完成检测。`
+
+<!-- EXAMPLE:U006 -->
+Aquatics returned to the school's timetable after the pool reopened.
+`游泳池重新开放后，水上运动课又回到了学校的课程表。`
 
 <!-- WORD:W003 -->
 # canopy
@@ -894,8 +1002,8 @@ The trees formed such a dense canopy that all beneath was a deep carpet of pine-
 `树木形成了如此浓密的树冠层，以至于下方铺满了厚厚的松针。`
 
 <!-- EXAMPLE:U009 -->
-At dawn, a pale canopy of cloud covered the valley.
-`黎明时，淡色云幕笼罩着山谷。`
+At dusk, the canopy of the sky darkened above the valley.
+`黄昏时，笼罩山谷的天穹暗了下来。`
 
 <!-- EXAMPLE:U010 -->
 The stone canopy above the chapel niche had begun to crack.
@@ -975,8 +1083,8 @@ His condition deteriorated after the operation.
 `手术后他的病情恶化了。`
 
 <!-- EXAMPLE:U024 -->
-The rapid deterioration in relations between the two towns worried the council.
-`两镇关系迅速恶化，使议会感到担忧。`
+There is concern about the rapid deterioration in relations between the two countries.
+`人们担忧两国关系迅速恶化。`
 
 <!-- EXAMPLE:U025 -->
 The committee found a deteriorative effect in the untreated water.
@@ -989,9 +1097,17 @@ The committee found a deteriorative effect in the untreated water.
 We had drifted downstream.
 `我们已经顺流漂到了下游。`
 
+<!-- EXAMPLE:U026 -->
+The village lies downstream of the damaged dam.
+`村庄位于受损大坝的下游。`
+
 <!-- EXAMPLE:U027 -->
 Breaking the dam could submerge downstream cities.
 `大坝一旦决口，下游城市可能被淹没。`
+
+<!-- EXAMPLE:U027 -->
+The downstream current carried the leaves away.
+`顺流而下的水流把树叶带走了。`
 
 <!-- WORD:W008 -->
 # dragonfly
@@ -1058,8 +1174,8 @@ In the opinion polls the ecologists reached 20 per cent.
 # estuary
 
 <!-- EXAMPLE:U036 -->
-The old naval chart recorded manoeuvres in the Clyde estuary.
-`旧海军海图记录了在克莱德河口湾进行的演习。`
+The old chart recorded naval manoeuvres in the Clyde estuary.
+`旧海图记录了在克莱德河口湾进行的海军演习。`
 
 <!-- EXAMPLE:U037 -->
 Estuarine grasses tolerate both salt water and changing tides.
@@ -1084,8 +1200,8 @@ The ferny slope stayed cool even at noon.
 # fertilizer
 
 <!-- EXAMPLE:U041 -->
-The farm tried growing crops without purchased chemical fertilizer or pesticide.
-`农场试着在不用外购化肥或杀虫剂的情况下种植作物。`
+The farm tried growing crops without any purchased chemicals, fertilizer or pesticides.
+`农场试着在不使用任何外购化学品、肥料或杀虫剂的情况下种植作物。`
 
 <!-- WORD:W014 -->
 # fishery
@@ -1180,6 +1296,10 @@ Lagoonal deposits revealed an older coastline beneath the field.
 The survey team crossed a marsh that flooded every winter.
 `调查队穿过了一片每年冬天都会积水的沼泽。`
 
+<!-- EXAMPLE:U131 -->
+Marsh birds nested among the reeds.
+`沼泽鸟类在芦苇丛中筑巢。`
+
 <!-- EXAMPLE:U058 -->
 The marshy ground could not support a heavy vehicle.
 `湿软的沼泽地无法承受重型车辆。`
@@ -1219,8 +1339,8 @@ Your offer certainly mitigated their hostility.
 `你的提议确实缓和了他们的敌意。`
 
 <!-- EXAMPLE:U066 -->
-The report weighed the mitigation or cure of a physical or mental condition.
-`报告评估了缓解或治愈身心疾病的办法。`
+The report examined the mitigation or cure of a physical or mental condition.
+`报告探讨了身体或心理疾病的缓解或治愈。`
 
 <!-- EXAMPLE:U067 -->
 Kieran Coonan QC told the judge in mitigation that the offences had been at the lower end of the scale.
@@ -1261,8 +1381,8 @@ The council reviewed ordinances that restrict building development near the mars
 `市议会复核了限制在沼泽附近开发建设的地方条例。`
 
 <!-- EXAMPLE:U075 -->
-The chapel kept its old ordinance of communal prayer at dawn.
-`小教堂保留了黎明集体祈祷的旧仪式。`
+The congregation observed the ordinance of baptism during the Sunday service.
+`会众在周日礼拜中举行了洗礼仪式。`
 
 <!-- EXAMPLE:U076 -->
 An eighteenth-century guide praised the ordinance of the chapel's arches and windows.
@@ -1277,7 +1397,7 @@ The farmer tested the water after pesticide washed off the fields.
 
 <!-- EXAMPLE:U078 -->
 The team compared the pesticidal effect with harm to beneficial insects.
-`团队把杀虫效果与对益虫的伤害作了比较。`
+`团队将杀灭有害生物的效果与对益虫的伤害作了比较。`
 
 <!-- WORD:W026 -->
 # proposal
@@ -1294,9 +1414,65 @@ The Security Council has rejected the latest peace proposal.
 The proposal was never carried out.
 `那项提案最终没有实施。`
 
+<!-- EXAMPLE:U132 -->
+Her formal proposal of the amendment took only a minute.
+`她正式提出修正案只用了一分钟。`
+
 <!-- EXAMPLE:U080 -->
 After a three-weekend courtship, Pamela accepted Randolph's proposal of marriage.
 `相处了三个周末后，帕梅拉接受了伦道夫的求婚。`
+
+<!-- EXAMPLE:U133 -->
+Britain is about to propose changes to some institutions.
+`英国即将提议对一些机构作出改革。`
+
+<!-- EXAMPLE:U133 -->
+It was George who first proposed that we dry clothes in that locker.
+`最先提议让我们在那个储物柜里晾衣服的是乔治。`
+
+<!-- EXAMPLE:U133 -->
+She was a pioneer in proposing that women should be able to control their own fertility.
+`她是最早主张女性应能自主决定生育事宜的人之一。`
+
+<!-- EXAMPLE:U134 -->
+It's still far from clear what action the government proposes to take over the affair.
+`政府打算如何处理这件事，目前还远不清楚。`
+
+<!-- EXAMPLE:U134 -->
+And where do you propose building such a huge thing?
+`那么，你打算把这么个庞然大物建在哪里？`
+
+<!-- EXAMPLE:U134 -->
+They propose to open a restaurant next spring.
+`他们打算明年春天开一家餐馆。`
+
+<!-- EXAMPLE:U135 -->
+This highlights a problem faced by people proposing theories of ball lightning.
+`这凸显了提出球状闪电理论的人面临的一个问题。`
+
+<!-- EXAMPLE:U135 -->
+Newton proposed that heavenly and terrestrial motion could be unified with the idea of gravity.
+`牛顿提出，天体运动和地面物体的运动可以用引力这一概念统一解释。`
+
+<!-- EXAMPLE:U136 -->
+The councillor proposed a motion to delay the vote.
+`这名议员提出了一项推迟表决的动议。`
+
+<!-- EXAMPLE:U137 -->
+The committee proposed Elena for the office of treasurer.
+`委员会提名埃琳娜担任财务主管。`
+
+<!-- EXAMPLE:U138 -->
+Usually the bride's father proposes a toast to the health of the bride and groom.
+`通常由新娘的父亲提议举杯，祝新郎新娘身体健康。`
+
+<!-- EXAMPLE:U139 -->
+He had proposed to Isabel the day after taking his seat in Parliament.
+`他就任议员的第二天便向伊莎贝尔求了婚。`
+
+<!-- EXAMPLE:U140 -->
+Mr Ian Murch was the proposer of the motion.
+`伊恩·默奇先生是这项动议的提出者。`
 
 <!-- WORD:W027 -->
 # reclaim
@@ -1304,6 +1480,10 @@ After a three-weekend courtship, Pamela accepted Randolph's proposal of marriage
 <!-- EXAMPLE:U081 -->
 In 1986, they got the right to reclaim South African citizenship.
 `一九八六年，他们获得了重新取得南非国籍的权利。`
+
+<!-- EXAMPLE:U081 -->
+She filed a claim to reclaim the property taken from her family.
+`她提出申请，要求取回家人被拿走的财产。`
 
 <!-- EXAMPLE:U082 -->
 There are eight million people currently eligible to reclaim income tax.
@@ -1320,6 +1500,10 @@ The diamond towns are gradually being reclaimed by the desert.
 <!-- EXAMPLE:U085 -->
 The project helped reclaim discarded timber for a footbridge.
 `该项目帮助回收废弃木料，用来修建人行桥。`
+
+<!-- EXAMPLE:U085 -->
+Steady work helped reclaim two young men whom the town had written off.
+`稳定的工作帮助两名曾被镇上放弃的年轻人改过。`
 
 <!-- EXAMPLE:U086 -->
 The old account claimed that patience could reclaim a wild horse.
@@ -1350,7 +1534,7 @@ The reclamation of discarded wood reduced the need for new timber.
 
 <!-- EXAMPLE:U091 -->
 Considerable efforts have been made to rehabilitate patients who have suffered in this way.
-`人们已付出相当大的努力，帮助这样受伤的病人恢复正常生活。`
+`人们已付出相当大的努力，帮助遭受这种病痛的患者恢复正常生活。`
 
 <!-- EXAMPLE:U092 -->
 Ten years later, Dreyfus was rehabilitated.
@@ -1366,7 +1550,7 @@ The town will rehabilitate the old pumping station as a field laboratory.
 
 <!-- EXAMPLE:U094 -->
 The rehabilitation of young offenders requires steady support after release.
-`少年犯的改造需要在获释后持续给予支持。`
+`帮助少年犯改过并重新融入社会，需要在他们获释后持续给予支持。`
 
 <!-- EXAMPLE:U095 -->
 The clinic offered rehabilitative training to people injured in the flood.
@@ -1396,6 +1580,10 @@ Flowering shrubs lined the entrance to the field station.
 <!-- EXAMPLE:U099 -->
 A shrubby tree sheltered the bench from the wind.
 `一棵灌木状的小树替长椅挡风。`
+
+<!-- EXAMPLE:U099 -->
+The path crossed a shrubby hillside before reaching the stream.
+`小路穿过长满灌木的山坡，才到达溪边。`
 
 <!-- WORD:W032 -->
 # silt
@@ -1430,6 +1618,10 @@ The train was moving now at a snail's pace.
 <!-- EXAMPLE:U106 -->
 The snail-like progress of the repairs frustrated the residents.
 `维修进展慢得像蜗牛一样，让居民很沮丧。`
+
+<!-- EXAMPLE:U106 -->
+The child drew a snail-like creature with a spiral shell.
+`孩子画了一只外形像蜗牛、长着螺旋形外壳的生物。`
 
 <!-- WORD:W034 -->
 # species
@@ -1499,6 +1691,10 @@ The map labelled the small kingdom a tributary of its powerful neighbour.
 The archive recorded a tributary state that sent grain each year.
 `档案记载了一个每年进贡谷物的附属国。`
 
+<!-- EXAMPLE:U141 -->
+The court's inventory listed the tributary grain sent by the coastal kingdom.
+`朝廷的清单列出了那个沿海王国进贡的谷物。`
+
 <!-- EXAMPLE:U119 -->
 The historian wrote that the province supplied grain tributarily to the empire.
 `历史学家写道，该行省以进贡的方式向帝国供应谷物。`
@@ -1549,6 +1745,34 @@ He described the long, inactive winter as a period of vegetation.
 The report compared vegetational growth before and after the flood.
 `报告比较了洪水前后的植被生长。`
 
+<!-- EXAMPLE:U142 -->
+He spends all his free time at home vegetating in front of the TV.
+`他把空闲时间全耗在家里，坐在电视机前无所事事。`
+
+<!-- EXAMPLE:U143 -->
+The cuttings began to vegetate after several weeks in the warm greenhouse.
+`插条在温暖的温室里过了几周便开始生长。`
+
+<!-- EXAMPLE:U144 -->
+She was in what was described as a vegetative state.
+`据描述，她当时处于植物状态。`
+
+<!-- EXAMPLE:U145 -->
+The strawberry plants spread through vegetative reproduction by sending out runners.
+`这些草莓植株长出匍匐茎，通过无性繁殖扩展。`
+
+<!-- EXAMPLE:U146 -->
+Vegetative cover helped protect the slope from erosion.
+`植物覆盖层有助于保护坡地免受侵蚀。`
+
+<!-- EXAMPLE:U147 -->
+These plants can reproduce vegetatively through their runners.
+`这些植物可以通过匍匐茎进行无性繁殖。`
+
+<!-- EXAMPLE:U148 -->
+The botanist discussed the vegetativeness of the shoots before they began to flower.
+`植物学家讨论了这些嫩枝开花前表现出的营养生长特性。`
+
 <!-- WORD:W040 -->
 # waterway
 
@@ -1577,9 +1801,9 @@ A narrow tributary joined it behind the abandoned pumping station, then disappea
 <!-- SENTENCE:S003 USE:U121 -->
 Mara walked upstream from the station with a notebook in her pocket and a measuring pole over her shoulder.
 `玛拉从泵站逆流往上游走去，口袋里揣着笔记本，肩上扛着测量杆。`
-<!-- SENTENCE:S004 USE:U122,U027,U057 -->
-The upstream farms drained toward a downstream marsh that the town had long treated as vacant ground.
-`上游农田的排水流向下游的沼泽，而镇上长期把那片地当成空地。`
+<!-- SENTENCE:S004 USE:U122,U027,U057,U131 -->
+The upstream farms drained toward a downstream marsh that the town had long treated as vacant ground, though marsh birds nested there.
+`上游农田的排水流向下游的沼泽；镇上长期把那片地当作空地，尽管那里有沼泽鸟类筑巢。`
 <!-- SENTENCE:S005 USE:U113,U036 -->
 At high tide, a tidal current pressed salt water back through the estuary.
 `涨潮时，潮流把咸水倒推回河口湾。`
@@ -1589,6 +1813,10 @@ At low tide, the lagoon beyond the sandbank opened into a broad sheet of quiet w
 <!-- SENTENCE:S007 USE:U056 -->
 Lagoonal deposits in Mara's core samples showed that the shore had moved many times before anyone drew a property line.
 `玛拉采集的柱状土样里，泻湖沉积物表明，在有人画下地界之前，海岸线已经迁移过许多次。`
+
+<!-- SENTENCE:S129 USE:U135 -->
+On the basis of those layers, Mara proposed that the old sea wall had diverted the tidal channel before the pump was built.
+`根据那些土层，玛拉提出一种解释：旧海堤在水泵建成前就已改变了潮汐水道的走向。`
 
 <!-- SENTENCE:S008 USE:U063 -->
 The low meadow beside the river was still wet from the last tide.
@@ -1636,12 +1864,20 @@ Beyond the wall, a thicket of young trees and shrubs concealed the old drain.
 <!-- SENTENCE:S021 USE:U099 -->
 One shrubby willow leaned over its mouth as if trying to hide what came out.
 `一株灌木状的柳树俯向出口，仿佛想藏住里面流出的东西。`
+
+<!-- SENTENCE:S130 USE:U099 -->
+Beyond the drain, the shrubby ground forced Jun to pick his way toward the dune.
+`排水口再往前，灌木丛生的地面让阿俊只能小心择路，向沙丘走去。`
 <!-- SENTENCE:S022 USE:U029 -->
 The drain cut through a dune that had protected the village from winter storms.
 `排水沟切穿一道沙丘，那道沙丘曾替村庄挡住冬季的风暴。`
 <!-- SENTENCE:S023 USE:U104 -->
 On a wet stone beside it, a snail moved across a film of brown dust.
 `旁边一块湿石头上，一只蜗牛正爬过一层褐色粉尘。`
+
+<!-- SENTENCE:S131 USE:U106 -->
+The rust around a bolt on the drain had formed a snail-like spiral, and Jun marked it for Ada to inspect.
+`排水口一颗螺栓周围的锈迹形成了蜗牛壳般的螺旋，阿俊做了记号，准备请艾达检查。`
 <!-- SENTENCE:S024 USE:U105 -->
 The town's repairs had moved at a snail's pace, but the contamination had travelled with every tide.
 `镇上的维修慢得像蜗牛爬，可污染物却随着每次涨落潮不断扩散。`
@@ -1650,8 +1886,8 @@ The town's repairs had moved at a snail's pace, but the contamination had travel
 Mara was an ecologist who taught ecology, yet the numbers in her notebook were not enough to explain this place.
 `玛拉是一名教授生态学的生态学家，但笔记本里的数字还不足以解释这片地方。`
 <!-- SENTENCE:S026 USE:U031 -->
-The ecology of the estuary included farms, pipes, reeds, fishermen and the people who had decided which of them mattered.
-`河口的生态关系里，有农田、管道、芦苇、渔民，也有决定谁更重要的那些人。`
+The ecology of the estuary linked farms, drains, reeds and fish: runoff changed the water, reeds sheltered young fish, and fishermen depended on their return.
+`河口的生态关系把农田、排水沟、芦苇和鱼联系在一起：径流改变水质，芦苇为幼鱼提供庇护，渔民则盼着鱼群回来。`
 <!-- SENTENCE:S027 USE:U033 -->
 An ecological survey could show where the newts bred, but it could not tell the council whom to believe.
 `生态调查能够找出蝾螈的繁殖地点，却不能告诉议会该相信谁。`
@@ -1667,19 +1903,19 @@ Fine silt had gathered around the break, and the drain had begun to silt up.
 
 <!-- SENTENCE:S031 USE:U102,U103 -->
 Years of siltation had lifted the channel bed, so even a narrow ribbon of silty water now reached the road.
-`多年的泥沙淤积抬高了河床，如今连一道窄窄的浑浊水流都能漫上公路。`
+`多年的泥沙淤积抬高了河床，如今连一道窄窄的、含细泥沙的水流都能漫上公路。`
 <!-- SENTENCE:S032 USE:U045,U043 -->
 Below the road, a freshwater fishery raised young trout for release into the river.
-`公路下游有一处淡水养鱼场，正培育幼鳟鱼，准备放归河里。`
+`公路下方的低地上有一处淡水养鱼场，正培育幼鳟鱼，准备放归河里。`
 <!-- SENTENCE:S033 USE:U042,U044 -->
 Farther out, boats worked the coastal fisheries, and the fishery employed everyone from deckhands to market sellers.
-`更远处，渔船在近海渔场作业；镇上的渔业则养活着从甲板水手到市场鱼贩的许多人。`
+`更远处，渔船在近海渔场作业；镇上的渔业则雇用了从甲板水手到市场鱼贩的许多人。`
 <!-- SENTENCE:S034 USE:U041,U048 -->
 Upstream, fertilizer and herbicide had washed from the fields after a week of rain.
 `上游一连下了一周的雨，肥料和除草剂从田里冲了下来。`
 <!-- SENTENCE:S035 USE:U077,U078 -->
 The laboratory found pesticide in the mud and traced a pesticidal compound into the insects on which the fish fed.
-`实验室在泥里检出农药，并在鱼赖以为食的昆虫体内追踪到一种杀虫成分。`
+`实验室在泥里检出农药，还追踪到一种具有杀灭有害生物作用的化合物进入了鱼赖以为食的昆虫体内。`
 <!-- SENTENCE:S036 USE:U049,U107 -->
 An invasive reed had displaced two native species along the bank.
 `一种入侵性芦苇已把岸边两种本地物种挤走。`
@@ -1708,6 +1944,14 @@ Tomas, the town clerk, announced a public consultation in the old pumping statio
 <!-- SENTENCE:S044 USE:U079 -->
 Mara arrived with a proposal to open the buried channel and make the land beside it wet again.
 `玛拉带来一项提案：打开被埋住的水道，让旁边的土地重新变湿。`
+
+<!-- SENTENCE:S132 USE:U133 -->
+Mara proposed reopening the channel in stages, beginning where the pipe had broken.
+`玛拉建议分段重新打开水道，从管道破裂的地方开始。`
+
+<!-- SENTENCE:S133 USE:U132 -->
+Her proposal took less than a minute; the questions it stirred kept the room occupied for an hour.
+`她提出建议只用了不到一分钟，由此引发的问题却让满屋的人讨论了一个小时。`
 <!-- SENTENCE:S045 USE:U074 -->
 Several local ordinances protected the dune, but none had kept sewage out of the marsh.
 `几条地方条例保护着沙丘，却没有一条挡住污水流入沼泽。`
@@ -1742,6 +1986,18 @@ The reopened wetland itself could become a mitigator of storm damage, holding wa
 <!-- SENTENCE:S055 USE:U070 -->
 Tomas wrote both mitigatory actions into the draft: raise the bridge and give the river room.
 `托马斯把两项缓解措施都写进草案：抬高桥梁，给河流留出空间。`
+
+<!-- SENTENCE:S134 USE:U136 -->
+At the council sitting, Tomas proposed a motion to publish every water test before repairs began.
+`在议会会议上，托马斯正式提出一项动议，要求在维修开始前公布每一次水质检测结果。`
+
+<!-- SENTENCE:S135 USE:U137 -->
+He also proposed Leila for the monitoring committee, citing the care she had taken with the archive.
+`他还正式提名莱拉进入监督委员会，理由是她管理档案十分审慎。`
+
+<!-- SENTENCE:S136 USE:U140 -->
+As proposer of the motion, Tomas answered the councillors' questions before they voted.
+`作为动议的提出者，托马斯在议员们表决前回答了他们的问题。`
 <!-- SENTENCE:S056 -->
 Nobody applauded, but for the first time the plan had a place for uncertainty.
 `没有人鼓掌，但这项计划第一次容得下不确定性。`
@@ -1766,14 +2022,18 @@ Before the meeting ended, Ada the boatwright came in with a deep cut across her 
 After a consultation with the town doctor, she agreed to an imaging scan but refused an invasive procedure unless it proved necessary.
 `她问诊镇上的医生后，同意做影像检查，但表示除非确有必要，否则不接受侵入性操作。`
 <!-- SENTENCE:S063 USE:U021 -->
-The doctor held a consultation with two colleagues about the wound, then told Ada that the pipe itself was the greater public danger.
-`医生又与两名同事就伤口开了一次会诊，随后告诉艾达：那根管子对公众才是更大的危险。`
+The doctor, recently arrived from Boston, held a consultation with two American colleagues about the wound, then told Ada that the pipe itself was the greater public danger.
+`那位最近从波士顿来的医生与两名美国同行就伤口开了一次会诊，随后告诉艾达：那根管子对公众才是更大的危险。`
 <!-- SENTENCE:S064 USE:U095 -->
 The clinic prescribed rehabilitative exercises, but Ada could still explain the pump's old valves.
 `诊所给她安排了康复训练，不过艾达依然能向大家讲解泵站那些旧阀门。`
 <!-- SENTENCE:S065 -->
 Leila led the group into the adjoining archive while Tomas called the water company.
 `托马斯打电话给供水公司时，莱拉领大家走进相连的档案室。`
+
+<!-- SENTENCE:S137 USE:U134 -->
+Mara proposed to stay until the water company returned Tomas's call.
+`玛拉打算留下来，等供水公司给托马斯回电话。`
 
 <!-- SENTENCE:S066 USE:U007 -->
 A canvas canopy covered the entrance, patched by Ada's father after the great storm.
@@ -1782,8 +2042,8 @@ A canvas canopy covered the entrance, patched by Ada's father after the great st
 Across the yard, a carved stone canopy projected over a niche in the chapel wall.
 `穿过院子，小教堂墙上的壁龛上方凸出一道雕花石檐。`
 <!-- SENTENCE:S068 USE:U075 -->
-The chapel still observed an old ordinance of lighting a lamp for those lost at sea.
-`小教堂仍保留着一项旧宗教仪式：为葬身大海的人点亮一盏灯。`
+The chapel still observed an old ordinance during its annual service for those lost at sea: the congregation lit a lamp in their memory.
+`小教堂仍在每年为海难者举行的礼拜中遵行一项旧礼仪：会众点亮一盏灯纪念他们。`
 <!-- SENTENCE:S069 USE:U076 -->
 An eighteenth-century guide praised the ordinance of its arches, whose spacing made the tiny building look wider.
 `一部十八世纪的指南称赞了教堂拱券的布局，说它们的间距让这座小建筑显得更宽敞。`
@@ -1793,10 +2053,14 @@ Inside, Leila had arranged the evidence in the order it had arrived, not in the 
 
 <!-- SENTENCE:S071 USE:U011,U012 -->
 The first case held a torn parachute canopy and a photograph of the aircraft canopy from which its pilot had climbed.
-`第一个陈列柜里放着破损的降落伞伞衣，还有一张照片：飞行员正从飞机座舱盖下爬出来。`
+`第一个陈列柜里放着破损的降落伞伞衣，还有一张飞机座舱盖的照片；那名飞行员曾从这个座舱盖下爬出来。`
 <!-- SENTENCE:S072 USE:U002 -->
-During the flood of 1947, that pilot had brought an amphibian down on the estuary; the amphibian aircraft could then taxi onto the road with medicine for the stranded village.
-`一九四七年发洪水时，那位飞行员曾驾驶一架水陆两用飞机降落在河口；飞机随后又能驶上公路，把药品送到受困村庄。`
+During the flood of 1947, that pilot had brought an amphibian down on the estuary; from the water, the amphibian aircraft climbed the slipway beside the old sea wall and taxied onto the road with medicine for the stranded village.
+`一九四七年发洪水时，那位飞行员曾驾驶一架水陆两用飞机降落在河口水面；飞机随后沿旧海堤旁的坡道从水中上岸，驶上公路，把药品送到受困村庄。`
+
+<!-- SENTENCE:S138 USE:U144 -->
+A later hospital record described one villager rescued in that flood as being in a vegetative state, with basic bodily functions but no visible conscious response; it left her eventual recovery uncertain.
+`一份后来的医院记录写道，那次洪灾中获救的一位村民处于植物状态：她仍有基本生命功能，却看不出清醒反应；记录没有断定她最终能否康复。`
 <!-- SENTENCE:S073 USE:U053,U054 -->
 His travel book showed an atoll's bright lagoon and, on another page, an Australian freshwater lagoon beside a broad river.
 `他的游记一页画着环礁内明亮的湖水，另一页画着澳大利亚一条大河旁的小型淡水湖。`
@@ -1805,10 +2069,14 @@ He had once called his rural American school a freshwater college, a sneer he la
 `他曾轻蔑地把自己上过的美国乡村学校称作“地方学院”，后来又在页边把这话划掉了。`
 <!-- SENTENCE:S075 USE:U039 -->
 Beside the book stood a drawing of the estate's fernery, which had been dismantled to make room for the first pump.
-`书旁是一幅庄园蕨园的画；第一座水泵建起来时，蕨园就被拆了。`
+`书旁是一幅庄园蕨园的画；为了给第一台水泵腾地方，蕨园被拆了。`
 <!-- SENTENCE:S076 USE:U080 -->
 Under it lay a letter in which the pilot made a shy proposal of marriage to the woman who had kept the fernery alive.
 `画下压着一封信，飞行员在信里羞涩地向那位一直照料蕨园的女子求了婚。`
+
+<!-- SENTENCE:S139 USE:U139 -->
+A note on the envelope said he later proposed to her in person beside the repaired gate, and she accepted.
+`信封上的一则注记说，后来他又在修好的闸门旁当面向她求婚，她答应了。`
 <!-- SENTENCE:S077 -->
 Jun smiled at the letter, then stopped smiling when he saw the next deed.
 `阿俊看着信笑了，看到下一份地契时，笑意又收了回去。`
@@ -1832,8 +2100,8 @@ The families had tried to reclaim grazing rights when the wall failed, and the c
 Years later, the same council let landowners reclaim tax for repairing the wall.
 `多年后，同一个议会却准许地主就修墙费用申请退税。`
 <!-- SENTENCE:S084 USE:U087 -->
-One legal clerk had written “reclaim of title” in the margin, using the noun for the act the families could not complete.
-`一名法律文书在页边写下“收回产权”几个字，用名词指那些家庭未能完成的事。`
+A legal clerk called the families' demand to recover their grazing rights a reclaim and noted in the margin that the court had denied it.
+`一名法律文书把那些家庭要求取回放牧权的行为称为一次“收回”，并在页边注明法院已驳回这项要求。`
 <!-- SENTENCE:S085 USE:U088 -->
 Ada tapped a photograph of the demolished gate and said its oak beams were still reclaimable.
 `艾达指着一张被拆大门的照片说，门上的橡木梁还可以回收。`
@@ -1844,8 +2112,8 @@ Her grandfather, a reclaimer of old timber, had stored them in a shed above the 
 Leila found his receipt for the reclamation of boards from three abandoned boats.
 `莱拉找到了他的一张收据：上面记着从三条废弃船只上回收木板的事。`
 <!-- SENTENCE:S088 USE:U085 -->
-He had used those boards to reclaim a broken footbridge, and the paid work had helped reclaim two young men the town had written off.
-`他用那些木板修复了一座坏掉的人行桥；这份有报酬的工作，还帮助两个曾被镇上放弃的年轻人改过。`
+He had reclaimed those boards from the abandoned boats and used them to repair a broken footbridge; the paid work had helped reclaim two young men the town had written off.
+`他从废弃船只上回收了那些木板，用它们修好一座坏掉的人行桥；这份有报酬的工作，还帮助两个曾被镇上放弃的年轻人改过。`
 <!-- SENTENCE:S089 USE:U086 -->
 In the same diary he wrote of trying to reclaim a wild pony that had wandered onto the dune.
 `同一本日记里，他还写过自己怎样试图驯服一匹闯上沙丘的野马。`
@@ -1862,10 +2130,14 @@ Leila closed the file and opened an atlas donated by a sailor who had visited th
 <!-- SENTENCE:S093 USE:U117,U118 -->
 Its legend called one small kingdom a tributary of an empire and shaded its tributary provinces in the same colour as the ruler's lands.
 `图例把一个小王国标成帝国的属国，并把向帝国纳贡的各行省涂成与统治者领土相同的颜色。`
+
+<!-- SENTENCE:S140 USE:U141 -->
+One caption identified the grain on the carts as tributary goods presented to the imperial court.
+`一处图注说明，车上的谷物是献给帝国宫廷的贡品。`
 <!-- SENTENCE:S094 USE:U119 -->
 The ledger beside it said the province supplied grain tributarily, payment for a protection it had never freely chosen.
 `旁边的账册说，那行省每年以进贡的方式送来谷物，换取一种它从未自由选择的“保护”。`
-<!-- SENTENCE:S095 USE:U120 -->
+<!-- SENTENCE:S095 USE:U120,U115 -->
 Leila said that its tributariness described a political obligation, while a river's tributaries described water that could not sign a treaty.
 `莱拉说，这里的“附属性”是一种政治义务；河流的支流却只是水，不会签订条约。`
 <!-- SENTENCE:S096 USE:U109 -->
@@ -1894,6 +2166,10 @@ The old council pamphlet, a compost of promises and omissions, went into the exh
 By evening, the people who had come to defend one side of the argument were sitting at the same table.
 `到了傍晚，原本各自来为一方辩护的人坐到了同一张桌旁。`
 
+<!-- SENTENCE:S141 USE:U138 -->
+Ada proposed a toast to the people who had stayed to listen, and even Tomas raised his cup.
+`艾达提议为那些留下来倾听的人举杯，连托马斯也端起了杯子。`
+
 <!-- SENTENCE:S104 USE:U026 -->
 The next morning, Jun carried the revised map downstream to the fishing boats.
 `第二天早晨，阿俊带着修订后的地图顺流往下游走，去找渔船上的人。`
@@ -1901,8 +2177,8 @@ The next morning, Jun carried the revised map downstream to the fishing boats.
 The boat crews showed him an estuarine pool that filled tidally and stayed wet when the fields above it dried.
 `船员带他看了一处河口水洼：那里随潮水灌满，上方田地干了，它仍留着水。`
 <!-- SENTENCE:S106 USE:U116,U058 -->
-A tributary stream crossed a marshy corner of the field before reaching that pool.
-`一条支流小溪穿过田地潮湿泥泞的一角，才汇入那处水洼。`
+A tributary stream crossed a marshy corner of the field and joined the main river just above that pool.
+`一条支流小溪穿过田地潮湿泥泞的一角，在那处水洼稍上方汇入主河。`
 <!-- SENTENCE:S107 USE:U127 -->
 Ada followed the channel by skiff and found that it could again become a waterway for small boats if the fallen concrete was removed.
 `艾达划着小艇沿水道查看，发现只要清走坍落的混凝土，小船就能重新从这里通航。`
@@ -1925,6 +2201,14 @@ The contaminated stems went into sealed bags, far from the compost heap behind t
 <!-- SENTENCE:S113 USE:U096,U015 -->
 Jun raised each seedling in a tray of peat-free compost until its roots could hold the bank.
 `阿俊把每株幼苗养在盛着无泥炭栽培土的育苗盘里，等根系足以抓住河岸。`
+
+<!-- SENTENCE:S142 USE:U143 -->
+Jun also planted willow cuttings along the bank, and in the wet soil they soon began to vegetate.
+`阿俊还沿河岸栽下柳树插条；在湿润的土里，它们很快开始生长。`
+
+<!-- SENTENCE:S143 USE:U148 -->
+Mara noted the cuttings' vegetativeness—their readiness to sprout and root—as a reason to use them on the exposed slope.
+`玛拉记下插条容易发芽生根的植物式生长特性，认为这正是把它们用在裸露坡地上的理由。`
 <!-- SENTENCE:S114 USE:U018 -->
 In the old orchard, the gardeners composted the exhausted soil rather than spreading more chemical fertilizer.
 `旧果园里，园丁给贫瘠的土壤施堆肥，没有再撒更多化肥。`
@@ -1934,15 +2218,31 @@ By midsummer, new vegetation covered the bare slope, but the council still poste
 <!-- SENTENCE:S116 USE:U124 -->
 Warmth and rain hastened vegetation on the exposed patches, from first shoots to rooted grass.
 `温暖与雨水加快了裸露地块上的植物生长：先冒新芽，再扎下草根。`
+
+<!-- SENTENCE:S144 USE:U145 -->
+Mara's survey found vegetative reproduction in the invasive reeds: buried rhizomes had survived the cutting.
+`玛拉的调查发现，入侵性芦苇会进行营养繁殖：地下的根茎在割除地上茎后仍存活着。`
+
+<!-- SENTENCE:S145 USE:U147 -->
+Loose rhizome fragments could also take root vegetatively downstream, so Jun gathered them before the tide turned.
+`松散的根茎碎段在下游也能以营养生长的方式生根，因此阿俊赶在潮水转向前把它们收集起来。`
 <!-- SENTENCE:S117 USE:U126 -->
 Mara's vegetational survey distinguished those self-sown plants from the seedlings Jun had put in.
 `玛拉的植被调查把这些自行萌发的植物与阿俊种下的幼苗区分开来。`
+
+<!-- SENTENCE:S146 USE:U146 -->
+By late summer, the vegetative cover on the bank was thick enough to shade the shallow water.
+`到了夏末，岸上的植物覆盖层已经浓密到足以为浅水遮阴。`
 <!-- SENTENCE:S118 USE:U106 -->
 The snail-like pace of the masonry repairs no longer seemed shameful beside the slower work of rebuilding trust.
 `与更缓慢的重建信任相比，石墙维修那蜗牛般的进度也不再显得可耻。`
 <!-- SENTENCE:S119 USE:U125 -->
 After retirement, Tomas had feared a life of vegetation; instead, he learned to take the tide readings before breakfast.
 `退休后，托马斯曾担心自己会过上植物般无所事事的生活；现在，他学会了每天早餐前去记录潮位。`
+
+<!-- SENTENCE:S147 USE:U142 -->
+He refused to vegetate in front of the television while the river still needed watching.
+`只要这条河还需要人照看，他就不愿坐在电视机前无所事事地消磨日子。`
 <!-- SENTENCE:S120 USE:U006 -->
 The school resumed aquatic sports only after repeated tests showed that the swimming area was safe.
 `经过多次检测，游泳水域被确认安全，学校才恢复了水上运动。`

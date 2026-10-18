@@ -7,6 +7,8 @@ import { practiceRoute } from './practice.js';
 import {balanceRoute} from './balances.js';
 import {chapterQualityRoute} from './chapter-quality.js';
 import {firstPartUpgradeRoute} from './chapter-upgrade.js';
+import {chapterNumber,numberForDate} from './chapter-number.js';
+import {assertTeachingText} from '../../protocol/teaching-text.mjs';
 import {questionsRoute} from './questions.js';
 import {chapterTestsRoute} from './chapter-tests.js';
 import {temporaryTestsRoute} from './temporary-tests.js';
@@ -71,7 +73,7 @@ function subscriptionValid(value) {
 async function route(request, env) {
   const url = new URL(request.url), path = url.pathname;
   if (path === '/health') return json({ ok: true });
-  if(path==='/api/publish/upgrade-first-part')return firstPartUpgradeRoute(request,env,publisher(request,env));
+  if(path==='/api/publish/upgrade-first-part'||path==='/api/publish/correct-chapter')return firstPartUpgradeRoute(request,env,publisher(request,env));
   if (path.startsWith('/auth/')) return authRoute(request, env, request.method === 'POST' ? await inputJson(request) : {});
   if(path.startsWith('/api/balances'))return balanceRoute(request,env,{isPublisher:publisher(request,env),session:await sessionFor(request,env),sameOrigin:sameOrigin(request,env)});
   if(path==='/api/chapter-quality'||path.startsWith('/api/chapter-quality/'))return chapterQualityRoute(request,env,{isPublisher:publisher(request,env),session:await sessionFor(request,env),sameOrigin:sameOrigin(request,env)});
@@ -144,18 +146,19 @@ async function route(request, env) {
       typeof value.subtitle !== 'string' || value.subtitle.length > 300 ||
       typeof value.number !== 'string' || value.number.length > 80 ||
       !/^[0-9a-f]{40}$/.test(value.vixCommit || '') || !/^[0-9a-f]{40}$/.test(value.protocolCommit || '')) return json({ error: '章节元数据或结构无效' }, 400);
-    try { validateTeachingLayout(value.markdown, value.contentPolicy); }
+    try { const parsed=validateTeachingLayout(value.markdown, value.contentPolicy);if(value.contentPolicy==='etymology-fused-v1')assertTeachingText(parsed); }
     catch (error) { return json({ error: `章节编码与逐句译文无效：${error.message}` }, 400); }
     const runClaim = await env.DB.prepare('SELECT rest_requested FROM run_claims WHERE run_id=? AND study_date=?').bind(value.runId, value.date).first();
     if (!runClaim || runClaim.rest_requested) return json({ error: '本日未领取运行或已选择休息' }, 409);
+    const number=await numberForDate(env.DB,value.date);
     const digest = await sha256(value.markdown), key = `chapters/${value.date}/${digest}.md`;
     if(env.ONEDRIVE_ENABLED==='true')await permanentBucket(env).put(key,value.markdown,{httpMetadata:{contentType:'text/markdown; charset=utf-8'}});
     await env.CHAPTERS.put(key, value.markdown,env.ONEDRIVE_ENABLED==='true'?{expirationTtl:30*86400}:{});
     await env.DB.prepare(`INSERT OR IGNORE INTO chapter_revisions
       (digest,chapter_id,study_date,number,title,subtitle,word_count,content_key,run_id,vix_commit,protocol_commit,created_at)
       VALUES (?,?,?,?,?,?,?,?,?,?,?,?)`)
-      .bind(digest, value.id, value.date, value.number, value.title, value.subtitle, 40, key, value.runId, value.vixCommit, value.protocolCommit, Date.now()).run();
-    return json({ ok: true, digest, chapterId: value.id });
+      .bind(digest, value.id, value.date, number, value.title, value.subtitle, 40, key, value.runId, value.vixCommit, value.protocolCommit, Date.now()).run();
+    return json({ ok: true, digest, chapterId: value.id, number });
   }
   if (path === '/api/publish/commit' && request.method === 'POST') {
     if (!publisher(request, env)) return json({ error: '发布身份无效' }, 401);
@@ -246,7 +249,7 @@ async function route(request, env) {
     const { results } = await env.DB.prepare(`SELECT p.chapter_id AS id,p.study_date AS date,r.number,r.title,r.subtitle,r.word_count AS wordCount,p.digest
       FROM published_chapters p JOIN chapter_revisions r ON r.digest=p.digest
       ORDER BY p.study_date DESC`).all();
-    return json({ chapters: results });
+    return json({ chapters: results.map((chapter,index)=>({...chapter,number:chapterNumber(results.length-index)})) });
   }
   if (path.startsWith('/api/chapters/') && request.method === 'GET') {
     const id = decodeURIComponent(path.slice('/api/chapters/'.length));
@@ -260,7 +263,7 @@ async function route(request, env) {
     const markdown = env.ONEDRIVE_ENABLED==='true'?await chapterText(env,row.content_key):await env.CHAPTERS.get(row.content_key);
     if (markdown === null) return json({ error: '章节正文暂不可用' }, 503);
     const { content_key, ...meta } = row;
-    return json({ ...meta, markdown });
+    return json({ ...meta, number:await numberForDate(env.DB,row.date), markdown });
   }
   if (path === '/api/settings' && request.method === 'GET') {
     const row = await env.DB.prepare('SELECT * FROM study_settings WHERE id=1').first();

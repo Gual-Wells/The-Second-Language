@@ -1,0 +1,695 @@
+{
+  "status": "content-published-verified",
+  "updatedAt": "2026-10-18T09:08:12.145Z",
+  "userAuthorization": "按正式主协议修正，并明确包括补齐必要的第二、三部分内容。",
+  "formalAuthority": [
+    "CONTENT.md",
+    "QUALITY_WORKFLOW.md",
+    "ETYMOLOGY.md",
+    "USAGE_LABELS.md",
+    "ANNOTATIONS.md"
+  ],
+  "numbering": {
+    "fixed": true,
+    "chapter20261018": "第 8 章",
+    "rule": "已发布正式章节按日期排序，每个日期计一章；修订、临时页、草稿与休息不计章",
+    "bodyDigestUnchanged": true
+  },
+  "plannedChapters": 7,
+  "completedChapters": 7,
+  "chapters": [
+    {
+      "chapterId": "2026-10-02",
+      "status": "published-verified",
+      "scope": "chapter-correction",
+      "baseDigest": "f7222060476c8c4309c8d46f18110ab0c7e7a02beee54d9ffda471f91e00c7bc",
+      "targetDigest": "3c085020398f255ba980668375a14ca972e1b59c4df205dbe275f5be52d3a8c5",
+      "sourcePin": "821651446af60912b242ea389bd6891b00381a47",
+      "words": 40,
+      "addedUses": {
+        "NEW_W013_01": "U067",
+        "NEW_W023_01": "U068",
+        "NEW_W023_02": "U069",
+        "NEW_W023_03": "U070",
+        "NEW_W023_04": "U071",
+        "NEW_W023_05": "U072",
+        "NEW_W024_01": "U073",
+        "NEW_W024_02": "U074",
+        "NEW_W024_03": "U075",
+        "NEW_W024_04": "U076"
+      },
+      "articleReplacements": 2,
+      "articleInsertions": 7,
+      "semanticReview": "修正 S011 对 U048 的误标并改用具体物质语境；为 S017 补列 U067。新增句在温室、印刷店和避难学校的原有情节中运用 U068—U076，并配齐逐句译文。",
+      "nativeReviewedAt": "2026-10-18T06:39:34.904Z",
+      "receipt": {
+        "ok": true,
+        "digest": "3c085020398f255ba980668375a14ca972e1b59c4df205dbe275f5be52d3a8c5",
+        "manifestDigest": "ce736599a6ac188522a0ae0a060a524c3512fe8c209fb65aab0dfc11f628c999",
+        "audioReused": true,
+        "audioQueued": true,
+        "ttsCalls": 0,
+        "audioPack": {
+          "clips": 116,
+          "packs": 1,
+          "originalPackFilesReused": true,
+          "ttsCalls": 0
+        },
+        "checkedAt": "2026-10-18T06:42:43.817Z",
+        "oldVersionReadable": true,
+        "newVersionReadbackIdentical": true
+      },
+      "incrementalAudio": {
+        "uniqueSentences": 27,
+        "characters": 2213,
+        "estimatedCny": [
+          0.00960442,
+          0.015336089999999998
+        ],
+        "estimateBasis": "本章新增或变更文本，跨章全局复用可能进一步降低消耗；不是实收账单",
+        "generation": "正常后台队列，成功原音频永久复用"
+      },
+      "totalUses": 76,
+      "nativeReview": {
+        "checkedAt": "2026-10-18T06:39:34.904Z",
+        "findings": [],
+        "changes": []
+      }
+    },
+    {
+      "chapterId": "2026-10-06",
+      "status": "published-verified",
+      "scope": "chapter-correction",
+      "baseDigest": "2f3a634eb77499eaa2f6a3598c282f3ead48ac26c3aef48325982e021b24869a",
+      "targetDigest": "0b44717f3ba7f7b9673b14145d0e1b3835ac137e15519ba71ec8b6a54784f819",
+      "sourcePin": "821651446af60912b242ea389bd6891b00381a47",
+      "words": 40,
+      "addedUses": {
+        "NEW_W001_01": "U168",
+        "NEW_W003_01": "U169",
+        "NEW_W006_01": "U170",
+        "NEW_W010_01": "U171",
+        "NEW_W012_01": "U172",
+        "NEW_W018_01": "U185",
+        "NEW_W018_02": "U186",
+        "NEW_W018_03": "U187",
+        "NEW_W018_04": "U188",
+        "NEW_W018_05": "U189",
+        "NEW_W018_06": "U190",
+        "NEW_W018_07": "U191",
+        "NEW_W018_08": "U192",
+        "NEW_W018_09": "U193",
+        "NEW_W018_10": "U194",
+        "NEW_W018_11": "U195",
+        "NEW_W018_12": "U196",
+        "NEW_W023_01": "U173",
+        "NEW_W023_02": "U174",
+        "NEW_W034_01": "U175",
+        "NEW_W035_01": "U176",
+        "NEW_W035_02": "U177",
+        "NEW_W035_03": "U178",
+        "NEW_W037_01": "U179",
+        "NEW_W037_02": "U180",
+        "NEW_W037_03": "U181",
+        "NEW_W037_04": "U182",
+        "NEW_W037_05": "U183",
+        "NEW_W040_01": "U184"
+      },
+      "articleReplacements": 23,
+      "articleInsertions": 30,
+      "semanticReview": "修正了失配的义项标注、语域场景、英文搭配及逐句译文，并在原叙事中补齐新增用法和已指出的细义缺口；原有句号身份保持不变。",
+      "nativeReviewedAt": "2026-10-18T08:18:56.940Z",
+      "nativeChanges": [
+        "evacuate 及相关明确词族补齐，不再借动词条目只教名词",
+        "移除 contingency 的无依据绝对排除",
+        "S055 用既定诊所叙事情境，避免泛化医疗因果断言",
+        "S109 明确落实教材附带开支义",
+        "evacuative 采用已核实美式变体，名词POS-only标注不捏造释义"
+      ],
+      "totalUses": 196,
+      "receipt": {
+        "ok": true,
+        "digest": "0b44717f3ba7f7b9673b14145d0e1b3835ac137e15519ba71ec8b6a54784f819",
+        "manifestDigest": "17254a09cc9c2c02f60f8486dfba6953e5924c5a7426ddbd0957cef119a7f8d4",
+        "audioReused": true,
+        "audioQueued": true,
+        "ttsCalls": 0,
+        "audioPack": {
+          "clips": 275,
+          "packs": 2,
+          "originalPackFilesReused": true,
+          "ttsCalls": 0
+        },
+        "checkedAt": "2026-10-18T08:19:17.012Z",
+        "oldVersionReadable": true,
+        "newVersionReadbackIdentical": true
+      },
+      "incrementalAudio": {
+        "uniqueSentences": 165,
+        "characters": 14071,
+        "estimatedCny": [
+          0.06106814000000001,
+          0.09751203
+        ],
+        "estimateBasis": "本章新增或变更文本，跨章全局复用可能进一步降低消耗；不是实收账单",
+        "generation": "正常后台队列，成功原音频永久复用"
+      },
+      "nativeReview": {
+        "checkedAt": "2026-10-18T08:18:56.952Z",
+        "findings": [],
+        "changes": [
+          "evacuate 及相关明确词族补齐，不再借动词条目只教名词",
+          "移除 contingency 的无依据绝对排除",
+          "S055 用既定诊所叙事情境，避免泛化医疗因果断言",
+          "S109 明确落实教材附带开支义",
+          "evacuative 采用已核实美式变体，名词POS-only标注不捏造释义"
+        ]
+      }
+    },
+    {
+      "chapterId": "2026-10-09",
+      "status": "published-verified",
+      "scope": "chapter-correction",
+      "baseDigest": "1415039d75e1fd9514082363168d3f098be314fbc361cf5fdb7c287f843c4b27",
+      "targetDigest": "e98d95338281c661bb6869916d4cb7837c3f547b03e83d7a6087dbe8c95987dc",
+      "sourcePin": "821651446af60912b242ea389bd6891b00381a47",
+      "words": 40,
+      "addedUses": {
+        "NEW_W020_01": "U131",
+        "NEW_W026_01": "U132",
+        "NEW_W026_02": "U133",
+        "NEW_W026_03": "U134",
+        "NEW_W026_04": "U135",
+        "NEW_W026_05": "U136",
+        "NEW_W026_06": "U137",
+        "NEW_W026_07": "U138",
+        "NEW_W026_08": "U139",
+        "NEW_W026_09": "U140",
+        "NEW_W037_01": "U141",
+        "NEW_W039_01": "U142",
+        "NEW_W039_02": "U143",
+        "NEW_W039_03": "U144",
+        "NEW_W039_04": "U145",
+        "NEW_W039_05": "U146",
+        "NEW_W039_06": "U147",
+        "NEW_W039_07": "U148"
+      },
+      "articleReplacements": 15,
+      "articleInsertions": 19,
+      "semanticReview": "逐句核对并修正了原标注中的语义、搭配、译文和事件衔接问题；为新增用法补入与原有人物、档案、会议及湿地修复相连的情节。",
+      "nativeReviewedAt": "2026-10-18T07:15:44.380Z",
+      "receipt": {
+        "ok": true,
+        "digest": "e98d95338281c661bb6869916d4cb7837c3f547b03e83d7a6087dbe8c95987dc",
+        "manifestDigest": "606700bc34f190909b3f05257ec907dfd4d97208fcde451e6c88e33f2aa4ab3d",
+        "audioReused": true,
+        "audioQueued": true,
+        "ttsCalls": 0,
+        "audioPack": {
+          "clips": 262,
+          "packs": 2,
+          "originalPackFilesReused": true,
+          "ttsCalls": 0
+        },
+        "checkedAt": "2026-10-18T07:32:56.436Z",
+        "oldVersionReadable": true,
+        "newVersionReadbackIdentical": true
+      },
+      "incrementalAudio": {
+        "uniqueSentences": 67,
+        "characters": 5864,
+        "estimatedCny": [
+          0.02544976,
+          0.040637519999999996
+        ],
+        "estimateBasis": "本章新增或变更文本，跨章全局复用可能进一步降低消耗；不是实收账单",
+        "generation": "正常后台队列，成功原音频永久复用"
+      },
+      "totalUses": 148,
+      "nativeReview": {
+        "checkedAt": "2026-10-18T07:15:44.380Z",
+        "findings": [],
+        "changes": []
+      }
+    },
+    {
+      "chapterId": "2026-10-11",
+      "status": "published-verified",
+      "scope": "chapter-correction",
+      "baseDigest": "e7b91abfd952098f9154d4011455626ce00ff57bdac606d9e3c448c8e2084ee4",
+      "targetDigest": "6cff62b5055ac9e0598c86f14b47dea66f2abedf8babd654b108ded665689196",
+      "sourcePin": "821651446af60912b242ea389bd6891b00381a47",
+      "words": 40,
+      "addedUses": {
+        "NEW_W003_01": "U162",
+        "NEW_W003_02": "U163",
+        "NEW_W005_01": "U164",
+        "NEW_W005_02": "U165",
+        "NEW_W009_01": "U166",
+        "NEW_W009_02": "U167",
+        "NEW_W013_01": "U168",
+        "NEW_W015_01": "U169",
+        "NEW_W016_02": "U170",
+        "NEW_W016_01": "U171",
+        "NEW_W019_01": "U172",
+        "NEW_W023_01": "U173",
+        "NEW_W024_01": "U174",
+        "NEW_W024_02": "U175",
+        "NEW_W024_03": "U176",
+        "NEW_W024_04": "U177",
+        "NEW_W024_05": "U178",
+        "NEW_W024_06": "U179",
+        "NEW_W025_01": "U180",
+        "NEW_W025_02": "U181",
+        "NEW_W025_03": "U182",
+        "NEW_W025_04": "U183",
+        "NEW_W025_05": "U184",
+        "NEW_W025_06": "U185",
+        "NEW_W025_07": "U186",
+        "NEW_W026_01": "U187",
+        "NEW_W030_01": "U188",
+        "NEW_W030_02": "U189",
+        "NEW_W030_03": "U190",
+        "NEW_W030_04": "U191",
+        "NEW_W030_05": "U192",
+        "NEW_W030_06": "U193",
+        "NEW_W030_07": "U194",
+        "NEW_W034_01": "U195",
+        "NEW_W034_02": "U196",
+        "NEW_W037_01": "U197",
+        "NEW_W040_01": "U198"
+      },
+      "articleReplacements": 9,
+      "articleInsertions": 29,
+      "semanticReview": "逐义核对全文后，修正了声线与演奏者、唱词与角色、合奏效果、闲置期及合作提议等错配标注，明确了钟声的悦耳之义和管弦乐编配义，并补齐新增用法及因改标而空缺的旧用法。新增句承接排练、演出、展览与重开过程；未改动其余成立的原句。",
+      "nativeReviewedAt": "2026-10-18T07:44:15.406Z",
+      "totalUses": 198,
+      "receipt": {
+        "ok": true,
+        "digest": "6cff62b5055ac9e0598c86f14b47dea66f2abedf8babd654b108ded665689196",
+        "manifestDigest": "37891725b8c29d06d40097775f0010b5584e19f3c56507a1d1796f682d06126d",
+        "audioReused": true,
+        "audioQueued": true,
+        "ttsCalls": 0,
+        "audioPack": {
+          "clips": 316,
+          "packs": 2,
+          "originalPackFilesReused": true,
+          "ttsCalls": 0
+        },
+        "checkedAt": "2026-10-18T07:44:36.246Z",
+        "oldVersionReadable": true,
+        "newVersionReadbackIdentical": true
+      },
+      "incrementalAudio": {
+        "uniqueSentences": 87,
+        "characters": 6836,
+        "estimatedCny": [
+          0.029668239999999995,
+          0.04737348
+        ],
+        "estimateBasis": "本章新增或变更文本，跨章全局复用可能进一步降低消耗；不是实收账单",
+        "generation": "正常后台队列，成功原音频永久复用"
+      },
+      "nativeReview": {
+        "checkedAt": "2026-10-18T07:44:15.413Z",
+        "findings": [
+          "词族扫描的 orchestrate 与 horse opera 属于相邻另一主词，已有各自正确去向",
+          "保留不同语义的语法与教材事实，修正并列音标而未放宽阅读器校验"
+        ],
+        "changes": []
+      }
+    },
+    {
+      "chapterId": "2026-10-12",
+      "status": "published-verified",
+      "scope": "chapter-correction",
+      "baseDigest": "0da38ab64e21652d49f32283cba6cc85f7dabe26d107a453c004d5af54d6a8ed",
+      "targetDigest": "db80991a465bf6d66ac629e47ae08090b1fec7bb321dc88042d76355d7c335c1",
+      "sourcePin": "821651446af60912b242ea389bd6891b00381a47",
+      "words": 40,
+      "addedUses": {
+        "NEW_W009_01": "U174",
+        "NEW_W009_02": "U175",
+        "NEW_W009_03": "U176",
+        "NEW_W012_01": "U177",
+        "NEW_W040_01": "U178",
+        "NEW_W040_02": "U179"
+      },
+      "articleReplacements": 10,
+      "articleInsertions": 7,
+      "semanticReview": "逐句核对后，保留了其余原句；修正了指代、译文与未充分体现的用法，并在原有展览和调查情节中补齐新增用法及必要的细用法。",
+      "totalUses": 179,
+      "receipt": {
+        "ok": true,
+        "digest": "db80991a465bf6d66ac629e47ae08090b1fec7bb321dc88042d76355d7c335c1",
+        "manifestDigest": "d8443e0a8e0385112a8862aaa602b34a46998c3ed13e25b1b3d3f181fe110802",
+        "audioReused": true,
+        "audioQueued": true,
+        "ttsCalls": 0,
+        "audioPack": {
+          "clips": 245,
+          "packs": 2,
+          "originalPackFilesReused": true,
+          "ttsCalls": 0
+        },
+        "checkedAt": "2026-10-18T08:04:27.452Z",
+        "oldVersionReadable": true,
+        "newVersionReadbackIdentical": true
+      },
+      "incrementalAudio": {
+        "uniqueSentences": 45,
+        "characters": 3732,
+        "estimatedCny": [
+          0.01619688,
+          0.02586276
+        ],
+        "estimateBasis": "本章新增或变更文本，跨章全局复用可能进一步降低消耗；不是实收账单",
+        "generation": "正常后台队列，成功原音频永久复用"
+      }
+    },
+    {
+      "chapterId": "2026-10-13",
+      "status": "published-verified",
+      "scope": "chapter-correction",
+      "baseDigest": "2f1b56543d395528c49a5e92189819b30c01d29c44c9b840f6be6e91c4a8a8f2",
+      "targetDigest": "fd025b01b8a9a287608380ba81d3622f33f2ee948c46b516cc2c098eb7bb466f",
+      "sourcePin": "821651446af60912b242ea389bd6891b00381a47",
+      "words": 40,
+      "addedUses": {
+        "NEW_W002_01": "U242",
+        "NEW_W004_01": "U243",
+        "NEW_W004_02": "U244",
+        "NEW_W004_03": "U245",
+        "NEW_W004_04": "U246",
+        "NEW_W005_01": "U247",
+        "NEW_W005_02": "U248",
+        "NEW_W005_03": "U249",
+        "NEW_W009_01": "U250",
+        "NEW_W014_01": "U251",
+        "NEW_W014_02": "U252",
+        "NEW_W016_01": "U253",
+        "NEW_W016_02": "U254",
+        "NEW_W016_03": "U255",
+        "NEW_W016_04": "U256",
+        "NEW_W016_05": "U257",
+        "NEW_W016_06": "U258",
+        "NEW_W016_07": "U259",
+        "NEW_W016_08": "U260",
+        "NEW_W019_01": "U261",
+        "NEW_W019_02": "U262",
+        "NEW_W019_03": "U263",
+        "NEW_W019_04": "U264",
+        "NEW_W019_05": "U265",
+        "NEW_W020_01": "U266",
+        "NEW_W020_02": "U267",
+        "NEW_W020_03": "U268",
+        "NEW_W020_04": "U269",
+        "NEW_W020_05": "U270",
+        "NEW_W020_06": "U271",
+        "NEW_W020_07": "U272",
+        "NEW_W020_08": "U273",
+        "NEW_W022_01": "U274",
+        "NEW_W023_01": "U275",
+        "NEW_W023_02": "U276",
+        "NEW_W023_03": "U277"
+      },
+      "articleReplacements": 19,
+      "articleInsertions": 36,
+      "semanticReview": "保留原有身份，修正错义、误标、语法事实及译文；为新增用法和原有细义补入与天文台重开叙事相连的句子，并逐句核对英文用法与中文译文。",
+      "nativeReviewedAt": "2026-10-18T08:54:22.040Z",
+      "totalUses": 277,
+      "receipt": {
+        "ok": true,
+        "digest": "fd025b01b8a9a287608380ba81d3622f33f2ee948c46b516cc2c098eb7bb466f",
+        "manifestDigest": "e9400f64092a50ff96c41e35a76802c63d2e1db3f3f29da8fa49d278678e66bd",
+        "audioReused": true,
+        "audioQueued": true,
+        "ttsCalls": 0,
+        "audioPack": {
+          "clips": 410,
+          "packs": 2,
+          "originalPackFilesReused": true,
+          "ttsCalls": 0
+        },
+        "checkedAt": "2026-10-18T08:54:37.898Z",
+        "oldVersionReadable": true,
+        "newVersionReadbackIdentical": true
+      },
+      "incrementalAudio": {
+        "uniqueSentences": 141,
+        "characters": 12299,
+        "estimatedCny": [
+          0.05337766,
+          0.08523207000000001
+        ],
+        "estimateBasis": "本章新增或变更文本，跨章全局复用可能进一步降低消耗；不是实收账单",
+        "generation": "正常后台队列，成功原音频永久复用"
+      },
+      "nativeReview": {
+        "checkedAt": "2026-10-18T08:54:22.051Z",
+        "findings": [
+          "核查 meteorology 与星体词族的原教材关系；nebulous/nebulizer/nebulize 均有现代教材明确条目",
+          "不从词源资料的构词名单无限扩写现代教材，未把错误的九颗行星分类当作现行事实",
+          "修正 infrared 例句的隔墙透视误导，保留正确原句",
+          "保留原有章内身份，新增三部分实际闭合"
+        ],
+        "changes": []
+      }
+    },
+    {
+      "chapterId": "2026-10-14",
+      "status": "published-verified",
+      "scope": "chapter-correction",
+      "baseDigest": "c2ca5638b06f85871e44b75879cdf37bdef5c4d7dcd1748fbc57e8482ab8c2a6",
+      "targetDigest": "8301e79bdfb1204c5b90bfd1eb0e4a2d60a148ff3e93feac84c383aff5bb8e22",
+      "sourcePin": "821651446af60912b242ea389bd6891b00381a47",
+      "words": 40,
+      "addedUses": {
+        "NEW_W002_01": "U474",
+        "NEW_W008_01": "U475",
+        "NEW_W010_01": "U476",
+        "NEW_W019_01": "U477",
+        "NEW_W025_01": "U478",
+        "NEW_W027_01": "U479",
+        "NEW_W032_01": "U480",
+        "NEW_W033_01": "U481",
+        "NEW_W036_01": "U482",
+        "NEW_W036_02": "U483",
+        "NEW_W036_03": "U484",
+        "NEW_W038_01": "U485",
+        "NEW_W038_02": "U486"
+      },
+      "articleReplacements": 40,
+      "articleInsertions": 13,
+      "semanticReview": "核查了原有逐句标注与新增用法，以必要的替换和插句修正了误标、语义与语法问题、译文偏差，并补齐新增 USE 在范文中的真实运用。",
+      "nativeReviewedAt": "2026-10-18T08:36:30.702Z",
+      "totalUses": 486,
+      "receipt": {
+        "ok": true,
+        "digest": "8301e79bdfb1204c5b90bfd1eb0e4a2d60a148ff3e93feac84c383aff5bb8e22",
+        "manifestDigest": "4318d085ecaf8413ff5db6d55d8dd3e771832589fc3e4c6627389908b05b4e93",
+        "audioReused": true,
+        "audioQueued": true,
+        "ttsCalls": 0,
+        "audioPack": {
+          "clips": 766,
+          "packs": 5,
+          "originalPackFilesReused": true,
+          "ttsCalls": 0
+        },
+        "checkedAt": "2026-10-18T08:36:45.122Z",
+        "oldVersionReadable": true,
+        "newVersionReadbackIdentical": true
+      },
+      "incrementalAudio": {
+        "uniqueSentences": 218,
+        "characters": 18721,
+        "estimatedCny": [
+          0.08124914000000001,
+          0.12973653000000002
+        ],
+        "estimateBasis": "本章新增或变更文本，跨章全局复用可能进一步降低消耗；不是实收账单",
+        "generation": "正常后台队列，成功原音频永久复用"
+      },
+      "nativeReview": {
+        "checkedAt": "2026-10-18T08:36:30.710Z",
+        "findings": [
+          "确认 foundation/found 与 find 过去式及其他同形词的区分",
+          "保留 damagingly 的损害义，不恢复源文误导性的普通程度副词解释",
+          "hall、pair、knowledge、respirator 的完整来源仅用于固定短语与交叉引用，不吞入整组无关词族",
+          "审阅新增义项及范文替换、插入；改掉可见内部编码与过程解释"
+        ],
+        "changes": []
+      }
+    }
+  ],
+  "verification": {
+    "chapterNumberAPI": "线上列表与单章均为1至8",
+    "readerUI": {
+      "checks": 103,
+      "viewport": "402x874 Chromium touch emulation, not real Safari",
+      "liveRequests": 0,
+      "paidCalls": 0,
+      "scope": "第一章完整修订的界面回归；其余章节逐章内容结构校验与线上回读"
+    },
+    "regressions": [
+      "check-first-part-upgrade",
+      "check-publishing-closure",
+      "check-audio-config"
+    ],
+    "finalLive": {
+      "checkedAt": "2026-10-18T09:06:16.403Z",
+      "chapters": [
+        {
+          "id": "2026-10-02",
+          "number": "第 1 章",
+          "digest": "3c085020398f255ba980668375a14ca972e1b59c4df205dbe275f5be52d3a8c5",
+          "bodyIdentical": true
+        },
+        {
+          "id": "2026-10-06",
+          "number": "第 2 章",
+          "digest": "0b44717f3ba7f7b9673b14145d0e1b3835ac137e15519ba71ec8b6a54784f819",
+          "bodyIdentical": true
+        },
+        {
+          "id": "2026-10-09",
+          "number": "第 3 章",
+          "digest": "e98d95338281c661bb6869916d4cb7837c3f547b03e83d7a6087dbe8c95987dc",
+          "bodyIdentical": true
+        },
+        {
+          "id": "2026-10-11",
+          "number": "第 4 章",
+          "digest": "6cff62b5055ac9e0598c86f14b47dea66f2abedf8babd654b108ded665689196",
+          "bodyIdentical": true
+        },
+        {
+          "id": "2026-10-12",
+          "number": "第 5 章",
+          "digest": "db80991a465bf6d66ac629e47ae08090b1fec7bb321dc88042d76355d7c335c1",
+          "bodyIdentical": true
+        },
+        {
+          "id": "2026-10-13",
+          "number": "第 6 章",
+          "digest": "fd025b01b8a9a287608380ba81d3622f33f2ee948c46b516cc2c098eb7bb466f",
+          "bodyIdentical": true
+        },
+        {
+          "id": "2026-10-14",
+          "number": "第 7 章",
+          "digest": "8301e79bdfb1204c5b90bfd1eb0e4a2d60a148ff3e93feac84c383aff5bb8e22",
+          "bodyIdentical": true
+        },
+        {
+          "id": "2026-10-18",
+          "number": "第 8 章",
+          "digest": "b3d9a9987471597116019d3ab2c99113d5dfc462def6fbfb9eee9f9adebeefef",
+          "bodyIdentical": true
+        }
+      ]
+    }
+  },
+  "operations": {
+    "workerVersion": "cd8c8857-5218-44f9-b366-d73b01bedaab",
+    "newRecurringCost": 0,
+    "paidAudioPolicy": "复用原成功索引，只为真实新增或变更文本生成；未知计费保护继续有效",
+    "incrementalAudioBudgetCny": [
+      0.27661424,
+      0.44169048
+    ],
+    "incrementalAudioBudgetBasis": "本批新增/改变的句子文本估算；成功音频复用，非实收账单",
+    "audioQueue": {
+      "checkedAt": "2026-10-18T09:13:18.758Z",
+      "jobs": [
+        {
+          "id": "audio-correction-20261018-2026-10-02",
+          "chapter_id": "2026-10-02",
+          "state": "completed",
+          "total": 143,
+          "cursor": 143,
+          "error": ""
+        },
+        {
+          "id": "audio-correction-20261018-2026-10-06",
+          "chapter_id": "2026-10-06",
+          "state": "completed",
+          "total": 440,
+          "cursor": 440,
+          "error": ""
+        },
+        {
+          "id": "audio-correction-20261018-2026-10-09",
+          "chapter_id": "2026-10-09",
+          "state": "completed",
+          "total": 329,
+          "cursor": 329,
+          "error": ""
+        },
+        {
+          "id": "audio-correction-20261018-2026-10-11",
+          "chapter_id": "2026-10-11",
+          "state": "completed",
+          "total": 403,
+          "cursor": 403,
+          "error": ""
+        },
+        {
+          "id": "audio-correction-20261018-2026-10-12",
+          "chapter_id": "2026-10-12",
+          "state": "completed",
+          "total": 290,
+          "cursor": 290,
+          "error": ""
+        },
+        {
+          "id": "audio-correction-20261018-2026-10-13",
+          "chapter_id": "2026-10-13",
+          "state": "pending",
+          "total": 0,
+          "cursor": 0,
+          "error": null
+        },
+        {
+          "id": "audio-correction-20261018-2026-10-14",
+          "chapter_id": "2026-10-14",
+          "state": "running",
+          "total": 984,
+          "cursor": 450,
+          "error": ""
+        }
+      ]
+    },
+    "audioQueueMeaning": "文字七章已发布核验；补充句音频由既有独立服务续作，未将排队冒充全部生成完成。"
+  },
+  "limitations": [
+    "结构检查不作为语义正确证明，逐词来源去向和完整范文审阅保留在工作资料。"
+  ],
+  "sourceDecisions": [
+    {
+      "chapterId": "2026-10-06",
+      "wordId": "W018",
+      "decision": "Teach supported verb and derivative meanings, preserve the Oxford noun POS-only discrepancy without inventing a definition",
+      "sources": [
+        "https://www.merriam-webster.com/dictionary/evacuative",
+        "https://www.collinsdictionary.com/us/dictionary/english/evacuate"
+      ],
+      "at": "2026-10-18T08:04:09.837Z"
+    },
+    {
+      "chapterId": "2026-10-13",
+      "wordId": "W020",
+      "decision": "Do not expand the modern syllabus solely from etymology derivative lists",
+      "verified": "https://www.merriam-webster.com/dictionary/nebulization",
+      "at": "2026-10-18T08:21:48.859Z"
+    }
+  ],
+  "contentTotals": {
+    "words": 280,
+    "originalUses": 1411,
+    "newUses": 149,
+    "currentUses": 1560
+  }
+}

@@ -19,6 +19,7 @@ async function seed(chapterId,suffix=''){const markdown=original+suffix,baseDige
 const post=async(b,store=bucket,publisher=true,environment=env)=>{const r=await firstPartUpgradeRoute(new Request('https://fixture/api/publish/upgrade-first-part',{method:'POST',body:JSON.stringify(b)}),environment,publisher,store);return{status:r.status,value:await r.json()};};
 const b=await seed('2026-10-02');assert.equal((await post(b,bucket,false)).status,403);assert.equal((await post(null)).status,400);
 assert.throws(()=>validateFirstPartUpgrade(original,changed(original)+'\n'),/逐字节/);
+assert.throws(()=>validateFirstPartUpgrade(original,changed(original).replace('<!-- USE:U001 -->','内部参见 U001。\n<!-- USE:U001 -->')),/不能显示内部编码/);
 assert.throws(()=>validateFirstPartUpgrade(original,changed(original).replace('USE:U001','USE:TEMP').replace('USE:U002','USE:U001').replace('USE:TEMP','USE:U002')),/USE 身份/);
 sql.prepare('INSERT INTO chapter_audio_scopes(chapter_id,chapter_digest) VALUES(?,?)').run(b.chapterId,b.baseDigest);
 sql.prepare('INSERT INTO pronunciation_results(generation_digest,content_digest,record_digest,bytes,created_at) VALUES(?,?,?,?,?)').run(Buffer.alloc(32,1),Buffer.alloc(32,2),Buffer.alloc(32,3),123,1);
@@ -41,4 +42,22 @@ let interleaved=false;const interleaving={...db,prepare(q){const statement=db.pr
 const stale=await worker.fetch(new Request('https://fixture/api/publish/commit',{method:'POST',headers:{authorization:'Bearer fixture','content-type':'application/json'},body:JSON.stringify({runId:late.chapterId,digest:normalDigest})}),{...env,DB:interleaving});assert.equal(stale.status,409);assert.equal(sql.prepare('SELECT digest FROM published_chapters WHERE chapter_id=?').get(late.chapterId).digest,late.targetDigest);
 const sourcePack={chapterId:b.chapterId,digest:b.baseDigest,packs:[{key:'original-paid-pack.bin'}],clips:[{id:'clip',voice:'af_bella',text:audioUnits(original)[0].text,pack:0},{id:'old-word',voice:'af_bella',text:'adversity',pack:0}]};let savedManifest=null,packReads=0;
 const pack=await reuseFirstPartAudioPack({chapterId:b.chapterId,baseDigest:b.baseDigest,targetDigest:b.targetDigest,markdown:b.markdown,request:async(route,method='GET',body)=>{assert.ok(route.startsWith('/api/storage/'),'Never invoke a synthesis endpoint');if(route.startsWith('/api/storage/chapters/'))return ++packReads===1?sourcePack:savedManifest;if(method==='PUT'){savedManifest=JSON.parse(body);return{digest:await digestText(body)};}if(route==='/api/storage/publish-pack')return{ok:true};throw Error('Unexpected request');}});assert.equal(pack.clips,1);assert.equal(savedManifest.packs[0].key,sourcePack.packs[0].key);assert.equal(sourcePack.digest,b.baseDigest);assert.equal(savedManifest.digest,b.targetDigest);
-console.log(JSON.stringify({scopeAndByteProtection:true,immutableOldRecords:true,audioReusedWithoutGeneration:true,idempotence:true,preservedDateAndSettings:true,noPushOrAudioRequests:true,oldPublisherReplayBlocked:true,concurrentPointerProtected:true,audioLinkFailureDoesNotPublish:true,paidCalls:0}));sql.close();
+// A correction is a new immutable revision, not a replay or overwrite of the
+// already published upgrade. It must carry the main-protocol review handoff.
+const corrected=changed(b.markdown),correction={...b,runId:'correction-20261018-'+b.chapterId,baseDigest:b.targetDigest,targetDigest:await digestText(corrected),markdown:corrected};
+correction.manifest={scope:'first-part',baseDigest:correction.baseDigest,targetDigest:correction.targetDigest};
+assert.equal((await post(correction)).status,400);
+correction.manifest.authority='formal-main';correction.manifest.words=Array.from({length:40},(_,i)=>({wordId:'W'+i,coverage:[{sourceId:'fixture',facts:'fixture',destination:'fixture'}]}));
+assert.equal((await post(correction)).status,200);assert.equal((await post(correction)).value.reused,true);
+assert.equal((await post(b)).status,409);assert.equal(sql.prepare('SELECT COUNT(*) n FROM chapter_first_part_upgrades WHERE chapter_id=?').get(b.chapterId).n,2);
+assert.equal(files.get('chapters/'+b.chapterId+'/'+b.targetDigest+'.md'),b.markdown);
+assert.equal(sql.prepare('SELECT COUNT(*) n FROM pronunciation_results').get().n,1);assert.equal(sql.prepare('SELECT COUNT(*) n FROM audio_requests').get().n,0);
+const full=await seed('2026-10-12','\n\n\n\n'),p=full.markdown.split('<!-- PART:two -->'),q=p[1].split('<!-- PART:three -->');
+p[0]=p[0].replace('<!-- WORD:W002 -->','<!-- USE:U999 -->\n## adversity · 隔离夹具 /ədˈvɝsəti/\n`仅验证新增用法的非教学数据`\n\n<!-- WORD:W002 -->');
+q[0]=q[0].replace('<!-- WORD:W002 -->','<!-- EXAMPLE:U999 -->\nThis is a fixture sentence.\n`这是隔离夹具。`\n\n<!-- WORD:W002 -->');
+full.markdown=p[0]+'<!-- PART:two -->'+q[0]+'<!-- PART:three -->'+q[1]+'\n<!-- SENTENCE:S999 USE:U999 -->\nThis is a fixture article sentence.\n`这是隔离的范文夹具。`\n';full.targetDigest=await digestText(full.markdown);full.runId='correction-20261018-'+full.chapterId;
+full.manifest={...correction.manifest,scope:'chapter-correction',baseDigest:full.baseDigest,targetDigest:full.targetDigest};
+const repaired=await post(full);assert.equal(repaired.status,200);assert.equal(repaired.value.audioQueued,true);assert.equal((await post(full)).value.reused,true);
+assert.equal(sql.prepare("SELECT COUNT(*) n FROM audio_requests WHERE source='correction'").get().n,1);
+assert.equal(JSON.stringify(sql.prepare('SELECT * FROM audio_next_config').get()),settings,'Repairs do not consume the next daily audio option');
+console.log(JSON.stringify({scopeAndByteProtection:true,immutableOldRecords:true,audioReusedWithoutGeneration:true,idempotence:true,preservedDateAndSettings:true,narrowUpgradeDoesNotQueueAudio:true,fullCorrectionQueuesOneAudioRequest:true,oldPublisherReplayBlocked:true,concurrentPointerProtected:true,audioLinkFailureDoesNotPublish:true,formalProtocolCorrectionIsNewRevision:true,paidCalls:0}));sql.close();
