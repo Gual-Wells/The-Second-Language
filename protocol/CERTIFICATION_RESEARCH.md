@@ -2,7 +2,7 @@
 
 ## 当前卷轴工程规范（2026-10-17）
 
-正文、章印、不可变身份、时间、版式及卷展执行 [CHARTER](CHARTER.md)。v11的官方认证定位、姓名主位与大正方印已被否决，旧页保留。研究在`research/scroll-lab-v12`；当前可操作样品`/labs/chapter-scroll-v12/`及原件`research/scroll-lab-v12-sample`，含第一章原创题辞、局部边饰与两种小藏记的原位比较。样品不等于艺术已验收，生产认证未启用，以下旧轮次按历史记录阅读。
+正文、章印、不可变身份、时间、版式及卷展执行 [CHARTER](CHARTER.md)。v11的官方认证定位、姓名主位与大正方印已被否决，旧页保留。研究在`research/scroll-lab-v12`；第一章可操作样品`/labs/chapter-scroll-v12/`及原件`research/scroll-lab-v12-sample`，用户已肯定其长方藏记和文书。第五章第二样品`/labs/chapter-scroll-v13/`及原件`research/scroll-lab-v13-sample`使用独立整体构思与不同版式，艺术审阅待交付后进行。生产认证未启用，以下旧轮次按历史记录阅读。
 
 正式章节测试仍未启用认证；本协议和样品不创建正式通过记录、不恢复纪念币。以下初版卷轴记录为历史起点，不能当作最新实现。
 

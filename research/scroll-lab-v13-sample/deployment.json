@@ -1,0 +1,306 @@
+{
+  "immutable": "https://083b4bad.the-second-language.pages.dev/labs/chapter-scroll-v13/",
+  "alias": "https://scroll-lab.the-second-language.pages.dev/labs/chapter-scroll-v13/",
+  "verifiedAt": "2026-10-18T06:38:10.789Z",
+  "state": {
+    "progress": 1,
+    "paperProgress": 1,
+    "renderCount": 9,
+    "vertices": 14893,
+    "camera": [
+      0,
+      0,
+      12
+    ],
+    "keeperVisible": false,
+    "viewHeight": 8.116887019230768,
+    "drawBuffer": {
+      "width": 1170,
+      "height": 1862
+    },
+    "deformation": "Continuous GPU winding and shared rest displacement",
+    "keeperMotion": "loosen, unthread, then approach; exact reverse on closing",
+    "keeperSize": [
+      0.41,
+      0.77
+    ],
+    "specularIntensity": 0,
+    "toneMapping": "none; preserve source colors",
+    "restCurl": true,
+    "cameraType": "PerspectiveCamera",
+    "keeperPose": {
+      "x": -3.2649999999999997,
+      "y": -0.025,
+      "z": 0.895,
+      "rotationZ": -0.11,
+      "rotationY": 0.16,
+      "loosen": 1,
+      "opacity": 0,
+      "visible": false,
+      "phase": "off",
+      "radius": 0.30201379091612,
+      "paperProgress": 1,
+      "model": "layered hoop + rigid buckle + authored tight/loose morph",
+      "depthTest": true,
+      "depthWrite": true
+    },
+    "sealRelief": true,
+    "ready": true,
+    "animating": false,
+    "chapterId": "2026-10-12",
+    "issued": false,
+    "layout": {
+      "width": 2048,
+      "height": 2868,
+      "nominalSizeMM": [
+        300,
+        420
+      ],
+      "artPlanId": "SL-CH05-LEAF-LETTER-1",
+      "artPlanDigest": "babdc4fa311113df30933e359998798c84fe8b329fd8b591ddeb7009973e220a",
+      "composition": "horizontal-miniature-and-centered-verse",
+      "paperVariant": "mirror-x",
+      "sealVersion": "SL-KEEPSAKE-1",
+      "sealVariant": "oblong",
+      "sealBox": {
+        "x": 338,
+        "y": 2500,
+        "width": 285,
+        "height": 131
+      },
+      "ornamentBox": {
+        "x": 300,
+        "y": 900,
+        "width": 1448,
+        "height": 640,
+        "opacity": 0.91
+      },
+      "ornamentDigest": "e5aa04af52dde8cc3f32d0d9dfac3fe1696ef6d275c0514d7e0c0065f517d9c5",
+      "printedFonts": [
+        "Aboensis"
+      ],
+      "textBounds": [
+        {
+          "block": "chapter",
+          "text": "Chapter V",
+          "left": 889.7440338134766,
+          "right": 1162.1279754638672,
+          "top": 248,
+          "bottom": 344
+        },
+        {
+          "block": "artTitle",
+          "text": "Of Leaf",
+          "left": 822.0690155029297,
+          "right": 1250.3350067138672,
+          "top": 395,
+          "bottom": 551
+        },
+        {
+          "block": "artTitle",
+          "text": "and Letter",
+          "left": 756.8250122070312,
+          "right": 1301.9209594726562,
+          "top": 553,
+          "bottom": 662
+        },
+        {
+          "block": "chapterTitle",
+          "text": "Words Unfinished in the Valley",
+          "left": 671.2451171875,
+          "right": 1377.8028564453125,
+          "top": 728,
+          "bottom": 814
+        },
+        {
+          "block": "stanza1",
+          "text": "A reed gives breath a voice.",
+          "left": 535.3700256347656,
+          "right": 1509.8699645996094,
+          "top": 1602,
+          "bottom": 1704
+        },
+        {
+          "block": "stanza1",
+          "text": "Old ink outlives the hand.",
+          "left": 557.5850524902344,
+          "right": 1490.6549987792969,
+          "top": 1741,
+          "bottom": 1857
+        },
+        {
+          "block": "stanza2",
+          "text": "A seed lies in the fold,",
+          "left": 622.3099975585938,
+          "right": 1424.6900024414062,
+          "top": 1932,
+          "bottom": 2037
+        },
+        {
+          "block": "stanza2",
+          "text": "holding a season yet to come.",
+          "left": 504.58502197265625,
+          "right": 1535.6549682617188,
+          "top": 2078,
+          "bottom": 2192
+        },
+        {
+          "block": "colophon",
+          "text": "For Gual Wells, in remembrance of Chapter V",
+          "left": 494.84814453125,
+          "right": 1555.2958984375,
+          "top": 2268,
+          "bottom": 2353
+        },
+        {
+          "block": "colophon",
+          "text": "and its trial successfully completed.",
+          "left": 642.1156311035156,
+          "right": 1405.1923522949219,
+          "top": 2361,
+          "bottom": 2423
+        },
+        {
+          "block": "identity",
+          "text": "18 October 2026",
+          "left": 825,
+          "right": 1136.2059326171875,
+          "top": 2474,
+          "bottom": 2515
+        },
+        {
+          "block": "identity",
+          "text": "14:06:37.007  +08:00",
+          "left": 825,
+          "right": 1202.3838500976562,
+          "top": 2546,
+          "bottom": 2604
+        },
+        {
+          "block": "identity",
+          "text": "D320 6A22 91E2 E6E7",
+          "left": 824,
+          "right": 1315.3578796386719,
+          "top": 2616,
+          "bottom": 2676
+        },
+        {
+          "block": "status",
+          "text": "Specimen — Not issued",
+          "left": 820.2784729003906,
+          "right": 1230.2015075683594,
+          "top": 2732,
+          "bottom": 2792
+        }
+      ],
+      "issued": false,
+      "recipient": "Gual Wells",
+      "identity": [
+        "D320 6A22 91E2 E6E7",
+        "18 October 2026",
+        "14:06:37.007  +08:00"
+      ],
+      "artifactDigest": "d3206a2291e2e6e7312053763c3c6a599f16efd2eb5e5a5736a64ec187b89a05",
+      "artSeed": 3542116898
+    },
+    "mist": {
+      "available": true,
+      "enabled": false,
+      "frames": 3,
+      "motionPeakMps": 0,
+      "ambientDose": 0.1266306681216107,
+      "visibleDomain": {
+        "left": 0.18749999999999997,
+        "right": 0.8125,
+        "bottom": 0.11538461538461538,
+        "top": 0.8846153846153845
+      }
+    }
+  },
+  "record": {
+    "status": "specimen",
+    "recipient": "Gual Wells",
+    "sha256": "d3206a2291e2e6e7312053763c3c6a599f16efd2eb5e5a5736a64ec187b89a05",
+    "canonicalPayload": "[\"second-language.memento.v3\",\"specimen\",\"2026-10-12\",5,\"0da38ab64e21652d49f32283cba6cc85f7dabe26d107a453c004d5af54d6a8ed\",\"河谷里未说完的话\",\"Words Unfinished in the Valley\",\"second-language-owner\",\"Gual Wells\",null,null,null,null,\"2026-10-18T06:06:37.007Z\",\"SL-MEMENTO-13\",\"manuscript-memento-v13\",\"babdc4fa311113df30933e359998798c84fe8b329fd8b591ddeb7009973e220a\",\"e5aa04af52dde8cc3f32d0d9dfac3fe1696ef6d275c0514d7e0c0065f517d9c5\",\"oblong\",\"The Second Language\",\"Chapter V\",\"Of Leaf and Letter\",\"Words Unfinished in the Valley\",[[\"A reed gives breath a voice.\",\"Old ink outlives the hand.\"],[\"A seed lies in the fold,\",\"holding a season yet to come.\"]],[\"For Gual Wells, in remembrance of Chapter V\",\"and its trial successfully completed.\"],[\"The Second Language\",\"In remembrance\"],\"Specimen — Not issued\"]",
+    "proof": {
+      "sampleTime": "2026-10-18T06:06:37.007Z"
+    },
+    "sealVariant": "oblong",
+    "artPlanDigest": "babdc4fa311113df30933e359998798c84fe8b329fd8b591ddeb7009973e220a",
+    "source": {
+      "commit": "21bd29066df595c3ae7bd08ee638a5a8cc77c12b",
+      "chapterId": "2026-10-12",
+      "chapterNumber": 5,
+      "chapterDigest": "0da38ab64e21652d49f32283cba6cc85f7dabe26d107a453c004d5af54d6a8ed",
+      "title": "河谷里未说完的话"
+    }
+  },
+  "assets": [
+    {
+      "path": "/labs/chapter-scroll-v13/app.js",
+      "status": 200,
+      "matchesLocal": true
+    },
+    {
+      "path": "/labs/chapter-scroll-v13/charter.js",
+      "status": 200,
+      "matchesLocal": true
+    },
+    {
+      "path": "/labs/chapter-scroll-v13/document.js",
+      "status": 200,
+      "matchesLocal": true
+    },
+    {
+      "path": "/labs/chapter-scroll-v13/templates.js",
+      "status": 200,
+      "matchesLocal": true
+    },
+    {
+      "path": "/labs/chapter-scroll-v13/art-plan.json",
+      "status": 200,
+      "matchesLocal": true
+    },
+    {
+      "path": "/labs/chapter-scroll-v13/chapter-sample.json",
+      "status": 200,
+      "matchesLocal": true
+    },
+    {
+      "path": "/labs/chapter-scroll-v13/assets/leaf-and-letter.png",
+      "status": 200,
+      "matchesLocal": true
+    },
+    {
+      "path": "/styles.css",
+      "status": 200,
+      "matchesLocal": true
+    },
+    {
+      "path": "/labs/chapter-scroll-v12/",
+      "status": 200
+    },
+    {
+      "path": "/labs/chapter-scroll-v11/",
+      "status": 200
+    },
+    {
+      "path": "/api/session",
+      "status": 200
+    },
+    {
+      "path": "/api/practice",
+      "status": 401
+    }
+  ],
+  "errors": [],
+  "checks": {
+    "normalTouchOpenClose": true,
+    "recordStable": true,
+    "detailAndTranscript": true,
+    "chapterOneNavigationAndIdentity": true
+  },
+  "environment": "402x874 DPR3 Chromium software WebGL; not physical iPhone/Safari performance",
+  "builtInImageGenerations": 1,
+  "newExternalPaidCalls": 0
+}

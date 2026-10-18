@@ -1,0 +1,183 @@
+{
+  "schema": "second-language.art-plan.v1",
+  "id": "SL-CH05-LEAF-LETTER-1",
+  "series": "manuscript-keepsake",
+  "source": {
+    "commit": "21bd29066df595c3ae7bd08ee638a5a8cc77c12b",
+    "chapterId": "2026-10-12",
+    "chapterNumber": 5,
+    "chapterDigest": "0da38ab64e21652d49f32283cba6cc85f7dabe26d107a453c004d5af54d6a8ed",
+    "title": "河谷里未说完的话"
+  },
+  "intention": "芦管承载声音、旧墨保存手迹、种子保留来季；以一幅横向小画与居中双节题辞共同表现河谷的留存与继续。",
+  "copy": {
+    "artTitle": "Of Leaf and Letter",
+    "artTitleLines": [
+      "Of Leaf",
+      "and Letter"
+    ],
+    "chapterEnglishTitle": "Words Unfinished in the Valley",
+    "stanzas": [
+      [
+        "A reed gives breath a voice.",
+        "Old ink outlives the hand."
+      ],
+      [
+        "A seed lies in the fold,",
+        "holding a season yet to come."
+      ]
+    ],
+    "translation": {
+      "artTitle": "叶与书简",
+      "chapterEnglishTitle": "河谷里未说完的话",
+      "stanzas": [
+        [
+          "芦管赋予气息以声音。",
+          "旧墨长存，落笔的手已成往昔。"
+        ],
+        [
+          "一粒种子卧于折页之间，",
+          "怀抱着尚未来临的季节。"
+        ]
+      ]
+    }
+  },
+  "resources": {
+    "ornament": {
+      "src": "assets/leaf-and-letter.png",
+      "sha256": "e5aa04af52dde8cc3f32d0d9dfac3fe1696ef6d275c0514d7e0c0065f517d9c5"
+    },
+    "paper": {
+      "src": "../chapter-scroll-v6/assets/charter.webp",
+      "sha256": "d01394d89626dff45630d4ecefb4592dbdea49e7fea6667083a1bca8756624f8",
+      "variant": "mirror-x"
+    },
+    "font": {
+      "src": "../chapter-scroll/assets/Aboensis-Regular.otf",
+      "sha256": "0ad00fb94899b3a8277680377eb7270c5fb3ee73dd9fefbd6fb31d9f94c4707b",
+      "family": "Aboensis"
+    }
+  },
+  "layout": {
+    "width": 2048,
+    "height": 2868,
+    "nominalSizeMM": [
+      300,
+      420
+    ],
+    "blocks": [
+      {
+        "id": "chapter",
+        "x": 1024,
+        "y": 310,
+        "width": 1420,
+        "fontSize": 64,
+        "lineHeight": 80,
+        "align": "center",
+        "color": "#58372d"
+      },
+      {
+        "id": "artTitle",
+        "x": 1024,
+        "y": 495,
+        "width": 1460,
+        "fontSize": 126,
+        "lineHeight": 158,
+        "align": "center",
+        "color": "#30251b"
+      },
+      {
+        "id": "chapterTitle",
+        "x": 1024,
+        "y": 785,
+        "width": 1480,
+        "fontSize": 54,
+        "lineHeight": 75,
+        "align": "center",
+        "color": "#58372d"
+      },
+      {
+        "id": "stanza1",
+        "x": 1024,
+        "y": 1665,
+        "width": 1450,
+        "fontSize": 90,
+        "lineHeight": 145,
+        "align": "center",
+        "color": "#30251b"
+      },
+      {
+        "id": "stanza2",
+        "x": 1024,
+        "y": 1995,
+        "width": 1450,
+        "fontSize": 90,
+        "lineHeight": 145,
+        "align": "center",
+        "color": "#30251b"
+      },
+      {
+        "id": "colophon",
+        "x": 1024,
+        "y": 2320,
+        "width": 1480,
+        "fontSize": 53,
+        "lineHeight": 78,
+        "align": "center",
+        "color": "#30251b"
+      },
+      {
+        "id": "identity",
+        "x": 825,
+        "y": 2510,
+        "width": 910,
+        "fontSize": 46,
+        "lineHeight": 72,
+        "align": "left",
+        "color": "#30251b"
+      },
+      {
+        "id": "status",
+        "x": 1024,
+        "y": 2760,
+        "width": 1400,
+        "fontSize": 40,
+        "lineHeight": 60,
+        "align": "center",
+        "color": "#30251b"
+      }
+    ],
+    "ornament": {
+      "x": 300,
+      "y": 900,
+      "width": 1448,
+      "height": 640,
+      "opacity": 0.91
+    },
+    "seal": {
+      "x": 338,
+      "y": 2500,
+      "width": 285,
+      "height": 131
+    },
+    "textSafeRect": {
+      "x": 190,
+      "y": 170,
+      "width": 1668,
+      "height": 2635
+    },
+    "reservedOrnamentBottom": 1540,
+    "inkWearVersion": "dry-quill-1"
+  },
+  "models": {
+    "creativePolicy": {
+      "model": "gpt-6.1-sol",
+      "reasoningEffort": "xhigh"
+    },
+    "runtimeVerification": "Current conversation; local default checked. Per-run model attestation not available in artifact pipeline.",
+    "imageTool": "built-in imagegen",
+    "imageModel": "not exposed by tool",
+    "imageQuality": "not exposed by tool"
+  },
+  "productionStatus": "specimen-only"
+}

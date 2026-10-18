@@ -644,3 +644,5 @@ textarea.text-input { resize: vertical; }
 .scroll-proof-options button { flex: 1; min-height: 33px; font-size: 13px; }
 .scroll-proof-options button[aria-pressed=true] { background: linear-gradient(#547a96,#84a0b3); color: #fff; box-shadow: inset 0 1px 3px #405e73; }
 .scroll-lab.scroll-object-only .scroll-proof-options { display: none; }
+.scroll-lab-v13 .scroll-proof-options a { flex: 1; min-height: 33px; display: flex; align-items: center; justify-content: center; font-size: 13px; text-decoration: none; }
+.scroll-lab-v13 .scroll-proof-options a[aria-current=page] { background: linear-gradient(#547a96,#84a0b3); color: #fff; box-shadow: inset 0 1px 3px #405e73; }

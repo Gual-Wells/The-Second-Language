@@ -1,0 +1,25 @@
+{
+  "sourceCommit": "21bd29066df595c3ae7bd08ee638a5a8cc77c12b",
+  "path": "chapters/2026-10-12/chapter.json",
+  "chapterDigest": "0da38ab64e21652d49f32283cba6cc85f7dabe26d107a453c004d5af54d6a8ed",
+  "sourceBlobSHA256": "cb9d39ae9f4228456b3a5a7cbb169efef43c1ea4fbabbe22b6d26fb90759f25e",
+  "number": "第 5 章",
+  "title": "河谷里未说完的话",
+  "connections": [
+    {
+      "location": "Part I, W034/U142-U149; Part II corresponding examples; Part III S007/S031",
+      "meaning": "reed: plant/stem and musical pipe/reed; visual reed pipe represents breath becoming voice."
+    },
+    {
+      "location": "Part I W013/U058-U064; Part III S013/S014; W026/U101; S010",
+      "meaning": "germinate and oak; seed at folded leaf is an original symbolic combination, not a claimed scene from the story."
+    },
+    {
+      "location": "Part I W037/U161-U162; Part III S024/S053/S054/S067/S068/S074",
+      "meaning": "specimen, old handwriting, records and letters; collected traces keep a valley conversation alive."
+    }
+  ],
+  "excerpt": " USE:U161,U162 -->\nMara labelled a preserved plant as a scientific specimen and placed a specimen of the first miller's handwriting beside it.\n`玛拉把一株保存下来的植物标为科学标本，又在旁边放上一份首任磨坊主的笔迹样本。`\n",
+  "titleTranslation": "Words Unfinished in the Valley is the keepsake translation; Of Leaf and Letter is the separate artistic title.",
+  "differenceFromChapterOne": "Horizontal miniature and centered two-stanza text replace the first specimen’s narrow left margin and right prose. Same series paper and seal; paper mother texture mirrored, not newly generated."
+}

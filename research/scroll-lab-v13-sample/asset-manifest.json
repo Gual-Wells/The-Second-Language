@@ -1,0 +1,70 @@
+{
+  "edition": "SL-MEMENTO-13",
+  "hashes": [
+    {
+      "path": "web/owner-identity.js",
+      "bytes": 251,
+      "sha256": "26ed977f96217f9978d18ceea3277eb1ec4bb4c3a99548bdb6b1ee539b803a0d"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v13/app.js",
+      "bytes": 8990,
+      "sha256": "2316faa7c976037f91b1cb205b163ef6092a2faf0d6153845fec5576973e6aec"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v13/charter.js",
+      "bytes": 2707,
+      "sha256": "2d6ec8b37d97ead2f2a22d75ac8322e86d9f44545558b01b709264f79ff22281"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v13/document.js",
+      "bytes": 3982,
+      "sha256": "cb4b191b00ef59f445c7e95f1891b3f13d9f2bf1c8a8b45fbcb75af6bcc93c97"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v13/templates.js",
+      "bytes": 739,
+      "sha256": "d5ed5306a7f1111dc5d7eb83471e8d768881d80346a4c421bdd51391b373a5b9"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v13/art-plan.json",
+      "bytes": 4456,
+      "sha256": "babdc4fa311113df30933e359998798c84fe8b329fd8b591ddeb7009973e220a"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v13/chapter-sample.json",
+      "bytes": 416,
+      "sha256": "396d370efc92ef9df74f0e58fc17568722a114d9df6bd63a3a0d28a7fbc71de9"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v13/assets/leaf-and-letter.png",
+      "bytes": 1561703,
+      "sha256": "e5aa04af52dde8cc3f32d0d9dfac3fe1696ef6d275c0514d7e0c0065f517d9c5"
+    },
+    {
+      "path": "web/labs/chapter-scroll/assets/Aboensis-Regular.otf",
+      "bytes": 137860,
+      "sha256": "0ad00fb94899b3a8277680377eb7270c5fb3ee73dd9fefbd6fb31d9f94c4707b"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v6/assets/charter.webp",
+      "bytes": 735602,
+      "sha256": "d01394d89626dff45630d4ecefb4592dbdea49e7fea6667083a1bca8756624f8"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v12/seal.js",
+      "bytes": 4398,
+      "sha256": "fdee222f343df88dccbe8b035724fde16bd41df3b6825e8aaa8aa336ed22fbe1"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v10/assets/ink-shoulder.png",
+      "bytes": 758302,
+      "sha256": "5dbfab038a6ba4a9cb7f047beed26c4c105fa1cab46143479fb3bbab4c66dd2c"
+    },
+    {
+      "path": "research/scroll-lab-v13-sample/document.png",
+      "bytes": 10867605,
+      "sha256": "eb4668ca2d837429aa180537065e7b20c39a58d15357517195b843867871d08d"
+    }
+  ]
+}
