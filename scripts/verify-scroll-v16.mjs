@@ -1,0 +1,29 @@
+import assert from 'node:assert/strict';
+import {mkdir,readFile,writeFile} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+import {pathToFileURL} from 'node:url';
+import {createServer} from './serve-scroll-lab.mjs';
+const out='research/scroll-keeper-integration-2026-10-19';await mkdir('.cache/keeper-integration/video',{recursive:true});process.env.TEMP=process.env.TMP=process.cwd()+'/.cache/keeper-integration/tmp';
+const {chromium}=await import(pathToFileURL('D:/CodexStorage/workspaces/second-language-maintenance/.cache/browser-tools/package/index.mjs'));
+const remote=process.argv[2],server=remote?null:createServer();if(server)await new Promise(r=>server.listen(0,'127.0.0.1',r));const base=remote??`http://127.0.0.1:${server.address().port}`;
+const browser=await chromium.launch({headless:true,executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe',...(remote?{proxy:{server:'http://127.0.0.1:6987'}}:{}),args:['--no-first-run']});
+try{
+ const ctx=await browser.newContext({viewport:{width:402,height:874},deviceScaleFactor:3,isMobile:true,hasTouch:true,serviceWorkers:'block',recordVideo:{dir:'.cache/keeper-integration/video',size:{width:402,height:874}}}),page=await ctx.newPage(),errors=[],writes=[];
+ page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>{if(r.method()!=='GET')writes.push(r.url());});
+ await page.addInitScript(()=>{window.motionFrames=[];const raf=requestAnimationFrame;window.requestAnimationFrame=f=>raf.call(window,t=>{f(t);const s=window.scrollSpecimen?.snapshot();if(s?.animating)motionFrames.push({t,p:s.progress,paper:s.paperProgress,phase:s.keeperPose.phase,programs:s.runtime.programs});});});
+ await page.goto(base+'/labs/chapter-scroll-v16/');await page.waitForFunction(()=>window.scrollSpecimen?.snapshot().ready,null,{timeout:120000});
+ const cold=await page.evaluate(()=>scrollSpecimen.snapshot());assert.equal(cold.progress,0);assert.equal(cold.keeperPose.bones,76);assert.equal(cold.keeperPose.usesFade,false);assert.equal(cold.keeperPose.usesStrapDeformation,false);
+ const record=await page.evaluate(()=>scrollSpecimen.exportRecord());assert.equal(createHash('sha256').update(record.canonicalPayload).digest('hex'),record.sha256);
+ const previous=JSON.parse(await readFile('research/scroll-lab-v14/inspection.json'));assert.equal(record.sha256,previous.record.sha256,'Paper/content identity preserved');
+ await page.evaluate(()=>scrollSpecimen.open());await page.waitForFunction(()=>!scrollSpecimen.snapshot().animating&&scrollSpecimen.snapshot().progress===1,null,{timeout:60000});
+ const frames=await page.evaluate(()=>[...new Map(motionFrames.map(f=>[f.t,f])).values()]);assert.ok(frames.some(f=>f.phase==='axial-slip'));assert.ok(frames.some(f=>f.phase==='depart'));assert.ok(frames.every(f=>f.programs===cold.runtime.programs),'No first-action shader compilation');assert.ok(frames.every(f=>f.p>=.34||f.paper===0),'Paper waits for the keeper');
+ const jumps=frames.slice(1).map((f,i)=>f.p-frames[i].p);assert.ok(Math.max(...jumps)<.06);
+ await page.evaluate(()=>scrollSpecimen.close());await page.waitForFunction(()=>scrollSpecimen.snapshot().progress<.55);await page.locator('#scrollCanvas').tap();await page.waitForFunction(()=>!scrollSpecimen.snapshot().animating,null,{timeout:60000});assert.equal((await page.evaluate(()=>scrollSpecimen.snapshot())).progress,1);
+ await page.evaluate(()=>scrollSpecimen.close());await page.waitForFunction(()=>!scrollSpecimen.snapshot().animating,null,{timeout:60000});assert.equal((await page.evaluate(()=>scrollSpecimen.snapshot())).keeperPose.phase,'fastened');
+ await page.locator('#detail').tap();await page.locator('#detailZoom').tap();assert.ok(await page.locator('.scroll-document-detail').evaluate(e=>e.scrollWidth>e.clientWidth));assert.match(await page.locator('#transcriptContent').textContent(),/Gual Wells/);await page.locator('button[aria-label="关闭"]').tap();
+ await page.evaluate(()=>{const gl=document.querySelector('#scrollCanvas').getContext('webgl2');window.loseContext=gl.getExtension('WEBGL_lose_context');loseContext.loseContext();});await page.waitForFunction(()=>!document.querySelector('#fallback').hidden);await page.evaluate(()=>loseContext.restoreContext());await page.waitForFunction(()=>document.querySelector('#fallback').hidden&&scrollSpecimen.snapshot().ready,null,{timeout:60000});assert.equal((await page.evaluate(()=>scrollSpecimen.exportRecord())).sha256,record.sha256);
+ const reduced=await browser.newPage({viewport:{width:402,height:874},reducedMotion:'reduce'});await reduced.goto(base+'/labs/chapter-scroll-v16/');await reduced.waitForFunction(()=>window.scrollSpecimen?.snapshot().ready,null,{timeout:120000});assert.equal((await reduced.evaluate(()=>scrollSpecimen.snapshot())).progress,1);await reduced.locator('#toggle').click();assert.equal((await reduced.evaluate(()=>scrollSpecimen.snapshot())).progress,0);await reduced.close();
+ assert.deepEqual(errors,[]);assert.deepEqual(writes,[]);const video=page.video();await ctx.close();const gaps=frames.slice(1).map((f,i)=>f.t-frames[i].t).sort((a,b)=>a-b);
+ const result={url:remote||'local',checks:{coldOpen:true,noNewPrograms:true,paperWaitsForKeeper:true,reverseMidMotion:true,closedPoseRestored:true,paperIdentityUnchanged:true,detail:true,contextRestore:true,reducedMotion:true,noWriteRequests:true},preparationMs:cold.runtime.preparationMs,frameGapMs:{median:gaps[Math.floor(gaps.length*.5)],p95:gaps[Math.floor(gaps.length*.95)]},maxProgressStep:Math.max(...jumps),video:await video.path(),recordSHA256:record.sha256,errors,environment:'402x874 DPR3 Chromium on local PC; not physical iPhone Safari'};
+ await writeFile(out+(remote?'/live-verification.json':'/verification.json'),JSON.stringify(result,null,2));console.log(JSON.stringify(result));
+}finally{await browser.close();if(server)await new Promise(r=>server.close(r));}
