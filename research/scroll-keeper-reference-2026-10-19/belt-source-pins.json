@@ -1,0 +1,20 @@
+[
+  {
+    "filename": "tanner-coiled.jpg",
+    "source": "https://www.tannergoods.com/cdn/shop/products/tanner-goods-standard-belt-natural-cast-brass.jpg?v=1662153936&width=1946",
+    "bytes": 51165,
+    "sha256": "f7213aa8b9a56ee6b915e32aee135974c1ecc0d67f3235a84e331efc6888877b"
+  },
+  {
+    "filename": "tanner-top.jpg",
+    "source": "https://www.tannergoods.com/cdn/shop/products/Standard-Belt-Natural-Top.jpg?v=1662153936&width=1946",
+    "bytes": 72488,
+    "sha256": "c7c78d86884de3e8ed2ca9c26f4a6daebd94786d5fba7924885d12867ad3a597"
+  },
+  {
+    "filename": "miller-instructions.pdf",
+    "source": "https://manuals.interlinksupply.com/104378_Instruction-Sheet.pdf",
+    "bytes": 1348868,
+    "sha256": "bb92c9a28102821c1de49aa24748391725bfbe58b369409978dfb7f142f6eda0"
+  }
+]
