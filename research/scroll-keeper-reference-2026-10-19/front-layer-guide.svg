@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="920" viewBox="0 0 1320 920">
+<defs>
+ <linearGradient id="bronze" x2="0" y2="1"><stop stop-color="#dbc38c"/><stop offset=".5" stop-color="#a78a50"/><stop offset="1" stop-color="#dac28c"/></linearGradient>
+ <clipPath id="hole"><ellipse cx="785" cy="508" rx="23" ry="18"/></clipPath>
+</defs>
+<rect width="1320" height="920" fill="white"/>
+<!-- Front-view construction only: all geometry here is a flat occlusion guide, not a finished object. -->
+<!-- Incoming active strap continues behind the left fixed strap. Its lower edge and tip remain traceable. -->
+<path d="M1280 400H315Q235 430 176 524Q224 628 315 655H1280Z" fill="#a6754e" stroke="#3d2b20" stroke-width="7"/>
+<!-- Frame is one continuous ring before occlusion. -->
+<rect x="373" y="300" width="499" height="390" rx="67" fill="none" stroke="#4e3d28" stroke-width="58"/>
+<rect x="373" y="300" width="499" height="390" rx="67" fill="none" stroke="url(#bronze)" stroke-width="47"/>
+<!-- Complete tang lies on top of the receiver, behind the leather after the occupied hole. -->
+<path d="M401 510Q417 495 454 500L859 501Q879 500 880 511Q875 523 857 523L449 527Q421 529 401 518Z" fill="url(#bronze)" stroke="#4e3d28" stroke-width="5"/>
+<!-- Foreground crossing hides the right bar's entire middle, while its two ends remain visible. -->
+<path d="M747 398Q809 370 879 378Q1050 402 1280 400V655Q1050 650 877 638Q807 632 748 618Z" fill="#a6754e"/>
+<path d="M747 398Q809 370 879 378Q1050 402 1280 400" fill="none" stroke="#3d2b20" stroke-width="7"/>
+<!-- Independent leather edge and contact shadow over the intact receiver; no cut-out around the bar. -->
+<path d="M747 407Q809 382 877 389Q1040 414 1280 412" fill="none" stroke="#d1a67b" stroke-width="7"/>
+<path d="M748 618Q807 632 877 638Q1050 650 1280 655" fill="none" stroke="#5c3d29" stroke-width="8"/>
+<!-- Real occupied hole reveals the tang continuing towards the receiver behind the active strap. -->
+<ellipse cx="785" cy="508" rx="23" ry="18" fill="#211c18" stroke="#5b3b27" stroke-width="6"/>
+<path d="M401 510Q417 495 454 500L859 501Q879 500 880 511Q875 523 857 523L449 527Q421 529 401 518Z" fill="url(#bronze)" stroke="#4e3d28" stroke-width="5" clip-path="url(#hole)"/>
+<ellipse cx="1065" cy="518" rx="16" ry="19" fill="white" stroke="#63432d" stroke-width="7"/>
+<!-- Fixed strap is outermost on the left. Its open central slot clears the tang hinge. -->
+<path d="M40 360H330Q360 370 363 394V601Q359 626 330 638H40Z" fill="#714c34" stroke="#38271e" stroke-width="7"/>
+<path d="M279 351H418Q433 354 435 372V480Q421 492 400 492V540Q421 539 435 553V623Q433 642 416 645H279Z" fill="#765039" stroke="#38271e" stroke-width="7"/>
+<circle cx="324" cy="411" r="24" fill="url(#bronze)" stroke="#4e3d28" stroke-width="5"/>
+<circle cx="324" cy="595" r="24" fill="url(#bronze)" stroke="#4e3d28" stroke-width="5"/>
+</svg>
