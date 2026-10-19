@@ -1,0 +1,13 @@
+{
+  "viewport": "402x874 Chromium; not iPhone Safari",
+  "state": {
+    "ready": true,
+    "vertices": 202026,
+    "triangles": 294500,
+    "meshes": 1,
+    "clay": true,
+    "rigged": false
+  },
+  "errors": [],
+  "failed": []
+}

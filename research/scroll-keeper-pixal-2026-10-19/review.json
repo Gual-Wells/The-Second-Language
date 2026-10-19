@@ -1,0 +1,36 @@
+{
+  "source": "D:\\CodexStorage\\workspaces\\second-language-scroll-lab\\.cache\\keeper-pixal-kaggle\\output-v3\\keeper-pixal\\models\\keeper-textured_00001_.glb",
+  "sha256": "a50cc15738e61fe0675157a1a58299ad699662e37437ffe0097ca816b6274547",
+  "bounds": [
+    [
+      -0.4374903440475464,
+      -0.4864625930786133,
+      -0.17621199786663055
+    ],
+    [
+      0.43403929471969604,
+      0.4445456266403198,
+      0.26720690727233887
+    ]
+  ],
+  "meshes": [
+    {
+      "name": "Mesh_0",
+      "vertices": 340870,
+      "faces": 393355,
+      "materials": [
+        "Material_0"
+      ]
+    }
+  ],
+  "art_accepted": false,
+  "rigged": false,
+  "renders": [
+    "front.png",
+    "quarter.png",
+    "side.png",
+    "back.png",
+    "clay-front.png",
+    "clay-inside.png"
+  ]
+}

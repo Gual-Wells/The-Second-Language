@@ -1,0 +1,36 @@
+{
+  "source": "D:\\CodexStorage\\workspaces\\second-language-scroll-lab\\web\\labs\\keeper-belt-model\\assets\\keeper-model.glb",
+  "sha256": "afe3493f90215616ebbb27e84ab5c6db6e63ebaea4596d006cf33466c0f9e0bb",
+  "bounds": [
+    [
+      -0.43482133746147156,
+      -0.4920653998851776,
+      -0.17307443916797638
+    ],
+    [
+      0.4295266270637512,
+      0.4516265392303467,
+      0.27059048414230347
+    ]
+  ],
+  "meshes": [
+    {
+      "name": "geometry_0",
+      "vertices": 202026,
+      "faces": 294499,
+      "materials": [
+        "Material_0"
+      ]
+    }
+  ],
+  "art_accepted": false,
+  "rigged": false,
+  "renders": [
+    "front.png",
+    "quarter.png",
+    "side.png",
+    "back.png",
+    "clay-front.png",
+    "clay-inside.png"
+  ]
+}
