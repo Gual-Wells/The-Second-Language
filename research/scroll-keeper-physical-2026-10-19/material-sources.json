@@ -1,0 +1,51 @@
+[
+  {
+    "file": "leather-color.jpg",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/brown_leather/brown_leather_albedo_2k.jpg",
+    "license": "CC0",
+    "source": "https://polyhaven.com/a/brown_leather",
+    "sha256": "b0de2403a31efa31e501b0028c0bd8e504d5bd6318f4a5ce90c550c3067f96d8"
+  },
+  {
+    "file": "leather-normal.jpg",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/brown_leather/brown_leather_nor_gl_2k.jpg",
+    "license": "CC0",
+    "source": "https://polyhaven.com/a/brown_leather",
+    "sha256": "3386277290af50b4d464dc9a9f195bbf8dd6f137b9ae0274552397d2f0135c98"
+  },
+  {
+    "file": "leather-roughness.jpg",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/brown_leather/brown_leather_rough_2k.jpg",
+    "license": "CC0",
+    "source": "https://polyhaven.com/a/brown_leather",
+    "sha256": "8a47afca2630310849034fe40ca9497db0956c67c0d933e6efd49d3cd2befe83"
+  },
+  {
+    "file": "bronze-BaseColor.png",
+    "url": "https://cgbookcase.b-cdn.net/textures/thumbnails/Bronze03_1K/Bronze03_1K_BaseColor.png",
+    "license": "CC0",
+    "source": "https://www.cgbookcase.com/textures/bronze-03",
+    "sha256": "91a02370cefd49e9ba72b8f125ea29f9bf86338802e02e2d5d2619b3e098af79"
+  },
+  {
+    "file": "bronze-Metallic.png",
+    "url": "https://cgbookcase.b-cdn.net/textures/thumbnails/Bronze03_1K/Bronze03_1K_Metallic.png",
+    "license": "CC0",
+    "source": "https://www.cgbookcase.com/textures/bronze-03",
+    "sha256": "66902daf726a6fc5c896b2f5c11b35dbb7d76ffe01d489fa6d689dca0af5af2f"
+  },
+  {
+    "file": "bronze-Roughness.png",
+    "url": "https://cgbookcase.b-cdn.net/textures/thumbnails/Bronze03_1K/Bronze03_1K_Roughness.png",
+    "license": "CC0",
+    "source": "https://www.cgbookcase.com/textures/bronze-03",
+    "sha256": "bdf60326f011c88866bb080ce6ad4cdca1b4fcfafdf79c5aa5f0498132a4d674"
+  },
+  {
+    "file": "bronze-Height.png",
+    "url": "https://cgbookcase.b-cdn.net/textures/thumbnails/Bronze03_1K/Bronze03_1K_Height.png",
+    "license": "CC0",
+    "source": "https://www.cgbookcase.com/textures/bronze-03",
+    "sha256": "d4dd922b431f29304366595bd0e4d716d5c2e29c096eab609c13837c47fc5fc8"
+  }
+]

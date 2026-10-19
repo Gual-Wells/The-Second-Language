@@ -1,0 +1,130 @@
+{
+  "viewport": "402x874 Chromium + 1100x900; not real iPhone Safari",
+  "states": [
+    {
+      "ready": true,
+      "current": "front",
+      "clay": false,
+      "meshes": 9,
+      "strapName": "Leather_|_continuous_strip_with_two_ends",
+      "bones": 77,
+      "morph": 0,
+      "visible": [
+        "Frame_|_separate_solid_heel-bar_buckle",
+        "Prong_|_eye_and_continuous_full_shaft",
+        "Rivet_shank_-56",
+        "Rivet_cap_-56_+1",
+        "Rivet_cap_-56_-1",
+        "Rivet_shank_+56",
+        "Rivet_cap_+56_+1",
+        "Rivet_cap_+56_-1",
+        "Leather_|_continuous_strip_with_two_ends"
+      ],
+      "bound": true,
+      "completeUnfastening": false
+    },
+    {
+      "ready": true,
+      "current": "top",
+      "clay": false,
+      "meshes": 9,
+      "strapName": "Leather_|_continuous_strip_with_two_ends",
+      "bones": 77,
+      "morph": 0,
+      "visible": [
+        "Frame_|_separate_solid_heel-bar_buckle",
+        "Prong_|_eye_and_continuous_full_shaft",
+        "Rivet_shank_-56",
+        "Rivet_cap_-56_+1",
+        "Rivet_cap_-56_-1",
+        "Rivet_shank_+56",
+        "Rivet_cap_+56_+1",
+        "Rivet_cap_+56_-1",
+        "Leather_|_continuous_strip_with_two_ends"
+      ],
+      "bound": true,
+      "completeUnfastening": false
+    },
+    {
+      "ready": true,
+      "current": "inside",
+      "clay": false,
+      "meshes": 9,
+      "strapName": "Leather_|_continuous_strip_with_two_ends",
+      "bones": 77,
+      "morph": 0,
+      "visible": [
+        "Frame_|_separate_solid_heel-bar_buckle",
+        "Prong_|_eye_and_continuous_full_shaft",
+        "Rivet_shank_-56",
+        "Rivet_cap_-56_+1",
+        "Rivet_cap_-56_-1",
+        "Rivet_shank_+56",
+        "Rivet_cap_+56_+1",
+        "Rivet_cap_+56_-1",
+        "Leather_|_continuous_strip_with_two_ends"
+      ],
+      "bound": true,
+      "completeUnfastening": false
+    },
+    {
+      "ready": true,
+      "current": "flat",
+      "clay": false,
+      "meshes": 9,
+      "strapName": "Leather_|_continuous_strip_with_two_ends",
+      "bones": 77,
+      "morph": 1,
+      "visible": [
+        "Leather_|_continuous_strip_with_two_ends"
+      ],
+      "bound": true,
+      "completeUnfastening": false
+    },
+    {
+      "ready": true,
+      "current": "parts",
+      "clay": false,
+      "meshes": 9,
+      "strapName": "Leather_|_continuous_strip_with_two_ends",
+      "bones": 77,
+      "morph": 0,
+      "visible": [
+        "Frame_|_separate_solid_heel-bar_buckle",
+        "Prong_|_eye_and_continuous_full_shaft",
+        "Rivet_shank_-56",
+        "Rivet_cap_-56_+1",
+        "Rivet_cap_-56_-1",
+        "Rivet_shank_+56",
+        "Rivet_cap_+56_+1",
+        "Rivet_cap_+56_-1"
+      ],
+      "bound": true,
+      "completeUnfastening": false
+    },
+    {
+      "ready": true,
+      "current": "front",
+      "clay": false,
+      "meshes": 9,
+      "strapName": "Leather_|_continuous_strip_with_two_ends",
+      "bones": 77,
+      "morph": 0,
+      "visible": [
+        "Frame_|_separate_solid_heel-bar_buckle",
+        "Prong_|_eye_and_continuous_full_shaft",
+        "Rivet_shank_-56",
+        "Rivet_cap_-56_+1",
+        "Rivet_cap_-56_-1",
+        "Rivet_shank_+56",
+        "Rivet_cap_+56_+1",
+        "Rivet_cap_+56_-1",
+        "Leather_|_continuous_strip_with_two_ends"
+      ],
+      "bound": true,
+      "completeUnfastening": false
+    }
+  ],
+  "errors": [],
+  "failed": []
+}

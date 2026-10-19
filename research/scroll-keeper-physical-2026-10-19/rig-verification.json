@@ -1,0 +1,14 @@
+{
+  "moved_tail_vertices": 1766,
+  "max_tail_displacement_mm": 2.2444634437561035,
+  "moved_outside_tail": 0,
+  "metal_max_displacement_mm": [
+    0.0,
+    0.0
+  ],
+  "weight_sum_range": [
+    0.9999999701976776,
+    1.0000000298023224
+  ],
+  "complete_unfastening_animation": false
+}
