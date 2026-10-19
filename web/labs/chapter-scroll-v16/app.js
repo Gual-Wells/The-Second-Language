@@ -54,6 +54,7 @@ async function setup(){
  await prepareSeal();
  textures=createDocument(record,paper,back,template,ornament);updateProof();
  object=new ScrollObject(canvas,textures,keeper,template);
+ object.closure.onLoadingProgress=p=>{$('loading').textContent=p<1?`正在载入皮扣… ${Math.round(p*100)}%`:'正在准备藏卷…';};
  const initialProgress=reduced.matches||params.get('open')==='1'?1:0;
  new ResizeObserver(resize).observe(stage);resize();
  $('loading').textContent='正在准备藏卷…';await object.prepareMotion(initialProgress);

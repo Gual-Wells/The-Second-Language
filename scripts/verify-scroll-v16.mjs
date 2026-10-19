@@ -9,9 +9,10 @@ const remote=process.argv[2],server=remote?null:createServer();if(server)await n
 const browser=await chromium.launch({headless:true,executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe',...(remote?{proxy:{server:'http://127.0.0.1:6987'}}:{}),args:['--no-first-run']});
 try{
  const ctx=await browser.newContext({viewport:{width:402,height:874},deviceScaleFactor:3,isMobile:true,hasTouch:true,serviceWorkers:'block',recordVideo:{dir:'.cache/keeper-integration/video',size:{width:402,height:874}}}),page=await ctx.newPage(),errors=[],writes=[];
- page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>{if(r.method()!=='GET')writes.push(r.url());});
+ page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error')console.log('BROWSER',m.text().slice(0,300));});page.on('requestfailed',r=>console.log('REQUEST FAILED',r.url(),r.failure()?.errorText));page.on('request',r=>{if(r.method()!=='GET')writes.push(r.url());});
  await page.addInitScript(()=>{window.motionFrames=[];const raf=requestAnimationFrame;window.requestAnimationFrame=f=>raf.call(window,t=>{f(t);const s=window.scrollSpecimen?.snapshot();if(s?.animating)motionFrames.push({t,p:s.progress,paper:s.paperProgress,phase:s.keeperPose.phase,programs:s.runtime.programs});});});
- await page.goto(base+'/labs/chapter-scroll-v16/');await page.waitForFunction(()=>window.scrollSpecimen?.snapshot().ready,null,{timeout:120000});
+ await page.goto(base+'/labs/chapter-scroll-v16/');await page.waitForFunction(()=>window.scrollSpecimen?.snapshot().ready||!document.querySelector('#fallback').hidden,null,{timeout:120000});
+ if(!await page.evaluate(()=>window.scrollSpecimen?.snapshot().ready))throw Error('Scroll setup failed: '+await page.locator('#status').textContent());
  const cold=await page.evaluate(()=>scrollSpecimen.snapshot());assert.equal(cold.progress,0);assert.equal(cold.keeperPose.bones,76);assert.equal(cold.keeperPose.usesFade,false);assert.equal(cold.keeperPose.usesStrapDeformation,false);
  const record=await page.evaluate(()=>scrollSpecimen.exportRecord());assert.equal(createHash('sha256').update(record.canonicalPayload).digest('hex'),record.sha256);
  const previous=JSON.parse(await readFile('research/scroll-lab-v14/inspection.json'));assert.equal(record.sha256,previous.record.sha256,'Paper/content identity preserved');

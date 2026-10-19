@@ -1,0 +1,20 @@
+{
+  "base": "https://a4644b5f.the-second-language.pages.dev/labs/chapter-scroll-v16/",
+  "checks": [
+    {
+      "path": "index.html",
+      "status": 200,
+      "sha256": "a6390dbde3e88bba35260f180f6e3af48e18469821289b15f0c5fcbc95f45a72"
+    },
+    {
+      "path": "app.bundle.js",
+      "status": 200,
+      "sha256": "5eabc6ad418f3da8382b771fb2a5c72ad043588176ee2f2d55655a8d8c2bbf21"
+    },
+    {
+      "path": "keeper-path.json",
+      "status": 200,
+      "sha256": "633db2256e99b13768775d6067c941efd70a3d4a1e9f7f9743fc4755069dc533"
+    }
+  ]
+}

@@ -9,7 +9,7 @@ export class Keeper{
  }
  async load(){
   const response=await fetch(new URL('./keeper-path.json',import.meta.url));if(!response.ok)throw Error('Keeper dimensions unavailable');this.spec=await response.json();
-  const gltf=await new GLTFLoader().loadAsync(new URL('../keeper-physical-assembly/assets/keeper-physical.glb',import.meta.url).href);this.model=gltf.scene;
+  const gltf=await new GLTFLoader().loadAsync(new URL('../keeper-physical-assembly/assets/keeper-physical.glb',import.meta.url).href,e=>this.onLoadingProgress?.(Math.min(1,e.loaded/(e.total||16838068))));this.model=gltf.scene;this.onLoadingProgress?.(1);
   this.model.traverse(o=>{if(o.isMesh){this.parts.push(o);o.frustumCulled=false;o.castShadow=true;o.receiveShadow=true;o.material.transparent=false;o.material.opacity=1;for(const key of ['map','normalMap','roughnessMap','metalnessMap'])if(o.material[key])this.maps.push(o.material[key]);if(o.isSkinnedMesh){this.strap=o;o.morphTargetInfluences.fill(0);}}});
   if(!this.strap)throw Error('Accepted keeper rig missing');
   this.gap=.014;this.scale=(this.radius+this.gap)/((this.spec.radiusMm-this.spec.thicknessMm/2)*.001);
