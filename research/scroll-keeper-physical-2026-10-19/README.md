@@ -51,3 +51,11 @@
 ## 下一步
 
 先让用户检视隐藏机构和层序，再在正确结构上提升外观。真实动作仍按`RIG_AND_MOTION.md`的松载→出针→退带→松环→轴向取下，以孔针接触和纸卷间隙为约束；不能用带坯展平形变或整体淡出冒充解扣。目前没有改纸张、雾染、认证/测试数据，没有新增订阅或付费GPU任务。
+
+## 发布与末尾核对
+
+模型/源码提交`c6e2a9a`已经推送同名GitHub分支。不可变预览：[结构检视](https://e2493e30.the-second-language.pages.dev/labs/keeper-physical-assembly/)，别名为`scroll-lab.the-second-language.pages.dev`。仅发布实验预览，没有部署生产main或后台API Worker。
+
+发布后已通过代理实际完成线上同一组浏览器检视，无页面错误/失败资源；`browser/inspection.json`记录不可变预览URL。初次无显式代理的线上检查超时，未当作通过；补充代理后再检查成功。页面与预览别名HTTP返回200。
+
+末尾实际执行余额/容量查询，因本工作区缺`SECOND_LANGUAGE_PUBLISH_TOKEN`或忽略凭据文件失败，旧记录保留；既有归档队列已排入，不声称大型原生工程已归档完成。全部新增资源、构建和工程存D，末尾采样C余约2.98GB、D余约22.68GB；此可用空间不撤销C盘长期空间约束。

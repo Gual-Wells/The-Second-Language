@@ -230,7 +230,7 @@ def render(name,pos,look=(0,0,0),scale=.122):
  bpy.context.view_layer.update()
  cam.location=pos;cam.rotation_euler=(Vector(look)-cam.location).to_track_quat('-Z','Y').to_euler();camdata.ortho_scale=scale;scene.render.filepath=str(EVIDENCE/(name+'.png'));bpy.ops.render.render(write_still=True)
 rig.hide_render=True
-render('closed-front',(0,-.24,.12));render('closed-top',(0,0,.25));render('closed-inside',(.14,.18,.12))
+render('closed-front',(0,-.24,.12));render('closed-top',(0,0,.25),scale=.15);render('closed-inside',(.14,.18,.12))
 # The flat state is a manufacturing/inspection state, not a claimed physical animation.
 flat_key.value=1
 for o in hardware:o.hide_render=True
