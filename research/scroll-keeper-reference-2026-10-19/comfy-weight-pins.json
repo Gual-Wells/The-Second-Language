@@ -1,0 +1,89 @@
+[
+  {
+    "repo": "Comfy-Org/Pixal3D",
+    "sha": "f37641be376725d324c56626007cc477f1249a69",
+    "files": [
+      {
+        "path": "clip_vision/dino_v3_L_naf_fp32.safetensors",
+        "bytes": 1215214176,
+        "lfs": {
+          "sha256": "4ad2ec4e0879a5b5b04cd97325cc37da954a7b6edca5170b86510f17f2b2290f",
+          "size": 1215214176,
+          "pointerSize": 135
+        }
+      },
+      {
+        "path": "diffusion_models/pixal3d_int8_convrot.safetensors",
+        "bytes": 5584555824,
+        "lfs": {
+          "sha256": "4621eac3b715484f79303c7152af641fe0b2b14f4d0e3d394fd6922d00f955ec",
+          "size": 5584555824,
+          "pointerSize": 135
+        }
+      },
+      {
+        "path": "vae/trellis_2_shape_vae_bf16.safetensors",
+        "bytes": 1095844024,
+        "lfs": {
+          "sha256": "de0cb4949a76c59ee5c091a995a69bcc8c51d5aeda939f0c641a50d2a72341f4",
+          "size": 1095844024,
+          "pointerSize": 135
+        }
+      },
+      {
+        "path": "vae/trellis_2_texture_vae_bf16.safetensors",
+        "bytes": 948461364,
+        "lfs": {
+          "sha256": "714e5ebf094a610e12a8e3b5175c18a62f37f6ea4218acb6073644456b73ab0e",
+          "size": 948461364,
+          "pointerSize": 134
+        }
+      }
+    ]
+  },
+  {
+    "repo": "Comfy-Org/TRELLIS.2",
+    "sha": "430a9d09b2416687018c8fe8edced2ad4858a439",
+    "files": [
+      {
+        "path": "diffusion_models/trellis_2_int8_convrot.safetensors",
+        "bytes": 5253048192,
+        "lfs": {
+          "sha256": "d01952ad137213f6a868f86b6b877026276f84af5eec23069217475a0bad3a31",
+          "size": 5253048192,
+          "pointerSize": 135
+        }
+      }
+    ]
+  },
+  {
+    "repo": "Comfy-Org/MoGe",
+    "sha": "1484985258ba7ef45c314144fcf0e90924ffbf44",
+    "files": [
+      {
+        "path": "geometry_estimation/moge_2_vitl_normal_fp16.safetensors",
+        "bytes": 661859924,
+        "lfs": {
+          "sha256": "cb1a692d03235671e959e81360d7b4d9f44aefadb1f852d6ca6aa17799d5e31f",
+          "size": 661859924,
+          "pointerSize": 134
+        }
+      }
+    ]
+  },
+  {
+    "repo": "Comfy-Org/BiRefNet",
+    "sha": "25511f8787e51912e1480706b4e47b8f467fbf72",
+    "files": [
+      {
+        "path": "background_removal/birefnet.safetensors",
+        "bytes": 444473596,
+        "lfs": {
+          "sha256": "9ab37426bf4de0567af6b5d21b16151357149139362e6e8992021b8ce356a154",
+          "size": 444473596,
+          "pointerSize": 134
+        }
+      }
+    ]
+  }
+]

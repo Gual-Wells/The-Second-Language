@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="760" viewBox="0 0 1320 760">
+<defs>
+  <marker id="arrow" markerWidth="12" markerHeight="10" refX="10" refY="5" orient="auto"><path d="M0 0L11 5L0 10Z" fill="#a13e25"/></marker>
+  <style>text{font-family:'Microsoft YaHei',Arial,sans-serif;fill:#26343c}.title{font-size:31px;font-weight:700}.label{font-size:25px;font-weight:700}.note{font-size:21px}.small{font-size:18px}</style>
+</defs>
+<rect width="1320" height="760" fill="#fffdf8"/>
+<text x="64" y="61" class="title">穿带路径纠正：右侧框杆前 → 扣框内部 → 左侧框杆后</text>
+<text x="64" y="104" class="note">局部侧剖示意；只核对前后遮挡，省略扣针、铆接与环形带身，不作尺寸图。</text>
+<path d="M90 194V286" stroke="#687981" stroke-width="2"/>
+<text x="111" y="212" class="note">前方 / 外侧 / 朝向观众</text>
+<text x="111" y="273" class="note">后方 / 内侧 / 朝向卷轴</text>
+<text x="619" y="240" class="small">下图左右，对应正面图中的左右框杆</text>
+<path d="M107 410H1216" stroke="#adb9bc" stroke-width="2" stroke-dasharray="9 10"/>
+<text x="995" y="448" class="small">扣框所在平面</text>
+<circle cx="330" cy="410" r="42" fill="#b99b62" stroke="#55442d" stroke-width="5"/>
+<circle cx="960" cy="410" r="42" fill="#b99b62" stroke="#55442d" stroke-width="5"/>
+<text x="330" y="417" class="note" text-anchor="middle">左框杆</text>
+<text x="960" y="417" class="note" text-anchor="middle">右框杆</text>
+<path d="M1212 323H1005C865 323 739 424 579 469S366 497 153 497" fill="none" stroke="#34261e" stroke-width="34" stroke-linecap="round"/>
+<path d="M1212 323H1005C865 323 739 424 579 469S366 497 153 497" fill="none" stroke="#916545" stroke-width="25" stroke-linecap="round"/>
+<path d="M1175 323H1080" fill="none" stroke="#a13e25" stroke-width="4" marker-end="url(#arrow)"/>
+<path d="M255 497H171" fill="none" stroke="#a13e25" stroke-width="4" marker-end="url(#arrow)"/>
+<path d="M960 306V269H1054" fill="none" stroke="#52666e" stroke-width="2"/>
+<text x="1067" y="276" class="label">① 先走右杆前</text>
+<path d="M730 407V343H612" fill="none" stroke="#52666e" stroke-width="2"/>
+<text x="537" y="324" class="label">② 斜穿框内</text>
+<path d="M330 516V559H184" fill="none" stroke="#52666e" stroke-width="2"/>
+<text x="77" y="594" class="label">③ 再到左杆后</text>
+<text x="677" y="558" class="note">棕色粗线是同一条连续的打孔活动带。</text>
+<rect x="64" y="631" width="1192" height="80" rx="7" fill="#eee9df"/>
+<text x="87" y="663" class="note">正视结果：右杆中段被活动带遮住；左侧活动带藏到框杆及固定带后方。</text>
+<text x="87" y="694" class="small">上一张闭扣图在右杆处仍画反，因此整张退回候选；不能只隐藏左边带头就宣布机构正确。</text>
+</svg>

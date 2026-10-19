@@ -1,0 +1,40 @@
+{
+  "source_sha256": "dbdfdc978501c7647ca8edcdfa70a1500f45bb7899dfa232c4c5f832079e2d46",
+  "art_accepted": false,
+  "stage": "comparison_ready",
+  "before": {
+    "vertices": 355244,
+    "faces": 485773,
+    "custom_normals": true,
+    "smooth_faces": 483862
+  },
+  "renders": [
+    "original-back.png",
+    "original-quarter.png",
+    "recalculated-back.png",
+    "recalculated-quarter.png",
+    "recalculated-clay-side.png"
+  ],
+  "material_samples": {
+    "metal_quantiles": [
+      0.0,
+      0.0,
+      0.0,
+      0.40000003576278687,
+      1.0
+    ],
+    "rough_quantiles": [
+      0.1764705926179886,
+      0.3490196168422699,
+      0.458823561668396,
+      0.49803924560546875,
+      0.5686274766921997
+    ],
+    "metal_faces_above_half": 46353
+  },
+  "after": {
+    "vertices": 253289,
+    "faces": 485402,
+    "operation": "coincident-vertex weld 1e-6 + automatic normals, sharp edges 55 degrees; no coordinate smoothing, texture edits or remesh"
+  }
+}

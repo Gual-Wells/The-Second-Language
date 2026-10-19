@@ -1,0 +1,85 @@
+[
+  {
+    "repository": "Tencent-Hunyuan/Hunyuan3D-2.1",
+    "branch": "main",
+    "sha": "82920d643c0dc2f7bfd7255f45f62d386edfe60c",
+    "files": [
+      {
+        "path": "README.md",
+        "sha256": "35479a9741c38cf6ebc7693bb0c58a6fa447659b3b9f1d60ba01e21098d0af20"
+      }
+    ]
+  },
+  {
+    "repository": "Tencent-Hunyuan/Hunyuan3D-Omni",
+    "branch": "main",
+    "sha": "4d47c0cc2bd0c4281963a7314ab330a5af36bfa8",
+    "files": [
+      {
+        "path": "README.md",
+        "sha256": "112a290f7ae0c1d3f049bbded92ad2b8ee3c3df41b39a5c75a16eeebbed19d11"
+      },
+      {
+        "path": "License.txt",
+        "sha256": "ccfc4916da352ffc9d01e85e8b0a00ebf5c23b41b97e6ee489a6b34b02f93276"
+      }
+    ]
+  },
+  {
+    "repository": "wgsxm/PartCrafter",
+    "branch": "main",
+    "sha": "3d773bf02fad51c7ab31a5615573fec93b287b30",
+    "files": [
+      {
+        "path": "README.md",
+        "sha256": "e54541ac3bd7befaffb6892da572bdf57c970d594a89b23e856f2ab28b1dd132"
+      },
+      {
+        "path": "LICENSE",
+        "sha256": "ae8c80719a5c916e5fd99fd3da99f8cf74be1589e9e4a11d5754898967a54e1f"
+      }
+    ]
+  },
+  {
+    "repository": "TencentARC/Pixal3D",
+    "branch": "master",
+    "sha": "f7cf38429b0bd264f1995f0f8743a88b1c728b94",
+    "files": [
+      {
+        "path": "README.md",
+        "sha256": "b8ac05e534d2cc8d39dfa91f65ba808957f9ed789696a44a458f56dc88ea2a7f"
+      },
+      {
+        "path": "LICENSE",
+        "sha256": "8e28d8efae5a9ac269c3b7c5df67a5ea4b5f1ae02543d6407dc35ea4b8346ab7"
+      },
+      {
+        "path": "NOTICE",
+        "sha256": "bc63f480fa2843ec415d188f678958738319f9a087fffdea1f2508718d1346c3"
+      },
+      {
+        "path": "requirements.txt",
+        "sha256": "a48935211078797db5168b28e24aa49625f520d72ed0f0a51536968cfaf59cc9"
+      },
+      {
+        "path": "inference.py",
+        "sha256": "77b6d00b4ab7fc9db31ec56671be67a98fc275d829fe70798603b9f02de37185"
+      },
+      {
+        "path": "inference_mv.py",
+        "sha256": "875144f73fdf083e92717dcee260035c7391de09fe48f02316ce3ad3bf7aedf9"
+      }
+    ]
+  },
+  {
+    "repository": "VAST-AI-Research/TripoSG",
+    "branch": "main",
+    "sha": "fc5c40990181e2a756c4e0b1c2f4d6b5202faf8c",
+    "files": [
+      {
+        "path": "README.md",
+        "sha256": "87024a832f6dc1e81ba3078485b282095fb31941898f81b1c6bfe02d5454288d"
+      }
+    ]
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "repo": "comfyanonymous/ComfyUI",
+  "sha": "8f04fd6ecf4a548937971e840af2a985529fab76",
+  "files": [
+    "comfy/ldm/trellis2",
+    "comfy/ldm/trellis2/flexgemm.py",
+    "comfy/ldm/trellis2/model.py",
+    "comfy/ldm/trellis2/vae.py",
+    "comfy_extras/nodes_trellis2.py"
+  ]
+}

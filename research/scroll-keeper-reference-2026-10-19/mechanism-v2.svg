@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="1040" viewBox="0 0 1320 1040">
+<defs>
+ <marker id="dir" markerWidth="11" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#a13e25"/></marker>
+ <style>text{font-family:'Microsoft YaHei',Arial,sans-serif;fill:#26343c}.h{font-size:29px;font-weight:700}.n{font-size:21px}.s{font-size:18px}.b{font-size:23px;font-weight:700}.call{fill:none;stroke:#5d737c;stroke-width:1.7}.bar{fill:#b99b62;stroke:#55442d;stroke-width:4}</style>
+</defs>
+<rect width="1320" height="1040" fill="#fffdf8"/>
+<text x="56" y="52" class="h">皮扣结构核对 · 右前绕入、左后出尾、扣针承托</text>
+<text x="56" y="88" class="n">局部侧剖示意，不是尺寸或造型定稿；上为外侧/观众，下为内侧/卷轴。</text>
+<rect x="36" y="113" width="1248" height="504" rx="6" fill="#f5f2eb"/>
+<text x="60" y="154" class="b">A · 同一条活动带的完整穿过路径</text>
+<text x="60" y="187" class="s">省略固定端的侧向折返连接；深褐仅标出固定带层位。剖切经过活动带孔中心。</text>
+<path d="M106 370H1207" stroke="#aeb9bc" stroke-width="2" stroke-dasharray="7 8"/>
+<rect x="107" y="276" width="186" height="31" rx="2" fill="#654532" stroke="#38271e" stroke-width="3"/>
+<text x="111" y="256" class="n">固定带在外侧</text>
+<circle cx="332" cy="370" r="30" class="bar"/>
+<circle cx="966" cy="370" r="30" class="bar"/>
+<text x="332" y="377" class="s" text-anchor="middle">左杆</text>
+<text x="966" y="377" class="s" text-anchor="middle">右杆</text>
+<!-- Tang: underside of the receiver end bears on the front of the right frame bar. -->
+<path d="M330 340Q310 330 310 350Q310 365 331 354L924 332Q950 331 966 332" fill="none" stroke="#54412b" stroke-width="17" stroke-linecap="round"/>
+<path d="M330 340Q310 330 310 350Q310 365 331 354L924 332Q950 331 966 332" fill="none" stroke="#c4a96d" stroke-width="11" stroke-linecap="round"/>
+<!-- Active strap approaches over the right bar; its centre-plane is interrupted only by the punched hole. -->
+<path d="M1198 332C1094 331 1059 310 995 309C953 308 942 307 923 310" fill="none" stroke="#37281e" stroke-width="28" stroke-linecap="butt"/>
+<path d="M1198 332C1094 331 1059 310 995 309C953 308 942 307 923 310" fill="none" stroke="#986d49" stroke-width="20" stroke-linecap="butt"/>
+<path d="M875 357C790 410 585 454 419 459C322 462 214 457 118 453" fill="none" stroke="#37281e" stroke-width="28" stroke-linecap="butt"/>
+<path d="M875 357C790 410 585 454 419 459C322 462 214 457 118 453" fill="none" stroke="#986d49" stroke-width="20" stroke-linecap="butt"/>
+<path d="M1156 326L1098 321M237 457L172 455" fill="none" stroke="#a13e25" stroke-width="3"/>
+<path d="M1156 326L1098 321" fill="none" stroke="#a13e25" stroke-width="3" marker-end="url(#dir)"/>
+<path d="M237 457L172 455" fill="none" stroke="#a13e25" stroke-width="3" marker-end="url(#dir)"/>
+<path d="M996 301V235H1050" class="call"/><text x="1064" y="241" class="n">右杆前绕过</text>
+<path d="M892 339L843 270H690" class="call"/><text x="590" y="259" class="n">针从孔中穿过</text>
+<path d="M962 331L1032 402H1082" class="call"/><text x="1093" y="408" class="n">针尖搭在右杆</text>
+<path d="M332 473V527H181" class="call"/><text x="75" y="556" class="n">左杆后保留连续带尾</text>
+<text x="534" y="504" class="s">孔在此剖面中表现为间断；孔两侧沿皮带宽度仍是相连皮革。</text>
+<text x="534" y="537" class="s">带尾在固定带后方继续存在，侧背视图须能追踪至真实端面。</text>
+<text x="534" y="570" class="s">右杆、扣针、皮革各有独立边界；相互接触不等于材质熔合。</text>
+<rect x="36" y="641" width="1248" height="285" rx="6" fill="#f5f2eb"/>
+<text x="60" y="684" class="b">B · 右杆接触处放大：针尖增加的厚度使皮带微微拱起</text>
+<circle cx="468" cy="844" r="43" class="bar"/>
+<path d="M242 788H458Q469 788 478 791" fill="none" stroke="#54412b" stroke-width="24" stroke-linecap="round"/>
+<path d="M242 788H458Q469 788 478 791" fill="none" stroke="#c4a96d" stroke-width="17" stroke-linecap="round"/>
+<path d="M230 762C335 762 378 758 443 760C513 763 559 782 634 782" fill="none" stroke="#37281e" stroke-width="28"/>
+<path d="M230 762C335 762 378 758 443 760C513 763 559 782 634 782" fill="none" stroke="#986d49" stroke-width="20"/>
+<path d="M489 762L611 723H719" class="call"/><text x="735" y="730" class="n">皮革：绕过并轻微拱起</text>
+<path d="M478 790H719" class="call"/><text x="735" y="797" class="n">扣针：穿孔后搭在框杆上</text>
+<path d="M509 846H719" class="call"/><text x="735" y="853" class="n">框杆：保持完整金属体</text>
+<text x="60" y="965" class="n">下一步据此修订视觉稿；上一张仍有框杆嵌皮、带尾消失和承托关系不清的问题，不能进入建模。</text>
+<text x="60" y="1000" class="s">此图仅明确用户已纠正的机构关系，未宣告隐藏折返结构、全套动作或艺术造型已经通过。</text>
+</svg>
