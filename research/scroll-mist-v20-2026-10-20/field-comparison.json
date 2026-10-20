@@ -1,0 +1,2888 @@
+{
+  "records": [
+    {
+      "t": 0.9666666666666667,
+      "snapshots": [
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 30,
+          "time": 2.4000000000000004,
+          "interactionEnergy": 0,
+          "drive": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "model": "bounded local motion over independent evolving curl clouds",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 30,
+          "time": 2.999999999999999,
+          "interactionEnergy": 0,
+          "drive": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            -0.03699664180075403,
+            -0.008577934876400755,
+            0.0009018698496982645,
+            -0.000614032736096335,
+            -0.011525489019369492,
+            0.035300642691615945,
+            0.003918575580198723,
+            0.0008195978731434001
+          ],
+          "confinement": 0.38
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 30,
+          "time": 2.999999999999999,
+          "interactionEnergy": 0,
+          "drive": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            -0.03699664180075403,
+            -0.008577934876400755,
+            0.0009018698496982645,
+            -0.000614032736096335,
+            -0.011525489019369492,
+            0.035300642691615945,
+            0.003918575580198723,
+            0.0008195978731434001
+          ],
+          "confinement": 0.38
+        }
+      ]
+    },
+    {
+      "t": 1.9666666666666666,
+      "snapshots": [
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 60,
+          "time": 3.399999999999997,
+          "interactionEnergy": 0,
+          "drive": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "model": "bounded local motion over independent evolving curl clouds",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 60,
+          "time": 3.9999999999999956,
+          "interactionEnergy": 0,
+          "drive": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            -0.055442127698851186,
+            -0.015162489312226453,
+            0.00010863283894287734,
+            -0.00008385482966647326,
+            -0.009039856823554638,
+            0.023460122524794284,
+            0.005697006586863146,
+            0.0013415034894754337
+          ],
+          "confinement": 0.38
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 60,
+          "time": 3.9999999999999956,
+          "interactionEnergy": 0,
+          "drive": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            -0.055442127698851186,
+            -0.015162489312226453,
+            0.00010863283894287734,
+            -0.00008385482966647326,
+            -0.009039856823554638,
+            0.023460122524794284,
+            0.005697006586863146,
+            0.0013415034894754337
+          ],
+          "confinement": 0.38
+        }
+      ]
+    },
+    {
+      "t": 2.966666666666667,
+      "snapshots": [
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 90,
+          "time": 4.399999999999993,
+          "interactionEnergy": 0,
+          "drive": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "model": "bounded local motion over independent evolving curl clouds",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 90,
+          "time": 4.999999999999992,
+          "interactionEnergy": 0,
+          "drive": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            -0.06802907359424343,
+            -0.021977065320760148,
+            -0.000014959793176647203,
+            -5.288902246328755e-7,
+            -0.007565286267598488,
+            0.017191503128953258,
+            0.007881757464476925,
+            0.0019987851007298592
+          ],
+          "confinement": 0.38
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 90,
+          "time": 4.999999999999992,
+          "interactionEnergy": 0,
+          "drive": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            -0.06802907359424343,
+            -0.021977065320760148,
+            -0.000014959793176647203,
+            -5.288902246328755e-7,
+            -0.007565286267598488,
+            0.017191503128953258,
+            0.007881757464476925,
+            0.0019987851007298592
+          ],
+          "confinement": 0.38
+        }
+      ]
+    },
+    {
+      "t": 3.966666666666667,
+      "snapshots": [
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 120,
+          "time": 5.39999999999999,
+          "interactionEnergy": 0,
+          "drive": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "model": "bounded local motion over independent evolving curl clouds",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 120,
+          "time": 5.9999999999999885,
+          "interactionEnergy": 0,
+          "drive": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            -0.0697373467967378,
+            -0.026537096005666345,
+            -0.0006830750319929667,
+            -0.0000156248973378908,
+            -0.007260444345270999,
+            0.014837346815144817,
+            0.010554667180952689,
+            0.0027760511497465375
+          ],
+          "confinement": 0.38
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 120,
+          "time": 5.9999999999999885,
+          "interactionEnergy": 0,
+          "drive": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            -0.0697373467967378,
+            -0.026537096005666345,
+            -0.0006830750319929667,
+            -0.0000156248973378908,
+            -0.007260444345270999,
+            0.014837346815144817,
+            0.010554667180952689,
+            0.0027760511497465375
+          ],
+          "confinement": 0.38
+        }
+      ]
+    },
+    {
+      "t": 4.966666666666667,
+      "snapshots": [
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 150,
+          "time": 6.399999999999986,
+          "interactionEnergy": 0,
+          "drive": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "model": "bounded local motion over independent evolving curl clouds",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 150,
+          "time": 6.999999999999985,
+          "interactionEnergy": 0,
+          "drive": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            -0.06052401648587806,
+            -0.02699265922323828,
+            -0.0030012636361021272,
+            -0.000056341013777755204,
+            -0.006480094812051332,
+            0.012187635127518531,
+            0.012355687198597552,
+            0.0032552214234767406
+          ],
+          "confinement": 0.38
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 150,
+          "time": 6.999999999999985,
+          "interactionEnergy": 0,
+          "drive": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            -0.06052401648587806,
+            -0.02699265922323828,
+            -0.0030012636361021272,
+            -0.000056341013777755204,
+            -0.006480094812051332,
+            0.012187635127518531,
+            0.012355687198597552,
+            0.0032552214234767406
+          ],
+          "confinement": 0.38
+        }
+      ]
+    },
+    {
+      "t": 5.966666666666667,
+      "snapshots": [
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 180,
+          "time": 7.399999999999983,
+          "interactionEnergy": 0,
+          "drive": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "model": "bounded local motion over independent evolving curl clouds",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 180,
+          "time": 7.999999999999981,
+          "interactionEnergy": 0,
+          "drive": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            -0.04483050977258452,
+            -0.023295025534037558,
+            -0.007044657638211223,
+            -0.00016281821665196664,
+            -0.00496634072856479,
+            0.008779637932243836,
+            0.012341174147897208,
+            0.003145911692798058
+          ],
+          "confinement": 0.38
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 180,
+          "time": 7.999999999999981,
+          "interactionEnergy": 0,
+          "drive": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            -0.04483050977258452,
+            -0.023295025534037558,
+            -0.007044657638211223,
+            -0.00016281821665196664,
+            -0.00496634072856479,
+            0.008779637932243836,
+            0.012341174147897208,
+            0.003145911692798058
+          ],
+          "confinement": 0.38
+        }
+      ]
+    },
+    {
+      "t": 6.966666666666667,
+      "snapshots": [
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 210,
+          "time": 8.399999999999979,
+          "interactionEnergy": 0.051738564419205664,
+          "drive": [
+            0,
+            0,
+            0.067901171436194,
+            -0.041785336268427065
+          ],
+          "model": "bounded local motion over independent evolving curl clouds",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 210,
+          "time": 8.999999999999979,
+          "interactionEnergy": 0.05739746615154178,
+          "drive": [
+            0,
+            0,
+            0.07166901608462939,
+            -0.044104009898233404
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            -0.028549263374451274,
+            -0.0171811862051257,
+            -0.011529706743798902,
+            -0.00041306718300621476,
+            -0.004378328967888939,
+            0.007421958103879784,
+            0.012727816768405075,
+            0.0030244507999813695
+          ],
+          "confinement": 0.38
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 210,
+          "time": 8.999999999999979,
+          "interactionEnergy": 0.05739746615154178,
+          "drive": [
+            0,
+            0,
+            0.07166901608462939,
+            -0.044104009898233404
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            -0.028549263374451274,
+            -0.0171811862051257,
+            -0.011529706743798902,
+            -0.00041306718300621476,
+            -0.004378328967888939,
+            0.007421958103879784,
+            0.012727816768405075,
+            0.0030244507999813695
+          ],
+          "confinement": 0.38
+        }
+      ]
+    },
+    {
+      "t": 7.966666666666667,
+      "snapshots": [
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 240,
+          "time": 9.399999999999975,
+          "interactionEnergy": 0.20876361467667887,
+          "drive": [
+            0,
+            0,
+            0.1195881840471927,
+            -0.0735927286444268
+          ],
+          "model": "bounded local motion over independent evolving curl clouds",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 240,
+          "time": 9.999999999999975,
+          "interactionEnergy": 0.21909683667098853,
+          "drive": [
+            0,
+            0,
+            0.12166125230651363,
+            -0.07486846295785539
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            -0.015812126656045557,
+            -0.010958132864494078,
+            -0.014601689350135633,
+            -0.0008282822307226636,
+            -0.00556177105494863,
+            0.009217406133009845,
+            0.018364790011381738,
+            0.003894874100964159
+          ],
+          "confinement": 0.38
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 240,
+          "time": 9.999999999999975,
+          "interactionEnergy": 0.21909683667098853,
+          "drive": [
+            0,
+            0,
+            0.12166125230651363,
+            -0.07486846295785539
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            -0.015812126656045557,
+            -0.010958132864494078,
+            -0.014601689350135633,
+            -0.0008282822307226636,
+            -0.00556177105494863,
+            0.009217406133009845,
+            0.018364790011381738,
+            0.003894874100964159
+          ],
+          "confinement": 0.38
+        }
+      ]
+    },
+    {
+      "t": 8.966666666666667,
+      "snapshots": [
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 270,
+          "time": 10.399999999999972,
+          "interactionEnergy": 0.40528967377641373,
+          "drive": [
+            0.09892867748852856,
+            -0.09892867748852871,
+            0.004837487398128388,
+            -0.0029769153219251533
+          ],
+          "model": "bounded local motion over independent evolving curl clouds",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 270,
+          "time": 10.999999999999972,
+          "interactionEnergy": 0.416230819230391,
+          "drive": [
+            0.10498907070156914,
+            -0.10498907070156942,
+            0.00029043514577224174,
+            -0.00017872932047522522
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            -0.007708020210285114,
+            -0.0061189417490362065,
+            -0.015346186458077803,
+            -0.0013124658450699193,
+            -0.006942185228021119,
+            0.011465227480058076,
+            0.031906886933465196,
+            0.005709640451254612
+          ],
+          "confinement": 0.38
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 270,
+          "time": 10.999999999999972,
+          "interactionEnergy": 0.416230819230391,
+          "drive": [
+            0.10498907070156914,
+            -0.10498907070156942,
+            0.00029043514577224174,
+            -0.00017872932047522522
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            -0.007708020210285114,
+            -0.0061189417490362065,
+            -0.015346186458077803,
+            -0.0013124658450699193,
+            -0.006942185228021119,
+            0.011465227480058076,
+            0.031906886933465196,
+            0.005709640451254612
+          ],
+          "confinement": 0.38
+        }
+      ]
+    },
+    {
+      "t": 9.966666666666667,
+      "snapshots": [
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 300,
+          "time": 11.399999999999968,
+          "interactionEnergy": 0.6109261971136418,
+          "drive": [
+            0.09718933384546975,
+            -0.09718933384546959,
+            0.0000011627843130741203,
+            -7.155595772763794e-7
+          ],
+          "model": "bounded local motion over independent evolving curl clouds",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 300,
+          "time": 11.999999999999968,
+          "interactionEnergy": 0.6215902554679906,
+          "drive": [
+            0.09619507822591625,
+            -0.09619507822591603,
+            6.04777467078791e-11,
+            -3.721707489715627e-11
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            -0.0032100630091750366,
+            -0.002904663108917234,
+            -0.01464967866511321,
+            -0.0017855244639758574,
+            -0.006459641598446207,
+            0.010836169093800117,
+            0.04918924344376612,
+            0.006836244166284866
+          ],
+          "confinement": 0.38
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 300,
+          "time": 11.999999999999968,
+          "interactionEnergy": 0.6215902554679906,
+          "drive": [
+            0.09619507822591625,
+            -0.09619507822591603,
+            6.04777467078791e-11,
+            -3.721707489715627e-11
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            -0.0032100630091750366,
+            -0.002904663108917234,
+            -0.01464967866511321,
+            -0.0017855244639758574,
+            -0.006459641598446207,
+            0.010836169093800117,
+            0.04918924344376612,
+            0.006836244166284866
+          ],
+          "confinement": 0.38
+        }
+      ]
+    },
+    {
+      "t": 10.966666666666667,
+      "snapshots": [
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 330,
+          "time": 12.399999999999965,
+          "interactionEnergy": 0.7765320538508487,
+          "drive": [
+            0.06555656105349214,
+            -0.06555656105349258,
+            2.794978565224512e-10,
+            -1.7199868093689254e-10
+          ],
+          "model": "bounded local motion over independent evolving curl clouds",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 330,
+          "time": 12.999999999999964,
+          "interactionEnergy": 0.7838845570878712,
+          "drive": [
+            0.06328325768874937,
+            -0.06328325768875012,
+            1.2593372049161806e-17,
+            -7.749767414868786e-18
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            -0.0009149990978657998,
+            -0.000939293936441719,
+            -0.014500958290488766,
+            -0.002399089027745693,
+            -0.00412125808448473,
+            0.00715880147709193,
+            0.06054261432160811,
+            0.005628937875048296
+          ],
+          "confinement": 0.38
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 330,
+          "time": 12.999999999999964,
+          "interactionEnergy": 0.7838845570878712,
+          "drive": [
+            0.06328325768874937,
+            -0.06328325768875012,
+            1.2593372049161806e-17,
+            -7.749767414868786e-18
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            -0.0009149990978657998,
+            -0.000939293936441719,
+            -0.014500958290488766,
+            -0.002399089027745693,
+            -0.00412125808448473,
+            0.00715880147709193,
+            0.06054261432160811,
+            0.005628937875048296
+          ],
+          "confinement": 0.38
+        }
+      ]
+    },
+    {
+      "t": 11.966666666666667,
+      "snapshots": [
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 360,
+          "time": 13.399999999999961,
+          "interactionEnergy": 0.8543605274646457,
+          "drive": [
+            0.00850596822340072,
+            -0.008505968223400618,
+            6.718275343267823e-14,
+            -4.1343232881648e-14
+          ],
+          "model": "bounded local motion over independent evolving curl clouds",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 360,
+          "time": 13.999999999999961,
+          "interactionEnergy": 0.8557262475313043,
+          "drive": [
+            0.004073129644986356,
+            -0.004073129644986205,
+            2.6223367800829138e-24,
+            -1.6137457108202514e-24
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            -0.00003680746275584587,
+            -0.000042661081304958626,
+            -0.016232789206201192,
+            -0.0035044040722064774,
+            -0.0016882855435911258,
+            0.003097093037846228,
+            0.058217240551196654,
+            0.0024280131930780446
+          ],
+          "confinement": 0.38
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 360,
+          "time": 13.999999999999961,
+          "interactionEnergy": 0.8557262475313043,
+          "drive": [
+            0.004073129644986356,
+            -0.004073129644986205,
+            2.6223367800829138e-24,
+            -1.6137457108202514e-24
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            -0.00003680746275584587,
+            -0.000042661081304958626,
+            -0.016232789206201192,
+            -0.0035044040722064774,
+            -0.0016882855435911258,
+            0.003097093037846228,
+            0.058217240551196654,
+            0.0024280131930780446
+          ],
+          "confinement": 0.38
+        }
+      ]
+    },
+    {
+      "t": 12.966666666666667,
+      "snapshots": [
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 390,
+          "time": 14.399999999999958,
+          "interactionEnergy": 0.8561311115118206,
+          "drive": [
+            0.000002044575128299861,
+            -0.000002044575128299836,
+            1.6148683267034213e-17,
+            -9.937651241251787e-18
+          ],
+          "model": "bounded local motion over independent evolving curl clouds",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 390,
+          "time": 14.999999999999957,
+          "interactionEnergy": 0.8561315371241106,
+          "drive": [
+            8.481539047998425e-10,
+            -8.481539047998113e-10,
+            5.460531270997687e-31,
+            -3.36032693599857e-31
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            0.0001015470939804063,
+            -0.00006647441160214435,
+            -0.01929553109596744,
+            -0.005266536920072857,
+            -0.00041276688137340976,
+            0.0008163082288355566,
+            0.0432152189538874,
+            -0.0006104151461189812
+          ],
+          "confinement": 0.38
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 390,
+          "time": 14.999999999999957,
+          "interactionEnergy": 0.8561315371241106,
+          "drive": [
+            8.481539047998425e-10,
+            -8.481539047998113e-10,
+            5.460531270997687e-31,
+            -3.36032693599857e-31
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            0.0001015470939804063,
+            -0.00006647441160214435,
+            -0.01929553109596744,
+            -0.005266536920072857,
+            -0.00041276688137340976,
+            0.0008163082288355566,
+            0.0432152189538874,
+            -0.0006104151461189812
+          ],
+          "confinement": 0.38
+        }
+      ]
+    },
+    {
+      "t": 13.966666666666667,
+      "snapshots": [
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 420,
+          "time": 15.399999999999954,
+          "interactionEnergy": 0.8561315371061808,
+          "drive": [
+            4.914534530897996e-10,
+            -4.914534530897934e-10,
+            3.881650541761591e-21,
+            -2.3887080256994303e-21
+          ],
+          "model": "bounded local motion over independent evolving curl clouds",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 420,
+          "time": 15.999999999999954,
+          "interactionEnergy": 0.8561315372085044,
+          "drive": [
+            1.766123617284542e-16,
+            -1.7661236172844766e-16,
+            1.1370546295964636e-37,
+            -6.997259259055146e-38
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            0.0005937771853400301,
+            -0.00034504158018595086,
+            -0.021819210127745677,
+            -0.007340721723403322,
+            -0.00007727380579308256,
+            0.00016845417373324365,
+            0.024628002315527954,
+            -0.0018200586592160037
+          ],
+          "confinement": 0.38
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 420,
+          "time": 15.999999999999954,
+          "interactionEnergy": 0.8561315372085044,
+          "drive": [
+            1.766123617284542e-16,
+            -1.7661236172844766e-16,
+            1.1370546295964636e-37,
+            -6.997259259055146e-38
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            0.0005937771853400301,
+            -0.00034504158018595086,
+            -0.021819210127745677,
+            -0.007340721723403322,
+            -0.00007727380579308256,
+            0.00016845417373324365,
+            0.024628002315527954,
+            -0.0018200586592160037
+          ],
+          "confinement": 0.38
+        }
+      ]
+    },
+    {
+      "t": 14.966666666666667,
+      "snapshots": [
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 450,
+          "time": 16.39999999999997,
+          "interactionEnergy": 0.8561315372084807,
+          "drive": [
+            1.1813040920375756e-13,
+            -1.181304092037561e-13,
+            9.330303083667589e-25,
+            -5.741724974564649e-25
+          ],
+          "model": "bounded local motion over independent evolving curl clouds",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 450,
+          "time": 17.000000000000004,
+          "interactionEnergy": 0.8561315372085044,
+          "drive": [
+            3.677625739713289e-23,
+            -3.6776257397131516e-23,
+            2.367705936515089e-44,
+            -1.457049807086206e-44
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            0.001442452646957492,
+            -0.0007305643835971394,
+            -0.02260121957715296,
+            -0.009182308314386581,
+            -0.000010255195987824327,
+            0.000025270582214996805,
+            0.011981728789970688,
+            -0.0016426029258867045
+          ],
+          "confinement": 0.38
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 450,
+          "time": 17.000000000000004,
+          "interactionEnergy": 0.8561315372085044,
+          "drive": [
+            3.677625739713289e-23,
+            -3.6776257397131516e-23,
+            2.367705936515089e-44,
+            -1.457049807086206e-44
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            0.001442452646957492,
+            -0.0007305643835971394,
+            -0.02260121957715296,
+            -0.009182308314386581,
+            -0.000010255195987824327,
+            0.000025270582214996805,
+            0.011981728789970688,
+            -0.0016426029258867045
+          ],
+          "confinement": 0.38
+        }
+      ]
+    },
+    {
+      "t": 15.966666666666667,
+      "snapshots": [
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 480,
+          "time": 17.40000000000002,
+          "interactionEnergy": 0.8561315372085051,
+          "drive": [
+            2.8394944609530234e-17,
+            -2.8394944609529864e-17,
+            2.242720067056561e-28,
+            -1.3801354258809553e-28
+          ],
+          "model": "bounded local motion over independent evolving curl clouds",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 480,
+          "time": 18.000000000000053,
+          "interactionEnergy": 0.8561315372085044,
+          "drive": [
+            7.65797532462457e-30,
+            -7.657975324624287e-30,
+            4.9303096402662356e-51,
+            -3.0340367017022907e-51
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            0.002664455823921379,
+            -0.0011511391416212477,
+            -0.022691028307818033,
+            -0.010947359519759578,
+            0.00008329565487755994,
+            -0.00009400395542857369,
+            0.008143561814456936,
+            -0.0016549794608107574
+          ],
+          "confinement": 0.38
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 480,
+          "time": 18.000000000000053,
+          "interactionEnergy": 0.8561315372085044,
+          "drive": [
+            7.65797532462457e-30,
+            -7.657975324624287e-30,
+            4.9303096402662356e-51,
+            -3.0340367017022907e-51
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            0.002664455823921379,
+            -0.0011511391416212477,
+            -0.022691028307818033,
+            -0.010947359519759578,
+            0.00008329565487755994,
+            -0.00009400395542857369,
+            0.008143561814456936,
+            -0.0016549794608107574
+          ],
+          "confinement": 0.38
+        }
+      ]
+    },
+    {
+      "t": 16.966666666666665,
+      "snapshots": [
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 510,
+          "time": 18.40000000000007,
+          "interactionEnergy": 0.8561315372085051,
+          "drive": [
+            6.825277968753901e-21,
+            -6.825277968753813e-21,
+            5.390814482739243e-32,
+            -3.3174242970702896e-32
+          ],
+          "model": "bounded local motion over independent evolving curl clouds",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 510,
+          "time": 19.000000000000103,
+          "interactionEnergy": 0.8561315372085044,
+          "drive": [
+            1.5946317059748122e-36,
+            -1.5946317059747534e-36,
+            1.0266457829083227e-57,
+            -6.317820202512735e-58
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            0.004852391064604775,
+            -0.0017407324284356143,
+            -0.024900252175689405,
+            -0.01406870875702353,
+            0.0007588330744724361,
+            -0.0009643894132481812,
+            0.009179654504730328,
+            -0.0024955325141613797
+          ],
+          "confinement": 0.38
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 510,
+          "time": 19.000000000000103,
+          "interactionEnergy": 0.8561315372085044,
+          "drive": [
+            1.5946317059748122e-36,
+            -1.5946317059747534e-36,
+            1.0266457829083227e-57,
+            -6.317820202512735e-58
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            0.004852391064604775,
+            -0.0017407324284356143,
+            -0.024900252175689405,
+            -0.01406870875702353,
+            0.0007588330744724361,
+            -0.0009643894132481812,
+            0.009179654504730328,
+            -0.0024955325141613797
+          ],
+          "confinement": 0.38
+        }
+      ]
+    },
+    {
+      "t": 17.966666666666665,
+      "snapshots": [
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 540,
+          "time": 19.40000000000012,
+          "interactionEnergy": 0.8561315372085051,
+          "drive": [
+            1.6405884917670233e-24,
+            -1.6405884917670023e-24,
+            1.2957872546907685e-35,
+            -7.974075413481624e-36
+          ],
+          "model": "bounded local motion over independent evolving curl clouds",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 540,
+          "time": 20.000000000000153,
+          "interactionEnergy": 0.8561315372085044,
+          "drive": [
+            3.3205255565704017e-43,
+            -3.320525556570279e-43,
+            2.1377999364488737e-64,
+            -1.3155691916608407e-64
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            0.009186532214073043,
+            -0.00263914422710198,
+            -0.0313736053057581,
+            -0.020516492612138316,
+            0.002340226514062041,
+            -0.003330943170203908,
+            0.00984746210352086,
+            -0.0033727914062264314
+          ],
+          "confinement": 0.38
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 540,
+          "time": 20.000000000000153,
+          "interactionEnergy": 0.8561315372085044,
+          "drive": [
+            3.3205255565704017e-43,
+            -3.320525556570279e-43,
+            2.1377999364488737e-64,
+            -1.3155691916608407e-64
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            0.009186532214073043,
+            -0.00263914422710198,
+            -0.0313736053057581,
+            -0.020516492612138316,
+            0.002340226514062041,
+            -0.003330943170203908,
+            0.00984746210352086,
+            -0.0033727914062264314
+          ],
+          "confinement": 0.38
+        }
+      ]
+    },
+    {
+      "t": 18.966666666666665,
+      "snapshots": [
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 570,
+          "time": 20.40000000000017,
+          "interactionEnergy": 0.9040004178774708,
+          "drive": [
+            -0.05107037873106917,
+            0.05107037873106973,
+            3.1146770396110026e-39,
+            -1.916724332068303e-39
+          ],
+          "model": "bounded local motion over independent evolving curl clouds",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 570,
+          "time": 21.000000000000203,
+          "interactionEnergy": 0.9092699607565708,
+          "drive": [
+            -0.05390489935400105,
+            0.05390489935400189,
+            4.45157292258504e-71,
+            -2.7394294908215525e-71
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            0.01637509701045244,
+            -0.0035732740502677066,
+            -0.04121734339309263,
+            -0.030879091663069222,
+            0.005151008085869359,
+            -0.00815569413979385,
+            0.008208156645074745,
+            -0.0034031086895207167
+          ],
+          "confinement": 0.38
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 570,
+          "time": 21.000000000000203,
+          "interactionEnergy": 0.9092699607565708,
+          "drive": [
+            -0.05390489935400105,
+            0.05390489935400189,
+            4.45157292258504e-71,
+            -2.7394294908215525e-71
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            0.01637509701045244,
+            -0.0035732740502677066,
+            -0.04121734339309263,
+            -0.030879091663069222,
+            0.005151008085869359,
+            -0.00815569413979385,
+            0.008208156645074745,
+            -0.0034031086895207167
+          ],
+          "confinement": 0.38
+        }
+      ]
+    },
+    {
+      "t": 19.966666666666665,
+      "snapshots": [
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 600,
+          "time": 21.40000000000022,
+          "interactionEnergy": 1.050224680943233,
+          "drive": [
+            -0.08994666820189343,
+            0.08994666820189337,
+            7.486732892271803e-43,
+            -4.6072202413980194e-43
+          ],
+          "model": "bounded local motion over independent evolving curl clouds",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 600,
+          "time": 22.000000000000252,
+          "interactionEnergy": 1.0598471521889377,
+          "drive": [
+            -0.09150589917071024,
+            0.09150589917070996,
+            9.269577170074087e-78,
+            -5.704355181584033e-78
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            0.02520723539652088,
+            -0.003830832194229871,
+            -0.05032869614865304,
+            -0.0427982538532484,
+            0.008254289402021438,
+            -0.014412644022261183,
+            0.005445748074179713,
+            -0.0026542891684546367
+          ],
+          "confinement": 0.38
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 600,
+          "time": 22.000000000000252,
+          "interactionEnergy": 1.0598471521889377,
+          "drive": [
+            -0.09150589917071024,
+            0.09150589917070996,
+            9.269577170074087e-78,
+            -5.704355181584033e-78
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            0.02520723539652088,
+            -0.003830832194229871,
+            -0.05032869614865304,
+            -0.0427982538532484,
+            0.008254289402021438,
+            -0.014412644022261183,
+            0.005445748074179713,
+            -0.0026542891684546367
+          ],
+          "confinement": 0.38
+        }
+      ]
+    },
+    {
+      "t": 20.966666666666665,
+      "snapshots": [
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 630,
+          "time": 22.40000000000027,
+          "interactionEnergy": 1.2499177553561645,
+          "drive": [
+            -0.10532090575709788,
+            0.10532090575709747,
+            1.7995820654081317e-46,
+            -1.1074351171742319e-46
+          ],
+          "model": "bounded local motion over independent evolving curl clouds",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 630,
+          "time": 23.000000000000302,
+          "interactionEnergy": 1.2613385940262385,
+          "drive": [
+            -0.10560262551433003,
+            0.10560262551432929,
+            1.9302179792679165e-84,
+            -1.1878264487802523e-84
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            0.032296355562385776,
+            -0.0028738894841602368,
+            -0.053787567764789886,
+            -0.05146250676384553,
+            0.009242012162393606,
+            -0.017599112741496278,
+            0.003021428999950312,
+            -0.0016917926950552617
+          ],
+          "confinement": 0.38
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 630,
+          "time": 23.000000000000302,
+          "interactionEnergy": 1.2613385940262385,
+          "drive": [
+            -0.10560262551433003,
+            0.10560262551432929,
+            1.9302179792679165e-84,
+            -1.1878264487802523e-84
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            0.032296355562385776,
+            -0.0028738894841602368,
+            -0.053787567764789886,
+            -0.05146250676384553,
+            0.009242012162393606,
+            -0.017599112741496278,
+            0.003021428999950312,
+            -0.0016917926950552617
+          ],
+          "confinement": 0.38
+        }
+      ]
+    },
+    {
+      "t": 21.966666666666665,
+      "snapshots": [
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 660,
+          "time": 23.40000000000032,
+          "interactionEnergy": 1.4417906460794947,
+          "drive": [
+            -0.0005362469481841196,
+            0.0005362469481841216,
+            -0.12758880106505532,
+            0.0785161852708034
+          ],
+          "model": "bounded local motion over independent evolving curl clouds",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 660,
+          "time": 24.00000000000035,
+          "interactionEnergy": 1.4530823417254557,
+          "drive": [
+            -0.000006153397040544453,
+            0.0000061533970405444996,
+            -0.12785789641072415,
+            0.07868178240659973
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            0.033878024233362336,
+            -0.0010060883668475,
+            -0.04904347305563741,
+            -0.05232753767516059,
+            0.006760812367512868,
+            -0.01384467407004196,
+            0.001257274035805961,
+            -0.0007931820047577114
+          ],
+          "confinement": 0.38
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 660,
+          "time": 24.00000000000035,
+          "interactionEnergy": 1.4530823417254557,
+          "drive": [
+            -0.000006153397040544453,
+            0.0000061533970405444996,
+            -0.12785789641072415,
+            0.07868178240659973
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            0.033878024233362336,
+            -0.0010060883668475,
+            -0.04904347305563741,
+            -0.05232753767516059,
+            0.006760812367512868,
+            -0.01384467407004196,
+            0.001257274035805961,
+            -0.0007931820047577114
+          ],
+          "confinement": 0.38
+        }
+      ]
+    },
+    {
+      "t": 22.966666666666665,
+      "snapshots": [
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 690,
+          "time": 24.400000000000368,
+          "interactionEnergy": 1.61946631556338,
+          "drive": [
+            -1.2889739816657933e-7,
+            1.2889739816657994e-7,
+            -0.08716003624184987,
+            0.053636945379599565
+          ],
+          "model": "bounded local motion over independent evolving curl clouds",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 690,
+          "time": 25.0000000000004,
+          "interactionEnergy": 1.6273618623718358,
+          "drive": [
+            -1.2813311096408906e-12,
+            1.2813311096408999e-12,
+            -0.08413796760102647,
+            0.05177721083140036
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            0.02860627336818381,
+            0.000725936538796871,
+            -0.037524840705527904,
+            -0.04422812120504139,
+            0.0029451925434109323,
+            -0.006375569954852773,
+            0.00016326565866358402,
+            -0.00011405282055442081
+          ],
+          "confinement": 0.38
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 690,
+          "time": 25.0000000000004,
+          "interactionEnergy": 1.6273618623718358,
+          "drive": [
+            -1.2813311096408906e-12,
+            1.2813311096408999e-12,
+            -0.08413796760102647,
+            0.05177721083140036
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            0.02860627336818381,
+            0.000725936538796871,
+            -0.037524840705527904,
+            -0.04422812120504139,
+            0.0029451925434109323,
+            -0.006375569954852773,
+            0.00016326565866358402,
+            -0.00011405282055442081
+          ],
+          "confinement": 0.38
+        }
+      ]
+    },
+    {
+      "t": 23.966666666666665,
+      "snapshots": [
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 720,
+          "time": 25.400000000000418,
+          "interactionEnergy": 1.7032809187380198,
+          "drive": [
+            -3.098300010913837e-11,
+            3.0983000109138526e-11,
+            -0.01385117652988418,
+            0.008523800941467584
+          ],
+          "model": "bounded local motion over independent evolving curl clouds",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 720,
+          "time": 26.00000000000045,
+          "interactionEnergy": 1.7048764656719795,
+          "drive": [
+            -2.6681350182927393e-19,
+            2.668135018292758e-19,
+            -0.009130206043033821,
+            0.005618588334175223
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            0.019032012828705553,
+            0.0014396479031791652,
+            -0.02363286182118759,
+            -0.03044802381434133,
+            0.002153924473536323,
+            -0.004831680383276737,
+            0.00007435744744647803,
+            0.00005342330183384865
+          ],
+          "confinement": 0.38
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 720,
+          "time": 26.00000000000045,
+          "interactionEnergy": 1.7048764656719795,
+          "drive": [
+            -2.6681350182927393e-19,
+            2.668135018292758e-19,
+            -0.009130206043033821,
+            0.005618588334175223
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            0.019032012828705553,
+            0.0014396479031791652,
+            -0.02363286182118759,
+            -0.03044802381434133,
+            0.002153924473536323,
+            -0.004831680383276737,
+            0.00007435744744647803,
+            0.00005342330183384865
+          ],
+          "confinement": 0.38
+        }
+      ]
+    },
+    {
+      "t": 24.966666666666665,
+      "snapshots": [
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 750,
+          "time": 26.400000000000468,
+          "interactionEnergy": 1.7056934851901293,
+          "drive": [
+            -7.44736751413935e-15,
+            7.447367514139391e-15,
+            -0.0000034492117986194197,
+            0.0000021225918760735745
+          ],
+          "model": "bounded local motion over independent evolving curl clouds",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 750,
+          "time": 27.0000000000005,
+          "interactionEnergy": 1.705694065066638,
+          "drive": [
+            -5.555897630422141e-26,
+            5.555897630422178e-26,
+            -2.118379809412954e-9,
+            1.3036183442542248e-9
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            0.010275449254806317,
+            0.001237446792855727,
+            -0.01207287699965288,
+            -0.01680019754459576,
+            0.006793374622203048,
+            -0.015448004061450596,
+            0.0008044068347228601,
+            0.0005413244545556773
+          ],
+          "confinement": 0.38
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 750,
+          "time": 27.0000000000005,
+          "interactionEnergy": 1.705694065066638,
+          "drive": [
+            -5.555897630422141e-26,
+            5.555897630422178e-26,
+            -2.118379809412954e-9,
+            1.3036183442542248e-9
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            0.010275449254806317,
+            0.001237446792855727,
+            -0.01207287699965288,
+            -0.01680019754459576,
+            0.006793374622203048,
+            -0.015448004061450596,
+            0.0008044068347228601,
+            0.0005413244545556773
+          ],
+          "confinement": 0.38
+        }
+      ]
+    },
+    {
+      "t": 25.966666666666665,
+      "snapshots": [
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 780,
+          "time": 27.400000000000517,
+          "interactionEnergy": 1.705694065097464,
+          "drive": [
+            -1.7901198300773778e-18,
+            1.7901198300773885e-18,
+            -8.290852340941622e-10,
+            5.102062979041206e-10
+          ],
+          "model": "bounded local motion over independent evolving curl clouds",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 780,
+          "time": 28.00000000000055,
+          "interactionEnergy": 1.7056940652368873,
+          "drive": [
+            -1.1569129098827196e-32,
+            1.1569129098827271e-32,
+            -4.4111341003209393e-16,
+            2.7145440617361687e-16
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            0.006722560295253447,
+            0.001068850970920467,
+            -0.005467687745981984,
+            -0.008106068772700644,
+            0.014724686243008963,
+            -0.0331777954599292,
+            0.002650141206543889,
+            0.0016412785852237344
+          ],
+          "confinement": 0.38
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 780,
+          "time": 28.00000000000055,
+          "interactionEnergy": 1.7056940652368873,
+          "drive": [
+            -1.1569129098827196e-32,
+            1.1569129098827271e-32,
+            -4.4111341003209393e-16,
+            2.7145440617361687e-16
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            0.006722560295253447,
+            0.001068850970920467,
+            -0.005467687745981984,
+            -0.008106068772700644,
+            0.014724686243008963,
+            -0.0331777954599292,
+            0.002650141206543889,
+            0.0016412785852237344
+          ],
+          "confinement": 0.38
+        }
+      ]
+    },
+    {
+      "t": 26.966666666666665,
+      "snapshots": [
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 810,
+          "time": 28.400000000000567,
+          "interactionEnergy": 1.705694065236856,
+          "drive": [
+            -4.302901662838896e-22,
+            4.302901662838922e-22,
+            -1.9928678362636445e-13,
+            1.226380206931523e-13
+          ],
+          "model": "bounded local motion over independent evolving curl clouds",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 810,
+          "time": 29.0000000000006,
+          "interactionEnergy": 1.7056940652368873,
+          "drive": [
+            -2.4090571318744858e-39,
+            2.409057131874502e-39,
+            -9.185370802984784e-23,
+            5.652535878760297e-23
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            0.009271141516082939,
+            0.0017670204566343137,
+            -0.0036278192299726494,
+            -0.005641682560258984,
+            0.021223983489839452,
+            -0.04634289552590008,
+            0.006113440101105908,
+            0.0034207382949945943
+          ],
+          "confinement": 0.38
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 810,
+          "time": 29.0000000000006,
+          "interactionEnergy": 1.7056940652368873,
+          "drive": [
+            -2.4090571318744858e-39,
+            2.409057131874502e-39,
+            -9.185370802984784e-23,
+            5.652535878760297e-23
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            0.009271141516082939,
+            0.0017670204566343137,
+            -0.0036278192299726494,
+            -0.005641682560258984,
+            0.021223983489839452,
+            -0.04634289552590008,
+            0.006113440101105908,
+            0.0034207382949945943
+          ],
+          "confinement": 0.38
+        }
+      ]
+    },
+    {
+      "t": 27.966666666666665,
+      "snapshots": [
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 840,
+          "time": 29.400000000000617,
+          "interactionEnergy": 1.7056940652368893,
+          "drive": [
+            -1.0342862197812444e-25,
+            1.034286219781251e-25,
+            -4.7902459837598315e-17,
+            2.9478436823138606e-17
+          ],
+          "model": "bounded local motion over independent evolving curl clouds",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 840,
+          "time": 30.00000000000065,
+          "interactionEnergy": 1.7056940652368873,
+          "drive": [
+            -5.0164158555579194e-46,
+            5.0164158555579505e-46,
+            -1.9126835609506144e-29,
+            1.1770360375081592e-29
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            0.01517736558951506,
+            0.0032557783044080686,
+            -0.004490344425266543,
+            -0.007200177015832173,
+            0.023546626924708675,
+            -0.04881730624287526,
+            0.010696062381258335,
+            0.005299395234902547
+          ],
+          "confinement": 0.38
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 840,
+          "time": 30.00000000000065,
+          "interactionEnergy": 1.7056940652368873,
+          "drive": [
+            -5.0164158555579194e-46,
+            5.0164158555579505e-46,
+            -1.9126835609506144e-29,
+            1.1770360375081592e-29
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            0.01517736558951506,
+            0.0032557783044080686,
+            -0.004490344425266543,
+            -0.007200177015832173,
+            0.023546626924708675,
+            -0.04881730624287526,
+            0.010696062381258335,
+            0.005299395234902547
+          ],
+          "confinement": 0.38
+        }
+      ]
+    },
+    {
+      "t": 28.966666666666665,
+      "snapshots": [
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 870,
+          "time": 30.400000000000666,
+          "interactionEnergy": 1.7056940652368893,
+          "drive": [
+            -2.4861083711673665e-29,
+            2.4861083711673828e-29,
+            -1.1514289190370332e-20,
+            7.085716424843568e-21
+          ],
+          "model": "bounded local motion over independent evolving curl clouds",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 870,
+          "time": 31.0000000000007,
+          "interactionEnergy": 1.7056940652368873,
+          "drive": [
+            -1.044575809470839e-52,
+            1.0445758094708458e-52,
+            -3.9828097120934265e-36,
+            2.4509598228269106e-36
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            0.020388541785987528,
+            0.0046926469591940185,
+            -0.005734068771541069,
+            -0.009308067048729222,
+            0.02314337371677217,
+            -0.044757611148419016,
+            0.013982176701045228,
+            0.005993083920225408
+          ],
+          "confinement": 0.38
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 870,
+          "time": 31.0000000000007,
+          "interactionEnergy": 1.7056940652368873,
+          "drive": [
+            -1.044575809470839e-52,
+            1.0445758094708458e-52,
+            -3.9828097120934265e-36,
+            2.4509598228269106e-36
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            0.020388541785987528,
+            0.0046926469591940185,
+            -0.005734068771541069,
+            -0.009308067048729222,
+            0.02314337371677217,
+            -0.044757611148419016,
+            0.013982176701045228,
+            0.005993083920225408
+          ],
+          "confinement": 0.38
+        }
+      ]
+    },
+    {
+      "t": 29.966666666666665,
+      "snapshots": [
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 900,
+          "time": 31.400000000000716,
+          "interactionEnergy": 1.7056940652368893,
+          "drive": [
+            -5.9758456749967214e-33,
+            5.9758456749967604e-33,
+            -2.7676836640321928e-24,
+            1.7031899470968035e-24
+          ],
+          "model": "bounded local motion over independent evolving curl clouds",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 900,
+          "time": 32.000000000000746,
+          "interactionEnergy": 1.7056940652368873,
+          "drive": [
+            -2.175135900112299e-59,
+            2.175135900112314e-59,
+            -8.293464494911978e-43,
+            5.103670458407764e-43
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            0.022339694286066778,
+            0.005296912488577103,
+            -0.0059831710126230075,
+            -0.009648843931496323,
+            0.022947830133702173,
+            -0.04079570469333579,
+            0.013067928825463792,
+            0.004709048107681436
+          ],
+          "confinement": 0.38
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 900,
+          "time": 32.000000000000746,
+          "interactionEnergy": 1.7056940652368873,
+          "drive": [
+            -2.175135900112299e-59,
+            2.175135900112314e-59,
+            -8.293464494911978e-43,
+            5.103670458407764e-43
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            0.022339694286066778,
+            0.005296912488577103,
+            -0.0059831710126230075,
+            -0.009648843931496323,
+            0.022947830133702173,
+            -0.04079570469333579,
+            0.013067928825463792,
+            0.004709048107681436
+          ],
+          "confinement": 0.38
+        }
+      ]
+    },
+    {
+      "t": 30.966666666666665,
+      "snapshots": [
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 930,
+          "time": 32.40000000000072,
+          "interactionEnergy": 1.7056940652368893,
+          "drive": [
+            -1.4364108960627823e-36,
+            1.4364108960627919e-36,
+            -6.652666732182618e-28,
+            4.093948758266395e-28
+          ],
+          "model": "bounded local motion over independent evolving curl clouds",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 930,
+          "time": 33.00000000000069,
+          "interactionEnergy": 1.7056940652368873,
+          "drive": [
+            -4.529318160597723e-66,
+            4.529318160597759e-66,
+            -1.7269605705619544e-49,
+            1.0627449664997467e-49
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            0.02110386377721839,
+            0.004962771593695048,
+            -0.005081775653708865,
+            -0.007991689174865013,
+            0.022993912779094752,
+            -0.03714047286519804,
+            0.008028476294029198,
+            0.0023416387494791632
+          ],
+          "confinement": 0.38
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 930,
+          "time": 33.00000000000069,
+          "interactionEnergy": 1.7056940652368873,
+          "drive": [
+            -4.529318160597723e-66,
+            4.529318160597759e-66,
+            -1.7269605705619544e-49,
+            1.0627449664997467e-49
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            0.02110386377721839,
+            0.004962771593695048,
+            -0.005081775653708865,
+            -0.007991689174865013,
+            0.022993912779094752,
+            -0.03714047286519804,
+            0.008028476294029198,
+            0.0023416387494791632
+          ],
+          "confinement": 0.38
+        }
+      ]
+    },
+    {
+      "t": 31.966666666666665,
+      "snapshots": [
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 960,
+          "time": 33.40000000000067,
+          "interactionEnergy": 1.7056940652368893,
+          "drive": [
+            -3.4526933500989675e-40,
+            3.4526933500989904e-40,
+            -1.5990980192082588e-31,
+            9.840603195128155e-32
+          ],
+          "model": "bounded local motion over independent evolving curl clouds",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 960,
+          "time": 34.00000000000063,
+          "interactionEnergy": 1.7056940652368873,
+          "drive": [
+            -9.431467247109113e-73,
+            9.431467247109192e-73,
+            -3.59607593919931e-56,
+            2.2129698087382086e-56
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            0.018390489725490615,
+            0.004126304869364266,
+            -0.0036038604271713456,
+            -0.005430412684700464,
+            0.02021899660394909,
+            -0.029403599334867015,
+            0.0038041161477539256,
+            0.0008497357667428255
+          ],
+          "confinement": 0.38
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 960,
+          "time": 34.00000000000063,
+          "interactionEnergy": 1.7056940652368873,
+          "drive": [
+            -9.431467247109113e-73,
+            9.431467247109192e-73,
+            -3.59607593919931e-56,
+            2.2129698087382086e-56
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            0.018390489725490615,
+            0.004126304869364266,
+            -0.0036038604271713456,
+            -0.005430412684700464,
+            0.02021899660394909,
+            -0.029403599334867015,
+            0.0038041161477539256,
+            0.0008497357667428255
+          ],
+          "confinement": 0.38
+        }
+      ]
+    },
+    {
+      "t": 32.96666666666667,
+      "snapshots": [
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 990,
+          "time": 34.40000000000061,
+          "interactionEnergy": 1.7056940652368893,
+          "drive": [
+            -8.299220928004284e-44,
+            8.299220928004342e-44,
+            -3.843743536205721e-35,
+            2.3653806376651586e-35
+          ],
+          "model": "bounded local motion over independent evolving curl clouds",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 990,
+          "time": 35.000000000000576,
+          "interactionEnergy": 1.7056940652368873,
+          "drive": [
+            -1.963928593206911e-79,
+            1.963928593206928e-79,
+            -7.488162949939382e-63,
+            4.6081002768861296e-63
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            0.01566430182323066,
+            0.0032118776961130103,
+            -0.002157647575580948,
+            -0.0030655685298907496,
+            0.013266246732115433,
+            -0.017246903332310336,
+            0.007244998448068081,
+            0.001131017204818659
+          ],
+          "confinement": 0.38
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 990,
+          "time": 35.000000000000576,
+          "interactionEnergy": 1.7056940652368873,
+          "drive": [
+            -1.963928593206911e-79,
+            1.963928593206928e-79,
+            -7.488162949939382e-63,
+            4.6081002768861296e-63
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            0.01566430182323066,
+            0.0032118776961130103,
+            -0.002157647575580948,
+            -0.0030655685298907496,
+            0.013266246732115433,
+            -0.017246903332310336,
+            0.007244998448068081,
+            0.001131017204818659
+          ],
+          "confinement": 0.38
+        }
+      ]
+    },
+    {
+      "t": 33.96666666666667,
+      "snapshots": [
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 1020,
+          "time": 35.40000000000055,
+          "interactionEnergy": 1.7056940652368893,
+          "drive": [
+            -1.9948793891542682e-47,
+            1.9948793891542816e-47,
+            -9.239186212886628e-39,
+            5.68565305408432e-39
+          ],
+          "model": "bounded local motion over independent evolving curl clouds",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 1020,
+          "time": 36.00000000000052,
+          "interactionEnergy": 1.7056940652368873,
+          "drive": [
+            -4.089518012584849e-86,
+            4.089518012584886e-86,
+            -1.5592714200949202e-69,
+            9.595516431354105e-70
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            0.013120861424929454,
+            0.0023313782855442647,
+            -0.001018763140126267,
+            -0.001345459138985634,
+            0.00588554378758397,
+            -0.006801442854332131,
+            0.020947505775722446,
+            0.0018940730519085578
+          ],
+          "confinement": 0.38
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 1020,
+          "time": 36.00000000000052,
+          "interactionEnergy": 1.7056940652368873,
+          "drive": [
+            -4.089518012584849e-86,
+            4.089518012584886e-86,
+            -1.5592714200949202e-69,
+            9.595516431354105e-70
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            0.013120861424929454,
+            0.0023313782855442647,
+            -0.001018763140126267,
+            -0.001345459138985634,
+            0.00588554378758397,
+            -0.006801442854332131,
+            0.020947505775722446,
+            0.0018940730519085578
+          ],
+          "confinement": 0.38
+        }
+      ]
+    },
+    {
+      "t": 34.96666666666667,
+      "snapshots": [
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 1050,
+          "time": 36.400000000000496,
+          "interactionEnergy": 1.7056940652368893,
+          "drive": [
+            -4.795081142910926e-51,
+            4.7950811429109594e-51,
+            -2.2208183525339572e-42,
+            1.3666574477132622e-42
+          ],
+          "model": "bounded local motion over independent evolving curl clouds",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 1050,
+          "time": 37.00000000000046,
+          "interactionEnergy": 1.7056940652368873,
+          "drive": [
+            -8.515664792041627e-93,
+            8.515664792041707e-93,
+            -3.246894302085815e-76,
+            1.9980888012837363e-76
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            0.010179429925519996,
+            0.0014551349189452101,
+            -0.0002510613819347418,
+            -0.0003043836462621256,
+            0.003488736106038156,
+            -0.0035664774031847453,
+            0.03985582060731401,
+            0.0010684134344932982
+          ],
+          "confinement": 0.38
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 1050,
+          "time": 37.00000000000046,
+          "interactionEnergy": 1.7056940652368873,
+          "drive": [
+            -8.515664792041627e-93,
+            8.515664792041707e-93,
+            -3.246894302085815e-76,
+            1.9980888012837363e-76
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            0.010179429925519996,
+            0.0014551349189452101,
+            -0.0002510613819347418,
+            -0.0003043836462621256,
+            0.003488736106038156,
+            -0.0035664774031847453,
+            0.03985582060731401,
+            0.0010684134344932982
+          ],
+          "confinement": 0.38
+        }
+      ]
+    },
+    {
+      "t": 35.96666666666667,
+      "snapshots": [
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 1080,
+          "time": 37.40000000000044,
+          "interactionEnergy": 1.7056940652368893,
+          "drive": [
+            -1.1525911437105868e-54,
+            1.1525911437105949e-54,
+            -5.338169446214361e-46,
+            3.285027351516668e-46
+          ],
+          "model": "bounded local motion over independent evolving curl clouds",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 1080,
+          "time": 38.000000000000405,
+          "interactionEnergy": 1.7056940652368873,
+          "drive": [
+            -1.7732296722317667e-99,
+            1.7732296722317832e-99,
+            -6.761056781426531e-83,
+            4.1606503270320424e-83
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            0.006657011761315738,
+            0.0006761604680043991,
+            -6.445474883149473e-8,
+            0.000014674437117453411,
+            0.00668415464842133,
+            -0.006018067951794386,
+            0.05474751899300055,
+            -0.0018727120651239155
+          ],
+          "confinement": 0.38
+        },
+        {
+          "available": true,
+          "enabled": true,
+          "frames": 1080,
+          "time": 38.000000000000405,
+          "interactionEnergy": 1.7056940652368873,
+          "drive": [
+            -1.7732296722317667e-99,
+            1.7732296722317832e-99,
+            -6.761056781426531e-83,
+            4.1606503270320424e-83
+          ],
+          "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+          "simulationHz": 30,
+          "fixedDirectionalInlet": false,
+          "regionalVelocities": [
+            0.006657011761315738,
+            0.0006761604680043991,
+            -6.445474883149473e-8,
+            0.000014674437117453411,
+            0.00668415464842133,
+            -0.006018067951794386,
+            0.05474751899300055,
+            -0.0018727120651239155
+          ],
+          "confinement": 0.38
+        }
+      ]
+    }
+  ],
+  "differences": [
+    {
+      "t": 0.9666666666666667,
+      "meanRGBDifference": 0,
+      "changedFraction": 0
+    },
+    {
+      "t": 1.9666666666666666,
+      "meanRGBDifference": 0,
+      "changedFraction": 0
+    },
+    {
+      "t": 2.966666666666667,
+      "meanRGBDifference": 0,
+      "changedFraction": 0
+    },
+    {
+      "t": 3.966666666666667,
+      "meanRGBDifference": 0,
+      "changedFraction": 0
+    },
+    {
+      "t": 4.966666666666667,
+      "meanRGBDifference": 0,
+      "changedFraction": 0
+    },
+    {
+      "t": 5.966666666666667,
+      "meanRGBDifference": 0,
+      "changedFraction": 0
+    },
+    {
+      "t": 6.966666666666667,
+      "meanRGBDifference": 0.8955927559476076,
+      "changedFraction": 0.12718023255813954
+    },
+    {
+      "t": 7.966666666666667,
+      "meanRGBDifference": 1.6718708233092756,
+      "changedFraction": 0.24793003207698477
+    },
+    {
+      "t": 8.966666666666667,
+      "meanRGBDifference": 1.92226176156108,
+      "changedFraction": 0.29395048115477146
+    },
+    {
+      "t": 9.966666666666667,
+      "meanRGBDifference": 2.01109496124031,
+      "changedFraction": 0.31334703287890936
+    },
+    {
+      "t": 10.966666666666667,
+      "meanRGBDifference": 2.137872560812617,
+      "changedFraction": 0.33499398556535687
+    },
+    {
+      "t": 11.966666666666667,
+      "meanRGBDifference": 2.161786621224272,
+      "changedFraction": 0.34640136327185245
+    },
+    {
+      "t": 12.966666666666667,
+      "meanRGBDifference": 2.0786704758086074,
+      "changedFraction": 0.34011126704089817
+    },
+    {
+      "t": 13.966666666666667,
+      "meanRGBDifference": 1.9197139802191927,
+      "changedFraction": 0.3084452686447474
+    },
+    {
+      "t": 14.966666666666667,
+      "meanRGBDifference": 1.8060495188452286,
+      "changedFraction": 0.2820469125902165
+    },
+    {
+      "t": 15.966666666666667,
+      "meanRGBDifference": 1.7472918337342958,
+      "changedFraction": 0.26979250200481153
+    },
+    {
+      "t": 16.966666666666665,
+      "meanRGBDifference": 1.715856388666132,
+      "changedFraction": 0.2654871692060946
+    },
+    {
+      "t": 17.966666666666665,
+      "meanRGBDifference": 1.7004410585404972,
+      "changedFraction": 0.26333700882117084
+    },
+    {
+      "t": 18.966666666666665,
+      "meanRGBDifference": 1.7439454691259022,
+      "changedFraction": 0.26161287089013635
+    },
+    {
+      "t": 19.966666666666665,
+      "meanRGBDifference": 2.057810411654638,
+      "changedFraction": 0.32565156375300724
+    },
+    {
+      "t": 20.966666666666665,
+      "meanRGBDifference": 2.250502873563218,
+      "changedFraction": 0.353764033680834
+    },
+    {
+      "t": 21.966666666666665,
+      "meanRGBDifference": 2.242049251537022,
+      "changedFraction": 0.35239073777064955
+    },
+    {
+      "t": 22.966666666666665,
+      "meanRGBDifference": 2.334699946538359,
+      "changedFraction": 0.3639133921411387
+    },
+    {
+      "t": 23.966666666666665,
+      "meanRGBDifference": 2.409437650360866,
+      "changedFraction": 0.3702937048917402
+    },
+    {
+      "t": 24.966666666666665,
+      "meanRGBDifference": 2.4283797781341887,
+      "changedFraction": 0.3713111467522053
+    },
+    {
+      "t": 25.966666666666665,
+      "meanRGBDifference": 2.424612403100775,
+      "changedFraction": 0.3633169607056937
+    },
+    {
+      "t": 26.966666666666665,
+      "meanRGBDifference": 2.3708466987436516,
+      "changedFraction": 0.36131214915797916
+    },
+    {
+      "t": 27.966666666666665,
+      "meanRGBDifference": 2.252216987436514,
+      "changedFraction": 0.34305834001603847
+    },
+    {
+      "t": 28.966666666666665,
+      "meanRGBDifference": 2.039837276129377,
+      "changedFraction": 0.3176874498797113
+    },
+    {
+      "t": 29.966666666666665,
+      "meanRGBDifference": 1.8097801390002672,
+      "changedFraction": 0.2865126303127506
+    },
+    {
+      "t": 30.966666666666665,
+      "meanRGBDifference": 1.6636845094894412,
+      "changedFraction": 0.2614474739374499
+    },
+    {
+      "t": 31.966666666666665,
+      "meanRGBDifference": 1.5233109462710506,
+      "changedFraction": 0.23844226142742583
+    },
+    {
+      "t": 32.96666666666667,
+      "meanRGBDifference": 1.3714414595028068,
+      "changedFraction": 0.21415898155573376
+    },
+    {
+      "t": 33.96666666666667,
+      "meanRGBDifference": 1.2960789227479284,
+      "changedFraction": 0.20575380914194066
+    },
+    {
+      "t": 34.96666666666667,
+      "meanRGBDifference": 1.164880713712911,
+      "changedFraction": 0.17917502004811547
+    },
+    {
+      "t": 35.96666666666667,
+      "meanRGBDifference": 1.0326901229617749,
+      "changedFraction": 0.1555583400160385
+    }
+  ],
+  "errors": [],
+  "note": "Deterministic synthetic motion diagnostic, not scroll geometry or visual acceptance."
+}

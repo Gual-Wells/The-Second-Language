@@ -5,7 +5,7 @@ import * as T from '../certification/vendor/three.module.js';
 export async function applyFinishing(keeper,renderer){
  const loader=new T.TextureLoader(),names=['leather-color','leather-orm','leather-normal','bronze-color','bronze-orm','bronze-normal'];
  const maps=await Promise.all(names.map(async name=>{
-  const t=await loader.loadAsync(new URL(`./assets/${name}.webp`,import.meta.url).href);t.flipY=false;
+  const t=await loader.loadAsync(new URL(`../chapter-scroll-v19/assets/${name}.webp`,import.meta.url).href);t.flipY=false;
   t.colorSpace=name.endsWith('color')?T.SRGBColorSpace:T.NoColorSpace;
   t.wrapS=t.wrapT=T.ClampToEdgeWrapping;t.anisotropy=Math.min(8,renderer.capabilities.getMaxAnisotropy());return t;
  }));

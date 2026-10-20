@@ -4,7 +4,7 @@ import {createHash} from 'node:crypto';
 import {pathToFileURL} from 'node:url';
 import {createServer} from './serve-scroll-lab.mjs';
 const sampleVersion=process.env.SCROLL_SAMPLE_VERSION||'17',out=process.env.SCROLL_EVIDENCE_DIR||'research/scroll-keeper-unfastening-2026-10-20',cache=`.cache/keeper-v${sampleVersion}`;
-await mkdir(out,{recursive:true});await mkdir(cache+'/video',{recursive:true});process.env.TEMP=process.env.TMP=process.cwd()+'/'+cache+'/tmp';
+await mkdir(out,{recursive:true});await mkdir(cache+'/video',{recursive:true});await mkdir(cache+'/tmp',{recursive:true});process.env.TEMP=process.env.TMP=process.cwd()+'/'+cache+'/tmp';
 const {chromium}=await import(pathToFileURL('D:/CodexStorage/workspaces/second-language-maintenance/.cache/browser-tools/package/index.mjs'));
 const remote=process.argv[2],server=remote?null:createServer();if(server)await new Promise(r=>server.listen(0,'127.0.0.1',r));const base=remote??`http://127.0.0.1:${server.address().port}`;
 const browser=await chromium.launch({headless:true,executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe',...(remote?{proxy:{server:'http://127.0.0.1:6987'}}:{}),args:['--no-first-run']});
