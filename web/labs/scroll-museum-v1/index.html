@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+ <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+ <meta name="theme-color" content="#174b84"><title>卷藏馆 · 第二语言</title>
+ <link rel="icon" href="/icon.svg" type="image/svg+xml"><link rel="stylesheet" href="/styles.css">
+</head>
+<body class="museum-lab">
+ <main class="museum-shell">
+  <header class="app-header museum-header"><div class="title-row"><div class="app-title"><p class="header-meta">第二语言 · 未颁发试样</p><h1>卷藏馆 <small>THE MANUSCRIPT ROOM</small></h1></div><a class="header-button" href="../chapter-scroll-v20/">卷轴原样</a></div></header>
+  <section id="museumStage" class="museum-stage" aria-label="古朴卷藏馆，点选藏卷或通过目录定位">
+   <canvas id="museumCanvas" aria-label="木柜中的横置藏卷"></canvas>
+   <div id="viewerLayer" class="museum-viewer" hidden><canvas id="mistCanvas" aria-hidden="true"></canvas><canvas id="scrollCanvas" aria-label="第五章藏卷，可纵向拖动展开或收起"></canvas><img id="staticDocument" class="museum-static-document" alt="立体显示中断时的第五章完整纸面" hidden></div>
+   <div class="museum-topline"><button class="header-button" id="catalogueButton" type="button">馆藏目录</button><div class="museum-audio-controls"><button class="header-button" id="musicButton" type="button" aria-pressed="false">音乐关</button><button class="header-button" id="foleyButton" type="button" aria-pressed="false">拟音关</button></div></div>
+   <div class="museum-wordmark" id="museumWordmark" aria-hidden="true"><span>THE SECOND LANGUAGE</span><strong>In remembrance</strong><i></i></div>
+   <div class="museum-loading" id="museumLoading" role="status"><span class="museum-loading-mark" aria-hidden="true"></span><p id="loadingText">正在打开卷藏馆…</p></div>
+   <div class="museum-selection" id="selectionCard"><p class="museum-shelfmark" id="shelfmark">CABINET I · V</p><h2 id="selectionTitle">河谷里未说完的话</h2><p class="museum-art-title" id="artTitle" lang="en">Of Leaf and Letter</p><p class="museum-selection-note" id="selectionNote">第五章 · 制作试样</p></div>
+   <div class="museum-browse-controls" id="browseControls"><button class="header-button" id="previousCabinet" aria-label="前一个柜段" type="button">‹</button><span id="cabinetLabel">第一柜 · 第 1—6 章</span><button class="header-button" id="nextCabinet" aria-label="后一个柜段" type="button">›</button></div>
+   <div class="museum-fallback" id="museumFallback" hidden><p>馆景暂时未能载入，仍可取阅第五章藏卷。</p><a class="bevel-button" href="../chapter-scroll-v20/">查看独立卷轴</a></div>
+  </section>
+  <nav class="museum-controls" aria-label="取藏与观卷操作">
+   <button class="bevel-button museum-primary" id="takeButton" type="button" disabled>准备藏卷…</button>
+   <button class="bevel-button" id="toggleScroll" type="button" hidden disabled>启卷</button>
+   <button class="bevel-button" id="detailButton" type="button" hidden disabled>细看与释读</button>
+   <button class="bevel-button" id="returnButton" type="button" hidden disabled>归藏</button>
+  </nav>
+  <footer class="museum-footer"><span id="museumStatus" role="status" aria-live="polite">设计试样，不产生认证或学习记录。</span><button class="museum-source-link" id="aboutButton" type="button">说明</button></footer>
+ </main>
+ <dialog id="catalogueDialog" class="museum-dialog"><form method="dialog" class="museum-dialog-header"><h2>馆藏目录</h2><button class="bevel-button" aria-label="关闭目录">关闭</button></form><div class="museum-dialog-body"><p class="museum-dialog-note">仅陈列实际制作的未颁发样品。空藏位不代表需要补做的任务。</p><button class="museum-catalogue-item" id="chapterFive" type="button"><span>CHAPTER V</span><strong>河谷里未说完的话</strong><small>完整取藏与启卷试样</small></button><a class="museum-catalogue-item" href="../chapter-scroll-v12/"><span>CHAPTER I · 艺术参考</span><strong>地图上的那条线</strong><small>打开第一章原样品；未移入当前机构</small></a></div></dialog>
+ <dialog id="detailDialog" class="museum-dialog museum-detail-dialog"><form method="dialog" class="museum-dialog-header"><h2>第五章藏卷</h2><button class="bevel-button" id="zoomButton" type="button" aria-pressed="false">放大</button><button class="bevel-button" aria-label="关闭细看">关闭</button></form><div class="museum-document" id="documentField"><img id="documentImage" alt="第五章完整英文纪念手稿"></div><div class="museum-dialog-body"><details><summary>英文释读与中文</summary><div id="transcript" lang="en"></div></details><details><summary>藏卷记录</summary><p id="recordText" class="museum-record"></p></details></div></dialog>
+ <dialog id="aboutDialog" class="museum-dialog"><form method="dialog" class="museum-dialog-header"><h2>关于本次取藏试样</h2><button class="bevel-button" aria-label="关闭说明">关闭</button></form><div class="museum-dialog-body"><p>本馆暂陈列第五章制作样品。尚未颁发，所示时间是固定样品时间，不是认证通过时间。</p><p>音乐与拟音由你开启；离开、锁屏或切到后台会暂停。图像、声音与动作均为既有工艺的场景接入探索。</p><p>一柜一案用于验证完整取放体验，馆藏结构可继续延伸。首轮没有启用正式认证、申领或付费自动制作。</p><p><a href="CREDITS.md">场景与工艺来源</a> · <a href="AUDIO_CREDITS.md">音乐与拟音来源</a></p></div></dialog>
+ <script type="module" src="app.bundle.js"></script>
+</body></html>

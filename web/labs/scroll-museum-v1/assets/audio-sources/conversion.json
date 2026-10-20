@@ -1,0 +1,127 @@
+{
+  "method": "Chromium OfflineAudioContext OGG decode to PCM WAV; no synthesis or time stretch",
+  "target": "16-bit little-endian PCM at decoded 44100 Hz",
+  "listeningReview": "not-auditioned",
+  "clips": [
+    {
+      "name": "beltHandle1",
+      "duration": 0.27668934240362814,
+      "channels": 2,
+      "rate": 44100,
+      "peak": 0.6549144983291626,
+      "rms": 0.03830969307727515
+    },
+    {
+      "name": "beltHandle2",
+      "duration": 0.4765532879818594,
+      "channels": 2,
+      "rate": 44100,
+      "peak": 0.6769566535949707,
+      "rms": 0.024845525307102774
+    },
+    {
+      "name": "handleSmallLeather",
+      "duration": 0.3381859410430839,
+      "channels": 2,
+      "rate": 44100,
+      "peak": 0.25689104199409485,
+      "rms": 0.01635304271683012
+    },
+    {
+      "name": "handleSmallLeather2",
+      "duration": 0.30746031746031743,
+      "channels": 2,
+      "rate": 44100,
+      "peak": 0.1491127908229828,
+      "rms": 0.01005381735467925
+    },
+    {
+      "name": "clothBelt",
+      "duration": 0.7225170068027211,
+      "channels": 2,
+      "rate": 44100,
+      "peak": 0.6061207056045532,
+      "rms": 0.027835542441650363
+    },
+    {
+      "name": "metalClick",
+      "duration": 0.445827664399093,
+      "channels": 2,
+      "rate": 44100,
+      "peak": 0.44668835401535034,
+      "rms": 0.019196167153510187
+    },
+    {
+      "name": "metalLatch",
+      "duration": 0.2613151927437642,
+      "channels": 2,
+      "rate": 44100,
+      "peak": 1,
+      "rms": 0.09332363238504467
+    },
+    {
+      "name": "bookOpen",
+      "duration": 0.15104308390022675,
+      "channels": 2,
+      "rate": 44100,
+      "peak": 0.2645772397518158,
+      "rms": 0.020953530454099093
+    },
+    {
+      "name": "bookClose",
+      "duration": 0.23058956916099774,
+      "channels": 2,
+      "rate": 44100,
+      "peak": 1,
+      "rms": 0.11526764907360323
+    },
+    {
+      "name": "bookFlip1",
+      "duration": 0.768639455782313,
+      "channels": 2,
+      "rate": 44100,
+      "peak": 1,
+      "rms": 0.03217256609285566
+    },
+    {
+      "name": "bookFlip2",
+      "duration": 0.4304308390022676,
+      "channels": 2,
+      "rate": 44100,
+      "peak": 0.3936198055744171,
+      "rms": 0.014105715345006722
+    },
+    {
+      "name": "bookFlip3",
+      "duration": 0.23058956916099774,
+      "channels": 2,
+      "rate": 44100,
+      "peak": 0.5753549337387085,
+      "rms": 0.024743800896198723
+    },
+    {
+      "name": "bookPlace1",
+      "duration": 0.27668934240362814,
+      "channels": 2,
+      "rate": 44100,
+      "peak": 1,
+      "rms": 0.1257584123580645
+    },
+    {
+      "name": "bookPlace2",
+      "duration": 0.3535827664399093,
+      "channels": 2,
+      "rate": 44100,
+      "peak": 1,
+      "rms": 0.12233820672314649
+    },
+    {
+      "name": "dropLeather",
+      "duration": 0.4150793650793651,
+      "channels": 2,
+      "rate": 44100,
+      "peak": 0.9904053211212158,
+      "rms": 0.11592568270071321
+    }
+  ]
+}

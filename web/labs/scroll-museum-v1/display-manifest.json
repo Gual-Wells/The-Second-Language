@@ -1,0 +1,284 @@
+{
+  "schema": "second-language.scroll-museum-display.v1",
+  "status": "specimen",
+  "issued": false,
+  "chapterId": "2026-10-12",
+  "chapterNumber": 5,
+  "contentSha256": "a2a75215f25dc0fc40f047fd6f6648a4625ae13be7b3fa2ffca5fe72e37f43a0",
+  "scope": "/labs/scroll-museum-v1/",
+  "runtimeClosure": "Observed successful take/open/detail/return/context-recovery path; not a native authoring archive or a production collection manifest",
+  "files": [
+    {
+      "url": "/labs/scroll-museum-v1/index.html",
+      "bytes": 5786,
+      "sha256": "daa05d28594a54991e0da195e114ee921a0dc6c5e6d621b21f26419402069bc5"
+    },
+    {
+      "url": "/labs/scroll-museum-v1/CREDITS.md",
+      "bytes": 984,
+      "sha256": "7f065374ceecca9b5428e18a8e9a3996c0374927559de324695f849193757456"
+    },
+    {
+      "url": "/labs/scroll-museum-v1/AUDIO_CREDITS.md",
+      "bytes": 6867,
+      "sha256": "dfafd72bb5835303b900fc5d5800e078790cfe17ceac54dc64816e4ef77fb1c1"
+    },
+    {
+      "url": "/styles.css",
+      "bytes": 69276,
+      "sha256": "57282d60b24e837bc28961db2761b5e9cf1b2daea8395d7d15f3d8aa0deb1f92"
+    },
+    {
+      "url": "/labs/scroll-museum-v1/app.bundle.js",
+      "bytes": 809705,
+      "sha256": "47361403c999c04d7efccef04b57a8e040e9d78661c55d909d3d4897814c4562"
+    },
+    {
+      "url": "/labs/scroll-museum-v1/assets/audio-music/ancient-mysteries.mp3",
+      "bytes": 2405056,
+      "sha256": "fa10e70a5888d57bae1b04e66b43fda238d3651999c0e1182a7ec5741c0b85fc"
+    },
+    {
+      "url": "/labs/scroll-museum-v1/assets/audio-music/a-new-town.mp3",
+      "bytes": 766291,
+      "sha256": "8a83b97f06cad1052eea0a3fa8f65966db742e68275a1d82816773c820578ad2"
+    },
+    {
+      "url": "/labs/scroll-museum-v1/assets/audio-foley/beltHandle1.wav",
+      "bytes": 48852,
+      "sha256": "df2b56192f0494b9037b243554401ad6af669242e20866794aee78f928ee7039"
+    },
+    {
+      "url": "/labs/scroll-museum-v1/assets/audio-foley/beltHandle2.wav",
+      "bytes": 84108,
+      "sha256": "5a57a10c15eeb2163f1b730d79de3399c926f1f2268c8810f503e5d7d95305f3"
+    },
+    {
+      "url": "/labs/scroll-museum-v1/assets/audio-foley/handleSmallLeather.wav",
+      "bytes": 59700,
+      "sha256": "5e842fb946b6479eb72ae8704b3021a6b977e5b0ad362cdf1c7c1734c08ac534"
+    },
+    {
+      "url": "/labs/scroll-museum-v1/assets/audio-foley/handleSmallLeather2.wav",
+      "bytes": 54280,
+      "sha256": "76c83e31caa45cad52926cad54d916a4c0dcb548d4895601386916541a01b492"
+    },
+    {
+      "url": "/labs/scroll-museum-v1/assets/audio-foley/clothBelt.wav",
+      "bytes": 127496,
+      "sha256": "e877caefe716aae404f5b47475ab1a712540a2c58ca1b1315b9812b625c1d719"
+    },
+    {
+      "url": "/labs/scroll-museum-v1/assets/audio-foley/metalClick.wav",
+      "bytes": 78688,
+      "sha256": "9854e21f5428bf8feb46faabc01d2e3fa120ada431baeaecdc869c7e3a81b5d4"
+    },
+    {
+      "url": "/labs/scroll-museum-v1/assets/audio-foley/metalLatch.wav",
+      "bytes": 46140,
+      "sha256": "43125e8645478135b2cc1c3b360fb4d658c81f500f9564aaf442e991a5108730"
+    },
+    {
+      "url": "/labs/scroll-museum-v1/assets/audio-foley/bookOpen.wav",
+      "bytes": 26688,
+      "sha256": "f377b6033b24f7ebd6061f363ef84703fc0f046244931bcacb447dd693d18c90"
+    },
+    {
+      "url": "/labs/scroll-museum-v1/assets/audio-foley/bookClose.wav",
+      "bytes": 40720,
+      "sha256": "87f99bd799b0e1e5d700e3a65ec7f6f589d3add97e89450c5fb9b97f9e318531"
+    },
+    {
+      "url": "/labs/scroll-museum-v1/assets/audio-foley/bookFlip1.wav",
+      "bytes": 135632,
+      "sha256": "8bcc2603a19bd8cb2b5a2a547e4ff10a9d5f0c40ea97ec312ef303d35eb94026"
+    },
+    {
+      "url": "/labs/scroll-museum-v1/assets/audio-foley/bookFlip2.wav",
+      "bytes": 75972,
+      "sha256": "4aa82ad2e60ecd830d8545e59262be3a5156029dc2cb0b377fa38a40998cb115"
+    },
+    {
+      "url": "/labs/scroll-museum-v1/assets/audio-foley/bookFlip3.wav",
+      "bytes": 40720,
+      "sha256": "3421c1456ea2f9155cd8970a7255130582ab4ce40a54d37e53758c3ada978622"
+    },
+    {
+      "url": "/labs/scroll-museum-v1/assets/audio-foley/bookPlace1.wav",
+      "bytes": 48852,
+      "sha256": "a1444f1b64c958d57169f6f0288b796eab646f3b2e2d70c263205376329c8d4e"
+    },
+    {
+      "url": "/labs/scroll-museum-v1/assets/audio-foley/bookPlace2.wav",
+      "bytes": 62416,
+      "sha256": "dbc673ed3b5c23fed2f1b0a8f0c973c70ca5509f8e36410c5143c2e86677abc6"
+    },
+    {
+      "url": "/labs/scroll-museum-v1/assets/audio-foley/dropLeather.wav",
+      "bytes": 73264,
+      "sha256": "fb0d47ce462ff58cc5289278e141a0c6e5a84984cf016f02c6146dfb9b66a08c"
+    },
+    {
+      "url": "/labs/scroll-museum-v1/assets/scene-wood-color.jpg",
+      "bytes": 761543,
+      "sha256": "092ab3465a6a24b24d092ea86865f332c3bd239b8eb2fd664b70357082031a3f"
+    },
+    {
+      "url": "/labs/scroll-museum-v1/assets/scene-wood-normal.jpg",
+      "bytes": 747433,
+      "sha256": "0d494f3fe08320a05f0f966a7a3ca3c4cd6e3f7cde5b176b9bc167b5593fd00d"
+    },
+    {
+      "url": "/labs/scroll-museum-v1/assets/scene-wood-roughness.jpg",
+      "bytes": 655232,
+      "sha256": "ebc4a15d7d3495ee1b67ba18f67bffcefac3f93881d1394fa3e22a25f9fe5c72"
+    },
+    {
+      "url": "/labs/scroll-museum-v1/assets/scene-stone-color.jpg",
+      "bytes": 1134947,
+      "sha256": "ec9c3f4674a01d135e9d0c4a0cc844d6c03c52984a8dd20e2629201fb3c5b4c6"
+    },
+    {
+      "url": "/labs/scroll-museum-v1/assets/scene-stone-roughness.jpg",
+      "bytes": 380838,
+      "sha256": "80720390a00f7cc71eb5c890acd3fc5d7e2045c467d5f87f23868dbe8de761d6"
+    },
+    {
+      "url": "/labs/scroll-museum-v1/assets/scene-stone-normal.jpg",
+      "bytes": 1357117,
+      "sha256": "c0f6d0832d4e236e77b1ad1141150c216c29201939ae3a78fa3252ffe8473faa"
+    },
+    {
+      "url": "/labs/chapter-scroll-v14/assets/parchment.webp",
+      "bytes": 713606,
+      "sha256": "bd9f3e4653c871ec56f29976cfe65508ad7fed7f95864ee8e8eaa9d5464b545b"
+    },
+    {
+      "url": "/labs/scroll-museum-v1/assets/scene-table/WoodenTable_01_1k.gltf",
+      "bytes": 2688,
+      "sha256": "413804e054055c397b4cfbd0916027097d2a20853b165b533007a46d131e1d17"
+    },
+    {
+      "url": "/labs/chapter-scroll-v3/assets/studio.hdr",
+      "bytes": 1615248,
+      "sha256": "e7cfda5f4e98e623db12b8bfd0184e048488e4855d9c83e2751fb44a32e80c45"
+    },
+    {
+      "url": "/icon.svg",
+      "bytes": 551,
+      "sha256": "a6187d27e9c733a2470bedcefbe3947166706b06fa9c4be05a6dd577cba25b2b"
+    },
+    {
+      "url": "/labs/scroll-museum-v1/assets/scene-table/WoodenTable_01.bin",
+      "bytes": 42064,
+      "sha256": "1083a3442969d27e18e6a7a454bc164407439e3908bf8f17f5fb24d58cd0172e"
+    },
+    {
+      "url": "/labs/scroll-museum-v1/assets/scene-table/textures/WoodenTable_01_diff_1k.jpg",
+      "bytes": 160147,
+      "sha256": "9535de577ad6b64deb68457af14240dd9b6d82143da0b6d2bf337660ebd855f3"
+    },
+    {
+      "url": "/labs/scroll-museum-v1/assets/scene-table/textures/WoodenTable_01_arm_1k.jpg",
+      "bytes": 198099,
+      "sha256": "ad876f814215006d35f74670d4fc14a9f6eab386a9307764521449464a1cd6ef"
+    },
+    {
+      "url": "/labs/scroll-museum-v1/assets/scene-table/textures/WoodenTable_01_nor_gl_1k.jpg",
+      "bytes": 151350,
+      "sha256": "330655534ea1fc7c7387b5d2ba5ca3231711a9fa680b980933a3a9c82cdb1c67"
+    },
+    {
+      "url": "/labs/chapter-scroll-v14/chapter-sample.json",
+      "bytes": 416,
+      "sha256": "faff61c01a4a958863c0d140c5629d02590829f24e54a26a57bcc641cf76b967"
+    },
+    {
+      "url": "/labs/chapter-scroll-v14/art-plan.json",
+      "bytes": 4604,
+      "sha256": "3104ec4b67859f64268c11a327f37a65d1bdfc48c6f75adc24ee702d3f6318fb"
+    },
+    {
+      "url": "/labs/chapter-scroll/assets/Aboensis-Regular.otf",
+      "bytes": 137860,
+      "sha256": "0ad00fb94899b3a8277680377eb7270c5fb3ee73dd9fefbd6fb31d9f94c4707b"
+    },
+    {
+      "url": "/labs/chapter-scroll-v14/assets/unused-keeper.png",
+      "bytes": 70,
+      "sha256": "c2153f77e11087fcb078ae38527fa83bef29791e3700e30cc87fec4405a66d0f"
+    },
+    {
+      "url": "/labs/chapter-scroll-v13/assets/leaf-and-letter.png",
+      "bytes": 1561703,
+      "sha256": "e5aa04af52dde8cc3f32d0d9dfac3fe1696ef6d275c0514d7e0c0065f517d9c5"
+    },
+    {
+      "url": "/labs/chapter-scroll-v10/assets/ink-shoulder.png",
+      "bytes": 758302,
+      "sha256": "5dbfab038a6ba4a9cb7f047beed26c4c105fa1cab46143479fb3bbab4c66dd2c"
+    },
+    {
+      "url": "/labs/chapter-scroll-v17/keeper-path.json",
+      "bytes": 55968,
+      "sha256": "0e8d71fbdc36fdda9e475b7ded3eaf23ccff38b01f275cbfac045cbcff21e6e6"
+    },
+    {
+      "url": "/labs/chapter-scroll-v14/assets/parchment-normal.jpg",
+      "bytes": 533431,
+      "sha256": "7fdde5d978bcd45b3b426fb8021d9507e0d46fc7fda5a1d2e82c6c46b7dfaa66"
+    },
+    {
+      "url": "/labs/chapter-scroll-v14/assets/parchment-roughness.jpg",
+      "bytes": 213753,
+      "sha256": "8c2aa0299c197c7fc5f5bc96a66c8675ee781594fff28e7de0db2b9360e9a893"
+    },
+    {
+      "url": "/labs/scroll-museum-v1/assets/keeper-display.glb",
+      "bytes": 2437944,
+      "sha256": "118ad3e48f4a37034551aa7330b033a79a9b4e5711972eb92553774ffb37bffa"
+    },
+    {
+      "url": "/labs/chapter-scroll-v19/assets/leather-color.webp",
+      "bytes": 3000366,
+      "sha256": "5c99db712479fb6f8c661f1b4d4422d5e689c59a21c2c197e1dca77bb0c04e95"
+    },
+    {
+      "url": "/labs/chapter-scroll-v19/assets/leather-orm.webp",
+      "bytes": 1199026,
+      "sha256": "ce92f7819c466c5ec0291e5609da152cc98e0d5c47627d89a81fd3d82a8e6ad1"
+    },
+    {
+      "url": "/labs/chapter-scroll-v19/assets/leather-normal.webp",
+      "bytes": 2575506,
+      "sha256": "6b3c1601b766712a527d51145aa211fd98b73f4747e0d97490809ac407efbf1c"
+    },
+    {
+      "url": "/labs/chapter-scroll-v19/assets/bronze-color.webp",
+      "bytes": 2656038,
+      "sha256": "f850970297e8c5d19c7002132e59e877ea54dce0a757d2f642a592f46bd3d9cd"
+    },
+    {
+      "url": "/labs/chapter-scroll-v19/assets/bronze-orm.webp",
+      "bytes": 1774092,
+      "sha256": "1672624ae4ae60a342346bb3188f974d05258be13d392da027a82468fdae8b4b"
+    },
+    {
+      "url": "/labs/chapter-scroll-v19/assets/bronze-normal.webp",
+      "bytes": 2159960,
+      "sha256": "a2b951c269e4e6d20ef18cd7f360c3045b2ecc605a63e5e910f819a9a8bcc2bd"
+    },
+    {
+      "url": "/labs/chapter-scroll-v17/vendor/noise2D.glsl",
+      "bytes": 2162,
+      "sha256": "b0f27c923227e8b2d7618f09dc666e2397f608ca7929f798da632647c3f41884"
+    }
+  ],
+  "bytes": 32059557,
+  "notes": [
+    "Original v20 paper and physical keeper remain the craft baseline.",
+    "This display uses the museum-only keeper derivative, with final v19 finishing required.",
+    "No private account, credential, test submission or eligibility is stored here.",
+    "A display package does not replace native Blender, paper source and licensed master archives."
+  ]
+}

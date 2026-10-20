@@ -1,0 +1,95 @@
+{
+  "files": [
+    {
+      "file": "scene-wood-color.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/wood_table_worn/wood_table_worn_diff_1k.jpg",
+      "asset": "https://polyhaven.com/a/wood_table_worn",
+      "bytes": 761543,
+      "license": "CC0-1.0",
+      "sha256": "092ab3465a6a24b24d092ea86865f332c3bd239b8eb2fd664b70357082031a3f"
+    },
+    {
+      "file": "scene-wood-normal.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/wood_table_worn/wood_table_worn_nor_gl_1k.jpg",
+      "asset": "https://polyhaven.com/a/wood_table_worn",
+      "bytes": 747433,
+      "license": "CC0-1.0",
+      "sha256": "0d494f3fe08320a05f0f966a7a3ca3c4cd6e3f7cde5b176b9bc167b5593fd00d"
+    },
+    {
+      "file": "scene-wood-roughness.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/wood_table_worn/wood_table_worn_rough_1k.jpg",
+      "asset": "https://polyhaven.com/a/wood_table_worn",
+      "bytes": 655232,
+      "license": "CC0-1.0",
+      "sha256": "ebc4a15d7d3495ee1b67ba18f67bffcefac3f93881d1394fa3e22a25f9fe5c72"
+    },
+    {
+      "file": "scene-stone-color.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/stone_wall_03/stone_wall_03_diff_1k.jpg",
+      "asset": "https://polyhaven.com/a/stone_wall_03",
+      "bytes": 1134947,
+      "license": "CC0-1.0",
+      "sha256": "ec9c3f4674a01d135e9d0c4a0cc844d6c03c52984a8dd20e2629201fb3c5b4c6"
+    },
+    {
+      "file": "scene-stone-normal.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/stone_wall_03/stone_wall_03_nor_gl_1k.jpg",
+      "asset": "https://polyhaven.com/a/stone_wall_03",
+      "bytes": 1357117,
+      "license": "CC0-1.0",
+      "sha256": "c0f6d0832d4e236e77b1ad1141150c216c29201939ae3a78fa3252ffe8473faa"
+    },
+    {
+      "file": "scene-stone-roughness.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/stone_wall_03/stone_wall_03_rough_1k.jpg",
+      "asset": "https://polyhaven.com/a/stone_wall_03",
+      "bytes": 380838,
+      "license": "CC0-1.0",
+      "sha256": "80720390a00f7cc71eb5c890acd3fc5d7e2045c467d5f87f23868dbe8de761d6"
+    },
+    {
+      "file": "scene-table/WoodenTable_01_1k.gltf",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/1k/WoodenTable_01/WoodenTable_01_1k.gltf",
+      "asset": "https://polyhaven.com/a/WoodenTable_01",
+      "bytes": 2688,
+      "license": "CC0-1.0",
+      "sha256": "413804e054055c397b4cfbd0916027097d2a20853b165b533007a46d131e1d17"
+    },
+    {
+      "file": "scene-table/WoodenTable_01.bin",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/4k/WoodenTable_01/WoodenTable_01.bin",
+      "asset": "https://polyhaven.com/a/WoodenTable_01",
+      "bytes": 42064,
+      "license": "CC0-1.0",
+      "sha256": "1083a3442969d27e18e6a7a454bc164407439e3908bf8f17f5fb24d58cd0172e"
+    },
+    {
+      "file": "scene-table/textures/WoodenTable_01_nor_gl_1k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/WoodenTable_01/WoodenTable_01_nor_gl_1k.jpg",
+      "asset": "https://polyhaven.com/a/WoodenTable_01",
+      "bytes": 151350,
+      "license": "CC0-1.0",
+      "sha256": "330655534ea1fc7c7387b5d2ba5ca3231711a9fa680b980933a3a9c82cdb1c67"
+    },
+    {
+      "file": "scene-table/textures/WoodenTable_01_diff_1k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/WoodenTable_01/WoodenTable_01_diff_1k.jpg",
+      "asset": "https://polyhaven.com/a/WoodenTable_01",
+      "bytes": 160147,
+      "license": "CC0-1.0",
+      "sha256": "9535de577ad6b64deb68457af14240dd9b6d82143da0b6d2bf337660ebd855f3"
+    },
+    {
+      "file": "scene-table/textures/WoodenTable_01_arm_1k.jpg",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/WoodenTable_01/WoodenTable_01_arm_1k.jpg",
+      "asset": "https://polyhaven.com/a/WoodenTable_01",
+      "bytes": 198099,
+      "license": "CC0-1.0",
+      "sha256": "ad876f814215006d35f74670d4fc14a9f6eab386a9307764521449464a1cd6ef"
+    }
+  ],
+  "generatedAt": "2026-10-20T18:20:14.1159139Z",
+  "license": "https://polyhaven.com/license",
+  "purpose": "Scroll museum architectural study; no formal collection issued"
+}

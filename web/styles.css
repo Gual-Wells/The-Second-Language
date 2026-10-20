@@ -646,3 +646,66 @@ textarea.text-input { resize: vertical; }
 .scroll-lab.scroll-object-only .scroll-proof-options { display: none; }
 .scroll-lab-v13 .scroll-proof-options a { flex: 1; min-height: 33px; display: flex; align-items: center; justify-content: center; font-size: 13px; text-decoration: none; }
 .scroll-lab-v13 .scroll-proof-options a[aria-current=page] { background: linear-gradient(#547a96,#84a0b3); color: #fff; box-shadow: inset 0 1px 3px #405e73; }
+
+/* The manuscript room: the native blue/silver shell frames the old material world. */
+.museum-shell { width: min(960px,100%); height: 100vh; height: 100dvh; margin: auto; padding: max(6px,var(--safe-top)) 6px max(5px,var(--safe-bottom)); display: grid; grid-template-rows: auto minmax(0,1fr) auto auto; gap: 4px; background: var(--shell); border-inline: 1px solid #879db3; overflow: hidden; }
+.museum-header { min-height: 57px; padding: 7px 10px; }
+.museum-header h1 { font-size: 20px; }
+.museum-header h1 small { display: block; margin: 4px 0 0; font-size: 8px; letter-spacing: .13em; }
+.museum-header a { display: flex; align-items: center; min-height: 40px; text-decoration: none; }
+.museum-stage { position: relative; min-width: 0; min-height: 0; overflow: hidden; isolation: isolate; border: 1px solid #6d7880; background: #201c17; }
+.museum-lab #museumCanvas,.museum-viewer,.museum-viewer #scrollCanvas,.museum-viewer #mistCanvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.museum-lab #museumCanvas { display: block; touch-action: none; }
+.museum-viewer { z-index: 2; opacity: 0; pointer-events: none; }
+.museum-viewer #mistCanvas { z-index: 0; pointer-events: none; inset: auto; left: -30%; top: -15%; width: 160%; height: 130%; opacity: .70; }
+.museum-viewer #scrollCanvas { z-index: 1; touch-action: none; pointer-events: auto; }
+.museum-stage[data-phase=inspect] #museumCanvas { filter: blur(4px) brightness(.52); }
+.museum-topline { position: absolute; z-index: 5; inset: 9px 9px auto; display: flex; justify-content: space-between; gap: 6px; pointer-events: none; }
+.museum-topline button { min-height: 40px; padding: 8px; pointer-events: auto; box-shadow: 0 1px 0 #fff inset,0 2px 5px #0005; }
+.museum-audio-controls { display: flex; gap: 5px; }
+.museum-audio-controls [aria-pressed=true] { background: linear-gradient(#527ba0,#214f79); color: white; text-shadow: 0 1px #183d60; border-color: #99bad5; box-shadow: 0 1px 3px #142c44 inset; }
+.museum-wordmark { position: absolute; z-index: 1; top: 12%; left: 0; right: 0; color: #e6d9b7; text-align: center; text-shadow: 0 2px 8px #000; pointer-events: none; }
+.museum-wordmark span { display: block; font: 10px/1.5 Georgia,serif; letter-spacing: .21em; }
+.museum-wordmark strong { display: block; margin: 5px 0 7px; font: italic 23px/1.2 Georgia,serif; font-weight: normal; }
+.museum-wordmark i { display: block; width: 80px; height: 1px; margin: auto; background: linear-gradient(90deg,transparent,#c4ae7e,transparent); }
+.museum-selection { position: absolute; z-index: 3; left: 0; right: 0; bottom: 57px; padding: 25px 22px 12px; color: #efe4ce; text-align: center; text-shadow: 0 1px 4px #000; background: linear-gradient(transparent,#17130ed9); pointer-events: none; }
+.museum-shelfmark { margin: 0 0 7px; font: 10px/1.3 Georgia,serif; letter-spacing: .19em; color: #d0b98e; }
+.museum-selection h2 { margin: 0; font: 19px/1.5 Georgia,'Songti SC','SimSun',serif; letter-spacing: .07em; }
+.museum-art-title { margin: 4px 0; font: italic 12px/1.4 Georgia,serif; }
+.museum-selection-note { margin: 7px 0 0; color: #c7ba9e; font-size: 10px; }
+.museum-browse-controls { position: absolute; z-index: 4; inset: auto 10px 9px; display: flex; align-items: center; justify-content: space-between; gap: 9px; color: #d9c9aa; font-size: 11px; text-shadow: 0 1px 2px black; }
+.museum-browse-controls button { min-width: 44px; min-height: 44px; padding: 0; font-size: 23px; }
+.museum-controls { display: flex; align-items: stretch; gap: 5px; min-height: 44px; }
+.museum-controls button { flex: 1; min-height: 44px; padding-inline: 6px; font-size: 12px; }
+.museum-controls .museum-primary { background: linear-gradient(#77a6ce,#245d93 48%,#144b80 49%,#286594); color: #fff; border-color: #325b7d; text-shadow: 0 1px #143b61; }
+.museum-footer { min-height: 26px; display: flex; align-items: center; justify-content: space-between; gap: 6px; padding: 2px 4px; color: #526b83; font-size: 10px; }
+.museum-source-link { flex: none; min-height: 28px; padding: 2px 5px; border: 0; background: transparent; color: #315c83; text-decoration: underline; }
+.museum-loading { position: absolute; z-index: 4; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #221e17f2; color: #ded0b3; text-align: center; }
+.museum-loading p { margin: 16px 15px; }
+.museum-loading-mark { width: 24px; height: 24px; border: 1px solid #aa94734d; border-top-color: #dfc795; border-radius: 50%; animation: museum-loading 1.2s linear infinite; }
+@keyframes museum-loading { to { transform: rotate(360deg); } }
+.museum-fallback { position: absolute; z-index: 3; top: 36%; left: 20px; right: 20px; padding: 18px; color: #e7dbbe; background: #211b13de; border: 1px solid #827359; text-align: center; }
+.museum-fallback a { display: inline-block; padding: 12px; text-decoration: none; }
+.museum-dialog { width: min(650px,calc(100vw - 16px)); max-height: calc(100dvh - 24px); padding: 0; border: 1px solid #6d8ba8; border-radius: 3px; background: var(--shell); color: var(--ink); box-shadow: 0 7px 34px #0007; overflow: auto; }
+.museum-dialog::backdrop { background: #0a182db3; }
+.museum-dialog-header { display: flex; align-items: center; gap: 6px; margin: 0; padding: 8px; position: sticky; z-index: 2; top: 0; border-bottom: 1px solid #8ca6c0; background: linear-gradient(#f7fbff,#cfdeed); }
+.museum-dialog-header h2 { flex: 1; margin: 0; font-size: 14px; }
+.museum-dialog-header button { min-height: 42px; }
+.museum-dialog-body { padding: 12px; font-size: 13px; line-height: 1.75; }
+.museum-dialog-body p { margin: 0 0 12px; }
+.museum-dialog-body summary { min-height: 44px; display: flex; align-items: center; font-weight: bold; cursor: pointer; }
+.museum-dialog-note { color: #536b80; font-size: 12px; }
+.museum-catalogue-item { display: block; width: 100%; text-align: left; border: 1px solid #a7bad0; border-radius: 2px; padding: 13px; margin: 9px 0; background: linear-gradient(#fff,#edf3f9); color: #23476b; text-decoration: none; }
+.museum-catalogue-item span,.museum-catalogue-item strong,.museum-catalogue-item small { display: block; }
+.museum-catalogue-item span { margin-bottom: 5px; font-size: 10px; letter-spacing: .08em; color: #60798e; }
+.museum-catalogue-item strong { font-size: 15px; }
+.museum-catalogue-item small { margin-top: 5px; font-size: 11px; color: #60798e; }
+.museum-document { overflow: auto; max-height: 71dvh; padding: 10px; background: #24211c; touch-action: pan-x pan-y pinch-zoom; }
+.museum-document img { display: block; width: 100%; max-width: none; height: auto; }
+.museum-document[data-zoom=true] img { width: 170%; }
+.museum-record { font: 11px/1.7 monospace; overflow-wrap: anywhere; white-space: pre-wrap; }
+.museum-dialog-body #transcript { color: #302c23; }
+.museum-translation { margin-top: 18px; padding-top: 12px; border-top: 1px solid #a7bad0; }
+.museum-static-document { position: absolute; z-index: 3; top: 10%; left: 5%; width: 90%; height: 80%; object-fit: contain; pointer-events: none; }
+@media (orientation:landscape) and (max-height:600px) { .museum-header { min-height: 43px; padding-block: 4px; }.museum-header h1 { font-size: 17px; }.museum-header .header-meta { display: none; }.museum-header h1 small { display: inline; margin-left: 8px; }.museum-selection { right: auto; left: 4%; bottom: 50px; padding: 12px; max-width: 36%; background: #1a140ecc; }.museum-selection h2 { font-size: 16px; }.museum-wordmark { top: 22%; right: auto; width: 36%; }.museum-controls { min-height: 40px; }.museum-controls button { min-height: 40px; }.museum-footer { min-height: 18px; }.museum-topline { inset: 7px 7px auto; } }
+@media (prefers-reduced-motion:reduce) { .museum-loading-mark { animation: none; } }

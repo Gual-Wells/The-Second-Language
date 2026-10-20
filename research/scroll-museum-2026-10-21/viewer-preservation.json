@@ -1,0 +1,45 @@
+{
+  "baseline": "chapter-scroll-v20",
+  "comparison": "museum wrapper before display-only embedded-image reduction",
+  "equalities": {
+    "record": true,
+    "document": true,
+    "closedGeometry": true,
+    "poses": true
+  },
+  "recordSHA256": "a2a75215f25dc0fc40f047fd6f6648a4625ae13be7b3fa2ffca5fe72e37f43a0",
+  "documentSHA256": "1f96d71f8a4dc4e3f6dea1a18d2c97c1dd3766db866484b2f19efba47c6d9890",
+  "closedGeometrySHA256": "fa9baf91b3b8ecfdc3d7586b9efb34a243305bca16bb79973374e4ead906a8e7",
+  "poseCount": 8,
+  "comparisonErrors": [],
+  "lifecycle": {
+    "hiddenReady": true,
+    "hiddenPaused": true,
+    "disposed": true,
+    "contextReleased": true,
+    "canvasRecovery": {
+      "mistLost": false,
+      "scrollLost": false
+    },
+    "cancelPending": {
+      "result": {
+        "name": "AbortError",
+        "message": "The scroll viewer was disposed"
+      },
+      "ready": false,
+      "disposed": true,
+      "memory": {
+        "geometries": 0,
+        "textures": 0
+      },
+      "programs": 0,
+      "children": 0
+    },
+    "errors": []
+  },
+  "notes": [
+    "Source parameters and eight motion poses matched the accepted original v20.",
+    "The later museum-only GLB derivative separately verifies non-image buffer views byte-for-byte; final integration verifies it actually loads.",
+    "Renderer memory counters are not a physical GPU memory measurement."
+  ]
+}

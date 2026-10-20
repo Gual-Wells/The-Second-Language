@@ -1,0 +1,1269 @@
+{
+  "base": "http://127.0.0.1:8149",
+  "checkedAt": "2026-10-20T20:23:03.428Z",
+  "recordSHA256": "a2a75215f25dc0fc40f047fd6f6648a4625ae13be7b3fa2ffca5fe72e37f43a0",
+  "checks": {
+    "realSpecimenOnly": true,
+    "noCertificationWrites": true,
+    "keptOriginalPaperIdentity": true,
+    "takeAndReturn": true,
+    "paperClosesBeforeReturn": true,
+    "detailAndTranscript": true,
+    "reverseDuringOpening": true,
+    "portraitAndLandscape": true,
+    "contextLossCanReturn": true,
+    "contextRestore": true,
+    "displayDerivativeLoaded": true,
+    "disposal": true
+  },
+  "initial": {
+    "ready": true,
+    "prepared": true,
+    "phase": "browse",
+    "progress": 0,
+    "viewerActive": false,
+    "viewerUnavailable": false,
+    "alignment": {
+      "x": 0,
+      "y": 0,
+      "scale": 1
+    },
+    "transfer": null,
+    "returnRequested": false,
+    "sceneFailed": false,
+    "scene": {
+      "ready": true,
+      "stage": "browse",
+      "stageProgress": 0,
+      "selected": "specimen-chapter-five",
+      "cabinet": 1,
+      "range": [
+        1,
+        6
+      ],
+      "specimens": [
+        {
+          "id": "specimen-chapter-five",
+          "chapterNumber": 5,
+          "issued": false
+        }
+      ],
+      "visibleCabinets": 2,
+      "proxyCount": 1,
+      "transfer": {
+        "units": "css-pixels",
+        "x": 110.67609608622027,
+        "y": 468.105502430108,
+        "width": 131.94509344325377,
+        "height": 25.29814764609847,
+        "left": 44.70354936459337,
+        "top": 455.45642860705874,
+        "canvasWidth": 388,
+        "canvasHeight": 710.65625,
+        "axis": "horizontal",
+        "id": "specimen-chapter-five"
+      },
+      "table": "Poly Haven WoodenTable_01, CC0",
+      "tableError": null,
+      "environmentAvailable": true,
+      "environmentError": null,
+      "resources": "scene-sources.json",
+      "drawBuffer": {
+        "width": 776,
+        "height": 1421
+      },
+      "render": {
+        "frame": 156,
+        "calls": 23,
+        "triangles": 49078,
+        "points": 90,
+        "lines": 0
+      },
+      "notes": "Cabinet furniture and distant closed proxies are new study geometry. Full v20 paper/keeper animation belongs to the separate object viewer."
+    },
+    "viewer": {
+      "progress": 0,
+      "paperProgress": 0,
+      "renderCount": 9,
+      "vertices": 14893,
+      "camera": [
+        0,
+        0,
+        12
+      ],
+      "keeperVisible": true,
+      "viewHeight": 9.341100193298969,
+      "drawBuffer": {
+        "width": 776,
+        "height": 1421
+      },
+      "deformation": "Continuous GPU winding and shared rest displacement",
+      "keeperMotion": "material-coordinate unfastening and rigid hinged prong",
+      "keeperSize": [
+        0.22978254735617945,
+        0.7659418245205982
+      ],
+      "specularIntensity": 0,
+      "toneMapping": "none; preserve source colors",
+      "restCurl": true,
+      "cameraType": "PerspectiveCamera",
+      "keeperPose": {
+        "r": 0,
+        "pin": 0,
+        "feed": 0,
+        "angle": 0,
+        "along": 0,
+        "sideMm": 0,
+        "circleCenter": [
+          0,
+          0
+        ],
+        "phase": "fastened",
+        "slide": 0,
+        "depart": 0,
+        "freeEndBehindFrame": false,
+        "expandedRadiusMm": 30.00000857204946,
+        "visible": true,
+        "opacity": 1,
+        "x": 0,
+        "y": 0.008683982907575327,
+        "z": 0.30201379091612,
+        "fitScale": 12.765697075343304,
+        "fitScaleVector": [
+          12.765697075343304,
+          12.765697075343304,
+          12.765697075343304
+        ],
+        "bandWidth": 0.22978254735617945,
+        "usesFade": false,
+        "usesStrapDeformation": true,
+        "deformation": "material-coordinate curve; dimensioned continuous cut mesh; native bevel residual",
+        "sourceBones": 76,
+        "restDeviationMm": {
+          "maximum": 5.542281843203895e-9,
+          "mean": 4.4898961188127906e-11
+        }
+      },
+      "sealRelief": true,
+      "runtime": {
+        "motionPrepared": true,
+        "preparationMs": 3525.7999999970198,
+        "preparedPrograms": 11,
+        "programs": 11
+      },
+      "edition": "v19 multi-pass old keeper",
+      "paperMaterial": "unchanged chapter-five v14",
+      "aging": {
+        "version": "v19 native multi-pass finishing",
+        "leather": [
+          "scanned grain",
+          "hide variation",
+          "dark contact polish",
+          "grain-coat loss",
+          "opened flex creases",
+          "worn hand-incised borders",
+          "terminal lozenge"
+        ],
+        "metal": [
+          "scanned microstructure",
+          "planishing depressions",
+          "file dressing",
+          "paired incised grooves",
+          "brown stable oxide",
+          "subdued crevice patina",
+          "rubbed crowns"
+        ],
+        "sourceGeometry": "unchanged v17",
+        "offlineBaked": true,
+        "noMold": true
+      },
+      "ready": true,
+      "disposed": false,
+      "paused": true,
+      "lost": false,
+      "environmentAvailable": true,
+      "contextReleased": false,
+      "animating": false,
+      "chapterId": "2026-10-12",
+      "issued": false,
+      "status": "ready",
+      "error": null,
+      "layout": {
+        "width": 2048,
+        "height": 2868,
+        "nominalSizeMM": [
+          300,
+          420
+        ],
+        "artPlanId": "SL-CH05-LEAF-LETTER-2",
+        "artPlanDigest": "3104ec4b67859f64268c11a327f37a65d1bdfc48c6f75adc24ee702d3f6318fb",
+        "composition": "horizontal-miniature-and-centered-verse",
+        "paperVariant": "individually-authored-sheet",
+        "sealVersion": "SL-KEEPSAKE-1",
+        "sealVariant": "oblong",
+        "sealBox": {
+          "x": 338,
+          "y": 2500,
+          "width": 285,
+          "height": 131
+        },
+        "ornamentBox": {
+          "x": 300,
+          "y": 900,
+          "width": 1448,
+          "height": 640,
+          "opacity": 0.91
+        },
+        "ornamentDigest": "e5aa04af52dde8cc3f32d0d9dfac3fe1696ef6d275c0514d7e0c0065f517d9c5",
+        "printedFonts": [
+          "Aboensis"
+        ],
+        "textBounds": [
+          {
+            "block": "chapter",
+            "text": "Chapter V",
+            "left": 889.7440338134766,
+            "right": 1162.1279754638672,
+            "top": 248,
+            "bottom": 344
+          },
+          {
+            "block": "artTitle",
+            "text": "Of Leaf",
+            "left": 822.0690155029297,
+            "right": 1250.3350067138672,
+            "top": 395,
+            "bottom": 551
+          },
+          {
+            "block": "artTitle",
+            "text": "and Letter",
+            "left": 756.8250122070312,
+            "right": 1301.9209594726562,
+            "top": 553,
+            "bottom": 662
+          },
+          {
+            "block": "chapterTitle",
+            "text": "Words Unfinished in the Valley",
+            "left": 671.2451171875,
+            "right": 1377.8028564453125,
+            "top": 728,
+            "bottom": 814
+          },
+          {
+            "block": "stanza1",
+            "text": "A reed gives breath a voice.",
+            "left": 535.3700256347656,
+            "right": 1509.8699645996094,
+            "top": 1602,
+            "bottom": 1704
+          },
+          {
+            "block": "stanza1",
+            "text": "Old ink outlives the hand.",
+            "left": 557.5850524902344,
+            "right": 1490.6549987792969,
+            "top": 1741,
+            "bottom": 1857
+          },
+          {
+            "block": "stanza2",
+            "text": "A seed lies in the fold,",
+            "left": 622.3099975585938,
+            "right": 1424.6900024414062,
+            "top": 1932,
+            "bottom": 2037
+          },
+          {
+            "block": "stanza2",
+            "text": "holding a season yet to come.",
+            "left": 504.58502197265625,
+            "right": 1535.6549682617188,
+            "top": 2078,
+            "bottom": 2192
+          },
+          {
+            "block": "colophon",
+            "text": "For Gual Wells, in remembrance of Chapter V",
+            "left": 494.84814453125,
+            "right": 1555.2958984375,
+            "top": 2268,
+            "bottom": 2353
+          },
+          {
+            "block": "colophon",
+            "text": "and its trial successfully completed.",
+            "left": 642.1156311035156,
+            "right": 1405.1923522949219,
+            "top": 2361,
+            "bottom": 2423
+          },
+          {
+            "block": "identity",
+            "text": "18 October 2026",
+            "left": 825,
+            "right": 1136.2059326171875,
+            "top": 2474,
+            "bottom": 2515
+          },
+          {
+            "block": "identity",
+            "text": "21:47:19.547  +08:00",
+            "left": 825,
+            "right": 1198.5657958984375,
+            "top": 2554,
+            "bottom": 2605
+          },
+          {
+            "block": "identity",
+            "text": "A2A7 5215 F25D C0FC",
+            "left": 824,
+            "right": 1319.9318237304688,
+            "top": 2616,
+            "bottom": 2682
+          },
+          {
+            "block": "status",
+            "text": "Specimen — Not issued",
+            "left": 820.2784729003906,
+            "right": 1230.2015075683594,
+            "top": 2732,
+            "bottom": 2792
+          }
+        ],
+        "issued": false,
+        "recipient": "Gual Wells",
+        "identity": [
+          "A2A7 5215 F25D C0FC",
+          "18 October 2026",
+          "21:47:19.547  +08:00"
+        ],
+        "artifactDigest": "a2a75215f25dc0fc40f047fd6f6648a4625ae13be7b3fa2ffca5fe72e37f43a0",
+        "artSeed": 2728874517
+      },
+      "mist": {
+        "available": true,
+        "enabled": false,
+        "frames": 0,
+        "time": 2.0000000000000027,
+        "interactionEnergy": 0,
+        "drive": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+        "simulationHz": 30,
+        "fixedDirectionalInlet": false,
+        "regionalVelocities": [
+          -0.020012350516480423,
+          -0.003968421354477788,
+          0.0027160545259594204,
+          -0.0016353802636666678,
+          -0.012289760764713657,
+          0.04642181301342097,
+          0.0019596467440818137,
+          0.0003435558627697789
+        ],
+        "confinement": 0.38
+      },
+      "atmosphereWanted": true
+    },
+    "audio": {
+      "enabled": true,
+      "musicEnabled": false,
+      "foleyEnabled": false,
+      "scene": "museum",
+      "paused": false,
+      "unlocked": false,
+      "prepared": true,
+      "contextState": "not-created",
+      "decoded": [],
+      "downloaded": 17,
+      "musicTrack": null,
+      "musicVoices": 0,
+      "foleyVoices": 0,
+      "eventsPlayed": 0,
+      "lastEvent": null,
+      "failures": {},
+      "disposed": false,
+      "listeningReview": "not-auditioned",
+      "issued": false
+    },
+    "issued": false
+  },
+  "returned": {
+    "ready": true,
+    "prepared": true,
+    "phase": "browse",
+    "progress": 0,
+    "viewerActive": false,
+    "viewerUnavailable": false,
+    "alignment": {
+      "x": -82.6996107009897,
+      "y": 113.29437024694977,
+      "scale": 0.3757067872099503
+    },
+    "transfer": null,
+    "returnRequested": false,
+    "sceneFailed": false,
+    "scene": {
+      "ready": true,
+      "stage": "browse",
+      "stageProgress": 0,
+      "selected": null,
+      "cabinet": 1,
+      "range": [
+        1,
+        6
+      ],
+      "specimens": [
+        {
+          "id": "specimen-chapter-five",
+          "chapterNumber": 5,
+          "issued": false
+        }
+      ],
+      "visibleCabinets": 2,
+      "proxyCount": 1,
+      "transfer": null,
+      "table": "Poly Haven WoodenTable_01, CC0",
+      "tableError": null,
+      "environmentAvailable": true,
+      "environmentError": null,
+      "resources": "scene-sources.json",
+      "drawBuffer": {
+        "width": 776,
+        "height": 1421
+      },
+      "render": {
+        "frame": 369,
+        "calls": 47,
+        "triangles": 98442,
+        "points": 90,
+        "lines": 0
+      },
+      "notes": "Cabinet furniture and distant closed proxies are new study geometry. Full v20 paper/keeper animation belongs to the separate object viewer."
+    },
+    "viewer": {
+      "progress": 0,
+      "paperProgress": 0,
+      "renderCount": 682,
+      "vertices": 14893,
+      "camera": [
+        0,
+        0,
+        12
+      ],
+      "keeperVisible": true,
+      "viewHeight": 9.341100193298969,
+      "drawBuffer": {
+        "width": 776,
+        "height": 1421
+      },
+      "deformation": "Continuous GPU winding and shared rest displacement",
+      "keeperMotion": "material-coordinate unfastening and rigid hinged prong",
+      "keeperSize": [
+        0.22978254735617945,
+        0.7659418245205982
+      ],
+      "specularIntensity": 0,
+      "toneMapping": "none; preserve source colors",
+      "restCurl": true,
+      "cameraType": "PerspectiveCamera",
+      "keeperPose": {
+        "r": 0,
+        "pin": 0,
+        "feed": 0,
+        "angle": 0,
+        "along": 0,
+        "sideMm": 0,
+        "circleCenter": [
+          0,
+          0
+        ],
+        "phase": "fastened",
+        "slide": 0,
+        "depart": 0,
+        "freeEndBehindFrame": false,
+        "expandedRadiusMm": 30.00000857204946,
+        "visible": true,
+        "opacity": 1,
+        "x": 0,
+        "y": 0.008683982907575327,
+        "z": 0.30201379091612,
+        "fitScale": 12.765697075343304,
+        "fitScaleVector": [
+          12.765697075343304,
+          12.765697075343304,
+          12.765697075343304
+        ],
+        "bandWidth": 0.22978254735617945,
+        "usesFade": false,
+        "usesStrapDeformation": true,
+        "deformation": "material-coordinate curve; dimensioned continuous cut mesh; native bevel residual",
+        "sourceBones": 76,
+        "restDeviationMm": {
+          "maximum": 5.542281843203895e-9,
+          "mean": 4.4898961188127906e-11
+        }
+      },
+      "sealRelief": true,
+      "runtime": {
+        "motionPrepared": true,
+        "preparationMs": 3525.7999999970198,
+        "preparedPrograms": 11,
+        "programs": 11
+      },
+      "edition": "v19 multi-pass old keeper",
+      "paperMaterial": "unchanged chapter-five v14",
+      "aging": {
+        "version": "v19 native multi-pass finishing",
+        "leather": [
+          "scanned grain",
+          "hide variation",
+          "dark contact polish",
+          "grain-coat loss",
+          "opened flex creases",
+          "worn hand-incised borders",
+          "terminal lozenge"
+        ],
+        "metal": [
+          "scanned microstructure",
+          "planishing depressions",
+          "file dressing",
+          "paired incised grooves",
+          "brown stable oxide",
+          "subdued crevice patina",
+          "rubbed crowns"
+        ],
+        "sourceGeometry": "unchanged v17",
+        "offlineBaked": true,
+        "noMold": true
+      },
+      "ready": true,
+      "disposed": false,
+      "paused": true,
+      "lost": false,
+      "environmentAvailable": true,
+      "contextReleased": false,
+      "animating": false,
+      "chapterId": "2026-10-12",
+      "issued": false,
+      "status": "ready",
+      "error": null,
+      "layout": {
+        "width": 2048,
+        "height": 2868,
+        "nominalSizeMM": [
+          300,
+          420
+        ],
+        "artPlanId": "SL-CH05-LEAF-LETTER-2",
+        "artPlanDigest": "3104ec4b67859f64268c11a327f37a65d1bdfc48c6f75adc24ee702d3f6318fb",
+        "composition": "horizontal-miniature-and-centered-verse",
+        "paperVariant": "individually-authored-sheet",
+        "sealVersion": "SL-KEEPSAKE-1",
+        "sealVariant": "oblong",
+        "sealBox": {
+          "x": 338,
+          "y": 2500,
+          "width": 285,
+          "height": 131
+        },
+        "ornamentBox": {
+          "x": 300,
+          "y": 900,
+          "width": 1448,
+          "height": 640,
+          "opacity": 0.91
+        },
+        "ornamentDigest": "e5aa04af52dde8cc3f32d0d9dfac3fe1696ef6d275c0514d7e0c0065f517d9c5",
+        "printedFonts": [
+          "Aboensis"
+        ],
+        "textBounds": [
+          {
+            "block": "chapter",
+            "text": "Chapter V",
+            "left": 889.7440338134766,
+            "right": 1162.1279754638672,
+            "top": 248,
+            "bottom": 344
+          },
+          {
+            "block": "artTitle",
+            "text": "Of Leaf",
+            "left": 822.0690155029297,
+            "right": 1250.3350067138672,
+            "top": 395,
+            "bottom": 551
+          },
+          {
+            "block": "artTitle",
+            "text": "and Letter",
+            "left": 756.8250122070312,
+            "right": 1301.9209594726562,
+            "top": 553,
+            "bottom": 662
+          },
+          {
+            "block": "chapterTitle",
+            "text": "Words Unfinished in the Valley",
+            "left": 671.2451171875,
+            "right": 1377.8028564453125,
+            "top": 728,
+            "bottom": 814
+          },
+          {
+            "block": "stanza1",
+            "text": "A reed gives breath a voice.",
+            "left": 535.3700256347656,
+            "right": 1509.8699645996094,
+            "top": 1602,
+            "bottom": 1704
+          },
+          {
+            "block": "stanza1",
+            "text": "Old ink outlives the hand.",
+            "left": 557.5850524902344,
+            "right": 1490.6549987792969,
+            "top": 1741,
+            "bottom": 1857
+          },
+          {
+            "block": "stanza2",
+            "text": "A seed lies in the fold,",
+            "left": 622.3099975585938,
+            "right": 1424.6900024414062,
+            "top": 1932,
+            "bottom": 2037
+          },
+          {
+            "block": "stanza2",
+            "text": "holding a season yet to come.",
+            "left": 504.58502197265625,
+            "right": 1535.6549682617188,
+            "top": 2078,
+            "bottom": 2192
+          },
+          {
+            "block": "colophon",
+            "text": "For Gual Wells, in remembrance of Chapter V",
+            "left": 494.84814453125,
+            "right": 1555.2958984375,
+            "top": 2268,
+            "bottom": 2353
+          },
+          {
+            "block": "colophon",
+            "text": "and its trial successfully completed.",
+            "left": 642.1156311035156,
+            "right": 1405.1923522949219,
+            "top": 2361,
+            "bottom": 2423
+          },
+          {
+            "block": "identity",
+            "text": "18 October 2026",
+            "left": 825,
+            "right": 1136.2059326171875,
+            "top": 2474,
+            "bottom": 2515
+          },
+          {
+            "block": "identity",
+            "text": "21:47:19.547  +08:00",
+            "left": 825,
+            "right": 1198.5657958984375,
+            "top": 2554,
+            "bottom": 2605
+          },
+          {
+            "block": "identity",
+            "text": "A2A7 5215 F25D C0FC",
+            "left": 824,
+            "right": 1319.9318237304688,
+            "top": 2616,
+            "bottom": 2682
+          },
+          {
+            "block": "status",
+            "text": "Specimen — Not issued",
+            "left": 820.2784729003906,
+            "right": 1230.2015075683594,
+            "top": 2732,
+            "bottom": 2792
+          }
+        ],
+        "issued": false,
+        "recipient": "Gual Wells",
+        "identity": [
+          "A2A7 5215 F25D C0FC",
+          "18 October 2026",
+          "21:47:19.547  +08:00"
+        ],
+        "artifactDigest": "a2a75215f25dc0fc40f047fd6f6648a4625ae13be7b3fa2ffca5fe72e37f43a0",
+        "artSeed": 2728874517
+      },
+      "mist": {
+        "available": true,
+        "enabled": false,
+        "frames": 495,
+        "time": 18.500000000000078,
+        "interactionEnergy": 1.166011463355739,
+        "drive": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+        "simulationHz": 30,
+        "fixedDirectionalInlet": false,
+        "regionalVelocities": [
+          0.003570399927121774,
+          -0.001411003209586577,
+          -0.023346649320199316,
+          -0.012208643132063504,
+          0.0003327007074266282,
+          -0.000398694518563515,
+          0.00842390382124146,
+          -0.0019986257880581088
+        ],
+        "confinement": 0.38
+      },
+      "atmosphereWanted": true
+    },
+    "audio": {
+      "enabled": true,
+      "musicEnabled": true,
+      "foleyEnabled": true,
+      "scene": "museum",
+      "paused": false,
+      "unlocked": true,
+      "prepared": true,
+      "contextState": "running",
+      "decoded": [
+        "tail2",
+        "leather2",
+        "latch",
+        "leather1",
+        "tail1",
+        "cloth",
+        "pin",
+        "close",
+        "paper3",
+        "open",
+        "place1",
+        "place2",
+        "leatherDrop",
+        "paper1",
+        "paper2",
+        "museum",
+        "inspect"
+      ],
+      "downloaded": 17,
+      "musicTrack": "museum",
+      "musicVoices": 1,
+      "foleyVoices": 1,
+      "eventsPlayed": 22,
+      "lastEvent": "placed",
+      "failures": {},
+      "disposed": false,
+      "listeningReview": "not-auditioned",
+      "issued": false
+    },
+    "issued": false
+  },
+  "final": {
+    "ready": true,
+    "prepared": true,
+    "phase": "browse",
+    "progress": 0,
+    "viewerActive": false,
+    "viewerUnavailable": false,
+    "alignment": {
+      "x": -82.6996107009897,
+      "y": 113.29437024694977,
+      "scale": 0.3757067872099503
+    },
+    "transfer": null,
+    "returnRequested": false,
+    "sceneFailed": false,
+    "scene": {
+      "ready": true,
+      "stage": "browse",
+      "stageProgress": 0,
+      "selected": null,
+      "cabinet": 1,
+      "range": [
+        1,
+        6
+      ],
+      "specimens": [
+        {
+          "id": "specimen-chapter-five",
+          "chapterNumber": 5,
+          "issued": false
+        }
+      ],
+      "visibleCabinets": 2,
+      "proxyCount": 1,
+      "transfer": null,
+      "table": "Poly Haven WoodenTable_01, CC0",
+      "tableError": null,
+      "environmentAvailable": true,
+      "environmentError": null,
+      "resources": "scene-sources.json",
+      "drawBuffer": {
+        "width": 1720,
+        "height": 514
+      },
+      "render": {
+        "frame": 707,
+        "calls": 28,
+        "triangles": 49370,
+        "points": 90,
+        "lines": 0
+      },
+      "notes": "Cabinet furniture and distant closed proxies are new study geometry. Full v20 paper/keeper animation belongs to the separate object viewer."
+    },
+    "viewer": {
+      "progress": 0,
+      "paperProgress": 0,
+      "renderCount": 804,
+      "vertices": 14893,
+      "camera": [
+        0,
+        0,
+        12
+      ],
+      "keeperVisible": true,
+      "viewHeight": 7.06,
+      "drawBuffer": {
+        "width": 1720,
+        "height": 514
+      },
+      "deformation": "Continuous GPU winding and shared rest displacement",
+      "keeperMotion": "material-coordinate unfastening and rigid hinged prong",
+      "keeperSize": [
+        0.22978254735617945,
+        0.7659418245205982
+      ],
+      "specularIntensity": 0,
+      "toneMapping": "none; preserve source colors",
+      "restCurl": true,
+      "cameraType": "PerspectiveCamera",
+      "keeperPose": {
+        "r": 0,
+        "pin": 0,
+        "feed": 0,
+        "angle": 0,
+        "along": 0,
+        "sideMm": 0,
+        "circleCenter": [
+          0,
+          0
+        ],
+        "phase": "fastened",
+        "slide": 0,
+        "depart": 0,
+        "freeEndBehindFrame": false,
+        "expandedRadiusMm": 30.00000857204946,
+        "visible": true,
+        "opacity": 1,
+        "x": 0,
+        "y": 0.008683982907575327,
+        "z": 0.30201379091612,
+        "fitScale": 12.765697075343304,
+        "fitScaleVector": [
+          12.765697075343304,
+          12.765697075343304,
+          12.765697075343304
+        ],
+        "bandWidth": 0.22978254735617945,
+        "usesFade": false,
+        "usesStrapDeformation": true,
+        "deformation": "material-coordinate curve; dimensioned continuous cut mesh; native bevel residual",
+        "sourceBones": 76,
+        "restDeviationMm": {
+          "maximum": 5.542281843203895e-9,
+          "mean": 4.4898961188127906e-11
+        }
+      },
+      "sealRelief": true,
+      "runtime": {
+        "motionPrepared": true,
+        "preparationMs": 1278.4000000059605,
+        "preparedPrograms": 7,
+        "programs": 7
+      },
+      "edition": "v19 multi-pass old keeper",
+      "paperMaterial": "unchanged chapter-five v14",
+      "aging": {
+        "version": "v19 native multi-pass finishing",
+        "leather": [
+          "scanned grain",
+          "hide variation",
+          "dark contact polish",
+          "grain-coat loss",
+          "opened flex creases",
+          "worn hand-incised borders",
+          "terminal lozenge"
+        ],
+        "metal": [
+          "scanned microstructure",
+          "planishing depressions",
+          "file dressing",
+          "paired incised grooves",
+          "brown stable oxide",
+          "subdued crevice patina",
+          "rubbed crowns"
+        ],
+        "sourceGeometry": "unchanged v17",
+        "offlineBaked": true,
+        "noMold": true
+      },
+      "ready": true,
+      "disposed": false,
+      "paused": true,
+      "lost": false,
+      "environmentAvailable": true,
+      "contextReleased": false,
+      "animating": false,
+      "chapterId": "2026-10-12",
+      "issued": false,
+      "status": "ready",
+      "error": null,
+      "layout": {
+        "width": 2048,
+        "height": 2868,
+        "nominalSizeMM": [
+          300,
+          420
+        ],
+        "artPlanId": "SL-CH05-LEAF-LETTER-2",
+        "artPlanDigest": "3104ec4b67859f64268c11a327f37a65d1bdfc48c6f75adc24ee702d3f6318fb",
+        "composition": "horizontal-miniature-and-centered-verse",
+        "paperVariant": "individually-authored-sheet",
+        "sealVersion": "SL-KEEPSAKE-1",
+        "sealVariant": "oblong",
+        "sealBox": {
+          "x": 338,
+          "y": 2500,
+          "width": 285,
+          "height": 131
+        },
+        "ornamentBox": {
+          "x": 300,
+          "y": 900,
+          "width": 1448,
+          "height": 640,
+          "opacity": 0.91
+        },
+        "ornamentDigest": "e5aa04af52dde8cc3f32d0d9dfac3fe1696ef6d275c0514d7e0c0065f517d9c5",
+        "printedFonts": [
+          "Aboensis"
+        ],
+        "textBounds": [
+          {
+            "block": "chapter",
+            "text": "Chapter V",
+            "left": 889.7440338134766,
+            "right": 1162.1279754638672,
+            "top": 248,
+            "bottom": 344
+          },
+          {
+            "block": "artTitle",
+            "text": "Of Leaf",
+            "left": 822.0690155029297,
+            "right": 1250.3350067138672,
+            "top": 395,
+            "bottom": 551
+          },
+          {
+            "block": "artTitle",
+            "text": "and Letter",
+            "left": 756.8250122070312,
+            "right": 1301.9209594726562,
+            "top": 553,
+            "bottom": 662
+          },
+          {
+            "block": "chapterTitle",
+            "text": "Words Unfinished in the Valley",
+            "left": 671.2451171875,
+            "right": 1377.8028564453125,
+            "top": 728,
+            "bottom": 814
+          },
+          {
+            "block": "stanza1",
+            "text": "A reed gives breath a voice.",
+            "left": 535.3700256347656,
+            "right": 1509.8699645996094,
+            "top": 1602,
+            "bottom": 1704
+          },
+          {
+            "block": "stanza1",
+            "text": "Old ink outlives the hand.",
+            "left": 557.5850524902344,
+            "right": 1490.6549987792969,
+            "top": 1741,
+            "bottom": 1857
+          },
+          {
+            "block": "stanza2",
+            "text": "A seed lies in the fold,",
+            "left": 622.3099975585938,
+            "right": 1424.6900024414062,
+            "top": 1932,
+            "bottom": 2037
+          },
+          {
+            "block": "stanza2",
+            "text": "holding a season yet to come.",
+            "left": 504.58502197265625,
+            "right": 1535.6549682617188,
+            "top": 2078,
+            "bottom": 2192
+          },
+          {
+            "block": "colophon",
+            "text": "For Gual Wells, in remembrance of Chapter V",
+            "left": 494.84814453125,
+            "right": 1555.2958984375,
+            "top": 2268,
+            "bottom": 2353
+          },
+          {
+            "block": "colophon",
+            "text": "and its trial successfully completed.",
+            "left": 642.1156311035156,
+            "right": 1405.1923522949219,
+            "top": 2361,
+            "bottom": 2423
+          },
+          {
+            "block": "identity",
+            "text": "18 October 2026",
+            "left": 825,
+            "right": 1136.2059326171875,
+            "top": 2474,
+            "bottom": 2515
+          },
+          {
+            "block": "identity",
+            "text": "21:47:19.547  +08:00",
+            "left": 825,
+            "right": 1198.5657958984375,
+            "top": 2554,
+            "bottom": 2605
+          },
+          {
+            "block": "identity",
+            "text": "A2A7 5215 F25D C0FC",
+            "left": 824,
+            "right": 1319.9318237304688,
+            "top": 2616,
+            "bottom": 2682
+          },
+          {
+            "block": "status",
+            "text": "Specimen — Not issued",
+            "left": 820.2784729003906,
+            "right": 1230.2015075683594,
+            "top": 2732,
+            "bottom": 2792
+          }
+        ],
+        "issued": false,
+        "recipient": "Gual Wells",
+        "identity": [
+          "A2A7 5215 F25D C0FC",
+          "18 October 2026",
+          "21:47:19.547  +08:00"
+        ],
+        "artifactDigest": "a2a75215f25dc0fc40f047fd6f6648a4625ae13be7b3fa2ffca5fe72e37f43a0",
+        "artSeed": 2728874517
+      },
+      "mist": {
+        "available": true,
+        "enabled": false,
+        "frames": 724,
+        "time": 26.13333333333379,
+        "interactionEnergy": 1.1683236164844126,
+        "drive": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+        "simulationHz": 30,
+        "fixedDirectionalInlet": false,
+        "regionalVelocities": [
+          0.01769828294335328,
+          0.001450321831336151,
+          -0.02187106725969456,
+          -0.028489863682648702,
+          0.0024576364815957746,
+          -0.005530186996873529,
+          0.00012410786315798108,
+          0.00008848113961590869
+        ],
+        "confinement": 0.38
+      },
+      "atmosphereWanted": true
+    },
+    "audio": {
+      "enabled": true,
+      "musicEnabled": true,
+      "foleyEnabled": true,
+      "scene": "museum",
+      "paused": false,
+      "unlocked": true,
+      "prepared": true,
+      "contextState": "running",
+      "decoded": [
+        "tail2",
+        "leather2",
+        "latch",
+        "leather1",
+        "tail1",
+        "cloth",
+        "pin",
+        "close",
+        "paper3",
+        "open",
+        "place1",
+        "place2",
+        "leatherDrop",
+        "paper1",
+        "paper2",
+        "museum",
+        "inspect"
+      ],
+      "downloaded": 17,
+      "musicTrack": "museum",
+      "musicVoices": 1,
+      "foleyVoices": 0,
+      "eventsPlayed": 29,
+      "lastEvent": "placed",
+      "failures": {},
+      "disposed": false,
+      "listeningReview": "not-auditioned",
+      "issued": false
+    },
+    "issued": false
+  },
+  "audio": [
+    {
+      "enabled": true,
+      "musicEnabled": true,
+      "foleyEnabled": true,
+      "scene": "inspect",
+      "paused": false,
+      "unlocked": true,
+      "prepared": true,
+      "contextState": "running",
+      "decoded": [
+        "tail2",
+        "leather2",
+        "latch",
+        "leather1",
+        "tail1",
+        "cloth",
+        "pin",
+        "close",
+        "paper3",
+        "open",
+        "place1",
+        "place2",
+        "leatherDrop",
+        "paper1",
+        "paper2",
+        "museum",
+        "inspect"
+      ],
+      "downloaded": 17,
+      "musicTrack": "inspect",
+      "musicVoices": 1,
+      "foleyVoices": 0,
+      "eventsPlayed": 11,
+      "lastEvent": "paper-settle",
+      "failures": {},
+      "disposed": false,
+      "listeningReview": "not-auditioned",
+      "issued": false
+    }
+  ],
+  "resources": [
+    "/styles.css",
+    "/labs/scroll-museum-v1/app.bundle.js",
+    "/labs/scroll-museum-v1/assets/audio-music/ancient-mysteries.mp3",
+    "/labs/scroll-museum-v1/assets/audio-music/a-new-town.mp3",
+    "/labs/scroll-museum-v1/assets/audio-foley/beltHandle1.wav",
+    "/labs/scroll-museum-v1/assets/audio-foley/beltHandle2.wav",
+    "/labs/scroll-museum-v1/assets/audio-foley/handleSmallLeather.wav",
+    "/labs/scroll-museum-v1/assets/audio-foley/handleSmallLeather2.wav",
+    "/labs/scroll-museum-v1/assets/audio-foley/clothBelt.wav",
+    "/labs/scroll-museum-v1/assets/audio-foley/metalClick.wav",
+    "/labs/scroll-museum-v1/assets/audio-foley/metalLatch.wav",
+    "/labs/scroll-museum-v1/assets/audio-foley/bookOpen.wav",
+    "/labs/scroll-museum-v1/assets/audio-foley/bookClose.wav",
+    "/labs/scroll-museum-v1/assets/audio-foley/bookFlip1.wav",
+    "/labs/scroll-museum-v1/assets/audio-foley/bookFlip2.wav",
+    "/labs/scroll-museum-v1/assets/audio-foley/bookFlip3.wav",
+    "/labs/scroll-museum-v1/assets/audio-foley/bookPlace1.wav",
+    "/labs/scroll-museum-v1/assets/audio-foley/bookPlace2.wav",
+    "/labs/scroll-museum-v1/assets/audio-foley/dropLeather.wav",
+    "/labs/scroll-museum-v1/assets/scene-wood-color.jpg",
+    "/labs/scroll-museum-v1/assets/scene-wood-normal.jpg",
+    "/labs/scroll-museum-v1/assets/scene-wood-roughness.jpg",
+    "/labs/scroll-museum-v1/assets/scene-stone-color.jpg",
+    "/labs/scroll-museum-v1/assets/scene-stone-roughness.jpg",
+    "/labs/scroll-museum-v1/assets/scene-stone-normal.jpg",
+    "/labs/chapter-scroll-v14/assets/parchment.webp",
+    "/labs/scroll-museum-v1/assets/scene-table/WoodenTable_01_1k.gltf",
+    "/labs/chapter-scroll-v3/assets/studio.hdr",
+    "/icon.svg",
+    "/labs/scroll-museum-v1/assets/scene-table/WoodenTable_01.bin",
+    "/labs/scroll-museum-v1/assets/scene-table/textures/WoodenTable_01_diff_1k.jpg",
+    "/labs/scroll-museum-v1/assets/scene-table/textures/WoodenTable_01_arm_1k.jpg",
+    "/labs/scroll-museum-v1/assets/scene-table/textures/WoodenTable_01_nor_gl_1k.jpg",
+    "/labs/chapter-scroll-v14/chapter-sample.json",
+    "/labs/chapter-scroll-v14/art-plan.json",
+    "/labs/chapter-scroll/assets/Aboensis-Regular.otf",
+    "/labs/chapter-scroll-v14/assets/unused-keeper.png",
+    "/labs/chapter-scroll-v13/assets/leaf-and-letter.png",
+    "/labs/chapter-scroll-v10/assets/ink-shoulder.png",
+    "/labs/chapter-scroll-v17/keeper-path.json",
+    "/labs/chapter-scroll-v14/assets/parchment-normal.jpg",
+    "/labs/chapter-scroll-v14/assets/parchment-roughness.jpg",
+    "/labs/scroll-museum-v1/assets/keeper-display.glb",
+    "/labs/chapter-scroll-v19/assets/leather-color.webp",
+    "/labs/chapter-scroll-v19/assets/leather-orm.webp",
+    "/labs/chapter-scroll-v19/assets/leather-normal.webp",
+    "/labs/chapter-scroll-v19/assets/bronze-color.webp",
+    "/labs/chapter-scroll-v19/assets/bronze-orm.webp",
+    "/labs/chapter-scroll-v19/assets/bronze-normal.webp",
+    "/labs/chapter-scroll-v17/vendor/noise2D.glsl"
+  ],
+  "failed": [
+    {
+      "stage": "loading",
+      "url": "http://127.0.0.1:8149/labs/chapter-scroll-v3/assets/studio.hdr",
+      "error": "net::ERR_ABORTED"
+    }
+  ],
+  "errors": [],
+  "writes": [],
+  "video": "D:\\CodexStorage\\workspaces\\second-language-scroll-lab\\.cache\\scroll-museum-check\\video\\page@e25087999f76a449ab697e2e3df3d0f4.webm",
+  "environment": "Local Chromium at 402×874/DPR2; not physical iPhone Safari, not an art or listening approval"
+}
