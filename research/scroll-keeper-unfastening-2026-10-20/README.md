@@ -40,3 +40,11 @@ v17改用`this.closure.radius`，过滤无效/出屏坐标，送入求解器前�
 - 原认可GLB仍为`d99a603f3f818ba507d922be940efa9143ba76ccfc91ee169bc210dfd14dbdf1`。
 
 本轮运行、临时浏览器数据、原生工程、接触数据、构建和视频均在D盘。没有云GPU提交、新订阅或付费生成。样品交付不等于用户艺术验收通过。
+
+## 最终发布
+
+- 功能提交`c569816`已推送GitHub同名分支。
+- 最终不可变预览：[第五章v17解扣样品](https://41f8ae30.the-second-language.pages.dev/labs/chapter-scroll-v17/)。仅发布`scroll-lab`预览，没有发布生产main或后台API Worker。
+- 发布包使用`git archive c569816 web worker/gateway/src/_worker.js`在D盘独立目录生成；排除同一工作区其他任务的未提交文件。第一次通用打包误带其他未提交样品，部署`93a8e92c-a41f-4c15-a556-674a2611c409`已实际删除；不再将该预览作为交付入口。
+- 最终预览已重新跑完整线上检查，见`live-verification.json`。首次准备约6.65秒，首次开合的本机Chromium唯一帧间隔中位16.7ms、p95为33.4ms；仍不代表真机iPhone结果。全程雾染输入有限，且纸张未展开时皮扣运动确实产生雾场响应，相关断言通过。
+- 任务末尾已实际尝试余额/容量更新，因本机缺少`SECOND_LANGUAGE_PUBLISH_TOKEN`或忽略的部署凭据文件而未完成；旧记录保留，永久归档已排队，不声称本地缓存已经归档。该限制不影响静态预览发布，也没有新增付费调用。
