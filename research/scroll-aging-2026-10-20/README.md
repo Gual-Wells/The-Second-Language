@@ -72,3 +72,11 @@ v17两个资源URL改为明确的同级目录，供v18打包复用，避免`impo
 本地首次准备4.32秒；开合唯一帧间隔中位16.7ms、p95 33.4ms，仅为本机Chromium。全部既有交互检查通过，没有新着色器在首次动作中编译。
 
 任务末尾已实际尝试余额与容量更新，现有发布凭据缺失：`SECOND_LANGUAGE_PUBLISH_TOKEN`或忽略的`.cache/deployment-secrets.json`。旧快照保留；归档已排队，不代表原生缓存已永久归档。此限制不影响已有Wrangler授权的静态预览发布。
+
+### 已发布预览
+
+- 功能提交：`f84bd8ff477cc37e7dd436d5b6b037dec52116d7`，已推送`codex/medieval-scroll-lab-2026-10-16`。
+- 不可变预览：[第五章v18做旧样品](https://0b7b8832.the-second-language.pages.dev/labs/chapter-scroll-v18/)。只发布`scroll-lab`静态预览，未发布生产main或API Worker。
+- 发布包从该提交的`git archive web worker/gateway/src/_worker.js`生成，位于D盘独立构建目录；不读取其他任务尚未提交的页面。
+- 最终URL实际检查通过，见`live-verification.json`。线上首次准备6.23秒，本机Chromium唯一帧间隔中位16.7ms、p95 33.4ms；首次开合无新增着色器编译，真实上下文恢复、反向收扣、雾染有效输入/交互等断言通过。仍待用户实际观感验收。
+- 「细看 → 皮扣细看」可看900平方实际三维渲染细节；「上一版」可回到v17。该细节图不是另外生成的AI效果图。
