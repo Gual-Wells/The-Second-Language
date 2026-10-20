@@ -45,3 +45,13 @@
 源素材在 `source-art/`，姿态在 `author-frames.js`；运行 `node scripts/bake-scroll-cord.mjs` 重建图集，`node scripts/build-scroll-cord.mjs` 重建运行包。两者复用本机既有运行时与 Chromium；浏览器不调用生图或模型接口。
 
 本轮使用内置生图两次，其中一次粗麻绳素材未采用。没有 Kaggle 作业、新订阅或外部付费模型调用；内置生图的额度/单次费用不由工具暴露，不据此宣称全部计算免费。正式自动制作与颁发服务仍未接入。
+
+## 发布及收尾
+
+源码提交 `f5956bd` 已推送独立分支。不可变预览为 <https://0fdfc982.the-second-language.pages.dev/labs/chapter-scroll-cord/>，独立别名为 <https://cord-frames.the-second-language.pages.dev/labs/chapter-scroll-cord/>。没有覆盖 `scroll-lab` 皮扣预览，没有部署生产 main 或 API Worker。
+
+线上同一组完整交互检查已通过，见 `live-verification.json`；没有页面异常或写请求。该次本机浏览器的线上冷准备约3.49秒，不是用户网络或iPhone硬件保证。发布后的记录补充只影响研究文档与检查结果，不改变已发布样品文件。
+
+第一次非交互发布没有读取到有效凭据而失败；核对现有 Wrangler OAuth 登录后，`whoami` 成功，再次正常发布完成。没有要求用户新增密钥或绕过平台权限。
+
+按 BALANCES 执行了末尾查询；本独立 checkout 缺少应用发布凭据 `SECOND_LANGUAGE_PUBLISH_TOKEN`/受忽略凭据文件，余额和容量回写未完成。既有记录没有被置零，永久归档已排队，不能声称本地全部研究数据已归档。这个应用写入凭据与静态 Pages 发布的 OAuth 不是同一个授权。
