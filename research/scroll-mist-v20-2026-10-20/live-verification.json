@@ -1,0 +1,25 @@
+{
+  "url": "https://f840fb09.the-second-language.pages.dev",
+  "checks": {
+    "coldOpen": true,
+    "noNewPrograms": true,
+    "paperWaitsForKeeper": true,
+    "reverseMidMotion": true,
+    "closedPoseRestored": true,
+    "paperIdentityUnchanged": true,
+    "detail": true,
+    "contextRestore": true,
+    "reducedMotion": true,
+    "noWriteRequests": true
+  },
+  "preparationMs": 32595.40000000596,
+  "frameGapMs": {
+    "median": 16.69999999999709,
+    "p95": 33.5
+  },
+  "maxProgressStep": 0.013055890904031475,
+  "video": "D:\\CodexStorage\\workspaces\\second-language-scroll-lab\\.cache\\keeper-v20\\video\\page@e0021042bd280a38874e007e15ea634b.webm",
+  "recordSHA256": "a2a75215f25dc0fc40f047fd6f6648a4625ae13be7b3fa2ffca5fe72e37f43a0",
+  "errors": [],
+  "environment": "402x874 DPR3 Chromium on local PC; not physical iPhone Safari"
+}
