@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "type": "authored-2d-raster-sequence",
+  "material": "fine braided silk; contemporary medieval-style interpretation",
+  "frames": 64,
+  "frameSize": 384,
+  "columns": 4,
+  "rows": 4,
+  "pageCount": 4,
+  "pages": [
+    "assets/cord-0.webp",
+    "assets/cord-1.webp",
+    "assets/cord-2.webp",
+    "assets/cord-3.webp"
+  ],
+  "rear": "assets/cord-rear.webp",
+  "worldSize": 2,
+  "releaseEnd": 0.38,
+  "sourceSha256": "44a94b259be3786a6f08fd4221797164b34baae5c8912676f418dd832746e247",
+  "sourceSize": [
+    2172,
+    724
+  ],
+  "sourceBounds": {
+    "x": 136,
+    "y": 302,
+    "w": 1900,
+    "h": 125
+  },
+  "decodedRGBABytes": 37748736,
+  "phases": [
+    {
+      "r": 0,
+      "phase": "take-up"
+    },
+    {
+      "r": 0.12,
+      "phase": "release-first-loop"
+    },
+    {
+      "r": 0.25,
+      "phase": "release-first-loop"
+    },
+    {
+      "r": 0.4,
+      "phase": "release-first-loop"
+    },
+    {
+      "r": 0.55,
+      "phase": "release-second-loop"
+    },
+    {
+      "r": 0.68,
+      "phase": "open-binding"
+    },
+    {
+      "r": 0.8,
+      "phase": "lift-clear"
+    },
+    {
+      "r": 1,
+      "phase": "lift-clear"
+    }
+  ],
+  "physicalSimulation": false
+}

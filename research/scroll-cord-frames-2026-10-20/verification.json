@@ -1,0 +1,25 @@
+{
+  "url": "local",
+  "checks": {
+    "coldOpen": true,
+    "noNewPrograms": true,
+    "paperWaitsForKeeper": true,
+    "reverseMidMotion": true,
+    "closedPoseRestored": true,
+    "paperIdentityUnchanged": true,
+    "detail": true,
+    "contextRestore": true,
+    "reducedMotion": true,
+    "noWriteRequests": true
+  },
+  "preparationMs": 2287.9000000059605,
+  "frameGapMs": {
+    "median": 16.699999999999818,
+    "p95": 33.399999999999636
+  },
+  "maxProgressStep": 0.007566061965492699,
+  "video": "D:\\CodexStorage\\workspaces\\second-language-scroll-lab\\.cache\\scroll-cord\\video\\page@262b24369944967b3e108aa40c54ed7d.webm",
+  "recordSHA256": "a2a75215f25dc0fc40f047fd6f6648a4625ae13be7b3fa2ffca5fe72e37f43a0",
+  "errors": [],
+  "environment": "402x874 DPR3 Chromium on local PC; not physical iPhone Safari"
+}
