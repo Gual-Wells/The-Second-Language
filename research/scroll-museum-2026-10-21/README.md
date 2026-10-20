@@ -44,7 +44,7 @@
 
 `verify-scroll-museum.mjs`在402×874/DPR2 Chromium检查真实样品身份、不写认证、取放、先收卷后归藏、细看/英中、展开中反向、横竖屏、WebGL中断仍可细看/返回、恢复后闭合、派生文件实际加载、声音失败表/阅卷曲/动作事件和最终销毁。证据是同目录截图与`verification.json`；远端复核另存`live-verification.json`。这不是物理iPhone Safari的性能证明。
 
-独立运行器对照还核原v20的纸面数据SHA、闭姿机构顶点SHA与八个阶段完全相同；模型加载中取消、隐藏预备及上下文恢复另有`.cache/museum-viewer-check`记录。销毁统一先释放材质/目标，再renderer，最终释放独占context；普通取藏切换只暂停复用。Three内部缓存计数不是显存实际测量。
+独立运行器对照还核原v20的纸面数据SHA、闭姿机构顶点SHA与八个阶段完全相同，摘要在`viewer-preservation.json`；模型加载中取消、隐藏预备及上下文恢复另有`.cache/museum-viewer-check`详细记录。销毁统一先释放材质/目标，再renderer，最终释放独占context；普通取藏切换只暂停复用。Three内部缓存计数不是显存实际测量。
 
 真实首次通过、任务租约、制作/审阅工具桥、OneDrive原件封存和私有领取仍按CHARTER的后续接线目标，**本轮没有冒充已经完成这些服务**。没有恢复旧币展厅，没有历史成绩补领，没有新订阅、付费生成或Kaggle任务。当前仍需用户视听反馈；不因技术检查通过就把新场馆/音乐提升为已接受工艺。
 
@@ -61,3 +61,16 @@ git add web/labs/scroll-museum-v1/display-manifest.json
 ```
 
 本机Node与既有Wrangler/esbuild均复用现有安装，临时、视频、日志和发布包真实落D；不安装新依赖。提交前按Git暂存区计算清单，避免Windows换行转换使发布字节与本机不同；已有未归本任务的更改时须缩小上述暂存范围。`deploy-scroll-museum.mjs`从固定HEAD的git archive生成包，逐项核清单后发`scroll-lab`分支；预览沿用该HEAD的Pages网关，不部署独立后台Worker、不更新正式main，避免混入活动维护副本和私人原件。最终不可变URL、核查和额度收尾另记录于本目录。
+
+### 已发布版本
+
+- 展示源码：`8fad7c87f48c0c2a81adc4ca2d5e1aacc9c08be5`，分支`codex/medieval-scroll-lab-2026-10-16`。
+- [固定预览](https://ba36f006.the-second-language.pages.dev/labs/scroll-museum-v1/)；`scroll-lab`别名会随下一轮预览变化。
+- 发布包内53项展示资源逐项通过字节/SHA核验，共32,059,557字节；共享旧JSON的CRLF→LF差异已按Git发布字节计入。
+- `live-verification.json`记录这份固定URL的真实在线完整交互复测：全部检查通过，无页面脚本错误、无请求失败、无认证写入。主站与独立API Worker未更新。
+- 本轮没有新增订阅或收费生成调用；曲目和场景使用可复用CC0资产。
+- 末尾已实际执行`check-balances.mjs`：本实验副本缺少发布凭据，余额/容量未更新并保留旧记录；永久归档脚本报告已排队，尚未核实完成。不要把该失败解释为余额为零，也不要把Git展示恢复能力当作原生母版已入OneDrive。
+
+### 下一轮工程落点
+
+先收集这份实物场景的用户视听体验，并在真实iPhone17核对首次进入、解扣、雾染和持续温升；技术通过不替代艺术验收。柜段已有可扩展接口，当前只放实际第五章样品，不用复制件填满架子。正式服务接线仍需在当时的维护主线实现首次通过事件→唯一制作任务→候选与独立审阅→原件封存→领取入藏，沿用既有租约/OneDrive，不能把本实验树的旧主壳整份覆盖到正式主站。资格与制作分离、未定计费结果保护及指定创作档位继续遵循CHARTER。

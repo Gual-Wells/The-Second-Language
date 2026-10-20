@@ -115,7 +115,7 @@ Third-party packages, model/provider outputs, voices, APIs, dictionary or textbo
 
 统一入口：[制作工艺与自动化协议草案](protocol/CHARTER.md)、[全过程复盘及实际能力边界](research/scroll-production-2026-10-20/README.md)、[关键资产只读核验清单](research/scroll-production-2026-10-20/baseline-inventory.json)。最新[v20独立样品](https://f840fb09.the-second-language.pages.dev/labs/chapter-scroll-v20/)仍为未颁发作品。
 
-新增[卷藏馆取藏试样](https://scroll-lab.the-second-language.pages.dev/labs/scroll-museum-v1/)：固定章位、横置藏卷、取托至案、真实解扣开合、归位与音乐拟音。只陈列实际第五章样品，不产生认证或成绩；场馆/声音尚待视听验收。[工程与素材记录](research/scroll-museum-2026-10-21/README.md)。
+新增[卷藏馆取藏试样](https://ba36f006.the-second-language.pages.dev/labs/scroll-museum-v1/)（固定发布版本）：固定章位、横置藏卷、取托至案、真实解扣开合、归位与音乐拟音。只陈列实际第五章样品，不产生认证或成绩；场馆/声音尚待视听验收。[工程与素材记录](research/scroll-museum-2026-10-21/README.md)。
 
 ### 单枚精品纪念币制作（历史探索）
 
