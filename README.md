@@ -109,6 +109,12 @@ Third-party packages, model/provider outputs, voices, APIs, dictionary or textbo
 
 [月度展厅样件](https://the-second-language.pages.dev/labs/monthly-gallery/) 使用固定版本 Babylon.js、授权立体资产和静态象征声音，支持横竖屏、慢速环游、近看、三种环境及三十台布局。三枚样币与反馈独立于正式章节认证；原两轮测试页继续保留。实体 iPhone 的艺术、声音及性能仍待用户验收，正式申领/场景演化及纪念日历尚未启用。用户反馈已取消展厅和图书馆日历展柜，样件仅保留比较；现行决定见 [CERTIFICATION_RESEARCH](protocol/CERTIFICATION_RESEARCH.md)，选型与验证见 [本轮研究](research/monthly-gallery-implementation-2026-10-10.md)，素材许可见 [CREDITS](web/labs/monthly-gallery/CREDITS.md)。
 
-### 单枚精品纪念币制作
+### 章节纪念卷轴制作
 
-现行研究集中在用户指定的“仇视之龙”：整体定制雕塑、正侧背与币缘连续、真实抓握和破口、分区金属、局部烟光、原页面透明把玩。此前样品均不作为高标准基准。制作及逐项返工标准见 [COIN_CRAFT](protocol/COIN_CRAFT.md)，专业依据及能力边界见 [制作标准研究](research/dragon-coin-production-standard-2026-10-10.md)。当前仅协议已制定，尚无获采用的新样币或正式认证接入。
+当前纪念方向为英文中古风格的私人章节羊皮手稿，已形成连续卷展、真实皮扣解扣、分层做旧和区域雾染的独立样品。逐章题辞、意象、排印和纸张细节共同设计，共用器物工艺；不是同模板换字。第一章与第五章保留各自原件，正式认证和自动颁发尚未接通。
+
+统一入口：[制作工艺与自动化协议草案](protocol/CHARTER.md)、[全过程复盘及实际能力边界](research/scroll-production-2026-10-20/README.md)、[关键资产只读核验清单](research/scroll-production-2026-10-20/baseline-inventory.json)。最新[v20独立样品](https://f840fb09.the-second-language.pages.dev/labs/chapter-scroll-v20/)仍为未颁发作品。
+
+### 单枚精品纪念币制作（历史探索）
+
+仇视之龙的定制雕塑、正侧背、抓握破口、材质及烟光研究保留于 [COIN_CRAFT](protocol/COIN_CRAFT.md)和[制作标准研究](research/dragon-coin-production-standard-2026-10-10.md)。用户已暂停纪念币工程并转向卷轴；旧资料供比较，不自动恢复制作或接入正式认证。

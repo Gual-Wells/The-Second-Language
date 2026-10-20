@@ -1,0 +1,349 @@
+{
+  "schema": "second-language.scroll-baseline-inventory.v1",
+  "purpose": "selected craft baseline evidence; not a frozen issued package or full dependency closure",
+  "checkedAt": "2026-10-20T14:58:27.586Z",
+  "repository": {
+    "root": "D:\\CodexStorage\\workspaces\\second-language-scroll-lab",
+    "branch": "codex/medieval-scroll-lab-2026-10-16",
+    "baselineHEAD": "72da09fc9d2bedf4c5805f9517dcfa7736cd7d7c",
+    "HEADAtInspection": "72da09fc9d2bedf4c5805f9517dcfa7736cd7d7c",
+    "dirtyBeforeProtocolWork": false,
+    "inspection": "Documentation edits in progress; media inspected read-only"
+  },
+  "summary": {
+    "selectedFiles": 32,
+    "allSelectedPresent": true,
+    "allAvailableExpectedDigestsMatch": true,
+    "notTrackedFiles": 16
+  },
+  "boundaries": {
+    "selectedFilesOnly": true,
+    "cleanCloneNativeRebuildVerified": false,
+    "permanentNativeArchiveVerified": false,
+    "automatedProductionImplemented": false,
+    "formalIssuanceEnabled": false,
+    "artisticApprovalInferredFromHashes": false
+  },
+  "files": [
+    {
+      "role": "native builder",
+      "path": "scripts/keeper-physical-build.py",
+      "expectedSHA256": "d3aaa51365ded2a10727745bc9b9b6f0c7d377a5f944610f45f02de092ccbc3b",
+      "exists": true,
+      "bytes": 19231,
+      "sha256": "d3aaa51365ded2a10727745bc9b9b6f0c7d377a5f944610f45f02de092ccbc3b",
+      "expectedMatches": true,
+      "tracked": true
+    },
+    {
+      "role": "runtime fitted keeper",
+      "path": "web/labs/chapter-scroll-v17/assets/keeper-physical.glb",
+      "expectedSHA256": "a6084299daf55d9ead8e7905ab973fe6be9ec88a6a7f26914230c1f04e959668",
+      "exists": true,
+      "bytes": 16144276,
+      "sha256": "a6084299daf55d9ead8e7905ab973fe6be9ec88a6a7f26914230c1f04e959668",
+      "expectedMatches": true,
+      "tracked": true
+    },
+    {
+      "role": "native fitted keeper",
+      "path": ".cache/keeper-v17-native/keeper-physical.blend",
+      "expectedSHA256": "ba95bb3ebc448759b3984a6bd23b97bcd73040d92348dc89085c9f6ffc6d4831",
+      "exists": true,
+      "bytes": 13145123,
+      "sha256": "ba95bb3ebc448759b3984a6bd23b97bcd73040d92348dc89085c9f6ffc6d4831",
+      "expectedMatches": true,
+      "tracked": false
+    },
+    {
+      "role": "native material workshop",
+      "path": ".cache/keeper-v19-native/keeper-finishing-workshop.blend",
+      "expectedSHA256": "136c14106da1be148e472f11c724825d72155c40b7e7cd2f1319c8d0f131d1f1",
+      "exists": true,
+      "bytes": 13199134,
+      "sha256": "136c14106da1be148e472f11c724825d72155c40b7e7cd2f1319c8d0f131d1f1",
+      "expectedMatches": true,
+      "tracked": false
+    },
+    {
+      "role": "upstream bake dependency",
+      "path": ".cache/keeper-physical/bronze-normal-baked.png",
+      "expectedSHA256": null,
+      "exists": true,
+      "bytes": 222761,
+      "sha256": "ac991580a47e597e5e317e0b04b2f62c7c235e93683319622797e3a0c1c0fa83",
+      "expectedMatches": null,
+      "tracked": false
+    },
+    {
+      "role": "fifth chapter plan",
+      "path": "web/labs/chapter-scroll-v14/art-plan.json",
+      "expectedSHA256": "3104ec4b67859f64268c11a327f37a65d1bdfc48c6f75adc24ee702d3f6318fb",
+      "exists": true,
+      "bytes": 4604,
+      "sha256": "3104ec4b67859f64268c11a327f37a65d1bdfc48c6f75adc24ee702d3f6318fb",
+      "expectedMatches": true,
+      "tracked": true
+    },
+    {
+      "role": "fifth chapter paper",
+      "path": "web/labs/chapter-scroll-v14/assets/parchment.webp",
+      "expectedSHA256": "bd9f3e4653c871ec56f29976cfe65508ad7fed7f95864ee8e8eaa9d5464b545b",
+      "exists": true,
+      "bytes": 713606,
+      "sha256": "bd9f3e4653c871ec56f29976cfe65508ad7fed7f95864ee8e8eaa9d5464b545b",
+      "expectedMatches": true,
+      "tracked": true
+    },
+    {
+      "role": "fifth chapter miniature",
+      "path": "web/labs/chapter-scroll-v13/assets/leaf-and-letter.png",
+      "expectedSHA256": "e5aa04af52dde8cc3f32d0d9dfac3fe1696ef6d275c0514d7e0c0065f517d9c5",
+      "exists": true,
+      "bytes": 1561703,
+      "sha256": "e5aa04af52dde8cc3f32d0d9dfac3fe1696ef6d275c0514d7e0c0065f517d9c5",
+      "expectedMatches": true,
+      "tracked": true
+    },
+    {
+      "role": "series font",
+      "path": "web/labs/chapter-scroll/assets/Aboensis-Regular.otf",
+      "expectedSHA256": "0ad00fb94899b3a8277680377eb7270c5fb3ee73dd9fefbd6fb31d9f94c4707b",
+      "exists": true,
+      "bytes": 137860,
+      "sha256": "0ad00fb94899b3a8277680377eb7270c5fb3ee73dd9fefbd6fb31d9f94c4707b",
+      "expectedMatches": true,
+      "tracked": true
+    },
+    {
+      "role": "licensed scan input",
+      "path": ".cache/keeper-physical/leather-color.jpg",
+      "expectedSHA256": "b0de2403a31efa31e501b0028c0bd8e504d5bd6318f4a5ce90c550c3067f96d8",
+      "exists": true,
+      "bytes": 2137518,
+      "sha256": "b0de2403a31efa31e501b0028c0bd8e504d5bd6318f4a5ce90c550c3067f96d8",
+      "expectedMatches": true,
+      "tracked": false
+    },
+    {
+      "role": "licensed scan input",
+      "path": ".cache/keeper-physical/leather-normal.jpg",
+      "expectedSHA256": "3386277290af50b4d464dc9a9f195bbf8dd6f137b9ae0274552397d2f0135c98",
+      "exists": true,
+      "bytes": 3030702,
+      "sha256": "3386277290af50b4d464dc9a9f195bbf8dd6f137b9ae0274552397d2f0135c98",
+      "expectedMatches": true,
+      "tracked": false
+    },
+    {
+      "role": "licensed scan input",
+      "path": ".cache/keeper-physical/leather-roughness.jpg",
+      "expectedSHA256": "8a47afca2630310849034fe40ca9497db0956c67c0d933e6efd49d3cd2befe83",
+      "exists": true,
+      "bytes": 2801956,
+      "sha256": "8a47afca2630310849034fe40ca9497db0956c67c0d933e6efd49d3cd2befe83",
+      "expectedMatches": true,
+      "tracked": false
+    },
+    {
+      "role": "licensed scan input",
+      "path": ".cache/keeper-physical/bronze-BaseColor.png",
+      "expectedSHA256": "91a02370cefd49e9ba72b8f125ea29f9bf86338802e02e2d5d2619b3e098af79",
+      "exists": true,
+      "bytes": 1396969,
+      "sha256": "91a02370cefd49e9ba72b8f125ea29f9bf86338802e02e2d5d2619b3e098af79",
+      "expectedMatches": true,
+      "tracked": false
+    },
+    {
+      "role": "licensed scan input",
+      "path": ".cache/keeper-physical/bronze-Metallic.png",
+      "expectedSHA256": "66902daf726a6fc5c896b2f5c11b35dbb7d76ffe01d489fa6d689dca0af5af2f",
+      "exists": true,
+      "bytes": 630871,
+      "sha256": "66902daf726a6fc5c896b2f5c11b35dbb7d76ffe01d489fa6d689dca0af5af2f",
+      "expectedMatches": true,
+      "tracked": false
+    },
+    {
+      "role": "licensed scan input",
+      "path": ".cache/keeper-physical/bronze-Roughness.png",
+      "expectedSHA256": "bdf60326f011c88866bb080ce6ad4cdca1b4fcfafdf79c5aa5f0498132a4d674",
+      "exists": true,
+      "bytes": 736499,
+      "sha256": "bdf60326f011c88866bb080ce6ad4cdca1b4fcfafdf79c5aa5f0498132a4d674",
+      "expectedMatches": true,
+      "tracked": false
+    },
+    {
+      "role": "licensed scan input",
+      "path": ".cache/keeper-physical/bronze-Height.png",
+      "expectedSHA256": "d4dd922b431f29304366595bd0e4d716d5c2e29c096eab609c13837c47fc5fc8",
+      "exists": true,
+      "bytes": 815377,
+      "sha256": "d4dd922b431f29304366595bd0e4d716d5c2e29c096eab609c13837c47fc5fc8",
+      "expectedMatches": true,
+      "tracked": false
+    },
+    {
+      "role": "PNG master",
+      "path": ".cache/keeper-v19-native/png-masters/leather-color.png",
+      "expectedSHA256": "adfaa484ef16ded27b07c180282f5bdb80cc42956acb3edf5d7fdf8a04523775",
+      "exists": true,
+      "bytes": 4247021,
+      "sha256": "adfaa484ef16ded27b07c180282f5bdb80cc42956acb3edf5d7fdf8a04523775",
+      "expectedMatches": true,
+      "tracked": false
+    },
+    {
+      "role": "PNG master",
+      "path": ".cache/keeper-v19-native/png-masters/leather-orm.png",
+      "expectedSHA256": "f1d715ce263529dec10d44bff5d5d23c93ddc5bb0f9ced1e6fa3da1a22f683a5",
+      "exists": true,
+      "bytes": 2087414,
+      "sha256": "f1d715ce263529dec10d44bff5d5d23c93ddc5bb0f9ced1e6fa3da1a22f683a5",
+      "expectedMatches": true,
+      "tracked": false
+    },
+    {
+      "role": "PNG master",
+      "path": ".cache/keeper-v19-native/png-masters/leather-normal.png",
+      "expectedSHA256": "6b64d62cf7ec00896f2370122dc2023bd4db63b3acb392130c66f97e96758b6b",
+      "exists": true,
+      "bytes": 3423481,
+      "sha256": "6b64d62cf7ec00896f2370122dc2023bd4db63b3acb392130c66f97e96758b6b",
+      "expectedMatches": true,
+      "tracked": false
+    },
+    {
+      "role": "PNG master",
+      "path": ".cache/keeper-v19-native/png-masters/bronze-color.png",
+      "expectedSHA256": "3616e948ab30fbcfe0f730cbe605bdaef5dbe347b09b9c80ccd210ae1f0d21a1",
+      "exists": true,
+      "bytes": 4118383,
+      "sha256": "3616e948ab30fbcfe0f730cbe605bdaef5dbe347b09b9c80ccd210ae1f0d21a1",
+      "expectedMatches": true,
+      "tracked": false
+    },
+    {
+      "role": "PNG master",
+      "path": ".cache/keeper-v19-native/png-masters/bronze-orm.png",
+      "expectedSHA256": "ed42948290bc7b2034f810e689e37c1fb3ef291eb9b46e4e3b193a4206dbe73c",
+      "exists": true,
+      "bytes": 3092606,
+      "sha256": "ed42948290bc7b2034f810e689e37c1fb3ef291eb9b46e4e3b193a4206dbe73c",
+      "expectedMatches": true,
+      "tracked": false
+    },
+    {
+      "role": "PNG master",
+      "path": ".cache/keeper-v19-native/png-masters/bronze-normal.png",
+      "expectedSHA256": "7fae5cf7dadfe9a30fb9a00827be2ed8476a4fdb19454a2cdacdc5407db46b2a",
+      "exists": true,
+      "bytes": 3447523,
+      "sha256": "7fae5cf7dadfe9a30fb9a00827be2ed8476a4fdb19454a2cdacdc5407db46b2a",
+      "expectedMatches": true,
+      "tracked": false
+    },
+    {
+      "role": "runtime material",
+      "path": "web/labs/chapter-scroll-v19/assets/leather-color.webp",
+      "expectedSHA256": "5c99db712479fb6f8c661f1b4d4422d5e689c59a21c2c197e1dca77bb0c04e95",
+      "exists": true,
+      "bytes": 3000366,
+      "sha256": "5c99db712479fb6f8c661f1b4d4422d5e689c59a21c2c197e1dca77bb0c04e95",
+      "expectedMatches": true,
+      "tracked": true
+    },
+    {
+      "role": "runtime material",
+      "path": "web/labs/chapter-scroll-v19/assets/leather-orm.webp",
+      "expectedSHA256": "ce92f7819c466c5ec0291e5609da152cc98e0d5c47627d89a81fd3d82a8e6ad1",
+      "exists": true,
+      "bytes": 1199026,
+      "sha256": "ce92f7819c466c5ec0291e5609da152cc98e0d5c47627d89a81fd3d82a8e6ad1",
+      "expectedMatches": true,
+      "tracked": true
+    },
+    {
+      "role": "runtime material",
+      "path": "web/labs/chapter-scroll-v19/assets/leather-normal.webp",
+      "expectedSHA256": "6b3c1601b766712a527d51145aa211fd98b73f4747e0d97490809ac407efbf1c",
+      "exists": true,
+      "bytes": 2575506,
+      "sha256": "6b3c1601b766712a527d51145aa211fd98b73f4747e0d97490809ac407efbf1c",
+      "expectedMatches": true,
+      "tracked": true
+    },
+    {
+      "role": "runtime material",
+      "path": "web/labs/chapter-scroll-v19/assets/bronze-color.webp",
+      "expectedSHA256": "f850970297e8c5d19c7002132e59e877ea54dce0a757d2f642a592f46bd3d9cd",
+      "exists": true,
+      "bytes": 2656038,
+      "sha256": "f850970297e8c5d19c7002132e59e877ea54dce0a757d2f642a592f46bd3d9cd",
+      "expectedMatches": true,
+      "tracked": true
+    },
+    {
+      "role": "runtime material",
+      "path": "web/labs/chapter-scroll-v19/assets/bronze-orm.webp",
+      "expectedSHA256": "1672624ae4ae60a342346bb3188f974d05258be13d392da027a82468fdae8b4b",
+      "exists": true,
+      "bytes": 1774092,
+      "sha256": "1672624ae4ae60a342346bb3188f974d05258be13d392da027a82468fdae8b4b",
+      "expectedMatches": true,
+      "tracked": true
+    },
+    {
+      "role": "runtime material",
+      "path": "web/labs/chapter-scroll-v19/assets/bronze-normal.webp",
+      "expectedSHA256": "a2b951c269e4e6d20ef18cd7f360c3045b2ecc605a63e5e910f819a9a8bcc2bd",
+      "exists": true,
+      "bytes": 2159960,
+      "sha256": "a2b951c269e4e6d20ef18cd7f360c3045b2ecc605a63e5e910f819a9a8bcc2bd",
+      "expectedMatches": true,
+      "tracked": true
+    },
+    {
+      "role": "runtime source/data",
+      "path": "web/labs/chapter-scroll-v20/app.bundle.js",
+      "expectedSHA256": null,
+      "exists": true,
+      "bytes": 716732,
+      "sha256": "82839e18703217ffb4d0fff813f70678adf7144fc8eeccf88763b76112280504",
+      "expectedMatches": null,
+      "tracked": true
+    },
+    {
+      "role": "runtime source/data",
+      "path": "web/labs/chapter-scroll-v20/mist.js",
+      "expectedSHA256": null,
+      "exists": true,
+      "bytes": 5580,
+      "sha256": "04fbadd2e6595925acec625b29d0771730e0cc265370e16aeeda175383fec451",
+      "expectedMatches": null,
+      "tracked": true
+    },
+    {
+      "role": "runtime source/data",
+      "path": "web/labs/chapter-scroll-v20/flow.js",
+      "expectedSHA256": null,
+      "exists": true,
+      "bytes": 4079,
+      "sha256": "d9358f66f36cd7b243e97aaeb0a468e0ebdd6ab777e54b76520a1fa943a3a48a",
+      "expectedMatches": null,
+      "tracked": true
+    },
+    {
+      "role": "runtime source/data",
+      "path": "web/labs/chapter-scroll-v17/keeper-path.json",
+      "expectedSHA256": null,
+      "exists": true,
+      "bytes": 55968,
+      "sha256": "0e8d71fbdc36fdda9e475b7ded3eaf23ccff38b01f275cbfac045cbcff21e6e6",
+      "expectedMatches": null,
+      "tracked": true
+    }
+  ]
+}
