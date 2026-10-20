@@ -27,8 +27,9 @@ export class Keeper{
   this.parts=[];this.maps=[];this.pending=[0,0];this.pose={phase:'loading'};this.ready=this.load();
  }
  async load(){
-  const data=await(await fetch(new URL('./keeper-path.json',import.meta.url))).json();this.path=new MaterialPath(data);
-  const gltf=await new GLTFLoader().loadAsync(new URL('./assets/keeper-physical.glb',import.meta.url).href,e=>this.onLoadingProgress?.(Math.min(1,e.loaded/(e.total||16838068))));
+  // Explicit sibling path also works when this source is bundled by a later lab.
+  const data=await(await fetch(new URL('../chapter-scroll-v17/keeper-path.json',import.meta.url))).json();this.path=new MaterialPath(data);
+  const gltf=await new GLTFLoader().loadAsync(new URL('../chapter-scroll-v17/assets/keeper-physical.glb',import.meta.url).href,e=>this.onLoadingProgress?.(Math.min(1,e.loaded/(e.total||16838068))));
   this.model=gltf.scene;this.model.updateMatrixWorld(true);this.sourceMeshes=[];
   this.model.traverse(o=>{if(o.name.startsWith('Prong_hinge'))this.hinge=o;if(o.isMesh)this.sourceMeshes.push(o);});
   if(!this.hinge)throw Error('Rigid prong hinge unavailable');this.hingeRest=this.hinge.quaternion.clone();

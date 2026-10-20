@@ -1,0 +1,25 @@
+{
+  "sourceBlendSHA256": "ba95bb3ebc448759b3984a6bd23b97bcd73040d92348dc89085c9f6ffc6d4831",
+  "method": "Blender Cycles emission bake; AO 3.2mm/32 samples, Geometry Pointiness, exposed normal crown; existing UV atlas",
+  "size": [
+    1024,
+    1024
+  ],
+  "channels": {
+    "R": "ambient visibility (not a light/shadow decal)",
+    "G": "mesh pointiness",
+    "B": "absolute normal crown along native front/back axis"
+  },
+  "parts": [
+    "Frame | separate solid heel-bar buckle",
+    "Prong | eye and continuous full shaft",
+    "Rivet shank -5.6",
+    "Rivet cap -5.6 +1",
+    "Rivet cap -5.6 -1",
+    "Rivet shank +5.6",
+    "Rivet cap +5.6 +1",
+    "Rivet cap +5.6 -1"
+  ],
+  "outputSHA256": "4d13e00f69026793f9817172affc059bae9130f3280ede4981e301c99b09a37d",
+  "geometryChanged": false
+}

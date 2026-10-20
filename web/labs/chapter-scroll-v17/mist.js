@@ -9,7 +9,8 @@ export class Atmosphere{
  cloud(initial=false){const life=12+this.random()*17;return{x:.10+this.random()*.80,y:.07+this.random()*.86,r:.13+this.random()*.17,amplitude:.32+this.random()*.42,birth:initial?-this.random()*life:this.time,life};}
  regions(){const values=[];this.clouds=this.clouds.map(c=>this.time-c.birth>=c.life?this.cloud():c);for(const c of this.clouds){const age=clamp((this.time-c.birth)/c.life,0,1);values.push(c.x,c.y,c.r*(.86+.26*age),c.amplitude*Math.sin(Math.PI*age)**2);}return values;}
  async prepare(){
-  const noise=await(await fetch(new URL('./vendor/noise2D.glsl',import.meta.url))).text();
+  const response=await fetch(new URL('../chapter-scroll-v17/vendor/noise2D.glsl',import.meta.url));
+  if(!response.ok)throw Error('Atmosphere noise source unavailable');const noise=await response.text();
   this.fluid=createFluid(this.canvas,{simResolution:96,dyeResolution:512,maxPixelRatio:1.5,densityDissipation:.25,curl:1.8,fieldFactory:fieldFactory(noise)});
   for(const[x,y,a]of[[.18,.32,.55],[.83,.68,.6],[.3,.79,.34],[.65,.2,.30]])this.fluid.seed(x,y,a,3);
   for(let i=0;i<42;i++){this.fluid.fields(i/30,1/30,{edges:[.7,0,.3,0],keeper:[-2,-2,0,0],span:[.24,.76],regions:this.regions()});this.fluid.tick(1/30);if(i%6===0)await new Promise(r=>requestAnimationFrame(r));}
