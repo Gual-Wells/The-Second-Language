@@ -1,0 +1,926 @@
+[
+  {
+    "progress": 0,
+    "cylinderEstimateOnly": 0.048154464401052754,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.006,
+    "cylinderEstimateOnly": 0.048133239767435554,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.012,
+    "cylinderEstimateOnly": 0.048024304336988954,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.018000000000000002,
+    "cylinderEstimateOnly": 0.04770871639875379,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.024,
+    "cylinderEstimateOnly": 0.047016150142351,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.03,
+    "cylinderEstimateOnly": 0.04576570824473125,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.036000000000000004,
+    "cylinderEstimateOnly": 0.04385686255500476,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.042,
+    "cylinderEstimateOnly": 0.04135068262841074,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.048,
+    "cylinderEstimateOnly": 0.03844842866250947,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.054,
+    "cylinderEstimateOnly": 0.03545344979704651,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.06,
+    "cylinderEstimateOnly": 0.03276019933627239,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.066,
+    "cylinderEstimateOnly": 0.030823945704407163,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.07200000000000001,
+    "cylinderEstimateOnly": 0.030092829381021924,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.078,
+    "cylinderEstimateOnly": 0.030149304930033316,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.084,
+    "cylinderEstimateOnly": 0.029869768885632197,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.09,
+    "cylinderEstimateOnly": 0.028110992881915597,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.096,
+    "cylinderEstimateOnly": 0.023721665789476487,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.10200000000000001,
+    "cylinderEstimateOnly": 0.01706739959942838,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.108,
+    "cylinderEstimateOnly": 0.010211303736220756,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.114,
+    "cylinderEstimateOnly": 0.0054817794906550366,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.12,
+    "cylinderEstimateOnly": 0.003821606625744045,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.126,
+    "cylinderEstimateOnly": 0.0029366920992834333,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.132,
+    "cylinderEstimateOnly": 0.0023776281177393943,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.138,
+    "cylinderEstimateOnly": 0.002259593726391118,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.14400000000000002,
+    "cylinderEstimateOnly": 0.002259593726391118,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.15,
+    "cylinderEstimateOnly": 0.003265625357369295,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.156,
+    "cylinderEstimateOnly": 0.006162519816415302,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.162,
+    "cylinderEstimateOnly": 0.010761693215775803,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.168,
+    "cylinderEstimateOnly": 0.016869092345131398,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.17400000000000002,
+    "cylinderEstimateOnly": 0.024289292032917686,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.18,
+    "cylinderEstimateOnly": 0.03282882254784136,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.186,
+    "cylinderEstimateOnly": 0.04229854462831767,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.192,
+    "cylinderEstimateOnly": 0.05251508129551913,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.198,
+    "cylinderEstimateOnly": 0.06330143948662781,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.20400000000000001,
+    "cylinderEstimateOnly": 0.07448701130351709,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.21,
+    "cylinderEstimateOnly": 0.08590715384983072,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.216,
+    "cylinderEstimateOnly": 0.09740251704174191,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.222,
+    "cylinderEstimateOnly": 0.10778046945148045,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.228,
+    "cylinderEstimateOnly": 0.11768638120983266,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.234,
+    "cylinderEstimateOnly": 0.1273524047536097,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.24,
+    "cylinderEstimateOnly": 0.1365060481525851,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.246,
+    "cylinderEstimateOnly": 0.1451447343605422,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.252,
+    "cylinderEstimateOnly": 0.15299240664776753,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.258,
+    "cylinderEstimateOnly": 0.16006204102088556,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.264,
+    "cylinderEstimateOnly": 0.1661142279278347,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.27,
+    "cylinderEstimateOnly": 0.17136204215203987,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.276,
+    "cylinderEstimateOnly": 0.1750286353456148,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.28200000000000003,
+    "cylinderEstimateOnly": 0.17732951253772883,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.28800000000000003,
+    "cylinderEstimateOnly": 0.17812698951360423,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.294,
+    "cylinderEstimateOnly": 0.17812698951360423,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.3,
+    "cylinderEstimateOnly": 0.17812698951360423,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.306,
+    "cylinderEstimateOnly": 0.17812698951360423,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.312,
+    "cylinderEstimateOnly": 0.17812698951360423,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.318,
+    "cylinderEstimateOnly": 0.177886511561282,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.324,
+    "cylinderEstimateOnly": 0.17434198791836497,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.33,
+    "cylinderEstimateOnly": 0.16764703513319895,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.336,
+    "cylinderEstimateOnly": 0.1599598693110159,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.342,
+    "cylinderEstimateOnly": 0.15435369029735013,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.34800000000000003,
+    "cylinderEstimateOnly": 0.15345136453771702,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.354,
+    "cylinderEstimateOnly": 0.15770227608760207,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.36,
+    "cylinderEstimateOnly": 0.16505426663106149,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.366,
+    "cylinderEstimateOnly": 0.215858047210584,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.372,
+    "cylinderEstimateOnly": null,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.378,
+    "cylinderEstimateOnly": null,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.384,
+    "cylinderEstimateOnly": null,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  },
+  {
+    "progress": 0.39,
+    "cylinderEstimateOnly": null,
+    "actualClosedPaperTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0,
+      "leather": 0
+    },
+    "metalLeatherTriangleIntersections": {
+      "Frame_|_separate_solid_heel-bar_buckle": 0,
+      "Prong_|_eye_and_continuous_full_shaft": 0
+    },
+    "collisionBounds": {}
+  }
+]

@@ -1,0 +1,3484 @@
+{
+  "url": "local",
+  "states": [
+    {
+      "progress": 0,
+      "paperProgress": 0,
+      "renderCount": 15,
+      "vertices": 14893,
+      "camera": [
+        0,
+        0,
+        12
+      ],
+      "keeperVisible": true,
+      "viewHeight": 8.116887019230768,
+      "drawBuffer": {
+        "width": 1170,
+        "height": 1862
+      },
+      "deformation": "Continuous GPU winding and shared rest displacement",
+      "keeperMotion": "material-coordinate unfastening and rigid hinged prong",
+      "keeperSize": [
+        0.22978254735617945,
+        1.1489127367808973
+      ],
+      "specularIntensity": 0,
+      "toneMapping": "none; preserve source colors",
+      "restCurl": true,
+      "cameraType": "PerspectiveCamera",
+      "keeperPose": {
+        "r": 0,
+        "pin": 0,
+        "feed": 0,
+        "angle": 0,
+        "along": 0,
+        "sideMm": 0,
+        "circleCenter": [
+          0,
+          0
+        ],
+        "phase": "fastened",
+        "slide": 0,
+        "depart": 0,
+        "freeEndBehindFrame": false,
+        "expandedRadiusMm": 30.00000857204946,
+        "visible": true,
+        "opacity": 1,
+        "x": 0,
+        "y": 0.008683982907575327,
+        "z": 0.30201379091612,
+        "fitScale": 12.765697075343304,
+        "fitScaleVector": [
+          12.765697075343304,
+          12.765697075343304,
+          12.765697075343304
+        ],
+        "bandWidth": 0.22978254735617945,
+        "usesFade": false,
+        "usesStrapDeformation": true,
+        "deformation": "material-coordinate curve; dimensioned continuous cut mesh; native bevel residual",
+        "sourceBones": 76,
+        "restDeviationMm": {
+          "maximum": 5.542281843203895e-9,
+          "mean": 4.4898961188127906e-11
+        }
+      },
+      "sealRelief": true,
+      "runtime": {
+        "motionPrepared": true,
+        "preparationMs": 3252.39999999851,
+        "preparedPrograms": 11,
+        "programs": 11
+      },
+      "edition": "v17 physical keeper integration",
+      "paperMaterial": "unchanged chapter-five v14",
+      "ready": true,
+      "animating": false,
+      "chapterId": "2026-10-12",
+      "issued": false,
+      "layout": {
+        "width": 2048,
+        "height": 2868,
+        "nominalSizeMM": [
+          300,
+          420
+        ],
+        "artPlanId": "SL-CH05-LEAF-LETTER-2",
+        "artPlanDigest": "3104ec4b67859f64268c11a327f37a65d1bdfc48c6f75adc24ee702d3f6318fb",
+        "composition": "horizontal-miniature-and-centered-verse",
+        "paperVariant": "individually-authored-sheet",
+        "sealVersion": "SL-KEEPSAKE-1",
+        "sealVariant": "oblong",
+        "sealBox": {
+          "x": 338,
+          "y": 2500,
+          "width": 285,
+          "height": 131
+        },
+        "ornamentBox": {
+          "x": 300,
+          "y": 900,
+          "width": 1448,
+          "height": 640,
+          "opacity": 0.91
+        },
+        "ornamentDigest": "e5aa04af52dde8cc3f32d0d9dfac3fe1696ef6d275c0514d7e0c0065f517d9c5",
+        "printedFonts": [
+          "Aboensis"
+        ],
+        "textBounds": [
+          {
+            "block": "chapter",
+            "text": "Chapter V",
+            "left": 889.7440338134766,
+            "right": 1162.1279754638672,
+            "top": 248,
+            "bottom": 344
+          },
+          {
+            "block": "artTitle",
+            "text": "Of Leaf",
+            "left": 822.0690155029297,
+            "right": 1250.3350067138672,
+            "top": 395,
+            "bottom": 551
+          },
+          {
+            "block": "artTitle",
+            "text": "and Letter",
+            "left": 756.8250122070312,
+            "right": 1301.9209594726562,
+            "top": 553,
+            "bottom": 662
+          },
+          {
+            "block": "chapterTitle",
+            "text": "Words Unfinished in the Valley",
+            "left": 671.2451171875,
+            "right": 1377.8028564453125,
+            "top": 728,
+            "bottom": 814
+          },
+          {
+            "block": "stanza1",
+            "text": "A reed gives breath a voice.",
+            "left": 535.3700256347656,
+            "right": 1509.8699645996094,
+            "top": 1602,
+            "bottom": 1704
+          },
+          {
+            "block": "stanza1",
+            "text": "Old ink outlives the hand.",
+            "left": 557.5850524902344,
+            "right": 1490.6549987792969,
+            "top": 1741,
+            "bottom": 1857
+          },
+          {
+            "block": "stanza2",
+            "text": "A seed lies in the fold,",
+            "left": 622.3099975585938,
+            "right": 1424.6900024414062,
+            "top": 1932,
+            "bottom": 2037
+          },
+          {
+            "block": "stanza2",
+            "text": "holding a season yet to come.",
+            "left": 504.58502197265625,
+            "right": 1535.6549682617188,
+            "top": 2078,
+            "bottom": 2192
+          },
+          {
+            "block": "colophon",
+            "text": "For Gual Wells, in remembrance of Chapter V",
+            "left": 494.84814453125,
+            "right": 1555.2958984375,
+            "top": 2268,
+            "bottom": 2353
+          },
+          {
+            "block": "colophon",
+            "text": "and its trial successfully completed.",
+            "left": 642.1156311035156,
+            "right": 1405.1923522949219,
+            "top": 2361,
+            "bottom": 2423
+          },
+          {
+            "block": "identity",
+            "text": "18 October 2026",
+            "left": 825,
+            "right": 1136.2059326171875,
+            "top": 2474,
+            "bottom": 2515
+          },
+          {
+            "block": "identity",
+            "text": "21:47:19.547  +08:00",
+            "left": 825,
+            "right": 1198.5657958984375,
+            "top": 2554,
+            "bottom": 2605
+          },
+          {
+            "block": "identity",
+            "text": "A2A7 5215 F25D C0FC",
+            "left": 824,
+            "right": 1319.9318237304688,
+            "top": 2616,
+            "bottom": 2682
+          },
+          {
+            "block": "status",
+            "text": "Specimen — Not issued",
+            "left": 820.2784729003906,
+            "right": 1230.2015075683594,
+            "top": 2732,
+            "bottom": 2792
+          }
+        ],
+        "issued": false,
+        "recipient": "Gual Wells",
+        "identity": [
+          "A2A7 5215 F25D C0FC",
+          "18 October 2026",
+          "21:47:19.547  +08:00"
+        ],
+        "artifactDigest": "a2a75215f25dc0fc40f047fd6f6648a4625ae13be7b3fa2ffca5fe72e37f43a0",
+        "artSeed": 2728874517
+      },
+      "mist": {
+        "available": true,
+        "enabled": false,
+        "frames": 1,
+        "time": 1.4449999999999998,
+        "interactionEnergy": 0,
+        "drive": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "model": "bounded local motion over independent evolving curl clouds",
+        "simulationHz": 30,
+        "fixedDirectionalInlet": false
+      }
+    },
+    {
+      "progress": 0.03,
+      "paperProgress": 0,
+      "renderCount": 19,
+      "vertices": 14893,
+      "camera": [
+        0,
+        0,
+        12
+      ],
+      "keeperVisible": true,
+      "viewHeight": 8.116887019230768,
+      "drawBuffer": {
+        "width": 1170,
+        "height": 1862
+      },
+      "deformation": "Continuous GPU winding and shared rest displacement",
+      "keeperMotion": "material-coordinate unfastening and rigid hinged prong",
+      "keeperSize": [
+        0.22978254735617945,
+        1.1489127367808973
+      ],
+      "specularIntensity": 0,
+      "toneMapping": "none; preserve source colors",
+      "restCurl": true,
+      "cameraType": "PerspectiveCamera",
+      "keeperPose": {
+        "r": 0.075,
+        "pin": -0.16927083333333334,
+        "feed": 0,
+        "angle": 0.2068865740740741,
+        "along": 0,
+        "sideMm": 0,
+        "circleCenter": [
+          -0.06325954634786868,
+          -0.18275545117525027
+        ],
+        "phase": "unload-hole",
+        "slide": 0,
+        "depart": 0,
+        "freeEndBehindFrame": false,
+        "expandedRadiusMm": 29.849026495785587,
+        "visible": true,
+        "opacity": 1,
+        "x": 0,
+        "y": 0.009491535113375858,
+        "z": 0.29968079018754906,
+        "fitScale": 12.765697075343304,
+        "fitScaleVector": [
+          12.765697075343304,
+          12.765697075343304,
+          12.765697075343304
+        ],
+        "bandWidth": 0.22978254735617945,
+        "usesFade": false,
+        "usesStrapDeformation": true,
+        "deformation": "material-coordinate curve; dimensioned continuous cut mesh; native bevel residual",
+        "sourceBones": 76,
+        "restDeviationMm": {
+          "maximum": 5.542281843203895e-9,
+          "mean": 4.4898961188127906e-11
+        }
+      },
+      "sealRelief": true,
+      "runtime": {
+        "motionPrepared": true,
+        "preparationMs": 3252.39999999851,
+        "preparedPrograms": 11,
+        "programs": 11
+      },
+      "edition": "v17 physical keeper integration",
+      "paperMaterial": "unchanged chapter-five v14",
+      "ready": true,
+      "animating": false,
+      "chapterId": "2026-10-12",
+      "issued": false,
+      "layout": {
+        "width": 2048,
+        "height": 2868,
+        "nominalSizeMM": [
+          300,
+          420
+        ],
+        "artPlanId": "SL-CH05-LEAF-LETTER-2",
+        "artPlanDigest": "3104ec4b67859f64268c11a327f37a65d1bdfc48c6f75adc24ee702d3f6318fb",
+        "composition": "horizontal-miniature-and-centered-verse",
+        "paperVariant": "individually-authored-sheet",
+        "sealVersion": "SL-KEEPSAKE-1",
+        "sealVariant": "oblong",
+        "sealBox": {
+          "x": 338,
+          "y": 2500,
+          "width": 285,
+          "height": 131
+        },
+        "ornamentBox": {
+          "x": 300,
+          "y": 900,
+          "width": 1448,
+          "height": 640,
+          "opacity": 0.91
+        },
+        "ornamentDigest": "e5aa04af52dde8cc3f32d0d9dfac3fe1696ef6d275c0514d7e0c0065f517d9c5",
+        "printedFonts": [
+          "Aboensis"
+        ],
+        "textBounds": [
+          {
+            "block": "chapter",
+            "text": "Chapter V",
+            "left": 889.7440338134766,
+            "right": 1162.1279754638672,
+            "top": 248,
+            "bottom": 344
+          },
+          {
+            "block": "artTitle",
+            "text": "Of Leaf",
+            "left": 822.0690155029297,
+            "right": 1250.3350067138672,
+            "top": 395,
+            "bottom": 551
+          },
+          {
+            "block": "artTitle",
+            "text": "and Letter",
+            "left": 756.8250122070312,
+            "right": 1301.9209594726562,
+            "top": 553,
+            "bottom": 662
+          },
+          {
+            "block": "chapterTitle",
+            "text": "Words Unfinished in the Valley",
+            "left": 671.2451171875,
+            "right": 1377.8028564453125,
+            "top": 728,
+            "bottom": 814
+          },
+          {
+            "block": "stanza1",
+            "text": "A reed gives breath a voice.",
+            "left": 535.3700256347656,
+            "right": 1509.8699645996094,
+            "top": 1602,
+            "bottom": 1704
+          },
+          {
+            "block": "stanza1",
+            "text": "Old ink outlives the hand.",
+            "left": 557.5850524902344,
+            "right": 1490.6549987792969,
+            "top": 1741,
+            "bottom": 1857
+          },
+          {
+            "block": "stanza2",
+            "text": "A seed lies in the fold,",
+            "left": 622.3099975585938,
+            "right": 1424.6900024414062,
+            "top": 1932,
+            "bottom": 2037
+          },
+          {
+            "block": "stanza2",
+            "text": "holding a season yet to come.",
+            "left": 504.58502197265625,
+            "right": 1535.6549682617188,
+            "top": 2078,
+            "bottom": 2192
+          },
+          {
+            "block": "colophon",
+            "text": "For Gual Wells, in remembrance of Chapter V",
+            "left": 494.84814453125,
+            "right": 1555.2958984375,
+            "top": 2268,
+            "bottom": 2353
+          },
+          {
+            "block": "colophon",
+            "text": "and its trial successfully completed.",
+            "left": 642.1156311035156,
+            "right": 1405.1923522949219,
+            "top": 2361,
+            "bottom": 2423
+          },
+          {
+            "block": "identity",
+            "text": "18 October 2026",
+            "left": 825,
+            "right": 1136.2059326171875,
+            "top": 2474,
+            "bottom": 2515
+          },
+          {
+            "block": "identity",
+            "text": "21:47:19.547  +08:00",
+            "left": 825,
+            "right": 1198.5657958984375,
+            "top": 2554,
+            "bottom": 2605
+          },
+          {
+            "block": "identity",
+            "text": "A2A7 5215 F25D C0FC",
+            "left": 824,
+            "right": 1319.9318237304688,
+            "top": 2616,
+            "bottom": 2682
+          },
+          {
+            "block": "status",
+            "text": "Specimen — Not issued",
+            "left": 820.2784729003906,
+            "right": 1230.2015075683594,
+            "top": 2732,
+            "bottom": 2792
+          }
+        ],
+        "issued": false,
+        "recipient": "Gual Wells",
+        "identity": [
+          "A2A7 5215 F25D C0FC",
+          "18 October 2026",
+          "21:47:19.547  +08:00"
+        ],
+        "artifactDigest": "a2a75215f25dc0fc40f047fd6f6648a4625ae13be7b3fa2ffca5fe72e37f43a0",
+        "artSeed": 2728874517
+      },
+      "mist": {
+        "available": true,
+        "enabled": false,
+        "frames": 1,
+        "time": 1.4449999999999998,
+        "interactionEnergy": 0,
+        "drive": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "model": "bounded local motion over independent evolving curl clouds",
+        "simulationHz": 30,
+        "fixedDirectionalInlet": false
+      }
+    },
+    {
+      "progress": 0.065,
+      "paperProgress": 0,
+      "renderCount": 23,
+      "vertices": 14893,
+      "camera": [
+        0,
+        0,
+        12
+      ],
+      "keeperVisible": true,
+      "viewHeight": 8.116887019230768,
+      "drawBuffer": {
+        "width": 1170,
+        "height": 1862
+      },
+      "deformation": "Continuous GPU winding and shared rest displacement",
+      "keeperMotion": "material-coordinate unfastening and rigid hinged prong",
+      "keeperSize": [
+        0.22978254735617945,
+        1.1489127367808973
+      ],
+      "specularIntensity": 0,
+      "toneMapping": "none; preserve source colors",
+      "restCurl": true,
+      "cameraType": "PerspectiveCamera",
+      "keeperPose": {
+        "r": 0.1625,
+        "pin": -0.43806664737654316,
+        "feed": 0,
+        "angle": 0.5354147912379973,
+        "along": 0,
+        "sideMm": 0,
+        "circleCenter": [
+          -0.4530907557743147,
+          -1.3086064223346625
+        ],
+        "phase": "unload-hole",
+        "slide": 0,
+        "depart": 0,
+        "freeEndBehindFrame": false,
+        "expandedRadiusMm": 28.930150347104345,
+        "visible": true,
+        "opacity": 1,
+        "x": 0,
+        "y": 0.014468002243428583,
+        "z": 0.28530851773774696,
+        "fitScale": 12.765697075343304,
+        "fitScaleVector": [
+          12.765697075343304,
+          12.765697075343304,
+          12.765697075343304
+        ],
+        "bandWidth": 0.22978254735617945,
+        "usesFade": false,
+        "usesStrapDeformation": true,
+        "deformation": "material-coordinate curve; dimensioned continuous cut mesh; native bevel residual",
+        "sourceBones": 76,
+        "restDeviationMm": {
+          "maximum": 5.542281843203895e-9,
+          "mean": 4.4898961188127906e-11
+        }
+      },
+      "sealRelief": true,
+      "runtime": {
+        "motionPrepared": true,
+        "preparationMs": 3252.39999999851,
+        "preparedPrograms": 11,
+        "programs": 11
+      },
+      "edition": "v17 physical keeper integration",
+      "paperMaterial": "unchanged chapter-five v14",
+      "ready": true,
+      "animating": false,
+      "chapterId": "2026-10-12",
+      "issued": false,
+      "layout": {
+        "width": 2048,
+        "height": 2868,
+        "nominalSizeMM": [
+          300,
+          420
+        ],
+        "artPlanId": "SL-CH05-LEAF-LETTER-2",
+        "artPlanDigest": "3104ec4b67859f64268c11a327f37a65d1bdfc48c6f75adc24ee702d3f6318fb",
+        "composition": "horizontal-miniature-and-centered-verse",
+        "paperVariant": "individually-authored-sheet",
+        "sealVersion": "SL-KEEPSAKE-1",
+        "sealVariant": "oblong",
+        "sealBox": {
+          "x": 338,
+          "y": 2500,
+          "width": 285,
+          "height": 131
+        },
+        "ornamentBox": {
+          "x": 300,
+          "y": 900,
+          "width": 1448,
+          "height": 640,
+          "opacity": 0.91
+        },
+        "ornamentDigest": "e5aa04af52dde8cc3f32d0d9dfac3fe1696ef6d275c0514d7e0c0065f517d9c5",
+        "printedFonts": [
+          "Aboensis"
+        ],
+        "textBounds": [
+          {
+            "block": "chapter",
+            "text": "Chapter V",
+            "left": 889.7440338134766,
+            "right": 1162.1279754638672,
+            "top": 248,
+            "bottom": 344
+          },
+          {
+            "block": "artTitle",
+            "text": "Of Leaf",
+            "left": 822.0690155029297,
+            "right": 1250.3350067138672,
+            "top": 395,
+            "bottom": 551
+          },
+          {
+            "block": "artTitle",
+            "text": "and Letter",
+            "left": 756.8250122070312,
+            "right": 1301.9209594726562,
+            "top": 553,
+            "bottom": 662
+          },
+          {
+            "block": "chapterTitle",
+            "text": "Words Unfinished in the Valley",
+            "left": 671.2451171875,
+            "right": 1377.8028564453125,
+            "top": 728,
+            "bottom": 814
+          },
+          {
+            "block": "stanza1",
+            "text": "A reed gives breath a voice.",
+            "left": 535.3700256347656,
+            "right": 1509.8699645996094,
+            "top": 1602,
+            "bottom": 1704
+          },
+          {
+            "block": "stanza1",
+            "text": "Old ink outlives the hand.",
+            "left": 557.5850524902344,
+            "right": 1490.6549987792969,
+            "top": 1741,
+            "bottom": 1857
+          },
+          {
+            "block": "stanza2",
+            "text": "A seed lies in the fold,",
+            "left": 622.3099975585938,
+            "right": 1424.6900024414062,
+            "top": 1932,
+            "bottom": 2037
+          },
+          {
+            "block": "stanza2",
+            "text": "holding a season yet to come.",
+            "left": 504.58502197265625,
+            "right": 1535.6549682617188,
+            "top": 2078,
+            "bottom": 2192
+          },
+          {
+            "block": "colophon",
+            "text": "For Gual Wells, in remembrance of Chapter V",
+            "left": 494.84814453125,
+            "right": 1555.2958984375,
+            "top": 2268,
+            "bottom": 2353
+          },
+          {
+            "block": "colophon",
+            "text": "and its trial successfully completed.",
+            "left": 642.1156311035156,
+            "right": 1405.1923522949219,
+            "top": 2361,
+            "bottom": 2423
+          },
+          {
+            "block": "identity",
+            "text": "18 October 2026",
+            "left": 825,
+            "right": 1136.2059326171875,
+            "top": 2474,
+            "bottom": 2515
+          },
+          {
+            "block": "identity",
+            "text": "21:47:19.547  +08:00",
+            "left": 825,
+            "right": 1198.5657958984375,
+            "top": 2554,
+            "bottom": 2605
+          },
+          {
+            "block": "identity",
+            "text": "A2A7 5215 F25D C0FC",
+            "left": 824,
+            "right": 1319.9318237304688,
+            "top": 2616,
+            "bottom": 2682
+          },
+          {
+            "block": "status",
+            "text": "Specimen — Not issued",
+            "left": 820.2784729003906,
+            "right": 1230.2015075683594,
+            "top": 2732,
+            "bottom": 2792
+          }
+        ],
+        "issued": false,
+        "recipient": "Gual Wells",
+        "identity": [
+          "A2A7 5215 F25D C0FC",
+          "18 October 2026",
+          "21:47:19.547  +08:00"
+        ],
+        "artifactDigest": "a2a75215f25dc0fc40f047fd6f6648a4625ae13be7b3fa2ffca5fe72e37f43a0",
+        "artSeed": 2728874517
+      },
+      "mist": {
+        "available": true,
+        "enabled": false,
+        "frames": 1,
+        "time": 1.4449999999999998,
+        "interactionEnergy": 0,
+        "drive": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "model": "bounded local motion over independent evolving curl clouds",
+        "simulationHz": 30,
+        "fixedDirectionalInlet": false
+      }
+    },
+    {
+      "progress": 0.105,
+      "paperProgress": 0,
+      "renderCount": 27,
+      "vertices": 14893,
+      "camera": [
+        0,
+        0,
+        12
+      ],
+      "keeperVisible": true,
+      "viewHeight": 8.116887019230768,
+      "drawBuffer": {
+        "width": 1170,
+        "height": 1862
+      },
+      "deformation": "Continuous GPU winding and shared rest displacement",
+      "keeperMotion": "material-coordinate unfastening and rigid hinged prong",
+      "keeperSize": [
+        0.22978254735617945,
+        1.1489127367808973
+      ],
+      "specularIntensity": 0,
+      "toneMapping": "none; preserve source colors",
+      "restCurl": true,
+      "cameraType": "PerspectiveCamera",
+      "keeperPose": {
+        "r": 0.26249999999999996,
+        "pin": -0.45,
+        "feed": 0,
+        "angle": 0.55,
+        "along": 5.234298706054683,
+        "sideMm": 0,
+        "circleCenter": [
+          -0.9209377378225794,
+          -2.6597706348357697
+        ],
+        "phase": "release-hole",
+        "slide": 0,
+        "depart": 0,
+        "freeEndBehindFrame": false,
+        "expandedRadiusMm": 27.85465693057221,
+        "visible": true,
+        "opacity": 1,
+        "x": 0,
+        "y": 0.020440395093870307,
+        "z": 0.268059964701913,
+        "fitScale": 12.765697075343304,
+        "fitScaleVector": [
+          12.765697075343304,
+          12.765697075343304,
+          12.765697075343304
+        ],
+        "bandWidth": 0.22978254735617945,
+        "usesFade": false,
+        "usesStrapDeformation": true,
+        "deformation": "material-coordinate curve; dimensioned continuous cut mesh; native bevel residual",
+        "sourceBones": 76,
+        "restDeviationMm": {
+          "maximum": 5.542281843203895e-9,
+          "mean": 4.4898961188127906e-11
+        }
+      },
+      "sealRelief": true,
+      "runtime": {
+        "motionPrepared": true,
+        "preparationMs": 3252.39999999851,
+        "preparedPrograms": 11,
+        "programs": 11
+      },
+      "edition": "v17 physical keeper integration",
+      "paperMaterial": "unchanged chapter-five v14",
+      "ready": true,
+      "animating": false,
+      "chapterId": "2026-10-12",
+      "issued": false,
+      "layout": {
+        "width": 2048,
+        "height": 2868,
+        "nominalSizeMM": [
+          300,
+          420
+        ],
+        "artPlanId": "SL-CH05-LEAF-LETTER-2",
+        "artPlanDigest": "3104ec4b67859f64268c11a327f37a65d1bdfc48c6f75adc24ee702d3f6318fb",
+        "composition": "horizontal-miniature-and-centered-verse",
+        "paperVariant": "individually-authored-sheet",
+        "sealVersion": "SL-KEEPSAKE-1",
+        "sealVariant": "oblong",
+        "sealBox": {
+          "x": 338,
+          "y": 2500,
+          "width": 285,
+          "height": 131
+        },
+        "ornamentBox": {
+          "x": 300,
+          "y": 900,
+          "width": 1448,
+          "height": 640,
+          "opacity": 0.91
+        },
+        "ornamentDigest": "e5aa04af52dde8cc3f32d0d9dfac3fe1696ef6d275c0514d7e0c0065f517d9c5",
+        "printedFonts": [
+          "Aboensis"
+        ],
+        "textBounds": [
+          {
+            "block": "chapter",
+            "text": "Chapter V",
+            "left": 889.7440338134766,
+            "right": 1162.1279754638672,
+            "top": 248,
+            "bottom": 344
+          },
+          {
+            "block": "artTitle",
+            "text": "Of Leaf",
+            "left": 822.0690155029297,
+            "right": 1250.3350067138672,
+            "top": 395,
+            "bottom": 551
+          },
+          {
+            "block": "artTitle",
+            "text": "and Letter",
+            "left": 756.8250122070312,
+            "right": 1301.9209594726562,
+            "top": 553,
+            "bottom": 662
+          },
+          {
+            "block": "chapterTitle",
+            "text": "Words Unfinished in the Valley",
+            "left": 671.2451171875,
+            "right": 1377.8028564453125,
+            "top": 728,
+            "bottom": 814
+          },
+          {
+            "block": "stanza1",
+            "text": "A reed gives breath a voice.",
+            "left": 535.3700256347656,
+            "right": 1509.8699645996094,
+            "top": 1602,
+            "bottom": 1704
+          },
+          {
+            "block": "stanza1",
+            "text": "Old ink outlives the hand.",
+            "left": 557.5850524902344,
+            "right": 1490.6549987792969,
+            "top": 1741,
+            "bottom": 1857
+          },
+          {
+            "block": "stanza2",
+            "text": "A seed lies in the fold,",
+            "left": 622.3099975585938,
+            "right": 1424.6900024414062,
+            "top": 1932,
+            "bottom": 2037
+          },
+          {
+            "block": "stanza2",
+            "text": "holding a season yet to come.",
+            "left": 504.58502197265625,
+            "right": 1535.6549682617188,
+            "top": 2078,
+            "bottom": 2192
+          },
+          {
+            "block": "colophon",
+            "text": "For Gual Wells, in remembrance of Chapter V",
+            "left": 494.84814453125,
+            "right": 1555.2958984375,
+            "top": 2268,
+            "bottom": 2353
+          },
+          {
+            "block": "colophon",
+            "text": "and its trial successfully completed.",
+            "left": 642.1156311035156,
+            "right": 1405.1923522949219,
+            "top": 2361,
+            "bottom": 2423
+          },
+          {
+            "block": "identity",
+            "text": "18 October 2026",
+            "left": 825,
+            "right": 1136.2059326171875,
+            "top": 2474,
+            "bottom": 2515
+          },
+          {
+            "block": "identity",
+            "text": "21:47:19.547  +08:00",
+            "left": 825,
+            "right": 1198.5657958984375,
+            "top": 2554,
+            "bottom": 2605
+          },
+          {
+            "block": "identity",
+            "text": "A2A7 5215 F25D C0FC",
+            "left": 824,
+            "right": 1319.9318237304688,
+            "top": 2616,
+            "bottom": 2682
+          },
+          {
+            "block": "status",
+            "text": "Specimen — Not issued",
+            "left": 820.2784729003906,
+            "right": 1230.2015075683594,
+            "top": 2732,
+            "bottom": 2792
+          }
+        ],
+        "issued": false,
+        "recipient": "Gual Wells",
+        "identity": [
+          "A2A7 5215 F25D C0FC",
+          "18 October 2026",
+          "21:47:19.547  +08:00"
+        ],
+        "artifactDigest": "a2a75215f25dc0fc40f047fd6f6648a4625ae13be7b3fa2ffca5fe72e37f43a0",
+        "artSeed": 2728874517
+      },
+      "mist": {
+        "available": true,
+        "enabled": false,
+        "frames": 1,
+        "time": 1.4449999999999998,
+        "interactionEnergy": 0,
+        "drive": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "model": "bounded local motion over independent evolving curl clouds",
+        "simulationHz": 30,
+        "fixedDirectionalInlet": false
+      }
+    },
+    {
+      "progress": 0.14,
+      "paperProgress": 0,
+      "renderCount": 31,
+      "vertices": 14893,
+      "camera": [
+        0,
+        0,
+        12
+      ],
+      "keeperVisible": true,
+      "viewHeight": 8.116887019230768,
+      "drawBuffer": {
+        "width": 1170,
+        "height": 1862
+      },
+      "deformation": "Continuous GPU winding and shared rest displacement",
+      "keeperMotion": "material-coordinate unfastening and rigid hinged prong",
+      "keeperSize": [
+        0.22978254735617945,
+        1.1489127367808973
+      ],
+      "specularIntensity": 0,
+      "toneMapping": "none; preserve source colors",
+      "restCurl": true,
+      "cameraType": "PerspectiveCamera",
+      "keeperPose": {
+        "r": 0.35000000000000003,
+        "pin": -0.45,
+        "feed": 0,
+        "angle": 0.55,
+        "along": 10,
+        "sideMm": 0,
+        "circleCenter": [
+          -1.2215631514028713,
+          -3.5279910483130372
+        ],
+        "phase": "release-hole",
+        "slide": 0,
+        "depart": 0,
+        "freeEndBehindFrame": false,
+        "expandedRadiusMm": 27.18081839937299,
+        "visible": true,
+        "opacity": 1,
+        "x": 0,
+        "y": 0.024278088056786114,
+        "z": 0.2569765259088329,
+        "fitScale": 12.765697075343304,
+        "fitScaleVector": [
+          12.765697075343304,
+          12.765697075343304,
+          12.765697075343304
+        ],
+        "bandWidth": 0.22978254735617945,
+        "usesFade": false,
+        "usesStrapDeformation": true,
+        "deformation": "material-coordinate curve; dimensioned continuous cut mesh; native bevel residual",
+        "sourceBones": 76,
+        "restDeviationMm": {
+          "maximum": 5.542281843203895e-9,
+          "mean": 4.4898961188127906e-11
+        }
+      },
+      "sealRelief": true,
+      "runtime": {
+        "motionPrepared": true,
+        "preparationMs": 3252.39999999851,
+        "preparedPrograms": 11,
+        "programs": 11
+      },
+      "edition": "v17 physical keeper integration",
+      "paperMaterial": "unchanged chapter-five v14",
+      "ready": true,
+      "animating": false,
+      "chapterId": "2026-10-12",
+      "issued": false,
+      "layout": {
+        "width": 2048,
+        "height": 2868,
+        "nominalSizeMM": [
+          300,
+          420
+        ],
+        "artPlanId": "SL-CH05-LEAF-LETTER-2",
+        "artPlanDigest": "3104ec4b67859f64268c11a327f37a65d1bdfc48c6f75adc24ee702d3f6318fb",
+        "composition": "horizontal-miniature-and-centered-verse",
+        "paperVariant": "individually-authored-sheet",
+        "sealVersion": "SL-KEEPSAKE-1",
+        "sealVariant": "oblong",
+        "sealBox": {
+          "x": 338,
+          "y": 2500,
+          "width": 285,
+          "height": 131
+        },
+        "ornamentBox": {
+          "x": 300,
+          "y": 900,
+          "width": 1448,
+          "height": 640,
+          "opacity": 0.91
+        },
+        "ornamentDigest": "e5aa04af52dde8cc3f32d0d9dfac3fe1696ef6d275c0514d7e0c0065f517d9c5",
+        "printedFonts": [
+          "Aboensis"
+        ],
+        "textBounds": [
+          {
+            "block": "chapter",
+            "text": "Chapter V",
+            "left": 889.7440338134766,
+            "right": 1162.1279754638672,
+            "top": 248,
+            "bottom": 344
+          },
+          {
+            "block": "artTitle",
+            "text": "Of Leaf",
+            "left": 822.0690155029297,
+            "right": 1250.3350067138672,
+            "top": 395,
+            "bottom": 551
+          },
+          {
+            "block": "artTitle",
+            "text": "and Letter",
+            "left": 756.8250122070312,
+            "right": 1301.9209594726562,
+            "top": 553,
+            "bottom": 662
+          },
+          {
+            "block": "chapterTitle",
+            "text": "Words Unfinished in the Valley",
+            "left": 671.2451171875,
+            "right": 1377.8028564453125,
+            "top": 728,
+            "bottom": 814
+          },
+          {
+            "block": "stanza1",
+            "text": "A reed gives breath a voice.",
+            "left": 535.3700256347656,
+            "right": 1509.8699645996094,
+            "top": 1602,
+            "bottom": 1704
+          },
+          {
+            "block": "stanza1",
+            "text": "Old ink outlives the hand.",
+            "left": 557.5850524902344,
+            "right": 1490.6549987792969,
+            "top": 1741,
+            "bottom": 1857
+          },
+          {
+            "block": "stanza2",
+            "text": "A seed lies in the fold,",
+            "left": 622.3099975585938,
+            "right": 1424.6900024414062,
+            "top": 1932,
+            "bottom": 2037
+          },
+          {
+            "block": "stanza2",
+            "text": "holding a season yet to come.",
+            "left": 504.58502197265625,
+            "right": 1535.6549682617188,
+            "top": 2078,
+            "bottom": 2192
+          },
+          {
+            "block": "colophon",
+            "text": "For Gual Wells, in remembrance of Chapter V",
+            "left": 494.84814453125,
+            "right": 1555.2958984375,
+            "top": 2268,
+            "bottom": 2353
+          },
+          {
+            "block": "colophon",
+            "text": "and its trial successfully completed.",
+            "left": 642.1156311035156,
+            "right": 1405.1923522949219,
+            "top": 2361,
+            "bottom": 2423
+          },
+          {
+            "block": "identity",
+            "text": "18 October 2026",
+            "left": 825,
+            "right": 1136.2059326171875,
+            "top": 2474,
+            "bottom": 2515
+          },
+          {
+            "block": "identity",
+            "text": "21:47:19.547  +08:00",
+            "left": 825,
+            "right": 1198.5657958984375,
+            "top": 2554,
+            "bottom": 2605
+          },
+          {
+            "block": "identity",
+            "text": "A2A7 5215 F25D C0FC",
+            "left": 824,
+            "right": 1319.9318237304688,
+            "top": 2616,
+            "bottom": 2682
+          },
+          {
+            "block": "status",
+            "text": "Specimen — Not issued",
+            "left": 820.2784729003906,
+            "right": 1230.2015075683594,
+            "top": 2732,
+            "bottom": 2792
+          }
+        ],
+        "issued": false,
+        "recipient": "Gual Wells",
+        "identity": [
+          "A2A7 5215 F25D C0FC",
+          "18 October 2026",
+          "21:47:19.547  +08:00"
+        ],
+        "artifactDigest": "a2a75215f25dc0fc40f047fd6f6648a4625ae13be7b3fa2ffca5fe72e37f43a0",
+        "artSeed": 2728874517
+      },
+      "mist": {
+        "available": true,
+        "enabled": false,
+        "frames": 1,
+        "time": 1.4449999999999998,
+        "interactionEnergy": 0,
+        "drive": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "model": "bounded local motion over independent evolving curl clouds",
+        "simulationHz": 30,
+        "fixedDirectionalInlet": false
+      }
+    },
+    {
+      "progress": 0.18,
+      "paperProgress": 0,
+      "renderCount": 35,
+      "vertices": 14893,
+      "camera": [
+        0,
+        0,
+        12
+      ],
+      "keeperVisible": true,
+      "viewHeight": 8.116887019230768,
+      "drawBuffer": {
+        "width": 1170,
+        "height": 1862
+      },
+      "deformation": "Continuous GPU winding and shared rest displacement",
+      "keeperMotion": "material-coordinate unfastening and rigid hinged prong",
+      "keeperSize": [
+        0.22978254735617945,
+        1.1489127367808973
+      ],
+      "specularIntensity": 0,
+      "toneMapping": "none; preserve source colors",
+      "restCurl": true,
+      "cameraType": "PerspectiveCamera",
+      "keeperPose": {
+        "r": 0.44999999999999996,
+        "pin": -0.45,
+        "feed": 0.1562499999999999,
+        "angle": 0.55,
+        "along": 10,
+        "sideMm": 0,
+        "circleCenter": [
+          -0.40647274906670194,
+          -1.173971414012719
+        ],
+        "phase": "withdraw-tail",
+        "slide": 0,
+        "depart": 0,
+        "freeEndBehindFrame": false,
+        "expandedRadiusMm": 29.03899158263907,
+        "visible": true,
+        "opacity": 1,
+        "x": 0,
+        "y": 0.013872890891542877,
+        "z": 0.2870272274697212,
+        "fitScale": 12.765697075343304,
+        "fitScaleVector": [
+          12.765697075343304,
+          12.765697075343304,
+          12.765697075343304
+        ],
+        "bandWidth": 0.22978254735617945,
+        "usesFade": false,
+        "usesStrapDeformation": true,
+        "deformation": "material-coordinate curve; dimensioned continuous cut mesh; native bevel residual",
+        "sourceBones": 76,
+        "restDeviationMm": {
+          "maximum": 5.542281843203895e-9,
+          "mean": 4.4898961188127906e-11
+        }
+      },
+      "sealRelief": true,
+      "runtime": {
+        "motionPrepared": true,
+        "preparationMs": 3252.39999999851,
+        "preparedPrograms": 11,
+        "programs": 11
+      },
+      "edition": "v17 physical keeper integration",
+      "paperMaterial": "unchanged chapter-five v14",
+      "ready": true,
+      "animating": false,
+      "chapterId": "2026-10-12",
+      "issued": false,
+      "layout": {
+        "width": 2048,
+        "height": 2868,
+        "nominalSizeMM": [
+          300,
+          420
+        ],
+        "artPlanId": "SL-CH05-LEAF-LETTER-2",
+        "artPlanDigest": "3104ec4b67859f64268c11a327f37a65d1bdfc48c6f75adc24ee702d3f6318fb",
+        "composition": "horizontal-miniature-and-centered-verse",
+        "paperVariant": "individually-authored-sheet",
+        "sealVersion": "SL-KEEPSAKE-1",
+        "sealVariant": "oblong",
+        "sealBox": {
+          "x": 338,
+          "y": 2500,
+          "width": 285,
+          "height": 131
+        },
+        "ornamentBox": {
+          "x": 300,
+          "y": 900,
+          "width": 1448,
+          "height": 640,
+          "opacity": 0.91
+        },
+        "ornamentDigest": "e5aa04af52dde8cc3f32d0d9dfac3fe1696ef6d275c0514d7e0c0065f517d9c5",
+        "printedFonts": [
+          "Aboensis"
+        ],
+        "textBounds": [
+          {
+            "block": "chapter",
+            "text": "Chapter V",
+            "left": 889.7440338134766,
+            "right": 1162.1279754638672,
+            "top": 248,
+            "bottom": 344
+          },
+          {
+            "block": "artTitle",
+            "text": "Of Leaf",
+            "left": 822.0690155029297,
+            "right": 1250.3350067138672,
+            "top": 395,
+            "bottom": 551
+          },
+          {
+            "block": "artTitle",
+            "text": "and Letter",
+            "left": 756.8250122070312,
+            "right": 1301.9209594726562,
+            "top": 553,
+            "bottom": 662
+          },
+          {
+            "block": "chapterTitle",
+            "text": "Words Unfinished in the Valley",
+            "left": 671.2451171875,
+            "right": 1377.8028564453125,
+            "top": 728,
+            "bottom": 814
+          },
+          {
+            "block": "stanza1",
+            "text": "A reed gives breath a voice.",
+            "left": 535.3700256347656,
+            "right": 1509.8699645996094,
+            "top": 1602,
+            "bottom": 1704
+          },
+          {
+            "block": "stanza1",
+            "text": "Old ink outlives the hand.",
+            "left": 557.5850524902344,
+            "right": 1490.6549987792969,
+            "top": 1741,
+            "bottom": 1857
+          },
+          {
+            "block": "stanza2",
+            "text": "A seed lies in the fold,",
+            "left": 622.3099975585938,
+            "right": 1424.6900024414062,
+            "top": 1932,
+            "bottom": 2037
+          },
+          {
+            "block": "stanza2",
+            "text": "holding a season yet to come.",
+            "left": 504.58502197265625,
+            "right": 1535.6549682617188,
+            "top": 2078,
+            "bottom": 2192
+          },
+          {
+            "block": "colophon",
+            "text": "For Gual Wells, in remembrance of Chapter V",
+            "left": 494.84814453125,
+            "right": 1555.2958984375,
+            "top": 2268,
+            "bottom": 2353
+          },
+          {
+            "block": "colophon",
+            "text": "and its trial successfully completed.",
+            "left": 642.1156311035156,
+            "right": 1405.1923522949219,
+            "top": 2361,
+            "bottom": 2423
+          },
+          {
+            "block": "identity",
+            "text": "18 October 2026",
+            "left": 825,
+            "right": 1136.2059326171875,
+            "top": 2474,
+            "bottom": 2515
+          },
+          {
+            "block": "identity",
+            "text": "21:47:19.547  +08:00",
+            "left": 825,
+            "right": 1198.5657958984375,
+            "top": 2554,
+            "bottom": 2605
+          },
+          {
+            "block": "identity",
+            "text": "A2A7 5215 F25D C0FC",
+            "left": 824,
+            "right": 1319.9318237304688,
+            "top": 2616,
+            "bottom": 2682
+          },
+          {
+            "block": "status",
+            "text": "Specimen — Not issued",
+            "left": 820.2784729003906,
+            "right": 1230.2015075683594,
+            "top": 2732,
+            "bottom": 2792
+          }
+        ],
+        "issued": false,
+        "recipient": "Gual Wells",
+        "identity": [
+          "A2A7 5215 F25D C0FC",
+          "18 October 2026",
+          "21:47:19.547  +08:00"
+        ],
+        "artifactDigest": "a2a75215f25dc0fc40f047fd6f6648a4625ae13be7b3fa2ffca5fe72e37f43a0",
+        "artSeed": 2728874517
+      },
+      "mist": {
+        "available": true,
+        "enabled": false,
+        "frames": 1,
+        "time": 1.4449999999999998,
+        "interactionEnergy": 0,
+        "drive": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "model": "bounded local motion over independent evolving curl clouds",
+        "simulationHz": 30,
+        "fixedDirectionalInlet": false
+      }
+    },
+    {
+      "progress": 0.23,
+      "paperProgress": 0,
+      "renderCount": 39,
+      "vertices": 14893,
+      "camera": [
+        0,
+        0,
+        12
+      ],
+      "keeperVisible": true,
+      "viewHeight": 8.116887019230768,
+      "drawBuffer": {
+        "width": 1170,
+        "height": 1862
+      },
+      "deformation": "Continuous GPU winding and shared rest displacement",
+      "keeperMotion": "material-coordinate unfastening and rigid hinged prong",
+      "keeperSize": [
+        0.22978254735617945,
+        1.1489127367808973
+      ],
+      "specularIntensity": 0,
+      "toneMapping": "none; preserve source colors",
+      "restCurl": true,
+      "cameraType": "PerspectiveCamera",
+      "keeperPose": {
+        "r": 0.575,
+        "pin": -0.45,
+        "feed": 0.6439954132373114,
+        "angle": 0.55,
+        "along": 10,
+        "sideMm": 0,
+        "circleCenter": [
+          1.9878029422561863,
+          5.740810027589266
+        ],
+        "phase": "withdraw-tail",
+        "slide": 0,
+        "depart": 0,
+        "freeEndBehindFrame": false,
+        "expandedRadiusMm": 34.95570708004569,
+        "visible": true,
+        "opacity": 1,
+        "x": 0,
+        "y": -0.016691707298743284,
+        "z": 0.3752992326954178,
+        "fitScale": 12.765697075343304,
+        "fitScaleVector": [
+          12.765697075343304,
+          12.765697075343304,
+          12.765697075343304
+        ],
+        "bandWidth": 0.22978254735617945,
+        "usesFade": false,
+        "usesStrapDeformation": true,
+        "deformation": "material-coordinate curve; dimensioned continuous cut mesh; native bevel residual",
+        "sourceBones": 76,
+        "restDeviationMm": {
+          "maximum": 5.542281843203895e-9,
+          "mean": 4.4898961188127906e-11
+        }
+      },
+      "sealRelief": true,
+      "runtime": {
+        "motionPrepared": true,
+        "preparationMs": 3252.39999999851,
+        "preparedPrograms": 11,
+        "programs": 11
+      },
+      "edition": "v17 physical keeper integration",
+      "paperMaterial": "unchanged chapter-five v14",
+      "ready": true,
+      "animating": false,
+      "chapterId": "2026-10-12",
+      "issued": false,
+      "layout": {
+        "width": 2048,
+        "height": 2868,
+        "nominalSizeMM": [
+          300,
+          420
+        ],
+        "artPlanId": "SL-CH05-LEAF-LETTER-2",
+        "artPlanDigest": "3104ec4b67859f64268c11a327f37a65d1bdfc48c6f75adc24ee702d3f6318fb",
+        "composition": "horizontal-miniature-and-centered-verse",
+        "paperVariant": "individually-authored-sheet",
+        "sealVersion": "SL-KEEPSAKE-1",
+        "sealVariant": "oblong",
+        "sealBox": {
+          "x": 338,
+          "y": 2500,
+          "width": 285,
+          "height": 131
+        },
+        "ornamentBox": {
+          "x": 300,
+          "y": 900,
+          "width": 1448,
+          "height": 640,
+          "opacity": 0.91
+        },
+        "ornamentDigest": "e5aa04af52dde8cc3f32d0d9dfac3fe1696ef6d275c0514d7e0c0065f517d9c5",
+        "printedFonts": [
+          "Aboensis"
+        ],
+        "textBounds": [
+          {
+            "block": "chapter",
+            "text": "Chapter V",
+            "left": 889.7440338134766,
+            "right": 1162.1279754638672,
+            "top": 248,
+            "bottom": 344
+          },
+          {
+            "block": "artTitle",
+            "text": "Of Leaf",
+            "left": 822.0690155029297,
+            "right": 1250.3350067138672,
+            "top": 395,
+            "bottom": 551
+          },
+          {
+            "block": "artTitle",
+            "text": "and Letter",
+            "left": 756.8250122070312,
+            "right": 1301.9209594726562,
+            "top": 553,
+            "bottom": 662
+          },
+          {
+            "block": "chapterTitle",
+            "text": "Words Unfinished in the Valley",
+            "left": 671.2451171875,
+            "right": 1377.8028564453125,
+            "top": 728,
+            "bottom": 814
+          },
+          {
+            "block": "stanza1",
+            "text": "A reed gives breath a voice.",
+            "left": 535.3700256347656,
+            "right": 1509.8699645996094,
+            "top": 1602,
+            "bottom": 1704
+          },
+          {
+            "block": "stanza1",
+            "text": "Old ink outlives the hand.",
+            "left": 557.5850524902344,
+            "right": 1490.6549987792969,
+            "top": 1741,
+            "bottom": 1857
+          },
+          {
+            "block": "stanza2",
+            "text": "A seed lies in the fold,",
+            "left": 622.3099975585938,
+            "right": 1424.6900024414062,
+            "top": 1932,
+            "bottom": 2037
+          },
+          {
+            "block": "stanza2",
+            "text": "holding a season yet to come.",
+            "left": 504.58502197265625,
+            "right": 1535.6549682617188,
+            "top": 2078,
+            "bottom": 2192
+          },
+          {
+            "block": "colophon",
+            "text": "For Gual Wells, in remembrance of Chapter V",
+            "left": 494.84814453125,
+            "right": 1555.2958984375,
+            "top": 2268,
+            "bottom": 2353
+          },
+          {
+            "block": "colophon",
+            "text": "and its trial successfully completed.",
+            "left": 642.1156311035156,
+            "right": 1405.1923522949219,
+            "top": 2361,
+            "bottom": 2423
+          },
+          {
+            "block": "identity",
+            "text": "18 October 2026",
+            "left": 825,
+            "right": 1136.2059326171875,
+            "top": 2474,
+            "bottom": 2515
+          },
+          {
+            "block": "identity",
+            "text": "21:47:19.547  +08:00",
+            "left": 825,
+            "right": 1198.5657958984375,
+            "top": 2554,
+            "bottom": 2605
+          },
+          {
+            "block": "identity",
+            "text": "A2A7 5215 F25D C0FC",
+            "left": 824,
+            "right": 1319.9318237304688,
+            "top": 2616,
+            "bottom": 2682
+          },
+          {
+            "block": "status",
+            "text": "Specimen — Not issued",
+            "left": 820.2784729003906,
+            "right": 1230.2015075683594,
+            "top": 2732,
+            "bottom": 2792
+          }
+        ],
+        "issued": false,
+        "recipient": "Gual Wells",
+        "identity": [
+          "A2A7 5215 F25D C0FC",
+          "18 October 2026",
+          "21:47:19.547  +08:00"
+        ],
+        "artifactDigest": "a2a75215f25dc0fc40f047fd6f6648a4625ae13be7b3fa2ffca5fe72e37f43a0",
+        "artSeed": 2728874517
+      },
+      "mist": {
+        "available": true,
+        "enabled": false,
+        "frames": 1,
+        "time": 1.4449999999999998,
+        "interactionEnergy": 0,
+        "drive": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "model": "bounded local motion over independent evolving curl clouds",
+        "simulationHz": 30,
+        "fixedDirectionalInlet": false
+      }
+    },
+    {
+      "progress": 0.28,
+      "paperProgress": 0,
+      "renderCount": 43,
+      "vertices": 14893,
+      "camera": [
+        0,
+        0,
+        12
+      ],
+      "keeperVisible": true,
+      "viewHeight": 8.116887019230768,
+      "drawBuffer": {
+        "width": 1170,
+        "height": 1862
+      },
+      "deformation": "Continuous GPU winding and shared rest displacement",
+      "keeperMotion": "material-coordinate unfastening and rigid hinged prong",
+      "keeperSize": [
+        0.22978254735617945,
+        1.1489127367808973
+      ],
+      "specularIntensity": 0,
+      "toneMapping": "none; preserve source colors",
+      "restCurl": true,
+      "cameraType": "PerspectiveCamera",
+      "keeperPose": {
+        "r": 0.7000000000000001,
+        "pin": -0.45,
+        "feed": 0.9910836762688616,
+        "angle": 0.55,
+        "along": 10,
+        "sideMm": 0,
+        "circleCenter": [
+          3.60594470117921,
+          10.41407996264002
+        ],
+        "phase": "withdraw-tail",
+        "slide": 0,
+        "depart": 0,
+        "freeEndBehindFrame": true,
+        "expandedRadiusMm": 39.22303315074926,
+        "visible": true,
+        "opacity": 1,
+        "x": 0,
+        "y": -0.0373484148181178,
+        "z": 0.43495678103758506,
+        "fitScale": 12.765697075343304,
+        "fitScaleVector": [
+          12.765697075343304,
+          12.765697075343304,
+          12.765697075343304
+        ],
+        "bandWidth": 0.22978254735617945,
+        "usesFade": false,
+        "usesStrapDeformation": true,
+        "deformation": "material-coordinate curve; dimensioned continuous cut mesh; native bevel residual",
+        "sourceBones": 76,
+        "restDeviationMm": {
+          "maximum": 5.542281843203895e-9,
+          "mean": 4.4898961188127906e-11
+        }
+      },
+      "sealRelief": true,
+      "runtime": {
+        "motionPrepared": true,
+        "preparationMs": 3252.39999999851,
+        "preparedPrograms": 11,
+        "programs": 11
+      },
+      "edition": "v17 physical keeper integration",
+      "paperMaterial": "unchanged chapter-five v14",
+      "ready": true,
+      "animating": false,
+      "chapterId": "2026-10-12",
+      "issued": false,
+      "layout": {
+        "width": 2048,
+        "height": 2868,
+        "nominalSizeMM": [
+          300,
+          420
+        ],
+        "artPlanId": "SL-CH05-LEAF-LETTER-2",
+        "artPlanDigest": "3104ec4b67859f64268c11a327f37a65d1bdfc48c6f75adc24ee702d3f6318fb",
+        "composition": "horizontal-miniature-and-centered-verse",
+        "paperVariant": "individually-authored-sheet",
+        "sealVersion": "SL-KEEPSAKE-1",
+        "sealVariant": "oblong",
+        "sealBox": {
+          "x": 338,
+          "y": 2500,
+          "width": 285,
+          "height": 131
+        },
+        "ornamentBox": {
+          "x": 300,
+          "y": 900,
+          "width": 1448,
+          "height": 640,
+          "opacity": 0.91
+        },
+        "ornamentDigest": "e5aa04af52dde8cc3f32d0d9dfac3fe1696ef6d275c0514d7e0c0065f517d9c5",
+        "printedFonts": [
+          "Aboensis"
+        ],
+        "textBounds": [
+          {
+            "block": "chapter",
+            "text": "Chapter V",
+            "left": 889.7440338134766,
+            "right": 1162.1279754638672,
+            "top": 248,
+            "bottom": 344
+          },
+          {
+            "block": "artTitle",
+            "text": "Of Leaf",
+            "left": 822.0690155029297,
+            "right": 1250.3350067138672,
+            "top": 395,
+            "bottom": 551
+          },
+          {
+            "block": "artTitle",
+            "text": "and Letter",
+            "left": 756.8250122070312,
+            "right": 1301.9209594726562,
+            "top": 553,
+            "bottom": 662
+          },
+          {
+            "block": "chapterTitle",
+            "text": "Words Unfinished in the Valley",
+            "left": 671.2451171875,
+            "right": 1377.8028564453125,
+            "top": 728,
+            "bottom": 814
+          },
+          {
+            "block": "stanza1",
+            "text": "A reed gives breath a voice.",
+            "left": 535.3700256347656,
+            "right": 1509.8699645996094,
+            "top": 1602,
+            "bottom": 1704
+          },
+          {
+            "block": "stanza1",
+            "text": "Old ink outlives the hand.",
+            "left": 557.5850524902344,
+            "right": 1490.6549987792969,
+            "top": 1741,
+            "bottom": 1857
+          },
+          {
+            "block": "stanza2",
+            "text": "A seed lies in the fold,",
+            "left": 622.3099975585938,
+            "right": 1424.6900024414062,
+            "top": 1932,
+            "bottom": 2037
+          },
+          {
+            "block": "stanza2",
+            "text": "holding a season yet to come.",
+            "left": 504.58502197265625,
+            "right": 1535.6549682617188,
+            "top": 2078,
+            "bottom": 2192
+          },
+          {
+            "block": "colophon",
+            "text": "For Gual Wells, in remembrance of Chapter V",
+            "left": 494.84814453125,
+            "right": 1555.2958984375,
+            "top": 2268,
+            "bottom": 2353
+          },
+          {
+            "block": "colophon",
+            "text": "and its trial successfully completed.",
+            "left": 642.1156311035156,
+            "right": 1405.1923522949219,
+            "top": 2361,
+            "bottom": 2423
+          },
+          {
+            "block": "identity",
+            "text": "18 October 2026",
+            "left": 825,
+            "right": 1136.2059326171875,
+            "top": 2474,
+            "bottom": 2515
+          },
+          {
+            "block": "identity",
+            "text": "21:47:19.547  +08:00",
+            "left": 825,
+            "right": 1198.5657958984375,
+            "top": 2554,
+            "bottom": 2605
+          },
+          {
+            "block": "identity",
+            "text": "A2A7 5215 F25D C0FC",
+            "left": 824,
+            "right": 1319.9318237304688,
+            "top": 2616,
+            "bottom": 2682
+          },
+          {
+            "block": "status",
+            "text": "Specimen — Not issued",
+            "left": 820.2784729003906,
+            "right": 1230.2015075683594,
+            "top": 2732,
+            "bottom": 2792
+          }
+        ],
+        "issued": false,
+        "recipient": "Gual Wells",
+        "identity": [
+          "A2A7 5215 F25D C0FC",
+          "18 October 2026",
+          "21:47:19.547  +08:00"
+        ],
+        "artifactDigest": "a2a75215f25dc0fc40f047fd6f6648a4625ae13be7b3fa2ffca5fe72e37f43a0",
+        "artSeed": 2728874517
+      },
+      "mist": {
+        "available": true,
+        "enabled": false,
+        "frames": 1,
+        "time": 1.4449999999999998,
+        "interactionEnergy": 0,
+        "drive": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "model": "bounded local motion over independent evolving curl clouds",
+        "simulationHz": 30,
+        "fixedDirectionalInlet": false
+      }
+    },
+    {
+      "progress": 0.31,
+      "paperProgress": 0,
+      "renderCount": 45,
+      "vertices": 14893,
+      "camera": [
+        0,
+        0,
+        12
+      ],
+      "keeperVisible": true,
+      "viewHeight": 8.116887019230768,
+      "drawBuffer": {
+        "width": 1170,
+        "height": 1862
+      },
+      "deformation": "Continuous GPU winding and shared rest displacement",
+      "keeperMotion": "material-coordinate unfastening and rigid hinged prong",
+      "keeperSize": [
+        0.22978254735617945,
+        1.1489127367808973
+      ],
+      "specularIntensity": 0,
+      "toneMapping": "none; preserve source colors",
+      "restCurl": true,
+      "cameraType": "PerspectiveCamera",
+      "keeperPose": {
+        "r": 0.7749999999999999,
+        "pin": -1.1852430555555549,
+        "feed": 1,
+        "angle": 0.55,
+        "along": 10,
+        "sideMm": 0,
+        "circleCenter": [
+          3.646872468895074,
+          10.532281291615423
+        ],
+        "phase": "park-pin",
+        "slide": 0,
+        "depart": 0,
+        "freeEndBehindFrame": true,
+        "expandedRadiusMm": 39.33302658638709,
+        "visible": true,
+        "opacity": 1,
+        "x": 0,
+        "y": -0.037870886302748534,
+        "z": 0.43646570339718804,
+        "fitScale": 12.765697075343304,
+        "fitScaleVector": [
+          12.765697075343304,
+          12.765697075343304,
+          12.765697075343304
+        ],
+        "bandWidth": 0.22978254735617945,
+        "usesFade": false,
+        "usesStrapDeformation": true,
+        "deformation": "material-coordinate curve; dimensioned continuous cut mesh; native bevel residual",
+        "sourceBones": 76,
+        "restDeviationMm": {
+          "maximum": 5.542281843203895e-9,
+          "mean": 4.4898961188127906e-11
+        }
+      },
+      "sealRelief": true,
+      "runtime": {
+        "motionPrepared": true,
+        "preparationMs": 3252.39999999851,
+        "preparedPrograms": 11,
+        "programs": 11
+      },
+      "edition": "v17 physical keeper integration",
+      "paperMaterial": "unchanged chapter-five v14",
+      "ready": true,
+      "animating": false,
+      "chapterId": "2026-10-12",
+      "issued": false,
+      "layout": {
+        "width": 2048,
+        "height": 2868,
+        "nominalSizeMM": [
+          300,
+          420
+        ],
+        "artPlanId": "SL-CH05-LEAF-LETTER-2",
+        "artPlanDigest": "3104ec4b67859f64268c11a327f37a65d1bdfc48c6f75adc24ee702d3f6318fb",
+        "composition": "horizontal-miniature-and-centered-verse",
+        "paperVariant": "individually-authored-sheet",
+        "sealVersion": "SL-KEEPSAKE-1",
+        "sealVariant": "oblong",
+        "sealBox": {
+          "x": 338,
+          "y": 2500,
+          "width": 285,
+          "height": 131
+        },
+        "ornamentBox": {
+          "x": 300,
+          "y": 900,
+          "width": 1448,
+          "height": 640,
+          "opacity": 0.91
+        },
+        "ornamentDigest": "e5aa04af52dde8cc3f32d0d9dfac3fe1696ef6d275c0514d7e0c0065f517d9c5",
+        "printedFonts": [
+          "Aboensis"
+        ],
+        "textBounds": [
+          {
+            "block": "chapter",
+            "text": "Chapter V",
+            "left": 889.7440338134766,
+            "right": 1162.1279754638672,
+            "top": 248,
+            "bottom": 344
+          },
+          {
+            "block": "artTitle",
+            "text": "Of Leaf",
+            "left": 822.0690155029297,
+            "right": 1250.3350067138672,
+            "top": 395,
+            "bottom": 551
+          },
+          {
+            "block": "artTitle",
+            "text": "and Letter",
+            "left": 756.8250122070312,
+            "right": 1301.9209594726562,
+            "top": 553,
+            "bottom": 662
+          },
+          {
+            "block": "chapterTitle",
+            "text": "Words Unfinished in the Valley",
+            "left": 671.2451171875,
+            "right": 1377.8028564453125,
+            "top": 728,
+            "bottom": 814
+          },
+          {
+            "block": "stanza1",
+            "text": "A reed gives breath a voice.",
+            "left": 535.3700256347656,
+            "right": 1509.8699645996094,
+            "top": 1602,
+            "bottom": 1704
+          },
+          {
+            "block": "stanza1",
+            "text": "Old ink outlives the hand.",
+            "left": 557.5850524902344,
+            "right": 1490.6549987792969,
+            "top": 1741,
+            "bottom": 1857
+          },
+          {
+            "block": "stanza2",
+            "text": "A seed lies in the fold,",
+            "left": 622.3099975585938,
+            "right": 1424.6900024414062,
+            "top": 1932,
+            "bottom": 2037
+          },
+          {
+            "block": "stanza2",
+            "text": "holding a season yet to come.",
+            "left": 504.58502197265625,
+            "right": 1535.6549682617188,
+            "top": 2078,
+            "bottom": 2192
+          },
+          {
+            "block": "colophon",
+            "text": "For Gual Wells, in remembrance of Chapter V",
+            "left": 494.84814453125,
+            "right": 1555.2958984375,
+            "top": 2268,
+            "bottom": 2353
+          },
+          {
+            "block": "colophon",
+            "text": "and its trial successfully completed.",
+            "left": 642.1156311035156,
+            "right": 1405.1923522949219,
+            "top": 2361,
+            "bottom": 2423
+          },
+          {
+            "block": "identity",
+            "text": "18 October 2026",
+            "left": 825,
+            "right": 1136.2059326171875,
+            "top": 2474,
+            "bottom": 2515
+          },
+          {
+            "block": "identity",
+            "text": "21:47:19.547  +08:00",
+            "left": 825,
+            "right": 1198.5657958984375,
+            "top": 2554,
+            "bottom": 2605
+          },
+          {
+            "block": "identity",
+            "text": "A2A7 5215 F25D C0FC",
+            "left": 824,
+            "right": 1319.9318237304688,
+            "top": 2616,
+            "bottom": 2682
+          },
+          {
+            "block": "status",
+            "text": "Specimen — Not issued",
+            "left": 820.2784729003906,
+            "right": 1230.2015075683594,
+            "top": 2732,
+            "bottom": 2792
+          }
+        ],
+        "issued": false,
+        "recipient": "Gual Wells",
+        "identity": [
+          "A2A7 5215 F25D C0FC",
+          "18 October 2026",
+          "21:47:19.547  +08:00"
+        ],
+        "artifactDigest": "a2a75215f25dc0fc40f047fd6f6648a4625ae13be7b3fa2ffca5fe72e37f43a0",
+        "artSeed": 2728874517
+      },
+      "mist": {
+        "available": true,
+        "enabled": false,
+        "frames": 1,
+        "time": 1.4449999999999998,
+        "interactionEnergy": 0,
+        "drive": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "model": "bounded local motion over independent evolving curl clouds",
+        "simulationHz": 30,
+        "fixedDirectionalInlet": false
+      }
+    },
+    {
+      "progress": 0.35,
+      "paperProgress": 0,
+      "renderCount": 47,
+      "vertices": 14893,
+      "camera": [
+        0,
+        0,
+        12
+      ],
+      "keeperVisible": true,
+      "viewHeight": 8.116887019230768,
+      "drawBuffer": {
+        "width": 1170,
+        "height": 1862
+      },
+      "deformation": "Continuous GPU winding and shared rest displacement",
+      "keeperMotion": "material-coordinate unfastening and rigid hinged prong",
+      "keeperSize": [
+        0.22978254735617945,
+        1.1489127367808973
+      ],
+      "specularIntensity": 0,
+      "toneMapping": "none; preserve source colors",
+      "restCurl": true,
+      "cameraType": "PerspectiveCamera",
+      "keeperPose": {
+        "r": 0.8749999999999999,
+        "pin": -1.2,
+        "feed": 1,
+        "angle": 0.55,
+        "along": 10,
+        "sideMm": 0,
+        "circleCenter": [
+          3.646872468895074,
+          10.532281291615423
+        ],
+        "phase": "slide-clear",
+        "slide": 0.5994074074074064,
+        "depart": 0,
+        "freeEndBehindFrame": true,
+        "expandedRadiusMm": 39.33302658638709,
+        "visible": true,
+        "opacity": 1,
+        "x": -1.5636859474275153,
+        "y": -0.014080132302644967,
+        "z": 0.43646570339718804,
+        "fitScale": 12.765697075343304,
+        "fitScaleVector": [
+          12.765697075343304,
+          12.765697075343304,
+          12.765697075343304
+        ],
+        "bandWidth": 0.22978254735617945,
+        "usesFade": false,
+        "usesStrapDeformation": true,
+        "deformation": "material-coordinate curve; dimensioned continuous cut mesh; native bevel residual",
+        "sourceBones": 76,
+        "restDeviationMm": {
+          "maximum": 5.542281843203895e-9,
+          "mean": 4.4898961188127906e-11
+        }
+      },
+      "sealRelief": true,
+      "runtime": {
+        "motionPrepared": true,
+        "preparationMs": 3252.39999999851,
+        "preparedPrograms": 11,
+        "programs": 11
+      },
+      "edition": "v17 physical keeper integration",
+      "paperMaterial": "unchanged chapter-five v14",
+      "ready": true,
+      "animating": false,
+      "chapterId": "2026-10-12",
+      "issued": false,
+      "layout": {
+        "width": 2048,
+        "height": 2868,
+        "nominalSizeMM": [
+          300,
+          420
+        ],
+        "artPlanId": "SL-CH05-LEAF-LETTER-2",
+        "artPlanDigest": "3104ec4b67859f64268c11a327f37a65d1bdfc48c6f75adc24ee702d3f6318fb",
+        "composition": "horizontal-miniature-and-centered-verse",
+        "paperVariant": "individually-authored-sheet",
+        "sealVersion": "SL-KEEPSAKE-1",
+        "sealVariant": "oblong",
+        "sealBox": {
+          "x": 338,
+          "y": 2500,
+          "width": 285,
+          "height": 131
+        },
+        "ornamentBox": {
+          "x": 300,
+          "y": 900,
+          "width": 1448,
+          "height": 640,
+          "opacity": 0.91
+        },
+        "ornamentDigest": "e5aa04af52dde8cc3f32d0d9dfac3fe1696ef6d275c0514d7e0c0065f517d9c5",
+        "printedFonts": [
+          "Aboensis"
+        ],
+        "textBounds": [
+          {
+            "block": "chapter",
+            "text": "Chapter V",
+            "left": 889.7440338134766,
+            "right": 1162.1279754638672,
+            "top": 248,
+            "bottom": 344
+          },
+          {
+            "block": "artTitle",
+            "text": "Of Leaf",
+            "left": 822.0690155029297,
+            "right": 1250.3350067138672,
+            "top": 395,
+            "bottom": 551
+          },
+          {
+            "block": "artTitle",
+            "text": "and Letter",
+            "left": 756.8250122070312,
+            "right": 1301.9209594726562,
+            "top": 553,
+            "bottom": 662
+          },
+          {
+            "block": "chapterTitle",
+            "text": "Words Unfinished in the Valley",
+            "left": 671.2451171875,
+            "right": 1377.8028564453125,
+            "top": 728,
+            "bottom": 814
+          },
+          {
+            "block": "stanza1",
+            "text": "A reed gives breath a voice.",
+            "left": 535.3700256347656,
+            "right": 1509.8699645996094,
+            "top": 1602,
+            "bottom": 1704
+          },
+          {
+            "block": "stanza1",
+            "text": "Old ink outlives the hand.",
+            "left": 557.5850524902344,
+            "right": 1490.6549987792969,
+            "top": 1741,
+            "bottom": 1857
+          },
+          {
+            "block": "stanza2",
+            "text": "A seed lies in the fold,",
+            "left": 622.3099975585938,
+            "right": 1424.6900024414062,
+            "top": 1932,
+            "bottom": 2037
+          },
+          {
+            "block": "stanza2",
+            "text": "holding a season yet to come.",
+            "left": 504.58502197265625,
+            "right": 1535.6549682617188,
+            "top": 2078,
+            "bottom": 2192
+          },
+          {
+            "block": "colophon",
+            "text": "For Gual Wells, in remembrance of Chapter V",
+            "left": 494.84814453125,
+            "right": 1555.2958984375,
+            "top": 2268,
+            "bottom": 2353
+          },
+          {
+            "block": "colophon",
+            "text": "and its trial successfully completed.",
+            "left": 642.1156311035156,
+            "right": 1405.1923522949219,
+            "top": 2361,
+            "bottom": 2423
+          },
+          {
+            "block": "identity",
+            "text": "18 October 2026",
+            "left": 825,
+            "right": 1136.2059326171875,
+            "top": 2474,
+            "bottom": 2515
+          },
+          {
+            "block": "identity",
+            "text": "21:47:19.547  +08:00",
+            "left": 825,
+            "right": 1198.5657958984375,
+            "top": 2554,
+            "bottom": 2605
+          },
+          {
+            "block": "identity",
+            "text": "A2A7 5215 F25D C0FC",
+            "left": 824,
+            "right": 1319.9318237304688,
+            "top": 2616,
+            "bottom": 2682
+          },
+          {
+            "block": "status",
+            "text": "Specimen — Not issued",
+            "left": 820.2784729003906,
+            "right": 1230.2015075683594,
+            "top": 2732,
+            "bottom": 2792
+          }
+        ],
+        "issued": false,
+        "recipient": "Gual Wells",
+        "identity": [
+          "A2A7 5215 F25D C0FC",
+          "18 October 2026",
+          "21:47:19.547  +08:00"
+        ],
+        "artifactDigest": "a2a75215f25dc0fc40f047fd6f6648a4625ae13be7b3fa2ffca5fe72e37f43a0",
+        "artSeed": 2728874517
+      },
+      "mist": {
+        "available": true,
+        "enabled": false,
+        "frames": 1,
+        "time": 1.4449999999999998,
+        "interactionEnergy": 0,
+        "drive": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "model": "bounded local motion over independent evolving curl clouds",
+        "simulationHz": 30,
+        "fixedDirectionalInlet": false
+      }
+    },
+    {
+      "progress": 0.38,
+      "paperProgress": 0,
+      "renderCount": 49,
+      "vertices": 14893,
+      "camera": [
+        0,
+        0,
+        12
+      ],
+      "keeperVisible": true,
+      "viewHeight": 8.116887019230768,
+      "drawBuffer": {
+        "width": 1170,
+        "height": 1862
+      },
+      "deformation": "Continuous GPU winding and shared rest displacement",
+      "keeperMotion": "material-coordinate unfastening and rigid hinged prong",
+      "keeperSize": [
+        0.22978254735617945,
+        1.1489127367808973
+      ],
+      "specularIntensity": 0,
+      "toneMapping": "none; preserve source colors",
+      "restCurl": true,
+      "cameraType": "PerspectiveCamera",
+      "keeperPose": {
+        "r": 0.95,
+        "pin": -1.2,
+        "feed": 1,
+        "angle": 0.55,
+        "along": 10,
+        "sideMm": 0,
+        "circleCenter": [
+          3.646872468895074,
+          10.532281291615423
+        ],
+        "phase": "depart",
+        "slide": 1,
+        "depart": 0.07407407407407407,
+        "freeEndBehindFrame": true,
+        "expandedRadiusMm": 39.33302658638709,
+        "visible": true,
+        "opacity": 1,
+        "x": -2.6716827220177692,
+        "y": -0.03787088630274853,
+        "z": 0.44535459228607693,
+        "fitScale": 12.765697075343304,
+        "fitScaleVector": [
+          12.765697075343304,
+          12.765697075343304,
+          12.765697075343304
+        ],
+        "bandWidth": 0.22978254735617945,
+        "usesFade": false,
+        "usesStrapDeformation": true,
+        "deformation": "material-coordinate curve; dimensioned continuous cut mesh; native bevel residual",
+        "sourceBones": 76,
+        "restDeviationMm": {
+          "maximum": 5.542281843203895e-9,
+          "mean": 4.4898961188127906e-11
+        }
+      },
+      "sealRelief": true,
+      "runtime": {
+        "motionPrepared": true,
+        "preparationMs": 3252.39999999851,
+        "preparedPrograms": 11,
+        "programs": 11
+      },
+      "edition": "v17 physical keeper integration",
+      "paperMaterial": "unchanged chapter-five v14",
+      "ready": true,
+      "animating": false,
+      "chapterId": "2026-10-12",
+      "issued": false,
+      "layout": {
+        "width": 2048,
+        "height": 2868,
+        "nominalSizeMM": [
+          300,
+          420
+        ],
+        "artPlanId": "SL-CH05-LEAF-LETTER-2",
+        "artPlanDigest": "3104ec4b67859f64268c11a327f37a65d1bdfc48c6f75adc24ee702d3f6318fb",
+        "composition": "horizontal-miniature-and-centered-verse",
+        "paperVariant": "individually-authored-sheet",
+        "sealVersion": "SL-KEEPSAKE-1",
+        "sealVariant": "oblong",
+        "sealBox": {
+          "x": 338,
+          "y": 2500,
+          "width": 285,
+          "height": 131
+        },
+        "ornamentBox": {
+          "x": 300,
+          "y": 900,
+          "width": 1448,
+          "height": 640,
+          "opacity": 0.91
+        },
+        "ornamentDigest": "e5aa04af52dde8cc3f32d0d9dfac3fe1696ef6d275c0514d7e0c0065f517d9c5",
+        "printedFonts": [
+          "Aboensis"
+        ],
+        "textBounds": [
+          {
+            "block": "chapter",
+            "text": "Chapter V",
+            "left": 889.7440338134766,
+            "right": 1162.1279754638672,
+            "top": 248,
+            "bottom": 344
+          },
+          {
+            "block": "artTitle",
+            "text": "Of Leaf",
+            "left": 822.0690155029297,
+            "right": 1250.3350067138672,
+            "top": 395,
+            "bottom": 551
+          },
+          {
+            "block": "artTitle",
+            "text": "and Letter",
+            "left": 756.8250122070312,
+            "right": 1301.9209594726562,
+            "top": 553,
+            "bottom": 662
+          },
+          {
+            "block": "chapterTitle",
+            "text": "Words Unfinished in the Valley",
+            "left": 671.2451171875,
+            "right": 1377.8028564453125,
+            "top": 728,
+            "bottom": 814
+          },
+          {
+            "block": "stanza1",
+            "text": "A reed gives breath a voice.",
+            "left": 535.3700256347656,
+            "right": 1509.8699645996094,
+            "top": 1602,
+            "bottom": 1704
+          },
+          {
+            "block": "stanza1",
+            "text": "Old ink outlives the hand.",
+            "left": 557.5850524902344,
+            "right": 1490.6549987792969,
+            "top": 1741,
+            "bottom": 1857
+          },
+          {
+            "block": "stanza2",
+            "text": "A seed lies in the fold,",
+            "left": 622.3099975585938,
+            "right": 1424.6900024414062,
+            "top": 1932,
+            "bottom": 2037
+          },
+          {
+            "block": "stanza2",
+            "text": "holding a season yet to come.",
+            "left": 504.58502197265625,
+            "right": 1535.6549682617188,
+            "top": 2078,
+            "bottom": 2192
+          },
+          {
+            "block": "colophon",
+            "text": "For Gual Wells, in remembrance of Chapter V",
+            "left": 494.84814453125,
+            "right": 1555.2958984375,
+            "top": 2268,
+            "bottom": 2353
+          },
+          {
+            "block": "colophon",
+            "text": "and its trial successfully completed.",
+            "left": 642.1156311035156,
+            "right": 1405.1923522949219,
+            "top": 2361,
+            "bottom": 2423
+          },
+          {
+            "block": "identity",
+            "text": "18 October 2026",
+            "left": 825,
+            "right": 1136.2059326171875,
+            "top": 2474,
+            "bottom": 2515
+          },
+          {
+            "block": "identity",
+            "text": "21:47:19.547  +08:00",
+            "left": 825,
+            "right": 1198.5657958984375,
+            "top": 2554,
+            "bottom": 2605
+          },
+          {
+            "block": "identity",
+            "text": "A2A7 5215 F25D C0FC",
+            "left": 824,
+            "right": 1319.9318237304688,
+            "top": 2616,
+            "bottom": 2682
+          },
+          {
+            "block": "status",
+            "text": "Specimen — Not issued",
+            "left": 820.2784729003906,
+            "right": 1230.2015075683594,
+            "top": 2732,
+            "bottom": 2792
+          }
+        ],
+        "issued": false,
+        "recipient": "Gual Wells",
+        "identity": [
+          "A2A7 5215 F25D C0FC",
+          "18 October 2026",
+          "21:47:19.547  +08:00"
+        ],
+        "artifactDigest": "a2a75215f25dc0fc40f047fd6f6648a4625ae13be7b3fa2ffca5fe72e37f43a0",
+        "artSeed": 2728874517
+      },
+      "mist": {
+        "available": true,
+        "enabled": false,
+        "frames": 1,
+        "time": 1.4449999999999998,
+        "interactionEnergy": 0,
+        "drive": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "model": "bounded local motion over independent evolving curl clouds",
+        "simulationHz": 30,
+        "fixedDirectionalInlet": false
+      }
+    },
+    {
+      "progress": 0.4,
+      "paperProgress": 0,
+      "renderCount": 51,
+      "vertices": 14893,
+      "camera": [
+        0,
+        0,
+        12
+      ],
+      "keeperVisible": false,
+      "viewHeight": 8.116887019230768,
+      "drawBuffer": {
+        "width": 1170,
+        "height": 1862
+      },
+      "deformation": "Continuous GPU winding and shared rest displacement",
+      "keeperMotion": "material-coordinate unfastening and rigid hinged prong",
+      "keeperSize": [
+        0.22978254735617945,
+        1.1489127367808973
+      ],
+      "specularIntensity": 0,
+      "toneMapping": "none; preserve source colors",
+      "restCurl": true,
+      "cameraType": "PerspectiveCamera",
+      "keeperPose": {
+        "r": 1,
+        "pin": -1.2,
+        "feed": 1,
+        "angle": 0.55,
+        "along": 10,
+        "sideMm": 0,
+        "circleCenter": [
+          3.646872468895074,
+          10.532281291615423
+        ],
+        "phase": "off",
+        "slide": 1,
+        "depart": 1,
+        "freeEndBehindFrame": true,
+        "expandedRadiusMm": 39.33302658638709,
+        "visible": false,
+        "opacity": 1,
+        "x": -3.4587197590548064,
+        "y": -0.03787088630274853,
+        "z": 0.556465703397188,
+        "fitScale": 12.765697075343304,
+        "fitScaleVector": [
+          12.765697075343304,
+          12.765697075343304,
+          12.765697075343304
+        ],
+        "bandWidth": 0.22978254735617945,
+        "usesFade": false,
+        "usesStrapDeformation": true,
+        "deformation": "material-coordinate curve; dimensioned continuous cut mesh; native bevel residual",
+        "sourceBones": 76,
+        "restDeviationMm": {
+          "maximum": 5.542281843203895e-9,
+          "mean": 4.4898961188127906e-11
+        }
+      },
+      "sealRelief": true,
+      "runtime": {
+        "motionPrepared": true,
+        "preparationMs": 3252.39999999851,
+        "preparedPrograms": 11,
+        "programs": 11
+      },
+      "edition": "v17 physical keeper integration",
+      "paperMaterial": "unchanged chapter-five v14",
+      "ready": true,
+      "animating": false,
+      "chapterId": "2026-10-12",
+      "issued": false,
+      "layout": {
+        "width": 2048,
+        "height": 2868,
+        "nominalSizeMM": [
+          300,
+          420
+        ],
+        "artPlanId": "SL-CH05-LEAF-LETTER-2",
+        "artPlanDigest": "3104ec4b67859f64268c11a327f37a65d1bdfc48c6f75adc24ee702d3f6318fb",
+        "composition": "horizontal-miniature-and-centered-verse",
+        "paperVariant": "individually-authored-sheet",
+        "sealVersion": "SL-KEEPSAKE-1",
+        "sealVariant": "oblong",
+        "sealBox": {
+          "x": 338,
+          "y": 2500,
+          "width": 285,
+          "height": 131
+        },
+        "ornamentBox": {
+          "x": 300,
+          "y": 900,
+          "width": 1448,
+          "height": 640,
+          "opacity": 0.91
+        },
+        "ornamentDigest": "e5aa04af52dde8cc3f32d0d9dfac3fe1696ef6d275c0514d7e0c0065f517d9c5",
+        "printedFonts": [
+          "Aboensis"
+        ],
+        "textBounds": [
+          {
+            "block": "chapter",
+            "text": "Chapter V",
+            "left": 889.7440338134766,
+            "right": 1162.1279754638672,
+            "top": 248,
+            "bottom": 344
+          },
+          {
+            "block": "artTitle",
+            "text": "Of Leaf",
+            "left": 822.0690155029297,
+            "right": 1250.3350067138672,
+            "top": 395,
+            "bottom": 551
+          },
+          {
+            "block": "artTitle",
+            "text": "and Letter",
+            "left": 756.8250122070312,
+            "right": 1301.9209594726562,
+            "top": 553,
+            "bottom": 662
+          },
+          {
+            "block": "chapterTitle",
+            "text": "Words Unfinished in the Valley",
+            "left": 671.2451171875,
+            "right": 1377.8028564453125,
+            "top": 728,
+            "bottom": 814
+          },
+          {
+            "block": "stanza1",
+            "text": "A reed gives breath a voice.",
+            "left": 535.3700256347656,
+            "right": 1509.8699645996094,
+            "top": 1602,
+            "bottom": 1704
+          },
+          {
+            "block": "stanza1",
+            "text": "Old ink outlives the hand.",
+            "left": 557.5850524902344,
+            "right": 1490.6549987792969,
+            "top": 1741,
+            "bottom": 1857
+          },
+          {
+            "block": "stanza2",
+            "text": "A seed lies in the fold,",
+            "left": 622.3099975585938,
+            "right": 1424.6900024414062,
+            "top": 1932,
+            "bottom": 2037
+          },
+          {
+            "block": "stanza2",
+            "text": "holding a season yet to come.",
+            "left": 504.58502197265625,
+            "right": 1535.6549682617188,
+            "top": 2078,
+            "bottom": 2192
+          },
+          {
+            "block": "colophon",
+            "text": "For Gual Wells, in remembrance of Chapter V",
+            "left": 494.84814453125,
+            "right": 1555.2958984375,
+            "top": 2268,
+            "bottom": 2353
+          },
+          {
+            "block": "colophon",
+            "text": "and its trial successfully completed.",
+            "left": 642.1156311035156,
+            "right": 1405.1923522949219,
+            "top": 2361,
+            "bottom": 2423
+          },
+          {
+            "block": "identity",
+            "text": "18 October 2026",
+            "left": 825,
+            "right": 1136.2059326171875,
+            "top": 2474,
+            "bottom": 2515
+          },
+          {
+            "block": "identity",
+            "text": "21:47:19.547  +08:00",
+            "left": 825,
+            "right": 1198.5657958984375,
+            "top": 2554,
+            "bottom": 2605
+          },
+          {
+            "block": "identity",
+            "text": "A2A7 5215 F25D C0FC",
+            "left": 824,
+            "right": 1319.9318237304688,
+            "top": 2616,
+            "bottom": 2682
+          },
+          {
+            "block": "status",
+            "text": "Specimen — Not issued",
+            "left": 820.2784729003906,
+            "right": 1230.2015075683594,
+            "top": 2732,
+            "bottom": 2792
+          }
+        ],
+        "issued": false,
+        "recipient": "Gual Wells",
+        "identity": [
+          "A2A7 5215 F25D C0FC",
+          "18 October 2026",
+          "21:47:19.547  +08:00"
+        ],
+        "artifactDigest": "a2a75215f25dc0fc40f047fd6f6648a4625ae13be7b3fa2ffca5fe72e37f43a0",
+        "artSeed": 2728874517
+      },
+      "mist": {
+        "available": true,
+        "enabled": false,
+        "frames": 1,
+        "time": 1.4449999999999998,
+        "interactionEnergy": 0,
+        "drive": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "model": "bounded local motion over independent evolving curl clouds",
+        "simulationHz": 30,
+        "fixedDirectionalInlet": false
+      }
+    },
+    {
+      "progress": 0.5,
+      "paperProgress": 0.16666666666666666,
+      "renderCount": 53,
+      "vertices": 14893,
+      "camera": [
+        0,
+        0,
+        12
+      ],
+      "keeperVisible": false,
+      "viewHeight": 8.116887019230768,
+      "drawBuffer": {
+        "width": 1170,
+        "height": 1862
+      },
+      "deformation": "Continuous GPU winding and shared rest displacement",
+      "keeperMotion": "material-coordinate unfastening and rigid hinged prong",
+      "keeperSize": [
+        0.22978254735617945,
+        1.1489127367808973
+      ],
+      "specularIntensity": 0,
+      "toneMapping": "none; preserve source colors",
+      "restCurl": true,
+      "cameraType": "PerspectiveCamera",
+      "keeperPose": {
+        "r": 1,
+        "pin": -1.2,
+        "feed": 1,
+        "angle": 0.55,
+        "along": 10,
+        "sideMm": 0,
+        "circleCenter": [
+          3.646872468895074,
+          10.532281291615423
+        ],
+        "phase": "off",
+        "slide": 1,
+        "depart": 1,
+        "freeEndBehindFrame": true,
+        "expandedRadiusMm": 39.33302658638709,
+        "visible": false,
+        "opacity": 1,
+        "x": -3.4587197590548064,
+        "y": 0.6150714805089187,
+        "z": 0.556465703397188,
+        "fitScale": 12.765697075343304,
+        "fitScaleVector": [
+          12.765697075343304,
+          12.765697075343304,
+          12.765697075343304
+        ],
+        "bandWidth": 0.22978254735617945,
+        "usesFade": false,
+        "usesStrapDeformation": true,
+        "deformation": "material-coordinate curve; dimensioned continuous cut mesh; native bevel residual",
+        "sourceBones": 76,
+        "restDeviationMm": {
+          "maximum": 5.542281843203895e-9,
+          "mean": 4.4898961188127906e-11
+        }
+      },
+      "sealRelief": true,
+      "runtime": {
+        "motionPrepared": true,
+        "preparationMs": 3252.39999999851,
+        "preparedPrograms": 11,
+        "programs": 11
+      },
+      "edition": "v17 physical keeper integration",
+      "paperMaterial": "unchanged chapter-five v14",
+      "ready": true,
+      "animating": false,
+      "chapterId": "2026-10-12",
+      "issued": false,
+      "layout": {
+        "width": 2048,
+        "height": 2868,
+        "nominalSizeMM": [
+          300,
+          420
+        ],
+        "artPlanId": "SL-CH05-LEAF-LETTER-2",
+        "artPlanDigest": "3104ec4b67859f64268c11a327f37a65d1bdfc48c6f75adc24ee702d3f6318fb",
+        "composition": "horizontal-miniature-and-centered-verse",
+        "paperVariant": "individually-authored-sheet",
+        "sealVersion": "SL-KEEPSAKE-1",
+        "sealVariant": "oblong",
+        "sealBox": {
+          "x": 338,
+          "y": 2500,
+          "width": 285,
+          "height": 131
+        },
+        "ornamentBox": {
+          "x": 300,
+          "y": 900,
+          "width": 1448,
+          "height": 640,
+          "opacity": 0.91
+        },
+        "ornamentDigest": "e5aa04af52dde8cc3f32d0d9dfac3fe1696ef6d275c0514d7e0c0065f517d9c5",
+        "printedFonts": [
+          "Aboensis"
+        ],
+        "textBounds": [
+          {
+            "block": "chapter",
+            "text": "Chapter V",
+            "left": 889.7440338134766,
+            "right": 1162.1279754638672,
+            "top": 248,
+            "bottom": 344
+          },
+          {
+            "block": "artTitle",
+            "text": "Of Leaf",
+            "left": 822.0690155029297,
+            "right": 1250.3350067138672,
+            "top": 395,
+            "bottom": 551
+          },
+          {
+            "block": "artTitle",
+            "text": "and Letter",
+            "left": 756.8250122070312,
+            "right": 1301.9209594726562,
+            "top": 553,
+            "bottom": 662
+          },
+          {
+            "block": "chapterTitle",
+            "text": "Words Unfinished in the Valley",
+            "left": 671.2451171875,
+            "right": 1377.8028564453125,
+            "top": 728,
+            "bottom": 814
+          },
+          {
+            "block": "stanza1",
+            "text": "A reed gives breath a voice.",
+            "left": 535.3700256347656,
+            "right": 1509.8699645996094,
+            "top": 1602,
+            "bottom": 1704
+          },
+          {
+            "block": "stanza1",
+            "text": "Old ink outlives the hand.",
+            "left": 557.5850524902344,
+            "right": 1490.6549987792969,
+            "top": 1741,
+            "bottom": 1857
+          },
+          {
+            "block": "stanza2",
+            "text": "A seed lies in the fold,",
+            "left": 622.3099975585938,
+            "right": 1424.6900024414062,
+            "top": 1932,
+            "bottom": 2037
+          },
+          {
+            "block": "stanza2",
+            "text": "holding a season yet to come.",
+            "left": 504.58502197265625,
+            "right": 1535.6549682617188,
+            "top": 2078,
+            "bottom": 2192
+          },
+          {
+            "block": "colophon",
+            "text": "For Gual Wells, in remembrance of Chapter V",
+            "left": 494.84814453125,
+            "right": 1555.2958984375,
+            "top": 2268,
+            "bottom": 2353
+          },
+          {
+            "block": "colophon",
+            "text": "and its trial successfully completed.",
+            "left": 642.1156311035156,
+            "right": 1405.1923522949219,
+            "top": 2361,
+            "bottom": 2423
+          },
+          {
+            "block": "identity",
+            "text": "18 October 2026",
+            "left": 825,
+            "right": 1136.2059326171875,
+            "top": 2474,
+            "bottom": 2515
+          },
+          {
+            "block": "identity",
+            "text": "21:47:19.547  +08:00",
+            "left": 825,
+            "right": 1198.5657958984375,
+            "top": 2554,
+            "bottom": 2605
+          },
+          {
+            "block": "identity",
+            "text": "A2A7 5215 F25D C0FC",
+            "left": 824,
+            "right": 1319.9318237304688,
+            "top": 2616,
+            "bottom": 2682
+          },
+          {
+            "block": "status",
+            "text": "Specimen — Not issued",
+            "left": 820.2784729003906,
+            "right": 1230.2015075683594,
+            "top": 2732,
+            "bottom": 2792
+          }
+        ],
+        "issued": false,
+        "recipient": "Gual Wells",
+        "identity": [
+          "A2A7 5215 F25D C0FC",
+          "18 October 2026",
+          "21:47:19.547  +08:00"
+        ],
+        "artifactDigest": "a2a75215f25dc0fc40f047fd6f6648a4625ae13be7b3fa2ffca5fe72e37f43a0",
+        "artSeed": 2728874517
+      },
+      "mist": {
+        "available": true,
+        "enabled": false,
+        "frames": 1,
+        "time": 1.4449999999999998,
+        "interactionEnergy": 0,
+        "drive": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "model": "bounded local motion over independent evolving curl clouds",
+        "simulationHz": 30,
+        "fixedDirectionalInlet": false
+      }
+    },
+    {
+      "progress": 1,
+      "paperProgress": 1,
+      "renderCount": 55,
+      "vertices": 14893,
+      "camera": [
+        0,
+        0,
+        12
+      ],
+      "keeperVisible": false,
+      "viewHeight": 8.116887019230768,
+      "drawBuffer": {
+        "width": 1170,
+        "height": 1862
+      },
+      "deformation": "Continuous GPU winding and shared rest displacement",
+      "keeperMotion": "material-coordinate unfastening and rigid hinged prong",
+      "keeperSize": [
+        0.22978254735617945,
+        1.1489127367808973
+      ],
+      "specularIntensity": 0,
+      "toneMapping": "none; preserve source colors",
+      "restCurl": true,
+      "cameraType": "PerspectiveCamera",
+      "keeperPose": {
+        "r": 1,
+        "pin": -1.2,
+        "feed": 1,
+        "angle": 0.55,
+        "along": 10,
+        "sideMm": 0,
+        "circleCenter": [
+          3.646872468895074,
+          10.532281291615423
+        ],
+        "phase": "off",
+        "slide": 1,
+        "depart": 1,
+        "freeEndBehindFrame": true,
+        "expandedRadiusMm": 39.33302658638709,
+        "visible": false,
+        "opacity": 1,
+        "x": -3.4587197590548064,
+        "y": 3.103445130789676,
+        "z": 0.556465703397188,
+        "fitScale": 12.765697075343304,
+        "fitScaleVector": [
+          12.765697075343304,
+          12.765697075343304,
+          12.765697075343304
+        ],
+        "bandWidth": 0.22978254735617945,
+        "usesFade": false,
+        "usesStrapDeformation": true,
+        "deformation": "material-coordinate curve; dimensioned continuous cut mesh; native bevel residual",
+        "sourceBones": 76,
+        "restDeviationMm": {
+          "maximum": 5.542281843203895e-9,
+          "mean": 4.4898961188127906e-11
+        }
+      },
+      "sealRelief": true,
+      "runtime": {
+        "motionPrepared": true,
+        "preparationMs": 3252.39999999851,
+        "preparedPrograms": 11,
+        "programs": 11
+      },
+      "edition": "v17 physical keeper integration",
+      "paperMaterial": "unchanged chapter-five v14",
+      "ready": true,
+      "animating": false,
+      "chapterId": "2026-10-12",
+      "issued": false,
+      "layout": {
+        "width": 2048,
+        "height": 2868,
+        "nominalSizeMM": [
+          300,
+          420
+        ],
+        "artPlanId": "SL-CH05-LEAF-LETTER-2",
+        "artPlanDigest": "3104ec4b67859f64268c11a327f37a65d1bdfc48c6f75adc24ee702d3f6318fb",
+        "composition": "horizontal-miniature-and-centered-verse",
+        "paperVariant": "individually-authored-sheet",
+        "sealVersion": "SL-KEEPSAKE-1",
+        "sealVariant": "oblong",
+        "sealBox": {
+          "x": 338,
+          "y": 2500,
+          "width": 285,
+          "height": 131
+        },
+        "ornamentBox": {
+          "x": 300,
+          "y": 900,
+          "width": 1448,
+          "height": 640,
+          "opacity": 0.91
+        },
+        "ornamentDigest": "e5aa04af52dde8cc3f32d0d9dfac3fe1696ef6d275c0514d7e0c0065f517d9c5",
+        "printedFonts": [
+          "Aboensis"
+        ],
+        "textBounds": [
+          {
+            "block": "chapter",
+            "text": "Chapter V",
+            "left": 889.7440338134766,
+            "right": 1162.1279754638672,
+            "top": 248,
+            "bottom": 344
+          },
+          {
+            "block": "artTitle",
+            "text": "Of Leaf",
+            "left": 822.0690155029297,
+            "right": 1250.3350067138672,
+            "top": 395,
+            "bottom": 551
+          },
+          {
+            "block": "artTitle",
+            "text": "and Letter",
+            "left": 756.8250122070312,
+            "right": 1301.9209594726562,
+            "top": 553,
+            "bottom": 662
+          },
+          {
+            "block": "chapterTitle",
+            "text": "Words Unfinished in the Valley",
+            "left": 671.2451171875,
+            "right": 1377.8028564453125,
+            "top": 728,
+            "bottom": 814
+          },
+          {
+            "block": "stanza1",
+            "text": "A reed gives breath a voice.",
+            "left": 535.3700256347656,
+            "right": 1509.8699645996094,
+            "top": 1602,
+            "bottom": 1704
+          },
+          {
+            "block": "stanza1",
+            "text": "Old ink outlives the hand.",
+            "left": 557.5850524902344,
+            "right": 1490.6549987792969,
+            "top": 1741,
+            "bottom": 1857
+          },
+          {
+            "block": "stanza2",
+            "text": "A seed lies in the fold,",
+            "left": 622.3099975585938,
+            "right": 1424.6900024414062,
+            "top": 1932,
+            "bottom": 2037
+          },
+          {
+            "block": "stanza2",
+            "text": "holding a season yet to come.",
+            "left": 504.58502197265625,
+            "right": 1535.6549682617188,
+            "top": 2078,
+            "bottom": 2192
+          },
+          {
+            "block": "colophon",
+            "text": "For Gual Wells, in remembrance of Chapter V",
+            "left": 494.84814453125,
+            "right": 1555.2958984375,
+            "top": 2268,
+            "bottom": 2353
+          },
+          {
+            "block": "colophon",
+            "text": "and its trial successfully completed.",
+            "left": 642.1156311035156,
+            "right": 1405.1923522949219,
+            "top": 2361,
+            "bottom": 2423
+          },
+          {
+            "block": "identity",
+            "text": "18 October 2026",
+            "left": 825,
+            "right": 1136.2059326171875,
+            "top": 2474,
+            "bottom": 2515
+          },
+          {
+            "block": "identity",
+            "text": "21:47:19.547  +08:00",
+            "left": 825,
+            "right": 1198.5657958984375,
+            "top": 2554,
+            "bottom": 2605
+          },
+          {
+            "block": "identity",
+            "text": "A2A7 5215 F25D C0FC",
+            "left": 824,
+            "right": 1319.9318237304688,
+            "top": 2616,
+            "bottom": 2682
+          },
+          {
+            "block": "status",
+            "text": "Specimen — Not issued",
+            "left": 820.2784729003906,
+            "right": 1230.2015075683594,
+            "top": 2732,
+            "bottom": 2792
+          }
+        ],
+        "issued": false,
+        "recipient": "Gual Wells",
+        "identity": [
+          "A2A7 5215 F25D C0FC",
+          "18 October 2026",
+          "21:47:19.547  +08:00"
+        ],
+        "artifactDigest": "a2a75215f25dc0fc40f047fd6f6648a4625ae13be7b3fa2ffca5fe72e37f43a0",
+        "artSeed": 2728874517
+      },
+      "mist": {
+        "available": true,
+        "enabled": false,
+        "frames": 1,
+        "time": 1.4449999999999998,
+        "interactionEnergy": 0,
+        "drive": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "model": "bounded local motion over independent evolving curl clouds",
+        "simulationHz": 30,
+        "fixedDirectionalInlet": false
+      }
+    }
+  ],
+  "record": {
+    "status": "specimen",
+    "recipient": "Gual Wells",
+    "sha256": "a2a75215f25dc0fc40f047fd6f6648a4625ae13be7b3fa2ffca5fe72e37f43a0",
+    "canonicalPayload": "[\"second-language.memento.v3\",\"specimen\",\"2026-10-12\",5,\"0da38ab64e21652d49f32283cba6cc85f7dabe26d107a453c004d5af54d6a8ed\",\"河谷里未说完的话\",\"Words Unfinished in the Valley\",\"second-language-owner\",\"Gual Wells\",null,null,null,null,\"2026-10-18T13:47:19.547Z\",\"SL-MEMENTO-14\",\"manuscript-memento-v14\",\"3104ec4b67859f64268c11a327f37a65d1bdfc48c6f75adc24ee702d3f6318fb\",\"e5aa04af52dde8cc3f32d0d9dfac3fe1696ef6d275c0514d7e0c0065f517d9c5\",\"oblong\",\"The Second Language\",\"Chapter V\",\"Of Leaf and Letter\",\"Words Unfinished in the Valley\",[[\"A reed gives breath a voice.\",\"Old ink outlives the hand.\"],[\"A seed lies in the fold,\",\"holding a season yet to come.\"]],[\"For Gual Wells, in remembrance of Chapter V\",\"and its trial successfully completed.\"],[\"The Second Language\",\"In remembrance\"],\"Specimen — Not issued\"]",
+    "proof": {
+      "sampleTime": "2026-10-18T13:47:19.547Z"
+    },
+    "sealVariant": "oblong",
+    "artPlanDigest": "3104ec4b67859f64268c11a327f37a65d1bdfc48c6f75adc24ee702d3f6318fb",
+    "source": {
+      "commit": "21bd29066df595c3ae7bd08ee638a5a8cc77c12b",
+      "chapterId": "2026-10-12",
+      "chapterNumber": 5,
+      "chapterDigest": "0da38ab64e21652d49f32283cba6cc85f7dabe26d107a453c004d5af54d6a8ed",
+      "title": "河谷里未说完的话"
+    }
+  },
+  "errors": [],
+  "failed": [],
+  "environment": "402x874 DPR3 Chromium; not physical iPhone Safari"
+}

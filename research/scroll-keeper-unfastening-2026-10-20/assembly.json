@@ -1,0 +1,40 @@
+{
+  "working_dimensions_mm": {
+    "radius": 30.0,
+    "width": 18.0,
+    "thickness": 2.5,
+    "strap_length": 250.06877972757817
+  },
+  "strap_is_open_blank": true,
+  "physical_parts": [
+    "Leather | continuous strip with two ends",
+    "Frame | separate solid heel-bar buckle",
+    "Prong | eye and continuous full shaft",
+    "Rivet shank -5.6",
+    "Rivet cap -5.6 +1",
+    "Rivet cap -5.6 -1",
+    "Rivet shank +5.6",
+    "Rivet cap +5.6 +1",
+    "Rivet cap +5.6 -1"
+  ],
+  "bound_strap_bones": 76,
+  "prong_full_eye_and_shaft": true,
+  "closed_intersections": {
+    "frame_vs_strap": 0,
+    "prong_vs_strap": 0
+  },
+  "complete_unfastening_animation": false,
+  "art_accepted": false,
+  "mesh_integrity": {
+    "connected_components": [
+      23624
+    ],
+    "boundary_edges": 0,
+    "nonmanifold_edges": 0
+  },
+  "evaluated_closed_size_mm": [
+    68.28624755144119,
+    70.08554227650166,
+    18.120000138878822
+  ]
+}
