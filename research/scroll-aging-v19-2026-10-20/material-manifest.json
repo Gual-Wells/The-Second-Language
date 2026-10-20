@@ -1,0 +1,101 @@
+{
+  "sourceBlendSHA256": "ba95bb3ebc448759b3984a6bd23b97bcd73040d92348dc89085c9f6ffc6d4831",
+  "method": "Blender Cycles multi-pass native material baking; existing photo scan channels and preserved v14 authored aged albedos + use/tool/age masks",
+  "geometryChanged": false,
+  "leatherUV": "u=s/length, v=(width+9)/18 in Blender; glTF playback flips v",
+  "leatherSize": [
+    4096,
+    512
+  ],
+  "metalSize": [
+    2048,
+    2048
+  ],
+  "sources": [
+    "Poly Haven Brown Leather, Rob Tuytel, CC0",
+    "cgbookcase Bronze03, CC0",
+    "Project v14 authored aged leather / bronze albedos; original imagegen provenance research/scroll-lab-v14/PROMPTS.md; not scans"
+  ],
+  "outputs": [
+    {
+      "file": "leather-color.png",
+      "sha256": "adfaa484ef16ded27b07c180282f5bdb80cc42956acb3edf5d7fdf8a04523775",
+      "bytes": 4247021,
+      "bakeSeconds": 6.24
+    },
+    {
+      "file": "leather-orm.png",
+      "sha256": "f1d715ce263529dec10d44bff5d5d23c93ddc5bb0f9ced1e6fa3da1a22f683a5",
+      "bytes": 2087414,
+      "bakeSeconds": 3.89
+    },
+    {
+      "file": "leather-normal.png",
+      "sha256": "6b64d62cf7ec00896f2370122dc2023bd4db63b3acb392130c66f97e96758b6b",
+      "bytes": 3423481,
+      "bakeSeconds": 20.46
+    },
+    {
+      "file": "bronze-color.png",
+      "sha256": "3616e948ab30fbcfe0f730cbe605bdaef5dbe347b09b9c80ccd210ae1f0d21a1",
+      "bytes": 4118383,
+      "bakeSeconds": 13.14
+    },
+    {
+      "file": "bronze-orm.png",
+      "sha256": "ed42948290bc7b2034f810e689e37c1fb3ef291eb9b46e4e3b193a4206dbe73c",
+      "bytes": 3092606,
+      "bakeSeconds": 11.4
+    },
+    {
+      "file": "bronze-normal.png",
+      "sha256": "7fae5cf7dadfe9a30fb9a00827be2ed8476a4fdb19454a2cdacdc5407db46b2a",
+      "bytes": 3447523,
+      "bakeSeconds": 26.29
+    }
+  ],
+  "packedOutputs": [
+    {
+      "file": "leather-color.webp",
+      "sha256": "5c99db712479fb6f8c661f1b4d4422d5e689c59a21c2c197e1dca77bb0c04e95",
+      "bytes": 3000366,
+      "maximumDecodedTexelError": 0.0,
+      "packing": "Blender WebP quality 100 lossless"
+    },
+    {
+      "file": "leather-orm.webp",
+      "sha256": "ce92f7819c466c5ec0291e5609da152cc98e0d5c47627d89a81fd3d82a8e6ad1",
+      "bytes": 1199026,
+      "maximumDecodedTexelError": 0.0,
+      "packing": "Blender WebP quality 100 lossless"
+    },
+    {
+      "file": "leather-normal.webp",
+      "sha256": "6b3c1601b766712a527d51145aa211fd98b73f4747e0d97490809ac407efbf1c",
+      "bytes": 2575506,
+      "maximumDecodedTexelError": 0.0,
+      "packing": "Blender WebP quality 100 lossless"
+    },
+    {
+      "file": "bronze-color.webp",
+      "sha256": "f850970297e8c5d19c7002132e59e877ea54dce0a757d2f642a592f46bd3d9cd",
+      "bytes": 2656038,
+      "maximumDecodedTexelError": 0.0,
+      "packing": "Blender WebP quality 100 lossless"
+    },
+    {
+      "file": "bronze-orm.webp",
+      "sha256": "1672624ae4ae60a342346bb3188f974d05258be13d392da027a82468fdae8b4b",
+      "bytes": 1774092,
+      "maximumDecodedTexelError": 0.0,
+      "packing": "Blender WebP quality 100 lossless"
+    },
+    {
+      "file": "bronze-normal.webp",
+      "sha256": "a2b951c269e4e6d20ef18cd7f360c3045b2ecc605a63e5e910f819a9a8bcc2bd",
+      "bytes": 2159960,
+      "maximumDecodedTexelError": 0.0,
+      "packing": "Blender WebP quality 100 lossless"
+    }
+  ]
+}
