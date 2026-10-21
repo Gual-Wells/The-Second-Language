@@ -3,6 +3,11 @@
   "issued": false,
   "works": [
     {
+      "workId": "SL-PROJECT-BEGINNING-20261021",
+      "category": "project-commemorative",
+      "sha256": "4a83d1952e133bcecd6c1aa2e14a788159b410e9a6ea2a7f5bcf42610943e37b"
+    },
+    {
       "chapter": 1,
       "sha256": "590cc91ffca8634b7864f24825afbfc3f5fb286de5321087edd2c336f74732ea"
     },
@@ -11,7 +16,11 @@
       "sha256": "a2a75215f25dc0fc40f047fd6f6648a4625ae13be7b3fa2ffca5fe72e37f43a0"
     }
   ],
-  "scope": "Existing unissued chapter specimens only; rejected project keepsake withdrawn from the catalogue.",
+  "scope": "Main settings entry with the public commissioned project-beginning commemoration (not an assessment) and the existing unissued first/fifth chapter specimens. No certification database, native authoring archive, rejected prior keepsake or private awarded artifact.",
+  "verificationReports": [
+    "research/certification-reader-2026-10-21/verification.json",
+    "research/project-scroll-redesign-2026-10-21/verification.json"
+  ],
   "files": [
     {
       "url": "/annotations.js",
@@ -21,17 +30,17 @@
     {
       "url": "/app.js",
       "bytes": 45981,
-      "sha256": "9d6eb3f1851852f9c7986d0b9b2ccc174d00ee3ba3db59c4f3b140bed0d04620"
+      "sha256": "45df4d43f12717d18d8d76c1e5bc48434a655bcd6caff8cd4db74a56b9b1d436"
     },
     {
       "url": "/audio-config.js",
       "bytes": 5657,
-      "sha256": "5a28540698b815705199c211ddd1fea8ca4e64d81fbb2033413bb47363ef9c4e"
+      "sha256": "d321a9c37196251deaa3cc8ca87f1800b5668d0c8fbc22060cab9666bcaaea73"
     },
     {
       "url": "/audio-library.js",
       "bytes": 3317,
-      "sha256": "e551703a9ff950c45b395495d696ba5b6e78797c207dd6373720068b4c41511f"
+      "sha256": "6f69e791bdb07fccd8d70756c67cdbef923ddbaef1e92f7193db9ee7baa3c14e"
     },
     {
       "url": "/audio-plan.js",
@@ -45,8 +54,8 @@
     },
     {
       "url": "/certification-reader.js",
-      "bytes": 8285,
-      "sha256": "e6d408ffe89eaa44295b1baab26fb438ac7850432cfc42f4c4ab3c1ee3ad09b0"
+      "bytes": 8414,
+      "sha256": "184cdcc229caa21f080ded4b2666f91b9f11582789dec13d161e758f291fd75f"
     },
     {
       "url": "/chapter-quality.js",
@@ -61,7 +70,7 @@
     {
       "url": "/chapter-tests.js",
       "bytes": 12935,
-      "sha256": "a26e4abd75e22154469bc44c599277fc726ca0792dbc4e2c18dd09acd5f52570"
+      "sha256": "830e0b366264cbdfe7feba14551568e1421d25ee5c00ee03ef845e9cf91ea579"
     },
     {
       "url": "/chapters.js",
@@ -86,7 +95,7 @@
     {
       "url": "/index.html",
       "bytes": 29355,
-      "sha256": "9482311d3af5e21755879fd124ecea5b992f782361be572058a19c318ba387d3"
+      "sha256": "e4fd88f8c30577d0889ee8e966e8a7c282dd55bc4a75202a1505ab864425b3b3"
     },
     {
       "url": "/labs/certification-reader/AUDIO_CREDITS.md",
@@ -95,8 +104,8 @@
     },
     {
       "url": "/labs/certification-reader/CREDITS.md",
-      "bytes": 1551,
-      "sha256": "8e3b7f799750c07a322b725ea0d1f07734cca5edd8e252c0f004a1bbb3102331"
+      "bytes": 1784,
+      "sha256": "1b139fe68a45394ea313d6e50fd918ba294ed60b73d263d2113f0804b9808e3f"
     },
     {
       "url": "/labs/certification-reader/assets/audio-foley/beltHandle1.wav",
@@ -175,8 +184,8 @@
     },
     {
       "url": "/labs/certification-reader/reader.bundle.js",
-      "bytes": 749362,
-      "sha256": "0578f0129cae5a76fd72b1175e79dc36a275ca16d006fac7f19b3948210c119f"
+      "bytes": 752953,
+      "sha256": "eae5a83e74b0d8678da3f5ba1741f0df29aebde1f3fb7c9ccd0a2e8045d7c503"
     },
     {
       "url": "/labs/certification-reader/sound.js",
@@ -304,14 +313,94 @@
       "sha256": "0ad00fb94899b3a8277680377eb7270c5fb3ee73dd9fefbd6fb31d9f94c4707b"
     },
     {
+      "url": "/labs/project-beginning/CREDITS.md",
+      "bytes": 2237,
+      "sha256": "292b62a5a216188ea2762ad7840ebfe137e429561863ae3395b8e95e4d2f8c17"
+    },
+    {
+      "url": "/labs/project-beginning/art-plan.json",
+      "bytes": 8275,
+      "sha256": "10fbd67f29b0464c632342a213fd4697bbf92af4a2086c5d7963fdea93ce20db"
+    },
+    {
+      "url": "/labs/project-beginning/assets/daily-miniature.png",
+      "bytes": 1857691,
+      "sha256": "70c58500dfd07879eef40896bfe88d581ddaebf73ab63b73d5be6472aa93a09e"
+    },
+    {
+      "url": "/labs/project-beginning/assets/final-back.png",
+      "bytes": 10392202,
+      "sha256": "925c1db1f8810d452a318fb75b30f2a53790be6c05a4cd04fbf9cc883d7b715e"
+    },
+    {
+      "url": "/labs/project-beginning/assets/final-front.png",
+      "bytes": 10893789,
+      "sha256": "b82b5c4c8e220443e8c4ae0a1b84aeaa908f88e6cd2c53fb5231e09aceacae7b"
+    },
+    {
+      "url": "/labs/project-beginning/assets/final-ink.png",
+      "bytes": 579734,
+      "sha256": "2007be6f580a5cc72f24388bf4eb487290063136e60937a6114d2c16917ecb5a"
+    },
+    {
+      "url": "/labs/project-beginning/assets/final-relief.png",
+      "bytes": 136060,
+      "sha256": "030eb09ed2ee219a5ee3508e3cca6832635d7199470c8425ab8451cf0bf6ae29"
+    },
+    {
+      "url": "/labs/project-beginning/assets/final-seal-ink.png",
+      "bytes": 143133,
+      "sha256": "7e6e6ab3541b1807fd75da6b761f58144f1922578a4de203ec655891d8d61cea"
+    },
+    {
+      "url": "/labs/project-beginning/assets/final-seal-mask.png",
+      "bytes": 51055,
+      "sha256": "d8411063350187c541bc503775180041dcea1ecbd5a9726ab7b0e69dafc135fc"
+    },
+    {
+      "url": "/labs/project-beginning/assets/parchment.webp",
+      "bytes": 2168400,
+      "sha256": "10b3316df6408655a4c917e652ce739c446a00614fd475033bbe575c606df4b1"
+    },
+    {
+      "url": "/labs/project-beginning/assets/surfaces.json",
+      "bytes": 10674,
+      "sha256": "e3405c93225ee394d75498190f998c41171f2b90cd21eb5b04a9d775c89d9921"
+    },
+    {
+      "url": "/labs/project-beginning/charter.js",
+      "bytes": 6341,
+      "sha256": "fc778bea6fdc06f2a359035539a8c5ddf2703380730e698f81dcecb8ced6201a"
+    },
+    {
+      "url": "/labs/project-beginning/document.js",
+      "bytes": 9440,
+      "sha256": "024bfbb26a91341e13cf84bf54e312f87c122b727a3aff2801bbda84b4101245"
+    },
+    {
+      "url": "/labs/project-beginning/record.json",
+      "bytes": 1171,
+      "sha256": "f2466f4ea3f57d5cbf4e42b8b0cdc08ac810498602ff3ab9d7c85d43179616e5"
+    },
+    {
+      "url": "/labs/project-beginning/scroll-object.js",
+      "bytes": 4949,
+      "sha256": "5af4629fc873b9176f91456b9a8cb96b7a21bdc477b9b9f3e56fc031915283ac"
+    },
+    {
+      "url": "/labs/project-beginning/templates.js",
+      "bytes": 1314,
+      "sha256": "25b3b4f4d4d0bd5f0351be7b487bd487a8ff2a09f89ee80dcd02d02b3d3b3f0b"
+    },
+    {
       "url": "/listening.js",
       "bytes": 12878,
-      "sha256": "c22e95591da2b7fa96b67e4771cd403ab127b365a4427ff9292250371d239fb2"
+      "sha256": "40643c30454276baf303ad56c82d7c46d0184360cbb1bda2d7143cf40dcb71c7"
     },
     {
       "url": "/objective.js",
       "bytes": 3230,
-      "sha256": "52689888f68d394ae20352edd7758fb0c13f87393998f9fabdddbc6a429d63c5"
+      "sha256": "30972662b14c3241e1074a4750f539ad3beffcca54638421c3ed38f1c432b83a"
     },
     {
       "url": "/practice-workspace.js",
@@ -321,12 +410,12 @@
     {
       "url": "/practice.js",
       "bytes": 21033,
-      "sha256": "df97aacad9f0b6cfde2abc9f0f124c287b278b69196e350426d0817162523385"
+      "sha256": "507ec91048467b79afb4d252c562c16229ce2f9b4eb6f666d1d218cf4d71506b"
     },
     {
       "url": "/pure-reader.js",
       "bytes": 6274,
-      "sha256": "9fe8b96c96426e7f517c68412289906d7da0f3b59545354f706b34122751e992"
+      "sha256": "79f0eb76420c4a42e237a7f7cd6739f9508fa8498f6cdec7cff62bf914bae3b9"
     },
     {
       "url": "/question-pairs.js",
@@ -336,12 +425,12 @@
     {
       "url": "/questions.js",
       "bytes": 10456,
-      "sha256": "be151e6b3db009e22a39ffb70abd9be2b9ed92083dbdfa543e1245b302803619"
+      "sha256": "f8a2bd4a0c62d01291dc977eda92c4129ab03b7cab5d33c0464bfcec6afe1705"
     },
     {
       "url": "/reader-focus.js",
       "bytes": 3735,
-      "sha256": "265f3a03a748bbd0f47de79de04a42b683cc21965141565cc88a6b4bc57a4591"
+      "sha256": "a42289bc581e38683314ed43e10d07df4010f5fcc5256b0a1f489eb74f78dabc"
     },
     {
       "url": "/reader-jump.js",
@@ -351,17 +440,17 @@
     {
       "url": "/reader-speech.js",
       "bytes": 4930,
-      "sha256": "dc114b416b11fd1f50ccc985828bf62e359abe11a2fbb621520663365119a2e8"
+      "sha256": "6bf95dbee39572a1c724b6903a9364bd1d561f79cca1d641876e61b798168fb6"
     },
     {
       "url": "/reading.js",
       "bytes": 9604,
-      "sha256": "bf8b83674c76d64a6f5c611ee39ab2d4c0fc90823c9bc3f2be659475701493bc"
+      "sha256": "6fba86b1023010127a59966af7bae9b68171334462db8eff4c08ef1068e59977"
     },
     {
       "url": "/recorder.js",
       "bytes": 7311,
-      "sha256": "ba14ca222fae400a6349df46551a5021a3617254390575be95e2d256f6b89116"
+      "sha256": "39176db32937fd4c49fde488b4feb39db32a73fd3a4a16f417d3c2d3b1956fc9"
     },
     {
       "url": "/render.js",
@@ -389,5 +478,5 @@
       "sha256": "8c4f3c17e6d1f45f32bb892307cff4a4a5a08d3af76c0a1e67b355ddf7d419b8"
     }
   ],
-  "bytes": 27971413
+  "bytes": 54241831
 }

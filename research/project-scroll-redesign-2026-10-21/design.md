@@ -43,7 +43,7 @@
 > Page will follow page.
 > Another tongue enters the day.
 
-**For Gual Wells,**  
+**For Gual Wells,**
 **to mark the beginning of The Second Language.**
 
 藏记保持：**The Second Language / In remembrance**。
@@ -65,7 +65,7 @@
 > 一页之后，还将有一页。
 > 另一种语言，走进这一日。
 
-**为 Gual Wells 而作，**  
+**为 Gual Wells 而作，**
 **纪念《第二语言》的启程。**
 
 藏记：**第二语言 / 留作纪念**。

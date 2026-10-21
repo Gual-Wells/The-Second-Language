@@ -116,9 +116,9 @@ Third-party packages, model/provider outputs, voices, APIs, dictionary or textbo
 
 ### 认证阅览
 
-设置 → 认证阅览：只列章号，选章进入纯享卷轴，支持真实解扣开合与交互雾染；声音中分别调整音乐、拟音及音量。当前第一／第五章为保留原身份的未颁发制作样品，尚不授予正式认证。藏馆方案已取消，不再经过取藏转场。见[现行规范](protocol/CERTIFICATION_READER.md)与[工程记录](research/certification-reader-2026-10-21/README.md)。
+设置 → 认证阅览：章节作品只列章号，独立项目作品单列“项目纪念”；选择后进入纯享卷轴，支持真实解扣开合与交互雾染；声音中分别调整音乐、拟音及音量。当前第一／第五章为保留原身份的未颁发制作样品，尚不授予正式认证。藏馆方案已取消，不再经过取藏转场。见[现行规范](protocol/CERTIFICATION_READER.md)与[工程记录](research/certification-reader-2026-10-21/README.md)。
 
-项目特殊纪念卷轴正在重做；首版 **The Returning Thread（回返的线）** 被用户否决，已撤下目录，不再作为采用作品。其[制作记录](research/project-commemorative-2026-10-21/README.md)保留作失败复盘，不能当成合格模板。见[统一工艺](protocol/CHARTER.md)。
+项目启程纪念样品 **The Second Language — A Day in Another Tongue** 已按第一章完整工艺研究重做，供用户评价；无考试通过事件、不杜撰成立日。原版 **The Returning Thread（回返的线）** 已被用户否决撤下，其[记录](research/project-commemorative-2026-10-21/README.md)只作失败复盘。第一章v1—v12源码考究、真实提示词、候选修订、材质与实装证据保存于[制作研究档案](research/project-scroll-redesign-2026-10-21/README.md)，工艺统一入口见[CHARTER](protocol/CHARTER.md)。
 
 ### 单枚精品纪念币制作（历史探索）
 

@@ -1,11 +1,14 @@
 # Certification reading
 
-The main settings entry displays actual first- and fifth-chapter unissued art
-specimens. The first project keepsake was rejected by the user and withdrawn;
-its source remains a failure archive, not an adopted display work.
+The main settings entry displays a newly commissioned project-beginning keepsake
+and actual first- and fifth-chapter unissued art specimens. The prior project
+keepsake was rejected and withdrawn; its source remains a failure archive.
+The new project sample has an agent review and awaits user artistic evaluation.
 This reader does not issue an assessment award or create a score. The rejected museum,
 furniture, room textures, carrying animation and room score are not included.
 
+- Project-beginning paper, miniature, inscription and material adaptation:
+  [project-beginning/CREDITS.md](../project-beginning/CREDITS.md).
 - First-chapter document, impression and artwork: chapter-scroll-v12.
 - Fifth-chapter document and independently authored parchment: v14 / v13.
 - Continuous paper and residual curvature: v6, using Paperlab (Apache-2.0 and

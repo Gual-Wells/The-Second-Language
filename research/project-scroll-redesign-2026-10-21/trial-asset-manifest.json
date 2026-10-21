@@ -1,0 +1,86 @@
+{
+  "status": "trial inputs, not adopted paper or artwork",
+  "paperSourcePixels": [
+    1060,
+    1484
+  ],
+  "typesetPixels": [
+    2048,
+    2868
+  ],
+  "resources": [
+    {
+      "role": "paper",
+      "path": "web/labs/project-beginning/assets/parchment.webp",
+      "bytes": 2168400,
+      "sha256": "10b3316df6408655a4c917e652ce739c446a00614fd475033bbe575c606df4b1",
+      "size": [
+        1060,
+        1484
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "role": "normal",
+      "path": "web/labs/chapter-scroll-v4/assets/skin-normal.jpg",
+      "bytes": 1033319,
+      "sha256": "d0057cdbee5be6223b35f0a463441404144fcdae699f69ff610eec4d86d48970",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "role": "roughness",
+      "path": "web/labs/chapter-scroll-v4/assets/skin-roughness.jpg",
+      "bytes": 879217,
+      "sha256": "dd3b860a9510a44fd857c04e0c8cc63ea1f944c25abe9bdcbf844cc4a22c88d8",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "L"
+    },
+    {
+      "role": "ornament",
+      "path": "web/labs/project-beginning/assets/daily-miniature.png",
+      "bytes": 1857691,
+      "sha256": "70c58500dfd07879eef40896bfe88d581ddaebf73ab63b73d5be6472aa93a09e",
+      "size": [
+        1635,
+        962
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "role": "font",
+      "path": "web/labs/chapter-scroll/assets/Aboensis-Regular.otf",
+      "bytes": 137860,
+      "sha256": "0ad00fb94899b3a8277680377eb7270c5fb3ee73dd9fefbd6fb31d9f94c4707b"
+    },
+    {
+      "role": "environment",
+      "path": "web/labs/chapter-scroll-v3/assets/studio.hdr",
+      "bytes": 1615248,
+      "sha256": "e7cfda5f4e98e623db12b8bfd0184e048488e4855d9c83e2751fb44a32e80c45"
+    },
+    {
+      "role": "inkShoulder",
+      "path": "web/labs/chapter-scroll-v10/assets/ink-shoulder.png",
+      "bytes": 758302,
+      "sha256": "5dbfab038a6ba4a9cb7f047beed26c4c105fa1cab46143479fb3bbab4c66dd2c",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    }
+  ],
+  "notes": [
+    "Paper encoded losslessly; miniature bytes copied unchanged; original PNGs retained.",
+    "No color-stain-to-height conversion, procedural repainting, crop, mirror or sharpening.",
+    "Independent micro normal and roughness reuse the first-chapter CC0 scan channels. Their material/calibration limits still apply.",
+    "Runtime parameters, print/pressure and actual GPU preservation are separate later operations."
+  ]
+}

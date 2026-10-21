@@ -1,4 +1,4 @@
-import {createChapterAnswerRecorder,clearChapterAudioDrafts,stopChapterCapture} from './chapter-test-recorder.js?v=38';
+import {createChapterAnswerRecorder,clearChapterAudioDrafts,stopChapterCapture} from './chapter-test-recorder.js?v=39';
 export function createChapterTestsUI({api:request,showDialog,toast,getContext}) {
  let apiBase='/api/chapter-tests',previewPage=null,expiryTimer=null;
  const policy='chapter-understanding-v2-oral7',api=(path,options={})=>request(path.replace('/api/chapter-tests',apiBase),{...options,headers:{...options.headers,'x-chapter-test-policy':policy}});

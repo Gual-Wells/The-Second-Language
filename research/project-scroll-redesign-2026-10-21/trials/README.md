@@ -1,0 +1,5 @@
+# Actual candidate history
+
+- v1: rejected by agent whole-art review for a 3px poem/colophon gap. The exact art-plan bytes, draft manifest, front page, actual GPU viewport/detail and runtime observation are retained here. All six original trial layers remain on D at `.cache/project-beginning/archive/f51c7f6f9399cd1c87bb3935ed8f9bf3c0e9e878baf3975d37d19effac3aac85/`; the plan, original sources and producer hashes permit reconstruction. This local archive has not been claimed as a verified OneDrive backup.
+- v2: `v2-surfaces.json` is the exact reviewed draft manifest. The six reviewed PNG bytes were promoted without repainting to `web/labs/project-beginning/assets/final-*.png`. New manifest metadata records that promotion separately. Current trial-open/detail/GPU outputs in the parent directory refer to v2.
+- Historical review paths point to where the files were inspected at that time; this index provides their retained locations. Do not mistake overwritten inspection filenames for the earlier versions.

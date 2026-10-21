@@ -3,7 +3,9 @@ import {mkdir,writeFile} from 'node:fs/promises';
 import {pathToFileURL} from 'node:url';
 const {chromium}=await import(pathToFileURL('D:/CodexStorage/workspaces/second-language-maintenance/.cache/browser-tools/package/index.mjs'));
 const out='research/certification-reader-2026-10-21',cache='.cache/certification-reader';await mkdir(out,{recursive:true});await mkdir(cache+'/tmp',{recursive:true});process.env.TEMP=process.env.TMP=process.cwd()+'/'+cache+'/tmp';
-const base=process.argv[2]||'http://127.0.0.1:8153',remote=base.startsWith('https:');
+const args=process.argv.slice(2),chapterSpecimensOnly=args.includes('--chapter-specimens-only');
+if(args.some(arg=>arg.startsWith('--')&&arg!=='--chapter-specimens-only'))throw Error('Usage: node scripts/verify-certification-reader.mjs [base URL] [--chapter-specimens-only]');
+const base=args.find(arg=>!arg.startsWith('--'))||'http://127.0.0.1:8153',remote=base.startsWith('https:');
 const browser=await chromium.launch({headless:true,executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe',...(remote?{proxy:{server:'http://127.0.0.1:6987'}}:{}),args:['--no-first-run']});
 const errors=[],missing=[],writes=[],resources=[];
 try{
@@ -14,7 +16,10 @@ try{
  await page.route('**/api/**',route=>{const path=new URL(route.request().url()).pathname;return route.fulfill({json:path==='/api/session'?{authenticated:true,demo:true}:path==='/api/chapters'?{chapters:[]}:{}});});
  await page.goto(base+'/');await page.locator('#certificationReaderButton').waitFor({state:'attached'});
  await page.locator('#settingsButton').tap();await page.locator('#certificationReaderButton').tap();
- const chapterLabels=await page.locator('#certificationChapters button').allTextContents();assert.deepEqual(chapterLabels,['第一章','第五章']);
+ const chapterLabels=await page.locator('#certificationChapters button').allTextContents();assert.deepEqual(chapterLabels,chapterSpecimensOnly?['第一章','第五章']:['项目纪念','第一章','第五章']);
+ assert.equal(await page.locator('#certificationChapters [data-work]').count(),chapterSpecimensOnly?0:1);
+ assert.equal(await page.locator('[data-work="project-beginning"]').count(),chapterSpecimensOnly?0:1);
+ assert.equal(await page.locator('[data-work="project-returning-thread"]').count(),0);
  assert.equal(await page.locator('dialog[open]').count(),1);assert.ok(!resources.some(p=>/reader\.bundle|\.glb|\.mp3|\.wav|\.hdr/.test(p)),'List must not prepare heavy display resources');
  await page.screenshot({path:out+'/chapter-list.png',scale:'css'});
  async function waitReady(){await page.waitForFunction(()=>certificationReader.snapshot().ready||!document.getElementById('certificationRetry').hidden,null,{timeout:120000});assert.equal((await page.evaluate(()=>certificationReader.snapshot())).ready,true,await page.locator('#certificationStatus').textContent());}
@@ -44,6 +49,6 @@ try{
  assert.equal(await page.locator('dialog[open]').count(),1);assert.equal((await page.evaluate(()=>certificationReader.snapshot())).sound.active,false);
  assert.ok(!resources.some(p=>/scroll-museum|scene-wood|ancient-mysteries|keeper-physical\.glb/.test(p)));assert.ok(resources.some(p=>p.includes('keeper-display.glb')));
  assert.deepEqual(errors,[]);assert.deepEqual(missing,[]);assert.deepEqual(writes,[]);
- const result={base,checkedAt:new Date().toISOString(),session:'Browser-only mocked empty demo; real app and settings, existing first/fifth scroll specimens and recorded audio. The separate project-commemorative interaction has its own report. No real account or score writes.',chapterLabels,first,fifth,opened,checks:{settingsEntry:true,actualWorkLabels:true,listLazy:true,pureScreen:true,actualDistinctArtifacts:true,physicalUnfastening:true,musicContinuesAcrossOpening:true,independentVolume:true,muteSurvivesResume:true,exitStopsSound:true,modalBackStack:true,portraitLandscape:true,noRoomAssets:true,noCertificationWrites:true},errors,missing,writes,resources,environment:'Chrome mobile simulation at 402x874/DPR2. Not a physical iPhone/Safari or artistic listening approval.'};
+ const result={base,checkedAt:new Date().toISOString(),mode:chapterSpecimensOnly?'chapter-specimens-only':'project-beginning-and-chapter-specimens',projectCatalogue:chapterSpecimensOnly?null:'project-beginning',session:'Browser-only mocked empty demo; real app and settings, existing first/fifth scroll specimens and recorded audio. The separate project-beginning interaction has its own report. No real account or score writes.',chapterLabels,first,fifth,opened,checks:{settingsEntry:true,actualWorkLabels:true,projectCatalogueMatchesMode:true,rejectedProjectAbsent:true,listLazy:true,pureScreen:true,actualDistinctArtifacts:true,physicalUnfastening:true,musicContinuesAcrossOpening:true,independentVolume:true,muteSurvivesResume:true,exitStopsSound:true,modalBackStack:true,portraitLandscape:true,noRoomAssets:true,noCertificationWrites:true},errors,missing,writes,resources,environment:'Chrome mobile simulation at 402x874/DPR2. Not a physical iPhone/Safari or artistic listening approval.'};
  await writeFile(out+(remote?'/live-verification.json':'/verification.json'),JSON.stringify(result,null,2));console.log(JSON.stringify({checks:result.checks,errors,missing,writes}));await context.close();
 }catch(error){await writeFile(cache+'/failure.json',JSON.stringify({error:error.stack,errors,missing,writes},null,2));throw error;}finally{await browser.close();}

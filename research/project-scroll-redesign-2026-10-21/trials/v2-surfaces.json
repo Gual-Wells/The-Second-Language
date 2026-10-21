@@ -1,0 +1,376 @@
+{
+  "schema": "second-language.draft-surfaces.v1",
+  "stage": "draft",
+  "artisticApproval": false,
+  "category": "project-commemorative",
+  "workId": "SL-PROJECT-BEGINNING-20261021",
+  "contentSHA256": "4a83d1952e133bcecd6c1aa2e14a788159b410e9a6ea2a7f5bcf42610943e37b",
+  "artPlanSHA256": "e2e11c35d07383023cf454646d8ea7434f1b16622f5deae15cc2acf390065e9b",
+  "width": 2048,
+  "height": 2868,
+  "generatedAt": "2026-10-21T13:38:29.939Z",
+  "producer": {
+    "script": "scripts/render-project-beginning.mjs",
+    "method": "original Aboensis FontFace; browser Canvas2D; no WebGL viewer; review still required",
+    "browser": "155.0.8059.85",
+    "sourceSHA256": {
+      "web/labs/project-beginning/charter.js": "fc778bea6fdc06f2a359035539a8c5ddf2703380730e698f81dcecb8ced6201a",
+      "web/labs/project-beginning/document.js": "024bfbb26a91341e13cf84bf54e312f87c122b727a3aff2801bbda84b4101245",
+      "web/labs/project-beginning/templates.js": "25b3b4f4d4d0bd5f0351be7b487bd487a8ff2a09f89ee80dcd02d02b3d3b3f0b",
+      "web/labs/project-beginning/scroll-object.js": "5af4629fc873b9176f91456b9a8cb96b7a21bdc477b9b9f3e56fc031915283ac",
+      "web/labs/chapter-scroll-v12/seal.js": "f898570092b8d8e1d34b680c4b7270110a17e2ff73e31558147956e6b0062acd",
+      "web/labs/chapter-scroll-v10/ink-transfer.js": "39917ab44e27182ccea269f4d7d31cedce2abee1fad965b932a068f05400d178"
+    }
+  },
+  "layout": {
+    "width": 2048,
+    "height": 2868,
+    "nominalSizeMM": [
+      300,
+      420
+    ],
+    "artPlanId": "SL-PROJECT-BEGINNING-1",
+    "artPlanDigest": "e2e11c35d07383023cf454646d8ea7434f1b16622f5deae15cc2acf390065e9b",
+    "composition": "project-title-and-subtitle; three-verse-lines; daily-miniature; two-verse-lines; private-colophon-and-record",
+    "stage": "draft",
+    "artisticApproval": false,
+    "paperVariant": "independently-authored-project-beginning-sheet-trial",
+    "sealVersion": "SL-KEEPSAKE-1",
+    "sealVariant": "oblong",
+    "sealBox": {
+      "x": 310,
+      "y": 2525,
+      "width": 300,
+      "height": 138
+    },
+    "ornamentBox": {
+      "x": 444,
+      "y": 1260,
+      "width": 1160,
+      "height": 650,
+      "opacity": 0.9
+    },
+    "ornamentPlacement": {
+      "x": 471.6351351351351,
+      "y": 1260,
+      "width": 1104.7297297297298,
+      "height": 650
+    },
+    "ornamentDigest": "70c58500dfd07879eef40896bfe88d581ddaebf73ab63b73d5be6472aa93a09e",
+    "printedFonts": [
+      "Aboensis"
+    ],
+    "textBounds": [
+      {
+        "block": "rubric",
+        "text": "A project remembrance",
+        "left": 775.0380706787109,
+        "right": 1274.2139434814453,
+        "top": 248,
+        "bottom": 314,
+        "fontSize": 52,
+        "baseline": 285,
+        "align": "center"
+      },
+      {
+        "block": "institution",
+        "text": "The Second Language",
+        "left": 415.21405029296875,
+        "right": 1635.3099975585938,
+        "top": 376,
+        "bottom": 540,
+        "fontSize": 124,
+        "baseline": 475,
+        "align": "center"
+      },
+      {
+        "block": "subtitle",
+        "text": "A Day in Another Tongue",
+        "left": 575.2230834960938,
+        "right": 1474.0589599609375,
+        "top": 582,
+        "bottom": 685,
+        "fontSize": 82,
+        "baseline": 650,
+        "align": "center"
+      },
+      {
+        "block": "verseBefore",
+        "text": "With a first word, the work begins:",
+        "left": 445.31707763671875,
+        "right": 1604.1109008789062,
+        "top": 808,
+        "bottom": 916,
+        "fontSize": 86,
+        "baseline": 875,
+        "align": "center"
+      },
+      {
+        "block": "verseBefore",
+        "text": "rain at the shutter, bread upon the board,",
+        "left": 309.48809814453125,
+        "right": 1729.3119506835938,
+        "top": 955,
+        "bottom": 1060,
+        "fontSize": 86,
+        "baseline": 1015,
+        "align": "center"
+      },
+      {
+        "block": "verseBefore",
+        "text": "a greeting answered at an open door.",
+        "left": 385.654052734375,
+        "right": 1660.241943359375,
+        "top": 1096,
+        "bottom": 1204,
+        "fontSize": 86,
+        "baseline": 1155,
+        "align": "center"
+      },
+      {
+        "block": "verseAfter",
+        "text": "Page will follow page.",
+        "left": 634.5350341796875,
+        "right": 1413.7049560546875,
+        "top": 1979,
+        "bottom": 2092,
+        "fontSize": 90,
+        "baseline": 2040,
+        "align": "center"
+      },
+      {
+        "block": "verseAfter",
+        "text": "Another tongue enters the day.",
+        "left": 482.00006103515625,
+        "right": 1563.2399291992188,
+        "top": 2117,
+        "bottom": 2219,
+        "fontSize": 90,
+        "baseline": 2180,
+        "align": "center"
+      },
+      {
+        "block": "colophon",
+        "text": "For Gual Wells,",
+        "left": 824.4720458984375,
+        "right": 1224.3279418945312,
+        "top": 2312,
+        "bottom": 2384,
+        "fontSize": 56,
+        "baseline": 2350,
+        "align": "center"
+      },
+      {
+        "block": "colophon",
+        "text": "to mark the beginning of The Second Language.",
+        "left": 454.3402099609375,
+        "right": 1586.475830078125,
+        "top": 2395,
+        "bottom": 2469,
+        "fontSize": 56,
+        "baseline": 2440,
+        "align": "center"
+      },
+      {
+        "block": "identity",
+        "text": "Made 21 October 2026",
+        "left": 737,
+        "right": 1146.535888671875,
+        "top": 2512,
+        "bottom": 2569,
+        "fontSize": 42,
+        "baseline": 2545,
+        "align": "left"
+      },
+      {
+        "block": "identity",
+        "text": "20:10:23.227 +08:00",
+        "left": 750,
+        "right": 1096.121826171875,
+        "top": 2589,
+        "bottom": 2635,
+        "fontSize": 42,
+        "baseline": 2615,
+        "align": "left"
+      },
+      {
+        "block": "identity",
+        "text": "Content mark 4A83 D195 2E13 3BCE",
+        "left": 751,
+        "right": 1420.4337158203125,
+        "top": 2650,
+        "bottom": 2707,
+        "fontSize": 42,
+        "baseline": 2685,
+        "align": "left"
+      },
+      {
+        "block": "status",
+        "text": "Private commemorative work",
+        "left": 793.2400817871094,
+        "right": 1263.5599060058594,
+        "top": 2734,
+        "bottom": 2788,
+        "fontSize": 40,
+        "baseline": 2765,
+        "align": "center"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "rubric",
+        "x": 1024,
+        "y": 285,
+        "width": 1500,
+        "fontSize": 52,
+        "lineHeight": 74,
+        "align": "center",
+        "color": "#58372d",
+        "actualFontSize": 52
+      },
+      {
+        "id": "institution",
+        "x": 1024,
+        "y": 475,
+        "width": 1600,
+        "fontSize": 124,
+        "minFontSize": 116,
+        "lineHeight": 160,
+        "align": "center",
+        "color": "#30251b",
+        "actualFontSize": 124
+      },
+      {
+        "id": "subtitle",
+        "x": 1024,
+        "y": 650,
+        "width": 1560,
+        "fontSize": 82,
+        "lineHeight": 108,
+        "align": "center",
+        "color": "#30251b",
+        "actualFontSize": 82
+      },
+      {
+        "id": "verseBefore",
+        "x": 1024,
+        "y": 875,
+        "width": 1560,
+        "fontSize": 86,
+        "lineHeight": 140,
+        "align": "center",
+        "color": "#30251b",
+        "actualFontSize": 86
+      },
+      {
+        "id": "verseAfter",
+        "x": 1024,
+        "y": 2040,
+        "width": 1500,
+        "fontSize": 90,
+        "lineHeight": 140,
+        "align": "center",
+        "color": "#30251b",
+        "actualFontSize": 90
+      },
+      {
+        "id": "colophon",
+        "x": 1024,
+        "y": 2350,
+        "width": 1540,
+        "fontSize": 56,
+        "lineHeight": 90,
+        "align": "center",
+        "color": "#30251b",
+        "actualFontSize": 56
+      },
+      {
+        "id": "identity",
+        "x": 750,
+        "y": 2545,
+        "width": 1010,
+        "fontSize": 42,
+        "lineHeight": 70,
+        "align": "left",
+        "color": "#30251b",
+        "actualFontSize": 42
+      },
+      {
+        "id": "status",
+        "x": 1024,
+        "y": 2765,
+        "width": 1450,
+        "fontSize": 40,
+        "lineHeight": 54,
+        "align": "center",
+        "color": "#30251b",
+        "actualFontSize": 40
+      }
+    ],
+    "status": "commemorative",
+    "issued": false,
+    "recipient": "Gual Wells",
+    "identity": [
+      "Content mark 4A83 D195 2E13 3BCE",
+      "Made 21 October 2026",
+      "20:10:23.227 +08:00"
+    ],
+    "artifactDigest": "4a83d1952e133bcecd6c1aa2e14a788159b410e9a6ea2a7f5bcf42610943e37b",
+    "contentDigest": "4a83d1952e133bcecd6c1aa2e14a788159b410e9a6ea2a7f5bcf42610943e37b",
+    "artSeed": 1250152853
+  },
+  "seal": {
+    "version": "SL-KEEPSAKE-1",
+    "variant": "oblong",
+    "seed": 1250152853,
+    "stats": {
+      "markedPixels": 36708,
+      "lowContactPixels": 1248,
+      "variableContactPixels": 1616
+    }
+  },
+  "layers": {
+    "front": {
+      "src": "draft-front.png",
+      "sha256": "b82b5c4c8e220443e8c4ae0a1b84aeaa908f88e6cd2c53fb5231e09aceacae7b",
+      "bytes": 10893789,
+      "width": 2048,
+      "height": 2868
+    },
+    "back": {
+      "src": "draft-back.png",
+      "sha256": "925c1db1f8810d452a318fb75b30f2a53790be6c05a4cd04fbf9cc883d7b715e",
+      "bytes": 10392202,
+      "width": 2048,
+      "height": 2868
+    },
+    "ink": {
+      "src": "draft-ink.png",
+      "sha256": "2007be6f580a5cc72f24388bf4eb487290063136e60937a6114d2c16917ecb5a",
+      "bytes": 579734,
+      "width": 2048,
+      "height": 2868
+    },
+    "relief": {
+      "src": "draft-relief.png",
+      "sha256": "030eb09ed2ee219a5ee3508e3cca6832635d7199470c8425ab8451cf0bf6ae29",
+      "bytes": 136060,
+      "width": 2048,
+      "height": 2868
+    },
+    "sealInk": {
+      "src": "draft-seal-ink.png",
+      "sha256": "7e6e6ab3541b1807fd75da6b761f58144f1922578a4de203ec655891d8d61cea",
+      "bytes": 143133,
+      "width": 784,
+      "height": 360
+    },
+    "sealMask": {
+      "src": "draft-seal-mask.png",
+      "sha256": "d8411063350187c541bc503775180041dcea1ecbd5a9726ab7b0e69dafc135fc",
+      "bytes": 51055,
+      "width": 784,
+      "height": 360
+    }
+  }
+}

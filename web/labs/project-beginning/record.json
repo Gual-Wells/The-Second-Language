@@ -1,0 +1,26 @@
+{
+  "schema": "second-language.project-commemorative.v1",
+  "category": "project-commemorative",
+  "workId": "SL-PROJECT-BEGINNING-20261021",
+  "status": "commemorative",
+  "ownerId": "second-language-owner",
+  "recipient": "Gual Wells",
+  "template": "project-commemorative-beginning-v1",
+  "sealVariant": "oblong",
+  "madeAt": "2026-10-21T12:10:23.227Z",
+  "publishedAt": null,
+  "projectFoundedAt": null,
+  "attestation": null,
+  "source": {
+    "repository": "Gual-Wells/The-Second-Language",
+    "mainSHA": "620d4fb96bc1cd37ed74d6aca0a84ff71aa7f8ea",
+    "artDirection": "research/project-scroll-redesign-2026-10-21/design.md",
+    "artDirectionSHA256": "041c3b1fc8cce9b4e1a82988da68c231cc792fcf087c27525fc2ca218d5e7e33",
+    "artDirectionEncoding": "UTF-8 LF",
+    "userCommission": {
+      "basis": "User commissioned a project-specific commemorative scroll, rejected the prior work, and required a new work informed by the complete first-chapter manufacturing process.",
+      "recordedBy": "primary executing agent and scoped manufacturing implementation",
+      "reference": "Project-special-scroll commission and manufacturing restart, 2026-10-21"
+    }
+  }
+}

@@ -8,13 +8,13 @@ import * as fifthDocument from '../chapter-scroll-v14/document.js';
 import {prepareCharter as prepareFirstCharter} from '../chapter-scroll-v12/charter.js';
 import {prepareCharter as prepareFifthCharter} from '../chapter-scroll-v14/charter.js';
 import {ViewerResources} from './viewer-resources.js';
-import * as projectDocument from '../project-commemorative/document.js';
-import {prepareCharter as prepareProjectCharter} from '../project-commemorative/charter.js';
-import {getTemplate as getProjectTemplate} from '../project-commemorative/templates.js';
-import {ScrollObject as ProjectScrollObject} from '../project-commemorative/scroll-object.js';
+import * as projectDocument from '../project-beginning/document.js';
+import {prepareCharter as prepareProjectCharter} from '../project-beginning/charter.js';
+import {getTemplate as getProjectTemplate} from '../project-beginning/templates.js';
+import {ScrollObject as ProjectScrollObject} from '../project-beginning/scroll-object.js';
 
 const profiles=Object.freeze([
- Object.freeze({id:'project',category:'project-commemorative',label:'项目纪念卷轴',source:new URL('../project-commemorative/',import.meta.url),getTemplate:getProjectTemplate,document:projectDocument,prepareCharter:prepareProjectCharter,hasArtPlan:true,recordFile:'record.json',ObjectClass:ProjectScrollObject,frozenDocument:true}),
+ Object.freeze({id:'beginning',category:'project-commemorative',label:'项目纪念卷轴',source:new URL('../project-beginning/',import.meta.url),getTemplate:getProjectTemplate,document:projectDocument,prepareCharter:prepareProjectCharter,hasArtPlan:true,recordFile:'record.json',ObjectClass:ProjectScrollObject,frozenDocument:true}),
  Object.freeze({id:'one',chapterId:'2026-10-02',chapterNumber:1,label:'第一章',source:new URL('../chapter-scroll-v12/',import.meta.url),getTemplate:getFirstTemplate,document:firstDocument,prepareCharter:prepareFirstCharter,hasArtPlan:false}),
  Object.freeze({id:'five',chapterId:'2026-10-12',chapterNumber:5,label:'第五章',source:new URL('../chapter-scroll-v14/',import.meta.url),getTemplate:getFifthTemplate,document:fifthDocument,prepareCharter:prepareFifthCharter,hasArtPlan:true}),
 ]);
@@ -70,7 +70,7 @@ export class ScrollViewer {
   const profile=profiles.find(item=>[item.id,item.chapterId,item.chapterNumber,String(item.chapterNumber)].includes(chapter));
   if(!profile)throw Error('Only actual published works and the existing chapter specimens are available; other works are not substituted.');
   if(options.chapterId!==undefined&&options.chapterId!==profile.chapterId)throw Error('Requested chapter identifiers do not match');
-  if(this.preparation){if(this.profile!==profile)throw Error('Dispose this viewer and create a new instance before changing chapters');return this.preparation;}
+  if(this.preparation){if(this.profile!==profile||this.surfaceSet!==(options.surfaceSet??'frozen'))throw Error('Dispose this viewer before changing works or surface sets');return this.preparation;}
   this.profile=profile;
   this.preparation=this.prepareChapter(profile,options).catch(error=>{
    if(!this.disposed){this.ready=false;this.lastError=error.message;this.report('立体藏卷暂不可用，仍可查看已备好的纸面与释读。','failed');this.resources.dispose();}
@@ -78,7 +78,9 @@ export class ScrollViewer {
   });
   return this.preparation;
  }
- async prepareChapter(profile,{initialProgress=0}={}){
+ async prepareChapter(profile,{initialProgress=0,surfaceSet='frozen'}={}){
+  if(!['frozen','draft'].includes(surfaceSet)||(surfaceSet==='draft'&&typeof profile.document.loadDraftDocument!=='function'))throw Error('Unsupported paper surface set');
+  this.surfaceSet=surfaceSet;
   const owned=this.resources;
   this.report(`正在准备${profile.label}…`,'preparing');
   const [base,plan]=await Promise.all([owned.json(new URL(profile.recordFile||'chapter-sample.json',profile.source)),profile.hasArtPlan?owned.text(new URL('art-plan.json',profile.source)):Promise.resolve(undefined)]);
@@ -91,7 +93,7 @@ export class ScrollViewer {
   const images=await Promise.all((profile.frozenDocument?[template.keeper]:[template.skin,template.reverse,template.keeper,template.ornament]).map(url=>owned.image(url)));
   const [paper,back,keeper,ornament]=profile.frozenDocument?[null,null,images[0],null]:images;
   try{
-   if(profile.frozenDocument)this.textures=await profile.document.loadFrozenDocument(record,owned,profile.source);
+   if(profile.frozenDocument)this.textures=await profile.document[surfaceSet==='draft'?'loadDraftDocument':'loadFrozenDocument'](record,owned,profile.source);
    else{await profile.document.prepareSeal();owned.assertAlive();this.textures=profile.document.createDocument(record,paper,back,template,ornament);}
    const ObjectClass=profile.ObjectClass||ScrollObject;this.object=new ObjectClass(this.canvas,this.textures,keeper,template);
    this.attachObjectLifetime(this.object,owned);

@@ -1,0 +1,269 @@
+{
+  "schema": "second-language.project-art-plan.v1",
+  "id": "SL-PROJECT-BEGINNING-1",
+  "category": "project-commemorative",
+  "workId": "SL-PROJECT-BEGINNING-20261021",
+  "source": {
+    "mainSHA": "620d4fb96bc1cd37ed74d6aca0a84ff71aa7f8ea",
+    "artDirection": "research/project-scroll-redesign-2026-10-21/design.md",
+    "artDirectionSHA256": "041c3b1fc8cce9b4e1a82988da68c231cc792fcf087c27525fc2ca218d5e7e33"
+  },
+  "intention": "A private remembrance of the project beginning: words enter ordinary life through context and response, then page follows page. This draft makes no claim about a founding date, the recipient's personal experience or an examination event.",
+  "copy": {
+    "rubric": "A project remembrance",
+    "institution": "The Second Language",
+    "artTitle": "A Day in Another Tongue",
+    "verse": [
+      "With a first word, the work begins:",
+      "rain at the shutter, bread upon the board,",
+      "a greeting answered at an open door.",
+      "Page will follow page.",
+      "Another tongue enters the day."
+    ],
+    "colophon": [
+      "For Gual Wells,",
+      "to mark the beginning of The Second Language."
+    ],
+    "sealLegends": [
+      "The Second Language",
+      "In remembrance"
+    ],
+    "status": "Private commemorative work",
+    "translation": {
+      "rubric": "项目特别留念",
+      "institution": "第二语言",
+      "artTitle": "另一种语言里的一日",
+      "verse": [
+        "这项工作，始于第一个词：",
+        "窗板边的雨，木案上的面包，",
+        "敞开的门口，一声招呼有了回应。",
+        "一页之后，还将有一页。",
+        "另一种语言，走进这一日。"
+      ],
+      "colophon": [
+        "为 Gual Wells 而作，",
+        "纪念《第二语言》的启程。"
+      ],
+      "sealLegends": [
+        "第二语言",
+        "留作纪念"
+      ],
+      "status": "私人纪念作品"
+    },
+    "labels": {
+      "made": {
+        "en": "Made",
+        "zh": "制作于"
+      },
+      "contentMark": {
+        "en": "Content mark",
+        "zh": "内容短记"
+      },
+      "contentSHA256": {
+        "en": "Content SHA-256",
+        "zh": "内容 SHA-256 摘要"
+      },
+      "published": {
+        "en": "Published",
+        "zh": "发布于"
+      }
+    }
+  },
+  "resources": {
+    "paper": {
+      "src": "assets/parchment.webp",
+      "sha256": "10b3316df6408655a4c917e652ce739c446a00614fd475033bbe575c606df4b1",
+      "variant": "independently-authored-project-beginning-sheet-trial",
+      "sourceOriginal": "research/project-scroll-redesign-2026-10-21/source/parchment.png",
+      "material": "Author-designed aged warm parchment; albedo carries colour ageing, broad wear and fold shading. Trial, not an accepted material or measured height field."
+    },
+    "normal": {
+      "src": "../chapter-scroll-v4/assets/skin-normal.jpg",
+      "sha256": "d0057cdbee5be6223b35f0a463441404144fcdae699f69ff610eec4d86d48970",
+      "source": "Rob Tuytel / Poly Haven Leather Red 02, CC0",
+      "sourceURL": "https://polyhaven.com/a/leather_red_02",
+      "material": "Unmodified OpenGL micro-normal scan, low-amplitude artistic skin approximation; not measured parchment."
+    },
+    "roughness": {
+      "src": "../chapter-scroll-v4/assets/skin-roughness.jpg",
+      "sha256": "dd3b860a9510a44fd857c04e0c8cc63ea1f944c25abe9bdcbf844cc4a22c88d8",
+      "source": "Rob Tuytel / Poly Haven Leather Red 02, CC0",
+      "sourceURL": "https://polyhaven.com/a/leather_red_02",
+      "material": "Unmodified scan channel, remapped by the retained paper shader to a matte .88-.98 range."
+    },
+    "ornament": {
+      "src": "assets/daily-miniature.png",
+      "sha256": "70c58500dfd07879eef40896bfe88d581ddaebf73ab63b73d5be6472aa93a09e",
+      "sourceOriginal": "research/project-scroll-redesign-2026-10-21/source/daily-miniature.png",
+      "material": "Independent transparent ink-and-wash miniature: blank open book, small bread heel, a little window shutter and sparse rain."
+    },
+    "font": {
+      "src": "../chapter-scroll/assets/Aboensis-Regular.otf",
+      "sha256": "0ad00fb94899b3a8277680377eb7270c5fb3ee73dd9fefbd6fb31d9f94c4707b",
+      "family": "Aboensis"
+    },
+    "environment": {
+      "src": "../chapter-scroll-v3/assets/studio.hdr",
+      "sha256": "e7cfda5f4e98e623db12b8bfd0184e048488e4855d9c83e2751fb44a32e80c45",
+      "source": "Sergej Majboroda / Poly Haven Studio Small 09, CC0"
+    },
+    "inkShoulder": {
+      "src": "../chapter-scroll-v10/assets/ink-shoulder.png",
+      "sha256": "5dbfab038a6ba4a9cb7f047beed26c4c105fa1cab46143479fb3bbab4c66dd2c",
+      "material": "Retained independent surplus-ink density source used by the v12 oblong remembrance impression."
+    }
+  },
+  "layout": {
+    "width": 2048,
+    "height": 2868,
+    "nominalSizeMM": [
+      300,
+      420
+    ],
+    "blocks": [
+      {
+        "id": "rubric",
+        "x": 1024,
+        "y": 285,
+        "width": 1500,
+        "fontSize": 52,
+        "lineHeight": 74,
+        "align": "center",
+        "color": "#58372d"
+      },
+      {
+        "id": "institution",
+        "x": 1024,
+        "y": 475,
+        "width": 1600,
+        "fontSize": 124,
+        "minFontSize": 116,
+        "lineHeight": 160,
+        "align": "center",
+        "color": "#30251b"
+      },
+      {
+        "id": "subtitle",
+        "x": 1024,
+        "y": 650,
+        "width": 1560,
+        "fontSize": 82,
+        "lineHeight": 108,
+        "align": "center",
+        "color": "#30251b"
+      },
+      {
+        "id": "verseBefore",
+        "x": 1024,
+        "y": 875,
+        "width": 1560,
+        "fontSize": 86,
+        "lineHeight": 140,
+        "align": "center",
+        "color": "#30251b"
+      },
+      {
+        "id": "verseAfter",
+        "x": 1024,
+        "y": 2040,
+        "width": 1500,
+        "fontSize": 90,
+        "lineHeight": 140,
+        "align": "center",
+        "color": "#30251b"
+      },
+      {
+        "id": "colophon",
+        "x": 1024,
+        "y": 2350,
+        "width": 1540,
+        "fontSize": 56,
+        "lineHeight": 90,
+        "align": "center",
+        "color": "#30251b"
+      },
+      {
+        "id": "identity",
+        "x": 750,
+        "y": 2545,
+        "width": 1010,
+        "fontSize": 42,
+        "lineHeight": 70,
+        "align": "left",
+        "color": "#30251b"
+      },
+      {
+        "id": "status",
+        "x": 1024,
+        "y": 2765,
+        "width": 1450,
+        "fontSize": 40,
+        "lineHeight": 54,
+        "align": "center",
+        "color": "#30251b"
+      }
+    ],
+    "ornament": {
+      "x": 444,
+      "y": 1260,
+      "width": 1160,
+      "height": 650,
+      "opacity": 0.9
+    },
+    "seal": {
+      "x": 310,
+      "y": 2525,
+      "width": 300,
+      "height": 138
+    },
+    "textSafeRect": {
+      "x": 210,
+      "y": 180,
+      "width": 1628,
+      "height": 2640
+    },
+    "paperFolds": {
+      "provenance": "Trial approximation from the actual paper image; not precision measurement or artistic acceptance",
+      "diagonal": {
+        "offset": 0.229,
+        "slope": 0.179,
+        "width": 0.009,
+        "depth": 0.008
+      },
+      "lower": {
+        "offset": 0.655,
+        "sine": 0.021,
+        "slope": 0.005,
+        "width": 0.01,
+        "depth": 0.009
+      }
+    },
+    "microstructure": {
+      "repeat": [
+        1.4,
+        2.1
+      ],
+      "normalScale": 0.035,
+      "impressionScale": 0.0045
+    },
+    "inkWearVersion": "dry-quill-1"
+  },
+  "models": {
+    "creativePolicy": {
+      "model": "gpt-6.1-sol",
+      "reasoningEffort": "xhigh"
+    },
+    "creativeSource": "research/project-scroll-redesign-2026-10-21/design.md",
+    "executionEvidence": "Creative dispatch and actual image-generation evidence are retained by the primary executor; this field alone is not execution attestation.",
+    "imageTool": "built-in image_gen.imagegen",
+    "imageModel": "not exposed",
+    "imageQuality": "not exposed",
+    "creativeDispatch": {
+      "tool": "collaboration.followup_task",
+      "task": "project_scroll_art_direction",
+      "inheritedModel": "gpt-6.1-sol",
+      "inheritedReasoningEffort": "xhigh",
+      "note": "Continuing the explicitly configured creative agent; image model is separate and not exposed."
+    }
+  }
+}
