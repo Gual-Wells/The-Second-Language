@@ -1,0 +1,27 @@
+{
+  "base": "https://the-second-language.pages.dev",
+  "checkedAt": "2026-10-21T08:50:10.060Z",
+  "method": "Anonymous requests through the actual production gateway, without browser API mocks or cookies.",
+  "checks": [
+    {
+      "id": "session",
+      "status": 200,
+      "sha256": "314433a949bdd842e96d2117e7fe03c6495336884069b2c9da70e4593e0c86d4"
+    },
+    {
+      "id": "practice",
+      "status": 401,
+      "sha256": "9ae5df81a66150b59c285b977d88c172ec17a2d4e79f7b0c6c7d234513589abf"
+    },
+    {
+      "id": "shell",
+      "status": 200,
+      "sha256": "6a2d6d05825e15f4824053e5d5d7faa4003f0abac9e4945dc23f3341d7b02484"
+    },
+    {
+      "id": "surfaceManifest",
+      "status": 200,
+      "sha256": "1217c96138bf1cb93cadc7d57e73d45bb8661cfc1d80c64c24eff299a3e8d885"
+    }
+  ]
+}

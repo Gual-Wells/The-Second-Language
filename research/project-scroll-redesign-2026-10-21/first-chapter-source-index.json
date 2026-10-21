@@ -1,0 +1,267 @@
+{
+  "schema": "second-language.research-evidence.v1",
+  "recordedAt": "2026-10-21T11:35:11.484Z",
+  "repository": "Gual-Wells/The-Second-Language",
+  "commit": "17acb31e0241180b5f0c19b463492cc6ef756c80",
+  "method": "Bytes read from the immutable Git object, not mutable working-tree line endings. Selected technical and process evidence, not a claim that a file hash proves artistic quality.",
+  "sources": [
+    {
+      "path": "research/scroll-lab/README.md",
+      "bytes": 6998,
+      "sha256": "aa50994ea7a50be5afb943d7eb43a7ab7b58b8b9febfa353532ef7114fe65e03",
+      "url": "https://github.com/Gual-Wells/The-Second-Language/blob/17acb31e0241180b5f0c19b463492cc6ef756c80/research/scroll-lab/README.md"
+    },
+    {
+      "path": "research/scroll-lab-v2/README.md",
+      "bytes": 7746,
+      "sha256": "ee2e3375a299347d7c1f68e5f11821f5fbaedd49f2072749dce198cacf3092cc",
+      "url": "https://github.com/Gual-Wells/The-Second-Language/blob/17acb31e0241180b5f0c19b463492cc6ef756c80/research/scroll-lab-v2/README.md"
+    },
+    {
+      "path": "research/scroll-lab-v3/README.md",
+      "bytes": 5519,
+      "sha256": "8f700ddb0dc9c332ac1040bc9a5256719e19849f772024f6c612f0926275f373",
+      "url": "https://github.com/Gual-Wells/The-Second-Language/blob/17acb31e0241180b5f0c19b463492cc6ef756c80/research/scroll-lab-v3/README.md"
+    },
+    {
+      "path": "research/scroll-lab-v3/PROMPTS.md",
+      "bytes": 5167,
+      "sha256": "121a67a559092c01643d66ebcb25dd686f8ef033abdd025f2bae1cf91b9a1a68",
+      "url": "https://github.com/Gual-Wells/The-Second-Language/blob/17acb31e0241180b5f0c19b463492cc6ef756c80/research/scroll-lab-v3/PROMPTS.md"
+    },
+    {
+      "path": "research/scroll-lab-v4/README.md",
+      "bytes": 5946,
+      "sha256": "f40ee56809fafe438b2389c5cb95f8e6f46009aae3afa17f61266ca46b3c5c66",
+      "url": "https://github.com/Gual-Wells/The-Second-Language/blob/17acb31e0241180b5f0c19b463492cc6ef756c80/research/scroll-lab-v4/README.md"
+    },
+    {
+      "path": "research/scroll-lab-v4/PROMPTS.md",
+      "bytes": 3838,
+      "sha256": "776c12e5ac7f72a8f70cf564185663c13fcc28c8561a2f1ab383adb9bb1777d3",
+      "url": "https://github.com/Gual-Wells/The-Second-Language/blob/17acb31e0241180b5f0c19b463492cc6ef756c80/research/scroll-lab-v4/PROMPTS.md"
+    },
+    {
+      "path": "research/scroll-lab-v5/README.md",
+      "bytes": 3025,
+      "sha256": "cd612108187576cbc5a90e05fdd4075c225a45e8a1e1f84748f1f41115c198fe",
+      "url": "https://github.com/Gual-Wells/The-Second-Language/blob/17acb31e0241180b5f0c19b463492cc6ef756c80/research/scroll-lab-v5/README.md"
+    },
+    {
+      "path": "research/scroll-lab-v5/PROMPTS.md",
+      "bytes": 1948,
+      "sha256": "8c7e48d1364c11473728ceb3b79618cc1e811793f1c736cc4b3085d32adf12ae",
+      "url": "https://github.com/Gual-Wells/The-Second-Language/blob/17acb31e0241180b5f0c19b463492cc6ef756c80/research/scroll-lab-v5/PROMPTS.md"
+    },
+    {
+      "path": "research/scroll-lab-v6/README.md",
+      "bytes": 3368,
+      "sha256": "8a49031dc46265a29c068c60493d4b711694785d61a66b480bd80c80c3507db3",
+      "url": "https://github.com/Gual-Wells/The-Second-Language/blob/17acb31e0241180b5f0c19b463492cc6ef756c80/research/scroll-lab-v6/README.md"
+    },
+    {
+      "path": "research/scroll-lab-v6/PROMPTS.md",
+      "bytes": 4455,
+      "sha256": "ae27bc4ee95bb743481c44b439eeb08913e2eadc37fd3b59b9c865d919ceb57f",
+      "url": "https://github.com/Gual-Wells/The-Second-Language/blob/17acb31e0241180b5f0c19b463492cc6ef756c80/research/scroll-lab-v6/PROMPTS.md"
+    },
+    {
+      "path": "research/scroll-lab-v7/README.md",
+      "bytes": 3828,
+      "sha256": "a6e21ccacf95c260b3cfa741b7a25618de9c2f5e0b9ee17a0ce69144f6b4c7f5",
+      "url": "https://github.com/Gual-Wells/The-Second-Language/blob/17acb31e0241180b5f0c19b463492cc6ef756c80/research/scroll-lab-v7/README.md"
+    },
+    {
+      "path": "research/scroll-lab-v8/README.md",
+      "bytes": 2409,
+      "sha256": "71622377535af184d8b4740b5c1fe42c296ef862a0c30145ef68d8825483137c",
+      "url": "https://github.com/Gual-Wells/The-Second-Language/blob/17acb31e0241180b5f0c19b463492cc6ef756c80/research/scroll-lab-v8/README.md"
+    },
+    {
+      "path": "research/scroll-lab-v9/README.md",
+      "bytes": 2126,
+      "sha256": "5feafb4c0486154629b00c4d253bf1cce37e6d77c6998c8a573232eadc4524ca",
+      "url": "https://github.com/Gual-Wells/The-Second-Language/blob/17acb31e0241180b5f0c19b463492cc6ef756c80/research/scroll-lab-v9/README.md"
+    },
+    {
+      "path": "research/scroll-lab-v10/README.md",
+      "bytes": 2571,
+      "sha256": "1b69023b8ba1e70ee4bafeb27f8da205b5b80ad25eb9c2ce2de513cc43e43c33",
+      "url": "https://github.com/Gual-Wells/The-Second-Language/blob/17acb31e0241180b5f0c19b463492cc6ef756c80/research/scroll-lab-v10/README.md"
+    },
+    {
+      "path": "research/scroll-lab-v11/README.md",
+      "bytes": 5793,
+      "sha256": "9f565d1d7a95d8fc137b300de00a456ff499675e9df5f703293417a2d184514e",
+      "url": "https://github.com/Gual-Wells/The-Second-Language/blob/17acb31e0241180b5f0c19b463492cc6ef756c80/research/scroll-lab-v11/README.md"
+    },
+    {
+      "path": "research/scroll-lab-v6/fidelity.json",
+      "bytes": 504,
+      "sha256": "cd28b56260f4f1a4ee9c8f14d67fb5adc9ad6cf46f0a2e99ed9cd7a6318adc7f",
+      "url": "https://github.com/Gual-Wells/The-Second-Language/blob/17acb31e0241180b5f0c19b463492cc6ef756c80/research/scroll-lab-v6/fidelity.json"
+    },
+    {
+      "path": "research/scroll-lab-v6/continuity.json",
+      "bytes": 2086,
+      "sha256": "c1d9b6d033236d5e46c944853530ac31f37b750f4e49b9ed0c1136f68f16b240",
+      "url": "https://github.com/Gual-Wells/The-Second-Language/blob/17acb31e0241180b5f0c19b463492cc6ef756c80/research/scroll-lab-v6/continuity.json"
+    },
+    {
+      "path": "research/scroll-lab-v12/README.md",
+      "bytes": 13489,
+      "sha256": "e7a75fea3d9efdcc27fde69e800b87f9aacc72ac2fa0b1fc8f1d6b36312c2ac2",
+      "url": "https://github.com/Gual-Wells/The-Second-Language/blob/17acb31e0241180b5f0c19b463492cc6ef756c80/research/scroll-lab-v12/README.md"
+    },
+    {
+      "path": "research/scroll-lab-v12-sample/README.md",
+      "bytes": 3628,
+      "sha256": "6b02b6d8f58a55ef71b87a34c9c6b2191480c094a5314b3361c9a7971d3a0ad9",
+      "url": "https://github.com/Gual-Wells/The-Second-Language/blob/17acb31e0241180b5f0c19b463492cc6ef756c80/research/scroll-lab-v12-sample/README.md"
+    },
+    {
+      "path": "research/scroll-lab-v12-sample/PROMPTS.md",
+      "bytes": 2047,
+      "sha256": "0c40b9cb07554968da90ab7bf9451b2db510f9f10b0769b380331ed9d9d88c3d",
+      "url": "https://github.com/Gual-Wells/The-Second-Language/blob/17acb31e0241180b5f0c19b463492cc6ef756c80/research/scroll-lab-v12-sample/PROMPTS.md"
+    },
+    {
+      "path": "web/labs/chapter-scroll/CREDITS.md",
+      "bytes": 2922,
+      "sha256": "1ee253c2e5d69d274cb19a5b1bcf0ad579a3af2ae365895ce85a7ec86c2ec661",
+      "url": "https://github.com/Gual-Wells/The-Second-Language/blob/17acb31e0241180b5f0c19b463492cc6ef756c80/web/labs/chapter-scroll/CREDITS.md"
+    },
+    {
+      "path": "web/labs/chapter-scroll/document.js",
+      "bytes": 4162,
+      "sha256": "9af0fc9eaa9692f8bf429b8e68d3ca612d1d601f2d574b489d9d64e16641d284",
+      "url": "https://github.com/Gual-Wells/The-Second-Language/blob/17acb31e0241180b5f0c19b463492cc6ef756c80/web/labs/chapter-scroll/document.js"
+    },
+    {
+      "path": "web/labs/chapter-scroll/scroll-object.js",
+      "bytes": 5011,
+      "sha256": "e76d34d9ac0be78f46689cca3e5de754a7b4585526506de1aec22d82f031705e",
+      "url": "https://github.com/Gual-Wells/The-Second-Language/blob/17acb31e0241180b5f0c19b463492cc6ef756c80/web/labs/chapter-scroll/scroll-object.js"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v2/document.js",
+      "bytes": 6560,
+      "sha256": "75894c6d17bdfa763829d266bc6f0dc64ed25910378bd34eddb7fa22dfaa924d",
+      "url": "https://github.com/Gual-Wells/The-Second-Language/blob/17acb31e0241180b5f0c19b463492cc6ef756c80/web/labs/chapter-scroll-v2/document.js"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v3/scroll-object.js",
+      "bytes": 6104,
+      "sha256": "6e044be46bd9f91e5b54ff8900acde8b5af572e2199083241b584fe250917a82",
+      "url": "https://github.com/Gual-Wells/The-Second-Language/blob/17acb31e0241180b5f0c19b463492cc6ef756c80/web/labs/chapter-scroll-v3/scroll-object.js"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v4/CREDITS.md",
+      "bytes": 2617,
+      "sha256": "0f773ed9ae401638bae0e6e97eb16b596e4de02e8f98f6cb3ad19f5f0f08d23c",
+      "url": "https://github.com/Gual-Wells/The-Second-Language/blob/17acb31e0241180b5f0c19b463492cc6ef756c80/web/labs/chapter-scroll-v4/CREDITS.md"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v4/document.js",
+      "bytes": 2811,
+      "sha256": "786e447268aa92de1e4e8e1205cb907ab463840127eea5a1351858532057393a",
+      "url": "https://github.com/Gual-Wells/The-Second-Language/blob/17acb31e0241180b5f0c19b463492cc6ef756c80/web/labs/chapter-scroll-v4/document.js"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v4/scroll-object.js",
+      "bytes": 1483,
+      "sha256": "e6ba513f4268a159a22c7a9eaa3af414494372c33c8cf3b5cb49a1176663aaac",
+      "url": "https://github.com/Gual-Wells/The-Second-Language/blob/17acb31e0241180b5f0c19b463492cc6ef756c80/web/labs/chapter-scroll-v4/scroll-object.js"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v5/document.js",
+      "bytes": 2295,
+      "sha256": "68173e8df4ab001359a5d20464bdc7ee899b03def385703d3515717913a4c603",
+      "url": "https://github.com/Gual-Wells/The-Second-Language/blob/17acb31e0241180b5f0c19b463492cc6ef756c80/web/labs/chapter-scroll-v5/document.js"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v5/scroll-object.js",
+      "bytes": 6741,
+      "sha256": "7781c4f12e9e00d02addbc2afbaf24f844f090b9f521de2c4b54cba061b40e0c",
+      "url": "https://github.com/Gual-Wells/The-Second-Language/blob/17acb31e0241180b5f0c19b463492cc6ef756c80/web/labs/chapter-scroll-v5/scroll-object.js"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v6/scroll-object.js",
+      "bytes": 8129,
+      "sha256": "1b92656c0fa85c34d279995f3c906cbf03cc362fe19dd5b3b252e4f838eacf2f",
+      "url": "https://github.com/Gual-Wells/The-Second-Language/blob/17acb31e0241180b5f0c19b463492cc6ef756c80/web/labs/chapter-scroll-v6/scroll-object.js"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v6/templates.js",
+      "bytes": 555,
+      "sha256": "3bc6f9d760f16c82fa1f99c1616042573633261d2de17ff518ee3877460e27fe",
+      "url": "https://github.com/Gual-Wells/The-Second-Language/blob/17acb31e0241180b5f0c19b463492cc6ef756c80/web/labs/chapter-scroll-v6/templates.js"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v4/assets/skin-normal.jpg",
+      "bytes": 1033319,
+      "sha256": "d0057cdbee5be6223b35f0a463441404144fcdae699f69ff610eec4d86d48970",
+      "url": "https://github.com/Gual-Wells/The-Second-Language/blob/17acb31e0241180b5f0c19b463492cc6ef756c80/web/labs/chapter-scroll-v4/assets/skin-normal.jpg"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v4/assets/skin-roughness.jpg",
+      "bytes": 879217,
+      "sha256": "dd3b860a9510a44fd857c04e0c8cc63ea1f944c25abe9bdcbf844cc4a22c88d8",
+      "url": "https://github.com/Gual-Wells/The-Second-Language/blob/17acb31e0241180b5f0c19b463492cc6ef756c80/web/labs/chapter-scroll-v4/assets/skin-roughness.jpg"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v8/scroll-object.js",
+      "bytes": 2516,
+      "sha256": "601671dc7ed7abba5cafa0adef00cf21a235550a3a669c3dfc2c75c8d1e36c5a",
+      "url": "https://github.com/Gual-Wells/The-Second-Language/blob/17acb31e0241180b5f0c19b463492cc6ef756c80/web/labs/chapter-scroll-v8/scroll-object.js"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v8/document.js",
+      "bytes": 3639,
+      "sha256": "83c5f37b0a099b1087b0d978da1d389f351fe02678cff83dde133e634a1dd83a",
+      "url": "https://github.com/Gual-Wells/The-Second-Language/blob/17acb31e0241180b5f0c19b463492cc6ef756c80/web/labs/chapter-scroll-v8/document.js"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v9/ink-transfer.js",
+      "bytes": 2708,
+      "sha256": "f2fd0809157caf747f9f22d5607ed502c8ba496e9486a80c6f1643879b4194e9",
+      "url": "https://github.com/Gual-Wells/The-Second-Language/blob/17acb31e0241180b5f0c19b463492cc6ef756c80/web/labs/chapter-scroll-v9/ink-transfer.js"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v10/ink-transfer.js",
+      "bytes": 2753,
+      "sha256": "39917ab44e27182ccea269f4d7d31cedce2abee1fad965b932a068f05400d178",
+      "url": "https://github.com/Gual-Wells/The-Second-Language/blob/17acb31e0241180b5f0c19b463492cc6ef756c80/web/labs/chapter-scroll-v10/ink-transfer.js"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v12/document.js",
+      "bytes": 4432,
+      "sha256": "4cb3aabb3a2532fe9bc41e962a380b74c241119a8fb72e348e8e05800be609ea",
+      "url": "https://github.com/Gual-Wells/The-Second-Language/blob/17acb31e0241180b5f0c19b463492cc6ef756c80/web/labs/chapter-scroll-v12/document.js"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v12/seal.js",
+      "bytes": 4398,
+      "sha256": "fdee222f343df88dccbe8b035724fde16bd41df3b6825e8aaa8aa336ed22fbe1",
+      "url": "https://github.com/Gual-Wells/The-Second-Language/blob/17acb31e0241180b5f0c19b463492cc6ef756c80/web/labs/chapter-scroll-v12/seal.js"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v12/charter.js",
+      "bytes": 2194,
+      "sha256": "b7a5aab1854e6fdff851e2100964ead18709a9e48839d231e1ce8c59f4b61422",
+      "url": "https://github.com/Gual-Wells/The-Second-Language/blob/17acb31e0241180b5f0c19b463492cc6ef756c80/web/labs/chapter-scroll-v12/charter.js"
+    },
+    {
+      "path": "scripts/check-scroll-fidelity-v6.mjs",
+      "bytes": 3878,
+      "sha256": "0d1d6c24379fbe67b7216ea0184f561e9d93477437e8812b44927da91b0a9f38",
+      "url": "https://github.com/Gual-Wells/The-Second-Language/blob/17acb31e0241180b5f0c19b463492cc6ef756c80/scripts/check-scroll-fidelity-v6.mjs"
+    },
+    {
+      "path": "scripts/check-scroll-continuity-v6.mjs",
+      "bytes": 4398,
+      "sha256": "724581be464f498f3a62822c461a14f06e0bd79ec301eeb6e496999d01f94ecc",
+      "url": "https://github.com/Gual-Wells/The-Second-Language/blob/17acb31e0241180b5f0c19b463492cc6ef756c80/scripts/check-scroll-continuity-v6.mjs"
+    }
+  ]
+}

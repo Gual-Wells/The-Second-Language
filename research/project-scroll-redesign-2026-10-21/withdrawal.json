@@ -1,0 +1,24 @@
+{
+  "state": "rejected-by-user-and-withdrawn-from-catalogue",
+  "checkedAt": "2026-10-21T11:35:14.161Z",
+  "base": "https://the-second-language.pages.dev",
+  "sourceCommit": "741d298f0a3eeb77ca597842fd53ad7702c6e010",
+  "immutable": "https://815db493.the-second-language.pages.dev",
+  "shell": 38,
+  "originalContentSHA": "af914e503979155ba41bd4dcaa2e1dbbec7577b8ac293627b336b9ccff3e7425",
+  "sourceArtifactsRetained": true,
+  "checks": [
+    {
+      "id": "catalogue",
+      "url": "/certification-reader.js?v=38",
+      "status": 200,
+      "sourceBytesMatch": true
+    },
+    {
+      "id": "shell",
+      "url": "/sw.js?v=38",
+      "status": 200,
+      "sourceBytesMatch": true
+    }
+  ]
+}
