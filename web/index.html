@@ -11,10 +11,10 @@
   <meta name="format-detection" content="telephone=no">
   <meta name="description" content="第二语言 · 按日期阅读的每日英语章节">
   <title>第二语言</title>
-  <link rel="manifest" href="/manifest.webmanifest?v=35">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=35">
-  <link rel="icon" href="/icon-192.png?v=35" type="image/png">
-  <link rel="stylesheet" href="/styles.css?v=35">
+  <link rel="manifest" href="/manifest.webmanifest?v=36">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=36">
+  <link rel="icon" href="/icon-192.png?v=36" type="image/png">
+  <link rel="stylesheet" href="/styles.css?v=36">
 </head>
 <body>
   <main class="app-shell login-mode" id="app">
@@ -61,13 +61,13 @@
       <div class="reading-scroll" id="readingScroll" tabindex="0">
         <section class="state-card loading-card" id="loadingState" role="status">
           <div class="state-band"><span>第二语言</span><small>DAILY READER</small></div>
-          <div class="state-body"><img class="state-icon" src="/icon.svg?v=35" alt=""><h2>正在打开章节</h2><p>正在检查登录状态与已发布章节。</p></div>
+          <div class="state-body"><img class="state-icon" src="/icon.svg?v=36" alt=""><h2>正在打开章节</h2><p>正在检查登录状态与已发布章节。</p></div>
         </section>
 
         <section class="state-card" id="loginState" hidden>
           <div class="state-band"><span>个人章节</span><small>SECOND LANGUAGE</small></div>
           <div class="state-body">
-            <img class="state-icon" src="/icon.svg?v=35" alt="">
+            <img class="state-icon" src="/icon.svg?v=36" alt="">
             <h2>打开你的每日读书器</h2>
             <p id="loginDescription">使用已登记的通行密钥登录，继续按日期阅读。</p>
             <label class="field-label" id="setupKeyRow" for="setupKey" hidden>初始化密钥</label>
@@ -80,7 +80,7 @@
 
         <section class="state-card" id="emptyState" hidden>
           <div class="state-band"><span>每日章节</span><small>CHAPTERS</small></div>
-          <div class="state-body"><img class="state-icon" src="/icon.svg?v=35" alt=""><h2>下一章正在建设</h2><p>发布后的章节会出现在章节册、日期栏和日历中。你可以先在设置里写下学习目标，供下一次推荐参考。</p><button class="bevel-button" id="emptySettingsButton" type="button">填写学习目标</button></div>
+          <div class="state-body"><img class="state-icon" src="/icon.svg?v=36" alt=""><h2>下一章正在建设</h2><p>发布后的章节会出现在章节册、日期栏和日历中。你可以先在设置里写下学习目标，供下一次推荐参考。</p><button class="bevel-button" id="emptySettingsButton" type="button">填写学习目标</button></div>
         </section>
 
         <section class="reader" id="reader" hidden>
@@ -217,10 +217,28 @@
   <dialog class="sheet-dialog" id="chapterQualityDialog" aria-labelledby="chapterQualityTitle"><div class="sheet help-sheet"><div class="sheet-head"><div><small>CHAPTER QUALITY</small><h2 id="chapterQualityTitle">章节质检</h2></div><button class="sheet-close" data-close="chapterQualityDialog" type="button" aria-label="关闭">×</button></div><p id="chapterQualityStatus" class="quality-status" role="status"></p><div id="chapterQualityBody" class="quality-body"></div><div class="quality-footer"><p>固定版本审阅 · 不代表学习者认证</p><div class="button-row"><button class="bevel-button" id="chapterQualityBack" type="button" hidden>返回记录</button><button class="primary-button" id="chapterQualityApply" type="button">申请本版质检</button></div></div></div></dialog>
 
   <dialog class="sheet-dialog" id="installDialog" aria-labelledby="installTitle">
-    <div class="sheet help-sheet"><div class="sheet-head"><div><small>HOME SCREEN</small><h2 id="installTitle">加入主屏幕</h2></div><button class="sheet-close" data-close="installDialog" type="button" aria-label="关闭">×</button></div><div class="install-guide"><img src="/icon-192.png?v=35" alt="第二语言图标"><div><strong>在 iPhone 的 Safari 中</strong><ol><li>打开本站并点按分享按钮（也可能位于浏览器菜单中）。</li><li>选择“添加到主屏幕”。</li><li>从主屏幕启动“第二语言”。</li></ol></div></div></div>
+    <div class="sheet help-sheet"><div class="sheet-head"><div><small>HOME SCREEN</small><h2 id="installTitle">加入主屏幕</h2></div><button class="sheet-close" data-close="installDialog" type="button" aria-label="关闭">×</button></div><div class="install-guide"><img src="/icon-192.png?v=36" alt="第二语言图标"><div><strong>在 iPhone 的 Safari 中</strong><ol><li>打开本站并点按分享按钮（也可能位于浏览器菜单中）。</li><li>选择“添加到主屏幕”。</li><li>从主屏幕启动“第二语言”。</li></ol></div></div></div>
   </dialog>
 
+  <dialog class="sheet-dialog" id="certificationCatalogue" aria-labelledby="certificationCatalogueTitle">
+    <div class="sheet certification-catalogue"><div class="sheet-head"><h2 id="certificationCatalogueTitle">认证阅览</h2><button class="sheet-close" data-close="certificationCatalogue" type="button" aria-label="返回设置">×</button></div><div id="certificationChapters"></div></div>
+  </dialog>
+  <dialog class="certification-viewer" id="certificationViewer" aria-label="卷轴纯享阅览">
+    <div id="certificationStage" class="certification-stage controls-visible">
+      <canvas id="certificationMist" class="certification-mist" aria-hidden="true"></canvas>
+      <canvas id="certificationCanvas" class="certification-canvas" tabindex="0" aria-label="轻触启卷或收卷，也可沿纵向拖动"></canvas>
+      <img id="certificationStatic" class="certification-static" alt="卷轴原件" hidden>
+      <div id="certificationLoading" class="certification-loading"><p id="certificationStatus" role="status">正在准备卷轴…</p><button id="certificationRetry" type="button" hidden>重新载入</button></div>
+      <nav id="certificationHud" class="certification-hud" aria-label="阅览操作"><button id="certificationBack" type="button" aria-label="返回章节列表">‹</button><button id="certificationSound" type="button" aria-controls="certificationSoundPanel" aria-expanded="false">声音</button></nav>
+      <section id="certificationSoundPanel" class="certification-sound-panel" aria-label="阅览声音设置" hidden>
+        <div class="certification-sound-heading"><strong>声音</strong><button id="certificationSoundClose" type="button" aria-label="关闭声音设置">×</button></div>
+        <label class="certification-sound-switch" for="certificationMusic"><span>音乐</span><input id="certificationMusic" type="checkbox" role="switch"></label><input id="certificationMusicVolume" type="range" min="0" max="100" step="1" aria-label="音乐音量">
+        <label class="certification-sound-switch" for="certificationFoley"><span>拟音</span><input id="certificationFoley" type="checkbox" role="switch"></label><input id="certificationFoleyVolume" type="range" min="0" max="100" step="1" aria-label="拟音音量">
+        <p id="certificationSoundStatus" role="status"></p>
+      </section>
+    </div>
+  </dialog>
   <div id="toast" role="status" aria-live="polite"></div>
-  <script type="module" src="/app.js?v=35"></script>
+  <script type="module" src="/app.js?v=36"></script>
 </body>
 </html>

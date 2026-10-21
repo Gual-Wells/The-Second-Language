@@ -1,0 +1,302 @@
+{
+  "sourceCommit": "17acb31e0241180b5f0c19b463492cc6ef756c80",
+  "sourceBranch": "codex/medieval-scroll-lab-2026-10-16",
+  "basis": "Accepted scroll craft only. No room geometry, scene textures or room music.",
+  "files": [
+    {
+      "path": "web/labs/chapter-scroll-v12/templates.js",
+      "bytes": 658,
+      "sha256": "a9db186ebd9f2151597c672315ca9017a471dc65350345ae228318b7f1fd70ce"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v12/charter.js",
+      "bytes": 2194,
+      "sha256": "b7a5aab1854e6fdff851e2100964ead18709a9e48839d231e1ce8c59f4b61422"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v10/charter.js",
+      "bytes": 3207,
+      "sha256": "c8a31f8231e1aa6af59ceb7c3ee42738e57f8bb1c34d84d590bc33a698b65678"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v11/charter.js",
+      "bytes": 4044,
+      "sha256": "61eea3863b35bb8300ea8f1f09797024744842a8d1e77f29e5deffa04d0d4233"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v12/document.js",
+      "bytes": 4432,
+      "sha256": "4cb3aabb3a2532fe9bc41e962a380b74c241119a8fb72e348e8e05800be609ea"
+    },
+    {
+      "path": "web/labs/chapter-scroll/document.js",
+      "bytes": 4162,
+      "sha256": "9af0fc9eaa9692f8bf429b8e68d3ca612d1d601f2d574b489d9d64e16641d284"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v12/seal.js",
+      "bytes": 4398,
+      "sha256": "fdee222f343df88dccbe8b035724fde16bd41df3b6825e8aaa8aa336ed22fbe1"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v10/ink-transfer.js",
+      "bytes": 2753,
+      "sha256": "39917ab44e27182ccea269f4d7d31cedce2abee1fad965b932a068f05400d178"
+    },
+    {
+      "path": "web/labs/certification/vendor/three.module.js",
+      "bytes": 662772,
+      "sha256": "9052042d676cb0fdc1ddfefe193053f34b7ac0513a616fdac4535d49987812ea"
+    },
+    {
+      "path": "web/labs/certification/vendor/three.core.js",
+      "bytes": 1458113,
+      "sha256": "9edde002b066a9a05676a6127f67735b62baf399bdea529f2f7e31657da769e6"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v14/charter.js",
+      "bytes": 2737,
+      "sha256": "a935a7c4017dcef526094ebfa99ed9e4cfaaca7318c210e9161222aa81e728a8"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v14/templates.js",
+      "bytes": 803,
+      "sha256": "6a40d79b61871ac36f4b3fb04eb7a123cca4180bdb305598016dca81746f1b6e"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v14/document.js",
+      "bytes": 3982,
+      "sha256": "cb4b191b00ef59f445c7e95f1891b3f13d9f2bf1c8a8b45fbcb75af6bcc93c97"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v17/templates.js",
+      "bytes": 334,
+      "sha256": "7dbcd5bc116d63d75071170d83cc0cfeea05038710ed51a714ee56c8ed33d259"
+    },
+    {
+      "path": "web/labs/chapter-scroll-runtime/motion.js",
+      "bytes": 497,
+      "sha256": "f4ac736c5128593835ec47f72bf7a00f85c96b6992589327b34a46fed52c4939"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v20/flow.js",
+      "bytes": 4079,
+      "sha256": "d9358f66f36cd7b243e97aaeb0a468e0ebdd6ab777e54b76520a1fa943a3a48a"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v5/vendor/fluid.js",
+      "bytes": 44566,
+      "sha256": "7e6cfbd12a6ced6069c4063116397cda14a8d0ac62856b216aaa4e5613b038e7"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v20/mist.js",
+      "bytes": 5580,
+      "sha256": "04fbadd2e6595925acec625b29d0771730e0cc265370e16aeeda175383fec451"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v19/scroll-object.js",
+      "bytes": 603,
+      "sha256": "902d80ae9a52e1d9b115f43af0ff9280dab05d09355c441a7ecc9ba198b39bb8"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v19/finishing.js",
+      "bytes": 4584,
+      "sha256": "7d9adfdcd4497a9791a80931e1ab34b70dee40ea52be71042e5b799d7aa4b30f"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v17/scroll-object.js",
+      "bytes": 5386,
+      "sha256": "c59d6905bf6cef9b90757bf464b6dbed6b5b55abfb06bae00ff9c623f4bb7b79"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v17/keeper-motion.js",
+      "bytes": 5014,
+      "sha256": "039210dd9b9af7decafc0bc18e95d18650960c7fe30c588cb84b67ea6bee1550"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v17/keeper.js",
+      "bytes": 10550,
+      "sha256": "98c935cfa6371f9a8f6f7b296ef6f1c0f516059647063d3a21ab5c0ba789b392"
+    },
+    {
+      "path": "web/labs/chapter-scroll/vendor/paperlab-roll.js",
+      "bytes": 1383,
+      "sha256": "4c084dbcc8a02a1b1b37bcc9f35c3890be8c125381e32b8d534c3f1c318deccc"
+    },
+    {
+      "path": "web/labs/keeper-asset-study/vendor/GLTFLoader.js",
+      "bytes": 122481,
+      "sha256": "40dbe3d6e74aecee096be0858ca6bd253b71a65e6fcbad9063e86add573908ea"
+    },
+    {
+      "path": "web/labs/keeper-asset-study/vendor/SkeletonUtils.js",
+      "bytes": 12031,
+      "sha256": "219f89d236e63a7df9ec32cf45bb61652c8a86191b6a460430985b52699b5b20"
+    },
+    {
+      "path": "web/labs/keeper-asset-study/vendor/BufferGeometryUtils.js",
+      "bytes": 39213,
+      "sha256": "82845fdda0d757cb006d88961741fccad5ae5792c6acc96d5c7d15f5209d4ec5"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v6/scroll-object.js",
+      "bytes": 8129,
+      "sha256": "1b92656c0fa85c34d279995f3c906cbf03cc362fe19dd5b3b252e4f838eacf2f"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v3/scroll-object.js",
+      "bytes": 6104,
+      "sha256": "6e044be46bd9f91e5b54ff8900acde8b5af572e2199083241b584fe250917a82"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v3/vendor/HDRLoader.js",
+      "bytes": 12116,
+      "sha256": "f82ae35114740aee07344503e81e009d1890b4c49a849064b8dff287c166a9eb"
+    },
+    {
+      "path": "web/labs/chapter-scroll-runtime/scroll-object.js",
+      "bytes": 1469,
+      "sha256": "8bdda090a3a83f2f98b82883aea0a0bae5adfeb22614ae6659511331c99266aa"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v12/scroll-object.js",
+      "bytes": 463,
+      "sha256": "4fe40e7d3dfca795521b37bfac882588c8cec46ea26b91df3d2eee02fa27c719"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v8/scroll-object.js",
+      "bytes": 2516,
+      "sha256": "601671dc7ed7abba5cafa0adef00cf21a235550a3a669c3dfc2c75c8d1e36c5a"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v8/keeper-path.js",
+      "bytes": 1019,
+      "sha256": "4fb2d7e3df2aeb0885dcf245587a44b212c67b07c1ea16c42d15e8a425949579"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v8/keeper.js",
+      "bytes": 3874,
+      "sha256": "c7cff0fedcbd61b544e164e42f9c42725c8537a3ff6a17f90a40e3fea0c39984"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v14/assets/parchment.webp",
+      "bytes": 713606,
+      "sha256": "bd9f3e4653c871ec56f29976cfe65508ad7fed7f95864ee8e8eaa9d5464b545b"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v3/assets/studio.hdr",
+      "bytes": 1615248,
+      "sha256": "e7cfda5f4e98e623db12b8bfd0184e048488e4855d9c83e2751fb44a32e80c45"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v14/chapter-sample.json",
+      "bytes": 430,
+      "sha256": "c24c98334170826b344253109b3ae8cde775515846e9fb413cbe620b31444d2a"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v14/art-plan.json",
+      "bytes": 4604,
+      "sha256": "3104ec4b67859f64268c11a327f37a65d1bdfc48c6f75adc24ee702d3f6318fb"
+    },
+    {
+      "path": "web/labs/chapter-scroll/assets/Aboensis-Regular.otf",
+      "bytes": 137860,
+      "sha256": "0ad00fb94899b3a8277680377eb7270c5fb3ee73dd9fefbd6fb31d9f94c4707b"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v14/assets/unused-keeper.png",
+      "bytes": 70,
+      "sha256": "c2153f77e11087fcb078ae38527fa83bef29791e3700e30cc87fec4405a66d0f"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v13/assets/leaf-and-letter.png",
+      "bytes": 1561703,
+      "sha256": "e5aa04af52dde8cc3f32d0d9dfac3fe1696ef6d275c0514d7e0c0065f517d9c5"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v10/assets/ink-shoulder.png",
+      "bytes": 758302,
+      "sha256": "5dbfab038a6ba4a9cb7f047beed26c4c105fa1cab46143479fb3bbab4c66dd2c"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v17/keeper-path.json",
+      "bytes": 55968,
+      "sha256": "0e8d71fbdc36fdda9e475b7ded3eaf23ccff38b01f275cbfac045cbcff21e6e6"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v14/assets/parchment-normal.jpg",
+      "bytes": 533431,
+      "sha256": "7fdde5d978bcd45b3b426fb8021d9507e0d46fc7fda5a1d2e82c6c46b7dfaa66"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v14/assets/parchment-roughness.jpg",
+      "bytes": 213753,
+      "sha256": "8c2aa0299c197c7fc5f5bc96a66c8675ee781594fff28e7de0db2b9360e9a893"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v19/assets/leather-color.webp",
+      "bytes": 3000366,
+      "sha256": "5c99db712479fb6f8c661f1b4d4422d5e689c59a21c2c197e1dca77bb0c04e95"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v19/assets/leather-orm.webp",
+      "bytes": 1199026,
+      "sha256": "ce92f7819c466c5ec0291e5609da152cc98e0d5c47627d89a81fd3d82a8e6ad1"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v19/assets/leather-normal.webp",
+      "bytes": 2575506,
+      "sha256": "6b3c1601b766712a527d51145aa211fd98b73f4747e0d97490809ac407efbf1c"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v19/assets/bronze-color.webp",
+      "bytes": 2656038,
+      "sha256": "f850970297e8c5d19c7002132e59e877ea54dce0a757d2f642a592f46bd3d9cd"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v19/assets/bronze-orm.webp",
+      "bytes": 1774092,
+      "sha256": "1672624ae4ae60a342346bb3188f974d05258be13d392da027a82468fdae8b4b"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v19/assets/bronze-normal.webp",
+      "bytes": 2159960,
+      "sha256": "a2b951c269e4e6d20ef18cd7f360c3045b2ecc605a63e5e910f819a9a8bcc2bd"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v17/vendor/noise2D.glsl",
+      "bytes": 2162,
+      "sha256": "b0f27c923227e8b2d7618f09dc666e2397f608ca7929f798da632647c3f41884"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v12/chapter-sample.json",
+      "bytes": 378,
+      "sha256": "bdffafcd294693a34394271bc773b51c26c925c09aa694310da83a0c06c0eb2d"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v12/assets/river-margin.png",
+      "bytes": 827699,
+      "sha256": "94462f7c5a469568ee4f68ac9c3de418ab7645832cbd81006f6b34619acca3d1"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v6/assets/charter.webp",
+      "bytes": 735602,
+      "sha256": "d01394d89626dff45630d4ecefb4592dbdea49e7fea6667083a1bca8756624f8"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v4/assets/keeper.webp",
+      "bytes": 377776,
+      "sha256": "12e242bbbcdeac517ff317ea46d141127ff407029f8fadcf645d65cfc5d50128"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v4/assets/skin-normal.jpg",
+      "bytes": 1033319,
+      "sha256": "d0057cdbee5be6223b35f0a463441404144fcdae699f69ff610eec4d86d48970"
+    },
+    {
+      "path": "web/labs/chapter-scroll-v4/assets/skin-roughness.jpg",
+      "bytes": 879217,
+      "sha256": "dd3b860a9510a44fd857c04e0c8cc63ea1f944c25abe9bdcbf844cc4a22c88d8"
+    }
+  ]
+}

@@ -1,0 +1,393 @@
+{
+  "schema": "second-language.certification-reader-display.v1",
+  "issued": false,
+  "works": [
+    {
+      "chapter": 1,
+      "sha256": "590cc91ffca8634b7864f24825afbfc3f5fb286de5321087edd2c336f74732ea"
+    },
+    {
+      "chapter": 5,
+      "sha256": "a2a75215f25dc0fc40f047fd6f6648a4625ae13be7b3fa2ffca5fe72e37f43a0"
+    }
+  ],
+  "scope": "Main settings entry with public, unissued first/fifth specimens only. No certification database, native authoring archive or private awarded artifact.",
+  "files": [
+    {
+      "url": "/index.html",
+      "bytes": 29355,
+      "sha256": "3db43534f6ea16f3e15da07990e3d86478f652180884b85aa94c41a34c2c6522"
+    },
+    {
+      "url": "/styles.css",
+      "bytes": 58048,
+      "sha256": "bbbb30941567c13613db1bfbf6f0cf0440fe2ced2b2352041ee71ba96e35377b"
+    },
+    {
+      "url": "/icon.svg",
+      "bytes": 551,
+      "sha256": "a6187d27e9c733a2470bedcefbe3947166706b06fa9c4be05a6dd577cba25b2b"
+    },
+    {
+      "url": "/icon-192.png",
+      "bytes": 3921,
+      "sha256": "32373b0edaab98b53f5ac5827bb2c4b4c5cdeba053d5612b2fd74f2c3b78d15b"
+    },
+    {
+      "url": "/app.js",
+      "bytes": 45981,
+      "sha256": "89001a7f52fcc4bfa9bd9a82f1390cdc75e930c862ad203de286527dec16f902"
+    },
+    {
+      "url": "/chapter-quality.js",
+      "bytes": 7859,
+      "sha256": "3de6c44fb1dd4b6ec815ce24b2971114063f665c9298fd81e9d0d9e405da79d7"
+    },
+    {
+      "url": "/reader-jump.js",
+      "bytes": 2367,
+      "sha256": "78cd4ce1b8e00b0b272bcb3f11ad5e05b17d153b99f0624e707daf977e68d118"
+    },
+    {
+      "url": "/pure-reader.js",
+      "bytes": 6274,
+      "sha256": "2dd1fa01d76806586a952bdf375f5686fbc1c10330f4b12eadc856b0b640c093"
+    },
+    {
+      "url": "/chapters.js",
+      "bytes": 3824,
+      "sha256": "d16d9429dda60052481cc2dd6ed5d71eccf96df98616923fd5c199fc3618f019"
+    },
+    {
+      "url": "/settings.js",
+      "bytes": 2372,
+      "sha256": "9c647e1a65a9dd6aa8173a9633bc6d84d0101ec1724d1d124b34f76647e8b3d7"
+    },
+    {
+      "url": "/audio-config.js",
+      "bytes": 5657,
+      "sha256": "69b64e1d4ddcc8cd85ce0a1dbfbd36465368a87ab58750ab798322e0c5db5b0a"
+    },
+    {
+      "url": "/reader-speech.js",
+      "bytes": 4930,
+      "sha256": "90691d4a20cb18135e4950f611aa3bc9fb77643b18bb896e17443ecad8837a9b"
+    },
+    {
+      "url": "/render.js",
+      "bytes": 9713,
+      "sha256": "d9751bdc1581eb45b2b28742fc6ccb4841af22003f84837bc843cf37631fa1d8"
+    },
+    {
+      "url": "/annotations.js",
+      "bytes": 8680,
+      "sha256": "50aff8629d7dc302c5d7e9fb0d1f0f8a0995de88a6dd965be40e6201fc9b0cae"
+    },
+    {
+      "url": "/practice.js",
+      "bytes": 21033,
+      "sha256": "1fae1a0b1d4af57da8ff515005e6c28622d256c7d5cfa0dce65baff9612291ee"
+    },
+    {
+      "url": "/balances.js",
+      "bytes": 4373,
+      "sha256": "22adcbfc58da9bde2aa24bc6f6c807cba0c2e3765fc15a16879bc8525f8cb45c"
+    },
+    {
+      "url": "/storage-usage.js",
+      "bytes": 2792,
+      "sha256": "c719e96cdf6eaf16a630866924d1d0bc188ced9ff1967618b193f25ec1888a35"
+    },
+    {
+      "url": "/certification-reader.js",
+      "bytes": 8127,
+      "sha256": "6ecaec9dd6d6a0fe9263c9798a6a91dd350c40d0314197235020b8bc1d0b5b27"
+    },
+    {
+      "url": "/chapter-tests.js",
+      "bytes": 12935,
+      "sha256": "598820f4a3fd1f584345cadf0da3afa2a122a2dc6a7b252b01d2c62a89b8ffc2"
+    },
+    {
+      "url": "/questions.js",
+      "bytes": 10456,
+      "sha256": "41a1fc757faea501039ac41b53e6d2165f7853198c1d1a719e5d9b5f920f26e6"
+    },
+    {
+      "url": "/audio-library.js",
+      "bytes": 3317,
+      "sha256": "08887bb20861f98933bbaf2406b149e8023fd6ad3e332397fa41a5859760f169"
+    },
+    {
+      "url": "/audio-plan.js",
+      "bytes": 3637,
+      "sha256": "7d8d06cff12e0ec639564dd76d4d509ca14a78434897445f521a33bfae46f411"
+    },
+    {
+      "url": "/reader-focus.js",
+      "bytes": 3735,
+      "sha256": "3923a2b7f5d0a768b17b416b137bcca00136e3c153f4244e26b6f0620a179816"
+    },
+    {
+      "url": "/practice-workspace.js",
+      "bytes": 5902,
+      "sha256": "af259de73afebbfc91ab9aa54690ef37214a96e12ee7526898e80d448ee80329"
+    },
+    {
+      "url": "/recorder.js",
+      "bytes": 7311,
+      "sha256": "410ff86664fdb1d01396d8e355fe46d7ef921fad4ab7543ecbbb8bcc8ec456ff"
+    },
+    {
+      "url": "/reading.js",
+      "bytes": 9604,
+      "sha256": "b4556c153b5cf68bbf8b2f6f51836cb375c8fc7b34ef713827885df78de54ebf"
+    },
+    {
+      "url": "/listening.js",
+      "bytes": 12878,
+      "sha256": "be75e842d79a51f14d81a2380d5238ae2be882e8587f084bcf51deff3bd5e0b4"
+    },
+    {
+      "url": "/labs/certification-reader/sound.js",
+      "bytes": 16355,
+      "sha256": "6ebe001232e75b18a57263a63c42a9cab513279e993562f2ec604ac0aa2fd250"
+    },
+    {
+      "url": "/chapter-test-recorder.js",
+      "bytes": 6403,
+      "sha256": "6f6ef850141784f819130846b278ff7ec1e5358c5f45c99a8cea416d1398b57c"
+    },
+    {
+      "url": "/text.js",
+      "bytes": 2113,
+      "sha256": "8c4f3c17e6d1f45f32bb892307cff4a4a5a08d3af76c0a1e67b355ddf7d419b8"
+    },
+    {
+      "url": "/question-pairs.js",
+      "bytes": 390,
+      "sha256": "9d48e50045d222403f7e7521ae9c82ff36917b8bf7162383899abd80e86b1df9"
+    },
+    {
+      "url": "/objective.js",
+      "bytes": 3230,
+      "sha256": "b36b38812d457db04033284a29fbb085f53c848970ce081f50dbf2fbae0a1b74"
+    },
+    {
+      "url": "/exam-spec.js",
+      "bytes": 1751,
+      "sha256": "6d0050b920917f7806ea0c8fab7b930ea949e8f2168a3d8c5e3856a978f28241"
+    },
+    {
+      "url": "/labs/certification-reader/reader.bundle.js",
+      "bytes": 734298,
+      "sha256": "da81fd808e16590698c2efcbba3e23d5e605dc6b9906fe1d7ac661a20180fb1e"
+    },
+    {
+      "url": "/labs/chapter-scroll-v14/chapter-sample.json",
+      "bytes": 416,
+      "sha256": "faff61c01a4a958863c0d140c5629d02590829f24e54a26a57bcc641cf76b967"
+    },
+    {
+      "url": "/labs/chapter-scroll-v14/art-plan.json",
+      "bytes": 4604,
+      "sha256": "3104ec4b67859f64268c11a327f37a65d1bdfc48c6f75adc24ee702d3f6318fb"
+    },
+    {
+      "url": "/labs/chapter-scroll/assets/Aboensis-Regular.otf",
+      "bytes": 137860,
+      "sha256": "0ad00fb94899b3a8277680377eb7270c5fb3ee73dd9fefbd6fb31d9f94c4707b"
+    },
+    {
+      "url": "/labs/chapter-scroll-v14/assets/parchment.webp",
+      "bytes": 713606,
+      "sha256": "bd9f3e4653c871ec56f29976cfe65508ad7fed7f95864ee8e8eaa9d5464b545b"
+    },
+    {
+      "url": "/labs/chapter-scroll-v14/assets/unused-keeper.png",
+      "bytes": 70,
+      "sha256": "c2153f77e11087fcb078ae38527fa83bef29791e3700e30cc87fec4405a66d0f"
+    },
+    {
+      "url": "/labs/chapter-scroll-v13/assets/leaf-and-letter.png",
+      "bytes": 1561703,
+      "sha256": "e5aa04af52dde8cc3f32d0d9dfac3fe1696ef6d275c0514d7e0c0065f517d9c5"
+    },
+    {
+      "url": "/labs/chapter-scroll-v10/assets/ink-shoulder.png",
+      "bytes": 758302,
+      "sha256": "5dbfab038a6ba4a9cb7f047beed26c4c105fa1cab46143479fb3bbab4c66dd2c"
+    },
+    {
+      "url": "/labs/chapter-scroll-v3/assets/studio.hdr",
+      "bytes": 1615248,
+      "sha256": "e7cfda5f4e98e623db12b8bfd0184e048488e4855d9c83e2751fb44a32e80c45"
+    },
+    {
+      "url": "/labs/chapter-scroll-v17/keeper-path.json",
+      "bytes": 55968,
+      "sha256": "0e8d71fbdc36fdda9e475b7ded3eaf23ccff38b01f275cbfac045cbcff21e6e6"
+    },
+    {
+      "url": "/labs/chapter-scroll-v14/assets/parchment-normal.jpg",
+      "bytes": 533431,
+      "sha256": "7fdde5d978bcd45b3b426fb8021d9507e0d46fc7fda5a1d2e82c6c46b7dfaa66"
+    },
+    {
+      "url": "/labs/chapter-scroll-v14/assets/parchment-roughness.jpg",
+      "bytes": 213753,
+      "sha256": "8c2aa0299c197c7fc5f5bc96a66c8675ee781594fff28e7de0db2b9360e9a893"
+    },
+    {
+      "url": "/labs/certification-reader/assets/keeper-display.glb",
+      "bytes": 2437944,
+      "sha256": "118ad3e48f4a37034551aa7330b033a79a9b4e5711972eb92553774ffb37bffa"
+    },
+    {
+      "url": "/labs/chapter-scroll-v19/assets/leather-color.webp",
+      "bytes": 3000366,
+      "sha256": "5c99db712479fb6f8c661f1b4d4422d5e689c59a21c2c197e1dca77bb0c04e95"
+    },
+    {
+      "url": "/labs/chapter-scroll-v19/assets/leather-orm.webp",
+      "bytes": 1199026,
+      "sha256": "ce92f7819c466c5ec0291e5609da152cc98e0d5c47627d89a81fd3d82a8e6ad1"
+    },
+    {
+      "url": "/labs/chapter-scroll-v19/assets/leather-normal.webp",
+      "bytes": 2575506,
+      "sha256": "6b3c1601b766712a527d51145aa211fd98b73f4747e0d97490809ac407efbf1c"
+    },
+    {
+      "url": "/labs/chapter-scroll-v19/assets/bronze-color.webp",
+      "bytes": 2656038,
+      "sha256": "f850970297e8c5d19c7002132e59e877ea54dce0a757d2f642a592f46bd3d9cd"
+    },
+    {
+      "url": "/labs/chapter-scroll-v19/assets/bronze-orm.webp",
+      "bytes": 1774092,
+      "sha256": "1672624ae4ae60a342346bb3188f974d05258be13d392da027a82468fdae8b4b"
+    },
+    {
+      "url": "/labs/chapter-scroll-v19/assets/bronze-normal.webp",
+      "bytes": 2159960,
+      "sha256": "a2b951c269e4e6d20ef18cd7f360c3045b2ecc605a63e5e910f819a9a8bcc2bd"
+    },
+    {
+      "url": "/labs/chapter-scroll-v17/vendor/noise2D.glsl",
+      "bytes": 2162,
+      "sha256": "b0f27c923227e8b2d7618f09dc666e2397f608ca7929f798da632647c3f41884"
+    },
+    {
+      "url": "/labs/certification-reader/assets/audio-music/a-new-town.mp3",
+      "bytes": 766291,
+      "sha256": "8a83b97f06cad1052eea0a3fa8f65966db742e68275a1d82816773c820578ad2"
+    },
+    {
+      "url": "/labs/certification-reader/assets/audio-foley/beltHandle1.wav",
+      "bytes": 48852,
+      "sha256": "df2b56192f0494b9037b243554401ad6af669242e20866794aee78f928ee7039"
+    },
+    {
+      "url": "/labs/certification-reader/assets/audio-foley/beltHandle2.wav",
+      "bytes": 84108,
+      "sha256": "5a57a10c15eeb2163f1b730d79de3399c926f1f2268c8810f503e5d7d95305f3"
+    },
+    {
+      "url": "/labs/certification-reader/assets/audio-foley/handleSmallLeather.wav",
+      "bytes": 59700,
+      "sha256": "5e842fb946b6479eb72ae8704b3021a6b977e5b0ad362cdf1c7c1734c08ac534"
+    },
+    {
+      "url": "/labs/certification-reader/assets/audio-foley/handleSmallLeather2.wav",
+      "bytes": 54280,
+      "sha256": "76c83e31caa45cad52926cad54d916a4c0dcb548d4895601386916541a01b492"
+    },
+    {
+      "url": "/labs/certification-reader/assets/audio-foley/clothBelt.wav",
+      "bytes": 127496,
+      "sha256": "e877caefe716aae404f5b47475ab1a712540a2c58ca1b1315b9812b625c1d719"
+    },
+    {
+      "url": "/labs/certification-reader/assets/audio-foley/metalClick.wav",
+      "bytes": 78688,
+      "sha256": "9854e21f5428bf8feb46faabc01d2e3fa120ada431baeaecdc869c7e3a81b5d4"
+    },
+    {
+      "url": "/labs/certification-reader/assets/audio-foley/metalLatch.wav",
+      "bytes": 46140,
+      "sha256": "43125e8645478135b2cc1c3b360fb4d658c81f500f9564aaf442e991a5108730"
+    },
+    {
+      "url": "/labs/certification-reader/assets/audio-foley/bookOpen.wav",
+      "bytes": 26688,
+      "sha256": "f377b6033b24f7ebd6061f363ef84703fc0f046244931bcacb447dd693d18c90"
+    },
+    {
+      "url": "/labs/certification-reader/assets/audio-foley/bookClose.wav",
+      "bytes": 40720,
+      "sha256": "87f99bd799b0e1e5d700e3a65ec7f6f589d3add97e89450c5fb9b97f9e318531"
+    },
+    {
+      "url": "/labs/certification-reader/assets/audio-foley/bookFlip1.wav",
+      "bytes": 135632,
+      "sha256": "8bcc2603a19bd8cb2b5a2a547e4ff10a9d5f0c40ea97ec312ef303d35eb94026"
+    },
+    {
+      "url": "/labs/certification-reader/assets/audio-foley/bookFlip2.wav",
+      "bytes": 75972,
+      "sha256": "4aa82ad2e60ecd830d8545e59262be3a5156029dc2cb0b377fa38a40998cb115"
+    },
+    {
+      "url": "/labs/certification-reader/assets/audio-foley/bookFlip3.wav",
+      "bytes": 40720,
+      "sha256": "3421c1456ea2f9155cd8970a7255130582ab4ce40a54d37e53758c3ada978622"
+    },
+    {
+      "url": "/labs/certification-reader/assets/audio-foley/bookPlace1.wav",
+      "bytes": 48852,
+      "sha256": "a1444f1b64c958d57169f6f0288b796eab646f3b2e2d70c263205376329c8d4e"
+    },
+    {
+      "url": "/labs/chapter-scroll-v12/chapter-sample.json",
+      "bytes": 378,
+      "sha256": "bdffafcd294693a34394271bc773b51c26c925c09aa694310da83a0c06c0eb2d"
+    },
+    {
+      "url": "/labs/chapter-scroll-v6/assets/charter.webp",
+      "bytes": 735602,
+      "sha256": "d01394d89626dff45630d4ecefb4592dbdea49e7fea6667083a1bca8756624f8"
+    },
+    {
+      "url": "/labs/chapter-scroll-v4/assets/keeper.webp",
+      "bytes": 377776,
+      "sha256": "12e242bbbcdeac517ff317ea46d141127ff407029f8fadcf645d65cfc5d50128"
+    },
+    {
+      "url": "/labs/chapter-scroll-v12/assets/river-margin.png",
+      "bytes": 827699,
+      "sha256": "94462f7c5a469568ee4f68ac9c3de418ab7645832cbd81006f6b34619acca3d1"
+    },
+    {
+      "url": "/labs/chapter-scroll-v4/assets/skin-normal.jpg",
+      "bytes": 1033319,
+      "sha256": "d0057cdbee5be6223b35f0a463441404144fcdae699f69ff610eec4d86d48970"
+    },
+    {
+      "url": "/labs/chapter-scroll-v4/assets/skin-roughness.jpg",
+      "bytes": 879217,
+      "sha256": "dd3b860a9510a44fd857c04e0c8cc63ea1f944c25abe9bdcbf844cc4a22c88d8"
+    },
+    {
+      "url": "/labs/certification-reader/CREDITS.md",
+      "bytes": 1397,
+      "sha256": "aef852ce73755097f74da59c0fdfcff8adefbac2216c360af7149881b51ea1a4"
+    },
+    {
+      "url": "/labs/certification-reader/AUDIO_CREDITS.md",
+      "bytes": 6283,
+      "sha256": "fb2e9bb1422a57921711f813ebe00da83c0c93fa0a5af3793c568ee1b1cc32e1"
+    }
+  ],
+  "bytes": 27956037
+}

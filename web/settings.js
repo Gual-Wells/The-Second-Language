@@ -9,6 +9,8 @@ export function installSettingsNavigation() {
  back.onclick=reset;
  function group(title,indices){const band=document.createElement('div');band.className='section-band';band.textContent=title;home.append(band);for(const index of indices){const row=document.createElement('button');row.type='button';row.className='settings-row';const text=document.createElement('span');text.textContent=titles[index];const arrow=document.createElement('b');arrow.textContent='›';row.append(text,arrow);row.onclick=()=>show(index);home.append(row);}}
  group('阅读',[0,8]);
+ const certification=document.createElement('button');certification.id='certificationReaderButton';certification.type='button';certification.className='settings-row';
+ const certificationLabel=document.createElement('span');certificationLabel.textContent='认证阅览';const certificationArrow=document.createElement('b');certificationArrow.textContent='›';certification.append(certificationLabel,certificationArrow);home.append(certification);
  const audio=sections[4];audio.hidden=false;audio.classList.add('settings-audio-row');home.append(audio);
  group('学习安排',[1,2,3]);group('服务与账户',[5,9,6,7]);
  for(const [i,section]of sections.entries())if(i!==4)detail.append(section);

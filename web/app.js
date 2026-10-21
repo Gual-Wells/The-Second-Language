@@ -1,18 +1,19 @@
-import {createChapterQualityUI} from './chapter-quality.js?v=35';
-import {createReaderJump} from './reader-jump.js?v=35';
-import {installPureReader} from './pure-reader.js?v=35';
-import {chapterNumber, createChapterBook} from './chapters.js?v=35';
-import {installSettingsNavigation} from './settings.js?v=35';
-import {createAudioConfig} from './audio-config.js?v=35';
-import {installReaderSpeech} from './reader-speech.js?v=35';
-import { parseParts, renderPart } from './render.js?v=35';
-import { validateAnnotatedContent } from './annotations.js?v=35';
-import { createPracticeUI } from './practice.js?v=35';
-import {createBalanceUI} from './balances.js?v=35';
-import {createStorageUsageUI} from './storage-usage.js?v=35';
-import {createChapterTestsUI} from './chapter-tests.js?v=35';
-import {createQuestionsUI} from './questions.js?v=35';
-import {openAudioChapter,clearAudioLibrary,preloadEnabled,setPreload} from './audio-library.js?v=35';
+import {createChapterQualityUI} from './chapter-quality.js?v=36';
+import {createReaderJump} from './reader-jump.js?v=36';
+import {installPureReader} from './pure-reader.js?v=36';
+import {chapterNumber, createChapterBook} from './chapters.js?v=36';
+import {installSettingsNavigation} from './settings.js?v=36';
+import {createAudioConfig} from './audio-config.js?v=36';
+import {installReaderSpeech} from './reader-speech.js?v=36';
+import { parseParts, renderPart } from './render.js?v=36';
+import { validateAnnotatedContent } from './annotations.js?v=36';
+import { createPracticeUI } from './practice.js?v=36';
+import {createBalanceUI} from './balances.js?v=36';
+import {createStorageUsageUI} from './storage-usage.js?v=36';
+import {createCertificationReader} from './certification-reader.js?v=36';
+import {createChapterTestsUI} from './chapter-tests.js?v=36';
+import {createQuestionsUI} from './questions.js?v=36';
+import {openAudioChapter,clearAudioLibrary,preloadEnabled,setPreload} from './audio-library.js?v=36';
 
 const $ = id => document.getElementById(id);
 const todayParts = Object.fromEntries(new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(new Date()).map(part => [part.type, part.value]));
@@ -44,6 +45,8 @@ const readerJump=createReaderJump({shell:$('app'),scope:$('readingScroll'),notic
 const nativeSpeech=installReaderSpeech({toast,onWordJump:jumpToWord});
 const pureReader=installPureReader({prepareTap:nativeSpeech.prepareTap,onToggle:saveReadingPosition,onQuestion:focus=>questions.submitFocus(focus)});
 const settingsNavigation=installSettingsNavigation();
+const certificationReader=createCertificationReader({showDialog,stopLearningAudio:()=>{nativeSpeech.stop();for(const media of document.querySelectorAll('audio,video'))media.pause();}});
+window.certificationReader=certificationReader;
 const settingFields=['studyGoal','temporaryRequestToggle','temporaryRequestText','restToggle'],dirtySettings=new Set();
 for(const id of settingFields){const field=$(id);const saved=readStored('second-language-settings-draft')[id];if(saved!==undefined){if(field.type==='checkbox')field.checked=saved;else field.value=saved;dirtySettings.add(id);}field.addEventListener('input',()=>{dirtySettings.add(id);const draft=readStored('second-language-settings-draft');draft[id]=field.type==='checkbox'?field.checked:field.value;writeStored('second-language-settings-draft',draft);});}
 function savedSettings(values){const draft=readStored('second-language-settings-draft');for(const [id,sent] of Object.entries(values)){const field=$(id),current=field.type==='checkbox'?field.checked:field.value;if(current===sent){dirtySettings.delete(id);delete draft[id];}}writeStored('second-language-settings-draft',draft);}
@@ -734,6 +737,6 @@ $('chapterNav').addEventListener('touchend', event => {
   if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.5) moveChapter(dx < 0 ? 1 : -1);
   swipeStart = null;
 }, { passive: true });
-if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=35', { updateViaCache: 'none' }).catch(() => {});
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=36', { updateViaCache: 'none' }).catch(() => {});
 refreshInstallStatus();
 initialize().then(()=>{if(state.authenticated&&new URLSearchParams(location.search).has('balances'))balances.open();});
