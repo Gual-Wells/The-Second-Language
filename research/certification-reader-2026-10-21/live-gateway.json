@@ -1,0 +1,14 @@
+{
+  "checkedAt": "2026-10-21T05:40:29.196Z",
+  "base": "https://the-second-language.pages.dev",
+  "/api/session": {
+    "status": 200,
+    "authenticated": false
+  },
+  "/api/practice": {
+    "status": 401
+  },
+  "/sw.js?v=36": {
+    "status": 200
+  }
+}

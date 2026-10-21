@@ -31,3 +31,12 @@ node scripts/package-certification-reader.mjs
 ```
 
 发布脚本从固定HEAD归档web和Pages网关，校验展示清单；不部署独立API Worker。正式通过→制作→审阅→私有封存→申领仍不由这个只读入口冒充实现。现行交互与后续作品规范见`protocol/CERTIFICATION_READER.md`。
+
+## 实际发布
+
+- 已推送并快进合入`main`：`7ad13635c92a23f2102e152c9c40415291316d69`。
+- [正式主站](https://the-second-language.pages.dev/)：设置→认证阅览；[该次不可变发布](https://d77a2b77.the-second-language.pages.dev/)。Pages已发布，独立API Worker没有部署。
+- 75项展示路径按Git实际发布字节校验，共27,956,037字节，包含两章共用资源及主壳；不是每章重新复制28MB。
+- 正式站资源与实际主壳上的`live-verification.json`全部通过，无脚本错误、404或测试写入；该浏览器仍使用隔离空demo会话，不冒称实际私人账户测试。`live-gateway.json`另直接核真实公开会话200、私有练习401、Service Worker v36。截图已更新为本次线上画面。
+- 已复核自隐后纯享画面，以及第一章真实河流纹样与第五章叶笛饰画的区别。实机Safari、扬声器听感与艺术接受仍留给真实使用反馈，不用代理测试虚构通过。
+- 本轮没有购买、收费模型合成或新增订阅。末尾实际执行额度脚本：本工作树缺少发布凭据，容量／余额保留旧值；脚本报告归档排队，尚未确认永久母版归档完成。
