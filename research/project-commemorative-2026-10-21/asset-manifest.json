@@ -1,0 +1,94 @@
+{
+  "assets": [
+    {
+      "path": "research/project-commemorative-2026-10-21/source/parchment.png",
+      "bytes": 2961713,
+      "sha256": "5f27d7de8f13e6e8e53616d14dfdd6fa6e08ba30347a56c9337843c4bfdd74b0",
+      "size": [
+        1060,
+        1484
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "path": "research/project-commemorative-2026-10-21/source/returning-thread.png",
+      "bytes": 1069437,
+      "sha256": "67324a6032b1373b1e883e94b5fb1a89251ae7e5e464e71c7e78ade4080b1d02",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "path": "web/labs/project-commemorative/assets/parchment-normal.jpg",
+      "bytes": 439725,
+      "sha256": "66c1d290e4782d5e6994ae51ff5ea2ded25c0c630aedf367ac6f61b018301371",
+      "size": [
+        1060,
+        1484
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "web/labs/project-commemorative/assets/parchment-roughness.jpg",
+      "bytes": 172218,
+      "sha256": "4d9791ccd08b18a354fb8fb8f35ca88477dfbeae8989bbba4ded741ca991da3a",
+      "size": [
+        1060,
+        1484
+      ],
+      "mode": "L"
+    },
+    {
+      "path": "web/labs/project-commemorative/assets/parchment.webp",
+      "bytes": 1909910,
+      "sha256": "06808eab5a381e317aaa5d8f43c54b70cff8e4d60e9ee80bb78dc4c8b8e14292",
+      "size": [
+        1060,
+        1484
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "path": "web/labs/project-commemorative/assets/returning-thread.png",
+      "bytes": 1069437,
+      "sha256": "67324a6032b1373b1e883e94b5fb1a89251ae7e5e464e71c7e78ade4080b1d02",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    }
+  ],
+  "paperSourcePixels": [
+    1060,
+    1484
+  ],
+  "typesetPixels": [
+    2048,
+    2868
+  ],
+  "notes": [
+    "Source images are original built-in imagegen results, not historical scans.",
+    "WebP preserves the selected RGBA paper losslessly; PNG miniature copied byte-for-byte.",
+    "Normal/roughness are micrograin approximations; broad ageing remains in albedo.",
+    "Typeset resolution does not imply extra native image detail."
+  ]
+}

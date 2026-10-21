@@ -1,7 +1,9 @@
 # Certification reading
 
-The main settings entry displays actual first- and fifth-chapter unissued art
-specimens. It does not issue an award or create a score. The rejected museum,
+The main settings entry displays an original commissioned project keepsake and
+actual first- and fifth-chapter unissued art specimens. The keepsake is separate
+from assessments: [The Returning Thread](../project-commemorative/CREDITS.md).
+This reader does not issue an assessment award or create a score. The rejected museum,
 furniture, room textures, carrying animation and room score are not included.
 
 - First-chapter document, impression and artwork: chapter-scroll-v12.

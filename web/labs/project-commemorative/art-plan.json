@@ -1,0 +1,212 @@
+{
+  "schema": "second-language.project-art-plan.v1",
+  "id": "SL-PROJECT-RETURNING-THREAD-1",
+  "category": "project-commemorative",
+  "workId": "SL-PROJECT-THE-RETURNING-THREAD-20261021",
+  "source": {
+    "mainSHA": "272af3030c26cbaf7f46354369af3cbce8a49e86",
+    "artDirection": "research/project-commemorative-2026-10-21/art-direction.md",
+    "artDirectionSHA256": "b3a0f782568678b6ec2e48484468217b3870ac402db119ffccc1196eef76de29"
+  },
+  "intention": "A slender parchment seam joined with returning brick-red stitches; a private project keepsake about a visible connection and the room left for words. No inference about the recipient's personal history or an examination event.",
+  "copy": {
+    "institution": "The Second Language",
+    "artTitle": "The Returning Thread",
+    "verse": [
+      "The thread enters the parchment",
+      "and passes out of sight.",
+      "A little farther on, it returns.",
+      "The seam holds the page;",
+      "the page keeps room for words."
+    ],
+    "colophon": [
+      "Made for Gual Wells,",
+      "in remembrance of The Second Language."
+    ],
+    "sealLegends": [
+      "The Second Language",
+      "In remembrance"
+    ],
+    "status": "Private commemorative work",
+    "translation": {
+      "institution": "第二语言",
+      "artTitle": "回返的线",
+      "verse": [
+        "细线穿入羊皮纸，",
+        "从眼前隐去。",
+        "再往前一点，它便回返。",
+        "缝线维系着纸页；",
+        "纸页为言语留着空处。"
+      ],
+      "colophon": [
+        "为 Gual Wells 而作，",
+        "以纪念《第二语言》。"
+      ],
+      "sealLegends": [
+        "第二语言",
+        "留作纪念"
+      ],
+      "status": "私人纪念作品"
+    },
+    "labels": {
+      "made": {
+        "en": "Made",
+        "zh": "制作于"
+      },
+      "contentMark": {
+        "en": "Content mark",
+        "zh": "内容短记"
+      },
+      "contentSHA256": {
+        "en": "Content SHA-256",
+        "zh": "内容 SHA-256 摘要"
+      },
+      "published": {
+        "en": "Published",
+        "zh": "发布于"
+      }
+    }
+  },
+  "resources": {
+    "paper": {
+      "src": "assets/parchment.webp",
+      "sha256": "06808eab5a381e317aaa5d8f43c54b70cff8e4d60e9ee80bb78dc4c8b8e14292",
+      "variant": "independently-authored-returning-thread-sheet",
+      "material": "warm grey ivory; shallow upper shoulder; short right notch; single shallow lower fold; no mould"
+    },
+    "normal": {
+      "src": "assets/parchment-normal.jpg",
+      "sha256": "66c1d290e4782d5e6994ae51ff5ea2ded25c0c630aedf367ac6f61b018301371",
+      "material": "micrograin relief; ageing colour remains in albedo"
+    },
+    "roughness": {
+      "src": "assets/parchment-roughness.jpg",
+      "sha256": "4d9791ccd08b18a354fb8fb8f35ca88477dfbeae8989bbba4ded741ca991da3a",
+      "material": "matte parchment microvariation"
+    },
+    "ornament": {
+      "src": "assets/returning-thread.png",
+      "sha256": "67324a6032b1373b1e883e94b5fb1a89251ae7e5e464e71c7e78ade4080b1d02",
+      "material": "original transparent miniature; about seven fine brick-red silk stitches with paired holes and a tapering narrow seam"
+    },
+    "font": {
+      "src": "../chapter-scroll/assets/Aboensis-Regular.otf",
+      "sha256": "0ad00fb94899b3a8277680377eb7270c5fb3ee73dd9fefbd6fb31d9f94c4707b",
+      "family": "Aboensis"
+    }
+  },
+  "layout": {
+    "width": 2048,
+    "height": 2868,
+    "nominalSizeMM": [
+      300,
+      420
+    ],
+    "blocks": [
+      {
+        "id": "institution",
+        "x": 340,
+        "y": 320,
+        "width": 1480,
+        "fontSize": 60,
+        "lineHeight": 80,
+        "align": "left",
+        "color": "#6b4339"
+      },
+      {
+        "id": "artTitle",
+        "x": 340,
+        "y": 520,
+        "width": 1480,
+        "fontSize": 118,
+        "lineHeight": 150,
+        "align": "left",
+        "color": "#30261f"
+      },
+      {
+        "id": "verse",
+        "x": 340,
+        "y": 865,
+        "width": 1460,
+        "fontSize": 94,
+        "lineHeight": 138,
+        "align": "left",
+        "color": "#30261f"
+      },
+      {
+        "id": "colophon",
+        "x": 340,
+        "y": 2350,
+        "width": 1460,
+        "fontSize": 62,
+        "lineHeight": 88,
+        "align": "left",
+        "color": "#30261f"
+      },
+      {
+        "id": "identity",
+        "x": 340,
+        "y": 2570,
+        "width": 940,
+        "fontSize": 42,
+        "lineHeight": 68,
+        "align": "left",
+        "color": "#30261f"
+      },
+      {
+        "id": "status",
+        "x": 340,
+        "y": 2790,
+        "width": 1200,
+        "fontSize": 40,
+        "lineHeight": 60,
+        "align": "left",
+        "color": "#30261f"
+      }
+    ],
+    "ornament": {
+      "x": 744,
+      "y": 1535,
+      "width": 560,
+      "height": 660,
+      "opacity": 0.91
+    },
+    "seal": {
+      "x": 1390,
+      "y": 2545,
+      "width": 300,
+      "height": 138
+    },
+    "textSafeRect": {
+      "x": 210,
+      "y": 180,
+      "width": 1628,
+      "height": 2640
+    },
+    "paperFold": {
+      "y": 2190,
+      "sheetV": 0.7635983263598326,
+      "depth": 0.005,
+      "width": 0.01
+    },
+    "inkWearVersion": "dry-quill-1"
+  },
+  "models": {
+    "creativePolicy": {
+      "model": "gpt-6.1-sol",
+      "reasoningEffort": "xhigh"
+    },
+    "creativeSource": "research/project-commemorative-2026-10-21/art-direction.md",
+    "executionEvidence": "The primary production record retains the observable specialist execution evidence; this policy field alone is not model attestation.",
+    "imageTool": "built-in image_gen.imagegen",
+    "imageModel": "not exposed by tool",
+    "imageQuality": "not exposed by tool",
+    "creativeDispatch": {
+      "tool": "collaboration.spawn_agent",
+      "task": "project_scroll_art_direction",
+      "model": "gpt-6.1-sol",
+      "reasoningEffort": "xhigh",
+      "scope": "art direction, English/Chinese copy and image prompts; API dispatch parameters, not a hidden model attestation"
+    }
+  }
+}

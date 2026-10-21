@@ -1,0 +1,50 @@
+import assert from 'node:assert/strict';
+import {mkdir,readFile,writeFile} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+import {pathToFileURL} from 'node:url';
+const {chromium}=await import(pathToFileURL('D:/CodexStorage/workspaces/second-language-maintenance/.cache/browser-tools/package/index.mjs'));
+const out='research/project-commemorative-2026-10-21',tmp=process.cwd()+'/.cache/project-scroll-browser/tmp';
+await mkdir(tmp,{recursive:true});process.env.TEMP=process.env.TMP=tmp;
+const base=process.argv[2]||'http://127.0.0.1:8153',remote=base.startsWith('https:');
+const manifest=JSON.parse(await readFile('web/labs/project-commemorative/assets/surfaces.json','utf8'));
+const browser=await chromium.launch({headless:true,executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe',env:{...process.env,TEMP:tmp,TMP:tmp},...(remote?{proxy:{server:'http://127.0.0.1:6987'}}:{}),args:['--no-first-run']});
+const errors=[],missing=[],writes=[],resources=[];
+try{
+ const context=await browser.newContext({viewport:{width:402,height:874},deviceScaleFactor:2,isMobile:true,hasTouch:true,serviceWorkers:'block'}),page=await context.newPage();
+ page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>{resources.push(r.url());if(!['GET','HEAD'].includes(r.method()))writes.push(r.url());});
+ page.on('response',r=>{if(r.status()>=400&&!new URL(r.url()).pathname.startsWith('/api/'))missing.push({url:r.url(),status:r.status()});});
+ await page.route('**/api/**',route=>{const p=new URL(route.request().url()).pathname;return route.fulfill({json:p==='/api/session'?{authenticated:true,demo:true}:p==='/api/chapters'?{chapters:[]}:{}});});
+ await page.goto(base+'/');await page.locator('#settingsButton').tap();await page.locator('#certificationReaderButton').tap();
+ assert.deepEqual(await page.locator('#certificationChapters button').allTextContents(),['项目纪念','第一章','第五章']);
+ assert.ok(!resources.some(p=>/reader\.bundle|\.glb|final-front/.test(p)));
+ await page.locator('[data-work="project-returning-thread"]').tap();
+ await page.waitForFunction(()=>certificationReader.snapshot().ready||!document.getElementById('certificationRetry').hidden,null,{timeout:120000});
+ let state=await page.evaluate(()=>certificationReader.snapshot());assert.equal(state.ready,true,await page.locator('#certificationStatus').textContent());
+ const record=await page.evaluate(()=>certificationReader.exportRecord());
+ assert.equal(record.sha256,manifest.contentSHA256);assert.equal(record.artPlanDigest,manifest.artPlanSHA256);
+ assert.equal(createHash('sha256').update(record.canonicalPayload).digest('hex'),record.sha256);
+ assert.equal(record.status,'commemorative');assert.equal(record.category,'project-commemorative');assert.equal(record.attestation,null);assert.equal(record.projectFoundedAt,null);assert.equal(record.recipient,'Gual Wells');assert.equal(record.madeAt,'2026-10-21T06:55:03.094Z');assert.equal(record.issued,false);
+ assert.equal(state.chapter,null);assert.equal(state.viewer.layout.frozen,true);assert.equal(state.viewer.workId,record.workId);
+ assert.ok(!Object.hasOwn(record,'chapterNumber'));assert.ok(resources.some(p=>p.endsWith('/assets/final-front.png')));
+ assert.ok(!resources.some(p=>/Aboensis.*\.woff|returning-thread\.png|parchment\.webp/.test(p)),'Viewing must read the frozen paper without authoring');
+ await page.screenshot({path:out+(remote?'/live-closed.png':'/closed.png'),scale:'css'});
+ await page.locator('#certificationCanvas').tap({position:{x:201,y:430}});
+ await page.waitForFunction(()=>{const v=certificationReader.snapshot().viewer;return v.progress>.999&&!v.animating;},null,{timeout:60000});
+ state=await page.evaluate(()=>certificationReader.snapshot());assert.equal(state.viewer.layout.contentDigest,record.sha256);
+ await page.waitForFunction(()=>!document.querySelector('#certificationStage').classList.contains('controls-visible'));await page.waitForTimeout(350);
+ await page.screenshot({path:out+(remote?'/live-open.png':'/open.png'),scale:'css'});
+ // The actual displayed canvas is a decoded copy of the frozen original.
+ const pixelsEqual=await page.evaluate(async()=>{
+  const exported=await new Promise((resolve,reject)=>{const i=new Image();i.onload=()=>resolve(i);i.onerror=reject;i.src=certificationReader.exportDocument();});
+  const original=await new Promise((resolve,reject)=>{const i=new Image();i.onload=()=>resolve(i);i.onerror=reject;i.src='/labs/project-commemorative/assets/final-front.png';});
+  const pixels=i=>{const c=Object.assign(document.createElement('canvas'),{width:i.width,height:i.height}),x=c.getContext('2d');x.drawImage(i,0,0);return x.getImageData(0,0,c.width,c.height).data;};
+  const a=pixels(exported),b=pixels(original);return a.length===b.length&&a.every((v,i)=>v===b[i]);
+ });assert.equal(pixelsEqual,true);
+ await page.locator('#certificationCanvas').tap({position:{x:201,y:430}});
+ await page.waitForFunction(()=>{const v=certificationReader.snapshot().viewer;return v.progress<.001&&!v.animating;},null,{timeout:60000});
+ const final=await page.evaluate(()=>certificationReader.snapshot());assert.equal(final.viewer.layout.contentDigest,record.sha256);
+ await page.keyboard.press('Escape');await page.locator('#certificationCatalogue').waitFor({state:'visible'});assert.equal((await page.evaluate(()=>certificationReader.snapshot())).sound.active,false);
+ assert.deepEqual(errors,[]);assert.deepEqual(missing,[]);assert.deepEqual(writes,[]);
+ const result={base,checkedAt:new Date().toISOString(),record,checks:{minimalProjectEntry:true,noFakeChapterOrCertification:true,fixedMadeAtAndHash:true,frozenOriginals:true,noRuntimeTypesetting:true,displayedOriginalPixelsMatch:true,realOpenAndClose:true,exitStopsSound:true,noAccountWrites:true},errors,missing,writes,resources,opened:state,closed:final,environment:'Chrome mobile simulation 402x874/DPR2; no physical iPhone or Safari claim. Browser-only empty demo API; real published display resources.'};
+ await writeFile(out+(remote?'/live-verification.json':'/verification.json'),JSON.stringify(result,null,2));console.log(JSON.stringify({sha256:record.sha256,checks:result.checks,errors,missing,writes}));await context.close();
+}catch(error){await writeFile(out+'/browser-failure.json',JSON.stringify({error:error.stack,errors,missing,writes},null,2));throw error;}finally{await browser.close();}

@@ -1,0 +1,237 @@
+{
+  "schema": "second-language.frozen-surfaces.v1",
+  "category": "project-commemorative",
+  "workId": "SL-PROJECT-THE-RETURNING-THREAD-20261021",
+  "contentSHA256": "af914e503979155ba41bd4dcaa2e1dbbec7577b8ac293627b336b9ccff3e7425",
+  "artPlanSHA256": "2b70f6e4d453a3dd8da50beea8ee880cd7598e11000c169a34cc809148e41248",
+  "width": 2048,
+  "height": 2868,
+  "generatedAt": "2026-10-21T07:58:35.780Z",
+  "producer": {
+    "script": "scripts/render-project-scroll.mjs",
+    "method": "original Aboensis FontFace; browser Canvas2D; no WebGL viewer",
+    "browser": "155.0.8059.85",
+    "sourceSHA256": {
+      "web/labs/project-commemorative/charter.js": "d70bbbc18e631c0c32dddc65bc0397164009212ab72eccff37cd5385e2f52371",
+      "web/labs/project-commemorative/document.js": "ca6a163588dcb0c78df86f059d72739479fc700ba66b2f96bb50a4267a80cc83",
+      "web/labs/project-commemorative/templates.js": "9e621c934e6bc36caf0b130e65c53fa6c170a5c10afb73b0bd24983e82bec0b1",
+      "web/labs/chapter-scroll-v12/seal.js": "f898570092b8d8e1d34b680c4b7270110a17e2ff73e31558147956e6b0062acd",
+      "web/labs/chapter-scroll-v10/ink-transfer.js": "39917ab44e27182ccea269f4d7d31cedce2abee1fad965b932a068f05400d178"
+    }
+  },
+  "layout": {
+    "width": 2048,
+    "height": 2868,
+    "nominalSizeMM": [
+      300,
+      420
+    ],
+    "artPlanId": "SL-PROJECT-RETURNING-THREAD-1",
+    "artPlanDigest": "2b70f6e4d453a3dd8da50beea8ee880cd7598e11000c169a34cc809148e41248",
+    "composition": "left-aligned-five-line-inscription-and-lower-vertical-miniature",
+    "paperVariant": "independently-authored-returning-thread-sheet",
+    "sealVersion": "SL-KEEPSAKE-1",
+    "sealVariant": "oblong",
+    "sealBox": {
+      "x": 1390,
+      "y": 2545,
+      "width": 300,
+      "height": 138
+    },
+    "ornamentBox": {
+      "x": 744,
+      "y": 1535,
+      "width": 560,
+      "height": 660,
+      "opacity": 0.91
+    },
+    "ornamentDigest": "67324a6032b1373b1e883e94b5fb1a89251ae7e5e464e71c7e78ade4080b1d02",
+    "printedFonts": [
+      "Aboensis"
+    ],
+    "textBounds": [
+      {
+        "block": "institution",
+        "text": "The Second Language",
+        "left": 339,
+        "right": 931.2398681640625,
+        "top": 272,
+        "bottom": 352,
+        "fontSize": 60
+      },
+      {
+        "block": "artTitle",
+        "text": "The Returning Thread",
+        "left": 339,
+        "right": 1532.906005859375,
+        "top": 438,
+        "bottom": 582,
+        "fontSize": 118
+      },
+      {
+        "block": "verse",
+        "text": "The thread enters the parchment",
+        "left": 339,
+        "right": 1603.0338134765625,
+        "top": 800,
+        "bottom": 914,
+        "fontSize": 94
+      },
+      {
+        "block": "verse",
+        "text": "and passes out of sight.",
+        "left": 339,
+        "right": 1196.3938598632812,
+        "top": 938,
+        "bottom": 1052,
+        "fontSize": 94
+      },
+      {
+        "block": "verse",
+        "text": "A little farther on, it returns.",
+        "left": 338,
+        "right": 1456.39794921875,
+        "top": 1075,
+        "bottom": 1184,
+        "fontSize": 94
+      },
+      {
+        "block": "verse",
+        "text": "The seam holds the page;",
+        "left": 339,
+        "right": 1316.77392578125,
+        "top": 1214,
+        "bottom": 1328,
+        "fontSize": 94
+      },
+      {
+        "block": "verse",
+        "text": "the page keeps room for words.",
+        "left": 329,
+        "right": 1461.0037841796875,
+        "top": 1344,
+        "bottom": 1459,
+        "fontSize": 94
+      },
+      {
+        "block": "colophon",
+        "text": "Made for Gual Wells,",
+        "left": 320,
+        "right": 910.3798828125,
+        "top": 2307,
+        "bottom": 2385,
+        "fontSize": 62
+      },
+      {
+        "block": "colophon",
+        "text": "in remembrance of The Second Language.",
+        "left": 338,
+        "right": 1469.53369140625,
+        "top": 2388,
+        "bottom": 2471,
+        "fontSize": 62
+      },
+      {
+        "block": "identity",
+        "text": "Made 21 October 2026",
+        "left": 327,
+        "right": 736.535888671875,
+        "top": 2537,
+        "bottom": 2594,
+        "fontSize": 42
+      },
+      {
+        "block": "identity",
+        "text": "14:55:03.094 +08:00",
+        "left": 340,
+        "right": 666.8438110351562,
+        "top": 2612,
+        "bottom": 2659,
+        "fontSize": 42
+      },
+      {
+        "block": "identity",
+        "text": "Content mark AF91 4E50 3979 155B",
+        "left": 341,
+        "right": 974.855712890625,
+        "top": 2673,
+        "bottom": 2732,
+        "fontSize": 42
+      },
+      {
+        "block": "status",
+        "text": "Private commemorative work",
+        "left": 340,
+        "right": 810.31982421875,
+        "top": 2759,
+        "bottom": 2813,
+        "fontSize": 40
+      }
+    ],
+    "status": "commemorative",
+    "issued": false,
+    "recipient": "Gual Wells",
+    "identity": [
+      "Content mark AF91 4E50 3979 155B",
+      "Made 21 October 2026",
+      "14:55:03.094 +08:00"
+    ],
+    "artifactDigest": "af914e503979155ba41bd4dcaa2e1dbbec7577b8ac293627b336b9ccff3e7425",
+    "contentDigest": "af914e503979155ba41bd4dcaa2e1dbbec7577b8ac293627b336b9ccff3e7425",
+    "artSeed": 2945535568
+  },
+  "seal": {
+    "version": "SL-KEEPSAKE-1",
+    "variant": "oblong",
+    "seed": 2945535568,
+    "stats": {
+      "markedPixels": 36708,
+      "lowContactPixels": 1343,
+      "variableContactPixels": 1632
+    }
+  },
+  "layers": {
+    "front": {
+      "src": "final-front.png",
+      "sha256": "17cddede8b279420d533400bf4637722d5d0554a79fcd2c1cd51fd72838a3f2c",
+      "bytes": 9541444,
+      "width": 2048,
+      "height": 2868
+    },
+    "back": {
+      "src": "final-back.png",
+      "sha256": "840596992719f741cf14b0a3724428e781de1c3e1df8dddae34adf7d1b76fdc1",
+      "bytes": 9356873,
+      "width": 2048,
+      "height": 2868
+    },
+    "ink": {
+      "src": "final-ink.png",
+      "sha256": "88e88b15b55c6bec7d03f406e744ece163a481574b4da034a28e516b7aa484e7",
+      "bytes": 557918,
+      "width": 2048,
+      "height": 2868
+    },
+    "relief": {
+      "src": "final-relief.png",
+      "sha256": "dca0133b009d5d2d3e21ba3f289ef7ebb6dc716108bcdd6685bdb9b2b67f56b1",
+      "bytes": 136082,
+      "width": 2048,
+      "height": 2868
+    },
+    "sealInk": {
+      "src": "final-seal-ink.png",
+      "sha256": "3631dc475f7b117e3061c63f55d81dc1c50ed83fe701b9d4efba358326ee6b97",
+      "bytes": 143369,
+      "width": 784,
+      "height": 360
+    },
+    "sealMask": {
+      "src": "final-seal-mask.png",
+      "sha256": "d8411063350187c541bc503775180041dcea1ecbd5a9726ab7b0e69dafc135fc",
+      "bytes": 51055,
+      "width": 784,
+      "height": 360
+    }
+  }
+}

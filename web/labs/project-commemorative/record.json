@@ -1,0 +1,25 @@
+{
+  "schema": "second-language.project-commemorative.v1",
+  "category": "project-commemorative",
+  "workId": "SL-PROJECT-THE-RETURNING-THREAD-20261021",
+  "status": "commemorative",
+  "ownerId": "second-language-owner",
+  "recipient": "Gual Wells",
+  "template": "project-commemorative-returning-thread-v1",
+  "sealVariant": "oblong",
+  "madeAt": "2026-10-21T06:55:03.094Z",
+  "publishedAt": null,
+  "projectFoundedAt": null,
+  "attestation": null,
+  "source": {
+    "repository": "Gual-Wells/The-Second-Language",
+    "mainSHA": "272af3030c26cbaf7f46354369af3cbce8a49e86",
+    "artDirection": "research/project-commemorative-2026-10-21/art-direction.md",
+    "artDirectionSHA256": "b3a0f782568678b6ec2e48484468217b3870ac402db119ffccc1196eef76de29",
+    "userCommission": {
+      "basis": "User commissioned the design and publication of a project-specific commemorative scroll, independent of chapter certification.",
+      "recordedBy": "primary executing agent",
+      "reference": "Current project-special-scroll commission, 2026-10-21"
+    }
+  }
+}
