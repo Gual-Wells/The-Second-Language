@@ -1,0 +1,92 @@
+{
+  "checkedAt": "2026-10-21T19:05:04.276Z",
+  "base": "https://the-second-language.pages.dev",
+  "checks": {
+    "pinnedStaticBytes": true,
+    "newMaterialRecordingsPresent": true,
+    "realAnonymousGatewayBoundary": true
+  },
+  "observations": [
+    {
+      "url": "/sw.js",
+      "status": 200,
+      "bytes": 3865,
+      "sha256": "a0405d58324d637d8c3c8f9e29639bb5acf80032f757bbbedeb1b3e76e6f8f4c",
+      "pinnedBytesMatch": true
+    },
+    {
+      "url": "/certification-reader.js",
+      "status": 200,
+      "bytes": 13323,
+      "sha256": "03de3c4377d6e73caa0010206153d720dda22693ff320ce9a7bed3d5bbd0c3f7",
+      "pinnedBytesMatch": true
+    },
+    {
+      "url": "/labs/certification-reader/reader.bundle.js",
+      "status": 200,
+      "bytes": 739071,
+      "sha256": "2f4387e5924d314c913b038dd7384db2b95e5d9c182e0703fa42b7af4002aff0",
+      "pinnedBytesMatch": true
+    },
+    {
+      "url": "/labs/certification-reader/display-manifest.json",
+      "status": 200,
+      "bytes": 14314,
+      "sha256": "d663ce0049df01d3d63c7792d5fce199b918865ad135445f893ab9df5ff69425",
+      "pinnedBytesMatch": true
+    },
+    {
+      "url": "/labs/certification-reader/sound.js",
+      "status": 200,
+      "bytes": 16838,
+      "sha256": "f159275da6413323cd83dadb74ee9dec0f6e798a6443427ec8071eb33f91676d",
+      "pinnedBytesMatch": true
+    },
+    {
+      "url": "/labs/certification-reader/material-motion.js",
+      "status": 200,
+      "bytes": 1609,
+      "sha256": "fe5e7b267954ed5a7a0b931f25c604bfc29b69cbfc5f2510919fbb83ef6d31b2",
+      "pinnedBytesMatch": true
+    },
+    {
+      "url": "/labs/certification-reader/assets/audio-foley/leather-flex-loop.wav",
+      "status": 200,
+      "bytes": 112940,
+      "sha256": "9aaeb40ca6fc85f7b2b18c31efbaf37ea4de4438516de62a847ed1d27f27c606",
+      "pinnedBytesMatch": true
+    },
+    {
+      "url": "/labs/certification-reader/assets/audio-foley/parchment-roll-loop.wav",
+      "status": 200,
+      "bytes": 184382,
+      "sha256": "d655c95ef2e4fa34cfb0461c296f47b554e1474613679b8da7ed7c0e348ac32d",
+      "pinnedBytesMatch": true
+    },
+    {
+      "url": "/labs/project-beginning/record.json",
+      "status": 200,
+      "bytes": 1171,
+      "sha256": "f2466f4ea3f57d5cbf4e42b8b0cdc08ac810498602ff3ab9d7c85d43179616e5",
+      "pinnedBytesMatch": true
+    },
+    {
+      "url": "/labs/project-beginning/assets/surfaces.json",
+      "status": 200,
+      "bytes": 10674,
+      "sha256": "e3405c93225ee394d75498190f998c41171f2b90cd21eb5b04a9d775c89d9921",
+      "pinnedBytesMatch": true
+    },
+    {
+      "url": "/api/session",
+      "status": 200,
+      "unauthenticatedBoundary": true
+    },
+    {
+      "url": "/api/practice",
+      "status": 401,
+      "unauthenticatedBoundary": true
+    }
+  ],
+  "realAccountWrites": false
+}

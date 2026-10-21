@@ -44,3 +44,7 @@
 ## 第三方网页脚本与推送保护
 
 首次源提交的推送被GitHub Push Protection实际拒绝，原因是第三方Freesound作者网页内置脚本含被识别为Mapbox访问令牌的内容。没有绕过保护；作者页改为去脚本／属性的可见文字摘存，并记录下载原字节SHA和清理后的摘存SHA，原HTML仅留D盘忽略缓存。真实素材原件、作者署名与CC BY／CC0许可不变。拒绝的提交未进入远端main，本地修正该未发布提交后重新正常推送。
+
+## 发布与线上回读
+
+已从`555ecbcc3f1dc58834e5ddc8da01e3597ad94d43`发布正式main，应用壳v40；[固定部署](https://e138f32e.the-second-language.pages.dev)，[正式站](https://the-second-language.pages.dev)。入口仍为设置→认证阅览，正式目录只有项目纪念；文书按钮替代声音设置。线上28项UI检查通过，12项真实HTTP回读覆盖新声纹、核心代码、冻结身份与匿名网关。时间和内容认证码均保持原值，未重新排纸。详情见[release.json](release.json)和[live-verification.json](live-verification.json)。声音时序／播放节点测试不是用户听感通过；实际音色与混音继续由真实试听评价。

@@ -1,0 +1,97 @@
+{
+  "schema": "second-language.reader-correction-release.v1",
+  "sourceSHA": "555ecbcc3f1dc58834e5ddc8da01e3597ad94d43",
+  "baselineSHA": "1180c8fd01aa296561a36b497ebfbe8a938e63ec",
+  "production": "https://the-second-language.pages.dev",
+  "immutable": "https://e138f32e.the-second-language.pages.dev",
+  "deploymentCompletionObservedAt": "2026-10-21T18:59:44.792Z",
+  "verificationCompletedAt": "2026-10-21T19:02:35.180Z",
+  "applicationShell": 40,
+  "productionWorks": [
+    "项目纪念"
+  ],
+  "researchSpecimensInProduction": false,
+  "workId": "SL-PROJECT-BEGINNING-20261021",
+  "madeAt": "2026-10-21T12:10:23.227Z",
+  "contentSHA256": "4a83d1952e133bcecd6c1aa2e14a788159b410e9a6ea2a7f5bcf42610943e37b",
+  "contentMark": "4A83 D195 2E13 3BCE",
+  "frozenArtworkRepainted": false,
+  "defaultMusic": true,
+  "defaultFoley": true,
+  "soundSettingsPresent": false,
+  "documentViews": [
+    "英文原稿",
+    "中文译稿"
+  ],
+  "checks": {
+    "minimalProjectEntry": true,
+    "researchProfilesRejected": true,
+    "rejectedWorkAbsent": true,
+    "noFakeChapterOrCertification": true,
+    "fixedMadeAtAndContentSHA": true,
+    "frozenOriginals": true,
+    "noRuntimeTypesetting": true,
+    "decodedOriginalPixelsMatch": true,
+    "actualMaterialProfileRestored": true,
+    "trustedEntryUnlocksDefaultSound": true,
+    "oldMuteIgnored": true,
+    "noSoundSettingsUI": true,
+    "realOpenAndClose": true,
+    "foleyDuringRealMotion": true,
+    "musicContinuesAcrossOpening": true,
+    "documentFullEnglishChineseFromRecord": true,
+    "documentMetadataFromRecord": true,
+    "actualClipboardCopies": true,
+    "documentTabsKeyboardAndScroll": true,
+    "documentControlsDoNotToggle": true,
+    "documentFocusAndEscape": true,
+    "hiddenPausesWithoutReplay": true,
+    "foregroundResumesPosition": true,
+    "exitStopsSound": true,
+    "lateDecodeCannotRevive": true,
+    "modalBackStack": true,
+    "portraitLandscape": true,
+    "noAccountWrites": true
+  },
+  "staticReadback": {
+    "pinnedStaticBytes": true,
+    "newMaterialRecordingsPresent": true,
+    "realAnonymousGatewayBoundary": true
+  },
+  "realAccountWrites": false,
+  "evidence": [
+    "verification.json",
+    "live-verification.json",
+    "live-readback.json",
+    "motion-verification.json",
+    "material-playback-verification.json",
+    "audio-derivatives.json",
+    "audio-research.md"
+  ],
+  "verificationLimits": "Actual Chrome mobile simulation, WebAudio signal and actual keeper path; not physical iPhone/Safari acceptance or human timbre/mix audition. Browser-only demo API used for interaction; actual anonymous production gateway checked separately.",
+  "displayFiles": 79,
+  "displayBytes": 52169484,
+  "independentAPIWorkerUpdated": false,
+  "pushProtection": {
+    "initialPushRejected": true,
+    "reason": "Embedded third-party webpage script contained an access-token pattern",
+    "remediation": "Removed executable page content and published sanitized visible-text evidence; raw author pages retained only in ignored local D cache; amended unpublished commit and pushed normally",
+    "bypassed": false
+  },
+  "costs": {
+    "newRecurringCost": 0,
+    "purchase": false,
+    "paidAPI": false,
+    "newAutomation": false,
+    "licenses": [
+      "CC-BY-3.0",
+      "CC0-1.0"
+    ]
+  },
+  "balanceAndArchive": {
+    "balanceUpdated": false,
+    "reason": "Local publisher credential unavailable, prior values preserved",
+    "permanentArchive": "queued, not independently verified complete",
+    "actualPreservation": "D-drive materials/source/research and pushed Git commits"
+  }
+}
