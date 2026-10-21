@@ -1,84 +1,99 @@
-import {SoundDirector} from './labs/certification-reader/sound.js?v=39';
+import {SoundDirector} from './labs/certification-reader/sound.js?v=40';
 
-// Only finished, actual artifacts belong here. No row is synthesized from a
-// chapter index or a score, and the specimen's original status stays unchanged.
+// Only published work is catalogued. Original research specimens stay in labs.
 export const READING_WORKS=Object.freeze([
- Object.freeze({id:'project-beginning',category:'project-commemorative',label:'项目纪念',chapter:'beginning',issued:false}),
- Object.freeze({number:1,chapter:'one',chapterId:'2026-10-02',issued:false}),
- Object.freeze({number:5,chapter:'five',chapterId:'2026-10-12',issued:false})
+ Object.freeze({id:'project-beginning',category:'project-commemorative',label:'项目纪念',chapter:'beginning',issued:false})
 ]);
-const chinese=new Intl.NumberFormat('zh-CN',{style:'decimal'});
-const name=n=>`第${({1:'一',5:'五'})[n]||chinese.format(n)}章`;
-const prefKey='second-language-certification-sound-v1';
+const fullSHA=/^[0-9a-f]{64}$/;
+const validInstant=value=>typeof value==='string'&&/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/.test(value)&&Number.isFinite(Date.parse(value));
+function localInstant(value){
+ if(!validInstant(value))return null;
+ const p=Object.fromEntries(new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Shanghai',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',fractionalSecondDigits:3,hourCycle:'h23'}).formatToParts(new Date(value)).map(({type,value})=>[type,value]));
+ return `${p.year}-${p.month}-${p.day} ${p.hour}:${p.minute}:${p.second}.${p.fractionalSecond} +08:00`;
+}
+function manuscriptLines(copy){return [copy.rubric,copy.institution,copy.artTitle,'',...copy.verse.slice(0,3),'',...copy.verse.slice(3),'',...copy.colophon,'',...copy.sealLegends,copy.status].filter(value=>typeof value==='string');}
 export function createCertificationReader({showDialog,stopLearningAudio=()=>{}}){
- const $=id=>document.getElementById(id),list=$('certificationCatalogue'),reader=$('certificationViewer'),stage=$('certificationStage');
+ const $=id=>document.getElementById(id),list=$('certificationCatalogue'),reader=$('certificationViewer'),stage=$('certificationStage'),panel=$('certificationDocumentPanel');
  const sound=new SoundDirector();
- let saved;try{saved=JSON.parse(localStorage.getItem(prefKey)||'{}');}catch{saved={};}
- const preferences={music:saved.music===true,foley:saved.foley===true,musicVolume:Number.isFinite(saved.musicVolume)?saved.musicVolume:.35,foleyVolume:Number.isFinite(saved.foleyVolume)?saved.foleyVolume:.65};
+ // Product defaults: old saved mute/false preferences are not read or applied.
+ sound.setMusicEnabled(true);sound.setFoleyEnabled(true);
  let viewer=null,selected=null,request=0,ready=false,lost=false,controlsTimer=0,returnToList=false;
+ let documentRecord=null,documentIdentity='',language='en';
  const setStatus=(text,error=false)=>{$('certificationLoading').hidden=!text;$('certificationStatus').textContent=text;$('certificationRetry').hidden=!error;};
- function soundControls(){
-  $('certificationMusic').checked=preferences.music;$('certificationFoley').checked=preferences.foley;
-  $('certificationMusicVolume').value=Math.round(preferences.musicVolume*100);$('certificationFoleyVolume').value=Math.round(preferences.foleyVolume*100);
-  sound.setMusicEnabled(preferences.music);sound.setFoleyEnabled(preferences.foley);sound.setMusicVolume(preferences.musicVolume);sound.setFoleyVolume(preferences.foleyVolume);
-  $('certificationSound').setAttribute('aria-pressed',String(preferences.music||preferences.foley));
- }
- function saveSound(){try{localStorage.setItem(prefKey,JSON.stringify(preferences));}catch{}soundControls();}
  function showControls(){
   clearTimeout(controlsTimer);stage.classList.add('controls-visible');$('certificationHud').inert=false;
-  if($('certificationSoundPanel').hidden&&ready&&!lost)controlsTimer=setTimeout(()=>{if(stage.contains(document.activeElement)&&document.activeElement!==$('certificationCanvas'))return;stage.classList.remove('controls-visible');$('certificationHud').inert=true;},3200);
+  if(panel.hidden&&ready&&!lost)controlsTimer=setTimeout(()=>{if(stage.contains(document.activeElement)&&document.activeElement!==$('certificationCanvas'))return;stage.classList.remove('controls-visible');$('certificationHud').inert=true;},3200);
  }
- function hideSound(){ $('certificationSoundPanel').hidden=true;$('certificationSound').setAttribute('aria-expanded','false');showControls(); }
+ function setLanguage(next,{focus=false}={}){
+  language=next;
+  for(const [lang,tabId,pageId]of [['en','certificationEnglishTab','certificationEnglishPage'],['zh-CN','certificationChineseTab','certificationChinesePage']]){
+   const active=lang===language,tab=$(tabId),page=$(pageId);tab.setAttribute('aria-selected',String(active));tab.tabIndex=active?0:-1;page.hidden=!active;page.inert=!active;if(active&&focus)tab.focus();
+  }
+  $('certificationCopyText').textContent=language==='en'?'复制英文原稿':'复制中文译稿';$('certificationCopyStatus').textContent='';
+ }
+ function hideDocument({focus=false}={}){panel.hidden=true;panel.inert=true;stage.classList.remove('document-open');$('certificationCanvas').inert=false;$('certificationDocument').setAttribute('aria-expanded','false');showControls();if(focus&&reader.open)$('certificationCanvas').focus({preventScroll:true});}
+ function clearDocument(){
+  documentRecord=null;documentIdentity='';$('certificationEnglishCopy').replaceChildren();$('certificationChineseCopy').replaceChildren();$('certificationDocumentNotice').hidden=false;$('certificationDocumentNotice').textContent='正在准备文书…';$('certificationDocumentMetadata').hidden=true;
+  for(const id of ['certificationCopyText','certificationCopyCode','certificationCopyTime'])$(id).disabled=true;setLanguage('en');
+ }
+ function renderCopy(container,copy){
+  container.replaceChildren();const add=(tag,text,className)=>{const el=document.createElement(tag);el.textContent=text;if(className)el.className=className;container.append(el);};
+  add('p',copy.rubric,'document-rubric');add('h3',copy.institution);add('h4',copy.artTitle);add('p',copy.verse.slice(0,3).join('\n'),'document-verse');add('p',copy.verse.slice(3).join('\n'),'document-verse');add('p',copy.colophon.join('\n'),'document-colophon');add('p',copy.sealLegends.join('\n'),'document-impression');add('p',copy.status,'document-kind');
+ }
+ function updateDocument(){
+  const record=viewer?.exportRecord();if(!record)return;const copy=record.copy,translation=copy?.translation;
+  if(!copy||!translation||![copy,translation].every(c=>typeof c.institution==='string'&&typeof c.artTitle==='string'&&Array.isArray(c.verse)&&Array.isArray(c.colophon)&&Array.isArray(c.sealLegends)))return;
+  const identity=`${record.sha256}|${record.publishedAt??''}`;if(identity===documentIdentity)return;documentRecord=record;documentIdentity=identity;
+  renderCopy($('certificationEnglishCopy'),copy);renderCopy($('certificationChineseCopy'),translation);
+  const made=localInstant(record.madeAt),published=localInstant(record.publishedAt),code=fullSHA.test(record.sha256||'')?record.sha256:null;
+  $('certificationMadeAt').textContent=made||'未记录';if(made)$('certificationMadeAt').dateTime=record.madeAt;else $('certificationMadeAt').removeAttribute('datetime');
+  $('certificationShortCode').textContent=code?code.slice(0,16).toUpperCase().match(/.{4}/g).join(' '):'未记录';$('certificationContentCode').textContent=code||'未记录';
+  $('certificationPublishedRow').hidden=!published;$('certificationPublishedAt').textContent=published||'';if(published)$('certificationPublishedAt').dateTime=record.publishedAt;else $('certificationPublishedAt').removeAttribute('datetime');
+  $('certificationDocumentNotice').hidden=true;$('certificationDocumentMetadata').hidden=false;$('certificationCopyText').disabled=false;$('certificationCopyCode').disabled=!code;$('certificationCopyTime').disabled=!made;
+ }
+ async function copyText(text){
+  if(!text)return;const ticket=request;let copied=false;
+  try{if(navigator.clipboard?.writeText){await navigator.clipboard.writeText(text);copied=true;}}catch{}
+  if(ticket!==request||!reader.open||panel.hidden)return;
+  if(!copied){const active=document.activeElement,buffer=document.createElement('textarea');buffer.className='certification-copy-buffer';buffer.value=text;buffer.readOnly=true;panel.append(buffer);buffer.select();buffer.setSelectionRange(0,text.length);try{copied=document.execCommand('copy');}catch{}finally{buffer.remove();if(active?.isConnected)active.focus({preventScroll:true});}}
+  if(ticket===request&&reader.open&&!panel.hidden)$('certificationCopyStatus').textContent=copied?'已复制':'未能自动复制，可长按文字选择复制。';
+ }
+ function documentText(){
+  if(!documentRecord)return '';const english=language==='en',r=documentRecord,copy=english?r.copy:r.copy.translation,mark=r.sha256.slice(0,16).toUpperCase().match(/.{4}/g).join(' ');
+  const metadata=[`${english?'Made':'制作时间'}: ${localInstant(r.madeAt)}`,`${english?'Content mark':'内容短码'}: ${mark}`,`${english?'Content SHA-256':'完整内容认证码（SHA-256）'}: ${r.sha256}`];if(validInstant(r.publishedAt))metadata.push(`${english?'Published':'发行时间'}: ${localInstant(r.publishedAt)}`);return [...manuscriptLines(copy),'',...metadata].join('\n');
+ }
  function resize(){const b=stage.getBoundingClientRect();viewer?.resize(b.width,b.height);}
  function freshCanvas(){for(const id of ['certificationCanvas','certificationMist']){const old=$(id),next=old.cloneNode(false);old.replaceWith(next);}}
- function releaseViewer(){request++;ready=false;lost=false;viewer?.dispose();viewer=null;freshCanvas();$('certificationStatic').removeAttribute('src');$('certificationStatic').hidden=true;}
+ function releaseViewer(){request++;ready=false;lost=false;viewer?.dispose();viewer=null;freshCanvas();clearDocument();$('certificationStatic').removeAttribute('src');$('certificationStatic').hidden=true;}
+ function unlockSound(){sound.unlock().catch(()=>{});}
  async function view(work){
-  stopLearningAudio();returnToList=true;
-  // The catalogue's settings return must not fire while moving into its child.
-  const parent=list.returnDialog;list.returnDialog=null;list.close();list.savedReturn=parent;
-  if(!reader.open)reader.showModal();selected=work;releaseViewer();const ticket=request;
-  hideSound();setStatus('正在准备卷轴…');sound.setActive(true);soundControls();
-  // Resume within the actual chapter tap. Loading never waits for audio.
-  sound.unlock().catch(()=>{});resize();
+  if(!work||!READING_WORKS.includes(work))throw Error('该作品不在正式目录中');stopLearningAudio();returnToList=true;
+  const parent=list.returnDialog;list.returnDialog=null;list.close();list.savedReturn=parent;if(!reader.open)reader.showModal();selected=work;releaseViewer();const ticket=request;
+  hideDocument();setStatus('正在准备卷轴…');sound.setMusicEnabled(true);sound.setFoleyEnabled(true);sound.setActive(true);
+  // Synchronous call in the actual work click, before imports or awaits.
+  unlockSound();resize();
   try{
-   const {ScrollViewer}=await import('./labs/certification-reader/reader.bundle.js?v=39');
-   if(ticket!==request||!reader.open)return;
-   viewer=new ScrollViewer($('certificationCanvas'),$('certificationMist'),{
-    onProgress:state=>sound.motion(state),
-    onStatus:(text,meta)=>{
-     if(ticket!==request||!reader.open)return;
-     if(['failed','context-lost','restoring'].includes(meta.status)){
-      lost=true;ready=false;const image=viewer?.exportDocument();if(image){$('certificationStatic').src=image;$('certificationStatic').hidden=false;}
-      setStatus(meta.status==='restoring'?'正在恢复显示…':'显示暂时中断，可重试。',meta.status!=='restoring');showControls();
-     }else if(meta.status==='ready'){lost=false;ready=true;$('certificationStatic').hidden=true;setStatus('');showControls();}
-    }
-   });
-   resize();await viewer.prepare({chapter:work.chapter,initialProgress:0});
-   if(ticket!==request||!reader.open)return;
-   ready=true;setStatus('');viewer.bindPointerInput();showControls();
-   $('certificationCanvas').addEventListener('pointerdown',()=>{showControls();sound.unlock().catch(()=>{});});
-   $('certificationCanvas').addEventListener('keydown',event=>{if(['Enter',' '].includes(event.key)){event.preventDefault();viewer.animate(viewer.animation?(viewer.animation.to?0:1):(viewer.progress>.5?0:1));}});
-  }catch(error){if(ticket===request&&reader.open){console.error('Certification reader',error);ready=false;setStatus('卷轴暂未载入，请重试。',true);showControls();}}
+   const {ScrollViewer}=await import('./labs/certification-reader/reader.bundle.js?v=40');if(ticket!==request||!reader.open)return;
+   viewer=new ScrollViewer($('certificationCanvas'),$('certificationMist'),{onProgress:state=>sound.motion(state),onStatus:(text,meta)=>{
+    if(ticket!==request||!reader.open)return;updateDocument();
+    if(['failed','context-lost','restoring'].includes(meta.status)){lost=true;ready=false;const image=viewer?.exportDocument();if(image){$('certificationStatic').src=image;$('certificationStatic').hidden=false;}setStatus(meta.status==='restoring'?'正在恢复显示…':'显示暂时中断，可重试。',meta.status!=='restoring');showControls();}
+    else if(meta.status==='ready'){lost=false;ready=true;$('certificationStatic').hidden=true;setStatus('');showControls();}
+   }});
+   resize();await viewer.prepare({chapter:work.chapter,initialProgress:0});if(ticket!==request||!reader.open)return;ready=true;setStatus('');updateDocument();viewer.bindPointerInput();showControls();
+   $('certificationCanvas').addEventListener('pointerdown',()=>{showControls();unlockSound();});$('certificationCanvas').addEventListener('keydown',event=>{if(['Enter',' '].includes(event.key)){event.preventDefault();unlockSound();viewer.animate(viewer.animation?(viewer.animation.to?0:1):(viewer.progress>.5?0:1));}});
+  }catch(error){if(ticket===request&&reader.open){console.error('Certification reader',error);updateDocument();ready=false;setStatus('卷轴暂未载入，请重试。',true);showControls();}}
  }
- for(const work of READING_WORKS){const button=document.createElement('button');button.type='button';button.className='settings-row certification-chapter';button.textContent=work.label||name(work.number);if(work.number)button.dataset.chapter=String(work.number);else button.dataset.work=work.id;button.addEventListener('click',()=>view(work));$('certificationChapters').append(button);}
- $('certificationReaderButton').addEventListener('click',()=>{stopLearningAudio();showDialog('certificationCatalogue');});
- $('certificationBack').addEventListener('click',()=>reader.close());
- $('certificationRetry').addEventListener('click',()=>{if(selected)view(selected);});
- $('certificationSound').addEventListener('click',()=>{const opening=$('certificationSoundPanel').hidden;$('certificationSoundPanel').hidden=!opening;$('certificationSound').setAttribute('aria-expanded',String(opening));showControls();if(opening)$('certificationMusic').focus();});
- $('certificationSoundClose').addEventListener('click',hideSound);
- for(const [id,key]of [['certificationMusic','music'],['certificationFoley','foley']])$(id).addEventListener('change',()=>{preferences[key]=$(id).checked;saveSound();sound.unlock().catch(()=>{$('certificationSoundStatus').textContent='声音被系统暂停，请再次轻触开关。';});});
- for(const [id,key]of [['certificationMusicVolume','musicVolume'],['certificationFoleyVolume','foleyVolume']])$(id).addEventListener('input',()=>{preferences[key]=Number($(id).value)/100;saveSound();});
- reader.addEventListener('close',()=>{
-  clearTimeout(controlsTimer);releaseViewer();sound.setActive(false);hideSound();setStatus('');
-  if(returnToList){returnToList=false;list.returnDialog=list.savedReturn||'settingsDialog';list.savedReturn=null;requestAnimationFrame(()=>{if(!document.querySelector('dialog[open]'))list.showModal();});}
- });
- reader.addEventListener('cancel',event=>{if(!$('certificationSoundPanel').hidden){event.preventDefault();hideSound();}});
- stage.addEventListener('pointerdown',event=>{if(!event.target.closest('.certification-sound-panel')&&!event.target.closest('#certificationSound'))hideSound();else showControls();});
- stage.addEventListener('keydown',()=>showControls());
- document.addEventListener('visibilitychange',()=>{if(document.hidden){viewer?.pause();sound.pause();}else if(reader.open){viewer?.resume();sound.resume();}});
- globalThis.addEventListener('pagehide',()=>{viewer?.pause();sound.setActive(false);});
- globalThis.addEventListener('pageshow',()=>{if(reader.open){viewer?.resume();sound.setActive(true);sound.resume();}});
- new ResizeObserver(resize).observe(stage);soundControls();
- // Read-only diagnostics are useful for testing lifecycle without issuing data.
- return {snapshot:()=>({open:reader.open,ready,lost,chapter:selected?.number??null,category:selected?.category||'chapter-specimen',issued:selected?.issued??false,viewer:viewer?.snapshot(),sound:sound.snapshot()}),setProgress:p=>viewer?.setProgress(p),openChapter:n=>view(READING_WORKS.find(w=>w.number===n)),exportRecord:()=>viewer?.exportRecord(),exportDocument:()=>viewer?.exportDocument()};
+ for(const work of READING_WORKS){const button=document.createElement('button');button.type='button';button.className='settings-row certification-chapter';button.textContent=work.label;button.dataset.work=work.id;button.addEventListener('click',()=>view(work));$('certificationChapters').append(button);}
+ $('certificationReaderButton').addEventListener('click',()=>{stopLearningAudio();showDialog('certificationCatalogue');});$('certificationBack').addEventListener('click',()=>reader.close());$('certificationRetry').addEventListener('click',()=>{if(selected)view(selected);});
+ $('certificationDocument').addEventListener('click',()=>{if(!panel.hidden){hideDocument({focus:true});return;}updateDocument();panel.hidden=false;panel.inert=false;stage.classList.add('document-open');$('certificationCanvas').inert=true;$('certificationDocument').setAttribute('aria-expanded','true');showControls();setLanguage(language,{focus:true});unlockSound();});
+ $('certificationDocumentClose').addEventListener('click',()=>hideDocument({focus:true}));
+ for(const [id,lang]of [['certificationEnglishTab','en'],['certificationChineseTab','zh-CN']])$(id).addEventListener('click',()=>setLanguage(lang));
+ $('certificationDocumentTabs').addEventListener('keydown',event=>{if(!['ArrowLeft','ArrowRight','Home','End'].includes(event.key))return;event.preventDefault();setLanguage(event.key==='Home'?'en':event.key==='End'?'zh-CN':language==='en'?'zh-CN':'en',{focus:true});});
+ $('certificationCopyText').addEventListener('click',()=>copyText(documentText()));$('certificationCopyCode').addEventListener('click',()=>copyText(documentRecord?.sha256));$('certificationCopyTime').addEventListener('click',()=>copyText(localInstant(documentRecord?.madeAt)));
+ reader.addEventListener('close',()=>{clearTimeout(controlsTimer);releaseViewer();sound.setActive(false);hideDocument();clearTimeout(controlsTimer);setStatus('');if(returnToList){returnToList=false;list.returnDialog=list.savedReturn||'settingsDialog';list.savedReturn=null;requestAnimationFrame(()=>{if(!document.querySelector('dialog[open]'))list.showModal();});}});
+ reader.addEventListener('cancel',event=>{if(!panel.hidden){event.preventDefault();hideDocument({focus:true});}});
+ stage.addEventListener('pointerdown',event=>{if(!panel.hidden&&!event.target.closest('.certification-document-panel')&&!event.target.closest('#certificationDocument'))hideDocument();else showControls();});stage.addEventListener('keydown',()=>showControls());
+ document.addEventListener('visibilitychange',()=>{if(document.hidden){viewer?.pause();sound.pause();}else if(reader.open){viewer?.resume();sound.resume();}});globalThis.addEventListener('pagehide',()=>{viewer?.pause();sound.setActive(false);});globalThis.addEventListener('pageshow',()=>{if(reader.open){viewer?.resume();sound.setActive(true);sound.resume();}});
+ new ResizeObserver(resize).observe(stage);clearDocument();hideDocument();
+ return {snapshot:()=>({open:reader.open,ready,lost,chapter:null,workId:selected?.id??null,category:selected?.category??null,issued:false,viewer:viewer?.snapshot(),sound:sound.snapshot(),document:{open:!panel.hidden,language,ready:Boolean(documentRecord),madeAt:documentRecord?.madeAt??null,publishedAt:documentRecord?.publishedAt??null,contentSHA256:documentRecord?.sha256??null}}),setProgress:p=>viewer?.setProgress(p),openWork:id=>view(READING_WORKS.find(w=>w.id===id)),exportRecord:()=>viewer?.exportRecord(),exportDocument:()=>viewer?.exportDocument()};
 }

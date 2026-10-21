@@ -1,0 +1,33 @@
+Sanitized visible-text author-page evidence, retrieved 2026-10-22.
+Source: https://lpc.opengameart.org/content/spell-scroll
+Scripts, style, head, form attributes and executable content omitted.
+The unmodified download is retained only in the ignored D-drive task cache.
+Original download SHA-256: ab274e97eb201777828b90c54bc3173fc761eac4d968553f9df303413d8bf753
+
+Skip to main content
+Spell Scroll
+Spell Scroll
+Author:
+spookymodem
+Thursday, September 25, 2014 - 10:07
+Art Type:
+Sound Effect
+Tags:
+unroll
+parchment
+spell
+scroll
+License(s):
+CC-BY 3.0
+Collections:
+Dungeon Crawler Sound Effects
+Legend of Rathnor Parts
+UI sounds RPG Inventory sounds
+_Audio - A Catalogar
+Favorites:
+5
+Preview:
+Unrolling a spell scroll.
+File(s):
+Unrolling Parchment.wav 555.2 Kb [280 download(s)]
+Log in or register to post comments

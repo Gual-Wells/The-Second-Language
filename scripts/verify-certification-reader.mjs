@@ -1,11 +1,18 @@
 import assert from 'node:assert/strict';
 import {mkdir,writeFile} from 'node:fs/promises';
 import {pathToFileURL} from 'node:url';
+// Production verification follows the sole current project work. Historical
+// chapter fixtures remain available only through the explicit legacy flag.
+if(!process.argv.includes('--chapter-specimens-only')){
+ await import('./verify-project-beginning.mjs');
+ process.exit(0);
+}
 const {chromium}=await import(pathToFileURL('D:/CodexStorage/workspaces/second-language-maintenance/.cache/browser-tools/package/index.mjs'));
-const out='research/certification-reader-2026-10-21',cache='.cache/certification-reader';await mkdir(out,{recursive:true});await mkdir(cache+'/tmp',{recursive:true});process.env.TEMP=process.env.TMP=process.cwd()+'/'+cache+'/tmp';
+const out='research/scroll-reader-correction-2026-10-22/legacy-chapter-specimens',cache='.cache/certification-reader';await mkdir(out,{recursive:true});await mkdir(cache+'/tmp',{recursive:true});process.env.TEMP=process.env.TMP=process.cwd()+'/'+cache+'/tmp';
 const args=process.argv.slice(2),chapterSpecimensOnly=args.includes('--chapter-specimens-only');
 if(args.some(arg=>arg.startsWith('--')&&arg!=='--chapter-specimens-only'))throw Error('Usage: node scripts/verify-certification-reader.mjs [base URL] [--chapter-specimens-only]');
 const base=args.find(arg=>!arg.startsWith('--'))||'http://127.0.0.1:8153',remote=base.startsWith('https:');
+if(!remote||!/^https:\/\/[0-9a-f]{8,}\.the-second-language\.pages\.dev\/?$/.test(base))throw Error('Historical chapter verification requires a fixed immutable deployment URL. Current production contains only project-beginning.');
 const browser=await chromium.launch({headless:true,executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe',...(remote?{proxy:{server:'http://127.0.0.1:6987'}}:{}),args:['--no-first-run']});
 const errors=[],missing=[],writes=[],resources=[];
 try{

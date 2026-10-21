@@ -1,12 +1,5 @@
-import {ScrollObject} from '../chapter-scroll-v19/scroll-object.js';
 import {ViewerAtmosphere} from './viewer-atmosphere.js';
 import {Motion} from '../chapter-scroll-runtime/motion.js';
-import {getTemplate as getFifthTemplate} from '../chapter-scroll-v17/templates.js';
-import {getTemplate as getFirstTemplate} from '../chapter-scroll-v12/templates.js';
-import * as firstDocument from '../chapter-scroll-v12/document.js';
-import * as fifthDocument from '../chapter-scroll-v14/document.js';
-import {prepareCharter as prepareFirstCharter} from '../chapter-scroll-v12/charter.js';
-import {prepareCharter as prepareFifthCharter} from '../chapter-scroll-v14/charter.js';
 import {ViewerResources} from './viewer-resources.js';
 import * as projectDocument from '../project-beginning/document.js';
 import {prepareCharter as prepareProjectCharter} from '../project-beginning/charter.js';
@@ -15,8 +8,6 @@ import {ScrollObject as ProjectScrollObject} from '../project-beginning/scroll-o
 
 const profiles=Object.freeze([
  Object.freeze({id:'beginning',category:'project-commemorative',label:'项目纪念卷轴',source:new URL('../project-beginning/',import.meta.url),getTemplate:getProjectTemplate,document:projectDocument,prepareCharter:prepareProjectCharter,hasArtPlan:true,recordFile:'record.json',ObjectClass:ProjectScrollObject,frozenDocument:true}),
- Object.freeze({id:'one',chapterId:'2026-10-02',chapterNumber:1,label:'第一章',source:new URL('../chapter-scroll-v12/',import.meta.url),getTemplate:getFirstTemplate,document:firstDocument,prepareCharter:prepareFirstCharter,hasArtPlan:false}),
- Object.freeze({id:'five',chapterId:'2026-10-12',chapterNumber:5,label:'第五章',source:new URL('../chapter-scroll-v14/',import.meta.url),getTemplate:getFifthTemplate,document:fifthDocument,prepareCharter:prepareFifthCharter,hasArtPlan:true}),
 ]);
 function resolvedTemplate(profile,id){
  const template={...profile.getTemplate(id)};
@@ -33,10 +24,9 @@ function releaseContext(canvas,gl,release){
  canvas.addEventListener('webglcontextlost',restore,{once:true});release();return true;
 }
 
-// Actual v12/v14 chapter artwork on the accepted v19 mechanism and v20 mist.
-// Each chapter retains its own document implementation, record and asset bytes;
-// the common physical viewer does not substitute one chapter's art for another.
-// This module does not bind document IDs, issue a work or synthesize a chapter.
+// Production contains only the published project keepsake, on the retained v19
+// mechanism and v20 mist. Original chapter specimens remain in separate labs;
+// this adapter does not turn research material into a production catalogue row.
 export class ScrollViewer {
  constructor(canvas,mistCanvas,{onProgress=()=>{},onStatus=()=>{}}={}){
   if(!(canvas instanceof HTMLCanvasElement)||!(mistCanvas instanceof HTMLCanvasElement))throw TypeError('Two canvas elements are required');
@@ -62,13 +52,16 @@ export class ScrollViewer {
  report(message,status=this.status){if(this.disposed)return;this.status=status;this.onStatus(message,{status,ready:this.ready});}
  signalProgress({velocity=0,active=false,direction=0}={}){
   if(this.disposed)return;
-  this.onProgress({progress:this.progress,velocity,active,direction,phase:this.object?.closure?.snapshot()?.phase||'closed',paperProgress:this.object?.paperProgress??0});
+  const closure=this.object?.closure,pose=closure?.snapshot();
+  let keeper=null;
+  if(pose){const {r,phase,pin,angle,along,feed,slide,depart,visible}=pose;keeper={r,phase,pin,angle,along,feed,slide,depart,visible};}
+  this.onProgress({progress:this.progress,velocity,active,direction,phase:pose?.phase||'closed',paperProgress:this.object?.paperProgress??0,keeper});
  }
  async prepare(options={}){
   if(this.disposed)throw aborted();
-  const chapter=options.chapter??options.chapterId??options.chapterNumber??'five';
-  const profile=profiles.find(item=>[item.id,item.chapterId,item.chapterNumber,String(item.chapterNumber)].includes(chapter));
-  if(!profile)throw Error('Only actual published works and the existing chapter specimens are available; other works are not substituted.');
+  const chapter=options.work??options.chapter??'beginning';
+  const profile=profiles.find(item=>item.id===chapter);
+  if(!profile||options.chapterId!==undefined||options.chapterNumber!==undefined)throw Error('Only the published project keepsake is available in the production reader.');
   if(options.chapterId!==undefined&&options.chapterId!==profile.chapterId)throw Error('Requested chapter identifiers do not match');
   if(this.preparation){if(this.profile!==profile||this.surfaceSet!==(options.surfaceSet??'frozen'))throw Error('Dispose this viewer before changing works or surface sets');return this.preparation;}
   this.profile=profile;
@@ -95,7 +88,7 @@ export class ScrollViewer {
   try{
    if(profile.frozenDocument)this.textures=await profile.document[surfaceSet==='draft'?'loadDraftDocument':'loadFrozenDocument'](record,owned,profile.source);
    else{await profile.document.prepareSeal();owned.assertAlive();this.textures=profile.document.createDocument(record,paper,back,template,ornament);}
-   const ObjectClass=profile.ObjectClass||ScrollObject;this.object=new ObjectClass(this.canvas,this.textures,keeper,template);
+   const ObjectClass=profile.ObjectClass;this.object=new ObjectClass(this.canvas,this.textures,keeper,template);
    this.attachObjectLifetime(this.object,owned);
   }finally{for(const image of images)if(image!==keeper||!this.object)owned.releaseImage(image);}
   owned.assertAlive();

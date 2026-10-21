@@ -1,0 +1,297 @@
+{
+  "checkedAt": "2026-10-21T18:01:29.329Z",
+  "checks": {
+    "recordedSourcesDecode": true,
+    "actualMaterialPlayback": true,
+    "materialPhaseSeparation": true,
+    "heldFingerAudioClockSilence": true,
+    "pauseClearsVoices": true,
+    "exitClearsVoices": true,
+    "defaultsEnabled": true
+  },
+  "result": {
+    "initialDefaults": {
+      "active": false,
+      "paused": false,
+      "disposed": false,
+      "unlocked": false,
+      "musicEnabled": true,
+      "foleyEnabled": true,
+      "musicVolume": 0.35,
+      "foleyVolume": 0.65,
+      "contextState": "not-created",
+      "musicTrack": null,
+      "musicPosition": 0,
+      "musicDuration": null,
+      "musicState": "paused",
+      "restRemainingMs": 0,
+      "completedPlays": 0,
+      "musicVoices": 0,
+      "foleyVoices": 0,
+      "downloaded": 0,
+      "decoded": [],
+      "failures": {},
+      "eventsPlayed": 0,
+      "lastEvent": null,
+      "materialTargets": {
+        "paper": 0,
+        "leather": 0
+      },
+      "materialLevels": {},
+      "motionModel": "actual keeper path coordinates and paper winding velocity",
+      "contacts": [],
+      "listeningReview": "recorded material sources; human listening acceptance remains separate",
+      "seamlessLoop": false,
+      "issued": false
+    },
+    "leather": {
+      "peakRMS": 0.000832327525009931,
+      "moving": {
+        "active": true,
+        "paused": false,
+        "disposed": false,
+        "unlocked": true,
+        "musicEnabled": false,
+        "foleyEnabled": true,
+        "musicVolume": 0.35,
+        "foleyVolume": 0.65,
+        "contextState": "running",
+        "musicTrack": null,
+        "musicPosition": 0,
+        "musicDuration": null,
+        "musicState": "paused",
+        "restRemainingMs": 0,
+        "completedPlays": 0,
+        "musicVoices": 0,
+        "foleyVoices": 1,
+        "downloaded": 3,
+        "decoded": [
+          "leather",
+          "paper",
+          "metal"
+        ],
+        "failures": {},
+        "eventsPlayed": 1,
+        "lastEvent": null,
+        "materialTargets": {
+          "paper": 0,
+          "leather": 0.13029066049325005
+        },
+        "materialLevels": {
+          "leather": 0.06315791606903076
+        },
+        "motionModel": "actual keeper path coordinates and paper winding velocity",
+        "contacts": [],
+        "listeningReview": "recorded material sources; human listening acceptance remains separate",
+        "seamlessLoop": false,
+        "issued": false
+      },
+      "heldQuietRMS": 0,
+      "held": {
+        "active": true,
+        "paused": false,
+        "disposed": false,
+        "unlocked": true,
+        "musicEnabled": false,
+        "foleyEnabled": true,
+        "musicVolume": 0.35,
+        "foleyVolume": 0.65,
+        "contextState": "running",
+        "musicTrack": null,
+        "musicPosition": 0,
+        "musicDuration": null,
+        "musicState": "paused",
+        "restRemainingMs": 0,
+        "completedPlays": 0,
+        "musicVoices": 0,
+        "foleyVoices": 1,
+        "downloaded": 3,
+        "decoded": [
+          "leather",
+          "paper",
+          "metal"
+        ],
+        "failures": {},
+        "eventsPlayed": 1,
+        "lastEvent": null,
+        "materialTargets": {
+          "paper": 0,
+          "leather": 0
+        },
+        "materialLevels": {
+          "leather": 0
+        },
+        "motionModel": "actual keeper path coordinates and paper winding velocity",
+        "contacts": [],
+        "listeningReview": "recorded material sources; human listening acceptance remains separate",
+        "seamlessLoop": false,
+        "issued": false
+      }
+    },
+    "paper": {
+      "peakRMS": 0.02266301843218074,
+      "moving": {
+        "active": true,
+        "paused": false,
+        "disposed": false,
+        "unlocked": true,
+        "musicEnabled": false,
+        "foleyEnabled": true,
+        "musicVolume": 0.35,
+        "foleyVolume": 0.65,
+        "contextState": "running",
+        "musicTrack": null,
+        "musicPosition": 0,
+        "musicDuration": null,
+        "musicState": "paused",
+        "restRemainingMs": 0,
+        "completedPlays": 0,
+        "musicVoices": 0,
+        "foleyVoices": 2,
+        "downloaded": 3,
+        "decoded": [
+          "leather",
+          "paper",
+          "metal"
+        ],
+        "failures": {},
+        "eventsPlayed": 2,
+        "lastEvent": null,
+        "materialTargets": {
+          "paper": 0.2,
+          "leather": 0
+        },
+        "materialLevels": {
+          "leather": 0,
+          "paper": 0.20000000298023224
+        },
+        "motionModel": "actual keeper path coordinates and paper winding velocity",
+        "contacts": [],
+        "listeningReview": "recorded material sources; human listening acceptance remains separate",
+        "seamlessLoop": false,
+        "issued": false
+      },
+      "heldQuietRMS": 0,
+      "held": {
+        "active": true,
+        "paused": false,
+        "disposed": false,
+        "unlocked": true,
+        "musicEnabled": false,
+        "foleyEnabled": true,
+        "musicVolume": 0.35,
+        "foleyVolume": 0.65,
+        "contextState": "running",
+        "musicTrack": null,
+        "musicPosition": 0,
+        "musicDuration": null,
+        "musicState": "paused",
+        "restRemainingMs": 0,
+        "completedPlays": 0,
+        "musicVoices": 0,
+        "foleyVoices": 2,
+        "downloaded": 3,
+        "decoded": [
+          "leather",
+          "paper",
+          "metal"
+        ],
+        "failures": {},
+        "eventsPlayed": 2,
+        "lastEvent": null,
+        "materialTargets": {
+          "paper": 0,
+          "leather": 0
+        },
+        "materialLevels": {
+          "leather": 0,
+          "paper": 0
+        },
+        "motionModel": "actual keeper path coordinates and paper winding velocity",
+        "contacts": [],
+        "listeningReview": "recorded material sources; human listening acceptance remains separate",
+        "seamlessLoop": false,
+        "issued": false
+      }
+    },
+    "paused": {
+      "active": true,
+      "paused": true,
+      "disposed": false,
+      "unlocked": true,
+      "musicEnabled": false,
+      "foleyEnabled": true,
+      "musicVolume": 0.35,
+      "foleyVolume": 0.65,
+      "contextState": "running",
+      "musicTrack": null,
+      "musicPosition": 0,
+      "musicDuration": null,
+      "musicState": "paused",
+      "restRemainingMs": 0,
+      "completedPlays": 0,
+      "musicVoices": 0,
+      "foleyVoices": 0,
+      "downloaded": 3,
+      "decoded": [
+        "leather",
+        "paper",
+        "metal"
+      ],
+      "failures": {},
+      "eventsPlayed": 2,
+      "lastEvent": null,
+      "materialTargets": {
+        "paper": 0,
+        "leather": 0
+      },
+      "materialLevels": {},
+      "motionModel": "actual keeper path coordinates and paper winding velocity",
+      "contacts": [],
+      "listeningReview": "recorded material sources; human listening acceptance remains separate",
+      "seamlessLoop": false,
+      "issued": false
+    },
+    "exited": {
+      "active": false,
+      "paused": true,
+      "disposed": false,
+      "unlocked": true,
+      "musicEnabled": false,
+      "foleyEnabled": true,
+      "musicVolume": 0.35,
+      "foleyVolume": 0.65,
+      "contextState": "running",
+      "musicTrack": null,
+      "musicPosition": 0,
+      "musicDuration": null,
+      "musicState": "paused",
+      "restRemainingMs": 0,
+      "completedPlays": 0,
+      "musicVoices": 0,
+      "foleyVoices": 0,
+      "downloaded": 3,
+      "decoded": [
+        "leather",
+        "paper",
+        "metal"
+      ],
+      "failures": {},
+      "eventsPlayed": 2,
+      "lastEvent": null,
+      "materialTargets": {
+        "paper": 0,
+        "leather": 0
+      },
+      "materialLevels": {},
+      "motionModel": "actual keeper path coordinates and paper winding velocity",
+      "contacts": [],
+      "listeningReview": "recorded material sources; human listening acceptance remains separate",
+      "seamlessLoop": false,
+      "issued": false
+    },
+    "actualAudioContext": "running"
+  },
+  "errors": [],
+  "scope": "Real WebAudio analyser on material bus with the actual keeper path. Browser automation, not a human timbre assessment or physical iPhone audition."
+}

@@ -1,0 +1,6 @@
+{
+  "error": "AssertionError [ERR_ASSERTION]: No successful response byte evidence for /labs/certification-reader/assets/keeper-display.glb\n    at file:///D:/CodexStorage/workspaces/second-language-certification-reader/scripts/verify-project-beginning.mjs:88:58",
+  "errors": [],
+  "missing": [],
+  "writes": []
+}

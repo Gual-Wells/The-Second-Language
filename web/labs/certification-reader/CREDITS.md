@@ -1,11 +1,14 @@
 # Certification reading
 
-The main settings entry displays a newly commissioned project-beginning keepsake
-and actual first- and fifth-chapter unissued art specimens. The prior project
-keepsake was rejected and withdrawn; its source remains a failure archive.
-The new project sample has an agent review and awaits user artistic evaluation.
-This reader does not issue an assessment award or create a score. The rejected museum,
-furniture, room textures, carrying animation and room score are not included.
+The main settings entry displays only the formally published project-beginning
+keepsake. First/fifth chapter artifacts remain research specimens and are not
+registered production works. The prior project keepsake was rejected and
+withdrawn. Artwork adoption and actual examination awards remain distinct.
+The rejected museum, furniture, room textures, carrying animation and room score
+are not included. The readable bilingual manuscript preserves the original
+making time and content mark; runtime sound is on by default and follows the
+actual keeper/paper motion. Current recorded-material attribution (including
+CC BY 3.0) is in AUDIO_CREDITS.md, not only the earlier CC0 archive.
 
 - Project-beginning paper, miniature, inscription and material adaptation:
   [project-beginning/CREDITS.md](../project-beginning/CREDITS.md).

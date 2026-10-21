@@ -1,0 +1,1902 @@
+[
+  {
+    "file": "unrolling-parchment.wav",
+    "bytes": 555232,
+    "sha256": "0ecdba822baa623f478a0131c20eaf175e9494f8fb534d666427685813c9e54f",
+    "decodedMonoRate": 22050,
+    "duration": 3.147347,
+    "peak": 0.113342,
+    "rms": 0.008944,
+    "rmsDb": -40.97,
+    "bins100ms": [
+      {
+        "start": 0.0,
+        "rmsDb": -72.82,
+        "peak": 0.00076
+      },
+      {
+        "start": 0.1,
+        "rmsDb": -74.32,
+        "peak": 0.00058
+      },
+      {
+        "start": 0.2,
+        "rmsDb": -80.54,
+        "peak": 0.00024
+      },
+      {
+        "start": 0.3,
+        "rmsDb": -63.97,
+        "peak": 0.00388
+      },
+      {
+        "start": 0.4,
+        "rmsDb": -62.71,
+        "peak": 0.00366
+      },
+      {
+        "start": 0.5,
+        "rmsDb": -42.6,
+        "peak": 0.04086
+      },
+      {
+        "start": 0.6,
+        "rmsDb": -38.86,
+        "peak": 0.04382
+      },
+      {
+        "start": 0.7,
+        "rmsDb": -45.03,
+        "peak": 0.02164
+      },
+      {
+        "start": 0.8,
+        "rmsDb": -44.9,
+        "peak": 0.0231
+      },
+      {
+        "start": 0.9,
+        "rmsDb": -40.67,
+        "peak": 0.0665
+      },
+      {
+        "start": 1.0,
+        "rmsDb": -37.07,
+        "peak": 0.05994
+      },
+      {
+        "start": 1.1,
+        "rmsDb": -42.05,
+        "peak": 0.03564
+      },
+      {
+        "start": 1.2,
+        "rmsDb": -36.63,
+        "peak": 0.06342
+      },
+      {
+        "start": 1.3,
+        "rmsDb": -34.78,
+        "peak": 0.06039
+      },
+      {
+        "start": 1.4,
+        "rmsDb": -33.05,
+        "peak": 0.11334
+      },
+      {
+        "start": 1.5,
+        "rmsDb": -40.27,
+        "peak": 0.0408
+      },
+      {
+        "start": 1.6,
+        "rmsDb": -47.16,
+        "peak": 0.03082
+      },
+      {
+        "start": 1.7,
+        "rmsDb": -55.99,
+        "peak": 0.00787
+      },
+      {
+        "start": 1.8,
+        "rmsDb": -37.92,
+        "peak": 0.06607
+      },
+      {
+        "start": 1.9,
+        "rmsDb": -42.64,
+        "peak": 0.04507
+      },
+      {
+        "start": 2.0,
+        "rmsDb": -50.26,
+        "peak": 0.02045
+      },
+      {
+        "start": 2.1,
+        "rmsDb": -37.85,
+        "peak": 0.07202
+      },
+      {
+        "start": 2.2,
+        "rmsDb": -45.02,
+        "peak": 0.04416
+      },
+      {
+        "start": 2.3,
+        "rmsDb": -40.25,
+        "peak": 0.04517
+      },
+      {
+        "start": 2.4,
+        "rmsDb": -39.16,
+        "peak": 0.04367
+      },
+      {
+        "start": 2.5,
+        "rmsDb": -40.61,
+        "peak": 0.03876
+      },
+      {
+        "start": 2.6,
+        "rmsDb": -44.79,
+        "peak": 0.02594
+      },
+      {
+        "start": 2.7,
+        "rmsDb": -53.34,
+        "peak": 0.00818
+      },
+      {
+        "start": 2.8,
+        "rmsDb": -76.16,
+        "peak": 0.0007
+      },
+      {
+        "start": 2.9,
+        "rmsDb": -89.22,
+        "peak": 0.00015
+      },
+      {
+        "start": 3.0,
+        "rmsDb": -69.67,
+        "peak": 0.0014
+      },
+      {
+        "start": 3.1,
+        "rmsDb": -74.34,
+        "peak": 0.00113
+      }
+    ],
+    "audition": "not-listened"
+  },
+  {
+    "file": "altfuture-leather-stretched-hq-preview.mp3",
+    "bytes": 612480,
+    "sha256": "aae6b357aaf6dc2f4fcc70724e26f0d59c082ff4b84f4d2ca4c7edc965a9616f",
+    "decodedMonoRate": 22050,
+    "duration": 24.998005,
+    "peak": 0.629639,
+    "rms": 0.016828,
+    "rmsDb": -35.48,
+    "bins100ms": [
+      {
+        "start": 0.0,
+        "rmsDb": -43.11,
+        "peak": 0.05948
+      },
+      {
+        "start": 0.1,
+        "rmsDb": -46.27,
+        "peak": 0.01123
+      },
+      {
+        "start": 0.2,
+        "rmsDb": -48.3,
+        "peak": 0.00946
+      },
+      {
+        "start": 0.3,
+        "rmsDb": -41.64,
+        "peak": 0.02472
+      },
+      {
+        "start": 0.4,
+        "rmsDb": -34.96,
+        "peak": 0.06564
+      },
+      {
+        "start": 0.5,
+        "rmsDb": -21.27,
+        "peak": 0.26331
+      },
+      {
+        "start": 0.6,
+        "rmsDb": -17.69,
+        "peak": 0.29486
+      },
+      {
+        "start": 0.7,
+        "rmsDb": -19.27,
+        "peak": 0.29584
+      },
+      {
+        "start": 0.8,
+        "rmsDb": -22.34,
+        "peak": 0.20312
+      },
+      {
+        "start": 0.9,
+        "rmsDb": -37.15,
+        "peak": 0.04813
+      },
+      {
+        "start": 1.0,
+        "rmsDb": -35.26,
+        "peak": 0.0444
+      },
+      {
+        "start": 1.1,
+        "rmsDb": -36.23,
+        "peak": 0.03149
+      },
+      {
+        "start": 1.2,
+        "rmsDb": -41.68,
+        "peak": 0.01923
+      },
+      {
+        "start": 1.3,
+        "rmsDb": -38.23,
+        "peak": 0.0412
+      },
+      {
+        "start": 1.4,
+        "rmsDb": -36.05,
+        "peak": 0.07199
+      },
+      {
+        "start": 1.5,
+        "rmsDb": -44.39,
+        "peak": 0.0127
+      },
+      {
+        "start": 1.6,
+        "rmsDb": -50.72,
+        "peak": 0.00595
+      },
+      {
+        "start": 1.7,
+        "rmsDb": -54.34,
+        "peak": 0.00458
+      },
+      {
+        "start": 1.8,
+        "rmsDb": -45.93,
+        "peak": 0.02444
+      },
+      {
+        "start": 1.9,
+        "rmsDb": -45.91,
+        "peak": 0.01755
+      },
+      {
+        "start": 2.0,
+        "rmsDb": -52.06,
+        "peak": 0.0076
+      },
+      {
+        "start": 2.1,
+        "rmsDb": -55.74,
+        "peak": 0.00385
+      },
+      {
+        "start": 2.2,
+        "rmsDb": -49.35,
+        "peak": 0.01962
+      },
+      {
+        "start": 2.3,
+        "rmsDb": -48.53,
+        "peak": 0.01141
+      },
+      {
+        "start": 2.4,
+        "rmsDb": -43.45,
+        "peak": 0.02029
+      },
+      {
+        "start": 2.5,
+        "rmsDb": -40.76,
+        "peak": 0.02805
+      },
+      {
+        "start": 2.6,
+        "rmsDb": -40.83,
+        "peak": 0.04715
+      },
+      {
+        "start": 2.7,
+        "rmsDb": -51.55,
+        "peak": 0.0123
+      },
+      {
+        "start": 2.8,
+        "rmsDb": -46.73,
+        "peak": 0.01715
+      },
+      {
+        "start": 2.9,
+        "rmsDb": -44.13,
+        "peak": 0.02161
+      },
+      {
+        "start": 3.0,
+        "rmsDb": -41.43,
+        "peak": 0.03107
+      },
+      {
+        "start": 3.1,
+        "rmsDb": -49.75,
+        "peak": 0.00815
+      },
+      {
+        "start": 3.2,
+        "rmsDb": -52.55,
+        "peak": 0.0058
+      },
+      {
+        "start": 3.3,
+        "rmsDb": -55.42,
+        "peak": 0.00443
+      },
+      {
+        "start": 3.4,
+        "rmsDb": -51.98,
+        "peak": 0.00604
+      },
+      {
+        "start": 3.5,
+        "rmsDb": -40.68,
+        "peak": 0.04236
+      },
+      {
+        "start": 3.6,
+        "rmsDb": -46.24,
+        "peak": 0.0155
+      },
+      {
+        "start": 3.7,
+        "rmsDb": -49.42,
+        "peak": 0.01233
+      },
+      {
+        "start": 3.8,
+        "rmsDb": -45.42,
+        "peak": 0.01749
+      },
+      {
+        "start": 3.9,
+        "rmsDb": -41.63,
+        "peak": 0.03635
+      },
+      {
+        "start": 4.0,
+        "rmsDb": -39.49,
+        "peak": 0.04575
+      },
+      {
+        "start": 4.1,
+        "rmsDb": -37.29,
+        "peak": 0.12134
+      },
+      {
+        "start": 4.2,
+        "rmsDb": -44.32,
+        "peak": 0.01855
+      },
+      {
+        "start": 4.3,
+        "rmsDb": -44.6,
+        "peak": 0.03735
+      },
+      {
+        "start": 4.4,
+        "rmsDb": -49.27,
+        "peak": 0.01401
+      },
+      {
+        "start": 4.5,
+        "rmsDb": -48.42,
+        "peak": 0.01779
+      },
+      {
+        "start": 4.6,
+        "rmsDb": -42.68,
+        "peak": 0.01999
+      },
+      {
+        "start": 4.7,
+        "rmsDb": -47.9,
+        "peak": 0.01648
+      },
+      {
+        "start": 4.8,
+        "rmsDb": -41.27,
+        "peak": 0.03329
+      },
+      {
+        "start": 4.9,
+        "rmsDb": -41.2,
+        "peak": 0.06104
+      },
+      {
+        "start": 5.0,
+        "rmsDb": -53.2,
+        "peak": 0.02527
+      },
+      {
+        "start": 5.1,
+        "rmsDb": -57.38,
+        "peak": 0.00378
+      },
+      {
+        "start": 5.2,
+        "rmsDb": -57.96,
+        "peak": 0.0032
+      },
+      {
+        "start": 5.3,
+        "rmsDb": -51.56,
+        "peak": 0.0087
+      },
+      {
+        "start": 5.4,
+        "rmsDb": -49.32,
+        "peak": 0.01208
+      },
+      {
+        "start": 5.5,
+        "rmsDb": -41.66,
+        "peak": 0.02567
+      },
+      {
+        "start": 5.6,
+        "rmsDb": -45.67,
+        "peak": 0.03326
+      },
+      {
+        "start": 5.7,
+        "rmsDb": -41.29,
+        "peak": 0.05383
+      },
+      {
+        "start": 5.8,
+        "rmsDb": -46.23,
+        "peak": 0.01584
+      },
+      {
+        "start": 5.9,
+        "rmsDb": -52.18,
+        "peak": 0.00894
+      },
+      {
+        "start": 6.0,
+        "rmsDb": -48.59,
+        "peak": 0.02588
+      },
+      {
+        "start": 6.1,
+        "rmsDb": -51.88,
+        "peak": 0.0126
+      },
+      {
+        "start": 6.2,
+        "rmsDb": -44.24,
+        "peak": 0.03943
+      },
+      {
+        "start": 6.3,
+        "rmsDb": -36.62,
+        "peak": 0.05127
+      },
+      {
+        "start": 6.4,
+        "rmsDb": -37.4,
+        "peak": 0.05115
+      },
+      {
+        "start": 6.5,
+        "rmsDb": -37.16,
+        "peak": 0.08344
+      },
+      {
+        "start": 6.6,
+        "rmsDb": -43.7,
+        "peak": 0.02734
+      },
+      {
+        "start": 6.7,
+        "rmsDb": -42.77,
+        "peak": 0.03705
+      },
+      {
+        "start": 6.8,
+        "rmsDb": -42.92,
+        "peak": 0.03745
+      },
+      {
+        "start": 6.9,
+        "rmsDb": -37.7,
+        "peak": 0.03049
+      },
+      {
+        "start": 7.0,
+        "rmsDb": -34.8,
+        "peak": 0.04706
+      },
+      {
+        "start": 7.1,
+        "rmsDb": -42.55,
+        "peak": 0.06125
+      },
+      {
+        "start": 7.2,
+        "rmsDb": -38.43,
+        "peak": 0.11142
+      },
+      {
+        "start": 7.3,
+        "rmsDb": -45.64,
+        "peak": 0.02032
+      },
+      {
+        "start": 7.4,
+        "rmsDb": -47.5,
+        "peak": 0.01453
+      },
+      {
+        "start": 7.5,
+        "rmsDb": -20.29,
+        "peak": 0.41504
+      },
+      {
+        "start": 7.6,
+        "rmsDb": -35.16,
+        "peak": 0.09787
+      },
+      {
+        "start": 7.7,
+        "rmsDb": -48.9,
+        "peak": 0.0145
+      },
+      {
+        "start": 7.8,
+        "rmsDb": -55.32,
+        "peak": 0.00699
+      },
+      {
+        "start": 7.9,
+        "rmsDb": -53.88,
+        "peak": 0.00534
+      },
+      {
+        "start": 8.0,
+        "rmsDb": -54.2,
+        "peak": 0.008
+      },
+      {
+        "start": 8.1,
+        "rmsDb": -51.68,
+        "peak": 0.01181
+      },
+      {
+        "start": 8.2,
+        "rmsDb": -54.52,
+        "peak": 0.00479
+      },
+      {
+        "start": 8.3,
+        "rmsDb": -58.63,
+        "peak": 0.00381
+      },
+      {
+        "start": 8.4,
+        "rmsDb": -55.67,
+        "peak": 0.00418
+      },
+      {
+        "start": 8.5,
+        "rmsDb": -53.37,
+        "peak": 0.00684
+      },
+      {
+        "start": 8.6,
+        "rmsDb": -55.69,
+        "peak": 0.00439
+      },
+      {
+        "start": 8.7,
+        "rmsDb": -53.73,
+        "peak": 0.0043
+      },
+      {
+        "start": 8.8,
+        "rmsDb": -51.62,
+        "peak": 0.00809
+      },
+      {
+        "start": 8.9,
+        "rmsDb": -53.71,
+        "peak": 0.00565
+      },
+      {
+        "start": 9.0,
+        "rmsDb": -53.25,
+        "peak": 0.00934
+      },
+      {
+        "start": 9.1,
+        "rmsDb": -42.11,
+        "peak": 0.01974
+      },
+      {
+        "start": 9.2,
+        "rmsDb": -43.01,
+        "peak": 0.01956
+      },
+      {
+        "start": 9.3,
+        "rmsDb": -32.38,
+        "peak": 0.0791
+      },
+      {
+        "start": 9.4,
+        "rmsDb": -36.89,
+        "peak": 0.09528
+      },
+      {
+        "start": 9.5,
+        "rmsDb": -28.62,
+        "peak": 0.27747
+      },
+      {
+        "start": 9.6,
+        "rmsDb": -25.62,
+        "peak": 0.39893
+      },
+      {
+        "start": 9.7,
+        "rmsDb": -40.0,
+        "peak": 0.03772
+      },
+      {
+        "start": 9.8,
+        "rmsDb": -47.31,
+        "peak": 0.02493
+      },
+      {
+        "start": 9.9,
+        "rmsDb": -41.68,
+        "peak": 0.02966
+      },
+      {
+        "start": 10.0,
+        "rmsDb": -44.01,
+        "peak": 0.06946
+      },
+      {
+        "start": 10.1,
+        "rmsDb": -44.79,
+        "peak": 0.02435
+      },
+      {
+        "start": 10.2,
+        "rmsDb": -51.25,
+        "peak": 0.01028
+      },
+      {
+        "start": 10.3,
+        "rmsDb": -53.91,
+        "peak": 0.00479
+      },
+      {
+        "start": 10.4,
+        "rmsDb": -54.76,
+        "peak": 0.00464
+      },
+      {
+        "start": 10.5,
+        "rmsDb": -57.45,
+        "peak": 0.00357
+      },
+      {
+        "start": 10.6,
+        "rmsDb": -59.91,
+        "peak": 0.00272
+      },
+      {
+        "start": 10.7,
+        "rmsDb": -59.75,
+        "peak": 0.0033
+      },
+      {
+        "start": 10.8,
+        "rmsDb": -60.51,
+        "peak": 0.00345
+      },
+      {
+        "start": 10.9,
+        "rmsDb": -56.79,
+        "peak": 0.00403
+      },
+      {
+        "start": 11.0,
+        "rmsDb": -57.8,
+        "peak": 0.00293
+      },
+      {
+        "start": 11.1,
+        "rmsDb": -61.29,
+        "peak": 0.00244
+      },
+      {
+        "start": 11.2,
+        "rmsDb": -55.86,
+        "peak": 0.00403
+      },
+      {
+        "start": 11.3,
+        "rmsDb": -57.04,
+        "peak": 0.00497
+      },
+      {
+        "start": 11.4,
+        "rmsDb": -53.02,
+        "peak": 0.00555
+      },
+      {
+        "start": 11.5,
+        "rmsDb": -53.7,
+        "peak": 0.01547
+      },
+      {
+        "start": 11.6,
+        "rmsDb": -41.26,
+        "peak": 0.0325
+      },
+      {
+        "start": 11.7,
+        "rmsDb": -49.12,
+        "peak": 0.02191
+      },
+      {
+        "start": 11.8,
+        "rmsDb": -48.45,
+        "peak": 0.02078
+      },
+      {
+        "start": 11.9,
+        "rmsDb": -35.75,
+        "peak": 0.12985
+      },
+      {
+        "start": 12.0,
+        "rmsDb": -50.62,
+        "peak": 0.01501
+      },
+      {
+        "start": 12.1,
+        "rmsDb": -37.78,
+        "peak": 0.09232
+      },
+      {
+        "start": 12.2,
+        "rmsDb": -36.7,
+        "peak": 0.10403
+      },
+      {
+        "start": 12.3,
+        "rmsDb": -36.01,
+        "peak": 0.19525
+      },
+      {
+        "start": 12.4,
+        "rmsDb": -37.76,
+        "peak": 0.06223
+      },
+      {
+        "start": 12.5,
+        "rmsDb": -35.19,
+        "peak": 0.11133
+      },
+      {
+        "start": 12.6,
+        "rmsDb": -37.93,
+        "peak": 0.0914
+      },
+      {
+        "start": 12.7,
+        "rmsDb": -29.5,
+        "peak": 0.62964
+      },
+      {
+        "start": 12.8,
+        "rmsDb": -36.05,
+        "peak": 0.10049
+      },
+      {
+        "start": 12.9,
+        "rmsDb": -37.63,
+        "peak": 0.19406
+      },
+      {
+        "start": 13.0,
+        "rmsDb": -55.63,
+        "peak": 0.00562
+      },
+      {
+        "start": 13.1,
+        "rmsDb": -54.36,
+        "peak": 0.00473
+      },
+      {
+        "start": 13.2,
+        "rmsDb": -50.62,
+        "peak": 0.02695
+      },
+      {
+        "start": 13.3,
+        "rmsDb": -44.39,
+        "peak": 0.05258
+      },
+      {
+        "start": 13.4,
+        "rmsDb": -55.12,
+        "peak": 0.00565
+      },
+      {
+        "start": 13.5,
+        "rmsDb": -56.0,
+        "peak": 0.00513
+      },
+      {
+        "start": 13.6,
+        "rmsDb": -52.86,
+        "peak": 0.00632
+      },
+      {
+        "start": 13.7,
+        "rmsDb": -56.92,
+        "peak": 0.00745
+      },
+      {
+        "start": 13.8,
+        "rmsDb": -59.13,
+        "peak": 0.00351
+      },
+      {
+        "start": 13.9,
+        "rmsDb": -55.79,
+        "peak": 0.01746
+      },
+      {
+        "start": 14.0,
+        "rmsDb": -45.06,
+        "peak": 0.0199
+      },
+      {
+        "start": 14.1,
+        "rmsDb": -49.54,
+        "peak": 0.00812
+      },
+      {
+        "start": 14.2,
+        "rmsDb": -52.23,
+        "peak": 0.00739
+      },
+      {
+        "start": 14.3,
+        "rmsDb": -56.9,
+        "peak": 0.00543
+      },
+      {
+        "start": 14.4,
+        "rmsDb": -45.64,
+        "peak": 0.0264
+      },
+      {
+        "start": 14.5,
+        "rmsDb": -44.54,
+        "peak": 0.02573
+      },
+      {
+        "start": 14.6,
+        "rmsDb": -49.12,
+        "peak": 0.01376
+      },
+      {
+        "start": 14.7,
+        "rmsDb": -45.18,
+        "peak": 0.03568
+      },
+      {
+        "start": 14.8,
+        "rmsDb": -43.76,
+        "peak": 0.11325
+      },
+      {
+        "start": 14.9,
+        "rmsDb": -41.05,
+        "peak": 0.06326
+      },
+      {
+        "start": 15.0,
+        "rmsDb": -38.7,
+        "peak": 0.05792
+      },
+      {
+        "start": 15.1,
+        "rmsDb": -41.02,
+        "peak": 0.11914
+      },
+      {
+        "start": 15.2,
+        "rmsDb": -43.49,
+        "peak": 0.0614
+      },
+      {
+        "start": 15.3,
+        "rmsDb": -45.07,
+        "peak": 0.03433
+      },
+      {
+        "start": 15.4,
+        "rmsDb": -44.2,
+        "peak": 0.0361
+      },
+      {
+        "start": 15.5,
+        "rmsDb": -38.65,
+        "peak": 0.12183
+      },
+      {
+        "start": 15.6,
+        "rmsDb": -39.84,
+        "peak": 0.16794
+      },
+      {
+        "start": 15.7,
+        "rmsDb": -45.99,
+        "peak": 0.01315
+      },
+      {
+        "start": 15.8,
+        "rmsDb": -38.95,
+        "peak": 0.07043
+      },
+      {
+        "start": 15.9,
+        "rmsDb": -46.18,
+        "peak": 0.03644
+      },
+      {
+        "start": 16.0,
+        "rmsDb": -46.49,
+        "peak": 0.01529
+      },
+      {
+        "start": 16.1,
+        "rmsDb": -45.28,
+        "peak": 0.01407
+      },
+      {
+        "start": 16.2,
+        "rmsDb": -54.84,
+        "peak": 0.01089
+      },
+      {
+        "start": 16.3,
+        "rmsDb": -55.16,
+        "peak": 0.01462
+      },
+      {
+        "start": 16.4,
+        "rmsDb": -57.45,
+        "peak": 0.00943
+      },
+      {
+        "start": 16.5,
+        "rmsDb": -52.32,
+        "peak": 0.04111
+      },
+      {
+        "start": 16.6,
+        "rmsDb": -56.33,
+        "peak": 0.00366
+      },
+      {
+        "start": 16.7,
+        "rmsDb": -55.84,
+        "peak": 0.00522
+      },
+      {
+        "start": 16.8,
+        "rmsDb": -49.89,
+        "peak": 0.01868
+      },
+      {
+        "start": 16.9,
+        "rmsDb": -50.59,
+        "peak": 0.01025
+      },
+      {
+        "start": 17.0,
+        "rmsDb": -47.43,
+        "peak": 0.05603
+      },
+      {
+        "start": 17.1,
+        "rmsDb": -51.55,
+        "peak": 0.01102
+      },
+      {
+        "start": 17.2,
+        "rmsDb": -48.42,
+        "peak": 0.01715
+      },
+      {
+        "start": 17.3,
+        "rmsDb": -54.26,
+        "peak": 0.01138
+      },
+      {
+        "start": 17.4,
+        "rmsDb": -51.39,
+        "peak": 0.01981
+      },
+      {
+        "start": 17.5,
+        "rmsDb": -56.3,
+        "peak": 0.00687
+      },
+      {
+        "start": 17.6,
+        "rmsDb": -61.18,
+        "peak": 0.00253
+      },
+      {
+        "start": 17.7,
+        "rmsDb": -58.39,
+        "peak": 0.00504
+      },
+      {
+        "start": 17.8,
+        "rmsDb": -54.99,
+        "peak": 0.00598
+      },
+      {
+        "start": 17.9,
+        "rmsDb": -55.56,
+        "peak": 0.00494
+      },
+      {
+        "start": 18.0,
+        "rmsDb": -57.16,
+        "peak": 0.00327
+      },
+      {
+        "start": 18.1,
+        "rmsDb": -53.85,
+        "peak": 0.01413
+      },
+      {
+        "start": 18.2,
+        "rmsDb": -53.68,
+        "peak": 0.00885
+      },
+      {
+        "start": 18.3,
+        "rmsDb": -50.83,
+        "peak": 0.00851
+      },
+      {
+        "start": 18.4,
+        "rmsDb": -51.46,
+        "peak": 0.00769
+      },
+      {
+        "start": 18.5,
+        "rmsDb": -41.82,
+        "peak": 0.05423
+      },
+      {
+        "start": 18.6,
+        "rmsDb": -38.88,
+        "peak": 0.05609
+      },
+      {
+        "start": 18.7,
+        "rmsDb": -36.29,
+        "peak": 0.08206
+      },
+      {
+        "start": 18.8,
+        "rmsDb": -36.13,
+        "peak": 0.19678
+      },
+      {
+        "start": 18.9,
+        "rmsDb": -35.93,
+        "peak": 0.12396
+      },
+      {
+        "start": 19.0,
+        "rmsDb": -38.4,
+        "peak": 0.1423
+      },
+      {
+        "start": 19.1,
+        "rmsDb": -40.93,
+        "peak": 0.16086
+      },
+      {
+        "start": 19.2,
+        "rmsDb": -43.87,
+        "peak": 0.05197
+      },
+      {
+        "start": 19.3,
+        "rmsDb": -52.45,
+        "peak": 0.00659
+      },
+      {
+        "start": 19.4,
+        "rmsDb": -52.82,
+        "peak": 0.00534
+      },
+      {
+        "start": 19.5,
+        "rmsDb": -42.61,
+        "peak": 0.02805
+      },
+      {
+        "start": 19.6,
+        "rmsDb": -52.03,
+        "peak": 0.00754
+      },
+      {
+        "start": 19.7,
+        "rmsDb": -52.85,
+        "peak": 0.00818
+      },
+      {
+        "start": 19.8,
+        "rmsDb": -54.29,
+        "peak": 0.01614
+      },
+      {
+        "start": 19.9,
+        "rmsDb": -54.43,
+        "peak": 0.00928
+      },
+      {
+        "start": 20.0,
+        "rmsDb": -57.97,
+        "peak": 0.00317
+      },
+      {
+        "start": 20.1,
+        "rmsDb": -61.0,
+        "peak": 0.00253
+      },
+      {
+        "start": 20.2,
+        "rmsDb": -58.74,
+        "peak": 0.00287
+      },
+      {
+        "start": 20.3,
+        "rmsDb": -61.13,
+        "peak": 0.00256
+      },
+      {
+        "start": 20.4,
+        "rmsDb": -61.81,
+        "peak": 0.00217
+      },
+      {
+        "start": 20.5,
+        "rmsDb": -60.09,
+        "peak": 0.00391
+      },
+      {
+        "start": 20.6,
+        "rmsDb": -55.8,
+        "peak": 0.00595
+      },
+      {
+        "start": 20.7,
+        "rmsDb": -51.95,
+        "peak": 0.00519
+      },
+      {
+        "start": 20.8,
+        "rmsDb": -53.77,
+        "peak": 0.00497
+      },
+      {
+        "start": 20.9,
+        "rmsDb": -57.62,
+        "peak": 0.00409
+      },
+      {
+        "start": 21.0,
+        "rmsDb": -52.2,
+        "peak": 0.03195
+      },
+      {
+        "start": 21.1,
+        "rmsDb": -49.74,
+        "peak": 0.02783
+      },
+      {
+        "start": 21.2,
+        "rmsDb": -48.58,
+        "peak": 0.01752
+      },
+      {
+        "start": 21.3,
+        "rmsDb": -52.63,
+        "peak": 0.01596
+      },
+      {
+        "start": 21.4,
+        "rmsDb": -51.33,
+        "peak": 0.0152
+      },
+      {
+        "start": 21.5,
+        "rmsDb": -53.87,
+        "peak": 0.00732
+      },
+      {
+        "start": 21.6,
+        "rmsDb": -56.14,
+        "peak": 0.00436
+      },
+      {
+        "start": 21.7,
+        "rmsDb": -53.68,
+        "peak": 0.00598
+      },
+      {
+        "start": 21.8,
+        "rmsDb": -53.25,
+        "peak": 0.00851
+      },
+      {
+        "start": 21.9,
+        "rmsDb": -49.9,
+        "peak": 0.01923
+      },
+      {
+        "start": 22.0,
+        "rmsDb": -42.35,
+        "peak": 0.04086
+      },
+      {
+        "start": 22.1,
+        "rmsDb": -40.26,
+        "peak": 0.05606
+      },
+      {
+        "start": 22.2,
+        "rmsDb": -43.48,
+        "peak": 0.04074
+      },
+      {
+        "start": 22.3,
+        "rmsDb": -41.44,
+        "peak": 0.0387
+      },
+      {
+        "start": 22.4,
+        "rmsDb": -40.11,
+        "peak": 0.0434
+      },
+      {
+        "start": 22.5,
+        "rmsDb": -42.91,
+        "peak": 0.04602
+      },
+      {
+        "start": 22.6,
+        "rmsDb": -38.47,
+        "peak": 0.06567
+      },
+      {
+        "start": 22.7,
+        "rmsDb": -37.92,
+        "peak": 0.15024
+      },
+      {
+        "start": 22.8,
+        "rmsDb": -42.15,
+        "peak": 0.04385
+      },
+      {
+        "start": 22.9,
+        "rmsDb": -45.21,
+        "peak": 0.03952
+      },
+      {
+        "start": 23.0,
+        "rmsDb": -50.47,
+        "peak": 0.01828
+      },
+      {
+        "start": 23.1,
+        "rmsDb": -51.64,
+        "peak": 0.01645
+      },
+      {
+        "start": 23.2,
+        "rmsDb": -54.85,
+        "peak": 0.01328
+      },
+      {
+        "start": 23.3,
+        "rmsDb": -57.79,
+        "peak": 0.0043
+      },
+      {
+        "start": 23.4,
+        "rmsDb": -58.06,
+        "peak": 0.00339
+      },
+      {
+        "start": 23.5,
+        "rmsDb": -55.51,
+        "peak": 0.00754
+      },
+      {
+        "start": 23.6,
+        "rmsDb": -57.19,
+        "peak": 0.00327
+      },
+      {
+        "start": 23.7,
+        "rmsDb": -60.2,
+        "peak": 0.00449
+      },
+      {
+        "start": 23.8,
+        "rmsDb": -60.19,
+        "peak": 0.00311
+      },
+      {
+        "start": 23.9,
+        "rmsDb": -61.28,
+        "peak": 0.00311
+      },
+      {
+        "start": 24.0,
+        "rmsDb": -60.42,
+        "peak": 0.00272
+      },
+      {
+        "start": 24.1,
+        "rmsDb": -58.52,
+        "peak": 0.00406
+      },
+      {
+        "start": 24.2,
+        "rmsDb": -57.27,
+        "peak": 0.00357
+      },
+      {
+        "start": 24.3,
+        "rmsDb": -61.12,
+        "peak": 0.00302
+      },
+      {
+        "start": 24.4,
+        "rmsDb": -57.93,
+        "peak": 0.00409
+      },
+      {
+        "start": 24.5,
+        "rmsDb": -56.39,
+        "peak": 0.00342
+      },
+      {
+        "start": 24.6,
+        "rmsDb": -36.68,
+        "peak": 0.12964
+      },
+      {
+        "start": 24.7,
+        "rmsDb": -27.79,
+        "peak": 0.15286
+      },
+      {
+        "start": 24.8,
+        "rmsDb": -35.98,
+        "peak": 0.03986
+      },
+      {
+        "start": 24.9,
+        "rmsDb": -44.56,
+        "peak": 0.01331
+      }
+    ],
+    "audition": "not-listened"
+  },
+  {
+    "file": "luckius-paper-sound---1.wav",
+    "bytes": 86198,
+    "sha256": "d04ac578637259182dc4c9e03664217d9c80c0da90d5784563dbe43bd6a264cc",
+    "decodedMonoRate": 22050,
+    "duration": 0.487619,
+    "peak": 0.34668,
+    "rms": 0.024341,
+    "rmsDb": -32.27,
+    "bins100ms": [
+      {
+        "start": 0.0,
+        "rmsDb": -36.73,
+        "peak": 0.1026
+      },
+      {
+        "start": 0.1,
+        "rmsDb": -29.23,
+        "peak": 0.22568
+      },
+      {
+        "start": 0.2,
+        "rmsDb": -28.85,
+        "peak": 0.34668
+      },
+      {
+        "start": 0.3,
+        "rmsDb": -41.61,
+        "peak": 0.0278
+      },
+      {
+        "start": 0.4,
+        "rmsDb": -38.91,
+        "peak": 0.10397
+      }
+    ],
+    "audition": "not-listened"
+  },
+  {
+    "file": "luckius-paper-sound---2.wav",
+    "bytes": 96438,
+    "sha256": "7b670c269c463c308c8808a7d3bad5116fbd7a55c7e26d0b9064627f4c576b03",
+    "decodedMonoRate": 22050,
+    "duration": 0.545669,
+    "peak": 0.230194,
+    "rms": 0.022044,
+    "rmsDb": -33.13,
+    "bins100ms": [
+      {
+        "start": 0.0,
+        "rmsDb": -40.33,
+        "peak": 0.05051
+      },
+      {
+        "start": 0.1,
+        "rmsDb": -33.27,
+        "peak": 0.15332
+      },
+      {
+        "start": 0.2,
+        "rmsDb": -28.16,
+        "peak": 0.23019
+      },
+      {
+        "start": 0.3,
+        "rmsDb": -33.39,
+        "peak": 0.18237
+      },
+      {
+        "start": 0.4,
+        "rmsDb": -41.12,
+        "peak": 0.04779
+      },
+      {
+        "start": 0.5,
+        "rmsDb": -42.57,
+        "peak": 0.00989
+      }
+    ],
+    "audition": "not-listened"
+  },
+  {
+    "file": "luckius-paper-sound---3.wav",
+    "bytes": 123062,
+    "sha256": "31c6a512b42ac3420b701ea7b4b4644f0f901794f944584d9e99372df6958623",
+    "decodedMonoRate": 22050,
+    "duration": 0.696599,
+    "peak": 0.399078,
+    "rms": 0.016058,
+    "rmsDb": -35.89,
+    "bins100ms": [
+      {
+        "start": 0.0,
+        "rmsDb": -39.58,
+        "peak": 0.04056
+      },
+      {
+        "start": 0.1,
+        "rmsDb": -36.09,
+        "peak": 0.06454
+      },
+      {
+        "start": 0.2,
+        "rmsDb": -31.85,
+        "peak": 0.31479
+      },
+      {
+        "start": 0.3,
+        "rmsDb": -32.56,
+        "peak": 0.39908
+      },
+      {
+        "start": 0.4,
+        "rmsDb": -40.13,
+        "peak": 0.03287
+      },
+      {
+        "start": 0.5,
+        "rmsDb": -41.84,
+        "peak": 0.02625
+      },
+      {
+        "start": 0.6,
+        "rmsDb": -41.47,
+        "peak": 0.01627
+      }
+    ],
+    "audition": "not-listened"
+  },
+  {
+    "file": "luckius-paper-sound---4.wav",
+    "bytes": 456886,
+    "sha256": "6736e9e27f1cf4799bc3dc04b0584ce3581fee6441b13cc6f6bc085d438bfc10",
+    "decodedMonoRate": 22050,
+    "duration": 2.589025,
+    "peak": 0.19455,
+    "rms": 0.012704,
+    "rmsDb": -37.92,
+    "bins100ms": [
+      {
+        "start": 0.0,
+        "rmsDb": -39.82,
+        "peak": 0.04532
+      },
+      {
+        "start": 0.1,
+        "rmsDb": -38.05,
+        "peak": 0.09369
+      },
+      {
+        "start": 0.2,
+        "rmsDb": -34.64,
+        "peak": 0.10504
+      },
+      {
+        "start": 0.3,
+        "rmsDb": -40.74,
+        "peak": 0.06329
+      },
+      {
+        "start": 0.4,
+        "rmsDb": -41.05,
+        "peak": 0.03107
+      },
+      {
+        "start": 0.5,
+        "rmsDb": -37.03,
+        "peak": 0.10587
+      },
+      {
+        "start": 0.6,
+        "rmsDb": -40.7,
+        "peak": 0.02054
+      },
+      {
+        "start": 0.7,
+        "rmsDb": -39.46,
+        "peak": 0.07196
+      },
+      {
+        "start": 0.8,
+        "rmsDb": -34.85,
+        "peak": 0.14697
+      },
+      {
+        "start": 0.9,
+        "rmsDb": -32.84,
+        "peak": 0.19455
+      },
+      {
+        "start": 1.0,
+        "rmsDb": -38.9,
+        "peak": 0.04633
+      },
+      {
+        "start": 1.1,
+        "rmsDb": -37.26,
+        "peak": 0.08176
+      },
+      {
+        "start": 1.2,
+        "rmsDb": -34.91,
+        "peak": 0.11887
+      },
+      {
+        "start": 1.3,
+        "rmsDb": -38.71,
+        "peak": 0.09283
+      },
+      {
+        "start": 1.4,
+        "rmsDb": -38.26,
+        "peak": 0.06244
+      },
+      {
+        "start": 1.5,
+        "rmsDb": -40.04,
+        "peak": 0.0329
+      },
+      {
+        "start": 1.6,
+        "rmsDb": -38.14,
+        "peak": 0.11209
+      },
+      {
+        "start": 1.7,
+        "rmsDb": -39.87,
+        "peak": 0.05301
+      },
+      {
+        "start": 1.8,
+        "rmsDb": -43.07,
+        "peak": 0.01321
+      },
+      {
+        "start": 1.9,
+        "rmsDb": -37.76,
+        "peak": 0.08005
+      },
+      {
+        "start": 2.0,
+        "rmsDb": -41.97,
+        "peak": 0.02847
+      },
+      {
+        "start": 2.1,
+        "rmsDb": -39.14,
+        "peak": 0.06805
+      },
+      {
+        "start": 2.2,
+        "rmsDb": -37.33,
+        "peak": 0.13959
+      },
+      {
+        "start": 2.3,
+        "rmsDb": -40.18,
+        "peak": 0.0318
+      },
+      {
+        "start": 2.4,
+        "rmsDb": -40.18,
+        "peak": 0.04056
+      },
+      {
+        "start": 2.5,
+        "rmsDb": -39.13,
+        "peak": 0.0798
+      }
+    ],
+    "audition": "not-listened"
+  },
+  {
+    "file": "creak1.ogg",
+    "bytes": 15761,
+    "sha256": "8a346186fd297254248cab8e8117060a52a5cf2a84f603153a762108550ea95e",
+    "decodedMonoRate": 22050,
+    "duration": 0.661043,
+    "peak": 0.350189,
+    "rms": 0.046045,
+    "rmsDb": -26.74,
+    "bins100ms": [
+      {
+        "start": 0.0,
+        "rmsDb": -54.3,
+        "peak": 0.01239
+      },
+      {
+        "start": 0.1,
+        "rmsDb": -27.44,
+        "peak": 0.26001
+      },
+      {
+        "start": 0.2,
+        "rmsDb": -28.08,
+        "peak": 0.21133
+      },
+      {
+        "start": 0.3,
+        "rmsDb": -29.53,
+        "peak": 0.21689
+      },
+      {
+        "start": 0.4,
+        "rmsDb": -20.23,
+        "peak": 0.35019
+      },
+      {
+        "start": 0.5,
+        "rmsDb": -42.18,
+        "peak": 0.03873
+      },
+      {
+        "start": 0.6,
+        "rmsDb": -56.01,
+        "peak": 0.00385
+      }
+    ],
+    "audition": "not-listened"
+  },
+  {
+    "file": "creak2.ogg",
+    "bytes": 19012,
+    "sha256": "8a990afdc03aebb91d528f5385e2f95582dbfa8e2c12c71098ab01be9142294a",
+    "decodedMonoRate": 22050,
+    "duration": 0.830159,
+    "peak": 0.370636,
+    "rms": 0.047752,
+    "rmsDb": -26.42,
+    "bins100ms": [
+      {
+        "start": 0.0,
+        "rmsDb": -22.38,
+        "peak": 0.17184
+      },
+      {
+        "start": 0.1,
+        "rmsDb": -34.0,
+        "peak": 0.065
+      },
+      {
+        "start": 0.2,
+        "rmsDb": -56.52,
+        "peak": 0.00726
+      },
+      {
+        "start": 0.3,
+        "rmsDb": -26.57,
+        "peak": 0.18143
+      },
+      {
+        "start": 0.4,
+        "rmsDb": -39.91,
+        "peak": 0.04175
+      },
+      {
+        "start": 0.5,
+        "rmsDb": -19.92,
+        "peak": 0.37064
+      },
+      {
+        "start": 0.6,
+        "rmsDb": -36.05,
+        "peak": 0.10928
+      },
+      {
+        "start": 0.7,
+        "rmsDb": -56.42,
+        "peak": 0.00653
+      },
+      {
+        "start": 0.8,
+        "rmsDb": -73.44,
+        "peak": 0.00055
+      }
+    ],
+    "audition": "not-listened"
+  },
+  {
+    "file": "creak3.ogg",
+    "bytes": 10408,
+    "sha256": "f9638787f95004b9d2d06f8eff8e99d4e594c21b51947daf562856fbcec905d1",
+    "decodedMonoRate": 22050,
+    "duration": 0.338231,
+    "peak": 0.407776,
+    "rms": 0.081607,
+    "rmsDb": -21.77,
+    "bins100ms": [
+      {
+        "start": 0.0,
+        "rmsDb": -21.22,
+        "peak": 0.40778
+      },
+      {
+        "start": 0.1,
+        "rmsDb": -18.28,
+        "peak": 0.38489
+      },
+      {
+        "start": 0.2,
+        "rmsDb": -40.22,
+        "peak": 0.03671
+      },
+      {
+        "start": 0.3,
+        "rmsDb": -67.9,
+        "peak": 0.00113
+      }
+    ],
+    "audition": "not-listened"
+  },
+  {
+    "file": "clothBelt2.ogg",
+    "bytes": 20013,
+    "sha256": "d545b1d9f20e6188140aaf551a96f1e82fe0d15f7ca066fac8b065e1231e0038",
+    "decodedMonoRate": 22050,
+    "duration": 0.753333,
+    "peak": 0.426758,
+    "rms": 0.024335,
+    "rmsDb": -32.28,
+    "bins100ms": [
+      {
+        "start": 0.0,
+        "rmsDb": -38.33,
+        "peak": 0.10315
+      },
+      {
+        "start": 0.1,
+        "rmsDb": -28.73,
+        "peak": 0.42676
+      },
+      {
+        "start": 0.2,
+        "rmsDb": -31.72,
+        "peak": 0.22647
+      },
+      {
+        "start": 0.3,
+        "rmsDb": -27.54,
+        "peak": 0.27518
+      },
+      {
+        "start": 0.4,
+        "rmsDb": -32.68,
+        "peak": 0.18542
+      },
+      {
+        "start": 0.5,
+        "rmsDb": -54.85,
+        "peak": 0.01175
+      },
+      {
+        "start": 0.6,
+        "rmsDb": -78.35,
+        "peak": 0.00076
+      },
+      {
+        "start": 0.7,
+        "rmsDb": -85.87,
+        "peak": 0.00015
+      }
+    ],
+    "audition": "not-listened"
+  }
+]

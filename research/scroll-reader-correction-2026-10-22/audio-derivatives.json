@@ -1,0 +1,60 @@
+{
+  "schema": "second-language.recorded-material-derivatives.v1",
+  "sources": [
+    {
+      "file": "web/labs/certification-reader/assets/audio-sources/material-recordings/unrolling-parchment.wav",
+      "bytes": 555232,
+      "sha256": "0ecdba822baa623f478a0131c20eaf175e9494f8fb534d666427685813c9e54f"
+    },
+    {
+      "file": "web/labs/certification-reader/assets/audio-sources/material-recordings/altfuture-leather-stretched-hq-preview.mp3",
+      "bytes": 612480,
+      "sha256": "aae6b357aaf6dc2f4fcc70724e26f0d59c082ff4b84f4d2ca4c7edc965a9616f"
+    }
+  ],
+  "loops": [
+    {
+      "file": "web/labs/certification-reader/assets/audio-foley/parchment-roll-loop.wav",
+      "source": "unrolling-parchment.wav",
+      "sourceSHA256": "0ecdba822baa623f478a0131c20eaf175e9494f8fb534d666427685813c9e54f",
+      "trimSeconds": [
+        0.54,
+        2.75
+      ],
+      "seamSeconds": 0.12,
+      "softTransientThreshold": 0.05220016874939075,
+      "channels": 1,
+      "rate": 44100,
+      "gain": 10.904044291327459,
+      "duration": 2.09,
+      "peak": 0.5569471810888094,
+      "rms": 0.11,
+      "wrapJump": 0.032134794256243784,
+      "bytes": 184382,
+      "sha256": "d655c95ef2e4fa34cfb0461c296f47b554e1474613679b8da7ed7c0e348ac32d"
+    },
+    {
+      "file": "web/labs/certification-reader/assets/audio-foley/leather-flex-loop.wav",
+      "source": "leather-decoded.wav",
+      "sourceSHA256": "cf862fb5a3d6f4dc3082494c30dad73b5a2844afb357c8222d939aab22868c7d",
+      "trimSeconds": [
+        14.7,
+        16.1
+      ],
+      "seamSeconds": 0.12,
+      "softTransientThreshold": 0.040327823009435326,
+      "channels": 1,
+      "rate": 44100,
+      "gain": 15.198586977803153,
+      "duration": 1.28,
+      "peak": 0.6126420404242617,
+      "rms": 0.10999999999999999,
+      "wrapJump": 0.013190051624360558,
+      "bytes": 112940,
+      "sha256": "9aaeb40ca6fc85f7b2b18c31efbaf37ea4de4438516de62a847ed1d27f27c606"
+    }
+  ],
+  "method": "Recorded sources only; mono downmix, source trim, DC removal, 120ms equal-power same-recording seam, soft tanh compression at the 99.7th amplitude percentile, RMS gain capped at .72 peak; 16-bit PCM. Runtime low-pass and restrained rate/gain follow actual motion.",
+  "listeningReview": "Not auditioned by this tool; author material descriptions and signal measurements do not prove listening quality.",
+  "musicAndMetal": "Existing music and a quiet Kenney metalClick recording unchanged; no book/cloth/placement/latch cues."
+}

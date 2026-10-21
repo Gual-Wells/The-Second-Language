@@ -1,0 +1,18 @@
+[
+  {
+    "source": "https://freesound.org/people/altfuture/sounds/174638/",
+    "originalSHA256": "882b4fa55dc9711d7586b600bd3103f429ed74993568c99dc2af6c5bfe6ab85d",
+    "publicExtract": "leather-stretched-author-page.txt",
+    "publicExtractSHA256": "6ae596db03e1ead9f23e97d59b8634b3c96a036dbbd35e337551f4d8b6f932a6",
+    "redaction": "visible text only; scripts/styles/head/attributes omitted, access-token-shaped text redacted",
+    "originalLocation": "ignored D-drive task cache only"
+  },
+  {
+    "source": "https://lpc.opengameart.org/content/spell-scroll",
+    "originalSHA256": "ab274e97eb201777828b90c54bc3173fc761eac4d968553f9df303413d8bf753",
+    "publicExtract": "spell-scroll-author-page.txt",
+    "publicExtractSHA256": "6cf0547ebe8c97a700cfc32970bd05d3ab2ef68b6c598bd6c013abc781807870",
+    "redaction": "visible text only; scripts/styles/head/attributes omitted, access-token-shaped text redacted",
+    "originalLocation": "ignored D-drive task cache only"
+  }
+]

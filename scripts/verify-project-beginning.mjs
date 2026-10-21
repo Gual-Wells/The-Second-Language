@@ -3,68 +3,103 @@ import {mkdir,readFile,writeFile} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {pathToFileURL} from 'node:url';
 const {chromium}=await import(pathToFileURL('D:/CodexStorage/workspaces/second-language-maintenance/.cache/browser-tools/package/index.mjs'));
-const out='research/project-scroll-redesign-2026-10-21',tmp=process.cwd()+'/.cache/project-beginning-browser/tmp';
+const args=process.argv.slice(2);
+if(args.length>1||args.some(arg=>arg.startsWith('--')))throw Error('Usage: node scripts/verify-project-beginning.mjs [base URL]');
+const base=(args[0]||'http://127.0.0.1:8153').replace(/\/$/,''),remote=base.startsWith('https:'),origin=new URL(base).origin;
+const out='research/scroll-reader-correction-2026-10-22',tmp=process.cwd()+'/.cache/project-beginning-browser/tmp';
 await mkdir(out,{recursive:true});await mkdir(tmp,{recursive:true});process.env.TEMP=process.env.TMP=tmp;
-const base=process.argv[2]||'http://127.0.0.1:8153',remote=base.startsWith('https:');
-const manifest=JSON.parse(await readFile('web/labs/project-beginning/assets/surfaces.json','utf8'));
-assert.equal(manifest.schema,'second-language.frozen-surfaces.v1');assert.equal(manifest.workId,'SL-PROJECT-BEGINNING-20261021');
-assert.match(manifest.contentSHA256,/^[0-9a-f]{64}$/);assert.match(manifest.artPlanSHA256,/^[0-9a-f]{64}$/);
+const expectedSHA='4a83d1952e133bcecd6c1aa2e14a788159b410e9a6ea2a7f5bcf42610943e37b',madeAt='2026-10-21T12:10:23.227Z',localTime='2026-10-21 20:10:23.227 +08:00';
+const hash=bytes=>createHash('sha256').update(bytes).digest('hex');
+const surfaceBytes=await readFile('web/labs/project-beginning/assets/surfaces.json'),manifest=JSON.parse(surfaceBytes);
+assert.equal(manifest.schema,'second-language.frozen-surfaces.v1');assert.equal(manifest.contentSHA256,expectedSHA);assert.equal(manifest.workId,'SL-PROJECT-BEGINNING-20261021');
 const browser=await chromium.launch({headless:true,executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe',env:{...process.env,TEMP:tmp,TMP:tmp},...(remote?{proxy:{server:'http://127.0.0.1:6987'}}:{}),args:['--no-first-run']});
-const errors=[],missing=[],writes=[],resources=[];
+const errors=[],missing=[],writes=[],resources=[],observedSHA256={},responseJobs=[],responseBodyUnavailable=[];
+const oldPreference=JSON.stringify({music:false,foley:false,musicEnabled:false,foleyEnabled:false,musicVolume:0,foleyVolume:0});
+const blocks=c=>[c.rubric,c.institution,c.artTitle,c.verse.slice(0,3).join('\n'),c.verse.slice(3).join('\n'),c.colophon.join('\n'),c.sealLegends.join('\n'),c.status];
+const lines=c=>[c.rubric,c.institution,c.artTitle,...c.verse,...c.colophon,...c.sealLegends,c.status];
+const nonempty=text=>text.split(/\r?\n/).filter(line=>line.length);
+function localInstant(value){const p=Object.fromEntries(new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Shanghai',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',fractionalSecondDigits:3,hourCycle:'h23'}).formatToParts(new Date(value)).map(({type,value})=>[type,value]));return `${p.year}-${p.month}-${p.day} ${p.hour}:${p.minute}:${p.second}.${p.fractionalSecond} +08:00`;}
+async function newPage(){
+ const context=await browser.newContext({viewport:{width:402,height:874},deviceScaleFactor:2,isMobile:true,hasTouch:true,serviceWorkers:'block'});
+ await context.grantPermissions(['clipboard-read','clipboard-write'],{origin});
+ await context.addInitScript(({preference})=>{localStorage.setItem('second-language-certification-sound-v1',preference);window.__readerTestHidden=false;Object.defineProperty(document,'hidden',{configurable:true,get:()=>window.__readerTestHidden});},{preference:oldPreference});
+ const page=await context.newPage();page.on('pageerror',error=>errors.push(error.message));
+ page.on('request',request=>{resources.push(request.url());if(!['GET','HEAD'].includes(request.method()))writes.push({url:request.url(),method:request.method()});});
+ page.on('response',response=>{
+  if(response.status()>=400)missing.push({url:response.url(),status:response.status()});const url=new URL(response.url());
+  if(response.ok()&&url.origin===origin&&!url.pathname.startsWith('/api/')&&!url.pathname.startsWith('/auth/'))responseJobs.push((async()=>{
+   const key=url.pathname==='/'?'/index.html':url.pathname,value=hash(await response.body());if(observedSHA256[key]&&observedSHA256[key]!==value)throw Error('Release resource changed during verification: '+key);observedSHA256[key]=value;
+  })().catch(error=>responseBodyUnavailable.push({url:url.pathname==='/'?'/index.html':url.pathname,error:error.message})));
+ });
+ await page.route('**/api/**',route=>{const path=new URL(route.request().url()).pathname;return route.fulfill({json:path==='/api/session'?{authenticated:true,demo:true}:path==='/api/chapters'?{chapters:[]}:{}});});return {context,page};
+}
+async function catalogue(page){await page.goto(base+'/');await page.locator('#settingsButton').tap();await page.locator('#certificationReaderButton').tap();assert.deepEqual(await page.locator('#certificationChapters button').allTextContents(),['项目纪念']);assert.equal(await page.locator('#certificationChapters [data-work="project-beginning"]').count(),1);assert.equal(await page.locator('#certificationChapters [data-chapter]').count(),0);assert.equal(await page.locator('dialog[open]').count(),1);}
+async function ready(page){await page.waitForFunction(()=>certificationReader.snapshot().ready||!document.getElementById('certificationRetry').hidden,null,{timeout:120000});assert.equal((await page.evaluate(()=>certificationReader.snapshot())).ready,true,await page.locator('#certificationStatus').textContent());}
+async function reveal(page){await page.locator('#certificationCanvas').focus();await page.keyboard.press('ArrowRight');}
+async function soundStopped(page){await page.waitForFunction(()=>{const s=certificationReader.snapshot().sound;return s.musicVoices===0&&s.foleyVoices===0&&s.musicTrack===null;},null,{timeout:10000});}
+async function copied(page,button,expected){await page.locator(button).tap();await page.waitForFunction(async expected=>{const actual=await navigator.clipboard.readText();return Array.isArray(expected)?JSON.stringify(actual.split(/\r?\n/).filter(Boolean))===JSON.stringify(expected):actual===expected;},expected);return page.evaluate(()=>navigator.clipboard.readText());}
 try{
- const context=await browser.newContext({viewport:{width:402,height:874},deviceScaleFactor:2,isMobile:true,hasTouch:true,serviceWorkers:'block'}),page=await context.newPage();
- page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>{resources.push(r.url());if(!['GET','HEAD'].includes(r.method()))writes.push(r.url());});
- page.on('response',r=>{if(r.status()>=400&&!new URL(r.url()).pathname.startsWith('/api/'))missing.push({url:r.url(),status:r.status()});});
- await page.route('**/api/**',route=>{const p=new URL(route.request().url()).pathname;return route.fulfill({json:p==='/api/session'?{authenticated:true,demo:true}:p==='/api/chapters'?{chapters:[]}:{}});});
- await page.goto(base+'/');await page.locator('#settingsButton').tap();await page.locator('#certificationReaderButton').tap();
- assert.deepEqual(await page.locator('#certificationChapters button').allTextContents(),['项目纪念','第一章','第五章']);
- assert.equal(await page.locator('[data-work="project-beginning"]').count(),1);assert.equal(await page.locator('[data-work="project-returning-thread"]').count(),0);
- assert.equal(await page.locator('dialog[open]').count(),1);
- assert.ok(!resources.some(p=>/reader\.bundle|\.glb|final-front/.test(p)),'The catalogue must remain lazy');
- await page.locator('[data-work="project-beginning"]').tap();
- await page.waitForFunction(()=>certificationReader.snapshot().ready||!document.getElementById('certificationRetry').hidden,null,{timeout:120000});
- let state=await page.evaluate(()=>certificationReader.snapshot());assert.equal(state.ready,true,await page.locator('#certificationStatus').textContent());
- const record=await page.evaluate(()=>certificationReader.exportRecord());
- assert.equal(record.sha256,manifest.contentSHA256);assert.equal(record.artPlanDigest,manifest.artPlanSHA256);
- assert.equal(createHash('sha256').update(record.canonicalPayload).digest('hex'),record.sha256);
- assert.equal(record.workId,'SL-PROJECT-BEGINNING-20261021');assert.equal(record.status,'commemorative');assert.equal(record.category,'project-commemorative');
- assert.equal(record.attestation,null);assert.equal(record.projectFoundedAt,null);assert.equal(record.recipient,'Gual Wells');assert.equal(record.madeAt,'2026-10-21T12:10:23.227Z');assert.equal(record.issued,false);
+ const {context,page}=await newPage();await catalogue(page);
+ assert.ok(!resources.some(url=>/reader\.bundle|\.glb|\.mp3|\.wav|final-front/.test(url)),'Catalogue must not prepare heavy display or audio');
+ assert.equal(await page.locator('#certificationSound,#certificationSoundPanel,#certificationMusic,#certificationFoley,#certificationMusicVolume,#certificationFoleyVolume').count(),0,'Retired sound controls must be absent');
+ await page.screenshot({path:out+'/catalogue.png',scale:'css'});
+ // This trusted work tap unlocks real WebAudio; evaluate() never unlocks it.
+ await page.locator('[data-work="project-beginning"]').tap();await ready(page);
+ await page.waitForFunction(()=>{const s=certificationReader.snapshot().sound;return s.unlocked&&s.contextState==='running'&&s.musicState==='playing';},null,{timeout:45000});
+ const initial=await page.evaluate(()=>certificationReader.snapshot()),record=await page.evaluate(()=>certificationReader.exportRecord());
+ assert.equal(initial.sound.musicEnabled,true);assert.equal(initial.sound.foleyEnabled,true);assert.ok(initial.sound.musicVolume>0);assert.ok(initial.sound.foleyVolume>0);assert.equal(await page.evaluate(()=>localStorage.getItem('second-language-certification-sound-v1')),oldPreference);
+ assert.equal(record.sha256,expectedSHA);assert.equal(record.artPlanDigest,manifest.artPlanSHA256);assert.equal(hash(record.canonicalPayload),expectedSHA);
+ assert.equal(record.workId,'SL-PROJECT-BEGINNING-20261021');assert.equal(record.status,'commemorative');assert.equal(record.category,'project-commemorative');assert.equal(record.issued,false);assert.equal(record.attestation,null);assert.equal(record.projectFoundedAt,null);assert.equal(record.recipient,'Gual Wells');assert.equal(record.madeAt,madeAt);
  for(const key of ['chapterId','chapterNumber','chapterTitle','chapterDigest','foundedAt','certifiedAt','passedAt'])assert.ok(!Object.hasOwn(record,key));
- assert.equal(record.copy.rubric,'A project remembrance');assert.equal(record.copy.institution,'The Second Language');assert.equal(record.copy.artTitle,'A Day in Another Tongue');
- assert.deepEqual(record.copy.verse,['With a first word, the work begins:','rain at the shutter, bread upon the board,','a greeting answered at an open door.','Page will follow page.','Another tongue enters the day.']);
- assert.equal(state.chapter,null);assert.equal(state.viewer.chapterId,null);assert.equal(state.viewer.category,'project-commemorative');assert.equal(state.viewer.workId,record.workId);
- assert.equal(state.viewer.layout.frozen,true);assert.equal(state.viewer.layout.contentDigest,record.sha256);assert.equal(state.viewer.layout.artPlanDigest,record.artPlanDigest);
- assert.equal(state.viewer.paperProfilePrepared,true);assert.deepEqual(state.viewer.paperProfile.normalScale,[.035,.035]);assert.equal(state.viewer.paperProfile.bumpScale,.0045);
- for(const name of ['normal','roughness']){assert.deepEqual(state.viewer.paperProfile[name].repeat,[1.4,2.1]);assert.equal(state.viewer.paperProfile[name].wrapS,1000);assert.equal(state.viewer.paperProfile[name].wrapT,1000);}
- assert.equal(state.viewer.paperProfile.sheen,0);assert.equal(state.viewer.paperProfile.specularIntensity,0);
- assert.ok(resources.some(p=>new URL(p).pathname==='/labs/project-beginning/assets/final-front.png'));
- assert.ok(!resources.some(p=>/Aboensis[^/]*\.(?:otf|ttf|woff2?)(?:\?|$)|daily-miniature\.png|parchment\.webp|ink-shoulder\.png|draft-surfaces\.json|draft-front\.png/.test(p)),'Viewing must decode saved final layers, without runtime typesetting or draft substitution');
- assert.ok(!resources.some(p=>p.includes('/labs/project-commemorative/')),'The rejected work must not be loaded as a substitute');
- await page.screenshot({path:out+(remote?'/live-closed.png':'/closed.png'),scale:'css'});
- await page.locator('#certificationCanvas').tap({position:{x:201,y:430}});
- await page.waitForFunction(()=>{const v=certificationReader.snapshot().viewer;return v.progress>.999&&!v.animating;},null,{timeout:60000});
- state=await page.evaluate(()=>certificationReader.snapshot());assert.equal(state.viewer.layout.contentDigest,record.sha256);
- await page.waitForFunction(()=>!document.querySelector('#certificationStage').classList.contains('controls-visible'));await page.waitForTimeout(350);
- await page.screenshot({path:out+(remote?'/live-open.png':'/open.png'),scale:'css'});
- // exportDocument is a two-dimensional decoded front surface. Comparing it
- // with the PNG verifies original delivery, NOT Three lighting/GPU fidelity.
- const decodedOriginal=await page.evaluate(async()=>{
-  const image=src=>new Promise((resolve,reject)=>{const im=new Image();im.onload=()=>resolve(im);im.onerror=reject;im.src=src;});
-  const [exported,original]=await Promise.all([image(certificationReader.exportDocument()),image('/labs/project-beginning/assets/final-front.png')]);
-  const pixels=i=>{const c=Object.assign(document.createElement('canvas'),{width:i.width,height:i.height}),x=c.getContext('2d');x.drawImage(i,0,0);return x.getImageData(0,0,c.width,c.height).data;};
-  const a=pixels(exported),b=pixels(original);return {equal:exported.width===original.width&&exported.height===original.height&&a.length===b.length&&a.every((v,i)=>v===b[i]),width:original.width,height:original.height};
- });assert.equal(decodedOriginal.equal,true);assert.equal(decodedOriginal.width,2048);assert.equal(decodedOriginal.height,2868);
- await page.locator('#certificationCanvas').tap({position:{x:201,y:430}});
- await page.waitForFunction(()=>{const v=certificationReader.snapshot().viewer;return v.progress<.001&&!v.animating;},null,{timeout:60000});
- const final=await page.evaluate(()=>certificationReader.snapshot());assert.equal(final.viewer.layout.contentDigest,record.sha256);
- await page.keyboard.press('Escape');await page.locator('#certificationCatalogue').waitFor({state:'visible'});
- assert.equal(await page.locator('dialog[open]').count(),1);assert.equal((await page.evaluate(()=>certificationReader.snapshot())).sound.active,false);
- assert.deepEqual(errors,[]);assert.deepEqual(missing,[]);assert.deepEqual(writes,[]);
- const result={base,checkedAt:new Date().toISOString(),profile:'beginning',catalogueWork:'project-beginning',record,
-  checks:{minimalProjectEntry:true,rejectedWorkAbsent:true,noFakeChapterOrCertification:true,fixedMadeAtAndDynamicHash:true,frozenOriginals:true,noRuntimeTypesetting:true,
-   decodedOriginalPixelsMatch:true,actualMaterialProfileRestored:true,realOpenAndClose:true,exitStopsSound:true,noAccountWrites:true},
-  errors,missing,writes,resources,decodedOriginal,opened:state,closed:final,
-  evidenceLimits:{decodedOriginalPixelsMatch:'Canvas2D decoded front export equals the frozen PNG; this is original delivery, not post-lighting or GPU fidelity.',artisticApproval:'Not asserted by this interaction test.'},
-  environment:'Chrome mobile simulation 402x874/DPR2; no physical iPhone or Safari claim. Browser-only empty demo API; real published display resources.'};
- await writeFile(out+(remote?'/live-verification.json':'/verification.json'),JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify({sha256:record.sha256,checks:result.checks,errors,missing,writes}));await context.close();
+ assert.equal(record.copy.rubric,'A project remembrance');assert.equal(record.copy.institution,'The Second Language');assert.equal(record.copy.artTitle,'A Day in Another Tongue');assert.deepEqual(record.copy.verse,['With a first word, the work begins:','rain at the shutter, bread upon the board,','a greeting answered at an open door.','Page will follow page.','Another tongue enters the day.']);
+ assert.equal(initial.chapter,null);assert.equal(initial.viewer.chapterId,null);assert.equal(initial.viewer.category,'project-commemorative');assert.equal(initial.viewer.workId,record.workId);assert.equal(initial.viewer.layout.frozen,true);assert.equal(initial.viewer.layout.contentDigest,expectedSHA);assert.equal(initial.viewer.layout.artPlanDigest,record.artPlanDigest);
+ assert.equal(initial.viewer.paperProfilePrepared,true);assert.deepEqual(initial.viewer.paperProfile.normalScale,[.035,.035]);assert.equal(initial.viewer.paperProfile.bumpScale,.0045);
+ for(const name of ['normal','roughness']){assert.deepEqual(initial.viewer.paperProfile[name].repeat,[1.4,2.1]);assert.equal(initial.viewer.paperProfile[name].wrapS,1000);assert.equal(initial.viewer.paperProfile[name].wrapT,1000);}assert.equal(initial.viewer.paperProfile.sheen,0);assert.equal(initial.viewer.paperProfile.specularIntensity,0);
+ assert.ok(resources.some(url=>new URL(url).pathname==='/labs/project-beginning/assets/final-front.png'));
+ assert.ok(!resources.some(url=>/Aboensis[^/]*\.(?:otf|ttf|woff2?)(?:\?|$)|daily-miniature\.png|parchment\.webp|ink-shoulder\.png|draft-surfaces\.json|draft-front\.png/.test(url)),'Viewing must decode frozen layers, without runtime typesetting');assert.ok(!resources.some(url=>url.includes('/labs/project-commemorative/')));
+ const productionBundle=resources.find(url=>new URL(url).pathname==='/labs/certification-reader/reader.bundle.js');assert.ok(productionBundle);
+ const rejectedProfiles=await page.evaluate(async url=>{const {ScrollViewer}=await import(url),results=[];for(const chapter of [1,5]){const test=new ScrollViewer(document.createElement('canvas'),document.createElement('canvas'));try{await test.prepare({chapter});results.push(false);}catch{results.push(true);}finally{test.dispose();}}return results;},productionBundle);assert.deepEqual(rejectedProfiles,[true,true]);
+ await page.screenshot({path:out+'/closed.png',scale:'css'});const beforeMusic=initial.sound.musicPosition;
+ await page.locator('#certificationCanvas').tap({position:{x:201,y:430}});await page.waitForFunction(()=>{const v=certificationReader.snapshot().viewer;return v.progress>.999&&!v.animating;},null,{timeout:60000});
+ const opened=await page.evaluate(()=>certificationReader.snapshot());assert.ok(opened.sound.musicPosition>beforeMusic);assert.ok(opened.sound.eventsPlayed>0,'Real opening should drive recorded foley');assert.deepEqual(opened.sound.failures,{});
+ await page.waitForFunction(()=>!document.querySelector('#certificationStage').classList.contains('controls-visible'));assert.equal(await page.locator('#certificationHud').getAttribute('inert'),'');await page.screenshot({path:out+'/open.png',scale:'css'});
+ await reveal(page);const beforePanel=await page.evaluate(()=>certificationReader.snapshot().viewer.progress);await page.locator('#certificationDocument').tap();await page.locator('#certificationDocumentPanel').waitFor({state:'visible'});
+ assert.equal(await page.locator('#certificationDocumentTitle').textContent(),'文书设置');assert.equal(await page.locator('dialog[open]').count(),1);assert.equal(await page.evaluate(()=>document.activeElement.id),'certificationEnglishTab');assert.equal(await page.locator('#certificationCanvas').getAttribute('inert'),'');
+ assert.deepEqual(await page.locator('#certificationEnglishCopy').evaluate(el=>[...el.children].map(child=>child.textContent)),blocks(record.copy));assert.deepEqual(await page.locator('#certificationChineseCopy').evaluate(el=>[...el.children].map(child=>child.textContent)),blocks(record.copy.translation));assert.ok(!/Aboensis/i.test(await page.locator('#certificationEnglishCopy').evaluate(el=>getComputedStyle(el).fontFamily)));
+ assert.equal(await page.locator('#certificationMadeAt').textContent(),localTime);assert.equal(await page.locator('#certificationMadeAt').getAttribute('datetime'),madeAt);const short=expectedSHA.slice(0,16).toUpperCase().match(/.{4}/g).join(' ');assert.equal(await page.locator('#certificationShortCode').textContent(),short);assert.equal(await page.locator('#certificationContentCode').textContent(),expectedSHA);assert.equal(await page.locator('#certificationPublishedRow').isVisible(),Boolean(record.publishedAt));assert.ok(!/发行待记录/.test(await page.locator('#certificationDocumentPanel').textContent()));
+ const metadata=english=>[`${english?'Made':'制作时间'}: ${localTime}`,`${english?'Content mark':'内容短码'}: ${short}`,`${english?'Content SHA-256':'完整内容认证码（SHA-256）'}: ${expectedSHA}`,...(record.publishedAt?[`${english?'Published':'发行时间'}: ${localInstant(record.publishedAt)}`]:[])];
+ assert.deepEqual(nonempty(await copied(page,'#certificationCopyText',[...lines(record.copy),...metadata(true)])),[...lines(record.copy),...metadata(true)]);await page.locator('#certificationChineseTab').tap();assert.equal(await page.locator('#certificationChineseTab').getAttribute('aria-selected'),'true');assert.equal(await page.locator('#certificationEnglishPage').isVisible(),false);assert.deepEqual(nonempty(await copied(page,'#certificationCopyText',[...lines(record.copy.translation),...metadata(false)])),[...lines(record.copy.translation),...metadata(false)]);assert.equal(await copied(page,'#certificationCopyCode',expectedSHA),expectedSHA);assert.equal(await copied(page,'#certificationCopyTime',localTime),localTime);
+ await page.locator('#certificationChineseTab').focus();await page.keyboard.press('Home');assert.equal(await page.evaluate(()=>document.activeElement.id),'certificationEnglishTab');await page.keyboard.press('ArrowRight');assert.equal(await page.evaluate(()=>document.activeElement.id),'certificationChineseTab');
+ const scroll=await page.locator('.certification-document-scroll').evaluate(el=>{el.scrollTop=el.scrollHeight;return {position:el.scrollTop,overflow:getComputedStyle(el).overflowY};});assert.ok(scroll.position>0);assert.match(scroll.overflow,/auto|scroll/);assert.equal((await page.evaluate(()=>certificationReader.snapshot())).viewer.progress,beforePanel,'Document controls must not toggle the scroll');await page.screenshot({path:out+'/document-chinese.png',scale:'css'});
+ await page.locator('#certificationDocumentClose').tap();assert.equal(await page.evaluate(()=>document.activeElement.id),'certificationCanvas');await page.locator('#certificationDocument').tap();await page.keyboard.press('Escape');assert.equal((await page.evaluate(()=>certificationReader.snapshot())).document.open,false);assert.equal(await page.evaluate(()=>document.activeElement.id),'certificationCanvas');assert.equal(await page.locator('#certificationViewer').isVisible(),true);
+ await page.evaluate(()=>{window.__readerTestHidden=true;document.dispatchEvent(new Event('visibilitychange'));});await soundStopped(page);const hiddenState=await page.evaluate(()=>certificationReader.snapshot());assert.equal(hiddenState.sound.paused,true);const pausedPosition=hiddenState.sound.musicPosition;await page.waitForTimeout(400);assert.equal((await page.evaluate(()=>certificationReader.snapshot())).sound.musicPosition,pausedPosition);
+ await page.evaluate(()=>{window.__readerTestHidden=false;document.dispatchEvent(new Event('visibilitychange'));});await page.waitForFunction(()=>certificationReader.snapshot().sound.musicState==='playing');const resumed=await page.evaluate(()=>certificationReader.snapshot());assert.ok(resumed.sound.musicPosition>=pausedPosition-.1);assert.equal(resumed.sound.musicEnabled,true);assert.equal(resumed.sound.foleyEnabled,true);
+ await page.locator('#certificationCanvas').tap({position:{x:201,y:430}});await page.waitForFunction(()=>{const v=certificationReader.snapshot().viewer;return v.progress<.001&&!v.animating;},null,{timeout:60000});const closed=await page.evaluate(()=>certificationReader.snapshot());assert.equal(closed.viewer.layout.contentDigest,expectedSHA);
+ await page.keyboard.press('Escape');await page.locator('#certificationCatalogue').waitFor({state:'visible'});await soundStopped(page);await page.evaluate(()=>{window.dispatchEvent(new Event('pageshow'));document.dispatchEvent(new Event('visibilitychange'));});await page.waitForTimeout(250);const exited=await page.evaluate(()=>certificationReader.snapshot());assert.equal(exited.open,false);assert.equal(exited.sound.active,false);assert.equal(exited.sound.musicVoices,0);assert.equal(exited.sound.foleyVoices,0);assert.equal(exited.document.ready,false);assert.equal(await page.locator('#certificationEnglishCopy').textContent(),'');
+ // Canvas2D identity is deliberately separate from post-lighting fidelity.
+ await page.locator('[data-work="project-beginning"]').tap();await ready(page);
+ const decodedOriginal=await page.evaluate(async()=>{const image=src=>new Promise((resolve,reject)=>{const im=new Image();im.onload=()=>resolve(im);im.onerror=reject;im.src=src;});const [exported,original]=await Promise.all([image(certificationReader.exportDocument()),image('/labs/project-beginning/assets/final-front.png')]);const pixels=im=>{const canvas=Object.assign(document.createElement('canvas'),{width:im.width,height:im.height}),ctx=canvas.getContext('2d');ctx.drawImage(im,0,0);return ctx.getImageData(0,0,canvas.width,canvas.height).data;};const a=pixels(exported),b=pixels(original);return {equal:exported.width===original.width&&exported.height===original.height&&a.length===b.length&&a.every((value,index)=>value===b[index]),width:original.width,height:original.height};});assert.deepEqual(decodedOriginal,{equal:true,width:2048,height:2868});
+ await page.setViewportSize({width:874,height:402});await page.waitForTimeout(200);const bounds=await page.locator('#certificationViewer').boundingBox();assert.ok(Math.abs(bounds.width-874)<2&&Math.abs(bounds.height-402)<2);await page.screenshot({path:out+'/landscape.png',scale:'css'});await page.keyboard.press('Escape');await page.locator('#certificationCatalogue').waitFor({state:'visible'});await soundStopped(page);await page.locator('[data-close="certificationCatalogue"]').tap();await page.locator('#settingsDialog').waitFor({state:'visible'});assert.equal(await page.locator('dialog[open]').count(),1);
+ // Hold real cold-page sound downloads until after exit, then let them decode.
+ const delayed=await newPage();let releaseAudio,firstHeld;const audioGate=new Promise(resolve=>releaseAudio=resolve),held=new Promise(resolve=>firstHeld=resolve);let heldCount=0;
+ await delayed.page.route(/\/labs\/certification-reader\/assets\/audio-(music|foley)\//,async route=>{heldCount++;firstHeld();await audioGate;await route.continue();});await catalogue(delayed.page);await delayed.page.locator('[data-work="project-beginning"]').tap();await Promise.race([held,new Promise((_,reject)=>setTimeout(()=>reject(Error('Cold page did not request sound')),15000))]);await delayed.page.locator('#certificationBack').tap();await delayed.page.locator('#certificationCatalogue').waitFor({state:'visible'});releaseAudio();
+ await delayed.page.waitForFunction(()=>certificationReader.snapshot().sound.decoded.length>=3,null,{timeout:45000});await delayed.page.waitForTimeout(300);await soundStopped(delayed.page);await delayed.page.evaluate(()=>{window.dispatchEvent(new Event('pageshow'));document.dispatchEvent(new Event('visibilitychange'));});await delayed.page.waitForTimeout(250);const late=await delayed.page.evaluate(()=>certificationReader.snapshot());assert.ok(heldCount>0);assert.equal(late.open,false);assert.equal(late.ready,false);assert.equal(late.sound.active,false);assert.equal(late.sound.musicVoices,0);assert.equal(late.sound.foleyVoices,0);assert.equal(late.sound.eventsPlayed,0);assert.deepEqual(late.sound.failures,{});
+ await Promise.all(responseJobs);
+ // Chrome may evict transferred GLB bodies from its debugging buffer. Read
+ // only missing response bytes through the same real browser, without
+ // repeating UI interactions or treating CDP observability as product failure.
+ const responseHashFallbacks=[...new Set(responseBodyUnavailable.map(item=>item.url))].filter(url=>!observedSHA256[url]);
+ if(responseHashFallbacks.length)Object.assign(observedSHA256,await page.evaluate(async urls=>{
+  const result={};for(const url of urls){const response=await fetch(url);if(!response.ok)throw Error('Evidence fetch failed: '+url);const digest=await crypto.subtle.digest('SHA-256',await response.arrayBuffer());result[url]=[...new Uint8Array(digest)].map(value=>value.toString(16).padStart(2,'0')).join('');}return result;
+ },responseHashFallbacks));
+ await Promise.all(responseJobs);
+ for(const unavailable of responseBodyUnavailable)assert.ok(observedSHA256[unavailable.url],'No successful response byte evidence for '+unavailable.url);
+ for(const url of ['/index.html','/app.js','/styles.css','/certification-reader.js','/labs/certification-reader/reader.bundle.js','/labs/certification-reader/sound.js','/labs/certification-reader/material-motion.js','/labs/project-beginning/record.json','/labs/project-beginning/art-plan.json','/labs/project-beginning/assets/final-front.png','/labs/project-beginning/assets/surfaces.json'])assert.match(observedSHA256[url]||'',/^[0-9a-f]{64}$/,'Missing observed release bytes: '+url);
+ assert.deepEqual(errors,[]);assert.deepEqual(missing,[]);assert.deepEqual(writes,[]);assert.ok(!resources.some(url=>/\/labs\/chapter-scroll-v(?:12|14)\/chapter-sample\.json|scroll-museum|scene-wood|ancient-mysteries|keeper-physical\.glb/.test(url)));assert.equal(observedSHA256['/labs/project-beginning/assets/surfaces.json'],hash(surfaceBytes));
+ const result={base,checkedAt:new Date().toISOString(),profile:'beginning',mode:'project-beginning-only-document-default-sound',catalogueWork:'project-beginning',projectCatalogue:'project-beginning',chapterLabels:['项目纪念'],record,
+  checks:{minimalProjectEntry:true,researchProfilesRejected:true,rejectedWorkAbsent:true,noFakeChapterOrCertification:true,fixedMadeAtAndContentSHA:true,frozenOriginals:true,noRuntimeTypesetting:true,decodedOriginalPixelsMatch:true,actualMaterialProfileRestored:true,trustedEntryUnlocksDefaultSound:true,oldMuteIgnored:true,noSoundSettingsUI:true,realOpenAndClose:true,foleyDuringRealMotion:true,musicContinuesAcrossOpening:true,documentFullEnglishChineseFromRecord:true,documentMetadataFromRecord:true,actualClipboardCopies:true,documentTabsKeyboardAndScroll:true,documentControlsDoNotToggle:true,documentFocusAndEscape:true,hiddenPausesWithoutReplay:true,foregroundResumesPosition:true,exitStopsSound:true,lateDecodeCannotRevive:true,modalBackStack:true,portraitLandscape:true,noAccountWrites:true},
+  initial,opened,closed,exited,hidden:hiddenState,resumed,lateLoad:{heldCount,snapshot:late},decodedOriginal,errors,missing,writes,resources:[...new Set(resources)],observedSHA256,responseBodyUnavailable,responseHashFallbacks,
+  evidenceLimits:{decodedOriginalPixelsMatch:'Canvas2D export versus frozen PNG proves original delivery, not GPU lighting fidelity.',visibility:'Synthetic hidden signal drives real browser lifecycle handlers and WebAudio; not a physical lock-screen test.',audio:'Playback nodes, decoding and trusted UI unlock verified; no human listening approval or precise motion-phase certification.',artisticApproval:'Not asserted by this interaction test.'},
+  environment:'Local Chrome mobile simulation 402x874/DPR2 and landscape; no physical iPhone/Safari claim. Empty demo API is browser-mocked; display/audio resources and clipboard operations are real.'};
+ await writeFile(out+(remote?'/live-verification.json':'/verification.json'),JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify({sha256:record.sha256,checks:result.checks,errors,missing,writes}));await delayed.context.close();await context.close();
 }catch(error){await writeFile(out+'/browser-failure.json',JSON.stringify({error:error.stack,errors,missing,writes},null,2)+'\n');throw error;}finally{await browser.close();}

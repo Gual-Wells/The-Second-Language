@@ -2,31 +2,16 @@ import assert from 'node:assert/strict';
 import {readFile,writeFile} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {execFileSync,spawnSync} from 'node:child_process';
-if(process.argv.includes('--chapter-specimens-only')){
- const report=JSON.parse(await readFile('research/certification-reader-2026-10-21/verification.json','utf8'));
- assert.deepEqual(report.chapterLabels,['第一章','第五章']);
- assert.equal(report.first.sha256,'590cc91ffca8634b7864f24825afbfc3f5fb286de5321087edd2c336f74732ea');
- assert.equal(report.fifth.sha256,'a2a75215f25dc0fc40f047fd6f6648a4625ae13be7b3fa2ffca5fe72e37f43a0');
- assert.ok(Object.keys(report.checks).length&&Object.values(report.checks).every(v=>v===true));
- for(const key of ['errors','missing','writes'])assert.deepEqual(report[key],[]);
- const urls=new Set(report.resources.map(r=>new URL(r).pathname).filter(p=>!p.startsWith('/api/')&&!p.startsWith('/auth/')).map(p=>p==='/'?'/index.html':p));
- for(const p of ['/labs/certification-reader/CREDITS.md','/labs/certification-reader/AUDIO_CREDITS.md'])urls.add(p);
- const files=[...urls].sort().map(url=>{assert.ok(url.startsWith('/')&&!url.includes('..'));const bytes=execFileSync('git',['show',':web'+url],{windowsHide:true,maxBuffer:32*1024*1024});return{url,bytes:bytes.length,sha256:createHash('sha256').update(bytes).digest('hex')};});
- const manifest={schema:'second-language.certification-reader-display.v1',issued:false,works:[{chapter:1,sha256:report.first.sha256},{chapter:5,sha256:report.fifth.sha256}],scope:'Existing unissued chapter specimens only; rejected project keepsake withdrawn from the catalogue.',files,bytes:files.reduce((n,f)=>n+f.bytes,0)};
- await writeFile('web/labs/certification-reader/display-manifest.json',JSON.stringify(manifest,null,2)+'\n');console.log(JSON.stringify({files:files.length,bytes:manifest.bytes,projectWithdrawn:true}));process.exit(0);
-}
-const reportPath='research/certification-reader-2026-10-21/verification.json',projectPath='research/project-scroll-redesign-2026-10-21/verification.json';
-const [report,project]=await Promise.all([reportPath,projectPath].map(async file=>JSON.parse(await readFile(file,'utf8'))));
-for(const [name,result]of [['reader',report],['project commemorative',project]]){
- if(!result.checks||!Object.keys(result.checks).length||Object.values(result.checks).some(v=>v!==true)||!['errors','missing','writes'].every(key=>Array.isArray(result[key])&&result[key].length===0)||!Array.isArray(result.resources)||!result.resources.length)throw Error(`No passing ${name} interaction report`);
-}
-assert.deepEqual(report.chapterLabels,['项目纪念','第一章','第五章']);
-assert.equal(report.projectCatalogue,'project-beginning');assert.equal(project.profile,'beginning');assert.equal(project.catalogueWork,'project-beginning');
+if(process.argv.length>2)throw Error('Production packaging accepts no historical mode. Use the fixed historical checkout or independent labs for first/fifth chapter specimens.');
+const reportPath='research/scroll-reader-correction-2026-10-22/verification.json';
+const project=JSON.parse(await readFile(reportPath,'utf8'));
+if(!project.checks||!Object.keys(project.checks).length||Object.values(project.checks).some(value=>value!==true)||!['errors','missing','writes'].every(key=>Array.isArray(project[key])&&project[key].length===0)||!Array.isArray(project.resources)||!project.resources.length)throw Error('No passing current project reader interaction report');
+assert.deepEqual(project.chapterLabels,['项目纪念']);assert.equal(project.mode,'project-beginning-only-document-default-sound');
+assert.equal(project.projectCatalogue,'project-beginning');assert.equal(project.profile,'beginning');assert.equal(project.catalogueWork,'project-beginning');
+for(const check of ['researchProfilesRejected','trustedEntryUnlocksDefaultSound','oldMuteIgnored','noSoundSettingsUI','documentFullEnglishChineseFromRecord','documentMetadataFromRecord','actualClipboardCopies','documentControlsDoNotToggle','documentFocusAndEscape','hiddenPausesWithoutReplay','exitStopsSound','lateDecodeCannotRevive'])assert.equal(project.checks[check],true,'Required reader correction not verified: '+check);
 assert.equal(project.checks.decodedOriginalPixelsMatch,true);assert.equal(project.checks.actualMaterialProfileRestored,true);
-assert.equal(report.first.sha256,'590cc91ffca8634b7864f24825afbfc3f5fb286de5321087edd2c336f74732ea');
-assert.equal(report.fifth.sha256,'a2a75215f25dc0fc40f047fd6f6648a4625ae13be7b3fa2ffca5fe72e37f43a0');
-assert.equal(project.record.category,'project-commemorative');assert.equal(project.record.status,'commemorative');assert.equal(project.record.attestation,null);assert.match(project.record.sha256,/^[0-9a-f]{64}$/);
-const paths=new Set([...report.resources,...project.resources].map(r=>new URL(r).pathname).filter(p=>!p.startsWith('/api/')&&!p.startsWith('/auth/')).map(p=>p==='/'?'/index.html':p));
+assert.equal(project.record.category,'project-commemorative');assert.equal(project.record.status,'commemorative');assert.equal(project.record.attestation,null);assert.equal(project.record.sha256,'4a83d1952e133bcecd6c1aa2e14a788159b410e9a6ea2a7f5bcf42610943e37b');
+const paths=new Set(project.resources.map(r=>new URL(r).pathname).filter(p=>!p.startsWith('/api/')&&!p.startsWith('/auth/')).map(p=>p==='/'?'/index.html':p));
 for(const p of ['/labs/certification-reader/CREDITS.md','/labs/certification-reader/AUDIO_CREDITS.md'])paths.add(p);
 // All packaged hashes come from staged bytes. A passing browser observation
 // cannot silently substitute newer working-tree paper or metadata for them.
@@ -36,6 +21,20 @@ function fromIndex(url){
  if(!indexed.has(url))indexed.set(url,execFileSync('git',['show',':web'+url],{windowsHide:true,maxBuffer:32*1024*1024}));
  return indexed.get(url);
 }
+assert.ok(project.observedSHA256&&Object.keys(project.observedSHA256).length,'Browser response byte evidence is required');
+for(const [url,expected]of Object.entries(project.observedSHA256))assert.equal(hash(fromIndex(url)),expected,'Staged release differs from the browser-verified bytes: '+url);
+// Runtime recordings and their BY/CC0 attribution travel with the recovery
+// package. Source membership does not cause the viewer to preload originals.
+const audioBase='/labs/certification-reader/',audioManifestURL=audioBase+'assets/audio-sources/manifest.json';
+const audio=JSON.parse(fromIndex(audioManifestURL));assert.equal(audio.schema,'second-language.reader-material-audio.v1');paths.add(audioManifestURL);
+assert.ok(audio.licenses.includes('CC-BY-3.0'));assert.ok(audio.licenses.includes('CC0-1.0'));
+for(const asset of audio.runtime){const url=new URL(asset.path,'https://pack.invalid'+audioBase).pathname,bytes=fromIndex(url);paths.add(url);assert.equal(bytes.length,asset.bytes);assert.equal(hash(bytes),asset.sha256,'Current audio recording changed: '+url);}
+const audioSourcesBase=new URL(audioManifestURL,'https://pack.invalid');
+for(const reference of [audio.sources,audio.derivatives,audio.legacyManifest])if(reference)paths.add(new URL(reference,audioSourcesBase).pathname);
+const derivativesURL=new URL(audio.derivatives,audioSourcesBase).pathname,derivatives=JSON.parse(fromIndex(derivativesURL));
+assert.equal(derivatives.schema,'second-language.recorded-material-derivatives.v1');
+for(const asset of [...derivatives.sources,...derivatives.loops]){assert.ok(asset.file.startsWith('web/labs/certification-reader/assets/'));const url=asset.file.slice(3),bytes=fromIndex(url);paths.add(url);assert.equal(bytes.length,asset.bytes);assert.equal(hash(bytes),asset.sha256,'Recorded material recovery asset changed: '+url);}
+for(const loop of derivatives.loops){assert.ok(!loop.source.includes('/')&&!loop.source.includes('\\'));const url=new URL(loop.source,'https://pack.invalid'+derivativesURL).pathname;paths.add(url);assert.equal(hash(fromIndex(url)),loop.sourceSHA256,'Decoded loop source changed: '+url);}
 const projectBase='/labs/project-beginning/',surfaceURL=projectBase+'assets/surfaces.json';
 for(const url of [projectBase+'record.json',projectBase+'art-plan.json',projectBase+'charter.js',projectBase+'document.js',projectBase+'templates.js',projectBase+'scroll-object.js',surfaceURL])paths.add(url);
 const record=JSON.parse(fromIndex(projectBase+'record.json')),plan=JSON.parse(fromIndex(projectBase+'art-plan.json')),surfaces=JSON.parse(fromIndex(surfaceURL));
@@ -70,7 +69,8 @@ for(const resource of Object.values(plan.resources)){
 const credits=projectBase+'CREDITS.md';
 if(spawnSync('git',['cat-file','-e',':web'+credits],{windowsHide:true,stdio:'ignore'}).status===0)paths.add(credits);
 assert.ok(![...paths].some(url=>url.startsWith('/labs/project-commemorative/')),'Rejected project work leaked into the release closure');
+assert.ok(![...paths].some(url=>/^\/labs\/chapter-scroll-v(?:12|14)\/chapter-sample\.json$/.test(url)),'Research chapter records leaked into the production work closure');
 const files=[];
 for(const url of [...paths].sort()){const bytes=fromIndex(url);files.push({url,bytes:bytes.length,sha256:hash(bytes)});}
-const manifest={schema:'second-language.certification-reader-display.v1',issued:false,works:[{workId:project.record.workId,category:'project-commemorative',sha256:project.record.sha256},{chapter:1,sha256:report.first.sha256},{chapter:5,sha256:report.fifth.sha256}],scope:'Main settings entry with the public commissioned project-beginning commemoration (not an assessment) and the existing unissued first/fifth chapter specimens. No certification database, native authoring archive, rejected prior keepsake or private awarded artifact.',verificationReports:[reportPath,projectPath],files,bytes:files.reduce((n,f)=>n+f.bytes,0)};
+const manifest={schema:'second-language.certification-reader-display.v1',issued:false,works:[{workId:project.record.workId,category:'project-commemorative',sha256:project.record.sha256}],scope:'The sole production work is the commissioned project-beginning commemoration, with readable bilingual document metadata and default sound. First/fifth chapter research specimens remain outside the production catalogue; shared technical dependencies are not listed as works. No assessment or award state is created.',verificationReports:[reportPath],files,bytes:files.reduce((n,f)=>n+f.bytes,0)};
 await writeFile('web/labs/certification-reader/display-manifest.json',JSON.stringify(manifest,null,2)+'\n');console.log(JSON.stringify({files:files.length,bytes:manifest.bytes}));

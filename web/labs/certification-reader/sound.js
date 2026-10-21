@@ -1,16 +1,13 @@
-// Recorded CC0 music and foley; sources, licenses and hashes: AUDIO_CREDITS.md.
-// User preferences, host activity and a temporary lifecycle pause are independent.
+import {materialMotion} from './material-motion.js?v=40';
+// Recorded material sources, derivatives and licenses: AUDIO_CREDITS.md.
+// Motion coordinates drive sound; a lifecycle pause never changes the default.
 const ASSET = path => new URL(`./assets/${path}`, import.meta.url).href;
 const FILES = Object.freeze({
   music: 'audio-music/a-new-town.mp3',
-  leather1: 'audio-foley/beltHandle1.wav', leather2: 'audio-foley/beltHandle2.wav',
-  tail1: 'audio-foley/handleSmallLeather.wav', tail2: 'audio-foley/handleSmallLeather2.wav',
-  cloth: 'audio-foley/clothBelt.wav', pin: 'audio-foley/metalClick.wav', latch: 'audio-foley/metalLatch.wav',
-  open: 'audio-foley/bookOpen.wav', close: 'audio-foley/bookClose.wav',
-  paper1: 'audio-foley/bookFlip1.wav', paper2: 'audio-foley/bookFlip2.wav', paper3: 'audio-foley/bookFlip3.wav',
-  settle: 'audio-foley/bookPlace1.wav'
+  leather: 'audio-foley/leather-flex-loop.wav',
+  paper: 'audio-foley/parchment-roll-loop.wav',
+  metal: 'audio-foley/metalClick.wav'
 });
-const TRIM = Object.freeze({tail1: 2.2, tail2: 3, open: 1.7, paper2: 1.8, settle: .35, close: .45, latch: .55});
 const MUSIC_GAIN = .35, END_REST_MS = 1800;
 const clamp = (n, min = 0, max = 1) => Math.max(min, Math.min(max, n));
 const clock = () => performance.now();
@@ -34,14 +31,15 @@ function ramp(parameter, value, seconds, ctx) {
 
 export class SoundDirector {
   constructor() {
-    this.musicEnabled = false; this.foleyEnabled = false;
+    this.musicEnabled = true; this.foleyEnabled = true;
     this.musicVolume = .35; this.foleyVolume = .65;
     this.active = false; this.paused = false; this.disposed = false; this.unlocked = false;
     this.context = null; this.bytes = new Map(); this.buffers = new Map(); this.loads = new Map(); this.failures = new Map();
     this.musicVoice = null; this.musicVoices = new Set(); this.foleyVoices = new Set();
     this.position = 0; this.musicTicket = 0; this.foleyTicket = 0; this.epoch = 0;
     this.restRemainingMs = 0; this.restTimer = 0; this.restStartedAt = 0;
-    this.lastMotion = null; this.lastCue = new Map(); this.paperTravel = 0; this.paperVariant = 0;
+    this.lastMotion = null; this.lastCue = new Map(); this.materialVoices = new Map();
+    this.materialTargets = {paper:0,leather:0}; this.lastDriveAt = 0; this.contacts = [];
     this.eventsPlayed = 0; this.lastEvent = null; this.completedPlays = 0;
     this._visibility = () => { if (hidden()) this.pause(); else if (this.active) this.resume(); };
     this._pagehide = () => this.pause();
@@ -74,7 +72,7 @@ export class SoundDirector {
     if (this.disposed) return;
     const next = Boolean(value);
     if (next === this.active) return;
-    this.active = next; this.epoch++; this.lastMotion = null; this.paperTravel = 0;
+    this.active = next; this.epoch++; this.lastMotion = null;
     if (!next) { this._stopMusic(); this._stopFoley(); }
     else if (!hidden()) { this.paused = false; this.resume(); }
   }
@@ -87,7 +85,7 @@ export class SoundDirector {
 
   setFoleyEnabled(value) {
     if (this.disposed) return;
-    this.foleyEnabled = Boolean(value); this.lastMotion = null; this.paperTravel = 0;
+    this.foleyEnabled = Boolean(value); this.lastMotion = null;
     if (!this.foleyEnabled) this._stopFoley();
   }
 
@@ -119,7 +117,7 @@ export class SoundDirector {
     this._nodes();
     await this.context.resume();
     if (this.disposed || epoch !== this.epoch || !this.active || hidden()) return false;
-    if (this.context.state !== 'running') throw Error('声音被系统暂停，请轻触声音按钮重试');
+    if (this.context.state !== 'running') throw Error('声音被系统暂停，请轻触卷轴重试');
     this.unlocked = true;
     this.prepare().catch(() => {});
     if (this.foleyEnabled) await Promise.allSettled(Object.keys(FILES).filter(key => key !== 'music').map(key => this._buffer(key)));
@@ -218,7 +216,7 @@ export class SoundDirector {
   _stopFoley() {
     this.foleyTicket++;
     for (const voice of this.foleyVoices) this._stopVoice(voice, .025);
-    this.lastMotion = null; this.paperTravel = 0;
+    this.lastMotion = null; this.materialVoices.clear(); this.materialTargets={paper:0,leather:0};
   }
 
   _play(key, {gain = .3, group = key, cooldown = 180} = {}) {
@@ -232,7 +230,7 @@ export class SoundDirector {
       if (active.length >= 4) this._stopVoice(active[0], .025);
       const ctx = this.context, source = ctx.createBufferSource(), node = ctx.createGain();
       source.buffer = buffer; node.gain.value = 0;
-      node.gain.linearRampToValueAtTime(gain * (TRIM[key] || 1), ctx.currentTime + .008);
+      node.gain.linearRampToValueAtTime(gain, ctx.currentTime + .008);
       source.connect(node); node.connect(this.foleyBus);
       const voice = {source, gain: node, stopping: false}; this.foleyVoices.add(voice);
       source.onended = () => { source.disconnect(); node.disconnect(); this.foleyVoices.delete(voice); };
@@ -240,33 +238,40 @@ export class SoundDirector {
     }).catch(() => {});
   }
 
-  motion({progress = 0, velocity = 0, active = false, direction = 0} = {}) {
-    const p = clamp(Number(progress) || 0), now = clock(), previous = this.lastMotion;
-    this.lastMotion = {p, at: now};
-    if (!this._canPlay() || !this.foleyEnabled) return;
-    if (!previous || !active) { this.paperTravel = 0; return; }
-    const delta = p - previous.p; if (Math.abs(delta) < .00001) return;
-    if (Math.abs(delta) > .18 && now - previous.at < 120) { this.paperTravel = 0; return; }
-    const sign = Math.sign(delta) || Math.sign(direction);
-    const speed = Math.abs(Number(velocity)) || Math.abs(delta) / Math.max(.016, (now - previous.at) / 1000);
-    const crosses = point => sign > 0 ? previous.p < point && p >= point : previous.p > point && p <= point;
-    const contacts = sign > 0 ? [
-      [.025, 'leather1', 'unload', .35], [.075, 'pin', 'pin-contact', .27],
-      [.16, 'tail2', 'tail-slide', .38], [.32, 'cloth', 'keeper-clear', .27],
-      [.415, 'open', 'paper-start', .27], [.985, 'settle', 'paper-settle', .16]
-    ] : [
-      [.97, 'paper3', 'paper-start', .23], [.405, 'close', 'paper-settle', .27],
-      [.31, 'cloth', 'keeper-clear', .27], [.16, 'tail1', 'tail-slide', .38],
-      [.065, 'latch', 'pin-contact', .26], [.008, 'leather2', 'unload', .3]
-    ];
-    for (const [point, key, group, gain] of contacts) if (crosses(point)) this._play(key, {group, gain, cooldown: 650});
-    if (p > .45 && p < .96 && speed > .015) {
-      this.paperTravel += Math.abs(delta);
-      if (this.paperTravel > .115) {
-        this.paperTravel = 0;
-        this._play(`paper${1 + this.paperVariant++ % 3}`, {gain: clamp(.075 + speed * .16, .09, .24), group: 'paper-travel', cooldown: 280});
-      }
-    } else this.paperTravel = 0;
+  _friction(key,target,speed=0) {
+    const buffer=this.buffers.get(key),ctx=this.context;
+    this.materialTargets[key]=target;
+    if(!buffer||!ctx)return; // No late replay of a movement that already ended.
+    let voice=this.materialVoices.get(key);
+    if(!voice&&target>0){
+      const source=ctx.createBufferSource(),gain=ctx.createGain(),filter=ctx.createBiquadFilter();
+      source.buffer=buffer;source.loop=true;filter.type='lowpass';filter.frequency.value=key==='paper'?7200:4800;
+      gain.gain.value=0;source.connect(filter);filter.connect(gain);gain.connect(this.foleyBus);
+      voice={source,gain,filter,stopping:false};this.materialVoices.set(key,voice);this.foleyVoices.add(voice);
+      source.onended=()=>{source.disconnect();filter.disconnect();gain.disconnect();this.foleyVoices.delete(voice);if(this.materialVoices.get(key)===voice)this.materialVoices.delete(key);};
+      source.start();this.eventsPlayed++;
+    }
+    if(!voice||voice.stopping)return;
+    ramp(voice.gain.gain,target,.025,ctx);
+    // If a finger stops while still held down, no new pointermove arrives.
+    // Audio-clock expiry silences the texture without a JS polling timer.
+    voice.gain.gain.setValueAtTime(target,ctx.currentTime+.10);
+    voice.gain.gain.linearRampToValueAtTime(0,ctx.currentTime+.18);
+    voice.source.playbackRate.setTargetAtTime(.90+.16*clamp(speed/.6),ctx.currentTime,.06);
+  }
+
+  motion({progress=0,paperProgress=0,keeper=null,active=false}={}) {
+    const at=clock(),previous=this.lastMotion,current={progress:clamp(progress),paperProgress:clamp(paperProgress),keeper,active,at};
+    this.lastMotion=current;
+    if(!this._canPlay()||!this.foleyEnabled)return;
+    const response=materialMotion(current,previous,previous?(at-previous.at)/1000:0);
+    this.lastDriveAt=at;
+    this._friction('paper',response.paper,response.paperSpeed);this._friction('leather',response.leather,response.leatherSpeed);
+    if(response.contact){
+      this._play('metal',{group:response.contact,gain:.075,cooldown:180});
+      this.contacts.push({kind:response.contact,progress:current.progress,r:keeper.r,phase:keeper.phase,pin:keeper.pin});
+      if(this.contacts.length>12)this.contacts.shift();
+    }
   }
 
   pause() {
@@ -297,7 +302,10 @@ export class SoundDirector {
       completedPlays: this.completedPlays, musicVoices: this.musicVoices.size, foleyVoices: this.foleyVoices.size,
       downloaded: this.bytes.size, decoded: [...this.buffers.keys()], failures: Object.fromEntries(this.failures),
       eventsPlayed: this.eventsPlayed, lastEvent: this.lastEvent,
-      listeningReview: 'not-auditioned', seamlessLoop: false, issued: false
+      materialTargets:clock()-this.lastDriveAt>180?{paper:0,leather:0}:{...this.materialTargets},
+      materialLevels:Object.fromEntries([...this.materialVoices].map(([key,voice])=>[key,voice.gain.gain.value])),
+      motionModel:'actual keeper path coordinates and paper winding velocity',contacts:this.contacts.slice(),
+      listeningReview:'recorded material sources; human listening acceptance remains separate',seamlessLoop:false,issued:false
     };
   }
 
@@ -310,7 +318,7 @@ export class SoundDirector {
     if (this.context) {
       this.context.removeEventListener('statechange', this._statechange);
       for (const voice of [...this.musicVoices, ...this.foleyVoices]) {
-        try { voice.source.stop(); } catch {} voice.source.disconnect(); voice.gain.disconnect();
+        try { voice.source.stop(); } catch {} voice.source.disconnect(); voice.filter?.disconnect(); voice.gain.disconnect();
       }
       this.musicVoices.clear(); this.foleyVoices.clear();
       this.musicBus.disconnect(); this.foleyBus.disconnect(); this.master.disconnect(); this.limiter.disconnect();
