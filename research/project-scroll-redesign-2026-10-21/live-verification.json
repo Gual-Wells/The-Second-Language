@@ -1,0 +1,1274 @@
+{
+  "base": "https://the-second-language.pages.dev",
+  "checkedAt": "2026-10-21T14:44:15.171Z",
+  "profile": "beginning",
+  "catalogueWork": "project-beginning",
+  "record": {
+    "schema": "second-language.project-commemorative.v1",
+    "category": "project-commemorative",
+    "workId": "SL-PROJECT-BEGINNING-20261021",
+    "status": "commemorative",
+    "recipient": "Gual Wells",
+    "madeAt": "2026-10-21T12:10:23.227Z",
+    "publishedAt": null,
+    "projectFoundedAt": null,
+    "attestation": null,
+    "issued": false,
+    "source": {
+      "repository": "Gual-Wells/The-Second-Language",
+      "mainSHA": "620d4fb96bc1cd37ed74d6aca0a84ff71aa7f8ea",
+      "artDirection": "research/project-scroll-redesign-2026-10-21/design.md",
+      "artDirectionSHA256": "041c3b1fc8cce9b4e1a82988da68c231cc792fcf087c27525fc2ca218d5e7e33",
+      "artDirectionEncoding": "UTF-8 LF",
+      "userCommission": {
+        "basis": "User commissioned a project-specific commemorative scroll, rejected the prior work, and required a new work informed by the complete first-chapter manufacturing process.",
+        "recordedBy": "primary executing agent and scoped manufacturing implementation",
+        "reference": "Project-special-scroll commission and manufacturing restart, 2026-10-21"
+      }
+    },
+    "template": "project-commemorative-beginning-v1",
+    "sha256": "4a83d1952e133bcecd6c1aa2e14a788159b410e9a6ea2a7f5bcf42610943e37b",
+    "contentDigest": "4a83d1952e133bcecd6c1aa2e14a788159b410e9a6ea2a7f5bcf42610943e37b",
+    "artPlanDigest": "e2e11c35d07383023cf454646d8ea7434f1b16622f5deae15cc2acf390065e9b",
+    "canonicalization": "sorted-key UTF-8 JSON; publication time excluded",
+    "canonicalPayload": "{\"artPlan\":{\"category\":\"project-commemorative\",\"copy\":{\"artTitle\":\"A Day in Another Tongue\",\"colophon\":[\"For Gual Wells,\",\"to mark the beginning of The Second Language.\"],\"institution\":\"The Second Language\",\"labels\":{\"contentMark\":{\"en\":\"Content mark\",\"zh\":\"内容短记\"},\"contentSHA256\":{\"en\":\"Content SHA-256\",\"zh\":\"内容 SHA-256 摘要\"},\"made\":{\"en\":\"Made\",\"zh\":\"制作于\"},\"published\":{\"en\":\"Published\",\"zh\":\"发布于\"}},\"rubric\":\"A project remembrance\",\"sealLegends\":[\"The Second Language\",\"In remembrance\"],\"status\":\"Private commemorative work\",\"translation\":{\"artTitle\":\"另一种语言里的一日\",\"colophon\":[\"为 Gual Wells 而作，\",\"纪念《第二语言》的启程。\"],\"institution\":\"第二语言\",\"rubric\":\"项目特别留念\",\"sealLegends\":[\"第二语言\",\"留作纪念\"],\"status\":\"私人纪念作品\",\"verse\":[\"这项工作，始于第一个词：\",\"窗板边的雨，木案上的面包，\",\"敞开的门口，一声招呼有了回应。\",\"一页之后，还将有一页。\",\"另一种语言，走进这一日。\"]},\"verse\":[\"With a first word, the work begins:\",\"rain at the shutter, bread upon the board,\",\"a greeting answered at an open door.\",\"Page will follow page.\",\"Another tongue enters the day.\"]},\"id\":\"SL-PROJECT-BEGINNING-1\",\"intention\":\"A private remembrance of the project beginning: words enter ordinary life through context and response, then page follows page. This draft makes no claim about a founding date, the recipient's personal experience or an examination event.\",\"layout\":{\"blocks\":[{\"align\":\"center\",\"color\":\"#58372d\",\"fontSize\":52,\"id\":\"rubric\",\"lineHeight\":74,\"width\":1500,\"x\":1024,\"y\":285},{\"align\":\"center\",\"color\":\"#30251b\",\"fontSize\":124,\"id\":\"institution\",\"lineHeight\":160,\"minFontSize\":116,\"width\":1600,\"x\":1024,\"y\":475},{\"align\":\"center\",\"color\":\"#30251b\",\"fontSize\":82,\"id\":\"subtitle\",\"lineHeight\":108,\"width\":1560,\"x\":1024,\"y\":650},{\"align\":\"center\",\"color\":\"#30251b\",\"fontSize\":86,\"id\":\"verseBefore\",\"lineHeight\":140,\"width\":1560,\"x\":1024,\"y\":875},{\"align\":\"center\",\"color\":\"#30251b\",\"fontSize\":90,\"id\":\"verseAfter\",\"lineHeight\":140,\"width\":1500,\"x\":1024,\"y\":2040},{\"align\":\"center\",\"color\":\"#30251b\",\"fontSize\":56,\"id\":\"colophon\",\"lineHeight\":90,\"width\":1540,\"x\":1024,\"y\":2350},{\"align\":\"left\",\"color\":\"#30251b\",\"fontSize\":42,\"id\":\"identity\",\"lineHeight\":70,\"width\":1010,\"x\":750,\"y\":2545},{\"align\":\"center\",\"color\":\"#30251b\",\"fontSize\":40,\"id\":\"status\",\"lineHeight\":54,\"width\":1450,\"x\":1024,\"y\":2765}],\"height\":2868,\"inkWearVersion\":\"dry-quill-1\",\"microstructure\":{\"impressionScale\":0.0045,\"normalScale\":0.035,\"repeat\":[1.4,2.1]},\"nominalSizeMM\":[300,420],\"ornament\":{\"height\":650,\"opacity\":0.9,\"width\":1160,\"x\":444,\"y\":1260},\"paperFolds\":{\"diagonal\":{\"depth\":0.008,\"offset\":0.229,\"slope\":0.179,\"width\":0.009},\"lower\":{\"depth\":0.009,\"offset\":0.655,\"sine\":0.021,\"slope\":0.005,\"width\":0.01},\"provenance\":\"Trial approximation from the actual paper image; not precision measurement or artistic acceptance\"},\"seal\":{\"height\":138,\"width\":300,\"x\":310,\"y\":2525},\"textSafeRect\":{\"height\":2640,\"width\":1628,\"x\":210,\"y\":180},\"width\":2048},\"models\":{\"creativeDispatch\":{\"inheritedModel\":\"gpt-6.1-sol\",\"inheritedReasoningEffort\":\"xhigh\",\"note\":\"Continuing the explicitly configured creative agent; image model is separate and not exposed.\",\"task\":\"project_scroll_art_direction\",\"tool\":\"collaboration.followup_task\"},\"creativePolicy\":{\"model\":\"gpt-6.1-sol\",\"reasoningEffort\":\"xhigh\"},\"creativeSource\":\"research/project-scroll-redesign-2026-10-21/design.md\",\"executionEvidence\":\"Creative dispatch and actual image-generation evidence are retained by the primary executor; this field alone is not execution attestation.\",\"imageModel\":\"not exposed\",\"imageQuality\":\"not exposed\",\"imageTool\":\"built-in image_gen.imagegen\"},\"resources\":{\"environment\":{\"sha256\":\"e7cfda5f4e98e623db12b8bfd0184e048488e4855d9c83e2751fb44a32e80c45\",\"source\":\"Sergej Majboroda / Poly Haven Studio Small 09, CC0\",\"src\":\"../chapter-scroll-v3/assets/studio.hdr\"},\"font\":{\"family\":\"Aboensis\",\"sha256\":\"0ad00fb94899b3a8277680377eb7270c5fb3ee73dd9fefbd6fb31d9f94c4707b\",\"src\":\"../chapter-scroll/assets/Aboensis-Regular.otf\"},\"inkShoulder\":{\"material\":\"Retained independent surplus-ink density source used by the v12 oblong remembrance impression.\",\"sha256\":\"5dbfab038a6ba4a9cb7f047beed26c4c105fa1cab46143479fb3bbab4c66dd2c\",\"src\":\"../chapter-scroll-v10/assets/ink-shoulder.png\"},\"normal\":{\"material\":\"Unmodified OpenGL micro-normal scan, low-amplitude artistic skin approximation; not measured parchment.\",\"sha256\":\"d0057cdbee5be6223b35f0a463441404144fcdae699f69ff610eec4d86d48970\",\"source\":\"Rob Tuytel / Poly Haven Leather Red 02, CC0\",\"sourceURL\":\"https://polyhaven.com/a/leather_red_02\",\"src\":\"../chapter-scroll-v4/assets/skin-normal.jpg\"},\"ornament\":{\"material\":\"Independent transparent ink-and-wash miniature: blank open book, small bread heel, a little window shutter and sparse rain.\",\"sha256\":\"70c58500dfd07879eef40896bfe88d581ddaebf73ab63b73d5be6472aa93a09e\",\"sourceOriginal\":\"research/project-scroll-redesign-2026-10-21/source/daily-miniature.png\",\"src\":\"assets/daily-miniature.png\"},\"paper\":{\"material\":\"Author-designed aged warm parchment; albedo carries colour ageing, broad wear and fold shading. Trial, not an accepted material or measured height field.\",\"sha256\":\"10b3316df6408655a4c917e652ce739c446a00614fd475033bbe575c606df4b1\",\"sourceOriginal\":\"research/project-scroll-redesign-2026-10-21/source/parchment.png\",\"src\":\"assets/parchment.webp\",\"variant\":\"independently-authored-project-beginning-sheet-trial\"},\"roughness\":{\"material\":\"Unmodified scan channel, remapped by the retained paper shader to a matte .88-.98 range.\",\"sha256\":\"dd3b860a9510a44fd857c04e0c8cc63ea1f944c25abe9bdcbf844cc4a22c88d8\",\"source\":\"Rob Tuytel / Poly Haven Leather Red 02, CC0\",\"sourceURL\":\"https://polyhaven.com/a/leather_red_02\",\"src\":\"../chapter-scroll-v4/assets/skin-roughness.jpg\"}},\"schema\":\"second-language.project-art-plan.v1\",\"source\":{\"artDirection\":\"research/project-scroll-redesign-2026-10-21/design.md\",\"artDirectionSHA256\":\"041c3b1fc8cce9b4e1a82988da68c231cc792fcf087c27525fc2ca218d5e7e33\",\"mainSHA\":\"620d4fb96bc1cd37ed74d6aca0a84ff71aa7f8ea\"},\"workId\":\"SL-PROJECT-BEGINNING-20261021\"},\"attestation\":null,\"category\":\"project-commemorative\",\"edition\":\"SL-PROJECT-BEGINNING-1\",\"madeAt\":\"2026-10-21T12:10:23.227Z\",\"ownerId\":\"second-language-owner\",\"projectFoundedAt\":null,\"recipient\":\"Gual Wells\",\"schema\":\"second-language.project-content.v1\",\"sealVariant\":\"oblong\",\"source\":{\"artDirection\":\"research/project-scroll-redesign-2026-10-21/design.md\",\"artDirectionEncoding\":\"UTF-8 LF\",\"artDirectionSHA256\":\"041c3b1fc8cce9b4e1a82988da68c231cc792fcf087c27525fc2ca218d5e7e33\",\"mainSHA\":\"620d4fb96bc1cd37ed74d6aca0a84ff71aa7f8ea\",\"repository\":\"Gual-Wells/The-Second-Language\",\"userCommission\":{\"basis\":\"User commissioned a project-specific commemorative scroll, rejected the prior work, and required a new work informed by the complete first-chapter manufacturing process.\",\"recordedBy\":\"primary executing agent and scoped manufacturing implementation\",\"reference\":\"Project-special-scroll commission and manufacturing restart, 2026-10-21\"}},\"status\":\"commemorative\",\"template\":\"project-commemorative-beginning-v1\",\"workId\":\"SL-PROJECT-BEGINNING-20261021\"}",
+    "copy": {
+      "rubric": "A project remembrance",
+      "institution": "The Second Language",
+      "artTitle": "A Day in Another Tongue",
+      "verse": [
+        "With a first word, the work begins:",
+        "rain at the shutter, bread upon the board,",
+        "a greeting answered at an open door.",
+        "Page will follow page.",
+        "Another tongue enters the day."
+      ],
+      "colophon": [
+        "For Gual Wells,",
+        "to mark the beginning of The Second Language."
+      ],
+      "sealLegends": [
+        "The Second Language",
+        "In remembrance"
+      ],
+      "status": "Private commemorative work",
+      "translation": {
+        "rubric": "项目特别留念",
+        "institution": "第二语言",
+        "artTitle": "另一种语言里的一日",
+        "verse": [
+          "这项工作，始于第一个词：",
+          "窗板边的雨，木案上的面包，",
+          "敞开的门口，一声招呼有了回应。",
+          "一页之后，还将有一页。",
+          "另一种语言，走进这一日。"
+        ],
+        "colophon": [
+          "为 Gual Wells 而作，",
+          "纪念《第二语言》的启程。"
+        ],
+        "sealLegends": [
+          "第二语言",
+          "留作纪念"
+        ],
+        "status": "私人纪念作品"
+      },
+      "labels": {
+        "made": {
+          "en": "Made",
+          "zh": "制作于"
+        },
+        "contentMark": {
+          "en": "Content mark",
+          "zh": "内容短记"
+        },
+        "contentSHA256": {
+          "en": "Content SHA-256",
+          "zh": "内容 SHA-256 摘要"
+        },
+        "published": {
+          "en": "Published",
+          "zh": "发布于"
+        }
+      }
+    },
+    "resources": {
+      "paper": {
+        "src": "assets/parchment.webp",
+        "sha256": "10b3316df6408655a4c917e652ce739c446a00614fd475033bbe575c606df4b1",
+        "variant": "independently-authored-project-beginning-sheet-trial",
+        "sourceOriginal": "research/project-scroll-redesign-2026-10-21/source/parchment.png",
+        "material": "Author-designed aged warm parchment; albedo carries colour ageing, broad wear and fold shading. Trial, not an accepted material or measured height field."
+      },
+      "normal": {
+        "src": "../chapter-scroll-v4/assets/skin-normal.jpg",
+        "sha256": "d0057cdbee5be6223b35f0a463441404144fcdae699f69ff610eec4d86d48970",
+        "source": "Rob Tuytel / Poly Haven Leather Red 02, CC0",
+        "sourceURL": "https://polyhaven.com/a/leather_red_02",
+        "material": "Unmodified OpenGL micro-normal scan, low-amplitude artistic skin approximation; not measured parchment."
+      },
+      "roughness": {
+        "src": "../chapter-scroll-v4/assets/skin-roughness.jpg",
+        "sha256": "dd3b860a9510a44fd857c04e0c8cc63ea1f944c25abe9bdcbf844cc4a22c88d8",
+        "source": "Rob Tuytel / Poly Haven Leather Red 02, CC0",
+        "sourceURL": "https://polyhaven.com/a/leather_red_02",
+        "material": "Unmodified scan channel, remapped by the retained paper shader to a matte .88-.98 range."
+      },
+      "ornament": {
+        "src": "assets/daily-miniature.png",
+        "sha256": "70c58500dfd07879eef40896bfe88d581ddaebf73ab63b73d5be6472aa93a09e",
+        "sourceOriginal": "research/project-scroll-redesign-2026-10-21/source/daily-miniature.png",
+        "material": "Independent transparent ink-and-wash miniature: blank open book, small bread heel, a little window shutter and sparse rain."
+      },
+      "font": {
+        "src": "../chapter-scroll/assets/Aboensis-Regular.otf",
+        "sha256": "0ad00fb94899b3a8277680377eb7270c5fb3ee73dd9fefbd6fb31d9f94c4707b",
+        "family": "Aboensis"
+      },
+      "environment": {
+        "src": "../chapter-scroll-v3/assets/studio.hdr",
+        "sha256": "e7cfda5f4e98e623db12b8bfd0184e048488e4855d9c83e2751fb44a32e80c45",
+        "source": "Sergej Majboroda / Poly Haven Studio Small 09, CC0"
+      },
+      "inkShoulder": {
+        "src": "../chapter-scroll-v10/assets/ink-shoulder.png",
+        "sha256": "5dbfab038a6ba4a9cb7f047beed26c4c105fa1cab46143479fb3bbab4c66dd2c",
+        "material": "Retained independent surplus-ink density source used by the v12 oblong remembrance impression."
+      }
+    },
+    "sourceRecordUrl": "https://the-second-language.pages.dev/labs/project-beginning/record.json"
+  },
+  "checks": {
+    "minimalProjectEntry": true,
+    "rejectedWorkAbsent": true,
+    "noFakeChapterOrCertification": true,
+    "fixedMadeAtAndDynamicHash": true,
+    "frozenOriginals": true,
+    "noRuntimeTypesetting": true,
+    "decodedOriginalPixelsMatch": true,
+    "actualMaterialProfileRestored": true,
+    "realOpenAndClose": true,
+    "exitStopsSound": true,
+    "noAccountWrites": true
+  },
+  "errors": [],
+  "missing": [],
+  "writes": [],
+  "resources": [
+    "https://the-second-language.pages.dev/",
+    "https://the-second-language.pages.dev/styles.css?v=39",
+    "https://the-second-language.pages.dev/icon.svg?v=39",
+    "https://the-second-language.pages.dev/icon-192.png?v=39",
+    "https://the-second-language.pages.dev/app.js?v=39",
+    "https://the-second-language.pages.dev/chapter-quality.js?v=39",
+    "https://the-second-language.pages.dev/reader-jump.js?v=39",
+    "https://the-second-language.pages.dev/pure-reader.js?v=39",
+    "https://the-second-language.pages.dev/chapters.js?v=39",
+    "https://the-second-language.pages.dev/settings.js?v=39",
+    "https://the-second-language.pages.dev/audio-config.js?v=39",
+    "https://the-second-language.pages.dev/reader-speech.js?v=39",
+    "https://the-second-language.pages.dev/render.js?v=39",
+    "https://the-second-language.pages.dev/annotations.js?v=39",
+    "https://the-second-language.pages.dev/practice.js?v=39",
+    "https://the-second-language.pages.dev/balances.js?v=39",
+    "https://the-second-language.pages.dev/storage-usage.js?v=39",
+    "https://the-second-language.pages.dev/certification-reader.js?v=39",
+    "https://the-second-language.pages.dev/chapter-tests.js?v=39",
+    "https://the-second-language.pages.dev/questions.js?v=39",
+    "https://the-second-language.pages.dev/audio-library.js?v=39",
+    "https://the-second-language.pages.dev/labs/certification-reader/sound.js?v=39",
+    "https://the-second-language.pages.dev/text.js?v=39",
+    "https://the-second-language.pages.dev/reader-focus.js?v=39",
+    "https://the-second-language.pages.dev/question-pairs.js?v=39",
+    "https://the-second-language.pages.dev/chapter-test-recorder.js?v=39",
+    "https://the-second-language.pages.dev/audio-plan.js?v=39",
+    "https://the-second-language.pages.dev/practice-workspace.js?v=39",
+    "https://the-second-language.pages.dev/recorder.js?v=39",
+    "https://the-second-language.pages.dev/reading.js?v=39",
+    "https://the-second-language.pages.dev/listening.js?v=39",
+    "https://the-second-language.pages.dev/objective.js?v=39",
+    "https://the-second-language.pages.dev/exam-spec.js?v=39",
+    "https://the-second-language.pages.dev/api/session",
+    "https://the-second-language.pages.dev/icon-192.png?v=39",
+    "https://the-second-language.pages.dev/api/chapters",
+    "https://the-second-language.pages.dev/api/audio-config",
+    "https://the-second-language.pages.dev/labs/certification-reader/reader.bundle.js?v=39",
+    "https://the-second-language.pages.dev/labs/project-beginning/record.json",
+    "https://the-second-language.pages.dev/labs/project-beginning/art-plan.json",
+    "https://the-second-language.pages.dev/labs/chapter-scroll-v14/assets/unused-keeper.png",
+    "https://the-second-language.pages.dev/labs/project-beginning/assets/surfaces.json",
+    "https://the-second-language.pages.dev/labs/project-beginning/assets/final-front.png",
+    "https://the-second-language.pages.dev/labs/project-beginning/assets/final-back.png",
+    "https://the-second-language.pages.dev/labs/project-beginning/assets/final-ink.png",
+    "https://the-second-language.pages.dev/labs/project-beginning/assets/final-relief.png",
+    "https://the-second-language.pages.dev/labs/project-beginning/assets/final-seal-ink.png",
+    "https://the-second-language.pages.dev/labs/project-beginning/assets/final-seal-mask.png",
+    "https://the-second-language.pages.dev/labs/chapter-scroll-v3/assets/studio.hdr",
+    "https://the-second-language.pages.dev/labs/chapter-scroll-v17/keeper-path.json",
+    "https://the-second-language.pages.dev/labs/chapter-scroll-v4/assets/skin-normal.jpg",
+    "https://the-second-language.pages.dev/labs/chapter-scroll-v4/assets/skin-roughness.jpg",
+    "https://the-second-language.pages.dev/labs/certification-reader/assets/keeper-display.glb",
+    "https://the-second-language.pages.dev/labs/chapter-scroll-v19/assets/leather-color.webp",
+    "https://the-second-language.pages.dev/labs/chapter-scroll-v19/assets/leather-orm.webp",
+    "https://the-second-language.pages.dev/labs/chapter-scroll-v19/assets/leather-normal.webp",
+    "https://the-second-language.pages.dev/labs/chapter-scroll-v19/assets/bronze-color.webp",
+    "https://the-second-language.pages.dev/labs/chapter-scroll-v19/assets/bronze-orm.webp",
+    "https://the-second-language.pages.dev/labs/chapter-scroll-v19/assets/bronze-normal.webp",
+    "https://the-second-language.pages.dev/labs/chapter-scroll-v17/vendor/noise2D.glsl",
+    "https://the-second-language.pages.dev/labs/project-beginning/assets/final-front.png"
+  ],
+  "decodedOriginal": {
+    "equal": true,
+    "width": 2048,
+    "height": 2868
+  },
+  "opened": {
+    "open": true,
+    "ready": true,
+    "lost": false,
+    "chapter": null,
+    "category": "project-commemorative",
+    "issued": false,
+    "viewer": {
+      "progress": 1,
+      "paperProgress": 1,
+      "renderCount": 347,
+      "vertices": 14893,
+      "camera": [
+        0,
+        0,
+        12
+      ],
+      "keeperVisible": false,
+      "viewHeight": 11.088059701492536,
+      "drawBuffer": {
+        "width": 804,
+        "height": 1748
+      },
+      "deformation": "Continuous GPU winding and shared rest displacement",
+      "keeperMotion": "material-coordinate unfastening and rigid hinged prong",
+      "keeperSize": [
+        0.22978254735617945,
+        0.7659418245205982
+      ],
+      "specularIntensity": 0,
+      "toneMapping": "none; preserve source colors",
+      "restCurl": true,
+      "cameraType": "PerspectiveCamera",
+      "keeperPose": {
+        "r": 1,
+        "pin": -1.2,
+        "feed": 1,
+        "angle": 0.55,
+        "along": 10,
+        "sideMm": 0,
+        "circleCenter": [
+          3.646872468895074,
+          10.532281291615423
+        ],
+        "phase": "off",
+        "slide": 1,
+        "depart": 1,
+        "freeEndBehindFrame": true,
+        "expandedRadiusMm": 39.33302658638709,
+        "visible": false,
+        "opacity": 1,
+        "x": -3.4587197590548064,
+        "y": 3.103445130789676,
+        "z": 0.556465703397188,
+        "fitScale": 12.765697075343304,
+        "fitScaleVector": [
+          12.765697075343304,
+          12.765697075343304,
+          12.765697075343304
+        ],
+        "bandWidth": 0.22978254735617945,
+        "usesFade": false,
+        "usesStrapDeformation": true,
+        "deformation": "material-coordinate curve; dimensioned continuous cut mesh; native bevel residual",
+        "sourceBones": 76,
+        "restDeviationMm": {
+          "maximum": 5.542281843203895e-9,
+          "mean": 4.4898961188127906e-11
+        }
+      },
+      "sealRelief": true,
+      "runtime": {
+        "motionPrepared": true,
+        "preparationMs": 6233.300000011921,
+        "preparedPrograms": 11,
+        "programs": 11
+      },
+      "edition": "project beginning — manufacturing trial",
+      "paperMaterial": "chapter-one scan microstructure starting profile; independent new albedo; retained v6 matte response",
+      "aging": {
+        "version": "v19 native multi-pass finishing",
+        "leather": [
+          "scanned grain",
+          "hide variation",
+          "dark contact polish",
+          "grain-coat loss",
+          "opened flex creases",
+          "worn hand-incised borders",
+          "terminal lozenge"
+        ],
+        "metal": [
+          "scanned microstructure",
+          "planishing depressions",
+          "file dressing",
+          "paired incised grooves",
+          "brown stable oxide",
+          "subdued crevice patina",
+          "rubbed crowns"
+        ],
+        "sourceGeometry": "unchanged v17",
+        "offlineBaked": true,
+        "noMold": true
+      },
+      "paperFolds": {
+        "provenance": "Trial approximation from the actual paper image; not precision measurement or artistic acceptance",
+        "diagonal": {
+          "offset": 0.229,
+          "slope": 0.179,
+          "width": 0.009,
+          "depth": 0.008
+        },
+        "lower": {
+          "offset": 0.655,
+          "sine": 0.021,
+          "slope": 0.005,
+          "width": 0.01,
+          "depth": 0.009
+        }
+      },
+      "paperProfilePrepared": true,
+      "paperProfile": {
+        "normalScale": [
+          0.035,
+          0.035
+        ],
+        "bumpScale": 0.0045,
+        "normal": {
+          "repeat": [
+            1.4,
+            2.1
+          ],
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "colorSpace": "",
+          "source": "https://the-second-language.pages.dev/labs/chapter-scroll-v4/assets/skin-normal.jpg"
+        },
+        "roughness": {
+          "repeat": [
+            1.4,
+            2.1
+          ],
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "colorSpace": "",
+          "source": "https://the-second-language.pages.dev/labs/chapter-scroll-v4/assets/skin-roughness.jpg"
+        },
+        "sheen": 0,
+        "specularIntensity": 0,
+        "envMapIntensity": 0.07,
+        "actualGPUVerified": false,
+        "artisticApproval": false
+      },
+      "ready": true,
+      "disposed": false,
+      "paused": false,
+      "lost": false,
+      "environmentAvailable": true,
+      "contextReleased": false,
+      "animating": false,
+      "chapterId": null,
+      "category": "project-commemorative",
+      "workId": "SL-PROJECT-BEGINNING-20261021",
+      "issued": false,
+      "status": "ready",
+      "error": null,
+      "layout": {
+        "width": 2048,
+        "height": 2868,
+        "nominalSizeMM": [
+          300,
+          420
+        ],
+        "artPlanId": "SL-PROJECT-BEGINNING-1",
+        "artPlanDigest": "e2e11c35d07383023cf454646d8ea7434f1b16622f5deae15cc2acf390065e9b",
+        "composition": "project-title-and-subtitle; three-verse-lines; daily-miniature; two-verse-lines; private-colophon-and-record",
+        "stage": "frozen",
+        "artisticApproval": "agent-review-for-user-evaluation",
+        "paperVariant": "independently-authored-project-beginning-sheet-trial",
+        "sealVersion": "SL-KEEPSAKE-1",
+        "sealVariant": "oblong",
+        "sealBox": {
+          "x": 310,
+          "y": 2525,
+          "width": 300,
+          "height": 138
+        },
+        "ornamentBox": {
+          "x": 444,
+          "y": 1260,
+          "width": 1160,
+          "height": 650,
+          "opacity": 0.9
+        },
+        "ornamentPlacement": {
+          "x": 471.6351351351351,
+          "y": 1260,
+          "width": 1104.7297297297298,
+          "height": 650
+        },
+        "ornamentDigest": "70c58500dfd07879eef40896bfe88d581ddaebf73ab63b73d5be6472aa93a09e",
+        "printedFonts": [
+          "Aboensis"
+        ],
+        "textBounds": [
+          {
+            "block": "rubric",
+            "text": "A project remembrance",
+            "left": 775.0380706787109,
+            "right": 1274.2139434814453,
+            "top": 248,
+            "bottom": 314,
+            "fontSize": 52,
+            "baseline": 285,
+            "align": "center"
+          },
+          {
+            "block": "institution",
+            "text": "The Second Language",
+            "left": 415.21405029296875,
+            "right": 1635.3099975585938,
+            "top": 376,
+            "bottom": 540,
+            "fontSize": 124,
+            "baseline": 475,
+            "align": "center"
+          },
+          {
+            "block": "subtitle",
+            "text": "A Day in Another Tongue",
+            "left": 575.2230834960938,
+            "right": 1474.0589599609375,
+            "top": 582,
+            "bottom": 685,
+            "fontSize": 82,
+            "baseline": 650,
+            "align": "center"
+          },
+          {
+            "block": "verseBefore",
+            "text": "With a first word, the work begins:",
+            "left": 445.31707763671875,
+            "right": 1604.1109008789062,
+            "top": 808,
+            "bottom": 916,
+            "fontSize": 86,
+            "baseline": 875,
+            "align": "center"
+          },
+          {
+            "block": "verseBefore",
+            "text": "rain at the shutter, bread upon the board,",
+            "left": 309.48809814453125,
+            "right": 1729.3119506835938,
+            "top": 955,
+            "bottom": 1060,
+            "fontSize": 86,
+            "baseline": 1015,
+            "align": "center"
+          },
+          {
+            "block": "verseBefore",
+            "text": "a greeting answered at an open door.",
+            "left": 385.654052734375,
+            "right": 1660.241943359375,
+            "top": 1096,
+            "bottom": 1204,
+            "fontSize": 86,
+            "baseline": 1155,
+            "align": "center"
+          },
+          {
+            "block": "verseAfter",
+            "text": "Page will follow page.",
+            "left": 634.5350341796875,
+            "right": 1413.7049560546875,
+            "top": 1979,
+            "bottom": 2092,
+            "fontSize": 90,
+            "baseline": 2040,
+            "align": "center"
+          },
+          {
+            "block": "verseAfter",
+            "text": "Another tongue enters the day.",
+            "left": 482.00006103515625,
+            "right": 1563.2399291992188,
+            "top": 2117,
+            "bottom": 2219,
+            "fontSize": 90,
+            "baseline": 2180,
+            "align": "center"
+          },
+          {
+            "block": "colophon",
+            "text": "For Gual Wells,",
+            "left": 824.4720458984375,
+            "right": 1224.3279418945312,
+            "top": 2312,
+            "bottom": 2384,
+            "fontSize": 56,
+            "baseline": 2350,
+            "align": "center"
+          },
+          {
+            "block": "colophon",
+            "text": "to mark the beginning of The Second Language.",
+            "left": 454.3402099609375,
+            "right": 1586.475830078125,
+            "top": 2395,
+            "bottom": 2469,
+            "fontSize": 56,
+            "baseline": 2440,
+            "align": "center"
+          },
+          {
+            "block": "identity",
+            "text": "Made 21 October 2026",
+            "left": 737,
+            "right": 1146.535888671875,
+            "top": 2512,
+            "bottom": 2569,
+            "fontSize": 42,
+            "baseline": 2545,
+            "align": "left"
+          },
+          {
+            "block": "identity",
+            "text": "20:10:23.227 +08:00",
+            "left": 750,
+            "right": 1096.121826171875,
+            "top": 2589,
+            "bottom": 2635,
+            "fontSize": 42,
+            "baseline": 2615,
+            "align": "left"
+          },
+          {
+            "block": "identity",
+            "text": "Content mark 4A83 D195 2E13 3BCE",
+            "left": 751,
+            "right": 1420.4337158203125,
+            "top": 2650,
+            "bottom": 2707,
+            "fontSize": 42,
+            "baseline": 2685,
+            "align": "left"
+          },
+          {
+            "block": "status",
+            "text": "Private commemorative work",
+            "left": 793.2400817871094,
+            "right": 1263.5599060058594,
+            "top": 2734,
+            "bottom": 2788,
+            "fontSize": 40,
+            "baseline": 2765,
+            "align": "center"
+          }
+        ],
+        "blocks": [
+          {
+            "id": "rubric",
+            "x": 1024,
+            "y": 285,
+            "width": 1500,
+            "fontSize": 52,
+            "lineHeight": 74,
+            "align": "center",
+            "color": "#58372d",
+            "actualFontSize": 52
+          },
+          {
+            "id": "institution",
+            "x": 1024,
+            "y": 475,
+            "width": 1600,
+            "fontSize": 124,
+            "minFontSize": 116,
+            "lineHeight": 160,
+            "align": "center",
+            "color": "#30251b",
+            "actualFontSize": 124
+          },
+          {
+            "id": "subtitle",
+            "x": 1024,
+            "y": 650,
+            "width": 1560,
+            "fontSize": 82,
+            "lineHeight": 108,
+            "align": "center",
+            "color": "#30251b",
+            "actualFontSize": 82
+          },
+          {
+            "id": "verseBefore",
+            "x": 1024,
+            "y": 875,
+            "width": 1560,
+            "fontSize": 86,
+            "lineHeight": 140,
+            "align": "center",
+            "color": "#30251b",
+            "actualFontSize": 86
+          },
+          {
+            "id": "verseAfter",
+            "x": 1024,
+            "y": 2040,
+            "width": 1500,
+            "fontSize": 90,
+            "lineHeight": 140,
+            "align": "center",
+            "color": "#30251b",
+            "actualFontSize": 90
+          },
+          {
+            "id": "colophon",
+            "x": 1024,
+            "y": 2350,
+            "width": 1540,
+            "fontSize": 56,
+            "lineHeight": 90,
+            "align": "center",
+            "color": "#30251b",
+            "actualFontSize": 56
+          },
+          {
+            "id": "identity",
+            "x": 750,
+            "y": 2545,
+            "width": 1010,
+            "fontSize": 42,
+            "lineHeight": 70,
+            "align": "left",
+            "color": "#30251b",
+            "actualFontSize": 42
+          },
+          {
+            "id": "status",
+            "x": 1024,
+            "y": 2765,
+            "width": 1450,
+            "fontSize": 40,
+            "lineHeight": 54,
+            "align": "center",
+            "color": "#30251b",
+            "actualFontSize": 40
+          }
+        ],
+        "status": "commemorative",
+        "issued": false,
+        "recipient": "Gual Wells",
+        "identity": [
+          "Content mark 4A83 D195 2E13 3BCE",
+          "Made 21 October 2026",
+          "20:10:23.227 +08:00"
+        ],
+        "artifactDigest": "4a83d1952e133bcecd6c1aa2e14a788159b410e9a6ea2a7f5bcf42610943e37b",
+        "contentDigest": "4a83d1952e133bcecd6c1aa2e14a788159b410e9a6ea2a7f5bcf42610943e37b",
+        "artSeed": 1250152853,
+        "fixedSurfaces": true,
+        "frozen": true,
+        "frozenManifestURL": "https://the-second-language.pages.dev/labs/project-beginning/assets/surfaces.json"
+      },
+      "mist": {
+        "available": true,
+        "enabled": true,
+        "frames": 176,
+        "time": 7.8666666666666485,
+        "interactionEnergy": 0.5022989923136961,
+        "drive": [
+          0.00019391139834468708,
+          -0.00019391139834448346,
+          -1.318798166178276e-22,
+          -1.7173462654601187e-24
+        ],
+        "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+        "simulationHz": 30,
+        "fixedDirectionalInlet": false,
+        "regionalVelocities": [
+          -0.047078887192474654,
+          -0.023978270129220786,
+          -0.006440146062318783,
+          -0.00014198595703300492,
+          -0.005156985851020401,
+          0.009181505100160277,
+          0.012408049997215053,
+          0.003183465314964531
+        ],
+        "confinement": 0.38
+      },
+      "atmosphereWanted": true
+    },
+    "sound": {
+      "active": true,
+      "paused": false,
+      "disposed": false,
+      "unlocked": false,
+      "musicEnabled": false,
+      "foleyEnabled": false,
+      "musicVolume": 0.35,
+      "foleyVolume": 0.65,
+      "contextState": "not-created",
+      "musicTrack": null,
+      "musicPosition": 0,
+      "musicDuration": null,
+      "musicState": "paused",
+      "restRemainingMs": 0,
+      "completedPlays": 0,
+      "musicVoices": 0,
+      "foleyVoices": 0,
+      "downloaded": 0,
+      "decoded": [],
+      "failures": {},
+      "eventsPlayed": 0,
+      "lastEvent": null,
+      "listeningReview": "not-auditioned",
+      "seamlessLoop": false,
+      "issued": false
+    }
+  },
+  "closed": {
+    "open": true,
+    "ready": true,
+    "lost": false,
+    "chapter": null,
+    "category": "project-commemorative",
+    "issued": false,
+    "viewer": {
+      "progress": 0,
+      "paperProgress": 0,
+      "renderCount": 682,
+      "vertices": 14893,
+      "camera": [
+        0,
+        0,
+        12
+      ],
+      "keeperVisible": true,
+      "viewHeight": 11.088059701492536,
+      "drawBuffer": {
+        "width": 804,
+        "height": 1748
+      },
+      "deformation": "Continuous GPU winding and shared rest displacement",
+      "keeperMotion": "material-coordinate unfastening and rigid hinged prong",
+      "keeperSize": [
+        0.22978254735617945,
+        0.7659418245205982
+      ],
+      "specularIntensity": 0,
+      "toneMapping": "none; preserve source colors",
+      "restCurl": true,
+      "cameraType": "PerspectiveCamera",
+      "keeperPose": {
+        "r": 0,
+        "pin": 0,
+        "feed": 0,
+        "angle": 0,
+        "along": 0,
+        "sideMm": 0,
+        "circleCenter": [
+          0,
+          0
+        ],
+        "phase": "fastened",
+        "slide": 0,
+        "depart": 0,
+        "freeEndBehindFrame": false,
+        "expandedRadiusMm": 30.00000857204946,
+        "visible": true,
+        "opacity": 1,
+        "x": 0,
+        "y": 0.008683982907575327,
+        "z": 0.30201379091612,
+        "fitScale": 12.765697075343304,
+        "fitScaleVector": [
+          12.765697075343304,
+          12.765697075343304,
+          12.765697075343304
+        ],
+        "bandWidth": 0.22978254735617945,
+        "usesFade": false,
+        "usesStrapDeformation": true,
+        "deformation": "material-coordinate curve; dimensioned continuous cut mesh; native bevel residual",
+        "sourceBones": 76,
+        "restDeviationMm": {
+          "maximum": 5.542281843203895e-9,
+          "mean": 4.4898961188127906e-11
+        }
+      },
+      "sealRelief": true,
+      "runtime": {
+        "motionPrepared": true,
+        "preparationMs": 6233.300000011921,
+        "preparedPrograms": 11,
+        "programs": 11
+      },
+      "edition": "project beginning — manufacturing trial",
+      "paperMaterial": "chapter-one scan microstructure starting profile; independent new albedo; retained v6 matte response",
+      "aging": {
+        "version": "v19 native multi-pass finishing",
+        "leather": [
+          "scanned grain",
+          "hide variation",
+          "dark contact polish",
+          "grain-coat loss",
+          "opened flex creases",
+          "worn hand-incised borders",
+          "terminal lozenge"
+        ],
+        "metal": [
+          "scanned microstructure",
+          "planishing depressions",
+          "file dressing",
+          "paired incised grooves",
+          "brown stable oxide",
+          "subdued crevice patina",
+          "rubbed crowns"
+        ],
+        "sourceGeometry": "unchanged v17",
+        "offlineBaked": true,
+        "noMold": true
+      },
+      "paperFolds": {
+        "provenance": "Trial approximation from the actual paper image; not precision measurement or artistic acceptance",
+        "diagonal": {
+          "offset": 0.229,
+          "slope": 0.179,
+          "width": 0.009,
+          "depth": 0.008
+        },
+        "lower": {
+          "offset": 0.655,
+          "sine": 0.021,
+          "slope": 0.005,
+          "width": 0.01,
+          "depth": 0.009
+        }
+      },
+      "paperProfilePrepared": true,
+      "paperProfile": {
+        "normalScale": [
+          0.035,
+          0.035
+        ],
+        "bumpScale": 0.0045,
+        "normal": {
+          "repeat": [
+            1.4,
+            2.1
+          ],
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "colorSpace": "",
+          "source": "https://the-second-language.pages.dev/labs/chapter-scroll-v4/assets/skin-normal.jpg"
+        },
+        "roughness": {
+          "repeat": [
+            1.4,
+            2.1
+          ],
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "colorSpace": "",
+          "source": "https://the-second-language.pages.dev/labs/chapter-scroll-v4/assets/skin-roughness.jpg"
+        },
+        "sheen": 0,
+        "specularIntensity": 0,
+        "envMapIntensity": 0.07,
+        "actualGPUVerified": false,
+        "artisticApproval": false
+      },
+      "ready": true,
+      "disposed": false,
+      "paused": false,
+      "lost": false,
+      "environmentAvailable": true,
+      "contextReleased": false,
+      "animating": false,
+      "chapterId": null,
+      "category": "project-commemorative",
+      "workId": "SL-PROJECT-BEGINNING-20261021",
+      "issued": false,
+      "status": "ready",
+      "error": null,
+      "layout": {
+        "width": 2048,
+        "height": 2868,
+        "nominalSizeMM": [
+          300,
+          420
+        ],
+        "artPlanId": "SL-PROJECT-BEGINNING-1",
+        "artPlanDigest": "e2e11c35d07383023cf454646d8ea7434f1b16622f5deae15cc2acf390065e9b",
+        "composition": "project-title-and-subtitle; three-verse-lines; daily-miniature; two-verse-lines; private-colophon-and-record",
+        "stage": "frozen",
+        "artisticApproval": "agent-review-for-user-evaluation",
+        "paperVariant": "independently-authored-project-beginning-sheet-trial",
+        "sealVersion": "SL-KEEPSAKE-1",
+        "sealVariant": "oblong",
+        "sealBox": {
+          "x": 310,
+          "y": 2525,
+          "width": 300,
+          "height": 138
+        },
+        "ornamentBox": {
+          "x": 444,
+          "y": 1260,
+          "width": 1160,
+          "height": 650,
+          "opacity": 0.9
+        },
+        "ornamentPlacement": {
+          "x": 471.6351351351351,
+          "y": 1260,
+          "width": 1104.7297297297298,
+          "height": 650
+        },
+        "ornamentDigest": "70c58500dfd07879eef40896bfe88d581ddaebf73ab63b73d5be6472aa93a09e",
+        "printedFonts": [
+          "Aboensis"
+        ],
+        "textBounds": [
+          {
+            "block": "rubric",
+            "text": "A project remembrance",
+            "left": 775.0380706787109,
+            "right": 1274.2139434814453,
+            "top": 248,
+            "bottom": 314,
+            "fontSize": 52,
+            "baseline": 285,
+            "align": "center"
+          },
+          {
+            "block": "institution",
+            "text": "The Second Language",
+            "left": 415.21405029296875,
+            "right": 1635.3099975585938,
+            "top": 376,
+            "bottom": 540,
+            "fontSize": 124,
+            "baseline": 475,
+            "align": "center"
+          },
+          {
+            "block": "subtitle",
+            "text": "A Day in Another Tongue",
+            "left": 575.2230834960938,
+            "right": 1474.0589599609375,
+            "top": 582,
+            "bottom": 685,
+            "fontSize": 82,
+            "baseline": 650,
+            "align": "center"
+          },
+          {
+            "block": "verseBefore",
+            "text": "With a first word, the work begins:",
+            "left": 445.31707763671875,
+            "right": 1604.1109008789062,
+            "top": 808,
+            "bottom": 916,
+            "fontSize": 86,
+            "baseline": 875,
+            "align": "center"
+          },
+          {
+            "block": "verseBefore",
+            "text": "rain at the shutter, bread upon the board,",
+            "left": 309.48809814453125,
+            "right": 1729.3119506835938,
+            "top": 955,
+            "bottom": 1060,
+            "fontSize": 86,
+            "baseline": 1015,
+            "align": "center"
+          },
+          {
+            "block": "verseBefore",
+            "text": "a greeting answered at an open door.",
+            "left": 385.654052734375,
+            "right": 1660.241943359375,
+            "top": 1096,
+            "bottom": 1204,
+            "fontSize": 86,
+            "baseline": 1155,
+            "align": "center"
+          },
+          {
+            "block": "verseAfter",
+            "text": "Page will follow page.",
+            "left": 634.5350341796875,
+            "right": 1413.7049560546875,
+            "top": 1979,
+            "bottom": 2092,
+            "fontSize": 90,
+            "baseline": 2040,
+            "align": "center"
+          },
+          {
+            "block": "verseAfter",
+            "text": "Another tongue enters the day.",
+            "left": 482.00006103515625,
+            "right": 1563.2399291992188,
+            "top": 2117,
+            "bottom": 2219,
+            "fontSize": 90,
+            "baseline": 2180,
+            "align": "center"
+          },
+          {
+            "block": "colophon",
+            "text": "For Gual Wells,",
+            "left": 824.4720458984375,
+            "right": 1224.3279418945312,
+            "top": 2312,
+            "bottom": 2384,
+            "fontSize": 56,
+            "baseline": 2350,
+            "align": "center"
+          },
+          {
+            "block": "colophon",
+            "text": "to mark the beginning of The Second Language.",
+            "left": 454.3402099609375,
+            "right": 1586.475830078125,
+            "top": 2395,
+            "bottom": 2469,
+            "fontSize": 56,
+            "baseline": 2440,
+            "align": "center"
+          },
+          {
+            "block": "identity",
+            "text": "Made 21 October 2026",
+            "left": 737,
+            "right": 1146.535888671875,
+            "top": 2512,
+            "bottom": 2569,
+            "fontSize": 42,
+            "baseline": 2545,
+            "align": "left"
+          },
+          {
+            "block": "identity",
+            "text": "20:10:23.227 +08:00",
+            "left": 750,
+            "right": 1096.121826171875,
+            "top": 2589,
+            "bottom": 2635,
+            "fontSize": 42,
+            "baseline": 2615,
+            "align": "left"
+          },
+          {
+            "block": "identity",
+            "text": "Content mark 4A83 D195 2E13 3BCE",
+            "left": 751,
+            "right": 1420.4337158203125,
+            "top": 2650,
+            "bottom": 2707,
+            "fontSize": 42,
+            "baseline": 2685,
+            "align": "left"
+          },
+          {
+            "block": "status",
+            "text": "Private commemorative work",
+            "left": 793.2400817871094,
+            "right": 1263.5599060058594,
+            "top": 2734,
+            "bottom": 2788,
+            "fontSize": 40,
+            "baseline": 2765,
+            "align": "center"
+          }
+        ],
+        "blocks": [
+          {
+            "id": "rubric",
+            "x": 1024,
+            "y": 285,
+            "width": 1500,
+            "fontSize": 52,
+            "lineHeight": 74,
+            "align": "center",
+            "color": "#58372d",
+            "actualFontSize": 52
+          },
+          {
+            "id": "institution",
+            "x": 1024,
+            "y": 475,
+            "width": 1600,
+            "fontSize": 124,
+            "minFontSize": 116,
+            "lineHeight": 160,
+            "align": "center",
+            "color": "#30251b",
+            "actualFontSize": 124
+          },
+          {
+            "id": "subtitle",
+            "x": 1024,
+            "y": 650,
+            "width": 1560,
+            "fontSize": 82,
+            "lineHeight": 108,
+            "align": "center",
+            "color": "#30251b",
+            "actualFontSize": 82
+          },
+          {
+            "id": "verseBefore",
+            "x": 1024,
+            "y": 875,
+            "width": 1560,
+            "fontSize": 86,
+            "lineHeight": 140,
+            "align": "center",
+            "color": "#30251b",
+            "actualFontSize": 86
+          },
+          {
+            "id": "verseAfter",
+            "x": 1024,
+            "y": 2040,
+            "width": 1500,
+            "fontSize": 90,
+            "lineHeight": 140,
+            "align": "center",
+            "color": "#30251b",
+            "actualFontSize": 90
+          },
+          {
+            "id": "colophon",
+            "x": 1024,
+            "y": 2350,
+            "width": 1540,
+            "fontSize": 56,
+            "lineHeight": 90,
+            "align": "center",
+            "color": "#30251b",
+            "actualFontSize": 56
+          },
+          {
+            "id": "identity",
+            "x": 750,
+            "y": 2545,
+            "width": 1010,
+            "fontSize": 42,
+            "lineHeight": 70,
+            "align": "left",
+            "color": "#30251b",
+            "actualFontSize": 42
+          },
+          {
+            "id": "status",
+            "x": 1024,
+            "y": 2765,
+            "width": 1450,
+            "fontSize": 40,
+            "lineHeight": 54,
+            "align": "center",
+            "color": "#30251b",
+            "actualFontSize": 40
+          }
+        ],
+        "status": "commemorative",
+        "issued": false,
+        "recipient": "Gual Wells",
+        "identity": [
+          "Content mark 4A83 D195 2E13 3BCE",
+          "Made 21 October 2026",
+          "20:10:23.227 +08:00"
+        ],
+        "artifactDigest": "4a83d1952e133bcecd6c1aa2e14a788159b410e9a6ea2a7f5bcf42610943e37b",
+        "contentDigest": "4a83d1952e133bcecd6c1aa2e14a788159b410e9a6ea2a7f5bcf42610943e37b",
+        "artSeed": 1250152853,
+        "fixedSurfaces": true,
+        "frozen": true,
+        "frozenManifestURL": "https://the-second-language.pages.dev/labs/project-beginning/assets/surfaces.json"
+      },
+      "mist": {
+        "available": true,
+        "enabled": true,
+        "frames": 529,
+        "time": 19.633333333333468,
+        "interactionEnergy": 1.011521199302219,
+        "drive": [
+          -1.0536043471625892e-18,
+          1.0536043471625944e-18,
+          2.5573921069087988e-15,
+          -8.209988790330408e-7
+        ],
+        "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+        "simulationHz": 30,
+        "fixedDirectionalInlet": false,
+        "regionalVelocities": [
+          0.007274988436580303,
+          -0.0022787630916730277,
+          -0.028480734355465942,
+          -0.01767487734482517,
+          0.0016239980337398648,
+          -0.002219015083339166,
+          0.009858909456939685,
+          -0.003119336984081239
+        ],
+        "confinement": 0.38
+      },
+      "atmosphereWanted": true
+    },
+    "sound": {
+      "active": true,
+      "paused": false,
+      "disposed": false,
+      "unlocked": false,
+      "musicEnabled": false,
+      "foleyEnabled": false,
+      "musicVolume": 0.35,
+      "foleyVolume": 0.65,
+      "contextState": "not-created",
+      "musicTrack": null,
+      "musicPosition": 0,
+      "musicDuration": null,
+      "musicState": "paused",
+      "restRemainingMs": 0,
+      "completedPlays": 0,
+      "musicVoices": 0,
+      "foleyVoices": 0,
+      "downloaded": 0,
+      "decoded": [],
+      "failures": {},
+      "eventsPlayed": 0,
+      "lastEvent": null,
+      "listeningReview": "not-auditioned",
+      "seamlessLoop": false,
+      "issued": false
+    }
+  },
+  "evidenceLimits": {
+    "decodedOriginalPixelsMatch": "Canvas2D decoded front export equals the frozen PNG; this is original delivery, not post-lighting or GPU fidelity.",
+    "artisticApproval": "Not asserted by this interaction test."
+  },
+  "environment": "Chrome mobile simulation 402x874/DPR2; no physical iPhone or Safari claim. Browser-only empty demo API; real published display resources."
+}

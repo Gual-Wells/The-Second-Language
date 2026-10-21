@@ -1,0 +1,68 @@
+{
+  "checkedAt": "2026-10-21T14:43:53.112Z",
+  "base": "https://the-second-language.pages.dev",
+  "observations": [
+    {
+      "url": "/sw.js",
+      "status": 200,
+      "sha256": "d5755360f3f8db7d46edf04ce5dbfceefe13e8a5488776bd43324bc17aac4cb0",
+      "bytes": 3811,
+      "exactPinnedBytes": true
+    },
+    {
+      "url": "/certification-reader.js",
+      "status": 200,
+      "sha256": "184cdcc229caa21f080ded4b2666f91b9f11582789dec13d161e758f291fd75f",
+      "bytes": 8414,
+      "exactPinnedBytes": true
+    },
+    {
+      "url": "/labs/certification-reader/reader.bundle.js",
+      "status": 200,
+      "sha256": "eae5a83e74b0d8678da3f5ba1741f0df29aebde1f3fb7c9ccd0a2e8045d7c503",
+      "bytes": 752953,
+      "exactPinnedBytes": true
+    },
+    {
+      "url": "/labs/certification-reader/display-manifest.json",
+      "status": 200,
+      "sha256": "17e36150677717949a16f8f0fce839093eec5dce4fa1d6de9d73427bbb7463bf",
+      "bytes": 16606,
+      "exactPinnedBytes": true
+    },
+    {
+      "url": "/labs/project-beginning/record.json",
+      "status": 200,
+      "sha256": "f2466f4ea3f57d5cbf4e42b8b0cdc08ac810498602ff3ab9d7c85d43179616e5",
+      "bytes": 1171,
+      "exactPinnedBytes": true
+    },
+    {
+      "url": "/labs/project-beginning/art-plan.json",
+      "status": 200,
+      "sha256": "10fbd67f29b0464c632342a213fd4697bbf92af4a2086c5d7963fdea93ce20db",
+      "bytes": 8275,
+      "exactPinnedBytes": true
+    },
+    {
+      "url": "/labs/project-beginning/assets/surfaces.json",
+      "status": 200,
+      "sha256": "e3405c93225ee394d75498190f998c41171f2b90cd21eb5b04a9d775c89d9921",
+      "bytes": 10674,
+      "exactPinnedBytes": true
+    },
+    {
+      "url": "/api/session",
+      "status": 200,
+      "unauthenticatedBoundary": true
+    },
+    {
+      "url": "/api/practice",
+      "status": 401,
+      "unauthenticatedBoundary": true
+    }
+  ],
+  "staticBytesMatch": true,
+  "realAccountWrites": false,
+  "scope": "Actual unauthenticated gateway responses and selected pinned static bytes. Browser interaction is a separate test with browser-only demo API interception."
+}
