@@ -14,7 +14,7 @@ try{
  await page.route('**/api/**',route=>{const path=new URL(route.request().url()).pathname;return route.fulfill({json:path==='/api/session'?{authenticated:true,demo:true}:path==='/api/chapters'?{chapters:[]}:{}});});
  await page.goto(base+'/');await page.locator('#certificationReaderButton').waitFor({state:'attached'});
  await page.locator('#settingsButton').tap();await page.locator('#certificationReaderButton').tap();
- const chapterLabels=await page.locator('#certificationChapters button').allTextContents();assert.deepEqual(chapterLabels,['项目纪念','第一章','第五章']);
+ const chapterLabels=await page.locator('#certificationChapters button').allTextContents();assert.deepEqual(chapterLabels,['第一章','第五章']);
  assert.equal(await page.locator('dialog[open]').count(),1);assert.ok(!resources.some(p=>/reader\.bundle|\.glb|\.mp3|\.wav|\.hdr/.test(p)),'List must not prepare heavy display resources');
  await page.screenshot({path:out+'/chapter-list.png',scale:'css'});
  async function waitReady(){await page.waitForFunction(()=>certificationReader.snapshot().ready||!document.getElementById('certificationRetry').hidden,null,{timeout:120000});assert.equal((await page.evaluate(()=>certificationReader.snapshot())).ready,true,await page.locator('#certificationStatus').textContent());}

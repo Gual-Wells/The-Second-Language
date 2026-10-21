@@ -1,8 +1,8 @@
 # Certification reading
 
-The main settings entry displays an original commissioned project keepsake and
-actual first- and fifth-chapter unissued art specimens. The keepsake is separate
-from assessments: [The Returning Thread](../project-commemorative/CREDITS.md).
+The main settings entry displays actual first- and fifth-chapter unissued art
+specimens. The first project keepsake was rejected by the user and withdrawn;
+its source remains a failure archive, not an adopted display work.
 This reader does not issue an assessment award or create a score. The rejected museum,
 furniture, room textures, carrying animation and room score are not included.
 

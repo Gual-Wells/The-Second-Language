@@ -118,7 +118,7 @@ Third-party packages, model/provider outputs, voices, APIs, dictionary or textbo
 
 设置 → 认证阅览：只列章号，选章进入纯享卷轴，支持真实解扣开合与交互雾染；声音中分别调整音乐、拟音及音量。当前第一／第五章为保留原身份的未颁发制作样品，尚不授予正式认证。藏馆方案已取消，不再经过取藏转场。见[现行规范](protocol/CERTIFICATION_READER.md)与[工程记录](research/certification-reader-2026-10-21/README.md)。
 
-另设“项目纪念”入口，展示为 Gual Wells 制作的特殊纪念卷轴 **The Returning Thread（回返的线）**。独立纸胚、缝线小画与五行题辞，固定制作时刻及内容摘要；读取已冻结纸面，不在开卷时调用生成模型。它是私人项目纪念作品，不属于章节成绩或认证奖励。见[制作与原件记录](research/project-commemorative-2026-10-21/README.md)与[统一工艺](protocol/CHARTER.md)。
+项目特殊纪念卷轴正在重做；首版 **The Returning Thread（回返的线）** 被用户否决，已撤下目录，不再作为采用作品。其[制作记录](research/project-commemorative-2026-10-21/README.md)保留作失败复盘，不能当成合格模板。见[统一工艺](protocol/CHARTER.md)。
 
 ### 单枚精品纪念币制作（历史探索）
 

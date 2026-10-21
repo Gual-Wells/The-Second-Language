@@ -1,9 +1,8 @@
-import {SoundDirector} from './labs/certification-reader/sound.js?v=37';
+import {SoundDirector} from './labs/certification-reader/sound.js?v=38';
 
 // Only finished, actual artifacts belong here. No row is synthesized from a
 // chapter index or a score, and the specimen's original status stays unchanged.
 export const READING_WORKS=Object.freeze([
- Object.freeze({id:'project-returning-thread',category:'project-commemorative',label:'项目纪念',chapter:'project',issued:false}),
  Object.freeze({number:1,chapter:'one',chapterId:'2026-10-02',issued:false}),
  Object.freeze({number:5,chapter:'five',chapterId:'2026-10-12',issued:false})
 ]);
@@ -41,7 +40,7 @@ export function createCertificationReader({showDialog,stopLearningAudio=()=>{}})
   // Resume within the actual chapter tap. Loading never waits for audio.
   sound.unlock().catch(()=>{});resize();
   try{
-   const {ScrollViewer}=await import('./labs/certification-reader/reader.bundle.js?v=37');
+   const {ScrollViewer}=await import('./labs/certification-reader/reader.bundle.js?v=38');
    if(ticket!==request||!reader.open)return;
    viewer=new ScrollViewer($('certificationCanvas'),$('certificationMist'),{
     onProgress:state=>sound.motion(state),

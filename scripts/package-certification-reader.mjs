@@ -2,6 +2,17 @@ import assert from 'node:assert/strict';
 import {readFile,writeFile} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {execFileSync,spawnSync} from 'node:child_process';
+if(process.argv.includes('--chapter-specimens-only')){
+ const report=JSON.parse(await readFile('research/certification-reader-2026-10-21/verification.json','utf8'));
+ assert.deepEqual(report.chapterLabels,['第一章','第五章']);
+ assert.ok(Object.keys(report.checks).length&&Object.values(report.checks).every(v=>v===true));
+ for(const key of ['errors','missing','writes'])assert.deepEqual(report[key],[]);
+ const urls=new Set(report.resources.map(r=>new URL(r).pathname).filter(p=>!p.startsWith('/api/')&&!p.startsWith('/auth/')).map(p=>p==='/'?'/index.html':p));
+ for(const p of ['/labs/certification-reader/CREDITS.md','/labs/certification-reader/AUDIO_CREDITS.md'])urls.add(p);
+ const files=[...urls].sort().map(url=>{assert.ok(url.startsWith('/')&&!url.includes('..'));const bytes=execFileSync('git',['show',':web'+url],{windowsHide:true,maxBuffer:32*1024*1024});return{url,bytes:bytes.length,sha256:createHash('sha256').update(bytes).digest('hex')};});
+ const manifest={schema:'second-language.certification-reader-display.v1',issued:false,works:[{chapter:1,sha256:report.first.sha256},{chapter:5,sha256:report.fifth.sha256}],scope:'Existing unissued chapter specimens only; rejected project keepsake withdrawn from the catalogue.',files,bytes:files.reduce((n,f)=>n+f.bytes,0)};
+ await writeFile('web/labs/certification-reader/display-manifest.json',JSON.stringify(manifest,null,2)+'\n');console.log(JSON.stringify({files:files.length,bytes:manifest.bytes,projectWithdrawn:true}));process.exit(0);
+}
 const reportPath='research/certification-reader-2026-10-21/verification.json',projectPath='research/project-commemorative-2026-10-21/verification.json';
 const [report,project]=await Promise.all([reportPath,projectPath].map(async file=>JSON.parse(await readFile(file,'utf8'))));
 for(const [name,result]of [['reader',report],['project commemorative',project]]){
