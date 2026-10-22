@@ -1,0 +1,154 @@
+{
+  "sha": "f8c4a46e8ea999cfa354f794d8334d0225468d46",
+  "branch": "certification-reader",
+  "immutable": "https://4a2e10ab.the-second-language.pages.dev",
+  "productionMainUpdated": false,
+  "independentAPIWorkerUpdated": false,
+  "displayFiles": 85,
+  "displayBytes": 53558687,
+  "run": "D:\\CodexStorage\\workspaces\\second-language-certification-reader\\.cache\\certification-release\\f8c4a46e-WV530i",
+  "verified": true,
+  "checkedAt": "2026-10-22T11:17:56.944Z",
+  "studioFiles": [
+    {
+      "file": "labs/scroll-foley-study/app.js",
+      "bytes": 8293,
+      "sha256": "e9e63ca1f2b99ee1a5aeffda8f439ad1f944ea5f3edc67e26085f8bad5222cdb"
+    },
+    {
+      "file": "labs/scroll-foley-study/audio/bendClose.wav",
+      "bytes": 86444,
+      "sha256": "c22792a8c149b4cafe9a25d51a2b7979a813b7ea864f17b00a44512115be3736"
+    },
+    {
+      "file": "labs/scroll-foley-study/audio/bendOpen.wav",
+      "bytes": 86444,
+      "sha256": "650893bdcd634a0cb36382ed53b79d776f147ce38bb3ee4b95930214d0c1c0fc"
+    },
+    {
+      "file": "labs/scroll-foley-study/audio/holeClose.wav",
+      "bytes": 40364,
+      "sha256": "97874a858f0081efcb2737526331a3eca8249e1ea2ccd251be8a988b85e10be6"
+    },
+    {
+      "file": "labs/scroll-foley-study/audio/holeOpen.wav",
+      "bytes": 40364,
+      "sha256": "46a43b9b719f4afcbfcca0b5ead042ce0abead83d550c088292689631cf1a88c"
+    },
+    {
+      "file": "labs/scroll-foley-study/audio/paperCloseA.wav",
+      "bytes": 304364,
+      "sha256": "e4aff7e0b9a465a2ecac42963af799c6b64d8616b562199572ef417df2601416"
+    },
+    {
+      "file": "labs/scroll-foley-study/audio/paperCloseB.wav",
+      "bytes": 304364,
+      "sha256": "be12a90926af361a1bf9cf80f823366da7eac66ccf75189dc77aee05a0d87221"
+    },
+    {
+      "file": "labs/scroll-foley-study/audio/paperOpenA.wav",
+      "bytes": 304364,
+      "sha256": "5056b42e552b845e786a60ce23d7f585a6ee11dbbe827f2707a6aa1ba9b4efe1"
+    },
+    {
+      "file": "labs/scroll-foley-study/audio/paperOpenB.wav",
+      "bytes": 304364,
+      "sha256": "743cac5f47549b2e019f0645a31417bb0af245bfbb8e611b3dff3bd8bdd29b54"
+    },
+    {
+      "file": "labs/scroll-foley-study/audio/park.wav",
+      "bytes": 17088,
+      "sha256": "d95364858538b9f038f1354d930fe3e696a0e64672e5225477a6fd16adb5090d"
+    },
+    {
+      "file": "labs/scroll-foley-study/audio/seat.wav",
+      "bytes": 21392,
+      "sha256": "3c3aa2b7d0222fdb96e1978376a6c3b3b499867464365ee7daaee7d25a5cc953"
+    },
+    {
+      "file": "labs/scroll-foley-study/audio/slideClose.wav",
+      "bytes": 23084,
+      "sha256": "f60f03943a3fc9ee2482a7d9a9e716765cbeaaa9537c68841bf39a9b6284a77c"
+    },
+    {
+      "file": "labs/scroll-foley-study/audio/slideOpen.wav",
+      "bytes": 23084,
+      "sha256": "c47e77a5ba19e2689e48c14b5a9f2731f6d7db519c7422c07e908dd46bf5131e"
+    },
+    {
+      "file": "labs/scroll-foley-study/audio/soft-roll-v2.wav",
+      "bytes": 199376,
+      "sha256": "438f7e83d5caa22747275a9079f95afd4ea4971a7c14069f5934549803c9e28c"
+    },
+    {
+      "file": "labs/scroll-foley-study/audio/tailClose.wav",
+      "bytes": 62444,
+      "sha256": "32c339c42d951178c4973e80050207d8bc3a7e6ef34856aa10ec7bc41d3afeff"
+    },
+    {
+      "file": "labs/scroll-foley-study/audio/tailOpen.wav",
+      "bytes": 62444,
+      "sha256": "edf8e801ceb9b2dbabae864b79d627b861a5a2ed1c8522aacb304b5ce9d08a9f"
+    },
+    {
+      "file": "labs/scroll-foley-study/CREDITS.md",
+      "bytes": 4685,
+      "sha256": "77b7c52c0fc1ce5862624d1850a23997e6cdf17e98901822ad46249d29df7ff3"
+    },
+    {
+      "file": "labs/scroll-foley-study/cues.json",
+      "bytes": 8524,
+      "sha256": "47626cc84dac6773d489290115ce324578fd02ffc4101a342465b884748c7f2a"
+    },
+    {
+      "file": "labs/scroll-foley-study/index.html",
+      "bytes": 2337,
+      "sha256": "686943db647ca4fb7e5a572a7af14e1aa1c9df661bb37eabd8179dfa6459b66e"
+    },
+    {
+      "file": "labs/scroll-foley-study/soft-roll.json",
+      "bytes": 1820,
+      "sha256": "35d5b80a1139f54bffc27ab511a78d8da3f149e42d8afaa7aba7dcbe78f0dd08"
+    },
+    {
+      "file": "labs/scroll-foley-study/sound.js",
+      "bytes": 6050,
+      "sha256": "88c04d80ce43317b1d74f41a55e4d4bbf6f83acc89f1e9a3b684bc9f0c30bafe"
+    },
+    {
+      "file": "labs/scroll-foley-study/sources.json",
+      "bytes": 2011,
+      "sha256": "409604def260c3517aa56002940c50901e1ba333cac3c9eb27bb6bdb28529981"
+    },
+    {
+      "file": "labs/scroll-foley-study/sources/204046-author-hq-preview.mp3",
+      "bytes": 757296,
+      "sha256": "411b2adc825a7a62cb10702459d5197d6682d25a2d45c7a5016c2cef1593ada0"
+    },
+    {
+      "file": "labs/scroll-foley-study/sources/580586-author-hq-preview.mp3",
+      "bytes": 664859,
+      "sha256": "6d1cf9b1be4ebf220941d28045393e191b122097cd7461afef8fe432fc29a5cc"
+    },
+    {
+      "file": "labs/scroll-foley-study/sources/626503-author-hq-preview.mp3",
+      "bytes": 610865,
+      "sha256": "fbe09ca1d7c296d9afaa4b3b356c10a0a75871ee56801f9b892c436e61a40448"
+    },
+    {
+      "file": "labs/scroll-foley-study/style.css",
+      "bytes": 4404,
+      "sha256": "c210508c7a50b160b1573def49ab6eaeccceb62ac08ce7d4c452ed360ea74ffe"
+    }
+  ],
+  "productionAudioReplaced": false,
+  "newSubscriptions": 0,
+  "newPaidModelCalls": 0,
+  "qualityApproved": false,
+  "balanceCheck": {
+    "checkedAt": "2026-10-22T11:23:35.027190+00:00",
+    "verified": false,
+    "reason": "Missing local publisher token/configuration. Existing remote balance and capacity values retained.",
+    "archive": "Queued locally, completion not confirmed."
+  }
+}
