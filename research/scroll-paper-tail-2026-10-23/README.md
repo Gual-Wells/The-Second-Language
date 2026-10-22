@@ -44,3 +44,16 @@ open/close tail, without claiming a new infinite variable-speed audio transport.
 
 Independent audition only; production sound is not replaced. No new subscription,
 paid model call or ongoing cost. Adobe derivative license remains unchanged.
+
+## Delivered
+
+- Code: `9d17b41bca922c0034a615cd9a50a8c2eb3682f4`.
+- Immutable audition: https://912b8b9f.the-second-language.pages.dev/labs/scroll-foley-study/
+- Online Chrome test passed, including all moving tail frames through the endpoint;
+  last-bin measured RMS was approximately .000426 opening / .000362 closing.
+- All 38 study files matched local SHA/bytes online. The 85 production display
+  assets stayed pinned; main and the independent API worker were not updated.
+- Task-end balance/capacity query actually attempted but could not update because
+  this worktree lacks the publisher credential. Previous account readings are
+  retained, not treated as zero. Permanent archive was queued; completion is not
+  verified. This does not affect the separately verified preview deployment.

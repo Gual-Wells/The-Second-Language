@@ -1,0 +1,210 @@
+{
+  "sha": "9d17b41bca922c0034a615cd9a50a8c2eb3682f4",
+  "branch": "certification-reader",
+  "immutable": "https://912b8b9f.the-second-language.pages.dev",
+  "productionMainUpdated": false,
+  "independentAPIWorkerUpdated": false,
+  "displayFiles": 85,
+  "displayBytes": 53558687,
+  "run": "D:\\CodexStorage\\workspaces\\second-language-certification-reader\\.cache\\certification-release\\9d17b41b-0l20C9",
+  "verified": true,
+  "checkedAt": "2026-10-22T18:24:54.266Z",
+  "studioFiles": [
+    {
+      "file": "labs/scroll-foley-study/app.js",
+      "bytes": 11067,
+      "sha256": "318ae5ac375813b96b6ed5361bd50e149de6426863db82f80905fdd7c6772f1d"
+    },
+    {
+      "file": "labs/scroll-foley-study/audio/bendClose.wav",
+      "bytes": 86444,
+      "sha256": "c22792a8c149b4cafe9a25d51a2b7979a813b7ea864f17b00a44512115be3736"
+    },
+    {
+      "file": "labs/scroll-foley-study/audio/bendOpen.wav",
+      "bytes": 86444,
+      "sha256": "650893bdcd634a0cb36382ed53b79d776f147ce38bb3ee4b95930214d0c1c0fc"
+    },
+    {
+      "file": "labs/scroll-foley-study/audio/holeClose.wav",
+      "bytes": 40364,
+      "sha256": "97874a858f0081efcb2737526331a3eca8249e1ea2ccd251be8a988b85e10be6"
+    },
+    {
+      "file": "labs/scroll-foley-study/audio/holeOpen.wav",
+      "bytes": 40364,
+      "sha256": "46a43b9b719f4afcbfcca0b5ead042ce0abead83d550c088292689631cf1a88c"
+    },
+    {
+      "file": "labs/scroll-foley-study/audio/paper-rollup-v4.wav",
+      "bytes": 673656,
+      "sha256": "b2fd14da0fc6a1faf1e144c41a2008a1b78f4f22100dea6db354e7efab5fd6d7"
+    },
+    {
+      "file": "labs/scroll-foley-study/audio/paper-rollup-v5.wav",
+      "bytes": 863708,
+      "sha256": "36a7fa2374abe0a0d5c1a3bd05fa936335fc5c9ea6e92a9926fc4069952d9e99"
+    },
+    {
+      "file": "labs/scroll-foley-study/audio/paper-unroll-v4.wav",
+      "bytes": 300928,
+      "sha256": "04532669c87dd3265943dcb8549babb50c20332771b9b95601e25154476eb28d"
+    },
+    {
+      "file": "labs/scroll-foley-study/audio/paper-unroll-v5.wav",
+      "bytes": 838480,
+      "sha256": "703972ab4cf662fcee45af743bf08c2135f55fc1497a489ed897b9f5aae59860"
+    },
+    {
+      "file": "labs/scroll-foley-study/audio/paperCloseA.wav",
+      "bytes": 304364,
+      "sha256": "e4aff7e0b9a465a2ecac42963af799c6b64d8616b562199572ef417df2601416"
+    },
+    {
+      "file": "labs/scroll-foley-study/audio/paperCloseB.wav",
+      "bytes": 304364,
+      "sha256": "be12a90926af361a1bf9cf80f823366da7eac66ccf75189dc77aee05a0d87221"
+    },
+    {
+      "file": "labs/scroll-foley-study/audio/paperOpenA.wav",
+      "bytes": 304364,
+      "sha256": "5056b42e552b845e786a60ce23d7f585a6ee11dbbe827f2707a6aa1ba9b4efe1"
+    },
+    {
+      "file": "labs/scroll-foley-study/audio/paperOpenB.wav",
+      "bytes": 304364,
+      "sha256": "743cac5f47549b2e019f0645a31417bb0af245bfbb8e611b3dff3bd8bdd29b54"
+    },
+    {
+      "file": "labs/scroll-foley-study/audio/park.wav",
+      "bytes": 17088,
+      "sha256": "d95364858538b9f038f1354d930fe3e696a0e64672e5225477a6fd16adb5090d"
+    },
+    {
+      "file": "labs/scroll-foley-study/audio/seat.wav",
+      "bytes": 21392,
+      "sha256": "3c3aa2b7d0222fdb96e1978376a6c3b3b499867464365ee7daaee7d25a5cc953"
+    },
+    {
+      "file": "labs/scroll-foley-study/audio/slideClose.wav",
+      "bytes": 23084,
+      "sha256": "f60f03943a3fc9ee2482a7d9a9e716765cbeaaa9537c68841bf39a9b6284a77c"
+    },
+    {
+      "file": "labs/scroll-foley-study/audio/slideOpen.wav",
+      "bytes": 23084,
+      "sha256": "c47e77a5ba19e2689e48c14b5a9f2731f6d7db519c7422c07e908dd46bf5131e"
+    },
+    {
+      "file": "labs/scroll-foley-study/audio/soft-roll-v2.wav",
+      "bytes": 199376,
+      "sha256": "438f7e83d5caa22747275a9079f95afd4ea4971a7c14069f5934549803c9e28c"
+    },
+    {
+      "file": "labs/scroll-foley-study/audio/tailClose.wav",
+      "bytes": 62444,
+      "sha256": "32c339c42d951178c4973e80050207d8bc3a7e6ef34856aa10ec7bc41d3afeff"
+    },
+    {
+      "file": "labs/scroll-foley-study/audio/tailOpen.wav",
+      "bytes": 62444,
+      "sha256": "edf8e801ceb9b2dbabae864b79d627b861a5a2ed1c8522aacb304b5ce9d08a9f"
+    },
+    {
+      "file": "labs/scroll-foley-study/CREDITS.md",
+      "bytes": 9338,
+      "sha256": "04eb2d1b1cefb187d15e5f763ae92405f2bd20f34cd2980719744ded13903958"
+    },
+    {
+      "file": "labs/scroll-foley-study/cues.json",
+      "bytes": 8611,
+      "sha256": "eb539f66dced5b10e1ff8def47f10ac9a5d4992cadc3d9f3c7c9c4f83c681c82"
+    },
+    {
+      "file": "labs/scroll-foley-study/index.html",
+      "bytes": 2748,
+      "sha256": "5a6655009aeac996d404410022618735e4e29172b1ece8f3a15e5d3a486c6c2c"
+    },
+    {
+      "file": "labs/scroll-foley-study/keeper-reference.js",
+      "bytes": 8458,
+      "sha256": "0da60bf26650cac355847227cf16c51bb5e4904fb806248e1f102854542e9b3e"
+    },
+    {
+      "file": "labs/scroll-foley-study/paper-recordings.json",
+      "bytes": 2767,
+      "sha256": "c1d9e105d444ffe1c78fb8491797c1b831299cf7e04ee789cea0b6a2b7f1e0a0"
+    },
+    {
+      "file": "labs/scroll-foley-study/soft-roll.json",
+      "bytes": 1848,
+      "sha256": "72727792b00d3c20202c0d609cdaa4ebb05d52a22cd4a054006e0e0752e2dcf8"
+    },
+    {
+      "file": "labs/scroll-foley-study/sound.js",
+      "bytes": 6073,
+      "sha256": "dbbbfd54ae565e1381e5bd9858ceba646487d5335176e9e94675305b885215de"
+    },
+    {
+      "file": "labs/scroll-foley-study/source-auditions.json",
+      "bytes": 4013,
+      "sha256": "5600e28e04a70fe94a37bdc9a659f015f7cc142a4bfb5dfcd25f13974cb13583"
+    },
+    {
+      "file": "labs/scroll-foley-study/sources.json",
+      "bytes": 2011,
+      "sha256": "409604def260c3517aa56002940c50901e1ba333cac3c9eb27bb6bdb28529981"
+    },
+    {
+      "file": "labs/scroll-foley-study/sources/204046-author-hq-preview.mp3",
+      "bytes": 757296,
+      "sha256": "411b2adc825a7a62cb10702459d5197d6682d25a2d45c7a5016c2cef1593ada0"
+    },
+    {
+      "file": "labs/scroll-foley-study/sources/580586-author-hq-preview.mp3",
+      "bytes": 664859,
+      "sha256": "6d1cf9b1be4ebf220941d28045393e191b122097cd7461afef8fe432fc29a5cc"
+    },
+    {
+      "file": "labs/scroll-foley-study/sources/626503-author-hq-preview.mp3",
+      "bytes": 610865,
+      "sha256": "fbe09ca1d7c296d9afaa4b3b356c10a0a75871ee56801f9b892c436e61a40448"
+    },
+    {
+      "file": "labs/scroll-foley-study/sources/audioelk/licensing-evidence.json",
+      "bytes": 4210,
+      "sha256": "597cf63672fbda02b4073d8a739da072e68148c95835a121a8a318a5d20a849e"
+    },
+    {
+      "file": "labs/scroll-foley-study/sources/audioelk/MXL900_BELT_HANDLING_01.wav",
+      "bytes": 417208,
+      "sha256": "ea906c650a08f2d35dc4d5fe1387fd04ec25a8f048c08043c6f62b8fd3cd5e98"
+    },
+    {
+      "file": "labs/scroll-foley-study/sources/audioelk/MXL900_BELT_HANDLING_07.wav",
+      "bytes": 469846,
+      "sha256": "ab4382278a88dafc6540a732ad53282b0cc934b5fa26284f62520872e4f0053d"
+    },
+    {
+      "file": "labs/scroll-foley-study/sources/audioelk/MXL900_BELT_HANDLING_13.wav",
+      "bytes": 938386,
+      "sha256": "c6a89621525123644e7ea86a22615a1404e7b471033b0e9d4f578c000acb9a4a"
+    },
+    {
+      "file": "labs/scroll-foley-study/sources/audioelk/MXL900_BELT_IMPACT_07.wav",
+      "bytes": 321238,
+      "sha256": "2bed68801bf92b5167d5df59089e5101ffeb1c508b60818d3ae7ac480bfb4bed"
+    },
+    {
+      "file": "labs/scroll-foley-study/style.css",
+      "bytes": 5159,
+      "sha256": "e116f17ada4fe6c0dc6b7e6cdd47475e0ae2febf58d14139ad699f31e3a2a78d"
+    }
+  ],
+  "productionAudioReplaced": false,
+  "newSubscriptions": 0,
+  "newPaidModelCalls": 0,
+  "freeVideoToAudioAttempts": 0,
+  "generatedAudioOutputs": 0,
+  "qualityApproved": false
+}
