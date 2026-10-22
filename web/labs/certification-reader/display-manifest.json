@@ -10,7 +10,7 @@
   ],
   "scope": "The sole production work is the commissioned project-beginning commemoration, with readable bilingual document metadata and default sound. First/fifth chapter research specimens remain outside the production catalogue; shared technical dependencies are not listed as works. No assessment or award state is created.",
   "verificationReports": [
-    "research/scroll-reader-correction-2026-10-22/verification.json"
+    "research/scroll-craft-and-audio-2026-10-22/verification.json"
   ],
   "files": [
     {
@@ -21,17 +21,17 @@
     {
       "url": "/app.js",
       "bytes": 45981,
-      "sha256": "88b5b951a681c2ffa82dbcb0d90b594de77f079dd04365b0b29d6bf5953396c2"
+      "sha256": "7b6c4c0642bbf921138663f20f0060fd1a73524e8e9fce54fab4daf6bbe8c1fc"
     },
     {
       "url": "/audio-config.js",
       "bytes": 5657,
-      "sha256": "f8a5762738bd0eafc83ed1186a42f2e9e462190b1fd372228888de7ffefe308b"
+      "sha256": "b357a117ac381ed5629a8dd0e5f6e0fb56c52fb9d8b4c306b0ec69eb602e0ceb"
     },
     {
       "url": "/audio-library.js",
       "bytes": 3317,
-      "sha256": "9bf70dc89fbea439d1cd779645a8088d9c206b789b8198be7a55724c5e20226c"
+      "sha256": "666e58582a073e437e4a970e0d14505204f805dd7a923b45d7b0efb704765e02"
     },
     {
       "url": "/audio-plan.js",
@@ -46,7 +46,7 @@
     {
       "url": "/certification-reader.js",
       "bytes": 13323,
-      "sha256": "03de3c4377d6e73caa0010206153d720dda22693ff320ce9a7bed3d5bbd0c3f7"
+      "sha256": "6d555aa98374d0f0c2da1a420991fa0f1d2bbd3eaa0c06a55fc27aef88129525"
     },
     {
       "url": "/chapter-quality.js",
@@ -61,7 +61,7 @@
     {
       "url": "/chapter-tests.js",
       "bytes": 12935,
-      "sha256": "fcfe31e78acb11afeb535e5e24c4411aad6ef113a2bf0dd5eddd4227ab43186e"
+      "sha256": "122271bab99898a5718e7a8f702d01535383c7e2bd213c52bb094e4779f5c306"
     },
     {
       "url": "/chapters.js",
@@ -86,12 +86,12 @@
     {
       "url": "/index.html",
       "bytes": 31244,
-      "sha256": "5de788c7ccca4fdd9797b2c6dc1c0230557aa488afb0da9c8295dfda040bb7ab"
+      "sha256": "e3e3eb68c08f4a678713b80d40ae47849e10a177935dfc3c85ed6f94185de6ce"
     },
     {
       "url": "/labs/certification-reader/AUDIO_CREDITS.md",
-      "bytes": 3233,
-      "sha256": "da7d25cfc911c34b75456445666fc87a7fd43b164c689340ff5cd2b03334ae6c"
+      "bytes": 1916,
+      "sha256": "7d00d8e1fff6eef5aadbedebb8d8d085b33f66b284f274b6a0981be2f5152fd6"
     },
     {
       "url": "/labs/certification-reader/CREDITS.md",
@@ -99,19 +99,29 @@
       "sha256": "747d70014aab64d24c6926b8cf4a0df8ab7f7a917b95432a7fa2a8eb00f4ba17"
     },
     {
-      "url": "/labs/certification-reader/assets/audio-foley/leather-flex-loop.wav",
-      "bytes": 112940,
-      "sha256": "9aaeb40ca6fc85f7b2b18c31efbaf37ea4de4438516de62a847ed1d27f27c606"
+      "url": "/labs/certification-reader/assets/audio-foley/buckle-park-v41.wav",
+      "bytes": 30764,
+      "sha256": "1a77280a77f29a1f3ffad0d30c6d6ccac74405450d1bacbecf74a00aa58546b7"
     },
     {
-      "url": "/labs/certification-reader/assets/audio-foley/metalClick.wav",
-      "bytes": 78688,
-      "sha256": "9854e21f5428bf8feb46faabc01d2e3fa120ada431baeaecdc869c7e3a81b5d4"
+      "url": "/labs/certification-reader/assets/audio-foley/buckle-seat-v41.wav",
+      "bytes": 36524,
+      "sha256": "982838c9c52559796eec3cb531a94a8b35dd47f6c7d5b6041a536ebce57a08d6"
     },
     {
-      "url": "/labs/certification-reader/assets/audio-foley/parchment-roll-loop.wav",
-      "bytes": 184382,
-      "sha256": "d655c95ef2e4fa34cfb0461c296f47b554e1474613679b8da7ed7c0e348ac32d"
+      "url": "/labs/certification-reader/assets/audio-foley/leather-release-v41.wav",
+      "bytes": 209324,
+      "sha256": "4081e5e34f5cdcaf6d96ea215683fe38d4b7f1d79e8de038bdecc34dc36677e2"
+    },
+    {
+      "url": "/labs/certification-reader/assets/audio-foley/paper-close-v41.wav",
+      "bytes": 316844,
+      "sha256": "d075ec60f4d7a16ed8948410bac8f9022111eb47f595f6c50cd45d246b5e4fff"
+    },
+    {
+      "url": "/labs/certification-reader/assets/audio-foley/paper-open-v41.wav",
+      "bytes": 291884,
+      "sha256": "68ac1f965c75f135b0b013b371894bdf54f426a132390d6cdeb1724004618be8"
     },
     {
       "url": "/labs/certification-reader/assets/audio-music/a-new-town.mp3",
@@ -119,39 +129,59 @@
       "sha256": "8a83b97f06cad1052eea0a3fa8f65966db742e68275a1d82816773c820578ad2"
     },
     {
-      "url": "/labs/certification-reader/assets/audio-sources/legacy-manifest-2026-10-21.json",
-      "bytes": 12018,
-      "sha256": "7bf0d9d091265b64f5561b683f0490b81a36bb2b549dacda7f2bf2eebd0930a9"
+      "url": "/labs/certification-reader/assets/audio-sources/manifest.json",
+      "bytes": 1594,
+      "sha256": "5db8811950551048fbd8e6acc34d3a7c66bbcb051f7f9c231ec4cd996aa1d5af"
     },
     {
-      "url": "/labs/certification-reader/assets/audio-sources/manifest.json",
+      "url": "/labs/certification-reader/assets/audio-sources/performance-recordings/CREDITS.md",
+      "bytes": 2079,
+      "sha256": "08f7a476bf28503b4726b9a66f3c08380ec2f4e83af9b6518ec5664d42c0d148"
+    },
+    {
+      "url": "/labs/certification-reader/assets/audio-sources/performance-recordings/buckle-decoded.wav",
+      "bytes": 586594,
+      "sha256": "e73362aac97346c569587d290fa2a1f0098d9f60bec4268efa9a511d992f093c"
+    },
+    {
+      "url": "/labs/certification-reader/assets/audio-sources/performance-recordings/derivatives.json",
+      "bytes": 5321,
+      "sha256": "8453d636debe81b59fa5a9b05075aaf05b81d8356af3887c49194acfe7e781f8"
+    },
+    {
+      "url": "/labs/certification-reader/assets/audio-sources/performance-recordings/joao-janz-leather-belt-hq.mp3",
+      "bytes": 75720,
+      "sha256": "ed126eb8dc6f331dc286329ac46b971cdca5e5e75f031921d24e35c3dc23713a"
+    },
+    {
+      "url": "/labs/certification-reader/assets/audio-sources/performance-recordings/joseph-sardin-belt-buckle.wav",
+      "bytes": 587618,
+      "sha256": "f2cb81370e2336a27e9ae5b7c161c962c9a8135d4855f728e8124a4d18530a0e"
+    },
+    {
+      "url": "/labs/certification-reader/assets/audio-sources/performance-recordings/leather-decoded.wav",
+      "bytes": 248684,
+      "sha256": "526ea326ed5acf2343f20d969a6a84dec9a0035792d0088e15742927a0169fc5"
+    },
+    {
+      "url": "/labs/certification-reader/assets/audio-sources/performance-recordings/parchment-decoded.wav",
+      "bytes": 2217160,
+      "sha256": "decc40169ef59c4561a0aa773993352c8b5024889dacda6faa9429201243df17"
+    },
+    {
+      "url": "/labs/certification-reader/assets/audio-sources/performance-recordings/sources.json",
+      "bytes": 1776,
+      "sha256": "273a96c23c290bd36d7e2bc59ee5733d5bc69bcc41c9885ac4ea7a0e0781ee40"
+    },
+    {
+      "url": "/labs/certification-reader/assets/audio-sources/performance-recordings/vrymaa-parchment-unroll-hq.mp3",
+      "bytes": 543936,
+      "sha256": "90a1932e29e74abdcc725d62ebd6db64729fcbb57ac00c1af163a9b624e2956a"
+    },
+    {
+      "url": "/labs/certification-reader/assets/audio-sources/v40-rejected-manifest.json",
       "bytes": 1164,
       "sha256": "587e32f9d3a6eae99b3bfe6b376715c72e927e9664fd2be6d55cdb142ed206c9"
-    },
-    {
-      "url": "/labs/certification-reader/assets/audio-sources/material-recordings/CREDITS.md",
-      "bytes": 4749,
-      "sha256": "b71049ae73c67c0892a8e619abd01fc2cc85e2020bf9032cf131cf318dfe62a1"
-    },
-    {
-      "url": "/labs/certification-reader/assets/audio-sources/material-recordings/altfuture-leather-stretched-hq-preview.mp3",
-      "bytes": 612480,
-      "sha256": "aae6b357aaf6dc2f4fcc70724e26f0d59c082ff4b84f4d2ca4c7edc965a9616f"
-    },
-    {
-      "url": "/labs/certification-reader/assets/audio-sources/material-recordings/derivatives.json",
-      "bytes": 2483,
-      "sha256": "f1785cf9ad0949ce92c5511841ea68771c07d4de871026f7a771a368fb092e0e"
-    },
-    {
-      "url": "/labs/certification-reader/assets/audio-sources/material-recordings/leather-decoded.wav",
-      "bytes": 2204866,
-      "sha256": "cf862fb5a3d6f4dc3082494c30dad73b5a2844afb357c8222d939aab22868c7d"
-    },
-    {
-      "url": "/labs/certification-reader/assets/audio-sources/material-recordings/unrolling-parchment.wav",
-      "bytes": 555232,
-      "sha256": "0ecdba822baa623f478a0131c20eaf175e9494f8fb534d666427685813c9e54f"
     },
     {
       "url": "/labs/certification-reader/assets/keeper-display.glb",
@@ -161,7 +191,7 @@
     {
       "url": "/labs/certification-reader/material-motion.js",
       "bytes": 1609,
-      "sha256": "fe5e7b267954ed5a7a0b931f25c604bfc29b69cbfc5f2510919fbb83ef6d31b2"
+      "sha256": "13454e924c75c5d88f828143fa1ea8ee93461de0a45bfb6bacc908395d236b30"
     },
     {
       "url": "/labs/certification-reader/reader.bundle.js",
@@ -170,8 +200,8 @@
     },
     {
       "url": "/labs/certification-reader/sound.js",
-      "bytes": 16838,
-      "sha256": "f159275da6413323cd83dadb74ee9dec0f6e798a6443427ec8071eb33f91676d"
+      "bytes": 19374,
+      "sha256": "adc44a20542768b0e2f6cab4fcc42b4cb43112ee9bbca673c518292546b8c3bc"
     },
     {
       "url": "/labs/chapter-scroll-v10/assets/ink-shoulder.png",
@@ -326,12 +356,12 @@
     {
       "url": "/listening.js",
       "bytes": 12878,
-      "sha256": "88623c80b416695083b06e271b23e98a3ee916ddf6bb777647d5199594c82f78"
+      "sha256": "83575739eae407c1773791645945b8b2d987df1ed0dd70c34ca21178a7a6e2ee"
     },
     {
       "url": "/objective.js",
       "bytes": 3230,
-      "sha256": "d204945c452ee8113e413a4d7193c3b05443da7179342f3c823a6bcfe33c20a1"
+      "sha256": "13c7ce4eb9f74002e43fcb391a06f23c2d1cd0ae7433cfb0439b28d9efc13cd0"
     },
     {
       "url": "/practice-workspace.js",
@@ -341,12 +371,12 @@
     {
       "url": "/practice.js",
       "bytes": 21033,
-      "sha256": "8248f1b09894e1fa26938ac0d80708a156491525c6f398a66e2d3191835792ac"
+      "sha256": "a31d88faa2fe20a140d2a96b7ea7ddcfa8b043d2fc2ee14944d09a8399f67146"
     },
     {
       "url": "/pure-reader.js",
       "bytes": 6274,
-      "sha256": "c2a28e1c7b6e64bb53f8d1cfb035c0d991a52779ca920e79eb5a23bae78ffefe"
+      "sha256": "5ca38c1a403bce3bfd6ea3fbcc9fee2332e551466b05eda3c7cbcb92a08e22b5"
     },
     {
       "url": "/question-pairs.js",
@@ -356,12 +386,12 @@
     {
       "url": "/questions.js",
       "bytes": 10456,
-      "sha256": "08a2b516e2e443b89327f9fac01b547258f6a741ba391588587b64805ad0f860"
+      "sha256": "cd2296b5f470d75222b6b83207742bd50eff0396a4ef8dc6dc723e980f031c65"
     },
     {
       "url": "/reader-focus.js",
       "bytes": 3735,
-      "sha256": "774b9d8952cffac7700db582d6cc2f0adb92ba420446473d5e96fd16b4fd3938"
+      "sha256": "a10c240fae24480fce5221e047a7ffce191081b7656715ef0669ec886a73455e"
     },
     {
       "url": "/reader-jump.js",
@@ -371,17 +401,17 @@
     {
       "url": "/reader-speech.js",
       "bytes": 4930,
-      "sha256": "de42796649b5a865c387ca3ff6cee82dc8b8c8175a8944df2f762eb863b4212b"
+      "sha256": "facc5ef138e3c1d0f4dddd0a028c11f9bb9c2c56a8723a38486808da33fb99dd"
     },
     {
       "url": "/reading.js",
       "bytes": 9604,
-      "sha256": "7b2143abced038e342ee6306ff3b27ead26f9b9f1047ccc07645413a3802dc54"
+      "sha256": "58d05fe3a53e5851cd309dd79a16c3bc6f7a972252d2a09cad041ebd72ef03eb"
     },
     {
       "url": "/recorder.js",
       "bytes": 7311,
-      "sha256": "7abf0b186885062ffa226e89ba39f206e39875f440b9ec6d27dfe53e5894b4a3"
+      "sha256": "4b8ec3aff0465edb4f17b3023ec544f8dc8c5c7cda6a5ea1d7dfebfb0a356dc3"
     },
     {
       "url": "/render.js",
@@ -409,5 +439,5 @@
       "sha256": "8c4f3c17e6d1f45f32bb892307cff4a4a5a08d3af76c0a1e67b355ddf7d419b8"
     }
   ],
-  "bytes": 52169484
+  "bytes": 53558687
 }

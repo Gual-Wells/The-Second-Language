@@ -1,12 +1,14 @@
-import {materialMotion} from './material-motion.js?v=40';
+import {materialMotion} from './material-motion.js?v=41';
 // Recorded material sources, derivatives and licenses: AUDIO_CREDITS.md.
 // Motion coordinates drive sound; a lifecycle pause never changes the default.
 const ASSET = path => new URL(`./assets/${path}`, import.meta.url).href;
 const FILES = Object.freeze({
   music: 'audio-music/a-new-town.mp3',
-  leather: 'audio-foley/leather-flex-loop.wav',
-  paper: 'audio-foley/parchment-roll-loop.wav',
-  metal: 'audio-foley/metalClick.wav'
+  leather: 'audio-foley/leather-release-v41.wav',
+  paperOpen: 'audio-foley/paper-open-v41.wav',
+  paperClose: 'audio-foley/paper-close-v41.wav',
+  park: 'audio-foley/buckle-park-v41.wav',
+  seat: 'audio-foley/buckle-seat-v41.wav'
 });
 const MUSIC_GAIN = .35, END_REST_MS = 1800;
 const clamp = (n, min = 0, max = 1) => Math.max(min, Math.min(max, n));
@@ -118,9 +120,22 @@ export class SoundDirector {
     await this.context.resume();
     if (this.disposed || epoch !== this.epoch || !this.active || hidden()) return false;
     if (this.context.state !== 'running') throw Error('声音被系统暂停，请轻触卷轴重试');
-    this.unlocked = true;
     this.prepare().catch(() => {});
-    if (this.foleyEnabled) await Promise.allSettled(Object.keys(FILES).filter(key => key !== 'music').map(key => this._buffer(key)));
+    const decoding=this.foleyEnabled?Promise.allSettled(Object.keys(FILES).filter(key=>key!=='music').map(key=>this._buffer(key))):Promise.resolve();
+    // "running" can precede the first hardware render quantum. Prime it
+    // while artwork prepares; never queue a gesture against a frozen clock.
+    const ctx=this.context,initialTime=ctx.currentTime,deadline=clock()+2000;
+    const prime=ctx.createBufferSource(),mute=ctx.createGain();
+    prime.buffer=ctx.createBuffer(1,1,ctx.sampleRate);mute.gain.value=0;
+    prime.connect(mute);mute.connect(ctx.destination);
+    prime.onended=()=>{prime.disconnect();mute.disconnect();};prime.start();
+    while(ctx.currentTime<=initialTime&&clock()<deadline&&!this.disposed&&this.active&&!hidden()&&epoch===this.epoch){
+      await new Promise(resolve=>setTimeout(resolve,20));
+    }
+    if(this.disposed||epoch!==this.epoch||!this.active||hidden())return false;
+    if(ctx.currentTime<=initialTime)throw Error('声音尚未就绪，请轻触卷轴重试');
+    this.unlocked = true;
+    await decoding;
     if (this.disposed || epoch !== this.epoch || !this._canPlay()) return false;
     this._syncMusic();
     return true;
@@ -238,26 +253,41 @@ export class SoundDirector {
     }).catch(() => {});
   }
 
-  _friction(key,target,speed=0) {
+  _performance(material,key,target,position,direction) {
     const buffer=this.buffers.get(key),ctx=this.context;
-    this.materialTargets[key]=target;
-    if(!buffer||!ctx)return; // No late replay of a movement that already ended.
-    let voice=this.materialVoices.get(key);
-    if(!voice&&target>0){
-      const source=ctx.createBufferSource(),gain=ctx.createGain(),filter=ctx.createBiquadFilter();
-      source.buffer=buffer;source.loop=true;filter.type='lowpass';filter.frequency.value=key==='paper'?7200:4800;
-      gain.gain.value=0;source.connect(filter);filter.connect(gain);gain.connect(this.foleyBus);
-      voice={source,gain,filter,stopping:false};this.materialVoices.set(key,voice);this.foleyVoices.add(voice);
-      source.onended=()=>{source.disconnect();filter.disconnect();gain.disconnect();this.foleyVoices.delete(voice);if(this.materialVoices.get(key)===voice)this.materialVoices.delete(key);};
-      source.start();this.eventsPlayed++;
+    this.materialTargets[material]=target;
+    let voice=this.materialVoices.get(material);
+    if(!buffer||!ctx)return; // Never replay a gesture after decoding arrives late.
+    if(!target){
+      if(voice)this._stopVoice(voice,.055);
+      this.materialVoices.delete(material);return;
     }
-    if(!voice||voice.stopping)return;
+    const now=ctx.currentTime,travel=clamp(direction>0?position:1-position);
+    const offset=travel*(buffer.duration-.04);
+    // Native-pitch performed gestures, not a continuously repeated noise bed.
+    // Ordinary play runs through its natural envelope; an unusually slow drag
+    // can relocate to the material coordinate with a short crossfade.
+    const drift=voice?Math.abs(offset-(voice.offset+now-voice.startedAt)):0;
+    const relocate=voice&&!voice.ended&&now-voice.startedAt>.6&&drift>.55;
+    if(voice&&(voice.key!==key||voice.direction!==direction||(!voice.ended&&voice.expiresAt<=now)||relocate)){
+      this._stopVoice(voice,.045);this.materialVoices.delete(material);voice=null;
+    }
+    if(!voice){
+      const source=ctx.createBufferSource(),gain=ctx.createGain();
+      source.buffer=buffer;source.loop=false;source.playbackRate.value=1;
+      gain.gain.value=0;source.connect(gain);gain.connect(this.foleyBus);
+      voice={source,gain,key,direction,offset,startedAt:now,expiresAt:now+.18,stopping:false,ended:false};
+      this.materialVoices.set(material,voice);this.foleyVoices.add(voice);
+      source.onended=()=>{voice.ended=true;source.disconnect();gain.disconnect();this.foleyVoices.delete(voice);};
+      source.start(0,offset);this.eventsPlayed++;this.lastEvent=key;
+    }
+    if(voice.ended||voice.stopping)return;
     ramp(voice.gain.gain,target,.025,ctx);
-    // If a finger stops while still held down, no new pointermove arrives.
-    // Audio-clock expiry silences the texture without a JS polling timer.
-    voice.gain.gain.setValueAtTime(target,ctx.currentTime+.10);
-    voice.gain.gain.linearRampToValueAtTime(0,ctx.currentTime+.18);
-    voice.source.playbackRate.setTargetAtTime(.90+.16*clamp(speed/.6),ctx.currentTime,.06);
+    // The audio clock ends a held-finger stroke even without another JS frame.
+    voice.expiresAt=now+.18;
+    voice.gain.gain.setValueAtTime(target,now+.10);
+    voice.gain.gain.linearRampToValueAtTime(0,now+.18);
+    voice.source.stop(now+.19); // A later stop call replaces the earlier time.
   }
 
   motion({progress=0,paperProgress=0,keeper=null,active=false}={}) {
@@ -266,9 +296,17 @@ export class SoundDirector {
     if(!this._canPlay()||!this.foleyEnabled)return;
     const response=materialMotion(current,previous,previous?(at-previous.at)/1000:0);
     this.lastDriveAt=at;
-    this._friction('paper',response.paper,response.paperSpeed);this._friction('leather',response.leather,response.leatherSpeed);
-    if(response.contact){
-      this._play('metal',{group:response.contact,gain:.075,cooldown:180});
+    const paperDirection=Math.sign(current.paperProgress-(previous?.paperProgress??current.paperProgress))||1;
+    const leatherDirection=Math.sign((keeper?.r??0)-(previous?.keeper?.r??keeper?.r??0))||1;
+    this._performance('paper',paperDirection>0?'paperOpen':'paperClose',response.paper,current.paperProgress,paperDirection);
+    this._performance('leather','leather',response.leather,clamp((keeper?.r??0)/.94),leatherDirection);
+    this.contactArmed??={park:true,seat:true};
+    if((keeper?.r??1)<.68)this.contactArmed.park=true;
+    if((keeper?.r??0)>.08)this.contactArmed.seat=true;
+    const contactKey=response.contact==='prong-park'?'park':response.contact==='prong-seat'?'seat':null;
+    if(contactKey&&this.contactArmed[contactKey]){
+      this.contactArmed[contactKey]=false;
+      this._play(contactKey,{group:response.contact,gain:.22,cooldown:180});
       this.contacts.push({kind:response.contact,progress:current.progress,r:keeper.r,phase:keeper.phase,pin:keeper.pin});
       if(this.contacts.length>12)this.contacts.shift();
     }
@@ -303,9 +341,10 @@ export class SoundDirector {
       downloaded: this.bytes.size, decoded: [...this.buffers.keys()], failures: Object.fromEntries(this.failures),
       eventsPlayed: this.eventsPlayed, lastEvent: this.lastEvent,
       materialTargets:clock()-this.lastDriveAt>180?{paper:0,leather:0}:{...this.materialTargets},
-      materialLevels:Object.fromEntries([...this.materialVoices].map(([key,voice])=>[key,voice.gain.gain.value])),
+      materialLevels:Object.fromEntries([...this.materialVoices].map(([key,voice])=>[key,voice.ended?0:voice.gain.gain.value])),
+      performances:[...this.materialVoices].map(([material,v])=>({material,key:v.key,loop:v.source.loop,rate:v.source.playbackRate.value,offset:v.offset,direction:v.direction,ended:v.ended})),
       motionModel:'actual keeper path coordinates and paper winding velocity',contacts:this.contacts.slice(),
-      listeningReview:'recorded material sources; human listening acceptance remains separate',seamlessLoop:false,issued:false
+      listeningReview:'finite recorded performances; user listening acceptance remains separate',seamlessLoop:false,issued:false
     };
   }
 

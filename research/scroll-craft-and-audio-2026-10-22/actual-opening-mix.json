@@ -1,0 +1,7 @@
+{
+  "duration": 5.64,
+  "rate": 48000,
+  "channels": 2,
+  "sha256": "5a8f0c01e53708b1b6c1bf4644e6f870d35f78639906dec93ca7392b75de20c4",
+  "scope": "Actual viewer output including unchanged music, captured from its WebAudio destination through MediaRecorder Opus and decoded to WAV; not a lossless master or human audition."
+}

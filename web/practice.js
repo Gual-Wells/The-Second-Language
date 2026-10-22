@@ -1,7 +1,7 @@
-import {practiceWorkspace} from './practice-workspace.js?v=40';
-import {speakingRecorder} from './recorder.js?v=40';
-import {createReading} from './reading.js?v=40';
-import {createListening} from './listening.js?v=40';
+import {practiceWorkspace} from './practice-workspace.js?v=41';
+import {speakingRecorder} from './recorder.js?v=41';
+import {createReading} from './reading.js?v=41';
+import {createListening} from './listening.js?v=41';
 const $ = id => document.getElementById(id);
 const node = (tag, className, text) => {
   const element = document.createElement(tag);

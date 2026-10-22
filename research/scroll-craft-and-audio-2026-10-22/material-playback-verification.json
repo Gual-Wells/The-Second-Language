@@ -1,0 +1,931 @@
+{
+  "checkedAt": "2026-10-22T04:11:23.288Z",
+  "checks": {
+    "recordedSourcesDecode": true,
+    "actualMaterialPlayback": true,
+    "materialPhaseSeparation": true,
+    "heldFingerAudioClockSilence": true,
+    "pauseClearsVoices": true,
+    "exitClearsVoices": true,
+    "defaultsEnabled": true
+  },
+  "result": {
+    "initialDefaults": {
+      "active": false,
+      "paused": false,
+      "disposed": false,
+      "unlocked": false,
+      "musicEnabled": true,
+      "foleyEnabled": true,
+      "musicVolume": 0.35,
+      "foleyVolume": 0.65,
+      "contextState": "not-created",
+      "musicTrack": null,
+      "musicPosition": 0,
+      "musicDuration": null,
+      "musicState": "paused",
+      "restRemainingMs": 0,
+      "completedPlays": 0,
+      "musicVoices": 0,
+      "foleyVoices": 0,
+      "downloaded": 0,
+      "decoded": [],
+      "failures": {},
+      "eventsPlayed": 0,
+      "lastEvent": null,
+      "materialTargets": {
+        "paper": 0,
+        "leather": 0
+      },
+      "materialLevels": {},
+      "performances": [],
+      "motionModel": "actual keeper path coordinates and paper winding velocity",
+      "contacts": [],
+      "listeningReview": "finite recorded performances; user listening acceptance remains separate",
+      "seamlessLoop": false,
+      "issued": false
+    },
+    "leather": {
+      "peakRMS": 0.006649463787828408,
+      "moving": {
+        "active": true,
+        "paused": false,
+        "disposed": false,
+        "unlocked": true,
+        "musicEnabled": false,
+        "foleyEnabled": true,
+        "musicVolume": 0.35,
+        "foleyVolume": 0.65,
+        "contextState": "running",
+        "musicTrack": null,
+        "musicPosition": 0,
+        "musicDuration": null,
+        "musicState": "paused",
+        "restRemainingMs": 0,
+        "completedPlays": 0,
+        "musicVoices": 0,
+        "foleyVoices": 1,
+        "downloaded": 5,
+        "decoded": [
+          "leather",
+          "park",
+          "seat",
+          "paperOpen",
+          "paperClose"
+        ],
+        "failures": {},
+        "eventsPlayed": 1,
+        "lastEvent": "leather",
+        "materialTargets": {
+          "paper": 0,
+          "leather": 0.6514533024662501
+        },
+        "materialLevels": {
+          "leather": 0.7036958932876587
+        },
+        "performances": [
+          {
+            "material": "leather",
+            "key": "leather",
+            "loop": false,
+            "rate": 1,
+            "offset": 0.8764893617021277,
+            "direction": 1,
+            "ended": false
+          }
+        ],
+        "motionModel": "actual keeper path coordinates and paper winding velocity",
+        "contacts": [],
+        "listeningReview": "finite recorded performances; user listening acceptance remains separate",
+        "seamlessLoop": false,
+        "issued": false
+      },
+      "heldQuietRMS": 0,
+      "held": {
+        "active": true,
+        "paused": false,
+        "disposed": false,
+        "unlocked": true,
+        "musicEnabled": false,
+        "foleyEnabled": true,
+        "musicVolume": 0.35,
+        "foleyVolume": 0.65,
+        "contextState": "running",
+        "musicTrack": null,
+        "musicPosition": 0,
+        "musicDuration": null,
+        "musicState": "paused",
+        "restRemainingMs": 0,
+        "completedPlays": 0,
+        "musicVoices": 0,
+        "foleyVoices": 0,
+        "downloaded": 5,
+        "decoded": [
+          "leather",
+          "park",
+          "seat",
+          "paperOpen",
+          "paperClose"
+        ],
+        "failures": {},
+        "eventsPlayed": 1,
+        "lastEvent": "leather",
+        "materialTargets": {
+          "paper": 0,
+          "leather": 0
+        },
+        "materialLevels": {
+          "leather": 0
+        },
+        "performances": [
+          {
+            "material": "leather",
+            "key": "leather",
+            "loop": false,
+            "rate": 1,
+            "offset": 0.8764893617021277,
+            "direction": 1,
+            "ended": true
+          }
+        ],
+        "motionModel": "actual keeper path coordinates and paper winding velocity",
+        "contacts": [],
+        "listeningReview": "finite recorded performances; user listening acceptance remains separate",
+        "seamlessLoop": false,
+        "issued": false
+      },
+      "trace": [
+        {
+          "i": 1,
+          "audioTime": 0.010666666666666666,
+          "rms": 0
+        },
+        {
+          "i": 2,
+          "audioTime": 0.010666666666666666,
+          "rms": 0
+        },
+        {
+          "i": 3,
+          "audioTime": 0.010666666666666666,
+          "rms": 0
+        },
+        {
+          "i": 4,
+          "audioTime": 0.04,
+          "rms": 0.00025843821305376283
+        },
+        {
+          "i": 5,
+          "audioTime": 0.06133333333333333,
+          "rms": 0.00028845908723885847
+        },
+        {
+          "i": 6,
+          "audioTime": 0.08,
+          "rms": 0.0001773774130521456
+        },
+        {
+          "i": 7,
+          "audioTime": 0.10133333333333333,
+          "rms": 0.00037374556283694305
+        },
+        {
+          "i": 8,
+          "audioTime": 0.12,
+          "rms": 0.0017568158674963123
+        },
+        {
+          "i": 9,
+          "audioTime": 0.14133333333333334,
+          "rms": 0.00574384709491655
+        },
+        {
+          "i": 10,
+          "audioTime": 0.16,
+          "rms": 0.005627058039732698
+        },
+        {
+          "i": 11,
+          "audioTime": 0.18133333333333335,
+          "rms": 0.0039452507098180385
+        },
+        {
+          "i": 12,
+          "audioTime": 0.192,
+          "rms": 0.003658582160261941
+        },
+        {
+          "i": 13,
+          "audioTime": 0.21066666666666667,
+          "rms": 0.003643063575627145
+        },
+        {
+          "i": 14,
+          "audioTime": 0.232,
+          "rms": 0.0037448639574190123
+        },
+        {
+          "i": 15,
+          "audioTime": 0.25066666666666665,
+          "rms": 0.006097072521043583
+        },
+        {
+          "i": 16,
+          "audioTime": 0.272,
+          "rms": 0.006441928889833893
+        },
+        {
+          "i": 17,
+          "audioTime": 0.2906666666666667,
+          "rms": 0.00472675581012337
+        },
+        {
+          "i": 18,
+          "audioTime": 0.312,
+          "rms": 0.0036968383115205234
+        },
+        {
+          "i": 19,
+          "audioTime": 0.33066666666666666,
+          "rms": 0.0027172726403973772
+        },
+        {
+          "i": 20,
+          "audioTime": 0.352,
+          "rms": 0.0008212494553762141
+        },
+        {
+          "i": 21,
+          "audioTime": 0.37066666666666664,
+          "rms": 0.001069886641997663
+        },
+        {
+          "i": 22,
+          "audioTime": 0.392,
+          "rms": 0.001046253249203697
+        },
+        {
+          "i": 23,
+          "audioTime": 0.4,
+          "rms": 0.0010427817601256898
+        },
+        {
+          "i": 24,
+          "audioTime": 0.42133333333333334,
+          "rms": 0.00662925362815343
+        },
+        {
+          "i": 25,
+          "audioTime": 0.44,
+          "rms": 0.006649463787828408
+        },
+        {
+          "i": 26,
+          "audioTime": 0.4613333333333333,
+          "rms": 0.001714795313374958
+        },
+        {
+          "i": 27,
+          "audioTime": 0.48,
+          "rms": 0.0012868974628162274
+        },
+        {
+          "i": 28,
+          "audioTime": 0.5013333333333333,
+          "rms": 0.002278458768794526
+        },
+        {
+          "i": 29,
+          "audioTime": 0.52,
+          "rms": 0.002286089778432042
+        },
+        {
+          "i": 30,
+          "audioTime": 0.5413333333333333,
+          "rms": 0.0014116747114962633
+        }
+      ]
+    },
+    "paper": {
+      "peakRMS": 0.014966300082846194,
+      "moving": {
+        "active": true,
+        "paused": false,
+        "disposed": false,
+        "unlocked": true,
+        "musicEnabled": false,
+        "foleyEnabled": true,
+        "musicVolume": 0.35,
+        "foleyVolume": 0.65,
+        "contextState": "running",
+        "musicTrack": null,
+        "musicPosition": 0,
+        "musicDuration": null,
+        "musicState": "paused",
+        "restRemainingMs": 0,
+        "completedPlays": 0,
+        "musicVoices": 0,
+        "foleyVoices": 1,
+        "downloaded": 5,
+        "decoded": [
+          "leather",
+          "park",
+          "seat",
+          "paperOpen",
+          "paperClose"
+        ],
+        "failures": {},
+        "eventsPlayed": 2,
+        "lastEvent": "paperOpen",
+        "materialTargets": {
+          "paper": 0.8,
+          "leather": 0
+        },
+        "materialLevels": {
+          "paper": 0.7999940514564514
+        },
+        "performances": [
+          {
+            "material": "paper",
+            "key": "paperOpen",
+            "loop": false,
+            "rate": 1,
+            "offset": 0.6433333333333335,
+            "direction": 1,
+            "ended": false
+          }
+        ],
+        "motionModel": "actual keeper path coordinates and paper winding velocity",
+        "contacts": [],
+        "listeningReview": "finite recorded performances; user listening acceptance remains separate",
+        "seamlessLoop": false,
+        "issued": false
+      },
+      "heldQuietRMS": 0,
+      "held": {
+        "active": true,
+        "paused": false,
+        "disposed": false,
+        "unlocked": true,
+        "musicEnabled": false,
+        "foleyEnabled": true,
+        "musicVolume": 0.35,
+        "foleyVolume": 0.65,
+        "contextState": "running",
+        "musicTrack": null,
+        "musicPosition": 0,
+        "musicDuration": null,
+        "musicState": "paused",
+        "restRemainingMs": 0,
+        "completedPlays": 0,
+        "musicVoices": 0,
+        "foleyVoices": 0,
+        "downloaded": 5,
+        "decoded": [
+          "leather",
+          "park",
+          "seat",
+          "paperOpen",
+          "paperClose"
+        ],
+        "failures": {},
+        "eventsPlayed": 2,
+        "lastEvent": "paperOpen",
+        "materialTargets": {
+          "paper": 0,
+          "leather": 0
+        },
+        "materialLevels": {
+          "paper": 0
+        },
+        "performances": [
+          {
+            "material": "paper",
+            "key": "paperOpen",
+            "loop": false,
+            "rate": 1,
+            "offset": 0.6433333333333335,
+            "direction": 1,
+            "ended": true
+          }
+        ],
+        "motionModel": "actual keeper path coordinates and paper winding velocity",
+        "contacts": [],
+        "listeningReview": "finite recorded performances; user listening acceptance remains separate",
+        "seamlessLoop": false,
+        "issued": false
+      },
+      "trace": [
+        {
+          "i": 1,
+          "audioTime": 0.912,
+          "rms": 0
+        },
+        {
+          "i": 2,
+          "audioTime": 0.9306666666666666,
+          "rms": 0.0010373901764547807
+        },
+        {
+          "i": 3,
+          "audioTime": 0.952,
+          "rms": 0.006598040797019581
+        },
+        {
+          "i": 4,
+          "audioTime": 0.9706666666666667,
+          "rms": 0.007234221244951626
+        },
+        {
+          "i": 5,
+          "audioTime": 0.9813333333333333,
+          "rms": 0.005440079745903519
+        },
+        {
+          "i": 6,
+          "audioTime": 1,
+          "rms": 0.00447568956530788
+        },
+        {
+          "i": 7,
+          "audioTime": 1.0213333333333334,
+          "rms": 0.004836768030084064
+        },
+        {
+          "i": 8,
+          "audioTime": 1.04,
+          "rms": 0.004122555599182284
+        },
+        {
+          "i": 9,
+          "audioTime": 1.0613333333333332,
+          "rms": 0.003020541446115585
+        },
+        {
+          "i": 10,
+          "audioTime": 1.08,
+          "rms": 0.0024694173320217853
+        },
+        {
+          "i": 11,
+          "audioTime": 1.1013333333333333,
+          "rms": 0.0024429433050051695
+        },
+        {
+          "i": 12,
+          "audioTime": 1.12,
+          "rms": 0.002717751505332079
+        },
+        {
+          "i": 13,
+          "audioTime": 1.1413333333333333,
+          "rms": 0.002499661823682032
+        },
+        {
+          "i": 14,
+          "audioTime": 1.16,
+          "rms": 0.002836757373213573
+        },
+        {
+          "i": 15,
+          "audioTime": 1.1813333333333333,
+          "rms": 0.013596861304566115
+        },
+        {
+          "i": 16,
+          "audioTime": 1.192,
+          "rms": 0.014357983615120523
+        },
+        {
+          "i": 17,
+          "audioTime": 1.2106666666666666,
+          "rms": 0.014966300082846194
+        },
+        {
+          "i": 18,
+          "audioTime": 1.232,
+          "rms": 0.0067855792575149355
+        },
+        {
+          "i": 19,
+          "audioTime": 1.2506666666666666,
+          "rms": 0.0054875400907348675
+        },
+        {
+          "i": 20,
+          "audioTime": 1.272,
+          "rms": 0.005437492104596559
+        },
+        {
+          "i": 21,
+          "audioTime": 1.2906666666666666,
+          "rms": 0.005563462399005784
+        },
+        {
+          "i": 22,
+          "audioTime": 1.312,
+          "rms": 0.00795903699041699
+        },
+        {
+          "i": 23,
+          "audioTime": 1.3306666666666667,
+          "rms": 0.007117466128787267
+        },
+        {
+          "i": 24,
+          "audioTime": 1.3413333333333333,
+          "rms": 0.006289667265505176
+        },
+        {
+          "i": 25,
+          "audioTime": 1.36,
+          "rms": 0.0033326331183107156
+        },
+        {
+          "i": 26,
+          "audioTime": 1.3813333333333333,
+          "rms": 0.003125234915472908
+        },
+        {
+          "i": 27,
+          "audioTime": 1.4,
+          "rms": 0.002261004266827006
+        },
+        {
+          "i": 28,
+          "audioTime": 1.4213333333333333,
+          "rms": 0.001752537970755158
+        },
+        {
+          "i": 29,
+          "audioTime": 1.44,
+          "rms": 0.0013236462623195068
+        },
+        {
+          "i": 30,
+          "audioTime": 1.4613333333333334,
+          "rms": 0.0012579885912878909
+        }
+      ]
+    },
+    "reverse": {
+      "peakRMS": 0.010422730254247786,
+      "moving": {
+        "active": true,
+        "paused": false,
+        "disposed": false,
+        "unlocked": true,
+        "musicEnabled": false,
+        "foleyEnabled": true,
+        "musicVolume": 0.35,
+        "foleyVolume": 0.65,
+        "contextState": "running",
+        "musicTrack": null,
+        "musicPosition": 0,
+        "musicDuration": null,
+        "musicState": "paused",
+        "restRemainingMs": 0,
+        "completedPlays": 0,
+        "musicVoices": 0,
+        "foleyVoices": 1,
+        "downloaded": 5,
+        "decoded": [
+          "leather",
+          "park",
+          "seat",
+          "paperOpen",
+          "paperClose"
+        ],
+        "failures": {},
+        "eventsPlayed": 3,
+        "lastEvent": "paperClose",
+        "materialTargets": {
+          "paper": 0.8,
+          "leather": 0
+        },
+        "materialLevels": {
+          "paper": 0.800000011920929
+        },
+        "performances": [
+          {
+            "material": "paper",
+            "key": "paperClose",
+            "loop": false,
+            "rate": 1,
+            "offset": 1.2424222222222223,
+            "direction": -1,
+            "ended": false
+          }
+        ],
+        "motionModel": "actual keeper path coordinates and paper winding velocity",
+        "contacts": [],
+        "listeningReview": "finite recorded performances; user listening acceptance remains separate",
+        "seamlessLoop": false,
+        "issued": false
+      },
+      "heldQuietRMS": 0,
+      "held": {
+        "active": true,
+        "paused": false,
+        "disposed": false,
+        "unlocked": true,
+        "musicEnabled": false,
+        "foleyEnabled": true,
+        "musicVolume": 0.35,
+        "foleyVolume": 0.65,
+        "contextState": "running",
+        "musicTrack": null,
+        "musicPosition": 0,
+        "musicDuration": null,
+        "musicState": "paused",
+        "restRemainingMs": 0,
+        "completedPlays": 0,
+        "musicVoices": 0,
+        "foleyVoices": 0,
+        "downloaded": 5,
+        "decoded": [
+          "leather",
+          "park",
+          "seat",
+          "paperOpen",
+          "paperClose"
+        ],
+        "failures": {},
+        "eventsPlayed": 3,
+        "lastEvent": "paperClose",
+        "materialTargets": {
+          "paper": 0,
+          "leather": 0
+        },
+        "materialLevels": {
+          "paper": 0
+        },
+        "performances": [
+          {
+            "material": "paper",
+            "key": "paperClose",
+            "loop": false,
+            "rate": 1,
+            "offset": 1.2424222222222223,
+            "direction": -1,
+            "ended": true
+          }
+        ],
+        "motionModel": "actual keeper path coordinates and paper winding velocity",
+        "contacts": [],
+        "listeningReview": "finite recorded performances; user listening acceptance remains separate",
+        "seamlessLoop": false,
+        "issued": false
+      },
+      "trace": [
+        {
+          "i": 1,
+          "audioTime": 1.84,
+          "rms": 0
+        },
+        {
+          "i": 2,
+          "audioTime": 1.8613333333333333,
+          "rms": 0.0005871368024654881
+        },
+        {
+          "i": 3,
+          "audioTime": 1.88,
+          "rms": 0.0013485814451953077
+        },
+        {
+          "i": 4,
+          "audioTime": 1.9013333333333333,
+          "rms": 0.0020703337679988804
+        },
+        {
+          "i": 5,
+          "audioTime": 1.92,
+          "rms": 0.0023511475646568114
+        },
+        {
+          "i": 6,
+          "audioTime": 1.9413333333333334,
+          "rms": 0.0020677321768199767
+        },
+        {
+          "i": 7,
+          "audioTime": 1.96,
+          "rms": 0.0016401401465140984
+        },
+        {
+          "i": 8,
+          "audioTime": 1.9813333333333334,
+          "rms": 0.001303186587471436
+        },
+        {
+          "i": 9,
+          "audioTime": 2,
+          "rms": 0.0012083466543129123
+        },
+        {
+          "i": 10,
+          "audioTime": 2.010666666666667,
+          "rms": 0.001200707509914526
+        },
+        {
+          "i": 11,
+          "audioTime": 2.032,
+          "rms": 0.0013990235405252998
+        },
+        {
+          "i": 12,
+          "audioTime": 2.050666666666667,
+          "rms": 0.0014748298775785187
+        },
+        {
+          "i": 13,
+          "audioTime": 2.072,
+          "rms": 0.001409842814005444
+        },
+        {
+          "i": 14,
+          "audioTime": 2.0906666666666665,
+          "rms": 0.0013486324490535988
+        },
+        {
+          "i": 15,
+          "audioTime": 2.112,
+          "rms": 0.001087571768135575
+        },
+        {
+          "i": 16,
+          "audioTime": 2.1306666666666665,
+          "rms": 0.0013193800022368717
+        },
+        {
+          "i": 17,
+          "audioTime": 2.152,
+          "rms": 0.001387905459703393
+        },
+        {
+          "i": 18,
+          "audioTime": 2.1706666666666665,
+          "rms": 0.01016179938915855
+        },
+        {
+          "i": 19,
+          "audioTime": 2.192,
+          "rms": 0.010422730254247786
+        },
+        {
+          "i": 20,
+          "audioTime": 2.2106666666666666,
+          "rms": 0.004243999167554452
+        },
+        {
+          "i": 21,
+          "audioTime": 2.232,
+          "rms": 0.003656424388918436
+        },
+        {
+          "i": 22,
+          "audioTime": 2.2506666666666666,
+          "rms": 0.0028442745955829752
+        },
+        {
+          "i": 23,
+          "audioTime": 2.272,
+          "rms": 0.002044702390308065
+        },
+        {
+          "i": 24,
+          "audioTime": 2.2906666666666666,
+          "rms": 0.0012923328404381117
+        },
+        {
+          "i": 25,
+          "audioTime": 2.3013333333333335,
+          "rms": 0.0012890365322554055
+        },
+        {
+          "i": 26,
+          "audioTime": 2.32,
+          "rms": 0.001602294314218796
+        },
+        {
+          "i": 27,
+          "audioTime": 2.352,
+          "rms": 0.0016867989469206565
+        },
+        {
+          "i": 28,
+          "audioTime": 2.36,
+          "rms": 0.0018439259836654604
+        },
+        {
+          "i": 29,
+          "audioTime": 2.3813333333333335,
+          "rms": 0.002352897166431362
+        },
+        {
+          "i": 30,
+          "audioTime": 2.4,
+          "rms": 0.002393136383927195
+        }
+      ]
+    },
+    "performances": [
+      {
+        "material": "paper",
+        "key": "paperClose",
+        "loop": false,
+        "rate": 1,
+        "offset": 1.2424222222222223,
+        "direction": -1,
+        "ended": false
+      }
+    ],
+    "paused": {
+      "active": true,
+      "paused": true,
+      "disposed": false,
+      "unlocked": true,
+      "musicEnabled": false,
+      "foleyEnabled": true,
+      "musicVolume": 0.35,
+      "foleyVolume": 0.65,
+      "contextState": "running",
+      "musicTrack": null,
+      "musicPosition": 0,
+      "musicDuration": null,
+      "musicState": "paused",
+      "restRemainingMs": 0,
+      "completedPlays": 0,
+      "musicVoices": 0,
+      "foleyVoices": 0,
+      "downloaded": 5,
+      "decoded": [
+        "leather",
+        "park",
+        "seat",
+        "paperOpen",
+        "paperClose"
+      ],
+      "failures": {},
+      "eventsPlayed": 3,
+      "lastEvent": "paperClose",
+      "materialTargets": {
+        "paper": 0,
+        "leather": 0
+      },
+      "materialLevels": {},
+      "performances": [],
+      "motionModel": "actual keeper path coordinates and paper winding velocity",
+      "contacts": [],
+      "listeningReview": "finite recorded performances; user listening acceptance remains separate",
+      "seamlessLoop": false,
+      "issued": false
+    },
+    "exited": {
+      "active": false,
+      "paused": true,
+      "disposed": false,
+      "unlocked": true,
+      "musicEnabled": false,
+      "foleyEnabled": true,
+      "musicVolume": 0.35,
+      "foleyVolume": 0.65,
+      "contextState": "running",
+      "musicTrack": null,
+      "musicPosition": 0,
+      "musicDuration": null,
+      "musicState": "paused",
+      "restRemainingMs": 0,
+      "completedPlays": 0,
+      "musicVoices": 0,
+      "foleyVoices": 0,
+      "downloaded": 5,
+      "decoded": [
+        "leather",
+        "park",
+        "seat",
+        "paperOpen",
+        "paperClose"
+      ],
+      "failures": {},
+      "eventsPlayed": 3,
+      "lastEvent": "paperClose",
+      "materialTargets": {
+        "paper": 0,
+        "leather": 0
+      },
+      "materialLevels": {},
+      "performances": [],
+      "motionModel": "actual keeper path coordinates and paper winding velocity",
+      "contacts": [],
+      "listeningReview": "finite recorded performances; user listening acceptance remains separate",
+      "seamlessLoop": false,
+      "issued": false
+    },
+    "actualAudioContext": "running"
+  },
+  "errors": [],
+  "scope": "Real WebAudio analyser on material bus with the actual keeper path. Browser automation, not a human timbre assessment or physical iPhone audition."
+}

@@ -1,0 +1,35 @@
+{
+  "schema": "second-language.reader-material-audio.v1",
+  "currentSince": "2026-10-22",
+  "runtime": [
+    {
+      "path": "assets/audio-music/a-new-town.mp3",
+      "bytes": 766291,
+      "sha256": "8a83b97f06cad1052eea0a3fa8f65966db742e68275a1d82816773c820578ad2"
+    },
+    {
+      "path": "assets/audio-foley/parchment-roll-loop.wav",
+      "bytes": 184382,
+      "sha256": "d655c95ef2e4fa34cfb0461c296f47b554e1474613679b8da7ed7c0e348ac32d"
+    },
+    {
+      "path": "assets/audio-foley/leather-flex-loop.wav",
+      "bytes": 112940,
+      "sha256": "9aaeb40ca6fc85f7b2b18c31efbaf37ea4de4438516de62a847ed1d27f27c606"
+    },
+    {
+      "path": "assets/audio-foley/metalClick.wav",
+      "bytes": 78688,
+      "sha256": "9854e21f5428bf8feb46faabc01d2e3fa120ada431baeaecdc869c7e3a81b5d4"
+    }
+  ],
+  "sources": "material-recordings/CREDITS.md",
+  "derivatives": "material-recordings/derivatives.json",
+  "originalArchive": "material-recordings/",
+  "licenses": [
+    "CC-BY-3.0",
+    "CC0-1.0"
+  ],
+  "legacyManifest": "legacy-manifest-2026-10-21.json",
+  "listeningReview": "Motion and source metadata verified separately; human acceptance not asserted."
+}

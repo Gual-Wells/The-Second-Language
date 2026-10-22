@@ -6,7 +6,8 @@ const {chromium}=await import(pathToFileURL('D:/CodexStorage/workspaces/second-l
 const args=process.argv.slice(2);
 if(args.length>1||args.some(arg=>arg.startsWith('--')))throw Error('Usage: node scripts/verify-project-beginning.mjs [base URL]');
 const base=(args[0]||'http://127.0.0.1:8153').replace(/\/$/,''),remote=base.startsWith('https:'),origin=new URL(base).origin;
-const out='research/scroll-reader-correction-2026-10-22',tmp=process.cwd()+'/.cache/project-beginning-browser/tmp';
+const out='research/scroll-craft-and-audio-2026-10-22',tmp=process.cwd()+'/.cache/project-beginning-browser/tmp';
+const captureAudio=process.env.SCROLL_CAPTURE_AUDIO==='1'&&!remote;
 await mkdir(out,{recursive:true});await mkdir(tmp,{recursive:true});process.env.TEMP=process.env.TMP=tmp;
 const expectedSHA='4a83d1952e133bcecd6c1aa2e14a788159b410e9a6ea2a7f5bcf42610943e37b',madeAt='2026-10-21T12:10:23.227Z',localTime='2026-10-21 20:10:23.227 +08:00';
 const hash=bytes=>createHash('sha256').update(bytes).digest('hex');
@@ -23,6 +24,17 @@ async function newPage(){
  const context=await browser.newContext({viewport:{width:402,height:874},deviceScaleFactor:2,isMobile:true,hasTouch:true,serviceWorkers:'block'});
  await context.grantPermissions(['clipboard-read','clipboard-write'],{origin});
  await context.addInitScript(({preference})=>{localStorage.setItem('second-language-certification-sound-v1',preference);window.__readerTestHidden=false;Object.defineProperty(document,'hidden',{configurable:true,get:()=>window.__readerTestHidden});},{preference:oldPreference});
+ if(captureAudio)await context.addInitScript(()=>{
+  const connect=AudioNode.prototype.connect;
+  AudioNode.prototype.connect=function(destination,...args){
+   const result=connect.call(this,destination,...args);
+   if(destination===this.context.destination){
+    window.__readerMix??=this.context.createMediaStreamDestination();
+    connect.call(this,window.__readerMix);
+   }
+   return result;
+  };
+ });
  const page=await context.newPage();page.on('pageerror',error=>errors.push(error.message));
  page.on('request',request=>{resources.push(request.url());if(!['GET','HEAD'].includes(request.method()))writes.push({url:request.url(),method:request.method()});});
  page.on('response',response=>{
@@ -38,6 +50,19 @@ async function ready(page){await page.waitForFunction(()=>certificationReader.sn
 async function reveal(page){await page.locator('#certificationCanvas').focus();await page.keyboard.press('ArrowRight');}
 async function soundStopped(page){await page.waitForFunction(()=>{const s=certificationReader.snapshot().sound;return s.musicVoices===0&&s.foleyVoices===0&&s.musicTrack===null;},null,{timeout:10000});}
 async function copied(page,button,expected){await page.locator(button).tap();await page.waitForFunction(async expected=>{const actual=await navigator.clipboard.readText();return Array.isArray(expected)?JSON.stringify(actual.split(/\r?\n/).filter(Boolean))===JSON.stringify(expected):actual===expected;},expected);return page.evaluate(()=>navigator.clipboard.readText());}
+async function recordStart(page){if(!captureAudio)return;await page.evaluate(()=>{
+ window.__readerAudioChunks=[];window.__readerRecorder=new MediaRecorder(__readerMix.stream,{mimeType:'audio/webm;codecs=opus',audioBitsPerSecond:192000});
+ __readerRecorder.ondataavailable=e=>__readerAudioChunks.push(e.data);__readerRecorder.start();
+});}
+async function recordStop(page,name){if(!captureAudio)return;const data=await page.evaluate(async()=>{
+ const recorder=__readerRecorder;await new Promise(resolve=>{recorder.onstop=resolve;recorder.stop();});
+ const blob=new Blob(__readerAudioChunks,{type:recorder.mimeType}),offline=new OfflineAudioContext(2,1,48000),b=await offline.decodeAudioData(await blob.arrayBuffer());
+ const channels=b.numberOfChannels,bytes=new ArrayBuffer(44+2*b.length*channels),d=new DataView(bytes),s=(p,v)=>[...v].forEach((c,i)=>d.setUint8(p+i,c.charCodeAt(0)));
+ s(0,'RIFF');d.setUint32(4,bytes.byteLength-8,true);s(8,'WAVE');s(12,'fmt ');d.setUint32(16,16,true);d.setUint16(20,1,true);d.setUint16(22,channels,true);d.setUint32(24,b.sampleRate,true);d.setUint32(28,b.sampleRate*channels*2,true);d.setUint16(32,channels*2,true);d.setUint16(34,16,true);s(36,'data');d.setUint32(40,bytes.byteLength-44,true);
+ for(let i=0;i<b.length;i++)for(let c=0;c<channels;c++)d.setInt16(44+2*(i*channels+c),Math.round(Math.max(-1,Math.min(1,b.getChannelData(c)[i]))*32767),true);
+ const u=new Uint8Array(bytes);let str='';for(let i=0;i<u.length;i+=16384)str+=String.fromCharCode(...u.subarray(i,i+16384));
+ return {wav:btoa(str),duration:b.duration,rate:b.sampleRate,channels};
+});const bytes=Buffer.from(data.wav,'base64');delete data.wav;await writeFile(out+'/'+name+'.wav',bytes);await writeFile(out+'/'+name+'.json',JSON.stringify({...data,sha256:hash(bytes),scope:'Actual viewer output including unchanged music, captured from its WebAudio destination through MediaRecorder Opus and decoded to WAV; not a lossless master or human audition.'},null,2)+'\n');}
 try{
  const {context,page}=await newPage();await catalogue(page);
  assert.ok(!resources.some(url=>/reader\.bundle|\.glb|\.mp3|\.wav|final-front/.test(url)),'Catalogue must not prepare heavy display or audio');
@@ -60,7 +85,7 @@ try{
  const productionBundle=resources.find(url=>new URL(url).pathname==='/labs/certification-reader/reader.bundle.js');assert.ok(productionBundle);
  const rejectedProfiles=await page.evaluate(async url=>{const {ScrollViewer}=await import(url),results=[];for(const chapter of [1,5]){const test=new ScrollViewer(document.createElement('canvas'),document.createElement('canvas'));try{await test.prepare({chapter});results.push(false);}catch{results.push(true);}finally{test.dispose();}}return results;},productionBundle);assert.deepEqual(rejectedProfiles,[true,true]);
  await page.screenshot({path:out+(remote?'/live-closed.png':'/closed.png'),scale:'css'});const beforeMusic=initial.sound.musicPosition;
- await page.locator('#certificationCanvas').tap({position:{x:201,y:430}});await page.waitForFunction(()=>{const v=certificationReader.snapshot().viewer;return v.progress>.999&&!v.animating;},null,{timeout:60000});
+ await recordStart(page);await page.locator('#certificationCanvas').tap({position:{x:201,y:430}});await page.waitForFunction(()=>{const v=certificationReader.snapshot().viewer;return v.progress>.999&&!v.animating;},null,{timeout:60000});await recordStop(page,'actual-opening-mix');
  const opened=await page.evaluate(()=>certificationReader.snapshot());assert.ok(opened.sound.musicPosition>beforeMusic);assert.ok(opened.sound.eventsPlayed>0,'Real opening should drive recorded foley');assert.deepEqual(opened.sound.failures,{});
  await page.waitForFunction(()=>!document.querySelector('#certificationStage').classList.contains('controls-visible'));assert.equal(await page.locator('#certificationHud').getAttribute('inert'),'');await page.screenshot({path:out+(remote?'/live-open.png':'/open.png'),scale:'css'});
  await reveal(page);const beforePanel=await page.evaluate(()=>certificationReader.snapshot().viewer.progress);await page.locator('#certificationDocument').tap();await page.locator('#certificationDocumentPanel').waitFor({state:'visible'});

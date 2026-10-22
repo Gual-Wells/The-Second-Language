@@ -14,8 +14,8 @@ export function materialMotion(current,previous,seconds){
   +Math.abs(number(b.along)-number(a.along))*.025
   +Math.abs(number(b.feed)-number(a.feed))*.6
   +Math.abs(number(b.slide)-number(a.slide))*.12)/seconds;
- const paper=current.paperProgress>0&&b.r>=.999&&paperSpeed>.002?.2*Math.sqrt(clamp(paperSpeed/.6)):0;
- const leather=b.visible!==false&&b.r<.95&&current.paperProgress===0&&leatherSpeed>.002?.17*Math.sqrt(clamp(leatherSpeed/1.1)):0;
+ const paper=current.paperProgress>0&&b.r>=.999&&paperSpeed>.002?.8*Math.sqrt(clamp(paperSpeed/.6)):0;
+ const leather=b.visible!==false&&b.r<.95&&current.paperProgress===0&&leatherSpeed>.002?.85*Math.sqrt(clamp(leatherSpeed/1.1)):0;
  // This buckle has no latch. A quiet metal contact occurs when its rigid
  // prong finishes parking on the frame, or seats again at the fastened end.
  const park=a.pin> -1.16&&b.pin<= -1.16&&b.r>a.r;

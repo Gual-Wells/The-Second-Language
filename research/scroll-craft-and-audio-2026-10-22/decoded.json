@@ -1,0 +1,20 @@
+[
+  {
+    "id": "parchment",
+    "rate": 48000,
+    "channels": 1,
+    "duration": 23.094958333333334
+  },
+  {
+    "id": "leather",
+    "rate": 48000,
+    "channels": 2,
+    "duration": 2.59
+  },
+  {
+    "id": "buckle",
+    "rate": 48000,
+    "channels": 1,
+    "duration": 6.109895833333334
+  }
+]

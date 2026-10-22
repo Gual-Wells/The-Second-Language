@@ -1,0 +1,44 @@
+{
+  "schema": "second-language.recorded-performance-sources.v1",
+  "sources": [
+    {
+      "id": "parchment",
+      "author": "Vrymaa",
+      "title": "Parchment - Unroll",
+      "page": "https://freesound.org/people/Vrymaa/sounds/753282/",
+      "license": "CC0-1.0",
+      "file": "vrymaa-parchment-unroll-hq.mp3",
+      "download": "https://cdn.freesound.org/previews/753/753282_13973196-hq.mp3",
+      "bytes": 543936,
+      "sha256": "90a1932e29e74abdcc725d62ebd6db64729fcbb57ac00c1af163a9b624e2956a",
+      "retrievedAt": "2026-10-22T03:06:35.092Z",
+      "formatNote": "Public HQ MP3 derivative, not the login-protected original WAV."
+    },
+    {
+      "id": "leather",
+      "author": "Joao_Janz",
+      "title": "Leather Belt Stretching 1_8",
+      "page": "https://freesound.org/people/Joao_Janz/sounds/493154/",
+      "license": "CC0-1.0",
+      "file": "joao-janz-leather-belt-hq.mp3",
+      "download": "https://cdn.freesound.org/previews/493/493154_9961300-hq.mp3",
+      "bytes": 75720,
+      "sha256": "ed126eb8dc6f331dc286329ac46b971cdca5e5e75f031921d24e35c3dc23713a",
+      "retrievedAt": "2026-10-22T03:06:37.133Z",
+      "formatNote": "Public HQ MP3 derivative, not the login-protected original WAV."
+    },
+    {
+      "id": "buckle",
+      "author": "Joseph SARDIN",
+      "title": "Belt buckle",
+      "page": "https://bigsoundbank.com/belt-buckle-s0575.html",
+      "license": "CC0-1.0",
+      "file": "joseph-sardin-belt-buckle.wav",
+      "download": "https://bigsoundbank.com/UPLOAD/bwf-en/0575.wav",
+      "bytes": 587618,
+      "sha256": "f2cb81370e2336a27e9ae5b7c161c962c9a8135d4855f728e8124a4d18530a0e",
+      "retrievedAt": "2026-10-22T03:06:39.346Z",
+      "formatNote": "Author-exposed original WAV; inspect actual PCM format."
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-import {SoundDirector} from './labs/certification-reader/sound.js?v=40';
+import {SoundDirector} from './labs/certification-reader/sound.js?v=41';
 
 // Only published work is catalogued. Original research specimens stay in labs.
 export const READING_WORKS=Object.freeze([
@@ -73,7 +73,7 @@ export function createCertificationReader({showDialog,stopLearningAudio=()=>{}})
   // Synchronous call in the actual work click, before imports or awaits.
   unlockSound();resize();
   try{
-   const {ScrollViewer}=await import('./labs/certification-reader/reader.bundle.js?v=40');if(ticket!==request||!reader.open)return;
+   const {ScrollViewer}=await import('./labs/certification-reader/reader.bundle.js?v=41');if(ticket!==request||!reader.open)return;
    viewer=new ScrollViewer($('certificationCanvas'),$('certificationMist'),{onProgress:state=>sound.motion(state),onStatus:(text,meta)=>{
     if(ticket!==request||!reader.open)return;updateDocument();
     if(['failed','context-lost','restoring'].includes(meta.status)){lost=true;ready=false;const image=viewer?.exportDocument();if(image){$('certificationStatic').src=image;$('certificationStatic').hidden=false;}setStatus(meta.status==='restoring'?'正在恢复显示…':'显示暂时中断，可重试。',meta.status!=='restoring');showControls();}

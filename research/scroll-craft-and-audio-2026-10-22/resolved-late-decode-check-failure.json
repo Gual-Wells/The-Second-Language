@@ -1,0 +1,6 @@
+{
+  "error": "page.waitForFunction: Timeout 45000ms exceeded.\n    at D:\\CodexStorage\\workspaces\\second-language-certification-reader\\scripts\\verify-project-beginning.mjs:111:21",
+  "errors": [],
+  "missing": [],
+  "writes": []
+}
