@@ -32,6 +32,16 @@ h1 { margin: 0; font-size: clamp(19px, 4.7vw, 25px); font-weight: 550; letter-sp
 #phase { color: #d5d8c9; }
 #progress { margin-left: auto; font-variant-numeric: tabular-nums; }
 .listening-note { margin: 0; color: #89947f; }
+.source-auditions { padding: 18px 0 8px; border-top: 1px solid #3a443780; font-size: 12px; line-height: 1.65; color: #acb4a4; }
+.source-auditions h2 { margin: 0 0 8px; font-size: 17px; font-weight: 550; color: #eee9db; }
+.source-auditions > p { margin: 6px 0 14px; }
+.source-card { padding: 14px 0; border-bottom: 1px solid #3a443780; }
+.source-card h3 { margin: 0 0 4px; font-size: 14px; font-weight: 550; color: #e2ddce; }
+.source-card p { margin: 4px 0 8px; }
+.source-card audio { display: block; width: min(100%, 500px); height: 40px; margin: 10px 0 7px; }
+.source-card a { color: #d0bd94; text-underline-offset: 3px; }
+.source-meta { font-size: 11px; color: #89947f; }
+#sourceStatus:empty { display: none; }
 noscript { display: block; padding: 20px; }
 @media (min-width: 600px) { .study { padding-inline: 24px; gap: 14px; }.controls { grid-template-columns: 100px 100px 130px 1fr; }.music-option { grid-column: auto; justify-self: end; }.stage { height: max(380px, calc(100svh - 239px)); }.notes { font-size: 12px; } }
-@media (max-height: 520px) and (orientation: landscape) { .study { grid-template-columns: minmax(0, 1fr) 230px; grid-template-rows: auto 1fr auto; }.heading { grid-column: 1 / -1; }.stage { grid-column: 1; grid-row: 2 / 4; height: calc(100svh - 100px); min-height: 260px; }.controls { grid-column: 2; grid-row: 2; align-self: center; grid-template-columns: 1fr 1fr; }.controls .primary { grid-column: 1 / -1; }.music-option { grid-column: 1 / -1; justify-self: start; }.notes { grid-column: 2; }.listening-note { font-size: 10px; } }
+@media (max-height: 520px) and (orientation: landscape) { .study { grid-template-columns: minmax(0, 1fr) 230px; grid-template-rows: auto 1fr auto; }.heading { grid-column: 1 / -1; }.stage { grid-column: 1; grid-row: 2 / 4; height: calc(100svh - 100px); min-height: 260px; }.controls { grid-column: 2; grid-row: 2; align-self: center; grid-template-columns: 1fr 1fr; }.controls .primary { grid-column: 1 / -1; }.music-option { grid-column: 1 / -1; justify-self: start; }.notes { grid-column: 2; }.listening-note { font-size: 10px; }.source-auditions { grid-column: 1 / -1; } }

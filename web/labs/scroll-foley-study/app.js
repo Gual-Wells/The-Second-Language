@@ -9,8 +9,55 @@ const phaseNames = Object.freeze({
 });
 let sound = null, viewer = null, soundEpoch = 0;
 let soundReady = false, viewerReady = false, disposed = false, latestPose = null;
-let audioMessage = '默认仅卷展声，轻触“启用试听”开启声音。', viewerMessage = '正在准备原版卷轴…';
+let audioMessage = '轻触“启用试听”，复核上一轮 A/B 页的皮扣声。', viewerMessage = '正在准备原版卷轴…';
 let viewerFailure = false, audioFailure = false, statusTimer = 0;
+const auditions = [];
+let auditionPaused = false;
+
+function stopAuditions() {
+  for (const audio of auditions) { audio.pause(); audio.currentTime = 0; }
+  if (auditionPaused) {
+    auditionPaused = false;
+    if (!document.hidden && !disposed) { viewer?.resume(); sound?.resume(); }
+  }
+}
+
+async function prepareAuditions() {
+  try {
+    const response = await fetch('./source-auditions.json');
+    if (!response.ok) throw Error('目录暂时无法读取');
+    const data = await response.json();
+    if (disposed) return;
+    for (const item of data.recordings) {
+      const card = document.createElement('article'); card.className = 'source-card';
+      const heading = document.createElement('h3'); heading.textContent = item.title;
+      const description = document.createElement('p'); description.textContent = item.description;
+      const audio = document.createElement('audio');
+      audio.controls = true; audio.preload = 'none'; audio.src = item.file;
+      audio.setAttribute('aria-label', item.title); auditions.push(audio);
+      audio.addEventListener('play', () => {
+        if (disposed || document.hidden) { audio.pause(); return; }
+        for (const other of auditions) if (other !== audio) other.pause();
+        soundEpoch++; soundReady = false; auditionPaused = true;
+        viewer?.pause(); sound?.pause();
+        audioMessage = '正在独听新原音；点“启用试听”返回 A/B 皮扣参照。';
+        controls();
+      });
+      audio.addEventListener('error', () => {
+        if (!disposed) $('sourceStatus').textContent = `${item.title}未能播放，请重试；本次不作为有效试听。`;
+      });
+      const metadata = document.createElement('p'); metadata.className = 'source-meta';
+      metadata.textContent = `${item.author} · ${item.format} · ${item.license} · `;
+      const link = document.createElement('a'); link.href = item.sourcePage;
+      link.textContent = '作者原页'; link.target = '_blank'; link.rel = 'noopener';
+      metadata.append(link);
+      card.append(heading, description, audio, metadata); $('sourceList').append(card);
+    }
+    $('sourceStatus').textContent = data.note || '';
+  } catch {
+    if (!disposed) $('sourceStatus').textContent = '新原音目录未能读取，请刷新重试；上方皮扣参照仍可试听。';
+  }
+}
 
 function controls() {
   $('openScroll').disabled = !viewerReady || !soundReady;
@@ -52,7 +99,7 @@ function describeAudio(candidate) {
     return false;
   }
   audioFailure = false;
-  audioMessage = `轻卷展声候选已准备${$('withMusic').checked ? ' · 与音乐合听' : ' · 仅卷展声'}。`;
+  audioMessage = `A/B 皮扣参照已恢复${$('withMusic').checked ? ' · 与音乐合听' : ' · 仅皮扣声'}。`;
   return true;
 }
 
@@ -69,9 +116,10 @@ function configureSound() {
 
 async function enableSound(candidate = sound, epoch = soundEpoch) {
   if (disposed || !candidate || candidate !== sound) return false;
+  stopAuditions();
   // This call runs in the original trusted pointer/click handler, before await.
   const unlocking = candidate.unlock();
-  audioMessage = '正在准备轻卷展声…';
+  audioMessage = '正在准备 A/B 皮扣参照…';
   controls();
   try {
     const unlocked = await unlocking;
@@ -180,13 +228,13 @@ observer.observe($('stage'));
 document.addEventListener('visibilitychange', () => {
   if (disposed) return;
   if (document.hidden) {
+    for (const audio of auditions) audio.pause();
     soundEpoch++;
     viewer?.pause();
     sound?.pause();
     soundReady = false;
   } else {
-    viewer?.resume();
-    sound?.resume();
+    if (!auditionPaused) { viewer?.resume(); sound?.resume(); }
     audioMessage = '返回试听页。若声音未恢复，请轻触“启用试听”。';
   }
   controls();
@@ -194,6 +242,7 @@ document.addEventListener('visibilitychange', () => {
 window.addEventListener('pagehide', event => {
   // Preserve the rendering for a possible bfcache return while stopping all audio.
   soundEpoch++;
+  for (const audio of auditions) audio.pause();
   soundReady = false;
   viewer?.pause();
   sound?.setActive(false);
@@ -201,14 +250,16 @@ window.addEventListener('pagehide', event => {
 });
 window.addEventListener('pageshow', event => {
   if (!event.persisted || disposed) return;
-  viewer?.resume();
+  if (!auditionPaused) viewer?.resume();
   sound?.setActive(true);
+  if (auditionPaused) sound?.pause();
   audioMessage = '轻触“启用试听”继续，之前的动作不会补播。';
   controls();
 });
 function dispose() {
   if (disposed) return;
   disposed = true;
+  for (const audio of auditions) { audio.pause(); audio.removeAttribute('src'); audio.load(); }
   soundEpoch++;
   clearInterval(statusTimer);
   observer.disconnect();
@@ -218,6 +269,7 @@ function dispose() {
 configureSound();
 sound.prepare().catch(() => {});
 void prepareViewer();
+void prepareAuditions();
 statusTimer = setInterval(() => {
   if (disposed || !soundReady) return;
   const state = sound.snapshot();
@@ -228,6 +280,6 @@ statusTimer = setInterval(() => {
   }
 }, 750);
 window.scrollFoleyStudy = {
-  snapshot: () => ({candidate: 'soft-v2', soundReady, viewerReady, withMusic: $('withMusic').checked, pose: latestPose, sound: sound?.snapshot(), viewer: viewer?.snapshot(), candidateOnly: true}),
+  snapshot: () => ({candidate: 'source-study-v3', soundReady, viewerReady, withMusic: $('withMusic').checked, pose: latestPose, sound: sound?.snapshot(), viewer: viewer?.snapshot(), audition: {count: auditions.length, pausedViewer: auditionPaused, playing: auditions.filter(a => !a.paused).length}, candidateOnly: true}),
   dispose
 };

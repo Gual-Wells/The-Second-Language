@@ -1,6 +1,50 @@
-# Quiet paper winding study — revision 2
+# Keeper recovery and source audition — revision 3
 
-Current audition uses only a new derivative of **[Spell Scroll / Unrolling
+## Current animation reference
+
+At the user's explicit request, the keeper sound track from the previous A/B
+study (`466132c`, immutable preview
+<https://944d6c23.the-second-language.pages.dev/labs/scroll-foley-study/>) is
+restored as a comparison reference. The ten keeper WAVs, levels and contact
+cues are unchanged. This is a relatively usable reference that still requires
+improvement, not final approval of the recording or mix.
+
+The recording is **Teebee_Deael — TBDL Foley - Unbuckling belt sounds**, [author
+page](https://freesound.org/people/Teebee_Deael/sounds/626503/), CC0. Author public
+HQ MP3 preview, not a lossless original. Cut/processing details remain in
+`cues.json` and `sources.json`. The paper performances are withdrawn and are not
+loaded or played. No artwork, geometry, animation, keeper finish or mist changed.
+
+## New source-only auditions
+
+Four author-supplied individual WAV files are copied byte-for-byte from
+**Audio Elk | Foley Sessions Vol. 1**, © 2025 Audio Elk,
+<https://audioelk.itch.io/foley-sessions-vol-1>, licensed on the current author
+page under **[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)**.
+Files: `MXL900_BELT_HANDLING_01.wav`, `_07.wav`, `_13.wav`, and
+`MXL900_BELT_IMPACT_07.wav` in `sources/audioelk/`. These are the author's
+`SPLICED/BELT` exports, not the sampler montage and not the full-session RAW.
+No processing by this project. Actual files are PCM **16-bit / 48 kHz / mono**,
+despite the product's advertised 24-bit format.
+
+Exact members, byte hashes, durations and source links are in
+`source-auditions.json`; current work-specific license declaration and the
+inconsistent older generic commercial PDF are documented in
+`sources/audioelk/licensing-evidence.json`. This use relies on the author's
+explicit CC grant for this named work, not a claim that the old PDF is CC.
+Attribution and CC terms accompany the audio; no endorsement is implied. No
+ownership or license change is claimed for the site's separate software.
+
+These recordings are **not yet integrated into animation or approved as a
+material match**. The source audition pauses the animated reference and music
+to prevent mixing the two. No suitable new paper-roll recording was found in
+this library; paper handling/crumpling/tearing is not substituted for winding.
+
+Music remains **A New Town — Cynic Project / cynicmusic**, CC0, linked below.
+
+## Rejected quiet paper winding study — revision 2 (archived)
+
+The rejected revision 2 used only a new derivative of **[Spell Scroll / Unrolling
 Parchment](https://lpc.opengameart.org/content/spell-scroll)** by **spookymodem**,
 [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/). The repository retains
 the original 44.1 kHz, stereo, 16-bit PCM WAV in
@@ -22,9 +66,9 @@ separation and does not prove that the recording itself contains no handling.
 
 ## Retained rejected first study
 
-The following recordings remain archived for the first study, **rejected by the
-user as hard, heavy, uneven and distracting**. They are not requested or played
-by revision 2. Its frozen first-study preview is
+The following paper recordings remain archived for the first study, **rejected
+by the user as hard, heavy, uneven and distracting**. Its keeper is separately
+restored as the current comparison reference. The frozen first-study preview is
 <https://944d6c23.the-second-language.pages.dev/labs/scroll-foley-study/>. A and B
 share the new action cue edit and belt sounds; only their paper performances
 differ. v41 is available as the user-rejected reference, not a quality standard.

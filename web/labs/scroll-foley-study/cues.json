@@ -1,8 +1,7 @@
 {
   "schema": "second-language.foley-audition.v1",
-  "status": "rejected-by-user",
-  "supersededBy": "soft-roll.json",
-  "rejection": "User found the heavy paper and multi-action Foley hard, uneven and distracting. Preserved as historical evidence only.",
+  "status": "paper-rejected-keeper-restored-as-reference",
+  "rejection": "Paper was rejected as hard, uneven and distracting. The user explicitly identified the shared A/B keeper as the relatively usable recovery reference, still needing improvement. Quiet soft-roll v2 was also rejected.",
   "impactAnchorDefinition": "Start of the strongest 5ms energy window in a selected belt contact candidate; signal anchor only, not an auditory or collision-force identification.",
   "originalFormat": "Public MP3 previews, not lossless masters; decoding to PCM does not recover discarded information.",
   "processing": "Fixed contiguous cuts, DC removal, broad high/low pass, static gains, short edge fades. Native pitch/speed.",

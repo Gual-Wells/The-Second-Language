@@ -1,0 +1,2618 @@
+{
+  "checkedAt": "2026-10-22T12:35:10.980Z",
+  "base": "http://127.0.0.1:8153",
+  "reference": "466132c",
+  "scope": "Actual Chromium at 393x852, unchanged WebGL viewer and real WebAudio output. Captures are Opus recording decoded to mono PCM WAV; neither lossless masters nor physical iPhone/Safari listening acceptance.",
+  "keeperAssets": [
+    {
+      "key": "bendOpen",
+      "path": "web/labs/scroll-foley-study/audio/bendOpen.wav",
+      "bytes": 86444,
+      "sha256": "650893bdcd634a0cb36382ed53b79d776f147ce38bb3ee4b95930214d0c1c0fc",
+      "referenceSHA256": "650893bdcd634a0cb36382ed53b79d776f147ce38bb3ee4b95930214d0c1c0fc"
+    },
+    {
+      "key": "bendClose",
+      "path": "web/labs/scroll-foley-study/audio/bendClose.wav",
+      "bytes": 86444,
+      "sha256": "c22792a8c149b4cafe9a25d51a2b7979a813b7ea864f17b00a44512115be3736",
+      "referenceSHA256": "c22792a8c149b4cafe9a25d51a2b7979a813b7ea864f17b00a44512115be3736"
+    },
+    {
+      "key": "holeOpen",
+      "path": "web/labs/scroll-foley-study/audio/holeOpen.wav",
+      "bytes": 40364,
+      "sha256": "46a43b9b719f4afcbfcca0b5ead042ce0abead83d550c088292689631cf1a88c",
+      "referenceSHA256": "46a43b9b719f4afcbfcca0b5ead042ce0abead83d550c088292689631cf1a88c"
+    },
+    {
+      "key": "holeClose",
+      "path": "web/labs/scroll-foley-study/audio/holeClose.wav",
+      "bytes": 40364,
+      "sha256": "97874a858f0081efcb2737526331a3eca8249e1ea2ccd251be8a988b85e10be6",
+      "referenceSHA256": "97874a858f0081efcb2737526331a3eca8249e1ea2ccd251be8a988b85e10be6"
+    },
+    {
+      "key": "tailOpen",
+      "path": "web/labs/scroll-foley-study/audio/tailOpen.wav",
+      "bytes": 62444,
+      "sha256": "edf8e801ceb9b2dbabae864b79d627b861a5a2ed1c8522aacb304b5ce9d08a9f",
+      "referenceSHA256": "edf8e801ceb9b2dbabae864b79d627b861a5a2ed1c8522aacb304b5ce9d08a9f"
+    },
+    {
+      "key": "tailClose",
+      "path": "web/labs/scroll-foley-study/audio/tailClose.wav",
+      "bytes": 62444,
+      "sha256": "32c339c42d951178c4973e80050207d8bc3a7e6ef34856aa10ec7bc41d3afeff",
+      "referenceSHA256": "32c339c42d951178c4973e80050207d8bc3a7e6ef34856aa10ec7bc41d3afeff"
+    },
+    {
+      "key": "slideOpen",
+      "path": "web/labs/scroll-foley-study/audio/slideOpen.wav",
+      "bytes": 23084,
+      "sha256": "c47e77a5ba19e2689e48c14b5a9f2731f6d7db519c7422c07e908dd46bf5131e",
+      "referenceSHA256": "c47e77a5ba19e2689e48c14b5a9f2731f6d7db519c7422c07e908dd46bf5131e"
+    },
+    {
+      "key": "slideClose",
+      "path": "web/labs/scroll-foley-study/audio/slideClose.wav",
+      "bytes": 23084,
+      "sha256": "f60f03943a3fc9ee2482a7d9a9e716765cbeaaa9537c68841bf39a9b6284a77c",
+      "referenceSHA256": "f60f03943a3fc9ee2482a7d9a9e716765cbeaaa9537c68841bf39a9b6284a77c"
+    },
+    {
+      "key": "park",
+      "path": "web/labs/scroll-foley-study/audio/park.wav",
+      "bytes": 17088,
+      "sha256": "d95364858538b9f038f1354d930fe3e696a0e64672e5225477a6fd16adb5090d",
+      "referenceSHA256": "d95364858538b9f038f1354d930fe3e696a0e64672e5225477a6fd16adb5090d"
+    },
+    {
+      "key": "seat",
+      "path": "web/labs/scroll-foley-study/audio/seat.wav",
+      "bytes": 21392,
+      "sha256": "3c3aa2b7d0222fdb96e1978376a6c3b3b499867464365ee7daaee7d25a5cc953",
+      "referenceSHA256": "3c3aa2b7d0222fdb96e1978376a6c3b3b499867464365ee7daaee7d25a5cc953"
+    }
+  ],
+  "checks": {
+    "qualityApproved": false,
+    "artApproved": false,
+    "exactTenKeeperWAVs": true,
+    "productionViewerPaperGeometryUnchanged": true,
+    "exactAutomaticCuesAndLevels": true,
+    "existingContactThresholdPhases": true,
+    "nativeSpeedNoLoop": true,
+    "paperPhaseSilent": true,
+    "actualDragHoldReverse": true,
+    "exitReleasesAudio": true,
+    "browserBytesMatchRecovery": true,
+    "noPaperAudioRequested": true
+  },
+  "errors": [],
+  "failedRequests": [],
+  "initial": {
+    "candidate": "source-study-v3",
+    "withMusic": false,
+    "decoded": [
+      "park",
+      "bendOpen",
+      "seat",
+      "holeOpen",
+      "holeClose",
+      "slideClose",
+      "slideOpen",
+      "tailOpen",
+      "bendClose",
+      "tailClose"
+    ],
+    "keeperReference": "466132c A/B"
+  },
+  "opening": {
+    "duration": 5.82,
+    "peak": 0.105496346950531,
+    "rms": 0.002157106509443464,
+    "cues": [
+      {
+        "key": "bendOpen",
+        "mode": "automatic",
+        "direction": 1,
+        "audioTime": 0.032,
+        "wallTime": 9215.90000000596,
+        "offset": 0,
+        "duration": 0.9,
+        "gain": 0.9,
+        "progress": 0.000002585133358225285,
+        "r": 0.000006462833395563212,
+        "phase": "unload-hole",
+        "contact": false
+      },
+      {
+        "key": "holeOpen",
+        "mode": "automatic",
+        "direction": 1,
+        "audioTime": 0.8613333333333333,
+        "wallTime": 10131,
+        "offset": 0,
+        "duration": 0.42,
+        "gain": 0.7,
+        "progress": 0.07238103900820575,
+        "r": 0.18095259752051437,
+        "phase": "release-hole",
+        "contact": false
+      },
+      {
+        "key": "tailOpen",
+        "mode": "automatic",
+        "direction": 1,
+        "audioTime": 1.272,
+        "wallTime": 10548.600000023842,
+        "offset": 0,
+        "duration": 0.65,
+        "gain": 0.95,
+        "progress": 0.1440786495304189,
+        "r": 0.3601966238260472,
+        "phase": "withdraw-tail",
+        "contact": false
+      },
+      {
+        "key": "park",
+        "mode": "automatic",
+        "direction": 1,
+        "audioTime": 2.010666666666667,
+        "wallTime": 11280.90000000596,
+        "offset": 0,
+        "duration": 0.17754166666666665,
+        "gain": 0.4,
+        "progress": 0.3093440509890347,
+        "r": 0.7733601274725868,
+        "phase": "park-pin",
+        "contact": true
+      },
+      {
+        "key": "slideOpen",
+        "mode": "automatic",
+        "direction": 1,
+        "audioTime": 2.04,
+        "wallTime": 11313.40000000596,
+        "offset": 0,
+        "duration": 0.24,
+        "gain": 0.65,
+        "progress": 0.31773783527237554,
+        "r": 0.7943445881809388,
+        "phase": "slide-clear",
+        "contact": false
+      }
+    ],
+    "samples": [
+      {
+        "p": 0.000002585133358225285,
+        "q": 0,
+        "rms": 0,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "bendOpen",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.0004903087305549688,
+        "q": 0,
+        "rms": 0,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "bendOpen",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.0013986092807064755,
+        "q": 0,
+        "rms": 0.0003000886174883145,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "bendOpen",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.0027657764406579894,
+        "q": 0,
+        "rms": 0.0006806217975521817,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "bendOpen",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.005287040853721077,
+        "q": 0,
+        "rms": 0.003559195335967212,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "bendOpen",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.008586992748683641,
+        "q": 0,
+        "rms": 0.0058093907994035375,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "bendOpen",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.011559181432884785,
+        "q": 0,
+        "rms": 0.009345385821691667,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "bendOpen",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.01617277114140787,
+        "q": 0,
+        "rms": 0.004747632023936616,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "bendOpen",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.020098163966779138,
+        "q": 0,
+        "rms": 0.0007657709865452448,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "bendOpen",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.025962275170600076,
+        "q": 0,
+        "rms": 0.0011634471743317517,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "bendOpen",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.03250354789008777,
+        "q": 0,
+        "rms": 0.007096583640236356,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "bendOpen",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.03786377399736086,
+        "q": 0,
+        "rms": 0.0015701549519065116,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "bendOpen",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.0455694474226622,
+        "q": 0,
+        "rms": 0.0005496197843897619,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "bendOpen",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.05174847241141425,
+        "q": 0,
+        "rms": 0.00032765879315726354,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "bendOpen",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.06054523999054114,
+        "q": 0,
+        "rms": 0.00037843553269017023,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "bendOpen",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.06992377828950747,
+        "q": 0,
+        "rms": 0.0005386935628190102,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "bendOpen",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.07989199983425536,
+        "q": 0,
+        "rms": 0.0006162776279190499,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "holeOpen",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.08773000108684173,
+        "q": 0,
+        "rms": 0.0031216029089914813,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "holeOpen",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.09587176737223098,
+        "q": 0,
+        "rms": 0.0007936041241922661,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "holeOpen",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.10719100091121192,
+        "q": 0,
+        "rms": 0.0009297611036151698,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "holeOpen",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.11901532492498569,
+        "q": 0,
+        "rms": 0.001141996130701703,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "holeOpen",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.12819817778564502,
+        "q": 0,
+        "rms": 0.000750194352536764,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "holeOpen",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.14085744739814718,
+        "q": 0,
+        "rms": 0.0007132663216029298,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "holeOpen",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.1539860347631046,
+        "q": 0,
+        "rms": 0.0006939783933756192,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "tailOpen",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.164095530441062,
+        "q": 0,
+        "rms": 0.002255181502823966,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "tailOpen",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.1779842625722382,
+        "q": 0,
+        "rms": 0.0004643078020658196,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "tailOpen",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.19213903953612557,
+        "q": 0,
+        "rms": 0.00039487782665983376,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "tailOpen",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.2030809465144235,
+        "q": 0,
+        "rms": 0.00047522421239879723,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "tailOpen",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.21805066016258798,
+        "q": 0,
+        "rms": 0.008587639537577364,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "tailOpen",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.2294288025697972,
+        "q": 0,
+        "rms": 0.0004908649714634159,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "tailOpen",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.2448644916672392,
+        "q": 0,
+        "rms": 0.0003310175075780159,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "tailOpen",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.2605300058252191,
+        "q": 0,
+        "rms": 0.0002776700895694987,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "tailOpen",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.2724812635211188,
+        "q": 0,
+        "rms": 0.00036675187560065417,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "tailOpen",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.28871992210688485,
+        "q": 0,
+        "rms": 0.0002380242404949702,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "tailOpen",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": true
+          }
+        ]
+      },
+      {
+        "p": 0.30105571625427896,
+        "q": 0,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.31773783527237554,
+        "q": 0,
+        "rms": 0.004120823420587902,
+        "voices": 2,
+        "performances": [
+          {
+            "key": "park",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": true,
+            "stopping": false
+          },
+          {
+            "key": "slideOpen",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.334657213424966,
+        "q": 0,
+        "rms": 0.0003403886520670355,
+        "voices": 2,
+        "performances": [
+          {
+            "key": "park",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": true,
+            "stopping": false
+          },
+          {
+            "key": "slideOpen",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.3474289833547638,
+        "q": 0,
+        "rms": 0.0002729703053506201,
+        "voices": 2,
+        "performances": [
+          {
+            "key": "park",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": true,
+            "stopping": false
+          },
+          {
+            "key": "slideOpen",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.3601961243306668,
+        "q": 0,
+        "rms": 0.00025224336497950943,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "slideOpen",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.3775033175545449,
+        "q": 0,
+        "rms": 0.00020389866297194822,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.39495080524374054,
+        "q": 0,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.4124918930076409,
+        "q": 0.020819821679401454,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.4258069170757081,
+        "q": 0.0430115284595135,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.439116768271626,
+        "q": 0.0651946137860433,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.4568424363706961,
+        "q": 0.09473739395116014,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.4745900905360435,
+        "q": 0.12431681756007248,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.4924466839605422,
+        "q": 0.15407780660090364,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.5058391677205638,
+        "q": 0.1763986128676063,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.5192814635504693,
+        "q": 0.1988024392507822,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.5372015577218548,
+        "q": 0.22866926286975806,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.5549191684809842,
+        "q": 0.2581986141349737,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.5681412981652344,
+        "q": 0.28023549694205735,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.5858697812436984,
+        "q": 0.3097829687394973,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.599030278055418,
+        "q": 0.33171713009236325,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.6164689994573271,
+        "q": 0.3607816657622119,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.633827075571776,
+        "q": 0.38971179261962663,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.6511086071781804,
+        "q": 0.4185143452969673,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.6638411329036978,
+        "q": 0.4397352215061631,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.6765439999939817,
+        "q": 0.4609066666566363,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.6933253051499783,
+        "q": 0.4888755085832971,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.7097086534579381,
+        "q": 0.5161810890965636,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.7259960509353888,
+        "q": 0.5433267515589812,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.7379904848222032,
+        "q": 0.563317474703672,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.7498516388629143,
+        "q": 0.5830860647715238,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.7654144973452464,
+        "q": 0.6090241622420772,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.7806390423865206,
+        "q": 0.6343984039775343,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.7955286472841246,
+        "q": 0.6592144121402077,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.8064964328456861,
+        "q": 0.6774940547428102,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.8172334068572673,
+        "q": 0.6953890114287791,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.831196161995073,
+        "q": 0.7186602699917883,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.8447733079551916,
+        "q": 0.7412888465919861,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.8546720739959878,
+        "q": 0.757786789993313,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.8674885780267502,
+        "q": 0.7791476300445839,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.8767938829421458,
+        "q": 0.7946564715702431,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.888770060683847,
+        "q": 0.8146167678064117,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.8974529888565752,
+        "q": 0.8290883147609589,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.908561997757056,
+        "q": 0.8476033295950935,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.9191219859630628,
+        "q": 0.8652033099384381,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.9266733166895591,
+        "q": 0.8777888611492651,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.9362821053671991,
+        "q": 0.8938035089453321,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.9452737314034689,
+        "q": 0.908789552339115,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.9516259185448973,
+        "q": 0.9193765309081622,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.9595517222522919,
+        "q": 0.9325862037538198,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.9650605501886339,
+        "q": 0.9417675836477233,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.9718455184116892,
+        "q": 0.953075864019482,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.9779500204784107,
+        "q": 0.9632500341306846,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.9820676845695717,
+        "q": 0.970112807615953,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.9869328524921048,
+        "q": 0.9782214208201747,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.9900982157166117,
+        "q": 0.9834970261943529,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.9936572086460927,
+        "q": 0.9894286810768214,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.9964504485841115,
+        "q": 0.9940840809735192,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.9980261005579499,
+        "q": 0.9967101675965834,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.9994189660697895,
+        "q": 0.9990316101163159,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.9999241801402693,
+        "q": 0.9998736335671156,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 1,
+        "q": 1,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 1,
+        "q": 1,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 1,
+        "q": 1,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 1,
+        "q": 1,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 1,
+        "q": 1,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      }
+    ],
+    "foleyVoices": 0,
+    "contacts": [
+      {
+        "kind": "prong-park",
+        "progress": 0.3093440509890347,
+        "r": 0.7733601274725868,
+        "phase": "park-pin",
+        "pin": -1.1744779613711864
+      }
+    ],
+    "capture": {
+      "file": "keeper-opening.wav",
+      "bytes": 558764,
+      "sha256": "8f826664c06280f795f72bf5750534cdc305a36664eda55d90108e0ac2b58fbe"
+    }
+  },
+  "closing": {
+    "duration": 5.94,
+    "peak": 0.1100565493106842,
+    "rms": 0.0014435849827019742,
+    "cues": [
+      {
+        "key": "slideClose",
+        "mode": "automatic",
+        "direction": -1,
+        "audioTime": 9.32,
+        "wallTime": 18598.100000023842,
+        "offset": 0,
+        "duration": 0.24,
+        "gain": 0.65,
+        "progress": 0.37385831209997955,
+        "r": 0.9346457802499488,
+        "phase": "slide-clear",
+        "contact": false
+      },
+      {
+        "key": "tailClose",
+        "mode": "automatic",
+        "direction": -1,
+        "audioTime": 9.672,
+        "wallTime": 18948.600000023842,
+        "offset": 0,
+        "duration": 0.65,
+        "gain": 0.95,
+        "progress": 0.28529037424124226,
+        "r": 0.7132259356031057,
+        "phase": "withdraw-tail",
+        "contact": false
+      },
+      {
+        "key": "holeClose",
+        "mode": "automatic",
+        "direction": -1,
+        "audioTime": 10.330666666666668,
+        "wallTime": 19606.90000000596,
+        "offset": 0,
+        "duration": 0.42,
+        "gain": 0.7,
+        "progress": 0.14136014279877684,
+        "r": 0.3534003569969421,
+        "phase": "release-hole",
+        "contact": false
+      },
+      {
+        "key": "bendClose",
+        "mode": "automatic",
+        "direction": -1,
+        "audioTime": 10.741333333333333,
+        "wallTime": 20015.5,
+        "offset": 0,
+        "duration": 0.9,
+        "gain": 0.9,
+        "progress": 0.07033079268359399,
+        "r": 0.17582698170898498,
+        "phase": "unload-hole",
+        "contact": false
+      },
+      {
+        "key": "seat",
+        "mode": "automatic",
+        "direction": -1,
+        "audioTime": 11.421333333333333,
+        "wallTime": 20698.30000001192,
+        "offset": 0,
+        "duration": 0.222375,
+        "gain": 0.4,
+        "progress": 0.004696717395499261,
+        "r": 0.011741793488748153,
+        "phase": "unload-hole",
+        "contact": true
+      }
+    ],
+    "samples": [
+      {
+        "p": 0.999937983798458,
+        "q": 0.9998966396640967,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.9991957079246537,
+        "q": 0.9986595132077564,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.9980983549044278,
+        "q": 0.9968305915073797,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.9965505273888597,
+        "q": 0.994250878981433,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.9937854010849695,
+        "q": 0.9896423351416159,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.9902572055664063,
+        "q": 0.9837620092773439,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.9859720467092747,
+        "q": 0.9766200778487912,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.9822864575717588,
+        "q": 0.9704774292862648,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.9767261429023438,
+        "q": 0.9612102381705732,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.9721156040619534,
+        "q": 0.9535260067699226,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.9653481619125364,
+        "q": 0.942246936520894,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.9579409419807762,
+        "q": 0.9299015699679604,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.9519590226340195,
+        "q": 0.9199317043900327,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.9434333710478431,
+        "q": 0.9057222850797386,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.9366442815742189,
+        "q": 0.8944071359570316,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.9270876817189209,
+        "q": 0.8784794695315349,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.9169629474872563,
+        "q": 0.8616049124787605,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.9089843592320517,
+        "q": 0.8483072653867529,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.8979127840000001,
+        "q": 0.8298546400000003,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.889262827458455,
+        "q": 0.8154380457640917,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.8773071202972847,
+        "q": 0.7955118671621413,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.8648551574111815,
+        "q": 0.7747585956853026,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.8552191346285194,
+        "q": 0.7586985577141991,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.8453140488047557,
+        "q": 0.7421900813412595,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.8283148382707157,
+        "q": 0.7138580637845262,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.8178070973758086,
+        "q": 0.6963451622930145,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.8034523107398869,
+        "q": 0.6724205178998116,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.7924719153432607,
+        "q": 0.6541198589054346,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.7774885332711372,
+        "q": 0.6291475554518955,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.7621502299701169,
+        "q": 0.6035837166168617,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.7504639520000003,
+        "q": 0.5841065866666671,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.7386112199482511,
+        "q": 0.5643520332470852,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.7226038642431332,
+        "q": 0.5376731070718886,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.7103964299717683,
+        "q": 0.5173273832862807,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.6938983400313413,
+        "q": 0.4898305667189022,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.6771749277557284,
+        "q": 0.461958212926214,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.6602719930867464,
+        "q": 0.43378665514457737,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.643159027713557,
+        "q": 0.4052650461892618,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.6345266292985603,
+        "q": 0.3908777154976005,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.6128080247951899,
+        "q": 0.35468004132531644,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.5997143344726563,
+        "q": 0.33285722412109386,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.58216725,
+        "q": 0.30361208333333334,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.568885004207601,
+        "q": 0.28147500701266837,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.5511346826880468,
+        "q": 0.25189113781341127,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.5377893680925658,
+        "q": 0.22964894682094306,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.5199506480773393,
+        "q": 0.19991774679556543,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.502116065813605,
+        "q": 0.17019344302267506,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.48869728443248883,
+        "q": 0.14782880738748133,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.47533925416774137,
+        "q": 0.12556542361290227,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.45750989123396524,
+        "q": 0.09584981872327537,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.4397554150312497,
+        "q": 0.06625902505208282,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.42204276006697605,
+        "q": 0.03673793344496005,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.40882202974058224,
+        "q": 0.014703382900970372,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.3956597394196546,
+        "q": 0,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.3782069996523325,
+        "q": 0,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.36091957597330504,
+        "q": 0,
+        "rms": 0.0019990270112241228,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "slideClose",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.3437658054500846,
+        "q": 0,
+        "rms": 0.00032909789010437604,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "slideClose",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.33102383560109594,
+        "q": 0,
+        "rms": 0.0007106705914943157,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "slideClose",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.3141982883731781,
+        "q": 0,
+        "rms": 0.0002681910281452174,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "slideClose",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": true
+          }
+        ]
+      },
+      {
+        "p": 0.3017504465538787,
+        "q": 0,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0.27720198521778183,
+        "q": 0,
+        "rms": 0.0006260211391248644,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "tailClose",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.2731335523969912,
+        "q": 0,
+        "rms": 0.0009022911360516797,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "tailClose",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.2571744160607351,
+        "q": 0,
+        "rms": 0.0006812960659056082,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "tailClose",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.24147750776093313,
+        "q": 0,
+        "rms": 0.00046390806013760444,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "tailClose",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.23375432589810763,
+        "q": 0,
+        "rms": 0.00042119373987214076,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "tailClose",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.21478611760960253,
+        "q": 0,
+        "rms": 0.0005446891593927615,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "tailClose",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.1999806872148442,
+        "q": 0,
+        "rms": 0.004161100567726582,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "tailClose",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.18911870552183196,
+        "q": 0,
+        "rms": 0.010468971365280492,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "tailClose",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.17496062656559785,
+        "q": 0,
+        "rms": 0.003060246628516623,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "tailClose",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.1646276586757811,
+        "q": 0,
+        "rms": 0.0005098962559734149,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "tailClose",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.14787803776946318,
+        "q": 0,
+        "rms": 0.0005660131058959443,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "tailClose",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.14136014279877684,
+        "q": 0,
+        "rms": 0.0003340748854974648,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "holeClose",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.128701638386719,
+        "q": 0,
+        "rms": 0.003138955825072561,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "holeClose",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.11950431708911502,
+        "q": 0,
+        "rms": 0.0017383921254705385,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "holeClose",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.10478978486087809,
+        "q": 0,
+        "rms": 0.0009102286504019008,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "holeClose",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.09633651493103113,
+        "q": 0,
+        "rms": 0.0019268036443441177,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "holeClose",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.08817799035468266,
+        "q": 0,
+        "rms": 0.0004337719565992233,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "holeClose",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.07776814905772844,
+        "q": 0,
+        "rms": 0.00036477257926060424,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "holeClose",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.06791830003498545,
+        "q": 0,
+        "rms": 0.00023195540683719368,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "bendClose",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.058648719864647814,
+        "q": 0,
+        "rms": 0.0006588424883756605,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "bendClose",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.05209272596318093,
+        "q": 0,
+        "rms": 0.0006191888450393688,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "bendClose",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.045882742675781296,
+        "q": 0,
+        "rms": 0.0028127625492793645,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "bendClose",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.03816317193719265,
+        "q": 0,
+        "rms": 0.000785915745045106,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "bendClose",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.031082723504373244,
+        "q": 0,
+        "rms": 0.0012023871459677796,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "bendClose",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.026223622175690187,
+        "q": 0,
+        "rms": 0.001471161582139267,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "bendClose",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.020330243156249872,
+        "q": 0,
+        "rms": 0.0021103901736411563,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "bendClose",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.015151014577259425,
+        "q": 0,
+        "rms": 0.0009188026266518415,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "bendClose",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.0117380522048105,
+        "q": 0,
+        "rms": 0.0014209437196668862,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "bendClose",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.007830784000000035,
+        "q": 0,
+        "rms": 0.0029287947571973944,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "bendClose",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.005410053036203899,
+        "q": 0,
+        "rms": 0.0017286140817669615,
+        "voices": 1,
+        "performances": [
+          {
+            "key": "bendClose",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.002855692363611495,
+        "q": 0,
+        "rms": 0.004194532501199445,
+        "voices": 2,
+        "performances": [
+          {
+            "key": "bendClose",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          },
+          {
+            "key": "seat",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": true,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.0010994445604159964,
+        "q": 0,
+        "rms": 0.0008306191385746253,
+        "voices": 2,
+        "performances": [
+          {
+            "key": "bendClose",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          },
+          {
+            "key": "seat",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": true,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0.0003184919308150125,
+        "q": 0,
+        "rms": 0.0005702950365550379,
+        "voices": 2,
+        "performances": [
+          {
+            "key": "bendClose",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": false,
+            "stopping": false
+          },
+          {
+            "key": "seat",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "contact": true,
+            "stopping": false
+          }
+        ]
+      },
+      {
+        "p": 0,
+        "q": 0,
+        "rms": 0.00031191147085446534,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0,
+        "q": 0,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0,
+        "q": 0,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0,
+        "q": 0,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0,
+        "q": 0,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      },
+      {
+        "p": 0,
+        "q": 0,
+        "rms": 0,
+        "voices": 0,
+        "performances": []
+      }
+    ],
+    "foleyVoices": 0,
+    "contacts": [
+      {
+        "kind": "prong-park",
+        "progress": 0.3093440509890347,
+        "r": 0.7733601274725868,
+        "phase": "park-pin",
+        "pin": -1.1744779613711864
+      },
+      {
+        "kind": "prong-seat",
+        "progress": 0.004696717395499261,
+        "r": 0.011741793488748153,
+        "phase": "unload-hole",
+        "pin": -0.005494750795633714
+      }
+    ],
+    "capture": {
+      "file": "keeper-closing.wav",
+      "bytes": 570284,
+      "sha256": "f8cb3df08f688142e85e86cc9bccbb62df85e2d654c29d565702d55af9ff0b84"
+    }
+  },
+  "drag": {
+    "cues": [
+      {
+        "key": "bendOpen",
+        "mode": "drag",
+        "direction": 1,
+        "audioTime": 12.312,
+        "wallTime": 21581.90000000596,
+        "offset": 0,
+        "duration": 0.22,
+        "gain": 0.82575,
+        "progress": 0.04714284161760366,
+        "r": 0.11785710404400915,
+        "phase": "unload-hole",
+        "contact": false
+      },
+      {
+        "key": "holeOpen",
+        "mode": "drag",
+        "direction": 1,
+        "audioTime": 12.44,
+        "wallTime": 21716,
+        "offset": 0,
+        "duration": 0.22,
+        "gain": 0.47805935277210143,
+        "progress": 0.078571429681697,
+        "r": 0.1964285742042425,
+        "phase": "release-hole",
+        "contact": false
+      },
+      {
+        "key": "holeOpen",
+        "mode": "drag",
+        "direction": 1,
+        "audioTime": 12.64,
+        "wallTime": 21914.90000000596,
+        "offset": 0.18,
+        "duration": 0.22,
+        "gain": 0.64225,
+        "progress": 0.12571427129930066,
+        "r": 0.3142856782482516,
+        "phase": "release-hole",
+        "contact": false
+      },
+      {
+        "key": "tailOpen",
+        "mode": "drag",
+        "direction": 1,
+        "audioTime": 12.76,
+        "wallTime": 22031.40000000596,
+        "offset": 0,
+        "duration": 0.22,
+        "gain": 0.6228042879988667,
+        "progress": 0.157142859363394,
+        "r": 0.392857148408485,
+        "phase": "withdraw-tail",
+        "contact": false
+      },
+      {
+        "key": "tailOpen",
+        "mode": "drag",
+        "direction": 1,
+        "audioTime": 12.96,
+        "wallTime": 22232.40000000596,
+        "offset": 0.18,
+        "duration": 0.22,
+        "gain": 0.871625,
+        "progress": 0.20428574145953401,
+        "r": 0.510714353648835,
+        "phase": "withdraw-tail",
+        "contact": false
+      }
+    ],
+    "held": {
+      "foleyVoices": 0,
+      "rms": 0
+    },
+    "reverseCues": [
+      {
+        "key": "tailClose",
+        "mode": "drag",
+        "direction": -1,
+        "audioTime": 13.512,
+        "wallTime": 22781.20000001788,
+        "offset": 0,
+        "duration": 0.22,
+        "gain": 0.870091904287955,
+        "progress": 0.19600002793990495,
+        "r": 0.49000006984976235,
+        "phase": "withdraw-tail",
+        "contact": false
+      },
+      {
+        "key": "tailClose",
+        "mode": "drag",
+        "direction": -1,
+        "audioTime": 13.690666666666667,
+        "wallTime": 22964,
+        "offset": 0.18,
+        "duration": 0.22,
+        "gain": 0.8002130297733893,
+        "progress": 0.15999999637312315,
+        "r": 0.39999999093280786,
+        "phase": "withdraw-tail",
+        "contact": false
+      },
+      {
+        "key": "holeClose",
+        "mode": "drag",
+        "direction": -1,
+        "audioTime": 13.792,
+        "wallTime": 23063.80000001192,
+        "offset": 0,
+        "duration": 0.22,
+        "gain": 0.36752700131021976,
+        "progress": 0.1359999888214474,
+        "r": 0.3399999720536185,
+        "phase": "release-hole",
+        "contact": false
+      }
+    ]
+  },
+  "disposed": {
+    "disposed": true,
+    "foleyVoices": 0,
+    "musicVoices": 0,
+    "contextState": "closed"
+  },
+  "audioRequests": [
+    "http://127.0.0.1:8153/labs/scroll-foley-study/audio/bendOpen.wav",
+    "http://127.0.0.1:8153/labs/scroll-foley-study/audio/bendClose.wav",
+    "http://127.0.0.1:8153/labs/scroll-foley-study/audio/holeOpen.wav",
+    "http://127.0.0.1:8153/labs/scroll-foley-study/audio/holeClose.wav",
+    "http://127.0.0.1:8153/labs/scroll-foley-study/audio/tailOpen.wav",
+    "http://127.0.0.1:8153/labs/scroll-foley-study/audio/tailClose.wav",
+    "http://127.0.0.1:8153/labs/scroll-foley-study/audio/slideOpen.wav",
+    "http://127.0.0.1:8153/labs/scroll-foley-study/audio/slideClose.wav",
+    "http://127.0.0.1:8153/labs/scroll-foley-study/audio/park.wav",
+    "http://127.0.0.1:8153/labs/scroll-foley-study/audio/seat.wav"
+  ],
+  "browserAudioResponses": [
+    {
+      "url": "http://127.0.0.1:8153/labs/scroll-foley-study/audio/bendOpen.wav",
+      "status": 200,
+      "bytes": 86444,
+      "sha256": "650893bdcd634a0cb36382ed53b79d776f147ce38bb3ee4b95930214d0c1c0fc"
+    },
+    {
+      "url": "http://127.0.0.1:8153/labs/scroll-foley-study/audio/holeOpen.wav",
+      "status": 200,
+      "bytes": 40364,
+      "sha256": "46a43b9b719f4afcbfcca0b5ead042ce0abead83d550c088292689631cf1a88c"
+    },
+    {
+      "url": "http://127.0.0.1:8153/labs/scroll-foley-study/audio/bendClose.wav",
+      "status": 200,
+      "bytes": 86444,
+      "sha256": "c22792a8c149b4cafe9a25d51a2b7979a813b7ea864f17b00a44512115be3736"
+    },
+    {
+      "url": "http://127.0.0.1:8153/labs/scroll-foley-study/audio/holeClose.wav",
+      "status": 200,
+      "bytes": 40364,
+      "sha256": "97874a858f0081efcb2737526331a3eca8249e1ea2ccd251be8a988b85e10be6"
+    },
+    {
+      "url": "http://127.0.0.1:8153/labs/scroll-foley-study/audio/tailOpen.wav",
+      "status": 200,
+      "bytes": 62444,
+      "sha256": "edf8e801ceb9b2dbabae864b79d627b861a5a2ed1c8522aacb304b5ce9d08a9f"
+    },
+    {
+      "url": "http://127.0.0.1:8153/labs/scroll-foley-study/audio/tailClose.wav",
+      "status": 200,
+      "bytes": 62444,
+      "sha256": "32c339c42d951178c4973e80050207d8bc3a7e6ef34856aa10ec7bc41d3afeff"
+    },
+    {
+      "url": "http://127.0.0.1:8153/labs/scroll-foley-study/audio/slideOpen.wav",
+      "status": 200,
+      "bytes": 23084,
+      "sha256": "c47e77a5ba19e2689e48c14b5a9f2731f6d7db519c7422c07e908dd46bf5131e"
+    },
+    {
+      "url": "http://127.0.0.1:8153/labs/scroll-foley-study/audio/slideClose.wav",
+      "status": 200,
+      "bytes": 23084,
+      "sha256": "f60f03943a3fc9ee2482a7d9a9e716765cbeaaa9537c68841bf39a9b6284a77c"
+    },
+    {
+      "url": "http://127.0.0.1:8153/labs/scroll-foley-study/audio/seat.wav",
+      "status": 200,
+      "bytes": 21392,
+      "sha256": "3c3aa2b7d0222fdb96e1978376a6c3b3b499867464365ee7daaee7d25a5cc953"
+    },
+    {
+      "url": "http://127.0.0.1:8153/labs/scroll-foley-study/audio/park.wav",
+      "status": 200,
+      "bytes": 17088,
+      "sha256": "d95364858538b9f038f1354d930fe3e696a0e64672e5225477a6fd16adb5090d"
+    }
+  ],
+  "status": "technical-recovery-verified"
+}

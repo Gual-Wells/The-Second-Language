@@ -1,0 +1,63 @@
+{
+  "startedAt": "2026-10-22T13:12:08.833776+00:00",
+  "service": "NVIDIA official Audio Flamingo Next public HF Space",
+  "baseUrl": "https://nvidia-audio-flamingo-next.hf.space",
+  "spaceSHA": "608b7f76fd67963ec144e636137d6bf4a18421ed",
+  "model": "nvidia/audio-flamingo-next-hf",
+  "mode": "anonymous-single-attempt-independent-blind-description",
+  "authorizationHeaderSent": false,
+  "source": {
+    "path": ".cache/foley-community-sources-2026-10-22/audioelk-originals/MXL900_BELT_HANDLING_13.wav",
+    "sha256": "c6a89621525123644e7ea86a22615a1404e7b471033b0e9d4f578c000acb9a4a",
+    "bytes": 938386,
+    "author": "AudioElk",
+    "page": "https://audioelk.itch.io/foley-sessions-vol-1",
+    "license": "CC BY-SA 4.0",
+    "format": {
+      "channels": 1,
+      "sampleRate": 48000,
+      "bits": 16,
+      "seconds": 6.620375
+    },
+    "uploadedName": "audio002.wav",
+    "contentUnedited": true,
+    "sourceLabelIncludedInPrompt": false,
+    "previousResponseIncludedInPrompt": false
+  },
+  "prompt": "Listen to the complete audio without assuming its intended use. Describe what is actually audible, including event sequence, texture, attacks, resonance, movement, background or handling noise, and any obvious recording artifacts. Separate directly audible observations from uncertain guesses about the source. Do not invent speech, exact measurements, or calibrated quality scores. If no words are audible, do not transcribe. In at most 180 words, state what this recording would be suitable or unsuitable for as a quiet close-up sound effect. Do not assume filenames or metadata describe the sound.",
+  "state": "completed",
+  "scope": "Noncommercial research auxiliary audio-model observation only. No human audition, no image/video or audiovisual synchronization judgment, no product acceptance, no private user content. Author filename and material label were withheld from model input.",
+  "retryPolicy": "One inference only; stop on quota, login requirement, HTTP error or unknown outcome. No paid credits, no old token, no learning service.",
+  "upload": {
+    "httpStatus": 200,
+    "accepted": true
+  },
+  "submission": {
+    "httpStatus": 200,
+    "raw": "{\"event_id\":\"61927433012c421e81540335f1a54cbb\"}"
+  },
+  "eventId": "61927433012c421e81540335f1a54cbb",
+  "streamHTTPStatus": 200,
+  "events": [
+    {
+      "event": "complete",
+      "data": [
+        "✅ Using audio file\n\nThe audio contains only faint mechanical noises: soft clicks and rustling consistent with someone manipulating small objects such as keys on a hard surface. The sounds are low in volume, dry (no echo), and lack distinct tonal qualities. There is no speech, music, environmental ambience, or identifiable human activity beyond these subtle tactile interactions.\n\nThis recording could serve as a generic “object manipulation” cue in media where precise key-related actions need minimal attention, but it lacks distinctive character that might make it useful for specific applications like UI feedback, game sound design, or Foley libraries requiring more defined textures."
+      ]
+    }
+  ],
+  "elapsedSeconds": 7.687,
+  "actualResponse": [
+    "✅ Using audio file\n\nThe audio contains only faint mechanical noises: soft clicks and rustling consistent with someone manipulating small objects such as keys on a hard surface. The sounds are low in volume, dry (no echo), and lack distinct tonal qualities. There is no speech, music, environmental ambience, or identifiable human activity beyond these subtle tactile interactions.\n\nThis recording could serve as a generic “object manipulation” cue in media where precise key-related actions need minimal attention, but it lacks distinctive character that might make it useful for specific applications like UI feedback, game sound design, or Foley libraries requiring more defined textures."
+  ],
+  "rawSSE": "event: complete\ndata: [\"\\u2705 Using audio file\\n\\nThe audio contains only faint mechanical noises: soft clicks and rustling consistent with someone manipulating small objects such as keys on a hard surface. The sounds are low in volume, dry (no echo), and lack distinct tonal qualities. There is no speech, music, environmental ambience, or identifiable human activity beyond these subtle tactile interactions.\\n\\nThis recording could serve as a generic \\u201cobject manipulation\\u201d cue in media where precise key-related actions need minimal attention, but it lacks distinctive character that might make it useful for specific applications like UI feedback, game sound design, or Foley libraries requiring more defined textures.\"]",
+  "finishedAt": "2026-10-22T13:12:19.286525+00:00",
+  "assessment": {
+    "transportResult": "One real anonymous upload and inference completed; no authentication or paid credits used.",
+    "modelObservation": "The response described faint dry mechanical clicks and rustling, guessed manipulation of small objects such as keys on a hard surface, and reported no speech or music.",
+    "interpretationLimit": "This is a model interpretation, not a physical-material determination or human audition. Author labels were not supplied and are not used to rank quality. Generic wording resembles the prior model response, limiting confidence in specificity.",
+    "synchronization": "No video, image or action timeline was sent; no audiovisual synchronization judgment.",
+    "comparison": "Same model and same prompt, separate independent input; not independent-model consensus and not proof of superiority to the earlier source.",
+    "acceptance": "No material-realism, aesthetic or product acceptance asserted."
+  }
+}

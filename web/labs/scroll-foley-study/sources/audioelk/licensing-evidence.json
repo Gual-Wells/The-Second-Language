@@ -1,0 +1,71 @@
+{
+  "checkedOn": "2026-10-22",
+  "work": "Audio Elk | Foley Sessions Vol. 1",
+  "author": "Audio Elk",
+  "authorCopyrightYearInGrant": 2025,
+  "authorPage": "https://audioelk.itch.io/foley-sessions-vol-1",
+  "authorPageSha256AtCheck": "94469f4a145c3ccc64d05f8e43e5c84f14be58835425f7047e287976da5b71ae",
+  "visibleWorkSpecificLicenseStatement": "Audio Elk | Foley Sessions Vol. 1 © 2025 by Audio Elk is licensed under Creative Commons Attribution-ShareAlike 4.0 International",
+  "license": "CC-BY-SA-4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "basis": "Current author page contains an explicit work-specific Licensing section. This is the grant relied on for the following four separately supplied author cuts, including unchanged redistribution for listening and applicable audio adaptations.",
+  "files": [
+    {
+      "file": "MXL900_BELT_HANDLING_01.wav",
+      "archiveMember": "AudioElk Sound Library FOLEY SESSIONS VOL 1/SPLICED/BELT/MXL900_BELT_HANDLING_01.wav",
+      "bytes": 417208,
+      "sha256": "ea906c650a08f2d35dc4d5fe1387fd04ec25a8f048c08043c6f62b8fd3cd5e98",
+      "archiveCRC32": "e35aa674",
+      "channels": 1,
+      "sampleRate": 48000,
+      "sampleWidthBytes": 2,
+      "duration": 1.1914583333333333
+    },
+    {
+      "file": "MXL900_BELT_HANDLING_07.wav",
+      "archiveMember": "AudioElk Sound Library FOLEY SESSIONS VOL 1/SPLICED/BELT/MXL900_BELT_HANDLING_07.wav",
+      "bytes": 469846,
+      "sha256": "ab4382278a88dafc6540a732ad53282b0cc934b5fa26284f62520872e4f0053d",
+      "archiveCRC32": "3a0c6e56",
+      "channels": 1,
+      "sampleRate": 48000,
+      "sampleWidthBytes": 2,
+      "duration": 1.73975
+    },
+    {
+      "file": "MXL900_BELT_HANDLING_13.wav",
+      "archiveMember": "AudioElk Sound Library FOLEY SESSIONS VOL 1/SPLICED/BELT/MXL900_BELT_HANDLING_13.wav",
+      "bytes": 938386,
+      "sha256": "c6a89621525123644e7ea86a22615a1404e7b471033b0e9d4f578c000acb9a4a",
+      "archiveCRC32": "4f054d4b",
+      "channels": 1,
+      "sampleRate": 48000,
+      "sampleWidthBytes": 2,
+      "duration": 6.620375
+    },
+    {
+      "file": "MXL900_BELT_IMPACT_07.wav",
+      "archiveMember": "AudioElk Sound Library FOLEY SESSIONS VOL 1/SPLICED/BELT/MXL900_BELT_IMPACT_07.wav",
+      "bytes": 321238,
+      "sha256": "2bed68801bf92b5167d5df59089e5101ffeb1c508b60818d3ae7ac480bfb4bed",
+      "archiveCRC32": "6c2840ba",
+      "channels": 1,
+      "sampleRate": 48000,
+      "sampleWidthBytes": 2,
+      "duration": 0.19177083333333333
+    }
+  ],
+  "sourceRole": "Author SPLICED/BELT cuts, not unprocessed RAW and not combined sampler. Unmodified original zip members retrieved with HTTP Range and checked by zip CRC.",
+  "formatBoundary": "The extracted files are actually PCM16bit,48kHz,mono despite advertised24bit. No quality upgrade or processing was applied.",
+  "attributionExample": "Audio Elk — Foley Sessions Vol. 1; licensed CC BY-SA4.0, https://audioelk.itch.io/foley-sessions-vol-1. Original author cuts provided unchanged for source audition; any later modifications must be identified.",
+  "scope": "Credit, license and ShareAlike apply to the audio work and applicable adaptations; no claim that this grant automatically relicenses unrelated project code or the whole project.",
+  "legacyIncludedDocument": {
+    "file": "AudioElkLicenseAgreement.pdf",
+    "bytes": 149500,
+    "sha256": "2c54ec5eb4c320f74224b0b45e30d202ec37840b581e70fe6332242070b39a2a",
+    "title": "AUDIO ELK LEWD LIBRARY — LICENSING INFORMATION — SINGLE USER, COLLABORATIVE LICENSE",
+    "discrepancy": "Older differently titled proprietary EULA in zip includes purchase-proof and independent-file sharing restrictions. It is preserved as conflicting historical evidence and is not represented as the CC license. Current work-specific author-page grant is the stated use basis. No direct clarification was requested or received."
+  },
+  "publicationSafety": "Only visible licensing text, source metadata and hashes are included. No page scripts, CSRF values, signed download URLs, login credentials or cookies are published.",
+  "auditionStatus": "Not approved. Recording identity and author cuts do not prove physical action or material fit."
+}

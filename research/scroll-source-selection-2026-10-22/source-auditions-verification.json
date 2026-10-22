@@ -1,0 +1,286 @@
+{
+  "checkedAt": "2026-10-22T13:30:08.038Z",
+  "base": "http://127.0.0.1:8153",
+  "scope": "Real Chromium native media controls and WebAudio/WebGL at 393x852. Visibility/pagehide handlers are explicitly exercised with synthetic lifecycle events; not physical Safari or a listening verdict.",
+  "sources": [
+    {
+      "title": "皮带原音 01",
+      "file": "./sources/audioelk/MXL900_BELT_HANDLING_01.wav",
+      "bytes": 417208,
+      "sha256": "ea906c650a08f2d35dc4d5fe1387fd04ec25a8f048c08043c6f62b8fd3cd5e98",
+      "declaredDuration": 1.1914583333333333,
+      "browserDecode": {
+        "url": "http://127.0.0.1:8153/labs/scroll-foley-study/sources/audioelk/MXL900_BELT_HANDLING_01.wav",
+        "bytes": 417208,
+        "sha256": "ea906c650a08f2d35dc4d5fe1387fd04ec25a8f048c08043c6f62b8fd3cd5e98",
+        "duration": 1.1914583333333333,
+        "rate": 48000,
+        "channels": 1
+      }
+    },
+    {
+      "title": "皮带原音 07",
+      "file": "./sources/audioelk/MXL900_BELT_HANDLING_07.wav",
+      "bytes": 469846,
+      "sha256": "ab4382278a88dafc6540a732ad53282b0cc934b5fa26284f62520872e4f0053d",
+      "declaredDuration": 1.73975,
+      "browserDecode": {
+        "url": "http://127.0.0.1:8153/labs/scroll-foley-study/sources/audioelk/MXL900_BELT_HANDLING_07.wav",
+        "bytes": 469846,
+        "sha256": "ab4382278a88dafc6540a732ad53282b0cc934b5fa26284f62520872e4f0053d",
+        "duration": 1.73975,
+        "rate": 48000,
+        "channels": 1
+      }
+    },
+    {
+      "title": "皮带原音 13",
+      "file": "./sources/audioelk/MXL900_BELT_HANDLING_13.wav",
+      "bytes": 938386,
+      "sha256": "c6a89621525123644e7ea86a22615a1404e7b471033b0e9d4f578c000acb9a4a",
+      "declaredDuration": 6.620375,
+      "browserDecode": {
+        "url": "http://127.0.0.1:8153/labs/scroll-foley-study/sources/audioelk/MXL900_BELT_HANDLING_13.wav",
+        "bytes": 938386,
+        "sha256": "c6a89621525123644e7ea86a22615a1404e7b471033b0e9d4f578c000acb9a4a",
+        "duration": 6.620375,
+        "rate": 48000,
+        "channels": 1
+      }
+    },
+    {
+      "title": "短碰触原音 07",
+      "file": "./sources/audioelk/MXL900_BELT_IMPACT_07.wav",
+      "bytes": 321238,
+      "sha256": "2bed68801bf92b5167d5df59089e5101ffeb1c508b60818d3ae7ac480bfb4bed",
+      "declaredDuration": 0.19177083333333333,
+      "browserDecode": {
+        "url": "http://127.0.0.1:8153/labs/scroll-foley-study/sources/audioelk/MXL900_BELT_IMPACT_07.wav",
+        "bytes": 321238,
+        "sha256": "2bed68801bf92b5167d5df59089e5101ffeb1c508b60818d3ae7ac480bfb4bed",
+        "duration": 0.19177083333333333,
+        "rate": 48000,
+        "channels": 1
+      }
+    }
+  ],
+  "httpErrors": [],
+  "pageErrors": [],
+  "requestFailures": [],
+  "checks": {
+    "qualityApproved": false,
+    "artApproved": false,
+    "localBytesMatchManifest": true,
+    "initialPreloadNoneNoSourceRequests": true,
+    "browserBytesAndDecodedDurations": true,
+    "rawPlaybackPausesViewerAndWebAudio": true,
+    "nativeAuditionsMutuallyExclusive": true,
+    "enableStopsAndResetsOriginals": true,
+    "baselineOpeningAndClosingResumes": true,
+    "visibilityStopsNativeAudio": true,
+    "pagehideStopsNativeAudio": true,
+    "disposeReleasesNativeAndWebAudio": true,
+    "noHorizontalOverflow393": true,
+    "noMediaElementDSP": true
+  },
+  "initial": [
+    {
+      "preload": "none",
+      "networkState": 1,
+      "readyState": 0,
+      "paused": true,
+      "controls": true,
+      "volume": 1,
+      "rate": 1
+    },
+    {
+      "preload": "none",
+      "networkState": 1,
+      "readyState": 0,
+      "paused": true,
+      "controls": true,
+      "volume": 1,
+      "rate": 1
+    },
+    {
+      "preload": "none",
+      "networkState": 1,
+      "readyState": 0,
+      "paused": true,
+      "controls": true,
+      "volume": 1,
+      "rate": 1
+    },
+    {
+      "preload": "none",
+      "networkState": 1,
+      "readyState": 0,
+      "paused": true,
+      "controls": true,
+      "volume": 1,
+      "rate": 1
+    }
+  ],
+  "rawPlayback": {
+    "progress": 0.02441968753221941,
+    "viewerPaused": true,
+    "webAudioPaused": true,
+    "foleyVoices": 0,
+    "nativePlayers": [
+      {
+        "paused": true,
+        "currentTime": 0,
+        "duration": null,
+        "readyState": 0,
+        "volume": 1,
+        "rate": 1,
+        "src": "./sources/audioelk/MXL900_BELT_HANDLING_01.wav"
+      },
+      {
+        "paused": true,
+        "currentTime": 0,
+        "duration": null,
+        "readyState": 0,
+        "volume": 1,
+        "rate": 1,
+        "src": "./sources/audioelk/MXL900_BELT_HANDLING_07.wav"
+      },
+      {
+        "paused": false,
+        "currentTime": 0.160833,
+        "duration": null,
+        "readyState": 4,
+        "volume": 1,
+        "rate": 1,
+        "src": "./sources/audioelk/MXL900_BELT_HANDLING_13.wav"
+      },
+      {
+        "paused": true,
+        "currentTime": 0,
+        "duration": null,
+        "readyState": 0,
+        "volume": 1,
+        "rate": 1,
+        "src": "./sources/audioelk/MXL900_BELT_IMPACT_07.wav"
+      }
+    ]
+  },
+  "exclusive": [
+    {
+      "paused": true,
+      "currentTime": 0,
+      "duration": null,
+      "readyState": 0,
+      "volume": 1,
+      "rate": 1,
+      "src": "./sources/audioelk/MXL900_BELT_HANDLING_01.wav"
+    },
+    {
+      "paused": false,
+      "currentTime": 0.032367,
+      "duration": 4.884854,
+      "readyState": 4,
+      "volume": 1,
+      "rate": 1,
+      "src": "./sources/audioelk/MXL900_BELT_HANDLING_07.wav"
+    },
+    {
+      "paused": true,
+      "currentTime": 0.444377,
+      "duration": null,
+      "readyState": 4,
+      "volume": 1,
+      "rate": 1,
+      "src": "./sources/audioelk/MXL900_BELT_HANDLING_13.wav"
+    },
+    {
+      "paused": true,
+      "currentTime": 0,
+      "duration": null,
+      "readyState": 0,
+      "volume": 1,
+      "rate": 1,
+      "src": "./sources/audioelk/MXL900_BELT_IMPACT_07.wav"
+    }
+  ],
+  "reset": {
+    "players": [
+      {
+        "paused": true,
+        "currentTime": 0,
+        "duration": null,
+        "readyState": 0,
+        "volume": 1,
+        "rate": 1,
+        "src": "./sources/audioelk/MXL900_BELT_HANDLING_01.wav"
+      },
+      {
+        "paused": true,
+        "currentTime": 0,
+        "duration": 4.884854,
+        "readyState": 4,
+        "volume": 1,
+        "rate": 1,
+        "src": "./sources/audioelk/MXL900_BELT_HANDLING_07.wav"
+      },
+      {
+        "paused": true,
+        "currentTime": 0,
+        "duration": null,
+        "readyState": 4,
+        "volume": 1,
+        "rate": 1,
+        "src": "./sources/audioelk/MXL900_BELT_HANDLING_13.wav"
+      },
+      {
+        "paused": true,
+        "currentTime": 0,
+        "duration": null,
+        "readyState": 0,
+        "volume": 1,
+        "rate": 1,
+        "src": "./sources/audioelk/MXL900_BELT_IMPACT_07.wav"
+      }
+    ],
+    "viewerPaused": false,
+    "webAudioPaused": false
+  },
+  "layout": {
+    "width": 393,
+    "documentWidth": 393,
+    "bodyWidth": 393,
+    "cards": 4,
+    "dspConnections": 0
+  },
+  "sourceRequests": [
+    "http://127.0.0.1:8153/labs/scroll-foley-study/sources/audioelk/MXL900_BELT_HANDLING_01.wav",
+    "http://127.0.0.1:8153/labs/scroll-foley-study/sources/audioelk/MXL900_BELT_HANDLING_07.wav",
+    "http://127.0.0.1:8153/labs/scroll-foley-study/sources/audioelk/MXL900_BELT_HANDLING_13.wav",
+    "http://127.0.0.1:8153/labs/scroll-foley-study/sources/audioelk/MXL900_BELT_IMPACT_07.wav",
+    "http://127.0.0.1:8153/labs/scroll-foley-study/sources/audioelk/MXL900_BELT_HANDLING_13.wav",
+    "http://127.0.0.1:8153/labs/scroll-foley-study/sources/audioelk/MXL900_BELT_HANDLING_07.wav"
+  ],
+  "lifecycle": {
+    "method": "Synthetic visibilitychange and PageTransitionEvent with actually playing native HTMLAudioElements",
+    "hiddenPaused": [
+      true,
+      true,
+      true,
+      true
+    ],
+    "returnedPaused": [
+      true,
+      true,
+      true,
+      true
+    ],
+    "pagehidePaused": [
+      true,
+      true,
+      true,
+      true
+    ],
+    "disposeClearedSources": true
+  },
+  "status": "source-audition-ui-technically-verified"
+}

@@ -4,13 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#19201c">
-  <title>轻卷展声试样</title>
+  <title>皮扣复核与音源试听</title>
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
   <main class="study">
     <header class="heading">
-      <div><p class="eyebrow">声音研究样品</p><h1>轻卷展声试样</h1></div>
+      <div><p class="eyebrow">声音研究样品</p><h1>皮扣复核与音源试听</h1></div>
       <a href="./CREDITS.md" target="_blank" rel="noopener">查看来源 <span aria-hidden="true">↗</span></a>
     </header>
 
@@ -29,10 +29,16 @@
     </section>
 
     <footer class="notes">
-      <div class="readiness"><p id="soundStatus" role="status" aria-live="polite">默认仅卷展声，轻触“启用试听”开启声音。</p><button id="retry" type="button" hidden>重新准备</button></div>
+      <div class="readiness"><p id="soundStatus" role="status" aria-live="polite">轻触“启用试听”，复核上一轮 A/B 页的皮扣声。</p><button id="retry" type="button" hidden>重新准备</button></div>
       <p class="phase"><span>实际动作</span><output id="phase">等待载入</output><output id="progress">0%</output></p>
-      <p class="listening-note">解扣与停住安静，只有纸膜卷动时有很轻的声音。慢动作可能接近无声，不追求每个动作都有声。画面、皮扣机构与雾染不变。本页仅供试听，材质听感仍待判断。</p>
+      <p class="listening-note">皮扣恢复上一轮 A/B 页的原音轨，作为改进参照。已否决的纸声暂停使用，尚无替代成品。画面、机构与雾染沿用原件；本页是研究试听。</p>
     </footer>
+    <section class="source-auditions" aria-labelledby="sourceTitle">
+      <h2 id="sourceTitle">新原音，先听材质</h2>
+      <p>下列为作者导出的独立录音原件，本项目未做后期加工，也尚未接入动画。播放时卷轴暂停，避免混听；返回上方点“启用试听”继续比较。</p>
+      <div id="sourceList"></div>
+      <p id="sourceStatus" role="status">正在读取原音目录…</p>
+    </section>
   </main>
   <noscript>此研究样品需要 JavaScript 与 WebGL。</noscript>
   <script type="module" src="./app.js"></script>

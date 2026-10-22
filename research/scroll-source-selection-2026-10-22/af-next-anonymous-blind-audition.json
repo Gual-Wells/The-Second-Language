@@ -1,0 +1,56 @@
+{
+  "startedAt": "2026-10-22T12:15:01.900131+00:00",
+  "service": "NVIDIA official Audio Flamingo Next public HF Space",
+  "baseUrl": "https://nvidia-audio-flamingo-next.hf.space",
+  "spaceSHA": "608b7f76fd67963ec144e636137d6bf4a18421ed",
+  "model": "nvidia/audio-flamingo-next-hf",
+  "mode": "anonymous-single-attempt",
+  "authorizationHeaderSent": false,
+  "source": {
+    "path": "web/labs/scroll-foley-study/sources/626503-author-hq-preview.mp3",
+    "sha256": "fbe09ca1d7c296d9afaa4b3b356c10a0a75871ee56801f9b892c436e61a40448",
+    "bytes": 610865,
+    "author": "Teebee_Deael",
+    "page": "https://freesound.org/people/Teebee_Deael/sounds/626503/",
+    "license": "CC0",
+    "format": "author public HQ MP3 preview; not lossless original",
+    "uploadedName": "audio001.mp3",
+    "contentUnedited": true,
+    "sourceLabelIncludedInPrompt": false
+  },
+  "prompt": "Listen to the complete audio without assuming its intended use. Describe what is actually audible, including event sequence, texture, attacks, resonance, movement, background or handling noise, and any obvious recording artifacts. Separate directly audible observations from uncertain guesses about the source. Do not invent speech, exact measurements, or calibrated quality scores. If no words are audible, do not transcribe. In at most 180 words, state what this recording would be suitable or unsuitable for as a quiet close-up sound effect. Do not assume filenames or metadata describe the sound.",
+  "state": "completed",
+  "scope": "Noncommercial research auxiliary audio-model observation only. No human audition, no visual input or audiovisual synchronization judgment, no product acceptance, no private user content.",
+  "retryPolicy": "One inference only; stop on quota, login requirement, HTTP error or unknown outcome. No paid credits, no old token, no learning service.",
+  "upload": {
+    "httpStatus": 200,
+    "accepted": true
+  },
+  "submission": {
+    "httpStatus": 200,
+    "raw": "{\"event_id\":\"f6c09864b777476ab1e5631ba27211c4\"}"
+  },
+  "eventId": "f6c09864b777476ab1e5631ba27211c4",
+  "streamHTTPStatus": 200,
+  "events": [
+    {
+      "event": "complete",
+      "data": [
+        "✅ Using audio file\n\nThe audio contains only faint mechanical noises: soft rustling consistent with paper being handled, followed by brief metallic clicks that could come from a pen or small metal object striking a hard surface. The overall level remains low throughout, suggesting minimal volume and careful manipulation.\nThis recording would be well-suited as a subtle background element in scenes depicting someone reading, writing, or working quietly on documents, but it lacks distinct character or emotional emphasis. It does not provide clear cues such as page turns, scribbling, or typing, making it less useful for specific actions like “page turning” or “writing.” Its primary value lies in providing a calm, unobtrusive ambience rather than a recognizable sound effect."
+      ]
+    }
+  ],
+  "elapsedSeconds": 9.469,
+  "actualResponse": [
+    "✅ Using audio file\n\nThe audio contains only faint mechanical noises: soft rustling consistent with paper being handled, followed by brief metallic clicks that could come from a pen or small metal object striking a hard surface. The overall level remains low throughout, suggesting minimal volume and careful manipulation.\nThis recording would be well-suited as a subtle background element in scenes depicting someone reading, writing, or working quietly on documents, but it lacks distinct character or emotional emphasis. It does not provide clear cues such as page turns, scribbling, or typing, making it less useful for specific actions like “page turning” or “writing.” Its primary value lies in providing a calm, unobtrusive ambience rather than a recognizable sound effect."
+  ],
+  "rawSSE": "event: complete\ndata: [\"\\u2705 Using audio file\\n\\nThe audio contains only faint mechanical noises: soft rustling consistent with paper being handled, followed by brief metallic clicks that could come from a pen or small metal object striking a hard surface. The overall level remains low throughout, suggesting minimal volume and careful manipulation.\\nThis recording would be well-suited as a subtle background element in scenes depicting someone reading, writing, or working quietly on documents, but it lacks distinct character or emotional emphasis. It does not provide clear cues such as page turns, scribbling, or typing, making it less useful for specific actions like \\u201cpage turning\\u201d or \\u201cwriting.\\u201d Its primary value lies in providing a calm, unobtrusive ambience rather than a recognizable sound effect.\"]",
+  "finishedAt": "2026-10-22T12:15:14.134744+00:00",
+  "assessment": {
+    "transportResult": "Real anonymous upload and one model inference completed successfully; no authentication or paid service used.",
+    "modelObservation": "The response described faint rustling resembling handled paper and brief metallic clicks; it did not clearly identify leather or belt unbuckling.",
+    "interpretationLimit": "The author labels this belt unbuckling. The model observation is an uncalibrated interpretation and may reflect source ambiguity or model error; this single result cannot determine physical material, validate quality, or replace human audition.",
+    "synchronization": "No image, video or action timeline was sent. No audiovisual synchronization assessment was performed.",
+    "acceptance": "Not accepted on this evidence; do not claim a listening or material-realism pass."
+  }
+}

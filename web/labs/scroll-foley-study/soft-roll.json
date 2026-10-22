@@ -1,6 +1,6 @@
 {
   "schema": "second-language.soft-roll-audition.v1",
-  "status": "audition-not-approved",
+  "status": "rejected-by-user-source-quality-and-keeper-muting",
   "source": {
     "author": "spookymodem",
     "title": "Spell Scroll / Unrolling Parchment",
