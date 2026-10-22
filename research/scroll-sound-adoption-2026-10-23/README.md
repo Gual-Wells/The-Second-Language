@@ -50,3 +50,20 @@ Current main's paid-audio post-save failure protection was merged before the
 integration. Pages release uses the certification-specific script and does not
 redeploy the independent API worker. Actual published revision, URLs, byte
 verification and task-end account-query result are recorded in `release.json`.
+
+## Published result
+
+- Production: https://the-second-language.pages.dev/ → 设置 → 认证阅览 → 项目纪念.
+- Immutable release: https://64e3da81.the-second-language.pages.dev/
+- Deployed commit: `080ea87f229ec8e0e12d82fe6bd70e8596fa32cb` (main, including
+  the same day's published chapter and paid-audio preservation fix).
+- Online product sound checks passed on the production alias. Full document /
+  identity / lifecycle checks passed on the immutable release. All 87 packaged
+  files matched their actual served bytes; production alias sound matched too.
+- Default music, all 12 approved WAVs, quiet tail, real drag/hold/reverse,
+  background pause, exit cleanup and fresh v42 SW cache passed in Chrome.
+- Task-end balance/capacity update was attempted and failed because the publisher
+  credential is absent in this worktree. Previous values remain; no zero balance
+  is inferred. Permanent archive queued, completion not confirmed. Deployment
+  used the separately working Cloudflare login and succeeded.
+- No new subscription, paid model call or recurring service cost was introduced.

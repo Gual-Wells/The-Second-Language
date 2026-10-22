@@ -1,0 +1,469 @@
+{
+  "sha": "080ea87f229ec8e0e12d82fe6bd70e8596fa32cb",
+  "branch": "main",
+  "immutable": "https://64e3da81.the-second-language.pages.dev",
+  "productionMainUpdated": true,
+  "independentAPIWorkerUpdated": false,
+  "displayFiles": 87,
+  "displayBytes": 50592982,
+  "run": "D:\\CodexStorage\\workspaces\\second-language-certification-reader\\.cache\\certification-release\\080ea87f-n9Y7Up",
+  "verified": true,
+  "checkedAt": "2026-10-22T19:43:53.851Z",
+  "productionAlias": "https://the-second-language.pages.dev/",
+  "productionAliasSoundSHA256": "d077d7a8ad6bca2f8a9c1e8c919827b026209076ee0ce2f0bae231d0513dd56b",
+  "files": [
+    {
+      "url": "/annotations.js",
+      "bytes": 8680,
+      "sha256": "50aff8629d7dc302c5d7e9fb0d1f0f8a0995de88a6dd965be40e6201fc9b0cae"
+    },
+    {
+      "url": "/app.js",
+      "bytes": 45981,
+      "sha256": "5fddf2f62b0464c7d81894d58b290d1c6f176f1e2820e57f83332cf778de3635"
+    },
+    {
+      "url": "/audio-config.js",
+      "bytes": 5657,
+      "sha256": "b357a117ac381ed5629a8dd0e5f6e0fb56c52fb9d8b4c306b0ec69eb602e0ceb"
+    },
+    {
+      "url": "/audio-library.js",
+      "bytes": 3317,
+      "sha256": "666e58582a073e437e4a970e0d14505204f805dd7a923b45d7b0efb704765e02"
+    },
+    {
+      "url": "/audio-plan.js",
+      "bytes": 3637,
+      "sha256": "7d8d06cff12e0ec639564dd76d4d509ca14a78434897445f521a33bfae46f411"
+    },
+    {
+      "url": "/balances.js",
+      "bytes": 4373,
+      "sha256": "22adcbfc58da9bde2aa24bc6f6c807cba0c2e3765fc15a16879bc8525f8cb45c"
+    },
+    {
+      "url": "/certification-reader.js",
+      "bytes": 13365,
+      "sha256": "53078ff92707ab2a387d357b32197c85d940dca58e9e5eba0360bd99d19c6718"
+    },
+    {
+      "url": "/chapter-quality.js",
+      "bytes": 7859,
+      "sha256": "3de6c44fb1dd4b6ec815ce24b2971114063f665c9298fd81e9d0d9e405da79d7"
+    },
+    {
+      "url": "/chapter-test-recorder.js",
+      "bytes": 6403,
+      "sha256": "6f6ef850141784f819130846b278ff7ec1e5358c5f45c99a8cea416d1398b57c"
+    },
+    {
+      "url": "/chapter-tests.js",
+      "bytes": 12935,
+      "sha256": "122271bab99898a5718e7a8f702d01535383c7e2bd213c52bb094e4779f5c306"
+    },
+    {
+      "url": "/chapters.js",
+      "bytes": 3824,
+      "sha256": "d16d9429dda60052481cc2dd6ed5d71eccf96df98616923fd5c199fc3618f019"
+    },
+    {
+      "url": "/exam-spec.js",
+      "bytes": 1751,
+      "sha256": "6d0050b920917f7806ea0c8fab7b930ea949e8f2168a3d8c5e3856a978f28241"
+    },
+    {
+      "url": "/icon-192.png",
+      "bytes": 3921,
+      "sha256": "32373b0edaab98b53f5ac5827bb2c4b4c5cdeba053d5612b2fd74f2c3b78d15b"
+    },
+    {
+      "url": "/icon.svg",
+      "bytes": 551,
+      "sha256": "a6187d27e9c733a2470bedcefbe3947166706b06fa9c4be05a6dd577cba25b2b"
+    },
+    {
+      "url": "/index.html",
+      "bytes": 31244,
+      "sha256": "9ed6fb278ae62393d05673d286eb87f657c3c68c2140d836866f0f82dd062330"
+    },
+    {
+      "url": "/labs/certification-reader/assets/audio-foley/v42/bendClose.wav",
+      "bytes": 86444,
+      "sha256": "c22792a8c149b4cafe9a25d51a2b7979a813b7ea864f17b00a44512115be3736"
+    },
+    {
+      "url": "/labs/certification-reader/assets/audio-foley/v42/bendOpen.wav",
+      "bytes": 86444,
+      "sha256": "650893bdcd634a0cb36382ed53b79d776f147ce38bb3ee4b95930214d0c1c0fc"
+    },
+    {
+      "url": "/labs/certification-reader/assets/audio-foley/v42/holeClose.wav",
+      "bytes": 40364,
+      "sha256": "97874a858f0081efcb2737526331a3eca8249e1ea2ccd251be8a988b85e10be6"
+    },
+    {
+      "url": "/labs/certification-reader/assets/audio-foley/v42/holeOpen.wav",
+      "bytes": 40364,
+      "sha256": "46a43b9b719f4afcbfcca0b5ead042ce0abead83d550c088292689631cf1a88c"
+    },
+    {
+      "url": "/labs/certification-reader/assets/audio-foley/v42/keeper-cues.json",
+      "bytes": 5847,
+      "sha256": "2d404d88b5667ba0fe9930f8cfc09074ec6a0145784c4f5cdfbd559c2dede7e0"
+    },
+    {
+      "url": "/labs/certification-reader/assets/audio-foley/v42/keeper-sources.json",
+      "bytes": 694,
+      "sha256": "e8be3b6365e5660e59a6994cded7367a6a8061a07d8e8847f6b16f81dc6565d0"
+    },
+    {
+      "url": "/labs/certification-reader/assets/audio-foley/v42/paper-recordings.json",
+      "bytes": 2845,
+      "sha256": "b990ddc07c68ec51d396aae6a1fb06afa4fa212b53ebeb744b3e9b3d79ff829f"
+    },
+    {
+      "url": "/labs/certification-reader/assets/audio-foley/v42/paper-rollup-v5.wav",
+      "bytes": 863708,
+      "sha256": "36a7fa2374abe0a0d5c1a3bd05fa936335fc5c9ea6e92a9926fc4069952d9e99"
+    },
+    {
+      "url": "/labs/certification-reader/assets/audio-foley/v42/paper-unroll-v5.wav",
+      "bytes": 838480,
+      "sha256": "703972ab4cf662fcee45af743bf08c2135f55fc1497a489ed897b9f5aae59860"
+    },
+    {
+      "url": "/labs/certification-reader/assets/audio-foley/v42/park.wav",
+      "bytes": 17088,
+      "sha256": "d95364858538b9f038f1354d930fe3e696a0e64672e5225477a6fd16adb5090d"
+    },
+    {
+      "url": "/labs/certification-reader/assets/audio-foley/v42/seat.wav",
+      "bytes": 21392,
+      "sha256": "3c3aa2b7d0222fdb96e1978376a6c3b3b499867464365ee7daaee7d25a5cc953"
+    },
+    {
+      "url": "/labs/certification-reader/assets/audio-foley/v42/slideClose.wav",
+      "bytes": 23084,
+      "sha256": "f60f03943a3fc9ee2482a7d9a9e716765cbeaaa9537c68841bf39a9b6284a77c"
+    },
+    {
+      "url": "/labs/certification-reader/assets/audio-foley/v42/slideOpen.wav",
+      "bytes": 23084,
+      "sha256": "c47e77a5ba19e2689e48c14b5a9f2731f6d7db519c7422c07e908dd46bf5131e"
+    },
+    {
+      "url": "/labs/certification-reader/assets/audio-foley/v42/tailClose.wav",
+      "bytes": 62444,
+      "sha256": "32c339c42d951178c4973e80050207d8bc3a7e6ef34856aa10ec7bc41d3afeff"
+    },
+    {
+      "url": "/labs/certification-reader/assets/audio-foley/v42/tailOpen.wav",
+      "bytes": 62444,
+      "sha256": "edf8e801ceb9b2dbabae864b79d627b861a5a2ed1c8522aacb304b5ce9d08a9f"
+    },
+    {
+      "url": "/labs/certification-reader/assets/audio-music/a-new-town.mp3",
+      "bytes": 766291,
+      "sha256": "8a83b97f06cad1052eea0a3fa8f65966db742e68275a1d82816773c820578ad2"
+    },
+    {
+      "url": "/labs/certification-reader/assets/audio-sources/manifest.json",
+      "bytes": 3140,
+      "sha256": "aa46ae2c3cd7a0bb27ad1fe16f699ac8c3ea35e3b94331eb3b6b94863f436905"
+    },
+    {
+      "url": "/labs/certification-reader/assets/keeper-display.glb",
+      "bytes": 2437944,
+      "sha256": "118ad3e48f4a37034551aa7330b033a79a9b4e5711972eb92553774ffb37bffa"
+    },
+    {
+      "url": "/labs/certification-reader/AUDIO_CREDITS.md",
+      "bytes": 5918,
+      "sha256": "29c06ae07f69c81c6ed4bcd7d156611deba2c944045baf5ffabc8564435d147c"
+    },
+    {
+      "url": "/labs/certification-reader/CREDITS.md",
+      "bytes": 1989,
+      "sha256": "747d70014aab64d24c6926b8cf4a0df8ab7f7a917b95432a7fa2a8eb00f4ba17"
+    },
+    {
+      "url": "/labs/certification-reader/keeper-sound.js",
+      "bytes": 8093,
+      "sha256": "7b01ee59bed833dbe4287b10b2438c32545bc474202918047535b2eda444999b"
+    },
+    {
+      "url": "/labs/certification-reader/material-motion.js",
+      "bytes": 1609,
+      "sha256": "13454e924c75c5d88f828143fa1ea8ee93461de0a45bfb6bacc908395d236b30"
+    },
+    {
+      "url": "/labs/certification-reader/reader.bundle.js",
+      "bytes": 739071,
+      "sha256": "2f4387e5924d314c913b038dd7384db2b95e5d9c182e0703fa42b7af4002aff0"
+    },
+    {
+      "url": "/labs/certification-reader/sound-base.js",
+      "bytes": 14442,
+      "sha256": "0b44df208352fcb99457062dd5a2e80842dabc0ba5dfd938c4c74d5dfc12947a"
+    },
+    {
+      "url": "/labs/certification-reader/sound.js",
+      "bytes": 6210,
+      "sha256": "d077d7a8ad6bca2f8a9c1e8c919827b026209076ee0ce2f0bae231d0513dd56b"
+    },
+    {
+      "url": "/labs/chapter-scroll-v10/assets/ink-shoulder.png",
+      "bytes": 758302,
+      "sha256": "5dbfab038a6ba4a9cb7f047beed26c4c105fa1cab46143479fb3bbab4c66dd2c"
+    },
+    {
+      "url": "/labs/chapter-scroll-v14/assets/unused-keeper.png",
+      "bytes": 70,
+      "sha256": "c2153f77e11087fcb078ae38527fa83bef29791e3700e30cc87fec4405a66d0f"
+    },
+    {
+      "url": "/labs/chapter-scroll-v17/keeper-path.json",
+      "bytes": 55968,
+      "sha256": "0e8d71fbdc36fdda9e475b7ded3eaf23ccff38b01f275cbfac045cbcff21e6e6"
+    },
+    {
+      "url": "/labs/chapter-scroll-v17/vendor/noise2D.glsl",
+      "bytes": 2162,
+      "sha256": "b0f27c923227e8b2d7618f09dc666e2397f608ca7929f798da632647c3f41884"
+    },
+    {
+      "url": "/labs/chapter-scroll-v19/assets/bronze-color.webp",
+      "bytes": 2656038,
+      "sha256": "f850970297e8c5d19c7002132e59e877ea54dce0a757d2f642a592f46bd3d9cd"
+    },
+    {
+      "url": "/labs/chapter-scroll-v19/assets/bronze-normal.webp",
+      "bytes": 2159960,
+      "sha256": "a2b951c269e4e6d20ef18cd7f360c3045b2ecc605a63e5e910f819a9a8bcc2bd"
+    },
+    {
+      "url": "/labs/chapter-scroll-v19/assets/bronze-orm.webp",
+      "bytes": 1774092,
+      "sha256": "1672624ae4ae60a342346bb3188f974d05258be13d392da027a82468fdae8b4b"
+    },
+    {
+      "url": "/labs/chapter-scroll-v19/assets/leather-color.webp",
+      "bytes": 3000366,
+      "sha256": "5c99db712479fb6f8c661f1b4d4422d5e689c59a21c2c197e1dca77bb0c04e95"
+    },
+    {
+      "url": "/labs/chapter-scroll-v19/assets/leather-normal.webp",
+      "bytes": 2575506,
+      "sha256": "6b3c1601b766712a527d51145aa211fd98b73f4747e0d97490809ac407efbf1c"
+    },
+    {
+      "url": "/labs/chapter-scroll-v19/assets/leather-orm.webp",
+      "bytes": 1199026,
+      "sha256": "ce92f7819c466c5ec0291e5609da152cc98e0d5c47627d89a81fd3d82a8e6ad1"
+    },
+    {
+      "url": "/labs/chapter-scroll-v3/assets/studio.hdr",
+      "bytes": 1615248,
+      "sha256": "e7cfda5f4e98e623db12b8bfd0184e048488e4855d9c83e2751fb44a32e80c45"
+    },
+    {
+      "url": "/labs/chapter-scroll-v4/assets/skin-normal.jpg",
+      "bytes": 1033319,
+      "sha256": "d0057cdbee5be6223b35f0a463441404144fcdae699f69ff610eec4d86d48970"
+    },
+    {
+      "url": "/labs/chapter-scroll-v4/assets/skin-roughness.jpg",
+      "bytes": 879217,
+      "sha256": "dd3b860a9510a44fd857c04e0c8cc63ea1f944c25abe9bdcbf844cc4a22c88d8"
+    },
+    {
+      "url": "/labs/chapter-scroll/assets/Aboensis-Regular.otf",
+      "bytes": 137860,
+      "sha256": "0ad00fb94899b3a8277680377eb7270c5fb3ee73dd9fefbd6fb31d9f94c4707b"
+    },
+    {
+      "url": "/labs/project-beginning/art-plan.json",
+      "bytes": 8275,
+      "sha256": "10fbd67f29b0464c632342a213fd4697bbf92af4a2086c5d7963fdea93ce20db"
+    },
+    {
+      "url": "/labs/project-beginning/assets/daily-miniature.png",
+      "bytes": 1857691,
+      "sha256": "70c58500dfd07879eef40896bfe88d581ddaebf73ab63b73d5be6472aa93a09e"
+    },
+    {
+      "url": "/labs/project-beginning/assets/final-back.png",
+      "bytes": 10392202,
+      "sha256": "925c1db1f8810d452a318fb75b30f2a53790be6c05a4cd04fbf9cc883d7b715e"
+    },
+    {
+      "url": "/labs/project-beginning/assets/final-front.png",
+      "bytes": 10893789,
+      "sha256": "b82b5c4c8e220443e8c4ae0a1b84aeaa908f88e6cd2c53fb5231e09aceacae7b"
+    },
+    {
+      "url": "/labs/project-beginning/assets/final-ink.png",
+      "bytes": 579734,
+      "sha256": "2007be6f580a5cc72f24388bf4eb487290063136e60937a6114d2c16917ecb5a"
+    },
+    {
+      "url": "/labs/project-beginning/assets/final-relief.png",
+      "bytes": 136060,
+      "sha256": "030eb09ed2ee219a5ee3508e3cca6832635d7199470c8425ab8451cf0bf6ae29"
+    },
+    {
+      "url": "/labs/project-beginning/assets/final-seal-ink.png",
+      "bytes": 143133,
+      "sha256": "7e6e6ab3541b1807fd75da6b761f58144f1922578a4de203ec655891d8d61cea"
+    },
+    {
+      "url": "/labs/project-beginning/assets/final-seal-mask.png",
+      "bytes": 51055,
+      "sha256": "d8411063350187c541bc503775180041dcea1ecbd5a9726ab7b0e69dafc135fc"
+    },
+    {
+      "url": "/labs/project-beginning/assets/parchment.webp",
+      "bytes": 2168400,
+      "sha256": "10b3316df6408655a4c917e652ce739c446a00614fd475033bbe575c606df4b1"
+    },
+    {
+      "url": "/labs/project-beginning/assets/surfaces.json",
+      "bytes": 10674,
+      "sha256": "e3405c93225ee394d75498190f998c41171f2b90cd21eb5b04a9d775c89d9921"
+    },
+    {
+      "url": "/labs/project-beginning/charter.js",
+      "bytes": 6341,
+      "sha256": "fc778bea6fdc06f2a359035539a8c5ddf2703380730e698f81dcecb8ced6201a"
+    },
+    {
+      "url": "/labs/project-beginning/CREDITS.md",
+      "bytes": 2237,
+      "sha256": "292b62a5a216188ea2762ad7840ebfe137e429561863ae3395b8e95e4d2f8c17"
+    },
+    {
+      "url": "/labs/project-beginning/document.js",
+      "bytes": 9440,
+      "sha256": "024bfbb26a91341e13cf84bf54e312f87c122b727a3aff2801bbda84b4101245"
+    },
+    {
+      "url": "/labs/project-beginning/record.json",
+      "bytes": 1171,
+      "sha256": "f2466f4ea3f57d5cbf4e42b8b0cdc08ac810498602ff3ab9d7c85d43179616e5"
+    },
+    {
+      "url": "/labs/project-beginning/scroll-object.js",
+      "bytes": 4949,
+      "sha256": "5af4629fc873b9176f91456b9a8cb96b7a21bdc477b9b9f3e56fc031915283ac"
+    },
+    {
+      "url": "/labs/project-beginning/templates.js",
+      "bytes": 1314,
+      "sha256": "25b3b4f4d4d0bd5f0351be7b487bd487a8ff2a09f89ee80dcd02d02b3d3b3f0b"
+    },
+    {
+      "url": "/listening.js",
+      "bytes": 12878,
+      "sha256": "83575739eae407c1773791645945b8b2d987df1ed0dd70c34ca21178a7a6e2ee"
+    },
+    {
+      "url": "/objective.js",
+      "bytes": 3230,
+      "sha256": "13c7ce4eb9f74002e43fcb391a06f23c2d1cd0ae7433cfb0439b28d9efc13cd0"
+    },
+    {
+      "url": "/practice-workspace.js",
+      "bytes": 5902,
+      "sha256": "af259de73afebbfc91ab9aa54690ef37214a96e12ee7526898e80d448ee80329"
+    },
+    {
+      "url": "/practice.js",
+      "bytes": 21033,
+      "sha256": "a31d88faa2fe20a140d2a96b7ea7ddcfa8b043d2fc2ee14944d09a8399f67146"
+    },
+    {
+      "url": "/pure-reader.js",
+      "bytes": 6274,
+      "sha256": "5ca38c1a403bce3bfd6ea3fbcc9fee2332e551466b05eda3c7cbcb92a08e22b5"
+    },
+    {
+      "url": "/question-pairs.js",
+      "bytes": 390,
+      "sha256": "9d48e50045d222403f7e7521ae9c82ff36917b8bf7162383899abd80e86b1df9"
+    },
+    {
+      "url": "/questions.js",
+      "bytes": 10456,
+      "sha256": "cd2296b5f470d75222b6b83207742bd50eff0396a4ef8dc6dc723e980f031c65"
+    },
+    {
+      "url": "/reader-focus.js",
+      "bytes": 3735,
+      "sha256": "a10c240fae24480fce5221e047a7ffce191081b7656715ef0669ec886a73455e"
+    },
+    {
+      "url": "/reader-jump.js",
+      "bytes": 2367,
+      "sha256": "78cd4ce1b8e00b0b272bcb3f11ad5e05b17d153b99f0624e707daf977e68d118"
+    },
+    {
+      "url": "/reader-speech.js",
+      "bytes": 4930,
+      "sha256": "facc5ef138e3c1d0f4dddd0a028c11f9bb9c2c56a8723a38486808da33fb99dd"
+    },
+    {
+      "url": "/reading.js",
+      "bytes": 9604,
+      "sha256": "58d05fe3a53e5851cd309dd79a16c3bc6f7a972252d2a09cad041ebd72ef03eb"
+    },
+    {
+      "url": "/recorder.js",
+      "bytes": 7311,
+      "sha256": "4b8ec3aff0465edb4f17b3023ec544f8dc8c5c7cda6a5ea1d7dfebfb0a356dc3"
+    },
+    {
+      "url": "/render.js",
+      "bytes": 9713,
+      "sha256": "d9751bdc1581eb45b2b28742fc6ccb4841af22003f84837bc843cf37631fa1d8"
+    },
+    {
+      "url": "/settings.js",
+      "bytes": 2372,
+      "sha256": "9c647e1a65a9dd6aa8173a9633bc6d84d0101ec1724d1d124b34f76647e8b3d7"
+    },
+    {
+      "url": "/storage-usage.js",
+      "bytes": 2792,
+      "sha256": "c719e96cdf6eaf16a630866924d1d0bc188ced9ff1967618b193f25ec1888a35"
+    },
+    {
+      "url": "/styles.css",
+      "bytes": 61352,
+      "sha256": "c9cb49eca4b6fd23e9f62c8dec19b439a6a7400aa297f0e81a5ee00cadf4bf3f"
+    },
+    {
+      "url": "/text.js",
+      "bytes": 2113,
+      "sha256": "8c4f3c17e6d1f45f32bb892307cff4a4a5a08d3af76c0a1e67b355ddf7d419b8"
+    }
+  ],
+  "userAdoption": "Explicit request to integrate approved v5 paper + unchanged A/B keeper on 2026-10-23",
+  "newSubscriptions": 0,
+  "newPaidModelCalls": 0,
+  "newRecurringCosts": 0,
+  "accountQuery": {
+    "status": "attempted-failed",
+    "reason": "Publisher credential missing; previous balance/capacity values retained",
+    "zeroBalanceInferred": false
+  },
+  "archive": {
+    "status": "queued",
+    "completionVerified": false
+  },
+  "onlineChecks": {
+    "productionAudio": "audio-verification.json",
+    "fullProduct": "live-verification.json",
+    "physicalIPhoneSafari": false
+  }
+}
