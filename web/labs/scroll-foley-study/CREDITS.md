@@ -1,6 +1,13 @@
 # Recorded paper winding candidate — revision 5
 
-## Current paper candidate (not listening approved)
+## Adopted paper performance
+
+User adopted this revision and the unchanged A/B keeper on 2026-10-23. The
+study now imports the canonical production engine in `../certification-reader/`.
+Current production provenance is in that directory's `AUDIO_CREDITS.md` and
+`assets/audio-foley/v42/`; the source-only Audio Elk auditions below remain
+unadopted research. The scope is normal automatic opening/closing, not unlimited
+continuous dragging or every historical sound.
 
 New recordings from **Adobe Audition Download Sound Effects / Foley**,
 [official source](https://www.adobe.com/products/audition/offers/AdobeAuditionDLCSFX.html).
@@ -22,7 +29,8 @@ output gain continuously: the last moving part becomes faint, then stops at
 rest. The roughly 3.176-second paper phase of the normal automatic animation
 is covered, correcting revision 4's silent final 1.6 seconds. The finite takes
 do not support arbitrarily long continuous manual dragging. Pitch-preserving
-processing is not a guarantee of perceptual transparency; listening is pending.
+processing is not a guarantee of perceptual transparency; adoption refers to
+the particular audition approved by the user.
 The keeper uses its separate unchanged A/B reference.
 
 Processing reference: [FFmpeg Rubber Band filter](https://ffmpeg.org/ffmpeg-filters.html#rubberband).

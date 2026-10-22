@@ -6,7 +6,7 @@ const {chromium}=await import(pathToFileURL('D:/CodexStorage/workspaces/second-l
 const args=process.argv.slice(2);
 if(args.length>1||args.some(arg=>arg.startsWith('--')))throw Error('Usage: node scripts/verify-project-beginning.mjs [base URL]');
 const base=(args[0]||'http://127.0.0.1:8153').replace(/\/$/,''),remote=base.startsWith('https:'),origin=new URL(base).origin;
-const out='research/scroll-craft-and-audio-2026-10-22',tmp=process.cwd()+'/.cache/project-beginning-browser/tmp';
+const out='research/scroll-sound-adoption-2026-10-23',tmp=process.cwd()+'/.cache/project-beginning-browser/tmp';
 const captureAudio=process.env.SCROLL_CAPTURE_AUDIO==='1'&&!remote;
 await mkdir(out,{recursive:true});await mkdir(tmp,{recursive:true});process.env.TEMP=process.env.TMP=tmp;
 const expectedSHA='4a83d1952e133bcecd6c1aa2e14a788159b410e9a6ea2a7f5bcf42610943e37b',madeAt='2026-10-21T12:10:23.227Z',localTime='2026-10-21 20:10:23.227 +08:00';

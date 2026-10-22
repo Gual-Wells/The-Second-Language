@@ -24,6 +24,7 @@
 | 实体皮扣/解扣 | `chapter-scroll-v17/{keeper.js,keeper-motion.js,scroll-object.js}` | 两端带坯，孔/针/框关系，可逆松孔、脱针、退带、取下后再开纸 |
 | 皮革/铜件做旧 | `chapter-scroll-v19/{finishing.js,assets/}` | 原生分层工艺离线烘焙，网页复用六张贴图 |
 | 雾染/宿主维护 | `chapter-scroll-v20/{mist.js,flow.js,app.js}`、`chapter-scroll-runtime/motion.js` | 区域流动、聚散、动作耦合、首次预热与失败恢复 |
+| 拟音（2026-10-23用户采用） | `certification-reader/{sound.js,keeper-sound.js,sound-base.js}`、`assets/audio-foley/v42/` | v5保音高纸卷实录覆盖正常自动动作末段＋不改动的A/B皮扣；试听与正式版共用引擎，许可／工艺见SCROLL_CRAFT§6.2 |
 
 当前只读产品入口为设置→认证阅览；恢复器物从`web/labs/certification-reader/viewer.js`及本件模板开始。旧`/labs/chapter-scroll-v20/`为已接受工艺来源。版本号是实验来源；未来须把这些职责抽为清楚的产品接口，不能永久靠层层继承实验目录冒充统一架构。
 

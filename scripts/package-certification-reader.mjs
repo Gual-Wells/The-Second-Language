@@ -3,7 +3,7 @@ import {readFile,writeFile} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {execFileSync,spawnSync} from 'node:child_process';
 if(process.argv.length>2)throw Error('Production packaging accepts no historical mode. Use the fixed historical checkout or independent labs for first/fifth chapter specimens.');
-const reportPath='research/scroll-craft-and-audio-2026-10-22/verification.json';
+const reportPath='research/scroll-sound-adoption-2026-10-23/verification.json';
 const project=JSON.parse(await readFile(reportPath,'utf8'));
 if(!project.checks||!Object.keys(project.checks).length||Object.values(project.checks).some(value=>value!==true)||!['errors','missing','writes'].every(key=>Array.isArray(project[key])&&project[key].length===0)||!Array.isArray(project.resources)||!project.resources.length)throw Error('No passing current project reader interaction report');
 assert.deepEqual(project.chapterLabels,['项目纪念']);assert.equal(project.mode,'project-beginning-only-document-default-sound');
@@ -26,15 +26,19 @@ for(const [url,expected]of Object.entries(project.observedSHA256))assert.equal(h
 // Runtime recordings and their BY/CC0 attribution travel with the recovery
 // package. Source membership does not cause the viewer to preload originals.
 const audioBase='/labs/certification-reader/',audioManifestURL=audioBase+'assets/audio-sources/manifest.json';
-const audio=JSON.parse(fromIndex(audioManifestURL));assert.equal(audio.schema,'second-language.reader-material-audio.v2');paths.add(audioManifestURL);
-assert.ok(audio.licenses.includes('CC0-1.0'));assert.equal(audio.revision,'v41-finite-performances');
+const audio=JSON.parse(fromIndex(audioManifestURL));assert.equal(audio.schema,'second-language.reader-material-audio.v3');paths.add(audioManifestURL);
+assert.ok(audio.licenses.includes('CC0-1.0'));assert.ok(audio.licenses.includes('Adobe Content Files terms'));assert.equal(audio.revision,'v42-approved-recorded-foley');
+assert.equal(audio.runtime.length,13);
 for(const asset of audio.runtime){const url=new URL(asset.path,'https://pack.invalid'+audioBase).pathname,bytes=fromIndex(url);paths.add(url);assert.equal(bytes.length,asset.bytes);assert.equal(hash(bytes),asset.sha256,'Current audio recording changed: '+url);}
 const audioSourcesBase=new URL(audioManifestURL,'https://pack.invalid');
-for(const reference of [audio.sources,audio.derivatives,audio.authorSources,audio.legacyManifest])if(reference)paths.add(new URL(reference,audioSourcesBase).pathname);
-const derivativesURL=new URL(audio.derivatives,audioSourcesBase).pathname,derivatives=JSON.parse(fromIndex(derivativesURL));
-assert.equal(derivatives.schema,'second-language.recorded-performances.v1');
-for(const asset of [...derivatives.sources,...derivatives.performances]){assert.ok(asset.file.startsWith('web/labs/certification-reader/assets/'));const url=asset.file.slice(3),bytes=fromIndex(url);paths.add(url);assert.equal(bytes.length,asset.bytes);assert.equal(hash(bytes),asset.sha256,'Recorded performance recovery asset changed: '+url);}
-for(const take of derivatives.performances){assert.equal(take.loop,false);assert.equal(take.reversed,false);assert.equal(take.compression,false);assert.ok(!take.source.includes('/')&&!take.source.includes('\\'));const url=new URL(take.source,'https://pack.invalid'+derivativesURL).pathname;paths.add(url);assert.equal(hash(fromIndex(url)),take.sourceSHA256,'Decoded performance source changed: '+url);}
+for(const reference of audio.provenance){
+ const url=new URL(reference,audioSourcesBase).pathname;paths.add(url);const provenance=JSON.parse(fromIndex(url));
+ for(const take of provenance.recordings||provenance.materials||[]){
+  const asset=new URL(take.file,'https://pack.invalid'+url).pathname,bytes=fromIndex(asset);paths.add(asset);
+  assert.equal(bytes.length,take.bytes);assert.equal(hash(bytes),take.sha256,'Adopted recording changed: '+asset);
+ }
+}
+for(const name of ['sound.js','sound-base.js','keeper-sound.js'])paths.add(audioBase+name);
 const projectBase='/labs/project-beginning/',surfaceURL=projectBase+'assets/surfaces.json';
 for(const url of [projectBase+'record.json',projectBase+'art-plan.json',projectBase+'charter.js',projectBase+'document.js',projectBase+'templates.js',projectBase+'scroll-object.js',surfaceURL])paths.add(url);
 const record=JSON.parse(fromIndex(projectBase+'record.json')),plan=JSON.parse(fromIndex(projectBase+'art-plan.json')),surfaces=JSON.parse(fromIndex(surfaceURL));

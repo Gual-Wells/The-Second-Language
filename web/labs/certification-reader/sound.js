@@ -1,369 +1,106 @@
-import {materialMotion} from './material-motion.js?v=41';
-// Recorded material sources, derivatives and licenses: AUDIO_CREDITS.md.
-// Motion coordinates drive sound; a lifecycle pause never changes the default.
-const ASSET = path => new URL(`./assets/${path}`, import.meta.url).href;
-const FILES = Object.freeze({
-  music: 'audio-music/a-new-town.mp3',
-  leather: 'audio-foley/leather-release-v41.wav',
-  paperOpen: 'audio-foley/paper-open-v41.wav',
-  paperClose: 'audio-foley/paper-close-v41.wav',
-  park: 'audio-foley/buckle-park-v41.wav',
-  seat: 'audio-foley/buckle-seat-v41.wav'
-});
-const MUSIC_GAIN = .35, END_REST_MS = 1800;
-const clamp = (n, min = 0, max = 1) => Math.max(min, Math.min(max, n));
-const clock = () => performance.now();
-const hidden = () => typeof document !== 'undefined' && document.hidden;
-let sharedContext, contextUsers = 0;
+import {KeeperSoundDirector} from './keeper-sound.js?v=42';
 
-function context() {
-  if (!sharedContext || sharedContext.state === 'closed') {
-    const Context = globalThis.AudioContext || globalThis.webkitAudioContext;
-    if (!Context) throw Error('此浏览器暂不支持卷轴声音');
-    sharedContext = new Context({latencyHint: 'interactive'});
-  }
-  return sharedContext;
-}
-function ramp(parameter, value, seconds, ctx) {
-  const at = ctx.currentTime;
-  if (typeof parameter.cancelAndHoldAtTime === 'function') parameter.cancelAndHoldAtTime(at);
-  else { parameter.cancelScheduledValues(at); parameter.setValueAtTime(parameter.value, at); }
-  parameter.linearRampToValueAtTime(value, at + seconds);
-}
+// New recorded paper performances; the restored A/B keeper remains independent.
+const paperFiles={paperUnroll:new URL('./assets/audio-foley/v42/paper-unroll-v5.wav',import.meta.url).href,
+ paperRollup:new URL('./assets/audio-foley/v42/paper-rollup-v5.wav',import.meta.url).href};
+const smooth=(a,b,x)=>{const t=Math.max(0,Math.min(1,(x-a)/(b-a)));return t*t*(3-2*t);};
+const MAX_PAPER_GAIN=.10;
 
-export class SoundDirector {
-  constructor() {
-    this.musicEnabled = true; this.foleyEnabled = true;
-    this.musicVolume = .35; this.foleyVolume = .65;
-    this.active = false; this.paused = false; this.disposed = false; this.unlocked = false;
-    this.context = null; this.bytes = new Map(); this.buffers = new Map(); this.loads = new Map(); this.failures = new Map();
-    this.musicVoice = null; this.musicVoices = new Set(); this.foleyVoices = new Set();
-    this.position = 0; this.musicTicket = 0; this.foleyTicket = 0; this.epoch = 0;
-    this.restRemainingMs = 0; this.restTimer = 0; this.restStartedAt = 0;
-    this.lastMotion = null; this.lastCue = new Map(); this.materialVoices = new Map();
-    this.materialTargets = {paper:0,leather:0}; this.lastDriveAt = 0; this.contacts = [];
-    this.eventsPlayed = 0; this.lastEvent = null; this.completedPlays = 0;
-    this._visibility = () => { if (hidden()) this.pause(); else if (this.active) this.resume(); };
-    this._pagehide = () => this.pause();
-    globalThis.document?.addEventListener('visibilitychange', this._visibility);
-    globalThis.addEventListener?.('pagehide', this._pagehide);
+export class SoundDirector extends KeeperSoundDirector {
+ constructor(){
+  super();this.foleyKeys.push(...Object.keys(paperFiles));this.paperVoice=null;this.paperPrevious=null;this.paperSpeed=0;this.paperGain=0;
+  this.paperOffset=0;this.paperKey=null;this.paperExhausted=false;this.paperIdle=0;this.paperLastMoved=0;
+  this.paperEnvelope=[];
+ }
+ async _fetch(key){
+  if(!paperFiles[key])return super._fetch(key);
+  if(this.bytes.has(key))return this.bytes.get(key);
+  if(this.loads.has('fetch:'+key))return this.loads.get('fetch:'+key);
+  const task=fetch(paperFiles[key],{credentials:'same-origin'}).then(r=>{
+   if(!r.ok)throw Error(`纸卷录音未取得：${r.status}`);return r.arrayBuffer();
+  }).then(bytes=>{if(!this.disposed){this.bytes.set(key,bytes);this.failures.delete(key);}return bytes;})
+   .catch(e=>{if(!this.disposed)this.failures.set(key,e.message);throw e;});
+  this.loads.set('fetch:'+key,task);try{return await task;}finally{this.loads.delete('fetch:'+key);}
+ }
+ async prepare(){
+  if(this.disposed||!this.active)return false;
+  await Promise.allSettled([super.prepare(),...Object.keys(paperFiles).map(k=>this._fetch(k))]);return !this.disposed;
+ }
+ async unlock(){
+  const epoch=this.epoch;if(!await super.unlock())return false;
+  await Promise.allSettled(Object.keys(paperFiles).map(k=>this._buffer(k)));
+  return epoch===this.epoch&&this._canPlay();
+ }
+ stopPaper(reset=false){
+  const voice=this.paperVoice;this.paperVoice=null;
+  if(voice){
+   this.paperOffset=Math.min(voice.source.buffer.duration,voice.offset+Math.max(0,this.context.currentTime-voice.startedAt));
+   this._stopVoice(voice,.05);
   }
-
-  _nodes() {
-    if (this.context || this.disposed) return;
-    this.context = context(); contextUsers++;
-    const ctx = this.context;
-    this.master = ctx.createGain(); this.master.gain.value = .7;
-    this.musicBus = ctx.createGain(); this.musicBus.gain.value = MUSIC_GAIN * this.musicVolume;
-    this.foleyBus = ctx.createGain(); this.foleyBus.gain.value = this.foleyVolume;
-    this.limiter = ctx.createDynamicsCompressor();
-    Object.assign(this.limiter.threshold, {value: -10});
-    this.limiter.knee.value = 12; this.limiter.ratio.value = 3;
-    this.limiter.attack.value = .005; this.limiter.release.value = .16;
-    this.musicBus.connect(this.master); this.foleyBus.connect(this.master);
-    this.master.connect(this.limiter); this.limiter.connect(ctx.destination);
-    this._statechange = () => { if (ctx.state !== 'running') this._stopFoley(); };
-    ctx.addEventListener('statechange', this._statechange);
+  this.paperSpeed=0;this.paperGain=0;
+  if(reset){this.paperOffset=0;this.paperKey=null;this.paperExhausted=false;}
+ }
+ _stopFoley(){
+  clearTimeout(this.paperIdle);this.paperIdle=0;this.stopPaper(true);this.paperPrevious=null;
+  super._stopFoley();
+ }
+ paperIdleGuard(){
+  if(this.paperIdle)return;
+  const check=()=>{
+   this.paperIdle=0;const remaining=100-(performance.now()-this.paperLastMoved);
+   if(remaining>0&&this._canPlay())this.paperIdle=setTimeout(check,remaining);else this.stopPaper();
+  };
+  this.paperIdle=setTimeout(check,100);
+ }
+ startPaper(pose,key){
+  if(this.paperVoice||this.paperExhausted)return;
+  const buffer=this.buffers.get(key),ctx=this.context;if(!buffer||!ctx)return;
+  if(this.paperOffset>=buffer.duration){this.paperExhausted=true;return;}
+  const source=ctx.createBufferSource(),gain=ctx.createGain();source.buffer=buffer;source.loop=false;source.playbackRate.value=1;
+  gain.gain.value=0;source.connect(gain);gain.connect(this.foleyBus);
+  const voice={source,gain,key,offset:this.paperOffset,startedAt:ctx.currentTime,stopping:false,ended:false};
+  this.paperVoice=voice;this.foleyVoices.add(voice);
+  source.onended=()=>{
+   voice.ended=true;source.disconnect();gain.disconnect();this.foleyVoices.delete(voice);
+   if(this.paperVoice===voice){this.paperVoice=null;this.paperOffset=buffer.duration;this.paperExhausted=true;}
+  };
+  source.start(0,this.paperOffset);this.eventsPlayed++;this.lastEvent=key;
+  this.trace.push({key,progress:pose.progress,paperProgress:pose.paperProgress,audioTime:ctx.currentTime,
+   offset:this.paperOffset,rate:1,loop:false,mode:pose.mode||'automatic'});
+ }
+ motion(pose={}){
+  const at=performance.now(),previous=this.paperPrevious,current={...pose,at};
+  super.motion(pose);this.paperPrevious=current;
+  if(!this._canPlay()||!this.foleyEnabled)return;
+  const dt=previous?(at-previous.at)/1000:0,q=Number(pose.paperProgress)||0,oldQ=Number(previous?.paperProgress)||0;
+  if(q<=0||q>=1){this.stopPaper(true);return;}
+  if(!previous||!pose.active||dt<=0||dt>.3||Math.abs(q-oldQ)>.15){this.stopPaper();return;}
+  const delta=q-oldQ;if(Math.abs(delta)<1e-7)return;
+  const key=delta>0?'paperUnroll':'paperRollup';
+  // A continuous reversal keeps its current natural performance; no extra hit.
+  // A new stopped gesture may select the corresponding forward recorded take.
+  if(!this.paperVoice&&this.paperKey!==key){this.paperKey=key;this.paperOffset=0;this.paperExhausted=false;}
+  this.paperLastMoved=at;this.paperIdleGuard();
+  this.paperSpeed+=(420*Math.abs(delta)/dt-this.paperSpeed)*(1-Math.exp(-dt/.065));
+  const travel=key==='paperUnroll'?q:1-q;
+  // Continuous at zero speed: a decelerating sheet remains faintly audible,
+  // without a speed threshold cutting off the final moving portion.
+  const speedResponse=Math.pow(this.paperSpeed/(this.paperSpeed+40),.8);
+  const tail=1-.55*smooth(.72,1,travel);
+  const target=MAX_PAPER_GAIN*speedResponse*tail;
+  this.paperGain=target;if(target>0)this.startPaper(pose,this.paperKey||key);
+  const voice=this.paperVoice;
+  if(voice&&!voice.stopping){
+   const p=voice.gain.gain,t=this.context.currentTime;
+   if(p.cancelAndHoldAtTime)p.cancelAndHoldAtTime(t);else{p.cancelScheduledValues(t);p.setValueAtTime(p.value,t);}
+   p.setTargetAtTime(target,t,.045);p.setTargetAtTime(0,t+.095,.025);
   }
-
-  _canPlay() {
-    return !this.disposed && this.active && !this.paused && !hidden() && this.unlocked && this.context?.state === 'running';
+  if(!this.lastPaperEnvelopeAt||at-this.lastPaperEnvelopeAt>75){
+   this.paperEnvelope.push({q,speed:this.paperSpeed,target,audioTime:this.context.currentTime});
+   if(this.paperEnvelope.length>120)this.paperEnvelope.shift();this.lastPaperEnvelopeAt=at;
   }
-
-  setActive(value) {
-    if (this.disposed) return;
-    const next = Boolean(value);
-    if (next === this.active) return;
-    this.active = next; this.epoch++; this.lastMotion = null;
-    if (!next) { this._stopMusic(); this._stopFoley(); }
-    else if (!hidden()) { this.paused = false; this.resume(); }
-  }
-
-  setMusicEnabled(value) {
-    if (this.disposed) return;
-    this.musicEnabled = Boolean(value);
-    if (this.musicEnabled) this._syncMusic(); else this._stopMusic();
-  }
-
-  setFoleyEnabled(value) {
-    if (this.disposed) return;
-    this.foleyEnabled = Boolean(value); this.lastMotion = null;
-    if (!this.foleyEnabled) this._stopFoley();
-  }
-
-  setMusicVolume(value) {
-    const number = Number(value); if (this.disposed || !Number.isFinite(number)) return;
-    this.musicVolume = clamp(number);
-    if (this.context) ramp(this.musicBus.gain, MUSIC_GAIN * this.musicVolume, .04, this.context);
-  }
-
-  setFoleyVolume(value) {
-    const number = Number(value); if (this.disposed || !Number.isFinite(number)) return;
-    this.foleyVolume = clamp(number);
-    if (this.context) ramp(this.foleyBus.gain, this.foleyVolume, .04, this.context);
-  }
-
-  // Only selected, enabled resources are prepared. No context or playback here.
-  async prepare() {
-    if (this.disposed || !this.active) return false;
-    const keys = Object.keys(FILES).filter(key => key === 'music' ? this.musicEnabled : this.foleyEnabled);
-    await Promise.allSettled(keys.map(key => this._fetch(key)));
-    return !this.disposed;
-  }
-
-  // Invoke synchronously within a trusted tap, before awaiting other work.
-  // The viewer must not wait for this promise to open or respond to gestures.
-  async unlock() {
-    if (this.disposed || !this.active || hidden() || (!this.musicEnabled && !this.foleyEnabled)) return false;
-    const epoch = this.epoch;
-    this._nodes();
-    await this.context.resume();
-    if (this.disposed || epoch !== this.epoch || !this.active || hidden()) return false;
-    if (this.context.state !== 'running') throw Error('声音被系统暂停，请轻触卷轴重试');
-    this.prepare().catch(() => {});
-    const decoding=this.foleyEnabled?Promise.allSettled(Object.keys(FILES).filter(key=>key!=='music').map(key=>this._buffer(key))):Promise.resolve();
-    // "running" can precede the first hardware render quantum. Prime it
-    // while artwork prepares; never queue a gesture against a frozen clock.
-    const ctx=this.context,initialTime=ctx.currentTime,deadline=clock()+2000;
-    const prime=ctx.createBufferSource(),mute=ctx.createGain();
-    prime.buffer=ctx.createBuffer(1,1,ctx.sampleRate);mute.gain.value=0;
-    prime.connect(mute);mute.connect(ctx.destination);
-    prime.onended=()=>{prime.disconnect();mute.disconnect();};prime.start();
-    while(ctx.currentTime<=initialTime&&clock()<deadline&&!this.disposed&&this.active&&!hidden()&&epoch===this.epoch){
-      await new Promise(resolve=>setTimeout(resolve,20));
-    }
-    if(this.disposed||epoch!==this.epoch||!this.active||hidden())return false;
-    if(ctx.currentTime<=initialTime)throw Error('声音尚未就绪，请轻触卷轴重试');
-    this.unlocked = true;
-    await decoding;
-    if (this.disposed || epoch !== this.epoch || !this._canPlay()) return false;
-    this._syncMusic();
-    return true;
-  }
-
-  async _fetch(key) {
-    if (this.bytes.has(key)) return this.bytes.get(key);
-    const pending = this.loads.get(`fetch:${key}`); if (pending) return pending;
-    const task = fetch(ASSET(FILES[key]), {credentials: 'same-origin'}).then(response => {
-      if (!response.ok) throw Error(`声音资源未取得：${key} (${response.status})`);
-      return response.arrayBuffer();
-    }).then(bytes => {
-      if (!this.disposed) { this.bytes.set(key, bytes); this.failures.delete(key); }
-      return bytes;
-    }).catch(error => { if (!this.disposed) this.failures.set(key, error.message); throw error; });
-    this.loads.set(`fetch:${key}`, task);
-    try { return await task; } finally { this.loads.delete(`fetch:${key}`); }
-  }
-
-  async _buffer(key) {
-    if (this.buffers.has(key)) return this.buffers.get(key);
-    const pending = this.loads.get(`decode:${key}`); if (pending) return pending;
-    const task = this._fetch(key).then(bytes => {
-      if (this.disposed || this.context?.state === 'closed') throw Error('卷轴声音已关闭');
-      return this.context.decodeAudioData(bytes.slice(0));
-    }).then(buffer => {
-      if (!this.disposed) { this.buffers.set(key, buffer); this.failures.delete(key); }
-      return buffer;
-    }).catch(error => { if (!this.disposed) this.failures.set(key, error.message); throw error; });
-    this.loads.set(`decode:${key}`, task);
-    try { return await task; } finally { this.loads.delete(`decode:${key}`); }
-  }
-
-  _position() {
-    const voice = this.musicVoice;
-    return voice && !voice.stopping ? Math.min(voice.source.buffer.duration, voice.offset + this.context.currentTime - voice.startedAt) : this.position;
-  }
-
-  _stopVoice(voice, fade = .04) {
-    if (!voice || voice.stopping) return;
-    voice.stopping = true;
-    if (this.context?.state === 'running' && fade > 0) {
-      ramp(voice.gain.gain, 0, fade, this.context);
-      try { voice.source.stop(this.context.currentTime + fade + .01); } catch {}
-    } else { try { voice.source.stop(); } catch {} }
-  }
-
-  _pauseRest() {
-    if (!this.restTimer) return;
-    this.restRemainingMs = Math.max(0, this.restRemainingMs - (clock() - this.restStartedAt));
-    clearTimeout(this.restTimer); this.restTimer = 0; this.restStartedAt = 0;
-  }
-
-  _stopMusic() {
-    this.musicTicket++;
-    if (this.musicVoice) this.position = this._position();
-    this.musicVoice = null; this._pauseRest();
-    for (const voice of this.musicVoices) this._stopVoice(voice, .08);
-  }
-
-  _armRest() {
-    if (this.restTimer || !this._canPlay() || !this.musicEnabled) return;
-    this.restStartedAt = clock();
-    this.restTimer = setTimeout(() => {
-      this.restTimer = 0; this.restStartedAt = 0; this.restRemainingMs = 0;
-      if (this._canPlay() && this.musicEnabled) this._syncMusic();
-    }, this.restRemainingMs);
-  }
-
-  _syncMusic() {
-    if (!this._canPlay() || !this.musicEnabled || this.musicVoice) return;
-    if (this.restRemainingMs > 0) { this._armRest(); return; }
-    const ticket = ++this.musicTicket, epoch = this.epoch;
-    this._buffer('music').then(buffer => {
-      if (ticket !== this.musicTicket || epoch !== this.epoch || !this._canPlay() || !this.musicEnabled || this.musicVoice) return;
-      const ctx = this.context, source = ctx.createBufferSource(), gain = ctx.createGain();
-      source.buffer = buffer; source.loop = false;
-      gain.gain.value = 0; source.connect(gain); gain.connect(this.musicBus);
-      const offset = clamp(this.position, 0, Math.max(0, buffer.duration - .001));
-      const voice = {source, gain, offset, startedAt: ctx.currentTime, stopping: false};
-      this.musicVoice = voice; this.musicVoices.add(voice);
-      source.onended = () => {
-        source.disconnect(); gain.disconnect(); this.musicVoices.delete(voice);
-        if (this.disposed || voice.stopping || this.musicVoice !== voice) return;
-        this.musicVoice = null; this.position = 0; this.completedPlays++;
-        // Preserve the recording's cadence and tail; this is not a seamless loop.
-        this.restRemainingMs = END_REST_MS; this._armRest();
-      };
-      source.start(0, offset); gain.gain.linearRampToValueAtTime(1, ctx.currentTime + .65);
-    }).catch(() => {});
-  }
-
-  _stopFoley() {
-    this.foleyTicket++;
-    for (const voice of this.foleyVoices) this._stopVoice(voice, .025);
-    this.lastMotion = null; this.materialVoices.clear(); this.materialTargets={paper:0,leather:0};
-  }
-
-  _play(key, {gain = .3, group = key, cooldown = 180} = {}) {
-    if (!this._canPlay() || !this.foleyEnabled) return;
-    const at = clock(), epoch = this.epoch, ticket = this.foleyTicket;
-    if (at - (this.lastCue.get(group) ?? -Infinity) < cooldown) return;
-    this.lastCue.set(group, at);
-    this._buffer(key).then(buffer => {
-      if (!this._canPlay() || !this.foleyEnabled || this.epoch !== epoch || this.foleyTicket !== ticket || clock() - at > 350) return;
-      const active = [...this.foleyVoices].filter(voice => !voice.stopping);
-      if (active.length >= 4) this._stopVoice(active[0], .025);
-      const ctx = this.context, source = ctx.createBufferSource(), node = ctx.createGain();
-      source.buffer = buffer; node.gain.value = 0;
-      node.gain.linearRampToValueAtTime(gain, ctx.currentTime + .008);
-      source.connect(node); node.connect(this.foleyBus);
-      const voice = {source, gain: node, stopping: false}; this.foleyVoices.add(voice);
-      source.onended = () => { source.disconnect(); node.disconnect(); this.foleyVoices.delete(voice); };
-      source.start(); this.eventsPlayed++; this.lastEvent = group;
-    }).catch(() => {});
-  }
-
-  _performance(material,key,target,position,direction) {
-    const buffer=this.buffers.get(key),ctx=this.context;
-    this.materialTargets[material]=target;
-    let voice=this.materialVoices.get(material);
-    if(!buffer||!ctx)return; // Never replay a gesture after decoding arrives late.
-    if(!target){
-      if(voice)this._stopVoice(voice,.055);
-      this.materialVoices.delete(material);return;
-    }
-    const now=ctx.currentTime,travel=clamp(direction>0?position:1-position);
-    const offset=travel*(buffer.duration-.04);
-    // Native-pitch performed gestures, not a continuously repeated noise bed.
-    // Ordinary play runs through its natural envelope; an unusually slow drag
-    // can relocate to the material coordinate with a short crossfade.
-    const drift=voice?Math.abs(offset-(voice.offset+now-voice.startedAt)):0;
-    const relocate=voice&&!voice.ended&&now-voice.startedAt>.6&&drift>.55;
-    if(voice&&(voice.key!==key||voice.direction!==direction||(!voice.ended&&voice.expiresAt<=now)||relocate)){
-      this._stopVoice(voice,.045);this.materialVoices.delete(material);voice=null;
-    }
-    if(!voice){
-      const source=ctx.createBufferSource(),gain=ctx.createGain();
-      source.buffer=buffer;source.loop=false;source.playbackRate.value=1;
-      gain.gain.value=0;source.connect(gain);gain.connect(this.foleyBus);
-      voice={source,gain,key,direction,offset,startedAt:now,expiresAt:now+.18,stopping:false,ended:false};
-      this.materialVoices.set(material,voice);this.foleyVoices.add(voice);
-      source.onended=()=>{voice.ended=true;source.disconnect();gain.disconnect();this.foleyVoices.delete(voice);};
-      source.start(0,offset);this.eventsPlayed++;this.lastEvent=key;
-    }
-    if(voice.ended||voice.stopping)return;
-    ramp(voice.gain.gain,target,.025,ctx);
-    // The audio clock ends a held-finger stroke even without another JS frame.
-    voice.expiresAt=now+.18;
-    voice.gain.gain.setValueAtTime(target,now+.10);
-    voice.gain.gain.linearRampToValueAtTime(0,now+.18);
-    voice.source.stop(now+.19); // A later stop call replaces the earlier time.
-  }
-
-  motion({progress=0,paperProgress=0,keeper=null,active=false}={}) {
-    const at=clock(),previous=this.lastMotion,current={progress:clamp(progress),paperProgress:clamp(paperProgress),keeper,active,at};
-    this.lastMotion=current;
-    if(!this._canPlay()||!this.foleyEnabled)return;
-    const response=materialMotion(current,previous,previous?(at-previous.at)/1000:0);
-    this.lastDriveAt=at;
-    const paperDirection=Math.sign(current.paperProgress-(previous?.paperProgress??current.paperProgress))||1;
-    const leatherDirection=Math.sign((keeper?.r??0)-(previous?.keeper?.r??keeper?.r??0))||1;
-    this._performance('paper',paperDirection>0?'paperOpen':'paperClose',response.paper,current.paperProgress,paperDirection);
-    this._performance('leather','leather',response.leather,clamp((keeper?.r??0)/.94),leatherDirection);
-    this.contactArmed??={park:true,seat:true};
-    if((keeper?.r??1)<.68)this.contactArmed.park=true;
-    if((keeper?.r??0)>.08)this.contactArmed.seat=true;
-    const contactKey=response.contact==='prong-park'?'park':response.contact==='prong-seat'?'seat':null;
-    if(contactKey&&this.contactArmed[contactKey]){
-      this.contactArmed[contactKey]=false;
-      this._play(contactKey,{group:response.contact,gain:.22,cooldown:180});
-      this.contacts.push({kind:response.contact,progress:current.progress,r:keeper.r,phase:keeper.phase,pin:keeper.pin});
-      if(this.contacts.length>12)this.contacts.shift();
-    }
-  }
-
-  pause() {
-    if (this.disposed) return;
-    this.paused = true; this.epoch++; this._stopMusic(); this._stopFoley();
-  }
-
-  resume() {
-    if (this.disposed || !this.active || hidden()) return;
-    this.paused = false; this.lastMotion = null;
-    if (!this.context || !this.unlocked || (!this.musicEnabled && !this.foleyEnabled)) return;
-    const epoch = this.epoch;
-    this.context.resume().then(() => {
-      if (!this.disposed && this.epoch === epoch && this._canPlay()) this._syncMusic();
-    }).catch(() => {});
-  }
-
-  snapshot() {
-    return {
-      active: this.active, paused: this.paused, disposed: this.disposed, unlocked: this.unlocked,
-      musicEnabled: this.musicEnabled, foleyEnabled: this.foleyEnabled,
-      musicVolume: this.musicVolume, foleyVolume: this.foleyVolume,
-      contextState: this.context?.state || 'not-created',
-      musicTrack: this.musicVoice ? 'a-new-town' : null,
-      musicPosition: this._position(), musicDuration: this.buffers.get('music')?.duration || null,
-      musicState: this.musicVoice ? 'playing' : this.restRemainingMs > 0 ? 'rest' : 'paused',
-      restRemainingMs: this.restTimer ? Math.max(0, this.restRemainingMs - (clock() - this.restStartedAt)) : this.restRemainingMs,
-      completedPlays: this.completedPlays, musicVoices: this.musicVoices.size, foleyVoices: this.foleyVoices.size,
-      downloaded: this.bytes.size, decoded: [...this.buffers.keys()], failures: Object.fromEntries(this.failures),
-      eventsPlayed: this.eventsPlayed, lastEvent: this.lastEvent,
-      materialTargets:clock()-this.lastDriveAt>180?{paper:0,leather:0}:{...this.materialTargets},
-      materialLevels:Object.fromEntries([...this.materialVoices].map(([key,voice])=>[key,voice.ended?0:voice.gain.gain.value])),
-      performances:[...this.materialVoices].map(([material,v])=>({material,key:v.key,loop:v.source.loop,rate:v.source.playbackRate.value,offset:v.offset,direction:v.direction,ended:v.ended})),
-      motionModel:'actual keeper path coordinates and paper winding velocity',contacts:this.contacts.slice(),
-      listeningReview:'finite recorded performances; user listening acceptance remains separate',seamlessLoop:false,issued:false
-    };
-  }
-
-  dispose() {
-    if (this.disposed) return;
-    this.setActive(false); this.pause(); this.disposed = true;
-    clearTimeout(this.restTimer); this.restTimer = 0;
-    globalThis.document?.removeEventListener('visibilitychange', this._visibility);
-    globalThis.removeEventListener?.('pagehide', this._pagehide);
-    if (this.context) {
-      this.context.removeEventListener('statechange', this._statechange);
-      for (const voice of [...this.musicVoices, ...this.foleyVoices]) {
-        try { voice.source.stop(); } catch {} voice.source.disconnect(); voice.filter?.disconnect(); voice.gain.disconnect();
-      }
-      this.musicVoices.clear(); this.foleyVoices.clear();
-      this.musicBus.disconnect(); this.foleyBus.disconnect(); this.master.disconnect(); this.limiter.disconnect();
-      contextUsers = Math.max(0, contextUsers - 1);
-      if (!contextUsers) { this.context.close().catch(() => {}); sharedContext = null; }
-    }
-    this.bytes.clear(); this.buffers.clear(); this.loads.clear();
-  }
+ }
+ snapshot(){return {...super.snapshot(),variant:'recorded-foley-v42',candidateOnly:false,userApproved:true,paperState:'adopted-full-automatic-motion-tail',keeperReference:'466132c A/B',
+  paperGain:this.paperGain,paperKey:this.paperKey,paperExhausted:this.paperExhausted,maximumPaperGain:MAX_PAPER_GAIN,paperEnvelope:this.paperEnvelope.slice(),
+  listeningReview:'Pitch-preserving stretched Adobe performances with a continuous quiet tail; user adopted for normal automatic opening/closing on 2026-10-23. Original A/B keeper unchanged.'};}
 }

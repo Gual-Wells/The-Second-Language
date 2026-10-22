@@ -6,7 +6,7 @@ import {pathToFileURL} from 'node:url';
 
 // Narrow technical gate. This records real browser output, not a listening verdict.
 const root=process.cwd(),reference='a9470bd';
-const out=root+'/research/scroll-paper-tail-2026-10-23';
+const out=root+'/research/scroll-sound-adoption-2026-10-23/study';
 const tmp=root+'/.cache/paper-candidate-browser';
 const base=(process.env.STUDY_URL||'http://127.0.0.1:8153').replace(/\/$/,'');
 await mkdir(out,{recursive:true});await mkdir(tmp,{recursive:true});
@@ -26,7 +26,7 @@ try{
   report.keeperAssets.push({key,file,bytes:bytes.length,sha256:sha(bytes),referenceSHA256:sha(pinned)});
  }
  report.checks.tenKeeperAssetsMatchReference=true;
- const protectedPaths=['web/labs/certification-reader','web/labs/project-beginning','web/labs/chapter-scroll-v6','web/labs/chapter-scroll-v17','web/labs/chapter-scroll-v19','web/labs/chapter-scroll-v20'];
+ const protectedPaths=['web/labs/certification-reader/reader.bundle.js','web/labs/certification-reader/assets/keeper-display.glb','web/labs/project-beginning','web/labs/chapter-scroll-v6','web/labs/chapter-scroll-v17','web/labs/chapter-scroll-v19','web/labs/chapter-scroll-v20'];
  const changes=git('diff','--name-only',reference,'--',...protectedPaths).toString().trim();
  assert.equal(changes,'','Production rendering, paper or keeper mechanism changed');
  report.checks.productionVisualsAndMechanismUnchanged=true;
@@ -45,7 +45,7 @@ try{
  page.on('requestfailed',r=>report.requestFailures.push({url:r.url(),error:r.failure()?.errorText}));
  page.on('response',r=>{
   if(r.status()>=400)report.httpErrors.push({url:r.url(),status:r.status()});
-  if(/\/labs\/scroll-foley-study\/audio\/[^/]+\.wav(?:\?|$)/.test(r.url()))responseTasks.push(r.body().then(b=>audioResponses.push({url:r.url(),status:r.status(),bytes:b.length,sha256:sha(b)})));
+  if(/\/labs\/certification-reader\/assets\/audio-foley\/v42\/[^/]+\.wav(?:\?|$)/.test(r.url()))responseTasks.push(r.body().then(b=>audioResponses.push({url:r.url(),status:r.status(),bytes:b.length,sha256:sha(b)})));
  });
  await page.addInitScript(()=>{
   const connect=AudioNode.prototype.connect;
@@ -69,7 +69,7 @@ try{
  await page.locator('#unlockSound').click();
  await page.waitForFunction(()=>scrollFoleyStudy.snapshot().soundReady,null,{timeout:20000});
  const initial=await page.evaluate(()=>scrollFoleyStudy.snapshot());
- assert.equal(initial.withMusic,false);assert.equal(initial.sound.variant,'paper-recording-v5');
+ assert.equal(initial.withMusic,false);assert.equal(initial.sound.variant,'recorded-foley-v42');assert.equal(initial.sound.userApproved,true);
  assert.deepEqual([...initial.sound.decoded].sort(),[...keeperKeys,'paperUnroll','paperRollup'].sort());
  report.initial={candidate:initial.candidate,decoded:initial.sound.decoded,keeperReference:initial.sound.keeperReference,maximumPaperGain:initial.sound.maximumPaperGain};
  const browserDecoded=await page.evaluate(async items=>{

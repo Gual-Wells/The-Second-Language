@@ -1,32 +1,69 @@
 {
-  "schema": "second-language.reader-material-audio.v2",
-  "currentSince": "2026-10-22",
-  "revision": "v41-finite-performances",
+  "schema": "second-language.reader-material-audio.v3",
+  "currentSince": "2026-10-23",
+  "revision": "v42-approved-recorded-foley",
+  "adoptedAudition": "6b5f54fefcad90276cf9cd942e167c4e5c7a16a6",
+  "adoptedURL": "https://912b8b9f.the-second-language.pages.dev/labs/scroll-foley-study/",
   "runtime": [
     {
-      "path": "assets/audio-foley/paper-open-v41.wav",
-      "bytes": 291884,
-      "sha256": "68ac1f965c75f135b0b013b371894bdf54f426a132390d6cdeb1724004618be8"
+      "path": "assets/audio-foley/v42/bendOpen.wav",
+      "bytes": 86444,
+      "sha256": "650893bdcd634a0cb36382ed53b79d776f147ce38bb3ee4b95930214d0c1c0fc"
     },
     {
-      "path": "assets/audio-foley/paper-close-v41.wav",
-      "bytes": 316844,
-      "sha256": "d075ec60f4d7a16ed8948410bac8f9022111eb47f595f6c50cd45d246b5e4fff"
+      "path": "assets/audio-foley/v42/bendClose.wav",
+      "bytes": 86444,
+      "sha256": "c22792a8c149b4cafe9a25d51a2b7979a813b7ea864f17b00a44512115be3736"
     },
     {
-      "path": "assets/audio-foley/leather-release-v41.wav",
-      "bytes": 209324,
-      "sha256": "4081e5e34f5cdcaf6d96ea215683fe38d4b7f1d79e8de038bdecc34dc36677e2"
+      "path": "assets/audio-foley/v42/holeOpen.wav",
+      "bytes": 40364,
+      "sha256": "46a43b9b719f4afcbfcca0b5ead042ce0abead83d550c088292689631cf1a88c"
     },
     {
-      "path": "assets/audio-foley/buckle-park-v41.wav",
-      "bytes": 30764,
-      "sha256": "1a77280a77f29a1f3ffad0d30c6d6ccac74405450d1bacbecf74a00aa58546b7"
+      "path": "assets/audio-foley/v42/holeClose.wav",
+      "bytes": 40364,
+      "sha256": "97874a858f0081efcb2737526331a3eca8249e1ea2ccd251be8a988b85e10be6"
     },
     {
-      "path": "assets/audio-foley/buckle-seat-v41.wav",
-      "bytes": 36524,
-      "sha256": "982838c9c52559796eec3cb531a94a8b35dd47f6c7d5b6041a536ebce57a08d6"
+      "path": "assets/audio-foley/v42/tailOpen.wav",
+      "bytes": 62444,
+      "sha256": "edf8e801ceb9b2dbabae864b79d627b861a5a2ed1c8522aacb304b5ce9d08a9f"
+    },
+    {
+      "path": "assets/audio-foley/v42/tailClose.wav",
+      "bytes": 62444,
+      "sha256": "32c339c42d951178c4973e80050207d8bc3a7e6ef34856aa10ec7bc41d3afeff"
+    },
+    {
+      "path": "assets/audio-foley/v42/slideOpen.wav",
+      "bytes": 23084,
+      "sha256": "c47e77a5ba19e2689e48c14b5a9f2731f6d7db519c7422c07e908dd46bf5131e"
+    },
+    {
+      "path": "assets/audio-foley/v42/slideClose.wav",
+      "bytes": 23084,
+      "sha256": "f60f03943a3fc9ee2482a7d9a9e716765cbeaaa9537c68841bf39a9b6284a77c"
+    },
+    {
+      "path": "assets/audio-foley/v42/park.wav",
+      "bytes": 17088,
+      "sha256": "d95364858538b9f038f1354d930fe3e696a0e64672e5225477a6fd16adb5090d"
+    },
+    {
+      "path": "assets/audio-foley/v42/seat.wav",
+      "bytes": 21392,
+      "sha256": "3c3aa2b7d0222fdb96e1978376a6c3b3b499867464365ee7daaee7d25a5cc953"
+    },
+    {
+      "path": "assets/audio-foley/v42/paper-unroll-v5.wav",
+      "bytes": 838480,
+      "sha256": "703972ab4cf662fcee45af743bf08c2135f55fc1497a489ed897b9f5aae59860"
+    },
+    {
+      "path": "assets/audio-foley/v42/paper-rollup-v5.wav",
+      "bytes": 863708,
+      "sha256": "36a7fa2374abe0a0d5c1a3bd05fa936335fc5c9ea6e92a9926fc4069952d9e99"
     },
     {
       "path": "assets/audio-music/a-new-town.mp3",
@@ -34,12 +71,15 @@
       "sha256": "8a83b97f06cad1052eea0a3fa8f65966db742e68275a1d82816773c820578ad2"
     }
   ],
-  "sources": "performance-recordings/CREDITS.md",
-  "derivatives": "performance-recordings/derivatives.json",
-  "authorSources": "performance-recordings/sources.json",
-  "licenses": [
-    "CC0-1.0"
+  "provenance": [
+    "../audio-foley/v42/paper-recordings.json",
+    "../audio-foley/v42/keeper-cues.json",
+    "../audio-foley/v42/keeper-sources.json"
   ],
-  "legacyManifest": "v40-rejected-manifest.json",
-  "listeningReview": "New candidate for user audition. Source identity, waveform and motion checks do not certify perceived material quality."
+  "licenses": [
+    "CC0-1.0",
+    "Adobe Content Files terms"
+  ],
+  "sourcePolicy": "Adobe originals/ZIP remain in private ignored D storage; only accompanying derived interactive tracks are distributed. Not MIT/CC0. Keeper and music retain CC0.",
+  "acceptance": "User approved normal automatic opening/closing and requested production integration on 2026-10-23. No unlimited continuous-drag or physical iPhone Safari guarantee."
 }
