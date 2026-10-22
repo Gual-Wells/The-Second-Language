@@ -14,7 +14,7 @@ const sha=b=>createHash('sha256').update(b).digest('hex');
 const git=(...args)=>execFileSync('git',args,{cwd:root,windowsHide:true,maxBuffer:8*1024*1024});
 const keeperKeys=['bendOpen','bendClose','holeOpen','holeClose','tailOpen','tailClose','slideOpen','slideClose','park','seat'];
 const manifest=JSON.parse(await readFile(root+'/web/labs/scroll-foley-study/paper-recordings.json','utf8'));
-const report={checkedAt:new Date().toISOString(),base,reference,
+const report={checkedAt:new Date().toISOString(),base,reference,networkProxy:process.env.STUDY_PROXY||null,
  scope:'Actual headless Chrome WebGL/WebAudio, 393x852. Full opening/closing captures are actual master-bus output recorded through MediaRecorder Opus and decoded to mono PCM WAV. Not lossless masters, human listening approval, or physical iPhone/Safari validation.',
  checks:{qualityApproved:false,artApproved:false},keeperAssets:[],paperAssets:[],httpErrors:[],pageErrors:[],requestFailures:[]};
 let browser;
@@ -38,7 +38,7 @@ try{
   report.paperAssets.push({file:item.file,bytes:bytes.length,sha256:sha(bytes),frames:item.frames,duration:item.duration,rate:item.rate,channels:item.channels,bitDepth:item.bitDepth});
  }
  const {chromium}=await import(pathToFileURL('D:/CodexStorage/workspaces/second-language-maintenance/.cache/browser-tools/package/index.mjs'));
- browser=await chromium.launch({headless:true,executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe',env:{...process.env,TEMP:tmp,TMP:tmp},args:['--no-first-run']});
+ browser=await chromium.launch({headless:true,executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe',env:{...process.env,TEMP:tmp,TMP:tmp},args:['--no-first-run'],...(process.env.STUDY_PROXY?{proxy:{server:process.env.STUDY_PROXY}}:{})});
  const page=await browser.newPage({viewport:{width:393,height:852},deviceScaleFactor:1});
  const audioResponses=[],responseTasks=[];
  page.on('pageerror',e=>report.pageErrors.push(e.message));
@@ -65,7 +65,7 @@ try{
   };
  });
  await page.goto(base+'/labs/scroll-foley-study/');
- await page.waitForFunction(()=>window.scrollFoleyStudy?.snapshot().viewerReady,null,{timeout:90000});
+ await page.waitForFunction(()=>window.scrollFoleyStudy?.snapshot().viewerReady,null,{timeout:120000});
  await page.locator('#unlockSound').click();
  await page.waitForFunction(()=>scrollFoleyStudy.snapshot().soundReady,null,{timeout:20000});
  const initial=await page.evaluate(()=>scrollFoleyStudy.snapshot());
