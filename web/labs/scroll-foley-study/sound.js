@@ -1,8 +1,8 @@
 import {ABKeeperSoundDirector} from './keeper-reference.js';
 
 // New recorded paper performances; the restored A/B keeper remains independent.
-const paperFiles={paperUnroll:new URL('./audio/paper-unroll-v4.wav',import.meta.url).href,
- paperRollup:new URL('./audio/paper-rollup-v4.wav',import.meta.url).href};
+const paperFiles={paperUnroll:new URL('./audio/paper-unroll-v5.wav',import.meta.url).href,
+ paperRollup:new URL('./audio/paper-rollup-v5.wav',import.meta.url).href};
 const smooth=(a,b,x)=>{const t=Math.max(0,Math.min(1,(x-a)/(b-a)));return t*t*(3-2*t);};
 const MAX_PAPER_GAIN=.10;
 
@@ -82,9 +82,13 @@ export class StudySoundDirector extends ABKeeperSoundDirector {
   if(!this.paperVoice&&this.paperKey!==key){this.paperKey=key;this.paperOffset=0;this.paperExhausted=false;}
   this.paperLastMoved=at;this.paperIdleGuard();
   this.paperSpeed+=(420*Math.abs(delta)/dt-this.paperSpeed)*(1-Math.exp(-dt/.065));
-  const edge=smooth(0,.035,q)*smooth(0,.035,1-q);
-  const target=MAX_PAPER_GAIN*Math.pow(smooth(15,175,this.paperSpeed),1.5)*edge;
-  this.paperGain=target;if(target>.00005)this.startPaper(pose,this.paperKey||key);
+  const travel=key==='paperUnroll'?q:1-q;
+  // Continuous at zero speed: a decelerating sheet remains faintly audible,
+  // without a speed threshold cutting off the final moving portion.
+  const speedResponse=Math.pow(this.paperSpeed/(this.paperSpeed+40),.8);
+  const tail=1-.55*smooth(.72,1,travel);
+  const target=MAX_PAPER_GAIN*speedResponse*tail;
+  this.paperGain=target;if(target>0)this.startPaper(pose,this.paperKey||key);
   const voice=this.paperVoice;
   if(voice&&!voice.stopping){
    const p=voice.gain.gain,t=this.context.currentTime;
@@ -96,7 +100,7 @@ export class StudySoundDirector extends ABKeeperSoundDirector {
    if(this.paperEnvelope.length>120)this.paperEnvelope.shift();this.lastPaperEnvelopeAt=at;
   }
  }
- snapshot(){return {...super.snapshot(),variant:'paper-recording-v4',paperState:'new-adobe-recordings-awaiting-listening',keeperReference:'466132c A/B',
+ snapshot(){return {...super.snapshot(),variant:'paper-recording-v5',paperState:'full-automatic-motion-tail-awaiting-listening',keeperReference:'466132c A/B',
   paperGain:this.paperGain,paperKey:this.paperKey,paperExhausted:this.paperExhausted,maximumPaperGain:MAX_PAPER_GAIN,paperEnvelope:this.paperEnvelope.slice(),
-  listeningReview:'New Adobe paper roll/unroll performance candidate, not human approved. Original A/B keeper restored unchanged.'};}
+  listeningReview:'Pitch-preserving stretched Adobe performances with a continuous quiet tail; not human approved. Original A/B keeper restored unchanged.'};}
 }

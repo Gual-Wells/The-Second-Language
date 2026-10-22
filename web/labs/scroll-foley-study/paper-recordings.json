@@ -1,38 +1,48 @@
 {
-  "schema": "second-language.paper-recording-candidate.v1",
+  "schema": "second-language.paper-recording-candidate.v2",
   "status": "pending-listening",
   "source": "Adobe Audition Download Sound Effects / Foley",
   "sourcePage": "https://www.adobe.com/products/audition/offers/AdobeAuditionDLCSFX.html",
   "license": "Adobe Content Files terms; embedded in this authored interactive scroll only, not an independent sound library or MIT asset.",
   "materialLimit": "Author identifies paper rolling, not actual animal parchment. Suitability remains subject to listening.",
+  "timing": "Normal 5.6s automatic motion contains approximately 3.176s paper movement. Stretched takes cover this interval with headroom; actual movement controls gain, then stop fades the source. Finite takes do not cover arbitrarily long continuous manual dragging.",
+  "tool": "D:\\CodexStorage\\workspaces\\second-language-maintenance\\.cache\\tools\\ffmpeg.exe",
   "recordings": [
     {
       "action": "unroll",
       "originalName": "Foley Paper Unroll 01.wav",
       "sourceSHA256": "03fdbfb7e53829dfd09aef714afbaaee3af908670a0f5da64cb1360404ad4d13",
-      "file": "audio/paper-unroll-v4.wav",
-      "sha256": "04532669c87dd3265943dcb8549babb50c20332771b9b95601e25154476eb28d",
-      "bytes": 300928,
-      "frames": 75221,
-      "duration": 1.5671041666666667,
+      "file": "audio/paper-unroll-v5.wav",
+      "sha256": "703972ab4cf662fcee45af743bf08c2135f55fc1497a489ed897b9f5aae59860",
+      "bytes": 838480,
+      "frames": 209609,
+      "duration": 4.366854166666666,
+      "originalDuration": 1.5671041666666667,
+      "tempo": 0.3482453703703704,
+      "pitchScale": 1,
+      "filter": "rubberband=tempo=0.348245370370:pitch=1:transients=smooth:detector=soft:channels=together",
       "rate": 48000,
       "channels": 2,
       "bitDepth": 16,
-      "changes": "Full native performance. Metadata stripped, 10ms edge fades only. No EQ, gain normalization, compression, noise synthesis, reversal, looping or time/pitch change."
+      "changes": "Full performance, offline Rubber Band pitch-preserving time stretch to approximately 4.5s; metadata stripped and 10ms edge fades. No EQ, gain normalization, compression, noise synthesis, reversal, looping, silent padding or runtime pitch change."
     },
     {
       "action": "rollup",
       "originalName": "Foley Paper Roll Up Fast 01.wav",
       "sourceSHA256": "1e4d6fe46396cd6f313148b09b6404a597ff745fef44701e054e853cd9ee01a8",
-      "file": "audio/paper-rollup-v4.wav",
-      "sha256": "b2fd14da0fc6a1faf1e144c41a2008a1b78f4f22100dea6db354e7efab5fd6d7",
-      "bytes": 673656,
-      "frames": 168403,
-      "duration": 3.508395833333333,
+      "file": "audio/paper-rollup-v5.wav",
+      "sha256": "36a7fa2374abe0a0d5c1a3bd05fa936335fc5c9ea6e92a9926fc4069952d9e99",
+      "bytes": 863708,
+      "frames": 215916,
+      "duration": 4.49825,
+      "originalDuration": 3.508395833333333,
+      "tempo": 0.7796435185185184,
+      "pitchScale": 1,
+      "filter": "rubberband=tempo=0.779643518519:pitch=1:transients=smooth:detector=soft:channels=together",
       "rate": 48000,
       "channels": 2,
       "bitDepth": 16,
-      "changes": "Full native performance. Metadata stripped, 10ms edge fades only. No EQ, gain normalization, compression, noise synthesis, reversal, looping or time/pitch change."
+      "changes": "Full performance, offline Rubber Band pitch-preserving time stretch to approximately 4.5s; metadata stripped and 10ms edge fades. No EQ, gain normalization, compression, noise synthesis, reversal, looping, silent padding or runtime pitch change."
     }
   ]
 }

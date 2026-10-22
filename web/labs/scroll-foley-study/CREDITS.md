@@ -1,4 +1,4 @@
-# Recorded paper winding candidate — revision 4
+# Recorded paper winding candidate — revision 5
 
 ## Current paper candidate (not listening approved)
 
@@ -9,16 +9,23 @@ The paper winding part of the interactive scroll now uses:
 - `Foley Paper Unroll 01.wav` — 1.567104 seconds, opening.
 - `Foley Paper Roll Up Fast 01.wav` — 3.508396 seconds, closing.
 
-Both source files are actual 48kHz / 16-bit / stereo PCM WAV. Changes: full
-performance with metadata removed and 10ms de-click edge fades. No EQ, gain
-normalization, compression, generated noise, reverse, looping, time stretching
-or runtime pitch change. Details and hashes: `paper-recordings.json`, build
+Both source files are actual 48kHz / 16-bit / stereo PCM WAV. Revision 5 uses
+offline FFmpeg Rubber Band time stretching (pitch scale 1, smooth transients,
+soft detector, channels together) to approximately 4.5 seconds per take. Metadata
+is removed and 10ms de-click edge fades applied. No EQ, gain normalization,
+compression, generated noise, reverse, looping, silent padding or runtime pitch
+change. Details and hashes: `paper-recordings.json`, build
 recipe: `scripts/build-scroll-paper-candidate.py`.
 
-These are paper performances, not verified animal parchment. Movement gates
-only the output gain; slow or stopped paper is quiet. The shorter opening
-recording can end before the visual action does. It is not repeated or padded
-to conceal this limit. The keeper uses its separate unchanged A/B reference.
+These are paper performances, not verified animal parchment. Movement drives
+output gain continuously: the last moving part becomes faint, then stops at
+rest. The roughly 3.176-second paper phase of the normal automatic animation
+is covered, correcting revision 4's silent final 1.6 seconds. The finite takes
+do not support arbitrarily long continuous manual dragging. Pitch-preserving
+processing is not a guarantee of perceptual transparency; listening is pending.
+The keeper uses its separate unchanged A/B reference.
+
+Processing reference: [FFmpeg Rubber Band filter](https://ffmpeg.org/ffmpeg-filters.html#rubberband).
 
 Adobe source and derivatives retain the Adobe Content File license, **not MIT
 or CC0**. They are provided only as necessary accompanying tracks inside this

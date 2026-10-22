@@ -6,7 +6,7 @@ import {pathToFileURL} from 'node:url';
 
 // Narrow technical gate. This records real browser output, not a listening verdict.
 const root=process.cwd(),reference='a9470bd';
-const out=root+'/research/scroll-paper-sound-2026-10-22';
+const out=root+'/research/scroll-paper-tail-2026-10-23';
 const tmp=root+'/.cache/paper-candidate-browser';
 const base=(process.env.STUDY_URL||'http://127.0.0.1:8153').replace(/\/$/,'');
 await mkdir(out,{recursive:true});await mkdir(tmp,{recursive:true});
@@ -69,7 +69,7 @@ try{
  await page.locator('#unlockSound').click();
  await page.waitForFunction(()=>scrollFoleyStudy.snapshot().soundReady,null,{timeout:20000});
  const initial=await page.evaluate(()=>scrollFoleyStudy.snapshot());
- assert.equal(initial.withMusic,false);assert.equal(initial.sound.variant,'paper-recording-v4');
+ assert.equal(initial.withMusic,false);assert.equal(initial.sound.variant,'paper-recording-v5');
  assert.deepEqual([...initial.sound.decoded].sort(),[...keeperKeys,'paperUnroll','paperRollup'].sort());
  report.initial={candidate:initial.candidate,decoded:initial.sound.decoded,keeperReference:initial.sound.keeperReference,maximumPaperGain:initial.sound.maximumPaperGain};
  const browserDecoded=await page.evaluate(async items=>{
@@ -90,7 +90,7 @@ try{
   await page.evaluate(()=>{
    window.__chunks=[];window.__recorder=new MediaRecorder(__capture.stream.stream,{mimeType:'audio/webm;codecs=opus'});
    __recorder.ondataavailable=e=>{if(e.data.size)__chunks.push(e.data);};__recorder.start();window.__samples=[];
-   window.__monitor=setInterval(()=>{const s=scrollFoleyStudy.snapshot();__samples.push({p:s.pose.progress,q:s.pose.paperProgress,rms:__rms(),paperGain:s.sound.paperGain,paperKey:s.sound.paperKey,voices:s.sound.performances});},45);
+   window.__monitor=setInterval(()=>{const s=scrollFoleyStudy.snapshot();__samples.push({p:s.pose.progress,q:s.pose.paperProgress,rms:__rms(),paperGain:s.sound.paperGain,paperKey:s.sound.paperKey,voices:s.sound.performances});},20);
   });
   await page.locator(button).click();
   await page.waitForFunction(to=>Math.abs(scrollFoleyStudy.snapshot().pose.progress-to)<.00001,to,{timeout:30000});await page.waitForTimeout(220);
@@ -120,10 +120,21 @@ try{
   result.paperOnlyMeasurement={samples:paperOnly.length,audibleSamples:audible.length,maxRMS:Math.max(...paperOnly.map(s=>s.rms)),maximumGain:Math.max(...result.samples.map(s=>s.paperGain||0))};
   assert.ok(result.samples.every(s=>(s.paperGain||0)<=.100001));assert.equal(result.ending.foleyVoices,0);
   result.paperOnlyMeasurement.firstAudible=audible[0]??null;result.paperOnlyMeasurement.lastAudible=audible.at(-1)??null;
+  // Include frames with NO voice. Filtering those out hid the original silent tail.
+  const bins=[[.70,.85],[.85,.95],[.95,.985],[.985,1]];
+  result.tailMeasurements=bins.map(([lo,hi])=>{
+   const samples=result.samples.filter(s=>{const travel=direction==='Open'?s.q:1-s.q;return travel>=lo&&travel<hi;});
+   assert.ok(samples.length>0,`${direction} tail ${lo}-${hi} must be observed`);
+   assert.ok(samples.every(s=>s.voices.some(v=>v.key===key)),`${direction} tail ${lo}-${hi} must retain its paper voice`);
+   assert.ok(samples.every(s=>s.rms>1e-6),`${direction} tail ${lo}-${hi} must contain actual output, including formerly omitted silent frames`);
+   return{travel:[lo,hi],samples:samples.length,minRMS:Math.min(...samples.map(s=>s.rms)),maxRMS:Math.max(...samples.map(s=>s.rms)),meanRMS:samples.reduce((sum,s)=>sum+s.rms,0)/samples.length,meanGain:samples.reduce((sum,s)=>sum+s.paperGain,0)/samples.length};
+  });
+  assert.ok(result.tailMeasurements.at(-1).meanGain<result.tailMeasurements[0].meanGain*.55,'End motion must fade rather than keep a constant level');
+  assert.ok(result.samples.filter(s=>direction==='Open'?s.q===1:s.p===0).every(s=>s.paperGain===0),'Final resting pose must stop paper');
   result.ending={foleyVoices:result.ending.foleyVoices,musicVoices:result.ending.musicVoices,paperKey:result.ending.paperKey,contextState:result.ending.contextState};
   delete result.samples;
  }
- Object.assign(report.checks,{automaticPaperAudibleInIsolation:true,onePaperSourcePerDirection:true,paperStartsOnlyAtActualPaperMotion:true,nativeRateNoLoopNoRepeatedSeek:true,automaticKeeperCuesRetained:true,paperMaximumGainBounded:true});
+ Object.assign(report.checks,{automaticPaperAudibleInIsolation:true,onePaperSourcePerDirection:true,paperStartsOnlyAtActualPaperMotion:true,runtimeRateOneNoLoopNoRepeatedSeek:true,automaticKeeperCuesRetained:true,paperMaximumGainBounded:true,fullAutomaticTailHasMeasuredOutput:true,tailGraduallyReducesGain:true});
  // Real pointer input enters the paper interval, holds, then reverses.
  const box=await page.locator('#scroll').boundingBox(),x=box.x+box.width*.5,y=box.y+box.height*.12;
  await page.mouse.move(x,y);await page.mouse.down();
@@ -151,6 +162,6 @@ try{
  assert.deepEqual(report.httpErrors,[]);assert.deepEqual(report.pageErrors,[]);assert.deepEqual(report.requestFailures,[]);
  report.status='technical-paper-candidate-verified';
  await writeFile(out+'/verification.json',JSON.stringify(report,null,2)+'\n');
- console.log(JSON.stringify({status:report.status,checks:report.checks,paper:report.paperAssets.map(x=>({file:x.file,duration:x.duration})),signal:{opening:report.opening.paperOnlyMeasurement,closing:report.closing.paperOnlyMeasurement},captures:[report.opening.capture.file,report.closing.capture.file]}));
+ console.log(JSON.stringify({status:report.status,checks:report.checks,paper:report.paperAssets.map(x=>({file:x.file,duration:x.duration})),tails:{opening:report.opening.tailMeasurements,closing:report.closing.tailMeasurements},captures:[report.opening.capture.file,report.closing.capture.file]}));
 }catch(error){report.status='failed';report.failure={name:error.name,message:error.message,stack:error.stack};await writeFile(out+'/verification.json',JSON.stringify(report,null,2)+'\n');throw error;}
 finally{await browser?.close();}

@@ -280,6 +280,6 @@ statusTimer = setInterval(() => {
   }
 }, 750);
 window.scrollFoleyStudy = {
-  snapshot: () => ({candidate: 'paper-recording-v4', soundReady, viewerReady, withMusic: $('withMusic').checked, pose: latestPose, sound: sound?.snapshot(), viewer: viewer?.snapshot(), audition: {count: auditions.length, pausedViewer: auditionPaused, playing: auditions.filter(a => !a.paused).length}, candidateOnly: true}),
+  snapshot: () => ({candidate: 'paper-recording-v5', soundReady, viewerReady, withMusic: $('withMusic').checked, pose: latestPose, sound: sound?.snapshot(), viewer: viewer?.snapshot(), audition: {count: auditions.length, pausedViewer: auditionPaused, playing: auditions.filter(a => !a.paused).length}, candidateOnly: true}),
   dispose
 };
