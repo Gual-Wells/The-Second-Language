@@ -1,0 +1,41 @@
+{
+  "checkedAt": "2026-10-22",
+  "sources": [
+    {
+      "id": 580586,
+      "author": "Lewooz",
+      "page": "https://freesound.org/people/Lewooz/sounds/580586/",
+      "preview": "https://cdn.freesound.org/previews/580/580586_4984902-hq.mp3",
+      "license": "CC0",
+      "recordingDescription": "thick roll of paper map opened, four takes; original upload MP3 320 kbps stereo 44.1k, 28.003s, 1.1MB",
+      "local": "580586-author-hq-preview.mp3",
+      "bytes": 664859,
+      "sha256": "6d1cf9b1be4ebf220941d28045393e191b122097cd7461afef8fe432fc29a5cc",
+      "formatCaution": "Public HQ MP3 preview, not the original download. Author text checked; listening approval not claimed."
+    },
+    {
+      "id": 626503,
+      "author": "Teebee_Deael",
+      "page": "https://freesound.org/people/Teebee_Deael/sounds/626503/",
+      "preview": "https://cdn.freesound.org/previews/626/626503_12585503-hq.mp3",
+      "license": "CC0",
+      "recordingDescription": "belt undone creak and buckle metal; original MP3 141kbps stereo44.1k25.325s437.4KB",
+      "local": "626503-author-hq-preview.mp3",
+      "bytes": 610865,
+      "sha256": "fbe09ca1d7c296d9afaa4b3b356c10a0a75871ee56801f9b892c436e61a40448",
+      "formatCaution": "Public HQ MP3 preview, not the original download. Author text checked; listening approval not claimed."
+    },
+    {
+      "id": 204046,
+      "author": "duckduckpony",
+      "page": "https://freesound.org/people/duckduckpony/sounds/204046/",
+      "preview": "https://cdn.freesound.org/previews/204/204046_1653827-hq.mp3",
+      "license": "CC-BY-4.0",
+      "recordingDescription": "paper/parchment rustled heavy scroll/old book; original WAV96k24bit stereo39.936s21.9MB login required",
+      "local": "204046-author-hq-preview.mp3",
+      "bytes": 757296,
+      "sha256": "411b2adc825a7a62cb10702459d5197d6682d25a2d45c7a5016c2cef1593ada0",
+      "formatCaution": "Public HQ MP3 preview, not the original download. Author text checked; listening approval not claimed."
+    }
+  ]
+}
