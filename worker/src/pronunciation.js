@@ -100,6 +100,10 @@ export async function pronunciationRoute(request,env,{isPublisher,isReader,sessi
   await associate(env,b,id);
   return json(view({id,state:'ready'}));
  }catch(e){
-  await db.prepare("UPDATE pronunciation_audio SET state='outcome_unknown',response_json=? WHERE id=?").bind(JSON.stringify({error:String(e.message)}),id).run();return json({id,state:'outcome_unknown',error:'声音请求结果待核对，已保留进度'},502);
+  // Association/queue writes happen after paid bytes are stored. A later D1
+  // failure must not downgrade that result or overwrite its billing metadata.
+  const saved=await pronunciationResult(env,id).catch(()=>null),fallback=saved?null:await db.prepare("SELECT id FROM pronunciation_audio WHERE id=? AND state='ready' AND (audio IS NOT NULL OR audio_key IS NOT NULL)").bind(id).first().catch(()=>null);
+  if(saved||fallback)return json(view({id,state:'ready'}));
+  await db.prepare("UPDATE pronunciation_audio SET state='outcome_unknown',response_json=? WHERE id=? AND state='calling'").bind(JSON.stringify({error:String(e.message)}),id).run();return json({id,state:'outcome_unknown',error:'声音请求结果待核对，已保留进度'},502);
  }
 }
