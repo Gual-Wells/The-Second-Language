@@ -1,0 +1,53 @@
+{
+  "schema": "second-language.soft-roll-audition.v1",
+  "status": "audition-not-approved",
+  "source": {
+    "author": "spookymodem",
+    "title": "Spell Scroll / Unrolling Parchment",
+    "license": "CC-BY-3.0",
+    "page": "https://lpc.opengameart.org/content/spell-scroll",
+    "file": "web/labs/certification-reader/assets/audio-sources/material-recordings/unrolling-parchment.wav",
+    "sha256": "0ecdba822baa623f478a0131c20eaf175e9494f8fb534d666427685813c9e54f",
+    "format": "Original PCM WAV, 44100Hz stereo 16bit; author does not identify actual sheet material."
+  },
+  "derivative": {
+    "file": "audio/soft-roll-v2.wav",
+    "sha256": "438f7e83d5caa22747275a9079f95afd4ea4971a7c14069f5934549803c9e28c",
+    "bytes": 199376,
+    "sourceStartSeconds": 0.5,
+    "sourceEndSeconds": 2.76,
+    "duration": 2.26,
+    "rate": 44100,
+    "channels": 1,
+    "highpassHz": 140,
+    "lowpassHz": 5500,
+    "downwardOnlyThresholdRMS": 0.009,
+    "downwardExponent": 0.65,
+    "minimumGain": 0.52071492425849,
+    "detectorMs": 25,
+    "attackMs": 25,
+    "releaseMs": 100,
+    "fadeInMs": 85,
+    "fadeOutMs": 160,
+    "staticAmplification": 1,
+    "peak": 0.05958497747249691,
+    "rms": 0.007457359956020709,
+    "loop": false,
+    "reversed": false,
+    "playbackRate": 1
+  },
+  "runtime": {
+    "only": "paper winding",
+    "otherActions": "silent",
+    "nominalHeightMM": 420,
+    "quietSpeedMMPerS": 15,
+    "fullSpeedMMPerS": 175,
+    "maximumGain": 0.13,
+    "velocitySmoothingMs": 65,
+    "envelopeTimeConstantMs": 45,
+    "audioClockHoldMs": 95,
+    "audioClockReleaseMs": 25,
+    "sourceExhaustion": "Remain quiet until a new stroke; do not repeat short fragments."
+  },
+  "listening": "Pending actual user listening; no claim of verified animal parchment or verified absence of recorded handling noise."
+}

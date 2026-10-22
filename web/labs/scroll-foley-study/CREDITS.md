@@ -1,6 +1,31 @@
-# Scroll Foley listening study
+# Quiet paper winding study — revision 2
 
-This is an unapproved audition, separate from the production reader. A and B
+Current audition uses only a new derivative of **[Spell Scroll / Unrolling
+Parchment](https://lpc.opengameart.org/content/spell-scroll)** by **spookymodem**,
+[CC BY 3.0](https://creativecommons.org/licenses/by/3.0/). The repository retains
+the original 44.1 kHz, stereo, 16-bit PCM WAV in
+`../certification-reader/assets/audio-sources/material-recordings/unrolling-parchment.wav`.
+The author describes a spell scroll unrolling, without specifying the actual
+sheet material. No claim of a measured animal-parchment recording is made.
+
+Changes for this audition: 0.50–2.76 s contiguous cut, mono mix, DC and broad
+frequency cleanup, downward-only burst attenuation, gentle edge fades. No
+amplification of quiet parts, reversal, looping, pitch/time change, synthetic
+noise or reuse of the rejected v40 tanh loop. Exact values and hashes are in
+`soft-roll.json`; the reproducible edit is `scripts/build-scroll-soft-roll.py`.
+
+Only paper winding drives the output, at low level; keeper, hands, desk, metal
+and camera movements have no sound track. Very slow motion has no minimum
+sound floor. Source exhaustion leaves the remainder quiet rather than repeating
+short fragments. This is a candidate awaiting listening; filtering is not source
+separation and does not prove that the recording itself contains no handling.
+
+## Retained rejected first study
+
+The following recordings remain archived for the first study, **rejected by the
+user as hard, heavy, uneven and distracting**. They are not requested or played
+by revision 2. Its frozen first-study preview is
+<https://944d6c23.the-second-language.pages.dev/labs/scroll-foley-study/>. A and B
 share the new action cue edit and belt sounds; only their paper performances
 differ. v41 is available as the user-rejected reference, not a quality standard.
 

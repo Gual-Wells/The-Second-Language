@@ -1,19 +1,15 @@
 import {ScrollViewer} from '../certification-reader/reader.bundle.js';
 import {StudySoundDirector} from './sound.js';
 
-// Load the reference constructor before binding controls, so switching to it can
-// unlock its context synchronously in the user's actual click.
-const {SoundDirector: OriginalSoundDirector} = await import('../certification-reader/sound.js?v=41');
-
 const $ = id => document.getElementById(id);
 const phaseNames = Object.freeze({
   closed: '闭卷静止', 'unload-hole': '卸除孔位张力', 'release-hole': '扣针退出孔位',
   'withdraw-tail': '抽出皮带尾', 'park-pin': '扣针回落', 'slide-clear': '皮扣滑离',
   depart: '皮扣离开', paper: '纸张展开／收起', open: '展卷静止'
 });
-let variant = 'A', sound = null, viewer = null, soundEpoch = 0;
+let sound = null, viewer = null, soundEpoch = 0;
 let soundReady = false, viewerReady = false, disposed = false, latestPose = null;
-let audioMessage = '默认仅拟音，轻触“启用试听”开启声音。', viewerMessage = '正在准备原版卷轴…';
+let audioMessage = '默认仅卷展声，轻触“启用试听”开启声音。', viewerMessage = '正在准备原版卷轴…';
 let viewerFailure = false, audioFailure = false, statusTimer = 0;
 
 function controls() {
@@ -40,7 +36,7 @@ function onProgress(state) {
   latestPose = pose;
   $('phase').textContent = phaseLabel(state);
   $('progress').textContent = `${Math.round(state.progress * 100)}%`;
-  // Never let a late load replay motion from the retired candidate.
+  // A late load must not replay movements made before sound was ready.
   if (soundReady) sound?.motion(pose);
 }
 
@@ -52,24 +48,22 @@ function describeAudio(candidate) {
   const state = candidate.snapshot();
   if (Object.keys(state.failures || {}).length) {
     audioFailure = true;
-    audioMessage = '部分声音未能准备，请重试；本次不作为有效对比。';
+    audioMessage = '声音未能准备，请重试；本次不作为有效试听。';
     return false;
   }
   audioFailure = false;
-  audioMessage = `候选 ${variant} 已准备${$('withMusic').checked ? ' · 与音乐合听' : ' · 仅拟音'}。`;
+  audioMessage = `轻卷展声候选已准备${$('withMusic').checked ? ' · 与音乐合听' : ' · 仅卷展声'}。`;
   return true;
 }
 
-function configureSound(next) {
+function configureSound() {
   soundEpoch++;
   soundReady = false;
   sound?.dispose();
-  variant = next;
-  sound = variant === 'v41' ? new OriginalSoundDirector() : new StudySoundDirector({variant});
+  sound = new StudySoundDirector();
   sound.setMusicEnabled($('withMusic').checked);
   sound.setActive(true);
   seedCurrentPose(sound);
-  for (const button of document.querySelectorAll('[data-variant]')) button.setAttribute('aria-pressed', String(button.dataset.variant === variant));
   return {candidate: sound, epoch: soundEpoch};
 }
 
@@ -77,7 +71,7 @@ async function enableSound(candidate = sound, epoch = soundEpoch) {
   if (disposed || !candidate || candidate !== sound) return false;
   // This call runs in the original trusted pointer/click handler, before await.
   const unlocking = candidate.unlock();
-  audioMessage = `正在准备候选 ${variant} 的声音…`;
+  audioMessage = '正在准备轻卷展声…';
   controls();
   try {
     const unlocked = await unlocking;
@@ -168,15 +162,6 @@ async function move(to) {
   await viewer.animate(to);
 }
 
-for (const button of document.querySelectorAll('[data-variant]')) {
-  button.addEventListener('click', () => {
-    // Hold the exact current pose while replacing sound; no old movement is queued.
-    if (viewerReady) viewer.setProgress(viewer.progress);
-    const {candidate, epoch} = configureSound(button.dataset.variant);
-    void enableSound(candidate, epoch);
-    controls();
-  });
-}
 $('unlockSound').addEventListener('click', () => void enableSound());
 $('openScroll').addEventListener('click', () => void move(1));
 $('closeScroll').addEventListener('click', () => void move(0));
@@ -185,7 +170,7 @@ $('withMusic').addEventListener('change', () => {
   void enableSound();
 });
 $('retry').addEventListener('click', () => {
-  const {candidate, epoch} = configureSound(variant);
+  const {candidate, epoch} = configureSound();
   void enableSound(candidate, epoch);
   if (viewerFailure) void prepareViewer();
 });
@@ -230,7 +215,7 @@ function dispose() {
   sound?.dispose();
   viewer?.dispose();
 }
-configureSound('A');
+configureSound();
 sound.prepare().catch(() => {});
 void prepareViewer();
 statusTimer = setInterval(() => {
@@ -243,6 +228,6 @@ statusTimer = setInterval(() => {
   }
 }, 750);
 window.scrollFoleyStudy = {
-  snapshot: () => ({variant, soundReady, viewerReady, withMusic: $('withMusic').checked, pose: latestPose, sound: sound?.snapshot(), viewer: viewer?.snapshot(), candidateOnly: true}),
+  snapshot: () => ({candidate: 'soft-v2', soundReady, viewerReady, withMusic: $('withMusic').checked, pose: latestPose, sound: sound?.snapshot(), viewer: viewer?.snapshot(), candidateOnly: true}),
   dispose
 };

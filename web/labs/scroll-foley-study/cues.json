@@ -1,6 +1,8 @@
 {
   "schema": "second-language.foley-audition.v1",
-  "status": "audition-not-approved",
+  "status": "rejected-by-user",
+  "supersededBy": "soft-roll.json",
+  "rejection": "User found the heavy paper and multi-action Foley hard, uneven and distracting. Preserved as historical evidence only.",
   "impactAnchorDefinition": "Start of the strongest 5ms energy window in a selected belt contact candidate; signal anchor only, not an auditory or collision-force identification.",
   "originalFormat": "Public MP3 previews, not lossless masters; decoding to PCM does not recover discarded information.",
   "processing": "Fixed contiguous cuts, DC removal, broad high/low pass, static gains, short edge fades. Native pitch/speed.",
