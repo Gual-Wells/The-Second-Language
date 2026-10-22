@@ -37,5 +37,5 @@ manifest = dict(schema='second-language.paper-recording-candidate.v1', status='p
                 license='Adobe Content Files terms; embedded in this authored interactive scroll only, not an independent sound library or MIT asset.',
                 materialLimit='Author identifies paper rolling, not actual animal parchment. Suitability remains subject to listening.',
                 recordings=result)
-(OUT.parent / 'paper-recordings.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
+(OUT.parent / 'paper-recordings.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2)+'\n', encoding='utf-8', newline='\n')
 print(json.dumps(dict(files=len(result), bytes=sum(r['bytes'] for r in result))))
