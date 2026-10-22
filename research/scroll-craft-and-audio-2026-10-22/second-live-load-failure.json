@@ -1,0 +1,19 @@
+{
+  "error": "AssertionError [ERR_ASSERTION]: 卷轴暂未载入，请重试。\n\nfalse !== true\n\n    at ready (file:///D:/CodexStorage/workspaces/second-language-certification-reader/scripts/verify-project-beginning.mjs:51:181)\n    at async file:///D:/CodexStorage/workspaces/second-language-certification-reader/scripts/verify-project-beginning.mjs:74:62",
+  "errors": [],
+  "consoleErrors": [
+    "Certification reader TimeoutError: signal timed out"
+  ],
+  "requestFailures": [
+    {
+      "url": "https://the-second-language.pages.dev/labs/project-beginning/assets/final-front.png",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "url": "https://the-second-language.pages.dev/labs/project-beginning/assets/final-back.png",
+      "error": "net::ERR_ABORTED"
+    }
+  ],
+  "missing": [],
+  "writes": []
+}

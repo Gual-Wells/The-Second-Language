@@ -1,0 +1,44 @@
+[
+  {
+    "http1": false,
+    "result": [
+      {
+        "layer": "front",
+        "status": 200,
+        "headersMs": 869.3000000119209,
+        "totalMs": 5655,
+        "bytes": 10893789,
+        "expectedLength": "10893789"
+      },
+      {
+        "layer": "back",
+        "status": 200,
+        "headersMs": 1582.300000011921,
+        "totalMs": 5881.5,
+        "bytes": 10392202,
+        "expectedLength": "10392202"
+      }
+    ]
+  },
+  {
+    "http1": true,
+    "result": [
+      {
+        "layer": "front",
+        "status": 200,
+        "headersMs": 918.3000000119209,
+        "totalMs": 4955.700000017881,
+        "bytes": 10893789,
+        "expectedLength": "10893789"
+      },
+      {
+        "layer": "back",
+        "status": 200,
+        "headersMs": 1043,
+        "totalMs": 5688.4000000059605,
+        "bytes": 10392202,
+        "expectedLength": "10392202"
+      }
+    ]
+  }
+]

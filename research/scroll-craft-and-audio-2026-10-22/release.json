@@ -1,0 +1,291 @@
+{
+  "sha": "8cc091186f6cf02ca10776876be6862f41d96e0a",
+  "branch": "main",
+  "immutable": "https://4a72a023.the-second-language.pages.dev",
+  "productionMainUpdated": true,
+  "independentAPIWorkerUpdated": false,
+  "displayFiles": 85,
+  "displayBytes": 53558687,
+  "run": "D:\\CodexStorage\\workspaces\\second-language-certification-reader\\.cache\\certification-release\\8cc09118-cTiSTr",
+  "verified": true,
+  "deploymentObservedAt": "2026-10-22T04:17:42.859Z",
+  "verifiedAt": "2026-10-22T04:49:36.140Z",
+  "pwaVersion": 41,
+  "verificationReports": [
+    "research/scroll-craft-and-audio-2026-10-22/verification.json",
+    "research/scroll-craft-and-audio-2026-10-22/live-verification.json",
+    "research/scroll-craft-and-audio-2026-10-22/motion-verification.json",
+    "research/scroll-craft-and-audio-2026-10-22/material-playback-verification.json",
+    "research/scroll-craft-and-audio-2026-10-22/static-live-check.json"
+  ],
+  "liveByteMatches": [
+    {
+      "url": "/index.html",
+      "sha256": "e3e3eb68c08f4a678713b80d40ae47849e10a177935dfc3c85ed6f94185de6ce"
+    },
+    {
+      "url": "/icon.svg",
+      "sha256": "a6187d27e9c733a2470bedcefbe3947166706b06fa9c4be05a6dd577cba25b2b"
+    },
+    {
+      "url": "/icon-192.png",
+      "sha256": "32373b0edaab98b53f5ac5827bb2c4b4c5cdeba053d5612b2fd74f2c3b78d15b"
+    },
+    {
+      "url": "/styles.css",
+      "sha256": "c9cb49eca4b6fd23e9f62c8dec19b439a6a7400aa297f0e81a5ee00cadf4bf3f"
+    },
+    {
+      "url": "/app.js",
+      "sha256": "7b6c4c0642bbf921138663f20f0060fd1a73524e8e9fce54fab4daf6bbe8c1fc"
+    },
+    {
+      "url": "/chapter-quality.js",
+      "sha256": "3de6c44fb1dd4b6ec815ce24b2971114063f665c9298fd81e9d0d9e405da79d7"
+    },
+    {
+      "url": "/settings.js",
+      "sha256": "9c647e1a65a9dd6aa8173a9633bc6d84d0101ec1724d1d124b34f76647e8b3d7"
+    },
+    {
+      "url": "/reader-jump.js",
+      "sha256": "78cd4ce1b8e00b0b272bcb3f11ad5e05b17d153b99f0624e707daf977e68d118"
+    },
+    {
+      "url": "/pure-reader.js",
+      "sha256": "5ca38c1a403bce3bfd6ea3fbcc9fee2332e551466b05eda3c7cbcb92a08e22b5"
+    },
+    {
+      "url": "/reader-speech.js",
+      "sha256": "facc5ef138e3c1d0f4dddd0a028c11f9bb9c2c56a8723a38486808da33fb99dd"
+    },
+    {
+      "url": "/practice.js",
+      "sha256": "a31d88faa2fe20a140d2a96b7ea7ddcfa8b043d2fc2ee14944d09a8399f67146"
+    },
+    {
+      "url": "/chapter-tests.js",
+      "sha256": "122271bab99898a5718e7a8f702d01535383c7e2bd213c52bb094e4779f5c306"
+    },
+    {
+      "url": "/chapters.js",
+      "sha256": "d16d9429dda60052481cc2dd6ed5d71eccf96df98616923fd5c199fc3618f019"
+    },
+    {
+      "url": "/audio-config.js",
+      "sha256": "b357a117ac381ed5629a8dd0e5f6e0fb56c52fb9d8b4c306b0ec69eb602e0ceb"
+    },
+    {
+      "url": "/audio-library.js",
+      "sha256": "666e58582a073e437e4a970e0d14505204f805dd7a923b45d7b0efb704765e02"
+    },
+    {
+      "url": "/render.js",
+      "sha256": "d9751bdc1581eb45b2b28742fc6ccb4841af22003f84837bc843cf37631fa1d8"
+    },
+    {
+      "url": "/storage-usage.js",
+      "sha256": "c719e96cdf6eaf16a630866924d1d0bc188ced9ff1967618b193f25ec1888a35"
+    },
+    {
+      "url": "/annotations.js",
+      "sha256": "50aff8629d7dc302c5d7e9fb0d1f0f8a0995de88a6dd965be40e6201fc9b0cae"
+    },
+    {
+      "url": "/questions.js",
+      "sha256": "cd2296b5f470d75222b6b83207742bd50eff0396a4ef8dc6dc723e980f031c65"
+    },
+    {
+      "url": "/balances.js",
+      "sha256": "22adcbfc58da9bde2aa24bc6f6c807cba0c2e3765fc15a16879bc8525f8cb45c"
+    },
+    {
+      "url": "/certification-reader.js",
+      "sha256": "6d555aa98374d0f0c2da1a420991fa0f1d2bbd3eaa0c06a55fc27aef88129525"
+    },
+    {
+      "url": "/audio-plan.js",
+      "sha256": "7d8d06cff12e0ec639564dd76d4d509ca14a78434897445f521a33bfae46f411"
+    },
+    {
+      "url": "/practice-workspace.js",
+      "sha256": "af259de73afebbfc91ab9aa54690ef37214a96e12ee7526898e80d448ee80329"
+    },
+    {
+      "url": "/chapter-test-recorder.js",
+      "sha256": "6f6ef850141784f819130846b278ff7ec1e5358c5f45c99a8cea416d1398b57c"
+    },
+    {
+      "url": "/reader-focus.js",
+      "sha256": "a10c240fae24480fce5221e047a7ffce191081b7656715ef0669ec886a73455e"
+    },
+    {
+      "url": "/listening.js",
+      "sha256": "83575739eae407c1773791645945b8b2d987df1ed0dd70c34ca21178a7a6e2ee"
+    },
+    {
+      "url": "/recorder.js",
+      "sha256": "4b8ec3aff0465edb4f17b3023ec544f8dc8c5c7cda6a5ea1d7dfebfb0a356dc3"
+    },
+    {
+      "url": "/reading.js",
+      "sha256": "58d05fe3a53e5851cd309dd79a16c3bc6f7a972252d2a09cad041ebd72ef03eb"
+    },
+    {
+      "url": "/text.js",
+      "sha256": "8c4f3c17e6d1f45f32bb892307cff4a4a5a08d3af76c0a1e67b355ddf7d419b8"
+    },
+    {
+      "url": "/labs/certification-reader/sound.js",
+      "sha256": "adc44a20542768b0e2f6cab4fcc42b4cb43112ee9bbca673c518292546b8c3bc"
+    },
+    {
+      "url": "/question-pairs.js",
+      "sha256": "9d48e50045d222403f7e7521ae9c82ff36917b8bf7162383899abd80e86b1df9"
+    },
+    {
+      "url": "/exam-spec.js",
+      "sha256": "6d0050b920917f7806ea0c8fab7b930ea949e8f2168a3d8c5e3856a978f28241"
+    },
+    {
+      "url": "/objective.js",
+      "sha256": "13c7ce4eb9f74002e43fcb391a06f23c2d1cd0ae7433cfb0439b28d9efc13cd0"
+    },
+    {
+      "url": "/labs/certification-reader/material-motion.js",
+      "sha256": "13454e924c75c5d88f828143fa1ea8ee93461de0a45bfb6bacc908395d236b30"
+    },
+    {
+      "url": "/labs/certification-reader/assets/audio-music/a-new-town.mp3",
+      "sha256": "8a83b97f06cad1052eea0a3fa8f65966db742e68275a1d82816773c820578ad2"
+    },
+    {
+      "url": "/labs/certification-reader/assets/audio-foley/buckle-park-v41.wav",
+      "sha256": "1a77280a77f29a1f3ffad0d30c6d6ccac74405450d1bacbecf74a00aa58546b7"
+    },
+    {
+      "url": "/labs/certification-reader/assets/audio-foley/buckle-seat-v41.wav",
+      "sha256": "982838c9c52559796eec3cb531a94a8b35dd47f6c7d5b6041a536ebce57a08d6"
+    },
+    {
+      "url": "/labs/certification-reader/assets/audio-foley/leather-release-v41.wav",
+      "sha256": "4081e5e34f5cdcaf6d96ea215683fe38d4b7f1d79e8de038bdecc34dc36677e2"
+    },
+    {
+      "url": "/labs/certification-reader/assets/audio-foley/paper-close-v41.wav",
+      "sha256": "d075ec60f4d7a16ed8948410bac8f9022111eb47f595f6c50cd45d246b5e4fff"
+    },
+    {
+      "url": "/labs/certification-reader/assets/audio-foley/paper-open-v41.wav",
+      "sha256": "68ac1f965c75f135b0b013b371894bdf54f426a132390d6cdeb1724004618be8"
+    },
+    {
+      "url": "/labs/certification-reader/reader.bundle.js",
+      "sha256": "2f4387e5924d314c913b038dd7384db2b95e5d9c182e0703fa42b7af4002aff0"
+    },
+    {
+      "url": "/labs/project-beginning/record.json",
+      "sha256": "f2466f4ea3f57d5cbf4e42b8b0cdc08ac810498602ff3ab9d7c85d43179616e5"
+    },
+    {
+      "url": "/labs/project-beginning/art-plan.json",
+      "sha256": "10fbd67f29b0464c632342a213fd4697bbf92af4a2086c5d7963fdea93ce20db"
+    },
+    {
+      "url": "/labs/chapter-scroll-v14/assets/unused-keeper.png",
+      "sha256": "c2153f77e11087fcb078ae38527fa83bef29791e3700e30cc87fec4405a66d0f"
+    },
+    {
+      "url": "/labs/project-beginning/assets/surfaces.json",
+      "sha256": "e3405c93225ee394d75498190f998c41171f2b90cd21eb5b04a9d775c89d9921"
+    },
+    {
+      "url": "/labs/project-beginning/assets/final-seal-ink.png",
+      "sha256": "7e6e6ab3541b1807fd75da6b761f58144f1922578a4de203ec655891d8d61cea"
+    },
+    {
+      "url": "/labs/project-beginning/assets/final-seal-mask.png",
+      "sha256": "d8411063350187c541bc503775180041dcea1ecbd5a9726ab7b0e69dafc135fc"
+    },
+    {
+      "url": "/labs/project-beginning/assets/final-relief.png",
+      "sha256": "030eb09ed2ee219a5ee3508e3cca6832635d7199470c8425ab8451cf0bf6ae29"
+    },
+    {
+      "url": "/labs/project-beginning/assets/final-ink.png",
+      "sha256": "2007be6f580a5cc72f24388bf4eb487290063136e60937a6114d2c16917ecb5a"
+    },
+    {
+      "url": "/labs/project-beginning/assets/final-front.png",
+      "sha256": "b82b5c4c8e220443e8c4ae0a1b84aeaa908f88e6cd2c53fb5231e09aceacae7b"
+    },
+    {
+      "url": "/labs/project-beginning/assets/final-back.png",
+      "sha256": "925c1db1f8810d452a318fb75b30f2a53790be6c05a4cd04fbf9cc883d7b715e"
+    },
+    {
+      "url": "/labs/chapter-scroll-v17/keeper-path.json",
+      "sha256": "0e8d71fbdc36fdda9e475b7ded3eaf23ccff38b01f275cbfac045cbcff21e6e6"
+    },
+    {
+      "url": "/labs/chapter-scroll-v4/assets/skin-roughness.jpg",
+      "sha256": "dd3b860a9510a44fd857c04e0c8cc63ea1f944c25abe9bdcbf844cc4a22c88d8"
+    },
+    {
+      "url": "/labs/chapter-scroll-v4/assets/skin-normal.jpg",
+      "sha256": "d0057cdbee5be6223b35f0a463441404144fcdae699f69ff610eec4d86d48970"
+    },
+    {
+      "url": "/labs/chapter-scroll-v3/assets/studio.hdr",
+      "sha256": "e7cfda5f4e98e623db12b8bfd0184e048488e4855d9c83e2751fb44a32e80c45"
+    },
+    {
+      "url": "/labs/certification-reader/assets/keeper-display.glb",
+      "sha256": "118ad3e48f4a37034551aa7330b033a79a9b4e5711972eb92553774ffb37bffa"
+    },
+    {
+      "url": "/labs/chapter-scroll-v19/assets/leather-orm.webp",
+      "sha256": "ce92f7819c466c5ec0291e5609da152cc98e0d5c47627d89a81fd3d82a8e6ad1"
+    },
+    {
+      "url": "/labs/chapter-scroll-v19/assets/leather-color.webp",
+      "sha256": "5c99db712479fb6f8c661f1b4d4422d5e689c59a21c2c197e1dca77bb0c04e95"
+    },
+    {
+      "url": "/labs/chapter-scroll-v19/assets/leather-normal.webp",
+      "sha256": "6b3c1601b766712a527d51145aa211fd98b73f4747e0d97490809ac407efbf1c"
+    },
+    {
+      "url": "/labs/chapter-scroll-v19/assets/bronze-color.webp",
+      "sha256": "f850970297e8c5d19c7002132e59e877ea54dce0a757d2f642a592f46bd3d9cd"
+    },
+    {
+      "url": "/labs/chapter-scroll-v19/assets/bronze-orm.webp",
+      "sha256": "1672624ae4ae60a342346bb3188f974d05258be13d392da027a82468fdae8b4b"
+    },
+    {
+      "url": "/labs/chapter-scroll-v19/assets/bronze-normal.webp",
+      "sha256": "a2b951c269e4e6d20ef18cd7f360c3045b2ecc605a63e5e910f819a9a8bcc2bd"
+    },
+    {
+      "url": "/labs/chapter-scroll-v17/vendor/noise2D.glsl",
+      "sha256": "b0f27c923227e8b2d7618f09dc666e2397f608ca7929f798da632647c3f41884"
+    }
+  ],
+  "anonymousGateway": {
+    "sessionStatus": 200,
+    "authenticated": false,
+    "practiceStatus": 401
+  },
+  "paperUnchanged": {
+    "madeAt": "2026-10-21T12:10:23.227Z",
+    "contentSHA256": "4a83d1952e133bcecd6c1aa2e14a788159b410e9a6ea2a7f5bcf42610943e37b"
+  },
+  "limits": {
+    "listening": "Awaiting user audition; real WebAudio checks do not certify perceived timbre.",
+    "device": "Chrome mobile simulation, not physical iPhone Safari.",
+    "loading": "Two initial live attempts timed out on unchanged ~10 MB front/back PNGs. Separate Chrome transfers subsequently completed in about 5-6 seconds and complete unchanged-code live retry passed. Root cause unknown; 30 s resource timeout and large frozen PNGs remain.",
+    "archive": "Balance/storage publishing credential absent. Old values preserved; archive queued, not verified complete."
+  },
+  "newRecurringCost": 0
+}

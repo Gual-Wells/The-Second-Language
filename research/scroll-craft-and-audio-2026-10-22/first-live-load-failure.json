@@ -1,0 +1,6 @@
+{
+  "error": "AssertionError [ERR_ASSERTION]: 卷轴暂未载入，请重试。\n\nfalse !== true\n\n    at ready (file:///D:/CodexStorage/workspaces/second-language-certification-reader/scripts/verify-project-beginning.mjs:49:181)\n    at async file:///D:/CodexStorage/workspaces/second-language-certification-reader/scripts/verify-project-beginning.mjs:72:62",
+  "errors": [],
+  "missing": [],
+  "writes": []
+}

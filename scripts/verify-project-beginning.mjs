@@ -14,7 +14,7 @@ const hash=bytes=>createHash('sha256').update(bytes).digest('hex');
 const surfaceBytes=await readFile('web/labs/project-beginning/assets/surfaces.json'),manifest=JSON.parse(surfaceBytes);
 assert.equal(manifest.schema,'second-language.frozen-surfaces.v1');assert.equal(manifest.contentSHA256,expectedSHA);assert.equal(manifest.workId,'SL-PROJECT-BEGINNING-20261021');
 const browser=await chromium.launch({headless:true,executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe',env:{...process.env,TEMP:tmp,TMP:tmp},...(remote?{proxy:{server:'http://127.0.0.1:6987'}}:{}),args:['--no-first-run']});
-const errors=[],missing=[],writes=[],resources=[],observedSHA256={},responseJobs=[],responseBodyUnavailable=[];
+const errors=[],missing=[],writes=[],resources=[],observedSHA256={},responseJobs=[],responseBodyUnavailable=[],consoleErrors=[],requestFailures=[];
 const oldPreference=JSON.stringify({music:false,foley:false,musicEnabled:false,foleyEnabled:false,musicVolume:0,foleyVolume:0});
 const blocks=c=>[c.rubric,c.institution,c.artTitle,c.verse.slice(0,3).join('\n'),c.verse.slice(3).join('\n'),c.colophon.join('\n'),c.sealLegends.join('\n'),c.status];
 const lines=c=>[c.rubric,c.institution,c.artTitle,...c.verse,...c.colophon,...c.sealLegends,c.status];
@@ -36,6 +36,8 @@ async function newPage(){
   };
  });
  const page=await context.newPage();page.on('pageerror',error=>errors.push(error.message));
+ page.on('console',message=>{if(message.type()==='error')consoleErrors.push(message.text());});
+ page.on('requestfailed',request=>requestFailures.push({url:request.url(),error:request.failure()?.errorText}));
  page.on('request',request=>{resources.push(request.url());if(!['GET','HEAD'].includes(request.method()))writes.push({url:request.url(),method:request.method()});});
  page.on('response',response=>{
   if(response.status()>=400)missing.push({url:response.url(),status:response.status()});const url=new URL(response.url());
@@ -127,4 +129,4 @@ try{
   evidenceLimits:{decodedOriginalPixelsMatch:'Canvas2D export versus frozen PNG proves original delivery, not GPU lighting fidelity.',visibility:'Synthetic hidden signal drives real browser lifecycle handlers and WebAudio; not a physical lock-screen test.',audio:'Playback nodes, decoding and trusted UI unlock verified; no human listening approval or precise motion-phase certification.',artisticApproval:'Not asserted by this interaction test.'},
   environment:'Local Chrome mobile simulation 402x874/DPR2 and landscape; no physical iPhone/Safari claim. Empty demo API is browser-mocked; display/audio resources and clipboard operations are real.'};
  await writeFile(out+(remote?'/live-verification.json':'/verification.json'),JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify({sha256:record.sha256,checks:result.checks,errors,missing,writes}));await delayed.context.close();await context.close();
-}catch(error){await writeFile(out+'/browser-failure.json',JSON.stringify({error:error.stack,errors,missing,writes},null,2)+'\n');throw error;}finally{await browser.close();}
+}catch(error){await writeFile(out+'/browser-failure.json',JSON.stringify({error:error.stack,errors,consoleErrors,requestFailures,missing,writes},null,2)+'\n');throw error;}finally{await browser.close();}

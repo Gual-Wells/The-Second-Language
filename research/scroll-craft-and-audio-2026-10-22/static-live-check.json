@@ -1,0 +1,55 @@
+{
+  "checkedAt": "2026-10-22T04:32:31.681Z",
+  "sourceSHA": "8cc091186f6cf02ca10776876be6862f41d96e0a",
+  "immutable": "https://4a72a023.the-second-language.pages.dev",
+  "base": "https://the-second-language.pages.dev",
+  "static": [
+    {
+      "url": "/sw.js",
+      "status": 200,
+      "sha256": "0bd543fb89e0f3c69bd4f119bcf68a9c2f3e1130b85133be2a61b25017bb9248",
+      "expectedSHA256": "0bd543fb89e0f3c69bd4f119bcf68a9c2f3e1130b85133be2a61b25017bb9248",
+      "match": true
+    },
+    {
+      "url": "/labs/certification-reader/sound.js?v=41",
+      "status": 200,
+      "sha256": "adc44a20542768b0e2f6cab4fcc42b4cb43112ee9bbca673c518292546b8c3bc",
+      "expectedSHA256": "adc44a20542768b0e2f6cab4fcc42b4cb43112ee9bbca673c518292546b8c3bc",
+      "match": true
+    },
+    {
+      "url": "/labs/certification-reader/material-motion.js?v=41",
+      "status": 200,
+      "sha256": "13454e924c75c5d88f828143fa1ea8ee93461de0a45bfb6bacc908395d236b30",
+      "expectedSHA256": "13454e924c75c5d88f828143fa1ea8ee93461de0a45bfb6bacc908395d236b30",
+      "match": true
+    },
+    {
+      "url": "/labs/certification-reader/display-manifest.json",
+      "status": 200,
+      "sha256": "370a48383fd64c32399c8ad568513183449fb92dcdd4e7e4df3b7f35672e55db",
+      "expectedSHA256": "370a48383fd64c32399c8ad568513183449fb92dcdd4e7e4df3b7f35672e55db",
+      "match": true
+    },
+    {
+      "url": "/labs/certification-reader/assets/audio-sources/manifest.json",
+      "status": 200,
+      "sha256": "5db8811950551048fbd8e6acc34d3a7c66bbcb051f7f9c231ec4cd996aa1d5af",
+      "expectedSHA256": "5db8811950551048fbd8e6acc34d3a7c66bbcb051f7f9c231ec4cd996aa1d5af",
+      "match": true
+    },
+    {
+      "url": "/labs/certification-reader/assets/audio-foley/paper-open-v41.wav",
+      "status": 200,
+      "sha256": "68ac1f965c75f135b0b013b371894bdf54f426a132390d6cdeb1724004618be8",
+      "expectedSHA256": "68ac1f965c75f135b0b013b371894bdf54f426a132390d6cdeb1724004618be8",
+      "match": true
+    }
+  ],
+  "anonymousGateway": {
+    "sessionStatus": 200,
+    "authenticated": false,
+    "practiceStatus": 401
+  }
+}
