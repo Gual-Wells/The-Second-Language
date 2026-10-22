@@ -1,6 +1,6 @@
 {
-  "checkedAt": "2026-10-22T13:30:08.038Z",
-  "base": "http://127.0.0.1:8153",
+  "checkedAt": "2026-10-22T13:48:59.892Z",
+  "base": "https://1f007ac0.the-second-language.pages.dev",
   "scope": "Real Chromium native media controls and WebAudio/WebGL at 393x852. Visibility/pagehide handlers are explicitly exercised with synthetic lifecycle events; not physical Safari or a listening verdict.",
   "sources": [
     {
@@ -10,7 +10,7 @@
       "sha256": "ea906c650a08f2d35dc4d5fe1387fd04ec25a8f048c08043c6f62b8fd3cd5e98",
       "declaredDuration": 1.1914583333333333,
       "browserDecode": {
-        "url": "http://127.0.0.1:8153/labs/scroll-foley-study/sources/audioelk/MXL900_BELT_HANDLING_01.wav",
+        "url": "https://1f007ac0.the-second-language.pages.dev/labs/scroll-foley-study/sources/audioelk/MXL900_BELT_HANDLING_01.wav",
         "bytes": 417208,
         "sha256": "ea906c650a08f2d35dc4d5fe1387fd04ec25a8f048c08043c6f62b8fd3cd5e98",
         "duration": 1.1914583333333333,
@@ -25,7 +25,7 @@
       "sha256": "ab4382278a88dafc6540a732ad53282b0cc934b5fa26284f62520872e4f0053d",
       "declaredDuration": 1.73975,
       "browserDecode": {
-        "url": "http://127.0.0.1:8153/labs/scroll-foley-study/sources/audioelk/MXL900_BELT_HANDLING_07.wav",
+        "url": "https://1f007ac0.the-second-language.pages.dev/labs/scroll-foley-study/sources/audioelk/MXL900_BELT_HANDLING_07.wav",
         "bytes": 469846,
         "sha256": "ab4382278a88dafc6540a732ad53282b0cc934b5fa26284f62520872e4f0053d",
         "duration": 1.73975,
@@ -40,7 +40,7 @@
       "sha256": "c6a89621525123644e7ea86a22615a1404e7b471033b0e9d4f578c000acb9a4a",
       "declaredDuration": 6.620375,
       "browserDecode": {
-        "url": "http://127.0.0.1:8153/labs/scroll-foley-study/sources/audioelk/MXL900_BELT_HANDLING_13.wav",
+        "url": "https://1f007ac0.the-second-language.pages.dev/labs/scroll-foley-study/sources/audioelk/MXL900_BELT_HANDLING_13.wav",
         "bytes": 938386,
         "sha256": "c6a89621525123644e7ea86a22615a1404e7b471033b0e9d4f578c000acb9a4a",
         "duration": 6.620375,
@@ -55,7 +55,7 @@
       "sha256": "2bed68801bf92b5167d5df59089e5101ffeb1c508b60818d3ae7ac480bfb4bed",
       "declaredDuration": 0.19177083333333333,
       "browserDecode": {
-        "url": "http://127.0.0.1:8153/labs/scroll-foley-study/sources/audioelk/MXL900_BELT_IMPACT_07.wav",
+        "url": "https://1f007ac0.the-second-language.pages.dev/labs/scroll-foley-study/sources/audioelk/MXL900_BELT_IMPACT_07.wav",
         "bytes": 321238,
         "sha256": "2bed68801bf92b5167d5df59089e5101ffeb1c508b60818d3ae7ac480bfb4bed",
         "duration": 0.19177083333333333,
@@ -122,7 +122,7 @@
     }
   ],
   "rawPlayback": {
-    "progress": 0.02441968753221941,
+    "progress": 0.02405886884756521,
     "viewerPaused": true,
     "webAudioPaused": true,
     "foleyVoices": 0,
@@ -147,8 +147,8 @@
       },
       {
         "paused": false,
-        "currentTime": 0.160833,
-        "duration": null,
+        "currentTime": 0.159965,
+        "duration": 6.620375,
         "readyState": 4,
         "volume": 1,
         "rate": 1,
@@ -177,8 +177,8 @@
     },
     {
       "paused": false,
-      "currentTime": 0.032367,
-      "duration": 4.884854,
+      "currentTime": 0.030466,
+      "duration": 1.73975,
       "readyState": 4,
       "volume": 1,
       "rate": 1,
@@ -186,8 +186,8 @@
     },
     {
       "paused": true,
-      "currentTime": 0.444377,
-      "duration": null,
+      "currentTime": 0.436189,
+      "duration": 6.620375,
       "readyState": 4,
       "volume": 1,
       "rate": 1,
@@ -217,7 +217,7 @@
       {
         "paused": true,
         "currentTime": 0,
-        "duration": 4.884854,
+        "duration": 1.73975,
         "readyState": 4,
         "volume": 1,
         "rate": 1,
@@ -226,7 +226,7 @@
       {
         "paused": true,
         "currentTime": 0,
-        "duration": null,
+        "duration": 6.620375,
         "readyState": 4,
         "volume": 1,
         "rate": 1,
@@ -253,12 +253,12 @@
     "dspConnections": 0
   },
   "sourceRequests": [
-    "http://127.0.0.1:8153/labs/scroll-foley-study/sources/audioelk/MXL900_BELT_HANDLING_01.wav",
-    "http://127.0.0.1:8153/labs/scroll-foley-study/sources/audioelk/MXL900_BELT_HANDLING_07.wav",
-    "http://127.0.0.1:8153/labs/scroll-foley-study/sources/audioelk/MXL900_BELT_HANDLING_13.wav",
-    "http://127.0.0.1:8153/labs/scroll-foley-study/sources/audioelk/MXL900_BELT_IMPACT_07.wav",
-    "http://127.0.0.1:8153/labs/scroll-foley-study/sources/audioelk/MXL900_BELT_HANDLING_13.wav",
-    "http://127.0.0.1:8153/labs/scroll-foley-study/sources/audioelk/MXL900_BELT_HANDLING_07.wav"
+    "https://1f007ac0.the-second-language.pages.dev/labs/scroll-foley-study/sources/audioelk/MXL900_BELT_HANDLING_01.wav",
+    "https://1f007ac0.the-second-language.pages.dev/labs/scroll-foley-study/sources/audioelk/MXL900_BELT_HANDLING_07.wav",
+    "https://1f007ac0.the-second-language.pages.dev/labs/scroll-foley-study/sources/audioelk/MXL900_BELT_HANDLING_13.wav",
+    "https://1f007ac0.the-second-language.pages.dev/labs/scroll-foley-study/sources/audioelk/MXL900_BELT_IMPACT_07.wav",
+    "https://1f007ac0.the-second-language.pages.dev/labs/scroll-foley-study/sources/audioelk/MXL900_BELT_HANDLING_13.wav",
+    "https://1f007ac0.the-second-language.pages.dev/labs/scroll-foley-study/sources/audioelk/MXL900_BELT_HANDLING_07.wav"
   ],
   "lifecycle": {
     "method": "Synthetic visibilitychange and PageTransitionEvent with actually playing native HTMLAudioElements",

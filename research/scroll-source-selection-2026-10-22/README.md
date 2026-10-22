@@ -34,3 +34,9 @@
 新增独立检查 `scripts/verify-scroll-source-auditions.mjs`，报告`source-auditions-verification.json`：四份原件本机／实际HTTP字节与SHA相同、浏览器解码时长一致，初载无原音请求，native播放器实播与动画／音乐互斥，切回参照重置原音，退出释放正常。393px整页无横向溢出、无HTTP／脚本错误。后台与离场事件为合成事件检查，不冒称真机切后台。`source-auditions-iphone.png`是实际整页截图，待点击的播放器因`preload=none`显示0:00，不是解码失败，原时长另有文字。
 
 下一步按实际试听筛掉粗硬、桌擦／拿放及不合机构的take，再按真实卸力、脱孔、退尾、滑离、针框轻触剪辑。纸卷必须先有适合柔膜卷展的原件或录制方案；尚未完成不能称整个拟音已修好。发布与实际回读见`release.json`。
+
+## 本轮交付
+
+独立预览：<https://1f007ac0.the-second-language.pages.dev/labs/scroll-foley-study/>。代码`8c45625e7127d3159c4ac0e878bdced12ec1d40e`；33份研究页文件线上字节回读一致，原音互斥／恢复／离场检查已在该地址复测。没有更新main或独立API Worker，没有用新原音替换正式音轨，没有付费采购／订阅。
+
+末尾已实际执行余额／容量核对，但缺本机`SECOND_LANGUAGE_PUBLISH_TOKEN`或忽略的发布凭据文件，远端保留旧值。永久归档仅已排队，完成未确认；不把公开预览或本机缓存冒称已进OneDrive母版归档。
