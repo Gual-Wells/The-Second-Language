@@ -1,0 +1,658 @@
+{
+  "checkedAt": "2026-10-22T16:25:35.480Z",
+  "base": "http://127.0.0.1:8153",
+  "reference": "a9470bd",
+  "scope": "Actual headless Chrome WebGL/WebAudio, 393x852. Full opening/closing captures are actual master-bus output recorded through MediaRecorder Opus and decoded to mono PCM WAV. Not lossless masters, human listening approval, or physical iPhone/Safari validation.",
+  "checks": {
+    "qualityApproved": false,
+    "artApproved": false,
+    "tenKeeperAssetsMatchReference": true,
+    "productionVisualsAndMechanismUnchanged": true,
+    "paperFilesDecodeAtNativeFormatAndContainSignal": true,
+    "automaticPaperAudibleInIsolation": true,
+    "onePaperSourcePerDirection": true,
+    "paperStartsOnlyAtActualPaperMotion": true,
+    "nativeRateNoLoopNoRepeatedSeek": true,
+    "automaticKeeperCuesRetained": true,
+    "paperMaximumGainBounded": true,
+    "realDragHoldAndReverse": true,
+    "noMobileHorizontalOverflow": true,
+    "exitReleasesPaperAndKeeper": true,
+    "browserBytesMatchLocalAssets": true
+  },
+  "keeperAssets": [
+    {
+      "key": "bendOpen",
+      "file": "web/labs/scroll-foley-study/audio/bendOpen.wav",
+      "bytes": 86444,
+      "sha256": "650893bdcd634a0cb36382ed53b79d776f147ce38bb3ee4b95930214d0c1c0fc",
+      "referenceSHA256": "650893bdcd634a0cb36382ed53b79d776f147ce38bb3ee4b95930214d0c1c0fc"
+    },
+    {
+      "key": "bendClose",
+      "file": "web/labs/scroll-foley-study/audio/bendClose.wav",
+      "bytes": 86444,
+      "sha256": "c22792a8c149b4cafe9a25d51a2b7979a813b7ea864f17b00a44512115be3736",
+      "referenceSHA256": "c22792a8c149b4cafe9a25d51a2b7979a813b7ea864f17b00a44512115be3736"
+    },
+    {
+      "key": "holeOpen",
+      "file": "web/labs/scroll-foley-study/audio/holeOpen.wav",
+      "bytes": 40364,
+      "sha256": "46a43b9b719f4afcbfcca0b5ead042ce0abead83d550c088292689631cf1a88c",
+      "referenceSHA256": "46a43b9b719f4afcbfcca0b5ead042ce0abead83d550c088292689631cf1a88c"
+    },
+    {
+      "key": "holeClose",
+      "file": "web/labs/scroll-foley-study/audio/holeClose.wav",
+      "bytes": 40364,
+      "sha256": "97874a858f0081efcb2737526331a3eca8249e1ea2ccd251be8a988b85e10be6",
+      "referenceSHA256": "97874a858f0081efcb2737526331a3eca8249e1ea2ccd251be8a988b85e10be6"
+    },
+    {
+      "key": "tailOpen",
+      "file": "web/labs/scroll-foley-study/audio/tailOpen.wav",
+      "bytes": 62444,
+      "sha256": "edf8e801ceb9b2dbabae864b79d627b861a5a2ed1c8522aacb304b5ce9d08a9f",
+      "referenceSHA256": "edf8e801ceb9b2dbabae864b79d627b861a5a2ed1c8522aacb304b5ce9d08a9f"
+    },
+    {
+      "key": "tailClose",
+      "file": "web/labs/scroll-foley-study/audio/tailClose.wav",
+      "bytes": 62444,
+      "sha256": "32c339c42d951178c4973e80050207d8bc3a7e6ef34856aa10ec7bc41d3afeff",
+      "referenceSHA256": "32c339c42d951178c4973e80050207d8bc3a7e6ef34856aa10ec7bc41d3afeff"
+    },
+    {
+      "key": "slideOpen",
+      "file": "web/labs/scroll-foley-study/audio/slideOpen.wav",
+      "bytes": 23084,
+      "sha256": "c47e77a5ba19e2689e48c14b5a9f2731f6d7db519c7422c07e908dd46bf5131e",
+      "referenceSHA256": "c47e77a5ba19e2689e48c14b5a9f2731f6d7db519c7422c07e908dd46bf5131e"
+    },
+    {
+      "key": "slideClose",
+      "file": "web/labs/scroll-foley-study/audio/slideClose.wav",
+      "bytes": 23084,
+      "sha256": "f60f03943a3fc9ee2482a7d9a9e716765cbeaaa9537c68841bf39a9b6284a77c",
+      "referenceSHA256": "f60f03943a3fc9ee2482a7d9a9e716765cbeaaa9537c68841bf39a9b6284a77c"
+    },
+    {
+      "key": "park",
+      "file": "web/labs/scroll-foley-study/audio/park.wav",
+      "bytes": 17088,
+      "sha256": "d95364858538b9f038f1354d930fe3e696a0e64672e5225477a6fd16adb5090d",
+      "referenceSHA256": "d95364858538b9f038f1354d930fe3e696a0e64672e5225477a6fd16adb5090d"
+    },
+    {
+      "key": "seat",
+      "file": "web/labs/scroll-foley-study/audio/seat.wav",
+      "bytes": 21392,
+      "sha256": "3c3aa2b7d0222fdb96e1978376a6c3b3b499867464365ee7daaee7d25a5cc953",
+      "referenceSHA256": "3c3aa2b7d0222fdb96e1978376a6c3b3b499867464365ee7daaee7d25a5cc953"
+    }
+  ],
+  "paperAssets": [
+    {
+      "file": "audio/paper-unroll-v4.wav",
+      "bytes": 300928,
+      "sha256": "04532669c87dd3265943dcb8549babb50c20332771b9b95601e25154476eb28d",
+      "frames": 75221,
+      "duration": 1.5671041666666667,
+      "rate": 48000,
+      "channels": 2,
+      "bitDepth": 16,
+      "browserDecode": {
+        "duration": 1.5671041666666667,
+        "frames": 75221,
+        "rate": 48000,
+        "channels": 2,
+        "peak": 0.9430219531059265,
+        "rms": 0.05097730785823168
+      }
+    },
+    {
+      "file": "audio/paper-rollup-v4.wav",
+      "bytes": 673656,
+      "sha256": "b2fd14da0fc6a1faf1e144c41a2008a1b78f4f22100dea6db354e7efab5fd6d7",
+      "frames": 168403,
+      "duration": 3.508395833333333,
+      "rate": 48000,
+      "channels": 2,
+      "bitDepth": 16,
+      "browserDecode": {
+        "duration": 3.508395833333333,
+        "frames": 168403,
+        "rate": 48000,
+        "channels": 2,
+        "peak": 0.9428693652153015,
+        "rms": 0.044624842099054034
+      }
+    }
+  ],
+  "httpErrors": [],
+  "pageErrors": [],
+  "requestFailures": [],
+  "initial": {
+    "candidate": "paper-recording-v4",
+    "decoded": [
+      "park",
+      "seat",
+      "bendOpen",
+      "holeOpen",
+      "holeClose",
+      "slideOpen",
+      "slideClose",
+      "tailOpen",
+      "tailClose",
+      "bendClose",
+      "paperUnroll",
+      "paperRollup"
+    ],
+    "keeperReference": "466132c A/B",
+    "maximumPaperGain": 0.1
+  },
+  "opening": {
+    "duration": 5.88,
+    "peak": 0.10413597524166107,
+    "rms": 0.0025933311166258573,
+    "cues": [
+      {
+        "key": "bendOpen",
+        "mode": "automatic",
+        "direction": 1,
+        "audioTime": 0.352,
+        "wallTime": 20371.5,
+        "offset": 0,
+        "duration": 0.9,
+        "gain": 0.9,
+        "progress": 0.000009940720595381953,
+        "r": 0.000024851801488454882,
+        "phase": "unload-hole",
+        "contact": false
+      },
+      {
+        "key": "holeOpen",
+        "mode": "automatic",
+        "direction": 1,
+        "audioTime": 1.272,
+        "wallTime": 21293.5,
+        "offset": 0,
+        "duration": 0.42,
+        "gain": 0.7,
+        "progress": 0.07311937536495408,
+        "r": 0.1827984384123852,
+        "phase": "release-hole",
+        "contact": false
+      },
+      {
+        "key": "tailOpen",
+        "mode": "automatic",
+        "direction": 1,
+        "audioTime": 1.68,
+        "wallTime": 21702.59999999404,
+        "offset": 0,
+        "duration": 0.65,
+        "gain": 0.95,
+        "progress": 0.14505429815426302,
+        "r": 0.3626357453856575,
+        "phase": "withdraw-tail",
+        "contact": false
+      },
+      {
+        "key": "park",
+        "mode": "automatic",
+        "direction": 1,
+        "audioTime": 2.4106666666666667,
+        "wallTime": 22436.40000000596,
+        "offset": 0,
+        "duration": 0.17754166666666665,
+        "gain": 0.4,
+        "progress": 0.3106433703906443,
+        "r": 0.7766084259766107,
+        "phase": "park-pin",
+        "contact": true
+      },
+      {
+        "key": "slideOpen",
+        "mode": "automatic",
+        "direction": 1,
+        "audioTime": 2.44,
+        "wallTime": 22469.19999998808,
+        "offset": 0,
+        "duration": 0.24,
+        "gain": 0.65,
+        "progress": 0.3189952703231638,
+        "r": 0.7974881758079095,
+        "phase": "slide-clear",
+        "contact": false
+      },
+      {
+        "key": "paperUnroll",
+        "progress": 0.4050249224148238,
+        "paperProgress": 0.008374870691372948,
+        "audioTime": 2.7813333333333334,
+        "offset": 0,
+        "rate": 1,
+        "loop": false,
+        "mode": "automatic"
+      }
+    ],
+    "starts": [
+      {
+        "duration": 0.000020833333333333333,
+        "rate": 1,
+        "loop": false,
+        "offset": 0,
+        "requestedDuration": null,
+        "audioTime": 0.30133333333333334
+      },
+      {
+        "duration": 0.9,
+        "rate": 1,
+        "loop": false,
+        "offset": 0,
+        "requestedDuration": 0.9,
+        "audioTime": 0.352
+      },
+      {
+        "duration": 0.42,
+        "rate": 1,
+        "loop": false,
+        "offset": 0,
+        "requestedDuration": 0.42,
+        "audioTime": 1.272
+      },
+      {
+        "duration": 0.65,
+        "rate": 1,
+        "loop": false,
+        "offset": 0,
+        "requestedDuration": 0.65,
+        "audioTime": 1.68
+      },
+      {
+        "duration": 0.17754166666666665,
+        "rate": 1,
+        "loop": false,
+        "offset": 0,
+        "requestedDuration": 0.17754166666666665,
+        "audioTime": 2.4106666666666667
+      },
+      {
+        "duration": 0.24,
+        "rate": 1,
+        "loop": false,
+        "offset": 0,
+        "requestedDuration": 0.24,
+        "audioTime": 2.44
+      },
+      {
+        "duration": 1.5671041666666667,
+        "rate": 1,
+        "loop": false,
+        "offset": 0,
+        "requestedDuration": null,
+        "audioTime": 2.7813333333333334
+      }
+    ],
+    "ending": {
+      "foleyVoices": 0,
+      "musicVoices": 0,
+      "paperKey": null,
+      "contextState": "running"
+    },
+    "capture": {
+      "file": "paper-candidate-opening.wav",
+      "bytes": 564524,
+      "sha256": "874d3fad8b6453280c67c7f287f8d93dc1afe7a865d1587816a6869ef22f188c"
+    },
+    "paperOnlyMeasurement": {
+      "samples": 31,
+      "audibleSamples": 31,
+      "maxRMS": 0.008954004922393833,
+      "maximumGain": 0.1,
+      "firstAudible": {
+        "p": 0.4492119189137445,
+        "q": 0.08201986485624081,
+        "rms": 0.00007101158584849103,
+        "paperGain": 0.1,
+        "paperKey": "paperUnroll",
+        "voices": [
+          {
+            "key": "paperUnroll",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "stopping": false
+          }
+        ]
+      },
+      "lastAudible": {
+        "p": 0.7929602346646232,
+        "q": 0.6549337244410387,
+        "rms": 0.000014954049969152093,
+        "paperGain": 0.09736802734615463,
+        "paperKey": "paperUnroll",
+        "voices": [
+          {
+            "key": "paperUnroll",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "stopping": false
+          }
+        ]
+      }
+    }
+  },
+  "closing": {
+    "duration": 5.88,
+    "peak": 0.10841879993677139,
+    "rms": 0.0021268954065531724,
+    "cues": [
+      {
+        "key": "paperRollup",
+        "progress": 0.9929521931486881,
+        "paperProgress": 0.9882536552478137,
+        "audioTime": 6.8613333333333335,
+        "offset": 0,
+        "rate": 1,
+        "loop": false,
+        "mode": "automatic"
+      },
+      {
+        "key": "slideClose",
+        "mode": "automatic",
+        "direction": -1,
+        "audioTime": 9.861333333333333,
+        "wallTime": 29883.79999998212,
+        "offset": 0,
+        "duration": 0.24,
+        "gain": 0.65,
+        "progress": 0.3737282500000001,
+        "r": 0.9343206250000002,
+        "phase": "slide-clear",
+        "contact": false
+      },
+      {
+        "key": "tailClose",
+        "mode": "automatic",
+        "direction": -1,
+        "audioTime": 10.210666666666667,
+        "wallTime": 30235.59999999404,
+        "offset": 0,
+        "duration": 0.65,
+        "gain": 0.95,
+        "progress": 0.2851925487196949,
+        "r": 0.7129813717992373,
+        "phase": "withdraw-tail",
+        "contact": false
+      },
+      {
+        "key": "holeClose",
+        "mode": "automatic",
+        "direction": -1,
+        "audioTime": 10.861333333333333,
+        "wallTime": 30885.29999998212,
+        "offset": 0,
+        "duration": 0.42,
+        "gain": 0.7,
+        "progress": 0.14128276065368728,
+        "r": 0.3532069016342182,
+        "phase": "release-hole",
+        "contact": false
+      },
+      {
+        "key": "bendClose",
+        "mode": "automatic",
+        "direction": -1,
+        "audioTime": 11.28,
+        "wallTime": 31302.90000000596,
+        "offset": 0,
+        "duration": 0.9,
+        "gain": 0.9,
+        "progress": 0.07027258567698846,
+        "r": 0.17568146419247116,
+        "phase": "unload-hole",
+        "contact": false
+      },
+      {
+        "key": "seat",
+        "mode": "automatic",
+        "direction": -1,
+        "audioTime": 11.96,
+        "wallTime": 31986,
+        "offset": 0,
+        "duration": 0.222375,
+        "gain": 0.4,
+        "progress": 0.0046802320917456175,
+        "r": 0.011700580229364044,
+        "phase": "unload-hole",
+        "contact": true
+      }
+    ],
+    "starts": [
+      {
+        "duration": 0.000020833333333333333,
+        "rate": 1,
+        "loop": false,
+        "offset": 0,
+        "requestedDuration": null,
+        "audioTime": 6.552
+      },
+      {
+        "duration": 3.508395833333333,
+        "rate": 1,
+        "loop": false,
+        "offset": 0,
+        "requestedDuration": null,
+        "audioTime": 6.8613333333333335
+      },
+      {
+        "duration": 0.24,
+        "rate": 1,
+        "loop": false,
+        "offset": 0,
+        "requestedDuration": 0.24,
+        "audioTime": 9.861333333333333
+      },
+      {
+        "duration": 0.65,
+        "rate": 1,
+        "loop": false,
+        "offset": 0,
+        "requestedDuration": 0.65,
+        "audioTime": 10.210666666666667
+      },
+      {
+        "duration": 0.42,
+        "rate": 1,
+        "loop": false,
+        "offset": 0,
+        "requestedDuration": 0.42,
+        "audioTime": 10.861333333333333
+      },
+      {
+        "duration": 0.9,
+        "rate": 1,
+        "loop": false,
+        "offset": 0,
+        "requestedDuration": 0.9,
+        "audioTime": 11.28
+      },
+      {
+        "duration": 0.222375,
+        "rate": 1,
+        "loop": false,
+        "offset": 0,
+        "requestedDuration": 0.222375,
+        "audioTime": 11.96
+      }
+    ],
+    "ending": {
+      "foleyVoices": 0,
+      "musicVoices": 0,
+      "paperKey": null,
+      "contextState": "running"
+    },
+    "capture": {
+      "file": "paper-candidate-closing.wav",
+      "bytes": 564524,
+      "sha256": "7b88221f6206611e29fcb132181ad0619c544f1b511b949417dfa44620f3d295"
+    },
+    "paperOnlyMeasurement": {
+      "samples": 49,
+      "audibleSamples": 49,
+      "maxRMS": 0.007031357392383778,
+      "maximumGain": 0.1,
+      "firstAudible": {
+        "p": 0.9365886204885319,
+        "q": 0.8943143674808866,
+        "rms": 0.00044744377473980785,
+        "paperGain": 0.032086674907282786,
+        "paperKey": "paperRollup",
+        "voices": [
+          {
+            "key": "paperRollup",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "stopping": false
+          }
+        ]
+      },
+      "lastAudible": {
+        "p": 0.44404191757421907,
+        "q": 0.07340319595703174,
+        "rms": 0.007031357392383778,
+        "paperGain": 0.1,
+        "paperKey": "paperRollup",
+        "voices": [
+          {
+            "key": "paperRollup",
+            "loop": false,
+            "rate": 1,
+            "offset": 0,
+            "stopping": false
+          }
+        ]
+      }
+    }
+  },
+  "drag": {
+    "progress": 0.7900000023315638,
+    "paperProgress": 0.6500000038859397,
+    "held": {
+      "foleyVoices": 0,
+      "rms": 0
+    },
+    "reversePaperCues": [
+      {
+        "key": "paperRollup",
+        "progress": 0.762000027253389,
+        "paperProgress": 0.6033333787556483,
+        "audioTime": 14.84,
+        "offset": 0,
+        "rate": 1,
+        "loop": false,
+        "mode": "drag"
+      }
+    ]
+  },
+  "disposed": {
+    "disposed": true,
+    "foleyVoices": 0,
+    "musicVoices": 0,
+    "contextState": "closed",
+    "analyserLastFrameRMS": 0.000030215115106418583,
+    "note": "Closed AudioContext no longer processes audio. Its analyser may retain its last frame; this cached value is not a live post-exit measurement. Actual held-drag silence was measured while the context was running."
+  },
+  "browserAudioResponses": [
+    {
+      "url": "http://127.0.0.1:8153/labs/scroll-foley-study/audio/bendOpen.wav",
+      "status": 200,
+      "bytes": 86444,
+      "sha256": "650893bdcd634a0cb36382ed53b79d776f147ce38bb3ee4b95930214d0c1c0fc"
+    },
+    {
+      "url": "http://127.0.0.1:8153/labs/scroll-foley-study/audio/bendClose.wav",
+      "status": 200,
+      "bytes": 86444,
+      "sha256": "c22792a8c149b4cafe9a25d51a2b7979a813b7ea864f17b00a44512115be3736"
+    },
+    {
+      "url": "http://127.0.0.1:8153/labs/scroll-foley-study/audio/holeOpen.wav",
+      "status": 200,
+      "bytes": 40364,
+      "sha256": "46a43b9b719f4afcbfcca0b5ead042ce0abead83d550c088292689631cf1a88c"
+    },
+    {
+      "url": "http://127.0.0.1:8153/labs/scroll-foley-study/audio/holeClose.wav",
+      "status": 200,
+      "bytes": 40364,
+      "sha256": "97874a858f0081efcb2737526331a3eca8249e1ea2ccd251be8a988b85e10be6"
+    },
+    {
+      "url": "http://127.0.0.1:8153/labs/scroll-foley-study/audio/tailOpen.wav",
+      "status": 200,
+      "bytes": 62444,
+      "sha256": "edf8e801ceb9b2dbabae864b79d627b861a5a2ed1c8522aacb304b5ce9d08a9f"
+    },
+    {
+      "url": "http://127.0.0.1:8153/labs/scroll-foley-study/audio/tailClose.wav",
+      "status": 200,
+      "bytes": 62444,
+      "sha256": "32c339c42d951178c4973e80050207d8bc3a7e6ef34856aa10ec7bc41d3afeff"
+    },
+    {
+      "url": "http://127.0.0.1:8153/labs/scroll-foley-study/audio/slideOpen.wav",
+      "status": 200,
+      "bytes": 23084,
+      "sha256": "c47e77a5ba19e2689e48c14b5a9f2731f6d7db519c7422c07e908dd46bf5131e"
+    },
+    {
+      "url": "http://127.0.0.1:8153/labs/scroll-foley-study/audio/slideClose.wav",
+      "status": 200,
+      "bytes": 23084,
+      "sha256": "f60f03943a3fc9ee2482a7d9a9e716765cbeaaa9537c68841bf39a9b6284a77c"
+    },
+    {
+      "url": "http://127.0.0.1:8153/labs/scroll-foley-study/audio/park.wav",
+      "status": 200,
+      "bytes": 17088,
+      "sha256": "d95364858538b9f038f1354d930fe3e696a0e64672e5225477a6fd16adb5090d"
+    },
+    {
+      "url": "http://127.0.0.1:8153/labs/scroll-foley-study/audio/seat.wav",
+      "status": 200,
+      "bytes": 21392,
+      "sha256": "3c3aa2b7d0222fdb96e1978376a6c3b3b499867464365ee7daaee7d25a5cc953"
+    },
+    {
+      "url": "http://127.0.0.1:8153/labs/scroll-foley-study/audio/paper-unroll-v4.wav",
+      "status": 200,
+      "bytes": 300928,
+      "sha256": "04532669c87dd3265943dcb8549babb50c20332771b9b95601e25154476eb28d"
+    },
+    {
+      "url": "http://127.0.0.1:8153/labs/scroll-foley-study/audio/paper-rollup-v4.wav",
+      "status": 200,
+      "bytes": 673656,
+      "sha256": "b2fd14da0fc6a1faf1e144c41a2008a1b78f4f22100dea6db354e7efab5fd6d7"
+    },
+    {
+      "url": "http://127.0.0.1:8153/labs/scroll-foley-study/audio/paper-unroll-v4.wav",
+      "status": 200,
+      "bytes": 300928,
+      "sha256": "04532669c87dd3265943dcb8549babb50c20332771b9b95601e25154476eb28d"
+    },
+    {
+      "url": "http://127.0.0.1:8153/labs/scroll-foley-study/audio/paper-rollup-v4.wav",
+      "status": 200,
+      "bytes": 673656,
+      "sha256": "b2fd14da0fc6a1faf1e144c41a2008a1b78f4f22100dea6db354e7efab5fd6d7"
+    }
+  ],
+  "status": "technical-paper-candidate-verified"
+}

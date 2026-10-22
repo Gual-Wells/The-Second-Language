@@ -1,0 +1,34 @@
+{
+  "capturedAt": "2026-10-22T15:19:55.137749+00:00",
+  "sourcePage": "https://freesound.org/people/RavenWolfProds/sounds/503663/",
+  "title": "Unrolling parchment paper in a garage",
+  "author": "RavenWolfProds",
+  "published": "2020-01-26",
+  "license": "CC0 1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "authorDescription": "Field recording - Zoom H6 in stereo. Unrolling a roll of parchment paper in a suburban garage.",
+  "originalAdvertised": {
+    "format": "WAV",
+    "durationSeconds": 16.202,
+    "sizeDisplay": "2.8 MB",
+    "sampleRate": 44100,
+    "bitDepth": 16,
+    "channels": 2,
+    "availability": "Login to download on author page; original not obtained."
+  },
+  "downloaded": {
+    "file": "503663-author-hq-preview.mp3",
+    "url": "https://cdn.freesound.org/previews/503/503663_9619518-hq.mp3",
+    "bytes": 414244,
+    "sha256": "ccb7c4a6c7ac44ddcf7a26ffb198642c36b5dbdde8e2a5a9fb2c5e74b8fac42b",
+    "contentType": "audio/mpeg",
+    "kind": "public HQ MP3 preview; lossy; not original WAV"
+  },
+  "limitations": [
+    "Author uses parchment paper wording; animal parchment or vellum material is not established.",
+    "Recorded in suburban garage; ambience and hand handling may be audible.",
+    "No listening approval or assertion that this is softer than rejected sources.",
+    "Do not represent the MP3 preview as an uncompressed original."
+  ],
+  "processing": "None. Publicly offered HQ preview saved byte-for-byte."
+}

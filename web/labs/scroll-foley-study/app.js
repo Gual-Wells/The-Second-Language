@@ -9,7 +9,7 @@ const phaseNames = Object.freeze({
 });
 let sound = null, viewer = null, soundEpoch = 0;
 let soundReady = false, viewerReady = false, disposed = false, latestPose = null;
-let audioMessage = '轻触“启用试听”，复核上一轮 A/B 页的皮扣声。', viewerMessage = '正在准备原版卷轴…';
+let audioMessage = '启用试听后开卷／合卷，听新的纸卷声。', viewerMessage = '正在准备原版卷轴…';
 let viewerFailure = false, audioFailure = false, statusTimer = 0;
 const auditions = [];
 let auditionPaused = false;
@@ -40,7 +40,7 @@ async function prepareAuditions() {
         for (const other of auditions) if (other !== audio) other.pause();
         soundEpoch++; soundReady = false; auditionPaused = true;
         viewer?.pause(); sound?.pause();
-        audioMessage = '正在独听新原音；点“启用试听”返回 A/B 皮扣参照。';
+        audioMessage = '正在独听皮扣原音；点“启用试听”返回卷轴。';
         controls();
       });
       audio.addEventListener('error', () => {
@@ -99,7 +99,7 @@ function describeAudio(candidate) {
     return false;
   }
   audioFailure = false;
-  audioMessage = `A/B 皮扣参照已恢复${$('withMusic').checked ? ' · 与音乐合听' : ' · 仅皮扣声'}。`;
+  audioMessage = `纸卷实录候选已准备 · 保留 A/B 皮扣声${$('withMusic').checked ? ' · 与音乐合听' : ''}。`;
   return true;
 }
 
@@ -119,7 +119,7 @@ async function enableSound(candidate = sound, epoch = soundEpoch) {
   stopAuditions();
   // This call runs in the original trusted pointer/click handler, before await.
   const unlocking = candidate.unlock();
-  audioMessage = '正在准备 A/B 皮扣参照…';
+  audioMessage = '正在准备纸卷实录与皮扣参照…';
   controls();
   try {
     const unlocked = await unlocking;
@@ -280,6 +280,6 @@ statusTimer = setInterval(() => {
   }
 }, 750);
 window.scrollFoleyStudy = {
-  snapshot: () => ({candidate: 'source-study-v3', soundReady, viewerReady, withMusic: $('withMusic').checked, pose: latestPose, sound: sound?.snapshot(), viewer: viewer?.snapshot(), audition: {count: auditions.length, pausedViewer: auditionPaused, playing: auditions.filter(a => !a.paused).length}, candidateOnly: true}),
+  snapshot: () => ({candidate: 'paper-recording-v4', soundReady, viewerReady, withMusic: $('withMusic').checked, pose: latestPose, sound: sound?.snapshot(), viewer: viewer?.snapshot(), audition: {count: auditions.length, pausedViewer: auditionPaused, playing: auditions.filter(a => !a.paused).length}, candidateOnly: true}),
   dispose
 };

@@ -1,4 +1,34 @@
-# Keeper recovery and source audition — revision 3
+# Recorded paper winding candidate — revision 4
+
+## Current paper candidate (not listening approved)
+
+New recordings from **Adobe Audition Download Sound Effects / Foley**,
+[official source](https://www.adobe.com/products/audition/offers/AdobeAuditionDLCSFX.html).
+The paper winding part of the interactive scroll now uses:
+
+- `Foley Paper Unroll 01.wav` — 1.567104 seconds, opening.
+- `Foley Paper Roll Up Fast 01.wav` — 3.508396 seconds, closing.
+
+Both source files are actual 48kHz / 16-bit / stereo PCM WAV. Changes: full
+performance with metadata removed and 10ms de-click edge fades. No EQ, gain
+normalization, compression, generated noise, reverse, looping, time stretching
+or runtime pitch change. Details and hashes: `paper-recordings.json`, build
+recipe: `scripts/build-scroll-paper-candidate.py`.
+
+These are paper performances, not verified animal parchment. Movement gates
+only the output gain; slow or stopped paper is quiet. The shorter opening
+recording can end before the visual action does. It is not repeated or padded
+to conceal this limit. The keeper uses its separate unchanged A/B reference.
+
+Adobe source and derivatives retain the Adobe Content File license, **not MIT
+or CC0**. They are provided only as necessary accompanying tracks inside this
+authored interactive scroll; no independent source library/download player is
+offered. Adobe permits use, modification and distribution with authored works,
+subject to its standalone-content restriction; see [current terms, §3.6](https://www.adobe.com/legal/terms.html).
+The original ZIP and complete source files are kept outside the public
+repository. No Adobe endorsement is claimed.
+
+## Previous keeper recovery and source audition — revision 3
 
 ## Current animation reference
 
@@ -12,7 +42,7 @@ improvement, not final approval of the recording or mix.
 The recording is **Teebee_Deael — TBDL Foley - Unbuckling belt sounds**, [author
 page](https://freesound.org/people/Teebee_Deael/sounds/626503/), CC0. Author public
 HQ MP3 preview, not a lossless original. Cut/processing details remain in
-`cues.json` and `sources.json`. The paper performances are withdrawn and are not
+`cues.json` and `sources.json`. The old A/B paper performances are withdrawn and are not
 loaded or played. No artwork, geometry, animation, keeper finish or mist changed.
 
 ## New source-only auditions

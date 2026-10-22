@@ -32,7 +32,7 @@ await writeFile(path.join(out,'sources/audioelk/licensing-evidence.json'),eviden
 await writeFile(path.join(out,'source-auditions.json'),JSON.stringify({
  schema:'second-language.source-auditions.v1',
  status:'raw-source-selection-not-an-animation-sound-release',
- note:'这批是作者导出的独立 WAV 原件。没有适合的纸卷新原音；纸声仍待重新制作。',
+ note:'这里保留上一轮皮扣选材原件；上方纸卷声已独立更新，来源见“查看来源”。',
  recordings
 },null,2)+'\n');
 console.log(JSON.stringify({recordings:recordings.length,bytes:recordings.reduce((sum,item)=>sum+item.bytes,0),processing:'none'}));

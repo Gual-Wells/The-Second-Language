@@ -1,0 +1,123 @@
+{
+  "startedAt": "2026-10-22T15:21:15.747257+00:00",
+  "service": "Official hkchengrex MMAudio HF Space",
+  "baseUrl": "https://hkchengrex-mmaudio.hf.space",
+  "spaceSHA": "79cbf5fd7feb7a6b7410e80984040507f2b0fef7",
+  "model": "large_44k_v2",
+  "modelWeightsLicense": "CC BY-NC 4.0",
+  "modelLicenseSource": "https://huggingface.co/hkchengrex/MMAudio/blob/main/README.md",
+  "researchUse": "Personal noncommercial sound-making research; no product acceptance or deployment.",
+  "mode": "one anonymous video-to-audio generation",
+  "authorizationHeaderSent": false,
+  "paidServiceUsed": false,
+  "input": {
+    "path": ".cache/scroll-paper-motion-2026-10-22/paper-motion.mp4",
+    "bytes": 677002,
+    "sha256": "7bdb7a88970edf4760b0ae929e3b4e79f2290ff9359381297ef3e4767e8b7717",
+    "durationSeconds": 8.0145,
+    "fps": 25,
+    "width": 512,
+    "height": 512,
+    "hasAudio": false,
+    "motionTrace": [
+      {
+        "phase": "closed-paper-keeper-already-removed",
+        "seconds": 0.005799999982118606,
+        "p": 0.4
+      },
+      {
+        "phase": "unroll-start",
+        "seconds": 0.36469999998807906,
+        "p": 0.4
+      },
+      {
+        "phase": "unroll-end",
+        "seconds": 3.770199999988079,
+        "p": 1
+      },
+      {
+        "phase": "roll-start",
+        "seconds": 4.121899999976158,
+        "p": 1
+      },
+      {
+        "phase": "roll-end",
+        "seconds": 7.4857999999821185,
+        "p": 0.4
+      },
+      {
+        "phase": "end",
+        "seconds": 8.0145,
+        "p": 0.4
+      }
+    ],
+    "scope": "Actual production paper motion; keeper removed at p=.4. No sound, no retiming, no original artwork edits.",
+    "uploadedName": "paper-motion.mp4",
+    "bytesUnchanged": true
+  },
+  "request": {
+    "apiName": "video_to_audio",
+    "prompt": "Close-up sound of a thin, soft, supple parchment skin gently unrolling, resting briefly, then rolling back up. A very quiet, smooth, dry whisper of flexible membrane bending and sliding, with fine restrained natural detail. The sound follows the slow rolling edges and falls quiet when the sheet stops. Intimate, light, and unobtrusive.",
+    "negativePrompt": "Music, voices, rigid cardboard, crumpling, tearing, tapping, sharp impacts, hands rubbing, table friction, metal buckle, footsteps, wind, exaggerated whoosh, broadband hiss, static, low rumble.",
+    "seed": 17,
+    "numSteps": 25,
+    "cfgStrength": 4.5,
+    "durationSeconds": 8,
+    "actualData": {
+      "data": [
+        {
+          "path": "/tmp/gradio/3f5175cb1e994d8f8709e6f89a7f59d14e0460595b24935d5e95c932bb2f6f33/paper-motion.mp4",
+          "orig_name": "paper-motion.mp4",
+          "mime_type": "video/mp4",
+          "meta": {
+            "_type": "gradio.FileData"
+          }
+        },
+        "Close-up sound of a thin, soft, supple parchment skin gently unrolling, resting briefly, then rolling back up. A very quiet, smooth, dry whisper of flexible membrane bending and sliding, with fine restrained natural detail. The sound follows the slow rolling edges and falls quiet when the sheet stops. Intimate, light, and unobtrusive.",
+        "Music, voices, rigid cardboard, crumpling, tearing, tapping, sharp impacts, hands rubbing, table friction, metal buckle, footsteps, wind, exaggerated whoosh, broadband hiss, static, low rumble.",
+        17,
+        25,
+        4.5,
+        8
+      ]
+    }
+  },
+  "state": "failed-no-retry",
+  "retryPolicy": "Only one generation submission. On quota, denial, transport ambiguity, or failure, record and stop. No tokens, purchased credits, paid fallback, or learning-service reuse.",
+  "limitations": "A generated candidate, not a real material recording and not human-listening or audiovisual-fidelity approval. Original output is retained without DSP.",
+  "runtimeBefore": {
+    "sha": "79cbf5fd7feb7a6b7410e80984040507f2b0fef7",
+    "stage": "RUNNING",
+    "hardware": {
+      "current": "zero-a10g",
+      "requested": "zero-a10g"
+    }
+  },
+  "upload": {
+    "httpStatus": 200,
+    "accepted": true
+  },
+  "submission": {
+    "httpStatus": 200,
+    "raw": "{\"event_id\":\"786d97c018f743b4bcef3ba61daf0f88\"}"
+  },
+  "eventId": "786d97c018f743b4bcef3ba61daf0f88",
+  "streamHTTPStatus": 200,
+  "events": [
+    {
+      "event": "error",
+      "data": null
+    }
+  ],
+  "elapsedSeconds": 0.985,
+  "rawSSE": "event: error\ndata: null",
+  "finishedAt": "2026-10-22T15:21:22.090700+00:00",
+  "resultAssessment": {
+    "actualResult": "The upload and generation submission returned HTTP success with an event ID. The result stream returned event:error with data:null; no audio/video output was returned.",
+    "cause": "Unknown. The opaque error does not establish quota exhaustion, login denial, prompt rejection, or model failure.",
+    "repeatAttempted": false,
+    "outputCreated": false,
+    "acceptance": "No generated sound and no quality or synchronization judgment.",
+    "nextAction": "Preserve the exact request and event result; do not repeat, purchase credits, or silently switch to a paid service."
+  }
+}

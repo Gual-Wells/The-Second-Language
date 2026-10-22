@@ -1,0 +1,38 @@
+{
+  "mime": "video/mp4;codecs=avc1.42001E",
+  "trace": [
+    {
+      "phase": "closed-paper-keeper-already-removed",
+      "seconds": 0.005799999982118606,
+      "p": 0.4
+    },
+    {
+      "phase": "unroll-start",
+      "seconds": 0.36469999998807906,
+      "p": 0.4
+    },
+    {
+      "phase": "unroll-end",
+      "seconds": 3.770199999988079,
+      "p": 1
+    },
+    {
+      "phase": "roll-start",
+      "seconds": 4.121899999976158,
+      "p": 1
+    },
+    {
+      "phase": "roll-end",
+      "seconds": 7.4857999999821185,
+      "p": 0.4
+    },
+    {
+      "phase": "end",
+      "seconds": 8.0145,
+      "p": 0.4
+    }
+  ],
+  "bytes": 677002,
+  "file": "D:\\CodexStorage\\workspaces\\second-language-certification-reader/.cache/scroll-paper-motion-2026-10-22/paper-motion.mp4",
+  "scope": "Actual production paper motion; keeper removed at p=.4. No sound, no retiming, no original artwork edits."
+}

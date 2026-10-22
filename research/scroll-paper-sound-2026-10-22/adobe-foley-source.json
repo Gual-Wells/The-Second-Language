@@ -1,0 +1,79 @@
+{
+  "checkedAt": "2026-10-22T15:45:06.810888+00:00",
+  "purpose": "Source acquisition for synchronized interactive scroll animation; not standalone original-audio publication.",
+  "sourcePage": "https://www.adobe.com/products/audition/offers/adobeauditiondlcsfx.html",
+  "officialPlainHtml": "https://www.adobe.com/products/audition/offers/adobeauditiondlcsfx.plain.html",
+  "archive": {
+    "url": "https://download.adobe.com/pub/adobe/audition/offers/adobeauditiondlcsfx/foley.zip",
+    "bytes": 124420018,
+    "sha256": "ba23d972c36bcedd796a985378eeb94a7eaae5da16fc5ca6095fcc3d0ca2754c",
+    "localCachePath": "D:\\CodexStorage\\workspaces\\second-language-certification-reader\\.cache\\paper-source-research-2026-10-22\\adobe\\foley.zip",
+    "entries": 533
+  },
+  "originals": [
+    {
+      "bytes": 314120,
+      "sha256": "03fdbfb7e53829dfd09aef714afbaaee3af908670a0f5da64cb1360404ad4d13",
+      "formatTag": 1,
+      "channels": 2,
+      "sampleRateHz": 48000,
+      "bitsPerSample": 16,
+      "dataBytes": 300884,
+      "durationSeconds": 1.5671041666666667,
+      "decodedFrames": 75221,
+      "waveDurationSeconds": 1.5671041666666667,
+      "waveCompressionType": "NONE",
+      "localOriginalPath": "D:\\CodexStorage\\workspaces\\second-language-certification-reader\\.cache\\paper-source-research-2026-10-22\\adobe\\extracted\\Foley\\Foley Paper Unroll 01.wav",
+      "archiveEntry": "Foley/Foley Paper Unroll 01.wav",
+      "processing": "None. Exact ZIP member bytes; zipfile CRC check passed on read."
+    },
+    {
+      "bytes": 686986,
+      "sha256": "1e4d6fe46396cd6f313148b09b6404a597ff745fef44701e054e853cd9ee01a8",
+      "formatTag": 1,
+      "channels": 2,
+      "sampleRateHz": 48000,
+      "bitsPerSample": 16,
+      "dataBytes": 673612,
+      "durationSeconds": 3.508395833333333,
+      "decodedFrames": 168403,
+      "waveDurationSeconds": 3.508395833333333,
+      "waveCompressionType": "NONE",
+      "localOriginalPath": "D:\\CodexStorage\\workspaces\\second-language-certification-reader\\.cache\\paper-source-research-2026-10-22\\adobe\\extracted\\Foley\\Foley Paper Roll Up Fast 01.wav",
+      "archiveEntry": "Foley/Foley Paper Roll Up Fast 01.wav",
+      "processing": "None. Exact ZIP member bytes; zipfile CRC check passed on read."
+    },
+    {
+      "bytes": 1446258,
+      "sha256": "9dc884ceaa850e2febe00d9642abbfbbe7c81b2f0de7945b97ab96b0f8c9a9e8",
+      "formatTag": 1,
+      "channels": 2,
+      "sampleRateHz": 48000,
+      "bitsPerSample": 16,
+      "dataBytes": 1432796,
+      "durationSeconds": 7.462479166666666,
+      "decodedFrames": 358199,
+      "waveDurationSeconds": 7.462479166666666,
+      "waveCompressionType": "NONE",
+      "localOriginalPath": "D:\\CodexStorage\\workspaces\\second-language-certification-reader\\.cache\\paper-source-research-2026-10-22\\adobe\\extracted\\Foley\\Foley Paper Shuffle And Roll Up 01.wav",
+      "archiveEntry": "Foley/Foley Paper Shuffle And Roll Up 01.wav",
+      "processing": "None. Exact ZIP member bytes; zipfile CRC check passed on read."
+    }
+  ],
+  "license": {
+    "archiveEntry": "Foley/LICENSE.pdf",
+    "localPath": "D:\\CodexStorage\\workspaces\\second-language-certification-reader\\.cache\\paper-source-research-2026-10-22\\adobe\\extracted\\Foley\\LICENSE.pdf",
+    "sha256": "34460db14d6062076e0f6d713cfe4275b567b97916c5d112a22b7f6980d3b6d1",
+    "extractedTextPath": "D:\\CodexStorage\\workspaces\\second-language-certification-reader\\.cache\\paper-source-research-2026-10-22\\adobe\\extracted\\Foley\\LICENSE.txt",
+    "officialCurrentTerms": "https://www.adobe.com/legal/terms.html",
+    "officialCurrentTermsEffectiveDate": "2025-10-03",
+    "relevantSection": "3.6 Content Files",
+    "currentTermsVerifiedThrough": "Actual current official page opened through web tool; local plain endpoint did not return current terms and is not evidence.",
+    "downloadPageAndIncludedLicense": "Both permit use, display, modification, reproduction and distribution subject to EULA; prohibit standalone distribution when the material supplies the primary product value; no trademark rights.",
+    "endUseAssessment": "The current official 3.6 permits content or derivatives embedded in an authored application/product and distribution in connection with that End Use. Our synchronized interactive scroll with runtime companion short tracks fits this described End Use; web asset delivery itself is not identified as forbidden standalone distribution.",
+    "publicRepositoryAssessment": "A necessary derivative runtime track accompanying the application is reasonably distribution in connection with the End Use, not a new sample library. Keep third-party Adobe licensing separate from the project code license; do not assert an MIT or other sublicensing grant over the Adobe asset. No separate standalone original player/download or full archive in repository.",
+    "notCurrentAuthority": "https://www.adobe.com/legal/terms/terms-linkfree.html is dated 2018-06-05; it was consulted only as historical corroboration, not represented as current."
+  },
+  "auditionStatus": "Not listened to or approved by this agent. Filename/format verification is not hearing or material-quality acceptance.",
+  "repositoryChanges": "This source-evidence JSON only. Originals, archive and PDFs remain ignored local .cache. No app, sound, geometry or production modifications."
+}
