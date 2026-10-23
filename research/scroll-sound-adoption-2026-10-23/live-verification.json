@@ -1,6 +1,6 @@
 {
-  "base": "https://64e3da81.the-second-language.pages.dev",
-  "checkedAt": "2026-10-22T19:42:22.817Z",
+  "base": "https://the-second-language.pages.dev",
+  "checkedAt": "2026-10-23T02:24:39.886Z",
   "profile": "beginning",
   "mode": "project-beginning-only-document-default-sound",
   "catalogueWork": "project-beginning",
@@ -141,7 +141,7 @@
         "material": "Retained independent surplus-ink density source used by the v12 oblong remembrance impression."
       }
     },
-    "sourceRecordUrl": "https://64e3da81.the-second-language.pages.dev/labs/project-beginning/record.json"
+    "sourceRecordUrl": "https://the-second-language.pages.dev/labs/project-beginning/record.json"
   },
   "checks": {
     "minimalProjectEntry": true,
@@ -247,7 +247,7 @@
       "sealRelief": true,
       "runtime": {
         "motionPrepared": true,
-        "preparationMs": 10821.09999999404,
+        "preparationMs": 10556.700000047684,
         "preparedPrograms": 11,
         "programs": 11
       },
@@ -308,7 +308,7 @@
           "wrapS": 1000,
           "wrapT": 1000,
           "colorSpace": "",
-          "source": "https://64e3da81.the-second-language.pages.dev/labs/chapter-scroll-v4/assets/skin-normal.jpg"
+          "source": "https://the-second-language.pages.dev/labs/chapter-scroll-v4/assets/skin-normal.jpg"
         },
         "roughness": {
           "repeat": [
@@ -318,7 +318,7 @@
           "wrapS": 1000,
           "wrapT": 1000,
           "colorSpace": "",
-          "source": "https://64e3da81.the-second-language.pages.dev/labs/chapter-scroll-v4/assets/skin-roughness.jpg"
+          "source": "https://the-second-language.pages.dev/labs/chapter-scroll-v4/assets/skin-roughness.jpg"
         },
         "sheen": 0,
         "specularIntensity": 0,
@@ -637,13 +637,13 @@
         "artSeed": 1250152853,
         "fixedSurfaces": true,
         "frozen": true,
-        "frozenManifestURL": "https://64e3da81.the-second-language.pages.dev/labs/project-beginning/assets/surfaces.json"
+        "frozenManifestURL": "https://the-second-language.pages.dev/labs/project-beginning/assets/surfaces.json"
       },
       "mist": {
         "available": true,
         "enabled": true,
-        "frames": 2,
-        "time": 2.066666666666669,
+        "frames": 1,
+        "time": 2.033333333333336,
         "interactionEnergy": 0,
         "drive": [
           0,
@@ -655,14 +655,14 @@
         "simulationHz": 30,
         "fixedDirectionalInlet": false,
         "regionalVelocities": [
-          -0.020967446730805632,
-          -0.004199394243356251,
-          0.002566464150623078,
-          -0.0015578547895450756,
-          -0.012348720572133978,
-          0.04591831830338737,
-          0.0020929884391556997,
-          0.00037211294551405986
+          -0.020485862923676927,
+          -0.004082536389315201,
+          0.002640794078327065,
+          -0.0015965025312611595,
+          -0.012321467390427039,
+          0.04617624871700925,
+          0.0020262034236530765,
+          0.000357739375534707
         ],
         "confinement": 0.38
       },
@@ -679,8 +679,8 @@
       "foleyVolume": 0.65,
       "contextState": "running",
       "musicTrack": "a-new-town",
-      "musicPosition": 24.761179138321992,
-      "musicDuration": 62.25655328798186,
+      "musicPosition": 15.88,
+      "musicDuration": 62.2565625,
       "musicState": "playing",
       "restRemainingMs": 0,
       "completedPlays": 0,
@@ -689,16 +689,16 @@
       "downloaded": 13,
       "decoded": [
         "bendOpen",
-        "tailClose",
         "tailOpen",
-        "bendClose",
         "holeClose",
+        "bendClose",
         "holeOpen",
-        "slideOpen",
-        "seat",
-        "slideClose",
         "park",
+        "seat",
+        "slideOpen",
         "paperUnroll",
+        "slideClose",
+        "tailClose",
         "paperRollup",
         "music"
       ],
@@ -752,7 +752,7 @@
     "viewer": {
       "progress": 1,
       "paperProgress": 1,
-      "renderCount": 326,
+      "renderCount": 347,
       "vertices": 14893,
       "camera": [
         0,
@@ -815,7 +815,7 @@
       "sealRelief": true,
       "runtime": {
         "motionPrepared": true,
-        "preparationMs": 10821.09999999404,
+        "preparationMs": 10556.700000047684,
         "preparedPrograms": 11,
         "programs": 11
       },
@@ -876,7 +876,7 @@
           "wrapS": 1000,
           "wrapT": 1000,
           "colorSpace": "",
-          "source": "https://64e3da81.the-second-language.pages.dev/labs/chapter-scroll-v4/assets/skin-normal.jpg"
+          "source": "https://the-second-language.pages.dev/labs/chapter-scroll-v4/assets/skin-normal.jpg"
         },
         "roughness": {
           "repeat": [
@@ -886,7 +886,7 @@
           "wrapS": 1000,
           "wrapT": 1000,
           "colorSpace": "",
-          "source": "https://64e3da81.the-second-language.pages.dev/labs/chapter-scroll-v4/assets/skin-roughness.jpg"
+          "source": "https://the-second-language.pages.dev/labs/chapter-scroll-v4/assets/skin-roughness.jpg"
         },
         "sheen": 0,
         "specularIntensity": 0,
@@ -1205,32 +1205,32 @@
         "artSeed": 1250152853,
         "fixedSurfaces": true,
         "frozen": true,
-        "frozenManifestURL": "https://64e3da81.the-second-language.pages.dev/labs/project-beginning/assets/surfaces.json"
+        "frozenManifestURL": "https://the-second-language.pages.dev/labs/project-beginning/assets/surfaces.json"
       },
       "mist": {
         "available": true,
         "enabled": true,
-        "frames": 185,
-        "time": 8.166666666666648,
-        "interactionEnergy": 0.5081347640794067,
+        "frames": 181,
+        "time": 8.033333333333315,
+        "interactionEnergy": 0.5107724972750709,
         "drive": [
-          0.00014157780940583133,
-          -0.00014157780940591148,
-          -7.913811728274821e-23,
-          -7.783328542782987e-25
+          0.00022197442025904948,
+          -0.00022197442025907255,
+          -2.2092744083663967e-22,
+          -2.0446029843766426e-24
         ],
         "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
         "simulationHz": 30,
         "fixedDirectionalInlet": false,
         "regionalVelocities": [
-          -0.04201111153320584,
-          -0.022380028080086104,
-          -0.007812202948569361,
-          -0.00019259796057970462,
-          -0.004753844186178617,
-          0.008334007179572651,
-          0.012261984129803854,
-          0.0030977106667818394
+          -0.044266730276031174,
+          -0.02311714239905849,
+          -0.007197347675030845,
+          -0.00016843176022216807,
+          -0.00492129063787331,
+          0.008685077613803818,
+          0.012324404947847511,
+          0.0031362447635439783
         ],
         "confinement": 0.38
       },
@@ -1247,8 +1247,8 @@
       "foleyVolume": 0.65,
       "contextState": "running",
       "musicTrack": "a-new-town",
-      "musicPosition": 30.86222222222222,
-      "musicDuration": 62.25655328798186,
+      "musicPosition": 21.88,
+      "musicDuration": 62.2565625,
       "musicState": "playing",
       "restRemainingMs": 0,
       "completedPlays": 0,
@@ -1257,16 +1257,16 @@
       "downloaded": 13,
       "decoded": [
         "bendOpen",
-        "tailClose",
         "tailOpen",
-        "bendClose",
         "holeClose",
+        "bendClose",
         "holeOpen",
-        "slideOpen",
-        "seat",
-        "slideClose",
         "park",
+        "seat",
+        "slideOpen",
         "paperUnroll",
+        "slideClose",
+        "tailClose",
         "paperRollup",
         "music"
       ],
@@ -1294,10 +1294,10 @@
       "contacts": [
         {
           "kind": "prong-park",
-          "progress": 0.31221933453060163,
-          "r": 0.780548336326504,
+          "progress": 0.3090693670624362,
+          "r": 0.7726734176560904,
           "phase": "park-pin",
-          "pin": -1.2
+          "pin": -1.1691818709535877
         }
       ],
       "listeningReview": "Pitch-preserving stretched Adobe performances with a continuous quiet tail; user adopted for normal automatic opening/closing on 2026-10-23. Original A/B keeper unchanged.",
@@ -1311,13 +1311,13 @@
           "key": "bendOpen",
           "mode": "automatic",
           "direction": 1,
-          "audioTime": 26.42140589569161,
-          "wallTime": 36587.30000001192,
+          "audioTime": 17.032,
+          "wallTime": 21743.600000023842,
           "offset": 0,
           "duration": 0.9,
           "gain": 0.9,
-          "progress": 0.000026946000000009323,
-          "r": 0.0000673650000000233,
+          "progress": 0.0000014543627207136029,
+          "r": 0.000003635906801784007,
           "phase": "unload-hole",
           "contact": false
         },
@@ -1325,13 +1325,13 @@
           "key": "holeOpen",
           "mode": "automatic",
           "direction": 1,
-          "audioTime": 27.332789115646257,
-          "wallTime": 37502.90000000596,
+          "audioTime": 17.952,
+          "wallTime": 22659.19999998808,
           "offset": 0,
           "duration": 0.42,
           "gain": 0.7,
-          "progress": 0.07408399499243826,
-          "r": 0.18520998748109563,
+          "progress": 0.0721895967376327,
+          "r": 0.18047399184408175,
           "phase": "release-hole",
           "contact": false
         },
@@ -1339,13 +1339,13 @@
           "key": "tailOpen",
           "mode": "automatic",
           "direction": 1,
-          "audioTime": 27.750748299319728,
-          "wallTime": 37917.60000002384,
+          "audioTime": 18.381333333333334,
+          "wallTime": 23092.19999998808,
           "offset": 0,
-          "duration": 0.6499773242630386,
+          "duration": 0.65,
           "gain": 0.95,
-          "progress": 0.1463459627083976,
-          "r": 0.3658649067709939,
+          "progress": 0.14709160730669835,
+          "r": 0.36772901826674587,
           "phase": "withdraw-tail",
           "contact": false
         },
@@ -1353,13 +1353,13 @@
           "key": "park",
           "mode": "automatic",
           "direction": 1,
-          "audioTime": 28.4821768707483,
-          "wallTime": 38649.10000002384,
+          "audioTime": 19.101333333333333,
+          "wallTime": 23809.19999998808,
           "offset": 0,
-          "duration": 0.17752834467120182,
+          "duration": 0.17754166666666665,
           "gain": 0.4,
-          "progress": 0.31221933453060163,
-          "r": 0.780548336326504,
+          "progress": 0.3090693670624362,
+          "r": 0.7726734176560904,
           "phase": "park-pin",
           "contact": true
         },
@@ -1367,21 +1367,21 @@
           "key": "slideOpen",
           "mode": "automatic",
           "direction": 1,
-          "audioTime": 28.50249433106576,
-          "wallTime": 38666.20000001788,
+          "audioTime": 19.130666666666666,
+          "wallTime": 23841.899999976158,
           "offset": 0,
-          "duration": 0.23997732426303856,
+          "duration": 0.24,
           "gain": 0.65,
-          "progress": 0.3164313618462893,
-          "r": 0.7910784046157232,
+          "progress": 0.31738596576557965,
+          "r": 0.7934649144139491,
           "phase": "slide-clear",
           "contact": false
         },
         {
           "key": "paperUnroll",
-          "progress": 0.4023646753404705,
-          "paperProgress": 0.003941125567450769,
-          "audioTime": 28.83047619047619,
+          "progress": 0.40339160045962413,
+          "paperProgress": 0.005652667432706861,
+          "audioTime": 19.472,
           "offset": 0,
           "rate": 1,
           "loop": false,
@@ -1397,238 +1397,232 @@
       "maximumPaperGain": 0.1,
       "paperEnvelope": [
         {
-          "q": 0.003941125567450769,
-          "speed": 22.129994173746937,
-          "target": 0.04378687882859608,
-          "audioTime": 28.83047619047619
+          "q": 0.005652667432706861,
+          "speed": 32.16278596855371,
+          "target": 0.05238805747446981,
+          "audioTime": 19.472
         },
         {
-          "q": 0.04062502550141466,
-          "speed": 144.0565472025534,
-          "target": 0.08219878240735466,
-          "audioTime": 28.91174603174603
+          "q": 0.0423485176457263,
+          "speed": 141.8070641074436,
+          "target": 0.08197278485981681,
+          "audioTime": 19.552
         },
         {
-          "q": 0.07748838386026016,
-          "speed": 173.7855160864385,
-          "target": 0.08472825059877298,
-          "audioTime": 29.00172335600907
+          "q": 0.07926515934311151,
+          "speed": 174.91528901622053,
+          "target": 0.08481025477431875,
+          "audioTime": 19.632
         },
         {
-          "q": 0.11464318441554353,
-          "speed": 183.19021695516312,
-          "target": 0.08538502267996567,
-          "audioTime": 29.080090702947846
+          "q": 0.11633676600142646,
+          "speed": 183.53071214869288,
+          "target": 0.08540774165530718,
+          "audioTime": 19.712
         },
         {
-          "q": 0.15180129612406104,
-          "speed": 188.58263882774196,
-          "target": 0.08573670190413091,
-          "audioTime": 29.161360544217686
+          "q": 0.15354214901573757,
+          "speed": 187.52986343352921,
+          "target": 0.08566938021563086,
+          "audioTime": 19.8
         },
         {
-          "q": 0.1890303512303164,
-          "speed": 188.51699255639252,
-          "target": 0.08573252254921919,
-          "audioTime": 29.24263038548753
+          "q": 0.19068156810708725,
+          "speed": 186.27873081442522,
+          "target": 0.08558854213017993,
+          "audioTime": 19.88
         },
         {
-          "q": 0.22617517903258708,
-          "speed": 213.11646250715893,
-          "target": 0.08714395877760031,
-          "audioTime": 29.332607709750565
+          "q": 0.22786764625530975,
+          "speed": 187.67447945442584,
+          "target": 0.08567866563103453,
+          "audioTime": 19.96
         },
         {
-          "q": 0.26325896490767875,
-          "speed": 176.63983761231148,
-          "target": 0.08493374388996135,
-          "audioTime": 29.422585034013604
+          "q": 0.26498940940338905,
+          "speed": 185.2586647414409,
+          "target": 0.08552195483408424,
+          "audioTime": 20.050666666666668
         },
         {
-          "q": 0.3001268865213299,
-          "speed": 187.49123127423445,
-          "target": 0.0856668977053203,
-          "audioTime": 29.50095238095238
+          "q": 0.3018035800070995,
+          "speed": 185.05802514911858,
+          "target": 0.08550878502251219,
+          "audioTime": 20.130666666666666
         },
         {
-          "q": 0.33671385275189575,
-          "speed": 186.71609930948355,
-          "target": 0.08561690495511783,
-          "audioTime": 29.58222222222222
+          "q": 0.33846575294312603,
+          "speed": 183.42384578788307,
+          "target": 0.08540061879393862,
+          "audioTime": 20.221333333333334
         },
         {
-          "q": 0.37308545521738595,
-          "speed": 182.72848137701095,
-          "target": 0.08535410074623387,
-          "audioTime": 29.660589569160997
+          "q": 0.37477775131454305,
+          "speed": 186.00452903681236,
+          "target": 0.0855707032833683,
+          "audioTime": 20.301333333333332
         },
         {
-          "q": 0.40904444925291533,
-          "speed": 179.886900328355,
-          "target": 0.08516088087269162,
-          "audioTime": 29.750566893424036
+          "q": 0.4107178653890758,
+          "speed": 182.83638495145348,
+          "target": 0.08536133865739792,
+          "audioTime": 20.381333333333334
         },
         {
-          "q": 0.44456881438219503,
-          "speed": 181.9320647016988,
-          "target": 0.08530045657487674,
-          "audioTime": 29.831836734693876
+          "q": 0.4462202686432878,
+          "speed": 177.632014359806,
+          "target": 0.08500388344936233,
+          "audioTime": 20.461333333333332
         },
         {
-          "q": 0.4796344424489975,
-          "speed": 179.32649046193728,
-          "target": 0.08512217026863377,
-          "audioTime": 29.910204081632653
+          "q": 0.4813025066341495,
+          "speed": 176.96730762226798,
+          "target": 0.08495696612313006,
+          "audioTime": 20.552
         },
         {
-          "q": 0.5140913508260447,
-          "speed": 174.29723098541425,
-          "target": 0.08476550282894074,
-          "audioTime": 30.00018140589569
+          "q": 0.5156486365969933,
+          "speed": 175.6550165220426,
+          "target": 0.08486347156981867,
+          "audioTime": 20.632
         },
         {
-          "q": 0.547956271302084,
-          "speed": 174.60691490851187,
-          "target": 0.08478795918063498,
-          "audioTime": 30.081451247165532
+          "q": 0.5495232698166307,
+          "speed": 171.20373928973223,
+          "target": 0.0845374832499336,
+          "audioTime": 20.712
         },
         {
-          "q": 0.581042778556699,
-          "speed": 169.66079043958,
-          "target": 0.08442117913642151,
-          "audioTime": 30.162721088435376
+          "q": 0.5827719074428805,
+          "speed": 167.60315256349065,
+          "target": 0.08426332481536336,
+          "audioTime": 20.8
         },
         {
-          "q": 0.6069819129166654,
-          "speed": 151.13325786424508,
-          "target": 0.08287413823527828,
-          "audioTime": 30.24108843537415
+          "q": 0.6149776507880959,
+          "speed": 161.73185913182397,
+          "target": 0.0837947617202625,
+          "audioTime": 20.88
         },
         {
-          "q": 0.6387242635011234,
-          "speed": 160.99637919414874,
-          "target": 0.08373408903976093,
-          "audioTime": 30.322358276643993
+          "q": 0.6464310360746583,
+          "speed": 158.61170885802366,
+          "target": 0.0835341998257153,
+          "audioTime": 20.970666666666666
         },
         {
-          "q": 0.6695821185617103,
-          "speed": 159.43044915136127,
-          "target": 0.08360338113871182,
-          "audioTime": 30.400725623582765
+          "q": 0.6770602443667072,
+          "speed": 150.95801328514418,
+          "target": 0.08285803451515848,
+          "audioTime": 21.050666666666668
         },
         {
-          "q": 0.6994541497066148,
-          "speed": 164.42838727715196,
-          "target": 0.08401338354011319,
-          "audioTime": 30.48199546485261
+          "q": 0.7067225753200085,
+          "speed": 152.59863801258706,
+          "target": 0.08300761899166276,
+          "audioTime": 21.130666666666666
         },
         {
-          "q": 0.7339696709385448,
-          "speed": 161.28711977872408,
-          "target": 0.08342556282376673,
-          "audioTime": 30.580680272108843
+          "q": 0.7352845976327821,
+          "speed": 150.04272312060047,
+          "target": 0.08238126679415943,
+          "audioTime": 21.21066666666667
         },
         {
-          "q": 0.7561227336916909,
-          "speed": 129.84818113758823,
-          "target": 0.07864300241899445,
-          "audioTime": 30.661950113378683
+          "q": 0.7628176968003488,
+          "speed": 138.18937861166455,
+          "target": 0.07876959368436201,
+          "audioTime": 21.301333333333332
         },
         {
-          "q": 0.7827535469236487,
-          "speed": 124.9331715159928,
-          "target": 0.07442985506900619,
-          "audioTime": 30.74031746031746
+          "q": 0.7891549927944113,
+          "speed": 135.03539601552896,
+          "target": 0.07442451478732916,
+          "audioTime": 21.381333333333334
         },
         {
-          "q": 0.8082024544182942,
-          "speed": 123.43963348898843,
-          "target": 0.06955420324828238,
-          "audioTime": 30.8302947845805
+          "q": 0.8142643435931529,
+          "speed": 129.33045850183024,
+          "target": 0.06891597584765956,
+          "audioTime": 21.461333333333332
         },
         {
-          "q": 0.837022594819321,
-          "speed": 132.38335976581186,
-          "target": 0.06412787365754222,
-          "audioTime": 30.91156462585034
+          "q": 0.8381077089095624,
+          "speed": 122.85650951311725,
+          "target": 0.06297084223653654,
+          "audioTime": 21.552
         },
         {
-          "q": 0.8507066349314595,
-          "speed": 80.7804778690684,
-          "target": 0.054533460392371454,
-          "audioTime": 31.001541950113378
+          "q": 0.8605620180174358,
+          "speed": 114.61818220178117,
+          "target": 0.056929750947615126,
+          "audioTime": 21.632
         },
         {
-          "q": 0.8724304785819053,
-          "speed": 104.06063823246721,
-          "target": 0.05307358214601398,
-          "audioTime": 31.08281179138322
+          "q": 0.8815908233362381,
+          "speed": 106.40656311378544,
+          "target": 0.05127564684216854,
+          "audioTime": 21.712
         },
         {
-          "q": 0.8926384949667628,
-          "speed": 108.79554063116694,
-          "target": 0.04908557285250706,
-          "audioTime": 31.161179138321994
+          "q": 0.9011508300748129,
+          "speed": 100.36129737818325,
+          "target": 0.04643209142963887,
+          "audioTime": 21.8
         },
         {
-          "q": 0.9112971104101557,
-          "speed": 96.55643611884895,
-          "target": 0.04400152269310627,
-          "audioTime": 31.251156462585033
+          "q": 0.919129239350069,
+          "speed": 91.96489306618903,
+          "target": 0.042034071703510645,
+          "audioTime": 21.88
         },
         {
-          "q": 0.9284049467208568,
-          "speed": 86.64362306887297,
-          "target": 0.03982035222125906,
-          "audioTime": 31.341133786848072
+          "q": 0.9354845862425033,
+          "speed": 83.73966291933287,
+          "target": 0.03835191677329908,
+          "audioTime": 21.96
         },
         {
-          "q": 0.9438492248641911,
-          "speed": 79.1086558914268,
-          "target": 0.03658031308109949,
-          "audioTime": 31.422403628117912
+          "q": 0.9501676096765677,
+          "speed": 72.64964185705335,
+          "target": 0.03492518151619014,
+          "audioTime": 22.050666666666668
         },
         {
-          "q": 0.95754849858722,
-          "speed": 69.1967814875622,
-          "target": 0.03360705908876631,
-          "audioTime": 31.51238095238095
+          "q": 0.9630772061727776,
+          "speed": 65.81925290825146,
+          "target": 0.03256807597483684,
+          "audioTime": 22.141333333333332
         },
         {
-          "q": 0.9694564690289986,
-          "speed": 54.42988888901098,
-          "target": 0.030131406659850868,
-          "audioTime": 31.60235827664399
+          "q": 0.9741661816924158,
+          "speed": 56.563420104756474,
+          "target": 0.030194644170483922,
+          "audioTime": 22.221333333333334
         },
         {
-          "q": 0.9813034728421097,
-          "speed": 55.08412611554439,
-          "target": 0.02953104527057044,
-          "audioTime": 31.680725623582767
+          "q": 0.9833687097120442,
+          "speed": 50.38845959568788,
+          "target": 0.028546272507813275,
+          "audioTime": 22.301333333333332
         },
         {
-          "q": 0.989027462195851,
-          "speed": 44.009761292225505,
-          "target": 0.026975093140027297,
-          "audioTime": 31.770702947845805
+          "q": 0.9906264678660283,
+          "speed": 38.842748322977485,
+          "target": 0.02564438970979251,
+          "audioTime": 22.392
         },
         {
-          "q": 0.9947655829834791,
-          "speed": 35.675544709714146,
-          "target": 0.024688448057420927,
-          "audioTime": 31.851972789115646
+          "q": 0.9958561590664415,
+          "speed": 29.63618644374065,
+          "target": 0.02273775496393019,
+          "audioTime": 22.472
         },
         {
-          "q": 0.9978660689064967,
-          "speed": 22.609137426304372,
-          "target": 0.019926065052966607,
-          "audioTime": 31.921632653061224
-        },
-        {
-          "q": 0.9998239008221916,
-          "speed": 12.274790575950778,
-          "target": 0.014118565567855137,
-          "audioTime": 32.01160997732426
+          "q": 0.9990018441730953,
+          "speed": 19.520628698040753,
+          "target": 0.01844564026174026,
+          "audioTime": 22.552
         }
       ]
     },
@@ -1652,7 +1646,7 @@
     "viewer": {
       "progress": 0,
       "paperProgress": 0,
-      "renderCount": 562,
+      "renderCount": 686,
       "vertices": 14893,
       "camera": [
         0,
@@ -1715,7 +1709,7 @@
       "sealRelief": true,
       "runtime": {
         "motionPrepared": true,
-        "preparationMs": 10821.09999999404,
+        "preparationMs": 10556.700000047684,
         "preparedPrograms": 11,
         "programs": 11
       },
@@ -1776,7 +1770,7 @@
           "wrapS": 1000,
           "wrapT": 1000,
           "colorSpace": "",
-          "source": "https://64e3da81.the-second-language.pages.dev/labs/chapter-scroll-v4/assets/skin-normal.jpg"
+          "source": "https://the-second-language.pages.dev/labs/chapter-scroll-v4/assets/skin-normal.jpg"
         },
         "roughness": {
           "repeat": [
@@ -1786,7 +1780,7 @@
           "wrapS": 1000,
           "wrapT": 1000,
           "colorSpace": "",
-          "source": "https://64e3da81.the-second-language.pages.dev/labs/chapter-scroll-v4/assets/skin-roughness.jpg"
+          "source": "https://the-second-language.pages.dev/labs/chapter-scroll-v4/assets/skin-roughness.jpg"
         },
         "sheen": 0,
         "specularIntensity": 0,
@@ -2105,32 +2099,32 @@
         "artSeed": 1250152853,
         "fixedSurfaces": true,
         "frozen": true,
-        "frozenManifestURL": "https://64e3da81.the-second-language.pages.dev/labs/project-beginning/assets/surfaces.json"
+        "frozenManifestURL": "https://the-second-language.pages.dev/labs/project-beginning/assets/surfaces.json"
       },
       "mist": {
         "available": true,
         "enabled": true,
-        "frames": 495,
-        "time": 18.500000000000078,
-        "interactionEnergy": 1.0106114345634991,
+        "frames": 480,
+        "time": 18.000000000000053,
+        "interactionEnergy": 1.013119555261964,
         "drive": [
-          -1.4199114368638969e-18,
-          1.4199114368638605e-18,
-          3.073009431048278e-15,
-          -0.000001501161394712304
+          -1.3835265655469656e-18,
+          1.3835265655470036e-18,
+          3.0142906142884145e-15,
+          -0.0000014638348633465483
         ],
         "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
         "simulationHz": 30,
         "fixedDirectionalInlet": false,
         "regionalVelocities": [
-          0.003570399927121774,
-          -0.001411003209586577,
-          -0.023346649320199316,
-          -0.012208643132063504,
-          0.0003327007074266282,
-          -0.000398694518563515,
-          0.00842390382124146,
-          -0.0019986257880581088
+          0.002664455823921379,
+          -0.0011511391416212477,
+          -0.022691028307818033,
+          -0.010947359519759578,
+          0.00008329565487755994,
+          -0.00009400395542857369,
+          0.008143561814456936,
+          -0.0016549794608107574
         ],
         "confinement": 0.38
       },
@@ -2147,26 +2141,26 @@
       "foleyVolume": 0.65,
       "contextState": "running",
       "musicTrack": "a-new-town",
-      "musicPosition": 42.24,
-      "musicDuration": 62.25655328798186,
+      "musicPosition": 34.42133333333332,
+      "musicDuration": 62.2565625,
       "musicState": "playing",
       "restRemainingMs": 0,
       "completedPlays": 0,
       "musicVoices": 1,
-      "foleyVoices": 1,
+      "foleyVoices": 0,
       "downloaded": 13,
       "decoded": [
         "bendOpen",
-        "tailClose",
         "tailOpen",
-        "bendClose",
         "holeClose",
+        "bendClose",
         "holeOpen",
-        "slideOpen",
-        "seat",
-        "slideClose",
         "park",
+        "seat",
+        "slideOpen",
         "paperUnroll",
+        "slideClose",
+        "tailClose",
         "paperRollup",
         "music"
       ],
@@ -2181,31 +2175,22 @@
         "paper": 0,
         "leather": 0
       },
-      "performances": [
-        {
-          "key": "bendClose",
-          "loop": false,
-          "rate": 1,
-          "offset": 0,
-          "contact": false,
-          "stopping": true
-        }
-      ],
+      "performances": [],
       "motionModel": "actual keeper path coordinates and paper winding velocity",
       "contacts": [
         {
           "kind": "prong-park",
-          "progress": 0.31221933453060163,
-          "r": 0.780548336326504,
+          "progress": 0.3090693670624362,
+          "r": 0.7726734176560904,
           "phase": "park-pin",
-          "pin": -1.2
+          "pin": -1.1691818709535877
         },
         {
           "kind": "prong-seat",
-          "progress": 0.004557490250969409,
-          "r": 0.011393725627423523,
+          "progress": 0.004484606262532442,
+          "r": 0.011211515656331106,
           "phase": "unload-hole",
-          "pin": -0.005180784953389209
+          "pin": -0.005019940812539732
         }
       ],
       "listeningReview": "Pitch-preserving stretched Adobe performances with a continuous quiet tail; user adopted for normal automatic opening/closing on 2026-10-23. Original A/B keeper unchanged.",
@@ -2219,13 +2204,13 @@
           "key": "bendOpen",
           "mode": "automatic",
           "direction": 1,
-          "audioTime": 26.42140589569161,
-          "wallTime": 36587.30000001192,
+          "audioTime": 17.032,
+          "wallTime": 21743.600000023842,
           "offset": 0,
           "duration": 0.9,
           "gain": 0.9,
-          "progress": 0.000026946000000009323,
-          "r": 0.0000673650000000233,
+          "progress": 0.0000014543627207136029,
+          "r": 0.000003635906801784007,
           "phase": "unload-hole",
           "contact": false
         },
@@ -2233,13 +2218,13 @@
           "key": "holeOpen",
           "mode": "automatic",
           "direction": 1,
-          "audioTime": 27.332789115646257,
-          "wallTime": 37502.90000000596,
+          "audioTime": 17.952,
+          "wallTime": 22659.19999998808,
           "offset": 0,
           "duration": 0.42,
           "gain": 0.7,
-          "progress": 0.07408399499243826,
-          "r": 0.18520998748109563,
+          "progress": 0.0721895967376327,
+          "r": 0.18047399184408175,
           "phase": "release-hole",
           "contact": false
         },
@@ -2247,13 +2232,13 @@
           "key": "tailOpen",
           "mode": "automatic",
           "direction": 1,
-          "audioTime": 27.750748299319728,
-          "wallTime": 37917.60000002384,
+          "audioTime": 18.381333333333334,
+          "wallTime": 23092.19999998808,
           "offset": 0,
-          "duration": 0.6499773242630386,
+          "duration": 0.65,
           "gain": 0.95,
-          "progress": 0.1463459627083976,
-          "r": 0.3658649067709939,
+          "progress": 0.14709160730669835,
+          "r": 0.36772901826674587,
           "phase": "withdraw-tail",
           "contact": false
         },
@@ -2261,13 +2246,13 @@
           "key": "park",
           "mode": "automatic",
           "direction": 1,
-          "audioTime": 28.4821768707483,
-          "wallTime": 38649.10000002384,
+          "audioTime": 19.101333333333333,
+          "wallTime": 23809.19999998808,
           "offset": 0,
-          "duration": 0.17752834467120182,
+          "duration": 0.17754166666666665,
           "gain": 0.4,
-          "progress": 0.31221933453060163,
-          "r": 0.780548336326504,
+          "progress": 0.3090693670624362,
+          "r": 0.7726734176560904,
           "phase": "park-pin",
           "contact": true
         },
@@ -2275,21 +2260,21 @@
           "key": "slideOpen",
           "mode": "automatic",
           "direction": 1,
-          "audioTime": 28.50249433106576,
-          "wallTime": 38666.20000001788,
+          "audioTime": 19.130666666666666,
+          "wallTime": 23841.899999976158,
           "offset": 0,
-          "duration": 0.23997732426303856,
+          "duration": 0.24,
           "gain": 0.65,
-          "progress": 0.3164313618462893,
-          "r": 0.7910784046157232,
+          "progress": 0.31738596576557965,
+          "r": 0.7934649144139491,
           "phase": "slide-clear",
           "contact": false
         },
         {
           "key": "paperUnroll",
-          "progress": 0.4023646753404705,
-          "paperProgress": 0.003941125567450769,
-          "audioTime": 28.83047619047619,
+          "progress": 0.40339160045962413,
+          "paperProgress": 0.005652667432706861,
+          "audioTime": 19.472,
           "offset": 0,
           "rate": 1,
           "loop": false,
@@ -2297,9 +2282,9 @@
         },
         {
           "key": "paperRollup",
-          "progress": 0.9999845937999735,
-          "paperProgress": 0.9999743229999558,
-          "audioTime": 38.4,
+          "progress": 0.9999815474857023,
+          "paperProgress": 0.999969245809504,
+          "audioTime": 30.101333333333333,
           "offset": 0,
           "rate": 1,
           "loop": false,
@@ -2309,13 +2294,13 @@
           "key": "slideClose",
           "mode": "automatic",
           "direction": -1,
-          "audioTime": 41.71174603174603,
-          "wallTime": 51876.30000001192,
+          "audioTime": 33.36,
+          "wallTime": 38072.39999997616,
           "offset": 0,
-          "duration": 0.23997732426303856,
+          "duration": 0.24,
           "gain": 0.65,
-          "progress": 0.368636308256187,
-          "r": 0.9215907706404675,
+          "progress": 0.3725580580433363,
+          "r": 0.9313951451083408,
           "phase": "slide-clear",
           "contact": false
         },
@@ -2323,13 +2308,13 @@
           "key": "tailClose",
           "mode": "automatic",
           "direction": -1,
-          "audioTime": 42.031020408163265,
-          "wallTime": 52203.80000001192,
+          "audioTime": 33.712,
+          "wallTime": 38423,
           "offset": 0,
-          "duration": 0.6499773242630386,
+          "duration": 0.65,
           "gain": 0.95,
-          "progress": 0.284434707424287,
-          "r": 0.7110867685607175,
+          "progress": 0.28404377638856915,
+          "r": 0.7101094409714228,
           "phase": "withdraw-tail",
           "contact": false
         },
@@ -2337,13 +2322,13 @@
           "key": "holeClose",
           "mode": "automatic",
           "direction": -1,
-          "audioTime": 42.69278911564626,
-          "wallTime": 52861.90000000596,
+          "audioTime": 34.352,
+          "wallTime": 39056.89999997616,
           "offset": 0,
           "duration": 0.42,
           "gain": 0.7,
-          "progress": 0.14070290920500916,
-          "r": 0.3517572730125229,
+          "progress": 0.14363068903151732,
+          "r": 0.3590767225787933,
           "phase": "release-hole",
           "contact": false
         },
@@ -2351,13 +2336,13 @@
           "key": "bendClose",
           "mode": "automatic",
           "direction": -1,
-          "audioTime": 43.13106575963719,
-          "wallTime": 53295.20000001788,
+          "audioTime": 34.781333333333336,
+          "wallTime": 39489.89999997616,
           "offset": 0,
           "duration": 0.9,
           "gain": 0.9,
-          "progress": 0.06743158031326613,
-          "r": 0.16857895078316532,
+          "progress": 0.06959020438173369,
+          "r": 0.17397551095433422,
           "phase": "unload-hole",
           "contact": false
         },
@@ -2365,13 +2350,13 @@
           "key": "seat",
           "mode": "automatic",
           "direction": -1,
-          "audioTime": 43.78122448979592,
-          "wallTime": 53952.90000000596,
+          "audioTime": 35.461333333333336,
+          "wallTime": 40173.39999997616,
           "offset": 0,
-          "duration": 0.22235827664399094,
+          "duration": 0.222375,
           "gain": 0.4,
-          "progress": 0.004557490250969409,
-          "r": 0.011393725627423523,
+          "progress": 0.004484606262532442,
+          "r": 0.011211515656331106,
           "phase": "unload-hole",
           "contact": true
         }
@@ -2385,454 +2370,460 @@
       "maximumPaperGain": 0.1,
       "paperEnvelope": [
         {
-          "q": 0.003941125567450769,
-          "speed": 22.129994173746937,
-          "target": 0.04378687882859608,
-          "audioTime": 28.83047619047619
+          "q": 0.005652667432706861,
+          "speed": 32.16278596855371,
+          "target": 0.05238805747446981,
+          "audioTime": 19.472
         },
         {
-          "q": 0.04062502550141466,
-          "speed": 144.0565472025534,
-          "target": 0.08219878240735466,
-          "audioTime": 28.91174603174603
+          "q": 0.0423485176457263,
+          "speed": 141.8070641074436,
+          "target": 0.08197278485981681,
+          "audioTime": 19.552
         },
         {
-          "q": 0.07748838386026016,
-          "speed": 173.7855160864385,
-          "target": 0.08472825059877298,
-          "audioTime": 29.00172335600907
+          "q": 0.07926515934311151,
+          "speed": 174.91528901622053,
+          "target": 0.08481025477431875,
+          "audioTime": 19.632
         },
         {
-          "q": 0.11464318441554353,
-          "speed": 183.19021695516312,
-          "target": 0.08538502267996567,
-          "audioTime": 29.080090702947846
+          "q": 0.11633676600142646,
+          "speed": 183.53071214869288,
+          "target": 0.08540774165530718,
+          "audioTime": 19.712
         },
         {
-          "q": 0.15180129612406104,
-          "speed": 188.58263882774196,
-          "target": 0.08573670190413091,
-          "audioTime": 29.161360544217686
+          "q": 0.15354214901573757,
+          "speed": 187.52986343352921,
+          "target": 0.08566938021563086,
+          "audioTime": 19.8
         },
         {
-          "q": 0.1890303512303164,
-          "speed": 188.51699255639252,
-          "target": 0.08573252254921919,
-          "audioTime": 29.24263038548753
+          "q": 0.19068156810708725,
+          "speed": 186.27873081442522,
+          "target": 0.08558854213017993,
+          "audioTime": 19.88
         },
         {
-          "q": 0.22617517903258708,
-          "speed": 213.11646250715893,
-          "target": 0.08714395877760031,
-          "audioTime": 29.332607709750565
+          "q": 0.22786764625530975,
+          "speed": 187.67447945442584,
+          "target": 0.08567866563103453,
+          "audioTime": 19.96
         },
         {
-          "q": 0.26325896490767875,
-          "speed": 176.63983761231148,
-          "target": 0.08493374388996135,
-          "audioTime": 29.422585034013604
+          "q": 0.26498940940338905,
+          "speed": 185.2586647414409,
+          "target": 0.08552195483408424,
+          "audioTime": 20.050666666666668
         },
         {
-          "q": 0.3001268865213299,
-          "speed": 187.49123127423445,
-          "target": 0.0856668977053203,
-          "audioTime": 29.50095238095238
+          "q": 0.3018035800070995,
+          "speed": 185.05802514911858,
+          "target": 0.08550878502251219,
+          "audioTime": 20.130666666666666
         },
         {
-          "q": 0.33671385275189575,
-          "speed": 186.71609930948355,
-          "target": 0.08561690495511783,
-          "audioTime": 29.58222222222222
+          "q": 0.33846575294312603,
+          "speed": 183.42384578788307,
+          "target": 0.08540061879393862,
+          "audioTime": 20.221333333333334
         },
         {
-          "q": 0.37308545521738595,
-          "speed": 182.72848137701095,
-          "target": 0.08535410074623387,
-          "audioTime": 29.660589569160997
+          "q": 0.37477775131454305,
+          "speed": 186.00452903681236,
+          "target": 0.0855707032833683,
+          "audioTime": 20.301333333333332
         },
         {
-          "q": 0.40904444925291533,
-          "speed": 179.886900328355,
-          "target": 0.08516088087269162,
-          "audioTime": 29.750566893424036
+          "q": 0.4107178653890758,
+          "speed": 182.83638495145348,
+          "target": 0.08536133865739792,
+          "audioTime": 20.381333333333334
         },
         {
-          "q": 0.44456881438219503,
-          "speed": 181.9320647016988,
-          "target": 0.08530045657487674,
-          "audioTime": 29.831836734693876
+          "q": 0.4462202686432878,
+          "speed": 177.632014359806,
+          "target": 0.08500388344936233,
+          "audioTime": 20.461333333333332
         },
         {
-          "q": 0.4796344424489975,
-          "speed": 179.32649046193728,
-          "target": 0.08512217026863377,
-          "audioTime": 29.910204081632653
+          "q": 0.4813025066341495,
+          "speed": 176.96730762226798,
+          "target": 0.08495696612313006,
+          "audioTime": 20.552
         },
         {
-          "q": 0.5140913508260447,
-          "speed": 174.29723098541425,
-          "target": 0.08476550282894074,
-          "audioTime": 30.00018140589569
+          "q": 0.5156486365969933,
+          "speed": 175.6550165220426,
+          "target": 0.08486347156981867,
+          "audioTime": 20.632
         },
         {
-          "q": 0.547956271302084,
-          "speed": 174.60691490851187,
-          "target": 0.08478795918063498,
-          "audioTime": 30.081451247165532
+          "q": 0.5495232698166307,
+          "speed": 171.20373928973223,
+          "target": 0.0845374832499336,
+          "audioTime": 20.712
         },
         {
-          "q": 0.581042778556699,
-          "speed": 169.66079043958,
-          "target": 0.08442117913642151,
-          "audioTime": 30.162721088435376
+          "q": 0.5827719074428805,
+          "speed": 167.60315256349065,
+          "target": 0.08426332481536336,
+          "audioTime": 20.8
         },
         {
-          "q": 0.6069819129166654,
-          "speed": 151.13325786424508,
-          "target": 0.08287413823527828,
-          "audioTime": 30.24108843537415
+          "q": 0.6149776507880959,
+          "speed": 161.73185913182397,
+          "target": 0.0837947617202625,
+          "audioTime": 20.88
         },
         {
-          "q": 0.6387242635011234,
-          "speed": 160.99637919414874,
-          "target": 0.08373408903976093,
-          "audioTime": 30.322358276643993
+          "q": 0.6464310360746583,
+          "speed": 158.61170885802366,
+          "target": 0.0835341998257153,
+          "audioTime": 20.970666666666666
         },
         {
-          "q": 0.6695821185617103,
-          "speed": 159.43044915136127,
-          "target": 0.08360338113871182,
-          "audioTime": 30.400725623582765
+          "q": 0.6770602443667072,
+          "speed": 150.95801328514418,
+          "target": 0.08285803451515848,
+          "audioTime": 21.050666666666668
         },
         {
-          "q": 0.6994541497066148,
-          "speed": 164.42838727715196,
-          "target": 0.08401338354011319,
-          "audioTime": 30.48199546485261
+          "q": 0.7067225753200085,
+          "speed": 152.59863801258706,
+          "target": 0.08300761899166276,
+          "audioTime": 21.130666666666666
         },
         {
-          "q": 0.7339696709385448,
-          "speed": 161.28711977872408,
-          "target": 0.08342556282376673,
-          "audioTime": 30.580680272108843
+          "q": 0.7352845976327821,
+          "speed": 150.04272312060047,
+          "target": 0.08238126679415943,
+          "audioTime": 21.21066666666667
         },
         {
-          "q": 0.7561227336916909,
-          "speed": 129.84818113758823,
-          "target": 0.07864300241899445,
-          "audioTime": 30.661950113378683
+          "q": 0.7628176968003488,
+          "speed": 138.18937861166455,
+          "target": 0.07876959368436201,
+          "audioTime": 21.301333333333332
         },
         {
-          "q": 0.7827535469236487,
-          "speed": 124.9331715159928,
-          "target": 0.07442985506900619,
-          "audioTime": 30.74031746031746
+          "q": 0.7891549927944113,
+          "speed": 135.03539601552896,
+          "target": 0.07442451478732916,
+          "audioTime": 21.381333333333334
         },
         {
-          "q": 0.8082024544182942,
-          "speed": 123.43963348898843,
-          "target": 0.06955420324828238,
-          "audioTime": 30.8302947845805
+          "q": 0.8142643435931529,
+          "speed": 129.33045850183024,
+          "target": 0.06891597584765956,
+          "audioTime": 21.461333333333332
         },
         {
-          "q": 0.837022594819321,
-          "speed": 132.38335976581186,
-          "target": 0.06412787365754222,
-          "audioTime": 30.91156462585034
+          "q": 0.8381077089095624,
+          "speed": 122.85650951311725,
+          "target": 0.06297084223653654,
+          "audioTime": 21.552
         },
         {
-          "q": 0.8507066349314595,
-          "speed": 80.7804778690684,
-          "target": 0.054533460392371454,
-          "audioTime": 31.001541950113378
+          "q": 0.8605620180174358,
+          "speed": 114.61818220178117,
+          "target": 0.056929750947615126,
+          "audioTime": 21.632
         },
         {
-          "q": 0.8724304785819053,
-          "speed": 104.06063823246721,
-          "target": 0.05307358214601398,
-          "audioTime": 31.08281179138322
+          "q": 0.8815908233362381,
+          "speed": 106.40656311378544,
+          "target": 0.05127564684216854,
+          "audioTime": 21.712
         },
         {
-          "q": 0.8926384949667628,
-          "speed": 108.79554063116694,
-          "target": 0.04908557285250706,
-          "audioTime": 31.161179138321994
+          "q": 0.9011508300748129,
+          "speed": 100.36129737818325,
+          "target": 0.04643209142963887,
+          "audioTime": 21.8
         },
         {
-          "q": 0.9112971104101557,
-          "speed": 96.55643611884895,
-          "target": 0.04400152269310627,
-          "audioTime": 31.251156462585033
+          "q": 0.919129239350069,
+          "speed": 91.96489306618903,
+          "target": 0.042034071703510645,
+          "audioTime": 21.88
         },
         {
-          "q": 0.9284049467208568,
-          "speed": 86.64362306887297,
-          "target": 0.03982035222125906,
-          "audioTime": 31.341133786848072
+          "q": 0.9354845862425033,
+          "speed": 83.73966291933287,
+          "target": 0.03835191677329908,
+          "audioTime": 21.96
         },
         {
-          "q": 0.9438492248641911,
-          "speed": 79.1086558914268,
-          "target": 0.03658031308109949,
-          "audioTime": 31.422403628117912
+          "q": 0.9501676096765677,
+          "speed": 72.64964185705335,
+          "target": 0.03492518151619014,
+          "audioTime": 22.050666666666668
         },
         {
-          "q": 0.95754849858722,
-          "speed": 69.1967814875622,
-          "target": 0.03360705908876631,
-          "audioTime": 31.51238095238095
+          "q": 0.9630772061727776,
+          "speed": 65.81925290825146,
+          "target": 0.03256807597483684,
+          "audioTime": 22.141333333333332
         },
         {
-          "q": 0.9694564690289986,
-          "speed": 54.42988888901098,
-          "target": 0.030131406659850868,
-          "audioTime": 31.60235827664399
+          "q": 0.9741661816924158,
+          "speed": 56.563420104756474,
+          "target": 0.030194644170483922,
+          "audioTime": 22.221333333333334
         },
         {
-          "q": 0.9813034728421097,
-          "speed": 55.08412611554439,
-          "target": 0.02953104527057044,
-          "audioTime": 31.680725623582767
+          "q": 0.9833687097120442,
+          "speed": 50.38845959568788,
+          "target": 0.028546272507813275,
+          "audioTime": 22.301333333333332
         },
         {
-          "q": 0.989027462195851,
-          "speed": 44.009761292225505,
-          "target": 0.026975093140027297,
-          "audioTime": 31.770702947845805
+          "q": 0.9906264678660283,
+          "speed": 38.842748322977485,
+          "target": 0.02564438970979251,
+          "audioTime": 22.392
         },
         {
-          "q": 0.9947655829834791,
-          "speed": 35.675544709714146,
-          "target": 0.024688448057420927,
-          "audioTime": 31.851972789115646
+          "q": 0.9958561590664415,
+          "speed": 29.63618644374065,
+          "target": 0.02273775496393019,
+          "audioTime": 22.472
         },
         {
-          "q": 0.9978660689064967,
-          "speed": 22.609137426304372,
-          "target": 0.019926065052966607,
-          "audioTime": 31.921632653061224
+          "q": 0.9990018441730953,
+          "speed": 19.520628698040753,
+          "target": 0.01844564026174026,
+          "audioTime": 22.552
         },
         {
-          "q": 0.9998239008221916,
-          "speed": 12.274790575950778,
-          "target": 0.014118565567855137,
-          "audioTime": 32.01160997732426
+          "q": 0.999969245809504,
+          "speed": 0.17511533560169745,
+          "target": 0.001292687766553429,
+          "audioTime": 30.101333333333333
         },
         {
-          "q": 0.9999743229999558,
-          "speed": 0.13832905536910756,
-          "target": 0.0010712314086593962,
-          "audioTime": 38.4
+          "q": 0.9985080313744249,
+          "speed": 6.208056109439091,
+          "target": 0.020071986105249993,
+          "audioTime": 30.181333333333335
         },
         {
-          "q": 0.9985413815970805,
-          "speed": 6.0220934106487105,
-          "target": 0.01965282081648984,
-          "audioTime": 38.48126984126984
+          "q": 0.9949059195254237,
+          "speed": 15.534404293229345,
+          "target": 0.036089925778791866,
+          "audioTime": 30.261333333333333
         },
         {
-          "q": 0.994011883935344,
-          "speed": 17.38051727289076,
-          "target": 0.038462595794195434,
-          "audioTime": 38.582857142857144
+          "q": 0.9905286869935678,
+          "speed": 20.963004366444007,
+          "target": 0.0425705960035586,
+          "audioTime": 30.341333333333335
         },
         {
-          "q": 0.9879675078635647,
-          "speed": 29.449353665810754,
-          "target": 0.050341487898700146,
-          "audioTime": 38.66122448979592
+          "q": 0.9815640402724785,
+          "speed": 36.71242248285818,
+          "target": 0.05545719202404528,
+          "audioTime": 30.432
         },
         {
-          "q": 0.9780975537991722,
-          "speed": 40.000400959036014,
-          "target": 0.05743514803907467,
-          "audioTime": 38.76281179138322
+          "q": 0.9719401991960154,
+          "speed": 45.59586736143353,
+          "target": 0.06041964199647747,
+          "audioTime": 30.512
         },
         {
-          "q": 0.9677593203836012,
-          "speed": 43.94268691575167,
-          "target": 0.05958308612225325,
-          "audioTime": 38.861496598639455
+          "q": 0.960454445004764,
+          "speed": 55.33230308715121,
+          "target": 0.06471291001934008,
+          "audioTime": 30.6
         },
         {
-          "q": 0.9555739931398876,
-          "speed": 58.64388420665891,
-          "target": 0.06596628856992477,
-          "audioTime": 38.93115646258504
+          "q": 0.9471622150322427,
+          "speed": 65.00596359721081,
+          "target": 0.06813831482716559,
+          "audioTime": 30.68
         },
         {
-          "q": 0.9415895878883612,
-          "speed": 71.7008527059618,
-          "target": 0.07014137346020141,
-          "audioTime": 39.021133786848075
+          "q": 0.9321293358018917,
+          "speed": 72.59418549118018,
+          "target": 0.07038963263159985,
+          "audioTime": 30.76
         },
         {
-          "q": 0.9225808063301374,
-          "speed": 83.80468965964124,
-          "target": 0.07318548934850404,
-          "audioTime": 39.111111111111114
+          "q": 0.9154216338371455,
+          "speed": 76.69964525580933,
+          "target": 0.07147909669318783,
+          "audioTime": 30.850666666666665
         },
         {
-          "q": 0.9049042122330198,
-          "speed": 86.61552815655708,
-          "target": 0.07380521158488744,
-          "audioTime": 39.20108843537415
+          "q": 0.8970590746612318,
+          "speed": 78.07650363984648,
+          "target": 0.07182663119215385,
+          "audioTime": 30.941333333333333
         },
         {
-          "q": 0.8856773322548523,
-          "speed": 81.70498907756982,
-          "target": 0.07270297050093935,
-          "audioTime": 39.302675736961454
+          "q": 0.8730585723231792,
+          "speed": 105.39077092187597,
+          "target": 0.07730589162766546,
+          "audioTime": 31.032
         },
         {
-          "q": 0.8606142408703643,
-          "speed": 107.54603415058281,
-          "target": 0.07764857454729586,
-          "audioTime": 39.40136054421769
+          "q": 0.8558813804351842,
+          "speed": 96.71339720762828,
+          "target": 0.07581243587018355,
+          "audioTime": 31.112
         },
         {
-          "q": 0.833524659147707,
-          "speed": 102.08853308221026,
-          "target": 0.07675989045047028,
-          "audioTime": 39.511655328798184
+          "q": 0.8283775044103322,
+          "speed": 119.7509175921705,
+          "target": 0.0794087556875043,
+          "audioTime": 31.2
         },
         {
-          "q": 0.8094507368926902,
-          "speed": 115.82944899814525,
-          "target": 0.07887430841561328,
-          "audioTime": 39.59002267573696
+          "q": 0.8089755842162479,
+          "speed": 115.50226846125354,
+          "target": 0.07882845741184563,
+          "audioTime": 31.272
         },
         {
-          "q": 0.7841271033155433,
-          "speed": 131.15694145213962,
-          "target": 0.08081973287744032,
-          "audioTime": 39.671292517006805
+          "q": 0.7835968124467027,
+          "speed": 126.81032446670699,
+          "target": 0.08030551088452739,
+          "audioTime": 31.352
         },
         {
-          "q": 0.7575586449834775,
-          "speed": 123.00067417127195,
-          "target": 0.07983153370992828,
-          "audioTime": 39.76126984126984
+          "q": 0.7569716137640048,
+          "speed": 133.9777266232978,
+          "target": 0.08113928233995403,
+          "audioTime": 31.432
         },
         {
-          "q": 0.7241515106301173,
-          "speed": 144.2787016119224,
-          "target": 0.08222079380500595,
-          "audioTime": 39.85124716553288
+          "q": 0.7292636954309912,
+          "speed": 137.54924272446456,
+          "target": 0.08152888512075633,
+          "audioTime": 31.512
         },
         {
-          "q": 0.6892376021513485,
-          "speed": 152.2245436769378,
-          "target": 0.08297374146233155,
-          "audioTime": 39.96154195011338
+          "q": 0.7003705517466812,
+          "speed": 143.89116118550632,
+          "target": 0.08218236021475883,
+          "audioTime": 31.6
         },
         {
-          "q": 0.6528237579583009,
-          "speed": 159.45060953612415,
-          "target": 0.08360507729121514,
-          "audioTime": 40.05151927437642
+          "q": 0.6705291781857636,
+          "speed": 147.80992918627865,
+          "target": 0.08256349104172545,
+          "audioTime": 31.68
         },
         {
-          "q": 0.6214741080820064,
-          "speed": 140.3417731816635,
-          "target": 0.08182245372310115,
-          "audioTime": 40.141496598639456
+          "q": 0.6397749770538598,
+          "speed": 154.77828909088484,
+          "target": 0.08320235059814858,
+          "audioTime": 31.76
         },
         {
-          "q": 0.5828111809869728,
-          "speed": 177.4895462294314,
-          "target": 0.08499385224105217,
-          "audioTime": 40.231473922902495
+          "q": 0.6080997806692439,
+          "speed": 158.58702545411722,
+          "target": 0.08353210506417619,
+          "audioTime": 31.850666666666665
         },
         {
-          "q": 0.549724056053216,
-          "speed": 167.01554571242892,
-          "target": 0.08421765600440173,
-          "audioTime": 40.321451247165534
+          "q": 0.5755663484404006,
+          "speed": 164.24828533678965,
+          "target": 0.0839989660073836,
+          "audioTime": 31.930666666666667
         },
         {
-          "q": 0.5159353610413187,
-          "speed": 168.13270627877645,
-          "target": 0.08430425556593779,
-          "audioTime": 40.41142857142857
+          "q": 0.5423185905825353,
+          "speed": 167.22879252942522,
+          "target": 0.08423426020569297,
+          "audioTime": 32.010666666666665
         },
         {
-          "q": 0.4814692409498134,
-          "speed": 181.7911027495088,
-          "target": 0.08529092080108346,
-          "audioTime": 40.49269841269841
+          "q": 0.5083838029590236,
+          "speed": 170.3808389083745,
+          "target": 0.08447567209908913,
+          "audioTime": 32.101333333333336
         },
         {
-          "q": 0.4464742407369823,
-          "speed": 185.83442744447467,
-          "target": 0.08555961468059887,
-          "audioTime": 40.56235827664399
+          "q": 0.47374414986769336,
+          "speed": 173.33949211811125,
+          "target": 0.08469563146059002,
+          "audioTime": 32.181333333333335
         },
         {
-          "q": 0.4109323366768943,
-          "speed": 178.36222113731705,
-          "target": 0.0850550873641799,
-          "audioTime": 40.65233560090703
+          "q": 0.43867398663655127,
+          "speed": 176.9492225431218,
+          "target": 0.08495568550671706,
+          "audioTime": 32.26133333333333
         },
         {
-          "q": 0.3677429501367007,
-          "speed": 185.45652864475065,
-          "target": 0.08553491900044945,
-          "audioTime": 40.751020408163264
+          "q": 0.40307252072057204,
+          "speed": 178.45704798046168,
+          "target": 0.08506171118240673,
+          "audioTime": 32.352
         },
         {
-          "q": 0.3313662742597499,
-          "speed": 195.50212786458113,
-          "target": 0.08616389493876501,
-          "audioTime": 40.83229024943311
+          "q": 0.3670474101561366,
+          "speed": 182.113909435535,
+          "target": 0.08531273971033584,
+          "audioTime": 32.432
         },
         {
-          "q": 0.29469634240621456,
-          "speed": 170.87672976005004,
-          "target": 0.08451297944454395,
-          "audioTime": 40.922267573696146
+          "q": 0.3306206158354417,
+          "speed": 180.4268355316061,
+          "target": 0.08519798687031924,
+          "audioTime": 32.512
         },
         {
-          "q": 0.25038023324386405,
-          "speed": 173.76040993930474,
-          "target": 0.08327233745249617,
-          "audioTime": 41.02095238095238
+          "q": 0.2939453845734235,
+          "speed": 183.31656499907731,
+          "target": 0.08539346130360895,
+          "audioTime": 32.6
         },
         {
-          "q": 0.1984455299523302,
-          "speed": 203.22045630907073,
-          "target": 0.07684156090991578,
-          "audioTime": 41.131247165532876
+          "q": 0.25699965847597006,
+          "speed": 188.07038636621527,
+          "target": 0.08480208246085419,
+          "audioTime": 32.68
         },
         {
-          "q": 0.16122027257214325,
-          "speed": 195.10279392644514,
-          "target": 0.06779602519199183,
-          "audioTime": 41.221224489795915
+          "q": 0.21993792879873908,
+          "speed": 188.82427066237005,
+          "target": 0.08017261415950443,
+          "audioTime": 32.76
         },
         {
-          "q": 0.12400467921252747,
-          "speed": 176.64076875086968,
-          "target": 0.05759157796221746,
-          "audioTime": 41.311201814058954
+          "q": 0.18273720968022472,
+          "speed": 186.69783845190534,
+          "target": 0.07251743277959179,
+          "audioTime": 32.85066666666667
         },
         {
-          "q": 0.07948728155699747,
-          "speed": 191.33336839864535,
-          "target": 0.04792100949381199,
-          "audioTime": 41.40117913832199
+          "q": 0.1455526038701403,
+          "speed": 185.28817470833445,
+          "target": 0.06340328728826236,
+          "audioTime": 32.93066666666667
         },
         {
-          "q": 0.042569513324988505,
-          "speed": 166.87903472694842,
-          "target": 0.04077918598423692,
-          "audioTime": 41.49115646258503
+          "q": 0.10840537614597782,
+          "speed": 186.4674383453859,
+          "target": 0.0542271665470705,
+          "audioTime": 33.010666666666665
         },
         {
-          "q": 0.005872141460145351,
-          "speed": 192.18055867074156,
-          "target": 0.038744443841785325,
-          "audioTime": 41.572426303854876
+          "q": 0.07136135303116815,
+          "speed": 187.70591917922377,
+          "target": 0.04617890823101763,
+          "audioTime": 33.101333333333336
+        },
+        {
+          "q": 0.0344863610491523,
+          "speed": 187.3640329976006,
+          "target": 0.0405144210077326,
+          "audioTime": 33.181333333333335
         }
       ]
     },
@@ -2864,8 +2855,8 @@
       "foleyVolume": 0.65,
       "contextState": "running",
       "musicTrack": null,
-      "musicPosition": 42.431564625850335,
-      "musicDuration": 62.25655328798186,
+      "musicPosition": 34.501333333333335,
+      "musicDuration": 62.2565625,
       "musicState": "paused",
       "restRemainingMs": 0,
       "completedPlays": 0,
@@ -2874,16 +2865,16 @@
       "downloaded": 13,
       "decoded": [
         "bendOpen",
-        "tailClose",
         "tailOpen",
-        "bendClose",
         "holeClose",
+        "bendClose",
         "holeOpen",
-        "slideOpen",
-        "seat",
-        "slideClose",
         "park",
+        "seat",
+        "slideOpen",
         "paperUnroll",
+        "slideClose",
+        "tailClose",
         "paperRollup",
         "music"
       ],
@@ -2903,17 +2894,17 @@
       "contacts": [
         {
           "kind": "prong-park",
-          "progress": 0.31221933453060163,
-          "r": 0.780548336326504,
+          "progress": 0.3090693670624362,
+          "r": 0.7726734176560904,
           "phase": "park-pin",
-          "pin": -1.2
+          "pin": -1.1691818709535877
         },
         {
           "kind": "prong-seat",
-          "progress": 0.004557490250969409,
-          "r": 0.011393725627423523,
+          "progress": 0.004484606262532442,
+          "r": 0.011211515656331106,
           "phase": "unload-hole",
-          "pin": -0.005180784953389209
+          "pin": -0.005019940812539732
         }
       ],
       "listeningReview": "Pitch-preserving stretched Adobe performances with a continuous quiet tail; user adopted for normal automatic opening/closing on 2026-10-23. Original A/B keeper unchanged.",
@@ -2927,13 +2918,13 @@
           "key": "bendOpen",
           "mode": "automatic",
           "direction": 1,
-          "audioTime": 26.42140589569161,
-          "wallTime": 36587.30000001192,
+          "audioTime": 17.032,
+          "wallTime": 21743.600000023842,
           "offset": 0,
           "duration": 0.9,
           "gain": 0.9,
-          "progress": 0.000026946000000009323,
-          "r": 0.0000673650000000233,
+          "progress": 0.0000014543627207136029,
+          "r": 0.000003635906801784007,
           "phase": "unload-hole",
           "contact": false
         },
@@ -2941,13 +2932,13 @@
           "key": "holeOpen",
           "mode": "automatic",
           "direction": 1,
-          "audioTime": 27.332789115646257,
-          "wallTime": 37502.90000000596,
+          "audioTime": 17.952,
+          "wallTime": 22659.19999998808,
           "offset": 0,
           "duration": 0.42,
           "gain": 0.7,
-          "progress": 0.07408399499243826,
-          "r": 0.18520998748109563,
+          "progress": 0.0721895967376327,
+          "r": 0.18047399184408175,
           "phase": "release-hole",
           "contact": false
         },
@@ -2955,13 +2946,13 @@
           "key": "tailOpen",
           "mode": "automatic",
           "direction": 1,
-          "audioTime": 27.750748299319728,
-          "wallTime": 37917.60000002384,
+          "audioTime": 18.381333333333334,
+          "wallTime": 23092.19999998808,
           "offset": 0,
-          "duration": 0.6499773242630386,
+          "duration": 0.65,
           "gain": 0.95,
-          "progress": 0.1463459627083976,
-          "r": 0.3658649067709939,
+          "progress": 0.14709160730669835,
+          "r": 0.36772901826674587,
           "phase": "withdraw-tail",
           "contact": false
         },
@@ -2969,13 +2960,13 @@
           "key": "park",
           "mode": "automatic",
           "direction": 1,
-          "audioTime": 28.4821768707483,
-          "wallTime": 38649.10000002384,
+          "audioTime": 19.101333333333333,
+          "wallTime": 23809.19999998808,
           "offset": 0,
-          "duration": 0.17752834467120182,
+          "duration": 0.17754166666666665,
           "gain": 0.4,
-          "progress": 0.31221933453060163,
-          "r": 0.780548336326504,
+          "progress": 0.3090693670624362,
+          "r": 0.7726734176560904,
           "phase": "park-pin",
           "contact": true
         },
@@ -2983,21 +2974,21 @@
           "key": "slideOpen",
           "mode": "automatic",
           "direction": 1,
-          "audioTime": 28.50249433106576,
-          "wallTime": 38666.20000001788,
+          "audioTime": 19.130666666666666,
+          "wallTime": 23841.899999976158,
           "offset": 0,
-          "duration": 0.23997732426303856,
+          "duration": 0.24,
           "gain": 0.65,
-          "progress": 0.3164313618462893,
-          "r": 0.7910784046157232,
+          "progress": 0.31738596576557965,
+          "r": 0.7934649144139491,
           "phase": "slide-clear",
           "contact": false
         },
         {
           "key": "paperUnroll",
-          "progress": 0.4023646753404705,
-          "paperProgress": 0.003941125567450769,
-          "audioTime": 28.83047619047619,
+          "progress": 0.40339160045962413,
+          "paperProgress": 0.005652667432706861,
+          "audioTime": 19.472,
           "offset": 0,
           "rate": 1,
           "loop": false,
@@ -3005,9 +2996,9 @@
         },
         {
           "key": "paperRollup",
-          "progress": 0.9999845937999735,
-          "paperProgress": 0.9999743229999558,
-          "audioTime": 38.4,
+          "progress": 0.9999815474857023,
+          "paperProgress": 0.999969245809504,
+          "audioTime": 30.101333333333333,
           "offset": 0,
           "rate": 1,
           "loop": false,
@@ -3017,13 +3008,13 @@
           "key": "slideClose",
           "mode": "automatic",
           "direction": -1,
-          "audioTime": 41.71174603174603,
-          "wallTime": 51876.30000001192,
+          "audioTime": 33.36,
+          "wallTime": 38072.39999997616,
           "offset": 0,
-          "duration": 0.23997732426303856,
+          "duration": 0.24,
           "gain": 0.65,
-          "progress": 0.368636308256187,
-          "r": 0.9215907706404675,
+          "progress": 0.3725580580433363,
+          "r": 0.9313951451083408,
           "phase": "slide-clear",
           "contact": false
         },
@@ -3031,13 +3022,13 @@
           "key": "tailClose",
           "mode": "automatic",
           "direction": -1,
-          "audioTime": 42.031020408163265,
-          "wallTime": 52203.80000001192,
+          "audioTime": 33.712,
+          "wallTime": 38423,
           "offset": 0,
-          "duration": 0.6499773242630386,
+          "duration": 0.65,
           "gain": 0.95,
-          "progress": 0.284434707424287,
-          "r": 0.7110867685607175,
+          "progress": 0.28404377638856915,
+          "r": 0.7101094409714228,
           "phase": "withdraw-tail",
           "contact": false
         },
@@ -3045,13 +3036,13 @@
           "key": "holeClose",
           "mode": "automatic",
           "direction": -1,
-          "audioTime": 42.69278911564626,
-          "wallTime": 52861.90000000596,
+          "audioTime": 34.352,
+          "wallTime": 39056.89999997616,
           "offset": 0,
           "duration": 0.42,
           "gain": 0.7,
-          "progress": 0.14070290920500916,
-          "r": 0.3517572730125229,
+          "progress": 0.14363068903151732,
+          "r": 0.3590767225787933,
           "phase": "release-hole",
           "contact": false
         },
@@ -3059,13 +3050,13 @@
           "key": "bendClose",
           "mode": "automatic",
           "direction": -1,
-          "audioTime": 43.13106575963719,
-          "wallTime": 53295.20000001788,
+          "audioTime": 34.781333333333336,
+          "wallTime": 39489.89999997616,
           "offset": 0,
           "duration": 0.9,
           "gain": 0.9,
-          "progress": 0.06743158031326613,
-          "r": 0.16857895078316532,
+          "progress": 0.06959020438173369,
+          "r": 0.17397551095433422,
           "phase": "unload-hole",
           "contact": false
         },
@@ -3073,13 +3064,13 @@
           "key": "seat",
           "mode": "automatic",
           "direction": -1,
-          "audioTime": 43.78122448979592,
-          "wallTime": 53952.90000000596,
+          "audioTime": 35.461333333333336,
+          "wallTime": 40173.39999997616,
           "offset": 0,
-          "duration": 0.22235827664399094,
+          "duration": 0.222375,
           "gain": 0.4,
-          "progress": 0.004557490250969409,
-          "r": 0.011393725627423523,
+          "progress": 0.004484606262532442,
+          "r": 0.011211515656331106,
           "phase": "unload-hole",
           "contact": true
         }
@@ -3093,454 +3084,460 @@
       "maximumPaperGain": 0.1,
       "paperEnvelope": [
         {
-          "q": 0.003941125567450769,
-          "speed": 22.129994173746937,
-          "target": 0.04378687882859608,
-          "audioTime": 28.83047619047619
+          "q": 0.005652667432706861,
+          "speed": 32.16278596855371,
+          "target": 0.05238805747446981,
+          "audioTime": 19.472
         },
         {
-          "q": 0.04062502550141466,
-          "speed": 144.0565472025534,
-          "target": 0.08219878240735466,
-          "audioTime": 28.91174603174603
+          "q": 0.0423485176457263,
+          "speed": 141.8070641074436,
+          "target": 0.08197278485981681,
+          "audioTime": 19.552
         },
         {
-          "q": 0.07748838386026016,
-          "speed": 173.7855160864385,
-          "target": 0.08472825059877298,
-          "audioTime": 29.00172335600907
+          "q": 0.07926515934311151,
+          "speed": 174.91528901622053,
+          "target": 0.08481025477431875,
+          "audioTime": 19.632
         },
         {
-          "q": 0.11464318441554353,
-          "speed": 183.19021695516312,
-          "target": 0.08538502267996567,
-          "audioTime": 29.080090702947846
+          "q": 0.11633676600142646,
+          "speed": 183.53071214869288,
+          "target": 0.08540774165530718,
+          "audioTime": 19.712
         },
         {
-          "q": 0.15180129612406104,
-          "speed": 188.58263882774196,
-          "target": 0.08573670190413091,
-          "audioTime": 29.161360544217686
+          "q": 0.15354214901573757,
+          "speed": 187.52986343352921,
+          "target": 0.08566938021563086,
+          "audioTime": 19.8
         },
         {
-          "q": 0.1890303512303164,
-          "speed": 188.51699255639252,
-          "target": 0.08573252254921919,
-          "audioTime": 29.24263038548753
+          "q": 0.19068156810708725,
+          "speed": 186.27873081442522,
+          "target": 0.08558854213017993,
+          "audioTime": 19.88
         },
         {
-          "q": 0.22617517903258708,
-          "speed": 213.11646250715893,
-          "target": 0.08714395877760031,
-          "audioTime": 29.332607709750565
+          "q": 0.22786764625530975,
+          "speed": 187.67447945442584,
+          "target": 0.08567866563103453,
+          "audioTime": 19.96
         },
         {
-          "q": 0.26325896490767875,
-          "speed": 176.63983761231148,
-          "target": 0.08493374388996135,
-          "audioTime": 29.422585034013604
+          "q": 0.26498940940338905,
+          "speed": 185.2586647414409,
+          "target": 0.08552195483408424,
+          "audioTime": 20.050666666666668
         },
         {
-          "q": 0.3001268865213299,
-          "speed": 187.49123127423445,
-          "target": 0.0856668977053203,
-          "audioTime": 29.50095238095238
+          "q": 0.3018035800070995,
+          "speed": 185.05802514911858,
+          "target": 0.08550878502251219,
+          "audioTime": 20.130666666666666
         },
         {
-          "q": 0.33671385275189575,
-          "speed": 186.71609930948355,
-          "target": 0.08561690495511783,
-          "audioTime": 29.58222222222222
+          "q": 0.33846575294312603,
+          "speed": 183.42384578788307,
+          "target": 0.08540061879393862,
+          "audioTime": 20.221333333333334
         },
         {
-          "q": 0.37308545521738595,
-          "speed": 182.72848137701095,
-          "target": 0.08535410074623387,
-          "audioTime": 29.660589569160997
+          "q": 0.37477775131454305,
+          "speed": 186.00452903681236,
+          "target": 0.0855707032833683,
+          "audioTime": 20.301333333333332
         },
         {
-          "q": 0.40904444925291533,
-          "speed": 179.886900328355,
-          "target": 0.08516088087269162,
-          "audioTime": 29.750566893424036
+          "q": 0.4107178653890758,
+          "speed": 182.83638495145348,
+          "target": 0.08536133865739792,
+          "audioTime": 20.381333333333334
         },
         {
-          "q": 0.44456881438219503,
-          "speed": 181.9320647016988,
-          "target": 0.08530045657487674,
-          "audioTime": 29.831836734693876
+          "q": 0.4462202686432878,
+          "speed": 177.632014359806,
+          "target": 0.08500388344936233,
+          "audioTime": 20.461333333333332
         },
         {
-          "q": 0.4796344424489975,
-          "speed": 179.32649046193728,
-          "target": 0.08512217026863377,
-          "audioTime": 29.910204081632653
+          "q": 0.4813025066341495,
+          "speed": 176.96730762226798,
+          "target": 0.08495696612313006,
+          "audioTime": 20.552
         },
         {
-          "q": 0.5140913508260447,
-          "speed": 174.29723098541425,
-          "target": 0.08476550282894074,
-          "audioTime": 30.00018140589569
+          "q": 0.5156486365969933,
+          "speed": 175.6550165220426,
+          "target": 0.08486347156981867,
+          "audioTime": 20.632
         },
         {
-          "q": 0.547956271302084,
-          "speed": 174.60691490851187,
-          "target": 0.08478795918063498,
-          "audioTime": 30.081451247165532
+          "q": 0.5495232698166307,
+          "speed": 171.20373928973223,
+          "target": 0.0845374832499336,
+          "audioTime": 20.712
         },
         {
-          "q": 0.581042778556699,
-          "speed": 169.66079043958,
-          "target": 0.08442117913642151,
-          "audioTime": 30.162721088435376
+          "q": 0.5827719074428805,
+          "speed": 167.60315256349065,
+          "target": 0.08426332481536336,
+          "audioTime": 20.8
         },
         {
-          "q": 0.6069819129166654,
-          "speed": 151.13325786424508,
-          "target": 0.08287413823527828,
-          "audioTime": 30.24108843537415
+          "q": 0.6149776507880959,
+          "speed": 161.73185913182397,
+          "target": 0.0837947617202625,
+          "audioTime": 20.88
         },
         {
-          "q": 0.6387242635011234,
-          "speed": 160.99637919414874,
-          "target": 0.08373408903976093,
-          "audioTime": 30.322358276643993
+          "q": 0.6464310360746583,
+          "speed": 158.61170885802366,
+          "target": 0.0835341998257153,
+          "audioTime": 20.970666666666666
         },
         {
-          "q": 0.6695821185617103,
-          "speed": 159.43044915136127,
-          "target": 0.08360338113871182,
-          "audioTime": 30.400725623582765
+          "q": 0.6770602443667072,
+          "speed": 150.95801328514418,
+          "target": 0.08285803451515848,
+          "audioTime": 21.050666666666668
         },
         {
-          "q": 0.6994541497066148,
-          "speed": 164.42838727715196,
-          "target": 0.08401338354011319,
-          "audioTime": 30.48199546485261
+          "q": 0.7067225753200085,
+          "speed": 152.59863801258706,
+          "target": 0.08300761899166276,
+          "audioTime": 21.130666666666666
         },
         {
-          "q": 0.7339696709385448,
-          "speed": 161.28711977872408,
-          "target": 0.08342556282376673,
-          "audioTime": 30.580680272108843
+          "q": 0.7352845976327821,
+          "speed": 150.04272312060047,
+          "target": 0.08238126679415943,
+          "audioTime": 21.21066666666667
         },
         {
-          "q": 0.7561227336916909,
-          "speed": 129.84818113758823,
-          "target": 0.07864300241899445,
-          "audioTime": 30.661950113378683
+          "q": 0.7628176968003488,
+          "speed": 138.18937861166455,
+          "target": 0.07876959368436201,
+          "audioTime": 21.301333333333332
         },
         {
-          "q": 0.7827535469236487,
-          "speed": 124.9331715159928,
-          "target": 0.07442985506900619,
-          "audioTime": 30.74031746031746
+          "q": 0.7891549927944113,
+          "speed": 135.03539601552896,
+          "target": 0.07442451478732916,
+          "audioTime": 21.381333333333334
         },
         {
-          "q": 0.8082024544182942,
-          "speed": 123.43963348898843,
-          "target": 0.06955420324828238,
-          "audioTime": 30.8302947845805
+          "q": 0.8142643435931529,
+          "speed": 129.33045850183024,
+          "target": 0.06891597584765956,
+          "audioTime": 21.461333333333332
         },
         {
-          "q": 0.837022594819321,
-          "speed": 132.38335976581186,
-          "target": 0.06412787365754222,
-          "audioTime": 30.91156462585034
+          "q": 0.8381077089095624,
+          "speed": 122.85650951311725,
+          "target": 0.06297084223653654,
+          "audioTime": 21.552
         },
         {
-          "q": 0.8507066349314595,
-          "speed": 80.7804778690684,
-          "target": 0.054533460392371454,
-          "audioTime": 31.001541950113378
+          "q": 0.8605620180174358,
+          "speed": 114.61818220178117,
+          "target": 0.056929750947615126,
+          "audioTime": 21.632
         },
         {
-          "q": 0.8724304785819053,
-          "speed": 104.06063823246721,
-          "target": 0.05307358214601398,
-          "audioTime": 31.08281179138322
+          "q": 0.8815908233362381,
+          "speed": 106.40656311378544,
+          "target": 0.05127564684216854,
+          "audioTime": 21.712
         },
         {
-          "q": 0.8926384949667628,
-          "speed": 108.79554063116694,
-          "target": 0.04908557285250706,
-          "audioTime": 31.161179138321994
+          "q": 0.9011508300748129,
+          "speed": 100.36129737818325,
+          "target": 0.04643209142963887,
+          "audioTime": 21.8
         },
         {
-          "q": 0.9112971104101557,
-          "speed": 96.55643611884895,
-          "target": 0.04400152269310627,
-          "audioTime": 31.251156462585033
+          "q": 0.919129239350069,
+          "speed": 91.96489306618903,
+          "target": 0.042034071703510645,
+          "audioTime": 21.88
         },
         {
-          "q": 0.9284049467208568,
-          "speed": 86.64362306887297,
-          "target": 0.03982035222125906,
-          "audioTime": 31.341133786848072
+          "q": 0.9354845862425033,
+          "speed": 83.73966291933287,
+          "target": 0.03835191677329908,
+          "audioTime": 21.96
         },
         {
-          "q": 0.9438492248641911,
-          "speed": 79.1086558914268,
-          "target": 0.03658031308109949,
-          "audioTime": 31.422403628117912
+          "q": 0.9501676096765677,
+          "speed": 72.64964185705335,
+          "target": 0.03492518151619014,
+          "audioTime": 22.050666666666668
         },
         {
-          "q": 0.95754849858722,
-          "speed": 69.1967814875622,
-          "target": 0.03360705908876631,
-          "audioTime": 31.51238095238095
+          "q": 0.9630772061727776,
+          "speed": 65.81925290825146,
+          "target": 0.03256807597483684,
+          "audioTime": 22.141333333333332
         },
         {
-          "q": 0.9694564690289986,
-          "speed": 54.42988888901098,
-          "target": 0.030131406659850868,
-          "audioTime": 31.60235827664399
+          "q": 0.9741661816924158,
+          "speed": 56.563420104756474,
+          "target": 0.030194644170483922,
+          "audioTime": 22.221333333333334
         },
         {
-          "q": 0.9813034728421097,
-          "speed": 55.08412611554439,
-          "target": 0.02953104527057044,
-          "audioTime": 31.680725623582767
+          "q": 0.9833687097120442,
+          "speed": 50.38845959568788,
+          "target": 0.028546272507813275,
+          "audioTime": 22.301333333333332
         },
         {
-          "q": 0.989027462195851,
-          "speed": 44.009761292225505,
-          "target": 0.026975093140027297,
-          "audioTime": 31.770702947845805
+          "q": 0.9906264678660283,
+          "speed": 38.842748322977485,
+          "target": 0.02564438970979251,
+          "audioTime": 22.392
         },
         {
-          "q": 0.9947655829834791,
-          "speed": 35.675544709714146,
-          "target": 0.024688448057420927,
-          "audioTime": 31.851972789115646
+          "q": 0.9958561590664415,
+          "speed": 29.63618644374065,
+          "target": 0.02273775496393019,
+          "audioTime": 22.472
         },
         {
-          "q": 0.9978660689064967,
-          "speed": 22.609137426304372,
-          "target": 0.019926065052966607,
-          "audioTime": 31.921632653061224
+          "q": 0.9990018441730953,
+          "speed": 19.520628698040753,
+          "target": 0.01844564026174026,
+          "audioTime": 22.552
         },
         {
-          "q": 0.9998239008221916,
-          "speed": 12.274790575950778,
-          "target": 0.014118565567855137,
-          "audioTime": 32.01160997732426
+          "q": 0.999969245809504,
+          "speed": 0.17511533560169745,
+          "target": 0.001292687766553429,
+          "audioTime": 30.101333333333333
         },
         {
-          "q": 0.9999743229999558,
-          "speed": 0.13832905536910756,
-          "target": 0.0010712314086593962,
-          "audioTime": 38.4
+          "q": 0.9985080313744249,
+          "speed": 6.208056109439091,
+          "target": 0.020071986105249993,
+          "audioTime": 30.181333333333335
         },
         {
-          "q": 0.9985413815970805,
-          "speed": 6.0220934106487105,
-          "target": 0.01965282081648984,
-          "audioTime": 38.48126984126984
+          "q": 0.9949059195254237,
+          "speed": 15.534404293229345,
+          "target": 0.036089925778791866,
+          "audioTime": 30.261333333333333
         },
         {
-          "q": 0.994011883935344,
-          "speed": 17.38051727289076,
-          "target": 0.038462595794195434,
-          "audioTime": 38.582857142857144
+          "q": 0.9905286869935678,
+          "speed": 20.963004366444007,
+          "target": 0.0425705960035586,
+          "audioTime": 30.341333333333335
         },
         {
-          "q": 0.9879675078635647,
-          "speed": 29.449353665810754,
-          "target": 0.050341487898700146,
-          "audioTime": 38.66122448979592
+          "q": 0.9815640402724785,
+          "speed": 36.71242248285818,
+          "target": 0.05545719202404528,
+          "audioTime": 30.432
         },
         {
-          "q": 0.9780975537991722,
-          "speed": 40.000400959036014,
-          "target": 0.05743514803907467,
-          "audioTime": 38.76281179138322
+          "q": 0.9719401991960154,
+          "speed": 45.59586736143353,
+          "target": 0.06041964199647747,
+          "audioTime": 30.512
         },
         {
-          "q": 0.9677593203836012,
-          "speed": 43.94268691575167,
-          "target": 0.05958308612225325,
-          "audioTime": 38.861496598639455
+          "q": 0.960454445004764,
+          "speed": 55.33230308715121,
+          "target": 0.06471291001934008,
+          "audioTime": 30.6
         },
         {
-          "q": 0.9555739931398876,
-          "speed": 58.64388420665891,
-          "target": 0.06596628856992477,
-          "audioTime": 38.93115646258504
+          "q": 0.9471622150322427,
+          "speed": 65.00596359721081,
+          "target": 0.06813831482716559,
+          "audioTime": 30.68
         },
         {
-          "q": 0.9415895878883612,
-          "speed": 71.7008527059618,
-          "target": 0.07014137346020141,
-          "audioTime": 39.021133786848075
+          "q": 0.9321293358018917,
+          "speed": 72.59418549118018,
+          "target": 0.07038963263159985,
+          "audioTime": 30.76
         },
         {
-          "q": 0.9225808063301374,
-          "speed": 83.80468965964124,
-          "target": 0.07318548934850404,
-          "audioTime": 39.111111111111114
+          "q": 0.9154216338371455,
+          "speed": 76.69964525580933,
+          "target": 0.07147909669318783,
+          "audioTime": 30.850666666666665
         },
         {
-          "q": 0.9049042122330198,
-          "speed": 86.61552815655708,
-          "target": 0.07380521158488744,
-          "audioTime": 39.20108843537415
+          "q": 0.8970590746612318,
+          "speed": 78.07650363984648,
+          "target": 0.07182663119215385,
+          "audioTime": 30.941333333333333
         },
         {
-          "q": 0.8856773322548523,
-          "speed": 81.70498907756982,
-          "target": 0.07270297050093935,
-          "audioTime": 39.302675736961454
+          "q": 0.8730585723231792,
+          "speed": 105.39077092187597,
+          "target": 0.07730589162766546,
+          "audioTime": 31.032
         },
         {
-          "q": 0.8606142408703643,
-          "speed": 107.54603415058281,
-          "target": 0.07764857454729586,
-          "audioTime": 39.40136054421769
+          "q": 0.8558813804351842,
+          "speed": 96.71339720762828,
+          "target": 0.07581243587018355,
+          "audioTime": 31.112
         },
         {
-          "q": 0.833524659147707,
-          "speed": 102.08853308221026,
-          "target": 0.07675989045047028,
-          "audioTime": 39.511655328798184
+          "q": 0.8283775044103322,
+          "speed": 119.7509175921705,
+          "target": 0.0794087556875043,
+          "audioTime": 31.2
         },
         {
-          "q": 0.8094507368926902,
-          "speed": 115.82944899814525,
-          "target": 0.07887430841561328,
-          "audioTime": 39.59002267573696
+          "q": 0.8089755842162479,
+          "speed": 115.50226846125354,
+          "target": 0.07882845741184563,
+          "audioTime": 31.272
         },
         {
-          "q": 0.7841271033155433,
-          "speed": 131.15694145213962,
-          "target": 0.08081973287744032,
-          "audioTime": 39.671292517006805
+          "q": 0.7835968124467027,
+          "speed": 126.81032446670699,
+          "target": 0.08030551088452739,
+          "audioTime": 31.352
         },
         {
-          "q": 0.7575586449834775,
-          "speed": 123.00067417127195,
-          "target": 0.07983153370992828,
-          "audioTime": 39.76126984126984
+          "q": 0.7569716137640048,
+          "speed": 133.9777266232978,
+          "target": 0.08113928233995403,
+          "audioTime": 31.432
         },
         {
-          "q": 0.7241515106301173,
-          "speed": 144.2787016119224,
-          "target": 0.08222079380500595,
-          "audioTime": 39.85124716553288
+          "q": 0.7292636954309912,
+          "speed": 137.54924272446456,
+          "target": 0.08152888512075633,
+          "audioTime": 31.512
         },
         {
-          "q": 0.6892376021513485,
-          "speed": 152.2245436769378,
-          "target": 0.08297374146233155,
-          "audioTime": 39.96154195011338
+          "q": 0.7003705517466812,
+          "speed": 143.89116118550632,
+          "target": 0.08218236021475883,
+          "audioTime": 31.6
         },
         {
-          "q": 0.6528237579583009,
-          "speed": 159.45060953612415,
-          "target": 0.08360507729121514,
-          "audioTime": 40.05151927437642
+          "q": 0.6705291781857636,
+          "speed": 147.80992918627865,
+          "target": 0.08256349104172545,
+          "audioTime": 31.68
         },
         {
-          "q": 0.6214741080820064,
-          "speed": 140.3417731816635,
-          "target": 0.08182245372310115,
-          "audioTime": 40.141496598639456
+          "q": 0.6397749770538598,
+          "speed": 154.77828909088484,
+          "target": 0.08320235059814858,
+          "audioTime": 31.76
         },
         {
-          "q": 0.5828111809869728,
-          "speed": 177.4895462294314,
-          "target": 0.08499385224105217,
-          "audioTime": 40.231473922902495
+          "q": 0.6080997806692439,
+          "speed": 158.58702545411722,
+          "target": 0.08353210506417619,
+          "audioTime": 31.850666666666665
         },
         {
-          "q": 0.549724056053216,
-          "speed": 167.01554571242892,
-          "target": 0.08421765600440173,
-          "audioTime": 40.321451247165534
+          "q": 0.5755663484404006,
+          "speed": 164.24828533678965,
+          "target": 0.0839989660073836,
+          "audioTime": 31.930666666666667
         },
         {
-          "q": 0.5159353610413187,
-          "speed": 168.13270627877645,
-          "target": 0.08430425556593779,
-          "audioTime": 40.41142857142857
+          "q": 0.5423185905825353,
+          "speed": 167.22879252942522,
+          "target": 0.08423426020569297,
+          "audioTime": 32.010666666666665
         },
         {
-          "q": 0.4814692409498134,
-          "speed": 181.7911027495088,
-          "target": 0.08529092080108346,
-          "audioTime": 40.49269841269841
+          "q": 0.5083838029590236,
+          "speed": 170.3808389083745,
+          "target": 0.08447567209908913,
+          "audioTime": 32.101333333333336
         },
         {
-          "q": 0.4464742407369823,
-          "speed": 185.83442744447467,
-          "target": 0.08555961468059887,
-          "audioTime": 40.56235827664399
+          "q": 0.47374414986769336,
+          "speed": 173.33949211811125,
+          "target": 0.08469563146059002,
+          "audioTime": 32.181333333333335
         },
         {
-          "q": 0.4109323366768943,
-          "speed": 178.36222113731705,
-          "target": 0.0850550873641799,
-          "audioTime": 40.65233560090703
+          "q": 0.43867398663655127,
+          "speed": 176.9492225431218,
+          "target": 0.08495568550671706,
+          "audioTime": 32.26133333333333
         },
         {
-          "q": 0.3677429501367007,
-          "speed": 185.45652864475065,
-          "target": 0.08553491900044945,
-          "audioTime": 40.751020408163264
+          "q": 0.40307252072057204,
+          "speed": 178.45704798046168,
+          "target": 0.08506171118240673,
+          "audioTime": 32.352
         },
         {
-          "q": 0.3313662742597499,
-          "speed": 195.50212786458113,
-          "target": 0.08616389493876501,
-          "audioTime": 40.83229024943311
+          "q": 0.3670474101561366,
+          "speed": 182.113909435535,
+          "target": 0.08531273971033584,
+          "audioTime": 32.432
         },
         {
-          "q": 0.29469634240621456,
-          "speed": 170.87672976005004,
-          "target": 0.08451297944454395,
-          "audioTime": 40.922267573696146
+          "q": 0.3306206158354417,
+          "speed": 180.4268355316061,
+          "target": 0.08519798687031924,
+          "audioTime": 32.512
         },
         {
-          "q": 0.25038023324386405,
-          "speed": 173.76040993930474,
-          "target": 0.08327233745249617,
-          "audioTime": 41.02095238095238
+          "q": 0.2939453845734235,
+          "speed": 183.31656499907731,
+          "target": 0.08539346130360895,
+          "audioTime": 32.6
         },
         {
-          "q": 0.1984455299523302,
-          "speed": 203.22045630907073,
-          "target": 0.07684156090991578,
-          "audioTime": 41.131247165532876
+          "q": 0.25699965847597006,
+          "speed": 188.07038636621527,
+          "target": 0.08480208246085419,
+          "audioTime": 32.68
         },
         {
-          "q": 0.16122027257214325,
-          "speed": 195.10279392644514,
-          "target": 0.06779602519199183,
-          "audioTime": 41.221224489795915
+          "q": 0.21993792879873908,
+          "speed": 188.82427066237005,
+          "target": 0.08017261415950443,
+          "audioTime": 32.76
         },
         {
-          "q": 0.12400467921252747,
-          "speed": 176.64076875086968,
-          "target": 0.05759157796221746,
-          "audioTime": 41.311201814058954
+          "q": 0.18273720968022472,
+          "speed": 186.69783845190534,
+          "target": 0.07251743277959179,
+          "audioTime": 32.85066666666667
         },
         {
-          "q": 0.07948728155699747,
-          "speed": 191.33336839864535,
-          "target": 0.04792100949381199,
-          "audioTime": 41.40117913832199
+          "q": 0.1455526038701403,
+          "speed": 185.28817470833445,
+          "target": 0.06340328728826236,
+          "audioTime": 32.93066666666667
         },
         {
-          "q": 0.042569513324988505,
-          "speed": 166.87903472694842,
-          "target": 0.04077918598423692,
-          "audioTime": 41.49115646258503
+          "q": 0.10840537614597782,
+          "speed": 186.4674383453859,
+          "target": 0.0542271665470705,
+          "audioTime": 33.010666666666665
         },
         {
-          "q": 0.005872141460145351,
-          "speed": 192.18055867074156,
-          "target": 0.038744443841785325,
-          "audioTime": 41.572426303854876
+          "q": 0.07136135303116815,
+          "speed": 187.70591917922377,
+          "target": 0.04617890823101763,
+          "audioTime": 33.101333333333336
+        },
+        {
+          "q": 0.0344863610491523,
+          "speed": 187.3640329976006,
+          "target": 0.0405144210077326,
+          "audioTime": 33.181333333333335
         }
       ]
     },
@@ -3564,7 +3561,7 @@
     "viewer": {
       "progress": 1,
       "paperProgress": 1,
-      "renderCount": 326,
+      "renderCount": 347,
       "vertices": 14893,
       "camera": [
         0,
@@ -3627,7 +3624,7 @@
       "sealRelief": true,
       "runtime": {
         "motionPrepared": true,
-        "preparationMs": 10821.09999999404,
+        "preparationMs": 10556.700000047684,
         "preparedPrograms": 11,
         "programs": 11
       },
@@ -3688,7 +3685,7 @@
           "wrapS": 1000,
           "wrapT": 1000,
           "colorSpace": "",
-          "source": "https://64e3da81.the-second-language.pages.dev/labs/chapter-scroll-v4/assets/skin-normal.jpg"
+          "source": "https://the-second-language.pages.dev/labs/chapter-scroll-v4/assets/skin-normal.jpg"
         },
         "roughness": {
           "repeat": [
@@ -3698,7 +3695,7 @@
           "wrapS": 1000,
           "wrapT": 1000,
           "colorSpace": "",
-          "source": "https://64e3da81.the-second-language.pages.dev/labs/chapter-scroll-v4/assets/skin-roughness.jpg"
+          "source": "https://the-second-language.pages.dev/labs/chapter-scroll-v4/assets/skin-roughness.jpg"
         },
         "sheen": 0,
         "specularIntensity": 0,
@@ -4017,14 +4014,14 @@
         "artSeed": 1250152853,
         "fixedSurfaces": true,
         "frozen": true,
-        "frozenManifestURL": "https://64e3da81.the-second-language.pages.dev/labs/project-beginning/assets/surfaces.json"
+        "frozenManifestURL": "https://the-second-language.pages.dev/labs/project-beginning/assets/surfaces.json"
       },
       "mist": {
         "available": true,
         "enabled": false,
-        "frames": 324,
-        "time": 12.799999999999965,
-        "interactionEnergy": 0.5081488515329557,
+        "frames": 310,
+        "time": 12.3333333333333,
+        "interactionEnergy": 0.5107945844534756,
         "drive": [
           0,
           0,
@@ -4035,14 +4032,14 @@
         "simulationHz": 30,
         "fixedDirectionalInlet": false,
         "regionalVelocities": [
-          -0.0012458189644839151,
-          -0.0012474971396618326,
-          -0.014399182034280892,
-          -0.0022487357160042402,
-          -0.004659894163645824,
-          0.008025681350801245,
-          0.059216991001503655,
-          0.006076883544988742
+          -0.002254423314511624,
+          -0.0021286800629488176,
+          -0.014442243321960636,
+          -0.0019586381445980514,
+          -0.005815060247186998,
+          0.009847673603646794,
+          0.05414097624148416,
+          0.006728391890066714
         ],
         "confinement": 0.38
       },
@@ -4059,8 +4056,8 @@
       "foleyVolume": 0.65,
       "contextState": "running",
       "musicTrack": null,
-      "musicPosition": 36.49015873015873,
-      "musicDuration": 62.25655328798186,
+      "musicPosition": 28.730666666666664,
+      "musicDuration": 62.2565625,
       "musicState": "paused",
       "restRemainingMs": 0,
       "completedPlays": 0,
@@ -4069,16 +4066,16 @@
       "downloaded": 13,
       "decoded": [
         "bendOpen",
-        "tailClose",
         "tailOpen",
-        "bendClose",
         "holeClose",
+        "bendClose",
         "holeOpen",
-        "slideOpen",
-        "seat",
-        "slideClose",
         "park",
+        "seat",
+        "slideOpen",
         "paperUnroll",
+        "slideClose",
+        "tailClose",
         "paperRollup",
         "music"
       ],
@@ -4098,10 +4095,10 @@
       "contacts": [
         {
           "kind": "prong-park",
-          "progress": 0.31221933453060163,
-          "r": 0.780548336326504,
+          "progress": 0.3090693670624362,
+          "r": 0.7726734176560904,
           "phase": "park-pin",
-          "pin": -1.2
+          "pin": -1.1691818709535877
         }
       ],
       "listeningReview": "Pitch-preserving stretched Adobe performances with a continuous quiet tail; user adopted for normal automatic opening/closing on 2026-10-23. Original A/B keeper unchanged.",
@@ -4115,13 +4112,13 @@
           "key": "bendOpen",
           "mode": "automatic",
           "direction": 1,
-          "audioTime": 26.42140589569161,
-          "wallTime": 36587.30000001192,
+          "audioTime": 17.032,
+          "wallTime": 21743.600000023842,
           "offset": 0,
           "duration": 0.9,
           "gain": 0.9,
-          "progress": 0.000026946000000009323,
-          "r": 0.0000673650000000233,
+          "progress": 0.0000014543627207136029,
+          "r": 0.000003635906801784007,
           "phase": "unload-hole",
           "contact": false
         },
@@ -4129,13 +4126,13 @@
           "key": "holeOpen",
           "mode": "automatic",
           "direction": 1,
-          "audioTime": 27.332789115646257,
-          "wallTime": 37502.90000000596,
+          "audioTime": 17.952,
+          "wallTime": 22659.19999998808,
           "offset": 0,
           "duration": 0.42,
           "gain": 0.7,
-          "progress": 0.07408399499243826,
-          "r": 0.18520998748109563,
+          "progress": 0.0721895967376327,
+          "r": 0.18047399184408175,
           "phase": "release-hole",
           "contact": false
         },
@@ -4143,13 +4140,13 @@
           "key": "tailOpen",
           "mode": "automatic",
           "direction": 1,
-          "audioTime": 27.750748299319728,
-          "wallTime": 37917.60000002384,
+          "audioTime": 18.381333333333334,
+          "wallTime": 23092.19999998808,
           "offset": 0,
-          "duration": 0.6499773242630386,
+          "duration": 0.65,
           "gain": 0.95,
-          "progress": 0.1463459627083976,
-          "r": 0.3658649067709939,
+          "progress": 0.14709160730669835,
+          "r": 0.36772901826674587,
           "phase": "withdraw-tail",
           "contact": false
         },
@@ -4157,13 +4154,13 @@
           "key": "park",
           "mode": "automatic",
           "direction": 1,
-          "audioTime": 28.4821768707483,
-          "wallTime": 38649.10000002384,
+          "audioTime": 19.101333333333333,
+          "wallTime": 23809.19999998808,
           "offset": 0,
-          "duration": 0.17752834467120182,
+          "duration": 0.17754166666666665,
           "gain": 0.4,
-          "progress": 0.31221933453060163,
-          "r": 0.780548336326504,
+          "progress": 0.3090693670624362,
+          "r": 0.7726734176560904,
           "phase": "park-pin",
           "contact": true
         },
@@ -4171,21 +4168,21 @@
           "key": "slideOpen",
           "mode": "automatic",
           "direction": 1,
-          "audioTime": 28.50249433106576,
-          "wallTime": 38666.20000001788,
+          "audioTime": 19.130666666666666,
+          "wallTime": 23841.899999976158,
           "offset": 0,
-          "duration": 0.23997732426303856,
+          "duration": 0.24,
           "gain": 0.65,
-          "progress": 0.3164313618462893,
-          "r": 0.7910784046157232,
+          "progress": 0.31738596576557965,
+          "r": 0.7934649144139491,
           "phase": "slide-clear",
           "contact": false
         },
         {
           "key": "paperUnroll",
-          "progress": 0.4023646753404705,
-          "paperProgress": 0.003941125567450769,
-          "audioTime": 28.83047619047619,
+          "progress": 0.40339160045962413,
+          "paperProgress": 0.005652667432706861,
+          "audioTime": 19.472,
           "offset": 0,
           "rate": 1,
           "loop": false,
@@ -4201,238 +4198,232 @@
       "maximumPaperGain": 0.1,
       "paperEnvelope": [
         {
-          "q": 0.003941125567450769,
-          "speed": 22.129994173746937,
-          "target": 0.04378687882859608,
-          "audioTime": 28.83047619047619
+          "q": 0.005652667432706861,
+          "speed": 32.16278596855371,
+          "target": 0.05238805747446981,
+          "audioTime": 19.472
         },
         {
-          "q": 0.04062502550141466,
-          "speed": 144.0565472025534,
-          "target": 0.08219878240735466,
-          "audioTime": 28.91174603174603
+          "q": 0.0423485176457263,
+          "speed": 141.8070641074436,
+          "target": 0.08197278485981681,
+          "audioTime": 19.552
         },
         {
-          "q": 0.07748838386026016,
-          "speed": 173.7855160864385,
-          "target": 0.08472825059877298,
-          "audioTime": 29.00172335600907
+          "q": 0.07926515934311151,
+          "speed": 174.91528901622053,
+          "target": 0.08481025477431875,
+          "audioTime": 19.632
         },
         {
-          "q": 0.11464318441554353,
-          "speed": 183.19021695516312,
-          "target": 0.08538502267996567,
-          "audioTime": 29.080090702947846
+          "q": 0.11633676600142646,
+          "speed": 183.53071214869288,
+          "target": 0.08540774165530718,
+          "audioTime": 19.712
         },
         {
-          "q": 0.15180129612406104,
-          "speed": 188.58263882774196,
-          "target": 0.08573670190413091,
-          "audioTime": 29.161360544217686
+          "q": 0.15354214901573757,
+          "speed": 187.52986343352921,
+          "target": 0.08566938021563086,
+          "audioTime": 19.8
         },
         {
-          "q": 0.1890303512303164,
-          "speed": 188.51699255639252,
-          "target": 0.08573252254921919,
-          "audioTime": 29.24263038548753
+          "q": 0.19068156810708725,
+          "speed": 186.27873081442522,
+          "target": 0.08558854213017993,
+          "audioTime": 19.88
         },
         {
-          "q": 0.22617517903258708,
-          "speed": 213.11646250715893,
-          "target": 0.08714395877760031,
-          "audioTime": 29.332607709750565
+          "q": 0.22786764625530975,
+          "speed": 187.67447945442584,
+          "target": 0.08567866563103453,
+          "audioTime": 19.96
         },
         {
-          "q": 0.26325896490767875,
-          "speed": 176.63983761231148,
-          "target": 0.08493374388996135,
-          "audioTime": 29.422585034013604
+          "q": 0.26498940940338905,
+          "speed": 185.2586647414409,
+          "target": 0.08552195483408424,
+          "audioTime": 20.050666666666668
         },
         {
-          "q": 0.3001268865213299,
-          "speed": 187.49123127423445,
-          "target": 0.0856668977053203,
-          "audioTime": 29.50095238095238
+          "q": 0.3018035800070995,
+          "speed": 185.05802514911858,
+          "target": 0.08550878502251219,
+          "audioTime": 20.130666666666666
         },
         {
-          "q": 0.33671385275189575,
-          "speed": 186.71609930948355,
-          "target": 0.08561690495511783,
-          "audioTime": 29.58222222222222
+          "q": 0.33846575294312603,
+          "speed": 183.42384578788307,
+          "target": 0.08540061879393862,
+          "audioTime": 20.221333333333334
         },
         {
-          "q": 0.37308545521738595,
-          "speed": 182.72848137701095,
-          "target": 0.08535410074623387,
-          "audioTime": 29.660589569160997
+          "q": 0.37477775131454305,
+          "speed": 186.00452903681236,
+          "target": 0.0855707032833683,
+          "audioTime": 20.301333333333332
         },
         {
-          "q": 0.40904444925291533,
-          "speed": 179.886900328355,
-          "target": 0.08516088087269162,
-          "audioTime": 29.750566893424036
+          "q": 0.4107178653890758,
+          "speed": 182.83638495145348,
+          "target": 0.08536133865739792,
+          "audioTime": 20.381333333333334
         },
         {
-          "q": 0.44456881438219503,
-          "speed": 181.9320647016988,
-          "target": 0.08530045657487674,
-          "audioTime": 29.831836734693876
+          "q": 0.4462202686432878,
+          "speed": 177.632014359806,
+          "target": 0.08500388344936233,
+          "audioTime": 20.461333333333332
         },
         {
-          "q": 0.4796344424489975,
-          "speed": 179.32649046193728,
-          "target": 0.08512217026863377,
-          "audioTime": 29.910204081632653
+          "q": 0.4813025066341495,
+          "speed": 176.96730762226798,
+          "target": 0.08495696612313006,
+          "audioTime": 20.552
         },
         {
-          "q": 0.5140913508260447,
-          "speed": 174.29723098541425,
-          "target": 0.08476550282894074,
-          "audioTime": 30.00018140589569
+          "q": 0.5156486365969933,
+          "speed": 175.6550165220426,
+          "target": 0.08486347156981867,
+          "audioTime": 20.632
         },
         {
-          "q": 0.547956271302084,
-          "speed": 174.60691490851187,
-          "target": 0.08478795918063498,
-          "audioTime": 30.081451247165532
+          "q": 0.5495232698166307,
+          "speed": 171.20373928973223,
+          "target": 0.0845374832499336,
+          "audioTime": 20.712
         },
         {
-          "q": 0.581042778556699,
-          "speed": 169.66079043958,
-          "target": 0.08442117913642151,
-          "audioTime": 30.162721088435376
+          "q": 0.5827719074428805,
+          "speed": 167.60315256349065,
+          "target": 0.08426332481536336,
+          "audioTime": 20.8
         },
         {
-          "q": 0.6069819129166654,
-          "speed": 151.13325786424508,
-          "target": 0.08287413823527828,
-          "audioTime": 30.24108843537415
+          "q": 0.6149776507880959,
+          "speed": 161.73185913182397,
+          "target": 0.0837947617202625,
+          "audioTime": 20.88
         },
         {
-          "q": 0.6387242635011234,
-          "speed": 160.99637919414874,
-          "target": 0.08373408903976093,
-          "audioTime": 30.322358276643993
+          "q": 0.6464310360746583,
+          "speed": 158.61170885802366,
+          "target": 0.0835341998257153,
+          "audioTime": 20.970666666666666
         },
         {
-          "q": 0.6695821185617103,
-          "speed": 159.43044915136127,
-          "target": 0.08360338113871182,
-          "audioTime": 30.400725623582765
+          "q": 0.6770602443667072,
+          "speed": 150.95801328514418,
+          "target": 0.08285803451515848,
+          "audioTime": 21.050666666666668
         },
         {
-          "q": 0.6994541497066148,
-          "speed": 164.42838727715196,
-          "target": 0.08401338354011319,
-          "audioTime": 30.48199546485261
+          "q": 0.7067225753200085,
+          "speed": 152.59863801258706,
+          "target": 0.08300761899166276,
+          "audioTime": 21.130666666666666
         },
         {
-          "q": 0.7339696709385448,
-          "speed": 161.28711977872408,
-          "target": 0.08342556282376673,
-          "audioTime": 30.580680272108843
+          "q": 0.7352845976327821,
+          "speed": 150.04272312060047,
+          "target": 0.08238126679415943,
+          "audioTime": 21.21066666666667
         },
         {
-          "q": 0.7561227336916909,
-          "speed": 129.84818113758823,
-          "target": 0.07864300241899445,
-          "audioTime": 30.661950113378683
+          "q": 0.7628176968003488,
+          "speed": 138.18937861166455,
+          "target": 0.07876959368436201,
+          "audioTime": 21.301333333333332
         },
         {
-          "q": 0.7827535469236487,
-          "speed": 124.9331715159928,
-          "target": 0.07442985506900619,
-          "audioTime": 30.74031746031746
+          "q": 0.7891549927944113,
+          "speed": 135.03539601552896,
+          "target": 0.07442451478732916,
+          "audioTime": 21.381333333333334
         },
         {
-          "q": 0.8082024544182942,
-          "speed": 123.43963348898843,
-          "target": 0.06955420324828238,
-          "audioTime": 30.8302947845805
+          "q": 0.8142643435931529,
+          "speed": 129.33045850183024,
+          "target": 0.06891597584765956,
+          "audioTime": 21.461333333333332
         },
         {
-          "q": 0.837022594819321,
-          "speed": 132.38335976581186,
-          "target": 0.06412787365754222,
-          "audioTime": 30.91156462585034
+          "q": 0.8381077089095624,
+          "speed": 122.85650951311725,
+          "target": 0.06297084223653654,
+          "audioTime": 21.552
         },
         {
-          "q": 0.8507066349314595,
-          "speed": 80.7804778690684,
-          "target": 0.054533460392371454,
-          "audioTime": 31.001541950113378
+          "q": 0.8605620180174358,
+          "speed": 114.61818220178117,
+          "target": 0.056929750947615126,
+          "audioTime": 21.632
         },
         {
-          "q": 0.8724304785819053,
-          "speed": 104.06063823246721,
-          "target": 0.05307358214601398,
-          "audioTime": 31.08281179138322
+          "q": 0.8815908233362381,
+          "speed": 106.40656311378544,
+          "target": 0.05127564684216854,
+          "audioTime": 21.712
         },
         {
-          "q": 0.8926384949667628,
-          "speed": 108.79554063116694,
-          "target": 0.04908557285250706,
-          "audioTime": 31.161179138321994
+          "q": 0.9011508300748129,
+          "speed": 100.36129737818325,
+          "target": 0.04643209142963887,
+          "audioTime": 21.8
         },
         {
-          "q": 0.9112971104101557,
-          "speed": 96.55643611884895,
-          "target": 0.04400152269310627,
-          "audioTime": 31.251156462585033
+          "q": 0.919129239350069,
+          "speed": 91.96489306618903,
+          "target": 0.042034071703510645,
+          "audioTime": 21.88
         },
         {
-          "q": 0.9284049467208568,
-          "speed": 86.64362306887297,
-          "target": 0.03982035222125906,
-          "audioTime": 31.341133786848072
+          "q": 0.9354845862425033,
+          "speed": 83.73966291933287,
+          "target": 0.03835191677329908,
+          "audioTime": 21.96
         },
         {
-          "q": 0.9438492248641911,
-          "speed": 79.1086558914268,
-          "target": 0.03658031308109949,
-          "audioTime": 31.422403628117912
+          "q": 0.9501676096765677,
+          "speed": 72.64964185705335,
+          "target": 0.03492518151619014,
+          "audioTime": 22.050666666666668
         },
         {
-          "q": 0.95754849858722,
-          "speed": 69.1967814875622,
-          "target": 0.03360705908876631,
-          "audioTime": 31.51238095238095
+          "q": 0.9630772061727776,
+          "speed": 65.81925290825146,
+          "target": 0.03256807597483684,
+          "audioTime": 22.141333333333332
         },
         {
-          "q": 0.9694564690289986,
-          "speed": 54.42988888901098,
-          "target": 0.030131406659850868,
-          "audioTime": 31.60235827664399
+          "q": 0.9741661816924158,
+          "speed": 56.563420104756474,
+          "target": 0.030194644170483922,
+          "audioTime": 22.221333333333334
         },
         {
-          "q": 0.9813034728421097,
-          "speed": 55.08412611554439,
-          "target": 0.02953104527057044,
-          "audioTime": 31.680725623582767
+          "q": 0.9833687097120442,
+          "speed": 50.38845959568788,
+          "target": 0.028546272507813275,
+          "audioTime": 22.301333333333332
         },
         {
-          "q": 0.989027462195851,
-          "speed": 44.009761292225505,
-          "target": 0.026975093140027297,
-          "audioTime": 31.770702947845805
+          "q": 0.9906264678660283,
+          "speed": 38.842748322977485,
+          "target": 0.02564438970979251,
+          "audioTime": 22.392
         },
         {
-          "q": 0.9947655829834791,
-          "speed": 35.675544709714146,
-          "target": 0.024688448057420927,
-          "audioTime": 31.851972789115646
+          "q": 0.9958561590664415,
+          "speed": 29.63618644374065,
+          "target": 0.02273775496393019,
+          "audioTime": 22.472
         },
         {
-          "q": 0.9978660689064967,
-          "speed": 22.609137426304372,
-          "target": 0.019926065052966607,
-          "audioTime": 31.921632653061224
-        },
-        {
-          "q": 0.9998239008221916,
-          "speed": 12.274790575950778,
-          "target": 0.014118565567855137,
-          "audioTime": 32.01160997732426
+          "q": 0.9990018441730953,
+          "speed": 19.520628698040753,
+          "target": 0.01844564026174026,
+          "audioTime": 22.552
         }
       ]
     },
@@ -4456,7 +4447,7 @@
     "viewer": {
       "progress": 1,
       "paperProgress": 1,
-      "renderCount": 328,
+      "renderCount": 349,
       "vertices": 14893,
       "camera": [
         0,
@@ -4519,7 +4510,7 @@
       "sealRelief": true,
       "runtime": {
         "motionPrepared": true,
-        "preparationMs": 10821.09999999404,
+        "preparationMs": 10556.700000047684,
         "preparedPrograms": 11,
         "programs": 11
       },
@@ -4580,7 +4571,7 @@
           "wrapS": 1000,
           "wrapT": 1000,
           "colorSpace": "",
-          "source": "https://64e3da81.the-second-language.pages.dev/labs/chapter-scroll-v4/assets/skin-normal.jpg"
+          "source": "https://the-second-language.pages.dev/labs/chapter-scroll-v4/assets/skin-normal.jpg"
         },
         "roughness": {
           "repeat": [
@@ -4590,7 +4581,7 @@
           "wrapS": 1000,
           "wrapT": 1000,
           "colorSpace": "",
-          "source": "https://64e3da81.the-second-language.pages.dev/labs/chapter-scroll-v4/assets/skin-roughness.jpg"
+          "source": "https://the-second-language.pages.dev/labs/chapter-scroll-v4/assets/skin-roughness.jpg"
         },
         "sheen": 0,
         "specularIntensity": 0,
@@ -4909,14 +4900,14 @@
         "artSeed": 1250152853,
         "fixedSurfaces": true,
         "frozen": true,
-        "frozenManifestURL": "https://64e3da81.the-second-language.pages.dev/labs/project-beginning/assets/surfaces.json"
+        "frozenManifestURL": "https://the-second-language.pages.dev/labs/project-beginning/assets/surfaces.json"
       },
       "mist": {
         "available": true,
         "enabled": true,
-        "frames": 324,
-        "time": 12.799999999999965,
-        "interactionEnergy": 0.5081488515329557,
+        "frames": 310,
+        "time": 12.3333333333333,
+        "interactionEnergy": 0.5107945844534756,
         "drive": [
           0,
           0,
@@ -4927,14 +4918,14 @@
         "simulationHz": 30,
         "fixedDirectionalInlet": false,
         "regionalVelocities": [
-          -0.0012458189644839151,
-          -0.0012474971396618326,
-          -0.014399182034280892,
-          -0.0022487357160042402,
-          -0.004659894163645824,
-          0.008025681350801245,
-          0.059216991001503655,
-          0.006076883544988742
+          -0.002254423314511624,
+          -0.0021286800629488176,
+          -0.014442243321960636,
+          -0.0019586381445980514,
+          -0.005815060247186998,
+          0.009847673603646794,
+          0.05414097624148416,
+          0.006728391890066714
         ],
         "confinement": 0.38
       },
@@ -4951,8 +4942,8 @@
       "foleyVolume": 0.65,
       "contextState": "running",
       "musicTrack": "a-new-town",
-      "musicPosition": 36.50176870748299,
-      "musicDuration": 62.25655328798186,
+      "musicPosition": 28.74133333333333,
+      "musicDuration": 62.2565625,
       "musicState": "playing",
       "restRemainingMs": 0,
       "completedPlays": 0,
@@ -4961,16 +4952,16 @@
       "downloaded": 13,
       "decoded": [
         "bendOpen",
-        "tailClose",
         "tailOpen",
-        "bendClose",
         "holeClose",
+        "bendClose",
         "holeOpen",
-        "slideOpen",
-        "seat",
-        "slideClose",
         "park",
+        "seat",
+        "slideOpen",
         "paperUnroll",
+        "slideClose",
+        "tailClose",
         "paperRollup",
         "music"
       ],
@@ -4990,10 +4981,10 @@
       "contacts": [
         {
           "kind": "prong-park",
-          "progress": 0.31221933453060163,
-          "r": 0.780548336326504,
+          "progress": 0.3090693670624362,
+          "r": 0.7726734176560904,
           "phase": "park-pin",
-          "pin": -1.2
+          "pin": -1.1691818709535877
         }
       ],
       "listeningReview": "Pitch-preserving stretched Adobe performances with a continuous quiet tail; user adopted for normal automatic opening/closing on 2026-10-23. Original A/B keeper unchanged.",
@@ -5007,13 +4998,13 @@
           "key": "bendOpen",
           "mode": "automatic",
           "direction": 1,
-          "audioTime": 26.42140589569161,
-          "wallTime": 36587.30000001192,
+          "audioTime": 17.032,
+          "wallTime": 21743.600000023842,
           "offset": 0,
           "duration": 0.9,
           "gain": 0.9,
-          "progress": 0.000026946000000009323,
-          "r": 0.0000673650000000233,
+          "progress": 0.0000014543627207136029,
+          "r": 0.000003635906801784007,
           "phase": "unload-hole",
           "contact": false
         },
@@ -5021,13 +5012,13 @@
           "key": "holeOpen",
           "mode": "automatic",
           "direction": 1,
-          "audioTime": 27.332789115646257,
-          "wallTime": 37502.90000000596,
+          "audioTime": 17.952,
+          "wallTime": 22659.19999998808,
           "offset": 0,
           "duration": 0.42,
           "gain": 0.7,
-          "progress": 0.07408399499243826,
-          "r": 0.18520998748109563,
+          "progress": 0.0721895967376327,
+          "r": 0.18047399184408175,
           "phase": "release-hole",
           "contact": false
         },
@@ -5035,13 +5026,13 @@
           "key": "tailOpen",
           "mode": "automatic",
           "direction": 1,
-          "audioTime": 27.750748299319728,
-          "wallTime": 37917.60000002384,
+          "audioTime": 18.381333333333334,
+          "wallTime": 23092.19999998808,
           "offset": 0,
-          "duration": 0.6499773242630386,
+          "duration": 0.65,
           "gain": 0.95,
-          "progress": 0.1463459627083976,
-          "r": 0.3658649067709939,
+          "progress": 0.14709160730669835,
+          "r": 0.36772901826674587,
           "phase": "withdraw-tail",
           "contact": false
         },
@@ -5049,13 +5040,13 @@
           "key": "park",
           "mode": "automatic",
           "direction": 1,
-          "audioTime": 28.4821768707483,
-          "wallTime": 38649.10000002384,
+          "audioTime": 19.101333333333333,
+          "wallTime": 23809.19999998808,
           "offset": 0,
-          "duration": 0.17752834467120182,
+          "duration": 0.17754166666666665,
           "gain": 0.4,
-          "progress": 0.31221933453060163,
-          "r": 0.780548336326504,
+          "progress": 0.3090693670624362,
+          "r": 0.7726734176560904,
           "phase": "park-pin",
           "contact": true
         },
@@ -5063,21 +5054,21 @@
           "key": "slideOpen",
           "mode": "automatic",
           "direction": 1,
-          "audioTime": 28.50249433106576,
-          "wallTime": 38666.20000001788,
+          "audioTime": 19.130666666666666,
+          "wallTime": 23841.899999976158,
           "offset": 0,
-          "duration": 0.23997732426303856,
+          "duration": 0.24,
           "gain": 0.65,
-          "progress": 0.3164313618462893,
-          "r": 0.7910784046157232,
+          "progress": 0.31738596576557965,
+          "r": 0.7934649144139491,
           "phase": "slide-clear",
           "contact": false
         },
         {
           "key": "paperUnroll",
-          "progress": 0.4023646753404705,
-          "paperProgress": 0.003941125567450769,
-          "audioTime": 28.83047619047619,
+          "progress": 0.40339160045962413,
+          "paperProgress": 0.005652667432706861,
+          "audioTime": 19.472,
           "offset": 0,
           "rate": 1,
           "loop": false,
@@ -5093,238 +5084,232 @@
       "maximumPaperGain": 0.1,
       "paperEnvelope": [
         {
-          "q": 0.003941125567450769,
-          "speed": 22.129994173746937,
-          "target": 0.04378687882859608,
-          "audioTime": 28.83047619047619
+          "q": 0.005652667432706861,
+          "speed": 32.16278596855371,
+          "target": 0.05238805747446981,
+          "audioTime": 19.472
         },
         {
-          "q": 0.04062502550141466,
-          "speed": 144.0565472025534,
-          "target": 0.08219878240735466,
-          "audioTime": 28.91174603174603
+          "q": 0.0423485176457263,
+          "speed": 141.8070641074436,
+          "target": 0.08197278485981681,
+          "audioTime": 19.552
         },
         {
-          "q": 0.07748838386026016,
-          "speed": 173.7855160864385,
-          "target": 0.08472825059877298,
-          "audioTime": 29.00172335600907
+          "q": 0.07926515934311151,
+          "speed": 174.91528901622053,
+          "target": 0.08481025477431875,
+          "audioTime": 19.632
         },
         {
-          "q": 0.11464318441554353,
-          "speed": 183.19021695516312,
-          "target": 0.08538502267996567,
-          "audioTime": 29.080090702947846
+          "q": 0.11633676600142646,
+          "speed": 183.53071214869288,
+          "target": 0.08540774165530718,
+          "audioTime": 19.712
         },
         {
-          "q": 0.15180129612406104,
-          "speed": 188.58263882774196,
-          "target": 0.08573670190413091,
-          "audioTime": 29.161360544217686
+          "q": 0.15354214901573757,
+          "speed": 187.52986343352921,
+          "target": 0.08566938021563086,
+          "audioTime": 19.8
         },
         {
-          "q": 0.1890303512303164,
-          "speed": 188.51699255639252,
-          "target": 0.08573252254921919,
-          "audioTime": 29.24263038548753
+          "q": 0.19068156810708725,
+          "speed": 186.27873081442522,
+          "target": 0.08558854213017993,
+          "audioTime": 19.88
         },
         {
-          "q": 0.22617517903258708,
-          "speed": 213.11646250715893,
-          "target": 0.08714395877760031,
-          "audioTime": 29.332607709750565
+          "q": 0.22786764625530975,
+          "speed": 187.67447945442584,
+          "target": 0.08567866563103453,
+          "audioTime": 19.96
         },
         {
-          "q": 0.26325896490767875,
-          "speed": 176.63983761231148,
-          "target": 0.08493374388996135,
-          "audioTime": 29.422585034013604
+          "q": 0.26498940940338905,
+          "speed": 185.2586647414409,
+          "target": 0.08552195483408424,
+          "audioTime": 20.050666666666668
         },
         {
-          "q": 0.3001268865213299,
-          "speed": 187.49123127423445,
-          "target": 0.0856668977053203,
-          "audioTime": 29.50095238095238
+          "q": 0.3018035800070995,
+          "speed": 185.05802514911858,
+          "target": 0.08550878502251219,
+          "audioTime": 20.130666666666666
         },
         {
-          "q": 0.33671385275189575,
-          "speed": 186.71609930948355,
-          "target": 0.08561690495511783,
-          "audioTime": 29.58222222222222
+          "q": 0.33846575294312603,
+          "speed": 183.42384578788307,
+          "target": 0.08540061879393862,
+          "audioTime": 20.221333333333334
         },
         {
-          "q": 0.37308545521738595,
-          "speed": 182.72848137701095,
-          "target": 0.08535410074623387,
-          "audioTime": 29.660589569160997
+          "q": 0.37477775131454305,
+          "speed": 186.00452903681236,
+          "target": 0.0855707032833683,
+          "audioTime": 20.301333333333332
         },
         {
-          "q": 0.40904444925291533,
-          "speed": 179.886900328355,
-          "target": 0.08516088087269162,
-          "audioTime": 29.750566893424036
+          "q": 0.4107178653890758,
+          "speed": 182.83638495145348,
+          "target": 0.08536133865739792,
+          "audioTime": 20.381333333333334
         },
         {
-          "q": 0.44456881438219503,
-          "speed": 181.9320647016988,
-          "target": 0.08530045657487674,
-          "audioTime": 29.831836734693876
+          "q": 0.4462202686432878,
+          "speed": 177.632014359806,
+          "target": 0.08500388344936233,
+          "audioTime": 20.461333333333332
         },
         {
-          "q": 0.4796344424489975,
-          "speed": 179.32649046193728,
-          "target": 0.08512217026863377,
-          "audioTime": 29.910204081632653
+          "q": 0.4813025066341495,
+          "speed": 176.96730762226798,
+          "target": 0.08495696612313006,
+          "audioTime": 20.552
         },
         {
-          "q": 0.5140913508260447,
-          "speed": 174.29723098541425,
-          "target": 0.08476550282894074,
-          "audioTime": 30.00018140589569
+          "q": 0.5156486365969933,
+          "speed": 175.6550165220426,
+          "target": 0.08486347156981867,
+          "audioTime": 20.632
         },
         {
-          "q": 0.547956271302084,
-          "speed": 174.60691490851187,
-          "target": 0.08478795918063498,
-          "audioTime": 30.081451247165532
+          "q": 0.5495232698166307,
+          "speed": 171.20373928973223,
+          "target": 0.0845374832499336,
+          "audioTime": 20.712
         },
         {
-          "q": 0.581042778556699,
-          "speed": 169.66079043958,
-          "target": 0.08442117913642151,
-          "audioTime": 30.162721088435376
+          "q": 0.5827719074428805,
+          "speed": 167.60315256349065,
+          "target": 0.08426332481536336,
+          "audioTime": 20.8
         },
         {
-          "q": 0.6069819129166654,
-          "speed": 151.13325786424508,
-          "target": 0.08287413823527828,
-          "audioTime": 30.24108843537415
+          "q": 0.6149776507880959,
+          "speed": 161.73185913182397,
+          "target": 0.0837947617202625,
+          "audioTime": 20.88
         },
         {
-          "q": 0.6387242635011234,
-          "speed": 160.99637919414874,
-          "target": 0.08373408903976093,
-          "audioTime": 30.322358276643993
+          "q": 0.6464310360746583,
+          "speed": 158.61170885802366,
+          "target": 0.0835341998257153,
+          "audioTime": 20.970666666666666
         },
         {
-          "q": 0.6695821185617103,
-          "speed": 159.43044915136127,
-          "target": 0.08360338113871182,
-          "audioTime": 30.400725623582765
+          "q": 0.6770602443667072,
+          "speed": 150.95801328514418,
+          "target": 0.08285803451515848,
+          "audioTime": 21.050666666666668
         },
         {
-          "q": 0.6994541497066148,
-          "speed": 164.42838727715196,
-          "target": 0.08401338354011319,
-          "audioTime": 30.48199546485261
+          "q": 0.7067225753200085,
+          "speed": 152.59863801258706,
+          "target": 0.08300761899166276,
+          "audioTime": 21.130666666666666
         },
         {
-          "q": 0.7339696709385448,
-          "speed": 161.28711977872408,
-          "target": 0.08342556282376673,
-          "audioTime": 30.580680272108843
+          "q": 0.7352845976327821,
+          "speed": 150.04272312060047,
+          "target": 0.08238126679415943,
+          "audioTime": 21.21066666666667
         },
         {
-          "q": 0.7561227336916909,
-          "speed": 129.84818113758823,
-          "target": 0.07864300241899445,
-          "audioTime": 30.661950113378683
+          "q": 0.7628176968003488,
+          "speed": 138.18937861166455,
+          "target": 0.07876959368436201,
+          "audioTime": 21.301333333333332
         },
         {
-          "q": 0.7827535469236487,
-          "speed": 124.9331715159928,
-          "target": 0.07442985506900619,
-          "audioTime": 30.74031746031746
+          "q": 0.7891549927944113,
+          "speed": 135.03539601552896,
+          "target": 0.07442451478732916,
+          "audioTime": 21.381333333333334
         },
         {
-          "q": 0.8082024544182942,
-          "speed": 123.43963348898843,
-          "target": 0.06955420324828238,
-          "audioTime": 30.8302947845805
+          "q": 0.8142643435931529,
+          "speed": 129.33045850183024,
+          "target": 0.06891597584765956,
+          "audioTime": 21.461333333333332
         },
         {
-          "q": 0.837022594819321,
-          "speed": 132.38335976581186,
-          "target": 0.06412787365754222,
-          "audioTime": 30.91156462585034
+          "q": 0.8381077089095624,
+          "speed": 122.85650951311725,
+          "target": 0.06297084223653654,
+          "audioTime": 21.552
         },
         {
-          "q": 0.8507066349314595,
-          "speed": 80.7804778690684,
-          "target": 0.054533460392371454,
-          "audioTime": 31.001541950113378
+          "q": 0.8605620180174358,
+          "speed": 114.61818220178117,
+          "target": 0.056929750947615126,
+          "audioTime": 21.632
         },
         {
-          "q": 0.8724304785819053,
-          "speed": 104.06063823246721,
-          "target": 0.05307358214601398,
-          "audioTime": 31.08281179138322
+          "q": 0.8815908233362381,
+          "speed": 106.40656311378544,
+          "target": 0.05127564684216854,
+          "audioTime": 21.712
         },
         {
-          "q": 0.8926384949667628,
-          "speed": 108.79554063116694,
-          "target": 0.04908557285250706,
-          "audioTime": 31.161179138321994
+          "q": 0.9011508300748129,
+          "speed": 100.36129737818325,
+          "target": 0.04643209142963887,
+          "audioTime": 21.8
         },
         {
-          "q": 0.9112971104101557,
-          "speed": 96.55643611884895,
-          "target": 0.04400152269310627,
-          "audioTime": 31.251156462585033
+          "q": 0.919129239350069,
+          "speed": 91.96489306618903,
+          "target": 0.042034071703510645,
+          "audioTime": 21.88
         },
         {
-          "q": 0.9284049467208568,
-          "speed": 86.64362306887297,
-          "target": 0.03982035222125906,
-          "audioTime": 31.341133786848072
+          "q": 0.9354845862425033,
+          "speed": 83.73966291933287,
+          "target": 0.03835191677329908,
+          "audioTime": 21.96
         },
         {
-          "q": 0.9438492248641911,
-          "speed": 79.1086558914268,
-          "target": 0.03658031308109949,
-          "audioTime": 31.422403628117912
+          "q": 0.9501676096765677,
+          "speed": 72.64964185705335,
+          "target": 0.03492518151619014,
+          "audioTime": 22.050666666666668
         },
         {
-          "q": 0.95754849858722,
-          "speed": 69.1967814875622,
-          "target": 0.03360705908876631,
-          "audioTime": 31.51238095238095
+          "q": 0.9630772061727776,
+          "speed": 65.81925290825146,
+          "target": 0.03256807597483684,
+          "audioTime": 22.141333333333332
         },
         {
-          "q": 0.9694564690289986,
-          "speed": 54.42988888901098,
-          "target": 0.030131406659850868,
-          "audioTime": 31.60235827664399
+          "q": 0.9741661816924158,
+          "speed": 56.563420104756474,
+          "target": 0.030194644170483922,
+          "audioTime": 22.221333333333334
         },
         {
-          "q": 0.9813034728421097,
-          "speed": 55.08412611554439,
-          "target": 0.02953104527057044,
-          "audioTime": 31.680725623582767
+          "q": 0.9833687097120442,
+          "speed": 50.38845959568788,
+          "target": 0.028546272507813275,
+          "audioTime": 22.301333333333332
         },
         {
-          "q": 0.989027462195851,
-          "speed": 44.009761292225505,
-          "target": 0.026975093140027297,
-          "audioTime": 31.770702947845805
+          "q": 0.9906264678660283,
+          "speed": 38.842748322977485,
+          "target": 0.02564438970979251,
+          "audioTime": 22.392
         },
         {
-          "q": 0.9947655829834791,
-          "speed": 35.675544709714146,
-          "target": 0.024688448057420927,
-          "audioTime": 31.851972789115646
+          "q": 0.9958561590664415,
+          "speed": 29.63618644374065,
+          "target": 0.02273775496393019,
+          "audioTime": 22.472
         },
         {
-          "q": 0.9978660689064967,
-          "speed": 22.609137426304372,
-          "target": 0.019926065052966607,
-          "audioTime": 31.921632653061224
-        },
-        {
-          "q": 0.9998239008221916,
-          "speed": 12.274790575950778,
-          "target": 0.014118565567855137,
-          "audioTime": 32.01160997732426
+          "q": 0.9990018441730953,
+          "speed": 19.520628698040753,
+          "target": 0.01844564026174026,
+          "audioTime": 22.552
         }
       ]
     },
@@ -5365,20 +5350,19 @@
         "completedPlays": 0,
         "musicVoices": 0,
         "foleyVoices": 0,
-        "downloaded": 13,
+        "downloaded": 12,
         "decoded": [
-          "bendClose",
-          "holeClose",
-          "holeOpen",
           "bendOpen",
+          "holeClose",
           "slideOpen",
-          "slideClose",
-          "park",
-          "seat",
-          "tailOpen",
+          "holeOpen",
           "tailClose",
+          "seat",
+          "slideClose",
+          "bendClose",
+          "park",
           "paperRollup",
-          "paperUnroll"
+          "tailOpen"
         ],
         "failures": {},
         "eventsPlayed": 0,
@@ -5429,154 +5413,157 @@
   "missing": [],
   "writes": [],
   "resources": [
-    "https://64e3da81.the-second-language.pages.dev/",
-    "https://64e3da81.the-second-language.pages.dev/styles.css?v=41",
-    "https://64e3da81.the-second-language.pages.dev/icon.svg?v=41",
-    "https://64e3da81.the-second-language.pages.dev/icon-192.png?v=41",
-    "https://64e3da81.the-second-language.pages.dev/app.js?v=42",
-    "https://64e3da81.the-second-language.pages.dev/chapter-quality.js?v=41",
-    "https://64e3da81.the-second-language.pages.dev/reader-jump.js?v=41",
-    "https://64e3da81.the-second-language.pages.dev/pure-reader.js?v=41",
-    "https://64e3da81.the-second-language.pages.dev/chapters.js?v=41",
-    "https://64e3da81.the-second-language.pages.dev/settings.js?v=41",
-    "https://64e3da81.the-second-language.pages.dev/audio-config.js?v=41",
-    "https://64e3da81.the-second-language.pages.dev/reader-speech.js?v=41",
-    "https://64e3da81.the-second-language.pages.dev/render.js?v=41",
-    "https://64e3da81.the-second-language.pages.dev/annotations.js?v=41",
-    "https://64e3da81.the-second-language.pages.dev/practice.js?v=41",
-    "https://64e3da81.the-second-language.pages.dev/balances.js?v=41",
-    "https://64e3da81.the-second-language.pages.dev/storage-usage.js?v=41",
-    "https://64e3da81.the-second-language.pages.dev/certification-reader.js?v=42",
-    "https://64e3da81.the-second-language.pages.dev/chapter-tests.js?v=41",
-    "https://64e3da81.the-second-language.pages.dev/questions.js?v=41",
-    "https://64e3da81.the-second-language.pages.dev/audio-library.js?v=41",
-    "https://64e3da81.the-second-language.pages.dev/text.js?v=41",
-    "https://64e3da81.the-second-language.pages.dev/reader-focus.js?v=41",
-    "https://64e3da81.the-second-language.pages.dev/question-pairs.js?v=41",
-    "https://64e3da81.the-second-language.pages.dev/audio-plan.js?v=41",
-    "https://64e3da81.the-second-language.pages.dev/chapter-test-recorder.js?v=41",
-    "https://64e3da81.the-second-language.pages.dev/practice-workspace.js?v=41",
-    "https://64e3da81.the-second-language.pages.dev/recorder.js?v=41",
-    "https://64e3da81.the-second-language.pages.dev/reading.js?v=41",
-    "https://64e3da81.the-second-language.pages.dev/listening.js?v=41",
-    "https://64e3da81.the-second-language.pages.dev/labs/certification-reader/sound.js?v=42",
-    "https://64e3da81.the-second-language.pages.dev/exam-spec.js?v=41",
-    "https://64e3da81.the-second-language.pages.dev/objective.js?v=41",
-    "https://64e3da81.the-second-language.pages.dev/labs/certification-reader/keeper-sound.js?v=42",
-    "https://64e3da81.the-second-language.pages.dev/labs/certification-reader/sound-base.js?v=42",
-    "https://64e3da81.the-second-language.pages.dev/labs/certification-reader/material-motion.js?v=41",
-    "https://64e3da81.the-second-language.pages.dev/api/session",
-    "https://64e3da81.the-second-language.pages.dev/api/chapters",
-    "https://64e3da81.the-second-language.pages.dev/api/audio-config",
-    "https://64e3da81.the-second-language.pages.dev/labs/certification-reader/reader.bundle.js?v=41",
-    "https://64e3da81.the-second-language.pages.dev/labs/certification-reader/assets/audio-foley/v42/bendOpen.wav",
-    "https://64e3da81.the-second-language.pages.dev/labs/certification-reader/assets/audio-foley/v42/bendClose.wav",
-    "https://64e3da81.the-second-language.pages.dev/labs/certification-reader/assets/audio-foley/v42/holeOpen.wav",
-    "https://64e3da81.the-second-language.pages.dev/labs/certification-reader/assets/audio-foley/v42/holeClose.wav",
-    "https://64e3da81.the-second-language.pages.dev/labs/certification-reader/assets/audio-foley/v42/tailOpen.wav",
-    "https://64e3da81.the-second-language.pages.dev/labs/certification-reader/assets/audio-foley/v42/tailClose.wav",
-    "https://64e3da81.the-second-language.pages.dev/labs/certification-reader/assets/audio-foley/v42/slideOpen.wav",
-    "https://64e3da81.the-second-language.pages.dev/labs/certification-reader/assets/audio-foley/v42/slideClose.wav",
-    "https://64e3da81.the-second-language.pages.dev/labs/certification-reader/assets/audio-foley/v42/park.wav",
-    "https://64e3da81.the-second-language.pages.dev/labs/certification-reader/assets/audio-foley/v42/seat.wav",
-    "https://64e3da81.the-second-language.pages.dev/labs/certification-reader/assets/audio-music/a-new-town.mp3",
-    "https://64e3da81.the-second-language.pages.dev/labs/certification-reader/assets/audio-foley/v42/paper-unroll-v5.wav",
-    "https://64e3da81.the-second-language.pages.dev/labs/certification-reader/assets/audio-foley/v42/paper-rollup-v5.wav",
-    "https://64e3da81.the-second-language.pages.dev/labs/project-beginning/record.json",
-    "https://64e3da81.the-second-language.pages.dev/labs/project-beginning/art-plan.json",
-    "https://64e3da81.the-second-language.pages.dev/labs/chapter-scroll-v14/assets/unused-keeper.png",
-    "https://64e3da81.the-second-language.pages.dev/labs/project-beginning/assets/surfaces.json",
-    "https://64e3da81.the-second-language.pages.dev/labs/project-beginning/assets/final-front.png",
-    "https://64e3da81.the-second-language.pages.dev/labs/project-beginning/assets/final-back.png",
-    "https://64e3da81.the-second-language.pages.dev/labs/project-beginning/assets/final-ink.png",
-    "https://64e3da81.the-second-language.pages.dev/labs/project-beginning/assets/final-relief.png",
-    "https://64e3da81.the-second-language.pages.dev/labs/project-beginning/assets/final-seal-ink.png",
-    "https://64e3da81.the-second-language.pages.dev/labs/project-beginning/assets/final-seal-mask.png",
-    "https://64e3da81.the-second-language.pages.dev/labs/chapter-scroll-v3/assets/studio.hdr",
-    "https://64e3da81.the-second-language.pages.dev/labs/chapter-scroll-v17/keeper-path.json",
-    "https://64e3da81.the-second-language.pages.dev/labs/chapter-scroll-v4/assets/skin-normal.jpg",
-    "https://64e3da81.the-second-language.pages.dev/labs/chapter-scroll-v4/assets/skin-roughness.jpg",
-    "https://64e3da81.the-second-language.pages.dev/labs/certification-reader/assets/keeper-display.glb",
-    "https://64e3da81.the-second-language.pages.dev/labs/chapter-scroll-v19/assets/leather-color.webp",
-    "https://64e3da81.the-second-language.pages.dev/labs/chapter-scroll-v19/assets/leather-orm.webp",
-    "https://64e3da81.the-second-language.pages.dev/labs/chapter-scroll-v19/assets/leather-normal.webp",
-    "https://64e3da81.the-second-language.pages.dev/labs/chapter-scroll-v19/assets/bronze-color.webp",
-    "https://64e3da81.the-second-language.pages.dev/labs/chapter-scroll-v19/assets/bronze-orm.webp",
-    "https://64e3da81.the-second-language.pages.dev/labs/chapter-scroll-v19/assets/bronze-normal.webp",
-    "https://64e3da81.the-second-language.pages.dev/labs/chapter-scroll-v17/vendor/noise2D.glsl"
+    "https://the-second-language.pages.dev/",
+    "https://the-second-language.pages.dev/styles.css?v=43",
+    "https://the-second-language.pages.dev/icon.svg?v=41",
+    "https://the-second-language.pages.dev/icon-192.png?v=41",
+    "https://the-second-language.pages.dev/app.js?v=43",
+    "https://the-second-language.pages.dev/chapter-quality.js?v=41",
+    "https://the-second-language.pages.dev/reader-jump.js?v=41",
+    "https://the-second-language.pages.dev/pure-reader.js?v=41",
+    "https://the-second-language.pages.dev/chapters.js?v=41",
+    "https://the-second-language.pages.dev/settings.js?v=41",
+    "https://the-second-language.pages.dev/audio-config.js?v=41",
+    "https://the-second-language.pages.dev/reader-speech.js?v=41",
+    "https://the-second-language.pages.dev/render.js?v=41",
+    "https://the-second-language.pages.dev/annotations.js?v=41",
+    "https://the-second-language.pages.dev/practice.js?v=41",
+    "https://the-second-language.pages.dev/balances.js?v=41",
+    "https://the-second-language.pages.dev/storage-usage.js?v=41",
+    "https://the-second-language.pages.dev/certification-reader.js?v=43",
+    "https://the-second-language.pages.dev/chapter-tests.js?v=43",
+    "https://the-second-language.pages.dev/questions.js?v=41",
+    "https://the-second-language.pages.dev/audio-library.js?v=41",
+    "https://the-second-language.pages.dev/reader-focus.js?v=41",
+    "https://the-second-language.pages.dev/audio-plan.js?v=41",
+    "https://the-second-language.pages.dev/practice-workspace.js?v=41",
+    "https://the-second-language.pages.dev/recorder.js?v=41",
+    "https://the-second-language.pages.dev/reading.js?v=41",
+    "https://the-second-language.pages.dev/listening.js?v=41",
+    "https://the-second-language.pages.dev/text.js?v=41",
+    "https://the-second-language.pages.dev/question-pairs.js?v=41",
+    "https://the-second-language.pages.dev/chapter-test-recorder.js?v=41",
+    "https://the-second-language.pages.dev/chapter-certification.js?v=43",
+    "https://the-second-language.pages.dev/labs/certification-reader/sound.js?v=42",
+    "https://the-second-language.pages.dev/objective.js?v=41",
+    "https://the-second-language.pages.dev/exam-spec.js?v=41",
+    "https://the-second-language.pages.dev/labs/certification-reader/keeper-sound.js?v=42",
+    "https://the-second-language.pages.dev/labs/certification-reader/sound-base.js?v=42",
+    "https://the-second-language.pages.dev/labs/certification-reader/material-motion.js?v=41",
+    "https://the-second-language.pages.dev/api/session",
+    "https://the-second-language.pages.dev/api/chapters",
+    "https://the-second-language.pages.dev/api/audio-config",
+    "https://the-second-language.pages.dev/api/scrolls",
+    "https://the-second-language.pages.dev/labs/certification-reader/reader.bundle.js?v=43",
+    "https://the-second-language.pages.dev/labs/certification-reader/assets/audio-foley/v42/bendOpen.wav",
+    "https://the-second-language.pages.dev/labs/certification-reader/assets/audio-foley/v42/bendClose.wav",
+    "https://the-second-language.pages.dev/labs/certification-reader/assets/audio-foley/v42/holeOpen.wav",
+    "https://the-second-language.pages.dev/labs/certification-reader/assets/audio-foley/v42/holeClose.wav",
+    "https://the-second-language.pages.dev/labs/certification-reader/assets/audio-foley/v42/tailOpen.wav",
+    "https://the-second-language.pages.dev/labs/certification-reader/assets/audio-foley/v42/tailClose.wav",
+    "https://the-second-language.pages.dev/labs/certification-reader/assets/audio-foley/v42/slideOpen.wav",
+    "https://the-second-language.pages.dev/labs/certification-reader/assets/audio-foley/v42/slideClose.wav",
+    "https://the-second-language.pages.dev/labs/certification-reader/assets/audio-foley/v42/park.wav",
+    "https://the-second-language.pages.dev/labs/certification-reader/assets/audio-foley/v42/seat.wav",
+    "https://the-second-language.pages.dev/labs/certification-reader/assets/audio-music/a-new-town.mp3",
+    "https://the-second-language.pages.dev/labs/certification-reader/assets/audio-foley/v42/paper-unroll-v5.wav",
+    "https://the-second-language.pages.dev/labs/certification-reader/assets/audio-foley/v42/paper-rollup-v5.wav",
+    "https://the-second-language.pages.dev/labs/project-beginning/record.json",
+    "https://the-second-language.pages.dev/labs/project-beginning/art-plan.json",
+    "https://the-second-language.pages.dev/labs/chapter-scroll-v14/assets/unused-keeper.png",
+    "https://the-second-language.pages.dev/labs/project-beginning/assets/surfaces.json",
+    "https://the-second-language.pages.dev/labs/project-beginning/assets/final-front.png",
+    "https://the-second-language.pages.dev/labs/project-beginning/assets/final-back.png",
+    "https://the-second-language.pages.dev/labs/project-beginning/assets/final-ink.png",
+    "https://the-second-language.pages.dev/labs/project-beginning/assets/final-relief.png",
+    "https://the-second-language.pages.dev/labs/project-beginning/assets/final-seal-ink.png",
+    "https://the-second-language.pages.dev/labs/project-beginning/assets/final-seal-mask.png",
+    "https://the-second-language.pages.dev/labs/chapter-scroll-v3/assets/studio.hdr",
+    "https://the-second-language.pages.dev/labs/chapter-scroll-v17/keeper-path.json",
+    "https://the-second-language.pages.dev/labs/chapter-scroll-v4/assets/skin-normal.jpg",
+    "https://the-second-language.pages.dev/labs/chapter-scroll-v4/assets/skin-roughness.jpg",
+    "https://the-second-language.pages.dev/labs/certification-reader/assets/keeper-display.glb",
+    "https://the-second-language.pages.dev/labs/chapter-scroll-v19/assets/leather-color.webp",
+    "https://the-second-language.pages.dev/labs/chapter-scroll-v19/assets/leather-orm.webp",
+    "https://the-second-language.pages.dev/labs/chapter-scroll-v19/assets/leather-normal.webp",
+    "https://the-second-language.pages.dev/labs/chapter-scroll-v19/assets/bronze-color.webp",
+    "https://the-second-language.pages.dev/labs/chapter-scroll-v19/assets/bronze-orm.webp",
+    "https://the-second-language.pages.dev/labs/chapter-scroll-v19/assets/bronze-normal.webp",
+    "https://the-second-language.pages.dev/labs/chapter-scroll-v17/vendor/noise2D.glsl"
   ],
   "observedSHA256": {
-    "/index.html": "9ed6fb278ae62393d05673d286eb87f657c3c68c2140d836866f0f82dd062330",
-    "/styles.css": "c9cb49eca4b6fd23e9f62c8dec19b439a6a7400aa297f0e81a5ee00cadf4bf3f",
+    "/index.html": "ecfd4c228c8669547b876bf2add8148e15b683ab980098505482e9cf6e1510da",
     "/icon.svg": "a6187d27e9c733a2470bedcefbe3947166706b06fa9c4be05a6dd577cba25b2b",
     "/icon-192.png": "32373b0edaab98b53f5ac5827bb2c4b4c5cdeba053d5612b2fd74f2c3b78d15b",
-    "/app.js": "5fddf2f62b0464c7d81894d58b290d1c6f176f1e2820e57f83332cf778de3635",
-    "/reader-jump.js": "78cd4ce1b8e00b0b272bcb3f11ad5e05b17d153b99f0624e707daf977e68d118",
-    "/balances.js": "22adcbfc58da9bde2aa24bc6f6c807cba0c2e3765fc15a16879bc8525f8cb45c",
-    "/questions.js": "cd2296b5f470d75222b6b83207742bd50eff0396a4ef8dc6dc723e980f031c65",
+    "/app.js": "0f604d1954bd0036b3be4fd47a24873b75283e1eb430640735cddff14340e8ce",
+    "/styles.css": "e4dc80a5a81688d11a74030e6c5ded671e9225dde79bd175c626b663e57ee3cf",
     "/pure-reader.js": "5ca38c1a403bce3bfd6ea3fbcc9fee2332e551466b05eda3c7cbcb92a08e22b5",
-    "/reader-speech.js": "facc5ef138e3c1d0f4dddd0a028c11f9bb9c2c56a8723a38486808da33fb99dd",
-    "/audio-library.js": "666e58582a073e437e4a970e0d14505204f805dd7a923b45d7b0efb704765e02",
     "/chapter-quality.js": "3de6c44fb1dd4b6ec815ce24b2971114063f665c9298fd81e9d0d9e405da79d7",
+    "/audio-library.js": "666e58582a073e437e4a970e0d14505204f805dd7a923b45d7b0efb704765e02",
+    "/balances.js": "22adcbfc58da9bde2aa24bc6f6c807cba0c2e3765fc15a16879bc8525f8cb45c",
+    "/reader-jump.js": "78cd4ce1b8e00b0b272bcb3f11ad5e05b17d153b99f0624e707daf977e68d118",
     "/storage-usage.js": "c719e96cdf6eaf16a630866924d1d0bc188ced9ff1967618b193f25ec1888a35",
+    "/render.js": "d9751bdc1581eb45b2b28742fc6ccb4841af22003f84837bc843cf37631fa1d8",
+    "/reader-speech.js": "facc5ef138e3c1d0f4dddd0a028c11f9bb9c2c56a8723a38486808da33fb99dd",
+    "/annotations.js": "50aff8629d7dc302c5d7e9fb0d1f0f8a0995de88a6dd965be40e6201fc9b0cae",
     "/settings.js": "9c647e1a65a9dd6aa8173a9633bc6d84d0101ec1724d1d124b34f76647e8b3d7",
     "/audio-config.js": "b357a117ac381ed5629a8dd0e5f6e0fb56c52fb9d8b4c306b0ec69eb602e0ceb",
-    "/annotations.js": "50aff8629d7dc302c5d7e9fb0d1f0f8a0995de88a6dd965be40e6201fc9b0cae",
-    "/chapter-tests.js": "122271bab99898a5718e7a8f702d01535383c7e2bd213c52bb094e4779f5c306",
-    "/chapters.js": "d16d9429dda60052481cc2dd6ed5d71eccf96df98616923fd5c199fc3618f019",
     "/practice.js": "a31d88faa2fe20a140d2a96b7ea7ddcfa8b043d2fc2ee14944d09a8399f67146",
-    "/render.js": "d9751bdc1581eb45b2b28742fc6ccb4841af22003f84837bc843cf37631fa1d8",
-    "/certification-reader.js": "53078ff92707ab2a387d357b32197c85d940dca58e9e5eba0360bd99d19c6718",
-    "/reader-focus.js": "a10c240fae24480fce5221e047a7ffce191081b7656715ef0669ec886a73455e",
-    "/question-pairs.js": "9d48e50045d222403f7e7521ae9c82ff36917b8bf7162383899abd80e86b1df9",
-    "/chapter-test-recorder.js": "6f6ef850141784f819130846b278ff7ec1e5358c5f45c99a8cea416d1398b57c",
+    "/chapters.js": "d16d9429dda60052481cc2dd6ed5d71eccf96df98616923fd5c199fc3618f019",
+    "/questions.js": "cd2296b5f470d75222b6b83207742bd50eff0396a4ef8dc6dc723e980f031c65",
+    "/chapter-tests.js": "6c94723bc7322878d917dddc065149eafcd9d74803fd910fe46e67098cd2fc7e",
+    "/certification-reader.js": "a79513f104b1f2bc70faed88cce87612c9d3e5d328ef74eb47b6a73c57cb7c6f",
     "/audio-plan.js": "7d8d06cff12e0ec639564dd76d4d509ca14a78434897445f521a33bfae46f411",
-    "/text.js": "8c4f3c17e6d1f45f32bb892307cff4a4a5a08d3af76c0a1e67b355ddf7d419b8",
+    "/reader-focus.js": "a10c240fae24480fce5221e047a7ffce191081b7656715ef0669ec886a73455e",
+    "/practice-workspace.js": "af259de73afebbfc91ab9aa54690ef37214a96e12ee7526898e80d448ee80329",
+    "/recorder.js": "4b8ec3aff0465edb4f17b3023ec544f8dc8c5c7cda6a5ea1d7dfebfb0a356dc3",
     "/listening.js": "83575739eae407c1773791645945b8b2d987df1ed0dd70c34ca21178a7a6e2ee",
     "/reading.js": "58d05fe3a53e5851cd309dd79a16c3bc6f7a972252d2a09cad041ebd72ef03eb",
-    "/recorder.js": "4b8ec3aff0465edb4f17b3023ec544f8dc8c5c7cda6a5ea1d7dfebfb0a356dc3",
-    "/practice-workspace.js": "af259de73afebbfc91ab9aa54690ef37214a96e12ee7526898e80d448ee80329",
+    "/text.js": "8c4f3c17e6d1f45f32bb892307cff4a4a5a08d3af76c0a1e67b355ddf7d419b8",
+    "/question-pairs.js": "9d48e50045d222403f7e7521ae9c82ff36917b8bf7162383899abd80e86b1df9",
+    "/chapter-test-recorder.js": "6f6ef850141784f819130846b278ff7ec1e5358c5f45c99a8cea416d1398b57c",
     "/labs/certification-reader/sound.js": "d077d7a8ad6bca2f8a9c1e8c919827b026209076ee0ce2f0bae231d0513dd56b",
-    "/objective.js": "13c7ce4eb9f74002e43fcb391a06f23c2d1cd0ae7433cfb0439b28d9efc13cd0",
     "/exam-spec.js": "6d0050b920917f7806ea0c8fab7b930ea949e8f2168a3d8c5e3856a978f28241",
+    "/chapter-certification.js": "2d55d6f08a3606fb28323a7a7a1f48231b438866b440e0f637f9ad52d64a96a6",
+    "/objective.js": "13c7ce4eb9f74002e43fcb391a06f23c2d1cd0ae7433cfb0439b28d9efc13cd0",
     "/labs/certification-reader/keeper-sound.js": "7b01ee59bed833dbe4287b10b2438c32545bc474202918047535b2eda444999b",
     "/labs/certification-reader/material-motion.js": "13454e924c75c5d88f828143fa1ea8ee93461de0a45bfb6bacc908395d236b30",
     "/labs/certification-reader/sound-base.js": "0b44df208352fcb99457062dd5a2e80842dabc0ba5dfd938c4c74d5dfc12947a",
     "/labs/certification-reader/assets/audio-foley/v42/bendOpen.wav": "650893bdcd634a0cb36382ed53b79d776f147ce38bb3ee4b95930214d0c1c0fc",
-    "/labs/certification-reader/assets/audio-foley/v42/tailClose.wav": "32c339c42d951178c4973e80050207d8bc3a7e6ef34856aa10ec7bc41d3afeff",
     "/labs/certification-reader/assets/audio-foley/v42/tailOpen.wav": "edf8e801ceb9b2dbabae864b79d627b861a5a2ed1c8522aacb304b5ce9d08a9f",
-    "/labs/certification-reader/assets/audio-foley/v42/bendClose.wav": "c22792a8c149b4cafe9a25d51a2b7979a813b7ea864f17b00a44512115be3736",
     "/labs/certification-reader/assets/audio-foley/v42/holeClose.wav": "97874a858f0081efcb2737526331a3eca8249e1ea2ccd251be8a988b85e10be6",
+    "/labs/certification-reader/assets/audio-foley/v42/bendClose.wav": "c22792a8c149b4cafe9a25d51a2b7979a813b7ea864f17b00a44512115be3736",
     "/labs/certification-reader/assets/audio-foley/v42/holeOpen.wav": "46a43b9b719f4afcbfcca0b5ead042ce0abead83d550c088292689631cf1a88c",
-    "/labs/certification-reader/assets/audio-foley/v42/slideOpen.wav": "c47e77a5ba19e2689e48c14b5a9f2731f6d7db519c7422c07e908dd46bf5131e",
-    "/labs/certification-reader/assets/audio-foley/v42/seat.wav": "3c3aa2b7d0222fdb96e1978376a6c3b3b499867464365ee7daaee7d25a5cc953",
-    "/labs/certification-reader/reader.bundle.js": "2f4387e5924d314c913b038dd7384db2b95e5d9c182e0703fa42b7af4002aff0",
-    "/labs/certification-reader/assets/audio-foley/v42/slideClose.wav": "f60f03943a3fc9ee2482a7d9a9e716765cbeaaa9537c68841bf39a9b6284a77c",
-    "/labs/certification-reader/assets/audio-foley/v42/park.wav": "d95364858538b9f038f1354d930fe3e696a0e64672e5225477a6fd16adb5090d",
     "/labs/certification-reader/assets/audio-music/a-new-town.mp3": "8a83b97f06cad1052eea0a3fa8f65966db742e68275a1d82816773c820578ad2",
-    "/labs/certification-reader/assets/audio-foley/v42/paper-rollup-v5.wav": "36a7fa2374abe0a0d5c1a3bd05fa936335fc5c9ea6e92a9926fc4069952d9e99",
+    "/labs/certification-reader/assets/audio-foley/v42/park.wav": "d95364858538b9f038f1354d930fe3e696a0e64672e5225477a6fd16adb5090d",
+    "/labs/certification-reader/assets/audio-foley/v42/seat.wav": "3c3aa2b7d0222fdb96e1978376a6c3b3b499867464365ee7daaee7d25a5cc953",
+    "/labs/certification-reader/assets/audio-foley/v42/slideOpen.wav": "c47e77a5ba19e2689e48c14b5a9f2731f6d7db519c7422c07e908dd46bf5131e",
     "/labs/certification-reader/assets/audio-foley/v42/paper-unroll-v5.wav": "703972ab4cf662fcee45af743bf08c2135f55fc1497a489ed897b9f5aae59860",
+    "/labs/certification-reader/assets/audio-foley/v42/slideClose.wav": "f60f03943a3fc9ee2482a7d9a9e716765cbeaaa9537c68841bf39a9b6284a77c",
+    "/labs/certification-reader/assets/audio-foley/v42/tailClose.wav": "32c339c42d951178c4973e80050207d8bc3a7e6ef34856aa10ec7bc41d3afeff",
+    "/labs/certification-reader/assets/audio-foley/v42/paper-rollup-v5.wav": "36a7fa2374abe0a0d5c1a3bd05fa936335fc5c9ea6e92a9926fc4069952d9e99",
+    "/labs/certification-reader/reader.bundle.js": "4f12ae76a77f0bdf048b8f78d09b1b0c3e01e9c5f456ab429058fcd5229fa463",
     "/labs/project-beginning/record.json": "f2466f4ea3f57d5cbf4e42b8b0cdc08ac810498602ff3ab9d7c85d43179616e5",
     "/labs/project-beginning/art-plan.json": "10fbd67f29b0464c632342a213fd4697bbf92af4a2086c5d7963fdea93ce20db",
     "/labs/chapter-scroll-v14/assets/unused-keeper.png": "c2153f77e11087fcb078ae38527fa83bef29791e3700e30cc87fec4405a66d0f",
     "/labs/project-beginning/assets/surfaces.json": "e3405c93225ee394d75498190f998c41171f2b90cd21eb5b04a9d775c89d9921",
-    "/labs/project-beginning/assets/final-ink.png": "2007be6f580a5cc72f24388bf4eb487290063136e60937a6114d2c16917ecb5a",
     "/labs/project-beginning/assets/final-seal-mask.png": "d8411063350187c541bc503775180041dcea1ecbd5a9726ab7b0e69dafc135fc",
-    "/labs/project-beginning/assets/final-relief.png": "030eb09ed2ee219a5ee3508e3cca6832635d7199470c8425ab8451cf0bf6ae29",
+    "/labs/project-beginning/assets/final-ink.png": "2007be6f580a5cc72f24388bf4eb487290063136e60937a6114d2c16917ecb5a",
     "/labs/project-beginning/assets/final-seal-ink.png": "7e6e6ab3541b1807fd75da6b761f58144f1922578a4de203ec655891d8d61cea",
-    "/labs/project-beginning/assets/final-front.png": "b82b5c4c8e220443e8c4ae0a1b84aeaa908f88e6cd2c53fb5231e09aceacae7b",
+    "/labs/project-beginning/assets/final-relief.png": "030eb09ed2ee219a5ee3508e3cca6832635d7199470c8425ab8451cf0bf6ae29",
     "/labs/project-beginning/assets/final-back.png": "925c1db1f8810d452a318fb75b30f2a53790be6c05a4cd04fbf9cc883d7b715e",
+    "/labs/project-beginning/assets/final-front.png": "b82b5c4c8e220443e8c4ae0a1b84aeaa908f88e6cd2c53fb5231e09aceacae7b",
     "/labs/chapter-scroll-v17/keeper-path.json": "0e8d71fbdc36fdda9e475b7ded3eaf23ccff38b01f275cbfac045cbcff21e6e6",
     "/labs/chapter-scroll-v4/assets/skin-normal.jpg": "d0057cdbee5be6223b35f0a463441404144fcdae699f69ff610eec4d86d48970",
-    "/labs/chapter-scroll-v3/assets/studio.hdr": "e7cfda5f4e98e623db12b8bfd0184e048488e4855d9c83e2751fb44a32e80c45",
     "/labs/chapter-scroll-v4/assets/skin-roughness.jpg": "dd3b860a9510a44fd857c04e0c8cc63ea1f944c25abe9bdcbf844cc4a22c88d8",
+    "/labs/chapter-scroll-v3/assets/studio.hdr": "e7cfda5f4e98e623db12b8bfd0184e048488e4855d9c83e2751fb44a32e80c45",
     "/labs/certification-reader/assets/keeper-display.glb": "118ad3e48f4a37034551aa7330b033a79a9b4e5711972eb92553774ffb37bffa",
     "/labs/chapter-scroll-v19/assets/leather-orm.webp": "ce92f7819c466c5ec0291e5609da152cc98e0d5c47627d89a81fd3d82a8e6ad1",
-    "/labs/chapter-scroll-v19/assets/leather-color.webp": "5c99db712479fb6f8c661f1b4d4422d5e689c59a21c2c197e1dca77bb0c04e95",
     "/labs/chapter-scroll-v19/assets/leather-normal.webp": "6b3c1601b766712a527d51145aa211fd98b73f4747e0d97490809ac407efbf1c",
     "/labs/chapter-scroll-v19/assets/bronze-color.webp": "f850970297e8c5d19c7002132e59e877ea54dce0a757d2f642a592f46bd3d9cd",
     "/labs/chapter-scroll-v19/assets/bronze-orm.webp": "1672624ae4ae60a342346bb3188f974d05258be13d392da027a82468fdae8b4b",
     "/labs/chapter-scroll-v19/assets/bronze-normal.webp": "a2b951c269e4e6d20ef18cd7f360c3045b2ecc605a63e5e910f819a9a8bcc2bd",
+    "/labs/chapter-scroll-v19/assets/leather-color.webp": "5c99db712479fb6f8c661f1b4d4422d5e689c59a21c2c197e1dca77bb0c04e95",
     "/labs/chapter-scroll-v17/vendor/noise2D.glsl": "b0f27c923227e8b2d7618f09dc666e2397f608ca7929f798da632647c3f41884"
   },
   "responseBodyUnavailable": [],

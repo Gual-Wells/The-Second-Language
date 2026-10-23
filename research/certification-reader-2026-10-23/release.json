@@ -1,0 +1,139 @@
+{
+  "schema": "second-language.certification-release.v1",
+  "recordedAt": "2026-10-23T02:44:48.587Z",
+  "sourceSHA": "398509e525973a5c68a9aed710ec60dcb66e3323",
+  "sourceBranch": "codex/project-commemorative",
+  "remoteBranch": "main",
+  "pages": {
+    "url": "https://the-second-language.pages.dev/",
+    "immutable": "https://e992db72.the-second-language.pages.dev",
+    "productionMainUpdated": true,
+    "displayFiles": 89,
+    "displayBytes": 50612544
+  },
+  "apiWorker": {
+    "version": "39f3f0eb-6f38-46bc-93bd-8fa0f8192973",
+    "deployedSeparately": true
+  },
+  "migration": {
+    "name": "0017_chapter_certifications.sql",
+    "appliedTo": "the-second-language",
+    "practiceAndLabUnchanged": true
+  },
+  "liveVerification": {
+    "browser": "research/scroll-sound-adoption-2026-10-23/live-verification.json",
+    "checks": 28,
+    "scriptErrors": [],
+    "missing": [],
+    "accountWrites": [],
+    "api": {
+      "checkedAt": "2026-10-23T02:40:03.423Z",
+      "base": "https://the-second-language.pages.dev/",
+      "scope": "Read-only authenticated and unauthenticated live endpoints. Certification lookup scoped to one chapter; not an all-chapter count. No score, certification, creation request, or claim submitted.",
+      "api": [
+        {
+          "endpoint": "/api/certifications?chapter=2026-10-02",
+          "authenticated": false,
+          "status": 401
+        },
+        {
+          "endpoint": "/api/scrolls",
+          "authenticated": false,
+          "status": 401
+        },
+        {
+          "endpoint": "/api/certifications?chapter=2026-10-02",
+          "authenticated": true,
+          "status": 200,
+          "keys": [
+            "certification",
+            "scroll"
+          ],
+          "hasCertification": false,
+          "hasScroll": false
+        },
+        {
+          "endpoint": "/api/scrolls",
+          "authenticated": true,
+          "status": 200,
+          "keys": [
+            "items"
+          ],
+          "claimedScrollCount": 0
+        }
+      ],
+      "staticObserved": {
+        "matched": 73,
+        "manifestTotal": 89,
+        "mismatches": []
+      }
+    }
+  },
+  "automatedVerification": [
+    "Real SQLite first-pass transaction atomicity, oral completion, concurrent grade and request uniqueness, retest/revision invariants, lease and external-result protection, claim and private asset enforcement",
+    "12 mobile frontend lifecycle checks using isolated API fixtures and actual WebGL frozen-package rendering",
+    "Actual 24-file, 2-volume unissued production package checked against backend validator",
+    "Resume failure injection reuses candidate, review and immutable archive without a new model, image or render invocation",
+    "Work archive privacy, safe roots, ordinary ZIP volumes and traversal checks",
+    "28 live project display checks; 12 local actual audio motion and lifecycle checks",
+    "Worker dry run, module syntax and git diff whitespace checks"
+  ],
+  "recovery": {
+    "manifestDigest": "01978394fe228cbe5de320a4b3109f650763a7dd829669156ce98443628d8dff",
+    "files": 170,
+    "bytes": 142729506,
+    "cloudRestoreVerified": true,
+    "nativeRestoredBlends": [
+      {
+        "file": ".cache/keeper-v17-native/keeper-physical.blend",
+        "meshes": 9,
+        "vertices": 29550,
+        "armatures": 1,
+        "missingImages": []
+      },
+      {
+        "file": ".cache/keeper-v19-native/keeper-finishing-workshop.blend",
+        "meshes": 10,
+        "vertices": 29554,
+        "armatures": 1,
+        "missingImages": []
+      }
+    ],
+    "latestOrdinarySnapshotAt": "2026-10-23T02:24:09.473Z"
+  },
+  "scheduledServices": [
+    {
+      "Task": "SecondLanguage-PermanentArchive",
+      "State": "Ready",
+      "LastRun": "2026-10-23T10:41:41.0000000+08:00",
+      "Result": 0
+    },
+    {
+      "Task": "SecondLanguage-ScrollProduction",
+      "State": "Ready",
+      "LastRun": "2026-10-23T10:43:43.0000000+08:00",
+      "Result": 0
+    }
+  ],
+  "preserved": {
+    "acceptedSoundVersion": "v42",
+    "projectWork": "SL-PROJECT-BEGINNING-20261021",
+    "projectContentSHA256": "4a83d1952e133bcecd6c1aa2e14a788159b410e9a6ea2a7f5bcf42610943e37b",
+    "researchSpecimensIssued": false,
+    "realGradesOrCertificationFabricated": false
+  },
+  "costs": {
+    "newRecurringSubscription": 0,
+    "creativeExecution": "Existing Codex CLI subscription usage; not unlimited or zero consumption.",
+    "openRouterUSD": 4.031784966,
+    "openRouterLow": true,
+    "automaticTopUp": false
+  },
+  "limits": [
+    "No physical iPhone or Safari verification; Chromium mobile touch and actual WebGL used.",
+    "Live display browser test mocks account APIs; separate live API checks verify access control and read-only endpoints.",
+    "Real user first-pass creation and claim were not fabricated for testing; no claim of a completed real-user first award.",
+    "Production requires this Windows machine and user environment to be available. Cloud job/checkpoints persist while it is unavailable.",
+    "Model review and programmatic checks do not replace the user artistic acceptance of a newly produced individual artwork."
+  ]
+}
