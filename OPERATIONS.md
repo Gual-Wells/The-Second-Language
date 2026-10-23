@@ -64,6 +64,8 @@ powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File scripts/
 
 > 定时入口先领取当天运行控制，休息则直接结束；非休息日 Codex 阅读 AGENTS.md、protocol/DAILY_RUN.md、protocol/QUALITY_WORKFLOW.md、protocol/CONTENT.md、protocol/TEMPORARY.md 和 protocol/ANNOTATIONS.md，先处理已领取的临时需求，再完成 40 个主词的推荐、VIX 标注、逐词双教材交接、三部分正文、语义审阅与发布。续作写入 work/，未完成时记录 resume.md。
 
+2026-10-24定时必读清单明确加入RECOMMENDATION与CURRENT_AFFAIRS。择词前实际读取feedback-snapshot；候选导出保留全量未标记词，同时附原始可见通用英语多词表成员关系及owner说明，既不打分也不按owner筛难度。实事与早期生活收益的取舍写入selection.md，第三部分通过article-plan及成稿语义回看兑现；整体挑战适度上调且不因实用性降低。只更新尚未冻结选择，已冻结/已标注运行保护不变。生效依赖实际Daily Action指向本工作区；无前端或Worker改动，不要求重复部署静态资产。
+
 定时任务与机器保持运行。若当日工作未结束，下次唤醒继续同一工作目录下的 `work/runs/<YYYY-MM-DD>/`；不要重新选词。使用另一工作树时，把 `SECOND_LANGUAGE_CREDENTIAL_FILE` 指向本机忽略的 `.cache/deployment-secrets.json`，并确保中间文档可续用。目标日期和 VIX 的真实 `YY-MM-DD` 标注标签必须分别保存，后者为目标日期去掉年份前两位。
 
 可用的确定性工具：
