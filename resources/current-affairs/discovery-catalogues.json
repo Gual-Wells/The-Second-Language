@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-10-23",
+  "runtimeIntegration": "not-connected",
+  "catalogues": [
+    {
+      "id": "media-cloud",
+      "name": "Media Cloud Directory",
+      "entryUrl": "https://www.mediacloud.org/media-cloud-directory",
+      "documentationUrl": "https://www.mediacloud.org/documentation",
+      "verification": "official-documentation-opened",
+      "documentedScale": "Official directory page states over 25,000 media sources and curated collections covering over 100 countries; observed 2026-10-23, not independently recounted.",
+      "use": "Discover additional regional or topical publishers, then verify each original publisher and article before use.",
+      "limitations": "No bulk import, login, API credentials or API request tested. External directory entries are not included in sources.json counts, editorial trust decisions or reuse permissions. Directory/search tools may require an account and their current conditions must be checked before integration."
+    },
+    {
+      "id": "reliefweb-sources",
+      "name": "ReliefWeb Sources / UN OCHA",
+      "entryUrl": "https://reliefweb.int/organizations",
+      "documentationUrl": "https://apidoc.reliefweb.int/read/resources/sources/",
+      "documentedEndpoint": "https://api.reliefweb.int/v2/sources",
+      "verification": "official-documentation-opened",
+      "documentedScale": "Official sources documentation states more than 1,000 organizations; observed 2026-10-23, not independently recounted.",
+      "use": "Discover humanitarian and development publishers; source metadata includes names, homepages, organization types, country and status.",
+      "limitations": "No live API request, full pagination, registration or app-name configuration tested. Defaults can include inactive organizations; filter status and verify current publishing activity. A headquarters country is not the geographic scope of every report. Original publisher, role, evidence and rights still require checking."
+    },
+    {
+      "id": "gdelt-doc",
+      "name": "GDELT DOC / discovery tools",
+      "entryUrl": "https://www.gdeltproject.org/data.html",
+      "documentationUrl": "https://blog.gdeltproject.org/gdelt-doc-2-0-api-debuts/",
+      "documentedEndpoint": "https://api.gdeltproject.org/api/v2/doc/doc",
+      "verification": "official-documentation-opened",
+      "documentedScale": "2017-06-20 DOC 2.0 announcement describes cross-language news discovery. No current source count or current quota is asserted.",
+      "use": "Find event coverage and original publisher URLs beyond the curated pool, then read original sources.",
+      "limitations": "Documentation is historical. Endpoint availability, limits and current conditions were not live-tested. Machine translation, tone labels and proximity are discovery aids, not lexicographic or factual authority. No full-text redistribution licence follows from indexing."
+    }
+  ]
+}
