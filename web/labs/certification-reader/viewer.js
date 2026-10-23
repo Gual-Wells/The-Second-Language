@@ -5,6 +5,7 @@ import * as projectDocument from '../project-beginning/document.js';
 import {prepareCharter as prepareProjectCharter} from '../project-beginning/charter.js';
 import {getTemplate as getProjectTemplate} from '../project-beginning/templates.js';
 import {ScrollObject as ProjectScrollObject} from '../project-beginning/scroll-object.js';
+import {createIssuedScrollProfile} from './issued-profile.js';
 
 const profiles=Object.freeze([
  Object.freeze({id:'beginning',category:'project-commemorative',label:'项目纪念卷轴',source:new URL('../project-beginning/',import.meta.url),getTemplate:getProjectTemplate,document:projectDocument,prepareCharter:prepareProjectCharter,hasArtPlan:true,recordFile:'record.json',ObjectClass:ProjectScrollObject,frozenDocument:true}),
@@ -60,8 +61,8 @@ export class ScrollViewer {
  async prepare(options={}){
   if(this.disposed)throw aborted();
   const chapter=options.work??options.chapter??'beginning';
-  const profile=profiles.find(item=>item.id===chapter);
-  if(!profile||options.chapterId!==undefined||options.chapterNumber!==undefined)throw Error('Only the published project keepsake is available in the production reader.');
+  const profile=options.manifest?createIssuedScrollProfile(options.manifest,{scrollId:options.scrollId}):profiles.find(item=>item.id===chapter);
+  if(!profile||options.chapterId!==undefined||options.chapterNumber!==undefined)throw Error('该作品不在正式阅览范围内');
   if(options.chapterId!==undefined&&options.chapterId!==profile.chapterId)throw Error('Requested chapter identifiers do not match');
   if(this.preparation){if(this.profile!==profile||this.surfaceSet!==(options.surfaceSet??'frozen'))throw Error('Dispose this viewer before changing works or surface sets');return this.preparation;}
   this.profile=profile;
@@ -76,10 +77,10 @@ export class ScrollViewer {
   this.surfaceSet=surfaceSet;
   const owned=this.resources;
   this.report(`正在准备${profile.label}…`,'preparing');
-  const [base,plan]=await Promise.all([owned.json(new URL(profile.recordFile||'chapter-sample.json',profile.source)),profile.hasArtPlan?owned.text(new URL('art-plan.json',profile.source)):Promise.resolve(undefined)]);
+  const [base,plan]=await Promise.all([profile.record??owned.json(new URL(profile.recordFile||'chapter-sample.json',profile.source)),profile.hasArtPlan?owned.text(new URL('art-plan.json',profile.source)):Promise.resolve(undefined)]);
   if(profile.category==='project-commemorative'){
    if(base.category!=='project-commemorative'||base.status!=='commemorative'||base.attestation!==null||base.chapterId!=null||base.chapterNumber!=null)throw Error('Project keepsake must remain separate from chapter assessment');
-  }else if(base.chapterId!==profile.chapterId||base.chapterNumber!==profile.chapterNumber||base.status!=='specimen'||base.attestation!==null)throw Error('The fixed chapter specimen does not match its display profile');
+  }else if(profile.category!=='chapter-certified'||base.status!=='issued')throw Error('该作品尚未正式颁发');
   const record=await profile.prepareCharter(base,plan);owned.assertAlive();this.record=record;
   const template=resolvedTemplate(profile,record.template);this.template=template;
   if(!profile.frozenDocument)await owned.font(template.fontFamily,template.fontUrl);
@@ -104,7 +105,7 @@ export class ScrollViewer {
   await this.object.prepareMotion(initial);owned.assertAlive();
   await this.prepareMist();owned.assertAlive();
   this.progress=initial;this.object.setProgress(initial);this.object.settle();this.ready=true;this.previousTime=performance.now();
-  this.render();this.signalProgress();this.report(this.profile?.category==='project-commemorative'?'私人项目纪念作品':'设计试样 · 尚未颁发','ready');this.schedule();
+  this.render();this.signalProgress();this.report(this.profile?.category==='project-commemorative'?'私人项目纪念作品':'本章纪念卷轴','ready');this.schedule();
   return this;
  }
  attachObjectLifetime(object,owned){
@@ -175,7 +176,7 @@ export class ScrollViewer {
    this.progress=sample.progress;this.object.setProgress(this.progress);
    const velocity=(this.progress-previous)/Math.max(.001,elapsed/1000),direction=Math.sign(animation.to-animation.from);
    this.signalProgress({velocity,active:!sample.done,direction});
-   if(sample.done){this.animation=null;this.finishAnimation({completed:true,progress:this.progress});this.report(this.profile?.category==='project-commemorative'?'私人项目纪念作品':'设计试样 · 尚未颁发','ready');}
+   if(sample.done){this.animation=null;this.finishAnimation({completed:true,progress:this.progress});this.report(this.profile?.category==='project-commemorative'?'私人项目纪念作品':'本章纪念卷轴','ready');}
   }
   this.object.advance(dt);if(this.animation||this.object.needsMotion||this.object.dirty)this.render();
   if(this.atmosphereWanted&&!this.reduced.matches&&!this.mistLost)this.mist?.tick(dt,this.progress,this.object.bounds,this.object.viewHeight,Math.max(.001,elapsed/1000),this.object.interaction());
@@ -244,7 +245,7 @@ export class ScrollViewer {
   try{
    if(this.size)this.object.resize(...this.size);
    await this.object.prepareMotion(this.progress);this.resources.assertAlive();this.ready=true;this.mist?.resetMotion();
-   this.previousTime=performance.now();this.animation?.resume(this.previousTime);this.mist?.setEnabled(this.atmosphereWanted&&!this.paused&&!this.mistLost);this.render();this.schedule();this.report(this.profile?.category==='project-commemorative'?'私人项目纪念作品':'设计试样 · 尚未颁发','ready');
+   this.previousTime=performance.now();this.animation?.resume(this.previousTime);this.mist?.setEnabled(this.atmosphereWanted&&!this.paused&&!this.mistLost);this.render();this.schedule();this.report(this.profile?.category==='project-commemorative'?'私人项目纪念作品':'本章纪念卷轴','ready');
   }catch(error){if(!this.disposed){this.lastError=error.message;this.report('立体显示暂不可用，可查看静态卷页。','failed');}}
  }
  getTranscript(){return this.record?this.profile.document.documentLines(this.record):[];}
@@ -261,10 +262,11 @@ export class ScrollViewer {
  exportDocument(){return this.textures?.front.toDataURL('image/png')??null;}
  exportRecord(){
   const r=this.record;if(!r)return null;
+  if(this.profile.category==='chapter-certified')return this.profile.document.exportRecord(r);
   if(this.profile.category==='project-commemorative')return {...this.profile.document.exportRecord(r),sourceRecordUrl:new URL(this.profile.recordFile,this.profile.source).href};
   return {status:r.status,recipient:r.recipient,chapterId:r.chapterId,chapterNumber:r.chapterNumber,sha256:r.artifactDigest,canonicalPayload:r.canonicalPayload,proof:r.proof,sealVariant:r.sealVariant,artPlanDigest:r.artPlanDigest??null,source:r.artPlan?.source??{chapterId:r.chapterId,chapterNumber:r.chapterNumber,chapterDigest:r.chapterDigest,title:r.chapterTitle},sourceRecordUrl:new URL('chapter-sample.json',this.profile.source).href,template:r.template};
  }
- snapshot(){return {...this.object?.snapshot(),ready:this.ready,disposed:this.disposed,paused:this.paused,lost:this.lost,environmentAvailable:Boolean(this.object?.scene.environment),contextReleased:Boolean(this.contextReleased),animating:Boolean(this.animation),chapterId:this.record?.chapterId??null,category:this.record?.category||'chapter-specimen',workId:this.record?.workId??null,issued:false,status:this.status,error:this.lastError||null,layout:this.textures?.layout,mist:this.mist?.snapshot()??{available:false},atmosphereWanted:this.atmosphereWanted};}
+ snapshot(){return {...this.object?.snapshot(),ready:this.ready,disposed:this.disposed,paused:this.paused,lost:this.lost,environmentAvailable:Boolean(this.object?.scene.environment),contextReleased:Boolean(this.contextReleased),animating:Boolean(this.animation),chapterId:this.record?.chapterId??null,category:this.record?.category||'chapter-specimen',workId:this.record?.workId??null,issued:this.profile?.issued===true,status:this.status,error:this.lastError||null,layout:this.textures?.layout,mist:this.mist?.snapshot()??{available:false},atmosphereWanted:this.atmosphereWanted};}
  dispose(){
   if(this.disposed)return;this.disposed=true;cancelAnimationFrame(this.frame);this.frame=0;this.drag=null;
   this.finishAnimation({completed:false,reason:'disposed'});this.animation=null;this.ready=false;

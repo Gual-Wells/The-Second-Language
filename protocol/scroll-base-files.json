@@ -1,0 +1,888 @@
+{
+  "schema": "second-language.scroll-base-files.v1",
+  "revision": "scroll-v19-native-v20-motion-v42-foley",
+  "files": [
+    {
+      "source": "native",
+      "path": "scripts/keeper-physical-build.py",
+      "expectedSHA256": "d3aaa51365ded2a10727745bc9b9b6f0c7d377a5f944610f45f02de092ccbc3b",
+      "role": "native builder"
+    },
+    {
+      "source": "native",
+      "path": "web/labs/chapter-scroll-v17/assets/keeper-physical.glb",
+      "expectedSHA256": "a6084299daf55d9ead8e7905ab973fe6be9ec88a6a7f26914230c1f04e959668",
+      "role": "runtime fitted keeper"
+    },
+    {
+      "source": "native",
+      "path": ".cache/keeper-v17-native/keeper-physical.blend",
+      "expectedSHA256": "ba95bb3ebc448759b3984a6bd23b97bcd73040d92348dc89085c9f6ffc6d4831",
+      "role": "native fitted keeper"
+    },
+    {
+      "source": "native",
+      "path": ".cache/keeper-v19-native/keeper-finishing-workshop.blend",
+      "expectedSHA256": "136c14106da1be148e472f11c724825d72155c40b7e7cd2f1319c8d0f131d1f1",
+      "role": "native material workshop"
+    },
+    {
+      "source": "native",
+      "path": ".cache/keeper-physical/bronze-normal-baked.png",
+      "expectedSHA256": "ac991580a47e597e5e317e0b04b2f62c7c235e93683319622797e3a0c1c0fa83",
+      "role": "upstream bake dependency"
+    },
+    {
+      "source": "native",
+      "path": "web/labs/chapter-scroll-v14/art-plan.json",
+      "expectedSHA256": "3104ec4b67859f64268c11a327f37a65d1bdfc48c6f75adc24ee702d3f6318fb",
+      "role": "fifth chapter plan"
+    },
+    {
+      "source": "native",
+      "path": "web/labs/chapter-scroll-v14/assets/parchment.webp",
+      "expectedSHA256": "bd9f3e4653c871ec56f29976cfe65508ad7fed7f95864ee8e8eaa9d5464b545b",
+      "role": "fifth chapter paper"
+    },
+    {
+      "source": "native",
+      "path": "web/labs/chapter-scroll-v13/assets/leaf-and-letter.png",
+      "expectedSHA256": "e5aa04af52dde8cc3f32d0d9dfac3fe1696ef6d275c0514d7e0c0065f517d9c5",
+      "role": "fifth chapter miniature"
+    },
+    {
+      "source": "native",
+      "path": "web/labs/chapter-scroll/assets/Aboensis-Regular.otf",
+      "expectedSHA256": "0ad00fb94899b3a8277680377eb7270c5fb3ee73dd9fefbd6fb31d9f94c4707b",
+      "role": "series font"
+    },
+    {
+      "source": "native",
+      "path": ".cache/keeper-physical/leather-color.jpg",
+      "expectedSHA256": "b0de2403a31efa31e501b0028c0bd8e504d5bd6318f4a5ce90c550c3067f96d8",
+      "role": "licensed scan input"
+    },
+    {
+      "source": "native",
+      "path": ".cache/keeper-physical/leather-normal.jpg",
+      "expectedSHA256": "3386277290af50b4d464dc9a9f195bbf8dd6f137b9ae0274552397d2f0135c98",
+      "role": "licensed scan input"
+    },
+    {
+      "source": "native",
+      "path": ".cache/keeper-physical/leather-roughness.jpg",
+      "expectedSHA256": "8a47afca2630310849034fe40ca9497db0956c67c0d933e6efd49d3cd2befe83",
+      "role": "licensed scan input"
+    },
+    {
+      "source": "native",
+      "path": ".cache/keeper-physical/bronze-BaseColor.png",
+      "expectedSHA256": "91a02370cefd49e9ba72b8f125ea29f9bf86338802e02e2d5d2619b3e098af79",
+      "role": "licensed scan input"
+    },
+    {
+      "source": "native",
+      "path": ".cache/keeper-physical/bronze-Metallic.png",
+      "expectedSHA256": "66902daf726a6fc5c896b2f5c11b35dbb7d76ffe01d489fa6d689dca0af5af2f",
+      "role": "licensed scan input"
+    },
+    {
+      "source": "native",
+      "path": ".cache/keeper-physical/bronze-Roughness.png",
+      "expectedSHA256": "bdf60326f011c88866bb080ce6ad4cdca1b4fcfafdf79c5aa5f0498132a4d674",
+      "role": "licensed scan input"
+    },
+    {
+      "source": "native",
+      "path": ".cache/keeper-physical/bronze-Height.png",
+      "expectedSHA256": "d4dd922b431f29304366595bd0e4d716d5c2e29c096eab609c13837c47fc5fc8",
+      "role": "licensed scan input"
+    },
+    {
+      "source": "native",
+      "path": ".cache/keeper-v19-native/png-masters/leather-color.png",
+      "expectedSHA256": "adfaa484ef16ded27b07c180282f5bdb80cc42956acb3edf5d7fdf8a04523775",
+      "role": "PNG master"
+    },
+    {
+      "source": "native",
+      "path": ".cache/keeper-v19-native/png-masters/leather-orm.png",
+      "expectedSHA256": "f1d715ce263529dec10d44bff5d5d23c93ddc5bb0f9ced1e6fa3da1a22f683a5",
+      "role": "PNG master"
+    },
+    {
+      "source": "native",
+      "path": ".cache/keeper-v19-native/png-masters/leather-normal.png",
+      "expectedSHA256": "6b64d62cf7ec00896f2370122dc2023bd4db63b3acb392130c66f97e96758b6b",
+      "role": "PNG master"
+    },
+    {
+      "source": "native",
+      "path": ".cache/keeper-v19-native/png-masters/bronze-color.png",
+      "expectedSHA256": "3616e948ab30fbcfe0f730cbe605bdaef5dbe347b09b9c80ccd210ae1f0d21a1",
+      "role": "PNG master"
+    },
+    {
+      "source": "native",
+      "path": ".cache/keeper-v19-native/png-masters/bronze-orm.png",
+      "expectedSHA256": "ed42948290bc7b2034f810e689e37c1fb3ef291eb9b46e4e3b193a4206dbe73c",
+      "role": "PNG master"
+    },
+    {
+      "source": "native",
+      "path": ".cache/keeper-v19-native/png-masters/bronze-normal.png",
+      "expectedSHA256": "7fae5cf7dadfe9a30fb9a00827be2ed8476a4fdb19454a2cdacdc5407db46b2a",
+      "role": "PNG master"
+    },
+    {
+      "source": "native",
+      "path": "web/labs/chapter-scroll-v19/assets/leather-color.webp",
+      "expectedSHA256": "5c99db712479fb6f8c661f1b4d4422d5e689c59a21c2c197e1dca77bb0c04e95",
+      "role": "runtime material"
+    },
+    {
+      "source": "native",
+      "path": "web/labs/chapter-scroll-v19/assets/leather-orm.webp",
+      "expectedSHA256": "ce92f7819c466c5ec0291e5609da152cc98e0d5c47627d89a81fd3d82a8e6ad1",
+      "role": "runtime material"
+    },
+    {
+      "source": "native",
+      "path": "web/labs/chapter-scroll-v19/assets/leather-normal.webp",
+      "expectedSHA256": "6b3c1601b766712a527d51145aa211fd98b73f4747e0d97490809ac407efbf1c",
+      "role": "runtime material"
+    },
+    {
+      "source": "native",
+      "path": "web/labs/chapter-scroll-v19/assets/bronze-color.webp",
+      "expectedSHA256": "f850970297e8c5d19c7002132e59e877ea54dce0a757d2f642a592f46bd3d9cd",
+      "role": "runtime material"
+    },
+    {
+      "source": "native",
+      "path": "web/labs/chapter-scroll-v19/assets/bronze-orm.webp",
+      "expectedSHA256": "1672624ae4ae60a342346bb3188f974d05258be13d392da027a82468fdae8b4b",
+      "role": "runtime material"
+    },
+    {
+      "source": "native",
+      "path": "web/labs/chapter-scroll-v19/assets/bronze-normal.webp",
+      "expectedSHA256": "a2b951c269e4e6d20ef18cd7f360c3045b2ecc605a63e5e910f819a9a8bcc2bd",
+      "role": "runtime material"
+    },
+    {
+      "source": "native",
+      "path": "web/labs/chapter-scroll-v20/app.bundle.js",
+      "expectedSHA256": "82839e18703217ffb4d0fff813f70678adf7144fc8eeccf88763b76112280504",
+      "role": "runtime source/data"
+    },
+    {
+      "source": "native",
+      "path": "web/labs/chapter-scroll-v20/mist.js",
+      "expectedSHA256": "04fbadd2e6595925acec625b29d0771730e0cc265370e16aeeda175383fec451",
+      "role": "runtime source/data"
+    },
+    {
+      "source": "native",
+      "path": "web/labs/chapter-scroll-v20/flow.js",
+      "expectedSHA256": "d9358f66f36cd7b243e97aaeb0a468e0ebdd6ab777e54b76520a1fa943a3a48a",
+      "role": "runtime source/data"
+    },
+    {
+      "source": "native",
+      "path": "web/labs/chapter-scroll-v17/keeper-path.json",
+      "expectedSHA256": "0e8d71fbdc36fdda9e475b7ded3eaf23ccff38b01f275cbfac045cbcff21e6e6",
+      "role": "runtime source/data"
+    },
+    {
+      "source": "native",
+      "path": "scripts/bake-keeper-age-masks.py",
+      "role": "native-source"
+    },
+    {
+      "source": "native",
+      "path": "scripts/bake-keeper-v19-materials.py",
+      "role": "native-source"
+    },
+    {
+      "source": "native",
+      "path": "scripts/derive-keeper-scroll-fit.py",
+      "role": "native-source"
+    },
+    {
+      "source": "native",
+      "path": "scripts/pack-keeper-v19-materials.py",
+      "role": "native-source"
+    },
+    {
+      "source": "native",
+      "path": ".cache/keeper-v17-native/assembly.json",
+      "role": "native-source"
+    },
+    {
+      "source": "native",
+      "path": ".cache/keeper-physical/material-sources.json",
+      "role": "native-source"
+    },
+    {
+      "source": "native",
+      "path": ".cache/keeper-physical/leather-metadata.json",
+      "role": "native-source"
+    },
+    {
+      "source": "native",
+      "path": ".cache/keeper-physical/ambient-brass.json",
+      "role": "native-source"
+    },
+    {
+      "source": "native",
+      "path": ".cache/keeper-physical/metals-metadata.json",
+      "role": "native-source"
+    },
+    {
+      "source": "repository",
+      "path": "scripts/verify-scroll-native.py",
+      "role": "recovery-verifier"
+    },
+    {
+      "source": "repository",
+      "path": "web/annotations.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/app.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/audio-config.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/audio-library.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/audio-plan.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/balances.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/certification-reader.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/chapter-quality.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/chapter-test-recorder.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/chapter-tests.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/chapters.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/exam-spec.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/icon-192.png",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/icon.svg",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/index.html",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/certification-reader/AUDIO_CREDITS.md",
+      "role": "license"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/certification-reader/CREDITS.md",
+      "role": "license"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/certification-reader/assets/audio-foley/v42/bendClose.wav",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/certification-reader/assets/audio-foley/v42/bendOpen.wav",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/certification-reader/assets/audio-foley/v42/holeClose.wav",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/certification-reader/assets/audio-foley/v42/holeOpen.wav",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/certification-reader/assets/audio-foley/v42/keeper-cues.json",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/certification-reader/assets/audio-foley/v42/keeper-sources.json",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/certification-reader/assets/audio-foley/v42/paper-recordings.json",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/certification-reader/assets/audio-foley/v42/paper-rollup-v5.wav",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/certification-reader/assets/audio-foley/v42/paper-unroll-v5.wav",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/certification-reader/assets/audio-foley/v42/park.wav",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/certification-reader/assets/audio-foley/v42/seat.wav",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/certification-reader/assets/audio-foley/v42/slideClose.wav",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/certification-reader/assets/audio-foley/v42/slideOpen.wav",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/certification-reader/assets/audio-foley/v42/tailClose.wav",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/certification-reader/assets/audio-foley/v42/tailOpen.wav",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/certification-reader/assets/audio-music/a-new-town.mp3",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/certification-reader/assets/audio-sources/manifest.json",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/certification-reader/assets/keeper-display.glb",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/certification-reader/keeper-sound.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/certification-reader/material-motion.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/certification-reader/reader.bundle.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/certification-reader/sound-base.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/certification-reader/sound.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/chapter-scroll-v10/assets/ink-shoulder.png",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/chapter-scroll-v14/assets/unused-keeper.png",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/chapter-scroll-v17/vendor/noise2D.glsl",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/chapter-scroll-v3/assets/studio.hdr",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/chapter-scroll-v4/assets/skin-normal.jpg",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/chapter-scroll-v4/assets/skin-roughness.jpg",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/project-beginning/CREDITS.md",
+      "role": "license"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/project-beginning/art-plan.json",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/project-beginning/assets/daily-miniature.png",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/project-beginning/assets/final-back.png",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/project-beginning/assets/final-front.png",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/project-beginning/assets/final-ink.png",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/project-beginning/assets/final-relief.png",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/project-beginning/assets/final-seal-ink.png",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/project-beginning/assets/final-seal-mask.png",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/project-beginning/assets/parchment.webp",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/project-beginning/assets/surfaces.json",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/project-beginning/charter.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/project-beginning/document.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/project-beginning/record.json",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/project-beginning/scroll-object.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/project-beginning/templates.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/listening.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/objective.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/practice-workspace.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/practice.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/pure-reader.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/question-pairs.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/questions.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/reader-focus.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/reader-jump.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/reader-speech.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/reading.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/recorder.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/render.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/settings.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/storage-usage.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/styles.css",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/text.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/chapter-scroll/licenses/Aboensis-OFL.txt",
+      "role": "license"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/chapter-scroll/licenses/Aboensis-README.txt",
+      "role": "license"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/chapter-scroll/licenses/Paperlab-Apache-2.0.txt",
+      "role": "license"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/chapter-scroll/licenses/Paperlab-NOTICE.txt",
+      "role": "license"
+    },
+    {
+      "source": "repository",
+      "path": "scripts/build-certification-reader.mjs",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/chapter-scroll-v6/assets/charter.webp",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/certification-reader/viewer.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/certification-reader/viewer-resources.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/certification-reader/issued-profile.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "scripts/build-scroll-paper-candidate.py",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": ".cache/paper-source-research-2026-10-22/adobe/extracted/Foley/Foley Paper Unroll 01.wav",
+      "role": "private-craft-source"
+    },
+    {
+      "source": "repository",
+      "path": ".cache/paper-source-research-2026-10-22/adobe/extracted/Foley/Foley Paper Roll Up Fast 01.wav",
+      "role": "private-craft-source"
+    },
+    {
+      "source": "repository",
+      "path": ".cache/foley-community-sources-2026-10-22/626503-author-hq-preview.mp3",
+      "role": "private-craft-source"
+    },
+    {
+      "source": "repository",
+      "path": "scripts/lib/quality-model.mjs",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "native",
+      "path": "research/scroll-lab-v14/bronze-albedo-source.png",
+      "role": "native-material-dependency"
+    },
+    {
+      "source": "native",
+      "path": "research/scroll-lab-v14/leather-albedo-source.png",
+      "role": "native-material-dependency"
+    },
+    {
+      "source": "native",
+      "path": "web/labs/chapter-scroll-v18/assets/metal-age-masks.png",
+      "role": "native-material-dependency"
+    },
+    {
+      "source": "repository",
+      "path": "web/chapter-certification.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/sw.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/manifest.webmanifest",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/chapter-scroll-v12/seal.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/chapter-scroll-v10/ink-transfer.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/chapter-scroll-v14/vendor/webgl-noise-LICENSE.txt",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "scripts/lib/publisher-config.mjs",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "scripts/lib/local-services.mjs",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/chapter-scroll-v5/vendor/fluid.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/certification-reader/viewer-atmosphere.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/chapter-scroll-runtime/motion.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/certification/vendor/three.core.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/certification/vendor/three.module.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/owner-identity.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/chapter-scroll/document.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/chapter-scroll/vendor/paperlab-roll.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/chapter-scroll-v3/vendor/HDRLoader.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/chapter-scroll-v3/scroll-object.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/chapter-scroll-v6/scroll-object.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/chapter-scroll-v8/keeper-path.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/chapter-scroll-v8/keeper.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/chapter-scroll-v8/scroll-object.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/chapter-scroll-v12/scroll-object.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/chapter-scroll-runtime/scroll-object.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/keeper-asset-study/vendor/BufferGeometryUtils.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/keeper-asset-study/vendor/SkeletonUtils.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/keeper-asset-study/vendor/GLTFLoader.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/chapter-scroll-v17/keeper-motion.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/chapter-scroll-v17/keeper.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/chapter-scroll-v17/scroll-object.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/chapter-scroll-v19/finishing.js",
+      "role": "shared-runtime-source"
+    },
+    {
+      "source": "repository",
+      "path": "web/labs/chapter-scroll-v19/scroll-object.js",
+      "role": "shared-runtime-source"
+    }
+  ]
+}

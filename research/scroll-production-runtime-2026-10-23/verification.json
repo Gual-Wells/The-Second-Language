@@ -1,0 +1,263 @@
+{
+  "schema": "second-language.scroll-production-runtime-evidence.v1",
+  "generatedAt": "2026-10-23T00:14:14.939Z",
+  "scope": "Local unissued specimens only; no certification event/grade/catalogue created; independent agent approval is not user acceptance.",
+  "imageBridge": {
+    "actualOutput": true,
+    "tool": "image_gen__imagegen",
+    "requestedModel": "gpt-6.1-sol",
+    "reasoningEffort": "xhigh",
+    "observedImageModel": "not exposed",
+    "sessionId": "01a16572-790a-74c0-adcb-792ac3253ac0",
+    "actualToolCall": {
+      "timestamp": "2026-10-22T21:10:00.781Z",
+      "callId": "call_123d989eed984bd288380743d0eeaff2",
+      "hostTool": "exec",
+      "imageGenerationReferenced": true,
+      "transparentRequested": true
+    },
+    "bytes": 2846592,
+    "sha256": "48927f1e7e059041588e74ebf3cdc54eac300ab01d455b0db90b951f13bffc9e",
+    "sourceFile": "image-bridge-unlettered-paper.png",
+    "adoption": "Material feasibility output, not automatically adopted into a final work; no Image API key or new purchase."
+  },
+  "accepted": {
+    "chapterId": "2026-10-23",
+    "chapterNumber": "12",
+    "artTitle": "Where Ink Ends",
+    "contentSHA": "925d37e2fbfb88d63137ef7ae3ff2b686fc2e59c108ee9cbce6a9e7a6f9adb48",
+    "candidateDigest": "6b5c30dccadc7eb74064dc57c5eabf1d15f3b9f5a75004a25f35f935fd75b27c",
+    "reviewDigest": "ef84dbc0874803a87fb67f0195b38b38a271ed9913c4e2e65e08fb1272ccad0e",
+    "creator": {
+      "exitCode": 0,
+      "finishedAt": "2026-10-22T23:00:19.137Z",
+      "imageGeneration": false,
+      "images": [
+        {
+          "file": "charter.webp",
+          "sha256": "d01394d89626dff45630d4ecefb4592dbdea49e7fea6667083a1bca8756624f8"
+        }
+      ],
+      "inputSHA": "d02de37c2f2987ef5d003330f600c71d52ba4f85b86185fb53e2f89f9627aa4b",
+      "model": "gpt-6.1-sol",
+      "outputSHA": "15fb588fd21ade5f429f3ac58044ae0a07f8469d7c049f02db372199d95ab3f6",
+      "reasoningEffort": "xhigh",
+      "runId": "d9ba9533-62f6-4763-b4f2-3cfa0a9e1fb0",
+      "sessionId": "01a165d6-09e9-7c03-a426-1f245c165576",
+      "startedAt": "2026-10-22T22:58:06.927Z",
+      "state": "complete"
+    },
+    "reviewer": {
+      "exitCode": 0,
+      "finishedAt": "2026-10-22T23:47:20.615Z",
+      "imageGeneration": false,
+      "images": [
+        {
+          "file": "front.png",
+          "sha256": "504a16297500c3eb3d5238d07da74327327b53d86196bc6541b5cbe4654a51f2"
+        },
+        {
+          "file": "back.png",
+          "sha256": "9a886cbb0687ba83b894d26b0275e0649417ba92718bf9b0149c4e76c1e47340"
+        },
+        {
+          "file": "gpu-open.png",
+          "sha256": "8424bb0479e07e72149a19f915a7d80659dafc7fb24d1fa6fa48f6f929362c2f"
+        },
+        {
+          "file": "gpu-mid.png",
+          "sha256": "7c3238507c5137a875a4d1d0f8b65d349f875a9921b10418a25e9eacb23ecde3"
+        }
+      ],
+      "inputSHA": "f267baf950e22eedf32c18976a9edb338e336280a997ab4957cdf8a5a27a60ac",
+      "model": "gpt-6.1-sol",
+      "observed": {
+        "model": "not exposed by CLI response events"
+      },
+      "outputSHA": "7e467aa299005d0ecdd2aab79975277bc61cedfb378fe0ba13edfceef4844638",
+      "reasoningEffort": "xhigh",
+      "requested": {
+        "model": "gpt-6.1-sol",
+        "reasoningEffort": "xhigh"
+      },
+      "runId": "5f77bf3a-0910-4e31-a24f-89aa150a753a",
+      "sessionId": "01a16600-d85c-7b01-b4c8-2bb9f4ed377e",
+      "startedAt": "2026-10-22T23:44:52.269Z",
+      "state": "complete"
+    },
+    "checks": {
+      "dynamic": true,
+      "engineering": true,
+      "layout": true,
+      "material": true,
+      "source": true,
+      "theme": true,
+      "translation": true
+    },
+    "verseLines": 7,
+    "composition": "A text-only manuscript on the 2048 × 2868 canvas, corresponding to 300 × 420 mm. Use true Aboensis throughout the English paper. Every block's x is its actual text alignment anchor; centered blocks use x=1024 and their 1608px width spans x=220 to x=1828. Every y is the first-line baseline, with subsequent baselines separated by lineHeight. The supplied institution measurement at 56px gives a 45px ascent and 29px descent. Its corrected baseline y=210 includes the safe top of 150, the measured ascent of 45 and 15px clearance, placing the measured glyph bounds at y=165 to y=239. All other block geometry remains unchanged. The title is largest and the seven unchanged verse lines are arranged as two, two and three. The middle pair names the interval immediately above a broad unlettered band; that space belongs to the stanza rhythm, while the mother paper's horizontal and diagonal creases retain their scanned positions throughout the sheet. Below the interval, two longer lines narrow to the single word 'continue.', exposing the grain around the ending. The short colophon closes the literary field. Status and identity use the actual left anchor x=220. The identity field contains exactly four lines: 'Gual Wells'; 'Study 2026-10-23'; '06:39:01.611 UTC+08:00'; 'Mark 925d37e2fbfb88d6'. The Study date and time represent the frozen sampleTime 2026-10-22T22:39:01.611Z in Asia/Shanghai. The mark is the first 16 hexadecimal characters of the frozen content SHA-256 925d37e2fbfb88d63137ef7ae3ff2b686fc2e59c108ee9cbce6a9e7a6f9adb48. It is distinct from artPlanDigest and chapterDigest. The separate frozen madeAt remains 2026-10-22T22:39:01.667Z. With certificationId and passedAt null and issued false, the paper retains 'Unissued study' and prints no Certified date. The identity's 52px lettering remains subordinate to the title and verse. Its width ends at x=1350, leaving a 70px horizontal gap before the separate lower-right remembrance impression. Both sealLegends appear once inside that impression. The inherited paper texture, folds and coloration remain visible beneath the brown-black writing, with only the supported broad bottom exposure gradient added. Retain the existing v42 low-reflection GPU/keeper presentation. English occupies the paper; the exact Chinese counterpart belongs to the translation view.",
+    "sourceDirectory": ".cache/scroll-volume-verification-2026-10-23",
+    "files": [
+      {
+        "path": "content-identity.json",
+        "digest": "925d37e2fbfb88d63137ef7ae3ff2b686fc2e59c108ee9cbce6a9e7a6f9adb48",
+        "bytes": 1148,
+        "role": "content-identity"
+      },
+      {
+        "path": "art-plan.json",
+        "digest": "5892d160eca152696c33cacabd97c5ec20011bd6099adb526bd9fc4e01bbe456",
+        "bytes": 6787,
+        "role": "art-plan"
+      },
+      {
+        "path": "record.json",
+        "digest": "801a2e40497a958c928700b9c9f021aad0cb4d54cd36695bb70ce37bfb5447db",
+        "bytes": 1707,
+        "role": "record"
+      },
+      {
+        "path": "chapter.md",
+        "digest": "4f1e6cbaacc41b28d21a24e3018aa89a3fe4e4aa88496f561adf30c6e420830b",
+        "bytes": 140722,
+        "role": "source"
+      },
+      {
+        "path": "creator.json",
+        "digest": "5539baa43527cf4089956dcbdfd45b89ec37a49a80a1fc48c53161a642d09958",
+        "bytes": 551,
+        "role": "creator"
+      },
+      {
+        "path": "inspection.json",
+        "digest": "8e3bac4e21bc419d41546d641fbb8080e1aac4fb04862cfed9ec843c21607aa9",
+        "bytes": 13192,
+        "role": "inspection"
+      },
+      {
+        "path": "surface.json",
+        "digest": "128901d0913e2f222a05b1bf9b4a25d1e6d313268c56a0dca062d1d7b6eef3cc",
+        "bytes": 9053,
+        "role": "surface"
+      },
+      {
+        "path": "gpu-open.png",
+        "digest": "8424bb0479e07e72149a19f915a7d80659dafc7fb24d1fa6fa48f6f929362c2f",
+        "bytes": 1012254,
+        "role": "dynamic-evidence"
+      },
+      {
+        "path": "gpu-mid.png",
+        "digest": "7c3238507c5137a875a4d1d0f8b65d349f875a9921b10418a25e9eacb23ecde3",
+        "bytes": 427602,
+        "role": "dynamic-evidence"
+      },
+      {
+        "path": "layers/front.png",
+        "digest": "504a16297500c3eb3d5238d07da74327327b53d86196bc6541b5cbe4654a51f2",
+        "bytes": 10701262,
+        "role": "front"
+      },
+      {
+        "path": "layers/back.png",
+        "digest": "9a886cbb0687ba83b894d26b0275e0649417ba92718bf9b0149c4e76c1e47340",
+        "bytes": 10474775,
+        "role": "back"
+      },
+      {
+        "path": "layers/ink.png",
+        "digest": "8c3390d3a08db013bb413d1cb9111e84a50d4a36cb0be6c5943fb47126def2d5",
+        "bytes": 501787,
+        "role": "ink"
+      },
+      {
+        "path": "layers/relief.png",
+        "digest": "ec07c177457ebf4076926a9c9661fdeda2ee4f87644ec19b6f79dbdaf3557a67",
+        "bytes": 146537,
+        "role": "relief"
+      },
+      {
+        "path": "layers/sealInk.png",
+        "digest": "1efe3dffe4c19a4b37e7f55963c441273cfbd35a21afdf25312cba713bda80c7",
+        "bytes": 141408,
+        "role": "sealInk"
+      },
+      {
+        "path": "layers/sealMask.png",
+        "digest": "db6d33a0c0f98cd22fe5e0d3a7bc5a8f11b857008373fac8928ba2c2ac4e44d6",
+        "bytes": 48852,
+        "role": "sealMask"
+      },
+      {
+        "path": "work-recovery.json",
+        "digest": "32ce9bfaaa3fbe92f63ce089a1a31acbd735d307486bed3f35f6943cf7096a48",
+        "bytes": 3343,
+        "role": "work-recovery"
+      },
+      {
+        "path": "work-originals-01.zip",
+        "digest": "448ebc487547ae6565466b5034a910be4f0ccd9a5a2c2bf224e153bb45c29704",
+        "bytes": 12025071,
+        "role": "archive"
+      },
+      {
+        "path": "work-originals-02.zip",
+        "digest": "72dd168a2c7cdbb6de3dccee4e21deb3c16b4efbabc68827ea130d7456902146",
+        "bytes": 11398489,
+        "role": "archive"
+      }
+    ],
+    "recovery": {
+      "indexSHA": "32ce9bfaaa3fbe92f63ce089a1a31acbd735d307486bed3f35f6943cf7096a48",
+      "volumes": [
+        {
+          "path": "work-originals-01.zip",
+          "bytes": 12025071,
+          "digest": "448ebc487547ae6565466b5034a910be4f0ccd9a5a2c2bf224e153bb45c29704",
+          "entries": 9
+        },
+        {
+          "path": "work-originals-02.zip",
+          "bytes": 11398489,
+          "digest": "72dd168a2c7cdbb6de3dccee4e21deb3c16b4efbabc68827ea130d7456902146",
+          "entries": 15
+        }
+      ],
+      "allMembersActuallyDecompressedAndHashed": 24
+    }
+  },
+  "notAdopted": {
+    "chapterId": "2026-10-22",
+    "artTitle": "A Leaf's Weight",
+    "verseLines": 8,
+    "contentSHA": "13784eae7e63cc9d8f1e76b9172e07c1ad36f789c518495590de01793b153650",
+    "candidateDigest": "2a2fed5d08339f83981cde2ad337f085f54f27e3fee9d7ae1904c5638ff3fd2f",
+    "checks": {
+      "dynamic": true,
+      "engineering": true,
+      "layout": true,
+      "material": false,
+      "source": true,
+      "theme": true,
+      "translation": true
+    },
+    "issues": [
+      "Bright red and yellow-green fringe pixels remain visible around both parchment silhouettes, especially along the bottom edge. Reconstruct contaminated edge RGB from adjacent warm parchment while preserving alpha and the worn contour. Verify the saved assets against light and dark backgrounds, then refresh GPU evidence and bound hashes. The reported cleanup count does not establish visual completion."
+    ],
+    "decision": "Stop this material revision. Retain objective residual fringe failure; no forced approval or further art loop.",
+    "laterEvidenceBoundary": "Correct light/dark alpha composites and actual GPU show no bright fringe. Earlier transparent-preview review may have exposed near-invisible RGB; neither raw RGB suspects nor a single earlier rejection prove a visible WebP material defect. Preserve original review history without retroactive approval. New production prefers original PNG and archives exact source bytes per work; no new base/database/API required."
+  },
+  "limits": [
+    "Actual Chromium WebGL at 393x852/dpr2, not physical iPhone/Safari.",
+    "Only one complete approved producer specimen; the independent rejection is intentionally retained as a failure path.",
+    "Required fresh blank paper is supported; arbitrary independent ornament placement is outside current fixed profile.",
+    "Shared craft base must be separately registered and hash-verified before production complete.",
+    "Creator/reviewer CLI execution evidence is genuine operational evidence, not a cryptographic attestation of the model backend."
+  ],
+  "unknownResultProtection": {
+    "testedAt": "2026-10-23T00:21:54.878Z",
+    "refusedBeforeNewModelInvocation": true,
+    "scope": "local outcome_unknown artifact; no paid model call, no source deletion"
+  },
+  "losslessFollowup": "lossless-verification.json"
+}

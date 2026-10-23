@@ -1,6 +1,6 @@
 # 正式章节理解测试
 
-用户决定：先实装申请测试，认证及纪念币留接口；允许不限次独立随机重测。每份固定二十道理解题：十三道文字单选/多选，七道零题文听说题，目标约十分钟；不是 IELTS band、全量掌握证明或正式认证。
+2026-10-23用户授权完成正式章节认证与卷轴申领。允许不限次独立随机重测；首次真实满分记录唯一、永久，通过后由本人另行申请纪念卷轴制作，不自动持续付费。纪念币不启用。每份固定二十道理解题：十三道文字单选/多选，七道零题文听说题，目标约十分钟；不是 IELTS band 或全量掌握证明；本项目认证只记录这份固定版本理解测试的真实全部正确事件，不冒称外部资格。
 
 ## 申请、出题与作答
 
@@ -16,13 +16,13 @@
 
 正式 API `/api/chapter-tests`：列表/申请；`/<id>` 读取；`/<id>/submit` 提交；`/<id>/retry` 明确重试失败出题。`/jobs/claim` 和 `/jobs/<id>/{heartbeat,complete,fail}` 仅发布身份可用；五分钟租约、每分钟心跳，过期标失败，不悄悄重新调用。原 `/api/questions/jobs` 也支持同样的监测与分流。后台持有答案；文字题提交前只拿题干与选项，听说题只拿题号与音频地址，不下发题干、类别、来源、转写或正确键。
 
-`/capabilities` 声明 `testing:true, certification:false, coin:false`；结果保留 `certification:null, coin:null`，未来可扩展，不创造假的认证记录。满分当前只表示这份理解测试全部正确。认证研究和艺术实验仍独立，不能混入正式结果。
+`/capabilities` 声明 `testing:true, certification:true, coin:false`。完整成绩原件保持原有 `certification:null, coin:null` 字段，不改写历史字节；真实认证作为独立顶层 `certification` 返回并可由 `/api/certifications?chapter=ID` 查询。只有迁移后本人新申请、现行20题/7口答全明确且全正确的正式测试有资格；最终成绩写入与首次通过事件在同一D1事务中提交。事件以 `(recipientId,chapterId)` 唯一，绑定当次章节/试卷/成绩摘要、答卷、策略和姓名快照；`passedAt` 是首次服务器最终核定时刻，不是申请/提交/制作/领取时间。章节修订、无限重测不重复认证。旧成绩、publisher验证、临时测试和研究样品不补认证。详细服务与封存/领取接口见 [SCROLL_BACKEND](SCROLL_BACKEND.md)。
 
 ## 验证和运维
 
 临时生题评判使用同一协议和同一后台教师，但从 `TEMPORARY.md` 路径 C 创建独立临时作用域。`/api/temporary-tests` 只接受 publisher 建设；作答接口、共享队列和处理回调复用本链路，所有操作受 48 小时到期边界约束，成绩不加入正式章节目录。`0013_temporary_chapter_tests.sql` 不迁移或覆盖任何历史正式记录；`check-temporary-chapter-tests.mjs` 验证隔离、到期、收费音频保留，手机录音测试同时覆盖临时接口和草稿到期。
 
-`scripts/check-chapter-tests.mjs` 验证旧版本与文字判分；`scripts/check-chapter-test-oral.mjs` 验证固定七题、原声身份、转写缓存、疑义补录及不可变成绩；`scripts/check-chapter-test-oral-ui.mjs` 验证手机录音、丢响应、关闭/刷新恢复和提交锁定。`scripts/check-maintenance-ui.mjs`：手机问答配对、草稿、提交和重发恢复。真实手机及实际题目理解质量仍以使用反馈验收。
+`scripts/check-certification-lifecycle.mjs` 用隔离真实SQLite验证首次通过事务/回滚、并发幂等、版本与重测唯一、作品制作/封存/领取及私有权限，不写入真实成绩；`scripts/check-chapter-tests.mjs` 验证旧版本与文字判分；`scripts/check-chapter-test-oral.mjs` 验证固定七题、原声身份、转写缓存、疑义补录及不可变成绩；`scripts/check-chapter-test-oral-ui.mjs` 验证手机录音、丢响应、关闭/刷新恢复和提交锁定。`scripts/check-maintenance-ui.mjs`：手机问答配对、草稿、提交和重发恢复。真实手机及实际题目理解质量仍以使用反馈验收。
 
 领取器 `scripts/question-worker.mjs` 兼容答疑与测试；`--tests-only` 供明确的运维验收单独领取测试，不影响普通队列公平性。任务末尾查询余额并排入永久归档，无新增订阅或第三方出题 API；新增题目合成、免费转写和必要 Qwen 补听，费用与额度按 `task-quotas.mjs` 记录。
 
@@ -34,7 +34,7 @@
 - 用户确认交卷后冻结十三道文字答案与七份原声编号。本机教师从同一个公平队列领取 `chapter-test-review`，使用完整固定版本全文、问题、中性语义类别及 Whisper 证据集中归类；看不到得分键。不评口音、流利度或一般语法瑕疵，不自动补全成正确回答。证据必须来自自己的原话转写；服务器按固定正确键每题同分，不接受客户端自报分数。明确错误/离题/矛盾或不属于任何类别用 `none`；真正识别不清才用 `uncertain`。
 - 全静音不送模型猜测内容，不算知识错误。关键识别疑义可经 Cloudflare Qwen 补听原声一次，不使用雅思四路发音分析或腾讯评分。原声、Whisper/Qwen 全部原返回、请求模型、使用量和解释版本均保真留存。Qwen 未知计费结果不自动重试；余额不足不自动跨日恢复。
 - 存在识别疑义时整体状态为 `needs_audio`，不给最终分数，不泄漏解析；仅对应题可补录。其余已明确回答的语义结果、原声和文字答案不能改变。补录后仍只处理这些题，已明确的错误答案不获得改卷机会。普通处理故障为 `review_failed`，页面可明确重新核对；永久原件故障不重新出题。
-- 核对完成后才生成不可变成绩；复盘展示问题文本、原声、实际转写、解释及来源。核对需要本机服务可用，电脑离线期间云端原声保留，页面显示等待，不承诺即时成绩。认证、纪念币维持当前未启用状态。
+- 核对完成后才生成不可变成绩；复盘展示问题文本、原声、实际转写、解释及来源。核对需要本机服务可用，电脑离线期间云端原声保留，页面显示等待，不承诺即时成绩。符合上述首次通过条件才持久记录项目内章节认证；仍可不限次独立重测，纪念币不启用。
 - 旧试卷固定 `chapter-understanding-v1`，不补七题、不改历史答卷。新试卷 `chapter-understanding-v2-oral7`；新客户端申请声明 policy、读取声明 `x-chapter-test-policy`，旧缓存客户端收到刷新提示，不误渲染新题。
 - `0012_chapter_test_oral.sql` 给旧记录保留旧 policy，增加紧凑录音/核对索引。完整题音、原声、转写、隐藏类别、答卷及结果保存在 OneDrive，不在 D1 堆积声音。`/<id>/answers/<qid>/<recordingId>` 上传/回听原声，`/<id>/questions/<qid>/audio` 播放题目；publisher `/jobs/<id>/{transcribe/<recordingId>,supplement/<recordingId>,check-question}` 仅供受领取权保护的处理。
 - 运维验证试卷必须由 publisher 设置 `validation:true`，目录不列入用户的学习记录；它仍保留原件且不产生认证。模拟录音只能证明链路与指定语义测试，不冒称真实学习者口音识别已经验收。

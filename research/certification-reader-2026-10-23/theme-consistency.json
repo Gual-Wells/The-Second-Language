@@ -1,0 +1,89 @@
+{
+  "schema": "second-language.theme-consistency-review.v1",
+  "checkedAt": "2026-10-22T23:01:29.343Z",
+  "viewport": {
+    "width": 402,
+    "height": 874,
+    "deviceScaleFactor": 1,
+    "touchEmulation": true,
+    "physicalIPhone": false
+  },
+  "scope": "Actual frontend with isolated API fixtures; no real scores, certifications, requests, claims, model calls or paid audio generation.",
+  "visualReview": {
+    "reading": "Blue header, silver navigation, white content and compact learning controls retained.",
+    "settings": "Grouped native blue/silver rows; same-window detail navigation retained.",
+    "audio": "Existing chapter quote and irreversible confirmation use existing blue controls and restrained gold confirmation surface.",
+    "quality": "Same blue sheet heading/status/footer; long findings scroll independently and do not cover controls; content review remains distinct from learner certification.",
+    "certification": "New status card uses existing blue border, gradient and native button; failed states do not claim completion; catalogue contains only minimal entry labels.",
+    "document": "Previously accepted green/parchment panel restored after comparison; art-object palette intentionally distinct from operational controls. Frozen paper not changed."
+  },
+  "fixes": [
+    "Long chapter-test/quality record labels wrap rather than crowd dates.",
+    "Explicit certification button selector prevents later generic 38px rule overriding its 44px hit target.",
+    "Existing parchment document palette preserved; copy/action buttons have 44px minimum height without restyling the artwork."
+  ],
+  "checks": {
+    "recentModulesShareBlueSilverTheme": true,
+    "noFirstPassNoClaim": true,
+    "explicitIdempotentRequest": true,
+    "lostResponseReusesRequestUUID": true,
+    "failureDoesNotInventReady": true,
+    "separateClaim": true,
+    "claimedOnlyNumberOnlyCatalogue": true,
+    "dataOnlyFrozenDynamicViewer": true,
+    "fullTranslationAndRealFirstPassTime": true,
+    "iPhoneWidthNoOverflow": true,
+    "exitStopsSound": true,
+    "noExecutableProfilesOrSpecimenPromotion": true
+  },
+  "screens": [
+    {
+      "path": ".cache/certification-theme-audit-2026-10-23/reading.png",
+      "sha256": "434d23e9418b4d0bb98309984d271234247f9c6a90a4ff084c2c6299780ef06e"
+    },
+    {
+      "path": ".cache/certification-theme-audit-2026-10-23/settings.png",
+      "sha256": "71dd4027fb7c3c988d7598dbbbe1357c0e4034c4c9effd1d066137d688b1c453"
+    },
+    {
+      "path": ".cache/certification-theme-audit-2026-10-23/audio-confirmation.png",
+      "sha256": "6c2a77ecaade30a781255a44bb0ef945b1978d87651a1a3ead7d01631271a26b"
+    },
+    {
+      "path": ".cache/certification-theme-audit-2026-10-23/quality-report.png",
+      "sha256": "4b22cc80b1c9f2d1148cd75bc370e54cf881c269079d1711b8d3430d7fc589fa"
+    },
+    {
+      "path": ".cache/certification-theme-audit-2026-10-23/not-certified.png",
+      "sha256": "5ee962eff6546038a23ab43412a213946591074116d60597d66cdef50d3ea6c8"
+    },
+    {
+      "path": ".cache/certification-theme-audit-2026-10-23/request.png",
+      "sha256": "223212d95a79167013d845909cd4ff2bb0161db3bb9c70d95ffde11e387fea5e"
+    },
+    {
+      "path": ".cache/certification-theme-audit-2026-10-23/failed.png",
+      "sha256": "16a32cc4b352dbe91451d08c3438ae401e79caee158780fb6701e7c5ee391193"
+    },
+    {
+      "path": ".cache/certification-theme-audit-2026-10-23/ready.png",
+      "sha256": "21d17ad583d5e91d88c0b1ad98de89da8a18e4e062261eb1660f194397917e52"
+    },
+    {
+      "path": ".cache/certification-theme-audit-2026-10-23/claimed.png",
+      "sha256": "a1a28212e4636a6855e98ae87efb90f61e78f6da1bada8293b7bbc850d679165"
+    },
+    {
+      "path": ".cache/certification-theme-audit-2026-10-23/catalogue.png",
+      "sha256": "cf6b4102b0400e94eaa125e8aecf8954f18ac175edf51cccb2e810999a917bb1"
+    },
+    {
+      "path": ".cache/certification-theme-audit-2026-10-23/document.png",
+      "sha256": "69fcb050112126b653c5640ea94791b23caba000b6c78ffc6cdc4eb46ed68daf"
+    }
+  ],
+  "limitations": [
+    "The screenshots show local fixture data, not a newly issued work or actual chapter-quality conclusion.",
+    "No physical iPhone 17 Safari/PWA, lockscreen or human listening acceptance is claimed."
+  ]
+}

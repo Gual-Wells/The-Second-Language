@@ -13,6 +13,10 @@ assert.equal(project.checks.decodedOriginalPixelsMatch,true);assert.equal(projec
 assert.equal(project.record.category,'project-commemorative');assert.equal(project.record.status,'commemorative');assert.equal(project.record.attestation,null);assert.equal(project.record.sha256,'4a83d1952e133bcecd6c1aa2e14a788159b410e9a6ea2a7f5bcf42610943e37b');
 const paths=new Set(project.resources.map(r=>new URL(r).pathname).filter(p=>!p.startsWith('/api/')&&!p.startsWith('/auth/')).map(p=>p==='/'?'/index.html':p));
 for(const p of ['/labs/certification-reader/CREDITS.md','/labs/certification-reader/AUDIO_CREDITS.md'])paths.add(p);
+// The static shell owns the request/claim interface and fixed data adapter.
+// Individual chapter artworks remain private, server-listed content packages;
+// they must never be copied into this public static works array or file set.
+for(const p of ['/certification-reader.js','/chapter-tests.js','/chapter-certification.js','/labs/certification-reader/issued-profile.js'])paths.add(p);
 // All packaged hashes come from staged bytes. A passing browser observation
 // cannot silently substitute newer working-tree paper or metadata for them.
 const indexed=new Map(),hash=bytes=>createHash('sha256').update(bytes).digest('hex');
@@ -76,5 +80,5 @@ assert.ok(![...paths].some(url=>url.startsWith('/labs/project-commemorative/')),
 assert.ok(![...paths].some(url=>/^\/labs\/chapter-scroll-v(?:12|14)\/chapter-sample\.json$/.test(url)),'Research chapter records leaked into the production work closure');
 const files=[];
 for(const url of [...paths].sort()){const bytes=fromIndex(url);files.push({url,bytes:bytes.length,sha256:hash(bytes)});}
-const manifest={schema:'second-language.certification-reader-display.v1',issued:false,works:[{workId:project.record.workId,category:'project-commemorative',sha256:project.record.sha256}],scope:'The sole production work is the commissioned project-beginning commemoration, with readable bilingual document metadata and default sound. First/fifth chapter research specimens remain outside the production catalogue; shared technical dependencies are not listed as works. No assessment or award state is created.',verificationReports:[reportPath],files,bytes:files.reduce((n,f)=>n+f.bytes,0)};
+const manifest={schema:'second-language.certification-reader-display.v1',issued:false,works:[{workId:project.record.workId,category:'project-commemorative',sha256:project.record.sha256}],scope:'This public static closure contains the commissioned project-beginning commemoration and the shared viewer/request/claim shell. The production catalogue also supports newly certified chapter scrolls after creation, verified permanent archiving and explicit claim; each is listed privately by /api/scrolls and loaded from its own immutable server package, never this static works/files list. First/fifth chapter research specimens remain unissued and excluded. Static work display does not create scores, certifications, production requests or claims.',dynamicWorks:{catalogue:'/api/scrolls',detail:'/api/scrolls/:id',assets:'/api/scrolls/:id/assets/:sha',schema:'second-language.scroll-package.v1',visibility:'authenticated-owner-and-claimed',includedInStaticFiles:false},verificationReports:[reportPath],files,bytes:files.reduce((n,f)=>n+f.bytes,0)};
 await writeFile('web/labs/certification-reader/display-manifest.json',JSON.stringify(manifest,null,2)+'\n');console.log(JSON.stringify({files:files.length,bytes:manifest.bytes}));

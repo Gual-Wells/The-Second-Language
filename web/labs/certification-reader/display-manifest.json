@@ -8,7 +8,15 @@
       "sha256": "4a83d1952e133bcecd6c1aa2e14a788159b410e9a6ea2a7f5bcf42610943e37b"
     }
   ],
-  "scope": "The sole production work is the commissioned project-beginning commemoration, with readable bilingual document metadata and default sound. First/fifth chapter research specimens remain outside the production catalogue; shared technical dependencies are not listed as works. No assessment or award state is created.",
+  "scope": "This public static closure contains the commissioned project-beginning commemoration and the shared viewer/request/claim shell. The production catalogue also supports newly certified chapter scrolls after creation, verified permanent archiving and explicit claim; each is listed privately by /api/scrolls and loaded from its own immutable server package, never this static works/files list. First/fifth chapter research specimens remain unissued and excluded. Static work display does not create scores, certifications, production requests or claims.",
+  "dynamicWorks": {
+    "catalogue": "/api/scrolls",
+    "detail": "/api/scrolls/:id",
+    "assets": "/api/scrolls/:id/assets/:sha",
+    "schema": "second-language.scroll-package.v1",
+    "visibility": "authenticated-owner-and-claimed",
+    "includedInStaticFiles": false
+  },
   "verificationReports": [
     "research/scroll-sound-adoption-2026-10-23/verification.json"
   ],
@@ -20,8 +28,8 @@
     },
     {
       "url": "/app.js",
-      "bytes": 45981,
-      "sha256": "5fddf2f62b0464c7d81894d58b290d1c6f176f1e2820e57f83332cf778de3635"
+      "bytes": 45985,
+      "sha256": "0f604d1954bd0036b3be4fd47a24873b75283e1eb430640735cddff14340e8ce"
     },
     {
       "url": "/audio-config.js",
@@ -45,8 +53,13 @@
     },
     {
       "url": "/certification-reader.js",
-      "bytes": 13365,
-      "sha256": "53078ff92707ab2a387d357b32197c85d940dca58e9e5eba0360bd99d19c6718"
+      "bytes": 16067,
+      "sha256": "a79513f104b1f2bc70faed88cce87612c9d3e5d328ef74eb47b6a73c57cb7c6f"
+    },
+    {
+      "url": "/chapter-certification.js",
+      "bytes": 3881,
+      "sha256": "2d55d6f08a3606fb28323a7a7a1f48231b438866b440e0f637f9ad52d64a96a6"
     },
     {
       "url": "/chapter-quality.js",
@@ -60,8 +73,8 @@
     },
     {
       "url": "/chapter-tests.js",
-      "bytes": 12935,
-      "sha256": "122271bab99898a5718e7a8f702d01535383c7e2bd213c52bb094e4779f5c306"
+      "bytes": 13529,
+      "sha256": "6c94723bc7322878d917dddc065149eafcd9d74803fd910fe46e67098cd2fc7e"
     },
     {
       "url": "/chapters.js",
@@ -85,8 +98,8 @@
     },
     {
       "url": "/index.html",
-      "bytes": 31244,
-      "sha256": "9ed6fb278ae62393d05673d286eb87f657c3c68c2140d836866f0f82dd062330"
+      "bytes": 31631,
+      "sha256": "ecfd4c228c8669547b876bf2add8148e15b683ab980098505482e9cf6e1510da"
     },
     {
       "url": "/labs/certification-reader/AUDIO_CREDITS.md",
@@ -189,6 +202,11 @@
       "sha256": "118ad3e48f4a37034551aa7330b033a79a9b4e5711972eb92553774ffb37bffa"
     },
     {
+      "url": "/labs/certification-reader/issued-profile.js",
+      "bytes": 6056,
+      "sha256": "019820fb1d223879f86cb3ae72b0a22f4bdd11e3811b8427efff53839aba50a2"
+    },
+    {
       "url": "/labs/certification-reader/keeper-sound.js",
       "bytes": 8093,
       "sha256": "7b01ee59bed833dbe4287b10b2438c32545bc474202918047535b2eda444999b"
@@ -200,8 +218,8 @@
     },
     {
       "url": "/labs/certification-reader/reader.bundle.js",
-      "bytes": 739071,
-      "sha256": "2f4387e5924d314c913b038dd7384db2b95e5d9c182e0703fa42b7af4002aff0"
+      "bytes": 744315,
+      "sha256": "4f12ae76a77f0bdf048b8f78d09b1b0c3e01e9c5f456ab429058fcd5229fa463"
     },
     {
       "url": "/labs/certification-reader/sound-base.js",
@@ -440,8 +458,8 @@
     },
     {
       "url": "/styles.css",
-      "bytes": 61352,
-      "sha256": "c9cb49eca4b6fd23e9f62c8dec19b439a6a7400aa297f0e81a5ee00cadf4bf3f"
+      "bytes": 62046,
+      "sha256": "e4dc80a5a81688d11a74030e6c5ded671e9225dde79bd175c626b663e57ee3cf"
     },
     {
       "url": "/text.js",
@@ -449,5 +467,5 @@
       "sha256": "8c4f3c17e6d1f45f32bb892307cff4a4a5a08d3af76c0a1e67b355ddf7d419b8"
     }
   ],
-  "bytes": 50592982
+  "bytes": 50612544
 }

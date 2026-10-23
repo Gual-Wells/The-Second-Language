@@ -1,6 +1,7 @@
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import {localServices} from './local-services.mjs';
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 
@@ -8,9 +9,10 @@ export async function publisherConfig() {
   const base = process.env.SECOND_LANGUAGE_API_URL || 'https://the-second-language.pages.dev/';
   let token = process.env.SECOND_LANGUAGE_PUBLISH_TOKEN;
   if (!token) {
+    const configured=await localServices();
     const filename = process.env.SECOND_LANGUAGE_CREDENTIAL_FILE
       ? path.resolve(process.env.SECOND_LANGUAGE_CREDENTIAL_FILE)
-      : path.join(projectRoot, '.cache/deployment-secrets.json');
+      : configured.publisherCredentialFile||path.join(projectRoot, '.cache/deployment-secrets.json');
     try { token = JSON.parse(await readFile(filename, 'utf8')).PUBLISH_TOKEN; }
     catch (error) { if (error.code !== 'ENOENT') throw error; }
   }

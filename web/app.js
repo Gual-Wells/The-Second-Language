@@ -10,8 +10,8 @@ import { validateAnnotatedContent } from './annotations.js?v=41';
 import { createPracticeUI } from './practice.js?v=41';
 import {createBalanceUI} from './balances.js?v=41';
 import {createStorageUsageUI} from './storage-usage.js?v=41';
-import {createCertificationReader} from './certification-reader.js?v=42';
-import {createChapterTestsUI} from './chapter-tests.js?v=41';
+import {createCertificationReader} from './certification-reader.js?v=43';
+import {createChapterTestsUI} from './chapter-tests.js?v=43';
 import {createQuestionsUI} from './questions.js?v=41';
 import {openAudioChapter,clearAudioLibrary,preloadEnabled,setPreload} from './audio-library.js?v=41';
 
@@ -45,7 +45,7 @@ const readerJump=createReaderJump({shell:$('app'),scope:$('readingScroll'),notic
 const nativeSpeech=installReaderSpeech({toast,onWordJump:jumpToWord});
 const pureReader=installPureReader({prepareTap:nativeSpeech.prepareTap,onToggle:saveReadingPosition,onQuestion:focus=>questions.submitFocus(focus)});
 const settingsNavigation=installSettingsNavigation();
-const certificationReader=createCertificationReader({showDialog,stopLearningAudio:()=>{nativeSpeech.stop();for(const media of document.querySelectorAll('audio,video'))media.pause();}});
+const certificationReader=createCertificationReader({showDialog,api,stopLearningAudio:()=>{nativeSpeech.stop();for(const media of document.querySelectorAll('audio,video'))media.pause();}});
 window.certificationReader=certificationReader;
 const settingFields=['studyGoal','temporaryRequestToggle','temporaryRequestText','restToggle'],dirtySettings=new Set();
 for(const id of settingFields){const field=$(id);const saved=readStored('second-language-settings-draft')[id];if(saved!==undefined){if(field.type==='checkbox')field.checked=saved;else field.value=saved;dirtySettings.add(id);}field.addEventListener('input',()=>{dirtySettings.add(id);const draft=readStored('second-language-settings-draft');draft[id]=field.type==='checkbox'?field.checked:field.value;writeStored('second-language-settings-draft',draft);});}
@@ -737,6 +737,6 @@ $('chapterNav').addEventListener('touchend', event => {
   if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.5) moveChapter(dx < 0 ? 1 : -1);
   swipeStart = null;
 }, { passive: true });
-if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=42', { updateViaCache: 'none' }).catch(() => {});
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=43', { updateViaCache: 'none' }).catch(() => {});
 refreshInstallStatus();
 initialize().then(()=>{if(state.authenticated&&new URLSearchParams(location.search).has('balances'))balances.open();});

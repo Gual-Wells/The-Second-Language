@@ -40,6 +40,14 @@ try{
  assert.equal(rebuild(groups).get('runs/2026-10-11/words/语义.md').toString(),'immutable evidence — 词义、例句与出处','older content-addressed snapshot remains restorable');
  assert.equal(rebuild(newer).get('runs/2026-10-11/words/语义.md').toString(),'new version');
  assert.equal(rebuild(newer).get('quality/report-one/result.json').toString(),'{"decision":"needs_evidence"}');
+ await file(path.join(project,'work/scroll/job-one/art-plan.json'),'{"theme":"independent"}');
+ await file(path.join(approved,'native/keeper.blend'),big);await file(path.join(approved,'native/maps/bronze.png'),'map');
+ await file(path.join(approved,'native/api-token.txt'),'NEVER ARCHIVE');
+ await file(config,JSON.stringify({linkedDirectoryRoots:[approved],artifactRoots:[{id:'scroll-base/v19',path:path.join(approved,'native'),files:['keeper.blend','maps/bronze.png']}]}));
+ const native=rebuild(await archiveWorking(project,put));assert.deepEqual(native.get('artifacts/scroll-base/v19/keeper.blend'),big);assert.equal(native.get('artifacts/scroll-base/v19/maps/bronze.png').toString(),'map');assert.equal(native.get('scroll/job-one/art-plan.json').toString(),'{"theme":"independent"}');assert(![...native.keys()].some(k=>k.includes('api-token')));
+ await file(config,JSON.stringify({artifactRoots:[{id:'bad',path:path.join(approved,'native'),files:['../outside.txt']}]}));await assert.rejects(archiveWorking(project,put),/清单无效/);
+ await file(config,JSON.stringify({linkedDirectoryRoots:[approved],artifactRoots:[{id:'missing',path:path.join(approved,'native'),files:['absent.blend']}]}));await assert.rejects(archiveWorking(project,put),/缺失/);
+ await file(config,JSON.stringify({linkedDirectoryRoots:[approved]}));
  await link(outside,path.join(project,'work/questions/unapproved'));
  await assert.rejects(archiveWorking(project,put),/未登记/,'unapproved top-level link must fail rather than silently omit evidence');
  console.log('Working archives: ordinary roots, approved Windows junctions, expression/evidence groups, exact multipart recovery, version identities, privacy filters, nested cycles and unapproved targets passed.');

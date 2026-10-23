@@ -1,0 +1,178 @@
+{
+  "schema": "second-language.scroll-lossless-material-verification.v1",
+  "verifiedAt": "2026-10-23T01:21:36.923Z",
+  "change": "Versioned first-v6-lossless, exact original PNG reuse; old first-v6 WebP id and all frozen works unchanged",
+  "source": {
+    "png": {
+      "sha256": "cf442d74c5372dd0d9871d4faa0e727194d0f89f4020cf3d4988e47eeb3d3ac5",
+      "bytes": 3374608,
+      "size": [
+        1060,
+        1484
+      ],
+      "alphaBox": [
+        14,
+        16,
+        1052,
+        1470
+      ],
+      "suspectPixels": 5876,
+      "suspectOpaque": 0,
+      "alphaSHA": "01c60cddd6054ba77174140da7c69fa32b03b1120b141fe5315665470ef6e66c",
+      "suspectAlphaRange": [
+        1,
+        18
+      ],
+      "suspectAlphaHistogram": {
+        "1": 4474,
+        "2": 654,
+        "3": 360,
+        "4": 145,
+        "5": 92,
+        "6": 75,
+        "7": 49,
+        "8": 5,
+        "9": 4,
+        "10": 5,
+        "12": 5,
+        "13": 2,
+        "14": 2,
+        "17": 2,
+        "18": 2
+      }
+    },
+    "webp": {
+      "sha256": "d01394d89626dff45630d4ecefb4592dbdea49e7fea6667083a1bca8756624f8",
+      "bytes": 735602,
+      "size": [
+        1060,
+        1484
+      ],
+      "alphaBox": [
+        14,
+        16,
+        1052,
+        1470
+      ],
+      "suspectPixels": 3973,
+      "suspectOpaque": 0,
+      "alphaSHA": "01c60cddd6054ba77174140da7c69fa32b03b1120b141fe5315665470ef6e66c",
+      "suspectAlphaRange": [
+        1,
+        19
+      ],
+      "suspectAlphaHistogram": {
+        "1": 3349,
+        "2": 411,
+        "3": 87,
+        "4": 63,
+        "5": 37,
+        "6": 22,
+        "7": 1,
+        "8": 2,
+        "19": 1
+      }
+    },
+    "decoded": {
+      "rgbEqual": false
+    }
+  },
+  "sourceResource": "web/labs/scroll-runtime/assets/first-v6-lossless.png",
+  "record": {
+    "contentSHA": "925d37e2fbfb88d63137ef7ae3ff2b686fc2e59c108ee9cbce6a9e7a6f9adb48",
+    "unchangedFromApprovedLiteraryWork": true,
+    "candidateDigest": "8498bfd80bbbb112257602c69c2ede2c1b7e8785f03f19d2e85b0b3c1c01258a",
+    "reviewDigest": "45bc15516d795b96561b2fa6f4d0ce231d831490c89dd8e6e130495964120341",
+    "artPlanDigest": "0332c047f2b08b6b4246e6d7b44b1b377d700fb08e836440fa2ba2d651c8d0bf"
+  },
+  "render": {
+    "actualGPU": true,
+    "viewport": [
+      393,
+      852
+    ],
+    "deviceScaleFactor": 2,
+    "materialPixelCleanupApplied": 0,
+    "artCreationRepeated": false,
+    "reviewCount": 1,
+    "checks": {
+      "dynamic": true,
+      "engineering": true,
+      "layout": true,
+      "material": true,
+      "source": true,
+      "theme": true,
+      "translation": true
+    }
+  },
+  "package": {
+    "readOnlyBackendCrosscheckPassed": true,
+    "databaseWritten": false,
+    "issued": false,
+    "files": 24,
+    "sourcePaper": {
+      "bytes": 3374608,
+      "digest": "cf442d74c5372dd0d9871d4faa0e727194d0f89f4020cf3d4988e47eeb3d3ac5",
+      "mime": "image/png",
+      "path": "source-paper.png",
+      "role": "material-original"
+    },
+    "sourceProvenance": {
+      "bytes": 465,
+      "digest": "faabf6028c263e88213850f56645bc57b621f59d8147431379847716de45fdc4",
+      "mime": "application/json",
+      "path": "source-paper-provenance.json",
+      "role": "material-provenance"
+    },
+    "diagnostics": [
+      {
+        "bytes": 448012,
+        "digest": "e20b4f58d23a5b610b0a672021333883afd8b0ba89d3ff25bb7bf15a1c8de53a",
+        "mime": "image/png",
+        "path": "front-bottom-dark.png",
+        "role": "alpha-diagnostic"
+      },
+      {
+        "bytes": 457563,
+        "digest": "7b37762fa093927d507fd195e89893212a7b86ea47a2ec530a2fc5faa0c63d81",
+        "mime": "image/png",
+        "path": "front-bottom-light.png",
+        "role": "alpha-diagnostic"
+      },
+      {
+        "bytes": 448820,
+        "digest": "f2bcef13e4e7a7db3cfdc5226c328305a251d7e136435add46f9d57c58deeed3",
+        "mime": "image/png",
+        "path": "back-bottom-dark.png",
+        "role": "alpha-diagnostic"
+      },
+      {
+        "bytes": 457304,
+        "digest": "bf9de1d387f025a93e9f208736f930faed81a408a8019dbe7a4f07cac2e1a1ec",
+        "mime": "image/png",
+        "path": "back-bottom-light.png",
+        "role": "alpha-diagnostic"
+      }
+    ],
+    "archiveVolumes": [
+      {
+        "path": "work-originals-01.zip",
+        "digest": "a52348463215cdc79718fd3baf488fc3e9cb67913c599d8e6a058e6a543ba869",
+        "bytes": 14070723,
+        "members": 13
+      },
+      {
+        "path": "work-originals-02.zip",
+        "digest": "d7d07b68faed678a0a036527887d7932b1c7735bacc3a7368f08f87f2cab9ca9",
+        "bytes": 14941267,
+        "members": 17
+      }
+    ]
+  },
+  "conclusion": "Correct light/dark alpha composites and actual GPU show no bright fringe. Earlier transparent-preview review may have exposed near-invisible RGB; neither raw RGB suspects nor a single earlier rejection prove a visible WebP material defect. Preserve original review history without retroactive approval. New production prefers original PNG and archives exact source bytes per work; no new base/database/API required.",
+  "limits": [
+    "Not a new independent literary sample; existing approved chapter12 copy/layout reused.",
+    "Agent review and Chromium inspection do not equal user acceptance or physical iPhone/Safari verification.",
+    "This fixed source comparison does not establish alpha behavior for arbitrary future generated assets."
+  ]
+}

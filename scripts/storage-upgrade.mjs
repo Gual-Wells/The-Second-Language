@@ -11,8 +11,9 @@ import {rowidPages,permanentRows,storageTableOrder} from './lib/storage-scan.mjs
 import {archiveQuery} from './lib/archive-read-budget.mjs';
 import {latestRecoverySnapshot} from './lib/recovery-snapshot.mjs';
 import {pointAudioKeys,isPointAudioClip,pointAudioPolicy} from '../web/audio-plan.js';
+import {archiveStateDirectory} from './lib/local-services.mjs';
 try{
-const {base,token}=await publisherConfig(),mode=process.argv[2]||'migrate',directory=path.join(root,'.cache/storage-upgrade');await mkdir(directory,{recursive:true});
+const {base,token}=await publisherConfig(),mode=process.argv[2]||'migrate',directory=await archiveStateDirectory(root);await mkdir(directory,{recursive:true});
 const query=await archiveQuery(queryDetailed,path.join(directory,'read-budget.json'));
 const digest=bytes=>createHash('sha256').update(bytes).digest('hex');
 let ledger={};try{ledger=JSON.parse(await readFile(path.join(directory,'upload-ledger.json'),'utf8'));}catch(e){if(e.code!=='ENOENT')throw e;

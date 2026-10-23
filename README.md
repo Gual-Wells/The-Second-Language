@@ -11,6 +11,8 @@
 | 每日章节 | 40 个主词，词汇与用法、例句与翻译、连续长文；VIX 加权推荐，辅助标签使用真实 `YY-MM-DD` 日期 |
 | 词源与讲解 | 新启动日课在一级词头下集中讲词源，辅助理解记忆；双教材同一用法融合讲解，保留独有信息与原例句 |
 | 章节质检 | 标题旁“质检”按需申请，固定原章与教材来源；逐项核查、反证复核、永久报告；与章节测试及学习者认证分开 |
+| 章节测试与认证 | 二十题随机理解测试，可独立重测；新具资格试卷全部明确正确后，保存本章唯一首次通过事件及版本，之后重测不覆盖 |
+| 纪念卷轴 | 首次通过后明确申请独立创作，审阅及永久封存后领取；设置“认证阅览”只列已领取章号与独立项目纪念，提供纯享开合及英中释读 |
 | 阅读 | 章节册搜索与月历从章首打开；七日条、词条索引、用法回看与逐句译文；保存各部分位置，双击非英文句子区域进入／退出纯净模式 |
 | 点读 | 第一部分不发音；第二部分标题返回第一部分、例句整句；第三部分整句。固定 Kokoro Bella，日课默认满配句子音频，阅读时复用/下载，不自动播放 |
 | 临时页 | 按申请建设测试或复习页，48 小时有效；不改变日课与 VIX |
@@ -38,7 +40,7 @@ iPhone PWA → 同源 Pages 网关 → Cloudflare Worker
 
 正式章节及历史版本、音频、参考答案、答卷、模型返回与反馈永久保存。OneDrive 是文件基座，D1 承担状态和紧凑索引；近期缓存与浏览器下载不代替永久原件。未知计费结果不自动重试，存储故障不视为“尚未生成”。临时页按生命周期清理；个人原声不进入 Service Worker 离线音频缓存。
 
-电脑离线时云端已有材料仍可读取；新课程、批改与答疑需要本机任务恢复运行。空队列检查不调用 Codex，但仍有网络请求。正式离线冷启动登录不作完整可用承诺。
+电脑离线时云端已有材料仍可读取；新课程、批改、答疑与卷轴制作需要本机任务恢复运行。空队列检查不调用 Codex，但仍有网络请求。正式离线冷启动登录不作完整可用承诺。
 
 ## 权威协议入口
 
@@ -49,13 +51,16 @@ iPhone PWA → 同源 Pages 网关 → Cloudflare Worker
 | 雅思 | [EXPRESSION](protocol/EXPRESSION.md)、[PRACTICE_SIZES](protocol/PRACTICE_SIZES.md)、[LISTENING](protocol/LISTENING.md)、[READING](protocol/READING.md) |
 | 发音与原声 | [VOICE_ROUTING](protocol/VOICE_ROUTING.md)、[SPEAKING_PIPELINE](protocol/SPEAKING_PIPELINE.md)、[SPEAKING_RUNTIME](protocol/SPEAKING_RUNTIME.md) |
 | 答疑与界面 | [CHAPTER_QUESTIONS](protocol/CHAPTER_QUESTIONS.md)、[READER_INTERACTION](protocol/READER_INTERACTION.md) |
+| 章节认证与卷轴 | [CHAPTER_TESTS](protocol/CHAPTER_TESTS.md)、[CERTIFICATION_READER](protocol/CERTIFICATION_READER.md)、[CHARTER](protocol/CHARTER.md)、[SCROLL_CRAFT](protocol/SCROLL_CRAFT.md) |
 | 存储与额度 | [STORAGE](protocol/STORAGE.md)、[BALANCES](protocol/BALANCES.md)、[CLOUDFLARE_RESOURCES](protocol/CLOUDFLARE_RESOURCES.md) |
 
 `research/` 是历史研究依据；价格、旧方案和试听结论以现行协议及配置为准。
 
 ### 正式章节测试
 
-章节标题页与第三部分末尾均可申请/查看测试。每次新申请从固定版本的完整章节独立生成二十道理解题：十三道文字单选/多选，固定七道听题口答，目标约十分钟完成；草稿保存在本机，提交后保存不可改写的答卷及逐题解析，可不限次重新申请。听说题采用 Bella 题音、Whisper 转写和本机 Codex 内容核对，必要时 Qwen 补听；不评价口语表现，未听清只补录对应题。原声与结果永久保存，核对期间可继续学习，无新增订阅。当前不授予认证或纪念币，已留功能接口。见 [CHAPTER_TESTS](protocol/CHAPTER_TESTS.md)。
+章节标题页与第三部分末尾均可申请/查看测试。每次新申请从固定版本的完整章节独立生成二十道理解题：十三道文字单选/多选，固定七道听题口答，目标约十分钟完成；草稿保存在本机，提交后保存不可改写的答卷及逐题解析，可不限次重新申请。听说题采用 Bella 题音、Whisper 转写和本机 Codex 内容核对，必要时 Qwen 补听；不评价口语表现，未听清只补录对应题。原声与结果永久保存，核对期间可继续学习。
+
+2026-10-23用户授权接通章节认证：新具资格的正式二十题全部明确正确后，服务器在最终成绩同一事务保存本章唯一首次通过；绑定真实章节版本、姓名和毫秒时间，重测不覆盖。临时／运维验证及旧无资格试卷不补造认证。认证是私人学习纪念资格，不是外部机构学历或全量掌握证明；纪念币不接正式流程。见 [CHAPTER_TESTS](protocol/CHAPTER_TESTS.md)。
 
 词汇点读已正式取消；只保留第二部分例句及第三部分整句 Bella 点读/默认提前备齐（下一章可一次性调整）。第二部分词汇标题仍返回第一部分对应标题，词汇长按答疑保留。收费历史原件不删除。
 
@@ -108,7 +113,7 @@ Third-party packages, model/provider outputs, voices, APIs, dictionary or textbo
 
 ### 章节音频选配
 
-设置中的“音频配置”可为下一章一次性准备词汇、例句、范文逐句音频，也可对已有章节申请。已有章节先显示费用预估，再确认不可撤销；后台沿用 Kokoro Bella 与永久音频库。相同文字、音色和读音跨部分/章节复用；标题不同读音通过音素覆盖区分。预下载开关仍只下载已生成音频。协议与运行入口见 [AUDIO_CONFIGURATION](protocol/AUDIO_CONFIGURATION.md)。
+设置中的“音频配置”可为下一章一次性调整第二部分例句、第三部分范文逐句音频，也可对已有章节申请；词汇标题已取消发音。已有章节先显示费用预估，再确认不可撤销；后台沿用 Kokoro Bella 与永久音频库，相同文字、音色和读音跨章节复用。预下载开关仍只下载已生成音频。协议与运行入口见 [AUDIO_CONFIGURATION](protocol/AUDIO_CONFIGURATION.md)。
 
 ### 月度纪念展厅实验（历史样件）
 
@@ -116,7 +121,11 @@ Third-party packages, model/provider outputs, voices, APIs, dictionary or textbo
 
 ### 认证阅览
 
-设置 → 认证阅览：正式目录只列已发布的“项目纪念”，进入纯享卷轴，保留真实解扣与交互雾染。音乐和材质拟音默认开启；“文书”按钮提供同源英文原稿／中文译稿、可读的制作时间与认证码并可复制。第一／第五章只保留研究样品，不列入正式目录；不授予虚构考试认证。藏馆方案已取消，不经过取藏转场。见[现行规范](protocol/CERTIFICATION_READER.md)与[工程记录](research/certification-reader-2026-10-21/README.md)。
+首次通过后，在章节测试窗口明确申请本章纪念卷轴。专用创作与独立审阅采用`gpt-6.1-sol/xhigh`，文图、构图和纸张使用史按章设计；复用已认可机构与工艺，不将旧成品换标题或镜像。通过审阅并完整封存、回读后才显示领取；失败保留同一任务、认证和原件，未知计费不自动重试。
+
+设置 → 认证阅览：目录保留独立“项目纪念”，正常章卷只列本人已领取章号，不显示题名或锁定占位。进入纯享卷轴后保留真实解扣与交互雾染，音乐和v42材质拟音默认开启；“文书”提供同源完整英中、真实首次通过／制作／发布时刻及内容短码／完整SHA，可复制。第一／第五章旧研究样品仍不升格，未来真实新通过须另作正式件。藏馆与取藏转场已取消。见[现行规范](protocol/CERTIFICATION_READER.md)、[工艺主协议](protocol/CHARTER.md)及[风格核对](research/certification-reader-2026-10-23/theme-consistency.json)。
+
+固定项目作品与共享运行器进入静态发布闭包；每份新章卷的身份、艺术方案、六张冻结纸层及原生恢复包经OneDrive内容寻址保存，D1只保留资格／状态和指针。已领取章卷通过同源私有接口动态读取，不加入公开静态作品清单，不需逐章重新部署网站。打开卷轴不调用模型、不刷新身份。实现、发布与真实作品状态分别以执行记录核对；本机隔离测试不产生正式认证，浏览器模拟不冒称实体iPhone验收。
 
 项目启程纪念作品 **The Second Language — A Day in Another Tongue** 已按第一章完整工艺研究重做；无考试通过事件、不杜撰成立日。原版 **The Returning Thread（回返的线）** 已被用户否决撤下，其[记录](research/project-commemorative-2026-10-21/README.md)只作失败复盘。第一章v1—v12源码考究、真实提示词、候选修订、材质与实装证据保存于[制作研究档案](research/project-scroll-redesign-2026-10-21/README.md)，工艺总入口见[CHARTER](protocol/CHARTER.md)，实际制材／墨印／装配／返修按[SCROLL_CRAFT](protocol/SCROLL_CRAFT.md)。目录／文书纠错见[前次记录](research/scroll-reader-correction-2026-10-22/README.md)。2026-10-23用户采用v5纸卷声与A/B皮扣声，正式阅览和试听共用v42声音引擎，正常自动开合末段保留渐弱微声；[实装与发布记录](research/scroll-sound-adoption-2026-10-23/README.md)包含真实播放、生命周期、缓存及许可核对。此前[工艺规程与拟音重制](research/scroll-craft-and-audio-2026-10-22/README.md)的v41声音已被此版取代。
 

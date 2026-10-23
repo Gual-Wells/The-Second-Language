@@ -14,7 +14,7 @@
   <link rel="manifest" href="/manifest.webmanifest?v=41">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=41">
   <link rel="icon" href="/icon-192.png?v=41" type="image/png">
-  <link rel="stylesheet" href="/styles.css?v=41">
+  <link rel="stylesheet" href="/styles.css?v=43">
 </head>
 <body>
   <main class="app-shell login-mode" id="app">
@@ -221,7 +221,7 @@
   </dialog>
 
   <dialog class="sheet-dialog" id="certificationCatalogue" aria-labelledby="certificationCatalogueTitle">
-    <div class="sheet certification-catalogue"><div class="sheet-head"><h2 id="certificationCatalogueTitle">认证阅览</h2><button class="sheet-close" data-close="certificationCatalogue" type="button" aria-label="返回设置">×</button></div><div id="certificationChapters"></div></div>
+    <div class="sheet certification-catalogue"><div class="sheet-head"><h2 id="certificationCatalogueTitle">认证阅览</h2><button class="sheet-close" data-close="certificationCatalogue" type="button" aria-label="返回设置">×</button></div><div id="certificationChapters"></div><div id="certificationCatalogueNotice" class="certification-catalogue-notice" hidden><p id="certificationCatalogueStatus" role="status"></p><button id="certificationCatalogueRetry" class="bevel-button" type="button" hidden>重新读取</button></div></div>
   </dialog>
   <dialog class="certification-viewer" id="certificationViewer" aria-label="卷轴纯享阅览">
     <div id="certificationStage" class="certification-stage controls-visible">
@@ -244,6 +244,7 @@
             <h3 id="certificationMetadataTitle">纪念记录</h3>
             <dl>
               <div><dt>制作时间／纪念时间</dt><dd><time id="certificationMadeAt"></time></dd></div>
+              <div id="certificationPassedRow" hidden><dt>首次认证通过</dt><dd><time id="certificationPassedAt"></time></dd></div>
               <div><dt>纸面内容短码</dt><dd><code id="certificationShortCode"></code></dd></div>
               <div><dt>完整内容认证码 · SHA-256</dt><dd><code id="certificationContentCode"></code></dd></div>
               <div id="certificationPublishedRow" hidden><dt>发行时间</dt><dd><time id="certificationPublishedAt"></time></dd></div>
@@ -257,6 +258,6 @@
     </div>
   </dialog>
   <div id="toast" role="status" aria-live="polite"></div>
-  <script type="module" src="/app.js?v=42"></script>
+  <script type="module" src="/app.js?v=43"></script>
 </body>
 </html>

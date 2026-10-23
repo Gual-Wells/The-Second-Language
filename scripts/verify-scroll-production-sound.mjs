@@ -76,7 +76,7 @@ try{
   if(response.status()>=400)report.httpErrors.push({url:response.url(),status:response.status()});
   if(new URL(response.url()).pathname.startsWith('/labs/certification-reader/assets/audio-foley/v42/'))responseJobs.push(response.body().then(bytes=>served.set(new URL(response.url()).pathname,{bytes:bytes.length,sha256:hash(bytes),status:response.status()})));
  });
- await page.route('**/api/**',route=>{const path=new URL(route.request().url()).pathname;return route.fulfill({json:path==='/api/session'?{authenticated:true,demo:true}:path==='/api/chapters'?{chapters:[]}:{}});});
+ await page.route('**/api/**',route=>{const path=new URL(route.request().url()).pathname;return route.fulfill({json:path==='/api/session'?{authenticated:true,demo:true}:path==='/api/chapters'?{chapters:[]}:path==='/api/scrolls'?{items:[]}:path==='/api/certifications'?{certification:null,scroll:null}:{}});});
  async function enter(){
   await page.goto(base+'/');await page.locator('#settingsButton').click();await page.locator('#certificationReaderButton').click();
   assert.deepEqual(await page.locator('#certificationChapters button').allTextContents(),['项目纪念']);
@@ -152,21 +152,22 @@ try{
  await Promise.all(responseJobs);
  for(const item of report.assets){assert.deepEqual(served.get(item.file),{bytes:item.bytes,sha256:item.sha256,status:200},'Browser received promoted bytes: '+item.file);}
  report.checks.browserServesAllTwelveApprovedWAVs=true;
- for(const file of ['/app.js','/certification-reader.js','/labs/certification-reader/sound.js','/labs/certification-reader/keeper-sound.js','/labs/certification-reader/sound-base.js'])assert.ok(resourceURLs.some(value=>{const url=new URL(value);return url.pathname===file&&url.searchParams.get('v')==='42';}),'Product import chain versioned: '+file);
+ const moduleVersions={'/app.js':'43','/certification-reader.js':'43','/chapter-tests.js':'43','/chapter-certification.js':'43','/labs/certification-reader/sound.js':'42','/labs/certification-reader/keeper-sound.js':'42','/labs/certification-reader/sound-base.js':'42'};
+ for(const [file,version]of Object.entries(moduleVersions))assert.ok(resourceURLs.some(value=>{const url=new URL(value);return url.pathname===file&&url.searchParams.get('v')===version;}),'Product import chain versioned: '+file);
  assert.ok(!resourceURLs.some(value=>/\/labs\/scroll-foley-study\//.test(value)),'Product does not import study modules');
  report.checks.productUsesVersionedCanonicalModulesWithoutStudyImports=true;
  report.browserAudioResponses=[...served].map(([file,value])=>({file,...value}));
  // A fresh real SW context complements, but does not pretend to be, migration
  // from a physical installed iPhone PWA or every historical cache state.
  const swContext=await browser.newContext({viewport:{width:393,height:852},serviceWorkers:'allow'}),swPage=await swContext.newPage();
- await swPage.route('**/api/**',route=>{const path=new URL(route.request().url()).pathname;return route.fulfill({json:path==='/api/session'?{authenticated:true,demo:true}:path==='/api/chapters'?{chapters:[]}:{}});});
+ await swPage.route('**/api/**',route=>{const path=new URL(route.request().url()).pathname;return route.fulfill({json:path==='/api/session'?{authenticated:true,demo:true}:path==='/api/chapters'?{chapters:[]}:path==='/api/scrolls'?{items:[]}:path==='/api/certifications'?{certification:null,scroll:null}:{}});});
  await swPage.goto(base+'/');await swPage.evaluate(()=>navigator.serviceWorker.ready);
  await swPage.waitForFunction(()=>Boolean(navigator.serviceWorker.controller),null,{timeout:20000});
  await swPage.reload();
- const sw=await swPage.evaluate(async()=>({controller:navigator.serviceWorker.controller?.scriptURL,caches:await caches.keys(),requests:await(await caches.open('second-language-shell-v42')).keys().then(keys=>keys.map(key=>key.url))}));
- assert.ok(sw.caches.includes('second-language-shell-v42'));assert.equal(new URL(sw.controller).searchParams.get('v'),'42');
- for(const file of ['/app.js','/certification-reader.js','/labs/certification-reader/sound.js','/labs/certification-reader/keeper-sound.js','/labs/certification-reader/sound-base.js'])assert.ok(sw.requests.some(value=>{const url=new URL(value);return url.pathname===file&&url.searchParams.get('v')==='42';}),'SW contains canonical module: '+file);
- report.serviceWorker=sw;report.checks.freshServiceWorkerCachesCanonicalV42Chain=true;
+ const sw=await swPage.evaluate(async()=>({controller:navigator.serviceWorker.controller?.scriptURL,caches:await caches.keys(),requests:await(await caches.open('second-language-shell-v43')).keys().then(keys=>keys.map(key=>key.url))}));
+ assert.ok(sw.caches.includes('second-language-shell-v43'));assert.equal(new URL(sw.controller).searchParams.get('v'),'43');
+ for(const [file,version]of Object.entries(moduleVersions))assert.ok(sw.requests.some(value=>{const url=new URL(value);return url.pathname===file&&url.searchParams.get('v')===version;}),'SW contains canonical module: '+file);
+ report.serviceWorker=sw;report.checks.freshServiceWorkerCachesV43ShellAndApprovedV42Sound=true;
  await swContext.close();await context.close();
  assert.deepEqual(report.pageErrors,[]);assert.deepEqual(report.httpErrors,[]);assert.deepEqual(report.requestFailures,[]);assert.deepEqual(report.writes,[]);
  report.status='production-sound-integration-verified';

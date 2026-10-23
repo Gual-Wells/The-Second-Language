@@ -1,0 +1,89 @@
+{
+  "approved": false,
+  "candidateDigest": "2a2fed5d08339f83981cde2ad337f085f54f27e3fee9d7ae1904c5638ff3fd2f",
+  "checks": {
+    "dynamic": true,
+    "engineering": true,
+    "layout": true,
+    "material": false,
+    "source": true,
+    "theme": true,
+    "translation": true
+  },
+  "contentSHA": "13784eae7e63cc9d8f1e76b9172e07c1ad36f789c518495590de01793b153650",
+  "creator": {
+    "exitCode": 0,
+    "finishedAt": "2026-10-22T23:09:49.300Z",
+    "imageGeneration": false,
+    "images": [
+      {
+        "file": "charter.webp",
+        "sha256": "d01394d89626dff45630d4ecefb4592dbdea49e7fea6667083a1bca8756624f8"
+      }
+    ],
+    "inputSHA": "65c6dd03d69848f88bde346c245d0ff0069a4ad807cf45e5dcde252547c7e062",
+    "model": "gpt-6.1-sol",
+    "observed": {
+      "model": "not exposed by CLI response events"
+    },
+    "outputSHA": "c0db71dd1b030aea30d4639aaed04b9d033bb5ffcc09951617f6b255100c7c41",
+    "reasoningEffort": "xhigh",
+    "requested": {
+      "model": "gpt-6.1-sol",
+      "reasoningEffort": "xhigh"
+    },
+    "runId": "5432fe6c-5612-40cc-b9de-b177da0cada7",
+    "sessionId": "01a165df-5aa2-7f53-aff8-5bc06f7cadb3",
+    "startedAt": "2026-10-22T23:08:18.030Z",
+    "state": "complete"
+  },
+  "evidence": [
+    "f4aa23d88cd194f35d667f33a697d1cdba08c6df3807af70d436c50c01a2b77e",
+    "3efbc74b5ea9db35278dfc67d0595a8be2c4f8977fa8e8adfcce212834473f48",
+    "db36e056f291f348de5d92e7ac09373e29fe65a9ae0365cf8bfb4a42376e9d22",
+    "88096674d3f245466340c0eb706e02fc36cf52ade8508abb7de19b7357d75d15"
+  ],
+  "issues": [
+    "Bright red and yellow-green fringe pixels remain visible around both parchment silhouettes, especially along the bottom edge. Reconstruct contaminated edge RGB from adjacent warm parchment while preserving alpha and the worn contour. Verify the saved assets against light and dark backgrounds, then refresh GPU evidence and bound hashes. The reported cleanup count does not establish visual completion."
+  ],
+  "notes": "The restrained verse draws specifically on the missing page, restored name and open gate; Chinese translation is faithful. Aboensis hierarchy and stanza spacing work. Name, Study timestamp and compact mark match the frozen specimen record without implying certification. Supplied GPU images support open and half-rolled pose compatibility only. Listed asset hashes now differ from the rejected checkpoint.",
+  "reviewer": {
+    "exitCode": 0,
+    "finishedAt": "2026-10-22T23:23:17.390Z",
+    "imageGeneration": false,
+    "images": [
+      {
+        "file": "front.png",
+        "sha256": "88096674d3f245466340c0eb706e02fc36cf52ade8508abb7de19b7357d75d15"
+      },
+      {
+        "file": "back.png",
+        "sha256": "bf644d96a16beba24ec690daa799ff023387c189af5807fd434ed27a2b2bdf0e"
+      },
+      {
+        "file": "gpu-open.png",
+        "sha256": "3efbc74b5ea9db35278dfc67d0595a8be2c4f8977fa8e8adfcce212834473f48"
+      },
+      {
+        "file": "gpu-mid.png",
+        "sha256": "db36e056f291f348de5d92e7ac09373e29fe65a9ae0365cf8bfb4a42376e9d22"
+      }
+    ],
+    "inputSHA": "063836bdafd3b2962293ec20fb2675ae1de78dc25d41fbde9e049ea333874d1e",
+    "model": "gpt-6.1-sol",
+    "observed": {
+      "model": "not exposed by CLI response events"
+    },
+    "outputSHA": "09892fe8aa2c73a67a33bce34523ac1cbcce76fc330888df4e344d02197be126",
+    "reasoningEffort": "xhigh",
+    "requested": {
+      "model": "gpt-6.1-sol",
+      "reasoningEffort": "xhigh"
+    },
+    "runId": "9a074d42-60f4-4da6-8947-0bb3f2069bde",
+    "sessionId": "01a165eb-ccc0-7a23-bb3d-791250780445",
+    "startedAt": "2026-10-22T23:21:52.910Z",
+    "state": "complete"
+  },
+  "schema": "second-language.scroll-review.v1"
+}

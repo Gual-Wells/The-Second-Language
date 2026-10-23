@@ -1,0 +1,80 @@
+{
+  "approved": true,
+  "candidateDigest": "6b5c30dccadc7eb74064dc57c5eabf1d15f3b9f5a75004a25f35f935fd75b27c",
+  "checks": {
+    "dynamic": true,
+    "engineering": true,
+    "layout": true,
+    "material": true,
+    "source": true,
+    "theme": true,
+    "translation": true
+  },
+  "contentSHA": "925d37e2fbfb88d63137ef7ae3ff2b686fc2e59c108ee9cbce6a9e7a6f9adb48",
+  "creator": {
+    "exitCode": 0,
+    "finishedAt": "2026-10-22T23:00:19.137Z",
+    "imageGeneration": false,
+    "images": [
+      {
+        "file": "charter.webp",
+        "sha256": "d01394d89626dff45630d4ecefb4592dbdea49e7fea6667083a1bca8756624f8"
+      }
+    ],
+    "inputSHA": "d02de37c2f2987ef5d003330f600c71d52ba4f85b86185fb53e2f89f9627aa4b",
+    "model": "gpt-6.1-sol",
+    "outputSHA": "15fb588fd21ade5f429f3ac58044ae0a07f8469d7c049f02db372199d95ab3f6",
+    "reasoningEffort": "xhigh",
+    "runId": "d9ba9533-62f6-4763-b4f2-3cfa0a9e1fb0",
+    "sessionId": "01a165d6-09e9-7c03-a426-1f245c165576",
+    "startedAt": "2026-10-22T22:58:06.927Z",
+    "state": "complete"
+  },
+  "evidence": [
+    "8e3bac4e21bc419d41546d641fbb8080e1aac4fb04862cfed9ec843c21607aa9",
+    "8424bb0479e07e72149a19f915a7d80659dafc7fb24d1fa6fa48f6f929362c2f",
+    "7c3238507c5137a875a4d1d0f8b65d349f875a9921b10418a25e9eacb23ecde3",
+    "504a16297500c3eb3d5238d07da74327327b53d86196bc6541b5cbe4654a51f2"
+  ],
+  "issues": [],
+  "notes": "The dated promise, respected silence and continuing fibres specifically transform this chapter into restrained verse. Chinese preserves the imagery without teaching-text pollution. Authentic Aboensis, stanza spacing and the narrowing ending form a coherent composition; inherited creases remain readable, and same-orientation mother-material reuse is disclosed. Name, local sample time and content mark match the frozen unissued specimen, without implying certification. Open and mid-roll screenshots plus proportion and finite-pose checks support inherited-v42 compatibility; device and audio acceptance were not observed.",
+  "reviewer": {
+    "exitCode": 0,
+    "finishedAt": "2026-10-22T23:47:20.615Z",
+    "imageGeneration": false,
+    "images": [
+      {
+        "file": "front.png",
+        "sha256": "504a16297500c3eb3d5238d07da74327327b53d86196bc6541b5cbe4654a51f2"
+      },
+      {
+        "file": "back.png",
+        "sha256": "9a886cbb0687ba83b894d26b0275e0649417ba92718bf9b0149c4e76c1e47340"
+      },
+      {
+        "file": "gpu-open.png",
+        "sha256": "8424bb0479e07e72149a19f915a7d80659dafc7fb24d1fa6fa48f6f929362c2f"
+      },
+      {
+        "file": "gpu-mid.png",
+        "sha256": "7c3238507c5137a875a4d1d0f8b65d349f875a9921b10418a25e9eacb23ecde3"
+      }
+    ],
+    "inputSHA": "f267baf950e22eedf32c18976a9edb338e336280a997ab4957cdf8a5a27a60ac",
+    "model": "gpt-6.1-sol",
+    "observed": {
+      "model": "not exposed by CLI response events"
+    },
+    "outputSHA": "7e467aa299005d0ecdd2aab79975277bc61cedfb378fe0ba13edfceef4844638",
+    "reasoningEffort": "xhigh",
+    "requested": {
+      "model": "gpt-6.1-sol",
+      "reasoningEffort": "xhigh"
+    },
+    "runId": "5f77bf3a-0910-4e31-a24f-89aa150a753a",
+    "sessionId": "01a16600-d85c-7b01-b4c8-2bb9f4ed377e",
+    "startedAt": "2026-10-22T23:44:52.269Z",
+    "state": "complete"
+  },
+  "schema": "second-language.scroll-review.v1"
+}

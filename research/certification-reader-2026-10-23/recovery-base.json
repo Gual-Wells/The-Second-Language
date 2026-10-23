@@ -1,0 +1,50 @@
+{
+  "schema": "second-language.scroll-recovery-release.v1",
+  "manifestDigest": "01978394fe228cbe5de320a4b3109f650763a7dd829669156ce98443628d8dff",
+  "registeredAt": "2026-10-23T00:19:21.908Z",
+  "files": 170,
+  "bytes": 142729506,
+  "sourceSpec": "protocol/scroll-base-files.json",
+  "storedFilesVerified": true,
+  "cloudRestoreVerified": true,
+  "nativeVerification": "verified from cloud-restored original bytes with current repository verifier; independent relinked and packed copies created without altering originals",
+  "notes": [
+    "The shared source base is immutable; later verification-tool corrections are versioned in the repository and do not rewrite original craft files.",
+    "Large per-work originals use independent ZIP volumes and a hashed recovery index."
+  ],
+  "restoredAt": "2026-10-23T00:28:50.891Z",
+  "verifierSHA256": "1927bdeeabeb447a4d9123d30534a7fb3139d7f39aa2d5bbdf29f810eb1493b0",
+  "nativeFiles": [
+    {
+      "file": ".cache/keeper-v17-native/keeper-physical.blend",
+      "meshes": 9,
+      "vertices": 29550,
+      "armatures": 1,
+      "images": 8,
+      "missingImages": [],
+      "relinkedPackedCopy": "relinked-native\\keeper-physical.blend"
+    },
+    {
+      "file": ".cache/keeper-v19-native/keeper-finishing-workshop.blend",
+      "meshes": 10,
+      "vertices": 29554,
+      "armatures": 1,
+      "images": 16,
+      "missingImages": [],
+      "relinkedPackedCopy": "relinked-native\\keeper-finishing-workshop.blend"
+    }
+  ],
+  "ordinarySnapshotAt": "2026-10-23T00:19:42.116Z",
+  "ordinaryArtifactGroups": [
+    {
+      "key": "working-bundles/artifacts/scroll-shared-native-v43/manifest.json",
+      "digest": "df53a356b2c793179367f6fd0b08ac75cd30ef18b43243ceb273ae908de8de45",
+      "files": 44
+    },
+    {
+      "key": "working-bundles/artifacts/scroll-shared-repository-v43/manifest.json",
+      "digest": "b380b672c8ad1d60a443c4bf0712b0695656d63a2ba98e39593ad9fa71feb5f3",
+      "files": 126
+    }
+  ]
+}

@@ -2,6 +2,20 @@
 
 此文件只说明工具如何连接；每天推荐、词典整合与创作判断以 `protocol/` 为准。运行命令均从项目根目录执行。`work/runs/` 可自由存放续作资料，不把密钥放进去。
 
+## 正式章节认证与纪念卷轴（2026-10-23）
+
+使用主库迁移`0017_chapter_certifications.sql`，不迁移雅思库或实验认证库。先部署数据库迁移，再部署API Worker，最后发布v43 Pages壳。`deploy-certification-reader.mjs --production`只发布Pages，不能替代Worker上线。UI是章节测试首次真实满分认证→本人申请→后台制作/核验→本人领取→设置认证阅览；旧第一/第五章研究样品不升级、不补造历史成绩。项目纪念仍为独立类别。
+
+工艺/合同入口：`protocol/SCROLL_CRAFT.md`、`SCROLL_PRODUCTION.md`、`SCROLL_BACKEND.md`。`node scripts/scroll-worker.mjs`只处理一次真实队列任务；空队列退出，不调用模型。创作与独立图审实际使用`gpt-6.1-sol/xhigh`，图像按需走Codex内置生图，未配置付费API回退。正常返修与进程恢复采用检查点；未知调用先找回原件或取得明确单次重试授权，不能用resume清除保护。正式已领取资产不因模板更新重排字、换时间或重制。
+
+本机受忽略的`.cache/local-services.json`配置已有`publisherCredentialFile`、`privateCacheDirectory`、`archiveStateDirectory`、`nativeCraftDirectory`，可选`networkProxy`；均不提交凭据。本轮实际服务位于D盘`second-language-certification-reader`工作区，复用原凭据、OneDrive DPAPI与归档账本。新增缓存/构建/原件都在D；Worker依赖复用maintenance入口，其node_modules实体经realpath核实仍在旧C盘活动项目，未热搬、未新增安装，也不冒称已经迁走。后续恢复可通过`PLAYWRIGHT_MODULE`、`CHROME_PATH`、`SECOND_LANGUAGE_PYTHON`、`SECOND_LANGUAGE_CODEX_EXECUTABLE`明确定位，不能把本机路径写成网络安装保证。
+
+共享原生资产按`scroll-base-files.json`冻结/上传/回读注册，命令与真正Blender恢复检查见STORAGE。`.cache/scroll-base/registered.json`记录当前实际注册摘要，后台只引用该版本。按指定摘要可运行`node scripts/register-scroll-base.mjs restore SHA256`从云端恢复到全新目录，不能偷偷用旧本机文件弥补遗漏。常规原件备份同时登记`.cache/runtime-sources.json`的显式artifactRoots与work/scroll；浏览器临时文件和原始CLI日志不归档。原件ZIP按独立分卷和恢复索引处理，每对象必须小于存储接口上限。
+
+Windows安装：`powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File scripts/install-scroll-task.ps1`。新增`SecondLanguage-ScrollProduction`，沿用既有主体/每分钟触发、IgnoreNew，最长三小时；隐藏启动器避免蓝色窗口。`-RefreshArchive`只在归档未运行时备份并切换其action到此工作区，不更改日课/练习/答疑的调度。电脑关闭/用户环境不可运行时不会在云端凭空制图；资格与任务在服务器保留，恢复本机后领取继续。服务错误及模型未知状态明确保存，不能由空队列成功退出推断艺术合格。
+
+必要核对：`check-certification-lifecycle.mjs`真实SQLite事务/领取/恢复保护，`check-certification-produced-package.mjs DIRECTORY`校验真实未颁发制作包与后端合同，`check-certification-flow-ui.mjs`隔离移动UI全态，`verify-project-beginning.mjs`及`verify-scroll-production-sound.mjs`保留原项目作品/已批准声音。实际模型/图像调用、艺术审阅、原件恢复及上线记录见`research/certification-reader-2026-10-23/`，不把隔离夹具写成真实用户通过或物理iPhone验收。
+
 ## 本地阅读器
 
 ### 独立认证与纪念币试验

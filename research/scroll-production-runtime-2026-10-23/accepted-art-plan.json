@@ -1,0 +1,208 @@
+{
+  "copy": {
+    "artTitle": "Where Ink Ends",
+    "colophon": [
+      "For the unfinished record."
+    ],
+    "institution": "The Second Language",
+    "rubric": "A chapter remembrance",
+    "sealLegends": [
+      "The Second Language",
+      "In remembrance"
+    ],
+    "status": "Unissued study",
+    "translation": {
+      "artTitle": "墨止之处",
+      "colophon": [
+        "为那未完的记录。"
+      ],
+      "institution": "第二语言",
+      "rubric": "章节纪念",
+      "sealLegends": [
+        "第二语言",
+        "留作纪念"
+      ],
+      "status": "未颁发习作",
+      "verse": [
+        "承诺旁的一个日期。",
+        "墨寻到纸纹。",
+        "没有借来的声音",
+        "填满这段空隙。",
+        "最后一道墨迹干了。",
+        "在它下面，纤维",
+        "仍在延伸。"
+      ]
+    },
+    "verse": [
+      "A date by a promise.",
+      "Ink finds the grain.",
+      "No borrowed voice",
+      "fills the interval.",
+      "The last mark dries.",
+      "Under it, the fibres",
+      "continue."
+    ]
+  },
+  "imageRequest": {
+    "prompt": "",
+    "reason": "The qualified unlettered first-v6 mother paper already supplies visible old creases, pale contact-age and fine texture. The open interval and the narrowing final stanza give this composition its structure without a new paper asset.",
+    "required": false,
+    "role": "paper"
+  },
+  "intention": "An unissued private remembrance specimen for Gual Wells. A dated promise, an unfilled interval and fibres continuing beneath the final mark give the chapter's unfinished record a physical form.",
+  "layout": {
+    "blocks": [
+      {
+        "align": "center",
+        "color": "#594638",
+        "count": 1,
+        "fontSize": 56,
+        "lineHeight": 84,
+        "role": "institution",
+        "start": 0,
+        "width": 1608,
+        "x": 1024,
+        "y": 210
+      },
+      {
+        "align": "center",
+        "color": "#76503D",
+        "count": 1,
+        "fontSize": 50,
+        "lineHeight": 80,
+        "role": "rubric",
+        "start": 0,
+        "width": 1608,
+        "x": 1024,
+        "y": 292
+      },
+      {
+        "align": "center",
+        "color": "#30281F",
+        "count": 1,
+        "fontSize": 124,
+        "lineHeight": 180,
+        "role": "artTitle",
+        "start": 0,
+        "width": 1608,
+        "x": 1024,
+        "y": 442
+      },
+      {
+        "align": "center",
+        "color": "#30281F",
+        "count": 2,
+        "fontSize": 88,
+        "lineHeight": 142,
+        "role": "verse",
+        "start": 0,
+        "width": 1608,
+        "x": 1024,
+        "y": 775
+      },
+      {
+        "align": "center",
+        "color": "#30281F",
+        "count": 2,
+        "fontSize": 88,
+        "lineHeight": 142,
+        "role": "verse",
+        "start": 2,
+        "width": 1608,
+        "x": 1024,
+        "y": 1208
+      },
+      {
+        "align": "center",
+        "color": "#30281F",
+        "count": 3,
+        "fontSize": 88,
+        "lineHeight": 142,
+        "role": "verse",
+        "start": 4,
+        "width": 1608,
+        "x": 1024,
+        "y": 1692
+      },
+      {
+        "align": "center",
+        "color": "#514131",
+        "count": 1,
+        "fontSize": 60,
+        "lineHeight": 90,
+        "role": "colophon",
+        "start": 0,
+        "width": 1608,
+        "x": 1024,
+        "y": 2190
+      },
+      {
+        "align": "left",
+        "color": "#655141",
+        "count": 1,
+        "fontSize": 50,
+        "lineHeight": 76,
+        "role": "status",
+        "start": 0,
+        "width": 1130,
+        "x": 220,
+        "y": 2295
+      },
+      {
+        "align": "left",
+        "color": "#4A3C30",
+        "count": 4,
+        "fontSize": 52,
+        "lineHeight": 76,
+        "role": "identity",
+        "start": 0,
+        "width": 1130,
+        "x": 220,
+        "y": 2390
+      }
+    ],
+    "composition": "A text-only manuscript on the 2048 × 2868 canvas, corresponding to 300 × 420 mm. Use true Aboensis throughout the English paper. Every block's x is its actual text alignment anchor; centered blocks use x=1024 and their 1608px width spans x=220 to x=1828. Every y is the first-line baseline, with subsequent baselines separated by lineHeight. The supplied institution measurement at 56px gives a 45px ascent and 29px descent. Its corrected baseline y=210 includes the safe top of 150, the measured ascent of 45 and 15px clearance, placing the measured glyph bounds at y=165 to y=239. All other block geometry remains unchanged. The title is largest and the seven unchanged verse lines are arranged as two, two and three. The middle pair names the interval immediately above a broad unlettered band; that space belongs to the stanza rhythm, while the mother paper's horizontal and diagonal creases retain their scanned positions throughout the sheet. Below the interval, two longer lines narrow to the single word 'continue.', exposing the grain around the ending. The short colophon closes the literary field. Status and identity use the actual left anchor x=220. The identity field contains exactly four lines: 'Gual Wells'; 'Study 2026-10-23'; '06:39:01.611 UTC+08:00'; 'Mark 925d37e2fbfb88d6'. The Study date and time represent the frozen sampleTime 2026-10-22T22:39:01.611Z in Asia/Shanghai. The mark is the first 16 hexadecimal characters of the frozen content SHA-256 925d37e2fbfb88d63137ef7ae3ff2b686fc2e59c108ee9cbce6a9e7a6f9adb48. It is distinct from artPlanDigest and chapterDigest. The separate frozen madeAt remains 2026-10-22T22:39:01.667Z. With certificationId and passedAt null and issued false, the paper retains 'Unissued study' and prints no Certified date. The identity's 52px lettering remains subordinate to the title and verse. Its width ends at x=1350, leaving a 70px horizontal gap before the separate lower-right remembrance impression. Both sealLegends appear once inside that impression. The inherited paper texture, folds and coloration remain visible beneath the brown-black writing, with only the supported broad bottom exposure gradient added. Retain the existing v42 low-reflection GPU/keeper presentation. English occupies the paper; the exact Chinese counterpart belongs to the translation view.",
+    "safe": {
+      "height": 2568,
+      "width": 1688,
+      "x": 180,
+      "y": 150
+    },
+    "seal": {
+      "height": 190,
+      "width": 408,
+      "x": 1420,
+      "y": 2485
+    }
+  },
+  "material": {
+    "exposedSide": "bottom",
+    "folds": "Retain the complete visible crease network of the first-v6 mother skin: the pronounced cross-sheet horizontal and slanting folds, the diagonal folds above and below them, and the smaller compressed edge folds. Preserve their source positions and orientation. The open stanza interval exposes these existing features without introducing another fold or tide mark.",
+    "paperId": "first-v6",
+    "useHistory": "The supplied unlettered first-v6 mother skin already carries visible old horizontal and diagonal folds, pale aged coloration and fine texture. These are inherited visual features of the source specimen. Preserve its original orientation and apply only a restrained broad exposure gradient from the bottom at wearStrength 0.06. The material description assigns no documented storage history or additional physical treatment to the sheet.",
+    "wearStrength": 0.06
+  },
+  "schema": "second-language.scroll-art-plan.v1",
+  "sourceLinks": [
+    {
+      "contribution": "Becomes ink finding the paper's grain, with fibres extending beyond the written mark.",
+      "meaning": "Coloured water enters the paper during the capillary demonstration.",
+      "quote": "into the fibres"
+    },
+    {
+      "contribution": "The middle stanza leaves an absence unvoiced; a broad unlettered interval follows it.",
+      "meaning": "An incomplete record cannot establish what the woman understood or chose.",
+      "quote": "leave room for that silence"
+    },
+    {
+      "contribution": "Supplies the opening image of a date beside a promise.",
+      "meaning": "The public repair list gives promises dates against which later events can be checked.",
+      "quote": "a date beside every promise"
+    },
+    {
+      "contribution": "The closing stanza lets the ink stop while the material continues.",
+      "meaning": "The book leaves space for a record of what actually happens next.",
+      "quote": "Its final page was left open"
+    }
+  ]
+}

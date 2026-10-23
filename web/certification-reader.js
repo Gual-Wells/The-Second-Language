@@ -6,19 +6,25 @@ export const READING_WORKS=Object.freeze([
 ]);
 const fullSHA=/^[0-9a-f]{64}$/;
 const validInstant=value=>typeof value==='string'&&/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/.test(value)&&Number.isFinite(Date.parse(value));
+async function readerAPI(path,options={}){const response=await fetch(path,{credentials:'same-origin',cache:'no-store',...options});const value=await response.json();if(!response.ok)throw Error(value.error||'暂时无法读取，请稍后重试。');return value;}
 function localInstant(value){
  if(!validInstant(value))return null;
  const p=Object.fromEntries(new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Shanghai',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',fractionalSecondDigits:3,hourCycle:'h23'}).formatToParts(new Date(value)).map(({type,value})=>[type,value]));
  return `${p.year}-${p.month}-${p.day} ${p.hour}:${p.minute}:${p.second}.${p.fractionalSecond} +08:00`;
 }
 function manuscriptLines(copy){return [copy.rubric,copy.institution,copy.artTitle,'',...copy.verse.slice(0,3),'',...copy.verse.slice(3),'',...copy.colophon,'',...copy.sealLegends,copy.status].filter(value=>typeof value==='string');}
-export function createCertificationReader({showDialog,stopLearningAudio=()=>{}}){
+export function createCertificationReader({showDialog,api=readerAPI,stopLearningAudio=()=>{}}){
  const $=id=>document.getElementById(id),list=$('certificationCatalogue'),reader=$('certificationViewer'),stage=$('certificationStage'),panel=$('certificationDocumentPanel');
  const sound=new SoundDirector();
  // Product defaults: old saved mute/false preferences are not read or applied.
  sound.setMusicEnabled(true);sound.setFoleyEnabled(true);
  let viewer=null,selected=null,request=0,ready=false,lost=false,controlsTimer=0,returnToList=false;
  let documentRecord=null,documentIdentity='',language='en';
+ let catalogueRequest=0,works=[...READING_WORKS];
+ function chapterLabel(number){const value=String(number).replace(/课/g,'章');return /^\d+$/.test(value)?`第 ${value} 章`:value;}
+ function renderCatalogue(){const host=$('certificationChapters');host.replaceChildren();for(const work of works){const button=document.createElement('button');button.type='button';button.className='settings-row certification-chapter';button.textContent=work.label;button.dataset.work=work.id;button.addEventListener('click',()=>view(work));host.append(button);}}
+ async function loadCatalogue(){const ticket=++catalogueRequest;works=[...READING_WORKS];renderCatalogue();$('certificationCatalogueNotice').hidden=false;$('certificationCatalogueStatus').textContent='正在读取…';$('certificationCatalogueRetry').hidden=true;try{const data=await api('/api/scrolls');if(ticket!==catalogueRequest||!list.open)return;works.push(...(data.items||[]).filter(item=>item.category==='chapter-certified'&&item.claimedAt&&item.status==='ready').map(item=>({...item,label:chapterLabel(item.chapterNumber),issued:true})));renderCatalogue();$('certificationCatalogueNotice').hidden=true;}catch(error){if(ticket!==catalogueRequest||!list.open)return;$('certificationCatalogueStatus').textContent='章节卷轴暂未载入。项目纪念仍可阅览。';$('certificationCatalogueRetry').hidden=false;}}
+ function openCatalogue(){stopLearningAudio();showDialog('certificationCatalogue');list.returnDialog||='settingsDialog';loadCatalogue();}
  const setStatus=(text,error=false)=>{$('certificationLoading').hidden=!text;$('certificationStatus').textContent=text;$('certificationRetry').hidden=!error;};
  function showControls(){
   clearTimeout(controlsTimer);stage.classList.add('controls-visible');$('certificationHud').inert=false;
@@ -38,7 +44,7 @@ export function createCertificationReader({showDialog,stopLearningAudio=()=>{}})
  }
  function renderCopy(container,copy){
   container.replaceChildren();const add=(tag,text,className)=>{const el=document.createElement(tag);el.textContent=text;if(className)el.className=className;container.append(el);};
-  add('p',copy.rubric,'document-rubric');add('h3',copy.institution);add('h4',copy.artTitle);add('p',copy.verse.slice(0,3).join('\n'),'document-verse');add('p',copy.verse.slice(3).join('\n'),'document-verse');add('p',copy.colophon.join('\n'),'document-colophon');add('p',copy.sealLegends.join('\n'),'document-impression');add('p',copy.status,'document-kind');
+  add('p',copy.rubric,'document-rubric');add('h3',copy.institution);add('h4',copy.artTitle);if(documentRecord?.category==='project-commemorative'){add('p',copy.verse.slice(0,3).join('\n'),'document-verse');add('p',copy.verse.slice(3).join('\n'),'document-verse');}else add('p',copy.verse.join('\n'),'document-verse');add('p',copy.colophon.join('\n'),'document-colophon');add('p',copy.sealLegends.join('\n'),'document-impression');add('p',copy.status,'document-kind');
  }
  function updateDocument(){
   const record=viewer?.exportRecord();if(!record)return;const copy=record.copy,translation=copy?.translation;
@@ -49,6 +55,7 @@ export function createCertificationReader({showDialog,stopLearningAudio=()=>{}})
   $('certificationMadeAt').textContent=made||'未记录';if(made)$('certificationMadeAt').dateTime=record.madeAt;else $('certificationMadeAt').removeAttribute('datetime');
   $('certificationShortCode').textContent=code?code.slice(0,16).toUpperCase().match(/.{4}/g).join(' '):'未记录';$('certificationContentCode').textContent=code||'未记录';
   $('certificationPublishedRow').hidden=!published;$('certificationPublishedAt').textContent=published||'';if(published)$('certificationPublishedAt').dateTime=record.publishedAt;else $('certificationPublishedAt').removeAttribute('datetime');
+  const passed=localInstant(record.passedAt);$('certificationPassedRow').hidden=!passed;$('certificationPassedAt').textContent=passed||'';if(passed)$('certificationPassedAt').dateTime=record.passedAt;else $('certificationPassedAt').removeAttribute('datetime');
   $('certificationDocumentNotice').hidden=true;$('certificationDocumentMetadata').hidden=false;$('certificationCopyText').disabled=false;$('certificationCopyCode').disabled=!code;$('certificationCopyTime').disabled=!made;
  }
  async function copyText(text){
@@ -60,31 +67,31 @@ export function createCertificationReader({showDialog,stopLearningAudio=()=>{}})
  }
  function documentText(){
   if(!documentRecord)return '';const english=language==='en',r=documentRecord,copy=english?r.copy:r.copy.translation,mark=r.sha256.slice(0,16).toUpperCase().match(/.{4}/g).join(' ');
-  const metadata=[`${english?'Made':'制作时间'}: ${localInstant(r.madeAt)}`,`${english?'Content mark':'内容短码'}: ${mark}`,`${english?'Content SHA-256':'完整内容认证码（SHA-256）'}: ${r.sha256}`];if(validInstant(r.publishedAt))metadata.push(`${english?'Published':'发行时间'}: ${localInstant(r.publishedAt)}`);return [...manuscriptLines(copy),'',...metadata].join('\n');
+  const metadata=[`${english?'Made':'制作时间'}: ${localInstant(r.madeAt)}`,`${english?'Content mark':'内容短码'}: ${mark}`,`${english?'Content SHA-256':'完整内容认证码（SHA-256）'}: ${r.sha256}`];if(validInstant(r.passedAt))metadata.push(`${english?'First passed':'首次认证通过'}: ${localInstant(r.passedAt)}`);if(validInstant(r.publishedAt))metadata.push(`${english?'Published':'发行时间'}: ${localInstant(r.publishedAt)}`);return [...manuscriptLines(copy),'',...metadata].join('\n');
  }
  function resize(){const b=stage.getBoundingClientRect();viewer?.resize(b.width,b.height);}
  function freshCanvas(){for(const id of ['certificationCanvas','certificationMist']){const old=$(id),next=old.cloneNode(false);old.replaceWith(next);}}
  function releaseViewer(){request++;ready=false;lost=false;viewer?.dispose();viewer=null;freshCanvas();clearDocument();$('certificationStatic').removeAttribute('src');$('certificationStatic').hidden=true;}
  function unlockSound(){sound.unlock().catch(()=>{});}
  async function view(work){
-  if(!work||!READING_WORKS.includes(work))throw Error('该作品不在正式目录中');stopLearningAudio();returnToList=true;
+  if(!work||!works.includes(work))throw Error('该作品不在正式目录中');stopLearningAudio();returnToList=true;
   const parent=list.returnDialog;list.returnDialog=null;list.close();list.savedReturn=parent;if(!reader.open)reader.showModal();selected=work;releaseViewer();const ticket=request;
   hideDocument();setStatus('正在准备卷轴…');sound.setMusicEnabled(true);sound.setFoleyEnabled(true);sound.setActive(true);
   // Synchronous call in the actual work click, before imports or awaits.
   unlockSound();resize();
   try{
-   const {ScrollViewer}=await import('./labs/certification-reader/reader.bundle.js?v=41');if(ticket!==request||!reader.open)return;
+   let manifest=null;if(work.issued){const detail=await api(`/api/scrolls/${encodeURIComponent(work.id)}`);if(ticket!==request||!reader.open)return;if(!detail.claimedAt||detail.status!=='ready'||detail.manifest?.viewer?.record?.certificationId!==work.certificationId)throw Error('该卷轴尚未领取或记录不一致');manifest=detail.manifest.viewer;}
+   const {ScrollViewer}=await import('./labs/certification-reader/reader.bundle.js?v=43');if(ticket!==request||!reader.open)return;
    viewer=new ScrollViewer($('certificationCanvas'),$('certificationMist'),{onProgress:state=>sound.motion({...state,mode:viewer?.drag?'drag':'automatic'}),onStatus:(text,meta)=>{
     if(ticket!==request||!reader.open)return;updateDocument();
     if(['failed','context-lost','restoring'].includes(meta.status)){lost=true;ready=false;const image=viewer?.exportDocument();if(image){$('certificationStatic').src=image;$('certificationStatic').hidden=false;}setStatus(meta.status==='restoring'?'正在恢复显示…':'显示暂时中断，可重试。',meta.status!=='restoring');showControls();}
     else if(meta.status==='ready'){lost=false;ready=true;$('certificationStatic').hidden=true;setStatus('');showControls();}
    }});
-   resize();await viewer.prepare({chapter:work.chapter,initialProgress:0});if(ticket!==request||!reader.open)return;ready=true;setStatus('');updateDocument();viewer.bindPointerInput();showControls();
+   resize();await viewer.prepare(manifest?{manifest,scrollId:work.id,initialProgress:0}:{chapter:work.chapter,initialProgress:0});if(ticket!==request||!reader.open)return;ready=true;setStatus('');updateDocument();viewer.bindPointerInput();showControls();
    $('certificationCanvas').addEventListener('pointerdown',()=>{showControls();unlockSound();});$('certificationCanvas').addEventListener('keydown',event=>{if(['Enter',' '].includes(event.key)){event.preventDefault();unlockSound();viewer.animate(viewer.animation?(viewer.animation.to?0:1):(viewer.progress>.5?0:1));}});
   }catch(error){if(ticket===request&&reader.open){console.error('Certification reader',error);updateDocument();ready=false;setStatus('卷轴暂未载入，请重试。',true);showControls();}}
  }
- for(const work of READING_WORKS){const button=document.createElement('button');button.type='button';button.className='settings-row certification-chapter';button.textContent=work.label;button.dataset.work=work.id;button.addEventListener('click',()=>view(work));$('certificationChapters').append(button);}
- $('certificationReaderButton').addEventListener('click',()=>{stopLearningAudio();showDialog('certificationCatalogue');});$('certificationBack').addEventListener('click',()=>reader.close());$('certificationRetry').addEventListener('click',()=>{if(selected)view(selected);});
+ renderCatalogue();$('certificationReaderButton').addEventListener('click',openCatalogue);$('certificationCatalogueRetry').addEventListener('click',loadCatalogue);document.addEventListener('certification-open-catalogue',openCatalogue);document.addEventListener('certification-updated',()=>{if(list.open)loadCatalogue();});list.addEventListener('close',()=>{catalogueRequest++;});$('certificationBack').addEventListener('click',()=>reader.close());$('certificationRetry').addEventListener('click',()=>{if(selected)view(selected);});
  $('certificationDocument').addEventListener('click',()=>{if(!panel.hidden){hideDocument({focus:true});return;}updateDocument();panel.hidden=false;panel.inert=false;stage.classList.add('document-open');$('certificationCanvas').inert=true;$('certificationDocument').setAttribute('aria-expanded','true');showControls();setLanguage(language,{focus:true});unlockSound();});
  $('certificationDocumentClose').addEventListener('click',()=>hideDocument({focus:true}));
  for(const [id,lang]of [['certificationEnglishTab','en'],['certificationChineseTab','zh-CN']])$(id).addEventListener('click',()=>setLanguage(lang));
@@ -95,5 +102,5 @@ export function createCertificationReader({showDialog,stopLearningAudio=()=>{}})
  stage.addEventListener('pointerdown',event=>{if(!panel.hidden&&!event.target.closest('.certification-document-panel')&&!event.target.closest('#certificationDocument'))hideDocument();else showControls();});stage.addEventListener('keydown',()=>showControls());
  document.addEventListener('visibilitychange',()=>{if(document.hidden){viewer?.pause();sound.pause();}else if(reader.open){viewer?.resume();sound.resume();}});globalThis.addEventListener('pagehide',()=>{viewer?.pause();sound.setActive(false);});globalThis.addEventListener('pageshow',()=>{if(reader.open){viewer?.resume();sound.setActive(true);sound.resume();}});
  new ResizeObserver(resize).observe(stage);clearDocument();hideDocument();
- return {snapshot:()=>({open:reader.open,ready,lost,chapter:null,workId:selected?.id??null,category:selected?.category??null,issued:false,viewer:viewer?.snapshot(),sound:sound.snapshot(),document:{open:!panel.hidden,language,ready:Boolean(documentRecord),madeAt:documentRecord?.madeAt??null,publishedAt:documentRecord?.publishedAt??null,contentSHA256:documentRecord?.sha256??null}}),setProgress:p=>viewer?.setProgress(p),openWork:id=>view(READING_WORKS.find(w=>w.id===id)),exportRecord:()=>viewer?.exportRecord(),exportDocument:()=>viewer?.exportDocument()};
+ return {snapshot:()=>({open:reader.open,ready,lost,chapter:selected?.chapterId??null,workId:selected?.id??null,category:selected?.category??null,issued:selected?.issued===true,viewer:viewer?.snapshot(),sound:sound.snapshot(),document:{open:!panel.hidden,language,ready:Boolean(documentRecord),madeAt:documentRecord?.madeAt??null,publishedAt:documentRecord?.publishedAt??null,contentSHA256:documentRecord?.sha256??null}}),setProgress:p=>viewer?.setProgress(p),openCatalogue,refresh:loadCatalogue,openWork:id=>view(works.find(w=>w.id===id)),exportRecord:()=>viewer?.exportRecord(),exportDocument:()=>viewer?.exportDocument()};
 }

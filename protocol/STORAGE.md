@@ -20,6 +20,16 @@ work/runs、expression、questions 及既有语音证据按任务目录分组，
 
 工作目录入口可以是 C→D 联接。归档从本机 `.cache/runtime-sources.json` 的 `roots` 读取原运行目录，`linkedDirectoryRoots` 登记允许的 D 盘实际任务目录或其专用父目录；原项目根目录本身仍受信。先以真实物理路径核验所选工作组及其容器，再归档原字节。未登记的顶层联接必须报错，不能静默漏掉后仍发布“完整备份”；工作组内部的符号链接仍不递归跟随，凭据类文件及目录不入包。创建新的 D 盘任务入口时同时登记实际目录，或使用已登记的专用日课父目录。联接不是空目录，也不能为迁移方便恢复把实际数据放回 C。验证见 `scripts/check-work-archives.mjs`。
 
+### 章节纪念卷轴与原生工艺恢复（2026-10-23）
+
+正式章节首次满分认证及制作任务、租约、领取和验证指针保留在主D1。艺术方案、完整英中、生成原图、六层纸面、检查与独立审阅及制作源均在OneDrive内容寻址存储；不把PNG、Blend或大型文书写入D1/KV。共享工艺只封存一次，按完整摘要复用，不因每章领取重新制作或重新上传扣具。
+
+`protocol/scroll-base-files.json`明确列共享字体、许可、纸张、声音原件、扣具Blend/烘焙/扫描源和脚本；本机`.cache/local-services.json`的`nativeCraftDirectory`只定位旧原件，不把路径存在当作恢复成功。运行`node scripts/register-scroll-base.mjs freeze`复制选定原字节为本机D盘CAS，`upload`上传并由服务分批回读核验后注册；`restore`在独立D盘目录从云端逐项下载核SHA和大小。再用Blender `--python-exit-code 1 --background --python scripts/verify-scroll-native.py -- RESTORED_ROOT`检查真实几何、骨架和外部材质依赖。Blender默认进程退出0不代表Python检查成功。恢复验证不能偷偷从旧绝对路径读取纹理来填缺。
+
+普通归档新增`work/scroll/<job>`及显式`artifactRoots:[{id,path,files}]`，只读允许的相对文件，不跟随内部联接。选定原件缺失立即报错；浏览器临时目录、原始CLI事件/错误日志、密钥和凭据不入工艺原件包。大文件沿用8MiB归档分块，恢复逐块和整文件验证。每件作品的独立ZIP卷/恢复索引、最终清单及独立review同样保留，`ready`之前真实核验；文件可展示不代表原生包已归档。
+
+本机服务配置可复用既有受忽略的publisherCredentialFile、privateCacheDirectory和archiveStateDirectory；凭据不复制、不提交。旧归档上传账本、读取预算及独立恢复索引继续使用，不能因换工作区重置配额保护。`SecondLanguage-PermanentArchive`指向具备新归档逻辑的D盘工作区，保留原调度/主体；独立卷轴制作任务仅消费本人明确申请，空队列不调用模型。
+
 备份数据页、工作块与恢复清单直接进入 OneDrive，不再在 D1 登记每份归档资产；旧登记保留兼容，新增目录量不随备份次数增长。恢复清单携带全部所需 itemId，数据页 gzip 无损压缩，旧未压缩快照仍可恢复。大追加表 pronunciation_results/chapter_audio_clips 首次完整建立检查点，之后仅读取 rowid 截点后的新行；所有旧块仍进入每份独立恢复清单。本机用已验证的块重建全库，不要求重新扫描其历史 D1 行。检查点仅在独立恢复索引发布成功后以原子文件替换推进；本机检查点遗失时从 OneDrive 最新恢复清单重新取得，不能凭空跳过旧行。非追加小表仍完整快照，不引入通用变更捕获系统。
 
 数据库导出与本机上传目录重建均按 rowid 索引游标连续分页，每张表先固定本轮最大 rowid，后续新增记录留给下次归档；传输游标不写入恢复数据。文件目录先导出永久对象及完整历史版本，收集其摘要，再一次顺序读取 blob 目录，仅保留被永久版本引用的原件。不得用 OFFSET 或每页重新扫描全版本表的过滤子查询。

@@ -3,6 +3,7 @@ import { mkdir, readFile, rename, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { randomUUID } from 'node:crypto';
+import {privateCacheDirectory} from './local-services.mjs';
 
 export const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 export const cache = path.join(root, '.cache');
@@ -38,8 +39,8 @@ $result = [Security.Cryptography.ProtectedData]::${operation}($bytes, $null, [Se
 }
 
 export async function savePrivate(name, value) {
-  await mkdir(cache, { recursive: true });
-  const filename = path.join(cache, name);
+  const directory=await privateCacheDirectory();await mkdir(directory, { recursive: true });
+  const filename = path.join(directory, name);
   const temporary = `${filename}.${randomUUID()}.tmp`;
   const encrypted = await windowsProtect(Buffer.from(JSON.stringify(value), 'utf8'));
   await writeFile(temporary, encrypted, { mode: 0o600 });
@@ -47,7 +48,7 @@ export async function savePrivate(name, value) {
 }
 
 export async function readPrivate(name) {
-  return JSON.parse((await windowsProtect(await readFile(path.join(cache, name)), true)).toString('utf8'));
+  return JSON.parse((await windowsProtect(await readFile(path.join(await privateCacheDirectory(), name)), true)).toString('utf8'));
 }
 
 export async function identityRequest(endpoint, fields) {

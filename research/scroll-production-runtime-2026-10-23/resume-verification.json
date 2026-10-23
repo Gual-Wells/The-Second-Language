@@ -1,0 +1,20 @@
+{
+  "ok": true,
+  "checkedAt": "2026-10-23T01:53:49.289Z",
+  "source": "actual unissued specimen, unchanged original bytes",
+  "cases": {
+    "postReviewUploadInterruption": "resumed identical local package",
+    "verifyInterruption": "resumed remote manifest without any local directory",
+    "missingUnarchivedPackage": "attention before model calls",
+    "mutableQueueFields": "art/review prompt byte-identical"
+  },
+  "calls": {
+    "model": 0,
+    "image": 0,
+    "render": 0,
+    "external": 0
+  },
+  "databaseWritten": false,
+  "issued": false,
+  "run": "D:\\CodexStorage\\workspaces\\second-language-certification-reader\\.cache\\scroll-resume-check\\run-prsdNP"
+}

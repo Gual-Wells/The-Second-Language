@@ -1,7 +1,7 @@
 {
-  "checkedAt": "2026-10-22T19:40:41.394Z",
-  "base": "https://the-second-language.pages.dev",
-  "networkProxy": "http://127.0.0.1:6987",
+  "checkedAt": "2026-10-22T23:27:47.700Z",
+  "base": "http://127.0.0.1:8153",
+  "networkProxy": null,
   "acceptedStudyCommit": "9d17b41bca922c0034a615cd9a50a8c2eb3682f4",
   "scope": "Headless Chrome, real production Settings > certification reader > project commemoration UI, WebGL and WebAudio. Only session/empty chapter API responses are mocked. Music remains enabled and playing; an analyser observes each real paper gain output before the common Foley bus, separately from music. No microphone, human hearing or physical iPhone/Safari test is asserted.",
   "userDecision": "User explicitly approved the moving-tail audition for production integration on 2026-10-23; this script does not infer new artistic approval.",
@@ -17,7 +17,7 @@
     "exitDuringPaperStopsBothTracksWithoutRevival": true,
     "browserServesAllTwelveApprovedWAVs": true,
     "productUsesVersionedCanonicalModulesWithoutStudyImports": true,
-    "freshServiceWorkerCachesCanonicalV42Chain": true
+    "freshServiceWorkerCachesV43ShellAndApprovedV42Sound": true
   },
   "assets": [
     {
@@ -104,17 +104,17 @@
     "musicState": "playing",
     "decoded": [
       "bendOpen",
-      "slideClose",
+      "bendClose",
+      "holeClose",
       "holeOpen",
       "tailClose",
-      "bendClose",
-      "tailOpen",
       "slideOpen",
+      "slideClose",
+      "tailOpen",
+      "seat",
       "park",
       "paperUnroll",
       "paperRollup",
-      "seat",
-      "holeClose",
       "music"
     ]
   },
@@ -123,14 +123,14 @@
     "paperStarts": [
       {
         "key": "paperUnroll",
-        "duration": 4.366848072562358,
+        "duration": 4.366854166666666,
         "rate": 1,
         "loop": false,
         "offset": 0,
         "requestedDuration": null,
-        "audioTime": 39.49133786848073,
-        "paperProgress": 0.0038972481999152574,
-        "progress": 0.4023383489199492
+        "audioTime": 19.021333333333335,
+        "paperProgress": 0.00389724819991695,
+        "progress": 0.4023383489199502
       }
     ],
     "cues": [
@@ -138,13 +138,13 @@
         "key": "bendOpen",
         "mode": "automatic",
         "direction": 1,
-        "audioTime": 37.061950113378686,
-        "wallTime": 44931.5,
+        "audioTime": 16.621333333333332,
+        "wallTime": 21904.5,
         "offset": 0,
         "duration": 0.9,
         "gain": 0.9,
-        "progress": 0.000026626486618522064,
-        "r": 0.00006656621654630515,
+        "progress": 0.00010629378070336202,
+        "r": 0.00026573445175840504,
         "phase": "unload-hole",
         "contact": false
       },
@@ -152,13 +152,13 @@
         "key": "holeOpen",
         "mode": "automatic",
         "direction": 1,
-        "audioTime": 37.990748299319726,
-        "wallTime": 45858.69999998808,
+        "audioTime": 17.512,
+        "wallTime": 22792.899999976158,
         "offset": 0,
         "duration": 0.42,
         "gain": 0.7,
-        "progress": 0.0740691138274752,
-        "r": 0.185172784568688,
+        "progress": 0.07406911382747576,
+        "r": 0.18517278456868938,
         "phase": "release-hole",
         "contact": false
       },
@@ -166,13 +166,13 @@
         "key": "tailOpen",
         "mode": "automatic",
         "direction": 1,
-        "audioTime": 38.391292517006804,
-        "wallTime": 46260.09999999404,
+        "audioTime": 17.930666666666667,
+        "wallTime": 23207.30000001192,
         "offset": 0,
-        "duration": 0.6499773242630386,
+        "duration": 0.65,
         "gain": 0.95,
-        "progress": 0.14630675785236993,
-        "r": 0.3657668946309248,
+        "progress": 0.1463459627083976,
+        "r": 0.3658649067709939,
         "phase": "withdraw-tail",
         "contact": false
       },
@@ -180,13 +180,13 @@
         "key": "park",
         "mode": "automatic",
         "direction": 1,
-        "audioTime": 39.13142857142857,
-        "wallTime": 46992.5,
+        "audioTime": 18.661333333333335,
+        "wallTime": 23938.5,
         "offset": 0,
-        "duration": 0.17752834467120182,
+        "duration": 0.17754166666666665,
         "gain": 0.4,
-        "progress": 0.3121943039999975,
-        "r": 0.7804857599999937,
+        "progress": 0.31224436555092966,
+        "r": 0.7806109138773241,
         "phase": "park-pin",
         "contact": true
       },
@@ -194,21 +194,21 @@
         "key": "slideOpen",
         "mode": "automatic",
         "direction": 1,
-        "audioTime": 39.14013605442177,
-        "wallTime": 47008,
+        "audioTime": 18.672,
+        "wallTime": 23955.5,
         "offset": 0,
-        "duration": 0.23997732426303856,
+        "duration": 0.24,
         "gain": 0.65,
-        "progress": 0.31638113863202527,
-        "r": 0.7909528465800632,
+        "progress": 0.31640625,
+        "r": 0.791015625,
         "phase": "slide-clear",
         "contact": false
       },
       {
         "key": "paperUnroll",
-        "progress": 0.4023383489199492,
-        "paperProgress": 0.0038972481999152574,
-        "audioTime": 39.49133786848073,
+        "progress": 0.4023383489199502,
+        "paperProgress": 0.00389724819991695,
+        "audioTime": 19.021333333333335,
         "offset": 0,
         "rate": 1,
         "loop": false,
@@ -221,40 +221,40 @@
           0.7,
           0.85
         ],
-        "samples": 25,
-        "minPaperBranchRMS": 0.0006621330110127401,
-        "maxPaperBranchRMS": 0.00865625557517713,
-        "meanPaperGain": 0.07419715107859055
+        "samples": 23,
+        "minPaperBranchRMS": 0.0006135348716516351,
+        "maxPaperBranchRMS": 0.009227095304269581,
+        "meanPaperGain": 0.0748271051358076
       },
       {
         "travel": [
           0.85,
           0.95
         ],
-        "samples": 22,
-        "minPaperBranchRMS": 0.0004931291069540044,
-        "maxPaperBranchRMS": 0.002070206903838859,
-        "meanPaperGain": 0.045809006530155
+        "samples": 24,
+        "minPaperBranchRMS": 0.0004922804053622988,
+        "maxPaperBranchRMS": 0.002282901886060976,
+        "meanPaperGain": 0.04623222259475391
       },
       {
         "travel": [
           0.95,
           0.985
         ],
-        "samples": 14,
-        "minPaperBranchRMS": 0.0006108879827648403,
-        "maxPaperBranchRMS": 0.004416282686854533,
-        "meanPaperGain": 0.03141966201684452
+        "samples": 13,
+        "minPaperBranchRMS": 0.0006937222345239987,
+        "maxPaperBranchRMS": 0.004398284673737924,
+        "meanPaperGain": 0.031308093727367856
       },
       {
         "travel": [
           0.985,
           1
         ],
-        "samples": 16,
-        "minPaperBranchRMS": 0.00045401780899798625,
-        "maxPaperBranchRMS": 0.0009738148543552561,
-        "meanPaperGain": 0.020420239171203333
+        "samples": 15,
+        "minPaperBranchRMS": 0.0004147369213067543,
+        "maxPaperBranchRMS": 0.000993289127058154,
+        "meanPaperGain": 0.02165085920992749
       }
     ],
     "samples": 294,
@@ -269,22 +269,22 @@
     "paperStarts": [
       {
         "key": "paperRollup",
-        "duration": 4.498231292517007,
+        "duration": 4.49825,
         "rate": 1,
         "loop": false,
         "offset": 0,
         "requestedDuration": null,
-        "audioTime": 43.340045351473925,
-        "paperProgress": 0.9999967730943877,
-        "progress": 0.9999980638566326
+        "audioTime": 22.741333333333333,
+        "paperProgress": 0.9999946401829972,
+        "progress": 0.9999967841097982
       }
     ],
     "cues": [
       {
         "key": "paperRollup",
-        "progress": 0.9999980638566326,
-        "paperProgress": 0.9999967730943877,
-        "audioTime": 43.340045351473925,
+        "progress": 0.9999967841097982,
+        "paperProgress": 0.9999946401829972,
+        "audioTime": 22.741333333333333,
         "offset": 0,
         "rate": 1,
         "loop": false,
@@ -294,13 +294,13 @@
         "key": "slideClose",
         "mode": "automatic",
         "direction": -1,
-        "audioTime": 46.611156462585036,
-        "wallTime": 54475.69999998808,
+        "audioTime": 26.010666666666665,
+        "wallTime": 31287.899999976158,
         "offset": 0,
-        "duration": 0.23997732426303856,
+        "duration": 0.24,
         "gain": 0.65,
-        "progress": 0.375029235496254,
-        "r": 0.9375730887406349,
+        "progress": 0.3746909015276447,
+        "r": 0.9367272538191118,
         "phase": "slide-clear",
         "contact": false
       },
@@ -308,13 +308,13 @@
         "key": "tailClose",
         "mode": "automatic",
         "direction": -1,
-        "audioTime": 46.96235827664399,
-        "wallTime": 54824.69999998808,
+        "audioTime": 26.36,
+        "wallTime": 31638.19999998808,
         "offset": 0,
-        "duration": 0.6499773242630386,
+        "duration": 0.65,
         "gain": 0.95,
-        "progress": 0.2863670496699442,
-        "r": 0.7159176241748605,
+        "progress": 0.2860488277113723,
+        "r": 0.7151220692784307,
         "phase": "withdraw-tail",
         "contact": false
       },
@@ -322,13 +322,13 @@
         "key": "holeClose",
         "mode": "automatic",
         "direction": -1,
-        "audioTime": 47.61251700680272,
-        "wallTime": 55475.09999999404,
+        "audioTime": 27.010666666666665,
+        "wallTime": 32289.80000001192,
         "offset": 0,
         "duration": 0.42,
         "gain": 0.7,
-        "progress": 0.14223180246212175,
-        "r": 0.35557950615530437,
+        "progress": 0.14196040105260166,
+        "r": 0.35490100263150415,
         "phase": "release-hole",
         "contact": false
       },
@@ -336,13 +336,13 @@
         "key": "bendClose",
         "mode": "automatic",
         "direction": -1,
-        "audioTime": 48.03047619047619,
-        "wallTime": 55892,
+        "audioTime": 27.432,
+        "wallTime": 32706.80000001192,
         "offset": 0,
         "duration": 0.9,
         "gain": 0.9,
-        "progress": 0.07097243408148612,
-        "r": 0.1774310852037153,
+        "progress": 0.07078259804519826,
+        "r": 0.17695649511299566,
         "phase": "unload-hole",
         "contact": false
       },
@@ -350,13 +350,13 @@
         "key": "seat",
         "mode": "automatic",
         "direction": -1,
-        "audioTime": 48.73287981859411,
-        "wallTime": 56594.5,
+        "audioTime": 28.130666666666666,
+        "wallTime": 33406.60000002384,
         "offset": 0,
-        "duration": 0.22235827664399094,
+        "duration": 0.222375,
         "gain": 0.4,
-        "progress": 0.004202694527277728,
-        "r": 0.01050673631819432,
+        "progress": 0.004148157605362135,
+        "r": 0.010370394013405337,
         "phase": "unload-hole",
         "contact": true
       }
@@ -368,9 +368,9 @@
           0.85
         ],
         "samples": 17,
-        "minPaperBranchRMS": 0.0010734299197711372,
-        "maxPaperBranchRMS": 0.0028532354737151938,
-        "meanPaperGain": 0.07950933154955353
+        "minPaperBranchRMS": 0.001058052175951276,
+        "maxPaperBranchRMS": 0.002811935935083431,
+        "meanPaperGain": 0.0791376031782153
       },
       {
         "travel": [
@@ -378,9 +378,9 @@
           0.95
         ],
         "samples": 12,
-        "minPaperBranchRMS": 0.0006218814165192679,
-        "maxPaperBranchRMS": 0.001960890007334928,
-        "meanPaperGain": 0.05300345233093424
+        "minPaperBranchRMS": 0.0005924720086337465,
+        "maxPaperBranchRMS": 0.0019850008851340717,
+        "meanPaperGain": 0.05253618040172467
       },
       {
         "travel": [
@@ -388,19 +388,19 @@
           0.985
         ],
         "samples": 4,
-        "minPaperBranchRMS": 0.0006319000527718171,
-        "maxPaperBranchRMS": 0.0009193796733791566,
-        "meanPaperGain": 0.04006225769377038
+        "minPaperBranchRMS": 0.000557210615449761,
+        "maxPaperBranchRMS": 0.0009423056881417038,
+        "meanPaperGain": 0.03985598953783238
       },
       {
         "travel": [
           0.985,
           1
         ],
-        "samples": 2,
-        "minPaperBranchRMS": 0.000598340216340374,
-        "maxPaperBranchRMS": 0.0006325361785865944,
-        "meanPaperGain": 0.03863726869856545
+        "samples": 1,
+        "minPaperBranchRMS": 0.0005803269083357985,
+        "maxPaperBranchRMS": 0.0005803269083357985,
+        "meanPaperGain": 0.038659497009659455
       }
     ],
     "samples": 296,
@@ -422,58 +422,8 @@
         "key": "paperRollup",
         "progress": 0.761999980384755,
         "paperProgress": 0.6033333006412585,
-        "audioTime": 51.510566893424034,
+        "audioTime": 31.010666666666665,
         "offset": 0,
-        "rate": 1,
-        "loop": false,
-        "mode": "drag"
-      },
-      {
-        "key": "paperRollup",
-        "progress": 0.7479999966464692,
-        "paperProgress": 0.579999994410782,
-        "audioTime": 51.6324716553288,
-        "offset": 0.10158730158730123,
-        "rate": 1,
-        "loop": false,
-        "mode": "drag"
-      },
-      {
-        "key": "paperRollup",
-        "progress": 0.7340000129081834,
-        "paperProgress": 0.5566666881803056,
-        "audioTime": 51.76018140589569,
-        "offset": 0.20027210884353508,
-        "rate": 1,
-        "loop": false,
-        "mode": "drag"
-      },
-      {
-        "key": "paperRollup",
-        "progress": 0.7200000291698976,
-        "paperProgress": 0.5333333819498293,
-        "audioTime": 51.93142857142857,
-        "offset": 0.3105668934240313,
-        "rate": 1,
-        "loop": false,
-        "mode": "drag"
-      },
-      {
-        "key": "paperRollup",
-        "progress": 0.6920000057265233,
-        "paperProgress": 0.4866666762108722,
-        "audioTime": 52.34068027210884,
-        "offset": 0.42086167800453467,
-        "rate": 1,
-        "loop": false,
-        "mode": "drag"
-      },
-      {
-        "key": "paperRollup",
-        "progress": 0.6499999985448631,
-        "paperProgress": 0.41666666424143844,
-        "audioTime": 53.03147392290249,
-        "offset": 0.6327437641723392,
         "rate": 1,
         "loop": false,
         "mode": "drag"
@@ -494,9 +444,9 @@
       "status": 200
     },
     {
-      "file": "/labs/certification-reader/assets/audio-foley/v42/slideClose.wav",
-      "bytes": 23084,
-      "sha256": "f60f03943a3fc9ee2482a7d9a9e716765cbeaaa9537c68841bf39a9b6284a77c",
+      "file": "/labs/certification-reader/assets/audio-foley/v42/bendClose.wav",
+      "bytes": 86444,
+      "sha256": "c22792a8c149b4cafe9a25d51a2b7979a813b7ea864f17b00a44512115be3736",
       "status": 200
     },
     {
@@ -506,15 +456,9 @@
       "status": 200
     },
     {
-      "file": "/labs/certification-reader/assets/audio-foley/v42/tailClose.wav",
-      "bytes": 62444,
-      "sha256": "32c339c42d951178c4973e80050207d8bc3a7e6ef34856aa10ec7bc41d3afeff",
-      "status": 200
-    },
-    {
-      "file": "/labs/certification-reader/assets/audio-foley/v42/bendClose.wav",
-      "bytes": 86444,
-      "sha256": "c22792a8c149b4cafe9a25d51a2b7979a813b7ea864f17b00a44512115be3736",
+      "file": "/labs/certification-reader/assets/audio-foley/v42/holeClose.wav",
+      "bytes": 40364,
+      "sha256": "97874a858f0081efcb2737526331a3eca8249e1ea2ccd251be8a988b85e10be6",
       "status": 200
     },
     {
@@ -524,15 +468,33 @@
       "status": 200
     },
     {
+      "file": "/labs/certification-reader/assets/audio-foley/v42/tailClose.wav",
+      "bytes": 62444,
+      "sha256": "32c339c42d951178c4973e80050207d8bc3a7e6ef34856aa10ec7bc41d3afeff",
+      "status": 200
+    },
+    {
       "file": "/labs/certification-reader/assets/audio-foley/v42/slideOpen.wav",
       "bytes": 23084,
       "sha256": "c47e77a5ba19e2689e48c14b5a9f2731f6d7db519c7422c07e908dd46bf5131e",
       "status": 200
     },
     {
+      "file": "/labs/certification-reader/assets/audio-foley/v42/slideClose.wav",
+      "bytes": 23084,
+      "sha256": "f60f03943a3fc9ee2482a7d9a9e716765cbeaaa9537c68841bf39a9b6284a77c",
+      "status": 200
+    },
+    {
       "file": "/labs/certification-reader/assets/audio-foley/v42/park.wav",
       "bytes": 17088,
       "sha256": "d95364858538b9f038f1354d930fe3e696a0e64672e5225477a6fd16adb5090d",
+      "status": 200
+    },
+    {
+      "file": "/labs/certification-reader/assets/audio-foley/v42/seat.wav",
+      "bytes": 21392,
+      "sha256": "3c3aa2b7d0222fdb96e1978376a6c3b3b499867464365ee7daaee7d25a5cc953",
       "status": 200
     },
     {
@@ -546,66 +508,55 @@
       "bytes": 863708,
       "sha256": "36a7fa2374abe0a0d5c1a3bd05fa936335fc5c9ea6e92a9926fc4069952d9e99",
       "status": 200
-    },
-    {
-      "file": "/labs/certification-reader/assets/audio-foley/v42/holeClose.wav",
-      "bytes": 40364,
-      "sha256": "97874a858f0081efcb2737526331a3eca8249e1ea2ccd251be8a988b85e10be6",
-      "status": 200
-    },
-    {
-      "file": "/labs/certification-reader/assets/audio-foley/v42/seat.wav",
-      "bytes": 21392,
-      "sha256": "3c3aa2b7d0222fdb96e1978376a6c3b3b499867464365ee7daaee7d25a5cc953",
-      "status": 200
     }
   ],
   "serviceWorker": {
-    "controller": "https://the-second-language.pages.dev/sw.js?v=42",
+    "controller": "http://127.0.0.1:8153/sw.js?v=43",
     "caches": [
-      "second-language-shell-v42"
+      "second-language-shell-v43"
     ],
     "requests": [
-      "https://the-second-language.pages.dev/",
-      "https://the-second-language.pages.dev/index.html",
-      "https://the-second-language.pages.dev/app.js?v=42",
-      "https://the-second-language.pages.dev/pure-reader.js?v=41",
-      "https://the-second-language.pages.dev/reader-jump.js?v=41",
-      "https://the-second-language.pages.dev/reader-focus.js?v=41",
-      "https://the-second-language.pages.dev/chapters.js?v=41",
-      "https://the-second-language.pages.dev/settings.js?v=41",
-      "https://the-second-language.pages.dev/certification-reader.js?v=42",
-      "https://the-second-language.pages.dev/labs/certification-reader/sound.js?v=42",
-      "https://the-second-language.pages.dev/labs/certification-reader/sound-base.js?v=42",
-      "https://the-second-language.pages.dev/labs/certification-reader/keeper-sound.js?v=42",
-      "https://the-second-language.pages.dev/labs/certification-reader/material-motion.js?v=41",
-      "https://the-second-language.pages.dev/audio-config.js?v=41",
-      "https://the-second-language.pages.dev/audio-plan.js?v=41",
-      "https://the-second-language.pages.dev/text.js?v=41",
-      "https://the-second-language.pages.dev/practice-workspace.js?v=41",
-      "https://the-second-language.pages.dev/balances.js?v=41",
-      "https://the-second-language.pages.dev/storage-usage.js?v=41",
-      "https://the-second-language.pages.dev/questions.js?v=41",
-      "https://the-second-language.pages.dev/question-pairs.js?v=41",
-      "https://the-second-language.pages.dev/chapter-quality.js?v=41",
-      "https://the-second-language.pages.dev/chapter-tests.js?v=41",
-      "https://the-second-language.pages.dev/chapter-test-recorder.js?v=41",
-      "https://the-second-language.pages.dev/audio-library.js?v=41",
-      "https://the-second-language.pages.dev/practice.js?v=41",
-      "https://the-second-language.pages.dev/listening.js?v=41",
-      "https://the-second-language.pages.dev/reading.js?v=41",
-      "https://the-second-language.pages.dev/objective.js?v=41",
-      "https://the-second-language.pages.dev/exam-spec.js?v=41",
-      "https://the-second-language.pages.dev/recorder.js?v=41",
-      "https://the-second-language.pages.dev/reader-speech.js?v=41",
-      "https://the-second-language.pages.dev/render.js?v=41",
-      "https://the-second-language.pages.dev/annotations.js?v=41",
-      "https://the-second-language.pages.dev/styles.css?v=41",
-      "https://the-second-language.pages.dev/manifest.webmanifest?v=41",
-      "https://the-second-language.pages.dev/icon.svg?v=41",
-      "https://the-second-language.pages.dev/icon-192.png?v=41",
-      "https://the-second-language.pages.dev/icon-512.png?v=41",
-      "https://the-second-language.pages.dev/apple-touch-icon.png?v=41"
+      "http://127.0.0.1:8153/",
+      "http://127.0.0.1:8153/index.html",
+      "http://127.0.0.1:8153/app.js?v=43",
+      "http://127.0.0.1:8153/pure-reader.js?v=41",
+      "http://127.0.0.1:8153/reader-jump.js?v=41",
+      "http://127.0.0.1:8153/reader-focus.js?v=41",
+      "http://127.0.0.1:8153/chapters.js?v=41",
+      "http://127.0.0.1:8153/settings.js?v=41",
+      "http://127.0.0.1:8153/certification-reader.js?v=43",
+      "http://127.0.0.1:8153/labs/certification-reader/sound.js?v=42",
+      "http://127.0.0.1:8153/labs/certification-reader/sound-base.js?v=42",
+      "http://127.0.0.1:8153/labs/certification-reader/keeper-sound.js?v=42",
+      "http://127.0.0.1:8153/labs/certification-reader/material-motion.js?v=41",
+      "http://127.0.0.1:8153/audio-config.js?v=41",
+      "http://127.0.0.1:8153/audio-plan.js?v=41",
+      "http://127.0.0.1:8153/text.js?v=41",
+      "http://127.0.0.1:8153/practice-workspace.js?v=41",
+      "http://127.0.0.1:8153/balances.js?v=41",
+      "http://127.0.0.1:8153/storage-usage.js?v=41",
+      "http://127.0.0.1:8153/questions.js?v=41",
+      "http://127.0.0.1:8153/question-pairs.js?v=41",
+      "http://127.0.0.1:8153/chapter-quality.js?v=41",
+      "http://127.0.0.1:8153/chapter-tests.js?v=43",
+      "http://127.0.0.1:8153/chapter-certification.js?v=43",
+      "http://127.0.0.1:8153/chapter-test-recorder.js?v=41",
+      "http://127.0.0.1:8153/audio-library.js?v=41",
+      "http://127.0.0.1:8153/practice.js?v=41",
+      "http://127.0.0.1:8153/listening.js?v=41",
+      "http://127.0.0.1:8153/reading.js?v=41",
+      "http://127.0.0.1:8153/objective.js?v=41",
+      "http://127.0.0.1:8153/exam-spec.js?v=41",
+      "http://127.0.0.1:8153/recorder.js?v=41",
+      "http://127.0.0.1:8153/reader-speech.js?v=41",
+      "http://127.0.0.1:8153/render.js?v=41",
+      "http://127.0.0.1:8153/annotations.js?v=41",
+      "http://127.0.0.1:8153/styles.css?v=43",
+      "http://127.0.0.1:8153/manifest.webmanifest?v=41",
+      "http://127.0.0.1:8153/icon.svg?v=41",
+      "http://127.0.0.1:8153/icon-192.png?v=41",
+      "http://127.0.0.1:8153/icon-512.png?v=41",
+      "http://127.0.0.1:8153/apple-touch-icon.png?v=41"
     ]
   },
   "status": "production-sound-integration-verified",

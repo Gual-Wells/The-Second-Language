@@ -1,0 +1,101 @@
+{
+  "approved": true,
+  "candidateDigest": "8498bfd80bbbb112257602c69c2ede2c1b7e8785f03f19d2e85b0b3c1c01258a",
+  "checks": {
+    "dynamic": true,
+    "engineering": true,
+    "layout": true,
+    "material": true,
+    "source": true,
+    "theme": true,
+    "translation": true
+  },
+  "contentSHA": "925d37e2fbfb88d63137ef7ae3ff2b686fc2e59c108ee9cbce6a9e7a6f9adb48",
+  "creator": {
+    "engineeringAdaptation": {
+      "resourceId": "first-v6-lossless",
+      "scope": "Explicit original-byte material route test; no new literary/art creation or model invocation",
+      "sourceArtPlanDigest": "5892d160eca152696c33cacabd97c5ec20011bd6099adb526bd9fc4e01bbe456"
+    },
+    "exitCode": 0,
+    "finishedAt": "2026-10-22T23:00:19.137Z",
+    "imageGeneration": false,
+    "images": [
+      {
+        "file": "charter.webp",
+        "sha256": "d01394d89626dff45630d4ecefb4592dbdea49e7fea6667083a1bca8756624f8"
+      }
+    ],
+    "inputSHA": "d02de37c2f2987ef5d003330f600c71d52ba4f85b86185fb53e2f89f9627aa4b",
+    "model": "gpt-6.1-sol",
+    "outputSHA": "15fb588fd21ade5f429f3ac58044ae0a07f8469d7c049f02db372199d95ab3f6",
+    "reasoningEffort": "xhigh",
+    "runId": "d9ba9533-62f6-4763-b4f2-3cfa0a9e1fb0",
+    "sessionId": "01a165d6-09e9-7c03-a426-1f245c165576",
+    "startedAt": "2026-10-22T22:58:06.927Z",
+    "state": "complete"
+  },
+  "evidence": [
+    "896c582437a3cafd26bebcacfd6f0a8f2b0dc870de43c3d7e593cee094d8dbfe",
+    "7dbd1760ce5a89efecc875e269d7629d8faec9037bd7502d79393efc12f74f1f",
+    "a5076f19599d963fc58ae730a9a4fcbcfe9b065ad8eac2a8fdd47b8e6a308b5e",
+    "6a38acf935245caf2731e6e6eb3a01568966122fb0b01b90e1e6e4480419e7fc"
+  ],
+  "issues": [],
+  "notes": "The restrained verse draws specifically on the chapter’s dated promises, protected silence and unfinished record; the Chinese preserves its meaning and tone. Aboensis lettering, stanza spacing and tapering ending form a coherent composition. Aging is substantial without obscuring the writing; composites and GPU views show no genuine halo. Name, frozen local time, SHA prefix and unissued status agree. Open/mid-roll screenshots and pose inspection support Chromium compatibility.",
+  "reviewer": {
+    "exitCode": 0,
+    "finishedAt": "2026-10-23T01:02:27.061Z",
+    "imageGeneration": false,
+    "images": [
+      {
+        "file": "front.png",
+        "sha256": "6a38acf935245caf2731e6e6eb3a01568966122fb0b01b90e1e6e4480419e7fc"
+      },
+      {
+        "file": "back.png",
+        "sha256": "786f1eb655a6582431070afcb3b93d80dda651b614e5d3832f3e3b56b4e896c4"
+      },
+      {
+        "file": "gpu-open.png",
+        "sha256": "7dbd1760ce5a89efecc875e269d7629d8faec9037bd7502d79393efc12f74f1f"
+      },
+      {
+        "file": "gpu-mid.png",
+        "sha256": "a5076f19599d963fc58ae730a9a4fcbcfe9b065ad8eac2a8fdd47b8e6a308b5e"
+      },
+      {
+        "file": "front-bottom-dark.png",
+        "sha256": "e20b4f58d23a5b610b0a672021333883afd8b0ba89d3ff25bb7bf15a1c8de53a"
+      },
+      {
+        "file": "front-bottom-light.png",
+        "sha256": "7b37762fa093927d507fd195e89893212a7b86ea47a2ec530a2fc5faa0c63d81"
+      },
+      {
+        "file": "back-bottom-dark.png",
+        "sha256": "f2bcef13e4e7a7db3cfdc5226c328305a251d7e136435add46f9d57c58deeed3"
+      },
+      {
+        "file": "back-bottom-light.png",
+        "sha256": "bf9de1d387f025a93e9f208736f930faed81a408a8019dbe7a4f07cac2e1a1ec"
+      }
+    ],
+    "inputSHA": "aefa54015f72bda0c3fc9cc0cecd83b783b293f42fccd0971c6396faa69fbc2a",
+    "model": "gpt-6.1-sol",
+    "observed": {
+      "model": "not exposed by CLI response events"
+    },
+    "outputSHA": "901dc09286135e75fecb8582ced5593dca66a457cac5eea4e58a0694f7f747f3",
+    "reasoningEffort": "xhigh",
+    "requested": {
+      "model": "gpt-6.1-sol",
+      "reasoningEffort": "xhigh"
+    },
+    "runId": "88ed6b1e-01f6-465c-b779-6b2c948dd1bf",
+    "sessionId": "01a16645-6ce3-7c90-97dc-e9afef7a3aa0",
+    "startedAt": "2026-10-23T00:59:46.592Z",
+    "state": "complete"
+  },
+  "schema": "second-language.scroll-review.v1"
+}

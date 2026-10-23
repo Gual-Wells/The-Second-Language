@@ -463,6 +463,8 @@ textarea.text-input { resize: vertical; }
 .settings-row { display: flex; align-items: center; justify-content: space-between; width: 100%; min-height: 49px; padding: 11px 14px; border: 0; border-bottom: 1px solid #d4e0ea; background: linear-gradient(#fff,#f8fbfd); color: #274e70; text-align: left; font-size: 14px; }
 .settings-row b { font-size: 22px; font-weight: 400; color: #7993a9; }
 .settings-row:active { background: #dcebf6; }
+.certification-catalogue-notice { padding: 9px 14px 14px; color: var(--muted); font-size: 12px; line-height: 1.6; }
+.certification-catalogue-notice p { margin: 0 0 8px; }
 .certification-catalogue { max-width: 480px; }
 .certification-catalogue .sheet-head h2 { flex: 1; }
 .certification-chapter { min-height: 56px; justify-content: center; font-size: 17px; }
@@ -482,7 +484,7 @@ textarea.text-input { resize: vertical; }
 .certification-document-panel { position: absolute; z-index: 6; top: max(65px,calc(env(safe-area-inset-top) + 53px)); bottom: max(12px,env(safe-area-inset-bottom)); right: max(12px,env(safe-area-inset-right)); width: min(540px,calc(100% - max(12px,env(safe-area-inset-left)) - max(12px,env(safe-area-inset-right)))); display: flex; flex-direction: column; min-height: 0; overflow: hidden; color: #29372f; background: #f8f6ef; border: 1px solid #b8ae91; border-radius: 7px; box-shadow: 0 10px 32px #0007; }
 .certification-document-heading { display: flex; align-items: center; justify-content: space-between; flex: none; padding: 7px 10px 7px 16px; border-bottom: 1px solid #c9c1ae; background: linear-gradient(#fdfcf8,#e8e7dc); }
 .certification-document-heading h2 { margin: 0; color: #344c3e; font: 600 16px system-ui,sans-serif; }
-.certification-document-panel button { min-height: 40px; padding: 7px 12px; border: 1px solid #b4baa9; border-radius: 4px; color: #344b3e; background: linear-gradient(#fffef9,#e9ebdf); font: 13px system-ui,sans-serif; }
+.certification-document-panel button { min-height: 44px; padding: 7px 12px; border: 1px solid #b4baa9; border-radius: 4px; color: #344b3e; background: linear-gradient(#fffef9,#e9ebdf); font: 13px system-ui,sans-serif; }
 .certification-document-panel button:disabled { opacity: .5; }
 .certification-document-heading button { min-width: 40px; padding: 0; border: 0; background: transparent; font-size: 24px; }
 .certification-document-tabs { display: flex; flex: none; gap: 4px; padding: 8px 12px 0; border-bottom: 1px solid #bdc4b4; background: #e7ecdf; }
@@ -601,8 +603,12 @@ textarea.text-input { resize: vertical; }
 .chapter-test-status { flex: none; margin: 0; padding: 10px 13px; font-size: 12px; color: #315b7b; border-bottom: 1px solid #c6d4df; }
 .chapter-test-body { min-height: 0; flex: 1; overflow: auto; overscroll-behavior: contain; padding: 12px; background: #fff; }
 .chapter-test-empty { font-size: 14px; line-height: 1.7; color: var(--muted); }
-.chapter-test-record { display: flex; justify-content: space-between; gap: 10px; width: 100%; text-align: left; border: 1px solid #a6bdd2; border-radius: 4px; padding: 13px 10px; margin-bottom: 9px; color: #315b7b; background: linear-gradient(#fff,#e6eff7); }
+.chapter-test-record { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 5px 10px; min-height: 46px; width: 100%; text-align: left; border: 1px solid #a6bdd2; border-radius: 4px; padding: 13px 10px; margin-bottom: 9px; color: #315b7b; background: linear-gradient(#fff,#e6eff7); }
 .chapter-test-record span { font-size: 11px; }
+.chapter-certification { margin: 0 0 14px; padding: 12px; border: 1px solid var(--line); border-radius: 4px; background: linear-gradient(#f8fbff,#edf4fa); }
+.chapter-certification h3 { margin: 0 0 7px; color: var(--blue); font-size: 15px; }
+.chapter-certification-note { margin: 6px 0 10px; color: var(--muted); font-size: 13px; line-height: 1.65; overflow-wrap: anywhere; }
+.chapter-test-body .chapter-certification button { min-height: 44px; max-width: 100%; }
 .chapter-test-question { margin: 8px 0 18px; padding: 10px; border: 1px solid #b3c7da; border-radius: 4px; min-width: 0; }
 .chapter-test-question legend { font-size: 12px; font-weight: bold; color: #315b7b; }
 .chapter-test-question > p { margin: 3px 0 12px; font-size: 16px; line-height: 1.7; }
