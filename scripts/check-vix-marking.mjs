@@ -5,12 +5,15 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {spawnSync} from 'node:child_process';
 import {prepareVixMarking} from './prepare-vix-marking.mjs';
+import {familyRecords} from './lib/vix-index.mjs';
 
 const project=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..'),parent=path.join(project,'.cache/vix-marking-checks');
 await mkdir(parent,{recursive:true});const root=await mkdtemp(path.join(parent,'fixture-'));
 const relative=path.relative(parent,root);assert(relative&&!relative.startsWith('..')&&!path.isAbsolute(relative));
 const date='2099-01-01',commit='a'.repeat(40),run=path.join(root,'work/runs',date),inputDir=path.join(root,'.cache/vix',commit);
 const selection={studyDate:date,vixInputCommit:commit,vixMarkLabel:date.slice(2),mainWords:Array.from({length:40},(_,i)=>({entryId:`entry-${i+1}`,globalRank:i+1,text:`fixture${i+1}`,family:[]}))};
+const duplicate=structuredClone(selection);duplicate.mainWords[1]=duplicate.mainWords[0];
+assert.throws(()=>familyRecords(duplicate),/重复VIX身份/);
 const manifest={protocol:'vix-seed-access/2',scope:{domainId:'domain_general_english',section:'word',records:40},counts:{records:40},binding:{marks:{labelFormat:'YY-MM-DD',externalDateMeaning:true,yearBase:2000}},recordTuple:['entryId','globalRank','text','markDates'],records:[{path:'data/seed-access/records/fixture.json'}]};
 const build=`import {readFile,writeFile} from 'node:fs/promises';
 const label='${date.slice(2)}',file='data/seed-access/records/fixture.json';

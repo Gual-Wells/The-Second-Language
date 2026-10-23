@@ -111,6 +111,17 @@ try {
   assert.equal(calls.length, 0, 'Invalid input is rejected before any network or replacement');
 
   const launcherPath = path.join(projectRoot, 'scripts/run-daily.ps1');
+  const feedbackPath=path.join(root,'work/runs',date,'feedback.json');
+  const feedbackBytes=JSON.stringify({capturedAt:'2099-01-01T00:00:00.000Z',data:{fixture:'frozen feedback'}});
+  await writeFile(feedbackPath,feedbackBytes);
+  const feedbackArgs=[path.join(projectRoot,'scripts/feedback-snapshot.mjs'),date];
+  const childOptions={cwd:root,encoding:'utf8',windowsHide:true,env:{...process.env,SECOND_LANGUAGE_API_URL:'http://127.0.0.1:1',SECOND_LANGUAGE_CREDENTIAL_FILE:path.join(root,'absent-private-credentials.json'),SECOND_LANGUAGE_PUBLISH_TOKEN:''}};
+  const reusedFeedback=spawnSync(process.execPath,feedbackArgs,childOptions);
+  assert.equal(reusedFeedback.status,0,'Existing feedback must be reusable without credentials or network');
+  assert.equal(await readFile(feedbackPath,'utf8'),feedbackBytes,'A resumed feedback snapshot cannot be overwritten');
+  await writeFile(feedbackPath,'null');
+  assert.notEqual(spawnSync(process.execPath,feedbackArgs,childOptions).status,0,'Invalid feedback must remain unresolved, not refreshed');
+  assert.equal(await readFile(feedbackPath,'utf8'),'null');
   const launcherBytes = await readFile(launcherPath), launcher = launcherBytes.toString('utf8');
   assert.deepEqual([...launcherBytes.subarray(0, 3)], [239, 187, 191], 'Windows PowerShell 5.1 must decode the Chinese prompt as UTF-8');
   assert.ok(launcher.indexOf('if ($control.rest)') < launcher.indexOf('$prompt ='), 'Rest is handled before the model and material preparation');

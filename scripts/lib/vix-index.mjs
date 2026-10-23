@@ -22,6 +22,7 @@ export async function loadVixIndex(vixDir) {
 
 export function familyRecords(selection) {
   if (!Array.isArray(selection.mainWords) || selection.mainWords.length !== 40) throw new Error('最终推荐必须恰有 40 个主词');
+  if(new Set(selection.mainWords.map(item=>item.entryId)).size!==40||new Set(selection.mainWords.map(item=>item.globalRank)).size!==40)throw new Error('40主词存在重复VIX身份，不能用重复词条占推荐名额');
   const values = [];
   for (const main of selection.mainWords) {
     values.push(main);

@@ -89,6 +89,8 @@ node scripts/delete-temporary.mjs 临时页ID
 
 内容续作以 `work/runs/<date>/words/` 的逐词材料、`article-plan.md`、`article.md`、`continuity.md` 和必要时的 `resume.md` 为交接点；这些文件由 Codex 按内容自由写，不进入发布正文。`pack-chapter` 能核对第三部分带或不带 `USE` 的句子都已逐句翻译，并核对每个用法至少被标出一次；教材保真与用法是否真实成立仍由 Codex 在发布前审阅。
 
+2026-10-24流程复盘补强：最终冻结前读全拟选词族双教材范围，选定后全部相关义项教授；只把完全重复VIX身份作为确定性错误拦截，真实词族仍由内容判断。feedback-snapshot已有即复用、不覆盖。publish-vix在更新main前保存work/runs/DATE/vix-publication.json，绑定输入/选择/拟提交文件；未知结果先读回核对，成功重跑复用同一提交。meta.vixCommit取已验证回执，publish-chapter要求该回执匹配本次来源包，再发布并回读正文/来源原件SHA。未完成的语义、学习难度和现实收益不能靠这些结构检查宣称合格。详见research/daily-flow-review-2026-10-24.md。
+
 ## 原声设施（正式录制、采集、接管与反馈）
 
 执行要求见 `protocol/SPEAKING_PIPELINE.md`，上传、私有文件及在线队列设计见 `research/speaking-facilities-engineering.md`。正式 PWA 已接通原声入口，实际主通路见 protocol/SPEAKING_RUNTIME.md；下列工具用于保留的补听与腾讯专项。
