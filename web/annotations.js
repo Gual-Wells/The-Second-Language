@@ -137,9 +137,10 @@ export function validateAnnotatedContent(markdown, { expectedWordCount, maxWordC
   return { parts, words, uses, sentences };
 }
 
-// Opt-in for new production runs; historical chapters keep their original format.
+// Formal production count; archived reads use validateAnnotatedContent separately.
+export const DAILY_WORD_COUNT = 50;
 export function validateTeachingLayout(markdown,policy) {
-  const parsed=validateAnnotatedContent(markdown,{expectedWordCount:40});
+  const parsed=validateAnnotatedContent(markdown,{expectedWordCount:DAILY_WORD_COUNT});
   if(!policy||policy==='legacy')return parsed;
   if(policy!=='etymology-fused-v1')throw Error('未知章节教学协议');
   const blocks=parsed.parts.one.split(/^<!-- WORD:/m).slice(1);

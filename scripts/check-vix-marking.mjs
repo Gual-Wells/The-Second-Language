@@ -11,10 +11,11 @@ const project=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..'),pa
 await mkdir(parent,{recursive:true});const root=await mkdtemp(path.join(parent,'fixture-'));
 const relative=path.relative(parent,root);assert(relative&&!relative.startsWith('..')&&!path.isAbsolute(relative));
 const date='2099-01-01',commit='a'.repeat(40),run=path.join(root,'work/runs',date),inputDir=path.join(root,'.cache/vix',commit);
-const selection={studyDate:date,vixInputCommit:commit,vixMarkLabel:date.slice(2),mainWords:Array.from({length:40},(_,i)=>({entryId:`entry-${i+1}`,globalRank:i+1,text:`fixture${i+1}`,family:[]}))};
+const selection={studyDate:date,vixInputCommit:commit,vixMarkLabel:date.slice(2),mainWords:Array.from({length:50},(_,i)=>({entryId:`entry-${i+1}`,globalRank:i+1,text:`fixture${i+1}`,family:[]}))};
+assert.throws(()=>familyRecords({...selection,mainWords:selection.mainWords.slice(0,40)}),/50 个主词/);
 const duplicate=structuredClone(selection);duplicate.mainWords[1]=duplicate.mainWords[0];
 assert.throws(()=>familyRecords(duplicate),/重复VIX身份/);
-const manifest={protocol:'vix-seed-access/2',scope:{domainId:'domain_general_english',section:'word',records:40},counts:{records:40},binding:{marks:{labelFormat:'YY-MM-DD',externalDateMeaning:true,yearBase:2000}},recordTuple:['entryId','globalRank','text','markDates'],records:[{path:'data/seed-access/records/fixture.json'}]};
+const manifest={protocol:'vix-seed-access/2',scope:{domainId:'domain_general_english',section:'word',records:50},counts:{records:50},binding:{marks:{labelFormat:'YY-MM-DD',externalDateMeaning:true,yearBase:2000}},recordTuple:['entryId','globalRank','text','markDates'],records:[{path:'data/seed-access/records/fixture.json'}]};
 const build=`import {readFile,writeFile} from 'node:fs/promises';
 const label='${date.slice(2)}',file='data/seed-access/records/fixture.json';
 const marked=JSON.parse(await readFile('data/seed-access/dates/'+label+'.json','utf8')).globalRanks;
@@ -44,7 +45,7 @@ try{
  const marker=JSON.parse(await readFile(path.join(first.directory,'vix-marking-workspace.json'),'utf8'));assert.equal(marker.selectionDigest,first.selectionDigest);assert.equal(marker.inputCommit,commit);
  const mark=(directory)=>spawnSync(process.execPath,[path.join(project,'scripts/mark-vix.mjs'),`--vix=${directory}`,`--selection=${path.join(run,'selection.json')}`],{encoding:'utf8'});
  const denied=mark(inputDir);assert.notEqual(denied.status,0);assert.match(denied.stderr,/不可变VIX原输入快照/);assert.match(denied.stderr,/prepare-vix-marking/);await unchanged();
- const marked=mark(first.directory);assert.equal(marked.status,0,marked.stderr);const dateFile=path.join(first.directory,'data/seed-access/dates',date.slice(2)+'.json');assert.equal(JSON.parse(await readFile(dateFile,'utf8')).globalRanks.length,40);await unchanged();
+ const marked=mark(first.directory);assert.equal(marked.status,0,marked.stderr);const dateFile=path.join(first.directory,'data/seed-access/dates',date.slice(2)+'.json');assert.equal(JSON.parse(await readFile(dateFile,'utf8')).globalRanks.length,50);await unchanged();
  const markedBytes=await snapshot(first.directory),again=await prepareVixMarking(date,{root,log:()=>{}});assert.equal(again.resumed,true);assert.deepEqual(await snapshot(first.directory),markedBytes,'Repeat preparation must not erase date marks or rebuilt index');await unchanged();
  await writeFile(path.join(run,'selection.json'),JSON.stringify({...selection,mainWords:[...selection.mainWords].reverse()}));
  await assert.rejects(prepareVixMarking(date,{root,log:()=>{}}),/selection摘要不一致/);assert.deepEqual(await snapshot(first.directory),markedBytes);await unchanged();

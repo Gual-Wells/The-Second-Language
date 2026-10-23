@@ -23,13 +23,13 @@
   "files": [
     {
       "url": "/annotations.js",
-      "bytes": 8680,
-      "sha256": "50aff8629d7dc302c5d7e9fb0d1f0f8a0995de88a6dd965be40e6201fc9b0cae"
+      "bytes": 8731,
+      "sha256": "c79f058a250e8126e593866a343d2aa5928f289f6bdc504ec40a8498aece1cd2"
     },
     {
       "url": "/app.js",
       "bytes": 51143,
-      "sha256": "8d5285a2ca7dbc87cf0efcb4ae9bc8d55538dcc5bfad118114e28bb6004d47a2"
+      "sha256": "193ac5d5496441207f22f50bbc16ae7763074c7c9b766e23ae26099105dfa2c2"
     },
     {
       "url": "/audio-config.js",
@@ -99,7 +99,7 @@
     {
       "url": "/index.html",
       "bytes": 31677,
-      "sha256": "cb8445c5988b3877109b17488f1741bf5b648aa455995ba761045fc685a840cf"
+      "sha256": "c86362cd40620e6d46ee7da2f9da535f7baf8a058f3949262b05fb298b947d3b"
     },
     {
       "url": "/labs/certification-reader/AUDIO_CREDITS.md",
@@ -467,5 +467,5 @@
       "sha256": "8c4f3c17e6d1f45f32bb892307cff4a4a5a08d3af76c0a1e67b355ddf7d419b8"
     }
   ],
-  "bytes": 50618708
+  "bytes": 50618759
 }

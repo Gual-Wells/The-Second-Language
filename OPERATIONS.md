@@ -8,7 +8,7 @@
 
 部署先对主库应用0018_current_affairs.sql，再对PRACTICE_DB应用0009_current_affairs_scope.sql，随后部署API Worker与v45静态壳。迁移不回填旧行；新来源绑定及新雅思来源快照保持不可变。正文仍用原SHA定义，来源包独立以摘要在OneDrive永久封存，D1只存小引用。部署后无新章时正式列表为空，项目特殊纪念卷轴继续保留。
 
-日课入口为scripts/run-daily.ps1，gpt-6.1-sol/xhigh、`--search`，领取休息先于模型。`powershell.exe -NoProfile -File scripts/activate-affairs-tasks.ps1` 先显示实际任务路径；显式 `-Apply` 只把DailyCodex未来Action切到本工作区，备份原XML，保留03:00、Principal及Settings，不停止正在执行的其它进程。永久归档任务已经使用本工作区，不重复改其它任务。生产核对见research/current-affairs-runtime-2026-10-23.md。
+日课入口为scripts/run-daily.ps1，gpt-6.1-sol/max、`--search`，领取休息先于模型。`powershell.exe -NoProfile -File scripts/activate-affairs-tasks.ps1` 先显示实际任务路径；显式 `-Apply` 只把DailyCodex未来Action切到本工作区，备份原XML，保留现有Trigger、Principal及Settings；该脚本不更新时间，当前DailyCodex的05:00触发器须单独核对，不停止正在执行的其它进程。永久归档任务已经使用本工作区，不重复改其它任务。生产核对见research/current-affairs-runtime-2026-10-23.md。
 
 按需取材：current-affairs-pool.mjs find→current-affairs.mjs discover/read（live web/PDF原文用import）→模型实际阅读/与VIX共同选择→原时点标注→全义三部分建设→pack-current-affairs.mjs绑定source-notes→pack-chapter.mjs→publish-chapter.mjs。章节meta保留contentPolicy并另设sourcePolicy；具体命令、读件边界和字段看CURRENT_AFFAIRS。没有新增付费API或常驻爬虫。
 
@@ -60,9 +60,9 @@ powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File scripts/
 
 直接用 PowerShell 的 `-WindowStyle Hidden` 可能先分配控制台再隐藏，不能作为无闪窗保证。当前原生启动器不依赖 VBScript、常驻窗口、Windows 服务或管理员密码；源码纳入仓库，生成的 exe、任务 XML 和日志留在忽略目录。纯轮询仍产生正常网络请求，零模型调用不等于零 Cloudflare 用量。
 
-本机的定时任务每日北京时间 **03:00** 调用 `scripts/run-daily.ps1`，由已登录的 Codex CLI 以 `gpt-6.1-sol`、`xhigh` 和live search运行本协议。先领取后端一次性控制状态；休息开关只跳过下一次定时运行并自动复位。任务提示词核心为：
+本机的定时任务每日北京时间 **05:00开始生成**，调用 `scripts/run-daily.ps1`，由已登录的 Codex CLI 以 `gpt-6.1-sol`、`max` 和live search运行本协议。修改实际DailyCodex触发器使用 `powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/set-daily-schedule.ps1 -Apply`：备份XML、只改时间并核对NextRunTime，保留Action/Principal/Settings，不立即启动生成。先领取后端一次性控制状态；休息开关只跳过下一次定时运行并自动复位。已领取的休息只有用户明确撤回才能按DAILY_RUN记录不可变恢复授权。任务提示词核心为：
 
-> 定时入口先领取当天运行控制，休息则直接结束；非休息日 Codex 阅读 AGENTS.md、protocol/DAILY_RUN.md、protocol/QUALITY_WORKFLOW.md、protocol/CONTENT.md、protocol/TEMPORARY.md 和 protocol/ANNOTATIONS.md，先处理已领取的临时需求，再完成 40 个主词的推荐、VIX 标注、逐词双教材交接、三部分正文、语义审阅与发布。续作写入 work/，未完成时记录 resume.md。
+> 定时入口先领取当天运行控制，休息则直接结束；非休息日 Codex 阅读 AGENTS.md、protocol/DAILY_RUN.md、protocol/QUALITY_WORKFLOW.md、protocol/CONTENT.md、protocol/TEMPORARY.md 和 protocol/ANNOTATIONS.md，先处理已领取的临时需求，再完成 50 个主词的推荐、VIX 标注、逐词双教材交接、三部分正文、语义审阅与发布。续作写入 work/，未完成时记录 resume.md。
 
 2026-10-24定时必读清单明确加入RECOMMENDATION与CURRENT_AFFAIRS。择词前实际读取feedback-snapshot；候选导出保留全量未标记词，同时附原始可见通用英语多词表成员关系及owner说明，既不打分也不按owner筛难度。实事与早期生活收益的取舍写入selection.md，第三部分通过article-plan及成稿语义回看兑现；整体挑战适度上调且不因实用性降低。只更新尚未冻结选择，已冻结/已标注运行保护不变。生效依赖实际Daily Action指向本工作区；无前端或Worker改动，不要求重复部署静态资产。
 
@@ -85,7 +85,7 @@ node scripts/publish-temporary.mjs --page=work/temporary/ID/page.json
 node scripts/delete-temporary.mjs 临时页ID
 ```
 
-`prepare-vix` 首次将 VIX 的当前 `main` 固定到 commit，续作只恢复/校验同一锁定输入，并分段下载辅助索引、两份 textbook 和构建脚本到 `.cache/vix/<commit>/`，逐文件验证 Git blob 摘要；它要求运行环境可访问 GitHub API 和 raw 文件。若命令行网络不可用，Codex 可用已连接的 GitHub 仓库工具取得同一 commit 的文件。冻结selection后才运行prepare-vix-marking；标注与发布使用独立工作副本，不修改原输入。工作副本重跑不覆写，发布commit另记meta/回执，不修改冻结selection。远端main变化时保留原选择及未提交标注待核对，不能刷新输入重选。`publish-vix` 优先使用 `GITHUB_TOKEN` 或 `GH_TOKEN`，没有环境变量时读取本机 GitHub Git 凭据。反馈与章节发布优先读取环境变量 `SECOND_LANGUAGE_API_URL`、`SECOND_LANGUAGE_PUBLISH_TOKEN`；本机部署环境也可从忽略的 `.cache/deployment-secrets.json` 自动取得发布 token，默认连接线上站点。给定日期正式正文存于 `chapters/YYYY-MM-DD/chapter.md`；同目录 `meta.json` 需含 `date`、`title`、`subtitle`、`number`、`wordCount: 40`、`runId`、已提交的 `vixCommit` 和 `protocolCommit`。`pack-chapter` 会检查两部分各有相同顺序的 40 个主词。
+`prepare-vix` 首次将 VIX 的当前 `main` 固定到 commit，续作只恢复/校验同一锁定输入，并分段下载辅助索引、两份 textbook 和构建脚本到 `.cache/vix/<commit>/`，逐文件验证 Git blob 摘要；它要求运行环境可访问 GitHub API 和 raw 文件。若命令行网络不可用，Codex 可用已连接的 GitHub 仓库工具取得同一 commit 的文件。冻结selection后才运行prepare-vix-marking；标注与发布使用独立工作副本，不修改原输入。工作副本重跑不覆写，发布commit另记meta/回执，不修改冻结selection。远端main变化时保留原选择及未提交标注待核对，不能刷新输入重选。`publish-vix` 优先使用 `GITHUB_TOKEN` 或 `GH_TOKEN`，没有环境变量时读取本机 GitHub Git 凭据。反馈与章节发布优先读取环境变量 `SECOND_LANGUAGE_API_URL`、`SECOND_LANGUAGE_PUBLISH_TOKEN`；本机部署环境也可从忽略的 `.cache/deployment-secrets.json` 自动取得发布 token，默认连接线上站点。给定日期正式正文存于 `chapters/YYYY-MM-DD/chapter.md`；同目录 `meta.json` 需含 `date`、`title`、`subtitle`、`number`、`wordCount: 50`、`runId`、已提交的 `vixCommit` 和 `protocolCommit`。`pack-chapter` 会检查两部分各有相同顺序的 50 个主词。
 
 内容续作以 `work/runs/<date>/words/` 的逐词材料、`article-plan.md`、`article.md`、`continuity.md` 和必要时的 `resume.md` 为交接点；这些文件由 Codex 按内容自由写，不进入发布正文。`pack-chapter` 能核对第三部分带或不带 `USE` 的句子都已逐句翻译，并核对每个用法至少被标出一次；教材保真与用法是否真实成立仍由 Codex 在发布前审阅。
 
@@ -121,7 +121,7 @@ node scripts/speaking-detail.mjs .cache/补听计划.json
 
 表达练习使用单独 D1 `the-second-language-practice`，数据库绑定 `PRACTICE_DB`，迁移目录为 `worker/practice_migrations/`。在 `worker/` 运行 `wrangler d1 migrations apply PRACTICE_DB --remote`。表达练习的文字作答不进入原有 `DB` 或 Git；PWA 已接录音/已有文件提交，原件和多路返回永久存 OneDrive，故障兼容副本使用私有 PRACTICE_MEDIA KV。可选 `PRACTICE_READ_TOKEN` 是未来 Chat/MCP 只读接入的独立 Worker secret；不得向 Chat 提供 `PUBLISH_TOKEN`。本机 `scripts/practice-job.mjs` 的建设与批改命令仍使用发布令牌。
 
-表达练习监测脚本 `scripts/run-practice.ps1` 先通过 `node scripts/practice-job.mjs next` 轻量检查申请、文字/听力/阅读答卷与原声转换/分析队列；空队列不启动模型，有工作才使用 `gpt-6-sol`、`high` 继续 `work/expression/` 的中间文档。该脚本与每日 03:00 日课独立，部署与本地凭据确定后已有 SecondLanguage-PracticeCodex 每三十分钟 Windows 任务；若在另一 worktree 运行，先设置 `SECOND_LANGUAGE_CREDENTIAL_FILE` 为当前机器上忽略的正式凭据文件。手动命令：
+表达练习监测脚本 `scripts/run-practice.ps1` 先通过 `node scripts/practice-job.mjs next` 轻量检查申请、文字/听力/阅读答卷与原声转换/分析队列；空队列不启动模型，有工作才使用 `gpt-6-sol`、`high` 继续 `work/expression/` 的中间文档。该脚本与每日 05:00 日课独立，部署与本地凭据确定后已有 SecondLanguage-PracticeCodex 每三十分钟 Windows 任务；若在另一 worktree 运行，先设置 `SECOND_LANGUAGE_CREDENTIAL_FILE` 为当前机器上忽略的正式凭据文件。手动命令：
 
 ```sh
 node scripts/practice-job.mjs next
@@ -144,7 +144,7 @@ node scripts/practice-job.mjs review-complete <答卷ID> work/expression/reviews
 本仓库不保存实际 secrets，也不把两词演示章节当作正式课程。需要重新部署到另一账号时，应重建资源并更换配置中的资源 ID 与域名。
 
 
-第四部分 v2：微缩规格与难度见 PRACTICE_SIZES.md；阅读见 READING.md；原声操作见 SPEAKING_RUNTIME.md 和 scripts/speaking-practice.mjs。正式 Worker 已绑定 AI、私有媒体兼容 KV、OpenRouter secret；分钟任务采集原声，Codex 本机转换和分析，日课仍独立北京时间 03:00。日课点读固定 Kokoro Bella，由 Cloudflare 按需生成并永久复用；第一部分只读词汇标题对应音标，第二部分标题复用该音标、例句整句，第三部分整句。practice 0006 迁移新增 audio_key，已核验点读移出 D1 BLOB；失败时保留旧副本，不重新生成收费音频。听力通过 practice-audio.mjs cast 冻结授权音色池的人物绑定，后台校验同人同声；口语考官固定 Bella。长期预生成整章朗读仍是可选扩展，不增加每日生产负担。
+第四部分 v2：微缩规格与难度见 PRACTICE_SIZES.md；阅读见 READING.md；原声操作见 SPEAKING_RUNTIME.md 和 scripts/speaking-practice.mjs。正式 Worker 已绑定 AI、私有媒体兼容 KV、OpenRouter secret；分钟任务采集原声，Codex 本机转换和分析，日课仍独立北京时间 05:00。日课点读固定 Kokoro Bella，由 Cloudflare 按需生成并永久复用；第一部分只读词汇标题对应音标，第二部分标题复用该音标、例句整句，第三部分整句。practice 0006 迁移新增 audio_key，已核验点读移出 D1 BLOB；失败时保留旧副本，不重新生成收费音频。听力通过 practice-audio.mjs cast 冻结授权音色池的人物绑定，后台校验同人同声；口语考官固定 Bella。长期预生成整章朗读仍是可选扩展，不增加每日生产负担。
 
 ## 当前答疑与永久存储设施（2026-10-06）
 
@@ -170,7 +170,7 @@ node scripts/practice-job.mjs review-complete <答卷ID> work/expression/reviews
 
 ## iPhone 阅读器交互检查
 
-正式交互规则见 `protocol/READER_INTERACTION.md`。`node scripts/check-reader-ui.mjs` 用隔离接口检查前端草稿、手势、雅思科目导航、计时与上传保护；需要 Playwright 和 Chromium，截图留在忽略的 `.cache/reader-ui/`。可设置 `UI_CHAPTER_DIR=chapters/YYYY-MM-DD` 检查真实 40 词长章，`BROWSER_EXECUTABLE` 指定已安装浏览器。与 `check-practice-closure.mjs`、`check-publishing-closure.mjs`、`check-chapter-questions.mjs` 配合验证权限、答案隐藏和状态闭环，不调用真实收费模型、不写正式学习数据。
+正式交互规则见 `protocol/READER_INTERACTION.md`。`node scripts/check-reader-ui.mjs` 用隔离接口检查前端草稿、手势、雅思科目导航、计时与上传保护；需要 Playwright 和 Chromium，截图留在忽略的 `.cache/reader-ui/`。可设置 `UI_CHAPTER_DIR=chapters/YYYY-MM-DD` 检查真实 50 词长章，`BROWSER_EXECUTABLE` 指定已安装浏览器。与 `check-practice-closure.mjs`、`check-publishing-closure.mjs`、`check-chapter-questions.mjs` 配合验证权限、答案隐藏和状态闭环，不调用真实收费模型、不写正式学习数据。
 
 当前壳版本 v25，新增手势、设置导航、安全文本排版和雅思工作区模块一并预缓存。发布仍使用 `scripts/deploy-app.mjs` 保留 Pages API 网关，最后执行 `scripts/check-balances.mjs`。模拟检查不能宣称真实 iPhone 的键盘、触摸和后台音频全部验收。
 

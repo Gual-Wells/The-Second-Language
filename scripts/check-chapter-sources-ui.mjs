@@ -10,13 +10,13 @@ const {chromium}=createRequire(process.execPath)('playwright');
 const out=resolve('.cache/chapter-sources-ui'),temporary=resolve(out,'tmp');
 await mkdir(temporary,{recursive:true});process.env.TEMP=temporary;process.env.TMP=temporary;
 const sha=text=>createHash('sha256').update(text).digest('hex');
-const words=Array.from({length:40},(_,i)=>`fixture${i+1}`);
+const words=Array.from({length:50},(_,i)=>`fixture${i+1}`);
 const markdown=[
  '<!-- PART:one -->',...words.map(word=>`# ${word}\n\n## ${word} · 界面占位义项 /test/\n\n这是独立编写的布局材料，不是正式课程。\n`),
  '<!-- PART:two -->',...words.map(word=>`# ${word}\n\nThis ${word} sentence exists only for interface inspection.\n\n\`本句仅用于界面检查。\`\n`),
  '<!-- PART:three -->','# A self-written interface story',...Array.from({length:12},(_,i)=>`\n<!-- SENTENCE:S${i+1} -->\nA fictional reader checks a small sources window and then returns to the same page.\n\`一位虚构读者查看小型来源窗口，随后回到同一页。\`\n`)
 ].join('\n');
-const chapter={id:'2026-10-24',date:'2026-10-24',number:'第 1 章',title:'现实参考 · 独立界面检查',subtitle:'自写40词占位材料，不是正式课程',markdown,digest:sha(markdown),sourcePolicy:'current-affairs-v1',sourceDigest:sha('isolated-source-package')};
+const chapter={id:'2026-10-24',date:'2026-10-24',number:'第 1 章',title:'现实参考 · 独立界面检查',subtitle:'自写50词占位材料，不是正式课程',markdown,digest:sha(markdown),sourcePolicy:'current-affairs-v1',sourceDigest:sha('isolated-source-package')};
 const sourcePackage={schemaVersion:1,chapterDigest:chapter.digest,context:'这是隔离界面样例：事实摘要及人物均为自写占位材料，不代表真实报道。<img src=x onerror=alert(1)>',sources:[
  {publisher:'Fixture public agency',title:'Self-written source fixture <img src=x onerror=alert(2)>',url:'https://www.nasa.gov/news/',publishedAt:'2026-10-22',readAt:'2026-10-23T10:00:00.000Z',facts:['This statement only checks source presentation.'],limitations:'This fixture makes no real-world factual claim.'},
  {publisher:'Fixture research institution',title:'A source with no publication date',url:'https://www.who.int/news',readAt:'2026-10-23T10:05:00.000Z',facts:['The missing publication date must remain unknown.']}
@@ -53,7 +53,7 @@ const open=async()=>{await page.locator('#chapterSourcesButton').click();await p
 try{
  await page.goto('https://chapter-sources.test/');await page.locator('#reader').waitFor({state:'visible'});
  await page.addStyleTag({content:':root {--safe-top:62px;--safe-bottom:34px}'});
- check('self-written forty-word fixture renders',await page.locator('#article .word-entry').count()===40);
+ check('self-written fifty-word fixture renders',await page.locator('#article .word-entry').count()===50);
  check('sources are not prefetched',calls.length===0);
  check('part one has no visible sources entry',await page.locator('#chapterSourcesButton').isHidden());await shot('part-one');
  await page.locator('#wordIndexButton').click();await shot('index');await page.locator('#indexDialog .sheet-close').click();

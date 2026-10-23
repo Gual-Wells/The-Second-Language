@@ -21,8 +21,8 @@ globalThis.fetch=async()=>{throw Error('Publication checks cannot call a real se
 
 async function fixture(name){
   const root=path.join(temp,name),vixDir=path.join(root,'vix-marking'),selectionFile=path.join(root,'selection.json'),receiptFile=path.join(root,'vix-publication.json');
-  const selection={studyDate:date,vixInputCommit:input,vixMarkLabel:date.slice(2),mainWords:Array.from({length:40},(_,i)=>({entryId:`fixture-${i+1}`,globalRank:i+1,text:`word${i+1}`,family:[]}))};
-  const manifest={protocol:'vix-seed-access/2',scope:{domainId:'domain_general_english',section:'word',records:40},counts:{records:40},binding:{marks:{labelFormat:'YY-MM-DD',externalDateMeaning:true,yearBase:2000}},recordTuple:['entryId','globalRank','text','markDates'],records:[{path:'data/seed-access/records/fixture.json'}]};
+  const selection={studyDate:date,vixInputCommit:input,vixMarkLabel:date.slice(2),mainWords:Array.from({length:50},(_,i)=>({entryId:`fixture-${i+1}`,globalRank:i+1,text:`word${i+1}`,family:[]}))};
+  const manifest={protocol:'vix-seed-access/2',scope:{domainId:'domain_general_english',section:'word',records:50},counts:{records:50},binding:{marks:{labelFormat:'YY-MM-DD',externalDateMeaning:true,yearBase:2000}},recordTuple:['entryId','globalRank','text','markDates'],records:[{path:'data/seed-access/records/fixture.json'}]};
   const bodies=new Map([
     ['data/seed-access/manifest.json',JSON.stringify(manifest)],
     ['data/seed-access/records/fixture.json',JSON.stringify(selection.mainWords.map(item=>[item.entryId,item.globalRank,item.text,[date.slice(2)]]))],
@@ -56,7 +56,7 @@ async function fixture(name){
 }
 try{
   const success=await fixture('success');
-  const first=await success.publish();assert.equal(first.markedRecords,40);assert.equal(first.reused,false);assert.equal(success.state.head,first.vixCommit);
+  const first=await success.publish();assert.equal(first.markedRecords,50);assert.equal(first.reused,false);assert.equal(success.state.head,first.vixCommit);
   const saved=JSON.parse(await readFile(success.receiptFile,'utf8'));assert.equal(saved.status,'published');assert.equal(saved.inputCommit,input);assert.equal(saved.files.length,5);assert.equal(saved.selectionDigest,canonicalDigest(success.selection));cases++;
   const chapterIdentity={studyDate:date,inputCommit:input,selectionDigest:canonicalDigest(success.selection),vixCommit:first.vixCommit};
   assert.equal(validatePublishedVixReceipt(saved,chapterIdentity),saved);

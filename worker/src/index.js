@@ -2,7 +2,7 @@ import {collectNext} from '../speaking/collector.mjs';
 import {speakingEnvironment} from './private-assets.js';
 import { rawPayload, sendPushNotification } from '@mmmike/web-push/send';
 import { authRoute, sessionFor } from './auth.js';
-import { validateAnnotatedContent, validateTeachingLayout } from '../../web/annotations.js';
+import { validateAnnotatedContent, validateTeachingLayout, DAILY_WORD_COUNT } from '../../web/annotations.js';
 import { practiceRoute } from './practice.js';
 import {balanceRoute} from './balances.js';
 import {chapterQualityRoute} from './chapter-quality.js';
@@ -45,6 +45,14 @@ function publisher(request, env) {
 }
 
 function sameOrigin(request, env) { return request.headers.get('origin') === env.APP_ORIGIN; }
+
+async function effectiveRunClaim(db, runId, date) {
+  return db.prepare(`SELECT c.*,o.authorized_at AS rest_override_at,o.reason AS rest_override_reason
+    FROM run_claims c LEFT JOIN run_rest_overrides o
+    ON o.run_id=c.run_id AND o.original_claimed_at=c.claimed_at
+    WHERE c.run_id=? AND c.study_date=?`).bind(runId,date).first();
+}
+const claimIsRest = row => Boolean(row.rest_requested && !row.rest_override_at);
 
 async function inputJson(request) {
   if (Number(request.headers.get('content-length') || 0) > MAX_BODY) throw new Error('请求过大');
@@ -109,10 +117,10 @@ async function route(request, env) {
       (run_id,study_date,rest_requested,rest_revision,temporary_request_id,temporary_request_text,claimed_at)
       SELECT ?,?,rest_requested,rest_revision,temporary_request_id,temporary_request_text,? FROM study_settings WHERE id=1`)
       .bind(value.runId, value.date, Date.now()).run();
-    const row = await env.DB.prepare('SELECT * FROM run_claims WHERE run_id=?').bind(value.runId).first();
+    const row = await effectiveRunClaim(env.DB,value.runId,value.date);
     if (!row) return json({ error: '该日期已被另一运行占用' }, 409);
     if (claim.meta.changes && row.rest_requested) await env.DB.prepare('UPDATE study_settings SET rest_requested=0 WHERE id=1 AND rest_revision=?').bind(row.rest_revision).run();
-    return json({ runId: row.run_id, date: row.study_date, rest: Boolean(row.rest_requested), temporaryRequest: row.temporary_request_id ? { id: row.temporary_request_id, text: row.temporary_request_text } : null, claimedAt: row.claimed_at });
+    return json({ runId: row.run_id, date: row.study_date, rest: claimIsRest(row), originalRest: Boolean(row.rest_requested), restOverride: row.rest_override_at ? {authorizedAt:row.rest_override_at,reason:row.rest_override_reason} : null, temporaryRequest: row.temporary_request_id ? { id: row.temporary_request_id, text: row.temporary_request_text } : null, claimedAt: row.claimed_at });
   }
 
   if (path.startsWith('/api/runs/') && request.method === 'GET') {
@@ -144,16 +152,16 @@ async function route(request, env) {
   if (path === '/api/publish/stage' && request.method === 'POST') {
     if (!publisher(request, env)) return json({ error: '发布身份无效' }, 401);
     const value = await inputJson(request);
-    if (!safeId(value.runId) || !validDate(value.date) || value.id !== value.date || value.wordCount !== 40 ||
-      typeof value.markdown !== 'string' || countMainWords(value.markdown) !== 40 ||
+    if (!safeId(value.runId) || !validDate(value.date) || value.id !== value.date || value.wordCount !== DAILY_WORD_COUNT ||
+      typeof value.markdown !== 'string' || countMainWords(value.markdown) !== DAILY_WORD_COUNT ||
       typeof value.title !== 'string' || !value.title.trim() || value.title.length > 180 ||
       typeof value.subtitle !== 'string' || value.subtitle.length > 300 ||
       typeof value.number !== 'string' || value.number.length > 80 ||
       value.contentPolicy!=='etymology-fused-v1' || !/^[0-9a-f]{40}$/.test(value.vixCommit || '') || !/^[0-9a-f]{40}$/.test(value.protocolCommit || '')) return json({ error: '章节元数据或结构无效' }, 400);
     try { const parsed=validateTeachingLayout(value.markdown, value.contentPolicy);if(value.contentPolicy==='etymology-fused-v1')assertTeachingText(parsed); }
     catch (error) { return json({ error: `章节编码与逐句译文无效：${error.message}` }, 400); }
-    const runClaim = await env.DB.prepare('SELECT rest_requested FROM run_claims WHERE run_id=? AND study_date=?').bind(value.runId, value.date).first();
-    if (!runClaim || runClaim.rest_requested) return json({ error: '本日未领取运行或已选择休息' }, 409);
+    const runClaim = await effectiveRunClaim(env.DB,value.runId,value.date);
+    if (!runClaim || claimIsRest(runClaim)) return json({ error: '本日未领取运行或已选择休息' }, 409);
     const digest = await sha256(value.markdown), key = `chapters/${value.date}/${digest}.md`;
     let sources;try{sources=await prepareChapterSources(value,digest);}catch(error){return json({error:`来源包无效：${error.message}`},400);}
     const archived=await env.DB.prepare(`SELECT 1 FROM chapter_revisions r WHERE r.chapter_id=?
@@ -174,7 +182,7 @@ async function route(request, env) {
     await env.DB.batch([env.DB.prepare(`INSERT OR IGNORE INTO chapter_revisions
       (digest,chapter_id,study_date,number,title,subtitle,word_count,content_key,run_id,vix_commit,protocol_commit,created_at)
       VALUES (?,?,?,?,?,?,?,?,?,?,?,?)`)
-      .bind(digest,value.id,value.date,number,value.title,value.subtitle,40,key,value.runId,value.vixCommit,value.protocolCommit,Date.now()),
+      .bind(digest,value.id,value.date,number,value.title,value.subtitle,DAILY_WORD_COUNT,key,value.runId,value.vixCommit,value.protocolCommit,Date.now()),
       env.DB.prepare(`INSERT OR IGNORE INTO chapter_sources(digest,source_digest,source_key,policy,created_at)
        SELECT ?,?,?,?,? WHERE EXISTS(SELECT 1 FROM chapter_revisions WHERE digest=? AND chapter_id=? AND run_id=?)`)
       .bind(digest,sources.digest,sources.key,sources.policy,Date.now(),digest,value.id,value.runId)]);

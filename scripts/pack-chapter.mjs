@@ -1,7 +1,7 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import path from 'node:path';
-import { validateTeachingLayout } from '../web/annotations.js';
+import { validateTeachingLayout, DAILY_WORD_COUNT } from '../web/annotations.js';
 import {assertTeachingText} from '../protocol/teaching-text.mjs';
 import {loadChapterSources} from './lib/current-affairs-package.mjs';
 
@@ -18,11 +18,11 @@ const first = markdown.slice(positions[0], positions[1]);
 const second = markdown.slice(positions[1], positions[2]);
 const words = [...first.matchAll(/^# ([^#\n]+)$/gm)].map(x => x[1].trim());
 const exampleWords = [...second.matchAll(/^# ([^#\n]+)$/gm)].map(x => x[1].trim());
-if (words.length !== 40 || new Set(words).size !== 40 || JSON.stringify(words) !== JSON.stringify(exampleWords)) throw new Error('第一、二部分必须按相同顺序各列出 40 个不同主词');
+if (words.length !== DAILY_WORD_COUNT || new Set(words).size !== DAILY_WORD_COUNT || JSON.stringify(words) !== JSON.stringify(exampleWords)) throw new Error(`第一、二部分必须按相同顺序各列出 ${DAILY_WORD_COUNT} 个不同主词`);
 if (words.some((word, i) => i > 0 && words[i - 1].localeCompare(word, 'en') > 0)) throw new Error('主词未按字典序排列');
-if (meta.date !== date || meta.wordCount !== 40 || !meta.title || !meta.number) throw new Error('章节元数据不匹配');
+if (meta.date !== date || meta.wordCount !== DAILY_WORD_COUNT || !meta.title || !meta.number) throw new Error('章节元数据不匹配');
 const digest = createHash('sha256').update(markdown).digest('hex');
 const source=await loadChapterSources(process.cwd(),date,markdown,meta,words);
-const packed = { id: date, date, title: meta.title, subtitle: meta.subtitle || '', number: meta.number, wordCount: 40, contentPolicy: meta.contentPolicy, digest, markdown, ...source };
+const packed = { id: date, date, title: meta.title, subtitle: meta.subtitle || '', number: meta.number, wordCount: DAILY_WORD_COUNT, contentPolicy: meta.contentPolicy, digest, markdown, ...source };
 await writeFile(path.join(folder, 'chapter.json'), JSON.stringify(packed));
-console.log(`章节已整理：${date}，40 主词，SHA-256 ${digest}`);
+console.log(`章节已整理：${date}，${DAILY_WORD_COUNT} 主词，SHA-256 ${digest}`);

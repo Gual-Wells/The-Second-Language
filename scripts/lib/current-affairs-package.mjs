@@ -26,7 +26,7 @@ export async function buildChapterSources(root, date, input) {
   if(meta.sourcePolicy!==CURRENT_AFFAIRS_POLICY)throw Error('此章不属于新流程；旧章封存，不回填来源');
   if(control.rest)throw Error('休息日不能建设来源或发布新章');
   if(meta.date!==date||selection.studyDate!==date||selection.vixInputCommit!==lock.commit||!/^[a-f0-9]{40}$/.test(lock.commit||''))throw Error('来源包必须对应原选词及固定VIX输入');
-  familyRecords(selection); // The original 40 main words and included families remain unchanged.
+  familyRecords(selection); // The frozen 50 main words and included families remain unchanged.
   const sourcesById=new Map(registry.sources.map(s=>[s.id,s]));
   if(!input||!Array.isArray(input.sources)||!input.sources.length)throw Error('先阅读实际原文，再撰写来源事实摘要');
   const sources=[];
@@ -63,7 +63,7 @@ export async function loadChapterSources(root,date,markdown,meta,words){
   if(!sha(meta.sourceDigest)||meta.sourceDigest!==sourceDigest)throw Error('新章来源摘要不符；重新核对实际来源与成稿');
   const selection=await readJson(path.join(root,'work/runs',date,'selection.json'));
   familyRecords(selection);
-  if(words && JSON.stringify(words)!==JSON.stringify(selection.mainWords.map(item=>item.text).sort((a,b)=>a.localeCompare(b,'en'))))throw Error('正文40主词与已冻结selection不一致');
+  if(words && JSON.stringify(words)!==JSON.stringify(selection.mainWords.map(item=>item.text).sort((a,b)=>a.localeCompare(b,'en'))))throw Error('正文50主词与已冻结selection不一致');
   if(hash(canonicalSourcePackage(selection))!==sourcePackage.selectionDigest)throw Error('选词已改变，不能沿用旧来源绑定');
   return {sourcePolicy:CURRENT_AFFAIRS_POLICY,sourceDigest,vixInputCommit:sourcePackage.vixInputCommit,sourcePackage};
 }

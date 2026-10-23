@@ -125,7 +125,7 @@ try {
   const launcherBytes = await readFile(launcherPath), launcher = launcherBytes.toString('utf8');
   assert.deepEqual([...launcherBytes.subarray(0, 3)], [239, 187, 191], 'Windows PowerShell 5.1 must decode the Chinese prompt as UTF-8');
   assert.ok(launcher.indexOf('if ($control.rest)') < launcher.indexOf('$prompt ='), 'Rest is handled before the model and material preparation');
-  assert.match(launcher, /-m gpt-6\.1-sol -c model_reasoning_effort=xhigh/);
+  assert.match(launcher, /-m gpt-6\.1-sol -c model_reasoning_effort=max/);
   for (const value of ['protocol/CURRENT_AFFAIRS.md', 'node scripts/prepare-vix.mjs $studyDate', 'node scripts/current-affairs.mjs discover $studyDate', 'current-affairs.mjs read', '不重抓热点', '旧章已经封存', '按服务端现行新章序列取得章号']) assert.ok(launcher.includes(value), `Launcher prompt must include ${value}`);
   if (process.platform === 'win32') {
     const psLiteral = launcherPath.replaceAll("'", "''");

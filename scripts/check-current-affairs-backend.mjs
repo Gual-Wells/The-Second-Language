@@ -19,9 +19,9 @@ for(const [database,folder] of [[sql,'worker/migrations'],[practice,'worker/prac
  database.exec('PRAGMA foreign_keys=ON');
 }
 function d1(database){return{prepare(query){const wrap=(params=[])=>({bind(...values){return wrap(values);},first:async()=>database.prepare(query).get(...params)||null,all:async()=>({results:database.prepare(query).all(...params)}),run:async()=>({meta:{changes:Number(database.prepare(query).run(...params).changes)}})});return wrap();},async batch(items){database.exec('BEGIN');try{const results=[];for(const item of items)results.push(await item.run());database.exec('COMMIT');return results;}catch(error){database.exec('ROLLBACK');throw error;}}};}
-const words=Array.from({length:40},(_,i)=>({id:'W'+String(i).padStart(3,'0'),use:'U'+String(i).padStart(3,'0'),text:'word'+String(i).padStart(3,'0')}));
+const words=Array.from({length:50},(_,i)=>({id:'W'+String(i).padStart(3,'0'),use:'U'+String(i).padStart(3,'0'),text:'word'+String(i).padStart(3,'0')}));
 const passingPaper={policy:chapterTestPolicy,items:Array.from({length:20},(_,i)=>({type:i<7?'oral':'objective'}))},passingResult={right:20,total:20,score:100,passed:true,details:Array.from({length:20},()=>({ok:true}))};
-const fixture=revision=>'<!-- PART:one -->\n'+words.map(w=>`<!-- WORD:${w.id} -->\n# ${w.text}\n\n**词源**：仅为隔离接口验证构造的说明，不是正式课程。\n\n<!-- USE:${w.use} -->\n## ${w.text} · 验证义 /wɜːrd/\n\`验证义\``).join('\n')+'\n<!-- PART:two -->\n'+words.map(w=>`<!-- WORD:${w.id} -->\n# ${w.text}\n<!-- EXAMPLE:${w.use} -->\nWe use ${w.text} in this fixture.\n\`本句仅供接口验证。\``).join('\n')+'\n<!-- PART:three -->\n'+words.map((w,i)=>`<!-- SENTENCE:S${i} USE:${w.use} -->\nFixture ${revision} uses ${w.text} in context.\n\`这是独立构造的验证内容。\``).join('\n');
+const fixture=(revision,selected=words)=>'<!-- PART:one -->\n'+selected.map(w=>`<!-- WORD:${w.id} -->\n# ${w.text}\n\n**词源**：仅为隔离接口验证构造的说明，不是正式课程。\n\n<!-- USE:${w.use} -->\n## ${w.text} · 验证义 /wɜːrd/\n\`验证义\``).join('\n')+'\n<!-- PART:two -->\n'+selected.map(w=>`<!-- WORD:${w.id} -->\n# ${w.text}\n<!-- EXAMPLE:${w.use} -->\nWe use ${w.text} in this fixture.\n\`本句仅供接口验证。\``).join('\n')+'\n<!-- PART:three -->\n'+selected.map((w,i)=>`<!-- SENTENCE:S${i} USE:${w.use} -->\nFixture ${revision} uses ${w.text} in context.\n\`这是独立构造的验证内容。\``).join('\n');
 const kv=new Map(),items=new Map(),folders=new Map();let itemSequence=0,graphReads=0,graphWrites=0,failUpload=false;
 const env={DB:d1(sql),PRACTICE_DB:d1(practice),PUBLISH_TOKEN:'isolated-publisher',APP_ORIGIN:'https://fixture',ONEDRIVE_ENABLED:'true',ONEDRIVE_KEY:Buffer.alloc(32,7).toString('base64'),CHAPTERS:{get:async key=>kv.get(key)??null,put:async(key,value)=>kv.set(key,value),delete:async key=>kv.delete(key)}};
 const secret=await crypto.subtle.importKey('raw',Buffer.from(env.ONEDRIVE_KEY,'base64'),'AES-GCM',false,['encrypt']);
@@ -66,7 +66,7 @@ async function call(path,{body,method=body===undefined?'GET':'POST',reader=false
 }
 async function payload(date,revision='a'){
  const markdown=fixture(revision),digest=hash(markdown),sourcePackage={schemaVersion:1,studyDate:date,chapterDigest:digest,selectionDigest:hash('isolated-selection-'+date),vixInputCommit:'a'.repeat(40),context:'This entire chapter and its source are an isolated interface fixture, not a real report or formal course.',sources:[{sourceId:'fixture-public-agency',url:'https://example.test/fixture-source',title:'Isolated source fixture',publisher:'Fixture agency',readAt:'2026-10-23T10:00:00.000Z',facts:['This self-written statement exists only to test storage identity.'],limitations:'No real-world factual claim is made.'}]};
- return{id:date,date,runId:date,title:'Isolated new chapter fixture',subtitle:'Not a course',number:'第 999 章',wordCount:40,contentPolicy:'etymology-fused-v1',markdown,digest,vixCommit:'b'.repeat(40),protocolCommit:'c'.repeat(40),vixInputCommit:sourcePackage.vixInputCommit,sourcePolicy:CURRENT_AFFAIRS_POLICY,sourceDigest:hash(canonicalSourcePackage(sourcePackage)),sourcePackage};
+ return{id:date,date,runId:date,title:'Isolated new chapter fixture',subtitle:'Not a course',number:'第 999 章',wordCount:50,contentPolicy:'etymology-fused-v1',markdown,digest,vixCommit:'b'.repeat(40),protocolCommit:'c'.repeat(40),vixInputCommit:sourcePackage.vixInputCommit,sourcePolicy:CURRENT_AFFAIRS_POLICY,sourceDigest:hash(canonicalSourcePackage(sourcePackage)),sourcePackage};
 }
 const claim=date=>call('/api/runs/claim',{body:{date,runId:date}});
 const stage=value=>call('/api/publish/stage',{body:value});
@@ -166,7 +166,24 @@ try{
  assert.equal((await call('/api/practice/requests',{body:{size:'full'},reader:true})).status,409);
  const archivedQueues=await archiveQueues(old);
 
- const first=await payload('2026-10-23');await claim(first.date);
+ const first=await payload('2026-10-23');
+ sql.exec('UPDATE study_settings SET rest_requested=1,rest_revision=rest_revision+1 WHERE id=1');
+ const originalClaim=(await claim(first.date)).data;
+ assert.equal(originalClaim.rest,true);assert.equal((await stage(first)).status,409,'Unreleased rest blocks publishing');
+ const originalRow=sql.prepare('SELECT * FROM run_claims WHERE run_id=?').get(first.date);
+ assert.throws(()=>sql.prepare('INSERT INTO run_rest_overrides VALUES(?,?,?,?)').run(first.date,originalClaim.claimedAt-1,Date.now(),'Wrong original identity'),/original rest claim/);
+ sql.prepare('INSERT INTO run_rest_overrides VALUES(?,?,?,?)').run(first.date,originalClaim.claimedAt,Date.now(),'Explicit isolated user resumption');
+ sql.exec('UPDATE study_settings SET rest_requested=1,rest_revision=rest_revision+1 WHERE id=1');
+ const resumed=(await claim(first.date)).data;
+ assert.equal(resumed.rest,false);assert.equal(resumed.originalRest,true);assert.equal(resumed.claimedAt,originalClaim.claimedAt);assert.ok(resumed.restOverride.authorizedAt);
+ assert.deepEqual(sql.prepare('SELECT * FROM run_claims WHERE run_id=?').get(first.date),originalRow,'Original rest evidence stays unchanged');
+ assert.equal(sql.prepare('SELECT rest_requested FROM study_settings WHERE id=1').get().rest_requested,1,'Resumption does not consume a new rest request');
+ assert.equal((await claim('2099-01-01')).data.rest,true,'Other dates still honor rest');
+ assert.throws(()=>sql.prepare('UPDATE run_rest_overrides SET reason=? WHERE run_id=?').run('changed',first.date),/immutable/);
+ assert.throws(()=>sql.prepare('DELETE FROM run_rest_overrides WHERE run_id=?').run(first.date),/permanent/);
+ const forty=fixture('old-count',words.slice(0,40));
+ assert.equal((await stage({...first,wordCount:40,markdown:forty})).status,400,'Former 40-word payload is not a formal new chapter');
+ assert.equal((await stage({...first,markdown:forty})).status,400,'50 in metadata cannot hide 40 actual words');
  const missingPolicy={...first};delete missingPolicy.sourcePolicy;assert.equal((await stage(missingPolicy)).status,400);
  assert.equal((await stage({...first,sourceDigest:'0'.repeat(64)})).status,400);
  assert.equal((await stage({...first,vixInputCommit:'d'.repeat(40)})).status,400);
@@ -178,7 +195,7 @@ try{
  failUpload=true;assert.equal((await stage(first)).status,503);failUpload=false;
  assert.equal(sql.prepare('SELECT count(*) n FROM chapter_sources').get().n,0);
  assert.equal(sql.prepare('SELECT count(*) n FROM chapter_revisions WHERE chapter_id=?').get(first.id).n,0);
- const staged=await stage(first);assert.equal(staged.status,200,JSON.stringify(staged.data));assert.equal(staged.data.number,'第 1 章');assert.equal(staged.data.sourceDigest,first.sourceDigest);
+ const staged=await stage(first);assert.equal(staged.status,200,JSON.stringify(staged.data));assert.equal(staged.data.number,'第 1 章');assert.equal(sql.prepare('SELECT word_count FROM chapter_revisions WHERE digest=?').get(first.digest).word_count,50);assert.equal(staged.data.sourceDigest,first.sourceDigest);
  assert.equal((await stage(first)).status,200,'Same body and sources retry idempotently');
  assert.deepEqual((await call('/api/chapters')).data.chapters,[]);
  assert.equal((await call('/api/chapters/'+first.id+'?digest='+first.digest)).status,404,'Staged markdown is not a formal published chapter');
