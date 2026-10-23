@@ -51,3 +51,12 @@ pack-current-affairs将自写事实与边界绑定实际读件、原VIX输入、
 HTML正文提取和外部evidenceRef都不是事实证明、阅读证明或加密签名；关键仍是Codex实际读取与逐项语义判断。首次真正新章须再验教学完整性及现实理解收益，不能用工程测试通过宣称其已完成。
 
 官方CLI联网参数依据：[OpenAI Developer commands](https://learn.chatgpt.com/docs/developer-commands?surface=cli)与本机codex --help；`--search`启用live search。取材时间与权利观察保存在feeds.json，各来源依具体条件处理，默认不公开复制新闻全文或图片。
+
+## 最终上线核验（2026-10-23）
+
+- 工程提交 `c8d2e936e86c37f396d445695af6aaf01f17b270` 已原子推送main与codex/project-commemorative。主库/PRACTICE_DB迁移先于Worker发布，均成功。
+- API Worker版本 `dbe908e3-eb2d-4a53-bcad-50036764c60c`；生产Pages固定版本 [6aa4766b](https://6aa4766b.the-second-language.pages.dev)，main生产域名已更新。89项显示清单通过摘要核对。
+- 15:40:08 UTC（北京时间23:40:08）实际回读：新正式目录0章，封存目录12章且全部ID/摘要与发布前一致，抽查原文SHA一致；普通旧章正文接口404、未登录封存接口401。项目纪念卷轴目录摘要保持一致；线上app/styles/index/sw四文件SHA与本地相符。
+- DailyCodex实际Action已于15:38:29 UTC切到本工作区的隐藏WindowApplication启动器；原XML已备份。Triggers/Principal/Settings逐项未变，未停止其它任务，下一次触发为2026-10-24北京时间03:00。没有手工启动一份额外日课，也没有把fixture发布为第1章。
+- 所列读件、来源包、后端、日课恢复、VIX标注副本、来源UI与331池检查通过；最后diff检查通过。第一份真正新章的教学与现实参与感仍须在其完整制作后验收。
+- 任务末尾余额已发布：OpenRouter约$4.0318，低于现行$4.1305三次最大流程预留；Workers AI 10000 Neurons，腾讯9978次为估算。容量核对已更新，永久归档按正常队列排入；无新增订阅或收费生成，未触发余额不足后的自动重试。
