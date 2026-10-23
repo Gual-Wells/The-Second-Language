@@ -1,12 +1,17 @@
 # 实事来源池
 
-用途：为以后 **VIX 候选与现实材料协同选择、第三部分创作**提供来源入口。当前已入库、可离线检索，**尚未接入每日生产、采集器或自动任务**。不改变卷轴、雅思、VIX 标注或任何已发布内容。
+用途：为新正式日课的 **VIX 候选与现实材料协同选择、第三部分创作**提供来源入口。已接按需读取与日课协议，不是全池实时爬虫。旧章封存、不做兼容迁移；教学全义/词族规则、卷轴设计及雅思题型不变。
 
 - [完整可浏览目录](CATALOGUE.md)
 - [机器可读来源](sources.json)
 - [大型目录扩池入口](discovery-catalogues.json)
 - [协议复盘与未来接线设计](../../protocol/CURRENT_AFFAIRS.md)
 - [本次研究和验证边界](../../research/current-affairs-pool-2026-10-23.md)
+- [实际读取与发布执行记录](../../research/current-affairs-runtime-2026-10-23.md)
+
+## 已接入的按需读取
+
+`node scripts/current-affairs.mjs --help` 查看discover/read/import/list。六个经官方发现与真实GET验证的RSS/Atom适配在[feeds.json](feeds.json)，默认小组为Yle、NASA、Environment Agency、Statistics Canada；其余来源仍可按需读取官网，不以是否有RSS决定学习价值。discover只输出候选标题/URL/原时标；Codex须读原文再判断事实、与VIX协同选词。实际读件存D盘私有缓存，来源事实包独立永久封存，阅读器在正文外展示参考。没有新增常驻爬虫或逐日全池扫描。
 
 ## 本批规模及实际核验
 
@@ -94,4 +99,4 @@ node scripts/current-affairs-pool.mjs find --role technical-release --json
 
 ## 成本与存储
 
-本批只有静态元数据、说明和离线检索脚本，实际存 D 盘并随 Git 版本化；不占生产 D1/KV、不建立新闻全文仓库、不增加固定订阅。未来检索和阅读仍消耗实际工具/模型用量；只按需取材料，不每日扫描全部331站或外部数万来源。RSS/API若以后接入，需另行验证当前能力和使用条件。
+来源池静态元数据仍存D盘并随Git版本化，不进生产D1/KV；新章来源摘要包存OneDrive，D1只绑定摘要与文件键，不建立新闻全文仓库、不增加固定订阅。实际检索和阅读消耗工具/模型用量；按需读取，不每日扫描全部331站或外部数万来源。新RSS/API逐源验证后扩展，不把已经配置的六源当数量上限。

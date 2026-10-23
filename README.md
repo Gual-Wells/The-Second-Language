@@ -56,7 +56,7 @@ iPhone PWA → 同源 Pages 网关 → Cloudflare Worker
 
 `research/` 是历史研究依据；价格、旧方案和试听结论以现行协议及配置为准。
 
-实事选材的未来建设资料见[来源池](resources/current-affairs/README.md)与[兼容设计](protocol/CURRENT_AFFAIRS.md)：331个去重来源、实际访问状态及大型目录扩展入口，可离线检索。当前未接入日课生产；全词族/全义项、雅思和卷轴设计保持现行协议。
+新正式日课按[实事协同协议](protocol/CURRENT_AFFAIRS.md)从[331来源池](resources/current-affairs/README.md)按需取材，与VIX共同判断最终40词，保留全词族、双教材全义与第三部分逐义真用。实际读件和自写事实包绑定新章版本，第三部分末尾可查看“现实参考”。旧章封存不迁移，新正式序列从第1章开始；旧记录/付费原件保留，雅思题型及卷轴设计/工艺不改。
 
 ### 正式章节测试
 

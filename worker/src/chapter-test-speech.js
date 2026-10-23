@@ -5,6 +5,7 @@ import {audioDescriptor} from './audio-config.js';
 import {checkOpenRouterFunds} from '../../scripts/lib/speaking/funding.mjs';
 import {whisperModel,profiles} from '../../protocol/speaking/contract.mjs';
 import {Buffer} from 'node:buffer';
+import {isCurrentAffairsRevision} from './current-affairs.js';
 const json=(value,status=200)=>Response.json(value,{status,headers:{'cache-control':'no-store'}});
 const uuid=s=>/^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/.test(s||'');
 const encode=bytes=>Buffer.from(bytes).toString('base64');
@@ -19,9 +20,11 @@ export async function chapterTestSpeechRoute(request,env,context,bucket){
  }
  const recording=path.match(/^\/([a-f0-9-]{36})\/answers\/(q\d+)\/([a-f0-9-]{36})$/);
  if(recording){
-  const row=await db.prepare('SELECT * FROM chapter_tests WHERE id=?').bind(recording[1]).first();if(!row?.paper_digest)return json({error:'测试不存在'},404);
-  if(request.method==='GET'){const clip=await db.prepare('SELECT * FROM chapter_test_recordings WHERE id=? AND test_id=? AND question_id=?').bind(recording[3],row.id,recording[2]).first();return clip?await bucket.responseContent(clip.audio_digest,request,clip.mime)||json({error:'答卷原声暂不可用'},503):json({error:'录音不存在'},404);}
+   const row=await db.prepare('SELECT * FROM chapter_tests WHERE id=?').bind(recording[1]).first();if(!row)return json({error:'测试不存在'},404);
+   if(request.method==='GET'){if(!row.paper_digest)return json({error:'测试不存在'},404);const clip=await db.prepare('SELECT * FROM chapter_test_recordings WHERE id=? AND test_id=? AND question_id=?').bind(recording[3],row.id,recording[2]).first();return clip?await bucket.responseContent(clip.audio_digest,request,clip.mime)||json({error:'答卷原声暂不可用'},503):json({error:'录音不存在'},404);}
   if(request.method!=='PUT')return json({error:'录音操作无效'},405);
+   if(!await isCurrentAffairsRevision(db,row.chapter_id,row.chapter_digest))return json({error:'旧章测试已封存，仅可回听历史原声'},409);
+   if(!row.paper_digest)return json({error:'测试不存在'},404);
   const paper=await(await read(bucket,row.paper_digest)).json();if(!uuid(recording[3])||row.status!=='ready'||!paper.items.some(q=>q.id===recording[2]&&q.type==='oral'))return json({error:'当前题目不能录音'},409);
   const review=await db.prepare('SELECT * FROM chapter_test_reviews WHERE test_id=?').bind(row.id).first();
   if(review){if(review.state!=='attention')return json({error:'已交卷，不能修改原声'},409);const prior=await(await read(bucket,review.interpretation_digest)).json();if(!prior.items.some(x=>x.id===recording[2]&&x.state==='uncertain'))return json({error:'只能补录未听清的回答'},409);}
@@ -36,6 +39,8 @@ export async function chapterTestSpeechRoute(request,env,context,bucket){
  const action=path.match(/^\/jobs\/([a-f0-9-]{36})\/(transcribe|supplement|check-question)(?:\/([a-f0-9-]{36}))?$/);if(!action)return null;
  if(!context.isPublisher||request.method!=='POST')return json({error:'处理身份无效'},403);
  const raw=await request.text();if(raw.length>6*1024*1024)return json({error:'声音材料过大'},413);let b;try{b=JSON.parse(raw);}catch{return json({error:'声音请求无效'},400);}
+  const chapter=await db.prepare('SELECT chapter_id,chapter_digest FROM chapter_tests WHERE id=?').bind(action[1]).first();
+  if(chapter&&!await isCurrentAffairsRevision(db,chapter.chapter_id,chapter.chapter_digest))return json({error:'旧章测试已封存，停止声音处理'},409);
  const reviewing=action[2]!=='check-question',row=await db.prepare(reviewing?'SELECT * FROM chapter_test_reviews WHERE test_id=?':'SELECT * FROM chapter_tests WHERE id=?').bind(action[1]).first();
  if((reviewing?row?.state:row?.status)!=='running'||row.claim!==await sha256(String(b.claim||''))||row.lease_until<Date.now())return json({error:'处理权已失效'},409);
  let clip;if(reviewing){clip=await db.prepare('SELECT * FROM chapter_test_recordings WHERE id=? AND test_id=?').bind(action[3],action[1]).first();if(!clip)return json({error:'原声不存在'},404);const submitted=await(await read(bucket,row.answers_digest)).json();if(submitted[clip.question_id]!==clip.id)return json({error:'原声不属于本次答卷'},409);}

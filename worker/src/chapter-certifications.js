@@ -10,6 +10,7 @@ export function firstPassStatement(db,row,paper,result,resultDigest,passedAt){
  return db.prepare(`INSERT OR IGNORE INTO chapter_certifications(id,recipient_id,recipient_name,chapter_id,chapter_digest,chapter_number,chapter_title,attempt_id,assessment_version,paper_digest,result_digest,passed_at)
  SELECT ?,?,?,t.chapter_id,t.chapter_digest,r.number,r.title,t.id,t.policy,t.paper_digest,t.result_digest,?
  FROM chapter_tests t JOIN chapter_revisions r ON r.chapter_id=t.chapter_id AND r.digest=t.chapter_digest
- WHERE t.id=? AND t.status='submitted' AND t.result_digest=? AND t.certification_eligible=1 AND t.is_validation=0`)
+ WHERE t.id=? AND t.status='submitted' AND t.result_digest=? AND t.certification_eligible=1 AND t.is_validation=0
+ AND EXISTS(SELECT 1 FROM chapter_sources s WHERE s.digest=t.chapter_digest AND s.policy='current-affairs-v1')`)
  .bind(crypto.randomUUID(),recipient.id,recipient.name,passedAt,row.id,resultDigest);
 }

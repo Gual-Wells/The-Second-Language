@@ -43,7 +43,13 @@ export async function mediaRoute(request,env,{isPublisher,isReader,session}){
    if(!idOK(b.requestId)||!idOK(b.claimToken))return json({error:'音频建设领取身份不完整'},400);
    const owner=await db.prepare("SELECT set_id FROM practice_requests WHERE id=? AND status='building' AND claim_token=?").bind(b.requestId,b.claimToken).first();
    if(!owner||owner.set_id&&owner.set_id!==b.setId)return json({error:'音频建设领取身份无效'},409);
-   await db.prepare('UPDATE practice_requests SET set_id=? WHERE id=? AND claim_token=?').bind(b.setId,b.requestId,b.claimToken).run();
+   // A construction claim cannot attach an existing set owned by another
+   // request or reuse another request's reserved set identity.
+   const fixed=await db.prepare(`UPDATE practice_requests SET set_id=? WHERE id=? AND status='building' AND claim_token=?
+    AND NOT EXISTS(SELECT 1 FROM practice_sets WHERE id=? AND request_id<>?)
+    AND NOT EXISTS(SELECT 1 FROM practice_requests WHERE set_id=? AND id<>?)`)
+    .bind(b.setId,b.requestId,b.claimToken,b.setId,b.requestId,b.setId,b.requestId).run();
+   if(!fixed.meta.changes)return json({error:'该练习册编号已由其他申请固定'},409);
   }
   const stopConstruction=async()=>{if(construction)await db.prepare("UPDATE practice_requests SET status='failed',claim_token=NULL,claim_at=NULL,updated_at=? WHERE id=? AND status='building' AND claim_token=?").bind(Date.now(),b.requestId,b.claimToken).run();};
   const model=ttsModel,purpose=b.purpose||'speaking';let voice;

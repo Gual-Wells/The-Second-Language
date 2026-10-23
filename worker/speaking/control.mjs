@@ -1,10 +1,13 @@
 import {contractSnapshot,contractVersion} from '../../scripts/lib/speaking/collect.mjs';
+import {isCurrentPracticeQuestion} from '../src/practice-scope.js';
+async function currentAttempt(db,id){const row=await db.prepare('SELECT question_id FROM speaking_attempts WHERE id=?').bind(id).first();return !!row&&await isCurrentPracticeQuestion(db,row.question_id);}
 const digest=async bytes=>[...new Uint8Array(await crypto.subtle.digest('SHA-256',bytes))].map(x=>x.toString(16).padStart(2,'0')).join('');
 const validId=id=>/^[a-zA-Z0-9._-]{1,110}$/.test(id??'');
 export async function retryCreditJob(env,id){
  if(!validId(id))throw Error('任务编号无效');
  const db=env.PRACTICE_DB,row=await db.prepare('SELECT * FROM speaking_jobs WHERE id=?').bind(id).first();
  if(!row||row.status!=='waiting_credit')throw Error('任务不处于余额等待状态');
+ if(!await currentAttempt(db,row.attempt_id))throw Error('旧口语任务已封存，不再恢复收费处理');
  // Explicit owner continuation only. The marker allows reuse of successful calls and retry of confirmed 402s.
  await db.batch([db.prepare("UPDATE speaking_jobs SET status='queued',next_retry_at=0,updated_at=? WHERE id=? AND status='waiting_credit'").bind(Date.now(),id),
   db.prepare("UPDATE speaking_attempts SET status='collecting' WHERE id=? AND status='waiting_credit'").bind(row.attempt_id)]);
@@ -17,6 +20,7 @@ export async function enqueueSupplement(env,body){
  for(const t of body.tasks){if(!validId(t.id)||t.id==='baseline'||seen.has(t.id)||!['qwen','gpt-audio'].includes(t.provider??'qwen')||typeof t.focusPrompt!=='string'||!t.focusPrompt.trim())throw Error('专项需要独立编号和具体声音目标');seen.add(t.id);}
  const parent=await env.PRACTICE_DB.prepare('SELECT * FROM speaking_jobs WHERE id=? AND attempt_id=?').bind(body.parentJobId,body.attemptId).first();
  if(!parent)throw Error('原声采集任务不存在');
+ if(!await currentAttempt(env.PRACTICE_DB,body.attemptId))throw Error('旧口语任务已封存，不再创建补听');
  const plan={audioDigest:parent.audio_digest,tasks:body.tasks},bytes=new TextEncoder().encode(JSON.stringify(plan)),planDigest=await digest(bytes);
  const existing=await env.PRACTICE_DB.prepare('SELECT * FROM speaking_jobs WHERE id=?').bind(body.jobId).first();
  if(existing){if(existing.parent_job_id!==parent.id||existing.attempt_id!==body.attemptId||existing.plan_digest!==planDigest)throw Error('编号已固定不同计划');return{jobId:existing.id,state:existing.status,reused:true,nextRetryAt:existing.next_retry_at};}

@@ -3,6 +3,7 @@ import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { validateTeachingLayout } from '../web/annotations.js';
 import {assertTeachingText} from '../protocol/teaching-text.mjs';
+import {loadChapterSources} from './lib/current-affairs-package.mjs';
 
 const date = process.argv[2];
 if (!/^\d{4}-\d{2}-\d{2}$/.test(date || '')) throw new Error('用法: node scripts/pack-chapter.mjs YYYY-MM-DD');
@@ -21,6 +22,7 @@ if (words.length !== 40 || new Set(words).size !== 40 || JSON.stringify(words) !
 if (words.some((word, i) => i > 0 && words[i - 1].localeCompare(word, 'en') > 0)) throw new Error('主词未按字典序排列');
 if (meta.date !== date || meta.wordCount !== 40 || !meta.title || !meta.number) throw new Error('章节元数据不匹配');
 const digest = createHash('sha256').update(markdown).digest('hex');
-const packed = { id: date, date, title: meta.title, subtitle: meta.subtitle || '', number: meta.number, wordCount: 40, contentPolicy: meta.contentPolicy || 'legacy', digest, markdown };
+const source=await loadChapterSources(process.cwd(),date,markdown,meta,words);
+const packed = { id: date, date, title: meta.title, subtitle: meta.subtitle || '', number: meta.number, wordCount: 40, contentPolicy: meta.contentPolicy, digest, markdown, ...source };
 await writeFile(path.join(folder, 'chapter.json'), JSON.stringify(packed));
 console.log(`章节已整理：${date}，40 主词，SHA-256 ${digest}`);

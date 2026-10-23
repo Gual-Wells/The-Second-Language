@@ -3,6 +3,8 @@ import {ttsModel,defaultVoice,voicePolicyVersion} from '../../protocol/voices.mj
 import {chapterText,permanentBucket} from './storage.js';
 import {sha256} from './practice-media.js';
 import {digestBytes,digestHex} from './pronunciation-store.js';
+import {isCurrentAffairsChapter,isCurrentAffairsRevision} from './current-affairs.js';
+const projectAudio="EXISTS(SELECT 1 FROM chapter_sources s WHERE s.digest=audio_requests.chapter_digest AND s.policy='current-affairs-v1')";
 export function audioDescriptor(text,phonemes=''){
  const d={model:ttsModel,voice:defaultVoice,input:phonemes?`[${text}](/${phonemes}/)`:text,response_format:'mp3',voicePolicyVersion};
  if(phonemes)d.pronunciation={text,phonemes,version:'kokoro-misaki-us-v1'};return d;
@@ -10,6 +12,7 @@ export function audioDescriptor(text,phonemes=''){
 const json=(v,s=200)=>Response.json(v,{status:s,headers:{'cache-control':'no-store'}});
 const partsOf=p=>Array.isArray(p)&&p.length<=3&&new Set(p).size===p.length&&p.every(x=>audioParts.includes(x))?audioParts.filter(x=>p.includes(x)):null;
 export async function buildAudioPlan(env,chapterId,digest,parts){
+ if(!await isCurrentAffairsRevision(env.DB,chapterId,digest))throw Error('旧章音频已封存');
  const chapter=await env.DB.prepare('SELECT * FROM chapter_revisions WHERE chapter_id=? AND digest=? AND EXISTS(SELECT 1 FROM published_chapters WHERE chapter_id=?)').bind(chapterId,digest,chapterId).first();
  if(!chapter)throw Error('章节版本不存在');const markdown=await chapterText(env,chapter.content_key);if(!markdown||await sha256(markdown)!==digest)throw Error('章节原件暂不可用');
  const all=audioUnits(markdown),unique=uniqueAudioUnits(all),indexed=await Promise.all(unique.map(async u=>({...u,id:await sha256(JSON.stringify(audioDescriptor(u.text,u.phonemes)))}))),states=new Map();
@@ -39,19 +42,21 @@ export async function audioConfigRoute(request,env,{isPublisher,session,sameOrig
  }
  if(p==='/estimate'&&request.method==='POST'){
   if(b.mode==='next'){
-   const {results}=await db.prepare('SELECT r.* FROM published_chapters p JOIN chapter_revisions r ON r.digest=p.digest ORDER BY p.study_date DESC LIMIT 3').all();const samples=[];
+   const {results}=await db.prepare("SELECT r.* FROM published_chapters p JOIN chapter_revisions r ON r.digest=p.digest JOIN chapter_sources s ON s.digest=p.digest AND s.policy='current-affairs-v1' ORDER BY p.study_date DESC LIMIT 3").all();const samples=[];
    for(const c of results){const text=await chapterText(env,c.content_key);if(text&&await sha256(text)===c.digest)samples.push(audioUnits(text));}
    const estimates=audioParts.map(part=>{const characters=samples.map(s=>uniqueAudioUnits(s.filter(u=>u.part===part)).reduce((n,u)=>n+audioDescriptor(u.text,u.phonemes).input.length,0));return{part,cost:characters.length?[audioCost(Math.min(...characters))[0],audioCost(Math.max(...characters))[1]]:null};});
    return json({estimates,approximate:true,price:audioPrice});
   }
+  if(!await isCurrentAffairsChapter(db,b.chapterId,b.digest))return json({error:'旧章音频已封存，仅可读取历史记录'},409);
   const plan=await buildAudioPlan(env,b.chapterId,b.digest,audioParts);return json({...plan,units:undefined});
  }
  if(p==='/quote'&&request.method==='POST'){
   const parts=partsOf(b.parts);if(!parts?.length)return json({error:'请至少选择一项'},400);
   if(typeof b.chapterId!=='string'||!/^[a-f0-9]{64}$/.test(b.digest||''))return json({error:'请选择章节'},400);
+  if(!await isCurrentAffairsChapter(db,b.chapterId,b.digest))return json({error:'旧章音频已封存，仅可读取历史记录'},409);
   const plan=await buildAudioPlan(env,b.chapterId,b.digest,parts),id=crypto.randomUUID(),planKey=`audio-requests/${id}/plan.json`;
   await permanentBucket(env).put(planKey,JSON.stringify(plan),{httpMetadata:{contentType:'application/json'}});
-  await db.prepare("DELETE FROM audio_requests WHERE state='quoted' AND expires_at<?").bind(now).run();
+  await db.prepare("DELETE FROM audio_requests WHERE state='quoted' AND expires_at<? AND "+projectAudio).bind(now).run();
   await db.prepare("INSERT INTO audio_requests(id,chapter_id,chapter_digest,parts,source,plan_key,state,created_at,expires_at,total) VALUES(?,?,?,?,'existing',?,'quoted',?,?,?)").bind(id,b.chapterId,b.digest,JSON.stringify(parts),planKey,now,now+600000,plan.units.length).run();
   return json({quoteId:id,expiresAt:now+600000,...plan,units:undefined});
  }
@@ -59,16 +64,19 @@ export async function audioConfigRoute(request,env,{isPublisher,session,sameOrig
   if(b.confirmed!==true||typeof b.quoteId!=='string')return json({error:'请确认本次申请'},400);
   const job=await db.prepare('SELECT * FROM audio_requests WHERE id=?').bind(b.quoteId).first();if(!job)return json({error:'申请不存在'},404);
   if(job.state!=='quoted')return json({ok:true,id:job.id,reused:true});
+  if(!await isCurrentAffairsRevision(db,job.chapter_id,job.chapter_digest))return json({error:'旧章音频已封存，停止新合成'},409);
   const r=await db.prepare("UPDATE audio_requests SET state='pending',expires_at=NULL WHERE id=? AND state='quoted' AND expires_at>?").bind(job.id,now).run();
   return r.meta.changes?json({ok:true,id:job.id}):json({error:'费用预估已过期，请重新申请'},409);
  }
  if(p==='/resume'&&request.method==='POST'){
+  const job=await db.prepare('SELECT chapter_id,chapter_digest FROM audio_requests WHERE id=?').bind(String(b.id||'')).first();
+  if(job&&!await isCurrentAffairsRevision(db,job.chapter_id,job.chapter_digest))return json({error:'旧章音频已封存，停止新合成'},409);
   const r=await db.prepare("UPDATE audio_requests SET state='pending',claim=NULL,lease_until=NULL,error=NULL WHERE id=? AND state='waiting_credit'").bind(String(b.id||'')).run();return r.meta.changes?json({ok:true}):json({error:'此申请不处于等待充值状态'},409);
  }
  if(p==='/jobs/claim'&&isPublisher&&request.method==='POST'){
   if(!/^[a-f0-9]{64}$/.test(b.claim||''))return json({error:'处理身份无效'},400);
   // Reclaim the orchestration lease only. The TTS ledger decides if a paid call can repeat.
-  const candidate=await db.prepare("SELECT id FROM audio_requests WHERE state='pending' OR (state='running' AND lease_until<?) ORDER BY created_at LIMIT 1").bind(now).first();if(!candidate)return json({job:null});
+  const candidate=await db.prepare("SELECT id FROM audio_requests WHERE (state='pending' OR (state='running' AND lease_until<?)) AND "+projectAudio+" ORDER BY created_at LIMIT 1").bind(now).first();if(!candidate)return json({job:null});
   const row=await db.prepare("UPDATE audio_requests SET state='running',claim=?,lease_until=? WHERE id=? AND (state='pending' OR (state='running' AND lease_until<?)) RETURNING *").bind(b.claim,now+300000,candidate.id,now).first();if(!row)return json({job:null});
   try{let plan;if(row.plan_key)plan=await(await permanentBucket(env).get(row.plan_key)).json();else{
     plan=await buildAudioPlan(env,row.chapter_id,row.chapter_digest,JSON.parse(row.parts));const key=`audio-requests/${row.id}/plan.json`;await permanentBucket(env).put(key,JSON.stringify(plan),{httpMetadata:{contentType:'application/json'}});await db.prepare('UPDATE audio_requests SET plan_key=?,total=? WHERE id=? AND claim=?').bind(key,plan.units.length,row.id,b.claim).run();
@@ -77,6 +85,7 @@ export async function audioConfigRoute(request,env,{isPublisher,session,sameOrig
  }
  if(p==='/jobs/progress'&&isPublisher&&request.method==='POST'){
   const job=await db.prepare("SELECT * FROM audio_requests WHERE id=? AND claim=? AND state='running' AND lease_until>?").bind(b.id,b.claim,now).first();if(!job)return json({error:'处理权已失效'},409);
+  if(!await isCurrentAffairsRevision(db,job.chapter_id,job.chapter_digest))return json({error:'旧章音频已封存，历史状态保留'},409);
   if(!Number.isInteger(b.cursor)||b.cursor<job.cursor||b.cursor>job.total||!['running','completed','waiting_credit','needs_review'].includes(b.state))return json({error:'进度无效'},400);
   if(b.state==='completed'&&b.cursor!==job.total)return json({error:'音频尚未完成'},409);
   if(b.state!=='running')await permanentBucket(env).put(`audio-requests/${job.id}/result-${b.cursor}-${b.state}.json`,JSON.stringify({id:job.id,chapterId:job.chapter_id,digest:job.chapter_digest,cursor:b.cursor,total:job.total,state:b.state,error:String(b.error||'').slice(0,180),at:now}),{httpMetadata:{contentType:'application/json'}});

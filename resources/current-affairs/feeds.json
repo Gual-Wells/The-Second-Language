@@ -1,0 +1,245 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-10-23",
+  "purpose": "Small official feed allowlist for on-demand new-chapter research; no ranking, automatic facts, VIX or publishing",
+  "limits": {
+    "maxFeeds": 6,
+    "concurrency": 2,
+    "timeoutMs": 18000,
+    "maxFeedBytes": 1048576,
+    "maxArticleBytes": 2097152,
+    "maxRequests": 18,
+    "maxItemsPerFeed": 80
+  },
+  "feeds": [
+    {
+      "id": "yle",
+      "sourceId": "yle",
+      "format": "rss",
+      "url": "https://yle.fi/rss/news",
+      "discoveredOn": "https://yle.fi/rss",
+      "discovery": "Official RSS directory lists the English Yle News feed as a link.",
+      "language": "en",
+      "defaultEnabled": true,
+      "articleHosts": [
+        "yle.fi"
+      ],
+      "rights": {
+        "url": "https://yle.fi/a/20-10008922",
+        "mode": "title-direct-link",
+        "notes": "Title plus direct original link only for permitted contexts; no feed summaries/photos/body republication, paid services or marketing use.",
+        "publicBodyReuseAuthorized": false
+      },
+      "verification": {
+        "checkedAt": "2026-10-23T12:35:10.686Z",
+        "method": "GET",
+        "status": 200,
+        "contentType": "application/rss+xml; charset=utf-8",
+        "bodyBytes": 10408,
+        "sha256": "60bb22dc046a80205cbf655f7e57b388a8d9466cf395c5837238c898f2b064ef",
+        "itemCount": 20,
+        "conditionalStatus": 304,
+        "conditionalBodyUnchanged": null,
+        "etag": "W/\"28a8-WxqFsQSFx8z2Z2CwtXLkUjrPtdo\"",
+        "lastModified": null,
+        "publishedCount": 20,
+        "updatedCount": 0
+      },
+      "timeCaveats": [
+        "pubDate is publisher feed metadata, not independently verified event time."
+      ],
+      "trackingQueryValues": {
+        "origin": [
+          "rss"
+        ]
+      }
+    },
+    {
+      "id": "nasa",
+      "sourceId": "nasa",
+      "format": "rss",
+      "url": "https://www.nasa.gov/feed/",
+      "discoveredOn": "https://www.nasa.gov/news/",
+      "discovery": "Official news HTML rel=alternate application/rss+xml links this exact endpoint.",
+      "language": "en",
+      "defaultEnabled": true,
+      "articleHosts": [
+        "www.nasa.gov",
+        "science.nasa.gov"
+      ],
+      "rights": {
+        "url": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+        "mode": "metadata-and-link",
+        "notes": "Discovery metadata and direct links baseline; NASA media rules have attribution, endorsement, identifiable-person and third-party exceptions. Do not infer a blanket feed-text licence from media guidance.",
+        "publicBodyReuseAuthorized": false
+      },
+      "verification": {
+        "checkedAt": "2026-10-23T12:35:12.820Z",
+        "method": "GET",
+        "status": 200,
+        "contentType": "application/rss+xml; charset=UTF-8",
+        "bodyBytes": 277174,
+        "sha256": "0dc99cce3478fc8c838e4fd26475a4cc8339844e7afbf315bc411ea52d9c3ee5",
+        "itemCount": 10,
+        "conditionalStatus": 304,
+        "conditionalBodyUnchanged": null,
+        "etag": "W/\"723a6dafaa6466900dd22c3f50c804ff\"",
+        "lastModified": "Fri, 23 Oct 2026 11:57:09 GMT",
+        "publishedCount": 10,
+        "updatedCount": 0
+      },
+      "timeCaveats": [
+        "pubDate is publisher feed metadata, not independently verified event time."
+      ]
+    },
+    {
+      "id": "ukri",
+      "sourceId": "ukri",
+      "format": "rss",
+      "url": "https://www.ukri.org/news/feed/",
+      "discoveredOn": "https://www.ukri.org/news/",
+      "discovery": "Official news HTML rel=alternate and visible RSS feed anchor link this endpoint.",
+      "language": "en",
+      "defaultEnabled": false,
+      "articleHosts": [
+        "www.ukri.org"
+      ],
+      "rights": {
+        "url": "https://www.ukri.org/who-we-are/terms-of-use/",
+        "mode": "metadata-and-link",
+        "notes": "Official terms state most content CC BY-NC-SA 4.0; images, biographies and third-party content excluded. Metadata/links baseline; no automatic feed-body republication.",
+        "publicBodyReuseAuthorized": false
+      },
+      "verification": {
+        "checkedAt": "2026-10-23T12:35:15.235Z",
+        "method": "GET",
+        "status": 200,
+        "contentType": "application/rss+xml; charset=UTF-8",
+        "bodyBytes": 44426,
+        "sha256": "dfde9074bd2f232c7ca8a227739e42b5225c958100133b2d39365496f83d54bc",
+        "itemCount": 20,
+        "conditionalStatus": 200,
+        "conditionalBodyUnchanged": true,
+        "etag": "\"6f468122853da70edb18227ac1a846d4-gzip\"",
+        "lastModified": "Fri, 23 Oct 2026 12:20:27 GMT",
+        "publishedCount": 20,
+        "updatedCount": 0
+      },
+      "timeCaveats": [
+        "pubDate is publisher feed metadata, not independently verified event time."
+      ]
+    },
+    {
+      "id": "cnrs",
+      "sourceId": "cnrs",
+      "format": "rss",
+      "url": "https://news.cnrs.fr/rss",
+      "discoveredOn": "https://news.cnrs.fr/",
+      "discovery": "Official English site rel=alternate and visible RSS anchor link this endpoint.",
+      "language": "en",
+      "defaultEnabled": false,
+      "articleHosts": [
+        "news.cnrs.fr"
+      ],
+      "rights": {
+        "url": "https://news.cnrs.fr/terms-of-use",
+        "mode": "private-discovery",
+        "notes": "Private discovery only by default; site terms require prior approval for reproduction/publication and prohibit commercial content use. No body or feed excerpt republication in a new chapter.",
+        "publicBodyReuseAuthorized": false
+      },
+      "verification": {
+        "checkedAt": "2026-10-23T12:35:18.068Z",
+        "method": "GET",
+        "status": 200,
+        "contentType": "application/rss+xml; charset=utf-8",
+        "bodyBytes": 9015,
+        "sha256": "27ad1abdfe022e4cc1623754136730205f31b1369b32843ea0d44c1da551f584",
+        "itemCount": 10,
+        "conditionalStatus": 304,
+        "conditionalBodyUnchanged": null,
+        "etag": "\"1792751643-1\"",
+        "lastModified": "Fri, 23 Oct 2026 10:34:03 GMT",
+        "publishedCount": 10,
+        "updatedCount": 0
+      },
+      "timeCaveats": [
+        "Feed pubDate can differ from original article publication date; original-page verification required."
+      ]
+    },
+    {
+      "id": "environment-agency",
+      "sourceId": "environment-agency",
+      "format": "atom",
+      "url": "https://www.gov.uk/government/organisations/environment-agency.atom",
+      "discoveredOn": "https://www.gov.uk/government/organisations/environment-agency",
+      "discovery": "Official organisation HTML rel=alternate application/atom+xml links this exact endpoint.",
+      "language": "en",
+      "defaultEnabled": true,
+      "articleHosts": [
+        "www.gov.uk"
+      ],
+      "rights": {
+        "url": "https://www.gov.uk/help/terms-conditions",
+        "mode": "metadata-and-link",
+        "notes": "GOV.UK footer states Open Government Licence v3.0 except otherwise stated; retain source and check item-level exclusions, third-party material and logos.",
+        "publicBodyReuseAuthorized": false
+      },
+      "verification": {
+        "checkedAt": "2026-10-23T12:35:20.288Z",
+        "method": "GET",
+        "status": 200,
+        "contentType": "application/atom+xml; charset=utf-8",
+        "bodyBytes": 12669,
+        "sha256": "6577e4bef8219dbe1321bfd51ae106a96cad8f76c60251d36ee9f0a66a3ef084",
+        "itemCount": 20,
+        "conditionalStatus": 304,
+        "conditionalBodyUnchanged": null,
+        "etag": "W/\"6577e4bef8219dbe1321bfd51ae106a9\"",
+        "lastModified": null,
+        "publishedCount": 0,
+        "updatedCount": 20
+      },
+      "timeCaveats": [
+        "Only updated observed; publishedAt must remain null until the original page is read."
+      ]
+    },
+    {
+      "id": "statistics-canada",
+      "sourceId": "statistics-canada",
+      "format": "atom",
+      "url": "https://www150.statcan.gc.ca/n1/rss/dai-quo/18-eng.atom",
+      "discoveredOn": "https://www.statcan.gc.ca/en/sc/rss",
+      "discovery": "Official feed directory lists Prices and price indexes under The Daily subjects; the directory describes a 100-day release window.",
+      "language": "en",
+      "defaultEnabled": true,
+      "articleHosts": [
+        "www150.statcan.gc.ca",
+        "www.statcan.gc.ca"
+      ],
+      "rights": {
+        "url": "https://www.statcan.gc.ca/en/terms-conditions",
+        "mode": "metadata-and-link",
+        "notes": "Most materials under Statistics Canada Open Licence; third-party materials and official symbols have exceptions. Preserve source, reference period, definitions and revisions.",
+        "publicBodyReuseAuthorized": false
+      },
+      "verification": {
+        "checkedAt": "2026-10-23T12:35:23.052Z",
+        "method": "GET",
+        "status": 200,
+        "contentType": "application/atom+xml",
+        "bodyBytes": 41015,
+        "sha256": "0d4651882b37d3ebb6a33c9cccf8489650f3d0c4202253d9cb8f32a41c889577",
+        "itemCount": 61,
+        "conditionalStatus": 304,
+        "conditionalBodyUnchanged": null,
+        "etag": "\"a037-65e6d070a8c5a\"",
+        "lastModified": "Thu, 22 Oct 2026 12:30:22 GMT",
+        "publishedCount": 0,
+        "updatedCount": 61
+      },
+      "timeCaveats": [
+        "Only updated observed; publishedAt must remain null until the original page is read."
+      ]
+    }
+  ]
+}

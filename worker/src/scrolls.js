@@ -1,6 +1,8 @@
 import {permanentBucket,chapterText} from './storage.js';
 import {recipient,certificationFor,certificationView} from './chapter-certifications.js';
 import {canonical,contentIdentityContent,scrollContentSHA} from '../../protocol/scroll-production-contract.mjs';
+import {isCurrentAffairsRevision} from './current-affairs.js';
+const projectScroll="EXISTS(SELECT 1 FROM chapter_certifications scope_cert JOIN chapter_sources scope_source ON scope_source.digest=scope_cert.chapter_digest AND scope_source.policy='current-affairs-v1' WHERE scope_cert.id=scroll_jobs.certification_id)";
 
 const json=(v,status=200)=>Response.json(v,{status,headers:{'cache-control':'private, no-store','x-content-type-options':'nosniff'}});
 const uuid=v=>typeof v==='string'&&/^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/.test(v);
@@ -50,8 +52,8 @@ async function workRecovery(bucket,manifest){
 }
 async function expired(db,now){
  await db.batch([
-  db.prepare("UPDATE scroll_external_calls SET state='outcome_unknown',updated_at=? WHERE state='calling' AND job_id IN (SELECT id FROM scroll_jobs WHERE status='running' AND lease_until<?)").bind(now,now),
-  db.prepare("UPDATE scroll_jobs SET status=CASE WHEN EXISTS(SELECT 1 FROM scroll_external_calls x WHERE x.job_id=scroll_jobs.id AND x.state IN ('calling','outcome_unknown')) THEN 'attention' ELSE 'pending' END,claim=NULL,lease_until=NULL,error='制作中断，保留最近检查点',updated_at=? WHERE status='running' AND lease_until<?").bind(now,now)
+  db.prepare("UPDATE scroll_external_calls SET state='outcome_unknown',updated_at=? WHERE state='calling' AND job_id IN (SELECT id FROM scroll_jobs WHERE status='running' AND lease_until<? AND "+projectScroll+")").bind(now,now),
+  db.prepare("UPDATE scroll_jobs SET status=CASE WHEN EXISTS(SELECT 1 FROM scroll_external_calls x WHERE x.job_id=scroll_jobs.id AND x.state IN ('calling','outcome_unknown')) THEN 'attention' ELSE 'pending' END,claim=NULL,lease_until=NULL,error='制作中断，保留最近检查点',updated_at=? WHERE status='running' AND lease_until<? AND "+projectScroll).bind(now,now)
  ]);
 }
 async function rowFor(db,id){return db.prepare('SELECT * FROM scroll_jobs WHERE id=? AND recipient_id=?').bind(id,recipient.id).first();}
@@ -127,6 +129,7 @@ export async function scrollsRoute(request,env,context,bucket=permanentBucket(en
   if(!uuid(b.id)||!uuid(b.certificationId))return json({error:'制作申请无效'},400);
   const cert=await db.prepare('SELECT * FROM chapter_certifications WHERE id=? AND recipient_id=?').bind(b.certificationId,recipient.id).first();if(!cert)return json({error:'本章尚未获得认证'},403);
   const existing=await db.prepare('SELECT * FROM scroll_requests WHERE request_id=?').bind(b.id).first();if(existing)return existing.certification_id===cert.id?json({ok:true,reused:true,scroll:scrollJobView(await rowFor(db,existing.job_id))}):json({error:'申请编号已使用'},409);
+  if(!await isCurrentAffairsRevision(db,cert.chapter_id,cert.chapter_digest))return json({error:'旧章认证已封存，不再申请新的章节卷轴'},409);
   const id=crypto.randomUUID();await db.batch([
    db.prepare("INSERT OR IGNORE INTO scroll_jobs(id,certification_id,recipient_id,status,created_at,updated_at) VALUES(?,?,?,'pending',?,?)").bind(id,cert.id,recipient.id,now,now),
    db.prepare('INSERT OR IGNORE INTO scroll_requests(request_id,certification_id,job_id,created_at) SELECT ?,?,id,? FROM scroll_jobs WHERE certification_id=?').bind(b.id,cert.id,now,cert.id)
@@ -136,7 +139,7 @@ export async function scrollsRoute(request,env,context,bucket=permanentBucket(en
  }
  if(path==='/jobs/claim'&&request.method==='POST'){
   if(!isPublisher)return json({error:'处理身份无效'},403);if(!digest(b.claim))return json({error:'领取凭据无效'},400);await expired(db,now);
-  const row=await db.prepare("UPDATE scroll_jobs SET status='running',claim=?,lease_until=?,attempts=attempts+1,updated_at=? WHERE id=(SELECT id FROM scroll_jobs WHERE status='pending' ORDER BY created_at LIMIT 1) AND status='pending' RETURNING *").bind(await hash(b.claim),now+300000,now).first();if(!row)return json({job:null});
+  const row=await db.prepare("UPDATE scroll_jobs SET status='running',claim=?,lease_until=?,attempts=attempts+1,updated_at=? WHERE id=(SELECT id FROM scroll_jobs WHERE status='pending' AND "+projectScroll+" ORDER BY created_at LIMIT 1) AND status='pending' RETURNING *").bind(await hash(b.claim),now+300000,now).first();if(!row)return json({job:null});
   const cert=certificationView(await db.prepare('SELECT * FROM chapter_certifications WHERE id=?').bind(row.certification_id).first()),revision=await db.prepare('SELECT * FROM chapter_revisions WHERE chapter_id=? AND digest=?').bind(cert.chapterId,cert.chapterDigest).first();
   const markdown=revision&&(env.ONEDRIVE_ENABLED==='true'?await chapterText(env,revision.content_key):await env.CHAPTERS.get(revision.content_key));
   if(!markdown||await hash(markdown)!==cert.chapterDigest){await db.prepare("UPDATE scroll_jobs SET status='attention',claim=NULL,error='章节原件暂不可核对',updated_at=? WHERE id=? AND claim=?").bind(now,row.id,row.claim).run();return json({error:'章节原件暂不可核对'},503);}
@@ -145,6 +148,9 @@ export async function scrollsRoute(request,env,context,bucket=permanentBucket(en
  const action=path.match(/^\/jobs\/([a-f0-9-]{36})\/(heartbeat|checkpoint|revise|verify|external|recover|complete|fail|resume)$/);
  if(action&&request.method==='POST'){
   if(!isPublisher)return json({error:'处理身份无效'},403);const row=await rowFor(db,action[1]);if(!row)return json({error:'制作任务不存在'},404);
+  const scopeCert=await db.prepare('SELECT chapter_id,chapter_digest FROM chapter_certifications WHERE id=?').bind(row.certification_id).first();
+  const inProject=scopeCert&&await isCurrentAffairsRevision(db,scopeCert.chapter_id,scopeCert.chapter_digest);
+  if(!inProject&&!(action[2]==='recover'&&b.action==='found')&&!(action[2]==='complete'&&row.status==='complete'))return json({error:'旧章卷轴任务已封存，停止新制作；仍可找回未知结果原件'},409);
   if(action[2]==='recover'){
    if(row.status!=='attention'||b.stage!==row.stage||!digest(b.inputDigest)||!['found','authorize-retry','failed'].includes(b.action))return json({error:'恢复操作无效'},409);
    const call=await db.prepare("SELECT * FROM scroll_external_calls WHERE job_id=? AND stage=? AND input_digest=? AND state='outcome_unknown'").bind(row.id,row.stage,b.inputDigest).first();if(!call)return json({error:'没有待核对的外部调用'},409);
@@ -220,6 +226,7 @@ export async function scrollsRoute(request,env,context,bucket=permanentBucket(en
  if(match){const row=await rowFor(db,match[1]);if(!row)return json({error:'藏卷不存在'},404);
   if(match[2]==='claim'&&request.method==='POST'){
    if(row.status!=='complete')return json({error:'藏卷尚未完成'},409);
+   if(row.claimed_at==null){const cert=await db.prepare('SELECT chapter_id,chapter_digest FROM chapter_certifications WHERE id=?').bind(row.certification_id).first();if(!cert||!await isCurrentAffairsRevision(db,cert.chapter_id,cert.chapter_digest))return json({error:'旧章节卷轴已封存，不再新领取'},409);}
    await db.prepare("UPDATE scroll_jobs SET claimed_at=?,updated_at=? WHERE id=? AND status='complete' AND claimed_at IS NULL").bind(now,now,row.id).run();return json({ok:true,reused:row.claimed_at!=null,scroll:scrollJobView(await rowFor(db,row.id))});
   }
   if(request.method==='GET'||request.method==='HEAD'){

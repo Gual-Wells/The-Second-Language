@@ -5,6 +5,8 @@ import {validateListening,listeningView,listeningRoute} from './listening.js';
 import {validateReading,readingView,readingRoute} from './reading.js';
 import {pronunciationRoute} from './pronunciation.js';
 import {chapterText} from './storage.js';
+import {CURRENT_AFFAIRS_POLICY,isCurrentAffairsRevision} from './current-affairs.js';
+import {practiceWriteScope,currentPracticeQuestionSql} from './practice-scope.js';
 
 const json = (value, status = 200) => new Response(JSON.stringify(value), { status, headers: { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store' } });
 const safeId = value => typeof value === 'string' && /^[A-Za-z0-9._:-]{1,110}$/.test(value);
@@ -35,6 +37,7 @@ export async function practiceRoute(request, env, publisher) {
   const isReader = Boolean(env.PRACTICE_READ_TOKEN && constantEqual(bearer, env.PRACTICE_READ_TOKEN));
   if (!session && !isPublisher && !isReader) return json({ error: '请先登录' }, 401);
   const sameOrigin = request.headers.get('origin') === env.APP_ORIGIN;
+  const archivedWrite=await practiceWriteScope(request,env);if(archivedWrite)return archivedWrite;
   const context={isPublisher,isReader,session,sameOrigin};
   const pronunciation=await pronunciationRoute(request,env,context);if(pronunciation)return pronunciation;
   const speaking=await speakingRoute(request,env,context);if(speaking)return speaking;
@@ -55,10 +58,10 @@ export async function practiceRoute(request, env, publisher) {
       : await db.prepare(`SELECT s.id,s.title,s.introduction,s.profiles_json AS profilesJson,s.created_at AS createdAt,r.focus_chapter_id AS focusChapterId
         FROM practice_sets s JOIN practice_requests r ON r.id=s.request_id ORDER BY s.created_at DESC LIMIT 100`).all();
     const active = await db.prepare(`SELECT id,focus_chapter_id AS focusChapterId,status,skills_json AS skillsJson,profiles_json AS profilesJson,created_at AS createdAt FROM practice_requests
-      WHERE status IN ('queued','building') ORDER BY created_at DESC LIMIT 1`).first();
+      WHERE source_policy='current-affairs-v1' AND status IN ('queued','building') ORDER BY created_at DESC LIMIT 1`).first();
     const stopped=await db.prepare(`SELECT id,focus_chapter_id AS focusChapterId,
       CASE WHEN EXISTS(SELECT 1 FROM practice_media m WHERE m.set_id=r.set_id AND m.state='waiting_credit') THEN 'credit' ELSE 'unfinished' END AS reason
-      FROM practice_requests r WHERE status='failed' AND created_at=(SELECT max(created_at) FROM practice_requests) LIMIT 1`).first();
+      FROM practice_requests r WHERE source_policy='current-affairs-v1' AND status='failed' AND created_at=(SELECT max(created_at) FROM practice_requests WHERE source_policy='current-affairs-v1') LIMIT 1`).first();
     return json({ sets:sets.map(({profilesJson,...item})=>({...item,profiles:JSON.parse(profilesJson)})), active:active?{...active,skills:JSON.parse(active.skillsJson),profiles:JSON.parse(active.profilesJson),skillsJson:undefined,profilesJson:undefined}:null,stopped });
   }
 
@@ -99,21 +102,22 @@ export async function practiceRoute(request, env, publisher) {
     if(!['full','mini'].includes(value.size)||value.skills!=null||value.profiles!=null)return json({error:'请选择完整雅思或微缩雅思；请刷新后重试'},400);
     const selected=['listening','reading','writing','speaking'];
     const profiles={listening:value.size,reading:value.size};
-    const active = await db.prepare("SELECT id FROM practice_requests WHERE status IN ('queued','building') LIMIT 1").first();
+    const active = await db.prepare("SELECT id FROM practice_requests WHERE source_policy=? AND status IN ('queued','building') LIMIT 1").bind(CURRENT_AFFAIRS_POLICY).first();
     if (active) return json({ error: '已有表达练习正在建设', requestId: active.id }, 409);
-    const { results } = await env.DB.prepare(`SELECT p.chapter_id AS id,p.study_date AS date,p.digest FROM published_chapters p ORDER BY p.study_date`).all();
+    const { results } = await env.DB.prepare(`SELECT p.chapter_id AS id,p.study_date AS date,p.digest FROM published_chapters p
+      JOIN chapter_sources s ON s.digest=p.digest AND s.policy=? ORDER BY p.study_date`).bind(CURRENT_AFFAIRS_POLICY).all();
     if (!results.length) return json({ error: '尚无正式章节' }, 409);
     const focus = value.focusChapterId ? results.find(item => item.id === value.focusChapterId) : results.at(-1);
     if (!focus) return json({ error: '焦点章节未发布' }, 404);
     const id = crypto.randomUUID(), stamp = now();
-    await db.prepare(`INSERT INTO practice_requests(id,focus_chapter_id,focus_digest,source_json,note,status,created_at,updated_at,skills_json,profiles_json,protocol_version)
-      VALUES(?,?,?,?,?,'queued',?,?,?,?,'ielts-bundle-v1')`).bind(id, focus.id, focus.digest, JSON.stringify(results), (value.note || '').trim(), stamp, stamp,JSON.stringify(selected),JSON.stringify(profiles)).run();
+    await db.prepare(`INSERT INTO practice_requests(id,focus_chapter_id,focus_digest,source_json,note,status,created_at,updated_at,skills_json,profiles_json,protocol_version,source_policy)
+      VALUES(?,?,?,?,?,'queued',?,?,?,?,'ielts-bundle-v1',?)`).bind(id,focus.id,focus.digest,JSON.stringify(results),(value.note||'').trim(),stamp,stamp,JSON.stringify(selected),JSON.stringify(profiles),CURRENT_AFFAIRS_POLICY).run();
     return json({ id, status: 'queued', skills:selected,profiles,focusChapterId: focus.id, sourceCount: results.length }, 201);
   }
 
   if (path === '/api/practice/publisher/next' && request.method === 'GET') {
     if (!isPublisher) return json({ error: '发布身份无效' }, 401);
-    const row = await db.prepare(`SELECT * FROM practice_requests WHERE status='queued' OR (status='building' AND claim_at<?)
+    const row = await db.prepare(`SELECT * FROM practice_requests WHERE source_policy='current-affairs-v1' AND (status='queued' OR (status='building' AND claim_at<?))
       ORDER BY created_at LIMIT 1`).bind(now() - 21600000).first();
     return json({ request: row ? { id: row.id, skills:JSON.parse(row.skills_json),profiles:JSON.parse(row.profiles_json),protocolVersion:row.protocol_version,focusChapterId: row.focus_chapter_id, focusDigest: row.focus_digest, sources: JSON.parse(row.source_json), note: row.note, status: row.status } : null });
   }
@@ -121,6 +125,7 @@ export async function practiceRoute(request, env, publisher) {
   const sourceMatch = path.match(/^\/api\/practice\/publisher\/sources\/([A-Za-z0-9._:-]+)\/([0-9a-f]{64})$/);
   if (sourceMatch && request.method === 'GET') {
     if (!isPublisher) return json({ error: '发布身份无效' }, 401);
+    if(url.searchParams.get('archive')!=='1'&&!await isCurrentAffairsRevision(env.DB,sourceMatch[1],sourceMatch[2]))return json({error:'固定版本正式章节不存在'},404);
     const row = await env.DB.prepare('SELECT content_key FROM chapter_revisions WHERE chapter_id=? AND digest=?').bind(sourceMatch[1],sourceMatch[2]).first();
     if (!row) return json({ error: '固定版本章节不存在' }, 404);
     const markdown = env.ONEDRIVE_ENABLED==='true'?await chapterText(env,row.content_key):await env.CHAPTERS.get(row.content_key);
@@ -278,7 +283,7 @@ export async function practiceRoute(request, env, publisher) {
 
   if (path === '/api/practice/publisher/review/claim' && request.method === 'POST') {
     if (!isPublisher) return json({ error: '发布身份无效' }, 401);
-    const row = await db.prepare(`SELECT a.id FROM practice_attempts a WHERE a.status='pending' OR (a.status='reviewing' AND a.claim_at<?)
+    const row = await db.prepare(`SELECT a.id FROM practice_attempts a WHERE ${currentPracticeQuestionSql('a.question_id')} AND (a.status='pending' OR (a.status='reviewing' AND a.claim_at<?))
       ORDER BY a.submitted_at LIMIT 1`).bind(now()-7200000).first();
     if (!row) return json({ attempt: null });
     const token = crypto.randomUUID(), stamp = now();
@@ -299,8 +304,8 @@ export async function practiceRoute(request, env, publisher) {
 
   if (path === '/api/practice/publisher/review/next' && request.method === 'GET') {
     if (!isPublisher) return json({ error: '发布身份无效' }, 401);
-    const row = await db.prepare(`SELECT id FROM practice_attempts WHERE status='pending' OR (status='reviewing' AND claim_at<?)
-      ORDER BY submitted_at LIMIT 1`).bind(now()-7200000).first();
+    const row = await db.prepare(`SELECT a.id FROM practice_attempts a WHERE ${currentPracticeQuestionSql('a.question_id')} AND (a.status='pending' OR (a.status='reviewing' AND a.claim_at<?))
+      ORDER BY a.submitted_at LIMIT 1`).bind(now()-7200000).first();
     return json({ attemptId: row?.id || null });
   }
 

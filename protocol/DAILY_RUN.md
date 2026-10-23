@@ -1,6 +1,6 @@
 # 每日课程运行协议草案
 
-目标执行载体：Codex 桌面端定时任务，模型 `gpt-6-sol`，推理强度 `high`。允许充分使用工作时间与中间文档。一次定时触发只是唤醒；同一目标日期中断后继续已有运行。
+目标执行载体：Codex 桌面端定时任务，模型 `gpt-6.1-sol`，推理强度 `xhigh`，启用live web search。允许充分使用工作时间与中间文档。一次定时触发只是唤醒；同一目标日期的新流程运行中断后继续已有输入。2026-10-23用户明确旧章内容封存且不纳正式项目，新章从第1章开始；不兼容迁移、补写或续作旧流程内容。新章执行CURRENT_AFFAIRS.md，语义教学仍由原主协议规定。
 
 ## 开始
 
@@ -12,13 +12,13 @@ Windows 定时入口 `scripts/run-daily.ps1` 在启动 Codex 前确定性地完�
 本机新增运行资料实际存 D 盘；兼容旧运行入口时可以保留 C→D 联接，但须把物理任务目录或专用父目录登记到归档运行器 `.cache/runtime-sources.json` 的 `linkedDirectoryRoots`，不能只建联接就声称工作资料已备份。优先复用已登记的日课实际父目录，按 STORAGE.md 回读快照确认。
 每日日课默认满配第二部分例句与第三部分逐句 Bella 音频，首次发布新正式章节时原子入队；用户可在设置一次性调整下一章，用后恢复满配，休息、领取与旧章重发不消费。按 AUDIO_CONFIGURATION.md 由独立音频服务随后处理，已成功音频复用；Codex 不重复合成、不等待声音才能发布文字。
 2. 若领取结果带有 `temporaryRequest`，按 `protocol/TEMPORARY.md` 处理测试或复习需求，可在日课前独立发布。复习使用已发布章节作来源，不把临时页当作新章节，不标记 VIX。同日续作先查中间文档和临时页发布结果，避免重复建设。
-3. 读取 VIX 当前通用英语辅助索引、标注状态和两份 `textbook` 文件，记录各文件的 Git commit 或摘要。读取 PWA 后端的学习目标与反馈快照。主观判断不得被固定打分替代。
-4. 在 `work/runs/<date>/selection.md` 自由写推荐思考，在 `selection.json` 保存 `studyDate`、`vixInputCommit`、`vixMarkLabel` 和 `mainWords`。`mainWords` 恰有 40 个主词；每项保存 VIX `entryId`、`globalRank`、`text`，相关派生词放入该项 `family` 并记录相同身份字段（教材有而 VIX 无的派生词仍记其文字，但不填 VIX 身份）。`vixMarkLabel` 必须记录为真实北京时间的 `YY-MM-DD`，由 `studyDate.slice(2)` 得出（例如 `2026-10-04` → `26-10-04`，年份范围 2000–2099）。标注和发布均校验真实日历日期，跨年不复用去年的标签。未完成运行若仍保存旧 `MM-DD` 标签，先保持原选词与目标日期、改正标签，并重新固定最新 VIX；不要重新选词。
-5. **完整确定本次推荐后**，把本次实际纳入建设且存在于 VIX 辅助索引的主词、派生词与同词变体标入 VIX 对应日期文件。运行 VIX 的 `tools/build-seed-access.mjs` 并提交标注与生成结果。记录 commit。若这一步之后中断，继续同一组选词和同一章节，不重新推荐。
+3. 读取 VIX 通用英语辅助索引、标注状态和两份 `textbook` 文件，记录各文件的Git commit或摘要。`prepare-vix.mjs` 首次固定输入，续作只按原锁恢复，不刷新main；已固定选词却无可核验新流程输入锁时保留待查，不能重选或给旧运行造兼容锁。读取PWA后端学习目标与反馈快照。按CURRENT_AFFAIRS.md在最终选词前从来源池按需取材、读取原文，与VIX双向判断；新闻标题/摘要不冒充已读事实。主观判断不得被固定打分、主题命中或多义数量替代。
+4. 在 `work/runs/<date>/selection.md` 自由写推荐思考，在 `selection.json` 保存 `studyDate`、`vixInputCommit`、`vixMarkLabel` 和 `mainWords`。`mainWords` 恰有 40 个主词；每项保存 VIX `entryId`、`globalRank`、`text`，相关派生词放入该项 `family` 并记录相同身份字段（教材有而 VIX 无的派生词仍记其文字，但不填 VIX 身份）。`vixMarkLabel` 必须记录为真实北京时间的 `YY-MM-DD`，由 `studyDate.slice(2)` 得出（例如 `2026-10-04` → `26-10-04`，年份范围 2000–2099）。标注和发布均校验真实日历日期，跨年不复用去年的标签。旧流程运行只封存，不迁移成新正式章；新运行的标签或输入不一致时停在原输入核对，不刷新main或重选。
+5. **完整确定本次推荐并冻结selection后**，运行 `node scripts/prepare-vix-marking.mjs YYYY-MM-DD` 建立独立的 `work/runs/<date>/vix-marking` 工作副本；`.cache/vix/<commit>` 只读。以同一副本依次运行 `mark-vix.mjs --vix=work/runs/<date>/vix-marking --selection=work/runs/<date>/selection.json` 与 `publish-vix.mjs`（相同参数），把实际纳入且有VIX身份的主词、派生词与同词变体标注、构建并提交。工作副本绑定原输入commit和selection摘要，重跑复用、不覆盖未提交标注。标注后commit另记meta/发布回执，不往冻结selection追加字段。远端main变化时保留输入、选词及标注待核对，不刷新输入或重选。中断继续同一组选词和同一章节。
 
 ## 课程建设
 
-新启动的课程运行正式执行 ETYMOLOGY.md：一级词头下一个简洁词源区块，分点说明有助理解与记忆的关系，不与用法强制一一对应；两教材释义按 CONTENT.md 融合为一套。prepare-vix 取得词源资料及说明，查阅用 lookup-textbooks，来源简记到既有逐词文档。新运行的章节 meta.json 设置 `contentPolicy: "etymology-fused-v1"`，打包与后端暂存均检查每个词头的词源区块；该检查不证明史实或融合语义正确。
+新启动的课程运行正式执行 ETYMOLOGY.md：一级词头下一个简洁词源区块，分点说明有助理解与记忆的关系，不与用法强制一一对应；两教材释义按 CONTENT.md 融合为一套。prepare-vix取得词源资料及说明，查阅用lookup-textbooks，来源简记到既有逐词文档。新章meta.json同时设置 `contentPolicy: "etymology-fused-v1"` 和独立的 `sourcePolicy: "current-affairs-v1"`，不能用来源策略替换教学策略。章号采用服务端新正式序列；打包和暂存仍检查词源、讲解与编码结构，不能证明史实或融合语义正确。
 
 对 40 个主词按字典序建设。**必须执行 `protocol/QUALITY_WORKFLOW.md` 的逐词材料交接、第一与第二部分协同建设、第三部分续作和发布前语义审阅。** 在 `work/runs/<date>/words/` 为每个主词保存可回读的教材内容去向；文件形式及每批词数以工作方便为准。第三部分的唯一权威英文草稿保存在 `work/runs/<date>/article.md`，中断后从这些文件继续。
 
@@ -36,7 +36,7 @@ Windows 定时入口 `scripts/run-daily.ps1` 在启动 Codex 前确定性地完�
 
 ## 完成与交付
 
-按 `QUALITY_WORKFLOW.md` 分别完成教材内容去向与第三部分真实用法、作品质量的语义审阅，再生成 `chapters/<date>/chapter.md`。使用 `scripts/pack-chapter.mjs` 检查编码配对并生成阅读器所需章节对象；结构通过不能代替语义审阅。把章节通过发布命令暂存并提交为该日期的当前版本；回读后确认 PWA 可按日期打开。推送只能在章节可读后发送。
+按QUALITY_WORKFLOW.md分别完成教材内容去向、第三部分真实用法/作品、实际采用事实与连续译文的审阅，再生成 `chapters/<date>/chapter.md`。按CURRENT_AFFAIRS将自写事实与边界留在source-notes.json，运行 `node scripts/pack-current-affairs.mjs YYYY-MM-DD work/runs/YYYY-MM-DD/source-notes.json` 固定来源包，再运行pack-chapter与原publish-chapter命令。正文摘要与来源摘要分离，来源包及正文永久回读核验后才进入正式目录；选择或正文变化必须重新核对来源绑定。结构通过不能代替语义审阅。发布回读确认正文/来源身份，推送只能在章节可读后发送。全文与来源正文不合并为第四部分。
 
 如果定时任务接近结束，更新 `work/runs/<date>/resume.md`，具体写清已完成内容、下一步与未解决处。不要仅因为运行窗口结束而宣称章节完成。
 

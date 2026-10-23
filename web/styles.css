@@ -215,6 +215,19 @@ textarea.text-input { resize: vertical; }
 .sheet-head small { display: block; color: #d6e8f8; font-size: 9px; letter-spacing: .1em; }
 .sheet-head h2 { margin: 2px 0 0; font-size: 17px; line-height: 1.2; }
 .sheet-close { width: 27px; height: 27px; flex: none; border: 1px solid #c1d9ee; border-radius: 2px; padding: 0; background: linear-gradient(#fff, #b8d2ea); color: #164879; font-size: 21px; line-height: 1; text-shadow: none; }
+.chapter-sources-body { padding: 12px; overflow-wrap: anywhere; font-size: 13px; line-height: 1.65; }
+.chapter-sources-status { margin: 0; color: var(--muted); }
+.chapter-sources-status:empty { display: none; }
+.chapter-source-context { margin-bottom: 12px; color: #365675; }
+.chapter-source-context h3, .chapter-source-item h3 { margin: 0 0 6px; color: #214e79; font-size: 14px; line-height: 1.5; }
+.chapter-source-context p, .chapter-source-item p { margin: 0 0 7px; }
+.chapter-source-item { border: 1px solid #b3c7d9; padding: 10px; background: #fff; }
+.chapter-source-item + .chapter-source-item { margin-top: 10px; }
+.chapter-source-publisher, .chapter-source-dates, .chapter-source-limitations { color: var(--muted); font-size: 11px; }
+.chapter-source-dates > * { display: block; }
+.chapter-source-link { display: inline-block; padding: 4px 0; color: #174f84; }
+.chapter-source-item h4 { margin: 8px 0 3px; color: #365675; font-size: 12px; }
+.chapter-source-item ul { margin: 0 0 7px; padding-left: 19px; }
 .month-controls { display: flex; align-items: center; gap: 5px; padding: 10px; background: #e2edf7; }
 .month-controls .month-arrow { width: 30px; height: 31px; flex: none; padding: 0; font-size: 21px; line-height: 1; }
 .month-controls input { width: 100%; min-width: 0; flex: 1; border: 1px solid #8fa9c3; border-radius: 2px; padding: 6px 5px; background: #fff; color: #174f84; font-size: 16px; font-weight: 700; }

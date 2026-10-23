@@ -2,6 +2,16 @@
 
 此文件只说明工具如何连接；每天推荐、词典整合与创作判断以 `protocol/` 为准。运行命令均从项目根目录执行。`work/runs/` 可自由存放续作资料，不把密钥放进去。
 
+## 新正式实事日课（2026-10-23）
+
+主协议CURRENT_AFFAIRS.md与DAILY_RUN.md。新流程从第1章开始，旧章/旧未完业务只读封存，不回填、不撤VIX标记、不迁移正文；正式新申请不再取旧章。旧原件通过publisher `GET /api/chapters?archive=1` 和 `GET /api/chapters/ID?digest=SHA&archive=1` 可核对，归档器已显式使用archive读取。原件、历史成绩及收费资产不删，物理紧凑索引维护保持。
+
+部署先对主库应用0018_current_affairs.sql，再对PRACTICE_DB应用0009_current_affairs_scope.sql，随后部署API Worker与v45静态壳。迁移不回填旧行；新来源绑定及新雅思来源快照保持不可变。正文仍用原SHA定义，来源包独立以摘要在OneDrive永久封存，D1只存小引用。部署后无新章时正式列表为空，项目特殊纪念卷轴继续保留。
+
+日课入口为scripts/run-daily.ps1，gpt-6.1-sol/xhigh、`--search`，领取休息先于模型。`powershell.exe -NoProfile -File scripts/activate-affairs-tasks.ps1` 先显示实际任务路径；显式 `-Apply` 只把DailyCodex未来Action切到本工作区，备份原XML，保留03:00、Principal及Settings，不停止正在执行的其它进程。永久归档任务已经使用本工作区，不重复改其它任务。生产核对见research/current-affairs-runtime-2026-10-23.md。
+
+按需取材：current-affairs-pool.mjs find→current-affairs.mjs discover/read（live web/PDF原文用import）→模型实际阅读/与VIX共同选择→原时点标注→全义三部分建设→pack-current-affairs.mjs绑定source-notes→pack-chapter.mjs→publish-chapter.mjs。章节meta保留contentPolicy并另设sourcePolicy；具体命令、读件边界和字段看CURRENT_AFFAIRS。没有新增付费API或常驻爬虫。
+
 ## 正式章节认证与纪念卷轴（2026-10-23）
 
 使用主库迁移`0017_chapter_certifications.sql`，不迁移雅思库或实验认证库。先部署数据库迁移，再部署API Worker，最后发布v43 Pages壳。`deploy-certification-reader.mjs --production`只发布Pages，不能替代Worker上线。UI是章节测试首次真实满分认证→本人申请→后台制作/核验→本人领取→设置认证阅览；旧第一/第五章研究样品不升级、不补造历史成绩。项目纪念仍为独立类别。
@@ -50,7 +60,7 @@ powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File scripts/
 
 直接用 PowerShell 的 `-WindowStyle Hidden` 可能先分配控制台再隐藏，不能作为无闪窗保证。当前原生启动器不依赖 VBScript、常驻窗口、Windows 服务或管理员密码；源码纳入仓库，生成的 exe、任务 XML 和日志留在忽略目录。纯轮询仍产生正常网络请求，零模型调用不等于零 Cloudflare 用量。
 
-本机的定时任务每日北京时间 **03:00** 调用 `scripts/run-daily.ps1`，由已登录的 Codex CLI 以 `gpt-6-sol`、`high` 运行本协议。先领取后端一次性控制状态；休息开关只跳过下一次定时运行并自动复位。任务提示词核心为：
+本机的定时任务每日北京时间 **03:00** 调用 `scripts/run-daily.ps1`，由已登录的 Codex CLI 以 `gpt-6.1-sol`、`xhigh` 和live search运行本协议。先领取后端一次性控制状态；休息开关只跳过下一次定时运行并自动复位。任务提示词核心为：
 
 > 定时入口先领取当天运行控制，休息则直接结束；非休息日 Codex 阅读 AGENTS.md、protocol/DAILY_RUN.md、protocol/QUALITY_WORKFLOW.md、protocol/CONTENT.md、protocol/TEMPORARY.md 和 protocol/ANNOTATIONS.md，先处理已领取的临时需求，再完成 40 个主词的推荐、VIX 标注、逐词双教材交接、三部分正文、语义审阅与发布。续作写入 work/，未完成时记录 resume.md。
 
@@ -59,12 +69,13 @@ powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File scripts/
 可用的确定性工具：
 
 ```sh
-node scripts/prepare-vix.mjs YYYY-MM-DD
 node scripts/claim-run.mjs YYYY-MM-DD
-node scripts/vix-candidates.mjs --vix=<VIX目录> --out=work/runs/YYYY-MM-DD/candidates.json
+node scripts/prepare-vix.mjs YYYY-MM-DD
+node scripts/vix-candidates.mjs --vix=.cache/vix/<inputCommit> --out=work/runs/YYYY-MM-DD/candidates.json
 node scripts/feedback-snapshot.mjs YYYY-MM-DD
-node scripts/mark-vix.mjs --vix=<VIX目录> --selection=work/runs/YYYY-MM-DD/selection.json
-node scripts/publish-vix.mjs --vix=<VIX目录> --selection=work/runs/YYYY-MM-DD/selection.json
+node scripts/prepare-vix-marking.mjs YYYY-MM-DD
+node scripts/mark-vix.mjs --vix=work/runs/YYYY-MM-DD/vix-marking --selection=work/runs/YYYY-MM-DD/selection.json
+node scripts/publish-vix.mjs --vix=work/runs/YYYY-MM-DD/vix-marking --selection=work/runs/YYYY-MM-DD/selection.json
 node scripts/pack-chapter.mjs YYYY-MM-DD
 node scripts/publish-chapter.mjs YYYY-MM-DD
 node scripts/build-review.mjs work/temporary/ID/plan.json
@@ -72,7 +83,7 @@ node scripts/publish-temporary.mjs --page=work/temporary/ID/page.json
 node scripts/delete-temporary.mjs 临时页ID
 ```
 
-`prepare-vix` 将 VIX 的当前 `main` 固定到 commit，并分段下载辅助索引、两份 textbook 和构建脚本到 `.cache/vix/<commit>/`，逐文件验证 Git blob 摘要；它要求运行环境可访问 GitHub API 和 raw 文件。若命令行网络不可用，Codex 可用已连接的 GitHub 仓库工具取得同一 commit 的文件。`publish-vix` 优先使用 `GITHUB_TOKEN` 或 `GH_TOKEN`，没有环境变量时读取本机 GitHub Git 凭据。反馈与章节发布优先读取环境变量 `SECOND_LANGUAGE_API_URL`、`SECOND_LANGUAGE_PUBLISH_TOKEN`；本机部署环境也可从忽略的 `.cache/deployment-secrets.json` 自动取得发布 token，默认连接线上站点。给定日期正式正文存于 `chapters/YYYY-MM-DD/chapter.md`；同目录 `meta.json` 需含 `date`、`title`、`subtitle`、`number`、`wordCount: 40`、`runId`、已提交的 `vixCommit` 和 `protocolCommit`。`pack-chapter` 会检查两部分各有相同顺序的 40 个主词。
+`prepare-vix` 首次将 VIX 的当前 `main` 固定到 commit，续作只恢复/校验同一锁定输入，并分段下载辅助索引、两份 textbook 和构建脚本到 `.cache/vix/<commit>/`，逐文件验证 Git blob 摘要；它要求运行环境可访问 GitHub API 和 raw 文件。若命令行网络不可用，Codex 可用已连接的 GitHub 仓库工具取得同一 commit 的文件。冻结selection后才运行prepare-vix-marking；标注与发布使用独立工作副本，不修改原输入。工作副本重跑不覆写，发布commit另记meta/回执，不修改冻结selection。远端main变化时保留原选择及未提交标注待核对，不能刷新输入重选。`publish-vix` 优先使用 `GITHUB_TOKEN` 或 `GH_TOKEN`，没有环境变量时读取本机 GitHub Git 凭据。反馈与章节发布优先读取环境变量 `SECOND_LANGUAGE_API_URL`、`SECOND_LANGUAGE_PUBLISH_TOKEN`；本机部署环境也可从忽略的 `.cache/deployment-secrets.json` 自动取得发布 token，默认连接线上站点。给定日期正式正文存于 `chapters/YYYY-MM-DD/chapter.md`；同目录 `meta.json` 需含 `date`、`title`、`subtitle`、`number`、`wordCount: 40`、`runId`、已提交的 `vixCommit` 和 `protocolCommit`。`pack-chapter` 会检查两部分各有相同顺序的 40 个主词。
 
 内容续作以 `work/runs/<date>/words/` 的逐词材料、`article-plan.md`、`article.md`、`continuity.md` 和必要时的 `resume.md` 为交接点；这些文件由 Codex 按内容自由写，不进入发布正文。`pack-chapter` 能核对第三部分带或不带 `USE` 的句子都已逐句翻译，并核对每个用法至少被标出一次；教材保真与用法是否真实成立仍由 Codex 在发布前审阅。
 

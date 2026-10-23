@@ -57,6 +57,7 @@ const chapterTests=createChapterTestsUI({api,showDialog,toast,getContext:()=>sta
 const chapterQuality=createChapterQualityUI({api,showDialog,toast,getContext:()=>state,openSource:async(chapter,location)=>{if(await openChapter(chapter.id,true,chapter.digest)){const part=location?.part||'one';jumpWithin(()=>{if(location?.sentenceId)return [...$('article').querySelectorAll('[data-sentence-id]')].find(n=>n.dataset.sentenceId===location.sentenceId);if(location?.useId){const matches=[...$('article').querySelectorAll('[data-use-id]')].filter(n=>n.dataset.useId===location.useId);return matches[Math.max(0,(location.ordinal||1)-1)]||matches[0];}return [...$('article').querySelectorAll('[data-word-id]')].find(n=>n.dataset.wordId===location?.wordId)||$('article');},part);}}});
 const chapterBook=createChapterBook({getContext:()=>state,openChapter,showDialog,renderCalendar});
 createAudioConfig({api,getContext:()=>state,toast});
+const chapterSources=createChapterSourcesUI();
 
 function clearBadge() { if ('clearAppBadge' in navigator) { try { Promise.resolve(navigator.clearAppBadge()).catch(() => {}); } catch {} } }
 
@@ -74,6 +75,48 @@ function showDialog(id) {
 }
 
 function closeDialog(id) { if ($(id).open) $(id).close(); }
+
+function createChapterSourcesUI() {
+  const element=(tag,text,className)=>{const node=document.createElement(tag);if(text!==undefined)node.textContent=text;if(className)node.className=className;return node;};
+  const button=element('button','现实参考','bevel-button');button.id='chapterSourcesButton';button.type='button';button.hidden=true;button.setAttribute('aria-haspopup','dialog');button.setAttribute('aria-controls','chapterSourcesDialog');
+  const actions=element('div',undefined,'button-row'),testButton=$('chapterTestsEndButton');
+  testButton.replaceWith(actions);actions.append(testButton,button);
+  const dialog=element('dialog',undefined,'sheet-dialog');dialog.id='chapterSourcesDialog';dialog.setAttribute('aria-labelledby','chapterSourcesTitle');
+  const sheet=element('div',undefined,'sheet'),head=element('div',undefined,'sheet-head'),heading=element('div');
+  const title=element('h2','现实参考');title.id='chapterSourcesTitle';heading.append(element('small','REAL-WORLD SOURCES'),title);
+  const close=element('button','×','sheet-close');close.type='button';close.dataset.close=dialog.id;close.setAttribute('aria-label','关闭');head.append(heading,close);
+  const body=element('div',undefined,'chapter-sources-body'),status=element('p',undefined,'chapter-sources-status');status.id='chapterSourcesStatus';status.setAttribute('role','status');
+  const content=element('div'),retry=element('button','重新读取','bevel-button');retry.type='button';retry.hidden=true;retry.id='chapterSourcesRetry';
+  body.append(status,content,retry);sheet.append(head,body);dialog.append(sheet);document.body.append(dialog);
+  let epoch=0;
+  const eligible=()=>state.authenticated&&!state.demo&&state.current&&!state.current.kind&&!state.current.historical&&state.current.sourcePolicy==='current-affairs-v1'&&/^[a-f0-9]{64}$/.test(state.current.digest||'')&&/^[a-f0-9]{64}$/.test(state.current.sourceDigest||'');
+  const dateText=value=>/^\d{4}-\d{2}-\d{2}$/.test(value||'')?formatDate(value):`${new Date(value).toLocaleString('zh-CN',{timeZone:'Asia/Shanghai',hour12:false})}（北京时间）`;
+  function render(sourcePackage) {
+    const boundary=element('section',undefined,'chapter-source-context');boundary.append(element('h3','事实与创作边界'),element('p',sourcePackage.context));content.append(boundary);
+    for(const source of sourcePackage.sources){
+      const item=element('section',undefined,'chapter-source-item');item.append(element('p',source.publisher,'chapter-source-publisher'),element('h3',source.title));
+      const dates=element('p',undefined,'chapter-source-dates');
+      if(source.publishedAt){const published=element('time',`发布：${dateText(source.publishedAt)}`);published.dateTime=source.publishedAt;dates.append(published);}else dates.append(element('span','发布日期未注明'));
+      const read=element('time',`查阅：${dateText(source.readAt)}`);read.dateTime=source.readAt;dates.append(read);item.append(dates);
+      try{const url=new URL(source.url);if(!['https:','http:'].includes(url.protocol)||url.username||url.password)throw Error();const link=element('a','打开原文 ↗','chapter-source-link');link.href=url.href;link.target='_blank';link.rel='noopener noreferrer';item.append(link);}catch{item.append(element('p','原文链接暂不可用'));}
+      if(Array.isArray(source.facts)&&source.facts.length){const facts=element('ul');for(const fact of source.facts)facts.append(element('li',fact));item.append(element('h4','取材事实摘要'),facts);}
+      if(source.limitations)item.append(element('p',`来源边界：${source.limitations}`,'chapter-source-limitations'));
+      content.append(item);
+    }
+  }
+  async function open() {
+    if(!eligible())return;
+    const target={...state.current},token=++epoch;content.replaceChildren();status.textContent='正在读取本章现实参考…';retry.hidden=true;showDialog(dialog.id);
+    try{
+      const result=await api(`/api/chapters/${encodeURIComponent(target.id)}/sources?digest=${encodeURIComponent(target.digest)}`);
+      if(token!==epoch||!dialog.open)return;
+      if(result.chapterId!==target.id||result.chapterDigest!==target.digest||result.sourcePolicy!==target.sourcePolicy||result.sourceDigest!==target.sourceDigest||result.sourcePackage?.chapterDigest!==target.digest||typeof result.sourcePackage.context!=='string'||!Array.isArray(result.sourcePackage.sources)||!result.sourcePackage.sources.length)throw Error('现实参考与当前章节版本不一致，请稍后重试。');
+      render(result.sourcePackage);status.textContent='';
+    }catch(error){if(token!==epoch||!dialog.open)return;content.replaceChildren();status.textContent=error.message||'现实参考暂不可用，请稍后重试。';retry.hidden=false;}
+  }
+  button.addEventListener('click',open);retry.addEventListener('click',open);dialog.addEventListener('close',()=>{if(!dialog.open)epoch++;});
+  return{changed(){epoch++;if(dialog.open)dialog.close();content.replaceChildren();button.hidden=!eligible();}};
+}
 
 function formatDate(date) {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(date || '')) return date || '';
@@ -350,7 +393,7 @@ async function openChapter(id, resume = true, digest = null) {
     state.current = chapter;
     state.lastDailyId = id;
     state.current.digest = chapter.digest || state.chapters.find(item => item.id === id)?.digest;
-    questions.changed();chapterTests.changed();chapterQuality.changed();
+    questions.changed();chapterTests.changed();chapterQuality.changed();chapterSources.changed();
     nativeSpeech.setChapter(chapter.markdown||'');
     openAudioChapter(chapter);
     prepareContent(chapter.markdown, id);
@@ -437,7 +480,7 @@ async function openTemporary(id, resume = true) {
     if (request !== state.chapterRequest) return;
     if(page.testId){if(!state.current)await openChapter(page.chapterId,true,page.digest);closeDialog('temporaryDialog');history.replaceState(null,'',`/?temporary=${encodeURIComponent(id)}`);await chapterTests.preview(page);setSyncStatus('临时测试已打开 · 48 小时到期');return;}
     state.current = page;
-    questions.changed();chapterTests.changed();chapterQuality.changed();
+    questions.changed();chapterTests.changed();chapterQuality.changed();chapterSources.changed();
     nativeSpeech.setChapter(page.markdown||'');
     openAudioChapter(page);
     prepareContent(page.markdown, id);
@@ -511,6 +554,7 @@ function showLogin(status, message = '') {
   state.chapters = [];
   state.temporary = [];
   state.current = null;
+  chapterSources.changed();
   state.words = [];
   $('readingScroll').scrollTop = 0;
   $('loadingState').hidden = true;
@@ -737,6 +781,6 @@ $('chapterNav').addEventListener('touchend', event => {
   if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.5) moveChapter(dx < 0 ? 1 : -1);
   swipeStart = null;
 }, { passive: true });
-if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=43', { updateViaCache: 'none' }).catch(() => {});
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=45', { updateViaCache: 'none' }).catch(() => {});
 refreshInstallStatus();
 initialize().then(()=>{if(state.authenticated&&new URLSearchParams(location.search).has('balances'))balances.open();});

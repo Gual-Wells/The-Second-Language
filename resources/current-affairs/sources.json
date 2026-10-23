@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "checkedOn": "2026-10-23",
   "scope": "future-daily-vocabulary-and-part-three-research",
-  "runtimeIntegration": "not-connected",
+  "runtimeIntegration": "on-demand",
   "verificationMethod": "Official publishing entry points opened via web reading tools; search-only and blocked observations remain explicit. No full-corpus or local collector availability claim.",
   "regionSemantics": "Discovery hints combining institution location and coverage context, not an audited geographic distribution or independence measure.",
   "sources": [

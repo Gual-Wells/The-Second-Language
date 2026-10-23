@@ -93,7 +93,7 @@ if(mode==='backup'){
 }else if(mode==='packs'){
  const chapters=await query(mainDatabase,'SELECT chapter_id,chapter_digest AS digest,requested_at FROM chapter_audio_work');
  for(const c of chapters){
-  const response=await fetch(new URL(`/api/chapters/${encodeURIComponent(c.chapter_id)}?digest=${c.digest}`,base),{headers:{authorization:`Bearer ${token}`},signal:AbortSignal.timeout(60000)});
+  const response=await fetch(new URL(`/api/chapters/${encodeURIComponent(c.chapter_id)}?digest=${c.digest}&archive=1`,base),{headers:{authorization:`Bearer ${token}`},signal:AbortSignal.timeout(60000)});
   if(!response.ok)throw Error('音频包对应的章节原件暂不可读');const chapter=await response.json();if(digest(Buffer.from(chapter.markdown))!==c.digest)throw Error('音频包对应章节摘要不一致');const eligible=pointAudioKeys(chapter.markdown);
   const compact=await query(practiceDatabase,`SELECT lower(hex(p.generation_digest)) AS id,lower(hex(p.content_digest)) AS content_digest,lower(hex(p.record_digest)) AS record_digest FROM chapter_audio_scopes s JOIN chapter_audio_clips l ON l.scope_id=s.id JOIN pronunciation_results p ON p.id=l.result_id WHERE s.chapter_id=? AND s.chapter_digest=?`,[c.chapter_id,c.digest]);
   const legacy=await query(practiceDatabase,`SELECT p.id,p.request_json,p.audio_key FROM chapter_pronunciation l JOIN pronunciation_audio p ON p.id=l.audio_id WHERE l.chapter_id=? AND l.chapter_digest=? AND p.state='ready' AND p.audio_key IS NOT NULL`,[c.chapter_id,c.digest]);

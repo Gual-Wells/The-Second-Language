@@ -2,6 +2,7 @@ import { collectOpenRouter, collectWhisper, requestDescriptor, contractVersion, 
 import { routes,compensationPlan } from '../../protocol/speaking/routes.mjs';
 import { checkOpenRouterFunds } from '../../scripts/lib/speaking/funding.mjs';
 import {controlRequest} from './control.mjs';
+import {currentPracticeQuestionSql} from '../src/practice-scope.js';
 
 const jsonPut = (bucket, key, value) => bucket.put(key, JSON.stringify(value), { httpMetadata: { contentType: 'application/json' } });
 const digest = async bytes => [...new Uint8Array(await crypto.subtle.digest('SHA-256', bytes))].map(x=>x.toString(16).padStart(2,'0')).join('');
@@ -15,7 +16,7 @@ function base64(bytes) {
 export async function collectNext(env) {
   if (!env.PRACTICE_DB || !env.SPEAKING_ASSETS) throw new Error('口语数据存储尚未齐备');
   const db = env.PRACTICE_DB, stamp = Date.now();
-  const job = await db.prepare(`SELECT * FROM speaking_jobs WHERE status='queued' OR (status='running' AND lease_until<?) ORDER BY created_at LIMIT 1`).bind(stamp).first();
+  const job = await db.prepare(`SELECT j.* FROM speaking_jobs j WHERE ${currentPracticeQuestionSql('(SELECT scope_attempt.question_id FROM speaking_attempts scope_attempt WHERE scope_attempt.id=j.attempt_id)')} AND (j.status='queued' OR (j.status='running' AND j.lease_until<?)) ORDER BY j.created_at LIMIT 1`).bind(stamp).first();
   if (!job) return { idle: true };
   const token = crypto.randomUUID();
   const claimed = await db.prepare(`UPDATE speaking_jobs SET status='running',lease_token=?,lease_until=?,updated_at=?

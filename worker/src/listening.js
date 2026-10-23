@@ -1,4 +1,5 @@
 import {examSpec} from '../../web/exam-spec.js';
+import {currentPracticeSetSql} from './practice-scope.js';
 import {publicObjective,validateCoverage,visibleVisual} from './objective.js';
 const json=(v,s=200)=>Response.json(v,{status:s,headers:{'cache-control':'no-store'}});
 const safe=x=>typeof x==='string'&&/^[A-Za-z0-9._:-]{1,110}$/.test(x);
@@ -87,10 +88,10 @@ export async function listeningRoute(request,env,{session,sameOrigin,isPublisher
   await db.batch([db.prepare("INSERT INTO listening_attempts(id,session_id,set_id,answer_json,result_json,conditions_json,status,submitted_at) VALUES(?,?,?,?,?,?,'pending',?)").bind(b.id,row.id,row.set_id,JSON.stringify(b.answers),JSON.stringify(result),JSON.stringify(conditions),conditions.submittedAt),db.prepare('UPDATE listening_sessions SET submitted_at=?,updated_at=? WHERE id=?').bind(conditions.submittedAt,conditions.submittedAt,row.id)]);return json({id:b.id,result,conditions});
  }
  if(path==='/api/practice/publisher/listening/next'&&request.method==='GET'){
-  if(!isPublisher)return json({error:'发布身份无效'},401);const r=await db.prepare("SELECT id FROM listening_attempts WHERE status='pending' OR (status='reviewing' AND claim_at<?) ORDER BY submitted_at LIMIT 1").bind(Date.now()-7200000).first();return json({attemptId:r?.id||null});
+  if(!isPublisher)return json({error:'发布身份无效'},401);const r=await db.prepare(`SELECT a.id FROM listening_attempts a WHERE ${currentPracticeSetSql('a.set_id')} AND (a.status='pending' OR (a.status='reviewing' AND a.claim_at<?)) ORDER BY a.submitted_at LIMIT 1`).bind(Date.now()-7200000).first();return json({attemptId:r?.id||null});
  }
  if(path==='/api/practice/publisher/listening/claim'&&request.method==='POST'){
-  if(!isPublisher)return json({error:'发布身份无效'},401);const row=await db.prepare("SELECT * FROM listening_attempts WHERE status='pending' OR (status='reviewing' AND claim_at<?) ORDER BY submitted_at LIMIT 1").bind(Date.now()-7200000).first();if(!row)return json({attempt:null});
+  if(!isPublisher)return json({error:'发布身份无效'},401);const row=await db.prepare(`SELECT a.* FROM listening_attempts a WHERE ${currentPracticeSetSql('a.set_id')} AND (a.status='pending' OR (a.status='reviewing' AND a.claim_at<?)) ORDER BY a.submitted_at LIMIT 1`).bind(Date.now()-7200000).first();if(!row)return json({attempt:null});
   const token=crypto.randomUUID(),changed=await db.prepare("UPDATE listening_attempts SET status='reviewing',claim_token=?,claim_at=? WHERE id=? AND (status='pending' OR (status='reviewing' AND claim_at<?))").bind(token,Date.now(),row.id,Date.now()-7200000).run();if(!changed.meta.changes)return json({attempt:null});
   const sources=await db.prepare('SELECT r.source_json,r.focus_chapter_id FROM practice_requests r JOIN practice_sets s ON s.request_id=r.id WHERE s.id=?').bind(row.set_id).first();
   return json({claimToken:token,attempt:{id:row.id,setId:row.set_id,answers:JSON.parse(row.answer_json),result:JSON.parse(row.result_json),conditions:JSON.parse(row.conditions_json),passages:await load(row.set_id),sources:JSON.parse(sources.source_json),focusChapterId:sources.focus_chapter_id}});

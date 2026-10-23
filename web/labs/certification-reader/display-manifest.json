@@ -28,8 +28,8 @@
     },
     {
       "url": "/app.js",
-      "bytes": 45985,
-      "sha256": "0f604d1954bd0036b3be4fd47a24873b75283e1eb430640735cddff14340e8ce"
+      "bytes": 51143,
+      "sha256": "8d5285a2ca7dbc87cf0efcb4ae9bc8d55538dcc5bfad118114e28bb6004d47a2"
     },
     {
       "url": "/audio-config.js",
@@ -99,7 +99,7 @@
     {
       "url": "/index.html",
       "bytes": 31677,
-      "sha256": "e38d3b5978b6df0d0463d2bfa33db87a86c497662875d2fc6538587d8df973e1"
+      "sha256": "cb8445c5988b3877109b17488f1741bf5b648aa455995ba761045fc685a840cf"
     },
     {
       "url": "/labs/certification-reader/AUDIO_CREDITS.md",
@@ -458,8 +458,8 @@
     },
     {
       "url": "/styles.css",
-      "bytes": 61993,
-      "sha256": "4256764216853ea9f952fc061f8bac96f7aaabbe068b8fe8142f4cd515ef6ea1"
+      "bytes": 63006,
+      "sha256": "c637476ddc1d363f64eabfd9ba62a6c1d2de12f60ce386d0e672270493f99cdd"
     },
     {
       "url": "/text.js",
@@ -467,5 +467,5 @@
       "sha256": "8c4f3c17e6d1f45f32bb892307cff4a4a5a08d3af76c0a1e67b355ddf7d419b8"
     }
   ],
-  "bytes": 50612537
+  "bytes": 50618708
 }

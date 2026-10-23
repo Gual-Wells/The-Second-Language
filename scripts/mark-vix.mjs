@@ -1,4 +1,4 @@
-import { readFile, writeFile } from 'node:fs/promises';
+import { readFile, realpath, writeFile } from 'node:fs/promises';
 import { spawnSync } from 'node:child_process';
 import path from 'node:path';
 import { loadVixIndex, familyRecords } from './lib/vix-index.mjs';
@@ -7,6 +7,7 @@ import { validateVixDate } from './lib/vix-date.mjs';
 const args = Object.fromEntries(process.argv.slice(2).map(item => item.replace(/^--/, '').split(/=(.*)/s).slice(0, 2)));
 if (!args.vix || !args.selection) throw new Error('用法: node scripts/mark-vix.mjs --vix=<VIX目录> --selection=<selection.json>');
 const vixDir = path.resolve(args.vix), selection = JSON.parse(await readFile(args.selection, 'utf8'));
+if ([vixDir,await realpath(vixDir)].some(value=>/[\\/]\.cache[\\/]vix[\\/][a-f0-9]{40}$/i.test(value))) throw new Error(`不能在不可变VIX原输入快照中写标注。先运行 node scripts/prepare-vix-marking.mjs ${selection.studyDate}，再把 --vix 指向 work/runs/${selection.studyDate}/vix-marking；publish-vix 也使用同一工作副本。`);
 const label = validateVixDate(selection);
 const index = await loadVixIndex(vixDir);
 const chosen = familyRecords(selection), unique = new Map();

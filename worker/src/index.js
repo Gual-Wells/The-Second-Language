@@ -6,7 +6,6 @@ import { validateAnnotatedContent, validateTeachingLayout } from '../../web/anno
 import { practiceRoute } from './practice.js';
 import {balanceRoute} from './balances.js';
 import {chapterQualityRoute} from './chapter-quality.js';
-import {firstPartUpgradeRoute} from './chapter-upgrade.js';
 import {chapterNumber,numberForDate} from './chapter-number.js';
 import {assertTeachingText} from '../../protocol/teaching-text.mjs';
 import {questionsRoute} from './questions.js';
@@ -18,6 +17,7 @@ import {expireTemporaryTests,deleteTemporaryTest} from './temporary-test-store.j
 import {certificationLabRoute} from './certification-lab.js';
 import {storageRoute,permanentBucket,chapterText,storageRequestEnvironment} from './storage.js';
 import {audioConfigRoute} from './audio-config.js';
+import {CURRENT_AFFAIRS_POLICY,prepareChapterSources,readChapterSources} from './current-affairs.js';
 
 const encoder = new TextEncoder();
 const MAX_BODY = 5_000_000;
@@ -74,7 +74,7 @@ function subscriptionValid(value) {
 async function route(request, env) {
   const url = new URL(request.url), path = url.pathname;
   if (path === '/health') return json({ ok: true });
-  if(path==='/api/publish/upgrade-first-part'||path==='/api/publish/correct-chapter')return firstPartUpgradeRoute(request,env,publisher(request,env));
+  if(path==='/api/publish/upgrade-first-part'||path==='/api/publish/correct-chapter')return publisher(request,env)?json({error:'旧章升级通路已封存；新章修订须携带来源包走正式发布流程'},410):json({error:'发布身份无效'},401);
   if (path.startsWith('/auth/')) return authRoute(request, env, request.method === 'POST' ? await inputJson(request) : {});
   if(path.startsWith('/api/balances'))return balanceRoute(request,env,{isPublisher:publisher(request,env),session:await sessionFor(request,env),sameOrigin:sameOrigin(request,env)});
   if(path==='/api/chapter-quality'||path.startsWith('/api/chapter-quality/'))return chapterQualityRoute(request,env,{isPublisher:publisher(request,env),session:await sessionFor(request,env),sameOrigin:sameOrigin(request,env)});
@@ -95,8 +95,9 @@ async function route(request, env) {
     if (!publisher(request, env)) return json({ error: '发布身份无效' }, 401);
     const settings = await env.DB.prepare('SELECT * FROM study_settings WHERE id=1').first();
     const { results } = await env.DB.prepare(`SELECT p.chapter_id,p.completed,p.difficulty,p.note,p.updated_at,c.study_date
-      FROM reading_progress p LEFT JOIN published_chapters c ON c.chapter_id=p.chapter_id
-      ORDER BY p.updated_at DESC LIMIT 100`).all();
+      FROM reading_progress p JOIN published_chapters c ON c.chapter_id=p.chapter_id
+      JOIN chapter_sources s ON s.digest=c.digest AND s.policy=?
+      ORDER BY p.updated_at DESC LIMIT 100`).bind(CURRENT_AFFAIRS_POLICY).all();
     return json({ ...settingsView(settings), recentProgress: results });
   }
 
@@ -148,20 +149,38 @@ async function route(request, env) {
       typeof value.title !== 'string' || !value.title.trim() || value.title.length > 180 ||
       typeof value.subtitle !== 'string' || value.subtitle.length > 300 ||
       typeof value.number !== 'string' || value.number.length > 80 ||
-      !/^[0-9a-f]{40}$/.test(value.vixCommit || '') || !/^[0-9a-f]{40}$/.test(value.protocolCommit || '')) return json({ error: '章节元数据或结构无效' }, 400);
+      value.contentPolicy!=='etymology-fused-v1' || !/^[0-9a-f]{40}$/.test(value.vixCommit || '') || !/^[0-9a-f]{40}$/.test(value.protocolCommit || '')) return json({ error: '章节元数据或结构无效' }, 400);
     try { const parsed=validateTeachingLayout(value.markdown, value.contentPolicy);if(value.contentPolicy==='etymology-fused-v1')assertTeachingText(parsed); }
     catch (error) { return json({ error: `章节编码与逐句译文无效：${error.message}` }, 400); }
     const runClaim = await env.DB.prepare('SELECT rest_requested FROM run_claims WHERE run_id=? AND study_date=?').bind(value.runId, value.date).first();
     if (!runClaim || runClaim.rest_requested) return json({ error: '本日未领取运行或已选择休息' }, 409);
-    const number=await numberForDate(env.DB,value.date);
     const digest = await sha256(value.markdown), key = `chapters/${value.date}/${digest}.md`;
-    if(env.ONEDRIVE_ENABLED==='true')await permanentBucket(env).put(key,value.markdown,{httpMetadata:{contentType:'text/markdown; charset=utf-8'}});
-    await env.CHAPTERS.put(key, value.markdown,env.ONEDRIVE_ENABLED==='true'?{expirationTtl:30*86400}:{});
-    await env.DB.prepare(`INSERT OR IGNORE INTO chapter_revisions
+    let sources;try{sources=await prepareChapterSources(value,digest);}catch(error){return json({error:`来源包无效：${error.message}`},400);}
+    const archived=await env.DB.prepare(`SELECT 1 FROM chapter_revisions r WHERE r.chapter_id=?
+      AND NOT EXISTS(SELECT 1 FROM chapter_sources s WHERE s.digest=r.digest AND s.policy=?) LIMIT 1`).bind(value.id,CURRENT_AFFAIRS_POLICY).first();
+    if(archived)return json({error:'旧章已封存，不能回填来源或改作新正式章节'},409);
+    const prior=await env.DB.prepare(`SELECT r.chapter_id,r.run_id,r.number,s.source_digest FROM chapter_revisions r LEFT JOIN chapter_sources s ON s.digest=r.digest WHERE r.digest=?`).bind(digest).first();
+    if(prior&&(prior.chapter_id!==value.id||prior.run_id!==value.runId||prior.source_digest!==sources.digest))return json({error:'正文版本与已冻结的来源或运行身份冲突'},409);
+    const run=await env.DB.prepare('SELECT selection_digest FROM daily_runs WHERE run_id=?').bind(value.runId).first();
+    if(run?.selection_digest&&run.selection_digest!==value.sourcePackage.selectionDigest)return json({error:'来源包与最终选词摘要不一致'},409);
+    if(env.ONEDRIVE_ENABLED!=='true')return json({error:'新章及来源包必须先完成永久封存'},503);
+    const number=prior?.number||await numberForDate(env.DB,value.date),bucket=permanentBucket(env);
+    try{
+      const saved=await bucket.put(sources.key,sources.text,{httpMetadata:{contentType:'application/json; charset=utf-8'}});
+      if(saved.digest!==sources.digest)throw Error('来源包上传摘要不一致');
+      await bucket.put(key,value.markdown,{httpMetadata:{contentType:'text/markdown; charset=utf-8'}});
+    }catch{return json({error:'章节或来源包永久封存未完成，请保留本次产物后重试'},503);}
+    await env.CHAPTERS.put(key,value.markdown,{expirationTtl:30*86400});
+    await env.DB.batch([env.DB.prepare(`INSERT OR IGNORE INTO chapter_revisions
       (digest,chapter_id,study_date,number,title,subtitle,word_count,content_key,run_id,vix_commit,protocol_commit,created_at)
       VALUES (?,?,?,?,?,?,?,?,?,?,?,?)`)
-      .bind(digest, value.id, value.date, number, value.title, value.subtitle, 40, key, value.runId, value.vixCommit, value.protocolCommit, Date.now()).run();
-    return json({ ok: true, digest, chapterId: value.id, number });
+      .bind(digest,value.id,value.date,number,value.title,value.subtitle,40,key,value.runId,value.vixCommit,value.protocolCommit,Date.now()),
+      env.DB.prepare(`INSERT OR IGNORE INTO chapter_sources(digest,source_digest,source_key,policy,created_at)
+       SELECT ?,?,?,?,? WHERE EXISTS(SELECT 1 FROM chapter_revisions WHERE digest=? AND chapter_id=? AND run_id=?)`)
+      .bind(digest,sources.digest,sources.key,sources.policy,Date.now(),digest,value.id,value.runId)]);
+    const binding=await env.DB.prepare('SELECT source_digest,source_key,policy FROM chapter_sources WHERE digest=?').bind(digest).first();
+    if(binding?.source_digest!==sources.digest||binding.source_key!==sources.key||binding.policy!==sources.policy)return json({error:'正文版本的来源绑定已存在且不能替换'},409);
+    return json({ok:true,digest,chapterId:value.id,number,sourcePolicy:sources.policy,sourceDigest:sources.digest});
   }
   if (path === '/api/publish/commit' && request.method === 'POST') {
     if (!publisher(request, env)) return json({ error: '发布身份无效' }, 401);
@@ -169,6 +188,9 @@ async function route(request, env) {
     if (!safeId(value.runId) || !/^[0-9a-f]{64}$/.test(value.digest || '')) return json({ error: '发布参数无效' }, 400);
     const revision = await env.DB.prepare('SELECT * FROM chapter_revisions WHERE digest=? AND run_id=?').bind(value.digest, value.runId).first();
     if (!revision) return json({ error: '暂存章节不存在' }, 404);
+    const binding=await env.DB.prepare('SELECT * FROM chapter_sources WHERE digest=? AND policy=?').bind(revision.digest,CURRENT_AFFAIRS_POLICY).first();
+    if(!binding)return json({error:'章节未完成新流程来源封存，不能加入正式目录'},409);
+    try{await readChapterSources(env,{...binding,chapter_id:revision.chapter_id,study_date:revision.study_date});}catch{return json({error:'来源包原件暂不可核对，尚未发布'},503);}
     const upgraded=await env.DB.prepare('SELECT 1 FROM chapter_first_part_upgrades WHERE chapter_id=? LIMIT 1').bind(revision.chapter_id).first();
     if(upgraded){const current=await env.DB.prepare('SELECT digest FROM published_chapters WHERE chapter_id=?').bind(revision.chapter_id).first();return current?.digest===revision.digest?json({ok:true,id:revision.chapter_id,digest:revision.digest,reused:true}):json({error:'此章已有第一部分升级，旧日课请求不能覆盖'},409);}
     const now = Date.now();
@@ -195,7 +217,7 @@ async function route(request, env) {
     ]);
     const current=await env.DB.prepare('SELECT digest FROM published_chapters WHERE chapter_id=?').bind(revision.chapter_id).first();
     if(current?.digest!==revision.digest)return json({error:'已有较新章节版本，旧发布请求不能覆盖当前版本'},409);
-    return json({ ok: true, id: revision.chapter_id, digest: revision.digest });
+    return json({ok:true,id:revision.chapter_id,digest:revision.digest,sourcePolicy:binding.policy,sourceDigest:binding.source_digest});
   }
 
   if (path === '/api/temporary' && request.method === 'POST') {
@@ -249,24 +271,41 @@ async function route(request, env) {
   const session = await sessionFor(request, env);
   if (!session && !publisher(request, env)) return json({ error: '请先登录' }, 401);
   if (path === '/api/chapters' && request.method === 'GET') {
-    const { results } = await env.DB.prepare(`SELECT p.chapter_id AS id,p.study_date AS date,r.number,r.title,r.subtitle,r.word_count AS wordCount,p.digest
+    const archive=url.searchParams.get('archive')==='1';if(archive&&!publisher(request,env))return json({error:'封存读取仅供发布身份'},403);
+    const { results } = await env.DB.prepare(`SELECT p.chapter_id AS id,p.study_date AS date,r.number,r.title,r.subtitle,r.word_count AS wordCount,p.digest,s.policy AS sourcePolicy,s.source_digest AS sourceDigest
       FROM published_chapters p JOIN chapter_revisions r ON r.digest=p.digest
-      ORDER BY p.study_date DESC`).all();
-    return json({ chapters: results.map((chapter,index)=>({...chapter,number:chapterNumber(results.length-index)})) });
+      ${archive?'LEFT JOIN':'JOIN'} chapter_sources s ON s.digest=p.digest AND s.policy=?
+      ORDER BY p.study_date DESC`).bind(CURRENT_AFFAIRS_POLICY).all();
+    return json({chapters:archive?results.map(chapter=>({...chapter,archived:chapter.sourcePolicy!==CURRENT_AFFAIRS_POLICY})):results.map((chapter,index)=>({...chapter,number:chapterNumber(results.length-index),sourcePolicy:CURRENT_AFFAIRS_POLICY}))});
+  }
+  const sourcePath=path.match(/^\/api\/chapters\/([^/]+)\/sources$/);
+  if(sourcePath&&request.method==='GET'){
+    const id=decodeURIComponent(sourcePath[1]),version=url.searchParams.get('digest'),archive=url.searchParams.get('archive')==='1';
+    if(!safeId(id)||version&&!/^[a-f0-9]{64}$/.test(version))return json({error:'章节来源身份无效'},400);
+    if(archive&&!publisher(request,env))return json({error:'封存读取仅供发布身份'},403);
+    const row=await env.DB.prepare(`SELECT r.chapter_id,r.study_date,r.digest,s.source_digest,s.source_key,s.policy FROM chapter_revisions r
+      JOIN chapter_sources s ON s.digest=r.digest AND s.policy=?
+      ${archive?'LEFT JOIN':'JOIN'} published_chapters p ON p.chapter_id=r.chapter_id${archive?'':' AND p.digest=r.digest'}
+      WHERE r.chapter_id=? AND r.digest=COALESCE(?,p.digest)`).bind(CURRENT_AFFAIRS_POLICY,id,version).first();
+    if(!row)return json({error:'正式章节来源不存在'},404);
+    try{return json(await readChapterSources(env,row));}catch{return json({error:'来源包原件暂不可核对'},503);}
   }
   if (path.startsWith('/api/chapters/') && request.method === 'GET') {
     const id = decodeURIComponent(path.slice('/api/chapters/'.length));
     if (!safeId(id)) return json({ error: '章节编号无效' }, 400);
     const version = url.searchParams.get('digest');
     if (version && !/^[0-9a-f]{64}$/.test(version)) return json({ error: '章节版本无效' }, 400);
-    const row = await env.DB.prepare(`SELECT p.chapter_id AS id,p.study_date AS date,r.number,r.title,r.subtitle,r.word_count AS wordCount,r.content_key,r.digest,
-      CASE WHEN r.digest!=p.digest THEN 1 ELSE 0 END AS historical
-      FROM published_chapters p JOIN chapter_revisions r ON r.chapter_id=p.chapter_id AND r.digest=COALESCE(?,p.digest) WHERE p.chapter_id=?`).bind(version,id).first();
+    const archive=url.searchParams.get('archive')==='1';if(archive&&!publisher(request,env))return json({error:'封存读取仅供发布身份'},403);
+    const row = await env.DB.prepare(`SELECT r.chapter_id AS id,r.study_date AS date,r.number,r.title,r.subtitle,r.word_count AS wordCount,r.content_key,r.digest,
+      CASE WHEN r.digest!=p.digest THEN 1 ELSE 0 END AS historical,s.policy AS sourcePolicy,s.source_digest AS sourceDigest
+      FROM chapter_revisions r ${archive?'LEFT JOIN':'JOIN'} published_chapters p ON p.chapter_id=r.chapter_id${archive?'':' AND p.digest=r.digest'}
+      ${archive?'LEFT JOIN':'JOIN'} chapter_sources s ON s.digest=r.digest AND s.policy=?
+      WHERE r.chapter_id=? AND r.digest=COALESCE(?,p.digest)`).bind(CURRENT_AFFAIRS_POLICY,id,version).first();
     if (!row) return json({ error: '章节尚未发布' }, 404);
     const markdown = env.ONEDRIVE_ENABLED==='true'?await chapterText(env,row.content_key):await env.CHAPTERS.get(row.content_key);
     if (markdown === null) return json({ error: '章节正文暂不可用' }, 503);
     const { content_key, ...meta } = row;
-    return json({ ...meta, number:await numberForDate(env.DB,row.date), markdown });
+    return json({...meta,number:archive&&row.sourcePolicy!==CURRENT_AFFAIRS_POLICY?row.number:await numberForDate(env.DB,row.date),...(archive?{archived:row.sourcePolicy!==CURRENT_AFFAIRS_POLICY}:{}),markdown});
   }
   if (path === '/api/settings' && request.method === 'GET') {
     const row = await env.DB.prepare('SELECT * FROM study_settings WHERE id=1').first();
@@ -322,7 +361,7 @@ async function route(request, env) {
       if (!sameOrigin(request, env)) return json({ error: '来源不允许' }, 403);
       const value = await inputJson(request);
       if (typeof value.completed !== 'boolean' || ![null,'easy','right','hard'].includes(value.difficulty ?? null) || typeof value.note !== 'string' || value.note.length > 2000) return json({ error: '学习反馈无效' }, 400);
-      const exists = await env.DB.prepare('SELECT 1 FROM published_chapters WHERE chapter_id=?').bind(id).first();
+      const exists = await env.DB.prepare('SELECT 1 FROM published_chapters p JOIN chapter_sources s ON s.digest=p.digest AND s.policy=? WHERE p.chapter_id=?').bind(CURRENT_AFFAIRS_POLICY,id).first();
       if (!exists) return json({ error: '章节尚未发布' }, 404);
       const stamp = new Date().toISOString();
       await env.DB.prepare(`INSERT INTO reading_progress (chapter_id,completed,difficulty,note,updated_at) VALUES (?,?,?,?,?)
@@ -377,6 +416,7 @@ async function sendDue(env) {
     FROM push_outbox o JOIN published_chapters p ON p.chapter_id=o.chapter_id AND p.digest=o.digest
     JOIN push_subscriptions s ON s.id=o.subscription_id
     JOIN chapter_revisions r ON r.digest=o.digest
+     JOIN chapter_sources source ON source.digest=o.digest AND source.policy='current-affairs-v1'
     WHERE o.sent_at IS NULL AND o.attempts<4 AND p.published_at<=? AND (o.claim_at IS NULL OR o.claim_at<?)
     ORDER BY r.study_date LIMIT 20`).bind(now - 120000, now - 120000).all();
   for (const row of results) {

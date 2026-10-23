@@ -15,7 +15,7 @@ const allowed = {
 const urlKey = value => { const u = new URL(value); u.hash = ''; u.hostname = u.hostname.replace(/^www\./, ''); return u.href.replace(/\/$/, ''); };
 function validate() {
   const errors = [];
-  if (pool.schemaVersion !== 1 || pool.runtimeIntegration !== 'not-connected') errors.push('Unexpected registry schema or integration state');
+  if (pool.schemaVersion !== 1 || !['not-connected','on-demand'].includes(pool.runtimeIntegration)) errors.push('Unexpected registry schema or integration state');
   if (discovery.schemaVersion !== 1 || discovery.runtimeIntegration !== 'not-connected') errors.push('Unexpected discovery catalogue schema or integration state');
   const ids = new Set(), entries = new Set();
   if (!Array.isArray(pool.sources) || !pool.sources.length) throw new Error('Missing sources');
