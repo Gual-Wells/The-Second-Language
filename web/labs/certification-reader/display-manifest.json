@@ -98,8 +98,8 @@
     },
     {
       "url": "/index.html",
-      "bytes": 31631,
-      "sha256": "ecfd4c228c8669547b876bf2add8148e15b683ab980098505482e9cf6e1510da"
+      "bytes": 31677,
+      "sha256": "e38d3b5978b6df0d0463d2bfa33db87a86c497662875d2fc6538587d8df973e1"
     },
     {
       "url": "/labs/certification-reader/AUDIO_CREDITS.md",
@@ -458,8 +458,8 @@
     },
     {
       "url": "/styles.css",
-      "bytes": 62046,
-      "sha256": "e4dc80a5a81688d11a74030e6c5ded671e9225dde79bd175c626b663e57ee3cf"
+      "bytes": 61993,
+      "sha256": "4256764216853ea9f952fc061f8bac96f7aaabbe068b8fe8142f4cd515ef6ea1"
     },
     {
       "url": "/text.js",
@@ -467,5 +467,5 @@
       "sha256": "8c4f3c17e6d1f45f32bb892307cff4a4a5a08d3af76c0a1e67b355ddf7d419b8"
     }
   ],
-  "bytes": 50612544
+  "bytes": 50612537
 }
