@@ -1,0 +1,321 @@
+{
+  "schema": "second-language.vocabulary-planning-research.v1",
+  "checkedAt": "2026-10-23T07:23:20.439Z",
+  "projectSourceSHA": "bf39fc443b059a39508d013f27ac74cd9fe09fe6",
+  "vix": {
+    "repository": "Gual-Wells/IELTS-Vocabulary-Index-List",
+    "branch": "main",
+    "commit": "644bb8de99184c2ef85dace23f0a2f0240febbcb",
+    "counts": {
+      "collections": 13,
+      "records": 15644,
+      "marked": 924,
+      "unmarked": 14720,
+      "dateFiles": 15
+    }
+  },
+  "poolDistribution": [
+    {
+      "collection": "A1",
+      "pool": 1072,
+      "marked": 15,
+      "unmarked": 1057,
+      "publishedMain": 9,
+      "publishedSelectionUnion": 10
+    },
+    {
+      "collection": "A2",
+      "pool": 1230,
+      "marked": 44,
+      "unmarked": 1186,
+      "publishedMain": 18,
+      "publishedSelectionUnion": 23
+    },
+    {
+      "collection": "B1",
+      "pool": 2124,
+      "marked": 226,
+      "unmarked": 1898,
+      "publishedMain": 141,
+      "publishedSelectionUnion": 174
+    },
+    {
+      "collection": "B2",
+      "pool": 2462,
+      "marked": 222,
+      "unmarked": 2240,
+      "publishedMain": 107,
+      "publishedSelectionUnion": 176
+    },
+    {
+      "collection": "C1",
+      "pool": 893,
+      "marked": 69,
+      "unmarked": 824,
+      "publishedMain": 30,
+      "publishedSelectionUnion": 63
+    },
+    {
+      "collection": "C2",
+      "pool": 846,
+      "marked": 35,
+      "unmarked": 811,
+      "publishedMain": 2,
+      "publishedSelectionUnion": 28
+    },
+    {
+      "collection": "NAWL",
+      "pool": 388,
+      "marked": 41,
+      "unmarked": 347,
+      "publishedMain": 25,
+      "publishedSelectionUnion": 33
+    },
+    {
+      "collection": "COCA 5000",
+      "pool": 342,
+      "marked": 20,
+      "unmarked": 322,
+      "publishedMain": 12,
+      "publishedSelectionUnion": 17
+    },
+    {
+      "collection": "COCA 10000",
+      "pool": 2097,
+      "marked": 115,
+      "unmarked": 1982,
+      "publishedMain": 69,
+      "publishedSelectionUnion": 98
+    },
+    {
+      "collection": "CET 4",
+      "pool": 149,
+      "marked": 1,
+      "unmarked": 148,
+      "publishedMain": 0,
+      "publishedSelectionUnion": 1
+    },
+    {
+      "collection": "CET 6",
+      "pool": 229,
+      "marked": 11,
+      "unmarked": 218,
+      "publishedMain": 6,
+      "publishedSelectionUnion": 8
+    },
+    {
+      "collection": "TEM 4",
+      "pool": 762,
+      "marked": 32,
+      "unmarked": 730,
+      "publishedMain": 22,
+      "publishedSelectionUnion": 31
+    },
+    {
+      "collection": "TEM 8",
+      "pool": 3050,
+      "marked": 93,
+      "unmarked": 2957,
+      "publishedMain": 39,
+      "publishedSelectionUnion": 82
+    }
+  ],
+  "formalSelection": {
+    "dates": [
+      "2026-10-02",
+      "2026-10-06",
+      "2026-10-09",
+      "2026-10-11",
+      "2026-10-12",
+      "2026-10-13",
+      "2026-10-14",
+      "2026-10-18",
+      "2026-10-19",
+      "2026-10-20",
+      "2026-10-22",
+      "2026-10-23"
+    ],
+    "mainUnique": 480,
+    "familyUnique": 275,
+    "crossRoleOverlap": 11,
+    "union": 744,
+    "onlyUnpublished": 180,
+    "scope": "Current formal dates linked to selection identity sets, not a precise count of vocabulary actually taught in current revised chapter bodies or of personal mastery."
+  },
+  "chapters": [
+    {
+      "id": "2026-10-02",
+      "number": "第 1 章",
+      "title": "地图上的那条线",
+      "digest": "3c085020398f255ba980668375a14ca972e1b59c4df205dbe275f5be52d3a8c5",
+      "mainCount": 40,
+      "usageUnits": 76,
+      "part2ExampleUnits": 87,
+      "part2EnglishWords": 846,
+      "part3SentenceUnits": 56,
+      "part3EnglishWords": 1172,
+      "part3MeanUseAssignments": 1.43
+    },
+    {
+      "id": "2026-10-06",
+      "number": "第 2 章",
+      "title": "河流的账本",
+      "digest": "0b44717f3ba7f7b9673b14145d0e1b3835ac137e15519ba71ec8b6a54784f819",
+      "mainCount": 40,
+      "usageUnits": 196,
+      "part2ExampleUnits": 294,
+      "part2EnglishWords": 3015,
+      "part3SentenceUnits": 146,
+      "part3EnglishWords": 3012,
+      "part3MeanUseAssignments": 1.47
+    },
+    {
+      "id": "2026-10-09",
+      "number": "第 3 章",
+      "title": "水回来的地方",
+      "digest": "e98d95338281c661bb6869916d4cb7837c3f547b03e83d7a6087dbe8c95987dc",
+      "mainCount": 40,
+      "usageUnits": 148,
+      "part2ExampleUnits": 182,
+      "part2EnglishWords": 1879,
+      "part3SentenceUnits": 147,
+      "part3EnglishWords": 2617,
+      "part3MeanUseAssignments": 1.05
+    },
+    {
+      "id": "2026-10-11",
+      "number": "第 4 章",
+      "title": "把声音还给这座城",
+      "digest": "6cff62b5055ac9e0598c86f14b47dea66f2abedf8babd654b108ded665689196",
+      "mainCount": 40,
+      "usageUnits": 198,
+      "part2ExampleUnits": 239,
+      "part2EnglishWords": 2359,
+      "part3SentenceUnits": 164,
+      "part3EnglishWords": 2455,
+      "part3MeanUseAssignments": 1.22
+    },
+    {
+      "id": "2026-10-12",
+      "number": "第 5 章",
+      "title": "河谷里未说完的话",
+      "digest": "db80991a465bf6d66ac629e47ae08090b1fec7bb321dc88042d76355d7c335c1",
+      "mainCount": 40,
+      "usageUnits": 179,
+      "part2ExampleUnits": 209,
+      "part2EnglishWords": 2011,
+      "part3SentenceUnits": 81,
+      "part3EnglishWords": 1837,
+      "part3MeanUseAssignments": 2.26
+    },
+    {
+      "id": "2026-10-13",
+      "number": "第 6 章",
+      "title": "把夜空还给小镇",
+      "digest": "fd025b01b8a9a287608380ba81d3622f33f2ee948c46b516cc2c098eb7bb466f",
+      "mainCount": 40,
+      "usageUnits": 277,
+      "part2ExampleUnits": 341,
+      "part2EnglishWords": 3328,
+      "part3SentenceUnits": 210,
+      "part3EnglishWords": 3581,
+      "part3MeanUseAssignments": 1.5
+    },
+    {
+      "id": "2026-10-14",
+      "number": "第 7 章",
+      "title": "河边大厅重开之前",
+      "digest": "8301e79bdfb1204c5b90bfd1eb0e4a2d60a148ff3e93feac84c383aff5bb8e22",
+      "mainCount": 40,
+      "usageUnits": 486,
+      "part2ExampleUnits": 731,
+      "part2EnglishWords": 7443,
+      "part3SentenceUnits": 253,
+      "part3EnglishWords": 5622,
+      "part3MeanUseAssignments": 1.94
+    },
+    {
+      "id": "2026-10-18",
+      "number": "第 8 章",
+      "title": "潮汐边缘的档案",
+      "digest": "b3d9a9987471597116019d3ab2c99113d5dfc462def6fbfb9eee9f9adebeefef",
+      "mainCount": 40,
+      "usageUnits": 265,
+      "part2ExampleUnits": 322,
+      "part2EnglishWords": 3258,
+      "part3SentenceUnits": 135,
+      "part3EnglishWords": 2863,
+      "part3MeanUseAssignments": 1.96
+    },
+    {
+      "id": "2026-10-19",
+      "number": "第 9 章",
+      "title": "雪线以内",
+      "digest": "4d2582225a1fdf9c9dcbe034c6ece4810c1a59231d22a9b4adc1ebb5f5bcb076",
+      "mainCount": 40,
+      "usageUnits": 377,
+      "part2ExampleUnits": 553,
+      "part2EnglishWords": 4662,
+      "part3SentenceUnits": 293,
+      "part3EnglishWords": 4976,
+      "part3MeanUseAssignments": 1.29
+    },
+    {
+      "id": "2026-10-20",
+      "number": "第 10 章",
+      "title": "最后一场之后",
+      "digest": "4b6ca9ae2a9db46d6f15127dd824a556fd16927962c5d11dccf63f25941fd368",
+      "mainCount": 40,
+      "usageUnits": 333,
+      "part2ExampleUnits": 416,
+      "part2EnglishWords": 3364,
+      "part3SentenceUnits": 179,
+      "part3EnglishWords": 4095,
+      "part3MeanUseAssignments": 1.92
+    },
+    {
+      "id": "2026-10-22",
+      "number": "第 11 章",
+      "title": "最后一次开门",
+      "digest": "e05f85e0821a3be070cbdd66d1b7b2930f6a3ae7fcd49800a7c690737a35c314",
+      "mainCount": 40,
+      "usageUnits": 360,
+      "part2ExampleUnits": 524,
+      "part2EnglishWords": 4686,
+      "part3SentenceUnits": 163,
+      "part3EnglishWords": 3504,
+      "part3MeanUseAssignments": 2.26
+    },
+    {
+      "id": "2026-10-23",
+      "number": "第 12 章",
+      "title": "无法开出的处方",
+      "digest": "4f1e6cbaacc41b28d21a24e3018aa89a3fe4e4aa88496f561adf30c6e420830b",
+      "mainCount": 40,
+      "usageUnits": 328,
+      "part2ExampleUnits": 371,
+      "part2EnglishWords": 2694,
+      "part3SentenceUnits": 126,
+      "part3EnglishWords": 3187,
+      "part3MeanUseAssignments": 2.6
+    }
+  ],
+  "method": {
+    "chapterBytes": "Current online body SHA256 matched versioned API digest.",
+    "semanticReview": "Full reading of chapters 1,5,7,12 third part, partial other chapter inspection; not a complete dual-textbook sense review.",
+    "counts": "Approximate English word tokens and internal USE units; neither is a calibrated learner-difficulty measure.",
+    "ownerCollections": "Unique-priority ownership; original memberships overlap. globalRank is an index order, not frequency rank.",
+    "noStateWrites": true,
+    "noProductChange": true
+  },
+  "ownershipSupplementKeys": [
+    "sourceCommit",
+    "sourceFilesVerified",
+    "collectionOrder",
+    "scopeUniqueWords",
+    "scopeMemberships",
+    "multiMembershipWords",
+    "singleMembershipWords",
+    "examples"
+  ]
+}
