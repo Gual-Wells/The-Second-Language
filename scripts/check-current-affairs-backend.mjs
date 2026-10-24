@@ -65,7 +65,7 @@ async function call(path,{body,method=body===undefined?'GET':'POST',reader=false
  return{status:response.status,data:await response.json()};
 }
 async function payload(date,revision='a'){
- const markdown=fixture(revision),digest=hash(markdown),sourcePackage={schemaVersion:1,studyDate:date,chapterDigest:digest,selectionDigest:hash('isolated-selection-'+date),vixInputCommit:'a'.repeat(40),context:'This entire chapter and its source are an isolated interface fixture, not a real report or formal course.',sources:[{sourceId:'fixture-public-agency',url:'https://example.test/fixture-source',title:'Isolated source fixture',publisher:'Fixture agency',readAt:'2026-10-23T10:00:00.000Z',facts:['This self-written statement exists only to test storage identity.'],limitations:'No real-world factual claim is made.'}]};
+ const markdown=fixture(revision).replace('<!-- PART:three -->\n','<!-- PART:three -->\n<!-- ARTICLE:A01 -->\n# Isolated collection\n'),digest=hash(markdown),sourcePackage={schemaVersion:1,studyDate:date,chapterDigest:digest,selectionDigest:hash('isolated-selection-'+date),vixInputCommit:'a'.repeat(40),context:'This entire chapter and its source are an isolated interface fixture, not a real report or formal course.',articles:[{id:'A01',title:'Isolated collection',sourceUrls:['https://example.test/fixture-source']}],sources:[{sourceId:'fixture-public-agency',url:'https://example.test/fixture-source',title:'Isolated source fixture',publisher:'Fixture agency',readAt:'2026-10-23T10:00:00.000Z',facts:['This self-written statement exists only to test storage identity.'],limitations:'No real-world factual claim is made.'}]};
  return{id:date,date,runId:date,title:'Isolated new chapter fixture',subtitle:'Not a course',number:'第 999 章',wordCount:50,contentPolicy:'etymology-fused-v1',markdown,digest,vixCommit:'b'.repeat(40),protocolCommit:'c'.repeat(40),vixInputCommit:sourcePackage.vixInputCommit,sourcePolicy:CURRENT_AFFAIRS_POLICY,sourceDigest:hash(canonicalSourcePackage(sourcePackage)),sourcePackage};
 }
 const claim=date=>call('/api/runs/claim',{body:{date,runId:date}});
@@ -189,6 +189,9 @@ try{
  assert.equal((await stage({...first,vixInputCommit:'d'.repeat(40)})).status,400);
  assert.equal((await stage({...first,contentPolicy:'current-affairs-v1'})).status,400);
  const malformed=structuredClone(first);malformed.sourcePackage.sources[0].facts=[];assert.equal((await stage(malformed)).status,400);
+ const unscoped=structuredClone(first);unscoped.markdown=fixture('unscoped');unscoped.digest=hash(unscoped.markdown);unscoped.sourcePackage.chapterDigest=unscoped.digest;delete unscoped.sourcePackage.articles;unscoped.sourceDigest=hash(canonicalSourcePackage(unscoped.sourcePackage));
+ const refused=await stage(unscoped);assert.equal(refused.status,400);assert.match(refused.data.error,/ARTICLE/,'New production cannot skip the collection format');
+ const wrongArticle=structuredClone(first);wrongArticle.sourcePackage.articles[0].title='Another work';wrongArticle.sourceDigest=hash(canonicalSourcePackage(wrongArticle.sourcePackage));assert.equal((await stage(wrongArticle)).status,400,'Source attribution cannot drift to another article');
  const oldReplacement=await payload(old.id,'old-replacement');await claim(old.id);assert.equal((await stage(oldReplacement)).status,409);
  assert.equal(sql.prepare('SELECT count(*) n FROM chapter_sources').get().n,0);
  env.ONEDRIVE_ENABLED='false';assert.equal((await stage(first)).status,503);env.ONEDRIVE_ENABLED='true';

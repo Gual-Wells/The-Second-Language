@@ -40,7 +40,7 @@ export async function buildChapterSources(root, date, input) {
     sources.push(value);
   }
   const chapterDigest=hash(markdown),selectionDigest=hash(canonicalSourcePackage(selection));
-  const sourcePackage=validateSourcePackage({schemaVersion:1,studyDate:date,chapterDigest,selectionDigest,vixInputCommit:lock.commit,context:input.context,sources},{chapterDigest,studyDate:date,vixInputCommit:lock.commit});
+  const sourcePackage=validateSourcePackage({schemaVersion:1,studyDate:date,chapterDigest,selectionDigest,vixInputCommit:lock.commit,context:input.context,sources,...(input.articles?{articles:input.articles}:{})},{chapterDigest,studyDate:date,vixInputCommit:lock.commit,markdown});
   const canonical=canonicalSourcePackage(sourcePackage),sourceDigest=hash(canonical);
   await immutable(path.join(run,'sources',sourceDigest+'.json'),canonical);
   // Keep recovery receipts but do not copy third-party full text into a public chapter/Git payload.
@@ -57,7 +57,7 @@ export async function loadChapterSources(root,date,markdown,meta,words){
   if(meta.contentPolicy!=='etymology-fused-v1')throw Error('实事来源不能替换既有词源与双教材教学策略');
   const sourcePackage=await readJson(path.join(root,'chapters',date,'sources.json'));
   const chapterDigest=hash(markdown);
-  validateSourcePackage(sourcePackage,{chapterDigest,studyDate:date,vixInputCommit:meta.vixInputCommit});
+  validateSourcePackage(sourcePackage,{chapterDigest,studyDate:date,vixInputCommit:meta.vixInputCommit,markdown});
   if(meta.vixInputCommit!==sourcePackage.vixInputCommit)throw Error('选词输入commit不一致');
   const sourceDigest=hash(canonicalSourcePackage(sourcePackage));
   if(!sha(meta.sourceDigest)||meta.sourceDigest!==sourceDigest)throw Error('新章来源摘要不符；重新核对实际来源与成稿');

@@ -1,18 +1,18 @@
 import {createChapterQualityUI} from './chapter-quality.js?v=41';
-import {createReaderJump} from './reader-jump.js?v=41';
-import {installPureReader} from './pure-reader.js?v=41';
+import {createReaderJump} from './reader-jump.js?v=47';
+import {installPureReader} from './pure-reader.js?v=47';
 import {chapterNumber, createChapterBook} from './chapters.js?v=41';
 import {installSettingsNavigation} from './settings.js?v=41';
 import {createAudioConfig} from './audio-config.js?v=41';
 import {installReaderSpeech} from './reader-speech.js?v=41';
-import { parseParts, renderPart } from './render.js?v=41';
-import { validateAnnotatedContent } from './annotations.js?v=46';
+import { parseParts, renderPart } from './render.js?v=47';
+import { validateAnnotatedContent } from './annotations.js?v=47';
 import { createPracticeUI } from './practice.js?v=41';
 import {createBalanceUI} from './balances.js?v=41';
 import {createStorageUsageUI} from './storage-usage.js?v=41';
 import {createCertificationReader} from './certification-reader.js?v=43';
 import {createChapterTestsUI} from './chapter-tests.js?v=43';
-import {createQuestionsUI} from './questions.js?v=41';
+import {createQuestionsUI} from './questions.js?v=47';
 import {openAudioChapter,clearAudioLibrary,preloadEnabled,setPreload} from './audio-library.js?v=41';
 
 const $ = id => document.getElementById(id);
@@ -24,7 +24,7 @@ const LAST_PART_KEY = 'second-language-last-part-v1';
 const DISPLAY_KEY = 'second-language-article-display-v1';
 const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
 const standalone = () => matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
-const state = { chapters: [], temporary: [], current: null, lastDailyId: null, parts: {}, words: [], useLabels: new Map(), hasAnnotations: false, highlight: false, translations: false, month: TODAY.slice(0, 7), part: 'one', difficulty: null, progress: {}, demo: false, authenticated: false, authStatus: null, installPrompt: null, chapterRequest: 0 };
+const state = { chapters: [], temporary: [], current: null, lastDailyId: null, parts: {}, words: [], articles: [], useLabels: new Map(), hasAnnotations: false, highlight: false, translations: false, month: TODAY.slice(0, 7), part: 'one', difficulty: null, progress: {}, demo: false, authenticated: false, authStatus: null, installPrompt: null, chapterRequest: 0 };
 
 if (standalone()) {
   const stopZoom = event => event.preventDefault();
@@ -93,7 +93,16 @@ function createChapterSourcesUI() {
   const dateText=value=>/^\d{4}-\d{2}-\d{2}$/.test(value||'')?formatDate(value):`${new Date(value).toLocaleString('zh-CN',{timeZone:'Asia/Shanghai',hour12:false})}（北京时间）`;
   function render(sourcePackage) {
     const boundary=element('section',undefined,'chapter-source-context');boundary.append(element('h3','事实与创作边界'),element('p',sourcePackage.context));content.append(boundary);
-    for(const source of sourcePackage.sources){
+    let filter=null;
+    if(sourcePackage.articles?.length){
+      const label=element('label','篇目','field-label');filter=element('select');filter.className='text-input';filter.id='chapterSourcesArticle';label.htmlFor=filter.id;
+      const all=element('option','全部篇目');all.value='';filter.append(all);
+      for(const a of sourcePackage.articles){const option=element('option',a.title);option.value=a.id;filter.append(option);}
+      content.append(label,filter);
+    }
+    const cards=element('div');content.append(cards);
+    const renderCards=()=>{cards.replaceChildren();const article=sourcePackage.articles?.find(a=>a.id===filter?.value);
+    for(const source of sourcePackage.sources.filter(s=>!article||article.sourceUrls.includes(s.url))){
       const item=element('section',undefined,'chapter-source-item');item.append(element('p',source.publisher,'chapter-source-publisher'),element('h3',source.title));
       const dates=element('p',undefined,'chapter-source-dates');
       if(source.publishedAt){const published=element('time',`发布：${dateText(source.publishedAt)}`);published.dateTime=source.publishedAt;dates.append(published);}else dates.append(element('span','发布日期未注明'));
@@ -101,8 +110,9 @@ function createChapterSourcesUI() {
       try{const url=new URL(source.url);if(!['https:','http:'].includes(url.protocol)||url.username||url.password)throw Error();const link=element('a','打开原文 ↗','chapter-source-link');link.href=url.href;link.target='_blank';link.rel='noopener noreferrer';item.append(link);}catch{item.append(element('p','原文链接暂不可用'));}
       if(Array.isArray(source.facts)&&source.facts.length){const facts=element('ul');for(const fact of source.facts)facts.append(element('li',fact));item.append(element('h4','取材事实摘要'),facts);}
       if(source.limitations)item.append(element('p',`来源边界：${source.limitations}`,'chapter-source-limitations'));
-      content.append(item);
+      cards.append(item);
     }
+    };renderCards();filter?.addEventListener('change',renderCards);
   }
   async function open() {
     if(!eligible())return;
@@ -285,7 +295,8 @@ function renderIndex(filter = '') {
   const query = filter.trim().toLocaleLowerCase();
   const list = $('indexList');
   list.replaceChildren();
-  for (const [index, word] of state.words.entries()) {
+  const entries=state.part==='three'?state.articles:state.words;
+  for (const [index, word] of entries.entries()) {
     if (query && !word.text.toLocaleLowerCase().includes(query)) continue;
     const button = document.createElement('button');
     button.className = 'index-item';
@@ -295,10 +306,10 @@ function renderIndex(filter = '') {
     const label = document.createElement('strong');
     label.textContent = word.text;
     button.append(number, label);
-    button.addEventListener('click', () => { closeDialog('indexDialog');jumpWithin(()=>[...$('article').querySelectorAll('.word-entry')].find(e=>e.id===word.element.id)); });
+    button.addEventListener('click', () => { closeDialog('indexDialog');jumpWithin(()=>[...$('article').querySelectorAll(state.part==='three'?'.story-article':'.word-entry')].find(e=>e.id===word.element.id)); });
     list.append(button);
   }
-  if (!list.childElementCount) { const p = document.createElement('p'); p.className = 'chapter-list-empty'; p.textContent = '没有匹配的词条。'; list.append(p); }
+  if (!list.childElementCount) { const p = document.createElement('p'); p.className = 'chapter-list-empty'; p.textContent = state.part==='three'?'没有匹配的篇目。':'没有匹配的词条。'; list.append(p); }
 }
 
 function prepareContent(markdown, id) {
@@ -307,7 +318,8 @@ function prepareContent(markdown, id) {
     const annotated = validateAnnotatedContent(markdown);
     state.useLabels = new Map([...annotated.uses].map(([code, item]) => [code, item.label]));
     state.hasAnnotations = true;
-  } catch { state.useLabels = new Map(); state.hasAnnotations = false; }
+    document.querySelector('[data-part="three"] span').textContent=annotated.articles.length?'现实选读':'任意文';
+  } catch { state.useLabels = new Map(); state.hasAnnotations = false; document.querySelector('[data-part="three"] span').textContent='任意文'; }
   const display = readStored(DISPLAY_KEY)[id] || {};
   state.highlight = Boolean(display.highlight);
   state.translations = Boolean(display.translations);
@@ -363,14 +375,20 @@ function showPart(part, restore = false, rememberCurrent = true, managePosition 
     button.setAttribute('aria-selected', String(active));
   }
   state.words = renderPart(state.parts[part] || '', part, $('article'), { highlight: state.highlight, translations: state.translations, onJump: jumpTo, onSentence: openSentenceReference });
+  state.articles=[...$('article').querySelectorAll('.story-article')].map(element=>({text:element.querySelector('h1')?.textContent||'',element}));
+  const collection=part==='three'&&state.articles.length;
+  if(collection)$('partTitle').textContent='现实选读';
   $('articleTools').hidden = part === 'three' ? !state.hasAnnotations : !state.words.length;
   $('highlightButton').hidden = $('translationButton').hidden = part !== 'three';
   $('articleToolsHint').textContent = part === 'three' ? '点按标记句可回看对应用法' : '按词条定位';
   $('highlightButton').setAttribute('aria-pressed', String(state.highlight));
   $('translationButton').setAttribute('aria-pressed', String(state.translations));
-  $('wordIndexButton').hidden = !state.words.length;
+  $('wordIndexButton').hidden = !state.words.length&&!collection;
+  $('wordIndexButton').textContent=collection?'篇目':'词条索引';
   $('reflection').hidden = part !== 'three' || Boolean(state.current.kind) || Boolean(state.current.historical);
-  $('indexTitle').textContent = part === 'one' ? '词汇与用法索引' : '例句与翻译索引';
+  $('indexTitle').textContent = collection?'选读篇目':part === 'one' ? '词汇与用法索引' : '例句与翻译索引';
+  $('indexFilter').placeholder=collection?'查找篇目':'查找词条';
+  document.querySelector('label[for="indexFilter"]').textContent=collection?'查找本章篇目':'查找本章词条';
   const lastParts = readStored(LAST_PART_KEY);
   lastParts[state.current.historical ? `${state.current.id}@${state.current.digest}` : state.current.id] = part;
   writeStored(LAST_PART_KEY, lastParts);
@@ -781,6 +799,6 @@ $('chapterNav').addEventListener('touchend', event => {
   if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.5) moveChapter(dx < 0 ? 1 : -1);
   swipeStart = null;
 }, { passive: true });
-if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=45', { updateViaCache: 'none' }).catch(() => {});
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=47', { updateViaCache: 'none' }).catch(() => {});
 refreshInstallStatus();
 initialize().then(()=>{if(state.authenticated&&new URLSearchParams(location.search).has('balances'))balances.open();});

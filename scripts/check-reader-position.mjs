@@ -1,8 +1,9 @@
 import {readFile,mkdir} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import assert from 'node:assert/strict';
-const {chromium}=await import('../.cache/browser-tools/package/index.mjs');
-const folder='chapters/2026-10-09',meta=JSON.parse(await readFile(folder+'/meta.json','utf8')),markdown=await readFile(folder+'/chapter.md','utf8');
+import {createRequire} from 'node:module';
+const {chromium}=createRequire(process.execPath)('playwright');
+const folder=process.env.UI_CHAPTER_DIR||'chapters/2026-10-09',meta=JSON.parse(await readFile(folder+'/meta.json','utf8')),markdown=await readFile(folder+'/chapter.md','utf8');
 const chapter={...meta,id:meta.date,markdown,digest:createHash('sha256').update(markdown).digest('hex')},out='.cache/reader-position';await mkdir(out,{recursive:true});
 const browser=await chromium.launch({executablePath:process.env.CHROME_PATH||'C:/Users/huawei/AppData/Local/ms-playwright/chromium-1223/chrome-win64/chrome.exe',headless:true});
 const page=await browser.newPage({viewport:{width:402,height:874},isMobile:true,hasTouch:true,serviceWorkers:'block'}),errors=[];page.on('pageerror',e=>errors.push(e.message));
@@ -32,8 +33,10 @@ try{
  assert.equal(await page.locator('#wordCount,#readState,.chapter-facts').count(),0);
  assert(await page.locator('.chapter-title-row').evaluate(e=>{const t=e.querySelector('h2').getBoundingClientRect(),b=e.querySelector('button').getBoundingClientRect();return Math.abs(t.bottom-b.bottom)<4;}));
  assert(await page.locator('#wordIndexButton').evaluate(e=>e.closest('#articleTools')!==null));
- assert(await page.locator('.sense-head h2').first().evaluate(e=>e.textContent==='amphibian /æmˈfɪbiən/'&&e.dataset.heading.includes('两栖动物')));
- assert.equal(await page.locator('.sense-definition').first().innerText(),'能在水中和陆上生活的两栖动物；也可作形容词');
+ const originalHeading=/^## ([^\r\n]+)$/m.exec(markdown)[1],firstDefinition=originalHeading.replace(/\s+\/[^/]+\/$/,'').split(' · ').slice(1).join(' · '),firstGloss=/^`([^`]+)`$/m.exec(markdown.slice(markdown.indexOf('## '+originalHeading)))[1];
+ assert(await page.locator('.sense-head h2').first().evaluate((e,original)=>e.dataset.heading===original&&/\/[^/]+\/$/.test(e.textContent)&&!e.textContent.includes(' · '),originalHeading));
+ assert.equal(await page.locator('.sense-definition').first().innerText(),firstDefinition);
+ assert.equal(await page.locator('#article .mono').first().innerText(),firstGloss);
  await page.screenshot({path:out+'/title.png',scale:'css'});
  for(const [part,translations] of [['one',false],['two',false],['three',false],['three',true]]){
   await page.locator(`[data-part="${part}"]`).click();await page.waitForTimeout(40);

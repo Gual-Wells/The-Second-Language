@@ -3,6 +3,7 @@ const WORD = new RegExp(`^<!-- WORD:(${ID}) -->$`);
 const USE = new RegExp(`^<!-- USE:(${ID}) -->$`);
 const EXAMPLE = new RegExp(`^<!-- EXAMPLE:(${ID}) -->$`);
 const SENTENCE = new RegExp(`^<!-- SENTENCE:(${ID})(?: USE:(${ID}(?:,${ID})*))? -->$`);
+const ARTICLE = new RegExp(`^<!-- ARTICLE:(${ID}) -->$`);
 const mono = line => /^`[^`]+`$/.test(line);
 const linesOf = text => text.replace(/\r\n?/g, '\n').split('\n').map(line => line.trim());
 
@@ -94,10 +95,23 @@ function secondExamples(source, words, uses) {
 }
 
 export function sentenceRecords(source, knownUses = null) {
-  const sentences = [], ids = new Set(), covered = new Set();
-  let pending = null, stage = 0;
+  const sentences = [], articles = [], ids = new Set(), articleIds = new Set(), covered = new Set();
+  let pending = null, stage = 0, article = null, awaitingTitle = false;
   for (const line of linesOf(source)) {
     if (!line) continue;
+    const articleMarker = ARTICLE.exec(line);
+    if (articleMarker) {
+      if (pending || awaitingTitle || article && !article.sentenceIds.length) throw new Error('篇目边界前的标题或句子未完成');
+      if (!articles.length && sentences.length) throw new Error('使用 ARTICLE 时每句须归属明确篇目');
+      if (articleIds.has(articleMarker[1])) throw new Error(`篇目编码重复：${articleMarker[1]}`);
+      articleIds.add(articleMarker[1]);
+      article = { id: articleMarker[1], title: '', sentenceIds: [] }; articles.push(article); awaitingTitle = true; continue;
+    }
+    if (awaitingTitle) {
+      const title = /^#\s+(.+)$/.exec(line);
+      if (!title) throw new Error(`篇目 ${article.id} 须紧接一级文章标题`);
+      article.title = title[1]; awaitingTitle = false; continue;
+    }
     const marker = SENTENCE.exec(line);
     if (marker) {
       if (pending) throw new Error(`文章句子 ${pending.id} 缺少原句或译文`);
@@ -115,14 +129,16 @@ export function sentenceRecords(source, knownUses = null) {
     if (stage === 2) {
       if (!mono(line)) throw new Error(`文章句子 ${pending.id} 下一行必须是等宽译文`);
       pending.translation = line.slice(1, -1);
+      if (article) { pending.articleId = article.id; article.sentenceIds.push(pending.id); }
       sentences.push(pending);
       pending.refs.forEach(id => covered.add(id));
       pending = null; stage = 0; continue;
     }
     if (!/^#{1,3}\s+/.test(line)) throw new Error(`第三部分存在未配对的句子：${line.slice(0, 60)}`);
+    if (article && /^#\s+/.test(line)) throw new Error('新文章须先给出 ARTICLE 编码；篇内小标题使用二、三级');
   }
-  if (pending || !sentences.length) throw new Error('第三部分句子与译文未配对完成');
-  return { sentences, covered };
+  if (pending || !sentences.length || awaitingTitle || article && !article.sentenceIds.length) throw new Error('第三部分篇目、句子与译文未配对完成');
+  return { sentences, covered, articles };
 }
 
 export function validateAnnotatedContent(markdown, { expectedWordCount, maxWordCount = 200 } = {}) {
@@ -132,9 +148,9 @@ export function validateAnnotatedContent(markdown, { expectedWordCount, maxWordC
   if (words.length > maxWordCount || new Set(words.map(item => item.text)).size !== words.length) throw new Error('主词数量或唯一性无效');
   if (words.some((word, index) => index && words[index - 1].text.localeCompare(word.text, 'en') > 0)) throw new Error('主词必须按字典序排列');
   secondExamples(parts.two, words, uses);
-  const { sentences, covered } = sentenceRecords(parts.three, uses);
+  const { sentences, covered, articles } = sentenceRecords(parts.three, uses);
   for (const id of uses.keys()) if (!covered.has(id)) throw new Error(`文章未使用第一部分的用法：${id}`);
-  return { parts, words, uses, sentences };
+  return { parts, words, uses, sentences, articles };
 }
 
 // Formal production count; archived reads use validateAnnotatedContent separately.

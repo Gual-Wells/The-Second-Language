@@ -158,16 +158,18 @@ async function route(request, env) {
       typeof value.subtitle !== 'string' || value.subtitle.length > 300 ||
       typeof value.number !== 'string' || value.number.length > 80 ||
       value.contentPolicy!=='etymology-fused-v1' || !/^[0-9a-f]{40}$/.test(value.vixCommit || '') || !/^[0-9a-f]{40}$/.test(value.protocolCommit || '')) return json({ error: '章节元数据或结构无效' }, 400);
-    try { const parsed=validateTeachingLayout(value.markdown, value.contentPolicy);if(value.contentPolicy==='etymology-fused-v1')assertTeachingText(parsed); }
+    let parsed;
+    try { parsed=validateTeachingLayout(value.markdown, value.contentPolicy);if(value.contentPolicy==='etymology-fused-v1')assertTeachingText(parsed); }
     catch (error) { return json({ error: `章节编码与逐句译文无效：${error.message}` }, 400); }
     const runClaim = await effectiveRunClaim(env.DB,value.runId,value.date);
     if (!runClaim || claimIsRest(runClaim)) return json({ error: '本日未领取运行或已选择休息' }, 409);
     const digest = await sha256(value.markdown), key = `chapters/${value.date}/${digest}.md`;
-    let sources;try{sources=await prepareChapterSources(value,digest);}catch(error){return json({error:`来源包无效：${error.message}`},400);}
+    let sources;try{sources=await prepareChapterSources(value,digest,parsed.articles);}catch(error){return json({error:`来源包无效：${error.message}`},400);}
     const archived=await env.DB.prepare(`SELECT 1 FROM chapter_revisions r WHERE r.chapter_id=?
       AND NOT EXISTS(SELECT 1 FROM chapter_sources s WHERE s.digest=r.digest AND s.policy=?) LIMIT 1`).bind(value.id,CURRENT_AFFAIRS_POLICY).first();
     if(archived)return json({error:'旧章已封存，不能回填来源或改作新正式章节'},409);
     const prior=await env.DB.prepare(`SELECT r.chapter_id,r.run_id,r.number,s.source_digest FROM chapter_revisions r LEFT JOIN chapter_sources s ON s.digest=r.digest WHERE r.digest=?`).bind(digest).first();
+    if(!prior&&!parsed.articles.length)return json({error:'新制作版本须采用真实取材文章组及ARTICLE篇目标记；已有原件不回写'},400);
     if(prior&&(prior.chapter_id!==value.id||prior.run_id!==value.runId||prior.source_digest!==sources.digest))return json({error:'正文版本与已冻结的来源或运行身份冲突'},409);
     const run=await env.DB.prepare('SELECT selection_digest FROM daily_runs WHERE run_id=?').bind(value.runId).first();
     if(run?.selection_digest&&run.selection_digest!==value.sourcePackage.selectionDigest)return json({error:'来源包与最终选词摘要不一致'},409);

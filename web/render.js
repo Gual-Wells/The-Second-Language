@@ -33,21 +33,25 @@ function addExampleJump(container, id, onJump) {
 }
 
 function renderStory(source, target, options) {
-  let paragraph = null, pending = null, pair = null;
+  let paragraph = null, pending = null, pair = null, container = target;
   target.classList.toggle('highlight-sentences', Boolean(options.highlight));
   target.classList.toggle('show-translations', Boolean(options.translations));
   for (const raw of source.replace(/\r\n?/g, '\n').split('\n')) {
     const line = raw.trim();
     if (!line) { paragraph = null; continue; }
+    const article = /^<!-- ARTICLE:([A-Za-z][A-Za-z0-9_-]{0,31}) -->$/.exec(line);
+    if(article){
+      container=document.createElement('section');container.className='story-article';container.dataset.articleId=article[1];container.id='story-article-'+article[1];target.append(container);paragraph=null;continue;
+    }
     const heading = /^(#{1,3})\s+(.+)$/.exec(line);
     if (heading && !pending) {
       const element = document.createElement(`h${heading[1].length}`);
-      element.textContent = heading[2]; target.append(element); paragraph = null; continue;
+      element.textContent = heading[2]; container.append(element); paragraph = null; continue;
     }
     const marker = /^<!-- SENTENCE:([A-Za-z][A-Za-z0-9_-]{0,31})(?: USE:([A-Za-z][A-Za-z0-9_-]{0,31}(?:,[A-Za-z][A-Za-z0-9_-]{0,31})*))? -->$/.exec(line);
     if (marker) { pending = { id: marker[1], refs: marker[2] ? marker[2].split(',') : [] }; continue; }
     if (pending && !pair) {
-      if (!paragraph) { paragraph = document.createElement('p'); paragraph.className = 'story-paragraph'; target.append(paragraph); }
+      if (!paragraph) { paragraph = document.createElement('p'); paragraph.className = 'story-paragraph'; container.append(paragraph); }
       if (paragraph.childNodes.length) paragraph.append(document.createTextNode(' '));
       pair = document.createElement('span'); pair.className = 'story-pair';
       const sentence = document.createElement('span'); sentence.className = 'story-sentence';

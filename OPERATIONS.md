@@ -2,6 +2,18 @@
 
 此文件只说明工具如何连接；每天推荐、词典整合与创作判断以 `protocol/` 为准。运行命令均从项目根目录执行。`work/runs/` 可自由存放续作资料，不把密钥放进去。
 
+## 现行日课制作与文章组（2026-10-24）
+
+实际日课任务在 `D:/CodexStorage/workspaces/second-language-certification-reader`，北京时间05:00开始，gpt-6.1-sol/max、50主词。任务通过原隐藏启动器读取本仓库run-daily.ps1，休息先领取，已发布同日不重做；无需重装任务或改变触发时间。后文旧日期安装记录是历史，不据其恢复旧生产范围、词汇音频或旧模型档位。
+
+从DAILY_RUN、QUALITY_WORKFLOW和TEACHING_AUTHORING恢复：prepare-teaching-materials按明确主词/词族独立取得完整双教材包；作者协同写第一二部分及实际教材/原例去向；第三部分真实组稿，篇数和词间/词内义项次序自由，全组真用全义。assemble-teaching只装配与检查结构，不能冒充语义审阅。
+
+新文章组meta增加authoringPolicy=sourced-collection-v1；采用工具生成的chapter.md和article-sources.json，沿pack-current-affairs、pack-chapter、publish-chapter封存与回读。正文ARTICLE与来源包articles同源；服务端拒绝无篇目标记的新制作版本，既有原件读取/幂等重试不回写。静态壳v47，篇目复用原索引入口，来源同窗筛选，音频和答疑仍绑定整章原摘要；无D1迁移、新队列、新订阅或新监测器。
+
+不能假定后台都运行在此仓库：答疑/测试/质检及音频准备仍在second-language-maintenance。此次在共享Questions互斥锁空闲窗口，保留备份后仅原子同步web/annotations.js和protocol/chapter-quality-contract.mjs，使其认识ARTICLE与现行50词；其他已修改脚本、模型设置、队列和目录不覆盖。当前章与三篇隔离样例分别验证实际消费者的质检目标、测试主词与音频句子读取。以后变更公共格式时先核对实际任务根目录，再做必要兼容同步；不热迁工作资料或重启收费任务。
+
+针对性验证：check-teaching-authoring（独立派生补查、拒绝自动补例、自由组稿及50词实际打包）、check-article-collection-ui（手机分篇阅读及真实手势请求夹具）、check-current-affairs-package、check-current-affairs-backend和check-daily-affairs。均隔离数据，不发布测试课、不标VIX、不调用付费模型。原阅读手势/位置检查可用UI_CHAPTER_DIR指向本机真实长章；模拟通过不是实体iPhone验收。发布用deploy-app，末尾check-balances。
+
 ## 新正式实事日课（2026-10-23）
 
 主协议CURRENT_AFFAIRS.md与DAILY_RUN.md。新流程从第1章开始，旧章/旧未完业务只读封存，不回填、不撤VIX标记、不迁移正文；正式新申请不再取旧章。旧原件通过publisher `GET /api/chapters?archive=1` 和 `GET /api/chapters/ID?digest=SHA&archive=1` 可核对，归档器已显式使用archive读取。原件、历史成绩及收费资产不删，物理紧凑索引维护保持。

@@ -1,4 +1,4 @@
-import {readerFocus,sentenceElement,wordAtPoint} from './reader-focus.js?v=41';
+import {readerFocus,sentenceElement,wordAtPoint} from './reader-focus.js?v=47';
 // A single arbiter owns taps, holds and scrolling, so one gesture has one action.
 export function installPureReader({prepareTap=()=>{},onToggle=()=>{},onQuestion=()=>{}}={}){
  const scope=document.getElementById('readingScroll'),shell=document.getElementById('app'),forwarded=new WeakSet();
@@ -13,7 +13,7 @@ export function installPureReader({prepareTap=()=>{},onToggle=()=>{},onQuestion=
   if(text){const range=document.createRange();range.selectNodeContents(text);if([...range.getClientRects()].some(r=>x>=r.left&&x<=r.right&&y>=r.top&&y<=r.bottom))return false;}
   return true;
  }
- const editing=target=>target.closest('input,textarea,select,audio,video,[contenteditable="true"]');
+ const editing=target=>target.closest('button,a,input,textarea,select,audio,video,[contenteditable="true"]');
  const clearHold=()=>{clearTimeout(holdTimer);holdTimer=null;};
  const clear=()=>{if(pending)clearTimeout(pending.timer);pending=null;clearHold();};
  function toggle(target){

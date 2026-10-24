@@ -46,21 +46,17 @@ else {
 }
 if (-not $codexExecutable) { throw '未找到 Codex CLI' }
 $prompt = @"
-执行第二语言项目北京时间 $studyDate 的一次正式定时运行。先完整阅读本仓库 AGENTS.md、protocol/DAILY_RUN.md、protocol/RECOMMENDATION.md、protocol/CURRENT_AFFAIRS.md、protocol/QUALITY_WORKFLOW.md、protocol/CONTENT.md、protocol/ETYMOLOGY.md、protocol/TEMPORARY.md 和 protocol/ANNOTATIONS.md，按现行实事与 VIX 协同协议建设新章。旧章已经封存，不属于本次正式项目；不做旧章兼容、迁移、补修或历史选词恢复。新正式章节从第1章开始，按服务端现行新章序列取得章号，不用旧章数量或历史最大章号推算。
+执行第二语言项目北京时间 $studyDate 的正式日课。先完整读取AGENTS.md、protocol/DAILY_RUN.md、protocol/RECOMMENDATION.md、protocol/CURRENT_AFFAIRS.md、protocol/QUALITY_WORKFLOW.md、protocol/CONTENT.md、protocol/USAGE_LABELS.md、protocol/ETYMOLOGY.md、protocol/ANNOTATIONS.md、protocol/TEACHING_AUTHORING.md及领取到临时需求时的protocol/TEMPORARY.md。按实际输入和现行内容协议完成，不用上下文旧摘要替代。先恢复 work/runs/$studyDate 已有文件；未完成留具体resume.md，不因05:00开始生成就设发布截止。
 
-定时入口已先调用 scripts/claim-run.mjs；幂等读取 work/runs/$studyDate/control.json 确认结果。若已领取休息，立即结束；若本日已发布，回读确认后结束，不重复生产。否则先恢复本日期已有运行状态、输入和工作文档，再处理已领取的一次性临时需求及当天恰好50主词的正式课程。旧章不作为本次新章的迁移待办。
+定时入口已领取一次运行，幂等读取control.json；休息立即结束，本日已发布则回读确认后结束。旧章已经封存，不迁移、不补修、不用旧数量推算，按服务端现行新章序列取得章号。模型 gpt-6.1-sol/max，正式50主词；完整双教材、真实词族、所有义项和原例保持，难度适度上调且不按owner词表分桶。
 
-对于尚未固定选词的新运行，先执行 node scripts/prepare-vix.mjs $studyDate，读取固定的 vix-source.json、VIX候选和教材原输入，再执行 node scripts/current-affairs.mjs discover $studyDate。已有本日期材料时先恢复原快照，需要补充可按协议追加，不静默覆盖已读来源。discover 默认只查协议白名单的小组来源；实际材料不足时按需要扩大，不设置用户未要求的新闻条数、地区配比或请求配额，不每日全池爬取。逐篇运行 node scripts/current-affairs.mjs read $studyDate --source <sourceId> --url <officialArticleUrl> 取得要采用的材料，并实际打开返回的 textPath 阅读完整相关正文；命令成功、元数据、标题、搜索摘要或抓到网页不等于你已经读完。记录已读范围、原文出处、时间及限制，未读到正文不得编造事实。把现实材料与VIX、学习目标及反馈双向判断后确定50主词；不能先固定50词再找新闻装饰，不能以固定评分、词频榜、义项数或多义复杂度代替判断、降权或删义。
+新输入按 node scripts/prepare-vix.mjs $studyDate 固定；恢复反馈快照。用完整VIX候选与实际读取的现实材料双向选词，不能先取前50个rank。node scripts/current-affairs.mjs discover $studyDate 只是feed捷径；以 node scripts/current-affairs-pool.mjs find 检索完整来源池，结合live web补找有内容的真实文章。用current-affairs.mjs read或import固定读件，实际打开textPath通读相关原文；摘要、URL或工具成功不算读过。材料不足继续补读，不做全池爬取、来源配额或逐词新闻打分。科学、文化、社会、技术和人的真实处境都有内容价值；即用偏好在适合部分体现，不把整章写成核实/比较/风险的说教。
 
-尚无 work/runs/$studyDate/feedback.json 时运行 node scripts/feedback-snapshot.mjs $studyDate 保存并实际读取学习目标与反馈；已有快照恢复使用，不以新反馈重选。用 node scripts/vix-candidates.mjs --vix=<vix-source.json的localDirectory> --out=work/runs/$studyDate/candidates.json 查看完整未标记候选及词表说明，按需要读取其候选范围而非只取前50个rank。ownerCollectionId只是优先级占有后的唯一归属；低阶owner仍可在原始高阶表中，sourceCollectionIds保留该关系。不能按owner桶或最高标签一刀切难度，须读取具体教材用法及实际需求。整体挑战在原基础上适度上调，以B2/C1的较广较精确理解与表达为参照，不因追求生活实用降低难度，也不靠堆冷僻词或长句充难。
+最终冻结前按TEACHING_AUTHORING以candidate-scope运行prepare-teaching-materials，逐词阅读完整Collins再Oxford；主词、各词族词形及明确引用独立补查，父条提到派生名不能算读完独立条目。确认全义与真实词族后按原协议冻结50词，再prepare-vix-marking/mark-vix/publish-vix，复用原副本和回执。已有冻结或标注必须原组原输入续作，不重抓热点来重新推荐，不重置VIX。
 
-冻结50词前，读完拟选主词与真实相关派生、交叉引用的完整Collins/Oxford内容，复用words文档明确全义及词族范围，不要求先写完三部分。选择的是完整词族教学范围，义项只参与判断选哪个词，选定后全部相关义项教授，不能只教新闻命中义或日常义。真实同族聚合，不把派生重复占主词名额，不用词形规则强合族。在selection.md简记近期能多理解/表达什么、已读现实材料实际如何影响候选或词族组合、为什么整体难度没有回落；不做每词评分/固定占比/新闻命中配额。第三部分创作时读取该意图，在article-plan.md设计现实问题、信息、行动或因果如何推进作品，用本章用法完成这种理解或表达。不能只做新闻开头与链接挂靠；发布前对照选择意图与实际全文独立审阅是否兑现，同时保持全义真用、事实边界和连续译文。判断留在既有工作文档，不放入公开来源包或新增第四部分。
+按TEACHING_AUTHORING复用不可变材料包，在teaching/authored逐词协同写完整第一、二部分、教材事实与全部相关原例去向。缺例由你针对该用法实际创作，禁止装配脚本自动抓第三部分句子补位。全义稳定后建设真实取材文章组，不设固定篇数/长度/体裁：词间及词内义项完全不按顺序，各篇按内容需要自由取用，整组真实覆盖所有用法。每篇隐藏USE后仍有充分现实内容和完整组织；不能将虚构中心切成展台或用孤立短句容纳剩余词。专业/历史/少见义补找适合的真实材料，不删义、不捏造采访或发生过的例子。
 
-如果本日期已有 selection.json 冻结或已标VIX，必须沿原组选词和原输入续作，不重抓热点、不重新推荐，也不把旧运行转换为新格式。本次偏好更新只影响尚未冻结的选择，不重置VIX或付费产物。prepare-vix 对合法原输入锁只做同commit恢复/校验，不刷新main；材料失效或事实需更正时按现行协议补充核实和修正文稿，保留原50主词、真实词族和全部义项，不用新材料覆盖原输入。标注原输入提交与标注后提交分别记录，标注数可以大于50。
-
-冻结selection后运行 node scripts/prepare-vix-marking.mjs $studyDate，mark-vix与publish-vix均以 --vix=work/runs/$studyDate/vix-marking --selection=work/runs/$studyDate/selection.json 执行。原 .cache/vix/commit 输入只读；续作复用工作副本，不覆盖未提交标注。publish-vix落盘vix-publication.json并核对原提交，重复运行复用，回包未知先核对，不另造业务提交；meta.vixCommit读取已验证回执的vixCommit，不能只填任意合法SHA，不修改冻结selection。章节发布会要求本次回执与来源/选词一致，并回读正文和来源摘要。远端main确实变化且不含本次提交时停留原输入核对，不刷新或重选。
-
-逐词保存双教材内容和全部相关例句的去向；第一、第二部分按自然词族协同建设；第三部分保留唯一权威草稿与简短连续性记录，发布前分别审阅教材保真、全义真用、事实与创作边界及连续译文。允许无目标用法句只有句子编码与译文，不附虚假USE。实事出处按现行协议留来源材料，不能把机构或倡议者自述冒充独立新闻定论。使用 work/ 中间文档续作，同日期不得重选或重复发布；未完成写具体 resume.md，不把文字完成或结构通过冒称语义审阅完成。所有工作按 protocol/BALANCES.md 在末尾核对各方额度并更新余额页；不实现额度不足后的自动跨日重试。按协议进行必要的GitHub与Cloudflare发布，不把临时页当正式章节，不修改卷轴或雅思通路，不泄露密钥。
+最终articles.json为唯一可装配终稿，ARTICLE身份与逐篇实际来源同源，SENTENCE全章唯一。node scripts/assemble-teaching.mjs $studyDate 输出候选；分别实际审阅教材原件与讲解/例句、每篇内容价值、全组逐义真用、事实和译文，记录实际纠错，不把材料记录和结构通过冒称语义审阅完成。采用候选后设置authoringPolicy=sourced-collection-v1，保留contentPolicy与sourcePolicy；source-notes采用导出的articles数组。按原pack-current-affairs、pack-chapter、publish-chapter发布并回读正文/来源摘要，之后才推送。固定选择、计费、休息、恢复保护按DAILY_RUN，不修改卷轴或雅思设计。按BALANCES末尾更新实际额度，不自动跨日重试，不泄露密钥。
 "@
 # Windows PowerShell 5.1 promotes native stderr to an error record. Codex may write
 # nonfatal warnings there, so judge this command by its actual process exit code.

@@ -1,8 +1,9 @@
 import {readFile,writeFile,mkdir} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import assert from 'node:assert/strict';
+import {createRequire} from 'node:module';
 import {audioUnits} from '../web/audio-plan.js';
-const {chromium}=await import('playwright').catch(()=>import('../.cache/browser-tools/package/index.mjs'));
+const {chromium}=createRequire(process.execPath)('playwright');
 const out='.cache/reader-ui';await mkdir(out,{recursive:true});
 const folder=process.env.UI_CHAPTER_DIR||'chapters/demo',meta=process.env.UI_CHAPTER_DIR?JSON.parse(await readFile(folder+'/meta.json','utf8')):JSON.parse(await readFile(folder+'/index.json','utf8')).chapters[0],markdown=await readFile(folder+'/chapter.md','utf8');
 const chapter={...meta,id:meta.date,markdown,digest:createHash('sha256').update(markdown).digest('hex')};
@@ -60,7 +61,9 @@ const part=async label=>page.locator('.practice-pane:not([hidden]) .practice-par
 try{
  await page.goto('https://the-second-language.pages.dev/');await page.locator('#reader').waitFor({state:'visible'});await page.locator('#questionsButton').waitFor({state:'visible'});
  const initialPoints=pointRequests.length;
- const clickPoint=async locator=>{await locator.click();await page.waitForTimeout(450);await page.locator('.reader-jump-cover').waitFor({state:'hidden'});};
+ // Let Playwright's implicit scrolling finish before starting the tap; a real
+ // scroll is deliberately allowed to cancel a pending reader gesture.
+ const clickPoint=async locator=>{await locator.scrollIntoViewIfNeeded();await page.waitForTimeout(100);await locator.click();await page.waitForTimeout(450);await page.locator('.reader-jump-cover').waitFor({state:'hidden'});};
  await page.locator('[data-part="one"]').click();await clickPoint(page.locator('#article .word-heading h1').first());check('first-part vocabulary heading is silent',pointRequests.length===initialPoints);
  await clickPoint(page.locator('#article .sense-ipa').first());check('IPA display is silent',pointRequests.length===initialPoints);
  let pointCount=pointRequests.length;await clickPoint(page.locator('#article .sense-block p').first());await clickPoint(page.locator('#article .mono').first());check('definitions and mixed explanatory paragraphs have no audio request',pointRequests.length===pointCount);

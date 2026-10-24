@@ -20,10 +20,10 @@ export async function isCurrentAffairsRevision(db,chapterId,digest){
   WHERE r.chapter_id=? AND r.digest=?`).bind(CURRENT_AFFAIRS_POLICY,chapterId,digest).first());
 }
 
-export async function prepareChapterSources(value,chapterDigest){
+export async function prepareChapterSources(value,chapterDigest,articles){
  if(value.sourcePolicy!==CURRENT_AFFAIRS_POLICY)throw Error('新章必须使用实事来源协议');
  if(!/^[a-f0-9]{40}$/.test(value.vixInputCommit||''))throw Error('缺少选词输入的 VIX commit');
- validateSourcePackage(value.sourcePackage,{chapterDigest,studyDate:value.date,vixInputCommit:value.vixInputCommit});
+ validateSourcePackage(value.sourcePackage,{chapterDigest,studyDate:value.date,vixInputCommit:value.vixInputCommit,articles,...(articles?{}:{markdown:value.markdown})});
  const text=canonicalSourcePackage(value.sourcePackage),digest=await sha(text);
  if(value.sourceDigest!==digest)throw Error('来源包摘要不匹配');
  return{policy:CURRENT_AFFAIRS_POLICY,text,digest,key:`chapter-sources/${chapterDigest}/${digest}.json`};

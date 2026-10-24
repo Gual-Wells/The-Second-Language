@@ -168,6 +168,9 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
 .article.prose h1 { font-size: 22px; }
 .article.prose > :first-child:is(h1,h2,h3) { margin-top: 0; margin-bottom: 12px; }
 .article.prose h2 { font-size: 17px; }
+.story-article { scroll-margin-top: 52px; }
+.story-article + .story-article { margin-top: 30px; padding-top: 18px; border-top: 1px solid #c2d3e1; }
+.story-article > h1:first-child { margin-top: 0; }
 .article.prose blockquote { margin: 16px 0; }
 .article.prose .story-paragraph { margin: 0 0 1.15em; }
 .article.prose .story-pair { display: inline; }
