@@ -1,0 +1,1730 @@
+[
+  {
+    "id": "A27",
+    "title": "Mary Quant Put Everyday Movement into Fashion",
+    "sourceUrls": [
+      "https://www.vam.ac.uk/articles/introducing-mary-quant"
+    ],
+    "paragraphs": [
+      [
+        {
+          "id": "CSA27001",
+          "text": "Mary Quant opened Bazaar in London in 1955; the V&A describes how one day's sales paid for cloth to make clothes overnight.",
+          "translation": "Mary Quant于1955年在伦敦开设Bazaar；V&A介绍，一天的销售收入如何支付连夜制衣所需的布料。",
+          "uses": []
+        },
+        {
+          "id": "CSA27002",
+          "text": "The shop had to shift stock quickly to keep that cycle going.",
+          "translation": "店铺必须迅速卖出存货，才能维持这个循环。",
+          "uses": [
+            "U04505"
+          ]
+        }
+      ],
+      [
+        {
+          "id": "CSA27003",
+          "text": "Her short shift dresses freed the outline from a tightly defined waist, while a 1958 grey-flannel outfit reworked the older shift worn as an undergarment.",
+          "translation": "她的短直筒裙让轮廓摆脱紧束腰线，而一套1958年的灰色法兰绒服装，则重新演绎了旧式贴身内衣shift。",
+          "uses": [
+            "U04521",
+            "U04522"
+          ]
+        },
+        {
+          "id": "CSA27004",
+          "text": "Someone conventional in dress might find that play with underclothes surprising, preferring a conservative suit and dressing conservatively.",
+          "translation": "穿着循俗的人可能对这种借用内衣的设计感到意外，更愿意选择传统西装，穿得保守一些。",
+          "uses": [
+            "U01409",
+            "U01224",
+            "U01227"
+          ]
+        },
+        {
+          "id": "CSA27005",
+          "text": "Such conventionalism can make a style seem fixed even though fashions change across generations.",
+          "translation": "这种拘守传统的态度，可能使一种风格显得固定不变，尽管时尚会随世代更替。",
+          "uses": [
+            "U01417"
+          ]
+        }
+      ],
+      [
+        {
+          "id": "CSA27006",
+          "text": "Construction matters too: a medium-sized dress still needs a particular sizing system and intended fit.",
+          "translation": "制作也很重要：中码连衣裙仍需依据特定尺码体系与预期合身程度设计。",
+          "uses": [
+            "U03201"
+          ]
+        },
+        {
+          "id": "CSA27007",
+          "text": "Medium-grey cloth gives an outline a quieter presence than brilliant colour, while medium-weight fabric falls differently from a very light material.",
+          "translation": "中灰色布料使轮廓比鲜艳颜色更显沉静，而中等厚度的布料与很轻的材料有不同的垂坠方式。",
+          "uses": [
+            "U03203",
+            "U03202"
+          ]
+        },
+        {
+          "id": "CSA27008",
+          "text": "A reversible garment needs both faces finished for display: reverse it and the inner surface becomes the outer one.",
+          "translation": "双面穿的衣服，两面都需处理得适合外露：把它翻转，原来的内面就成为外面。",
+          "uses": [
+            "U04325",
+            "U04305"
+          ]
+        },
+        {
+          "id": "CSA27009",
+          "text": "Quant's new look gathered momentum as clothes, shops and images reinforced one another.",
+          "translation": "随着服装、店铺与图像相互推动，Quant的新风貌逐渐形成势头。",
+          "uses": [
+            "U03501"
+          ]
+        }
+      ]
+    ]
+  },
+  {
+    "id": "A28",
+    "title": "A Bladder Must Empty as Well as Fill",
+    "sourceUrls": [
+      "https://www.niddk.nih.gov/health-information/urologic-diseases/urinary-retention/definition-facts"
+    ],
+    "paragraphs": [
+      [
+        {
+          "id": "CSA28001",
+          "text": "Urinary retention means that some or all of the urine cannot be emptied from the bladder.",
+          "translation": "尿潴留是指部分或全部尿液无法从膀胱排出。",
+          "uses": [
+            "U04216"
+          ]
+        },
+        {
+          "id": "CSA28002",
+          "text": "The NIDDK distinguishes sudden acute retention from a chronic form that develops over time.",
+          "translation": "美国NIDDK将突然发生的急性尿潴留，与逐渐发展的慢性类型区分开来。",
+          "uses": []
+        },
+        {
+          "id": "CSA28003",
+          "text": "Someone with chronic retention may still urinate but leave a substantial amount behind, sometimes with less obvious symptoms.",
+          "translation": "慢性尿潴留患者仍可能排尿，却留下相当多的尿液，有时症状也不明显。",
+          "uses": []
+        }
+      ],
+      [
+        {
+          "id": "CSA28004",
+          "text": "Retained urine can allow bacteria to multiply and burden the bladder and urinary system; repeated infections can become a persistent problem.",
+          "translation": "潴留的尿液可能让细菌繁殖，并加重膀胱和泌尿系统的负担；反复感染可能成为持续出现的问题。",
+          "uses": [
+            "U03807"
+          ]
+        },
+        {
+          "id": "CSA28005",
+          "text": "Sudden inability to urinate requires immediate emergency medical attention, according to the NIDDK.",
+          "translation": "NIDDK指出，突然无法排尿需要立即接受急诊处理。",
+          "uses": []
+        }
+      ]
+    ]
+  },
+  {
+    "id": "A29",
+    "title": "The Small Structure That Carries a Replacement Tooth",
+    "sourceUrls": [
+      "https://www.leedsth.nhs.uk/patients/resources/bridges/",
+      "https://www.sja.org.uk/first-aid-advice/bandage-dressing/"
+    ],
+    "paragraphs": [
+      [
+        {
+          "id": "CSA29001",
+          "text": "A fixed dental bridge spans a missing tooth's gap by taking support from neighbouring teeth; its retainer connects the replacement to that support.",
+          "translation": "固定牙桥借助邻牙支撑，跨过缺牙留下的空隙；固位体将替代牙与支撑部分连接起来。",
+          "uses": [
+            "U04213"
+          ]
+        },
+        {
+          "id": "CSA29002",
+          "text": "Leeds Teaching Hospitals distinguishes a conventional bridge, with a crown over a prepared supporting tooth, from an adhesive bridge with a small metal wing attached behind an adjacent tooth.",
+          "translation": "利兹教学医院区分了两种牙桥：传统牙桥将牙冠套在预备好的支撑牙上，粘接桥则以小型金属翼粘附在邻牙背面。",
+          "uses": []
+        }
+      ],
+      [
+        {
+          "id": "CSA29003",
+          "text": "An impression guides manufacture, and clinical fitting may reveal a need for modifications before placement.",
+          "translation": "印模为制作提供依据，临床试戴可能发现最终安放前仍需修改。",
+          "uses": []
+        },
+        {
+          "id": "CSA29004",
+          "text": "The aim is to restore chewing and appearance; restoration of those functions requires surfaces and supports that accommodate forces within a moving mouth.",
+          "translation": "目标是恢复咀嚼功能与外观；这些功能的恢复，需要表面与支撑结构适应活动口腔内的作用力。",
+          "uses": [
+            "U04102",
+            "U04112"
+          ]
+        },
+        {
+          "id": "CSA29005",
+          "text": "Cleaning around the supporting teeth and beneath the replacement remains necessary throughout its working life.",
+          "translation": "在牙桥使用期间，仍需持续清洁支撑牙周围与替代牙下方。",
+          "uses": []
+        }
+      ],
+      [
+        {
+          "id": "CSA29006",
+          "text": "A retentive bandage similarly holds a dressing in position, although it secures different material against a living body.",
+          "translation": "固位绷带也把敷料保持在位，不过它是在活体上固定另一种材料。",
+          "uses": [
+            "U04219"
+          ]
+        },
+        {
+          "id": "CSA29007",
+          "text": "St John Ambulance explains bandages' supporting and securing functions and warns that excessive tightness can restrict circulation.",
+          "translation": "圣约翰急救组织介绍了绷带的支撑与固定作用，并提醒过紧会影响血液循环。",
+          "uses": []
+        }
+      ]
+    ]
+  },
+  {
+    "id": "A30",
+    "title": "The Eye Brings Its Recent Past into a Dark Room",
+    "sourceUrls": [
+      "https://www.cns.nyu.edu/~david/courses/perception/demos/demo-adaptation.html",
+      "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/eye-socket",
+      "https://openstax.org/books/psychology-2e/pages/3-2-cells-of-the-nervous-system"
+    ],
+    "paragraphs": [
+      [
+        {
+          "id": "CSA30001",
+          "text": "Dark adaptation takes time: a dim room becomes easier to see after the eye adjusts, although the room itself has not changed.",
+          "translation": "暗适应需要时间：眼睛调节之后，昏暗房间会更容易看清，尽管房间本身并未改变。",
+          "uses": [
+            "U00112"
+          ]
+        },
+        {
+          "id": "CSA30002",
+          "text": "NYU's perception demonstrations show how two eyes exposed to different lighting beforehand can have different sensitivities.",
+          "translation": "纽约大学的知觉演示说明，两只眼睛此前接受的光照不同，敏感度也可能不同。",
+          "uses": []
+        }
+      ],
+      [
+        {
+          "id": "CSA30003",
+          "text": "The eye sits in an orbit, a bony socket whose orbital surroundings accommodate muscles, nerves and other supporting structures.",
+          "translation": "眼球位于骨性眼眶中，眼眶区域容纳着肌肉、神经及其他支撑结构。",
+          "uses": [
+            "U03706",
+            "U03712"
+          ]
+        },
+        {
+          "id": "CSA30004",
+          "text": "Rods are particularly important in very dim light, when colour discrimination is limited; the NYU material notes that a faint object may be easier to detect slightly away from central vision.",
+          "translation": "在很暗的光线下，视杆细胞尤其重要，此时辨色能力受限；纽约大学材料指出，暗弱物体有时稍微偏离视野中心更容易被发现。",
+          "uses": []
+        },
+        {
+          "id": "CSA30008",
+          "text": "The retina and nervous system participate in turning light into information.",
+          "translation": "视网膜与神经系统参与把光转化为信息。",
+          "uses": []
+        }
+      ],
+      [
+        {
+          "id": "CSA30005",
+          "text": "Nervous-system cells maintain electrical differences across their membranes, while at a chemical synapse a neurotransmitter released by one neuron binds to receptors on another.",
+          "translation": "神经系统细胞在细胞膜两侧维持电位差；在化学突触处，一个神经元释放的神经递质会与另一神经元的受体结合。",
+          "uses": [
+            "U04916"
+          ]
+        },
+        {
+          "id": "CSA30006",
+          "text": "OpenStax describes this communication as electrochemical: electrical activity along a neuron joins chemical signalling between cells.",
+          "translation": "OpenStax将这种通信描述为电化学过程：沿神经元传递的电活动，与细胞间的化学信号相衔接。",
+          "uses": []
+        },
+        {
+          "id": "CSA30007",
+          "text": "The chemical signal must also be cleared by breakdown, diffusion or reuptake.",
+          "translation": "化学信号还必须通过分解、扩散或再摄取等过程清除。",
+          "uses": []
+        }
+      ]
+    ]
+  },
+  {
+    "id": "A31",
+    "title": "The Person Left Behind in The Cherry Orchard",
+    "sourceUrls": [
+      "https://www.gutenberg.org/files/7986/7986-h/7986-h.htm"
+    ],
+    "paragraphs": [
+      [
+        {
+          "id": "CSA31001",
+          "text": "In the last act of Chekhov's The Cherry Orchard, pictures and curtains have gone, luggage waits and furniture is piled aside.",
+          "translation": "契诃夫《樱桃园》的最后一幕中，画和窗帘已被取下，行李等着运走，家具堆放在一旁。",
+          "uses": []
+        },
+        {
+          "id": "CSA31002",
+          "text": "The characters have to shift to catch their train, although some want another look at the walls.",
+          "translation": "人物们必须赶快行动才能赶上火车，尽管有人还想再看看墙壁。",
+          "uses": [
+            "U04512"
+          ]
+        },
+        {
+          "id": "CSA31003",
+          "text": "Earlier, Lopakhin had proposed a shift to save the estate: divide its land into plots and lease them for summer cottages.",
+          "translation": "此前，洛巴辛曾提出一种挽救庄园的办法：把土地分块出租，建造避暑别墅。",
+          "uses": [
+            "U04519"
+          ]
+        },
+        {
+          "id": "CSA31004",
+          "text": "Now he has bought it, reversing the positions of owning and servant families: his father and grandfather had been serfs there, and the former owners must yield the property.",
+          "translation": "如今他已买下庄园，颠倒了主人家与仆役家的位置：他的父亲和祖父曾是这里的农奴，而原主人必须交出产业。",
+          "uses": [
+            "U04304",
+            "U05002"
+          ]
+        }
+      ],
+      [
+        {
+          "id": "CSA31005",
+          "text": "Pischin, meanwhile, repays money after leasing land with exploitable clay; the tenants will exploit it, and that planned exploitation values the ground differently from an orchard's beauty.",
+          "translation": "与此同时，皮什契克在出租含有可开发黏土的土地后归还欠款；租户将开采黏土，这种计划中的开发对土地的估价不同于对果园之美的欣赏。",
+          "uses": [
+            "U02406",
+            "U02404",
+            "U02410"
+          ]
+        },
+        {
+          "id": "CSA31006",
+          "text": "Varya will work as a housekeeper elsewhere and Charlotta seeks a position: each must shift for herself as the household dissolves.",
+          "translation": "瓦里娅将去别处担任管家，夏洛塔也在求职：随着这个家庭解体，两人都必须自己谋生。",
+          "uses": [
+            "U04532"
+          ]
+        },
+        {
+          "id": "CSA31007",
+          "text": "Varya must make shift with the work available, while others must shift as best they can with different prospects.",
+          "translation": "瓦里娅必须凭现有工作勉强应付，其他人也得在各不相同的前景下尽力维持生活。",
+          "uses": [
+            "U04531",
+            "U04514"
+          ]
+        },
+        {
+          "id": "CSA31008",
+          "text": "The furniture is shiftable; human attachments are harder to pack away, though Anya's plans for study and work reveal an emerging hope.",
+          "translation": "家具可以搬走，人与人的牵绊却难以一同装箱；不过，安尼娅关于学习和工作的计划显露出正在萌生的希望。",
+          "uses": [
+            "U04535",
+            "U02007"
+          ]
+        }
+      ],
+      [
+        {
+          "id": "CSA31009",
+          "text": "Fiers is an old retainer, a servant whose years of attachment to the household recall an older order of personal service.",
+          "translation": "费尔斯是一位忠实老仆，长年依附于这个家庭，使人想到旧时代的人身侍奉关系。",
+          "uses": [
+            "U04211",
+            "U04210"
+          ]
+        },
+        {
+          "id": "CSA31010",
+          "text": "Others say or assume that he has gone to hospital, until uncertain reports pass for completed action.",
+          "translation": "其他人说他已经去医院，或想当然地这样认为，未经证实的传言最终被当成已经办妥的事情。",
+          "uses": []
+        },
+        {
+          "id": "CSA31011",
+          "text": "He finally enters the deserted house and tries its locked door: the locks constrain him there, a literal constraint, while he worries about his master's coat.",
+          "translation": "最后，他走进空屋，试了试锁上的门：门锁把他困在屋内，造成实实在在的禁闭，他却仍惦记主人的外套。",
+          "uses": [
+            "U01303",
+            "U01308"
+          ]
+        },
+        {
+          "id": "CSA31012",
+          "text": "Axes sound beyond the room as the new economic future leaves this particular life behind.",
+          "translation": "屋外传来斧声，新的经济前景却把这个具体的生命遗落在后。",
+          "uses": []
+        }
+      ],
+      [
+        {
+          "id": "CSA31013",
+          "text": "Anyone adapting the play for the screen must decide how to carry that empty room, unseen axe and overlooked man into another medium.",
+          "translation": "把这部戏改编成电影的人，必须决定如何将空房、未现身的斧头与被遗忘的人带入另一种媒介。",
+          "uses": [
+            "U00103"
+          ]
+        },
+        {
+          "id": "CSA31014",
+          "text": "Following the departing people outside would change the audience's knowledge; keeping the room in view preserves the discomfort of knowing who remains.",
+          "translation": "跟着离开的人走到屋外，会改变观众所知的信息；让镜头留在屋内，则保留了明知谁被留下的那种不安。",
+          "uses": []
+        }
+      ]
+    ]
+  },
+  {
+    "id": "A32",
+    "title": "An Objection Given a Place in the Procedure",
+    "sourceUrls": [
+      "https://www.newadvent.org/cathen/01168b.htm"
+    ],
+    "paragraphs": [
+      [
+        {
+          "id": "CSA32001",
+          "text": "Richard Burtsell's 1907 encyclopedia account describes the devil's advocate, or Promoter of the Faith, in Catholic beatification and canonization proceedings.",
+          "translation": "Richard Burtsell于1907年撰写的百科条目，介绍了天主教列福、列圣程序中的列圣审查员，又称信仰促进官。",
+          "uses": [
+            "U00211"
+          ]
+        },
+        {
+          "id": "CSA32002",
+          "text": "The office constrained its holder to prepare written objections and examine procedural omissions even when recognition was widely desired.",
+          "translation": "即使众人期待认可，职务本身仍迫使担任者准备书面异议，并审查程序上的遗漏。",
+          "uses": [
+            "U01302"
+          ]
+        },
+        {
+          "id": "CSA32003",
+          "text": "An official who shifts when pressed for a clear objection would evade that responsibility.",
+          "translation": "面对要求明确提出异议的催促而躲闪推托的官员，便是在逃避职责。",
+          "uses": [
+            "U04516"
+          ]
+        }
+      ],
+      [
+        {
+          "id": "CSA32004",
+          "text": "In modern discussion, a devil's advocate tests a proposal with objections that need not represent personal beliefs.",
+          "translation": "在现代讨论中，故意唱反调的人用异议检验提案，却不一定真心认同那些异议。",
+          "uses": [
+            "U00210"
+          ]
+        },
+        {
+          "id": "CSA32005",
+          "text": "A coherent speaker makes the difficulty intelligible; speaking incoherently makes even a useful objection hard to examine.",
+          "translation": "表达清楚的人能让问题被理解；说得条理混乱，即便异议有用也难以审议。",
+          "uses": [
+            "U00902",
+            "U00916"
+          ]
+        },
+        {
+          "id": "CSA32006",
+          "text": "A yielding participant may accept the first confident answer, becoming a yielder before the implications have been examined.",
+          "translation": "一个容易顺从的参与者，可能接受第一个自信的回答，在含义尚未得到审议时便成为让步者。",
+          "uses": [
+            "U05013",
+            "U05018"
+          ]
+        },
+        {
+          "id": "CSA32007",
+          "text": "Agreement offered yieldingly may end an awkward exchange without expressing conviction: pressure can constrain assent without resolving the question.",
+          "translation": "顺从地表示赞同，可能只是结束尴尬交流，而不代表确信：压力可以强行取得同意，却未解决问题。",
+          "uses": [
+            "U05014",
+            "U01304"
+          ]
+        }
+      ],
+      [
+        {
+          "id": "CSA32008",
+          "text": "A chair can ask the current speaker to yield the floor so another objection is heard.",
+          "translation": "主持人可以请当前发言者让出发言权，以便听取另一项异议。",
+          "uses": [
+            "U05011"
+          ]
+        },
+        {
+          "id": "CSA32009",
+          "text": "Yielding time does not mean yielding to an opposing view; one may yield to none in respect for an institution while questioning its decision.",
+          "translation": "让出时间不意味着屈从于反对意见；一个人可以在尊重机构方面不输任何人，同时质疑该机构的决定。",
+          "uses": [
+            "U05001",
+            "U05010"
+          ]
+        }
+      ]
+    ]
+  },
+  {
+    "id": "A33",
+    "title": "Returning the Gas Is Only Half of Reversing the Process",
+    "sourceUrls": [
+      "https://openstax.org/books/university-physics-volume-2/pages/4-1-reversible-and-irreversible-processes",
+      "https://openstax.org/books/university-physics-volume-1/pages/8-2-conservative-and-non-conservative-forces"
+    ],
+    "paragraphs": [
+      [
+        {
+          "id": "CSA33001",
+          "text": "OpenStax asks us to imagine an insulated container with ideal gas in one half and a vacuum in the other.",
+          "translation": "OpenStax请读者设想一个隔热容器，一半装有理想气体，另一半是真空。",
+          "uses": []
+        },
+        {
+          "id": "CSA33002",
+          "text": "Removing the partition lets the gas expand; compressing it again may restore its state but require work and heat removal, leaving consequences in the surroundings.",
+          "translation": "移去隔板，气体就会膨胀；再次压缩或许能恢复气体的状态，却需要做功与移走热量，在周围环境中留下影响。",
+          "uses": []
+        },
+        {
+          "id": "CSA33003",
+          "text": "A reversible process requires both the system and its surroundings to return to their initial states: reversibility concerns that complete relation.",
+          "translation": "可逆过程要求系统与周围环境都回到初始状态：可逆性关乎这一完整关系。",
+          "uses": [
+            "U04324",
+            "U04326"
+          ]
+        },
+        {
+          "id": "CSA33004",
+          "text": "Carried out reversibly, the change would leave no net alteration outside the restored system.",
+          "translation": "若以可逆方式进行，这一变化不会在恢复后的系统之外留下净改变。",
+          "uses": [
+            "U04327"
+          ]
+        },
+        {
+          "id": "CSA33005",
+          "text": "Slow, nearly balanced changes help define the ideal, but friction and heat leaks can intervene; slowness alone does not eliminate dissipation.",
+          "translation": "缓慢、近乎平衡的变化有助于界定这种理想过程，但摩擦与漏热可能介入；仅仅缓慢并不能消除耗散。",
+          "uses": [
+            "U03006"
+          ]
+        }
+      ],
+      [
+        {
+          "id": "CSA33006",
+          "text": "Conservative forces, such as ideal gravity or an ideal spring force, provide a related comparison: their work between two positions is path-independent.",
+          "translation": "理想重力、理想弹簧力等保守力提供了相关对照：它们在两点之间做的功与路径无关。",
+          "uses": [
+            "U01226"
+          ]
+        },
+        {
+          "id": "CSA33007",
+          "text": "Their work around a closed path is zero when the force is conservative throughout the relevant domain, allowing potential energy to describe recoverable mechanical work.",
+          "translation": "当力在有关区域内处处保守时，沿闭合路径做的功为零，因此可以用势能描述可恢复的机械功。",
+          "uses": []
+        },
+        {
+          "id": "CSA33008",
+          "text": "With frictional dissipation, the route and amount of sliding matter instead.",
+          "translation": "存在摩擦耗散时，路径与滑动量则会影响结果。",
+          "uses": []
+        }
+      ]
+    ]
+  },
+  {
+    "id": "A34",
+    "title": "An Old Arithmetic Word and a Curve Made by Unwinding",
+    "sourceUrls": [
+      "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica/Arithmetic",
+      "https://mathshistory.st-andrews.ac.uk/Curves/Involute/"
+    ],
+    "paragraphs": [
+      [
+        {
+          "id": "CSA34001",
+          "text": "In the 1911 Encyclopaedia Britannica, arithmetic evolution extracts a root: the cube root of 27 returns 3, whereas involution raises 3 to the third power.",
+          "translation": "在1911年版《大英百科全书》中，算术里的evolution指开方：27的立方根是3，而involution则把3乘到三次方。",
+          "uses": [
+            "U02314"
+          ]
+        },
+        {
+          "id": "CSA34002",
+          "text": "The operations proceed reversely within this older vocabulary, used in divers practical calculations, including commercial and technical work.",
+          "translation": "在这套旧术语中，两种运算以相反方式进行，服务于商贸与技术工作等种种实际计算。",
+          "uses": [
+            "U04328",
+            "U01910"
+          ]
+        }
+      ],
+      [
+        {
+          "id": "CSA34003",
+          "text": "Beginning with the zeroth power, powers of 3 run 1, 3, 9, 27, 81; reverse the list to obtain 81, 27, 9, 3, 1.",
+          "translation": "从零次幂开始，3的幂依次为1、3、9、27、81；把数列倒转，便得到81、27、9、3、1。",
+          "uses": [
+            "U04303"
+          ]
+        },
+        {
+          "id": "CSA34004",
+          "text": "That reverse order displays the powers in reverse but does not solve every inverse calculation: both 3 and −3 square to 9, while its principal square root is 3.",
+          "translation": "这种相反次序倒着展示了各个幂，却不能解决所有逆运算：3与−3的平方都是9，但9的算术平方根为3。",
+          "uses": [
+            "U04311",
+            "U04318"
+          ]
+        }
+      ],
+      [
+        {
+          "id": "CSA34005",
+          "text": "In geometry, the evolution of a curve can be shown by unwinding a taut thread, whose free end traces an involute.",
+          "translation": "在几何学中，曲线的展开可以通过解绕拉紧的线来展示，线的自由端描出渐开线。",
+          "uses": [
+            "U02313"
+          ]
+        },
+        {
+          "id": "CSA34006",
+          "text": "For a circle, MacTutor describes the equivalent construction with a point on a straight line rolling around it; the original circle is the resulting curve's evolute.",
+          "translation": "对于圆，MacTutor介绍了等价作图法：让直线绕圆滚动，取直线上的一点描迹；原圆就是所得曲线的渐屈线。",
+          "uses": []
+        },
+        {
+          "id": "CSA34007",
+          "text": "MacTutor connects Huygens's work on these curves with clocks for use at sea, where comparing local solar time with reference time helped determine longitude.",
+          "translation": "MacTutor将惠更斯对这些曲线的研究，与海用时钟联系起来；在海上，比较地方太阳时与参考时间有助于确定经度。",
+          "uses": []
+        },
+        {
+          "id": "CSA34008",
+          "text": "A learner can draw the construction on one side of a leaf and place its inverse relation on the reverse, separating the diagram from its explanation.",
+          "translation": "学习者可以把作图画在书叶一面，将相应逆向关系写在背面，让图与解释分开。",
+          "uses": [
+            "U04317"
+          ]
+        }
+      ]
+    ]
+  },
+  {
+    "id": "A35",
+    "title": "Bandung Asked Who Could Speak for a New State",
+    "sourceUrls": [
+      "https://history.state.gov/milestones/1953-1960/bandung-conf"
+    ],
+    "paragraphs": [
+      [
+        {
+          "id": "CSA35001",
+          "text": "In April 1955, twenty-nine Asian and African governments met in Bandung, Indonesia, to discuss development, peace and cultural cooperation amid decolonization.",
+          "translation": "1955年4月，29个亚非国家政府在印度尼西亚万隆会晤，在去殖民化背景下讨论发展、和平与文化合作。",
+          "uses": []
+        },
+        {
+          "id": "CSA35002",
+          "text": "For emergent states newly independent of colonial rule, sovereignty was practical; an emergent international voice offered ways to cooperate beyond larger powers' priorities.",
+          "translation": "对刚摆脱殖民统治的新建国家而言，主权具有实际意义；正在形成的国际声音，提供了超越大国优先事项开展合作的途径。",
+          "uses": [
+            "U02010",
+            "U02009"
+          ]
+        },
+        {
+          "id": "CSA35003",
+          "text": "Some governments remained within established alliances' political orbit, so cooperation did not mean identical loyalties or domestic systems.",
+          "translation": "部分政府仍在既有联盟的政治影响范围内，因此合作并不意味着拥有相同的政治依附或国内制度。",
+          "uses": [
+            "U03705"
+          ]
+        }
+      ],
+      [
+        {
+          "id": "CSA35004",
+          "text": "Bandung's principles stressed self-determination, equality, non-aggression and non-interference in internal affairs.",
+          "translation": "万隆原则强调自决、平等、互不侵犯与互不干涉内政。",
+          "uses": []
+        },
+        {
+          "id": "CSA35005",
+          "text": "An interventionist policy claims a role in another country's affairs; an interventionist may defend that role, while non-interference gives weight to the state's own authority.",
+          "translation": "干预主义政策主张介入别国事务；干预主义者可能为这种角色辩护，而不干涉原则则重视国家本身的权威。",
+          "uses": [
+            "U03013",
+            "U03014"
+          ]
+        },
+        {
+          "id": "CSA35006",
+          "text": "Interventionism raises questions of who may act and on what grounds: a stronger power can intervene through support, pressure or direct involvement.",
+          "translation": "干预主义引出谁可以行动、依据何在的问题：强国可以通过支持、施压或直接参与进行干预。",
+          "uses": [
+            "U03015",
+            "U03001"
+          ]
+        },
+        {
+          "id": "CSA35007",
+          "text": "It may exploit a crisis for influence, and such exploitation of vulnerability gives non-interference substance beyond diplomatic politeness.",
+          "translation": "它可能利用危机获取影响力；这种对弱势处境的利用，使不干涉原则具有超越外交礼貌的实质意义。",
+          "uses": [
+            "U02402",
+            "U02409"
+          ]
+        }
+      ],
+      [
+        {
+          "id": "CSA35008",
+          "text": "Cooperation could make it harder to isolate one government, although differing alliances could leave an exploitable opening in the coalition.",
+          "translation": "合作可能增加孤立某个政府的难度，但联盟归属不同，也可能给这个合作集团留下可乘之机。",
+          "uses": [
+            "U03101",
+            "U02407"
+          ]
+        },
+        {
+          "id": "CSA35009",
+          "text": "The US Office of the Historian describes these varied loyalties and the tension between American support for self-determination and reliance on European colonial allies.",
+          "translation": "美国国务院历史学家办公室介绍了这些不同的政治依附，以及美国支持自决与依赖欧洲殖民盟友之间的张力。",
+          "uses": []
+        },
+        {
+          "id": "CSA35010",
+          "text": "Bandung created room for action within an unequal world without removing its inequalities at once.",
+          "translation": "万隆会议在不平等的世界中创造了行动空间，却未能一下消除不平等。",
+          "uses": []
+        }
+      ]
+    ]
+  },
+  {
+    "id": "A36",
+    "title": "The Sea Returns to the Forest Through a Fish",
+    "sourceUrls": [
+      "https://www.fisheries.noaa.gov/west-coast/science-data/dam-removals-elwha-river"
+    ],
+    "paragraphs": [
+      [
+        {
+          "id": "CSA36001",
+          "text": "Adult salmon migrate upstream to spawn after living in the ocean; this migration carries marine nutrients into rivers.",
+          "translation": "成年鲑鱼在海洋生活后溯流迁徙产卵；这场迁徙把海洋营养物质带入河流。",
+          "uses": [
+            "U03302",
+            "U03304"
+          ]
+        },
+        {
+          "id": "CSA36002",
+          "text": "Each returning migrant links habitats that dams once separated across much of the Elwha watershed.",
+          "translation": "每条返回的迁徙鱼都连接着不同栖息地，而大坝曾在埃尔瓦河大部分流域阻断这种联系。",
+          "uses": [
+            "U03310"
+          ]
+        },
+        {
+          "id": "CSA36003",
+          "text": "NOAA Fisheries describes how removing the dams reopened habitat to anadromous fish.",
+          "translation": "美国NOAA渔业部门介绍，拆坝如何重新向溯河洄游鱼类开放栖息地。",
+          "uses": []
+        }
+      ],
+      [
+        {
+          "id": "CSA36004",
+          "text": "A migratory fish needs connected habitats at different life stages; that migrational connection requires continuity along the river.",
+          "translation": "有季节性迁徙习性的鱼，在不同生命阶段需要相互连通的栖息地；这种迁徙联系要求河流保持连通。",
+          "uses": [
+            "U03307",
+            "U03305"
+          ]
+        },
+        {
+          "id": "CSA36005",
+          "text": "For a sea-going migrator, a barrier can separate growth from breeding grounds, so restoring its migratory route changes access far beyond the old obstruction.",
+          "translation": "对往返海洋的迁徙动物而言，屏障可能隔开生长地与繁殖地，因此恢复迁徙路线，会改变远超原阻碍位置的栖息地可达性。",
+          "uses": [
+            "U03306",
+            "U03308"
+          ]
+        },
+        {
+          "id": "CSA36006",
+          "text": "A fish can emerge from the water when leaping an obstacle, carrying its momentum into the air, but the whole route must remain passable.",
+          "translation": "鱼跃过障碍时可以浮出水面，把运动冲势带入空中，但完整路线都必须能够通行。",
+          "uses": [
+            "U02002",
+            "U03503"
+          ]
+        }
+      ],
+      [
+        {
+          "id": "CSA36007",
+          "text": "NOAA describes algae feeding invertebrates that feed young salmon, while returning adults bring marine nutrients upstream and support primary production.",
+          "translation": "NOAA介绍，藻类养育无脊椎动物，后者又供幼鲑摄食；返回的成鱼则把海洋营养带到上游，支持初级生产。",
+          "uses": []
+        },
+        {
+          "id": "CSA36008",
+          "text": "Researchers also track disturbed invertebrate communities, whose density and diversity recover at different rates.",
+          "translation": "研究人员还追踪受扰动的无脊椎动物群落，其密度与多样性以不同速度恢复。",
+          "uses": []
+        }
+      ]
+    ]
+  },
+  {
+    "id": "A37",
+    "title": "The Convention Floor Became a Broadcasting Space",
+    "sourceUrls": [
+      "https://www.chipublib.org/fa-democratic-national-convention-records/",
+      "https://siarchives.si.edu/blog/science-service-technology-political-conventions"
+    ],
+    "paragraphs": [
+      [
+        {
+          "id": "CSA37001",
+          "text": "A party convention gathers delegates for formal business; at the Democratic nominating convention in Chicago in August 1968, Hubert Humphrey became the presidential candidate.",
+          "translation": "政党大会召集代表办理正式事务；1968年8月芝加哥的民主党提名大会上，休伯特·汉弗莱成为总统候选人。",
+          "uses": [
+            "U01404",
+            "U01405"
+          ]
+        },
+        {
+          "id": "CSA37002",
+          "text": "An alternate stands ready to replace a delegate unable to serve.",
+          "translation": "候补代表随时准备接替无法履职的代表。",
+          "uses": [
+            "U00414"
+          ]
+        },
+        {
+          "id": "CSA37003",
+          "text": "Chicago Public Library's finding aid describes anti-war demonstrations and police violence outside; its collection includes schedules, seating charts, statements and alternative newspapers.",
+          "translation": "芝加哥公共图书馆的检索指南介绍了会场外的反战示威与警察暴力；馆藏包括日程表、座位图、声明及另类报纸。",
+          "uses": []
+        }
+      ],
+      [
+        {
+          "id": "CSA37004",
+          "text": "The Smithsonian Archives describes NBC's portable, battery-powered microphone equipment at the 1968 conventions.",
+          "translation": "史密森学会档案馆介绍了NBC在1968年党代会上使用的便携式电池供电麦克风设备。",
+          "uses": []
+        },
+        {
+          "id": "CSA37005",
+          "text": "Two-way communication connected floor reporters with a director in the booth, letting a network transmit interviews as the director coordinated coverage.",
+          "translation": "双向通信将会场记者与控制间导演连接起来，使电视网能在导演协调报道时播送采访。",
+          "uses": [
+            "U04902"
+          ]
+        },
+        {
+          "id": "CSA37006",
+          "text": "Transmission depended on both mobile reporters and technical coordination; each television transmission reflected choices about timing, position and speakers.",
+          "translation": "播送依赖流动记者与技术协调；每一次电视节目都体现着对时机、位置与发言人的选择。",
+          "uses": [
+            "U04911",
+            "U04912"
+          ]
+        },
+        {
+          "id": "CSA37007",
+          "text": "The media carried the event beyond the hall, while mass media brought selected local moments into many homes.",
+          "translation": "媒体将事件传播到会场之外，大众传播媒介则把经过选择的现场片段送进许多家庭。",
+          "uses": [
+            "U03218",
+            "U03219"
+          ]
+        }
+      ],
+      [
+        {
+          "id": "CSA37008",
+          "text": "A computer-based multimedia account of these records can combine programmes, images and descriptions, with hypermedia links offering different routes through them.",
+          "translation": "以计算机多媒体呈现这些记录，可以结合议程、图像与描述，超媒体链接则提供不同的浏览路径。",
+          "uses": [
+            "U03221"
+          ]
+        },
+        {
+          "id": "CSA37009",
+          "text": "To archive inactive digital files is to transfer them from everyday working storage into long-term holdings accessed less often, while keeping them retrievable.",
+          "translation": "将不再活跃使用的数字文件存档，就是把它们从日常工作存储转入较少访问的长期保存状态，同时保持可检索。",
+          "uses": [
+            "U00705"
+          ]
+        }
+      ]
+    ]
+  },
+  {
+    "id": "A38",
+    "title": "Recovery Belongs to a Whole Life",
+    "sourceUrls": [
+      "https://www.nccih.nih.gov/health/complementary-alternative-or-integrative-health-whats-in-a-name",
+      "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/hyperpigmentation"
+    ],
+    "paragraphs": [
+      [
+        {
+          "id": "CSA38001",
+          "text": "The NCCIH describes whole person health through connected biological, behavioural, social and environmental domains, and integrative health through coordinated approaches, providers and institutions.",
+          "translation": "美国NCCIH从相互联系的生物、行为、社会与环境领域描述全人健康，并从方法、服务者与机构之间的协调描述整合健康。",
+          "uses": []
+        },
+        {
+          "id": "CSA38002",
+          "text": "In its terminology, alternative medicine replaces conventional care; complementary approaches accompany it, but that relationship alone does not establish effectiveness.",
+          "translation": "按其术语，替代医学取代常规医疗，补充方法则与常规医疗并用；但这种关系本身不能证明疗效。",
+          "uses": [
+            "U00406"
+          ]
+        },
+        {
+          "id": "CSA38003",
+          "text": "Its April 2021 fact sheet describes a collaborative model joining chiropractors, primary-care providers and mental-health providers for veterans with spine pain and related mental-health conditions.",
+          "translation": "其2021年4月更新的说明介绍了一种合作模式：脊骨神经医学从业者、初级医疗与心理健康服务者，共同服务于有脊柱疼痛及相关心理健康问题的退伍军人。",
+          "uses": []
+        },
+        {
+          "id": "CSA38004",
+          "text": "It also describes cancer centres' symptom support alongside conventional treatment, characterising research into these programmes as early-stage.",
+          "translation": "它还介绍了癌症中心在常规治疗之外提供的症状支持，并将相关项目研究描述为早期阶段。",
+          "uses": []
+        }
+      ],
+      [
+        {
+          "id": "CSA38005",
+          "text": "Excess pigmentation can darken a skin patch; the National Cancer Institute links hyperpigmentation to excess melanin and lists injury, sun damage and some medicines, including anticancer drugs, as possible causes.",
+          "translation": "过度色素沉积可使局部皮肤变暗；美国国家癌症研究所将色素沉着过度与黑色素过多联系起来，并列出损伤、日晒损伤及某些药物，包括部分抗癌药，作为可能原因。",
+          "uses": [
+            "U03906"
+          ]
+        },
+        {
+          "id": "CSA38006",
+          "text": "Recovery can also involve psychological integration as conflicting wishes for independence and support find a place within one person's life.",
+          "translation": "康复也可能涉及心理整合：对独立与支持的矛盾愿望，在同一个人的生活中得到协调。",
+          "uses": [
+            "U02912"
+          ]
+        }
+      ],
+      [
+        {
+          "id": "CSA38007",
+          "text": "Restorative sleep can help a tired person regain strength; after hunger and exhaustion, a nourishing meal may serve as a restorative.",
+          "translation": "有恢复作用的睡眠可以帮助疲倦的人恢复力量；饥饿与疲惫之后，一顿有营养的饭也可能成为恢复精力的食物。",
+          "uses": [
+            "U04118",
+            "U04119"
+          ]
+        },
+        {
+          "id": "CSA38008",
+          "text": "A quiet break can act restoratively without treating the underlying disease.",
+          "translation": "安静休息可以起到恢复精力的作用，却不等于治疗基础疾病。",
+          "uses": [
+            "U04120"
+          ]
+        }
+      ]
+    ]
+  },
+  {
+    "id": "A39",
+    "title": "Keeping a Rainforest Alive While Its Glass House Changes",
+    "sourceUrls": [
+      "https://www.kew.org/kew-gardens/whats-in-the-gardens/palm-house",
+      "https://www.kew.org/kew-gardens/palm-house-renovation",
+      "https://www.kew.org/kew-gardens/whats-in-the-gardens/princess-of-wales-conservatory"
+    ],
+    "paragraphs": [
+      [
+        {
+          "id": "CSA39001",
+          "text": "Kew's Palm House opened in 1848 to grow tropical plants within a large iron-and-glass building in London.",
+          "translation": "邱园棕榈温室于1848年开放，在伦敦一座大型铁与玻璃建筑内栽培热带植物。",
+          "uses": []
+        },
+        {
+          "id": "CSA39002",
+          "text": "The nearby Princess of Wales Conservatory instead has ten computer-controlled climate zones.",
+          "translation": "附近的威尔士王妃温室则设有十个由计算机控制的气候区。",
+          "uses": [
+            "U01230"
+          ]
+        },
+        {
+          "id": "CSA39003",
+          "text": "Kew's October 2026 material describes moving plants before the Palm House's planned closures and renovation in 2027.",
+          "translation": "邱园2026年10月的材料介绍，在棕榈温室计划于2027年关闭整修之前，园方正在搬迁植物。",
+          "uses": []
+        }
+      ],
+      [
+        {
+          "id": "CSA39004",
+          "text": "Some medium-sized specimens can move intact; for plants too large to move, horticulturists preserve seeds and cuttings.",
+          "translation": "一些中等大小的植株可以完整搬走；对于过大而无法搬迁的植物，园艺师则保存种子和插条。",
+          "uses": [
+            "U03204"
+          ]
+        },
+        {
+          "id": "CSA39005",
+          "text": "Moved plants will be restored to the renovated house where possible.",
+          "translation": "条件允许时，搬走的植物会被放回整修后的温室。",
+          "uses": [
+            "U04106"
+          ]
+        },
+        {
+          "id": "CSA39006",
+          "text": "If a specimen outgrows its temporary space, the team may need to anticipate its next move by bringing the date forward.",
+          "translation": "如果某株植物长得超出临时空间，团队可能需要把下一次搬迁提前。",
+          "uses": [
+            "U00505"
+          ]
+        }
+      ],
+      [
+        {
+          "id": "CSA39007",
+          "text": "Plans replace gas boilers with an electrified heat-pump system powered by renewable electricity, making alternative energy part of the renovation.",
+          "translation": "计划以使用可再生电力的电动热泵系统取代燃气锅炉，使替代能源成为整修的一部分。",
+          "uses": [
+            "U00407"
+          ]
+        },
+        {
+          "id": "CSA39008",
+          "text": "Replacement glass and improved seals are intended to reduce heat loss, while tests examine cleaning panes and shifting old paint from the ironwork.",
+          "translation": "更换玻璃与改善密封旨在减少热损失，同时试验研究如何清洁玻璃并去除铁构件上的旧漆。",
+          "uses": [
+            "U04511"
+          ]
+        }
+      ],
+      [
+        {
+          "id": "CSA39009",
+          "text": "Within a living collection, alternate leaves appear singly at successive nodes rather than in opposite pairs; persistent leaves remain attached when deciduous plants shed theirs.",
+          "translation": "在活植物收藏中，互生叶在连续茎节上单独出现，而非成对对生；宿存叶则在落叶植物脱叶的季节仍留在植株上。",
+          "uses": [
+            "U00415",
+            "U03808"
+          ]
+        },
+        {
+          "id": "CSA39010",
+          "text": "A domestic conservatory serves another interior life, providing a sunny room for sitting, reading or meeting rather than a controlled tropical habitat.",
+          "translation": "住宅日光房服务于另一种室内生活：它提供坐着、阅读或相聚的阳光房间，而非受控的热带栖息环境。",
+          "uses": [
+            "U01231"
+          ]
+        }
+      ]
+    ]
+  },
+  {
+    "id": "A40",
+    "title": "The Printed Word and the Moving Voice",
+    "sourceUrls": [
+      "https://chaucer.fas.harvard.edu/pages/great-vowel-shift",
+      "https://dictionary.cambridge.org/grammar/british-grammar/adjective-phrases-position"
+    ],
+    "paragraphs": [
+      [
+        {
+          "id": "CSA40001",
+          "text": "Harvard's Chaucer teaching material describes the Great Vowel Shift, a sound shift that changed long stressed vowels over generations.",
+          "translation": "哈佛大学的乔叟教学材料介绍了元音大推移，即历经数代改变长重读元音的一组系统性音变。",
+          "uses": [
+            "U04524"
+          ]
+        },
+        {
+          "id": "CSA40002",
+          "text": "Such changes modify sounds even when familiar spellings remain, helping explain sixteenth-century proposals to redesign spelling around contemporary speech.",
+          "translation": "这类变化改变语音，即使熟悉的拼写仍被保留，也有助于解释十六世纪围绕当时口语重新设计拼写的提议。",
+          "uses": [
+            "U03404"
+          ]
+        },
+        {
+          "id": "CSA40003",
+          "text": "On a modern keyboard, the Shift key changes letter case without changing pronunciation.",
+          "translation": "在现代键盘上，Shift键改变字母大小写，却不改变发音。",
+          "uses": [
+            "U04525"
+          ]
+        }
+      ],
+      [
+        {
+          "id": "CSA40004",
+          "text": "In a small stone bridge, small modifies bridge, while stone is a noun modifier identifying its material.",
+          "translation": "在a small stone bridge中，small修饰bridge，stone则是说明材质的名词修饰语。",
+          "uses": [
+            "U03403",
+            "U03411"
+          ]
+        },
+        {
+          "id": "CSA40005",
+          "text": "Cambridge explains that adjectives normally precede noun modifiers; the phrase is therefore not an indiscriminate collection of words.",
+          "translation": "剑桥语法说明，形容词通常位于名词修饰语之前，因此这个短语并非杂乱堆放的词语。",
+          "uses": [
+            "U01816"
+          ]
+        },
+        {
+          "id": "CSA40006",
+          "text": "Indiscriminateness in ordering would obscure those relationships, which a fluent reader discriminates among almost automatically.",
+          "translation": "排列时不加区分，会遮蔽这些关系；熟练读者则几乎能自动辨别不同关系。",
+          "uses": [
+            "U01818",
+            "U01801"
+          ]
+        }
+      ],
+      [
+        {
+          "id": "CSA40007",
+          "text": "A late colleague can mean a colleague who has died, whereas a colleague who is late usually concerns delayed arrival.",
+          "translation": "a late colleague可指已故的同事，而a colleague who is late通常说的是迟到的同事。",
+          "uses": []
+        },
+        {
+          "id": "CSA40008",
+          "text": "Readers must attend discriminately to the whole construction; a precise teacher may insist on the distinction even when conversational context repairs a mistake.",
+          "translation": "读者必须有区别地注意整个结构；即便交谈语境可以补救错误，严谨刻板的教师也可能坚持区分。",
+          "uses": [
+            "U01805",
+            "U04004"
+          ]
+        }
+      ]
+    ]
+  },
+  {
+    "id": "A41",
+    "title": "A Memory Needs a Route Back",
+    "sourceUrls": [
+      "https://openstax.org/books/psychology-2e/pages/8-1-how-memory-functions"
+    ],
+    "paragraphs": [
+      [
+        {
+          "id": "CSA41001",
+          "text": "OpenStax distinguishes encoding, storage and retrieval: information must enter memory, remain there and become accessible again.",
+          "translation": "OpenStax区分编码、储存与提取：信息必须进入记忆、保存在其中，并能再次被调用。",
+          "uses": []
+        },
+        {
+          "id": "CSA41002",
+          "text": "Retention keeps learned information available, but even a retentive memory may need a cue to recover a particular item.",
+          "translation": "记忆保持使学过的信息继续留存，但即使记性很好，也可能需要线索才能想起具体内容。",
+          "uses": [
+            "U04215",
+            "U04218"
+          ]
+        }
+      ],
+      [
+        {
+          "id": "CSA41003",
+          "text": "The textbook describes experiments in which attention to meaning improved later memory for verbal material.",
+          "translation": "教材介绍了将注意力投向意义、从而改善后续言语材料记忆的实验。",
+          "uses": []
+        },
+        {
+          "id": "CSA41004",
+          "text": "A puzzling sentence can become easier to remember once context gives its words a coherent scene.",
+          "translation": "当语境让词语构成连贯场景时，原本费解的句子可能更容易记住。",
+          "uses": []
+        },
+        {
+          "id": "CSA41005",
+          "text": "Reading retentively can connect new material with information that later helps call it back.",
+          "translation": "有助于记住内容的阅读，可以将新材料与以后能帮助唤回它的信息联系起来。",
+          "uses": [
+            "U04220"
+          ]
+        }
+      ],
+      [
+        {
+          "id": "CSA41006",
+          "text": "Memory's associations offer different routes: one concept activates related concepts, a melody recalls words, and an experience supplies another cue.",
+          "translation": "记忆中的联结提供不同路径：一个概念激活相关概念，旋律唤回词语，经历则提供另一种线索。",
+          "uses": []
+        },
+        {
+          "id": "CSA41007",
+          "text": "Teachers become transmitters of knowledge partly by helping learners build those connections.",
+          "translation": "教师之所以成为知识传递者，部分在于帮助学习者建立这些联系。",
+          "uses": [
+            "U04914"
+          ]
+        }
+      ]
+    ]
+  },
+  {
+    "id": "A42",
+    "title": "Reading the Gaps in a Greek Inscription",
+    "sourceUrls": [
+      "https://deepmind.google/blog/predicting-the-past-with-ithaca/"
+    ],
+    "paragraphs": [
+      [
+        {
+          "id": "CSA42001",
+          "text": "Stone can retain a lease or law's wording for centuries, yet a missing cluster of letters may obscure which institution a passage names.",
+          "translation": "石头可以长久保留租约或法律的措辞，然而一簇字母缺失，就可能使某段所指的机构变得不明。",
+          "uses": [
+            "U04201"
+          ]
+        },
+        {
+          "id": "CSA42002",
+          "text": "In 2022, DeepMind and academic collaborators presented Ithaca to restore damaged ancient Greek texts and suggest their date and place of origin.",
+          "translation": "2022年，DeepMind与学术合作者推出Ithaca，用以补复受损的古希腊文本，并推测其年代与来源地点。",
+          "uses": [
+            "U04108"
+          ]
+        },
+        {
+          "id": "CSA42003",
+          "text": "It processes characters and words, so partial words remain useful, and offers several restoration hypotheses to historians.",
+          "translation": "它同时处理字符与词语，因此不完整的词仍有价值，并会向历史学家提供多种补复假设。",
+          "uses": []
+        }
+      ],
+      [
+        {
+          "id": "CSA42004",
+          "text": "A historian working in isolation cannot instantly recall every parallel inscription, however considerable their expertise.",
+          "translation": "无论专业知识多丰富，独自工作的历史学家也无法立即回忆起所有可对照的铭文。",
+          "uses": [
+            "U03115"
+          ]
+        },
+        {
+          "id": "CSA42005",
+          "text": "In the project's reported evaluation, historians assisted by Ithaca restored text more accurately than either unassisted historians or the model alone.",
+          "translation": "在项目报告的评估中，得到Ithaca辅助的历史学家，补复文本的准确率高于无辅助的历史学家或模型单独工作。",
+          "uses": [
+            "U04108"
+          ]
+        },
+        {
+          "id": "CSA42006",
+          "text": "This was an evaluation result, not a promise to recover any lost text: nearby words, comparable decrees and plausible dates reduce an inscription's isolation without repairing the stone.",
+          "translation": "这是一项评估结果，而非找回任意缺文的承诺：相邻词语、可比法令与可信年代，可以减轻铭文的孤立状态，却未修好石头。",
+          "uses": [
+            "U03112"
+          ]
+        }
+      ]
+    ]
+  },
+  {
+    "id": "A43",
+    "title": "The Dinosaur with a Spike in the Wrong Place",
+    "sourceUrls": [
+      "https://www.nhm.ac.uk/discover/the-discovery-of-iguanodon.html"
+    ],
+    "paragraphs": [
+      [
+        {
+          "id": "CSA43001",
+          "text": "The Crystal Palace Iguanodon wears a nose spike that belonged on the animal's thumb: an error in an attempt to restore an extinct body from incomplete remains.",
+          "translation": "水晶宫的禽龙模型把本属拇指的尖刺安在鼻部：这是依据不完整遗骸复原灭绝动物形体时留下的错误。",
+          "uses": [
+            "U04107"
+          ]
+        },
+        {
+          "id": "CSA43002",
+          "text": "That restoration offered the public a body before a relatively complete skeleton was known.",
+          "translation": "在较完整骨架尚未为人所知时，这个复原模型就向公众提供了可见形体。",
+          "uses": [
+            "U04114"
+          ]
+        }
+      ],
+      [
+        {
+          "id": "CSA43003",
+          "text": "Teeth found in Sussex in 1822 resembled much larger iguana teeth, while scattered bones left their arrangement uncertain.",
+          "translation": "1822年在萨塞克斯发现的牙齿，像放大许多的鬣蜥牙齿，而零散骨骼的排列仍不确定。",
+          "uses": []
+        },
+        {
+          "id": "CSA43004",
+          "text": "To isolate a bone from rock permits study, but neighbouring remains still help locate it within a body.",
+          "translation": "将骨头从岩石中分离出来才能研究，但邻近遗骸仍有助于判断它在身体中的位置。",
+          "uses": [
+            "U03102"
+          ]
+        },
+        {
+          "id": "CSA43005",
+          "text": "A rhinoceros-like outline made the nose spike plausible, and for a time it became conventional wisdom.",
+          "translation": "类似犀牛的轮廓使鼻刺显得可信，一度成为普遍接受的看法。",
+          "uses": [
+            "U01416"
+          ]
+        }
+      ],
+      [
+        {
+          "id": "CSA43006",
+          "text": "Discoveries in the 1870s identified thumb spikes; the 1878 Bernissart finds supplied numerous, often relatively complete skeletons.",
+          "translation": "十九世纪七十年代的发现确定尖刺属于拇指；1878年的贝尔尼萨尔发现，则提供了大量往往相对完整的骨架。",
+          "uses": []
+        },
+        {
+          "id": "CSA43007",
+          "text": "Even these were mounted upright, whereas the Natural History Museum explains that Iguanodon mainly walked on all fours; the old Belgian mounts are too fragile to rearrange.",
+          "translation": "即使如此，当时仍将骨架装成立姿；自然历史博物馆说明，禽龙主要四足行走，而旧比利时骨架装架如今已脆弱得无法重新排列。",
+          "uses": []
+        },
+        {
+          "id": "CSA43008",
+          "text": "A convincing reconstruction can emerge before all its parts are understood, preserving the knowledge of its makers as well as an image of the animal.",
+          "translation": "一个看似可信的复原模型，可能在各部分尚未全部被理解时就产生；它既保存动物形象，也记录制作者所处时代的认识。",
+          "uses": [
+            "U02006"
+          ]
+        }
+      ]
+    ]
+  },
+  {
+    "id": "A44",
+    "title": "The Hidden Movement Around a Ship",
+    "sourceUrls": [
+      "https://www.navair.navy.mil/node/9666",
+      "https://www.royalnavy.mod.uk/news/2024/october/22/20241022-tidesurge-supports-uk-and-nato-ops-in-north-atlantic"
+    ],
+    "paragraphs": [
+      [
+        {
+          "id": "CSA44001",
+          "text": "A 2009 NAVAIR account follows aviation support equipment removed from USS Kitty Hawk and redistributed to other users.",
+          "translation": "NAVAIR在2009年的报道追踪了从小鹰号移出、再分配给其他使用者的航空支援设备。",
+          "uses": []
+        },
+        {
+          "id": "CSA44002",
+          "text": "Kitty Hawk used conventional propulsion, meaning non-nuclear power; conventional weapons refer instead to armaments that do not use nuclear explosions.",
+          "translation": "小鹰号使用常规动力，即非核动力；常规武器指的则是不依靠核爆炸的武备。",
+          "uses": [
+            "U01412",
+            "U01411"
+          ]
+        }
+      ],
+      [
+        {
+          "id": "CSA44003",
+          "text": "Teams in San Diego and Bremerton coordinated job orders, bulkhead access, lifting, packing and transport.",
+          "translation": "圣迭戈与布雷默顿的团队协调工单、舱壁通道、吊运、包装及运输。",
+          "uses": []
+        },
+        {
+          "id": "CSA44004",
+          "text": "Missing orders had to be entered, and a packing station sorted and documented equipment; limited shore space in Bremerton required direct movement from ship to trucks.",
+          "translation": "缺失工单需要补录，包装站负责分类和登记设备；布雷默顿岸上空间有限，因此设备必须从船上直接运到卡车。",
+          "uses": []
+        },
+        {
+          "id": "CSA44005",
+          "text": "This was the reverse of bringing equipment aboard for service; retirement suggested an ending, but for redistributed items the reverse was true.",
+          "translation": "这与为服役而把设备运上船的惯常流程正好相反；退役仿佛意味着终结，但对再分配的物品来说，情况恰恰相反。",
+          "uses": [
+            "U04313",
+            "U04312"
+          ]
+        }
+      ],
+      [
+        {
+          "id": "CSA44006",
+          "text": "In October 2024, the Royal Navy described RFA Tidesurge supplying allied ships in the North Atlantic.",
+          "translation": "2024年10月，英国皇家海军介绍了潮涌号在北大西洋为盟军舰船补给的情况。",
+          "uses": []
+        },
+        {
+          "id": "CSA44007",
+          "text": "A replenishment evolution brings ships onto parallel courses at matched speed, connected by lines and hoses; helicopters can carry food and spare parts as suspended loads.",
+          "translation": "补给调动使舰船进入平行航线并匹配速度，由缆绳和软管连接；直升机还可以吊运食品与备件。",
+          "uses": [
+            "U02310"
+          ]
+        },
+        {
+          "id": "CSA44008",
+          "text": "Each shift of a heavy load needs coordination, because cargo that shifts as a hull rolls can apply unintended forces.",
+          "translation": "重物的每次移位都需要协调，因为船体横摇时货物滑移，可能产生原本未预料的作用力。",
+          "uses": [
+            "U04517",
+            "U04515"
+          ]
+        },
+        {
+          "id": "CSA44009",
+          "text": "Lifting systems must sustain repeated strain, and equipment that has sustained damage may need repair before reuse.",
+          "translation": "吊运系统必须经受反复应力，遭受损伤的设备在再次使用前可能需要修理。",
+          "uses": [
+            "U04606",
+            "U04602"
+          ]
+        }
+      ]
+    ]
+  },
+  {
+    "id": "A45",
+    "title": "A Student Room Has More Than One Calendar",
+    "sourceUrls": [
+      "https://www.ntu.ac.uk/life-at-ntu/accommodation/guide-to-private-accommodation",
+      "https://www.stmarys.ac.uk/student-services/docs/guide-to-off-campus-accommodation.pdf"
+    ],
+    "paragraphs": [
+      [
+        {
+          "id": "CSA45001",
+          "text": "Nottingham Trent University's accommodation guide distinguishes university housing from bookings made directly with private providers, so a booking query may belong with a provider or agent.",
+          "translation": "诺丁汉特伦特大学住宿指南区分了校方住宿与向私人供应者直接预订的住房，因此预订问题可能应向供应者或中介提出。",
+          "uses": []
+        },
+        {
+          "id": "CSA45002",
+          "text": "St Mary's University's guide, revised in 2016, describes a summer retainer as reduced rent paid while the student is away.",
+          "translation": "圣玛丽大学2016年修订的指南，将暑期保房租金描述为学生不在时支付的较低租金。",
+          "uses": [
+            "U04212"
+          ]
+        },
+        {
+          "id": "CSA45003",
+          "text": "NTU also uses retainer for a payment reserving accommodation before a contract starts, without granting occupation then.",
+          "translation": "NTU还用retainer指合同开始前保留住房的付款，但这不赋予该时段的入住权。",
+          "uses": []
+        },
+        {
+          "id": "CSA45004",
+          "text": "Paying, reserving and occupying can therefore belong to different periods.",
+          "translation": "因此，付款、保留住房与实际居住可能分别对应不同时段。",
+          "uses": []
+        }
+      ],
+      [
+        {
+          "id": "CSA45005",
+          "text": "After moving in, a cleaning rota might assign two housemates alternate weeks, giving each responsibility every other week.",
+          "translation": "入住后，清洁轮值表可以让两位室友隔周负责，使每人每隔一周承担一次任务。",
+          "uses": [
+            "U00412"
+          ]
+        }
+      ]
+    ]
+  },
+  {
+    "id": "A46",
+    "title": "A Phone Call Has Two Routes",
+    "sourceUrls": [
+      "https://www.bt.com/help/home-phone/manage-service/how-do-i-make-a-reverse-charge-call-"
+    ],
+    "paragraphs": [
+      [
+        {
+          "id": "CSA46001",
+          "text": "A caller can ask an operator to reverse the charges, making the receiver rather than the caller pay.",
+          "translation": "来电者可以请接线员倒付电话费，让接听者而非来电者承担费用。",
+          "uses": [
+            "U04319"
+          ]
+        },
+        {
+          "id": "CSA46002",
+          "text": "BT's help page calls this a reverse-charge or collect call, distinguishing ordinary telephone lines from categories of numbers excluded from the service.",
+          "translation": "BT帮助页称其为reverse-charge或collect call，并区分普通电话线路与不适用该服务的号码类别。",
+          "uses": []
+        },
+        {
+          "id": "CSA46003",
+          "text": "Who initiates a conversation and who agrees to fund it are separate questions: a number's type can affect which payment arrangement is available.",
+          "translation": "谁发起谈话与谁同意付费是不同问题：号码类型会影响可用的付费安排。",
+          "uses": []
+        }
+      ]
+    ]
+  },
+  {
+    "id": "A47",
+    "title": "A Hammer on a Roman Coin",
+    "sourceUrls": [
+      "https://www.royalmintmuseum.org.uk/collection/coins/roman-denarius/"
+    ],
+    "paragraphs": [
+      [
+        {
+          "id": "CSA47001",
+          "text": "Numismatist L. A. Lawrence presented objects to the Royal Mint Museum in the 1920s and 1930s, including a Roman denarius whose reverse shows a hammer and tongs.",
+          "translation": "钱币学家L. A. Lawrence在二十世纪二三十年代向皇家铸币博物馆赠送物品，其中一枚罗马第纳尔的背面刻有锤子与钳子。",
+          "uses": [
+            "U04316"
+          ]
+        },
+        {
+          "id": "CSA47002",
+          "text": "The tools seemed to represent coin manufacture, fitting a mint's collection, but the museum records another interpretation: they may refer to Vulcan, the god of metalworking.",
+          "translation": "这些工具曾被认为代表铸币，因此适合铸币机构收藏；但博物馆也记录了另一种解释：它们可能指金属工艺之神伏尔甘。",
+          "uses": []
+        }
+      ],
+      [
+        {
+          "id": "CSA47003",
+          "text": "An engraver may conventionalize a complex tool into recognizable lines; such a conventional representation follows visual tradition rather than every irregularity of a workshop object.",
+          "translation": "雕刻者可以把复杂工具转成约定俗成、可辨识的线条；这种因袭画法遵循视觉传统，而非逐一复现工坊实物的不规则细节。",
+          "uses": [
+            "U01420",
+            "U01415"
+          ]
+        },
+        {
+          "id": "CSA47004",
+          "text": "The ancient image and the collector's interpretation thus preserve different moments in the coin's history.",
+          "translation": "古代图像与收藏者的理解，因此保存了这枚钱币历史中的不同时刻。",
+          "uses": []
+        }
+      ]
+    ]
+  },
+  {
+    "id": "A48",
+    "title": "Recycling Starts Before and After a Plastic Object Exists",
+    "sourceUrls": [
+      "https://www.energy.gov/science/articles/transforming-plastics-recycling-discovery-science"
+    ],
+    "paragraphs": [
+      [
+        {
+          "id": "CSA48001",
+          "text": "A conveyor can carry discarded bottles to sorting, but the visible objects still mix polymers, colours, additives and layered products.",
+          "translation": "传送带可以把废弃瓶子送去分拣，但这些可见物品仍混杂着不同聚合物、颜色、添加剂与多层产品。",
+          "uses": [
+            "U01513"
+          ]
+        },
+        {
+          "id": "CSA48002",
+          "text": "The US Department of Energy's 2021 account explains that collecting or grinding plastic does not itself remove the chemical bonds in its polymer chains.",
+          "translation": "美国能源部2021年的报道说明，收集或粉碎塑料，本身并不能消除聚合物链中的化学键。",
+          "uses": []
+        }
+      ],
+      [
+        {
+          "id": "CSA48003",
+          "text": "A manufacturer can add a modifier to change flexibility; a chemist can modify a polymer by changing its attached substituent groups, altering properties such as behaviour in a solvent.",
+          "translation": "制造者可以加入调节剂改变柔韧性；化学家也可以通过改变聚合物所连接的取代基进行化学改性，从而改变其在溶剂中表现等性质。",
+          "uses": [
+            "U03410",
+            "U03405"
+          ]
+        },
+        {
+          "id": "CSA48004",
+          "text": "These are different interventions in a material's structure.",
+          "translation": "这些是在材料结构的不同层面进行的干预。",
+          "uses": []
+        }
+      ],
+      [
+        {
+          "id": "CSA48005",
+          "text": "The DOE account describes a polymer designed at Berkeley's Molecular Foundry to break back into building units under acidic conditions, with researchers also studying removal of dyes and additives and reuse of the components.",
+          "translation": "能源部报道介绍了伯克利分子铸造厂设计的一种聚合物，它可在酸性条件下分解回基本单元；研究者还研究了去除染料和添加剂，并重新利用这些组分。",
+          "uses": []
+        },
+        {
+          "id": "CSA48006",
+          "text": "Other work uses catalysts to transform existing plastics into potentially useful liquids and waxes: one approach designs a future recovery cycle, while the other works on material already made.",
+          "translation": "另一些研究使用催化剂，将已有塑料转成可能有用的液体与蜡：一种方法设计未来的回收循环，另一种则处理已经制造出来的材料。",
+          "uses": []
+        }
+      ]
+    ]
+  },
+  {
+    "id": "A49",
+    "title": "Why a Brick Wall Has a Pattern",
+    "sourceUrls": [
+      "https://www.wienerberger.co.uk/tips-and-advice/brickwork/how-do-i-choose-the-correct-brick-bonding-pattern.html"
+    ],
+    "paragraphs": [
+      [
+        {
+          "id": "CSA49001",
+          "text": "A brick's long face is its stretcher face and its short end the header; Wienerberger's technical guide shows how arranging them creates different bonds.",
+          "translation": "砖的长面称顺砖面，短端称丁砖面；维纳伯格技术指南介绍了不同排列如何形成不同组砌法。",
+          "uses": []
+        },
+        {
+          "id": "CSA49002",
+          "text": "In stretcher bond, the shift between courses places vertical joints over brick bodies below.",
+          "translation": "顺砖砌法中，各皮砖之间的错缝，使竖缝落在下层砖体上方。",
+          "uses": [
+            "U04528"
+          ]
+        },
+        {
+          "id": "CSA49003",
+          "text": "English bond alternates header and stretcher courses, whereas Flemish bond combines both within each course.",
+          "translation": "英国式组砌让丁砖层与顺砖层交替出现，佛兰芒式组砌则在每层内结合二者。",
+          "uses": []
+        }
+      ],
+      [
+        {
+          "id": "CSA49004",
+          "text": "Stack bond aligns bricks without the usual overlap, changing both appearance and structural requirements.",
+          "translation": "叠砌让砖对齐，不采用通常的搭接，因此外观与结构要求都不同。",
+          "uses": []
+        },
+        {
+          "id": "CSA49005",
+          "text": "Mortar-joint profiles and weather exposure add further design choices to the pattern of the wall.",
+          "translation": "砂浆缝的截面形状与受风雨情况，又为墙面的排列增加了设计选择。",
+          "uses": []
+        }
+      ]
+    ]
+  },
+  {
+    "id": "A50",
+    "title": "The Stillness Around a Memorial",
+    "sourceUrls": [
+      "https://amosa.org.au/stories-and-events/militaria/catafalque-party"
+    ],
+    "paragraphs": [
+      [
+        {
+          "id": "CSA50001",
+          "text": "The Army Museum of South Australia describes a catafalque party of four guards around a coffin or memorial, facing outward with bowed heads.",
+          "translation": "南澳大利亚陆军博物馆介绍，灵柩仪仗由四名卫兵围在灵柩或纪念碑周围，面向外侧、低头肃立。",
+          "uses": []
+        },
+        {
+          "id": "CSA50002",
+          "text": "They reverse arms in mourning, holding rifle butts upward and muzzles downward.",
+          "translation": "他们以倒持枪械致哀，枪托朝上、枪口朝下。",
+          "uses": [
+            "U04320"
+          ]
+        },
+        {
+          "id": "CSA50003",
+          "text": "The museum connects the practice with lying in state and remembrance occasions such as Anzac Day.",
+          "translation": "博物馆将这种做法与遗体供公众瞻仰，以及澳新军团日等纪念场合联系起来。",
+          "uses": []
+        },
+        {
+          "id": "CSA50004",
+          "text": "Outward-facing guards acknowledge the protected centre through stillness rather than an inward gaze.",
+          "translation": "卫兵朝外面向，以肃立而非向内凝视，向受到护卫的中心表达敬意。",
+          "uses": []
+        }
+      ]
+    ]
+  },
+  {
+    "id": "A51",
+    "title": "The Hurricane Had Two Eyewalls",
+    "sourceUrls": [
+      "https://www.nasa.gov/centers-and-facilities/marshall/the-marshall-star-408/"
+    ],
+    "paragraphs": [
+      [
+        {
+          "id": "CSA51001",
+          "text": "In September 2023, NASA researcher Patrick Duran joined NOAA P-3 flights through Hurricane Lee to study inner-eyewall lightning, clouds and rising air.",
+          "translation": "2023年9月，美国NASA研究员Patrick Duran搭乘NOAA的P-3飞机穿越飓风李，研究内眼墙的闪电、云层与上升气流。",
+          "uses": []
+        },
+        {
+          "id": "CSA51002",
+          "text": "The first flight found a small elliptical eye without lightning at that time; a later flight encountered lightning.",
+          "translation": "首次飞行发现一个椭圆形小风眼，当时没有闪电；后续一次飞行则遇到闪电。",
+          "uses": []
+        }
+      ],
+      [
+        {
+          "id": "CSA51003",
+          "text": "On 11 September, a secondary eyewall was forming around the existing one, and the aircraft orbited around the eye while its tail radar observed both.",
+          "translation": "9月11日，现有眼墙外侧正在形成第二道眼墙，飞机绕风眼盘旋，机尾雷达同时观察两道眼墙。",
+          "uses": [
+            "U03709"
+          ]
+        },
+        {
+          "id": "CSA51004",
+          "text": "Secondary eyewall formation can affect a strong hurricane's intensity, so these changing observations offered material for further work, including research on electrification.",
+          "translation": "第二道眼墙的形成可能影响强飓风的强度，因此这些变化中的观测为后续研究提供了材料，包括对电过程的研究。",
+          "uses": []
+        }
+      ]
+    ]
+  }
+]

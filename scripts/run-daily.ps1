@@ -46,7 +46,7 @@ else {
 }
 if (-not $codexExecutable) { throw '未找到 Codex CLI' }
 $prompt = @"
-执行第二语言项目北京时间 $studyDate 的正式日课。先完整读取AGENTS.md、protocol/DAILY_RUN.md、protocol/RECOMMENDATION.md、protocol/CURRENT_AFFAIRS.md、protocol/QUALITY_WORKFLOW.md、protocol/CONTENT.md、protocol/USAGE_LABELS.md、protocol/ETYMOLOGY.md、protocol/ANNOTATIONS.md、protocol/TEACHING_AUTHORING.md及领取到临时需求时的protocol/TEMPORARY.md。按实际输入和现行内容协议完成，不用上下文旧摘要替代。先恢复 work/runs/$studyDate 已有文件；未完成留具体resume.md，不因05:00开始生成就设发布截止。
+执行第二语言项目北京时间 $studyDate 的正式日课。先完整读取AGENTS.md、protocol/DAILY_RUN.md、protocol/RECOMMENDATION.md、protocol/CURRENT_AFFAIRS.md、protocol/QUALITY_WORKFLOW.md、protocol/QUALITY_SCALE.md、protocol/CONTENT.md、protocol/USAGE_LABELS.md、protocol/ETYMOLOGY.md、protocol/ANNOTATIONS.md、protocol/TEACHING_AUTHORING.md及领取到临时需求时的protocol/TEMPORARY.md。按实际输入和现行内容协议完成，不用上下文旧摘要替代。先恢复 work/runs/$studyDate 已有文件；未完成留具体resume.md，不因05:00开始生成就设发布截止。
 
 定时入口已领取一次运行，幂等读取control.json；休息立即结束，本日已发布则回读确认后结束。旧章已经封存，不迁移、不补修、不用旧数量推算，按服务端现行新章序列取得章号。模型 gpt-6.1-sol/max，正式50主词；完整双教材、真实词族、所有义项和原例保持，难度适度上调且不按owner词表分桶。
 
@@ -55,6 +55,8 @@ $prompt = @"
 最终冻结前按TEACHING_AUTHORING以candidate-scope运行prepare-teaching-materials，逐词阅读完整Collins再Oxford；主词、各词族词形及明确引用独立补查，父条提到派生名不能算读完独立条目。确认全义与真实词族后按原协议冻结50词，再prepare-vix-marking/mark-vix/publish-vix，复用原副本和回执。已有冻结或标注必须原组原输入续作，不重抓热点来重新推荐，不重置VIX。
 
 按TEACHING_AUTHORING复用不可变材料包，在teaching/authored逐词协同写完整第一、二部分、教材事实与全部相关原例去向。缺例由你针对该用法实际创作，禁止装配脚本自动抓第三部分句子补位。全义稳定后建设真实取材文章组，不设固定篇数/长度/体裁：词间及词内义项完全不按顺序，各篇按内容需要自由取用，整组真实覆盖所有用法。每篇隐藏USE后仍有充分现实内容和完整组织；不能将虚构中心切成展台或用孤立短句容纳剩余词。专业/历史/少见义补找适合的真实材料，不删义、不捏造采访或发生过的例子。
+
+按QUALITY_SCALE将保质精简放进已有article-plan和语义审阅：自然共享背景，首稿装配时观察三部分总规模，清理重复解释/泛收尾；删改后复核目标义、对象、事实条件/归因、指代、译文和阅读密度。不限篇幅不是无限扩写，压成浓缩难句也不是减负。不设硬字数/减量率，不按USE数量惩罚多义词，不每天再造多份全文；保留有理解/叙事价值的较长段落。已有冻结选择、主词数、全义原例、来源与发布身份保持。
 
 最终articles.json为唯一可装配终稿，ARTICLE身份与逐篇实际来源同源，SENTENCE全章唯一。node scripts/assemble-teaching.mjs $studyDate 输出候选；分别实际审阅教材原件与讲解/例句、每篇内容价值、全组逐义真用、事实和译文，记录实际纠错，不把材料记录和结构通过冒称语义审阅完成。采用候选后设置authoringPolicy=sourced-collection-v1，保留contentPolicy与sourcePolicy；source-notes采用导出的articles数组。按原pack-current-affairs、pack-chapter、publish-chapter发布并回读正文/来源摘要，之后才推送。固定选择、计费、休息、恢复保护按DAILY_RUN，不修改卷轴或雅思设计。按BALANCES末尾更新实际额度，不自动跨日重试，不泄露密钥。
 "@

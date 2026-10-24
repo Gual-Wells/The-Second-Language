@@ -8,6 +8,8 @@
 
 从DAILY_RUN、QUALITY_WORKFLOW和TEACHING_AUTHORING恢复：prepare-teaching-materials按明确主词/词族独立取得完整双教材包；作者协同写第一二部分及实际教材/原例去向；第三部分真实组稿，篇数和词间/词内义项次序自由，全组真用全义。assemble-teaching只装配与检查结构，不能冒充语义审阅。
 
+2026-10-25起实际run-daily.ps1提示词加载QUALITY_SCALE。article-plan和原语义审阅同时做保质精简；assemble-teaching附三部分规模观察，独立复算可用`node scripts/chapter-footprint.mjs chapters/DATE/chapter.md`，不自动删句或判质量。首章对照试验在research/quality-scale-2026-10-25，可运行其evaluate.mjs复算；它不发布、不领取日课、不改VIX或生成音频。生产仍只维护一个权威作者稿，不要求每日写三种全文。
+
 新文章组meta增加authoringPolicy=sourced-collection-v1；采用工具生成的chapter.md和article-sources.json，沿pack-current-affairs、pack-chapter、publish-chapter封存与回读。正文ARTICLE与来源包articles同源；服务端拒绝无篇目标记的新制作版本，既有原件读取/幂等重试不回写。静态壳v47，篇目复用原索引入口，来源同窗筛选，音频和答疑仍绑定整章原摘要；无D1迁移、新队列、新订阅或新监测器。
 
 不能假定后台都运行在此仓库：答疑/测试/质检及音频准备仍在second-language-maintenance。此次在共享Questions互斥锁空闲窗口，保留备份后仅原子同步web/annotations.js和protocol/chapter-quality-contract.mjs，使其认识ARTICLE与现行50词；其他已修改脚本、模型设置、队列和目录不覆盖。当前章与三篇隔离样例分别验证实际消费者的质检目标、测试主词与音频句子读取。以后变更公共格式时先核对实际任务根目录，再做必要兼容同步；不热迁工作资料或重启收费任务。

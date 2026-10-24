@@ -1,0 +1,1154 @@
+{
+  "status": "Editorial provenance; final peer review is recorded separately in selected-first.md and selected-second.md.",
+  "selection": [
+    {
+      "id": "A01",
+      "variant": "compact",
+      "reason": "Compact preserves the useful explanation after the explicit repairs recorded here."
+    },
+    {
+      "id": "A02",
+      "variant": "compact",
+      "reason": "Compact preserves the useful explanation after the explicit repairs recorded here."
+    },
+    {
+      "id": "A03",
+      "variant": "compact",
+      "reason": "Compact preserves the useful explanation after the explicit repairs recorded here."
+    },
+    {
+      "id": "A04",
+      "variant": "compact",
+      "reason": "Compact preserves the useful explanation after the explicit repairs recorded here."
+    },
+    {
+      "id": "A05",
+      "variant": "light",
+      "reason": "Keep nutrition/process explanation rather than compressing it into a dense set of terms."
+    },
+    {
+      "id": "A06",
+      "variant": "compact",
+      "reason": "Compact preserves the useful explanation after the explicit repairs recorded here."
+    },
+    {
+      "id": "A07",
+      "variant": "compact",
+      "reason": "Compact preserves the useful explanation after the explicit repairs recorded here."
+    },
+    {
+      "id": "A08",
+      "variant": "compact",
+      "reason": "Compact preserves the useful explanation after the explicit repairs recorded here."
+    },
+    {
+      "id": "A09",
+      "variant": "compact",
+      "reason": "Compact preserves the useful explanation after the explicit repairs recorded here."
+    },
+    {
+      "id": "A10",
+      "variant": "compact",
+      "reason": "Compact preserves the useful explanation after the explicit repairs recorded here."
+    },
+    {
+      "id": "A11",
+      "variant": "light",
+      "reason": "Keep museum attribution, observed detail and space for forty target uses."
+    },
+    {
+      "id": "A12",
+      "variant": "compact",
+      "reason": "Compact preserves the useful explanation after the explicit repairs recorded here."
+    },
+    {
+      "id": "A13",
+      "variant": "compact",
+      "reason": "Compact preserves the useful explanation after the explicit repairs recorded here."
+    },
+    {
+      "id": "A14",
+      "variant": "light",
+      "reason": "Keep qualified claims and the experience of reading the literary passage."
+    },
+    {
+      "id": "A15",
+      "variant": "compact",
+      "reason": "Compact preserves the useful explanation after the explicit repairs recorded here."
+    },
+    {
+      "id": "A16",
+      "variant": "compact",
+      "reason": "Compact preserves the useful explanation after the explicit repairs recorded here."
+    },
+    {
+      "id": "A17",
+      "variant": "light",
+      "reason": "Keep constitutional reasoning and procedural scaffolding; clarify an inherited baseline ambiguity separately."
+    },
+    {
+      "id": "A18",
+      "variant": "compact",
+      "reason": "Compact preserves the useful explanation after the explicit repairs recorded here."
+    },
+    {
+      "id": "A19",
+      "variant": "compact",
+      "reason": "Compact preserves the useful explanation after the explicit repairs recorded here."
+    },
+    {
+      "id": "A20",
+      "variant": "compact",
+      "reason": "Compact preserves the useful explanation after the explicit repairs recorded here."
+    },
+    {
+      "id": "A21",
+      "variant": "light",
+      "reason": "Keep the fermentation process and sensory explanation rather than a short list of target terms."
+    },
+    {
+      "id": "A22",
+      "variant": "compact",
+      "reason": "Compact preserves the useful explanation after the explicit repairs recorded here."
+    },
+    {
+      "id": "A23",
+      "variant": "compact",
+      "reason": "Compact preserves the useful explanation after the explicit repairs recorded here."
+    },
+    {
+      "id": "A24",
+      "variant": "compact",
+      "reason": "Compact preserves the useful explanation after the explicit repairs recorded here."
+    },
+    {
+      "id": "A25",
+      "variant": "compact",
+      "reason": "Compact preserves the useful explanation after the explicit repairs recorded here."
+    },
+    {
+      "id": "A26",
+      "variant": "compact",
+      "reason": "Compact preserves the useful explanation after the explicit repairs recorded here."
+    },
+    {
+      "id": "A27",
+      "variant": "compact",
+      "reason": "Compact preserves the useful explanation after the explicit repairs recorded here."
+    },
+    {
+      "id": "A28",
+      "variant": "compact",
+      "reason": "Compact preserves the useful explanation after the explicit repairs recorded here."
+    },
+    {
+      "id": "A29",
+      "variant": "compact",
+      "reason": "Compact preserves the useful explanation after the explicit repairs recorded here."
+    },
+    {
+      "id": "A30",
+      "variant": "compact",
+      "reason": "Compact preserves the useful explanation after the explicit repairs recorded here."
+    },
+    {
+      "id": "A31",
+      "variant": "light",
+      "reason": "Keep the literary sequence and pacing, not only the plot outcome."
+    },
+    {
+      "id": "A32",
+      "variant": "compact",
+      "reason": "Compact preserves the useful explanation after the explicit repairs recorded here."
+    },
+    {
+      "id": "A33",
+      "variant": "compact",
+      "reason": "Compact preserves the useful explanation after the explicit repairs recorded here."
+    },
+    {
+      "id": "A34",
+      "variant": "compact",
+      "reason": "Compact preserves the useful explanation after the explicit repairs recorded here."
+    },
+    {
+      "id": "A35",
+      "variant": "compact",
+      "reason": "Compact preserves the useful explanation after the explicit repairs recorded here."
+    },
+    {
+      "id": "A36",
+      "variant": "compact",
+      "reason": "Compact preserves the useful explanation after the explicit repairs recorded here."
+    },
+    {
+      "id": "A37",
+      "variant": "compact",
+      "reason": "Compact preserves the useful explanation after the explicit repairs recorded here."
+    },
+    {
+      "id": "A38",
+      "variant": "light",
+      "reason": "Keep medical conditions and explanatory steps explicit."
+    },
+    {
+      "id": "A39",
+      "variant": "light",
+      "reason": "Keep the heritage/conservation explanation and its relationship to the physical object."
+    },
+    {
+      "id": "A40",
+      "variant": "compact",
+      "reason": "Compact preserves the useful explanation after the explicit repairs recorded here."
+    },
+    {
+      "id": "A41",
+      "variant": "compact",
+      "reason": "Compact preserves the useful explanation after the explicit repairs recorded here."
+    },
+    {
+      "id": "A42",
+      "variant": "compact",
+      "reason": "Compact preserves the useful explanation after the explicit repairs recorded here."
+    },
+    {
+      "id": "A43",
+      "variant": "compact",
+      "reason": "Compact preserves the useful explanation after the explicit repairs recorded here."
+    },
+    {
+      "id": "A44",
+      "variant": "compact",
+      "reason": "Compact preserves the useful explanation after the explicit repairs recorded here."
+    },
+    {
+      "id": "A45",
+      "variant": "compact",
+      "reason": "Compact preserves the useful explanation after the explicit repairs recorded here."
+    },
+    {
+      "id": "A46",
+      "variant": "compact",
+      "reason": "Compact preserves the useful explanation after the explicit repairs recorded here."
+    },
+    {
+      "id": "A47",
+      "variant": "compact",
+      "reason": "Compact preserves the useful explanation after the explicit repairs recorded here."
+    },
+    {
+      "id": "A48",
+      "variant": "compact",
+      "reason": "Compact preserves the useful explanation after the explicit repairs recorded here."
+    },
+    {
+      "id": "A49",
+      "variant": "compact",
+      "reason": "Compact preserves the useful explanation after the explicit repairs recorded here."
+    },
+    {
+      "id": "A50",
+      "variant": "compact",
+      "reason": "Compact preserves the useful explanation after the explicit repairs recorded here."
+    },
+    {
+      "id": "A51",
+      "variant": "compact",
+      "reason": "Compact preserves the useful explanation after the explicit repairs recorded here."
+    }
+  ],
+  "repairs": [
+    {
+      "articleId": "A01",
+      "type": "compression-repair",
+      "reason": "Restore the measured object and quantity.",
+      "before": {
+        "id": "CFA01006",
+        "text": "To be precise, NASA gives about 11.7 microns per second: an approximation with a stated precision.",
+        "translation": "确切地说，NASA给出的是每秒约11.7微米，这是具有明确精密程度的近似值。",
+        "uses": [
+          "U04005",
+          "U00607",
+          "U04011"
+        ]
+      },
+      "after": [
+        {
+          "id": "R01001",
+          "text": "To be precise, NASA gives the change in the pair's orbital speed as about 11.7 microns per second, an approximation with a stated precision.",
+          "translation": "准确地说，NASA给出的双小行星系统公转速度变化约为每秒11.7微米，这是注明了精度的近似数值。",
+          "uses": [
+            "U04005",
+            "U00607",
+            "U04011"
+          ]
+        }
+      ]
+    },
+    {
+      "articleId": "A01",
+      "type": "compression-repair",
+      "reason": "Separate the direction observation from NASA's actual Earth-impact statement.",
+      "before": {
+        "id": "CFA01010",
+        "text": "NASA states that DART neither reversed the asteroids' direction nor put this previously safe system on an Earth-impact trajectory.",
+        "translation": "NASA指出，DART既没有逆转小行星的运行方向，也没有使原本安全的系统进入撞击地球的轨道。",
+        "uses": [
+          "U04301"
+        ]
+      },
+      "after": [
+        {
+          "id": "R01002",
+          "text": "The impact did not reverse the asteroids' direction.",
+          "translation": "这次撞击并未逆转小行星的运动方向。",
+          "uses": [
+            "U04301"
+          ]
+        },
+        {
+          "id": "R01003",
+          "text": "NASA states that the system was not on an Earth-impact trajectory and that DART could not put it on one.",
+          "translation": "NASA说明，该系统原本不处于撞向地球的轨道上，DART也不可能使它进入这样的轨道。",
+          "uses": []
+        }
+      ]
+    },
+    {
+      "articleId": "A03",
+      "type": "compression-repair",
+      "reason": "Make network coherence refer to coordinated parts, not the failed connection.",
+      "before": {
+        "id": "CFA03004",
+        "text": "In a coherent network, a short route is little help if the connection leaves just before passengers arrive.",
+        "translation": "在衔接有序的网络中，如果接驳车恰在乘客抵达前开走，路线再短也帮助不大。",
+        "uses": [
+          "U00901"
+        ]
+      },
+      "after": [
+        {
+          "id": "R03004",
+          "text": "A short route helps little if its connection leaves too early; a coherent network coordinates these parts.",
+          "translation": "如果接驳车过早离站，一条短线路也帮不上多少忙；协调一致的交通网络会统筹这些环节。",
+          "uses": [
+            "U00901"
+          ]
+        }
+      ]
+    },
+    {
+      "articleId": "A03",
+      "type": "readability-refinement",
+      "reason": "Retain verb and process noun in a less circular construction.",
+      "before": {
+        "id": "CFA03007",
+        "text": "The authority must adapt the network through such adaptation as extra trips, longer routes or new connections.",
+        "translation": "当局必须通过增加班次、延长线路或新设接驳等调整来改造网络。",
+        "uses": [
+          "U00102",
+          "U00109"
+        ]
+      },
+      "after": [
+        {
+          "id": "R03005",
+          "text": "Adding trips, extending routes or creating connections are forms of adaptation through which the authority can adapt the network.",
+          "translation": "增加班次、延长线路或建立接驳联系，都是交通部门可以用来调整网络的适应性改变。",
+          "uses": [
+            "U00102",
+            "U00109"
+          ]
+        }
+      ]
+    },
+    {
+      "articleId": "A04",
+      "type": "compression-repair",
+      "reason": "Make goals, rather than languages themselves, mutually exclusive.",
+      "before": {
+        "id": "CFA04004",
+        "text": "The languages need not be mutually exclusive: they can be mutually supportive when concepts transfer between them.",
+        "translation": "这些语言不必相互排斥；当概念能在语言之间迁移时，它们可以相互支持。",
+        "uses": [
+          "U03607",
+          "U03606"
+        ]
+      },
+      "after": [
+        {
+          "id": "R04006",
+          "text": "Preserving a familiar language and learning another need not be mutually exclusive goals.",
+          "translation": "保留熟悉的语言与学习另一种语言，不必成为互相排斥的目标。",
+          "uses": [
+            "U03607"
+          ]
+        },
+        {
+          "id": "R04007",
+          "text": "The two languages can be mutually supportive when concepts transfer between them.",
+          "translation": "当概念能够在两种语言之间迁移时，它们可以相互支持。",
+          "uses": [
+            "U03606"
+          ]
+        }
+      ]
+    },
+    {
+      "articleId": "A06",
+      "type": "compression-repair",
+      "reason": "Retain sample limitations while giving the inference its own sentence.",
+      "before": {
+        "id": "CFA06005",
+        "text": "An imprecisely described sample can make a precisely calculated percentage misleading; this imprecision concerns representation, so broader coverage is an enhancement of knowledge, not proof that disease newly appeared.",
+        "translation": "对样本描述不精确，会使精确计算的百分比产生误导；这种不精确关乎代表范围，因此扩大覆盖是知识上的增强，并不能证明疾病此前不存在。",
+        "uses": [
+          "U04014",
+          "U04007",
+          "U04015",
+          "U02102"
+        ]
+      },
+      "after": [
+        {
+          "id": "R06008",
+          "text": "An imprecisely described sample can make a precisely calculated percentage misleading.",
+          "translation": "如果样本描述得不准确，即使百分比算得精确，也可能产生误导。",
+          "uses": [
+            "U04014",
+            "U04007"
+          ]
+        },
+        {
+          "id": "R06009",
+          "text": "This imprecision concerns representation, so broader coverage is an enhancement of knowledge, not proof that disease newly appeared.",
+          "translation": "这种不准确涉及样本的代表性，因此覆盖范围扩大意味着认识得到增进，并不证明疾病刚刚出现。",
+          "uses": [
+            "U04015",
+            "U02102"
+          ]
+        }
+      ]
+    },
+    {
+      "articleId": "A06",
+      "type": "compression-repair",
+      "reason": "Restore separation, purpose and conditional route instead of promising reduced spread.",
+      "before": {
+        "id": "CFA06006",
+        "text": "To isolate a patient reduces infection spread; an isolation ward serves that purpose, yet someone can still feel isolated and need support against isolation.",
+        "translation": "隔离患者旨在减少感染传播；隔离病房服务于这一目的，但患者仍可能感到孤独，需要支持来缓解孤独感。",
+        "uses": [
+          "U03105",
+          "U03116",
+          "U03110",
+          "U03113"
+        ]
+      },
+      "after": [
+        {
+          "id": "R06010",
+          "text": "To isolate a potentially infectious patient is to separate that person from others to limit spread along a relevant route.",
+          "translation": "隔离可能具有传染性的患者，是将其与他人分开，以限制经相关途径发生的传播。",
+          "uses": [
+            "U03105"
+          ]
+        },
+        {
+          "id": "R06011",
+          "text": "An isolation ward serves that purpose; someone there can still feel isolated and need support against isolation.",
+          "translation": "隔离病房服务于这一目的；身在其中的人仍可能感到孤立，需要支持来缓解孤独。",
+          "uses": [
+            "U03116",
+            "U03110",
+            "U03113"
+          ]
+        }
+      ]
+    },
+    {
+      "articleId": "A06",
+      "type": "redundancy",
+      "reason": "Remove a duplicate One Health introduction; the following integrated explanation retains it.",
+      "before": {
+        "id": "S0206",
+        "text": "WHO's One Health approach links human health, animal health and the environment.",
+        "translation": "WHO的One Health方法，把人类健康、动物健康与环境联系起来。",
+        "uses": []
+      },
+      "after": []
+    },
+    {
+      "articleId": "A07",
+      "type": "compression-repair",
+      "reason": "Retain the possibility rather than guarantee of a remembered encounter.",
+      "before": {
+        "id": "CFA07004",
+        "text": "A tangible sculpture and an intangible experience can form one work: its tangibility permits direct examination, while the encounter survives in memory.",
+        "translation": "有形的雕塑与无形的体验可以构成一件作品：雕塑的可触性允许直接检查，而观赏经历则留存在记忆中。",
+        "uses": [
+          "U04701",
+          "U04706",
+          "U04704"
+        ]
+      },
+      "after": [
+        {
+          "id": "R07012",
+          "text": "A tangible sculpture and an intangible experience can form one work: its tangibility permits direct examination, while the encounter may survive in memory.",
+          "translation": "一件可触的雕塑与一次无形的体验可以共同构成作品：它的有形性使直接观察成为可能，而相遇的体验可能留在记忆中。",
+          "uses": [
+            "U04701",
+            "U04706",
+            "U04704"
+          ]
+        }
+      ]
+    },
+    {
+      "articleId": "A08",
+      "type": "compression-repair",
+      "reason": "Replace a weakened singular antecedent with an explicit object.",
+      "before": {
+        "id": "S0267",
+        "text": "It can be uncompromisingly modern in form while leaving the human meaning of modernity open.",
+        "translation": "它可以在形式上彻底现代、毫不折中，同时让现代性的人类意义保持开放。",
+        "uses": [
+          "U01110"
+        ]
+      },
+      "after": [
+        {
+          "id": "R08013",
+          "text": "Such a painting can be uncompromisingly modern in form while leaving the human meaning of modernity open.",
+          "translation": "这样的画作可以在形式上毫不妥协地现代，同时让现代性对人的意义保持开放。",
+          "uses": [
+            "U01110"
+          ]
+        }
+      ]
+    },
+    {
+      "articleId": "A09",
+      "type": "compression-repair",
+      "reason": "Give the judgement to the dyer rather than to wax lines.",
+      "before": {
+        "id": "CFA09005",
+        "text": "Fine wax lines preserve light details in darker areas with considerable discrimination, so the textile design records a sequence of skilled actions.",
+        "translation": "细蜡线能极细致地区分深色区域内的浅色细节，因此纺织图案记录了一连串熟练的操作。",
+        "uses": [
+          "U01813",
+          "U04804"
+        ]
+      },
+      "after": [
+        {
+          "id": "R09014",
+          "text": "A dyer preserves fine light details in darker areas with considerable discrimination, so the textile design records a sequence of skilled actions.",
+          "translation": "染匠凭借细致的辨别力，在深色区域内保留精细的浅色细节，因此纺织图案记录了一连串熟练的操作。",
+          "uses": [
+            "U01813",
+            "U04804"
+          ]
+        }
+      ]
+    },
+    {
+      "articleId": "A10",
+      "type": "compression-repair",
+      "reason": "Preserve inherited characteristics, not the process of transmission; the prior Through repair was rejected by final semantic review.",
+      "before": {
+        "id": "CFA10005",
+        "text": "Genetic inheritance supplies variation that makes a population evolvable across generations.",
+        "translation": "遗传提供变异，使种群能够跨世代发生演化。",
+        "uses": [
+          "U02806",
+          "U02306"
+        ]
+      },
+      "after": [
+        {
+          "id": "R10015",
+          "text": "A population is evolvable partly because its members differ in their genetic inheritance.",
+          "translation": "种群能够演化，部分原因在于成员所继承的遗传特征有所不同。",
+          "uses": [
+            "U02806",
+            "U02306"
+          ]
+        }
+      ]
+    },
+    {
+      "articleId": "A10",
+      "type": "compression-repair",
+      "reason": "Name the tradition after the prior antecedent was removed.",
+      "before": {
+        "id": "S0342",
+        "text": "Its inheritors receive both powerful explanations and questions about the world in which those explanations were made.",
+        "translation": "其承接者既得到有力的解释，也得到关于这些解释形成于何种世界的问题。",
+        "uses": [
+          "U02809"
+        ]
+      },
+      "after": [
+        {
+          "id": "R10016",
+          "text": "Later inheritors of this scientific tradition receive both powerful explanations and questions about the world in which those explanations were made.",
+          "translation": "这一科学传统的后继者，既承接有力的解释，也承接关于这些解释形成于何种世界的问题。",
+          "uses": [
+            "U02809"
+          ]
+        }
+      ]
+    },
+    {
+      "articleId": "A12",
+      "type": "compression-repair",
+      "reason": "Restore the limited interval rather than imply perpetual phase stability.",
+      "before": {
+        "id": "CFA12004",
+        "text": "Coherent beams maintain phase relationships; this coherence lets suitable waves combine coherently into stable interference patterns.",
+        "translation": "相干光束保持相位关系；这种相干性使合适的光波能相干叠加，形成稳定的干涉图样。",
+        "uses": [
+          "U00904",
+          "U00918",
+          "U00910"
+        ]
+      },
+      "after": [
+        {
+          "id": "R12017",
+          "text": "Coherent beams maintain phase relationships over a useful interval; this coherence lets suitable waves combine coherently into stable interference patterns.",
+          "translation": "相干光束在有用的时间间隔内保持相位关系；这种相干性使合适的光波能相干叠加，形成稳定的干涉图样。",
+          "uses": [
+            "U00904",
+            "U00918",
+            "U00910"
+          ]
+        }
+      ]
+    },
+    {
+      "articleId": "A16",
+      "type": "compression-repair",
+      "reason": "Separate historical pressure from an asserted single psychological cause.",
+      "before": {
+        "id": "CFA16006",
+        "text": "In the 1840s, the Corn Laws restricted grain imports; harvest failure and Irish famine persuaded Peel to seek repeal despite landowner resistance and party division.",
+        "translation": "十九世纪四十年代，谷物法限制粮食进口；歉收与爱尔兰饥荒促使Peel寻求废法，尽管地主抵制、党内分裂。",
+        "uses": []
+      },
+      "after": [
+        {
+          "id": "R16018",
+          "text": "In the 1840s, the Corn Laws restricted grain imports; harvest failure and the Irish famine brought their consequences into urgent focus.",
+          "translation": "19世纪40年代，《谷物法》限制谷物进口；歉收与爱尔兰饥荒使其后果成为迫切问题。",
+          "uses": []
+        },
+        {
+          "id": "R16019",
+          "text": "Peel sought repeal despite landowner resistance and division within his party.",
+          "translation": "尽管地主反对、党内存在分歧，皮尔仍寻求废除这些法律。",
+          "uses": []
+        }
+      ]
+    },
+    {
+      "articleId": "A16",
+      "type": "compression-repair",
+      "reason": "Use the documented policy change without inventing a change in political loyalty.",
+      "before": {
+        "id": "CFA16007",
+        "text": "This policy shift required him to shift his position on political loyalty as well as trade.",
+        "translation": "这一政策转变要求他不仅改变贸易立场，也改变对政治忠诚的立场。",
+        "uses": [
+          "U04503",
+          "U04502"
+        ]
+      },
+      "after": [
+        {
+          "id": "R16020",
+          "text": "Changing the Corn Laws was a policy shift; Peel had to shift his position on grain imports.",
+          "translation": "改变《谷物法》是一次政策转变；皮尔必须改变自己在谷物进口问题上的立场。",
+          "uses": [
+            "U04503",
+            "U04502"
+          ]
+        }
+      ]
+    },
+    {
+      "articleId": "A17",
+      "type": "inherited-baseline-clarification",
+      "reason": "Clarify restored Supreme Court docket, distinct from the later remand; verified in the frozen National Archives opinion.",
+      "before": {
+        "id": "S0551",
+        "text": "The 1954 opinion returned the cases for further argument about the form of the orders.",
+        "translation": "1954年的判决意见，将案件交回，以进一步论辩命令应采取什么形式。",
+        "uses": []
+      },
+      "after": [
+        {
+          "id": "R17021",
+          "text": "The 1954 opinion restored the cases to the Court's docket for further argument about the form of the decrees.",
+          "translation": "1954年判决将案件恢复到最高法院案卷，以继续论辩救济命令的形式。",
+          "uses": []
+        }
+      ]
+    },
+    {
+      "articleId": "A19",
+      "type": "compression-repair",
+      "reason": "Give prudent resource use to gardeners, not plant physiology.",
+      "before": {
+        "id": "CFA19008",
+        "text": "Water conservation begins with suited plants that conserve water rather than demand an imitation climate.",
+        "translation": "节水始于选择适地植物，让它们节约水资源，而不是要求人为仿造另一种气候。",
+        "uses": [
+          "U01209",
+          "U01201"
+        ]
+      },
+      "after": [
+        {
+          "id": "R19022",
+          "text": "Water conservation begins with choosing suited plants, helping gardeners conserve water rather than imitate another climate.",
+          "translation": "节水始于选择适地植物，帮助园艺者节约水资源，而不是仿造另一种气候。",
+          "uses": [
+            "U01209",
+            "U01201"
+          ]
+        }
+      ]
+    },
+    {
+      "articleId": "A20",
+      "type": "compression-repair",
+      "reason": "Restore the recipe antecedent after the intervening pot description.",
+      "before": {
+        "id": "CFA20003",
+        "text": "Its yield is approximately four half-pint jars of finished preserves, not that volume of fresh berries.",
+        "translation": "成品产量约为四个半品脱罐，指的是制成的糖渍果品，而非同体积的新鲜草莓。",
+        "uses": [
+          "U00605"
+        ]
+      },
+      "after": [
+        {
+          "id": "R20023",
+          "text": "The recipe's published yield is approximately four half-pint jars of finished preserves, not that volume of fresh berries.",
+          "translation": "该配方公布的成品产量约为四个半品脱罐，指制成的糖渍果品，而非同体积的新鲜草莓。",
+          "uses": [
+            "U00605"
+          ]
+        }
+      ]
+    },
+    {
+      "articleId": "A20",
+      "type": "compression-repair",
+      "reason": "Retain the qualified effect of substitutes.",
+      "before": {
+        "id": "CFA20004",
+        "text": "The Center warns that non-sugar substitutes alter preservation requirements: a flavour enhancer cannot reproduce sugar's other functions.",
+        "translation": "该中心提醒，非糖替代物会改变保藏要求：增味剂不能重现糖的其他功能。",
+        "uses": [
+          "U02103"
+        ]
+      },
+      "after": [
+        {
+          "id": "R20024",
+          "text": "The Center warns that non-sugar substitutes can alter preservation requirements: a flavour enhancer cannot reproduce sugar's other functions.",
+          "translation": "该中心提醒，非糖替代物可能改变保藏要求：增味剂不能重现糖的其他功能。",
+          "uses": [
+            "U02103"
+          ]
+        }
+      ]
+    },
+    {
+      "articleId": "A22",
+      "type": "translation-repair",
+      "reason": "Translate tones and hand movements without changing them to timbre or hand switching.",
+      "before": {
+        "id": "CFA22001",
+        "text": "Lifting the dampers lets the pianist sustain a note; this sustain can overlap tones or connect notes across hand movements.",
+        "translation": "抬起制音器使钢琴家能够延续音符；这种延音可以叠合音色，或把换手动作两侧的音符连接起来。",
+        "uses": [
+          "U04610",
+          "U04611"
+        ]
+      },
+      "after": [
+        {
+          "id": "R22025",
+          "text": "Lifting the dampers lets the pianist sustain a note; this sustain can overlap tones or connect notes across hand movements.",
+          "translation": "抬起制音器使钢琴家能够延续音符；这种延音可以使乐音重叠，或在手的移动过程中把音符连接起来。",
+          "uses": [
+            "U04610",
+            "U04611"
+          ]
+        }
+      ]
+    },
+    {
+      "articleId": "A22",
+      "type": "compression-repair",
+      "reason": "Restore eager expectation, distinct from prediction, and keep the motor preparation separate.",
+      "before": {
+        "id": "CFA22006",
+        "text": "Students may anticipate mastering a phrase; anticipatory listening and anticipative attention prepare the next movement before its sound arrives.",
+        "translation": "学生可能期待掌握一个乐句；预期性的聆听与前瞻性的注意，使下一个动作在声音到来前就得到准备。",
+        "uses": [
+          "U00504",
+          "U00512",
+          "U00510"
+        ]
+      },
+      "after": [
+        {
+          "id": "R22026",
+          "text": "Students may eagerly anticipate the day they master a phrase.",
+          "translation": "学生可能热切期待自己掌握一个乐句的那一天。",
+          "uses": [
+            "U00504"
+          ]
+        },
+        {
+          "id": "R22027",
+          "text": "Anticipatory listening and anticipative attention prepare the next movement before its sound arrives.",
+          "translation": "预期性的聆听与前瞻性的注意，使下一个动作在声音到来前就得到准备。",
+          "uses": [
+            "U00512",
+            "U00510"
+          ]
+        }
+      ]
+    },
+    {
+      "articleId": "A23",
+      "type": "compression-repair",
+      "reason": "Restore tendencies and possible wear rather than unconditional outcomes.",
+      "before": {
+        "id": "CFA23002",
+        "text": "During slipping, friction reduces relative speed; repeated friction wears surfaces and causes frictional heating as energy dissipates.",
+        "translation": "滑动时，摩擦力减小相对速度；反复摩擦磨损表面，并因能量耗散而产生摩擦热。",
+        "uses": [
+          "U02503",
+          "U02502",
+          "U02506"
+        ]
+      },
+      "after": [
+        {
+          "id": "R23028",
+          "text": "During slipping, friction tends to reduce relative speed; repeated friction can wear surfaces and cause frictional heating as energy dissipates.",
+          "translation": "在滑动期间，摩擦倾向于降低相对速度；反复摩擦可能磨损表面，并在能量耗散时产生摩擦热。",
+          "uses": [
+            "U02503",
+            "U02502",
+            "U02506"
+          ]
+        }
+      ]
+    },
+    {
+      "articleId": "A23",
+      "type": "redundancy",
+      "reason": "Remove repeated heating explanation already retained in the repaired sentence.",
+      "before": {
+        "id": "S0695",
+        "text": "Frictional heating is a consequence of energy being dissipated rather than all becoming useful motion.",
+        "translation": "摩擦发热，是能量耗散而没有全部转化为有用运动的结果。",
+        "uses": [
+          "U02506"
+        ]
+      },
+      "after": []
+    },
+    {
+      "articleId": "A23",
+      "type": "compression-repair",
+      "reason": "Restore the transitive use reverse the engine, not a different intransitive construction.",
+      "before": {
+        "id": "CFA23008",
+        "text": "The engine need not reverse: reverse gear redirects its output so selecting reverse lets the vehicle reverse.",
+        "translation": "发动机不必反向旋转：倒挡改变输出方向，因此挂入倒挡就能使车辆倒退。",
+        "uses": [
+          "U04307",
+          "U04310",
+          "U04309",
+          "U04306"
+        ]
+      },
+      "after": [
+        {
+          "id": "R23029",
+          "text": "The driver need not reverse the engine: reverse gear redirects its output so selecting reverse lets the vehicle reverse.",
+          "translation": "驾驶者无须使发动机反转：倒车齿轮改变其输出方向，因此挂入倒挡便能让车辆倒车。",
+          "uses": [
+            "U04307",
+            "U04310",
+            "U04309",
+            "U04306"
+          ]
+        }
+      ]
+    },
+    {
+      "articleId": "A24",
+      "type": "compression-repair",
+      "reason": "State completion on the date and physical separation distance without implying disconnection.",
+      "before": {
+        "id": "CFA24001",
+        "text": "The James Webb Space Telescope's sunshield was folded for launch and remotely deployed by 4 January 2022: supports extended, instruments separated from the shield, and five membranes were tensioned into a heat barrier.",
+        "translation": "詹姆斯·韦布空间望远镜的遮阳板在发射时折叠起来，并于2022年1月4日前完成遥控展开：支架伸长，仪器与遮阳板拉开距离，五层膜张紧成隔热屏障。",
+        "uses": []
+      },
+      "after": [
+        {
+          "id": "R24030",
+          "text": "The James Webb Space Telescope's sunshield was folded for launch and fully deployed on 4 January 2022.",
+          "translation": "詹姆斯·韦布空间望远镜的遮阳板在发射时折叠，于2022年1月4日完成展开。",
+          "uses": []
+        },
+        {
+          "id": "R24031",
+          "text": "Under remote control, supports extended, instruments moved farther from the shield, and five membranes were tensioned into a heat barrier.",
+          "translation": "在遥控下，支撑结构伸出，仪器移到离遮阳板更远的位置，五层薄膜被张紧，形成隔热屏障。",
+          "uses": []
+        }
+      ]
+    },
+    {
+      "articleId": "A24",
+      "type": "compression-repair",
+      "reason": "Identify the wavelength that stretches and retain the colour misconception separately.",
+      "before": {
+        "id": "CFA24003",
+        "text": "As the universe expands, travelling light can stretch into a red shift towards longer wavelengths, even from visible light into infrared; this does not require objects to look red.",
+        "translation": "宇宙膨胀时，行进中的光可以被拉长，产生向更长波长的红移，甚至从可见光移入红外；这不要求物体在眼中看起来发红。",
+        "uses": [
+          "U04544"
+        ]
+      },
+      "after": [
+        {
+          "id": "R24032",
+          "text": "As the universe expands, the wavelengths of travelling light can stretch, producing a red shift, even from visible light into infrared.",
+          "translation": "随着宇宙膨胀，传播中的光的波长可能拉长，产生红移，甚至从可见光移入红外范围。",
+          "uses": [
+            "U04544"
+          ]
+        },
+        {
+          "id": "R24033",
+          "text": "This does not require objects to look red.",
+          "translation": "这并不要求物体看起来是红色的。",
+          "uses": []
+        }
+      ]
+    },
+    {
+      "articleId": "A24",
+      "type": "compression-repair",
+      "reason": "Specify earlier stages rather than ambiguously earlier galaxies.",
+      "before": {
+        "id": "CFA24004",
+        "text": "Travel time lets distant observations reveal earlier galaxies, while infrared instruments widen the accessible history.",
+        "translation": "传播需要时间，因此远距离观测显现的是更早的星系，而红外仪器扩大了可以研究的历史范围。",
+        "uses": []
+      },
+      "after": [
+        {
+          "id": "R24034",
+          "text": "Travel time lets distant observations reveal galaxies at earlier stages, while infrared instruments widen the accessible history.",
+          "translation": "光的传播时间使遥远的观测能呈现星系较早阶段的样貌，而红外仪器拓宽了可以探查的历史范围。",
+          "uses": []
+        }
+      ]
+    },
+    {
+      "articleId": "A25",
+      "type": "compression-repair",
+      "reason": "Keep financial/property scope distinct from authority over all personal affairs.",
+      "before": {
+        "id": "CFA25001",
+        "text": "Utah courts explain that a conservator's appointment order and letters specify limited or full authority over another person's affairs.",
+        "translation": "犹他州法院解释，财产监护人的任命令及证明文书，规定其管理他人事务的有限或完整权限。",
+        "uses": [
+          "U01214"
+        ]
+      },
+      "after": [
+        {
+          "id": "R25035",
+          "text": "Utah courts explain that a conservator's appointment order and letters specify limited or full authority over another person's financial affairs.",
+          "translation": "犹他州法院说明，财产监护人的任命命令与证明文书，会明确其对他人财产事务拥有有限还是全面的权限。",
+          "uses": [
+            "U01214"
+          ]
+        }
+      ]
+    },
+    {
+      "articleId": "A28",
+      "type": "translation-repair",
+      "reason": "Make the repeated/persistent problem idiomatic in Chinese.",
+      "before": {
+        "id": "CSA28004",
+        "text": "Retained urine can allow bacteria to multiply and burden the bladder and urinary system; repeated infections can become a persistent problem.",
+        "translation": "潴留的尿液可能让细菌繁殖，并加重膀胱和泌尿系统的负担；反复感染可能成为持续出现的问题。",
+        "uses": [
+          "U03807"
+        ]
+      },
+      "after": [
+        {
+          "id": "R28036",
+          "text": "Retained urine can allow bacteria to multiply and burden the bladder and urinary system; repeated infections can become a persistent problem.",
+          "translation": "潴留的尿液可能让细菌繁殖，并加重膀胱和泌尿系统的负担；反复感染可能成为一再出现的问题。",
+          "uses": [
+            "U03807"
+          ]
+        }
+      ]
+    },
+    {
+      "articleId": "A29",
+      "type": "compression-repair",
+      "reason": "Avoid calling appearance a function.",
+      "before": {
+        "id": "CSA29004",
+        "text": "The aim is to restore chewing and appearance; restoration of those functions requires surfaces and supports that accommodate forces within a moving mouth.",
+        "translation": "目标是恢复咀嚼功能与外观；这些功能的恢复，需要表面与支撑结构适应活动口腔内的作用力。",
+        "uses": [
+          "U04102",
+          "U04112"
+        ]
+      },
+      "after": [
+        {
+          "id": "R29037",
+          "text": "The aim is to restore chewing and appearance; restoration requires surfaces and supports that accommodate forces within a moving mouth.",
+          "translation": "目标是恢复咀嚼功能与外观；咀嚼功能与外观的恢复，需要表面与支撑结构适应活动口腔内的作用力。",
+          "uses": [
+            "U04102",
+            "U04112"
+          ]
+        }
+      ]
+    },
+    {
+      "articleId": "A33",
+      "type": "compression-repair",
+      "reason": "Define the ability to undo a process, not return during the forward process.",
+      "before": {
+        "id": "CSA33003",
+        "text": "A reversible process requires both the system and its surroundings to return to their initial states: reversibility concerns that complete relation.",
+        "translation": "可逆过程要求系统与周围环境都回到初始状态：可逆性关乎这一完整关系。",
+        "uses": [
+          "U04324",
+          "U04326"
+        ]
+      },
+      "after": [
+        {
+          "id": "R33038",
+          "text": "A reversible process can be undone so that both the system and its surroundings return to their initial states; reversibility requires that complete return.",
+          "translation": "可逆过程能够被逆转，使系统及其周围环境都恢复初始状态；可逆性要求的是这种完整的恢复。",
+          "uses": [
+            "U04324",
+            "U04326"
+          ]
+        }
+      ]
+    },
+    {
+      "articleId": "A33",
+      "type": "compression-repair",
+      "reason": "Make reversal explicit before asserting no net change in surroundings.",
+      "before": {
+        "id": "CSA33004",
+        "text": "Carried out reversibly, the change would leave no net alteration outside the restored system.",
+        "translation": "若以可逆方式进行，这一变化不会在恢复后的系统之外留下净改变。",
+        "uses": [
+          "U04327"
+        ]
+      },
+      "after": [
+        {
+          "id": "R33039",
+          "text": "If the change is carried out reversibly, reversing it restores the system without leaving a net alteration in its surroundings.",
+          "translation": "如果变化以可逆方式进行，将它逆转就能恢复系统，而不在周围环境留下净改变。",
+          "uses": [
+            "U04327"
+          ]
+        }
+      ]
+    },
+    {
+      "articleId": "A37",
+      "type": "translation-repair",
+      "reason": "Use the television production role, not a film director.",
+      "before": {
+        "id": "CSA37005",
+        "text": "Two-way communication connected floor reporters with a director in the booth, letting a network transmit interviews as the director coordinated coverage.",
+        "translation": "双向通信将会场记者与控制间导演连接起来，使电视网能在导演协调报道时播送采访。",
+        "uses": [
+          "U04902"
+        ]
+      },
+      "after": [
+        {
+          "id": "R37040",
+          "text": "Two-way communication connected floor reporters with a director in the booth, letting a network transmit interviews as the director coordinated coverage.",
+          "translation": "双向通信将会场记者与控制间导播连接起来，使电视网能在导播协调报道时播送采访。",
+          "uses": [
+            "U04902"
+          ]
+        }
+      ]
+    },
+    {
+      "articleId": "A43",
+      "type": "compression-repair",
+      "reason": "Make the comparison express the actual larger fossil teeth.",
+      "before": {
+        "id": "CSA43003",
+        "text": "Teeth found in Sussex in 1822 resembled much larger iguana teeth, while scattered bones left their arrangement uncertain.",
+        "translation": "1822年在萨塞克斯发现的牙齿，像放大许多的鬣蜥牙齿，而零散骨骼的排列仍不确定。",
+        "uses": []
+      },
+      "after": [
+        {
+          "id": "R43041",
+          "text": "Teeth found in Sussex in 1822 resembled iguana teeth but were much larger, while scattered bones left their arrangement uncertain.",
+          "translation": "1822年在萨塞克斯发现的牙齿形似鬣蜥牙齿，却大得多，而零散骨骼的排列仍不确定。",
+          "uses": []
+        }
+      ]
+    },
+    {
+      "articleId": "A51",
+      "type": "translation-repair",
+      "reason": "Translate the atmospheric electrification process accurately.",
+      "before": {
+        "id": "CSA51004",
+        "text": "Secondary eyewall formation can affect a strong hurricane's intensity, so these changing observations offered material for further work, including research on electrification.",
+        "translation": "第二道眼墙的形成可能影响强飓风的强度，因此这些变化中的观测为后续研究提供了材料，包括对电过程的研究。",
+        "uses": []
+      },
+      "after": [
+        {
+          "id": "R51042",
+          "text": "Secondary eyewall formation can affect a strong hurricane's intensity, so these changing observations offered material for further work, including research on electrification.",
+          "translation": "第二道眼墙的形成可能影响强飓风的强度，因此这些变化中的观测为后续研究提供了材料，包括对带电过程的研究。",
+          "uses": []
+        }
+      ]
+    }
+  ]
+}

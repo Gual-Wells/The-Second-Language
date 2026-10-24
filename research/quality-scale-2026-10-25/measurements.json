@@ -1,0 +1,2581 @@
+{
+  "baseline": {
+    "measurement": "ASCII English alphabetic tokens; compounds joined by ASCII apostrophe U+0027 or hyphen U+002D count as one; numbers, titles and translations excluded from English body counts; Han code points exclude punctuation",
+    "mainWords": 50,
+    "uses": 680,
+    "partOne": {
+      "han": 23303
+    },
+    "partTwo": {
+      "examples": 873,
+      "englishWords": 8016,
+      "translationHan": 14181,
+      "uniqueTexts": 873
+    },
+    "partThree": {
+      "articles": 51,
+      "sentences": 1270,
+      "englishWords": 20288,
+      "translationHan": 34341,
+      "minArticleWords": 126,
+      "maxArticleWords": 810,
+      "medianArticleWords": 368,
+      "meanSentenceWords": 15.974803149606299,
+      "maxSentenceWords": 31,
+      "referencesPerSentence": {
+        "0": 595,
+        "1": 629,
+        "2": 45,
+        "3": 1
+      }
+    },
+    "eligibleAudio": {
+      "uniqueTexts": 2143,
+      "characters": 181160,
+      "note": "Raw text strings only; does not apply audio-plan normalization or voice identity, query paid cache, submit a request, or estimate actual billing."
+    },
+    "articles": [
+      {
+        "id": "A01",
+        "title": "Two Clocks Changed by One Collision",
+        "sentences": 36,
+        "englishWords": 609,
+        "translationHan": 993,
+        "uniqueUses": 36
+      },
+      {
+        "id": "A02",
+        "title": "The River That Kept Moving After the Dams Were Gone",
+        "sentences": 36,
+        "englishWords": 567,
+        "translationHan": 942,
+        "uniqueUses": 27
+      },
+      {
+        "id": "A03",
+        "title": "A Bus Network Reaches Beyond the Railway Map",
+        "sentences": 35,
+        "englishWords": 616,
+        "translationHan": 1018,
+        "uniqueUses": 25
+      },
+      {
+        "id": "A04",
+        "title": "Learning a New Language Without Losing the Lesson",
+        "sentences": 37,
+        "englishWords": 639,
+        "translationHan": 1082,
+        "uniqueUses": 34
+      },
+      {
+        "id": "A05",
+        "title": "The Work That Makes Other Work Possible",
+        "sentences": 48,
+        "englishWords": 810,
+        "translationHan": 1363,
+        "uniqueUses": 38
+      },
+      {
+        "id": "A06",
+        "title": "What an Antibiotic-Resistance Record Can Tell Us",
+        "sentences": 38,
+        "englishWords": 636,
+        "translationHan": 1064,
+        "uniqueUses": 27
+      },
+      {
+        "id": "A07",
+        "title": "When an Artwork Is Allowed to Change",
+        "sentences": 43,
+        "englishWords": 696,
+        "translationHan": 1187,
+        "uniqueUses": 33
+      },
+      {
+        "id": "A08",
+        "title": "The Human Question Inside a Precise Industrial Picture",
+        "sentences": 34,
+        "englishWords": 481,
+        "translationHan": 874,
+        "uniqueUses": 26
+      },
+      {
+        "id": "A09",
+        "title": "A Blue Curtain Between India and an American Home",
+        "sentences": 28,
+        "englishWords": 487,
+        "translationHan": 763,
+        "uniqueUses": 14
+      },
+      {
+        "id": "A10",
+        "title": "Wallace's Specimens and His Wider World of Belief",
+        "sentences": 40,
+        "englishWords": 638,
+        "translationHan": 1077,
+        "uniqueUses": 32
+      },
+      {
+        "id": "A11",
+        "title": "The Theatre Reopens, and the Stage Becomes a Profession",
+        "sentences": 41,
+        "englishWords": 651,
+        "translationHan": 1073,
+        "uniqueUses": 40
+      },
+      {
+        "id": "A12",
+        "title": "From an Electron's Energy to a Useful Beam of Light",
+        "sentences": 31,
+        "englishWords": 481,
+        "translationHan": 762,
+        "uniqueUses": 18
+      },
+      {
+        "id": "A13",
+        "title": "How a Gap Between Conductors Stores Charge",
+        "sentences": 33,
+        "englishWords": 519,
+        "translationHan": 853,
+        "uniqueUses": 20
+      },
+      {
+        "id": "A14",
+        "title": "Ninety Words Left to a Sister",
+        "sentences": 32,
+        "englishWords": 501,
+        "translationHan": 773,
+        "uniqueUses": 17
+      },
+      {
+        "id": "A15",
+        "title": "A Home Has a Price, a Title and a Balance Sheet",
+        "sentences": 27,
+        "englishWords": 443,
+        "translationHan": 700,
+        "uniqueUses": 16
+      },
+      {
+        "id": "A16",
+        "title": "Robert Peel and the Cost of Changing a Policy",
+        "sentences": 33,
+        "englishWords": 510,
+        "translationHan": 848,
+        "uniqueUses": 22
+      },
+      {
+        "id": "A17",
+        "title": "A School Case and the Right to Be Heard",
+        "sentences": 38,
+        "englishWords": 637,
+        "translationHan": 1067,
+        "uniqueUses": 23
+      },
+      {
+        "id": "A18",
+        "title": "What a Share Owns and What a Yield Measures",
+        "sentences": 28,
+        "englishWords": 477,
+        "translationHan": 786,
+        "uniqueUses": 16
+      },
+      {
+        "id": "A19",
+        "title": "What Soil Asks of the Gardener",
+        "sentences": 25,
+        "englishWords": 366,
+        "translationHan": 629,
+        "uniqueUses": 19
+      },
+      {
+        "id": "A20",
+        "title": "A Strawberry Season Kept in Glass",
+        "sentences": 25,
+        "englishWords": 374,
+        "translationHan": 626,
+        "uniqueUses": 12
+      },
+      {
+        "id": "A21",
+        "title": "Why Some Beer Keeps Changing in Its Container",
+        "sentences": 17,
+        "englishWords": 264,
+        "translationHan": 467,
+        "uniqueUses": 8
+      },
+      {
+        "id": "A22",
+        "title": "A Musical Phrase Has More Than One Kind of Time",
+        "sentences": 29,
+        "englishWords": 435,
+        "translationHan": 786,
+        "uniqueUses": 12
+      },
+      {
+        "id": "A23",
+        "title": "A Clutch Must Know When to Slip",
+        "sentences": 26,
+        "englishWords": 369,
+        "translationHan": 602,
+        "uniqueUses": 25
+      },
+      {
+        "id": "A24",
+        "title": "A Folded Shield Opens a View into the Past",
+        "sentences": 21,
+        "englishWords": 312,
+        "translationHan": 530,
+        "uniqueUses": 5
+      },
+      {
+        "id": "A25",
+        "title": "The Work Behind a Court-Appointed Conservator",
+        "sentences": 21,
+        "englishWords": 322,
+        "translationHan": 566,
+        "uniqueUses": 11
+      },
+      {
+        "id": "A26",
+        "title": "Two Clubs Can Ask a Question",
+        "sentences": 19,
+        "englishWords": 273,
+        "translationHan": 477,
+        "uniqueUses": 3
+      },
+      {
+        "id": "A27",
+        "title": "Mary Quant Put Everyday Movement into Fashion",
+        "sentences": 23,
+        "englishWords": 347,
+        "translationHan": 603,
+        "uniqueUses": 13
+      },
+      {
+        "id": "A28",
+        "title": "A Bladder Must Empty as Well as Fill",
+        "sentences": 12,
+        "englishWords": 180,
+        "translationHan": 302,
+        "uniqueUses": 2
+      },
+      {
+        "id": "A29",
+        "title": "The Small Structure That Carries a Replacement Tooth",
+        "sentences": 18,
+        "englishWords": 268,
+        "translationHan": 460,
+        "uniqueUses": 4
+      },
+      {
+        "id": "A30",
+        "title": "The Eye Brings Its Recent Past into a Dark Room",
+        "sentences": 18,
+        "englishWords": 289,
+        "translationHan": 509,
+        "uniqueUses": 4
+      },
+      {
+        "id": "A31",
+        "title": "The Person Left Behind in The Cherry Orchard",
+        "sentences": 33,
+        "englishWords": 549,
+        "translationHan": 892,
+        "uniqueUses": 17
+      },
+      {
+        "id": "A32",
+        "title": "An Objection Given a Place in the Procedure",
+        "sentences": 20,
+        "englishWords": 327,
+        "translationHan": 553,
+        "uniqueUses": 13
+      },
+      {
+        "id": "A33",
+        "title": "Returning the Gas Is Only Half of Reversing the Process",
+        "sentences": 19,
+        "englishWords": 302,
+        "translationHan": 497,
+        "uniqueUses": 5
+      },
+      {
+        "id": "A34",
+        "title": "An Old Arithmetic Word and a Curve Made by Unwinding",
+        "sentences": 25,
+        "englishWords": 368,
+        "translationHan": 577,
+        "uniqueUses": 8
+      },
+      {
+        "id": "A35",
+        "title": "Bandung Asked Who Could Speak for a New State",
+        "sentences": 21,
+        "englishWords": 318,
+        "translationHan": 571,
+        "uniqueUses": 11
+      },
+      {
+        "id": "A36",
+        "title": "The Sea Returns to the Forest Through a Fish",
+        "sentences": 19,
+        "englishWords": 264,
+        "translationHan": 481,
+        "uniqueUses": 9
+      },
+      {
+        "id": "A37",
+        "title": "The Convention Floor Became a Broadcasting Space",
+        "sentences": 22,
+        "englishWords": 340,
+        "translationHan": 618,
+        "uniqueUses": 10
+      },
+      {
+        "id": "A38",
+        "title": "Recovery Belongs to a Whole Life",
+        "sentences": 25,
+        "englishWords": 398,
+        "translationHan": 752,
+        "uniqueUses": 6
+      },
+      {
+        "id": "A39",
+        "title": "Keeping a Rainforest Alive While Its Glass House Changes",
+        "sentences": 24,
+        "englishWords": 368,
+        "translationHan": 635,
+        "uniqueUses": 9
+      },
+      {
+        "id": "A40",
+        "title": "The Printed Word and the Moving Voice",
+        "sentences": 22,
+        "englishWords": 345,
+        "translationHan": 580,
+        "uniqueUses": 10
+      },
+      {
+        "id": "A41",
+        "title": "A Memory Needs a Route Back",
+        "sentences": 18,
+        "englishWords": 271,
+        "translationHan": 481,
+        "uniqueUses": 4
+      },
+      {
+        "id": "A42",
+        "title": "Reading the Gaps in a Greek Inscription",
+        "sentences": 13,
+        "englishWords": 217,
+        "translationHan": 406,
+        "uniqueUses": 4
+      },
+      {
+        "id": "A43",
+        "title": "The Dinosaur with a Spike in the Wrong Place",
+        "sentences": 16,
+        "englishWords": 251,
+        "translationHan": 494,
+        "uniqueUses": 5
+      },
+      {
+        "id": "A44",
+        "title": "The Hidden Movement Around a Ship",
+        "sentences": 22,
+        "englishWords": 401,
+        "translationHan": 708,
+        "uniqueUses": 9
+      },
+      {
+        "id": "A45",
+        "title": "A Student Room Has More Than One Calendar",
+        "sentences": 12,
+        "englishWords": 237,
+        "translationHan": 389,
+        "uniqueUses": 2
+      },
+      {
+        "id": "A46",
+        "title": "A Phone Call Has Two Routes",
+        "sentences": 8,
+        "englishWords": 152,
+        "translationHan": 236,
+        "uniqueUses": 1
+      },
+      {
+        "id": "A47",
+        "title": "A Hammer on a Roman Coin",
+        "sentences": 11,
+        "englishWords": 181,
+        "translationHan": 315,
+        "uniqueUses": 3
+      },
+      {
+        "id": "A48",
+        "title": "Recycling Starts Before and After a Plastic Object Exists",
+        "sentences": 17,
+        "englishWords": 303,
+        "translationHan": 528,
+        "uniqueUses": 3
+      },
+      {
+        "id": "A49",
+        "title": "Why a Brick Wall Has a Pattern",
+        "sentences": 11,
+        "englishWords": 181,
+        "translationHan": 291,
+        "uniqueUses": 1
+      },
+      {
+        "id": "A50",
+        "title": "The Stillness Around a Memorial",
+        "sentences": 8,
+        "englishWords": 126,
+        "translationHan": 198,
+        "uniqueUses": 1
+      },
+      {
+        "id": "A51",
+        "title": "The Hurricane Had Two Eyewalls",
+        "sentences": 12,
+        "englishWords": 192,
+        "translationHan": 357,
+        "uniqueUses": 1
+      }
+    ],
+    "notice": "Counts and USE references do not verify meaning, facts, readability, mastery or personal study time."
+  },
+  "candidates": {
+    "light": {
+      "measurement": "ASCII English alphabetic tokens; compounds joined by ASCII apostrophe U+0027 or hyphen U+002D count as one; numbers, titles and translations excluded from English body counts; Han code points exclude punctuation",
+      "mainWords": 50,
+      "uses": 680,
+      "partOne": {
+        "han": 23303
+      },
+      "partTwo": {
+        "examples": 873,
+        "englishWords": 8016,
+        "translationHan": 14181,
+        "uniqueTexts": 873
+      },
+      "partThree": {
+        "articles": 51,
+        "sentences": 1041,
+        "englishWords": 16669,
+        "translationHan": 28178,
+        "minArticleWords": 92,
+        "maxArticleWords": 746,
+        "medianArticleWords": 278,
+        "meanSentenceWords": 16.01248799231508,
+        "maxSentenceWords": 31,
+        "referencesPerSentence": {
+          "0": 368,
+          "1": 627,
+          "2": 45,
+          "3": 1
+        }
+      },
+      "eligibleAudio": {
+        "uniqueTexts": 1914,
+        "characters": 158469,
+        "note": "Raw text strings only; does not apply audio-plan normalization or voice identity, query paid cache, submit a request, or estimate actual billing."
+      },
+      "articles": [
+        {
+          "id": "A01",
+          "title": "Two Clocks Changed by One Collision",
+          "sentences": 33,
+          "englishWords": 561,
+          "translationHan": 905,
+          "uniqueUses": 36
+        },
+        {
+          "id": "A02",
+          "title": "The River That Kept Moving After the Dams Were Gone",
+          "sentences": 33,
+          "englishWords": 525,
+          "translationHan": 877,
+          "uniqueUses": 27
+        },
+        {
+          "id": "A03",
+          "title": "A Bus Network Reaches Beyond the Railway Map",
+          "sentences": 32,
+          "englishWords": 555,
+          "translationHan": 924,
+          "uniqueUses": 25
+        },
+        {
+          "id": "A04",
+          "title": "Learning a New Language Without Losing the Lesson",
+          "sentences": 36,
+          "englishWords": 626,
+          "translationHan": 1064,
+          "uniqueUses": 34
+        },
+        {
+          "id": "A05",
+          "title": "The Work That Makes Other Work Possible",
+          "sentences": 44,
+          "englishWords": 746,
+          "translationHan": 1264,
+          "uniqueUses": 38
+        },
+        {
+          "id": "A06",
+          "title": "What an Antibiotic-Resistance Record Can Tell Us",
+          "sentences": 33,
+          "englishWords": 557,
+          "translationHan": 927,
+          "uniqueUses": 27
+        },
+        {
+          "id": "A07",
+          "title": "When an Artwork Is Allowed to Change",
+          "sentences": 39,
+          "englishWords": 633,
+          "translationHan": 1084,
+          "uniqueUses": 33
+        },
+        {
+          "id": "A08",
+          "title": "The Human Question Inside a Precise Industrial Picture",
+          "sentences": 32,
+          "englishWords": 458,
+          "translationHan": 840,
+          "uniqueUses": 26
+        },
+        {
+          "id": "A09",
+          "title": "A Blue Curtain Between India and an American Home",
+          "sentences": 24,
+          "englishWords": 426,
+          "translationHan": 680,
+          "uniqueUses": 14
+        },
+        {
+          "id": "A10",
+          "title": "Wallace's Specimens and His Wider World of Belief",
+          "sentences": 36,
+          "englishWords": 579,
+          "translationHan": 979,
+          "uniqueUses": 32
+        },
+        {
+          "id": "A11",
+          "title": "The Theatre Reopens, and the Stage Becomes a Profession",
+          "sentences": 37,
+          "englishWords": 580,
+          "translationHan": 964,
+          "uniqueUses": 40
+        },
+        {
+          "id": "A12",
+          "title": "From an Electron's Energy to a Useful Beam of Light",
+          "sentences": 26,
+          "englishWords": 403,
+          "translationHan": 634,
+          "uniqueUses": 18
+        },
+        {
+          "id": "A13",
+          "title": "How a Gap Between Conductors Stores Charge",
+          "sentences": 30,
+          "englishWords": 477,
+          "translationHan": 785,
+          "uniqueUses": 20
+        },
+        {
+          "id": "A14",
+          "title": "Ninety Words Left to a Sister",
+          "sentences": 27,
+          "englishWords": 417,
+          "translationHan": 644,
+          "uniqueUses": 17
+        },
+        {
+          "id": "A15",
+          "title": "A Home Has a Price, a Title and a Balance Sheet",
+          "sentences": 22,
+          "englishWords": 355,
+          "translationHan": 561,
+          "uniqueUses": 16
+        },
+        {
+          "id": "A16",
+          "title": "Robert Peel and the Cost of Changing a Policy",
+          "sentences": 27,
+          "englishWords": 412,
+          "translationHan": 682,
+          "uniqueUses": 22
+        },
+        {
+          "id": "A17",
+          "title": "A School Case and the Right to Be Heard",
+          "sentences": 32,
+          "englishWords": 534,
+          "translationHan": 892,
+          "uniqueUses": 23
+        },
+        {
+          "id": "A18",
+          "title": "What a Share Owns and What a Yield Measures",
+          "sentences": 24,
+          "englishWords": 411,
+          "translationHan": 673,
+          "uniqueUses": 16
+        },
+        {
+          "id": "A19",
+          "title": "What Soil Asks of the Gardener",
+          "sentences": 24,
+          "englishWords": 351,
+          "translationHan": 596,
+          "uniqueUses": 19
+        },
+        {
+          "id": "A20",
+          "title": "A Strawberry Season Kept in Glass",
+          "sentences": 20,
+          "englishWords": 293,
+          "translationHan": 479,
+          "uniqueUses": 12
+        },
+        {
+          "id": "A21",
+          "title": "Why Some Beer Keeps Changing in Its Container",
+          "sentences": 11,
+          "englishWords": 178,
+          "translationHan": 311,
+          "uniqueUses": 8
+        },
+        {
+          "id": "A22",
+          "title": "A Musical Phrase Has More Than One Kind of Time",
+          "sentences": 21,
+          "englishWords": 318,
+          "translationHan": 593,
+          "uniqueUses": 12
+        },
+        {
+          "id": "A23",
+          "title": "A Clutch Must Know When to Slip",
+          "sentences": 23,
+          "englishWords": 321,
+          "translationHan": 521,
+          "uniqueUses": 25
+        },
+        {
+          "id": "A24",
+          "title": "A Folded Shield Opens a View into the Past",
+          "sentences": 15,
+          "englishWords": 225,
+          "translationHan": 378,
+          "uniqueUses": 5
+        },
+        {
+          "id": "A25",
+          "title": "The Work Behind a Court-Appointed Conservator",
+          "sentences": 18,
+          "englishWords": 278,
+          "translationHan": 485,
+          "uniqueUses": 11
+        },
+        {
+          "id": "A26",
+          "title": "Two Clubs Can Ask a Question",
+          "sentences": 16,
+          "englishWords": 236,
+          "translationHan": 404,
+          "uniqueUses": 3
+        },
+        {
+          "id": "A27",
+          "title": "Mary Quant Put Everyday Movement into Fashion",
+          "sentences": 15,
+          "englishWords": 222,
+          "translationHan": 399,
+          "uniqueUses": 13
+        },
+        {
+          "id": "A28",
+          "title": "A Bladder Must Empty as Well as Fill",
+          "sentences": 7,
+          "englishWords": 105,
+          "translationHan": 163,
+          "uniqueUses": 2
+        },
+        {
+          "id": "A29",
+          "title": "The Small Structure That Carries a Replacement Tooth",
+          "sentences": 12,
+          "englishWords": 186,
+          "translationHan": 309,
+          "uniqueUses": 4
+        },
+        {
+          "id": "A30",
+          "title": "The Eye Brings Its Recent Past into a Dark Room",
+          "sentences": 12,
+          "englishWords": 193,
+          "translationHan": 341,
+          "uniqueUses": 4
+        },
+        {
+          "id": "A31",
+          "title": "The Person Left Behind in The Cherry Orchard",
+          "sentences": 30,
+          "englishWords": 500,
+          "translationHan": 799,
+          "uniqueUses": 17
+        },
+        {
+          "id": "A32",
+          "title": "An Objection Given a Place in the Procedure",
+          "sentences": 15,
+          "englishWords": 242,
+          "translationHan": 415,
+          "uniqueUses": 13
+        },
+        {
+          "id": "A33",
+          "title": "Returning the Gas Is Only Half of Reversing the Process",
+          "sentences": 16,
+          "englishWords": 247,
+          "translationHan": 400,
+          "uniqueUses": 5
+        },
+        {
+          "id": "A34",
+          "title": "An Old Arithmetic Word and a Curve Made by Unwinding",
+          "sentences": 18,
+          "englishWords": 267,
+          "translationHan": 405,
+          "uniqueUses": 8
+        },
+        {
+          "id": "A35",
+          "title": "Bandung Asked Who Could Speak for a New State",
+          "sentences": 19,
+          "englishWords": 287,
+          "translationHan": 519,
+          "uniqueUses": 11
+        },
+        {
+          "id": "A36",
+          "title": "The Sea Returns to the Forest Through a Fish",
+          "sentences": 14,
+          "englishWords": 197,
+          "translationHan": 361,
+          "uniqueUses": 9
+        },
+        {
+          "id": "A37",
+          "title": "The Convention Floor Became a Broadcasting Space",
+          "sentences": 16,
+          "englishWords": 251,
+          "translationHan": 469,
+          "uniqueUses": 10
+        },
+        {
+          "id": "A38",
+          "title": "Recovery Belongs to a Whole Life",
+          "sentences": 15,
+          "englishWords": 245,
+          "translationHan": 486,
+          "uniqueUses": 6
+        },
+        {
+          "id": "A39",
+          "title": "Keeping a Rainforest Alive While Its Glass House Changes",
+          "sentences": 15,
+          "englishWords": 245,
+          "translationHan": 426,
+          "uniqueUses": 9
+        },
+        {
+          "id": "A40",
+          "title": "The Printed Word and the Moving Voice",
+          "sentences": 17,
+          "englishWords": 263,
+          "translationHan": 432,
+          "uniqueUses": 10
+        },
+        {
+          "id": "A41",
+          "title": "A Memory Needs a Route Back",
+          "sentences": 12,
+          "englishWords": 179,
+          "translationHan": 325,
+          "uniqueUses": 4
+        },
+        {
+          "id": "A42",
+          "title": "Reading the Gaps in a Greek Inscription",
+          "sentences": 10,
+          "englishWords": 178,
+          "translationHan": 334,
+          "uniqueUses": 4
+        },
+        {
+          "id": "A43",
+          "title": "The Dinosaur with a Spike in the Wrong Place",
+          "sentences": 15,
+          "englishWords": 237,
+          "translationHan": 459,
+          "uniqueUses": 5
+        },
+        {
+          "id": "A44",
+          "title": "The Hidden Movement Around a Ship",
+          "sentences": 17,
+          "englishWords": 308,
+          "translationHan": 528,
+          "uniqueUses": 9
+        },
+        {
+          "id": "A45",
+          "title": "A Student Room Has More Than One Calendar",
+          "sentences": 6,
+          "englishWords": 118,
+          "translationHan": 210,
+          "uniqueUses": 2
+        },
+        {
+          "id": "A46",
+          "title": "A Phone Call Has Two Routes",
+          "sentences": 6,
+          "englishWords": 109,
+          "translationHan": 152,
+          "uniqueUses": 1
+        },
+        {
+          "id": "A47",
+          "title": "A Hammer on a Roman Coin",
+          "sentences": 7,
+          "englishWords": 117,
+          "translationHan": 210,
+          "uniqueUses": 3
+        },
+        {
+          "id": "A48",
+          "title": "Recycling Starts Before and After a Plastic Object Exists",
+          "sentences": 11,
+          "englishWords": 194,
+          "translationHan": 347,
+          "uniqueUses": 3
+        },
+        {
+          "id": "A49",
+          "title": "Why a Brick Wall Has a Pattern",
+          "sentences": 7,
+          "englishWords": 111,
+          "translationHan": 179,
+          "uniqueUses": 1
+        },
+        {
+          "id": "A50",
+          "title": "The Stillness Around a Memorial",
+          "sentences": 6,
+          "englishWords": 92,
+          "translationHan": 141,
+          "uniqueUses": 1
+        },
+        {
+          "id": "A51",
+          "title": "The Hurricane Had Two Eyewalls",
+          "sentences": 8,
+          "englishWords": 121,
+          "translationHan": 223,
+          "uniqueUses": 1
+        }
+      ],
+      "notice": "Counts and USE references do not verify meaning, facts, readability, mastery or personal study time.",
+      "bodyDigest": "058f3738aea4226c757db8a6f07ad092b36d0913facb0cdcf14b057a13c1f6d4",
+      "partOneUnchanged": true,
+      "partTwoUnchanged": true,
+      "p3Reduction": 0.178381309148265,
+      "p2p3Reduction": 0.12786178631995482,
+      "articleCoverage": [
+        {
+          "id": "A01",
+          "baselineUses": 36,
+          "candidateUses": 36
+        },
+        {
+          "id": "A02",
+          "baselineUses": 27,
+          "candidateUses": 27
+        },
+        {
+          "id": "A03",
+          "baselineUses": 25,
+          "candidateUses": 25
+        },
+        {
+          "id": "A04",
+          "baselineUses": 34,
+          "candidateUses": 34
+        },
+        {
+          "id": "A05",
+          "baselineUses": 38,
+          "candidateUses": 38
+        },
+        {
+          "id": "A06",
+          "baselineUses": 27,
+          "candidateUses": 27
+        },
+        {
+          "id": "A07",
+          "baselineUses": 33,
+          "candidateUses": 33
+        },
+        {
+          "id": "A08",
+          "baselineUses": 26,
+          "candidateUses": 26
+        },
+        {
+          "id": "A09",
+          "baselineUses": 14,
+          "candidateUses": 14
+        },
+        {
+          "id": "A10",
+          "baselineUses": 32,
+          "candidateUses": 32
+        },
+        {
+          "id": "A11",
+          "baselineUses": 40,
+          "candidateUses": 40
+        },
+        {
+          "id": "A12",
+          "baselineUses": 18,
+          "candidateUses": 18
+        },
+        {
+          "id": "A13",
+          "baselineUses": 20,
+          "candidateUses": 20
+        },
+        {
+          "id": "A14",
+          "baselineUses": 17,
+          "candidateUses": 17
+        },
+        {
+          "id": "A15",
+          "baselineUses": 16,
+          "candidateUses": 16
+        },
+        {
+          "id": "A16",
+          "baselineUses": 22,
+          "candidateUses": 22
+        },
+        {
+          "id": "A17",
+          "baselineUses": 23,
+          "candidateUses": 23
+        },
+        {
+          "id": "A18",
+          "baselineUses": 16,
+          "candidateUses": 16
+        },
+        {
+          "id": "A19",
+          "baselineUses": 19,
+          "candidateUses": 19
+        },
+        {
+          "id": "A20",
+          "baselineUses": 12,
+          "candidateUses": 12
+        },
+        {
+          "id": "A21",
+          "baselineUses": 8,
+          "candidateUses": 8
+        },
+        {
+          "id": "A22",
+          "baselineUses": 12,
+          "candidateUses": 12
+        },
+        {
+          "id": "A23",
+          "baselineUses": 25,
+          "candidateUses": 25
+        },
+        {
+          "id": "A24",
+          "baselineUses": 5,
+          "candidateUses": 5
+        },
+        {
+          "id": "A25",
+          "baselineUses": 11,
+          "candidateUses": 11
+        },
+        {
+          "id": "A26",
+          "baselineUses": 3,
+          "candidateUses": 3
+        },
+        {
+          "id": "A27",
+          "baselineUses": 13,
+          "candidateUses": 13
+        },
+        {
+          "id": "A28",
+          "baselineUses": 2,
+          "candidateUses": 2
+        },
+        {
+          "id": "A29",
+          "baselineUses": 4,
+          "candidateUses": 4
+        },
+        {
+          "id": "A30",
+          "baselineUses": 4,
+          "candidateUses": 4
+        },
+        {
+          "id": "A31",
+          "baselineUses": 17,
+          "candidateUses": 17
+        },
+        {
+          "id": "A32",
+          "baselineUses": 13,
+          "candidateUses": 13
+        },
+        {
+          "id": "A33",
+          "baselineUses": 5,
+          "candidateUses": 5
+        },
+        {
+          "id": "A34",
+          "baselineUses": 8,
+          "candidateUses": 8
+        },
+        {
+          "id": "A35",
+          "baselineUses": 11,
+          "candidateUses": 11
+        },
+        {
+          "id": "A36",
+          "baselineUses": 9,
+          "candidateUses": 9
+        },
+        {
+          "id": "A37",
+          "baselineUses": 10,
+          "candidateUses": 10
+        },
+        {
+          "id": "A38",
+          "baselineUses": 6,
+          "candidateUses": 6
+        },
+        {
+          "id": "A39",
+          "baselineUses": 9,
+          "candidateUses": 9
+        },
+        {
+          "id": "A40",
+          "baselineUses": 10,
+          "candidateUses": 10
+        },
+        {
+          "id": "A41",
+          "baselineUses": 4,
+          "candidateUses": 4
+        },
+        {
+          "id": "A42",
+          "baselineUses": 4,
+          "candidateUses": 4
+        },
+        {
+          "id": "A43",
+          "baselineUses": 5,
+          "candidateUses": 5
+        },
+        {
+          "id": "A44",
+          "baselineUses": 9,
+          "candidateUses": 9
+        },
+        {
+          "id": "A45",
+          "baselineUses": 2,
+          "candidateUses": 2
+        },
+        {
+          "id": "A46",
+          "baselineUses": 1,
+          "candidateUses": 1
+        },
+        {
+          "id": "A47",
+          "baselineUses": 3,
+          "candidateUses": 3
+        },
+        {
+          "id": "A48",
+          "baselineUses": 3,
+          "candidateUses": 3
+        },
+        {
+          "id": "A49",
+          "baselineUses": 1,
+          "candidateUses": 1
+        },
+        {
+          "id": "A50",
+          "baselineUses": 1,
+          "candidateUses": 1
+        },
+        {
+          "id": "A51",
+          "baselineUses": 1,
+          "candidateUses": 1
+        }
+      ]
+    },
+    "compact": {
+      "measurement": "ASCII English alphabetic tokens; compounds joined by ASCII apostrophe U+0027 or hyphen U+002D count as one; numbers, titles and translations excluded from English body counts; Han code points exclude punctuation",
+      "mainWords": 50,
+      "uses": 680,
+      "partOne": {
+        "han": 23303
+      },
+      "partTwo": {
+        "examples": 873,
+        "englishWords": 8016,
+        "translationHan": 14181,
+        "uniqueTexts": 873
+      },
+      "partThree": {
+        "articles": 51,
+        "sentences": 617,
+        "englishWords": 11237,
+        "translationHan": 20346,
+        "minArticleWords": 63,
+        "maxArticleWords": 554,
+        "medianArticleWords": 178,
+        "meanSentenceWords": 18.212317666126417,
+        "maxSentenceWords": 34,
+        "referencesPerSentence": {
+          "0": 166,
+          "1": 240,
+          "2": 164,
+          "3": 39,
+          "4": 8
+        }
+      },
+      "eligibleAudio": {
+        "uniqueTexts": 1490,
+        "characters": 126944,
+        "note": "Raw text strings only; does not apply audio-plan normalization or voice identity, query paid cache, submit a request, or estimate actual billing."
+      },
+      "articles": [
+        {
+          "id": "A01",
+          "title": "Two Clocks Changed by One Collision",
+          "sentences": 25,
+          "englishWords": 411,
+          "translationHan": 702,
+          "uniqueUses": 36
+        },
+        {
+          "id": "A02",
+          "title": "The River That Kept Moving After the Dams Were Gone",
+          "sentences": 24,
+          "englishWords": 407,
+          "translationHan": 725,
+          "uniqueUses": 27
+        },
+        {
+          "id": "A03",
+          "title": "A Bus Network Reaches Beyond the Railway Map",
+          "sentences": 17,
+          "englishWords": 315,
+          "translationHan": 569,
+          "uniqueUses": 25
+        },
+        {
+          "id": "A04",
+          "title": "Learning a New Language Without Losing the Lesson",
+          "sentences": 23,
+          "englishWords": 438,
+          "translationHan": 795,
+          "uniqueUses": 34
+        },
+        {
+          "id": "A05",
+          "title": "The Work That Makes Other Work Possible",
+          "sentences": 30,
+          "englishWords": 554,
+          "translationHan": 1020,
+          "uniqueUses": 38
+        },
+        {
+          "id": "A06",
+          "title": "What an Antibiotic-Resistance Record Can Tell Us",
+          "sentences": 22,
+          "englishWords": 408,
+          "translationHan": 733,
+          "uniqueUses": 27
+        },
+        {
+          "id": "A07",
+          "title": "When an Artwork Is Allowed to Change",
+          "sentences": 22,
+          "englishWords": 413,
+          "translationHan": 766,
+          "uniqueUses": 33
+        },
+        {
+          "id": "A08",
+          "title": "The Human Question Inside a Precise Industrial Picture",
+          "sentences": 18,
+          "englishWords": 307,
+          "translationHan": 600,
+          "uniqueUses": 26
+        },
+        {
+          "id": "A09",
+          "title": "A Blue Curtain Between India and an American Home",
+          "sentences": 13,
+          "englishWords": 264,
+          "translationHan": 450,
+          "uniqueUses": 14
+        },
+        {
+          "id": "A10",
+          "title": "Wallace's Specimens and His Wider World of Belief",
+          "sentences": 23,
+          "englishWords": 414,
+          "translationHan": 729,
+          "uniqueUses": 32
+        },
+        {
+          "id": "A11",
+          "title": "The Theatre Reopens, and the Stage Becomes a Profession",
+          "sentences": 21,
+          "englishWords": 356,
+          "translationHan": 698,
+          "uniqueUses": 40
+        },
+        {
+          "id": "A12",
+          "title": "From an Electron's Energy to a Useful Beam of Light",
+          "sentences": 16,
+          "englishWords": 250,
+          "translationHan": 446,
+          "uniqueUses": 18
+        },
+        {
+          "id": "A13",
+          "title": "How a Gap Between Conductors Stores Charge",
+          "sentences": 21,
+          "englishWords": 351,
+          "translationHan": 631,
+          "uniqueUses": 20
+        },
+        {
+          "id": "A14",
+          "title": "Ninety Words Left to a Sister",
+          "sentences": 15,
+          "englishWords": 242,
+          "translationHan": 424,
+          "uniqueUses": 17
+        },
+        {
+          "id": "A15",
+          "title": "A Home Has a Price, a Title and a Balance Sheet",
+          "sentences": 13,
+          "englishWords": 235,
+          "translationHan": 434,
+          "uniqueUses": 16
+        },
+        {
+          "id": "A16",
+          "title": "Robert Peel and the Cost of Changing a Policy",
+          "sentences": 15,
+          "englishWords": 259,
+          "translationHan": 474,
+          "uniqueUses": 22
+        },
+        {
+          "id": "A17",
+          "title": "A School Case and the Right to Be Heard",
+          "sentences": 16,
+          "englishWords": 297,
+          "translationHan": 561,
+          "uniqueUses": 23
+        },
+        {
+          "id": "A18",
+          "title": "What a Share Owns and What a Yield Measures",
+          "sentences": 17,
+          "englishWords": 326,
+          "translationHan": 548,
+          "uniqueUses": 16
+        },
+        {
+          "id": "A19",
+          "title": "What Soil Asks of the Gardener",
+          "sentences": 14,
+          "englishWords": 231,
+          "translationHan": 409,
+          "uniqueUses": 19
+        },
+        {
+          "id": "A20",
+          "title": "A Strawberry Season Kept in Glass",
+          "sentences": 11,
+          "englishWords": 197,
+          "translationHan": 336,
+          "uniqueUses": 12
+        },
+        {
+          "id": "A21",
+          "title": "Why Some Beer Keeps Changing in Its Container",
+          "sentences": 6,
+          "englishWords": 113,
+          "translationHan": 203,
+          "uniqueUses": 8
+        },
+        {
+          "id": "A22",
+          "title": "A Musical Phrase Has More Than One Kind of Time",
+          "sentences": 12,
+          "englishWords": 224,
+          "translationHan": 421,
+          "uniqueUses": 12
+        },
+        {
+          "id": "A23",
+          "title": "A Clutch Must Know When to Slip",
+          "sentences": 14,
+          "englishWords": 231,
+          "translationHan": 418,
+          "uniqueUses": 25
+        },
+        {
+          "id": "A24",
+          "title": "A Folded Shield Opens a View into the Past",
+          "sentences": 8,
+          "englishWords": 141,
+          "translationHan": 272,
+          "uniqueUses": 5
+        },
+        {
+          "id": "A25",
+          "title": "The Work Behind a Court-Appointed Conservator",
+          "sentences": 10,
+          "englishWords": 167,
+          "translationHan": 323,
+          "uniqueUses": 11
+        },
+        {
+          "id": "A26",
+          "title": "Two Clubs Can Ask a Question",
+          "sentences": 9,
+          "englishWords": 160,
+          "translationHan": 293,
+          "uniqueUses": 3
+        },
+        {
+          "id": "A27",
+          "title": "Mary Quant Put Everyday Movement into Fashion",
+          "sentences": 9,
+          "englishWords": 158,
+          "translationHan": 278,
+          "uniqueUses": 13
+        },
+        {
+          "id": "A28",
+          "title": "A Bladder Must Empty as Well as Fill",
+          "sentences": 5,
+          "englishWords": 82,
+          "translationHan": 133,
+          "uniqueUses": 2
+        },
+        {
+          "id": "A29",
+          "title": "The Small Structure That Carries a Replacement Tooth",
+          "sentences": 7,
+          "englishWords": 140,
+          "translationHan": 230,
+          "uniqueUses": 4
+        },
+        {
+          "id": "A30",
+          "title": "The Eye Brings Its Recent Past into a Dark Room",
+          "sentences": 8,
+          "englishWords": 151,
+          "translationHan": 264,
+          "uniqueUses": 4
+        },
+        {
+          "id": "A31",
+          "title": "The Person Left Behind in The Cherry Orchard",
+          "sentences": 14,
+          "englishWords": 301,
+          "translationHan": 523,
+          "uniqueUses": 17
+        },
+        {
+          "id": "A32",
+          "title": "An Objection Given a Place in the Procedure",
+          "sentences": 9,
+          "englishWords": 163,
+          "translationHan": 302,
+          "uniqueUses": 13
+        },
+        {
+          "id": "A33",
+          "title": "Returning the Gas Is Only Half of Reversing the Process",
+          "sentences": 8,
+          "englishWords": 159,
+          "translationHan": 262,
+          "uniqueUses": 5
+        },
+        {
+          "id": "A34",
+          "title": "An Old Arithmetic Word and a Curve Made by Unwinding",
+          "sentences": 8,
+          "englishWords": 174,
+          "translationHan": 269,
+          "uniqueUses": 8
+        },
+        {
+          "id": "A35",
+          "title": "Bandung Asked Who Could Speak for a New State",
+          "sentences": 10,
+          "englishWords": 196,
+          "translationHan": 385,
+          "uniqueUses": 11
+        },
+        {
+          "id": "A36",
+          "title": "The Sea Returns to the Forest Through a Fish",
+          "sentences": 8,
+          "englishWords": 145,
+          "translationHan": 290,
+          "uniqueUses": 9
+        },
+        {
+          "id": "A37",
+          "title": "The Convention Floor Became a Broadcasting Space",
+          "sentences": 9,
+          "englishWords": 170,
+          "translationHan": 328,
+          "uniqueUses": 10
+        },
+        {
+          "id": "A38",
+          "title": "Recovery Belongs to a Whole Life",
+          "sentences": 8,
+          "englishWords": 166,
+          "translationHan": 358,
+          "uniqueUses": 6
+        },
+        {
+          "id": "A39",
+          "title": "Keeping a Rainforest Alive While Its Glass House Changes",
+          "sentences": 10,
+          "englishWords": 182,
+          "translationHan": 334,
+          "uniqueUses": 9
+        },
+        {
+          "id": "A40",
+          "title": "The Printed Word and the Moving Voice",
+          "sentences": 8,
+          "englishWords": 144,
+          "translationHan": 242,
+          "uniqueUses": 10
+        },
+        {
+          "id": "A41",
+          "title": "A Memory Needs a Route Back",
+          "sentences": 7,
+          "englishWords": 112,
+          "translationHan": 217,
+          "uniqueUses": 4
+        },
+        {
+          "id": "A42",
+          "title": "Reading the Gaps in a Greek Inscription",
+          "sentences": 6,
+          "englishWords": 125,
+          "translationHan": 233,
+          "uniqueUses": 4
+        },
+        {
+          "id": "A43",
+          "title": "The Dinosaur with a Spike in the Wrong Place",
+          "sentences": 8,
+          "englishWords": 160,
+          "translationHan": 309,
+          "uniqueUses": 5
+        },
+        {
+          "id": "A44",
+          "title": "The Hidden Movement Around a Ship",
+          "sentences": 9,
+          "englishWords": 178,
+          "translationHan": 313,
+          "uniqueUses": 9
+        },
+        {
+          "id": "A45",
+          "title": "A Student Room Has More Than One Calendar",
+          "sentences": 5,
+          "englishWords": 90,
+          "translationHan": 166,
+          "uniqueUses": 2
+        },
+        {
+          "id": "A46",
+          "title": "A Phone Call Has Two Routes",
+          "sentences": 3,
+          "englishWords": 63,
+          "translationHan": 85,
+          "uniqueUses": 1
+        },
+        {
+          "id": "A47",
+          "title": "A Hammer on a Roman Coin",
+          "sentences": 4,
+          "englishWords": 93,
+          "translationHan": 172,
+          "uniqueUses": 3
+        },
+        {
+          "id": "A48",
+          "title": "Recycling Starts Before and After a Plastic Object Exists",
+          "sentences": 6,
+          "englishWords": 143,
+          "translationHan": 264,
+          "uniqueUses": 3
+        },
+        {
+          "id": "A49",
+          "title": "Why a Brick Wall Has a Pattern",
+          "sentences": 5,
+          "englishWords": 82,
+          "translationHan": 148,
+          "uniqueUses": 1
+        },
+        {
+          "id": "A50",
+          "title": "The Stillness Around a Memorial",
+          "sentences": 4,
+          "englishWords": 64,
+          "translationHan": 115,
+          "uniqueUses": 1
+        },
+        {
+          "id": "A51",
+          "title": "The Hurricane Had Two Eyewalls",
+          "sentences": 4,
+          "englishWords": 85,
+          "translationHan": 146,
+          "uniqueUses": 1
+        }
+      ],
+      "notice": "Counts and USE references do not verify meaning, facts, readability, mastery or personal study time.",
+      "bodyDigest": "36bdf25f200001c0dd86b8ec0dd698d3029d348d6eaf6b88957d078164508542",
+      "partOneUnchanged": true,
+      "partTwoUnchanged": true,
+      "p3Reduction": 0.44612578864353314,
+      "p2p3Reduction": 0.3197781232334652,
+      "articleCoverage": [
+        {
+          "id": "A01",
+          "baselineUses": 36,
+          "candidateUses": 36
+        },
+        {
+          "id": "A02",
+          "baselineUses": 27,
+          "candidateUses": 27
+        },
+        {
+          "id": "A03",
+          "baselineUses": 25,
+          "candidateUses": 25
+        },
+        {
+          "id": "A04",
+          "baselineUses": 34,
+          "candidateUses": 34
+        },
+        {
+          "id": "A05",
+          "baselineUses": 38,
+          "candidateUses": 38
+        },
+        {
+          "id": "A06",
+          "baselineUses": 27,
+          "candidateUses": 27
+        },
+        {
+          "id": "A07",
+          "baselineUses": 33,
+          "candidateUses": 33
+        },
+        {
+          "id": "A08",
+          "baselineUses": 26,
+          "candidateUses": 26
+        },
+        {
+          "id": "A09",
+          "baselineUses": 14,
+          "candidateUses": 14
+        },
+        {
+          "id": "A10",
+          "baselineUses": 32,
+          "candidateUses": 32
+        },
+        {
+          "id": "A11",
+          "baselineUses": 40,
+          "candidateUses": 40
+        },
+        {
+          "id": "A12",
+          "baselineUses": 18,
+          "candidateUses": 18
+        },
+        {
+          "id": "A13",
+          "baselineUses": 20,
+          "candidateUses": 20
+        },
+        {
+          "id": "A14",
+          "baselineUses": 17,
+          "candidateUses": 17
+        },
+        {
+          "id": "A15",
+          "baselineUses": 16,
+          "candidateUses": 16
+        },
+        {
+          "id": "A16",
+          "baselineUses": 22,
+          "candidateUses": 22
+        },
+        {
+          "id": "A17",
+          "baselineUses": 23,
+          "candidateUses": 23
+        },
+        {
+          "id": "A18",
+          "baselineUses": 16,
+          "candidateUses": 16
+        },
+        {
+          "id": "A19",
+          "baselineUses": 19,
+          "candidateUses": 19
+        },
+        {
+          "id": "A20",
+          "baselineUses": 12,
+          "candidateUses": 12
+        },
+        {
+          "id": "A21",
+          "baselineUses": 8,
+          "candidateUses": 8
+        },
+        {
+          "id": "A22",
+          "baselineUses": 12,
+          "candidateUses": 12
+        },
+        {
+          "id": "A23",
+          "baselineUses": 25,
+          "candidateUses": 25
+        },
+        {
+          "id": "A24",
+          "baselineUses": 5,
+          "candidateUses": 5
+        },
+        {
+          "id": "A25",
+          "baselineUses": 11,
+          "candidateUses": 11
+        },
+        {
+          "id": "A26",
+          "baselineUses": 3,
+          "candidateUses": 3
+        },
+        {
+          "id": "A27",
+          "baselineUses": 13,
+          "candidateUses": 13
+        },
+        {
+          "id": "A28",
+          "baselineUses": 2,
+          "candidateUses": 2
+        },
+        {
+          "id": "A29",
+          "baselineUses": 4,
+          "candidateUses": 4
+        },
+        {
+          "id": "A30",
+          "baselineUses": 4,
+          "candidateUses": 4
+        },
+        {
+          "id": "A31",
+          "baselineUses": 17,
+          "candidateUses": 17
+        },
+        {
+          "id": "A32",
+          "baselineUses": 13,
+          "candidateUses": 13
+        },
+        {
+          "id": "A33",
+          "baselineUses": 5,
+          "candidateUses": 5
+        },
+        {
+          "id": "A34",
+          "baselineUses": 8,
+          "candidateUses": 8
+        },
+        {
+          "id": "A35",
+          "baselineUses": 11,
+          "candidateUses": 11
+        },
+        {
+          "id": "A36",
+          "baselineUses": 9,
+          "candidateUses": 9
+        },
+        {
+          "id": "A37",
+          "baselineUses": 10,
+          "candidateUses": 10
+        },
+        {
+          "id": "A38",
+          "baselineUses": 6,
+          "candidateUses": 6
+        },
+        {
+          "id": "A39",
+          "baselineUses": 9,
+          "candidateUses": 9
+        },
+        {
+          "id": "A40",
+          "baselineUses": 10,
+          "candidateUses": 10
+        },
+        {
+          "id": "A41",
+          "baselineUses": 4,
+          "candidateUses": 4
+        },
+        {
+          "id": "A42",
+          "baselineUses": 4,
+          "candidateUses": 4
+        },
+        {
+          "id": "A43",
+          "baselineUses": 5,
+          "candidateUses": 5
+        },
+        {
+          "id": "A44",
+          "baselineUses": 9,
+          "candidateUses": 9
+        },
+        {
+          "id": "A45",
+          "baselineUses": 2,
+          "candidateUses": 2
+        },
+        {
+          "id": "A46",
+          "baselineUses": 1,
+          "candidateUses": 1
+        },
+        {
+          "id": "A47",
+          "baselineUses": 3,
+          "candidateUses": 3
+        },
+        {
+          "id": "A48",
+          "baselineUses": 3,
+          "candidateUses": 3
+        },
+        {
+          "id": "A49",
+          "baselineUses": 1,
+          "candidateUses": 1
+        },
+        {
+          "id": "A50",
+          "baselineUses": 1,
+          "candidateUses": 1
+        },
+        {
+          "id": "A51",
+          "baselineUses": 1,
+          "candidateUses": 1
+        }
+      ]
+    },
+    "selected": {
+      "measurement": "ASCII English alphabetic tokens; compounds joined by ASCII apostrophe U+0027 or hyphen U+002D count as one; numbers, titles and translations excluded from English body counts; Han code points exclude punctuation",
+      "mainWords": 50,
+      "uses": 680,
+      "partOne": {
+        "han": 23303
+      },
+      "partTwo": {
+        "examples": 873,
+        "englishWords": 8016,
+        "translationHan": 14181,
+        "uniqueTexts": 873
+      },
+      "partThree": {
+        "articles": 51,
+        "sentences": 714,
+        "englishWords": 12536,
+        "translationHan": 22162,
+        "minArticleWords": 63,
+        "maxArticleWords": 746,
+        "medianArticleWords": 196,
+        "meanSentenceWords": 17.557422969187677,
+        "maxSentenceWords": 34,
+        "referencesPerSentence": {
+          "0": 208,
+          "1": 326,
+          "2": 151,
+          "3": 28,
+          "4": 1
+        }
+      },
+      "eligibleAudio": {
+        "uniqueTexts": 1587,
+        "characters": 134490,
+        "note": "Raw text strings only; does not apply audio-plan normalization or voice identity, query paid cache, submit a request, or estimate actual billing."
+      },
+      "articles": [
+        {
+          "id": "A01",
+          "title": "Two Clocks Changed by One Collision",
+          "sentences": 26,
+          "englishWords": 428,
+          "translationHan": 724,
+          "uniqueUses": 36
+        },
+        {
+          "id": "A02",
+          "title": "The River That Kept Moving After the Dams Were Gone",
+          "sentences": 24,
+          "englishWords": 407,
+          "translationHan": 725,
+          "uniqueUses": 27
+        },
+        {
+          "id": "A03",
+          "title": "A Bus Network Reaches Beyond the Railway Map",
+          "sentences": 17,
+          "englishWords": 316,
+          "translationHan": 582,
+          "uniqueUses": 25
+        },
+        {
+          "id": "A04",
+          "title": "Learning a New Language Without Losing the Lesson",
+          "sentences": 24,
+          "englishWords": 446,
+          "translationHan": 814,
+          "uniqueUses": 34
+        },
+        {
+          "id": "A05",
+          "title": "The Work That Makes Other Work Possible",
+          "sentences": 44,
+          "englishWords": 746,
+          "translationHan": 1264,
+          "uniqueUses": 38
+        },
+        {
+          "id": "A06",
+          "title": "What an Antibiotic-Resistance Record Can Tell Us",
+          "sentences": 23,
+          "englishWords": 409,
+          "translationHan": 745,
+          "uniqueUses": 27
+        },
+        {
+          "id": "A07",
+          "title": "When an Artwork Is Allowed to Change",
+          "sentences": 22,
+          "englishWords": 414,
+          "translationHan": 773,
+          "uniqueUses": 33
+        },
+        {
+          "id": "A08",
+          "title": "The Human Question Inside a Precise Industrial Picture",
+          "sentences": 18,
+          "englishWords": 309,
+          "translationHan": 603,
+          "uniqueUses": 26
+        },
+        {
+          "id": "A09",
+          "title": "A Blue Curtain Between India and an American Home",
+          "sentences": 13,
+          "englishWords": 264,
+          "translationHan": 455,
+          "uniqueUses": 14
+        },
+        {
+          "id": "A10",
+          "title": "Wallace's Specimens and His Wider World of Belief",
+          "sentences": 23,
+          "englishWords": 420,
+          "translationHan": 743,
+          "uniqueUses": 32
+        },
+        {
+          "id": "A11",
+          "title": "The Theatre Reopens, and the Stage Becomes a Profession",
+          "sentences": 37,
+          "englishWords": 580,
+          "translationHan": 964,
+          "uniqueUses": 40
+        },
+        {
+          "id": "A12",
+          "title": "From an Electron's Energy to a Useful Beam of Light",
+          "sentences": 16,
+          "englishWords": 254,
+          "translationHan": 455,
+          "uniqueUses": 18
+        },
+        {
+          "id": "A13",
+          "title": "How a Gap Between Conductors Stores Charge",
+          "sentences": 21,
+          "englishWords": 351,
+          "translationHan": 631,
+          "uniqueUses": 20
+        },
+        {
+          "id": "A14",
+          "title": "Ninety Words Left to a Sister",
+          "sentences": 27,
+          "englishWords": 417,
+          "translationHan": 644,
+          "uniqueUses": 17
+        },
+        {
+          "id": "A15",
+          "title": "A Home Has a Price, a Title and a Balance Sheet",
+          "sentences": 13,
+          "englishWords": 235,
+          "translationHan": 434,
+          "uniqueUses": 16
+        },
+        {
+          "id": "A16",
+          "title": "Robert Peel and the Cost of Changing a Policy",
+          "sentences": 16,
+          "englishWords": 267,
+          "translationHan": 490,
+          "uniqueUses": 22
+        },
+        {
+          "id": "A17",
+          "title": "A School Case and the Right to Be Heard",
+          "sentences": 32,
+          "englishWords": 538,
+          "translationHan": 893,
+          "uniqueUses": 23
+        },
+        {
+          "id": "A18",
+          "title": "What a Share Owns and What a Yield Measures",
+          "sentences": 17,
+          "englishWords": 326,
+          "translationHan": 548,
+          "uniqueUses": 16
+        },
+        {
+          "id": "A19",
+          "title": "What Soil Asks of the Gardener",
+          "sentences": 14,
+          "englishWords": 232,
+          "translationHan": 407,
+          "uniqueUses": 19
+        },
+        {
+          "id": "A20",
+          "title": "A Strawberry Season Kept in Glass",
+          "sentences": 11,
+          "englishWords": 200,
+          "translationHan": 341,
+          "uniqueUses": 12
+        },
+        {
+          "id": "A21",
+          "title": "Why Some Beer Keeps Changing in Its Container",
+          "sentences": 11,
+          "englishWords": 178,
+          "translationHan": 311,
+          "uniqueUses": 8
+        },
+        {
+          "id": "A22",
+          "title": "A Musical Phrase Has More Than One Kind of Time",
+          "sentences": 13,
+          "englishWords": 228,
+          "translationHan": 431,
+          "uniqueUses": 12
+        },
+        {
+          "id": "A23",
+          "title": "A Clutch Must Know When to Slip",
+          "sentences": 13,
+          "englishWords": 221,
+          "translationHan": 405,
+          "uniqueUses": 25
+        },
+        {
+          "id": "A24",
+          "title": "A Folded Shield Opens a View into the Past",
+          "sentences": 10,
+          "englishWords": 147,
+          "translationHan": 279,
+          "uniqueUses": 5
+        },
+        {
+          "id": "A25",
+          "title": "The Work Behind a Court-Appointed Conservator",
+          "sentences": 10,
+          "englishWords": 168,
+          "translationHan": 329,
+          "uniqueUses": 11
+        },
+        {
+          "id": "A26",
+          "title": "Two Clubs Can Ask a Question",
+          "sentences": 9,
+          "englishWords": 160,
+          "translationHan": 293,
+          "uniqueUses": 3
+        },
+        {
+          "id": "A27",
+          "title": "Mary Quant Put Everyday Movement into Fashion",
+          "sentences": 9,
+          "englishWords": 158,
+          "translationHan": 278,
+          "uniqueUses": 13
+        },
+        {
+          "id": "A28",
+          "title": "A Bladder Must Empty as Well as Fill",
+          "sentences": 5,
+          "englishWords": 82,
+          "translationHan": 133,
+          "uniqueUses": 2
+        },
+        {
+          "id": "A29",
+          "title": "The Small Structure That Carries a Replacement Tooth",
+          "sentences": 7,
+          "englishWords": 137,
+          "translationHan": 233,
+          "uniqueUses": 4
+        },
+        {
+          "id": "A30",
+          "title": "The Eye Brings Its Recent Past into a Dark Room",
+          "sentences": 8,
+          "englishWords": 151,
+          "translationHan": 264,
+          "uniqueUses": 4
+        },
+        {
+          "id": "A31",
+          "title": "The Person Left Behind in The Cherry Orchard",
+          "sentences": 30,
+          "englishWords": 500,
+          "translationHan": 799,
+          "uniqueUses": 17
+        },
+        {
+          "id": "A32",
+          "title": "An Objection Given a Place in the Procedure",
+          "sentences": 9,
+          "englishWords": 163,
+          "translationHan": 302,
+          "uniqueUses": 13
+        },
+        {
+          "id": "A33",
+          "title": "Returning the Gas Is Only Half of Reversing the Process",
+          "sentences": 8,
+          "englishWords": 168,
+          "translationHan": 275,
+          "uniqueUses": 5
+        },
+        {
+          "id": "A34",
+          "title": "An Old Arithmetic Word and a Curve Made by Unwinding",
+          "sentences": 8,
+          "englishWords": 174,
+          "translationHan": 269,
+          "uniqueUses": 8
+        },
+        {
+          "id": "A35",
+          "title": "Bandung Asked Who Could Speak for a New State",
+          "sentences": 10,
+          "englishWords": 196,
+          "translationHan": 385,
+          "uniqueUses": 11
+        },
+        {
+          "id": "A36",
+          "title": "The Sea Returns to the Forest Through a Fish",
+          "sentences": 8,
+          "englishWords": 145,
+          "translationHan": 290,
+          "uniqueUses": 9
+        },
+        {
+          "id": "A37",
+          "title": "The Convention Floor Became a Broadcasting Space",
+          "sentences": 9,
+          "englishWords": 170,
+          "translationHan": 328,
+          "uniqueUses": 10
+        },
+        {
+          "id": "A38",
+          "title": "Recovery Belongs to a Whole Life",
+          "sentences": 15,
+          "englishWords": 245,
+          "translationHan": 486,
+          "uniqueUses": 6
+        },
+        {
+          "id": "A39",
+          "title": "Keeping a Rainforest Alive While Its Glass House Changes",
+          "sentences": 15,
+          "englishWords": 245,
+          "translationHan": 426,
+          "uniqueUses": 9
+        },
+        {
+          "id": "A40",
+          "title": "The Printed Word and the Moving Voice",
+          "sentences": 8,
+          "englishWords": 144,
+          "translationHan": 242,
+          "uniqueUses": 10
+        },
+        {
+          "id": "A41",
+          "title": "A Memory Needs a Route Back",
+          "sentences": 7,
+          "englishWords": 112,
+          "translationHan": 217,
+          "uniqueUses": 4
+        },
+        {
+          "id": "A42",
+          "title": "Reading the Gaps in a Greek Inscription",
+          "sentences": 6,
+          "englishWords": 125,
+          "translationHan": 233,
+          "uniqueUses": 4
+        },
+        {
+          "id": "A43",
+          "title": "The Dinosaur with a Spike in the Wrong Place",
+          "sentences": 8,
+          "englishWords": 162,
+          "translationHan": 309,
+          "uniqueUses": 5
+        },
+        {
+          "id": "A44",
+          "title": "The Hidden Movement Around a Ship",
+          "sentences": 9,
+          "englishWords": 178,
+          "translationHan": 313,
+          "uniqueUses": 9
+        },
+        {
+          "id": "A45",
+          "title": "A Student Room Has More Than One Calendar",
+          "sentences": 5,
+          "englishWords": 90,
+          "translationHan": 166,
+          "uniqueUses": 2
+        },
+        {
+          "id": "A46",
+          "title": "A Phone Call Has Two Routes",
+          "sentences": 3,
+          "englishWords": 63,
+          "translationHan": 85,
+          "uniqueUses": 1
+        },
+        {
+          "id": "A47",
+          "title": "A Hammer on a Roman Coin",
+          "sentences": 4,
+          "englishWords": 93,
+          "translationHan": 172,
+          "uniqueUses": 3
+        },
+        {
+          "id": "A48",
+          "title": "Recycling Starts Before and After a Plastic Object Exists",
+          "sentences": 6,
+          "englishWords": 143,
+          "translationHan": 264,
+          "uniqueUses": 3
+        },
+        {
+          "id": "A49",
+          "title": "Why a Brick Wall Has a Pattern",
+          "sentences": 5,
+          "englishWords": 82,
+          "translationHan": 148,
+          "uniqueUses": 1
+        },
+        {
+          "id": "A50",
+          "title": "The Stillness Around a Memorial",
+          "sentences": 4,
+          "englishWords": 64,
+          "translationHan": 115,
+          "uniqueUses": 1
+        },
+        {
+          "id": "A51",
+          "title": "The Hurricane Had Two Eyewalls",
+          "sentences": 4,
+          "englishWords": 85,
+          "translationHan": 147,
+          "uniqueUses": 1
+        }
+      ],
+      "notice": "Counts and USE references do not verify meaning, facts, readability, mastery or personal study time.",
+      "bodyDigest": "d3b7928d30dc7b6b9968338fdf8b4b3ea0cb2e950818c3984bbb36b2681f1e58",
+      "partOneUnchanged": true,
+      "partTwoUnchanged": true,
+      "p3Reduction": 0.3820977917981072,
+      "p2p3Reduction": 0.2738835500282646,
+      "articleCoverage": [
+        {
+          "id": "A01",
+          "baselineUses": 36,
+          "candidateUses": 36
+        },
+        {
+          "id": "A02",
+          "baselineUses": 27,
+          "candidateUses": 27
+        },
+        {
+          "id": "A03",
+          "baselineUses": 25,
+          "candidateUses": 25
+        },
+        {
+          "id": "A04",
+          "baselineUses": 34,
+          "candidateUses": 34
+        },
+        {
+          "id": "A05",
+          "baselineUses": 38,
+          "candidateUses": 38
+        },
+        {
+          "id": "A06",
+          "baselineUses": 27,
+          "candidateUses": 27
+        },
+        {
+          "id": "A07",
+          "baselineUses": 33,
+          "candidateUses": 33
+        },
+        {
+          "id": "A08",
+          "baselineUses": 26,
+          "candidateUses": 26
+        },
+        {
+          "id": "A09",
+          "baselineUses": 14,
+          "candidateUses": 14
+        },
+        {
+          "id": "A10",
+          "baselineUses": 32,
+          "candidateUses": 32
+        },
+        {
+          "id": "A11",
+          "baselineUses": 40,
+          "candidateUses": 40
+        },
+        {
+          "id": "A12",
+          "baselineUses": 18,
+          "candidateUses": 18
+        },
+        {
+          "id": "A13",
+          "baselineUses": 20,
+          "candidateUses": 20
+        },
+        {
+          "id": "A14",
+          "baselineUses": 17,
+          "candidateUses": 17
+        },
+        {
+          "id": "A15",
+          "baselineUses": 16,
+          "candidateUses": 16
+        },
+        {
+          "id": "A16",
+          "baselineUses": 22,
+          "candidateUses": 22
+        },
+        {
+          "id": "A17",
+          "baselineUses": 23,
+          "candidateUses": 23
+        },
+        {
+          "id": "A18",
+          "baselineUses": 16,
+          "candidateUses": 16
+        },
+        {
+          "id": "A19",
+          "baselineUses": 19,
+          "candidateUses": 19
+        },
+        {
+          "id": "A20",
+          "baselineUses": 12,
+          "candidateUses": 12
+        },
+        {
+          "id": "A21",
+          "baselineUses": 8,
+          "candidateUses": 8
+        },
+        {
+          "id": "A22",
+          "baselineUses": 12,
+          "candidateUses": 12
+        },
+        {
+          "id": "A23",
+          "baselineUses": 25,
+          "candidateUses": 25
+        },
+        {
+          "id": "A24",
+          "baselineUses": 5,
+          "candidateUses": 5
+        },
+        {
+          "id": "A25",
+          "baselineUses": 11,
+          "candidateUses": 11
+        },
+        {
+          "id": "A26",
+          "baselineUses": 3,
+          "candidateUses": 3
+        },
+        {
+          "id": "A27",
+          "baselineUses": 13,
+          "candidateUses": 13
+        },
+        {
+          "id": "A28",
+          "baselineUses": 2,
+          "candidateUses": 2
+        },
+        {
+          "id": "A29",
+          "baselineUses": 4,
+          "candidateUses": 4
+        },
+        {
+          "id": "A30",
+          "baselineUses": 4,
+          "candidateUses": 4
+        },
+        {
+          "id": "A31",
+          "baselineUses": 17,
+          "candidateUses": 17
+        },
+        {
+          "id": "A32",
+          "baselineUses": 13,
+          "candidateUses": 13
+        },
+        {
+          "id": "A33",
+          "baselineUses": 5,
+          "candidateUses": 5
+        },
+        {
+          "id": "A34",
+          "baselineUses": 8,
+          "candidateUses": 8
+        },
+        {
+          "id": "A35",
+          "baselineUses": 11,
+          "candidateUses": 11
+        },
+        {
+          "id": "A36",
+          "baselineUses": 9,
+          "candidateUses": 9
+        },
+        {
+          "id": "A37",
+          "baselineUses": 10,
+          "candidateUses": 10
+        },
+        {
+          "id": "A38",
+          "baselineUses": 6,
+          "candidateUses": 6
+        },
+        {
+          "id": "A39",
+          "baselineUses": 9,
+          "candidateUses": 9
+        },
+        {
+          "id": "A40",
+          "baselineUses": 10,
+          "candidateUses": 10
+        },
+        {
+          "id": "A41",
+          "baselineUses": 4,
+          "candidateUses": 4
+        },
+        {
+          "id": "A42",
+          "baselineUses": 4,
+          "candidateUses": 4
+        },
+        {
+          "id": "A43",
+          "baselineUses": 5,
+          "candidateUses": 5
+        },
+        {
+          "id": "A44",
+          "baselineUses": 9,
+          "candidateUses": 9
+        },
+        {
+          "id": "A45",
+          "baselineUses": 2,
+          "candidateUses": 2
+        },
+        {
+          "id": "A46",
+          "baselineUses": 1,
+          "candidateUses": 1
+        },
+        {
+          "id": "A47",
+          "baselineUses": 3,
+          "candidateUses": 3
+        },
+        {
+          "id": "A48",
+          "baselineUses": 3,
+          "candidateUses": 3
+        },
+        {
+          "id": "A49",
+          "baselineUses": 1,
+          "candidateUses": 1
+        },
+        {
+          "id": "A50",
+          "baselineUses": 1,
+          "candidateUses": 1
+        },
+        {
+          "id": "A51",
+          "baselineUses": 1,
+          "candidateUses": 1
+        }
+      ]
+    }
+  },
+  "notice": "Structural measurements only. Semantic, factual and article-value decisions are documented separately in reviews and README."
+}

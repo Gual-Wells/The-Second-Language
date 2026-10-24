@@ -1,0 +1,18 @@
+{
+  "chapterId": "2026-10-24",
+  "digest": "ddfd12d0adcd7f925c1bbfbd36361240edafddf9f447545fa7fb8dcca0f6cce3",
+  "repositoryCommit": "fa0871c63b013bbf79276b46941f42a485eb01bd",
+  "files": {
+    "chapter": "chapters/2026-10-24/chapter.md",
+    "sources": "chapters/2026-10-24/sources.json",
+    "authoring": "work/runs/2026-10-24/teaching/authored/articles.json"
+  },
+  "scope": "Offline research copies, not formally published chapters. No audio generation. Parts one and two held byte-identical in whole-chapter trials.",
+  "counts": {
+    "mainWords": 50,
+    "uses": 680,
+    "examples": 873,
+    "articleCount": 51,
+    "p3EnglishWords": 20288
+  }
+}

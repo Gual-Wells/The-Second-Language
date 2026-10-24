@@ -14,4 +14,4 @@ if (!response.ok) throw new Error(`领取每日运行失败：${result.error || 
 const folder = path.resolve('work/runs', date);
 await mkdir(folder, { recursive: true });
 await writeFile(path.join(folder, 'control.json'), JSON.stringify(result, null, 2));
-console.log(result.rest ? `${date} 已领取休息：不建设、不标记 VIX、不发布日课；休息按钮已复位。` : `${date} 已领取日课；临时需求：${result.temporaryRequest?.text || '无'}`);
+console.log(result.rest ? `${date} 已领取休息：不建设、不标记 VIX、不发布日课；休息保持开启。` : `${date} 已领取日课；以后默认休息；临时需求：${result.temporaryRequest?.text || '无'}`);

@@ -1,0 +1,155 @@
+{
+  "schemaVersion": 1,
+  "completedAt": "2026-10-24T19:57:40.725Z",
+  "repository": "Gual-Wells/The-Second-Language",
+  "branch": "codex/project-commemorative",
+  "headBeforeStudyCommit": "0bec7f1d13328512dd0759c584bd92e5f80afa69",
+  "baseline": {
+    "commit": "fa0871c63b013bbf79276b46941f42a485eb01bd",
+    "bodyDigest": "ddfd12d0adcd7f925c1bbfbd36361240edafddf9f447545fa7fb8dcca0f6cce3"
+  },
+  "selected": {
+    "jsonDigest": "ee266a9958a3f20c5fe3b10af014a8574ca90ef9c4443342da3ca20328808537",
+    "assembledBodyDigest": "d3b7928d30dc7b6b9968338fdf8b4b3ea0cb2e950818c3984bbb36b2681f1e58",
+    "p3Words": 12536,
+    "p3Sentences": 714,
+    "p3Reduction": 0.3820977917981072,
+    "p2p3Reduction": 0.2738835500282646,
+    "mainWords": 50,
+    "uses": 680,
+    "articles": 51,
+    "partsOneAndTwoByteIdentical": true
+  },
+  "semanticReview": {
+    "first": "A01-A26 complete cross-read plus two final incremental repairs",
+    "second": "A27-A51 complete cross-read plus A29 final incremental repair",
+    "remainingBlockingIssues": 0,
+    "scope": "Editorial judgement on actual texts and complete teaching cards, not proof of identical learning outcomes or a global minimum"
+  },
+  "checks": [
+    {
+      "command": "node research/quality-scale-2026-10-25/build-selected.mjs",
+      "result": "passed; 51 articles, 8 light, 43 compact, 36 editorial records"
+    },
+    {
+      "command": "node research/quality-scale-2026-10-25/evaluate.mjs",
+      "result": "passed; baseline SHA, same article titles/sources/USE sets, protected parts, valid bilingual assembly"
+    },
+    {
+      "command": "node scripts/check-chapter-footprint.mjs",
+      "result": "passed; metadata/translation exclusion, defined tokens, reuse, median, invalid references, golden baseline"
+    },
+    {
+      "command": "node scripts/check-teaching-authoring.mjs",
+      "result": "passed; independent retrieval, immutable recovery, material/example dispositions, no fallback, free article/sense order and source identity"
+    },
+    {
+      "command": "node --check for changed/new executable JS and PowerShell parser for run-daily.ps1",
+      "result": "passed; daily task not invoked"
+    },
+    {
+      "command": "git diff --check",
+      "result": "passed"
+    }
+  ],
+  "controls": {
+    "commit": "0bec7f1d13328512dd0759c584bd92e5f80afa69",
+    "liveVerifiedAt": "2026-10-24T19:54:33.170Z",
+    "restRequested": true,
+    "audioNext": [],
+    "stoppedAudioState": "needs_review",
+    "cursor": 321,
+    "total": 2143,
+    "claimCleared": true,
+    "leaseCleared": true
+  },
+  "limits": [
+    "No formal chapter replacement, VIX update or audio generation by the research",
+    "No hard word cap or compression target",
+    "No learner time/retention experiment",
+    "No complete re-browse of all 87 sources",
+    "No exhaustive search of cross-article reorganization"
+  ],
+  "artifacts": {
+    "baseline.json": "c74d3c2daf8e460bf4b9d59ed6ad3885f6995f42b84ce17ad5496e7779c2e6e1",
+    "STUDY.md": "187e9e4b7239fd7d53bd6920cafc55ee3ecb1947f0065793801451e56348f8a1",
+    "README.md": "4a430440cc16c0ca21f98560358d3f6a4ebfe5ee92387a7e5cc1cdf1f2d07230",
+    "build-selected.mjs": "a4bb3c9f0bc02eefe711cae1d4eade2075ec029ca30acc90d8ba9691582a54e7",
+    "evaluate.mjs": "b9ad8b7cf1d24157fcd941a1bee1cce22de4a684eaa65891f08396260b950085",
+    "measurements.json": "5ce7ec457e49f91b081af8629be934f37eaa1fe7ef3cfcad2dc0757ce2ec0aec",
+    "variants/light-first.json": "d04fe437e089f3af0c61032a2c810ad7b7656209657372af24122ad4800fc281",
+    "variants/light-second.json": "4a7cdf01d5a97d8bda7bdf0f34d79bf490a2e8f21938e82989aff37d3856a680",
+    "variants/compact-first.json": "3981feab702813d3808c35b2922c2eea503b0a4937961541296dd8accf75b6c8",
+    "variants/compact-second.json": "a9948577fc0495353da8b9f6c6da66f2e5a9491fcdbb21684c7c4230718a6d45",
+    "variants/selected.json": "ee266a9958a3f20c5fe3b10af014a8574ca90ef9c4443342da3ca20328808537",
+    "variants/light-third.md": "fab5e53c7a06954ea7122dffef82a8c745577644288a65c9e6a9e9b1b824247b",
+    "variants/compact-third.md": "23d9c7159c6713e0b1d530e14faca8298d6443f62dc619eeddfd7f06eb0c008e",
+    "variants/selected-third.md": "d65f7c89be8e003d8af681d97ab6d4b38b6d6e396edf387d10737a364deaf54a",
+    "reviews/author-first.md": "78514715ec40448bf5c9683d729581c04799ad0d3b6fa4d607ce2608f4e0c413",
+    "reviews/author-second.md": "6930ac56d8eaefffb7f88e8a45ffd2f2a1ac981091a357d9fe4c0972f8e76f05",
+    "reviews/peer-first.md": "abe48998c0275256814fd758483e6fe35345b1dd62547fd45354d31dc020a0cb",
+    "reviews/peer-second.md": "0ce5c8130d54b8a2d62865d7a3cd3f522cab2cd5c4aa795edfffc52f05550dd2",
+    "reviews/selected-first.md": "c20cdb353fa2d704590c1cf87ecc80b671a26031f5d6cf868c88c295ee6276dc",
+    "reviews/selected-second.md": "ee2e61d6c428527f9599a2c8666010f4405ed41db68f54fbfaec0609da905a8d",
+    "reviews/selection-decisions.json": "b8ffe3041ad278c765361cd48cc11a517cd3a95f19cc28b36c21ee73d8153c1f",
+    "reviews/integration-audit.md": "e5e3518fa5394915c67a59bcfcf242f423cdf4f29404fa97f1c51a8f70b80839"
+  },
+  "integration": {
+    "protocol/QUALITY_SCALE.md": "8af3f6b4249724dd7cf4614ab32c9f3d84b2ffde226e78ea934ce8914b7b1094",
+    "scripts/lib/chapter-footprint.mjs": "1022687d27ba11f340dfbd47f308db9ba062839ff8d86a075243c4db8b27f5e7",
+    "scripts/chapter-footprint.mjs": "6600578362e8ad03f7d1b946d409d9f7f416d7548193395ecbb99e64862491a3",
+    "scripts/check-chapter-footprint.mjs": "f2b0611bd358670a6a1a290c946cf27bdde37f0432867ac405698b6d6b5e00c9",
+    "scripts/assemble-teaching.mjs": "dcac4f14f81c8ba1642c03bce7c39adf2815ca7068574019db29654a88fc165e",
+    "scripts/run-daily.ps1": "fa95643e4d9e50a8132a966c920e393d84b41cc03d4732d8cbc52805bffe4428"
+  },
+  "artifactNormalization": [
+    {
+      "path": "reviews/author-first.md",
+      "before": "ac1b1f545562a58cd11f22266845f33dbcc63178aa249e510aeefc65f5324bec",
+      "after": "78514715ec40448bf5c9683d729581c04799ad0d3b6fa4d607ce2608f4e0c413",
+      "change": "Repository LF normalization / trailing empty lines only; prose and JSON values unchanged"
+    },
+    {
+      "path": "reviews/author-second.md",
+      "before": "2efdeb567f719ecf79f4fce73d467daa5945d8f201712d1687968c6e4afe6123",
+      "after": "6930ac56d8eaefffb7f88e8a45ffd2f2a1ac981091a357d9fe4c0972f8e76f05",
+      "change": "Repository LF normalization / trailing empty lines only; prose and JSON values unchanged"
+    },
+    {
+      "path": "reviews/peer-first.md",
+      "before": "ddbec88d758c37932e221dc95bfa6c95565b1e0c4819001c7f0fc37cf9e13fbf",
+      "after": "abe48998c0275256814fd758483e6fe35345b1dd62547fd45354d31dc020a0cb",
+      "change": "Repository LF normalization / trailing empty lines only; prose and JSON values unchanged"
+    },
+    {
+      "path": "reviews/peer-second.md",
+      "before": "04d87e18ecb3ee6cee5ee757e873e1b71111f67559cd94ae95cdbb4fb2f71d47",
+      "after": "0ce5c8130d54b8a2d62865d7a3cd3f522cab2cd5c4aa795edfffc52f05550dd2",
+      "change": "Repository LF normalization / trailing empty lines only; prose and JSON values unchanged"
+    },
+    {
+      "path": "reviews/selected-first.md",
+      "before": "b539ef6d90e265aa2392b9b6be231e3ac6f9b6423d773b7d2d1579c1b5258d50",
+      "after": "c20cdb353fa2d704590c1cf87ecc80b671a26031f5d6cf868c88c295ee6276dc",
+      "change": "Repository LF normalization / trailing empty lines only; prose and JSON values unchanged"
+    },
+    {
+      "path": "reviews/selected-second.md",
+      "before": "7efd7cd6c639ebb414bd24351ae51cc5e30547e177598634ed74dc71b66b5123",
+      "after": "ee2e61d6c428527f9599a2c8666010f4405ed41db68f54fbfaec0609da905a8d",
+      "change": "Repository LF normalization / trailing empty lines only; prose and JSON values unchanged"
+    },
+    {
+      "path": "variants/compact-second.json",
+      "before": "8f7af59c51c4629e93eafe8ff4f26d63a17028e9a65f7bea601c09fa9ebed567",
+      "after": "a9948577fc0495353da8b9f6c6da66f2e5a9491fcdbb21684c7c4230718a6d45",
+      "change": "Repository LF normalization / trailing empty lines only; prose and JSON values unchanged"
+    },
+    {
+      "path": "variants/light-second.json",
+      "before": "4c921af692442daff9103d1d9e5c7b5fd1446dc3c769e07ca397e1aad23df3c2",
+      "after": "4a7cdf01d5a97d8bda7bdf0f34d79bf490a2e8f21938e82989aff37d3856a680",
+      "change": "Repository LF normalization / trailing empty lines only; prose and JSON values unchanged"
+    }
+  ]
+}
