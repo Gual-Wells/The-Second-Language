@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#174b84">
+  <meta name="referrer" content="same-origin">
+  <title>语音对话试验 · 第二语言</title>
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="masthead">
+      <a href="/" class="back-link">‹ 返回阅读器</a>
+      <p class="eyebrow">THE SECOND LANGUAGE · LAB</p>
+      <h1>语音对话试验</h1>
+      <p class="subtitle">带着学过的用法，聊一段真正想聊的事。</p>
+    </header>
+
+    <main>
+      <section class="introduction">
+        <p>为 iPhone 上的 ChatGPT 语音准备一份对话训练包。由情境自然引出表达，会后再回看你实际说了什么。</p>
+        <p class="quiet">这里不会录音或调用付费模型。只有你复制或分享后，资料才会交给外部服务；ChatGPT 自身的使用限额仍然适用。</p>
+      </section>
+
+      <p id="storageNotice" class="notice" hidden></p>
+      <p id="status" class="status" role="status" aria-live="polite">正在查看已发布章节…</p>
+
+      <section class="work-section" aria-labelledby="prepareHeading">
+        <div class="section-heading"><span>01</span><h2 id="prepareHeading">准备一次对话</h2></div>
+        <div class="section-body">
+          <div class="label-row"><label for="chapterSelect">正式章节</label><button type="button" id="refreshCatalog" class="text-button">刷新目录</button></div>
+          <select id="chapterSelect" disabled><option value="">正在读取…</option></select>
+          <p id="catalogNote" class="field-note">只读取当前正式目录，不使用封存章节或未发布稿。</p>
+          <div id="loginNotice" class="notice" hidden>请先<a href="/">返回主页登录</a>，再回到这里刷新目录。</div>
+          <label for="topicInput" class="spaced-label">想聊的生活话题 <span class="optional">可留空</span></label>
+          <input id="topicInput" type="text" maxlength="240" placeholder="例如：最近的旅行计划、工作里的小难题" autocomplete="off">
+          <div class="action-row">
+            <button type="button" id="generateButton" class="primary-button" disabled>生成训练包</button>
+            <button type="button" id="demoButton">先试示范包</button>
+          </div>
+          <p class="field-note">示范包为本页原创素材，不是已发布课程，也不写入正式学习记录。</p>
+          <div id="replaceNotice" class="notice" hidden>
+            <p id="replaceText">当前训练会保留在本机，粘贴的报告草稿也会保留。新训练会使用独立身份。</p>
+            <div class="action-row"><button type="button" id="confirmNewButton" class="primary-button">继续新建</button><button type="button" id="cancelNewButton">保留当前</button></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="trainingSection" class="work-section" aria-labelledby="trainingHeading" hidden>
+        <div class="section-heading"><span>02</span><h2 id="trainingHeading">去 ChatGPT 开聊</h2></div>
+        <div class="section-body">
+          <p id="sessionTitle" class="session-title"></p>
+          <p id="sessionMeta" class="field-note fingerprint"></p>
+          <p id="restoredNotice" class="notice" hidden>已恢复本机训练包与草稿，创建时的章节版本保持不变。</p>
+          <p id="exportNotice" class="notice" hidden></p>
+          <ol class="steps">
+            <li><strong>带入训练包</strong><span>复制指令，或分享文本文件到 iOS ChatGPT 新对话。分享是否可用，取决于系统与 App。</span></li>
+            <li><strong>发出后开启语音</strong><span>先发送完整训练指令，再点 ChatGPT 的语音按钮。下方入口只打开网页，不会自动发送资料或开启语音。</span></li>
+            <li><strong>聊完带回反馈</strong><span>复制下方会后请求，发回同一对话；将得到的 JSON 粘贴到这里核对。</span></li>
+          </ol>
+          <div class="action-row"><button type="button" id="copyPrompt" class="primary-button">复制训练指令</button><button type="button" id="sharePrompt">系统分享 .txt</button><button type="button" id="downloadPrompt">下载训练包</button></div>
+          <a class="button-link chatgpt-link" href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">打开 ChatGPT ↗</a>
+          <details class="disclosure"><summary>训练目标与完整指令</summary><p class="field-note">为保留自然表达机会，建议聊完再看。折叠只是减少剧透，并非技术保密。</p><p id="sessionIdentity" class="field-note fingerprint"></p><div id="targetsList" class="targets-list"></div><pre id="promptPreview" class="text-preview" tabindex="0"></pre></details>
+          <details class="disclosure"><summary>章节背景与资料去向</summary><p class="field-note">训练指令已带必要用法材料，无需另加附件。若想让 ChatGPT 理解更完整的上下文，可自行下载并附上章节原文；没有凭据或账户信息。</p><button type="button" id="downloadChapter">下载完整章节背景</button><p class="field-note">发送到外部对话的副本不能由本页远程撤回。本页保留的训练与反馈只在当前浏览器。</p></details>
+        </div>
+      </section>
+
+      <section id="reportSection" class="work-section" aria-labelledby="reportHeading" hidden>
+        <div class="section-heading"><span>03</span><h2 id="reportHeading">带回对话反馈</h2></div>
+        <div class="section-body">
+          <button type="button" id="copyReportRequest">复制会后 JSON 请求</button>
+          <p class="field-note">将请求发到刚才的 ChatGPT 对话，要求依据真实对话作答。语音转写不确定时不直接算错。</p>
+          <label for="reportInput" class="spaced-label">粘贴会后 JSON</label>
+          <textarea id="reportInput" rows="7" maxlength="200000" spellcheck="false" placeholder="粘贴报告后，先核对，再决定是否保存。"></textarea>
+          <div class="action-row"><button type="button" id="reviewReport" class="primary-button">读取并核对</button><label class="button-link file-label" for="reportFile">选择 .json 文件</label><input id="reportFile" type="file" accept="application/json,.json" class="visually-hidden"></div>
+          <p id="reportError" class="error-message" role="alert" hidden></p>
+          <div id="reportReview" hidden>
+            <div class="notice"><strong>外部模型的自述，等待你核对</strong><p>报告不能证明掌握，也不会产生章节认证。请特别检查原话、提示次数与用法判断是否符合实际对话。</p></div>
+            <div id="reportResults"></div>
+            <div class="action-row"><button type="button" id="saveReport" class="primary-button">确认保存到本机</button><button type="button" id="downloadReport">下载这份反馈</button></div>
+            <p id="savedNotice" class="field-note" role="status"></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="work-section local-section" aria-labelledby="localHeading">
+        <div class="section-heading"><span>本机</span><h2 id="localHeading">训练与记录</h2></div>
+        <div class="section-body">
+          <label for="sessionSelect">恢复训练</label>
+          <select id="sessionSelect"><option value="">尚无本机训练</option></select>
+          <div class="action-row"><button type="button" id="restoreSession" disabled>打开所选训练</button><button type="button" id="exportRecords">下载本机记录</button></div>
+          <button type="button" id="endSession" class="text-button" hidden>结束当前训练并保留草稿</button>
+          <p class="field-note">记录备份保留原章节快照、训练和报告草稿，仅用于个人留存与恢复，不代表旧版本仍可用于当前训练。</p>
+          <p class="field-note">不跨设备同步。浏览器清理数据可能移除记录，建议自行导出。本机记录不影响 VIX、雅思或章节认证。</p>
+          <button type="button" id="clearRecords" class="text-button danger">清除此设备的试验记录</button>
+          <div id="clearNotice" class="notice" hidden><p>仅清除此试验页保存的训练、草稿和反馈。其他项目记录不受影响。</p><div class="action-row"><button type="button" id="confirmClear" class="danger">确认清除</button><button type="button" id="cancelClear">取消</button></div></div>
+        </div>
+      </section>
+    </main>
+    <footer>第二语言 · 独立试验设施</footer>
+  </div>
+</body>
+</html>
