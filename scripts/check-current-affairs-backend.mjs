@@ -9,7 +9,7 @@ import {chapterTestPolicy} from '../protocol/chapter-test-contract.mjs';
 import {qualityPolicy} from '../protocol/chapter-quality-contract.mjs';
 import {collectNext} from '../worker/speaking/collector.mjs';
 import {isCurrentPracticeSet} from '../worker/src/practice-scope.js';
-import {audioDescriptor} from '../worker/src/audio-config.js';
+import {audioDescriptor,buildAudioPlan} from '../worker/src/audio-config.js';
 import {recipient,firstPassStatement} from '../worker/src/chapter-certifications.js';
 
 const hash=v=>createHash('sha256').update(v).digest('hex');
@@ -263,5 +263,28 @@ try{
  assert.equal(practice.prepare('PRAGMA integrity_check').get().integrity_check,'ok');assert.deepEqual(practice.prepare('PRAGMA foreign_key_check').all(),[]);
  for(const [database,tables,before] of [[sql,archivedQueues.mainTables,archivedQueues.mainBefore],[practice,archivedQueues.practiceTables,archivedQueues.practiceBefore]]){const after=snapshot(database,tables);for(const table of tables)assert.deepEqual(after[table].slice(0,before[table].length),before[table],table+': old rows stay unchanged through the full new flow');}
  assert.ok(graphReads>0&&graphWrites>0,'The actual permanent store performed verified Graph transport through isolated fixtures');
- console.log(JSON.stringify({ok:true,sqlite:true,worker:true,permanentSourceReadback:true,sourceBindingImmutable:true,newNumberingStartsAtOne:true,legacyArchivedNotPromoted:true,newApplicationsRejectArchive:true,archiveQueuesFrozen:true,archiveRowsUnchanged:true,practiceOwnershipGuard:true,ieltsNewSnapshotExcludesArchive:true,fixedNewSnapshotContinues:true,markdownUnchanged:true,noProductionWrites:true,noExternalNetwork:true,graphFixtureReads:graphReads,graphFixtureWrites:graphWrites}));
+ // A withdrawal differs from a revision: even frozen background work loses
+ // eligibility, while originals and unknown billing state remain untouched.
+ const audioBefore=sql.prepare('SELECT * FROM audio_requests WHERE chapter_digest=?').get(second.digest);
+ insert(sql,'chapter_withdrawals',{digest:second.digest,chapter_id:second.id,run_id:second.runId,selection_digest:second.sourcePackage.selectionDigest,vix_commit:second.vixCommit,withdrawn_at:Date.now(),reason:'Explicit isolated withdrawal',snapshot_json:JSON.stringify({audio:audioBefore})});
+ sql.prepare('DELETE FROM published_chapters WHERE digest=?').run(second.digest);
+ sql.prepare('DELETE FROM daily_runs WHERE chapter_digest=?').run(second.digest);
+ assert.equal((await call('/api/chapters/'+second.id)).status,404);
+ assert.equal((await call('/api/chapters/'+second.id+'?digest='+second.digest)).status,404);
+ assert.equal((await call('/api/chapters/'+second.id+'/sources?digest='+second.digest)).status,404);
+ assert.equal((await call('/api/chapters/'+second.id+'?digest='+second.digest+'&archive=1')).data.markdown,second.markdown);
+ assert.equal((await call('/api/chapters/'+second.id+'/sources?digest='+second.digest+'&archive=1')).data.sourceDigest,second.sourceDigest);
+ assert.equal((await stage(second)).status,409);
+ assert.equal((await commit(second)).status,409);
+ assert.equal((await call('/api/runs',{method:'PUT',body:{runId:second.runId,date:second.date,phase:'VIX_MARKED',vixCommit:second.vixCommit}})).status,409);
+ await assert.rejects(()=>buildAudioPlan(env,second.id,second.digest,['three']),/封存/);
+ assert.deepEqual(sql.prepare('SELECT * FROM audio_requests WHERE chapter_digest=?').get(second.digest),audioBefore);
+ assert.throws(()=>sql.prepare('INSERT INTO published_chapters VALUES(?,?,?,?)').run(second.id,second.date,second.digest,Date.now()),/withdrawn/);
+ const replacement=await payload(second.date,'replacement');replacement.vixCommit='f'.repeat(40);replacement.sourcePackage.selectionDigest=hash('replacement-selection');replacement.sourceDigest=hash(canonicalSourcePackage(replacement.sourcePackage));
+ assert.equal((await stage(replacement)).data.number,'第 2 章');
+ assert.equal((await commit(replacement)).status,200);
+ assert.equal((await call('/api/chapters/'+second.id)).data.digest,replacement.digest);
+ assert.equal((await commit(second)).status,409,'Withdrawn replay cannot replace a new chapter on the same date');
+ assert.equal(sql.prepare('SELECT count(*) n FROM chapter_withdrawals').get().n,1);
+ console.log(JSON.stringify({ok:true,sqlite:true,worker:true,permanentSourceReadback:true,sourceBindingImmutable:true,newNumberingStartsAtOne:true,legacyArchivedNotPromoted:true,newApplicationsRejectArchive:true,archiveQueuesFrozen:true,archiveRowsUnchanged:true,practiceOwnershipGuard:true,ieltsNewSnapshotExcludesArchive:true,fixedNewSnapshotContinues:true,withdrawalReplayBlocked:true,withdrawalPaidStatePreserved:true,sameDateReplacementNumbering:true,markdownUnchanged:true,noProductionWrites:true,noExternalNetwork:true,graphFixtureReads:graphReads,graphFixtureWrites:graphWrites}));
 }finally{globalThis.fetch=originalFetch;sql.close();practice.close();}

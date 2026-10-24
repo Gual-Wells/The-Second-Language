@@ -2,6 +2,8 @@
 
 2026-10-24用户确定正式日课使用gpt-6.1-sol/max、每章50主词，每日北京时间05:00开始生成；全义、真实词族与双教材不缩减。该模型设置只作用于日课，卷轴、答疑等独立通路按自身协议。
 
+同日用户明确撤回已发布的第一章《把信息变成可用的判断》（digest 532149cd…）、该次VIX记录及序列占用，并要求手动触发一次新生产。该特定旧作业移出正式chapters和work/runs，原件与收费结果保存在withdrawn归档；chapter_withdrawals及formal_chapter_sources排除旧版本。新运行重新固定VIX并从第1章开始，不从withdrawn目录恢复旧选词。此为本次明确授权例外，不取消后续正常冻结／未知计费／休息保护。参见DAILY_RUN.md及research/chapter-withdrawal-2026-10-24.md。
+
 每次每日课程任务从 `protocol/DAILY_RUN.md` 开始，先调用 `scripts/claim-run.mjs` 领取一次性运行控制；非休息日按 `protocol/QUALITY_WORKFLOW.md` 建设内容。临时页任务遵循 `protocol/TEMPORARY.md`，三部分关联编码与逐句译文遵循 `protocol/ANNOTATIONS.md`。具体选词和创作仍由模型判断。先阅读已有 `work/runs/<run-id>/` 文档，继续未完成的同一运行。
 
 课程建设阅读protocol/TEACHING_AUTHORING.md：用可复用工具按明确主词/词族逐项定位双教材，不能从缺失条目的旧lookup集合筛选冒充补查。第一、二部分协同制作全部讲解和针对性例句，禁止自动拿范文第一条关联句回填缺例。原教材及全部相关原例去向可回读，实际语义审阅不能被去向记录代替。

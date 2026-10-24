@@ -104,7 +104,7 @@ async function route(request, env) {
     const settings = await env.DB.prepare('SELECT * FROM study_settings WHERE id=1').first();
     const { results } = await env.DB.prepare(`SELECT p.chapter_id,p.completed,p.difficulty,p.note,p.updated_at,c.study_date
       FROM reading_progress p JOIN published_chapters c ON c.chapter_id=p.chapter_id
-      JOIN chapter_sources s ON s.digest=c.digest AND s.policy=?
+      JOIN formal_chapter_sources s ON s.digest=c.digest AND s.policy=?
       ORDER BY p.updated_at DESC LIMIT 100`).bind(CURRENT_AFFAIRS_POLICY).all();
     return json({ ...settingsView(settings), recentProgress: results });
   }
@@ -135,6 +135,7 @@ async function route(request, env) {
     const value = await inputJson(request);
     const phases = ['SELECTED','VIX_MARKED','BUILDING','READY','PUBLISHED'];
     if (!safeId(value.runId) || !validDate(value.date) || !phases.includes(value.phase)) return json({ error: '运行状态无效' }, 400);
+    if(await env.DB.prepare('SELECT 1 FROM chapter_withdrawals WHERE run_id=? AND (digest=? OR selection_digest=? OR vix_commit=?)').bind(value.runId,value.chapterDigest||'',value.selectionDigest||'',value.vixCommit||'').first())return json({error:'该运行已由用户撤回，不能重放原选词或发布'},409);
     const prior = await env.DB.prepare('SELECT study_date,phase,selection_digest,vix_commit,chapter_digest FROM daily_runs WHERE run_id=?').bind(value.runId).first();
     if (prior && (prior.study_date !== value.date || phases.indexOf(value.phase) < phases.indexOf(prior.phase) ||
       (prior.selection_digest && value.selectionDigest && prior.selection_digest !== value.selectionDigest) ||
@@ -164,6 +165,7 @@ async function route(request, env) {
     const runClaim = await effectiveRunClaim(env.DB,value.runId,value.date);
     if (!runClaim || claimIsRest(runClaim)) return json({ error: '本日未领取运行或已选择休息' }, 409);
     const digest = await sha256(value.markdown), key = `chapters/${value.date}/${digest}.md`;
+    if(await env.DB.prepare('SELECT 1 FROM chapter_withdrawals WHERE digest=? OR (run_id=? AND (vix_commit=? OR selection_digest=?))').bind(digest,value.runId,value.vixCommit,value.sourcePackage?.selectionDigest||'').first())return json({error:'该章节及原选词已撤回，不能重新暂存'},409);
     let sources;try{sources=await prepareChapterSources(value,digest,parsed.articles);}catch(error){return json({error:`来源包无效：${error.message}`},400);}
     const archived=await env.DB.prepare(`SELECT 1 FROM chapter_revisions r WHERE r.chapter_id=?
       AND NOT EXISTS(SELECT 1 FROM chapter_sources s WHERE s.digest=r.digest AND s.policy=?) LIMIT 1`).bind(value.id,CURRENT_AFFAIRS_POLICY).first();
@@ -198,7 +200,7 @@ async function route(request, env) {
     if (!safeId(value.runId) || !/^[0-9a-f]{64}$/.test(value.digest || '')) return json({ error: '发布参数无效' }, 400);
     const revision = await env.DB.prepare('SELECT * FROM chapter_revisions WHERE digest=? AND run_id=?').bind(value.digest, value.runId).first();
     if (!revision) return json({ error: '暂存章节不存在' }, 404);
-    const binding=await env.DB.prepare('SELECT * FROM chapter_sources WHERE digest=? AND policy=?').bind(revision.digest,CURRENT_AFFAIRS_POLICY).first();
+    const binding=await env.DB.prepare('SELECT * FROM formal_chapter_sources WHERE digest=? AND policy=?').bind(revision.digest,CURRENT_AFFAIRS_POLICY).first();
     if(!binding)return json({error:'章节未完成新流程来源封存，不能加入正式目录'},409);
     try{await readChapterSources(env,{...binding,chapter_id:revision.chapter_id,study_date:revision.study_date});}catch{return json({error:'来源包原件暂不可核对，尚未发布'},503);}
     const upgraded=await env.DB.prepare('SELECT 1 FROM chapter_first_part_upgrades WHERE chapter_id=? LIMIT 1').bind(revision.chapter_id).first();
@@ -284,7 +286,7 @@ async function route(request, env) {
     const archive=url.searchParams.get('archive')==='1';if(archive&&!publisher(request,env))return json({error:'封存读取仅供发布身份'},403);
     const { results } = await env.DB.prepare(`SELECT p.chapter_id AS id,p.study_date AS date,r.number,r.title,r.subtitle,r.word_count AS wordCount,p.digest,s.policy AS sourcePolicy,s.source_digest AS sourceDigest
       FROM published_chapters p JOIN chapter_revisions r ON r.digest=p.digest
-      ${archive?'LEFT JOIN':'JOIN'} chapter_sources s ON s.digest=p.digest AND s.policy=?
+      ${archive?'LEFT JOIN chapter_sources':'JOIN formal_chapter_sources'} s ON s.digest=p.digest AND s.policy=?
       ORDER BY p.study_date DESC`).bind(CURRENT_AFFAIRS_POLICY).all();
     return json({chapters:archive?results.map(chapter=>({...chapter,archived:chapter.sourcePolicy!==CURRENT_AFFAIRS_POLICY})):results.map((chapter,index)=>({...chapter,number:chapterNumber(results.length-index),sourcePolicy:CURRENT_AFFAIRS_POLICY}))});
   }
@@ -294,7 +296,7 @@ async function route(request, env) {
     if(!safeId(id)||version&&!/^[a-f0-9]{64}$/.test(version))return json({error:'章节来源身份无效'},400);
     if(archive&&!publisher(request,env))return json({error:'封存读取仅供发布身份'},403);
     const row=await env.DB.prepare(`SELECT r.chapter_id,r.study_date,r.digest,s.source_digest,s.source_key,s.policy FROM chapter_revisions r
-      JOIN chapter_sources s ON s.digest=r.digest AND s.policy=?
+      JOIN ${archive?'chapter_sources':'formal_chapter_sources'} s ON s.digest=r.digest AND s.policy=?
       ${archive?'LEFT JOIN':'JOIN'} published_chapters p ON p.chapter_id=r.chapter_id${archive?'':' AND p.digest=r.digest'}
       WHERE r.chapter_id=? AND r.digest=COALESCE(?,p.digest)`).bind(CURRENT_AFFAIRS_POLICY,id,version).first();
     if(!row)return json({error:'正式章节来源不存在'},404);
@@ -307,15 +309,16 @@ async function route(request, env) {
     if (version && !/^[0-9a-f]{64}$/.test(version)) return json({ error: '章节版本无效' }, 400);
     const archive=url.searchParams.get('archive')==='1';if(archive&&!publisher(request,env))return json({error:'封存读取仅供发布身份'},403);
     const row = await env.DB.prepare(`SELECT r.chapter_id AS id,r.study_date AS date,r.number,r.title,r.subtitle,r.word_count AS wordCount,r.content_key,r.digest,
-      CASE WHEN r.digest!=p.digest THEN 1 ELSE 0 END AS historical,s.policy AS sourcePolicy,s.source_digest AS sourceDigest
+      CASE WHEN p.digest IS NULL OR r.digest!=p.digest THEN 1 ELSE 0 END AS historical,s.policy AS sourcePolicy,s.source_digest AS sourceDigest,
+      EXISTS(SELECT 1 FROM chapter_withdrawals w WHERE w.digest=r.digest) AS withdrawn
       FROM chapter_revisions r ${archive?'LEFT JOIN':'JOIN'} published_chapters p ON p.chapter_id=r.chapter_id${archive?'':' AND p.digest=r.digest'}
-      ${archive?'LEFT JOIN':'JOIN'} chapter_sources s ON s.digest=r.digest AND s.policy=?
+      ${archive?'LEFT JOIN chapter_sources':'JOIN formal_chapter_sources'} s ON s.digest=r.digest AND s.policy=?
       WHERE r.chapter_id=? AND r.digest=COALESCE(?,p.digest)`).bind(CURRENT_AFFAIRS_POLICY,id,version).first();
     if (!row) return json({ error: '章节尚未发布' }, 404);
     const markdown = env.ONEDRIVE_ENABLED==='true'?await chapterText(env,row.content_key):await env.CHAPTERS.get(row.content_key);
     if (markdown === null) return json({ error: '章节正文暂不可用' }, 503);
     const { content_key, ...meta } = row;
-    return json({...meta,number:archive&&row.sourcePolicy!==CURRENT_AFFAIRS_POLICY?row.number:await numberForDate(env.DB,row.date),...(archive?{archived:row.sourcePolicy!==CURRENT_AFFAIRS_POLICY}:{}),markdown});
+    return json({...meta,number:archive&&(row.withdrawn||row.sourcePolicy!==CURRENT_AFFAIRS_POLICY)?row.number:await numberForDate(env.DB,row.date),...(archive?{archived:Boolean(row.withdrawn)||row.sourcePolicy!==CURRENT_AFFAIRS_POLICY}:{}),markdown});
   }
   if (path === '/api/settings' && request.method === 'GET') {
     const row = await env.DB.prepare('SELECT * FROM study_settings WHERE id=1').first();
@@ -371,7 +374,7 @@ async function route(request, env) {
       if (!sameOrigin(request, env)) return json({ error: '来源不允许' }, 403);
       const value = await inputJson(request);
       if (typeof value.completed !== 'boolean' || ![null,'easy','right','hard'].includes(value.difficulty ?? null) || typeof value.note !== 'string' || value.note.length > 2000) return json({ error: '学习反馈无效' }, 400);
-      const exists = await env.DB.prepare('SELECT 1 FROM published_chapters p JOIN chapter_sources s ON s.digest=p.digest AND s.policy=? WHERE p.chapter_id=?').bind(CURRENT_AFFAIRS_POLICY,id).first();
+      const exists = await env.DB.prepare('SELECT 1 FROM published_chapters p JOIN formal_chapter_sources s ON s.digest=p.digest AND s.policy=? WHERE p.chapter_id=?').bind(CURRENT_AFFAIRS_POLICY,id).first();
       if (!exists) return json({ error: '章节尚未发布' }, 404);
       const stamp = new Date().toISOString();
       await env.DB.prepare(`INSERT INTO reading_progress (chapter_id,completed,difficulty,note,updated_at) VALUES (?,?,?,?,?)
@@ -426,7 +429,7 @@ async function sendDue(env) {
     FROM push_outbox o JOIN published_chapters p ON p.chapter_id=o.chapter_id AND p.digest=o.digest
     JOIN push_subscriptions s ON s.id=o.subscription_id
     JOIN chapter_revisions r ON r.digest=o.digest
-     JOIN chapter_sources source ON source.digest=o.digest AND source.policy='current-affairs-v1'
+     JOIN formal_chapter_sources source ON source.digest=o.digest AND source.policy='current-affairs-v1'
     WHERE o.sent_at IS NULL AND o.attempts<4 AND p.published_at<=? AND (o.claim_at IS NULL OR o.claim_at<?)
     ORDER BY r.study_date LIMIT 20`).bind(now - 120000, now - 120000).all();
   for (const row of results) {

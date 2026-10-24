@@ -4,7 +4,7 @@ import {chapterText,permanentBucket} from './storage.js';
 import {sha256} from './practice-media.js';
 import {digestBytes,digestHex} from './pronunciation-store.js';
 import {isCurrentAffairsChapter,isCurrentAffairsRevision} from './current-affairs.js';
-const projectAudio="EXISTS(SELECT 1 FROM chapter_sources s WHERE s.digest=audio_requests.chapter_digest AND s.policy='current-affairs-v1')";
+const projectAudio="EXISTS(SELECT 1 FROM formal_chapter_sources s WHERE s.digest=audio_requests.chapter_digest AND s.policy='current-affairs-v1')";
 export function audioDescriptor(text,phonemes=''){
  const d={model:ttsModel,voice:defaultVoice,input:phonemes?`[${text}](/${phonemes}/)`:text,response_format:'mp3',voicePolicyVersion};
  if(phonemes)d.pronunciation={text,phonemes,version:'kokoro-misaki-us-v1'};return d;
@@ -31,7 +31,7 @@ export async function audioConfigRoute(request,env,{isPublisher,session,sameOrig
  if(request.method!=='GET'&&!isPublisher&&!sameOrigin)return json({error:'请从设置提交'},403);
  let b={};if(request.method!=='GET'){try{const raw=await request.text();if(raw.length>6000)throw Error();b=JSON.parse(raw);}catch{return json({error:'申请无效'},400);}}
  if(p===''&&request.method==='GET'){
-  const next=await db.prepare('SELECT parts,revision FROM audio_next_config WHERE id=1').first(),jobs=await db.prepare("SELECT id,chapter_id,parts,state,cursor,total,error FROM audio_requests WHERE state!='quoted' ORDER BY created_at DESC LIMIT 15").all();
+  const next=await db.prepare('SELECT parts,revision FROM audio_next_config WHERE id=1').first(),jobs=await db.prepare("SELECT id,chapter_id,parts,state,cursor,total,error FROM audio_requests WHERE state!='quoted' AND "+projectAudio+" ORDER BY created_at DESC LIMIT 15").all();
   return json({next:JSON.parse(next.parts).filter(p=>audioParts.includes(p)),revision:next.revision,jobs:jobs.results,price:audioPrice});
  }
  if(p==='/next'&&request.method==='PUT'){
@@ -42,7 +42,7 @@ export async function audioConfigRoute(request,env,{isPublisher,session,sameOrig
  }
  if(p==='/estimate'&&request.method==='POST'){
   if(b.mode==='next'){
-   const {results}=await db.prepare("SELECT r.* FROM published_chapters p JOIN chapter_revisions r ON r.digest=p.digest JOIN chapter_sources s ON s.digest=p.digest AND s.policy='current-affairs-v1' ORDER BY p.study_date DESC LIMIT 3").all();const samples=[];
+   const {results}=await db.prepare("SELECT r.* FROM published_chapters p JOIN chapter_revisions r ON r.digest=p.digest JOIN formal_chapter_sources s ON s.digest=p.digest AND s.policy='current-affairs-v1' ORDER BY p.study_date DESC LIMIT 3").all();const samples=[];
    for(const c of results){const text=await chapterText(env,c.content_key);if(text&&await sha256(text)===c.digest)samples.push(audioUnits(text));}
    const estimates=audioParts.map(part=>{const characters=samples.map(s=>uniqueAudioUnits(s.filter(u=>u.part===part)).reduce((n,u)=>n+audioDescriptor(u.text,u.phonemes).input.length,0));return{part,cost:characters.length?[audioCost(Math.min(...characters))[0],audioCost(Math.max(...characters))[1]]:null};});
    return json({estimates,approximate:true,price:audioPrice});

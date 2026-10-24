@@ -2,7 +2,7 @@ import {permanentBucket,chapterText} from './storage.js';
 import {recipient,certificationFor,certificationView} from './chapter-certifications.js';
 import {canonical,contentIdentityContent,scrollContentSHA} from '../../protocol/scroll-production-contract.mjs';
 import {isCurrentAffairsRevision} from './current-affairs.js';
-const projectScroll="EXISTS(SELECT 1 FROM chapter_certifications scope_cert JOIN chapter_sources scope_source ON scope_source.digest=scope_cert.chapter_digest AND scope_source.policy='current-affairs-v1' WHERE scope_cert.id=scroll_jobs.certification_id)";
+const projectScroll="EXISTS(SELECT 1 FROM chapter_certifications scope_cert JOIN formal_chapter_sources scope_source ON scope_source.digest=scope_cert.chapter_digest AND scope_source.policy='current-affairs-v1' WHERE scope_cert.id=scroll_jobs.certification_id)";
 
 const json=(v,status=200)=>Response.json(v,{status,headers:{'cache-control':'private, no-store','x-content-type-options':'nosniff'}});
 const uuid=v=>typeof v==='string'&&/^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/.test(v);

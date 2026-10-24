@@ -8,7 +8,7 @@ const sha=async text=>[...new Uint8Array(await crypto.subtle.digest('SHA-256',ne
 // remain available to their existing history records and explicit archive reads.
 export async function isCurrentAffairsChapter(db,chapterId,digest){
  return Boolean(await db.prepare(`SELECT 1 FROM chapter_revisions r
-  JOIN chapter_sources s ON s.digest=r.digest AND s.policy=?
+  JOIN formal_chapter_sources s ON s.digest=r.digest AND s.policy=?
   JOIN published_chapters p ON p.chapter_id=r.chapter_id AND p.digest=r.digest
   WHERE r.chapter_id=? AND r.digest=?`).bind(CURRENT_AFFAIRS_POLICY,chapterId,digest).first());
 }
@@ -16,7 +16,7 @@ export async function isCurrentAffairsChapter(db,chapterId,digest){
 // Existing tasks keep their frozen revision when a newer revision is published.
 export async function isCurrentAffairsRevision(db,chapterId,digest){
  return Boolean(await db.prepare(`SELECT 1 FROM chapter_revisions r
-  JOIN chapter_sources s ON s.digest=r.digest AND s.policy=?
+  JOIN formal_chapter_sources s ON s.digest=r.digest AND s.policy=?
   WHERE r.chapter_id=? AND r.digest=?`).bind(CURRENT_AFFAIRS_POLICY,chapterId,digest).first());
 }
 

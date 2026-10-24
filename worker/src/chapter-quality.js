@@ -1,7 +1,7 @@
 import {chapterText,permanentBucket} from './storage.js';
 import {qualityPolicy,qualityPolicyDigest,digestText,finalizeQuality} from '../../protocol/chapter-quality-contract.mjs';
 import {isCurrentAffairsChapter,isCurrentAffairsRevision} from './current-affairs.js';
-const projectQuality="EXISTS(SELECT 1 FROM chapter_sources s WHERE s.digest=chapter_quality_requests.chapter_digest AND s.policy='current-affairs-v1')";
+const projectQuality="EXISTS(SELECT 1 FROM formal_chapter_sources s WHERE s.digest=chapter_quality_requests.chapter_digest AND s.policy='current-affairs-v1')";
 const json=(v,s=200)=>Response.json(v,{status:s,headers:{'cache-control':'no-store'}}),digest=v=>/^[a-f0-9]{64}$/.test(v||''),uuid=v=>/^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/.test(v||'');
 const view=r=>({id:r.id,chapterId:r.chapter_id,digest:r.chapter_digest,policy:r.policy_id,status:r.status,stage:r.stage,completed:r.completed,expected:r.expected,decision:r.decision,error:r.error,createdAt:r.created_at,updatedAt:r.updated_at});
 async function original(bucket,key){const item=await bucket.getContent(key);if(!item)throw Error('质检原件暂不可用');const text=await item.text();if(await digestText(text)!==key)throw Error('质检原件摘要不一致');return JSON.parse(text);}
@@ -42,10 +42,10 @@ export async function chapterQualityRoute(request,env,{isPublisher,session,sameO
    const completed=state.reviewDigests?state.completed:state.reviews?.reduce((n,r)=>n+r.checks.length,0)||0;if(!Number.isSafeInteger(completed)||completed<0||!Number.isSafeInteger(state.expected)||state.expected<0||state.expected>50000||completed>state.expected)return json({error:'检查点范围无效'},400);
    const phases=['evidence','sources','reviews','global','verification','complete'];if(phases.indexOf(state.phase)<phases.indexOf(row.stage)||completed<row.completed)return json({error:'不能用旧检查点覆盖较新进度'},409);
    // Yield after a natural block; regular questions/tests retain the existing monitor.
-   const waiting=await db.prepare(`SELECT 1 FROM chapter_question_jobs j JOIN chapter_messages m ON m.id=j.id JOIN chapter_conversations c ON c.id=m.conversation_id JOIN chapter_sources s ON s.digest=c.chapter_digest AND s.policy='current-affairs-v1' WHERE j.status='pending'
-    UNION ALL SELECT 1 FROM chapter_tests t JOIN chapter_sources s ON s.digest=t.chapter_digest AND s.policy='current-affairs-v1' WHERE t.status='pending'
-    UNION ALL SELECT 1 FROM chapter_test_reviews r JOIN chapter_tests t ON t.id=r.test_id JOIN chapter_sources s ON s.digest=t.chapter_digest AND s.policy='current-affairs-v1' WHERE r.state='pending'
-    UNION ALL SELECT 1 FROM temporary_chapter_tests t JOIN chapter_sources s ON s.digest=t.chapter_digest AND s.policy='current-affairs-v1' WHERE t.status='pending' LIMIT 1`).first();
+   const waiting=await db.prepare(`SELECT 1 FROM chapter_question_jobs j JOIN chapter_messages m ON m.id=j.id JOIN chapter_conversations c ON c.id=m.conversation_id JOIN formal_chapter_sources s ON s.digest=c.chapter_digest AND s.policy='current-affairs-v1' WHERE j.status='pending'
+    UNION ALL SELECT 1 FROM chapter_tests t JOIN formal_chapter_sources s ON s.digest=t.chapter_digest AND s.policy='current-affairs-v1' WHERE t.status='pending'
+    UNION ALL SELECT 1 FROM chapter_test_reviews r JOIN chapter_tests t ON t.id=r.test_id JOIN formal_chapter_sources s ON s.digest=t.chapter_digest AND s.policy='current-affairs-v1' WHERE r.state='pending'
+    UNION ALL SELECT 1 FROM temporary_chapter_tests t JOIN formal_chapter_sources s ON s.digest=t.chapter_digest AND s.policy='current-affairs-v1' WHERE t.status='pending' LIMIT 1`).first();
    const yieldNow=!!waiting&&state.phase!=='complete';const result=await db.prepare("UPDATE chapter_quality_requests SET checkpoint_digest=?,evidence_digest=?,stage=?,completed=?,expected=?,status=?,queued_at=?,lease_until=?,claim=?,updated_at=? WHERE "+ownership).bind(b.checkpointDigest,b.evidenceDigest,state.phase,completed,state.expected,yieldNow?'pending':'running',now,now+300000,yieldNow?null:row.claim,now,...args()).run();return result.meta.changes?json({ok:true,yield:yieldNow}):json({error:'处理权已失效'},409);
   }
   if(!digest(b.reportDigest)||!row.checkpoint_digest||!row.evidence_digest)return json({error:'报告或证据未保存'},400);

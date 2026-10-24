@@ -105,7 +105,7 @@ export async function practiceRoute(request, env, publisher) {
     const active = await db.prepare("SELECT id FROM practice_requests WHERE source_policy=? AND status IN ('queued','building') LIMIT 1").bind(CURRENT_AFFAIRS_POLICY).first();
     if (active) return json({ error: '已有表达练习正在建设', requestId: active.id }, 409);
     const { results } = await env.DB.prepare(`SELECT p.chapter_id AS id,p.study_date AS date,p.digest FROM published_chapters p
-      JOIN chapter_sources s ON s.digest=p.digest AND s.policy=? ORDER BY p.study_date`).bind(CURRENT_AFFAIRS_POLICY).all();
+      JOIN formal_chapter_sources s ON s.digest=p.digest AND s.policy=? ORDER BY p.study_date`).bind(CURRENT_AFFAIRS_POLICY).all();
     if (!results.length) return json({ error: '尚无正式章节' }, 409);
     const focus = value.focusChapterId ? results.find(item => item.id === value.focusChapterId) : results.at(-1);
     if (!focus) return json({ error: '焦点章节未发布' }, 404);

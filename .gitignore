@@ -3,6 +3,7 @@ node_modules/
 worker/gateway/dist/
 .wrangler/
 work/runs/
+work/withdrawn/
 work/scheduler/
 work/temporary/
 work/expression/

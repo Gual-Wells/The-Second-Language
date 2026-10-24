@@ -6,8 +6,8 @@ import {audioDescriptor} from './audio-config.js';
 import {temporaryTestQueueTime,claimTemporaryTest} from './temporary-tests.js';
 import {firstPassStatement,certificationFor} from './chapter-certifications.js';
 import {isCurrentAffairsChapter,isCurrentAffairsRevision} from './current-affairs.js';
-const projectTest="EXISTS(SELECT 1 FROM chapter_sources s WHERE s.digest=chapter_tests.chapter_digest AND s.policy='current-affairs-v1')";
-const projectReview="EXISTS(SELECT 1 FROM chapter_tests t JOIN chapter_sources s ON s.digest=t.chapter_digest AND s.policy='current-affairs-v1' WHERE t.id=chapter_test_reviews.test_id)";
+const projectTest="EXISTS(SELECT 1 FROM formal_chapter_sources s WHERE s.digest=chapter_tests.chapter_digest AND s.policy='current-affairs-v1')";
+const projectReview="EXISTS(SELECT 1 FROM chapter_tests t JOIN formal_chapter_sources s ON s.digest=t.chapter_digest AND s.policy='current-affairs-v1' WHERE t.id=chapter_test_reviews.test_id)";
 const json=(v,s=200)=>Response.json(v,{status:s,headers:{'cache-control':'no-store'}}),uuid=v=>typeof v==='string'&&/^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/.test(v),sha=async s=>[...new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s)))].map(x=>x.toString(16).padStart(2,'0')).join('');
 async function source(env,row){const c=await env.DB.prepare('SELECT * FROM chapter_revisions WHERE chapter_id=? AND digest=?').bind(row.chapter_id,row.chapter_digest).first();if(!c)throw Error('原版章节不存在');const markdown=env.ONEDRIVE_ENABLED==='true'?await chapterText(env,c.content_key):await env.CHAPTERS.get(c.content_key);if(!markdown||await sha(markdown)!==row.chapter_digest)throw Error('原版章节暂不可核对');return{id:c.chapter_id,digest:c.digest,title:c.title,markdown};}
 async function original(bucket,digest){const r=await bucket.getContent(digest);if(!r)throw Error('测试原件暂不可用');return r.json();}
