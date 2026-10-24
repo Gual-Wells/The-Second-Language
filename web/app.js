@@ -3,7 +3,7 @@ import {createReaderJump} from './reader-jump.js?v=47';
 import {installPureReader} from './pure-reader.js?v=47';
 import {chapterNumber, createChapterBook} from './chapters.js?v=41';
 import {installSettingsNavigation} from './settings.js?v=41';
-import {createAudioConfig} from './audio-config.js?v=41';
+import {createAudioConfig} from './audio-config.js?v=49';
 import {installReaderSpeech} from './reader-speech.js?v=41';
 import { parseParts, renderPart } from './render.js?v=47';
 import { validateAnnotatedContent } from './annotations.js?v=47';
@@ -483,7 +483,7 @@ async function refreshSettings() {
     if(!dirtySettings.has('studyGoal'))$('studyGoal').value = settings.goal || '';
     if(!dirtySettings.has('temporaryRequestToggle'))$('temporaryRequestToggle').checked = Boolean(settings.temporaryRequested);
     if(!dirtySettings.has('temporaryRequestText'))$('temporaryRequestText').value = settings.temporaryRequestText || '';
-    if(!dirtySettings.has('restToggle'))$('restToggle').checked = Boolean(settings.restRequested);
+    if(!dirtySettings.has('restToggle'))$('restToggle').checked = settings.restRequested !== false;
     showTemporaryRequestBox();
   } catch (error) { toast(error.message); }
 }
@@ -733,7 +733,7 @@ $('saveRest').addEventListener('click', async () => {
   try {
     const restRequested = $('restToggle').checked;
     await api('/api/settings', { method: 'PUT', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ restRequested }) });
-    savedSettings({restToggle:restRequested});await refreshSettings(); toast(restRequested ? '下一章已安排休息' : '休息安排已关闭');
+    savedSettings({restToggle:restRequested});await refreshSettings(); toast(restRequested ? '已恢复默认休息' : '已允许下一次日课生成，领取后恢复休息');
   } catch (error) { toast(error.message); }
 });
 document.addEventListener('visibilitychange', () => {
@@ -799,6 +799,6 @@ $('chapterNav').addEventListener('touchend', event => {
   if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.5) moveChapter(dx < 0 ? 1 : -1);
   swipeStart = null;
 }, { passive: true });
-if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=47', { updateViaCache: 'none' }).catch(() => {});
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=49', { updateViaCache: 'none' }).catch(() => {});
 refreshInstallStatus();
 initialize().then(()=>{if(state.authenticated&&new URLSearchParams(location.search).has('balances'))balances.open();});

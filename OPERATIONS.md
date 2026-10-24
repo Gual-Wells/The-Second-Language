@@ -4,7 +4,7 @@
 
 ## 现行日课制作与文章组（2026-10-24）
 
-实际日课任务在 `D:/CodexStorage/workspaces/second-language-certification-reader`，北京时间05:00开始，gpt-6.1-sol/max、50主词。任务通过原隐藏启动器读取本仓库run-daily.ps1，休息先领取，已发布同日不重做；无需重装任务或改变触发时间。后文旧日期安装记录是历史，不据其恢复旧生产范围、词汇音频或旧模型档位。
+实际日课任务在 `D:/CodexStorage/workspaces/second-language-certification-reader`，北京时间05:00触发，gpt-6.1-sol/max、50主词。2026-10-25起默认休息、默认不提前生成音频；关闭休息仅放行下一次新领取日期，领取时原子恢复休息，下一章音频选配在首次发布后恢复为空。主库0021迁移与现行Worker共同执行该约定。任务通过原隐藏启动器读取本仓库run-daily.ps1，休息先领取，已发布同日不重做；无需重装任务或改变触发时间。后文旧日期安装记录是历史，不据其恢复旧生产范围、词汇音频或旧模型档位。
 
 从DAILY_RUN、QUALITY_WORKFLOW和TEACHING_AUTHORING恢复：prepare-teaching-materials按明确主词/词族独立取得完整双教材包；作者协同写第一二部分及实际教材/原例去向；第三部分真实组稿，篇数和词间/词内义项次序自由，全组真用全义。assemble-teaching只装配与检查结构，不能冒充语义审阅。
 
@@ -72,7 +72,7 @@ powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File scripts/
 
 直接用 PowerShell 的 `-WindowStyle Hidden` 可能先分配控制台再隐藏，不能作为无闪窗保证。当前原生启动器不依赖 VBScript、常驻窗口、Windows 服务或管理员密码；源码纳入仓库，生成的 exe、任务 XML 和日志留在忽略目录。纯轮询仍产生正常网络请求，零模型调用不等于零 Cloudflare 用量。
 
-本机的定时任务每日北京时间 **05:00开始生成**，调用 `scripts/run-daily.ps1`，由已登录的 Codex CLI 以 `gpt-6.1-sol`、`max` 和live search运行本协议。修改实际DailyCodex触发器使用 `powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/set-daily-schedule.ps1 -Apply`：备份XML、只改时间并核对NextRunTime，保留Action/Principal/Settings，不立即启动生成。先领取后端一次性控制状态；休息开关只跳过下一次定时运行并自动复位。已领取的休息只有用户明确撤回才能按DAILY_RUN记录不可变恢复授权。任务提示词核心为：
+本机的定时任务每日北京时间 **05:00触发，默认休息**，调用 `scripts/run-daily.ps1`；只有明确放行的新领取运行才启动已登录的Codex CLI，以 `gpt-6.1-sol`、`max` 和live search运行本协议。修改实际DailyCodex触发器使用 `powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/set-daily-schedule.ps1 -Apply`：备份XML、只改时间并核对NextRunTime，保留Action/Principal/Settings，不立即启动生成。先领取后端一次性控制状态；关闭休息仅放行下一次新领取日期，领取后恢复休息。已领取的休息只有用户明确撤回才能按DAILY_RUN记录不可变恢复授权。任务提示词核心为：
 
 > 定时入口先领取当天运行控制，休息则直接结束；非休息日 Codex 阅读 AGENTS.md、protocol/DAILY_RUN.md、protocol/QUALITY_WORKFLOW.md、protocol/CONTENT.md、protocol/TEMPORARY.md 和 protocol/ANNOTATIONS.md，先处理已领取的临时需求，再完成 50 个主词的推荐、VIX 标注、逐词双教材交接、三部分正文、语义审阅与发布。续作写入 work/，未完成时记录 resume.md。
 
@@ -182,7 +182,7 @@ node scripts/practice-job.mjs review-complete <答卷ID> work/expression/reviews
 
 ## iPhone 阅读器交互检查
 
-正式交互规则见 `protocol/READER_INTERACTION.md`。`node scripts/check-reader-ui.mjs` 用隔离接口检查前端草稿、手势、雅思科目导航、计时与上传保护；需要 Playwright 和 Chromium，截图留在忽略的 `.cache/reader-ui/`。可设置 `UI_CHAPTER_DIR=chapters/YYYY-MM-DD` 检查真实 50 词长章，`BROWSER_EXECUTABLE` 指定已安装浏览器。与 `check-practice-closure.mjs`、`check-publishing-closure.mjs`、`check-chapter-questions.mjs` 配合验证权限、答案隐藏和状态闭环，不调用真实收费模型、不写正式学习数据。
+正式交互规则见 `protocol/READER_INTERACTION.md`。`node scripts/check-reader-ui.mjs` 用隔离接口检查前端草稿、手势、雅思科目导航、计时与上传保护；需要 Playwright 和 Chromium，截图留在忽略的 `.cache/reader-ui/`。可设置 `UI_CHAPTER_DIR=chapters/YYYY-MM-DD` 检查真实 50 词长章，`BROWSER_EXECUTABLE` 指定已安装浏览器。现行运行控制、发布与新流程隔离闭环使用 `node scripts/check-default-controls.mjs`、`node scripts/check-current-affairs-backend.mjs`，不调用真实收费模型、不写正式学习数据。`check-publishing-closure.mjs`与`check-audio-config.mjs`仍是未适配当前来源封存/50词流程的旧夹具，不列为现行发布门槛；不能把其旧默认断言当现行规则。
 
 当前壳版本 v25，新增手势、设置导航、安全文本排版和雅思工作区模块一并预缓存。发布仍使用 `scripts/deploy-app.mjs` 保留 Pages API 网关，最后执行 `scripts/check-balances.mjs`。模拟检查不能宣称真实 iPhone 的键盘、触摸和后台音频全部验收。
 
@@ -190,7 +190,7 @@ node scripts/practice-job.mjs review-complete <答卷ID> work/expression/reviews
 
 v25 点读范围见 READER_INTERACTION.md 和 research/reader-point-audio-scope-2026-10-09.md。无需 D1 迁移；清洗运行 `node scripts/clean-point-audio.mjs --apply`，再运行 `node scripts/storage-upgrade.mjs packs` 并回读历史和现行版本清单。核查先于清洗写入；清洗只调整可变清单，保留收费原件及不可变恢复索引，不调用模型。
 
-见 protocol/AUDIO_CONFIGURATION.md。main D1 增量迁移 0009_audio_requests.sql，原有练习库不改。node scripts/deploy-app.mjs 保留同源 Pages 网关。scripts/install-audio-task.ps1 -CredentialFile <忽略的发布凭据文件> 安装独立无窗口 SecondLanguage-AudioPreparation，每分钟检查一次，在本机在线时执行已确认的申请，不调用 Codex；其他四个任务时刻不改。node scripts/check-audio-config.mjs 检查确认与不可撤销、版本/游标和去重；现有发布/发音/UI检查同步覆盖本功能。
+见 protocol/AUDIO_CONFIGURATION.md。main D1 增量迁移 0009_audio_requests.sql，原有练习库不改。node scripts/deploy-app.mjs 保留同源 Pages 网关。scripts/install-audio-task.ps1 -CredentialFile <忽略的发布凭据文件> 安装独立无窗口 SecondLanguage-AudioPreparation，每分钟检查一次，在本机在线时执行已确认的申请，不调用 Codex；其他四个任务时刻不改。现行默认选配、发布消费和来源/原件保护运行 `node scripts/check-default-controls.mjs`及 `node scripts/check-current-affairs-backend.mjs`；旧`check-audio-config.mjs`尚未适配formal_chapter_sources，不以其结果代替现行验证。
 
 ## Windows 构建存储（2026-10-10）
 

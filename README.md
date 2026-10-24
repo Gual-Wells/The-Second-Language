@@ -14,7 +14,7 @@
 | 章节测试与认证 | 二十题随机理解测试，可独立重测；新具资格试卷全部明确正确后，保存本章唯一首次通过事件及版本，之后重测不覆盖 |
 | 纪念卷轴 | 首次通过后明确申请独立创作，审阅及永久封存后领取；设置“认证阅览”只列已领取章号与独立项目纪念，提供纯享开合及英中释读 |
 | 阅读 | 章节册搜索与月历从章首打开；七日条、词条索引、用法回看与逐句译文；保存各部分位置，双击非英文句子区域进入／退出纯净模式 |
-| 点读 | 第一部分不发音；第二部分标题返回第一部分、例句整句；第三部分整句。固定 Kokoro Bella，日课默认满配句子音频，阅读时复用/下载，不自动播放 |
+| 点读 | 第一部分不发音；第二部分标题返回第一部分、例句整句；第三部分整句。固定 Kokoro Bella，默认不提前生成；可一次选配，主动点读按需生成或复用，已有音频可下载、不自动播放 |
 | 临时页 | 按申请建设测试或复习页，48 小时有效；不改变日课与 VIX |
 | 雅思 | 仅完整／微缩两种全科申请；听力、阅读、写作、口语依次组织，按科目与 Task／Part 作答 |
 | 作答分析 | 原声录制／上传、写作及文字补充草稿、隐藏参考答案、独立答卷与 Codex 教学反馈 |
@@ -96,16 +96,17 @@ node scripts/serve.mjs
 
 ```sh
 node scripts/check-practice-closure.mjs
-node scripts/check-publishing-closure.mjs
+node scripts/check-default-controls.mjs
+node scripts/check-current-affairs-backend.mjs
 node scripts/check-chapter-questions.mjs
 node scripts/check-reader-ui.mjs
 ```
 
-界面检查需要 Playwright 与 Chromium；`BROWSER_EXECUTABLE` 可指定浏览器，`UI_CHAPTER_DIR` 可指定本机真实章节。全部请求隔离，不调用付费模型、不写正式数据；截图存入忽略的 `.cache/reader-ui/`。浏览器模拟不等于 iPhone Safari 真机验收。
+界面检查需要 Playwright 与 Chromium；`BROWSER_EXECUTABLE` 可指定浏览器，`UI_CHAPTER_DIR` 可指定本机真实章节。全部请求隔离，不调用付费模型、不写正式数据；截图存入忽略的 `.cache/reader-ui/`。浏览器模拟不等于 iPhone Safari 真机验收。旧`check-publishing-closure.mjs`与`check-audio-config.mjs`夹具尚未适配当前来源封存/50词流程，不列为现行门槛。
 
 正式发布使用 `node scripts/deploy-app.mjs`，同时部署 API Worker 与带 service binding 的 Pages 网关；不能直接以普通静态 `web/` 部署替代网关。任务结束执行 `node scripts/check-balances.mjs` 更新额度、存储用量并排入归档；归档完成后再次核对存储大小。设置中的“存储空间”显示 OneDrive、三座 D1 与账户共享 KV 的上次用量、上限和核对时间；只核对容量可运行 `node scripts/check-storage-usage.mjs`。额度不足不自动次日恢复，已有产物保留，需用户明确续作；不自动付款。
 
-本机日课北京时间 05:00 开始生成，使用 `gpt-6.1-sol/max`；一次性休息安排由用户设置。雅思与答疑使用独立队列，安静启动器避免控制台闪窗。任务安装、日志、凭据与恢复命令见 [OPERATIONS.md](OPERATIONS.md)。
+本机日课北京时间05:00检查安排，使用 `gpt-6.1-sol/max`；默认休息，用户关闭休息后仅放行下一次新领取运行，领取后恢复休息。雅思与答疑使用独立队列，安静启动器避免控制台闪窗。任务安装、日志、凭据与恢复命令见 [OPERATIONS.md](OPERATIONS.md)。
 
 ## Intellectual property and third-party materials
 
@@ -115,7 +116,7 @@ Third-party packages, model/provider outputs, voices, APIs, dictionary or textbo
 
 ### 章节音频选配
 
-设置中的“音频配置”可为下一章一次性调整第二部分例句、第三部分范文逐句音频，也可对已有章节申请；词汇标题已取消发音。已有章节先显示费用预估，再确认不可撤销；后台沿用 Kokoro Bella 与永久音频库，相同文字、音色和读音跨章节复用。预下载开关仍只下载已生成音频。协议与运行入口见 [AUDIO_CONFIGURATION](protocol/AUDIO_CONFIGURATION.md)。
+设置中的“音频配置”默认不生成，可为下一新章一次性选择第二部分例句、第三部分范文逐句音频，首次发布后恢复不生成，也可对已有章节申请；词汇标题已取消发音。已有章节先显示费用预估，再确认不可撤销；后台沿用Kokoro Bella与永久音频库，相同文字、音色和读音跨章节复用。预下载开关仍只下载已生成音频。协议与运行入口见 [AUDIO_CONFIGURATION](protocol/AUDIO_CONFIGURATION.md)。
 
 ### 月度纪念展厅实验（历史样件）
 

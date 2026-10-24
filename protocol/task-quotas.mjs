@@ -1,10 +1,11 @@
 // User-requested learning flows, including one answer/review cycle and first-use audio.
 // Estimates are planning ranges, not execution limits or provider bills.
-export const quotaEstimateVersion = 'learning-flow-v5-daily-50-full-audio';
+export const quotaEstimateVersion = 'learning-flow-v6-daily-50-opt-in-audio';
 export const quotaAssumptions = Object.freeze({
   kokoroUsdPerCharacter: 0.62 / 1e6,
   whisperNeuronsPerMinute: 46.63,
-  // Full example/story sentence audio; reuse or a one-time opt-out can cost zero.
+  // Optional example/story sentence audio; the default is no pre-generation.
+  // Keep the opted-in planning reserve; reuse or no selection can cost zero.
   // 50 main words: proportional planning reserve from the former 40-word range.
   // Complete senses/families determine actual length; this is not a content cap.
   dailyCharacters: [0, 75000],
@@ -64,7 +65,7 @@ const flow = (id, task, detail, ...parts) => ({id, task, detail, costs: Object.f
   ['openrouter', 'cloudflare', 'tencent'].map(pool => [pool, sum(...parts.map(c => c[pool]))]))});
 const d = components.daily, full = components.fullListening, mini = components.miniListening, s = components.speaking;
 export const estimates = Object.freeze([
-  flow('daily', '日课', '50 词 · 默认例句与范文句音频满配', d),
+  flow('daily', '日课', '50 词 · 默认不提前生成音频，范围含主动选配', d),
   flow('daily-full', '日课 + 完整雅思', '四科 · 含一次作答与反馈', d, full, s),
   flow('daily-mini', '日课 + 微缩雅思', '四科 · 含一次作答与反馈', d, mini, s),
   flow('ielts-full', '完整雅思', '四科 · 含一次作答与反馈', full, s),

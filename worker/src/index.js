@@ -30,7 +30,7 @@ const validDate = value => {
   return !Number.isNaN(date.getTime()) && date.toISOString().slice(0, 10) === value;
 };
 const safeId = value => typeof value === 'string' && /^[A-Za-z0-9._:-]{1,110}$/.test(value);
-const settingsView = row => ({ goal: row?.goal || '', updatedAt: row?.updated_at || '', temporaryRequested: Boolean(row?.temporary_requested), temporaryRequestText: row?.temporary_request_text || '', temporaryRequestId: row?.temporary_request_id || null, restRequested: Boolean(row?.rest_requested) });
+const settingsView = row => ({ goal: row?.goal || '', updatedAt: row?.updated_at || '', temporaryRequested: Boolean(row?.temporary_requested), temporaryRequestText: row?.temporary_request_text || '', temporaryRequestId: row?.temporary_request_id || null, restRequested: row?.rest_requested == null ? true : Boolean(row.rest_requested) });
 
 function constantEqual(a, b) {
   if (typeof a !== 'string' || typeof b !== 'string') return false;
@@ -113,13 +113,14 @@ async function route(request, env) {
     if (!publisher(request, env)) return json({ error: '发布身份无效' }, 401);
     const value = await inputJson(request);
     if (!safeId(value.runId) || !validDate(value.date) || value.runId !== value.date) return json({ error: '运行日期无效' }, 400);
-    const claim = await env.DB.prepare(`INSERT OR IGNORE INTO run_claims
+    // The migration 0021 AFTER INSERT trigger restores the rest default inside
+    // this same write. A repeated claim never consumes a later arrangement.
+    await env.DB.prepare(`INSERT OR IGNORE INTO run_claims
       (run_id,study_date,rest_requested,rest_revision,temporary_request_id,temporary_request_text,claimed_at)
       SELECT ?,?,rest_requested,rest_revision,temporary_request_id,temporary_request_text,? FROM study_settings WHERE id=1`)
       .bind(value.runId, value.date, Date.now()).run();
     const row = await effectiveRunClaim(env.DB,value.runId,value.date);
     if (!row) return json({ error: '该日期已被另一运行占用' }, 409);
-    if (claim.meta.changes && row.rest_requested) await env.DB.prepare('UPDATE study_settings SET rest_requested=0 WHERE id=1 AND rest_revision=?').bind(row.rest_revision).run();
     return json({ runId: row.run_id, date: row.study_date, rest: claimIsRest(row), originalRest: Boolean(row.rest_requested), restOverride: row.rest_override_at ? {authorizedAt:row.rest_override_at,reason:row.rest_override_reason} : null, temporaryRequest: row.temporary_request_id ? { id: row.temporary_request_id, text: row.temporary_request_text } : null, claimedAt: row.claimed_at });
   }
 
@@ -211,7 +212,7 @@ async function route(request, env) {
         SELECT 'next-'||revision||'-'||?,?,?,parts,'next','pending',? FROM audio_next_config
         WHERE id=1 AND parts!='[]' AND NOT EXISTS(SELECT 1 FROM published_chapters WHERE chapter_id=?)`)
         .bind(revision.chapter_id,revision.chapter_id,revision.digest,now,revision.chapter_id),
-      env.DB.prepare(`UPDATE audio_next_config SET parts='["two","three"]',revision=revision+1,updated_at=? WHERE id=1
+      env.DB.prepare(`UPDATE audio_next_config SET parts='[]',revision=revision+1,updated_at=? WHERE id=1
         AND NOT EXISTS(SELECT 1 FROM published_chapters WHERE chapter_id=?)`)
         .bind(now,revision.chapter_id),
       env.DB.prepare(`INSERT INTO published_chapters (chapter_id,study_date,digest,published_at) VALUES (?,?,?,?)
