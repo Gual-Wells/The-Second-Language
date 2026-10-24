@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "checkedOn": "2026-10-23",
+  "checkedOn": "2026-10-24",
   "scope": "future-daily-vocabulary-and-part-three-research",
   "runtimeIntegration": "on-demand",
   "verificationMethod": "Official publishing entry points opened via web reading tools; search-only and blocked observations remain explicit. No full-corpus or local collector availability claim.",
@@ -11806,6 +11806,2014 @@
           "access": "open",
           "entryUrl": "https://media.viarail.ca/en",
           "evidenceUrl": "https://media.viarail.ca/en"
+        }
+      ]
+    },
+    {
+      "id": "army-museum-sa",
+      "name": "Army Museum of South Australia",
+      "home": "https://amosa.org.au/",
+      "entryUrl": "https://amosa.org.au/stories-and-events/militaria/catafalque-party",
+      "sourceType": "museum",
+      "regions": [
+        "global"
+      ],
+      "topics": [
+        "science",
+        "culture",
+        "professional-practice"
+      ],
+      "language": "en",
+      "role": "technical-release",
+      "access": "open",
+      "evidenceUrl": "https://amosa.org.au/stories-and-events/militaria/catafalque-party",
+      "verification": "opened",
+      "notes": "Original related sections opened for this lesson. Reading limits, historical dates, commercial claims and non-adopted details are recorded with the actual read snapshot.",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "technical-release",
+          "sourceType": "museum",
+          "verification": "opened",
+          "access": "open",
+          "entryUrl": "https://amosa.org.au/stories-and-events/militaria/catafalque-party",
+          "evidenceUrl": "https://amosa.org.au/stories-and-events/militaria/catafalque-party"
+        }
+      ]
+    },
+    {
+      "id": "bt-help",
+      "name": "BT Help",
+      "home": "https://www.bt.com/",
+      "entryUrl": "https://www.bt.com/help/home-phone/manage-service/how-do-i-make-a-reverse-charge-call-",
+      "sourceType": "telecom-operator",
+      "regions": [
+        "global"
+      ],
+      "topics": [
+        "science",
+        "culture",
+        "professional-practice"
+      ],
+      "language": "en",
+      "role": "technical-release",
+      "access": "open",
+      "evidenceUrl": "https://www.bt.com/help/home-phone/manage-service/how-do-i-make-a-reverse-charge-call-",
+      "verification": "opened",
+      "notes": "Original related sections opened for this lesson. Reading limits, historical dates, commercial claims and non-adopted details are recorded with the actual read snapshot.",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "technical-release",
+          "sourceType": "telecom-operator",
+          "verification": "opened",
+          "access": "open",
+          "entryUrl": "https://www.bt.com/help/home-phone/manage-service/how-do-i-make-a-reverse-charge-call-",
+          "evidenceUrl": "https://www.bt.com/help/home-phone/manage-service/how-do-i-make-a-reverse-charge-call-"
+        }
+      ]
+    },
+    {
+      "id": "building-societies-association",
+      "name": "Building Societies Association",
+      "home": "https://www.bsa.org.uk/",
+      "entryUrl": "https://www.bsa.org.uk/about-us/about-the-bsa",
+      "sourceType": "trade-association",
+      "regions": [
+        "global"
+      ],
+      "topics": [
+        "finance",
+        "law",
+        "public-services"
+      ],
+      "language": "en",
+      "role": "advocacy-publication",
+      "access": "open",
+      "evidenceUrl": "https://www.bsa.org.uk/about-us/about-the-bsa",
+      "verification": "search-confirmed",
+      "notes": "成员制金融机构的行业协会自述；只采用机构性质等明确事实，价值与成效主张保留其倡议立场。",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "advocacy-publication",
+          "sourceType": "trade-association",
+          "verification": "search-confirmed",
+          "access": "open",
+          "entryUrl": "https://www.bsa.org.uk/about-us/about-the-bsa",
+          "evidenceUrl": "https://www.bsa.org.uk/about-us/about-the-bsa"
+        }
+      ]
+    },
+    {
+      "id": "california-courts",
+      "name": "California Courts",
+      "home": "https://courts.ca.gov/",
+      "entryUrl": "https://selfhelp.courts.ca.gov/conservatorships",
+      "sourceType": "judiciary",
+      "regions": [
+        "global"
+      ],
+      "topics": [
+        "law",
+        "public-services"
+      ],
+      "language": "en",
+      "role": "primary-announcement",
+      "access": "open",
+      "evidenceUrl": "https://selfhelp.courts.ca.gov/conservatorships",
+      "verification": "search-confirmed",
+      "notes": "按需发现司法自助与官方制度说明，web程序页403；将逐页读取正文，不从搜索摘要冒充已读。",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "primary-announcement",
+          "sourceType": "judiciary",
+          "verification": "search-confirmed",
+          "access": "open",
+          "entryUrl": "https://selfhelp.courts.ca.gov/conservatorships",
+          "evidenceUrl": "https://selfhelp.courts.ca.gov/conservatorships"
+        }
+      ]
+    },
+    {
+      "id": "cambridge-grammar",
+      "name": "Cambridge English Grammar Today",
+      "home": "https://dictionary.cambridge.org/",
+      "entryUrl": "https://dictionary.cambridge.org/grammar/british-grammar/adjective-phrases-position",
+      "sourceType": "language-publisher",
+      "regions": [
+        "global"
+      ],
+      "topics": [
+        "science",
+        "culture",
+        "education"
+      ],
+      "language": "en",
+      "role": "technical-release",
+      "access": "open",
+      "evidenceUrl": "https://dictionary.cambridge.org/grammar/british-grammar/adjective-phrases-position",
+      "verification": "search-confirmed",
+      "notes": "根据实际教学主题按需打开，访问壳与完整相关正文分开记录，不把链接成功当成已读。",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "technical-release",
+          "sourceType": "language-publisher",
+          "verification": "search-confirmed",
+          "access": "open",
+          "entryUrl": "https://dictionary.cambridge.org/grammar/british-grammar/adjective-phrases-position",
+          "evidenceUrl": "https://dictionary.cambridge.org/grammar/british-grammar/adjective-phrases-position"
+        }
+      ]
+    },
+    {
+      "id": "camra-learn",
+      "name": "CAMRA Learn and Tyneside branch",
+      "home": "https://learn.camra.org.uk/",
+      "entryUrl": "https://tynland.camra.org.uk/information/jargon-buster/",
+      "sourceType": "consumer-association",
+      "regions": [
+        "united-kingdom",
+        "global"
+      ],
+      "topics": [
+        "food",
+        "culture",
+        "science"
+      ],
+      "language": "en",
+      "role": "advocacy-publication",
+      "access": "open",
+      "evidenceUrl": "https://tynland.camra.org.uk/information/jargon-buster/",
+      "verification": "opened",
+      "notes": "按日课实际主题发现并打开相关正文；具体读件、范围与限制另行保存，不把来源登记当作全文审阅。",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "advocacy-publication",
+          "sourceType": "consumer-association",
+          "verification": "opened",
+          "access": "open",
+          "entryUrl": "https://tynland.camra.org.uk/information/jargon-buster/",
+          "evidenceUrl": "https://tynland.camra.org.uk/information/jargon-buster/"
+        }
+      ]
+    },
+    {
+      "id": "chicago-library",
+      "name": "Chicago Public Library",
+      "home": "https://www.chipublib.org/",
+      "entryUrl": "https://www.chipublib.org/fa-democratic-national-convention-records/",
+      "sourceType": "public-library",
+      "regions": [
+        "united-states"
+      ],
+      "topics": [
+        "history",
+        "culture",
+        "politics"
+      ],
+      "language": "en",
+      "role": "research-reporting",
+      "access": "open",
+      "evidenceUrl": "https://www.chipublib.org/fa-democratic-national-convention-records/",
+      "verification": "opened",
+      "notes": "馆藏说明和实际原件区分；未打开的档案盒不算已读。",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "research-reporting",
+          "sourceType": "public-library",
+          "verification": "opened",
+          "access": "open",
+          "entryUrl": "https://www.chipublib.org/fa-democratic-national-convention-records/",
+          "evidenceUrl": "https://www.chipublib.org/fa-democratic-national-convention-records/"
+        }
+      ]
+    },
+    {
+      "id": "ciht-motorways",
+      "name": "CIHT Motorways Archive",
+      "home": "https://ukmotorwayarchive.ciht.org.uk/",
+      "entryUrl": "https://ukmotorwayarchive.ciht.org.uk/motorways-by-region/m25/origins-of-the-m25/",
+      "sourceType": "professional-institution",
+      "regions": [
+        "global"
+      ],
+      "topics": [
+        "transport",
+        "history"
+      ],
+      "language": "en",
+      "role": "research-reporting",
+      "access": "open",
+      "evidenceUrl": "https://ukmotorwayarchive.ciht.org.uk/motorways-by-region/m25/origins-of-the-m25/",
+      "verification": "opened",
+      "notes": "2026-10-24按正式日课内容需要补充的原始机构入口，已通过web工具打开相关页面；入口可达不代表整站可抓取、全文已读或结论独立。具体正文阅读与适用边界由本次不可变读件记录。",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "research-reporting",
+          "sourceType": "professional-institution",
+          "verification": "opened",
+          "access": "open",
+          "entryUrl": "https://ukmotorwayarchive.ciht.org.uk/motorways-by-region/m25/origins-of-the-m25/",
+          "evidenceUrl": "https://ukmotorwayarchive.ciht.org.uk/motorways-by-region/m25/origins-of-the-m25/"
+        }
+      ]
+    },
+    {
+      "id": "cornell-lii",
+      "name": "Cornell Law School Legal Information Institute",
+      "home": "https://www.law.cornell.edu/",
+      "entryUrl": "https://www.law.cornell.edu/rules/frcp",
+      "sourceType": "legal-reference",
+      "regions": [
+        "united-states"
+      ],
+      "topics": [
+        "law",
+        "civil-procedure"
+      ],
+      "language": "en",
+      "role": "technical-release",
+      "access": "open",
+      "evidenceUrl": "https://www.law.cornell.edu/rules/frcp/rule_24",
+      "verification": "opened",
+      "notes": "按需读取公开法规则原文；Rule 24正文3—24行已实际打开，历史委员会注释只作已显示上下文，不作个案诉讼建议。",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "technical-release",
+          "sourceType": "legal-reference",
+          "verification": "opened",
+          "access": "open",
+          "entryUrl": "https://www.law.cornell.edu/rules/frcp",
+          "evidenceUrl": "https://www.law.cornell.edu/rules/frcp/rule_24"
+        }
+      ]
+    },
+    {
+      "id": "equity-union",
+      "name": "Equity",
+      "home": "https://www.equity.org.uk/",
+      "entryUrl": "https://www.equity.org.uk/about-us",
+      "sourceType": "trade-union",
+      "regions": [
+        "global"
+      ],
+      "topics": [
+        "culture",
+        "labour"
+      ],
+      "language": "en",
+      "role": "technical-release",
+      "access": "open",
+      "evidenceUrl": "https://www.equity.org.uk/about-us",
+      "verification": "opened",
+      "notes": "按当前具体主题读取，实际原文、范围及访问限制见不可变读件；历史文本仅证明当时措辞，不代替现行要求。",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "technical-release",
+          "sourceType": "trade-union",
+          "verification": "opened",
+          "access": "open",
+          "entryUrl": "https://www.equity.org.uk/about-us",
+          "evidenceUrl": "https://www.equity.org.uk/about-us"
+        }
+      ]
+    },
+    {
+      "id": "google-deepmind",
+      "name": "Google DeepMind research",
+      "home": "https://deepmind.google/",
+      "entryUrl": "https://deepmind.google/blog/predicting-the-past-with-ithaca/",
+      "sourceType": "research-organization",
+      "topics": [
+        "research",
+        "history",
+        "artificial-intelligence"
+      ],
+      "notes": "实际读取2022年Ithaca研究公告相关全文；成绩属于特定评估，不能当作所有古文修复准确率。",
+      "regions": [
+        "global"
+      ],
+      "language": "en",
+      "role": "research-reporting",
+      "access": "open",
+      "evidenceUrl": "https://deepmind.google/blog/predicting-the-past-with-ithaca/",
+      "verification": "opened",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "research-reporting",
+          "sourceType": "research-organization",
+          "verification": "opened",
+          "access": "open",
+          "entryUrl": "https://deepmind.google/blog/predicting-the-past-with-ithaca/",
+          "evidenceUrl": "https://deepmind.google/blog/predicting-the-past-with-ithaca/"
+        }
+      ]
+    },
+    {
+      "id": "harvard-chaucer",
+      "name": "Harvard Geoffrey Chaucer Website",
+      "home": "https://chaucer.fas.harvard.edu/",
+      "entryUrl": "https://chaucer.fas.harvard.edu/pages/great-vowel-shift",
+      "sourceType": "university-course",
+      "regions": [
+        "global"
+      ],
+      "topics": [
+        "science",
+        "culture",
+        "education"
+      ],
+      "language": "en",
+      "role": "technical-release",
+      "access": "open",
+      "evidenceUrl": "https://chaucer.fas.harvard.edu/pages/great-vowel-shift",
+      "verification": "opened",
+      "notes": "根据实际教学主题按需打开，访问壳与完整相关正文分开记录，不把链接成功当成已读。",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "technical-release",
+          "sourceType": "university-course",
+          "verification": "opened",
+          "access": "open",
+          "entryUrl": "https://chaucer.fas.harvard.edu/pages/great-vowel-shift",
+          "evidenceUrl": "https://chaucer.fas.harvard.edu/pages/great-vowel-shift"
+        }
+      ]
+    },
+    {
+      "id": "istd",
+      "name": "Imperial Society of Teachers of Dancing",
+      "home": "https://www.istd.org/",
+      "entryUrl": "https://www.istd.org/documents/modern-ballroom-professional-modular-examinations-syllabus/syllabus-outline-modern-ballroom-june-18-nkxzvj.pdf",
+      "sourceType": "professional-association",
+      "regions": [
+        "global"
+      ],
+      "topics": [
+        "science",
+        "culture",
+        "professional-practice"
+      ],
+      "language": "en",
+      "role": "technical-release",
+      "access": "open",
+      "evidenceUrl": "https://www.istd.org/documents/modern-ballroom-professional-modular-examinations-syllabus/syllabus-outline-modern-ballroom-june-18-nkxzvj.pdf",
+      "verification": "opened",
+      "notes": "Original related sections opened for this lesson. Reading limits, historical dates, commercial claims and non-adopted details are recorded with the actual read snapshot.",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "technical-release",
+          "sourceType": "professional-association",
+          "verification": "opened",
+          "access": "open",
+          "entryUrl": "https://www.istd.org/documents/modern-ballroom-professional-modular-examinations-syllabus/syllabus-outline-modern-ballroom-june-18-nkxzvj.pdf",
+          "evidenceUrl": "https://www.istd.org/documents/modern-ballroom-professional-modular-examinations-syllabus/syllabus-outline-modern-ballroom-june-18-nkxzvj.pdf"
+        }
+      ]
+    },
+    {
+      "id": "leeds-hospitals",
+      "name": "Leeds Teaching Hospitals NHS Trust",
+      "home": "https://www.leedsth.nhs.uk/",
+      "entryUrl": "https://www.leedsth.nhs.uk/patients/resources/bridges/",
+      "sourceType": "hospital",
+      "regions": [
+        "global"
+      ],
+      "topics": [
+        "health",
+        "science"
+      ],
+      "language": "en",
+      "role": "technical-release",
+      "access": "open",
+      "evidenceUrl": "https://www.leedsth.nhs.uk/patients/resources/bridges/",
+      "verification": "opened",
+      "notes": "按当前具体主题读取，实际原文、范围及访问限制见不可变读件；历史文本仅证明当时措辞，不代替现行要求。",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "technical-release",
+          "sourceType": "hospital",
+          "verification": "opened",
+          "access": "open",
+          "entryUrl": "https://www.leedsth.nhs.uk/patients/resources/bridges/",
+          "evidenceUrl": "https://www.leedsth.nhs.uk/patients/resources/bridges/"
+        }
+      ]
+    },
+    {
+      "id": "library-congress",
+      "name": "Library of Congress",
+      "home": "https://www.loc.gov/",
+      "entryUrl": "https://www.loc.gov/classroom-materials/elections/nominating-candidates/modern-era/",
+      "sourceType": "national-library",
+      "regions": [
+        "global"
+      ],
+      "topics": [
+        "history",
+        "society"
+      ],
+      "language": "en",
+      "role": "research-reporting",
+      "access": "open",
+      "evidenceUrl": "https://www.loc.gov/classroom-materials/elections/nominating-candidates/modern-era/",
+      "verification": "search-confirmed",
+      "notes": "按具体历史题材读取原文；维护停止与访问限制保留，不将旧文当现行政治状态。",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "research-reporting",
+          "sourceType": "national-library",
+          "verification": "search-confirmed",
+          "access": "open",
+          "entryUrl": "https://www.loc.gov/classroom-materials/elections/nominating-candidates/modern-era/",
+          "evidenceUrl": "https://www.loc.gov/classroom-materials/elections/nominating-candidates/modern-era/"
+        }
+      ]
+    },
+    {
+      "id": "mactutor",
+      "name": "MacTutor History of Mathematics",
+      "home": "https://mathshistory.st-andrews.ac.uk/",
+      "entryUrl": "https://mathshistory.st-andrews.ac.uk/Curves/Involute/",
+      "sourceType": "university-history",
+      "regions": [
+        "global"
+      ],
+      "topics": [
+        "science",
+        "history"
+      ],
+      "language": "en",
+      "role": "research-reporting",
+      "access": "open",
+      "evidenceUrl": "https://mathshistory.st-andrews.ac.uk/Curves/Involute/",
+      "verification": "search-confirmed",
+      "notes": "按日课实际题材发现，相关正文及具体采用范围另存读件，未把入口或检索摘要当完整阅读。",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "research-reporting",
+          "sourceType": "university-history",
+          "verification": "search-confirmed",
+          "access": "open",
+          "entryUrl": "https://mathshistory.st-andrews.ac.uk/Curves/Involute/",
+          "evidenceUrl": "https://mathshistory.st-andrews.ac.uk/Curves/Involute/"
+        }
+      ]
+    },
+    {
+      "id": "mathworks",
+      "name": "MathWorks",
+      "home": "https://www.mathworks.com/",
+      "entryUrl": "https://www.mathworks.com/help/sdl/ug/how-a-clutch-works.html",
+      "sourceType": "engineering-documentation",
+      "regions": [
+        "global"
+      ],
+      "topics": [
+        "culture",
+        "technology",
+        "education"
+      ],
+      "language": "en",
+      "role": "technical-release",
+      "access": "mixed",
+      "evidenceUrl": "https://www.mathworks.com/help/sdl/ug/how-a-clutch-works.html",
+      "verification": "search-confirmed",
+      "notes": "按实际日课主题检索；访问受限或尚未取得正文的状态不构成已读证据，具体采用范围在读件记录。",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "technical-release",
+          "sourceType": "engineering-documentation",
+          "verification": "search-confirmed",
+          "access": "mixed",
+          "entryUrl": "https://www.mathworks.com/help/sdl/ug/how-a-clutch-works.html",
+          "evidenceUrl": "https://www.mathworks.com/help/sdl/ug/how-a-clutch-works.html"
+        }
+      ]
+    },
+    {
+      "id": "moneyhelper",
+      "name": "MoneyHelper, Money and Pensions Service",
+      "home": "https://www.moneyhelper.org.uk/",
+      "entryUrl": "https://www.moneyhelper.org.uk/en/homes/buying-a-home/negative-equity-what-it-means-and-what-you-can-do-about-it",
+      "sourceType": "public-service",
+      "regions": [
+        "united-kingdom"
+      ],
+      "topics": [
+        "history",
+        "law",
+        "finance"
+      ],
+      "language": "en",
+      "role": "service-notice",
+      "access": "open",
+      "evidenceUrl": "https://www.moneyhelper.org.uk/en/homes/buying-a-home/negative-equity-what-it-means-and-what-you-can-do-about-it",
+      "verification": "search-confirmed",
+      "notes": "按需发现负权益释义与公共金融说明，搜索不作为正文阅读。",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "service-notice",
+          "sourceType": "public-service",
+          "verification": "search-confirmed",
+          "access": "open",
+          "entryUrl": "https://www.moneyhelper.org.uk/en/homes/buying-a-home/negative-equity-what-it-means-and-what-you-can-do-about-it",
+          "evidenceUrl": "https://www.moneyhelper.org.uk/en/homes/buying-a-home/negative-equity-what-it-means-and-what-you-can-do-about-it"
+        }
+      ]
+    },
+    {
+      "id": "nasa-science",
+      "name": "NASA Science",
+      "home": "https://science.nasa.gov/",
+      "entryUrl": "https://science.nasa.gov/mission/hubble/science/science-behind-the-discoveries/hubble-cosmological-redshift/",
+      "sourceType": "government-science",
+      "regions": [
+        "global"
+      ],
+      "topics": [
+        "science",
+        "technology"
+      ],
+      "language": "en",
+      "role": "technical-release",
+      "access": "open",
+      "evidenceUrl": "https://science.nasa.gov/mission/hubble/science/science-behind-the-discoveries/hubble-cosmological-redshift/",
+      "verification": "search-confirmed",
+      "notes": "按需读取主题正文；技术模型、历史发布与当前状态分别处理，不采用营销推荐。",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "technical-release",
+          "sourceType": "government-science",
+          "verification": "search-confirmed",
+          "access": "open",
+          "entryUrl": "https://science.nasa.gov/mission/hubble/science/science-behind-the-discoveries/hubble-cosmological-redshift/",
+          "evidenceUrl": "https://science.nasa.gov/mission/hubble/science/science-behind-the-discoveries/hubble-cosmological-redshift/"
+        }
+      ]
+    },
+    {
+      "id": "nci-terms",
+      "name": "National Cancer Institute terminology",
+      "home": "https://www.cancer.gov/",
+      "entryUrl": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/eye-socket",
+      "sourceType": "government-health",
+      "regions": [
+        "global"
+      ],
+      "topics": [
+        "health",
+        "science"
+      ],
+      "language": "en",
+      "role": "research-reporting",
+      "access": "open",
+      "evidenceUrl": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/eye-socket",
+      "verification": "opened",
+      "notes": "按日课实际题材发现，相关正文及具体采用范围另存读件，未把入口或检索摘要当完整阅读。",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "research-reporting",
+          "sourceType": "government-health",
+          "verification": "opened",
+          "access": "open",
+          "entryUrl": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/eye-socket",
+          "evidenceUrl": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/eye-socket"
+        }
+      ]
+    },
+    {
+      "id": "nccih",
+      "name": "National Center for Complementary and Integrative Health",
+      "home": "https://www.nccih.nih.gov/",
+      "entryUrl": "https://www.nccih.nih.gov/health/complementary-alternative-or-integrative-health-whats-in-a-name",
+      "sourceType": "government-health",
+      "regions": [
+        "global"
+      ],
+      "topics": [
+        "health",
+        "science"
+      ],
+      "language": "en",
+      "role": "technical-release",
+      "access": "open",
+      "evidenceUrl": "https://www.nccih.nih.gov/health/complementary-alternative-or-integrative-health-whats-in-a-name",
+      "verification": "opened",
+      "notes": "实际读取术语与协调照护范围，未把早期研究概述或旧调查数字当作个体疗效证明。",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "technical-release",
+          "sourceType": "government-health",
+          "verification": "opened",
+          "access": "open",
+          "entryUrl": "https://www.nccih.nih.gov/health/complementary-alternative-or-integrative-health-whats-in-a-name",
+          "evidenceUrl": "https://www.nccih.nih.gov/health/complementary-alternative-or-integrative-health-whats-in-a-name"
+        }
+      ]
+    },
+    {
+      "id": "nchfp",
+      "name": "National Center for Home Food Preservation",
+      "home": "https://nchfp.uga.edu/",
+      "entryUrl": "https://nchfp.uga.edu/how/can/canning-fruits-and-fruit-products/strawberry-preserves/",
+      "sourceType": "university-extension",
+      "regions": [
+        "united-kingdom",
+        "global"
+      ],
+      "topics": [
+        "food",
+        "science",
+        "culture"
+      ],
+      "language": "en",
+      "role": "technical-release",
+      "access": "open",
+      "evidenceUrl": "https://nchfp.uga.edu/how/can/canning-fruits-and-fruit-products/strawberry-preserves/",
+      "verification": "opened",
+      "notes": "按日课实际主题发现并打开相关正文；具体读件、范围与限制另行保存，不把来源登记当作全文审阅。",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "technical-release",
+          "sourceType": "university-extension",
+          "verification": "opened",
+          "access": "open",
+          "entryUrl": "https://nchfp.uga.edu/how/can/canning-fruits-and-fruit-products/strawberry-preserves/",
+          "evidenceUrl": "https://nchfp.uga.edu/how/can/canning-fruits-and-fruit-products/strawberry-preserves/"
+        }
+      ]
+    },
+    {
+      "id": "nist",
+      "name": "National Institute of Standards and Technology",
+      "home": "https://www.nist.gov/",
+      "entryUrl": "https://www.nist.gov/history/nists-role-laser-measurements-and-applications/what-laser",
+      "sourceType": "government-research",
+      "regions": [
+        "global"
+      ],
+      "topics": [
+        "physics",
+        "measurement"
+      ],
+      "language": "en",
+      "role": "technical-release",
+      "access": "open",
+      "evidenceUrl": "https://www.nist.gov/history/nists-role-laser-measurements-and-applications/what-laser",
+      "verification": "opened",
+      "notes": "2026-10-24按正式日课内容需要补充的原始机构入口，已通过web工具打开相关页面；入口可达不代表整站可抓取、全文已读或结论独立。具体正文阅读与适用边界由本次不可变读件记录。",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "technical-release",
+          "sourceType": "government-research",
+          "verification": "opened",
+          "access": "open",
+          "entryUrl": "https://www.nist.gov/history/nists-role-laser-measurements-and-applications/what-laser",
+          "evidenceUrl": "https://www.nist.gov/history/nists-role-laser-measurements-and-applications/what-laser"
+        }
+      ]
+    },
+    {
+      "id": "navair",
+      "name": "Naval Air Systems Command",
+      "home": "https://www.navair.navy.mil/",
+      "entryUrl": "https://www.navair.navy.mil/node/9666",
+      "sourceType": "government-announcement",
+      "regions": [
+        "global"
+      ],
+      "topics": [
+        "history",
+        "maritime",
+        "logistics"
+      ],
+      "language": "en",
+      "role": "primary-announcement",
+      "access": "open",
+      "evidenceUrl": "https://www.navair.navy.mil/node/9666",
+      "verification": "opened",
+      "notes": "2009 official account; present-tense and future plans interpreted at publication date.",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "primary-announcement",
+          "sourceType": "government-announcement",
+          "verification": "opened",
+          "access": "open",
+          "entryUrl": "https://www.navair.navy.mil/node/9666",
+          "evidenceUrl": "https://www.navair.navy.mil/node/9666"
+        }
+      ]
+    },
+    {
+      "id": "new-advent-encyclopedia",
+      "name": "New Advent, Catholic Encyclopedia historical texts",
+      "home": "https://www.newadvent.org/",
+      "entryUrl": "https://www.newadvent.org/cathen/01168b.htm",
+      "sourceType": "historical-reference",
+      "regions": [
+        "global"
+      ],
+      "topics": [
+        "history",
+        "religion"
+      ],
+      "language": "en",
+      "role": "primary-announcement",
+      "access": "open",
+      "evidenceUrl": "https://www.newadvent.org/cathen/01168b.htm",
+      "verification": "opened",
+      "notes": "按需读取1907年原版百科词条作为当时制度史材料，具有宗教立场，不据其现在时推断2026现行教会程序。",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "primary-announcement",
+          "sourceType": "historical-reference",
+          "verification": "opened",
+          "access": "open",
+          "entryUrl": "https://www.newadvent.org/cathen/01168b.htm",
+          "evidenceUrl": "https://www.newadvent.org/cathen/01168b.htm"
+        }
+      ]
+    },
+    {
+      "id": "niddk-health",
+      "name": "NIDDK",
+      "home": "https://www.niddk.nih.gov/",
+      "entryUrl": "https://www.niddk.nih.gov/health-information/urologic-diseases/urinary-retention/definition-facts",
+      "sourceType": "government-health",
+      "regions": [
+        "global"
+      ],
+      "topics": [
+        "health",
+        "science"
+      ],
+      "language": "en",
+      "role": "technical-release",
+      "access": "open",
+      "evidenceUrl": "https://www.niddk.nih.gov/health-information/urologic-diseases/urinary-retention/definition-facts",
+      "verification": "opened",
+      "notes": "按当前具体主题读取，实际原文、范围及访问限制见不可变读件；历史文本仅证明当时措辞，不代替现行要求。",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "technical-release",
+          "sourceType": "government-health",
+          "verification": "opened",
+          "access": "open",
+          "entryUrl": "https://www.niddk.nih.gov/health-information/urologic-diseases/urinary-retention/definition-facts",
+          "evidenceUrl": "https://www.niddk.nih.gov/health-information/urologic-diseases/urinary-retention/definition-facts"
+        }
+      ]
+    },
+    {
+      "id": "nih-style",
+      "name": "NIH biomedical style guide",
+      "home": "https://www.nih.gov/",
+      "entryUrl": "https://www.nih.gov/nih-style-guide/appendix-biomedical-definitions",
+      "sourceType": "government-health",
+      "regions": [
+        "global"
+      ],
+      "topics": [
+        "science",
+        "culture",
+        "education"
+      ],
+      "language": "en",
+      "role": "technical-release",
+      "access": "open",
+      "evidenceUrl": "https://www.nih.gov/nih-style-guide/appendix-biomedical-definitions",
+      "verification": "search-confirmed",
+      "notes": "根据实际教学主题按需打开，访问壳与完整相关正文分开记录，不把链接成功当成已读。",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "technical-release",
+          "sourceType": "government-health",
+          "verification": "search-confirmed",
+          "access": "open",
+          "entryUrl": "https://www.nih.gov/nih-style-guide/appendix-biomedical-definitions",
+          "evidenceUrl": "https://www.nih.gov/nih-style-guide/appendix-biomedical-definitions"
+        }
+      ]
+    },
+    {
+      "id": "ninds-health",
+      "name": "NINDS",
+      "home": "https://www.ninds.nih.gov/",
+      "entryUrl": "https://www.ninds.nih.gov/health-information/patient-caregiver-education/brain-basics-genes-work-brain",
+      "sourceType": "government-health",
+      "regions": [
+        "global"
+      ],
+      "topics": [
+        "health",
+        "science"
+      ],
+      "language": "en",
+      "role": "technical-release",
+      "access": "open",
+      "evidenceUrl": "https://www.ninds.nih.gov/health-information/patient-caregiver-education/brain-basics-genes-work-brain",
+      "verification": "search-confirmed",
+      "notes": "按当前具体主题读取，实际原文、范围及访问限制见不可变读件；历史文本仅证明当时措辞，不代替现行要求。",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "technical-release",
+          "sourceType": "government-health",
+          "verification": "search-confirmed",
+          "access": "open",
+          "entryUrl": "https://www.ninds.nih.gov/health-information/patient-caregiver-education/brain-basics-genes-work-brain",
+          "evidenceUrl": "https://www.ninds.nih.gov/health-information/patient-caregiver-education/brain-basics-genes-work-brain"
+        }
+      ]
+    },
+    {
+      "id": "noaa-fisheries",
+      "name": "NOAA Fisheries",
+      "home": "https://www.fisheries.noaa.gov/",
+      "entryUrl": "https://www.fisheries.noaa.gov/west-coast/science-data/dam-removals-elwha-river",
+      "sourceType": "government-science",
+      "regions": [
+        "global"
+      ],
+      "topics": [
+        "environment",
+        "science"
+      ],
+      "language": "en",
+      "role": "research-reporting",
+      "access": "open",
+      "evidenceUrl": "https://www.fisheries.noaa.gov/west-coast/science-data/dam-removals-elwha-river",
+      "verification": "opened",
+      "notes": "按日课实际题材发现，相关正文及具体采用范围另存读件，未把入口或检索摘要当完整阅读。",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "research-reporting",
+          "sourceType": "government-science",
+          "verification": "opened",
+          "access": "open",
+          "entryUrl": "https://www.fisheries.noaa.gov/west-coast/science-data/dam-removals-elwha-river",
+          "evidenceUrl": "https://www.fisheries.noaa.gov/west-coast/science-data/dam-removals-elwha-river"
+        }
+      ]
+    },
+    {
+      "id": "ntu-housing",
+      "name": "Nottingham Trent University accommodation guidance",
+      "home": "https://www.ntu.ac.uk/",
+      "entryUrl": "https://www.ntu.ac.uk/life-at-ntu/accommodation/guide-to-private-accommodation",
+      "sourceType": "university-guidance",
+      "regions": [
+        "global"
+      ],
+      "topics": [
+        "education",
+        "history",
+        "society"
+      ],
+      "language": "en",
+      "role": "primary-announcement",
+      "access": "open",
+      "evidenceUrl": "https://www.ntu.ac.uk/life-at-ntu/accommodation/guide-to-private-accommodation",
+      "verification": "opened",
+      "notes": "Related original body actually opened; historical descriptions and general explanatory terminology are separated from current legal or service guarantees.",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "primary-announcement",
+          "sourceType": "university-guidance",
+          "verification": "opened",
+          "access": "open",
+          "entryUrl": "https://www.ntu.ac.uk/life-at-ntu/accommodation/guide-to-private-accommodation",
+          "evidenceUrl": "https://www.ntu.ac.uk/life-at-ntu/accommodation/guide-to-private-accommodation"
+        }
+      ]
+    },
+    {
+      "id": "nyu-perception",
+      "name": "NYU visual perception teaching",
+      "home": "https://www.cns.nyu.edu/",
+      "entryUrl": "https://www.cns.nyu.edu/~david/courses/perception/demos/demo-adaptation.html",
+      "sourceType": "university-course",
+      "regions": [
+        "global"
+      ],
+      "topics": [
+        "science",
+        "education"
+      ],
+      "language": "en",
+      "role": "technical-release",
+      "access": "open",
+      "evidenceUrl": "https://www.cns.nyu.edu/~david/courses/perception/demos/demo-adaptation.html",
+      "verification": "opened",
+      "notes": "按当前具体主题读取，实际原文、范围及访问限制见不可变读件；历史文本仅证明当时措辞，不代替现行要求。",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "technical-release",
+          "sourceType": "university-course",
+          "verification": "opened",
+          "access": "open",
+          "entryUrl": "https://www.cns.nyu.edu/~david/courses/perception/demos/demo-adaptation.html",
+          "evidenceUrl": "https://www.cns.nyu.edu/~david/courses/perception/demos/demo-adaptation.html"
+        }
+      ]
+    },
+    {
+      "id": "open-music-theory",
+      "name": "Open Music Theory",
+      "home": "https://openmusictheory.github.io/",
+      "entryUrl": "https://openmusictheory.github.io/embellishingTones.html",
+      "sourceType": "open-textbook",
+      "regions": [
+        "global"
+      ],
+      "topics": [
+        "culture",
+        "technology",
+        "education"
+      ],
+      "language": "en",
+      "role": "technical-release",
+      "access": "mixed",
+      "evidenceUrl": "https://openmusictheory.github.io/embellishingTones.html",
+      "verification": "opened",
+      "notes": "按实际日课主题检索；访问受限或尚未取得正文的状态不构成已读证据，具体采用范围在读件记录。",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "technical-release",
+          "sourceType": "open-textbook",
+          "verification": "opened",
+          "access": "mixed",
+          "entryUrl": "https://openmusictheory.github.io/embellishingTones.html",
+          "evidenceUrl": "https://openmusictheory.github.io/embellishingTones.html"
+        }
+      ]
+    },
+    {
+      "id": "openstax",
+      "name": "OpenStax, Rice University",
+      "home": "https://openstax.org/",
+      "entryUrl": "https://openstax.org/subjects",
+      "sourceType": "educational-publisher",
+      "regions": [
+        "global"
+      ],
+      "topics": [
+        "science",
+        "mathematics",
+        "education"
+      ],
+      "language": "en",
+      "role": "technical-release",
+      "access": "open",
+      "evidenceUrl": "https://openstax.org/books/chemistry-2e/pages/6-3-development-of-quantum-theory",
+      "verification": "opened",
+      "notes": "2026-10-24为专业用法实际补查官方开放教材；已打开量子理论、电容和积分面积页面，正文按需读取固定，不以入口可达代替阅读。遵循各书页面所列开放许可和署名信息。",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "sourceType": "educational-publisher",
+          "role": "technical-release",
+          "access": "open",
+          "verification": "opened",
+          "entryUrl": "https://openstax.org/subjects",
+          "evidenceUrl": "https://openstax.org/books/chemistry-2e/pages/6-3-development-of-quantum-theory"
+        }
+      ]
+    },
+    {
+      "id": "oxford-natural-history",
+      "name": "Oxford University Museum of Natural History",
+      "home": "https://oumnh.ox.ac.uk/",
+      "entryUrl": "https://oumnh.ox.ac.uk/node/4150846",
+      "sourceType": "museum",
+      "regions": [
+        "global"
+      ],
+      "topics": [
+        "history",
+        "science"
+      ],
+      "language": "en",
+      "role": "research-reporting",
+      "access": "open",
+      "evidenceUrl": "https://oumnh.ox.ac.uk/node/4150846",
+      "verification": "opened",
+      "notes": "2026-10-24按正式日课内容需要补充的原始机构入口，已通过web工具打开相关页面；入口可达不代表整站可抓取、全文已读或结论独立。具体正文阅读与适用边界由本次不可变读件记录。",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "research-reporting",
+          "sourceType": "museum",
+          "verification": "opened",
+          "access": "open",
+          "entryUrl": "https://oumnh.ox.ac.uk/node/4150846",
+          "evidenceUrl": "https://oumnh.ox.ac.uk/node/4150846"
+        }
+      ]
+    },
+    {
+      "id": "gutenberg-primary",
+      "name": "Project Gutenberg primary literary texts",
+      "home": "https://www.gutenberg.org/",
+      "entryUrl": "https://www.gutenberg.org/files/7986/7986-h/7986-h.htm",
+      "sourceType": "literary-primary-text",
+      "regions": [
+        "global"
+      ],
+      "topics": [
+        "culture",
+        "history"
+      ],
+      "language": "en",
+      "role": "research-reporting",
+      "access": "open",
+      "evidenceUrl": "https://www.gutenberg.org/files/7986/7986-h/7986-h.htm",
+      "verification": "search-confirmed",
+      "notes": "按日课实际题材发现，相关正文及具体采用范围另存读件，未把入口或检索摘要当完整阅读。",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "research-reporting",
+          "sourceType": "literary-primary-text",
+          "verification": "search-confirmed",
+          "access": "open",
+          "entryUrl": "https://www.gutenberg.org/files/7986/7986-h/7986-h.htm",
+          "evidenceUrl": "https://www.gutenberg.org/files/7986/7986-h/7986-h.htm"
+        }
+      ]
+    },
+    {
+      "id": "kew",
+      "name": "Royal Botanic Gardens Kew",
+      "home": "https://www.kew.org/",
+      "entryUrl": "https://www.kew.org/kew-gardens/whats-in-the-gardens/palm-house",
+      "sourceType": "botanical-garden",
+      "regions": [
+        "global"
+      ],
+      "topics": [
+        "science",
+        "culture",
+        "education"
+      ],
+      "language": "en",
+      "role": "technical-release",
+      "access": "open",
+      "evidenceUrl": "https://www.kew.org/kew-gardens/whats-in-the-gardens/palm-house",
+      "verification": "opened",
+      "notes": "根据实际教学主题按需打开，访问壳与完整相关正文分开记录，不把链接成功当成已读。",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "technical-release",
+          "sourceType": "botanical-garden",
+          "verification": "opened",
+          "access": "open",
+          "entryUrl": "https://www.kew.org/kew-gardens/whats-in-the-gardens/palm-house",
+          "evidenceUrl": "https://www.kew.org/kew-gardens/whats-in-the-gardens/palm-house"
+        }
+      ]
+    },
+    {
+      "id": "rhs",
+      "name": "Royal Horticultural Society",
+      "home": "https://www.rhs.org.uk/",
+      "entryUrl": "https://www.rhs.org.uk/soil-composts-mulches/soil-types",
+      "sourceType": "horticultural-society",
+      "regions": [
+        "united-kingdom",
+        "global"
+      ],
+      "topics": [
+        "agriculture",
+        "plants",
+        "environment"
+      ],
+      "language": "en",
+      "role": "research-reporting",
+      "access": "open",
+      "evidenceUrl": "https://www.rhs.org.uk/soil-composts-mulches/soil-types",
+      "verification": "opened",
+      "notes": "按日课实际主题发现并打开相关正文；具体读件、范围与限制另行保存，不把来源登记当作全文审阅。",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "research-reporting",
+          "sourceType": "horticultural-society",
+          "verification": "opened",
+          "access": "open",
+          "entryUrl": "https://www.rhs.org.uk/soil-composts-mulches/soil-types",
+          "evidenceUrl": "https://www.rhs.org.uk/soil-composts-mulches/soil-types"
+        }
+      ]
+    },
+    {
+      "id": "royal-mint-museum",
+      "name": "Royal Mint Museum",
+      "home": "https://www.royalmintmuseum.org.uk/",
+      "entryUrl": "https://www.royalmintmuseum.org.uk/collection/coins/roman-denarius/",
+      "sourceType": "museum",
+      "regions": [
+        "global"
+      ],
+      "topics": [
+        "science",
+        "culture",
+        "professional-practice"
+      ],
+      "language": "en",
+      "role": "technical-release",
+      "access": "open",
+      "evidenceUrl": "https://www.royalmintmuseum.org.uk/collection/coins/roman-denarius/",
+      "verification": "opened",
+      "notes": "Original related sections opened for this lesson. Reading limits, historical dates, commercial claims and non-adopted details are recorded with the actual read snapshot.",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "technical-release",
+          "sourceType": "museum",
+          "verification": "opened",
+          "access": "open",
+          "entryUrl": "https://www.royalmintmuseum.org.uk/collection/coins/roman-denarius/",
+          "evidenceUrl": "https://www.royalmintmuseum.org.uk/collection/coins/roman-denarius/"
+        }
+      ]
+    },
+    {
+      "id": "royal-navy",
+      "name": "Royal Navy",
+      "home": "https://www.royalnavy.mod.uk/",
+      "entryUrl": "https://www.royalnavy.mod.uk/news/2024/october/22/20241022-tidesurge-supports-uk-and-nato-ops-in-north-atlantic",
+      "sourceType": "government-announcement",
+      "regions": [
+        "global"
+      ],
+      "topics": [
+        "education",
+        "history",
+        "society"
+      ],
+      "language": "en",
+      "role": "primary-announcement",
+      "access": "open",
+      "evidenceUrl": "https://www.royalnavy.mod.uk/news/2024/october/22/20241022-tidesurge-supports-uk-and-nato-ops-in-north-atlantic",
+      "verification": "opened",
+      "notes": "Related original body actually opened; historical descriptions and general explanatory terminology are separated from current legal or service guarantees.",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "primary-announcement",
+          "sourceType": "government-announcement",
+          "verification": "opened",
+          "access": "open",
+          "entryUrl": "https://www.royalnavy.mod.uk/news/2024/october/22/20241022-tidesurge-supports-uk-and-nato-ops-in-north-atlantic",
+          "evidenceUrl": "https://www.royalnavy.mod.uk/news/2024/october/22/20241022-tidesurge-supports-uk-and-nato-ops-in-north-atlantic"
+        }
+      ]
+    },
+    {
+      "id": "rsc-theatre",
+      "name": "Royal Shakespeare Company",
+      "home": "https://www.rsc.org.uk/",
+      "entryUrl": "https://www.rsc.org.uk/restoration-plays",
+      "sourceType": "cultural-institution",
+      "regions": [
+        "global"
+      ],
+      "topics": [
+        "theatre",
+        "history"
+      ],
+      "language": "en",
+      "role": "primary-announcement",
+      "access": "open",
+      "evidenceUrl": "https://www.rsc.org.uk/restoration-plays",
+      "verification": "opened",
+      "notes": "2026-10-24按正式日课内容需要补充的原始机构入口，已通过web工具打开相关页面；入口可达不代表整站可抓取、全文已读或结论独立。具体正文阅读与适用边界由本次不可变读件记录。",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "primary-announcement",
+          "sourceType": "cultural-institution",
+          "verification": "opened",
+          "access": "open",
+          "entryUrl": "https://www.rsc.org.uk/restoration-plays",
+          "evidenceUrl": "https://www.rsc.org.uk/restoration-plays"
+        }
+      ]
+    },
+    {
+      "id": "rspb",
+      "name": "Royal Society for the Protection of Birds",
+      "home": "https://www.rspb.org.uk/",
+      "entryUrl": "https://www.rspb.org.uk/birds-and-wildlife/swallow",
+      "sourceType": "conservation-society",
+      "regions": [
+        "global"
+      ],
+      "topics": [
+        "environment",
+        "animals"
+      ],
+      "language": "en",
+      "role": "research-reporting",
+      "access": "open",
+      "evidenceUrl": "https://www.rspb.org.uk/birds-and-wildlife/swallow",
+      "verification": "opened",
+      "notes": "按日课实际题材发现，相关正文及具体采用范围另存读件，未把入口或检索摘要当完整阅读。",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "research-reporting",
+          "sourceType": "conservation-society",
+          "verification": "opened",
+          "access": "open",
+          "entryUrl": "https://www.rspb.org.uk/birds-and-wildlife/swallow",
+          "evidenceUrl": "https://www.rspb.org.uk/birds-and-wildlife/swallow"
+        }
+      ]
+    },
+    {
+      "id": "sec-investor",
+      "name": "SEC Investor.gov",
+      "home": "https://www.investor.gov/",
+      "entryUrl": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks",
+      "sourceType": "financial-regulator",
+      "regions": [
+        "global"
+      ],
+      "topics": [
+        "finance",
+        "law",
+        "public-services"
+      ],
+      "language": "en",
+      "role": "technical-release",
+      "access": "open",
+      "evidenceUrl": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks",
+      "verification": "opened",
+      "notes": "按需发现并读取官方教育/服务说明；不将摘要当正文，不推作用户个案建议。",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "technical-release",
+          "sourceType": "financial-regulator",
+          "verification": "opened",
+          "access": "open",
+          "entryUrl": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks",
+          "evidenceUrl": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
+        }
+      ]
+    },
+    {
+      "id": "smithsonian-archives",
+      "name": "Smithsonian Institution Archives",
+      "home": "https://siarchives.si.edu/",
+      "entryUrl": "https://siarchives.si.edu/blog/science-service-technology-political-conventions",
+      "sourceType": "museum-archive",
+      "regions": [
+        "united-states"
+      ],
+      "topics": [
+        "history",
+        "technology",
+        "culture"
+      ],
+      "language": "en",
+      "role": "research-reporting",
+      "access": "open",
+      "evidenceUrl": "https://siarchives.si.edu/blog/science-service-technology-political-conventions",
+      "verification": "opened",
+      "notes": "按需读取馆方对其照片与技术档案的解说，不把未打开的链接或照片当作已检查。",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "research-reporting",
+          "sourceType": "museum-archive",
+          "verification": "opened",
+          "access": "open",
+          "entryUrl": "https://siarchives.si.edu/blog/science-service-technology-political-conventions",
+          "evidenceUrl": "https://siarchives.si.edu/blog/science-service-technology-political-conventions"
+        }
+      ]
+    },
+    {
+      "id": "st-john-ambulance",
+      "name": "St John Ambulance",
+      "home": "https://www.sja.org.uk/",
+      "entryUrl": "https://www.sja.org.uk/first-aid-advice/bandage-dressing/",
+      "sourceType": "health-charity",
+      "regions": [
+        "global"
+      ],
+      "topics": [
+        "science",
+        "culture",
+        "professional-practice"
+      ],
+      "language": "en",
+      "role": "technical-release",
+      "access": "open",
+      "evidenceUrl": "https://www.sja.org.uk/first-aid-advice/bandage-dressing/",
+      "verification": "opened",
+      "notes": "Original related sections opened for this lesson. Reading limits, historical dates, commercial claims and non-adopted details are recorded with the actual read snapshot.",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "technical-release",
+          "sourceType": "health-charity",
+          "verification": "opened",
+          "access": "open",
+          "entryUrl": "https://www.sja.org.uk/first-aid-advice/bandage-dressing/",
+          "evidenceUrl": "https://www.sja.org.uk/first-aid-advice/bandage-dressing/"
+        }
+      ]
+    },
+    {
+      "id": "stmarys-housing",
+      "name": "St Marys University housing guide, revised April 2016",
+      "home": "https://www.stmarys.ac.uk/",
+      "entryUrl": "https://www.stmarys.ac.uk/student-services/docs/guide-to-off-campus-accommodation.pdf",
+      "sourceType": "university-guidance",
+      "regions": [
+        "united-kingdom"
+      ],
+      "topics": [
+        "housing",
+        "education",
+        "language"
+      ],
+      "language": "en",
+      "role": "technical-release",
+      "access": "open",
+      "evidenceUrl": "https://www.stmarys.ac.uk/student-services/docs/guide-to-off-campus-accommodation.pdf",
+      "verification": "opened",
+      "notes": "2016 historical guide; reduced summer rent terminology only, not current legal or fee advice.",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "technical-release",
+          "sourceType": "university-guidance",
+          "verification": "opened",
+          "access": "open",
+          "entryUrl": "https://www.stmarys.ac.uk/student-services/docs/guide-to-off-campus-accommodation.pdf",
+          "evidenceUrl": "https://www.stmarys.ac.uk/student-services/docs/guide-to-off-campus-accommodation.pdf"
+        }
+      ]
+    },
+    {
+      "id": "juilliard",
+      "name": "The Juilliard School",
+      "home": "https://www.juilliard.edu/",
+      "entryUrl": "https://www.juilliard.edu/school/brief-history",
+      "sourceType": "conservatory",
+      "regions": [
+        "global"
+      ],
+      "topics": [
+        "culture",
+        "technology",
+        "education"
+      ],
+      "language": "en",
+      "role": "technical-release",
+      "access": "mixed",
+      "evidenceUrl": "https://www.juilliard.edu/school/brief-history",
+      "verification": "search-confirmed",
+      "notes": "按实际日课主题检索；访问受限或尚未取得正文的状态不构成已读证据，具体采用范围在读件记录。",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "technical-release",
+          "sourceType": "conservatory",
+          "verification": "search-confirmed",
+          "access": "mixed",
+          "entryUrl": "https://www.juilliard.edu/school/brief-history",
+          "evidenceUrl": "https://www.juilliard.edu/school/brief-history"
+        }
+      ]
+    },
+    {
+      "id": "national-archives-uk",
+      "name": "The National Archives (UK)",
+      "home": "https://www.nationalarchives.gov.uk/",
+      "entryUrl": "https://www.nationalarchives.gov.uk/explore-the-collection/stories/jane-austens-will/",
+      "sourceType": "archive",
+      "regions": [
+        "united-kingdom"
+      ],
+      "topics": [
+        "history",
+        "law",
+        "finance"
+      ],
+      "language": "en",
+      "role": "research-reporting",
+      "access": "unknown",
+      "evidenceUrl": "https://www.nationalarchives.gov.uk/explore-the-collection/stories/jane-austens-will/",
+      "verification": "blocked",
+      "notes": "web打开正文403，搜索仅发现入口，未据此声称已读。将尝试原站直读；只采用实际可读原文。",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "research-reporting",
+          "sourceType": "archive",
+          "verification": "blocked",
+          "access": "unknown",
+          "entryUrl": "https://www.nationalarchives.gov.uk/explore-the-collection/stories/jane-austens-will/",
+          "evidenceUrl": "https://www.nationalarchives.gov.uk/explore-the-collection/stories/jane-austens-will/"
+        }
+      ]
+    },
+    {
+      "id": "toyota-technical",
+      "name": "Toyota vehicle explanations",
+      "home": "https://www.toyota.com/",
+      "entryUrl": "https://www.toyota.com/car-tips/types-of-transmissions/",
+      "sourceType": "manufacturer",
+      "regions": [
+        "global"
+      ],
+      "topics": [
+        "science",
+        "technology"
+      ],
+      "language": "en",
+      "role": "technical-release",
+      "access": "open",
+      "evidenceUrl": "https://www.toyota.com/car-tips/types-of-transmissions/",
+      "verification": "opened",
+      "notes": "按需读取主题正文；技术模型、历史发布与当前状态分别处理，不采用营销推荐。",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "technical-release",
+          "sourceType": "manufacturer",
+          "verification": "opened",
+          "access": "open",
+          "entryUrl": "https://www.toyota.com/car-tips/types-of-transmissions/",
+          "evidenceUrl": "https://www.toyota.com/car-tips/types-of-transmissions/"
+        }
+      ]
+    },
+    {
+      "id": "uk-government-guidance",
+      "name": "UK Government public guidance",
+      "home": "https://www.gov.uk/",
+      "entryUrl": "https://www.gov.uk/buying-a-home/transferring-ownership",
+      "sourceType": "government",
+      "regions": [
+        "united-kingdom"
+      ],
+      "topics": [
+        "history",
+        "law",
+        "finance"
+      ],
+      "language": "en",
+      "role": "service-notice",
+      "access": "open",
+      "evidenceUrl": "https://www.gov.uk/buying-a-home/transferring-ownership",
+      "verification": "opened",
+      "notes": "已通过web打开产权转移和遗嘱指导入口，具体适用范围及现行正文须逐页读取，不代替个案法律意见。",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "service-notice",
+          "sourceType": "government",
+          "verification": "opened",
+          "access": "open",
+          "entryUrl": "https://www.gov.uk/buying-a-home/transferring-ownership",
+          "evidenceUrl": "https://www.gov.uk/buying-a-home/transferring-ownership"
+        }
+      ]
+    },
+    {
+      "id": "uk-parliament-history",
+      "name": "UK Parliament Living Heritage",
+      "home": "https://www.parliament.uk/",
+      "entryUrl": "https://www.parliament.uk/about/living-heritage/",
+      "sourceType": "parliament",
+      "regions": [
+        "global"
+      ],
+      "topics": [
+        "history",
+        "politics"
+      ],
+      "language": "en",
+      "role": "primary-announcement",
+      "access": "open",
+      "evidenceUrl": "https://www.parliament.uk/about/living-heritage/",
+      "verification": "opened",
+      "notes": "2026-10-24按正式日课内容需要补充的原始机构入口，已通过web工具打开相关页面；入口可达不代表整站可抓取、全文已读或结论独立。具体正文阅读与适用边界由本次不可变读件记录。",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "primary-announcement",
+          "sourceType": "parliament",
+          "verification": "opened",
+          "access": "open",
+          "entryUrl": "https://www.parliament.uk/about/living-heritage/",
+          "evidenceUrl": "https://www.parliament.uk/about/living-heritage/"
+        }
+      ]
+    },
+    {
+      "id": "leicester-hospitals",
+      "name": "University Hospitals of Leicester NHS Trust",
+      "home": "https://www.uhleicester.nhs.uk/",
+      "entryUrl": "https://www.uhleicester.nhs.uk/news/new-5-million-pharmacy-facility-to-support-cancer-care-and-clinical-research-at-leicesters-hospitals/",
+      "sourceType": "hospital",
+      "regions": [
+        "global"
+      ],
+      "topics": [
+        "science",
+        "culture",
+        "professional-practice"
+      ],
+      "language": "en",
+      "role": "technical-release",
+      "access": "open",
+      "evidenceUrl": "https://www.uhleicester.nhs.uk/news/new-5-million-pharmacy-facility-to-support-cancer-care-and-clinical-research-at-leicesters-hospitals/",
+      "verification": "opened",
+      "notes": "Original related sections opened for this lesson. Reading limits, historical dates, commercial claims and non-adopted details are recorded with the actual read snapshot.",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "technical-release",
+          "sourceType": "hospital",
+          "verification": "opened",
+          "access": "open",
+          "entryUrl": "https://www.uhleicester.nhs.uk/news/new-5-million-pharmacy-facility-to-support-cancer-care-and-clinical-research-at-leicesters-hospitals/",
+          "evidenceUrl": "https://www.uhleicester.nhs.uk/news/new-5-million-pharmacy-facility-to-support-cancer-care-and-clinical-research-at-leicesters-hospitals/"
+        }
+      ]
+    },
+    {
+      "id": "doe-science",
+      "name": "US Department of Energy Office of Science",
+      "home": "https://www.energy.gov/",
+      "entryUrl": "https://www.energy.gov/science/articles/transforming-plastics-recycling-discovery-science",
+      "sourceType": "government-research",
+      "regions": [
+        "global"
+      ],
+      "topics": [
+        "science",
+        "culture",
+        "professional-practice"
+      ],
+      "language": "en",
+      "role": "technical-release",
+      "access": "open",
+      "evidenceUrl": "https://www.energy.gov/science/articles/transforming-plastics-recycling-discovery-science",
+      "verification": "opened",
+      "notes": "Original related sections opened for this lesson. Reading limits, historical dates, commercial claims and non-adopted details are recorded with the actual read snapshot.",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "technical-release",
+          "sourceType": "government-research",
+          "verification": "opened",
+          "access": "open",
+          "entryUrl": "https://www.energy.gov/science/articles/transforming-plastics-recycling-discovery-science",
+          "evidenceUrl": "https://www.energy.gov/science/articles/transforming-plastics-recycling-discovery-science"
+        }
+      ]
+    },
+    {
+      "id": "national-archives-us",
+      "name": "US National Archives",
+      "home": "https://www.archives.gov/",
+      "entryUrl": "https://www.archives.gov/milestone-documents/brown-v-board-of-education",
+      "sourceType": "government-archive",
+      "regions": [
+        "global"
+      ],
+      "topics": [
+        "law",
+        "history"
+      ],
+      "language": "en",
+      "role": "primary-announcement",
+      "access": "open",
+      "evidenceUrl": "https://www.archives.gov/milestone-documents/brown-v-board-of-education",
+      "verification": "opened",
+      "notes": "已web打开历史判决入口；原判决和机构历史说明分别判断，不将法律裁决等同于立即完成现实整合。",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "primary-announcement",
+          "sourceType": "government-archive",
+          "verification": "opened",
+          "access": "open",
+          "entryUrl": "https://www.archives.gov/milestone-documents/brown-v-board-of-education",
+          "evidenceUrl": "https://www.archives.gov/milestone-documents/brown-v-board-of-education"
+        }
+      ]
+    },
+    {
+      "id": "naval-history-us",
+      "name": "US Naval History and Heritage Command",
+      "home": "https://www.history.navy.mil/",
+      "entryUrl": "https://www.history.navy.mil/research/histories/ship-histories/danfs/k/kitty-hawk-cva-63-ii.html",
+      "sourceType": "government-history",
+      "topics": [
+        "history",
+        "maritime",
+        "technology"
+      ],
+      "notes": "本次相关DANFS舰史页面的web读取返回502，本机读取未取得可采用正文；未用于本章。仅保留官方候选入口，不声称已读或据其判断2026在役情况。",
+      "regions": [
+        "global"
+      ],
+      "language": "en",
+      "role": "research-reporting",
+      "access": "unknown",
+      "evidenceUrl": "https://www.history.navy.mil/research/histories/ship-histories/danfs/k/kitty-hawk-cva-63-ii.html",
+      "verification": "blocked",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "research-reporting",
+          "sourceType": "government-history",
+          "verification": "search-confirmed",
+          "access": "open",
+          "entryUrl": "https://www.history.navy.mil/research/histories/ship-histories/danfs/k/kitty-hawk-cva-63-ii.html",
+          "evidenceUrl": "https://www.history.navy.mil/research/histories/ship-histories/danfs/k/kitty-hawk-cva-63-ii.html"
+        },
+        {
+          "batch": "daily-2026-10-24-readback",
+          "role": "research-reporting",
+          "sourceType": "government-history",
+          "verification": "blocked",
+          "access": "unknown",
+          "entryUrl": "https://www.history.navy.mil/research/histories/ship-histories/danfs/k/kitty-hawk-cva-63-ii.html",
+          "evidenceUrl": "https://www.history.navy.mil/research/histories/ship-histories/danfs/k/kitty-hawk-cva-63-ii.html"
+        }
+      ]
+    },
+    {
+      "id": "state-history",
+      "name": "US Office of the Historian",
+      "home": "https://history.state.gov/",
+      "entryUrl": "https://history.state.gov/milestones/1953-1960/bandung-conf",
+      "sourceType": "government-history",
+      "regions": [
+        "global"
+      ],
+      "topics": [
+        "history",
+        "society"
+      ],
+      "language": "en",
+      "role": "research-reporting",
+      "access": "open",
+      "evidenceUrl": "https://history.state.gov/milestones/1953-1960/bandung-conf",
+      "verification": "opened",
+      "notes": "按具体历史题材读取原文；维护停止与访问限制保留，不将旧文当现行政治状态。",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "research-reporting",
+          "sourceType": "government-history",
+          "verification": "opened",
+          "access": "open",
+          "entryUrl": "https://history.state.gov/milestones/1953-1960/bandung-conf",
+          "evidenceUrl": "https://history.state.gov/milestones/1953-1960/bandung-conf"
+        }
+      ]
+    },
+    {
+      "id": "usda-fsis",
+      "name": "USDA Food Safety and Inspection Service",
+      "home": "https://www.fsis.usda.gov/",
+      "entryUrl": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/food-thermometers",
+      "sourceType": "government-health",
+      "topics": [
+        "food",
+        "science",
+        "health"
+      ],
+      "notes": "Food Thermometers正文已取得并打开前段相关内容，读件保留；先前color-meat入口未取得合适正文。本章未采用，不声称通读全部页面。",
+      "regions": [
+        "global"
+      ],
+      "language": "en",
+      "role": "research-reporting",
+      "access": "open",
+      "evidenceUrl": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/food-thermometers",
+      "verification": "opened",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "research-reporting",
+          "sourceType": "government-health",
+          "verification": "search-confirmed",
+          "access": "open",
+          "entryUrl": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/meat-poultry-and-egg-product-safety/color-meat",
+          "evidenceUrl": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/meat-poultry-and-egg-product-safety/color-meat"
+        },
+        {
+          "batch": "daily-2026-10-24-readback",
+          "role": "research-reporting",
+          "sourceType": "government-health",
+          "verification": "opened",
+          "access": "open",
+          "entryUrl": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/food-thermometers",
+          "evidenceUrl": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/food-thermometers"
+        }
+      ]
+    },
+    {
+      "id": "utah-courts",
+      "name": "Utah State Courts",
+      "home": "https://www.utcourts.gov/",
+      "entryUrl": "https://www.utcourts.gov/en/self-help/case-categories/gc/authority-conservator.html",
+      "sourceType": "judiciary",
+      "regions": [
+        "global"
+      ],
+      "topics": [
+        "finance",
+        "law",
+        "public-services"
+      ],
+      "language": "en",
+      "role": "service-notice",
+      "access": "open",
+      "evidenceUrl": "https://www.utcourts.gov/en/self-help/case-categories/gc/authority-conservator.html",
+      "verification": "search-confirmed",
+      "notes": "按需发现并读取官方教育/服务说明；不将摘要当正文，不推作用户个案建议。",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "service-notice",
+          "sourceType": "judiciary",
+          "verification": "search-confirmed",
+          "access": "open",
+          "entryUrl": "https://www.utcourts.gov/en/self-help/case-categories/gc/authority-conservator.html",
+          "evidenceUrl": "https://www.utcourts.gov/en/self-help/case-categories/gc/authority-conservator.html"
+        }
+      ]
+    },
+    {
+      "id": "welsh-bridge-union",
+      "name": "Welsh Bridge Union",
+      "home": "https://welshbridgeunion.org/",
+      "entryUrl": "https://welshbridgeunion.org/wp-content/uploads/2014/01/WBULessonsAcol1-6011.pdf",
+      "sourceType": "game-federation",
+      "regions": [
+        "global"
+      ],
+      "topics": [
+        "culture",
+        "education"
+      ],
+      "language": "en",
+      "role": "technical-release",
+      "access": "open",
+      "evidenceUrl": "https://welshbridgeunion.org/wp-content/uploads/2014/01/WBULessonsAcol1-6011.pdf",
+      "verification": "opened",
+      "notes": "按当前具体主题读取，实际原文、范围及访问限制见不可变读件；历史文本仅证明当时措辞，不代替现行要求。",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "technical-release",
+          "sourceType": "game-federation",
+          "verification": "opened",
+          "access": "open",
+          "entryUrl": "https://welshbridgeunion.org/wp-content/uploads/2014/01/WBULessonsAcol1-6011.pdf",
+          "evidenceUrl": "https://welshbridgeunion.org/wp-content/uploads/2014/01/WBULessonsAcol1-6011.pdf"
+        }
+      ]
+    },
+    {
+      "id": "wienerberger",
+      "name": "Wienerberger UK technical guidance",
+      "home": "https://www.wienerberger.co.uk/",
+      "entryUrl": "https://www.wienerberger.co.uk/tips-and-advice/brickwork/how-do-i-choose-the-correct-brick-bonding-pattern.html",
+      "sourceType": "manufacturer",
+      "regions": [
+        "global"
+      ],
+      "topics": [
+        "science",
+        "culture",
+        "professional-practice"
+      ],
+      "language": "en",
+      "role": "technical-release",
+      "access": "open",
+      "evidenceUrl": "https://www.wienerberger.co.uk/tips-and-advice/brickwork/how-do-i-choose-the-correct-brick-bonding-pattern.html",
+      "verification": "opened",
+      "notes": "Original related sections opened for this lesson. Reading limits, historical dates, commercial claims and non-adopted details are recorded with the actual read snapshot.",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "technical-release",
+          "sourceType": "manufacturer",
+          "verification": "opened",
+          "access": "open",
+          "entryUrl": "https://www.wienerberger.co.uk/tips-and-advice/brickwork/how-do-i-choose-the-correct-brick-bonding-pattern.html",
+          "evidenceUrl": "https://www.wienerberger.co.uk/tips-and-advice/brickwork/how-do-i-choose-the-correct-brick-bonding-pattern.html"
+        }
+      ]
+    },
+    {
+      "id": "wikisource-history",
+      "name": "Wikisource historical primary texts",
+      "home": "https://en.wikisource.org/",
+      "entryUrl": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica/Arithmetic",
+      "sourceType": "historical-primary-text",
+      "regions": [
+        "global"
+      ],
+      "topics": [
+        "history",
+        "science"
+      ],
+      "language": "en",
+      "role": "technical-release",
+      "access": "open",
+      "evidenceUrl": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica/Arithmetic",
+      "verification": "opened",
+      "notes": "按当前具体主题读取，实际原文、范围及访问限制见不可变读件；历史文本仅证明当时措辞，不代替现行要求。",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "technical-release",
+          "sourceType": "historical-primary-text",
+          "verification": "opened",
+          "access": "open",
+          "entryUrl": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica/Arithmetic",
+          "evidenceUrl": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica/Arithmetic"
+        }
+      ]
+    },
+    {
+      "id": "yamaha-music",
+      "name": "Yamaha Music Guide",
+      "home": "https://hub.yamaha.com/",
+      "entryUrl": "https://hub.yamaha.com/keyboards/k-how-to/how-to-use-keyboard-pedals/",
+      "sourceType": "manufacturer",
+      "regions": [
+        "global"
+      ],
+      "topics": [
+        "culture",
+        "technology",
+        "education"
+      ],
+      "language": "en",
+      "role": "technical-release",
+      "access": "mixed",
+      "evidenceUrl": "https://hub.yamaha.com/keyboards/k-how-to/how-to-use-keyboard-pedals/",
+      "verification": "search-confirmed",
+      "notes": "按实际日课主题检索；访问受限或尚未取得正文的状态不构成已读证据，具体采用范围在读件记录。",
+      "checkedOn": "2026-10-24",
+      "observations": [
+        {
+          "batch": "daily-2026-10-24",
+          "role": "technical-release",
+          "sourceType": "manufacturer",
+          "verification": "search-confirmed",
+          "access": "mixed",
+          "entryUrl": "https://hub.yamaha.com/keyboards/k-how-to/how-to-use-keyboard-pedals/",
+          "evidenceUrl": "https://hub.yamaha.com/keyboards/k-how-to/how-to-use-keyboard-pedals/"
         }
       ]
     }

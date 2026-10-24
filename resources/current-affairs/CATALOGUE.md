@@ -1,10 +1,22 @@
 # 实事来源目录
 
-核验批次：2026-10-23。共 331 个去重来源；由 sources.json 生成。
+核验批次：2026-10-24。共 392 个去重来源；由 sources.json 生成。
 
 opened 仅表示打开入口页面；页面壳、全文、付费及技术限制见每条 notes。blocked/search-confirmed 保留为待复核候选。地区是检索提示，不是独立性或报道覆盖审计。
 
 完整访问记录和角色见 [sources.json](sources.json)；使用边界见 [README](README.md)。
+
+## archive
+
+| 来源／官方发布入口 | 地区提示 | 主题提示 | 角色 | 访问／观测 |
+|---|---|---|---|---|
+| [The National Archives (UK)](https://www.nationalarchives.gov.uk/explore-the-collection/stories/jane-austens-will/) · `national-archives-uk` | united-kingdom | history, law, finance | research-reporting | unknown / blocked |
+
+## botanical-garden
+
+| 来源／官方发布入口 | 地区提示 | 主题提示 | 角色 | 访问／观测 |
+|---|---|---|---|---|
+| [Royal Botanic Gardens Kew](https://www.kew.org/kew-gardens/whats-in-the-gardens/palm-house) · `kew` | global | science, culture, education | technical-release | open / opened |
 
 ## civil-society
 
@@ -38,6 +50,24 @@ opened 仅表示打开入口页面；页面壳、全文、付费及技术限制�
 | [Wetlands International](https://www.wetlands.org/news/) · `civic-wetlands-international` | global | wetlands, biodiversity, water-security, climate-adaptation | advocacy-publication | open / opened |
 | [Wikimedia Foundation](https://wikimediafoundation.org/news/) · `civic-wikimedia` | global | internet, open-knowledge, education, technology, policy | primary-announcement | open / opened |
 | [World Wildlife Fund — United States](https://www.worldwildlife.org/news/press-releases/) · `civic-wwf-us` | global, united-states | biodiversity, wildlife-conservation, climate, sustainable-food | primary-announcement | open / opened |
+
+## conservation-society
+
+| 来源／官方发布入口 | 地区提示 | 主题提示 | 角色 | 访问／观测 |
+|---|---|---|---|---|
+| [Royal Society for the Protection of Birds](https://www.rspb.org.uk/birds-and-wildlife/swallow) · `rspb` | global | environment, animals | research-reporting | open / opened |
+
+## conservatory
+
+| 来源／官方发布入口 | 地区提示 | 主题提示 | 角色 | 访问／观测 |
+|---|---|---|---|---|
+| [The Juilliard School](https://www.juilliard.edu/school/brief-history) · `juilliard` | global | culture, technology, education | technical-release | mixed / search-confirmed |
+
+## consumer-association
+
+| 来源／官方发布入口 | 地区提示 | 主题提示 | 角色 | 访问／观测 |
+|---|---|---|---|---|
+| [CAMRA Learn and Tyneside branch](https://tynland.camra.org.uk/information/jargon-buster/) · `camra-learn` | united-kingdom, global | food, culture, science | advocacy-publication | open / opened |
 
 ## consumer-organization
 
@@ -76,6 +106,7 @@ opened 仅表示打开入口页面；页面壳、全文、付费及技术限制�
 | [Uffizi Galleries](https://www.uffizi.it/en/notices) · `uffizi` | italy, europe | art, heritage, exhibitions | primary-announcement | open / opened |
 | [Victoria and Albert Museum](https://www.vam.ac.uk/info/press) · `victoria-albert` | united-kingdom, global | art, design, exhibitions, heritage | primary-announcement | open / opened |
 | [Zeitz Museum of Contemporary Art Africa](https://zeitzmocaa.museum/press-room/) · `zeitz-mocaa` | south-africa, africa | art, exhibitions, culture | primary-announcement | open / opened |
+| [Royal Shakespeare Company](https://www.rsc.org.uk/restoration-plays) · `rsc-theatre` | global | theatre, history | primary-announcement | open / opened |
 
 ## edited-news
 
@@ -141,6 +172,112 @@ opened 仅表示打开入口页面；页面壳、全文、付费及技术限制�
 | [The Washington Post](https://www.washingtonpost.com/) · `washington-post` | north-america, global | world, politics, society, business, science, climate, education, culture, sports | editorial-reporting | unknown / blocked |
 | [Yonhap News Agency](https://en.yna.co.kr/) · `yonhap` | asia-pacific, global | world, politics, business, technology, society, sports | editorial-reporting | unknown / blocked |
 
+## educational-publisher
+
+| 来源／官方发布入口 | 地区提示 | 主题提示 | 角色 | 访问／观测 |
+|---|---|---|---|---|
+| [OpenStax, Rice University](https://openstax.org/subjects) · `openstax` | global | science, mathematics, education | technical-release | open / opened |
+
+## engineering-documentation
+
+| 来源／官方发布入口 | 地区提示 | 主题提示 | 角色 | 访问／观测 |
+|---|---|---|---|---|
+| [MathWorks](https://www.mathworks.com/help/sdl/ug/how-a-clutch-works.html) · `mathworks` | global | culture, technology, education | technical-release | mixed / search-confirmed |
+
+## financial-regulator
+
+| 来源／官方发布入口 | 地区提示 | 主题提示 | 角色 | 访问／观测 |
+|---|---|---|---|---|
+| [SEC Investor.gov](https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks) · `sec-investor` | global | finance, law, public-services | technical-release | open / opened |
+
+## game-federation
+
+| 来源／官方发布入口 | 地区提示 | 主题提示 | 角色 | 访问／观测 |
+|---|---|---|---|---|
+| [Welsh Bridge Union](https://welshbridgeunion.org/wp-content/uploads/2014/01/WBULessonsAcol1-6011.pdf) · `welsh-bridge-union` | global | culture, education | technical-release | open / opened |
+
+## government
+
+| 来源／官方发布入口 | 地区提示 | 主题提示 | 角色 | 访问／观测 |
+|---|---|---|---|---|
+| [UK Government public guidance](https://www.gov.uk/buying-a-home/transferring-ownership) · `uk-government-guidance` | united-kingdom | history, law, finance | service-notice | open / opened |
+
+## government-announcement
+
+| 来源／官方发布入口 | 地区提示 | 主题提示 | 角色 | 访问／观测 |
+|---|---|---|---|---|
+| [Naval Air Systems Command](https://www.navair.navy.mil/node/9666) · `navair` | global | history, maritime, logistics | primary-announcement | open / opened |
+| [Royal Navy](https://www.royalnavy.mod.uk/news/2024/october/22/20241022-tidesurge-supports-uk-and-nato-ops-in-north-atlantic) · `royal-navy` | global | education, history, society | primary-announcement | open / opened |
+
+## government-archive
+
+| 来源／官方发布入口 | 地区提示 | 主题提示 | 角色 | 访问／观测 |
+|---|---|---|---|---|
+| [US National Archives](https://www.archives.gov/milestone-documents/brown-v-board-of-education) · `national-archives-us` | global | law, history | primary-announcement | open / opened |
+
+## government-health
+
+| 来源／官方发布入口 | 地区提示 | 主题提示 | 角色 | 访问／观测 |
+|---|---|---|---|---|
+| [National Cancer Institute terminology](https://www.cancer.gov/publications/dictionaries/cancer-terms/def/eye-socket) · `nci-terms` | global | health, science | research-reporting | open / opened |
+| [National Center for Complementary and Integrative Health](https://www.nccih.nih.gov/health/complementary-alternative-or-integrative-health-whats-in-a-name) · `nccih` | global | health, science | technical-release | open / opened |
+| [NIDDK](https://www.niddk.nih.gov/health-information/urologic-diseases/urinary-retention/definition-facts) · `niddk-health` | global | health, science | technical-release | open / opened |
+| [NIH biomedical style guide](https://www.nih.gov/nih-style-guide/appendix-biomedical-definitions) · `nih-style` | global | science, culture, education | technical-release | open / search-confirmed |
+| [NINDS](https://www.ninds.nih.gov/health-information/patient-caregiver-education/brain-basics-genes-work-brain) · `ninds-health` | global | health, science | technical-release | open / search-confirmed |
+| [USDA Food Safety and Inspection Service](https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/food-thermometers) · `usda-fsis` | global | food, science, health | research-reporting | open / opened |
+
+## government-history
+
+| 来源／官方发布入口 | 地区提示 | 主题提示 | 角色 | 访问／观测 |
+|---|---|---|---|---|
+| [US Naval History and Heritage Command](https://www.history.navy.mil/research/histories/ship-histories/danfs/k/kitty-hawk-cva-63-ii.html) · `naval-history-us` | global | history, maritime, technology | research-reporting | unknown / blocked |
+| [US Office of the Historian](https://history.state.gov/milestones/1953-1960/bandung-conf) · `state-history` | global | history, society | research-reporting | open / opened |
+
+## government-research
+
+| 来源／官方发布入口 | 地区提示 | 主题提示 | 角色 | 访问／观测 |
+|---|---|---|---|---|
+| [National Institute of Standards and Technology](https://www.nist.gov/history/nists-role-laser-measurements-and-applications/what-laser) · `nist` | global | physics, measurement | technical-release | open / opened |
+| [US Department of Energy Office of Science](https://www.energy.gov/science/articles/transforming-plastics-recycling-discovery-science) · `doe-science` | global | science, culture, professional-practice | technical-release | open / opened |
+
+## government-science
+
+| 来源／官方发布入口 | 地区提示 | 主题提示 | 角色 | 访问／观测 |
+|---|---|---|---|---|
+| [NASA Science](https://science.nasa.gov/mission/hubble/science/science-behind-the-discoveries/hubble-cosmological-redshift/) · `nasa-science` | global | science, technology | technical-release | open / search-confirmed |
+| [NOAA Fisheries](https://www.fisheries.noaa.gov/west-coast/science-data/dam-removals-elwha-river) · `noaa-fisheries` | global | environment, science | research-reporting | open / opened |
+
+## health-charity
+
+| 来源／官方发布入口 | 地区提示 | 主题提示 | 角色 | 访问／观测 |
+|---|---|---|---|---|
+| [St John Ambulance](https://www.sja.org.uk/first-aid-advice/bandage-dressing/) · `st-john-ambulance` | global | science, culture, professional-practice | technical-release | open / opened |
+
+## historical-primary-text
+
+| 来源／官方发布入口 | 地区提示 | 主题提示 | 角色 | 访问／观测 |
+|---|---|---|---|---|
+| [Wikisource historical primary texts](https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica/Arithmetic) · `wikisource-history` | global | history, science | technical-release | open / opened |
+
+## historical-reference
+
+| 来源／官方发布入口 | 地区提示 | 主题提示 | 角色 | 访问／观测 |
+|---|---|---|---|---|
+| [New Advent, Catholic Encyclopedia historical texts](https://www.newadvent.org/cathen/01168b.htm) · `new-advent-encyclopedia` | global | history, religion | primary-announcement | open / opened |
+
+## horticultural-society
+
+| 来源／官方发布入口 | 地区提示 | 主题提示 | 角色 | 访问／观测 |
+|---|---|---|---|---|
+| [Royal Horticultural Society](https://www.rhs.org.uk/soil-composts-mulches/soil-types) · `rhs` | united-kingdom, global | agriculture, plants, environment | research-reporting | open / opened |
+
+## hospital
+
+| 来源／官方发布入口 | 地区提示 | 主题提示 | 角色 | 访问／观测 |
+|---|---|---|---|---|
+| [Leeds Teaching Hospitals NHS Trust](https://www.leedsth.nhs.uk/patients/resources/bridges/) · `leeds-hospitals` | global | health, science | technical-release | open / opened |
+| [University Hospitals of Leicester NHS Trust](https://www.uhleicester.nhs.uk/news/new-5-million-pharmacy-facility-to-support-cancer-care-and-clinical-research-at-leicesters-hospitals/) · `leicester-hospitals` | global | science, culture, professional-practice | technical-release | open / opened |
+
 ## international-organization
 
 | 来源／官方发布入口 | 地区提示 | 主题提示 | 角色 | 访问／观测 |
@@ -165,6 +302,59 @@ opened 仅表示打开入口页面；页面壳、全文、付费及技术限制�
 | [World Meteorological Organization](https://wmo.int/news) · `wmo` | global | weather, climate, early-warning, agriculture | primary-announcement | open / opened |
 | [World Bank Group](https://www.worldbank.org/ext/en/news) · `world-bank` | global | poverty, education, infrastructure, jobs | primary-announcement | open / opened |
 
+## judiciary
+
+| 来源／官方发布入口 | 地区提示 | 主题提示 | 角色 | 访问／观测 |
+|---|---|---|---|---|
+| [California Courts](https://selfhelp.courts.ca.gov/conservatorships) · `california-courts` | global | law, public-services | primary-announcement | open / search-confirmed |
+| [Utah State Courts](https://www.utcourts.gov/en/self-help/case-categories/gc/authority-conservator.html) · `utah-courts` | global | finance, law, public-services | service-notice | open / search-confirmed |
+
+## language-publisher
+
+| 来源／官方发布入口 | 地区提示 | 主题提示 | 角色 | 访问／观测 |
+|---|---|---|---|---|
+| [Cambridge English Grammar Today](https://dictionary.cambridge.org/grammar/british-grammar/adjective-phrases-position) · `cambridge-grammar` | global | science, culture, education | technical-release | open / search-confirmed |
+
+## legal-reference
+
+| 来源／官方发布入口 | 地区提示 | 主题提示 | 角色 | 访问／观测 |
+|---|---|---|---|---|
+| [Cornell Law School Legal Information Institute](https://www.law.cornell.edu/rules/frcp) · `cornell-lii` | united-states | law, civil-procedure | technical-release | open / opened |
+
+## literary-primary-text
+
+| 来源／官方发布入口 | 地区提示 | 主题提示 | 角色 | 访问／观测 |
+|---|---|---|---|---|
+| [Project Gutenberg primary literary texts](https://www.gutenberg.org/files/7986/7986-h/7986-h.htm) · `gutenberg-primary` | global | culture, history | research-reporting | open / search-confirmed |
+
+## manufacturer
+
+| 来源／官方发布入口 | 地区提示 | 主题提示 | 角色 | 访问／观测 |
+|---|---|---|---|---|
+| [Toyota vehicle explanations](https://www.toyota.com/car-tips/types-of-transmissions/) · `toyota-technical` | global | science, technology | technical-release | open / opened |
+| [Wienerberger UK technical guidance](https://www.wienerberger.co.uk/tips-and-advice/brickwork/how-do-i-choose-the-correct-brick-bonding-pattern.html) · `wienerberger` | global | science, culture, professional-practice | technical-release | open / opened |
+| [Yamaha Music Guide](https://hub.yamaha.com/keyboards/k-how-to/how-to-use-keyboard-pedals/) · `yamaha-music` | global | culture, technology, education | technical-release | mixed / search-confirmed |
+
+## museum
+
+| 来源／官方发布入口 | 地区提示 | 主题提示 | 角色 | 访问／观测 |
+|---|---|---|---|---|
+| [Army Museum of South Australia](https://amosa.org.au/stories-and-events/militaria/catafalque-party) · `army-museum-sa` | global | science, culture, professional-practice | technical-release | open / opened |
+| [Oxford University Museum of Natural History](https://oumnh.ox.ac.uk/node/4150846) · `oxford-natural-history` | global | history, science | research-reporting | open / opened |
+| [Royal Mint Museum](https://www.royalmintmuseum.org.uk/collection/coins/roman-denarius/) · `royal-mint-museum` | global | science, culture, professional-practice | technical-release | open / opened |
+
+## museum-archive
+
+| 来源／官方发布入口 | 地区提示 | 主题提示 | 角色 | 访问／观测 |
+|---|---|---|---|---|
+| [Smithsonian Institution Archives](https://siarchives.si.edu/blog/science-service-technology-political-conventions) · `smithsonian-archives` | united-states | history, technology, culture | research-reporting | open / opened |
+
+## national-library
+
+| 来源／官方发布入口 | 地区提示 | 主题提示 | 角色 | 访问／观测 |
+|---|---|---|---|---|
+| [Library of Congress](https://www.loc.gov/classroom-materials/elections/nominating-candidates/modern-era/) · `library-congress` | global | history, society | research-reporting | open / search-confirmed |
+
 ## open-source-project
 
 | 来源／官方发布入口 | 地区提示 | 主题提示 | 角色 | 访问／观测 |
@@ -186,6 +376,18 @@ opened 仅表示打开入口页面；页面壳、全文、付费及技术限制�
 | [SQLite Project](https://www.sqlite.org/news.html) · `civic-sqlite` | global | databases, open-source, software, security, technology | technical-release | open / opened |
 | [The Tor Project](https://blog.torproject.org/) · `civic-tor` | global | privacy, security, open-source, internet, digital-rights | technical-release | open / opened |
 
+## open-textbook
+
+| 来源／官方发布入口 | 地区提示 | 主题提示 | 角色 | 访问／观测 |
+|---|---|---|---|---|
+| [Open Music Theory](https://openmusictheory.github.io/embellishingTones.html) · `open-music-theory` | global | culture, technology, education | technical-release | mixed / opened |
+
+## parliament
+
+| 来源／官方发布入口 | 地区提示 | 主题提示 | 角色 | 访问／观测 |
+|---|---|---|---|---|
+| [UK Parliament Living Heritage](https://www.parliament.uk/about/living-heritage/) · `uk-parliament-history` | global | history, politics | primary-announcement | open / opened |
+
 ## product-announcement
 
 | 来源／官方发布入口 | 地区提示 | 主题提示 | 角色 | 访问／观测 |
@@ -206,6 +408,18 @@ opened 仅表示打开入口页面；页面壳、全文、付费及技术限制�
 | [Samsung Electronics](https://news.samsung.com/global/) · `samsung` | global, asia, south-korea | devices, home-appliances, accessibility, software | primary-announcement | open / opened |
 | [Spotify](https://newsroom.spotify.com/) · `spotify` | global | music, podcasts, subscriptions, digital-culture | primary-announcement | open / opened |
 | [Zoom](https://www.zoom.com/en/blog/) · `zoom` | global | video-meetings, digital-work, accessibility, software-updates | primary-announcement | open / opened |
+
+## professional-association
+
+| 来源／官方发布入口 | 地区提示 | 主题提示 | 角色 | 访问／观测 |
+|---|---|---|---|---|
+| [Imperial Society of Teachers of Dancing](https://www.istd.org/documents/modern-ballroom-professional-modular-examinations-syllabus/syllabus-outline-modern-ballroom-june-18-nkxzvj.pdf) · `istd` | global | science, culture, professional-practice | technical-release | open / opened |
+
+## professional-institution
+
+| 来源／官方发布入口 | 地区提示 | 主题提示 | 角色 | 访问／观测 |
+|---|---|---|---|---|
+| [CIHT Motorways Archive](https://ukmotorwayarchive.ciht.org.uk/motorways-by-region/m25/origins-of-the-m25/) · `ciht-motorways` | global | transport, history | research-reporting | open / opened |
 
 ## public-agency
 
@@ -253,6 +467,18 @@ opened 仅表示打开入口页面；页面壳、全文、付费及技术限制�
 | [SWI swissinfo.ch](https://www.swissinfo.ch/eng/) · `swissinfo` | europe, global | politics, society, science, business, health, education, climate | editorial-reporting | open / opened |
 | [Yle News](https://yle.fi/news) · `yle` | europe, global | world, politics, society, business, nature, education, sports | editorial-reporting | open / opened |
 
+## public-library
+
+| 来源／官方发布入口 | 地区提示 | 主题提示 | 角色 | 访问／观测 |
+|---|---|---|---|---|
+| [Chicago Public Library](https://www.chipublib.org/fa-democratic-national-convention-records/) · `chicago-library` | united-states | history, culture, politics | research-reporting | open / opened |
+
+## public-service
+
+| 来源／官方发布入口 | 地区提示 | 主题提示 | 角色 | 访问／观测 |
+|---|---|---|---|---|
+| [MoneyHelper, Money and Pensions Service](https://www.moneyhelper.org.uk/en/homes/buying-a-home/negative-equity-what-it-means-and-what-you-can-do-about-it) · `moneyhelper` | united-kingdom | history, law, finance | service-notice | open / search-confirmed |
+
 ## research-institution
 
 | 来源／官方发布入口 | 地区提示 | 主题提示 | 角色 | 访问／观测 |
@@ -292,6 +518,12 @@ opened 仅表示打开入口页面；页面壳、全文、付费及技术限制�
 | [University of British Columbia](https://news.ubc.ca/) · `ubc` | canada, north-america | research, science, health, culture | primary-announcement | open / opened |
 | [University of Cape Town](https://www.news.uct.ac.za/) · `uct` | south-africa, africa | research, health, culture, science | primary-announcement | open / opened |
 | [University of Tokyo](https://www.u-tokyo.ac.jp/focus/en/) · `utokyo` | japan, asia | research, science, humanities | primary-announcement | open / opened |
+
+## research-organization
+
+| 来源／官方发布入口 | 地区提示 | 主题提示 | 角色 | 访问／观测 |
+|---|---|---|---|---|
+| [Google DeepMind research](https://deepmind.google/blog/predicting-the-past-with-ithaca/) · `google-deepmind` | global | research, history, artificial-intelligence | research-reporting | open / opened |
 
 ## science-agency
 
@@ -397,6 +629,24 @@ opened 仅表示打开入口页面；页面壳、全文、付费及技术限制�
 | [Statistics South Africa](https://www.statssa.gov.za/?page_id=1854) · `stats-sa` | africa, south-africa | prices, work, households, population | statistical-release | open / opened |
 | [US Census Bureau](https://www.census.gov/newsroom.html) · `us-census` | north-america, united-states | population, housing, households, retail | statistical-release | open / opened |
 
+## telecom-operator
+
+| 来源／官方发布入口 | 地区提示 | 主题提示 | 角色 | 访问／观测 |
+|---|---|---|---|---|
+| [BT Help](https://www.bt.com/help/home-phone/manage-service/how-do-i-make-a-reverse-charge-call-) · `bt-help` | global | science, culture, professional-practice | technical-release | open / opened |
+
+## trade-association
+
+| 来源／官方发布入口 | 地区提示 | 主题提示 | 角色 | 访问／观测 |
+|---|---|---|---|---|
+| [Building Societies Association](https://www.bsa.org.uk/about-us/about-the-bsa) · `building-societies-association` | global | finance, law, public-services | advocacy-publication | open / search-confirmed |
+
+## trade-union
+
+| 来源／官方发布入口 | 地区提示 | 主题提示 | 角色 | 访问／观测 |
+|---|---|---|---|---|
+| [Equity](https://www.equity.org.uk/about-us) · `equity-union` | global | culture, labour | technical-release | open / opened |
+
 ## transport-operator
 
 | 来源／官方发布入口 | 地区提示 | 主题提示 | 角色 | 访问／观测 |
@@ -416,3 +666,29 @@ opened 仅表示打开入口页面；页面壳、全文、付费及技术限制�
 | [SNCF Voyageurs](https://www.sncf-voyageurs.com/en/voyagez-avec-nous/en-france/actualites/) · `sncf-voyageurs` | europe, france | rail, tickets, public-transport, travel | primary-announcement | open / opened |
 | [Transport for London](https://tfl.gov.uk/info-for/media/press-releases/2026) · `tfl` | europe, united-kingdom, london | public-transport, cycling, fares, accessibility | primary-announcement | unknown / search-confirmed |
 | [VIA Rail Canada](https://media.viarail.ca/en) · `via-rail` | north-america, canada | rail, travel, service-changes, accessibility | primary-announcement | open / opened |
+
+## university-course
+
+| 来源／官方发布入口 | 地区提示 | 主题提示 | 角色 | 访问／观测 |
+|---|---|---|---|---|
+| [Harvard Geoffrey Chaucer Website](https://chaucer.fas.harvard.edu/pages/great-vowel-shift) · `harvard-chaucer` | global | science, culture, education | technical-release | open / opened |
+| [NYU visual perception teaching](https://www.cns.nyu.edu/~david/courses/perception/demos/demo-adaptation.html) · `nyu-perception` | global | science, education | technical-release | open / opened |
+
+## university-extension
+
+| 来源／官方发布入口 | 地区提示 | 主题提示 | 角色 | 访问／观测 |
+|---|---|---|---|---|
+| [National Center for Home Food Preservation](https://nchfp.uga.edu/how/can/canning-fruits-and-fruit-products/strawberry-preserves/) · `nchfp` | united-kingdom, global | food, science, culture | technical-release | open / opened |
+
+## university-guidance
+
+| 来源／官方发布入口 | 地区提示 | 主题提示 | 角色 | 访问／观测 |
+|---|---|---|---|---|
+| [Nottingham Trent University accommodation guidance](https://www.ntu.ac.uk/life-at-ntu/accommodation/guide-to-private-accommodation) · `ntu-housing` | global | education, history, society | primary-announcement | open / opened |
+| [St Marys University housing guide, revised April 2016](https://www.stmarys.ac.uk/student-services/docs/guide-to-off-campus-accommodation.pdf) · `stmarys-housing` | united-kingdom | housing, education, language | technical-release | open / opened |
+
+## university-history
+
+| 来源／官方发布入口 | 地区提示 | 主题提示 | 角色 | 访问／观测 |
+|---|---|---|---|---|
+| [MacTutor History of Mathematics](https://mathshistory.st-andrews.ac.uk/Curves/Involute/) · `mactutor` | global | science, history | research-reporting | open / search-confirmed |
