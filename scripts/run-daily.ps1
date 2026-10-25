@@ -46,7 +46,7 @@ else {
 }
 if (-not $codexExecutable) { throw '未找到 Codex CLI' }
 $prompt = @"
-执行第二语言项目北京时间 $studyDate 的正式日课。先完整读取AGENTS.md、protocol/DAILY_RUN.md、protocol/RECOMMENDATION.md、protocol/CURRENT_AFFAIRS.md、protocol/QUALITY_WORKFLOW.md、protocol/QUALITY_SCALE.md、protocol/CONTENT.md、protocol/USAGE_LABELS.md、protocol/ETYMOLOGY.md、protocol/ANNOTATIONS.md、protocol/TEACHING_AUTHORING.md及领取到临时需求时的protocol/TEMPORARY.md。按实际输入和现行内容协议完成，不用上下文旧摘要替代。先恢复 work/runs/$studyDate 已有文件；未完成留具体resume.md，不因05:00开始生成就设发布截止。
+执行第二语言项目北京时间 $studyDate 的正式日课。先完整读取AGENTS.md、protocol/DAILY_RUN.md、protocol/RECOMMENDATION.md、protocol/CURRENT_AFFAIRS.md、protocol/QUALITY_WORKFLOW.md、protocol/QUALITY_SCALE.md、protocol/CONTENT.md、protocol/USAGE_LABELS.md、protocol/ETYMOLOGY.md、protocol/ANNOTATIONS.md、protocol/TEACHING_AUTHORING.md、protocol/PART_THREE_PRODUCTION.md及领取到临时需求时的protocol/TEMPORARY.md。按实际输入和现行内容协议完成，不用上下文旧摘要替代。先恢复 work/runs/$studyDate 已有文件；未完成留具体resume.md，不因05:00开始生成就设发布截止。
 
 定时入口已领取一次运行，幂等读取control.json；休息立即结束，本日已发布则回读确认后结束。旧章已经封存，不迁移、不补修、不用旧数量推算，按服务端现行新章序列取得章号。模型 gpt-6.1-sol/max，正式50主词；完整双教材、真实词族、所有义项和原例保持，难度适度上调且不按owner词表分桶。
 
