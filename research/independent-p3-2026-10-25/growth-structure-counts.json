@@ -1,0 +1,675 @@
+{
+  "formal": {
+    "articles": 51,
+    "sentences": 613,
+    "words": 12771,
+    "refs": 711,
+    "categories": {
+      "multiple": {
+        "sentences": 208,
+        "words": 4415,
+        "refs": 458
+      },
+      "one": {
+        "sentences": 253,
+        "words": 5197,
+        "refs": 253
+      },
+      "zero": {
+        "sentences": 152,
+        "words": 3159,
+        "refs": 0
+      }
+    },
+    "longPieces": [
+      {
+        "id": "R1A02",
+        "title": "The Working Day Behind a Blank Employment Record",
+        "words": 511,
+        "sentences": 26,
+        "uses": 38
+      },
+      {
+        "id": "R1A03",
+        "title": "What Remains When an Artwork Changes",
+        "words": 444,
+        "sentences": 21,
+        "uses": 32
+      },
+      {
+        "id": "R2A04",
+        "title": "Wallace's Evidence and Wallace's Beliefs",
+        "words": 436,
+        "sentences": 21,
+        "uses": 32
+      },
+      {
+        "id": "R3A13",
+        "title": "The Last Person in the House",
+        "words": 435,
+        "sentences": 23,
+        "uses": 17
+      },
+      {
+        "id": "R1A01",
+        "title": "One Impact, Two Celestial Clocks",
+        "words": 432,
+        "sentences": 21,
+        "uses": 35
+      },
+      {
+        "id": "R3A06",
+        "title": "From an Unequal School to a Judicial Remedy",
+        "words": 427,
+        "sentences": 20,
+        "uses": 23
+      },
+      {
+        "id": "R2A01",
+        "title": "Learning the Lesson While Learning a Language",
+        "words": 410,
+        "sentences": 19,
+        "uses": 34
+      },
+      {
+        "id": "R2A05",
+        "title": "The Reopened Stage and the Work of Acting",
+        "words": 389,
+        "sentences": 19,
+        "uses": 40
+      },
+      {
+        "id": "R3A05",
+        "title": "The Different Speeds of Political Change",
+        "words": 386,
+        "sentences": 20,
+        "uses": 22
+      },
+      {
+        "id": "R1A13",
+        "title": "From the Convention Floor to a Reusable Record",
+        "words": 364,
+        "sentences": 17,
+        "uses": 11
+      },
+      {
+        "id": "R1A04",
+        "title": "The Factory as a Picture of Modern Life",
+        "words": 354,
+        "sentences": 18,
+        "uses": 26
+      },
+      {
+        "id": "R3A02",
+        "title": "The Distance Between a Home and a Station",
+        "words": 350,
+        "sentences": 16,
+        "uses": 23
+      },
+      {
+        "id": "R3A01",
+        "title": "A River Continues Its Work",
+        "words": 345,
+        "sentences": 18,
+        "uses": 27
+      },
+      {
+        "id": "R1A06",
+        "title": "A Small Gap and an Accumulating Signal",
+        "words": 342,
+        "sentences": 17,
+        "uses": 20
+      },
+      {
+        "id": "R2A02",
+        "title": "From a Resistance Record to Infection Control",
+        "words": 339,
+        "sentences": 16,
+        "uses": 27
+      },
+      {
+        "id": "R1A11",
+        "title": "An Objection with a Place at the Table",
+        "words": 313,
+        "sentences": 16,
+        "uses": 13
+      },
+      {
+        "id": "R3A16",
+        "title": "A Missing Letter and a Misplaced Spike",
+        "words": 304,
+        "sentences": 13,
+        "uses": 9
+      },
+      {
+        "id": "R3A04",
+        "title": "A Sister, a Small Sheet and a Legal Afterlife",
+        "words": 295,
+        "sentences": 14,
+        "uses": 17
+      },
+      {
+        "id": "R1A09",
+        "title": "From Slipping Surfaces to Moving Wheels",
+        "words": 289,
+        "sentences": 16,
+        "uses": 25
+      },
+      {
+        "id": "R1A05",
+        "title": "A Beam Built from Many Emissions",
+        "words": 286,
+        "sentences": 14,
+        "uses": 18
+      },
+      {
+        "id": "R2A07",
+        "title": "Work With the Soil You Have",
+        "words": 283,
+        "sentences": 13,
+        "uses": 19
+      },
+      {
+        "id": "R3A15",
+        "title": "Moving a Collection Before Rebuilding Its Climate",
+        "words": 275,
+        "sentences": 13,
+        "uses": 9
+      },
+      {
+        "id": "R3A08",
+        "title": "What Arrives Early, and What Lasts",
+        "words": 267,
+        "sentences": 13,
+        "uses": 12
+      },
+      {
+        "id": "R3A09",
+        "title": "Who Can Act for Someone Else?",
+        "words": 254,
+        "sentences": 12,
+        "uses": 11
+      },
+      {
+        "id": "R2A03",
+        "title": "How Blue Entered a White Curtain",
+        "words": 244,
+        "sentences": 11,
+        "uses": 13
+      },
+      {
+        "id": "R2A06",
+        "title": "A Share's Income and Its Ownership",
+        "words": 241,
+        "sentences": 11,
+        "uses": 16
+      },
+      {
+        "id": "R1A07",
+        "title": "The Home, the Title and the Debt",
+        "words": 232,
+        "sentences": 12,
+        "uses": 16
+      },
+      {
+        "id": "R3A14",
+        "title": "A Root Is Not a List Read Backwards",
+        "words": 220,
+        "sentences": 9,
+        "uses": 8
+      },
+      {
+        "id": "R2A12",
+        "title": "What Recovery Includes",
+        "words": 217,
+        "sentences": 9,
+        "uses": 6
+      },
+      {
+        "id": "R1A10",
+        "title": "Mary Quant's Clothes Were Made to Move",
+        "words": 208,
+        "sentences": 10,
+        "uses": 13
+      },
+      {
+        "id": "R2A13",
+        "title": "Familiar Letters, Changing Voices",
+        "words": 207,
+        "sentences": 10,
+        "uses": 10
+      },
+      {
+        "id": "R3A07",
+        "title": "Strawberries After the Season",
+        "words": 206,
+        "sentences": 10,
+        "uses": 12
+      },
+      {
+        "id": "R2A14",
+        "title": "Equipment Moves Through a Ship's Life",
+        "words": 198,
+        "sentences": 9,
+        "uses": 9
+      },
+      {
+        "id": "R2A11",
+        "title": "Bandung and the Right to Choose a Direction",
+        "words": 189,
+        "sentences": 9,
+        "uses": 11
+      },
+      {
+        "id": "R1A12",
+        "title": "The River Opens a Route Back from the Sea",
+        "words": 164,
+        "sentences": 8,
+        "uses": 9
+      },
+      {
+        "id": "R2A08",
+        "title": "Opening a Shield to Receive Ancient Light",
+        "words": 162,
+        "sentences": 8,
+        "uses": 5
+      },
+      {
+        "id": "R2A10",
+        "title": "Getting the Gas Back Is Not the Whole Test",
+        "words": 161,
+        "sentences": 8,
+        "uses": 5
+      },
+      {
+        "id": "R2A09",
+        "title": "Why Two Clubs Can Be a Question",
+        "words": 156,
+        "sentences": 6,
+        "uses": 3
+      },
+      {
+        "id": "R1A15",
+        "title": "Sorting an Object Is Only the Beginning",
+        "words": 153,
+        "sentences": 7,
+        "uses": 3
+      },
+      {
+        "id": "R1A08",
+        "title": "Beer That Finishes Its Work in the Container",
+        "words": 147,
+        "sentences": 7,
+        "uses": 8
+      },
+      {
+        "id": "R2A15",
+        "title": "A Room's Several Calendars",
+        "words": 133,
+        "sentences": 6,
+        "uses": 2
+      },
+      {
+        "id": "R3A12",
+        "title": "An Eye Has Structure and a Recent History",
+        "words": 131,
+        "sentences": 6,
+        "uses": 4
+      },
+      {
+        "id": "R3A11",
+        "title": "The Part That Holds a Replacement Tooth",
+        "words": 130,
+        "sentences": 6,
+        "uses": 4
+      },
+      {
+        "id": "R2A16",
+        "title": "What Do the Hammer and Tongs Mean?",
+        "words": 117,
+        "sentences": 5,
+        "uses": 3
+      },
+      {
+        "id": "R3A03",
+        "title": "Before the M25 Had One Name",
+        "words": 113,
+        "sentences": 6,
+        "uses": 1
+      },
+      {
+        "id": "R1A14",
+        "title": "The Connections That Bring a Memory Back",
+        "words": 111,
+        "sentences": 5,
+        "uses": 4
+      },
+      {
+        "id": "R2A17",
+        "title": "Reading a Brick Wall's Pattern",
+        "words": 102,
+        "sentences": 5,
+        "uses": 1
+      },
+      {
+        "id": "R1A17",
+        "title": "Flying Between Two Eyewalls",
+        "words": 93,
+        "sentences": 4,
+        "uses": 1
+      },
+      {
+        "id": "R3A10",
+        "title": "Passing Urine Is Not Always Emptying the Bladder",
+        "words": 86,
+        "sentences": 4,
+        "uses": 2
+      },
+      {
+        "id": "R1A16",
+        "title": "A Quiet Guard at the Memorial",
+        "words": 64,
+        "sentences": 3,
+        "uses": 1
+      },
+      {
+        "id": "R3A17",
+        "title": "The Voice Travels One Way; the Bill May Not",
+        "words": 56,
+        "sentences": 3,
+        "uses": 1
+      }
+    ]
+  },
+  "new": {
+    "articles": 38,
+    "sentences": 717,
+    "words": 13752,
+    "refs": 680,
+    "categories": {
+      "one": {
+        "sentences": 391,
+        "words": 7499,
+        "refs": 391
+      },
+      "multiple": {
+        "sentences": 139,
+        "words": 2821,
+        "refs": 289
+      },
+      "zero": {
+        "sentences": 187,
+        "words": 3432,
+        "refs": 0
+      }
+    },
+    "longPieces": [
+      {
+        "id": "P24",
+        "title": "What waking up changes",
+        "words": 923,
+        "sentences": 49,
+        "uses": 31
+      },
+      {
+        "id": "P15",
+        "title": "A plan that people can carry",
+        "words": 662,
+        "sentences": 38,
+        "uses": 41
+      },
+      {
+        "id": "P16",
+        "title": "Agreement must fit the room",
+        "words": 619,
+        "sentences": 37,
+        "uses": 35
+      },
+      {
+        "id": "P05",
+        "title": "The factory, the picture, and its surface",
+        "words": 590,
+        "sentences": 33,
+        "uses": 36
+      },
+      {
+        "id": "P12",
+        "title": "The price does not describe the ownership",
+        "words": 551,
+        "sentences": 27,
+        "uses": 31
+      },
+      {
+        "id": "P01",
+        "title": "A river opens, but recovery takes longer",
+        "words": 550,
+        "sentences": 27,
+        "uses": 41
+      },
+      {
+        "id": "P17",
+        "title": "An ally's war and an ally's refusal",
+        "words": 520,
+        "sentences": 31,
+        "uses": 29
+      },
+      {
+        "id": "P08",
+        "title": "What stays recognisable when timing changes",
+        "words": 500,
+        "sentences": 29,
+        "uses": 25
+      },
+      {
+        "id": "P14",
+        "title": "Entering the school was only a beginning",
+        "words": 486,
+        "sentences": 24,
+        "uses": 29
+      },
+      {
+        "id": "P10",
+        "title": "How a private sitting becomes a public claim",
+        "words": 483,
+        "sentences": 25,
+        "uses": 17
+      },
+      {
+        "id": "P03",
+        "title": "From identifying a species to explaining its past",
+        "words": 475,
+        "sentences": 22,
+        "uses": 22
+      },
+      {
+        "id": "P19",
+        "title": "Keeping the files and keeping their meaning",
+        "words": 474,
+        "sentences": 27,
+        "uses": 26
+      },
+      {
+        "id": "P20a",
+        "title": "From bright fringes to an electrical total",
+        "words": 441,
+        "sentences": 22,
+        "uses": 28
+      },
+      {
+        "id": "P18",
+        "title": "Passing on the information care requires",
+        "words": 413,
+        "sentences": 18,
+        "uses": 16
+      },
+      {
+        "id": "P07c",
+        "title": "What a production target leaves out",
+        "words": 351,
+        "sentences": 20,
+        "uses": 25
+      },
+      {
+        "id": "P09b",
+        "title": "The actor inside the digital Ariel",
+        "words": 346,
+        "sentences": 18,
+        "uses": 15
+      },
+      {
+        "id": "P21",
+        "title": "Discovery carries a telescope into orbit",
+        "words": 339,
+        "sentences": 15,
+        "uses": 20
+      },
+      {
+        "id": "P07b",
+        "title": "What a shift reveals",
+        "words": 332,
+        "sentences": 18,
+        "uses": 22
+      },
+      {
+        "id": "P11",
+        "title": "Restoring a crown, limiting its claims",
+        "words": 323,
+        "sentences": 17,
+        "uses": 14
+      },
+      {
+        "id": "P28",
+        "title": "A line on the page and a voice onstage",
+        "words": 313,
+        "sentences": 16,
+        "uses": 7
+      },
+      {
+        "id": "P22a",
+        "title": "Connecting power, choosing direction",
+        "words": 309,
+        "sentences": 14,
+        "uses": 20
+      },
+      {
+        "id": "P02b",
+        "title": "Two ways to change what we harvest",
+        "words": 302,
+        "sentences": 15,
+        "uses": 16
+      },
+      {
+        "id": "P13a",
+        "title": "A representative does not own the decision",
+        "words": 302,
+        "sentences": 18,
+        "uses": 15
+      },
+      {
+        "id": "P13b",
+        "title": "Different powers inside a courtroom",
+        "words": 302,
+        "sentences": 17,
+        "uses": 12
+      },
+      {
+        "id": "P07a",
+        "title": "Why a weaving yarn needs a temporary coat",
+        "words": 294,
+        "sentences": 16,
+        "uses": 14
+      },
+      {
+        "id": "P09a",
+        "title": "How another Tempest holds together",
+        "words": 283,
+        "sentences": 13,
+        "uses": 10
+      },
+      {
+        "id": "P04",
+        "title": "From the eye's colours to its signals",
+        "words": 282,
+        "sentences": 13,
+        "uses": 12
+      },
+      {
+        "id": "P02a",
+        "title": "Keeping water, growing fruit",
+        "words": 278,
+        "sentences": 15,
+        "uses": 25
+      },
+      {
+        "id": "P09c",
+        "title": "A performance beyond the room",
+        "words": 276,
+        "sentences": 15,
+        "uses": 10
+      },
+      {
+        "id": "P20b",
+        "title": "Reading a line in a spectrum",
+        "words": 258,
+        "sentences": 13,
+        "uses": 7
+      },
+      {
+        "id": "P25",
+        "title": "A meaning the opponents may know",
+        "words": 187,
+        "sentences": 8,
+        "uses": 5
+      },
+      {
+        "id": "P27a",
+        "title": "Keeping position at sea",
+        "words": 178,
+        "sentences": 7,
+        "uses": 3
+      },
+      {
+        "id": "P22b",
+        "title": "What an ideal collision preserves",
+        "words": 175,
+        "sentences": 7,
+        "uses": 5
+      },
+      {
+        "id": "P29",
+        "title": "Who paid for the call?",
+        "words": 162,
+        "sentences": 9,
+        "uses": 3
+      },
+      {
+        "id": "P23",
+        "title": "A taut thread and a square root",
+        "words": 158,
+        "sentences": 9,
+        "uses": 4
+      },
+      {
+        "id": "P26",
+        "title": "An objection inside the cause",
+        "words": 156,
+        "sentences": 8,
+        "uses": 2
+      },
+      {
+        "id": "P22c",
+        "title": "A route around the closure",
+        "words": 88,
+        "sentences": 4,
+        "uses": 6
+      },
+      {
+        "id": "P27b",
+        "title": "A rifle carried in mourning",
+        "words": 71,
+        "sentences": 3,
+        "uses": 1
+      }
+    ]
+  }
+}
