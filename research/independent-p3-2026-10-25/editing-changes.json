@@ -1,0 +1,430 @@
+{
+  "schemaVersion": 1,
+  "baseSHA256": "a41c14686ae22c546eee27526376cdadee540e0603601a71a0bfaa63297b7e7b",
+  "candidateSHA256": "e4d5589d3279997debde37c1aeff62604bfd978e1ee10608b6750ccaac87f53e",
+  "changes": [
+    {
+      "id": "E01",
+      "articleIds": [
+        "P15"
+      ],
+      "sentenceIds": [
+        "P15S007",
+        "P15S008"
+      ],
+      "originalUnderstandingTask": "Apply the cited division of responsibilities to an explicitly hypothetical convention with limited resources.",
+      "retained": [
+        "Professional convention as an actual meeting context for U01404.",
+        "Explicit model status, link to the preceding functional division, one hall, fixed closing time and limited crew.",
+        "All subsequent allocation, equity, fallback, handover and human-limit developments."
+      ],
+      "removedOrShared": "The model introduction and its three conditions share one sentence; the second announcement of the model is removed.",
+      "whyQualityIsPreserved": "The opening still declares the illustration and every constraint before using them. It avoids making the conference an observed FEMA event.",
+      "before": {
+        "P15S007": {
+          "id": "P15S007",
+          "text": "Consider how this division of work could help organisers plan a professional convention.",
+          "translation": "可以考虑，这种分工如何帮助组织者筹划一次行业大会。",
+          "uses": [
+            "U01404"
+          ]
+        },
+        "P15S008": {
+          "id": "P15S008",
+          "text": "The following arrangement is a planning model, with one main hall, a fixed closing time and a limited crew.",
+          "translation": "下面是一套筹划模型：只有一个主会场，闭幕时间固定，工作人员有限。",
+          "uses": []
+        }
+      },
+      "after": {
+        "P15S007": {
+          "id": "P15S007",
+          "text": "In a model for a professional convention, organisers apply this division of work with one main hall, a fixed closing time and a limited crew.",
+          "translation": "在一次行业大会的筹划模型中，组织者运用这种分工；模型只有一个主会场，闭幕时间固定，工作人员有限。",
+          "uses": [
+            "U01404"
+          ]
+        }
+      },
+      "deletedSentenceIds": [
+        "P15S008"
+      ],
+      "sourceOriginalReads": [
+        {
+          "path": "sources/author-a-originals/fema-selected-original.txt",
+          "sha256": "9e2aa533b383c88c70336ad56ee5a1ba9399af79b5fa5eee4e46aac844e8f2da",
+          "actualEditorReadScope": "Printed introduction on planned events/fairs and flexible scope, local lines160–217; the convention quantities remain author-created model conditions.",
+          "primaryUrl": "https://training.fema.gov/emiweb/is/icsresource/assets/ics_training_reference_guide.pdf",
+          "adoptedSourceRecord": "AUTHOR_A_SOURCE_28",
+          "provenance": "Primary body newly acquired in this independent experiment; editor reopened its actual source words, not only author notes."
+        }
+      ],
+      "newFactualClaims": [],
+      "targetUseIdsRetained": [
+        "U01404"
+      ]
+    },
+    {
+      "id": "E02",
+      "articleIds": [
+        "P20a"
+      ],
+      "sentenceIds": [
+        "P20aS005",
+        "P20aS006"
+      ],
+      "originalUnderstandingTask": "Explain why overlapping independent light sources do not produce a stable time-averaged fringe pattern.",
+      "retained": [
+        "S001 monochromatic point source and equal slit distances.",
+        "S002 phase/amplitude interference conditions.",
+        "S004 relative phase changes during detector averaging.",
+        "Wave overlap, incoherently as a manner adverb, incoherence as the physical property, and the averaging mechanism and observable result."
+      ],
+      "removedOrShared": "The two consecutive repetitions of the washed-out/stable-fringe result become one causal explanation, with overlap and manner in the preceding short sentence.",
+      "whyQualityIsPreserved": "Each of the two grammatical targets remains in its own readable sentence. The time scale and detector averaging that explain the result remain explicit in the paragraph.",
+      "before": {
+        "P20aS005": {
+          "id": "P20aS005",
+          "text": "The waves still overlap, but they add incoherently and the moving bright and dark regions wash out in the average.",
+          "translation": "这些波仍会重叠，但以非相干方式叠加，移动的明暗区域会在平均结果中消失。",
+          "uses": [
+            "U00917"
+          ]
+        },
+        "P20aS006": {
+          "id": "P20aS006",
+          "text": "That incoherence prevents a stable fringe pattern from appearing even though light continues to reach the screen.",
+          "translation": "即使光继续到达屏幕，这种非相干性也会阻止稳定条纹图样的形成。",
+          "uses": [
+            "U00915"
+          ]
+        }
+      },
+      "after": {
+        "P20aS005": {
+          "id": "P20aS005",
+          "text": "The waves still overlap and add incoherently.",
+          "translation": "这些波仍会重叠，并以非相干方式叠加。",
+          "uses": [
+            "U00917"
+          ]
+        },
+        "P20aS006": {
+          "id": "P20aS006",
+          "text": "Their incoherence washes the shifting bright and dark regions out of the detector's average, leaving no stable pattern.",
+          "translation": "这种非相干性使不断移动的明暗区域在探测器的平均结果中消失，不能留下稳定图样。",
+          "uses": [
+            "U00915"
+          ]
+        }
+      },
+      "deletedSentenceIds": [],
+      "sourceOriginalReads": [
+        {
+          "path": "sources/author-b-originals/p20-interference.text.txt",
+          "sha256": "8afe31f2a2a7f176946047de3ec4219c2a037e0db8a9fa3966545c315fc89da3",
+          "actualEditorReadScope": "Relevant coherent/incoherent source and double-slit source/relative-phase context, reopened during authoring and editing.",
+          "primaryUrl": "https://openstax.org/books/university-physics-volume-3/pages/3-1-youngs-double-slit-interference",
+          "adoptedSourceRecord": "B_INTERFERENCE",
+          "provenance": "Primary body newly acquired in this independent experiment; editor reopened its actual source words, not only author notes."
+        }
+      ],
+      "newFactualClaims": [],
+      "targetUseIdsRetained": [
+        "U00915",
+        "U00917"
+      ]
+    },
+    {
+      "id": "E03",
+      "articleIds": [
+        "P20a"
+      ],
+      "sentenceIds": [
+        "P20aS021"
+      ],
+      "originalUnderstandingTask": "Interpret actual measurement agreement after the ideal readout calculation and distinguish repeatability from correctness.",
+      "retained": [
+        "Precision instrument as the noun used attributively in U04012.",
+        "Technical measurement precision U04011 applied to repeated readings under the same conditions.",
+        "The preceding exact ideal value, timing/capacitance uncertainty, approximation and warning about decimal places."
+      ],
+      "removedOrShared": "A general must-control-conditions statement and definition-like depends-on clause are replaced by a practical limitation of those readings.",
+      "whyQualityIsPreserved": "The physical example now develops one more useful decision: close repeated readings alone cannot establish accuracy. It does not add a fresh apparatus or a numerical branch.",
+      "before": {
+        "P20aS021": {
+          "id": "P20aS021",
+          "text": "A precision instrument must control the relevant conditions, and its measurement precision depends on how closely repeated readings agree under those conditions.",
+          "translation": "精密仪器必须控制相关条件，而其测量精密度取决于在这些条件下重复读数彼此有多接近。",
+          "uses": [
+            "U04012",
+            "U04011"
+          ]
+        }
+      },
+      "after": {
+        "P20aS021": {
+          "id": "P20aS021",
+          "text": "A precision instrument may give closely agreeing readings under the same conditions, yet that high measurement precision does not rule out a consistent error.",
+          "translation": "精密仪器在相同条件下可能给出彼此接近的读数，但测量精密度高，并不能排除一贯存在的偏差。",
+          "uses": [
+            "U04012",
+            "U04011"
+          ]
+        }
+      },
+      "deletedSentenceIds": [],
+      "sourceOriginalReads": [
+        {
+          "path": "sources/author-b-originals/p20-precision.text.txt",
+          "sha256": "593126e9b2abd909313a043c44c21fa050764ffee6305c0019c5adde18ba4a96",
+          "actualEditorReadScope": "Accuracy and Precision of a Measurement, local lines24–30: repeated independent readings under the same conditions; GPS cluster away from the reference. Actual original reopened after first freeze.",
+          "primaryUrl": "https://openstax.org/books/university-physics-volume-1/pages/1-6-significant-figures",
+          "adoptedSourceRecord": "B_PRECISION",
+          "provenance": "Primary body newly acquired in this independent experiment; editor reopened its actual source words, not only author notes."
+        }
+      ],
+      "newFactualClaims": [
+        "Closely agreeing readings can share a consistent error; supported by the actually reread primary high-precision/low-accuracy example, not asserted as a new observed circuit result."
+      ],
+      "targetUseIdsRetained": [
+        "U04011",
+        "U04012"
+      ]
+    },
+    {
+      "id": "E04",
+      "articleIds": [
+        "P19"
+      ],
+      "sentenceIds": [
+        "P19S020"
+      ],
+      "originalUnderstandingTask": "Distinguish the runtime work below a preservation service interface from long-term retention of its source files.",
+      "retained": [
+        "Allocator U00305 remains a count noun naming the allocating component.",
+        "Runtime, temporary objects and buffers.",
+        "The proposed viewing-tool context from S013 and the access-image context from S024."
+      ],
+      "removedOrShared": "The runtime allocator is applied to the same image-viewing task, replacing an isolated generic definition and an explicit it-is-not-the-repository contrast.",
+      "whyQualityIsPreserved": "Temporary space while opening an image makes the runtime role concrete. Could marks the illustration; it does not attribute Python implementation to the Library of Congress.",
+      "before": {
+        "P19S020": {
+          "id": "P19S020",
+          "text": "For example, Python's memory allocator obtains space for objects and buffers while a program is running; it is not the repository that preserves a document for decades.",
+          "translation": "例如，Python的内存分配器在程序运行时为对象和缓冲区取得空间；它并不是把文件保存数十年的资料保存机构。",
+          "uses": [
+            "U00305"
+          ]
+        }
+      },
+      "after": {
+        "P19S020": {
+          "id": "P19S020",
+          "text": "For example, a Python viewing tool could use a memory allocator to supply space for temporary objects and buffers while opening an access image.",
+          "translation": "例如，Python编写的查看工具在打开一幅查阅图像时，可以由内存分配器为临时对象和缓冲区提供空间。",
+          "uses": [
+            "U00305"
+          ]
+        }
+      },
+      "deletedSentenceIds": [],
+      "sourceOriginalReads": [
+        {
+          "path": "sources/author-a-originals/web-read-18.tool-original.json",
+          "sha256": "65d99b7c55faff50189c17ed7e35129f50c46d112b4f2b91c502d0bf88b0576e",
+          "actualEditorReadScope": "Actual Python C API body L3–8, L21–24 and L31–43 on private heap, raw/object-specific allocators and buffers; not the unrelated Suez page in the same capture.",
+          "primaryUrl": "https://docs.python.org/3/c-api/memory.html",
+          "adoptedSourceRecord": "AUTHOR_A_SOURCE_27",
+          "provenance": "Primary body newly acquired in this independent experiment; editor reopened its actual source words, not only author notes."
+        }
+      ],
+      "newFactualClaims": [],
+      "targetUseIdsRetained": [
+        "U00305"
+      ]
+    },
+    {
+      "id": "E05",
+      "articleIds": [
+        "P19"
+      ],
+      "sentenceIds": [
+        "P19S026"
+      ],
+      "originalUnderstandingTask": "Contrast linked computer hypermedia with teaching through a combination of physical print and recorded audio.",
+      "retained": [
+        "Hypermedia U03221 still links page, transcription and recording for navigation in S025.",
+        "Teaching multimedia U03222 remains an uncountable noun and extends beyond a single computer program through print plus audio.",
+        "Both are possible arrangements, with no claim that the cited institution implemented them."
+      ],
+      "removedOrShared": "The teaching example reuses the preceding page and reading instead of introducing a separate printed reader and broadcast.",
+      "whyQualityIsPreserved": "Shared objects allow the two target distinctions to be compared directly while retaining distinct functions. This is a declared possible teaching arrangement, not an extra factual claim about holdings.",
+      "before": {
+        "P19S026": {
+          "id": "P19S026",
+          "text": "In teaching, multimedia could pair a printed reader with a recorded broadcast, giving learners complementary ways into the material.",
+          "translation": "在教学中，可以运用多媒体，把印刷读本与广播录音搭配使用，为学习者提供互相补充的理解途径。",
+          "uses": [
+            "U03222"
+          ]
+        }
+      },
+      "after": {
+        "P19S026": {
+          "id": "P19S026",
+          "text": "In teaching, multimedia could pair a printed version of the same page with its recorded reading, giving learners complementary ways into the document.",
+          "translation": "在教学中，可以运用多媒体，把同一页面的印刷版与朗读录音搭配使用，为学习者提供互相补充的文献理解途径。",
+          "uses": [
+            "U03222"
+          ]
+        }
+      },
+      "deletedSentenceIds": [],
+      "sourceOriginalReads": [
+        {
+          "path": "sources/author-a-originals/web-read-04.tool-original.json",
+          "sha256": "9ac1f17759d8a1473181220b312b001d4121f5c9a2026ecd14ca7d33b3394d6c",
+          "actualEditorReadScope": "Actually read the substantive Library of Congress born-digital FAQ L9–51, especially data/metadata and access restrictions; the later teaching model is not attributed to the Library.",
+          "primaryUrl": "https://guides.loc.gov/born-digital-access/faq",
+          "adoptedSourceRecord": "AUTHOR_A_SOURCE_26",
+          "provenance": "Primary body newly acquired in this independent experiment; editor reopened its actual source words, not only author notes."
+        }
+      ],
+      "newFactualClaims": [],
+      "targetUseIdsRetained": [
+        "U03222"
+      ]
+    },
+    {
+      "id": "E06",
+      "articleIds": [
+        "P27a"
+      ],
+      "sentenceIds": [
+        "P27aS004"
+      ],
+      "originalUnderstandingTask": "Move from keeping ships in formation to physically restraining cargo, then explain a sourced cargo-loss investigation.",
+      "retained": [
+        "Cargo shift U04515 remains an intransitive verb for actual possible movement.",
+        "Merchant-vessel setting, securing arrangements and the physical pitching mechanism.",
+        "The following real case, date, twenty lost containers, open twistlocks, weight distribution and leverage."
+      ],
+      "removedOrShared": "The abstract another-operational-problem framing and vague forces-the-arrangement-was-meant-to-prevent clause become the immediate restraining mechanism.",
+      "whyQualityIsPreserved": "The primary case explicitly describes heavy pitching and securing failures. The sentence introduces their relationship without inventing another ship, event or measured load.",
+      "before": {
+        "P27aS004": {
+          "id": "P27aS004",
+          "text": "Aboard a merchant ship, keeping cargo in its intended position is another operational problem: cargo that shifts can impose forces the securing arrangement was meant to prevent.",
+          "translation": "在商船上，让货物保持在预定位置是另一项操作问题：货物移位后，可能产生固定装置原本应当防止的作用力。",
+          "uses": [
+            "U04515"
+          ]
+        }
+      },
+      "after": {
+        "P27aS004": {
+          "id": "P27aS004",
+          "text": "Aboard a merchant ship, securing arrangements restrain cargo that could otherwise shift as the vessel pitches.",
+          "translation": "在商船上，固定装置约束着货物，防止其在船体纵摇时移位。",
+          "uses": [
+            "U04515"
+          ]
+        }
+      },
+      "deletedSentenceIds": [],
+      "sourceOriginalReads": [
+        {
+          "path": "sources/author-b-originals/p27-cargo.text.txt",
+          "sha256": "5429d4ef444039384f09bda10c7ef5f07741e5617aa89fb7a81469fd936a4591",
+          "actualEditorReadScope": "Actual MAIB synopsis and action local lines106–114, including pitching, twistlocks, top-heavy stacks and securing arrangements.",
+          "primaryUrl": "https://www.gov.uk/maib-reports/shift-of-cargo-on-container-vessel-fehn-mistral-in-heavy-weather-off-orkney-scotland",
+          "adoptedSourceRecord": "B_CARGO",
+          "provenance": "Primary body newly acquired in this independent experiment; editor reopened its actual source words, not only author notes."
+        }
+      ],
+      "newFactualClaims": [],
+      "targetUseIdsRetained": [
+        "U04515"
+      ]
+    },
+    {
+      "id": "E07",
+      "articleIds": [
+        "P07b"
+      ],
+      "sentenceIds": [
+        "P07bS015"
+      ],
+      "originalUnderstandingTask": "Make material, movement and construction constrain the design of a reversible garment before discussing practical transmission of sewing knowledge.",
+      "retained": [
+        "S014 retains both reversible garment adjective and physical reversal verb applications.",
+        "Both seam and fastening requirements with the other surface outward.",
+        "S016–18 preserve tangible cloth, learned judgment, inheritors and transmission through watching/trying/correction."
+      ],
+      "removedOrShared": "The generic statement that two attractive faces do not make the construction succeed repeats the immediately preceding seam/fastening requirement.",
+      "whyQualityIsPreserved": "The paragraph moves directly from the concrete construction problem to learned judgment. No material condition, artistic example, narrative action or target application is removed. This deletion is based on its repeated proposition, not its lack of an annotation.",
+      "before": {
+        "P07bS015": {
+          "id": "P07bS015",
+          "text": "Two attractive faces alone do not make the construction succeed.",
+          "translation": "仅有两个漂亮的表面，还不足以使这种结构成功。",
+          "uses": []
+        }
+      },
+      "after": {},
+      "deletedSentenceIds": [
+        "P07bS015"
+      ],
+      "sourceOriginalReads": [],
+      "newFactualClaims": [],
+      "targetUseIdsRetained": []
+    }
+  ],
+  "consideredButRetained": [
+    {
+      "articleIds": [
+        "P03"
+      ],
+      "sentenceIds": [
+        "P03S020",
+        "P03S021"
+      ],
+      "reason": "Historical development and the subsequent lone-discoverer inference are distinct readable moves. Combining them would increase density without improving the task."
+    },
+    {
+      "articleIds": [
+        "P09a",
+        "P09b",
+        "P09c",
+        "P28"
+      ],
+      "reason": "Dramatic content, adaptation and grammatical form have different tasks. The opening shipwreck language is an actual stage/text experience, not a redundant plot summary to delete mechanically."
+    },
+    {
+      "articleIds": [
+        "P10",
+        "P19"
+      ],
+      "reason": "Physical historical Houdini material and born-digital Library of Congress access are distinct actual institutions and record types. A combined fabricated collection would erase their factual boundary."
+    },
+    {
+      "articleIds": [
+        "P19"
+      ],
+      "sentenceIds": [
+        "P19S027"
+      ],
+      "reason": "The return to relationships and meaning closes the preservation task after the two teaching arrangements; retained as a useful arc rather than deleting every unannotated ending."
+    }
+  ],
+  "affectedArticleIds": [
+    "P07b",
+    "P15",
+    "P19",
+    "P20a",
+    "P27a"
+  ],
+  "peerReview": "Private experiment reviews/joint-edit-peer.md; all affected articles, 120 target meanings, English and Chinese and adopted-source context reread.",
+  "notice": "Actual content edits, not a mechanical quality score. The base is preserved byte-for-byte in the private experiment."
+}

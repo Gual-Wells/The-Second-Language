@@ -1,0 +1,141 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-25T13:38:56.398Z",
+  "independentFreeze": {
+    "at": "2026-10-25T13:25:54.521Z",
+    "phase": "Independent candidate and affected-content semantic review frozen before comparison with any earlier Part Three",
+    "articleSHA256": "e4d5589d3279997debde37c1aeff62604bfd978e1ee10608b6750ccaac87f53e",
+    "chapterSHA256": "9c1fd927b59eede31b90e6ed8e13a9737d6429d2ec7f2bee73f812bc5c66402e",
+    "review": "reviews/joint-edit-peer.md",
+    "uses": 680
+  },
+  "firstAndSecondPartsByteIdentical": true,
+  "currentPublished": {
+    "sha256": "4cc6a2f9edee37555418c365c1da29033b43c1f6854a3ac2dddf2aa9e03f7a78",
+    "mainWords": 50,
+    "uses": 680,
+    "partOne": {
+      "han": 23303
+    },
+    "partTwo": {
+      "examples": 873,
+      "englishWords": 8016,
+      "translationHan": 14181,
+      "uniqueTexts": 873
+    },
+    "partThree": {
+      "articles": 51,
+      "sentences": 613,
+      "englishWords": 12771,
+      "translationHan": 23831,
+      "minArticleWords": 56,
+      "maxArticleWords": 511,
+      "medianArticleWords": 241,
+      "meanSentenceWords": 20.833605220228385,
+      "maxSentenceWords": 33,
+      "referencesPerSentence": {
+        "0": 152,
+        "1": 253,
+        "2": 169,
+        "3": 36,
+        "4": 3
+      }
+    },
+    "scale": {
+      "p3EnglishWordsPerUse": 18.780882352941177,
+      "p2p3EnglishWordsPerUse": 30.569117647058825,
+      "notice": "Chapter-level observations over distinct Part One USE identities, not per-sense allowances or quality scores."
+    }
+  },
+  "independentBase": {
+    "mainWords": 50,
+    "uses": 680,
+    "partOne": {
+      "han": 23303
+    },
+    "partTwo": {
+      "examples": 873,
+      "englishWords": 8016,
+      "translationHan": 14181,
+      "uniqueTexts": 873
+    },
+    "partThree": {
+      "articles": 38,
+      "sentences": 719,
+      "englishWords": 13789,
+      "translationHan": 25354,
+      "minArticleWords": 71,
+      "maxArticleWords": 923,
+      "medianArticleWords": 318,
+      "meanSentenceWords": 19.178025034770513,
+      "maxSentenceWords": 35,
+      "referencesPerSentence": {
+        "0": 189,
+        "1": 391,
+        "2": 129,
+        "3": 9,
+        "4": 1
+      }
+    },
+    "scale": {
+      "p3EnglishWordsPerUse": 20.277941176470588,
+      "p2p3EnglishWordsPerUse": 32.06617647058823,
+      "notice": "Chapter-level observations over distinct Part One USE identities, not per-sense allowances or quality scores."
+    }
+  },
+  "independentEdited": {
+    "mainWords": 50,
+    "uses": 680,
+    "partOne": {
+      "han": 23303
+    },
+    "partTwo": {
+      "examples": 873,
+      "englishWords": 8016,
+      "translationHan": 14181,
+      "uniqueTexts": 873
+    },
+    "partThree": {
+      "articles": 38,
+      "sentences": 717,
+      "englishWords": 13752,
+      "translationHan": 25301,
+      "minArticleWords": 71,
+      "maxArticleWords": 923,
+      "medianArticleWords": 318,
+      "meanSentenceWords": 19.179916317991633,
+      "maxSentenceWords": 35,
+      "referencesPerSentence": {
+        "0": 187,
+        "1": 391,
+        "2": 129,
+        "3": 9,
+        "4": 1
+      }
+    },
+    "scale": {
+      "p3EnglishWordsPerUse": 20.223529411764705,
+      "p2p3EnglishWordsPerUse": 32.01176470588236,
+      "notice": "Chapter-level observations over distinct Part One USE identities, not per-sense allowances or quality scores."
+    }
+  },
+  "changes": {
+    "jointEditingEnglishReduction": 37,
+    "jointEditingFraction": 0.0026832982812386996,
+    "englishIncreaseOverPublished": 981,
+    "fractionIncreaseOverPublished": 0.0768146582100071
+  },
+  "sourceReadRecords": 114,
+  "uniqueAdoptedSourceUrls": 114,
+  "publicArtifacts": {
+    "articles": {
+      "path": "articles.json",
+      "sha256": "e4d5589d3279997debde37c1aeff62604bfd978e1ee10608b6750ccaac87f53e"
+    },
+    "markdown": {
+      "path": "part-three.md",
+      "sha256": "cca73f905f80c55368b821f329f39a0ef8996e3d022bf12219cfa0122ba111d6"
+    }
+  },
+  "production": "Experiment not adopted or published; current chapter and controls unchanged."
+}
