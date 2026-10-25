@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "completedAt": "2026-10-25T03:21:50.515Z",
+  "baseCommit": "7db4b3c4c92bb4b6918af47b7aff6f223b403ba5",
+  "productionChapterUnchanged": "ddfd12d0adcd7f925c1bbfbd36361240edafddf9f447545fa7fb8dcca0f6cce3",
+  "approach": "Content-led planning and calibrated scope before first writing; read-only observation while writing; original semantic review retained.",
+  "denominator": "Distinct complete Part One USE inventory; no allowance per use, no repeated-reference denominator and no hard size gate.",
+  "probe": {
+    "uncontextualizedQualitativePromptWords": 1154,
+    "contentCalibratedDirectDraftWords": 769,
+    "localReviewedWords": 776,
+    "distinctUses": 42,
+    "originalsPreserved": true,
+    "localCorrections": 3,
+    "scope": "Two different authors and two topics. Not a randomized or full-chapter result; no learning-time or retention experiment."
+  },
+  "checks": [
+    {
+      "command": "node scripts/check-chapter-footprint.mjs",
+      "result": "passed; complete denominator, draft empty/missing inputs, repeated and unknown refs, real CLI byte snapshots/no writes, final coverage gate and legacy CLI"
+    },
+    {
+      "command": "node scripts/check-teaching-authoring.mjs",
+      "result": "passed; original authoring/retrieval/dispositions/coverage/source identities unchanged"
+    },
+    {
+      "command": "node research/first-draft-scale-2026-10-25/analysis.mjs",
+      "result": "passed; four old variants and denominator/distribution inputs verified"
+    },
+    {
+      "command": "node research/first-draft-scale-2026-10-25/build-reviewed.mjs and compare-probes.mjs",
+      "result": "passed; frozen draft pin, three local corrections, paired use sets and actual counts"
+    },
+    {
+      "command": "JS syntax checks and PowerShell Parser.ParseFile(run-daily.ps1)",
+      "result": "passed; no real daily invocation"
+    },
+    {
+      "command": "git diff --check",
+      "result": "passed"
+    }
+  ],
+  "operations": {
+    "scheduledTask": "SecondLanguage-DailyCodex",
+    "actualActionScript": "D:/CodexStorage/workspaces/second-language-certification-reader/scripts/run-daily.ps1",
+    "actionReadBack": true,
+    "reinstallOrFrontendDeployRequired": false,
+    "productionGenerationInvoked": false,
+    "audioRequested": false,
+    "restAndAudioDefaultsModified": false,
+    "newPaidServiceOrSubscription": false
+  },
+  "artifacts": {
+    "analysis.json": "24344232a82fa8dba09a30e2d546cb884649cd615cf12be4e4e06f7fb090c5b8",
+    "analysis.mjs": "55529eaead5bb0429d0cd11655262215c209e3bd1f7340ad7e495c918ce8bd27",
+    "build-reviewed.mjs": "9476e986e746d0040976ed461fb06d54976c658bbc6e2559fdb70adbd65d56b0",
+    "calibrated/author-notes.md": "0a6cef1c409aac6a120b2670ae082c8624185f7526c983baec0ff94c2e698523",
+    "calibrated/first-draft.json": "bdd430e311a193e4e9125cf026c582a713f4aafa0c491becfd0da5947dbf43dd",
+    "calibrated/local-corrections.json": "d806ff26e7243d5d3aeebdb0e0cdef81be38387ec2d6185e7abdaac0ff9bc206",
+    "calibrated/reviewed.json": "ac022cefcc89654fa5ecba5acf0fd7d16aded707f893b7eae7cd378479c1d1d7",
+    "compare-probes.mjs": "2786115d6091b718040dd53e88b33c55284960e52f3fa0f5c4ab4a3d22e1170d",
+    "inputs.json": "9ea15f54d93c7473af23b2ed5f4a6483e366ecd3a52fef7c5460817de91bb084",
+    "probe/author-notes.md": "3a5224ec7713afa545d49caa9eb27a23766f4c67b2ee505a86cb126dfacc5c8d",
+    "probe/first-draft.json": "4f4cfc32557bf7829e048ea8f97c9e8882cc4a1d93c277b4bd0f928f8ccff041",
+    "probe-comparison.json": "4318fb16f4944cd7d0404faa1ec35a52c7fe49badc2df71317905b8c3175d829",
+    "README.md": "d6f74a21516e8fc8927be4c73f1866df67c9b8396adbe68f95da106eead400ba",
+    "review.md": "632a8ecaeba30bc22f53277ce9450a98befb4759ed623fa4195a99451b1c1e2b",
+    "scope-analysis.md": "9d8e1c0bbc2ca08b13a6ffca600d2cbf3f532aecffd22a02fa89a3639cee464f"
+  },
+  "integration": {
+    ".gitattributes": "baaca055e98b2e5f7cd76f5739b7cb9531bd6a70b1d7ac6ae1ef9deead8656b6",
+    "AGENTS.md": "4b4c2b74a3616b6547809c9aae30a06f8ea2bd6cc2823b65bf19c8376a73ebc1",
+    "OPERATIONS.md": "2f3fbd68c9dbd347c869f4a1910f94de4286ac5fc39784f39962e88c8b78cd21",
+    "README.md": "0e3e704a818d94d314c9359c4efe3cac546a097e83d448ee9d91bb9f8c3beebc",
+    "protocol/QUALITY_SCALE.md": "4465862f1415d8e1ce62e93254086daddf4125e2200dd34ac6d83b8b6d8b8bef",
+    "protocol/TEACHING_AUTHORING.md": "7f0e5dc3d46f06e8ec4d7502f5984e7f7136d03b8c4fd27eb0d306861f7aebd0",
+    "protocol/QUALITY_WORKFLOW.md": "bf05489806f398c202c0ded937213655052470d4ab0b43883a59e03b4338d2ad",
+    "protocol/DAILY_RUN.md": "daab8cc47d5ffec329cbda17221db5e8d9230612a2aa5b7f320d42d6ca1f8d30",
+    "scripts/run-daily.ps1": "f2f2def596a70a1f6977dcc47d46b4251657a00bb80fe2ab0a1048f7e5ebfc50",
+    "scripts/lib/chapter-footprint.mjs": "c6b76ea0b814f00cb843f95bc7f6a0335f62ed2e19a6b33aa3c8030fe2c1b104",
+    "scripts/chapter-footprint.mjs": "35e48638178c7f8b3eaa518bd8efa0bb79a080808bd9e928ab34b77f0d9d6a09",
+    "scripts/check-chapter-footprint.mjs": "01281f33ca53f2508662b84272acf1deb16b1d46cd6638fddfd3672adbc55d43",
+    "scripts/assemble-teaching.mjs": "e00fa1d7884934d480b170f86400b367f8e4abe1f3e3f3ebbe01d4d9925614fb"
+  }
+}

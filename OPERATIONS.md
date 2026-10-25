@@ -8,7 +8,7 @@
 
 从DAILY_RUN、QUALITY_WORKFLOW和TEACHING_AUTHORING恢复：prepare-teaching-materials按明确主词/词族独立取得完整双教材包；作者协同写第一二部分及实际教材/原例去向；第三部分真实组稿，篇数和词间/词内义项次序自由，全组真用全义。assemble-teaching只装配与检查结构，不能冒充语义审阅。
 
-2026-10-25起实际run-daily.ps1提示词加载QUALITY_SCALE。article-plan和原语义审阅同时做保质精简；assemble-teaching附三部分规模观察，独立复算可用`node scripts/chapter-footprint.mjs chapters/DATE/chapter.md`，不自动删句或判质量。首章对照试验在research/quality-scale-2026-10-25，可运行其evaluate.mjs复算；它不发布、不领取日课、不改VIX或生成音频。生产仍只维护一个权威作者稿，不要求每日写三种全文。
+2026-10-25起实际run-daily.ps1提示词加载QUALITY_SCALE。第三部分写前在article-plan按实际内容设粗略规模预期，直接创作充分紧凑的唯一首稿，不默认先写长再全章缩略；原语义审阅和保质精简继续。途中可用`node scripts/chapter-footprint.mjs --draft DATE`只读观察完整P1分母、已写P3及引用进度，不输出chapter.md、不预测规模；完整装配门禁不变。assemble-teaching附三部分规模与章级比率，完整稿独立复算用`node scripts/chapter-footprint.mjs chapters/DATE/chapter.md`，不自动删句或判质量。首章对照试验在research/quality-scale-2026-10-25，前置设计与隔离首稿试样在research/first-draft-scale-2026-10-25；其脚本不发布、不领取日课、不改VIX或生成音频。生产仍只维护一个权威作者稿，不要求每日多稿试验。
 
 新文章组meta增加authoringPolicy=sourced-collection-v1；采用工具生成的chapter.md和article-sources.json，沿pack-current-affairs、pack-chapter、publish-chapter封存与回读。正文ARTICLE与来源包articles同源；服务端拒绝无篇目标记的新制作版本，既有原件读取/幂等重试不回写。静态壳v47，篇目复用原索引入口，来源同窗筛选，音频和答疑仍绑定整章原摘要；无D1迁移、新队列、新订阅或新监测器。
 

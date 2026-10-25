@@ -1,0 +1,383 @@
+[
+  {
+    "id": "A23",
+    "title": "Two Speeds, One Clutch",
+    "sourceUrls": [
+      "https://www.mathworks.com/help/sdl/ug/how-a-clutch-works.html",
+      "https://www.toyota.com/car-tips/types-of-transmissions/"
+    ],
+    "paragraphs": [
+      [
+        {
+          "id": "FD-A23-001",
+          "text": "A clutch is especially revealing at the moment when its two sides are not yet moving together.",
+          "translation": "离合器两侧尚未同步运动的那一刻，尤其能显出它的工作原理。",
+          "uses": []
+        },
+        {
+          "id": "FD-A23-002",
+          "text": "In a car with a manual transmission, choosing a gear and reconnecting the engine to the gearbox are separate operations.",
+          "translation": "在装有手动变速传动系统的汽车里，选择档位和重新接通发动机与变速箱，是两项不同的操作。",
+          "uses": ["U04913"]
+        },
+        {
+          "id": "FD-A23-003",
+          "text": "The driver's hand moves the shift to select the gear, while the foot operates the clutch pedal to interrupt or restore the connection.",
+          "translation": "驾驶员用手移动变速杆来选档，同时用脚操作离合器踏板，断开或恢复动力连接。",
+          "uses": ["U04529"]
+        },
+        {
+          "id": "FD-A23-004",
+          "text": "The shifter belongs to the selection system; the clutch has to deal with what happens when the rotating parts meet again.",
+          "translation": "换档装置属于选档系统；离合器则要处理转动部件重新接合时发生的情况。",
+          "uses": ["U04536"]
+        }
+      ],
+      [
+        {
+          "id": "FD-A23-005",
+          "text": "MathWorks explains a friction clutch through two shafts that can initially rotate at different speeds.",
+          "translation": "MathWorks借助两根起初可以以不同速度转动的轴，说明摩擦离合器的原理。",
+          "uses": ["U02504"]
+        },
+        {
+          "id": "FD-A23-006",
+          "text": "In a disc-type design, a friction disc supplies a contact surface through which torque can pass when pressure brings the surfaces together.",
+          "translation": "在盘式设计中，摩擦片提供一个接触面；压力使两个表面接触后，转矩便可通过它传递。",
+          "uses": ["U02505"]
+        },
+        {
+          "id": "FD-A23-007",
+          "text": "With the clutch disengaged, the shafts turn independently; even pressed contact would be ineffective for this method of transmission if the surfaces were frictionless.",
+          "translation": "离合器分离时，两根轴各自转动；如果表面没有摩擦，即使将它们压在一起，也无法用这种方式传递动力。",
+          "uses": ["U02507"]
+        },
+        {
+          "id": "FD-A23-008",
+          "text": "Once moving surfaces touch, friction opposes their relative sliding, tending to speed up one shaft and slow down the other.",
+          "translation": "运动中的表面一旦接触，摩擦力就会阻碍它们的相对滑动，促使一根轴加速、另一根轴减速。",
+          "uses": ["U02503"]
+        },
+        {
+          "id": "FD-A23-009",
+          "text": "The friction of one surface against the other also produces heat during this interval.",
+          "translation": "在这段时间里，一个表面在另一个表面上摩擦，也会产生热量。",
+          "uses": ["U02502"]
+        },
+        {
+          "id": "FD-A23-010",
+          "text": "This frictional heating gives prolonged slipping a cost: some mechanical energy becomes heat instead of reaching the driven shaft as useful work.",
+          "translation": "这种摩擦发热使长时间滑动付出代价：一部分机械能转化成热，而没有作为有用功传到从动轴。",
+          "uses": ["U02506"]
+        }
+      ],
+      [
+        {
+          "id": "FD-A23-011",
+          "text": "As the speed difference falls, sufficient pressure can allow the surfaces to lock together and the shafts to turn at the same rate.",
+          "translation": "随着转速差减小，足够的压力可以使表面锁定在一起，让两根轴以相同速度转动。",
+          "uses": []
+        },
+        {
+          "id": "FD-A23-012",
+          "text": "They remain locked only while the required torque stays within the clutch's torque-transmitting capacity.",
+          "translation": "只有所需转矩不超出离合器的转矩传递能力时，它们才会保持锁定。",
+          "uses": ["U00803"]
+        },
+        {
+          "id": "FD-A23-013",
+          "text": "That limit depends on the applied force and the contact geometry, so a force measured in newtons cannot simply be compared with a torque measured in newton-metres.",
+          "translation": "这个上限取决于施加的力和接触面的几何条件，因此，不能把以牛顿计量的力直接与以牛顿米计量的转矩相比。",
+          "uses": []
+        },
+        {
+          "id": "FD-A23-014",
+          "text": "If the demand exceeds the available limit while the surfaces remain in contact, sliding can resume.",
+          "translation": "如果所需转矩超过可传递的上限，而表面仍保持接触，滑动就可能重新发生。",
+          "uses": []
+        },
+        {
+          "id": "FD-A23-015",
+          "text": "The MathWorks model treats locking and unlocking as discontinuous events and searches for the conditions at each transition.",
+          "translation": "MathWorks的模型把锁定和解锁当作不连续事件，并寻找每次状态切换发生的条件。",
+          "uses": []
+        }
+      ],
+      [
+        {
+          "id": "FD-A23-016",
+          "text": "The surrounding hardware raises a related question: which movements should a mechanism permit, and which should it prevent?",
+          "translation": "周围的机械部件又带出一个相关问题：机构应当允许哪些运动，又应当阻止哪些运动？",
+          "uses": []
+        },
+        {
+          "id": "FD-A23-017",
+          "text": "A retainer can retain a ring in its groove, while a support must sustain the assembly's weight and preserve its alignment.",
+          "translation": "固定件可以把环保持在凹槽中，而支承件必须承受总成的重量，并使它保持对准。",
+          "uses": ["U04208", "U04203", "U04604"]
+        },
+        {
+          "id": "FD-A23-018",
+          "text": "A spring, however, can yield under pressure without losing its function, and its yieldingness may be useful where controlled travel is needed.",
+          "translation": "不过，弹簧可以在压力下变形而不失去作用；在需要受控行程的地方，它柔软可弯的性质可能很有用。",
+          "uses": ["U05004", "U05015"]
+        },
+        {
+          "id": "FD-A23-019",
+          "text": "A yielding part and a slipping clutch therefore pose different design questions: one changes shape, while the other allows contact surfaces to move relative to each other.",
+          "translation": "因此，可受力变形的部件与正在滑动的离合器，提出的是不同的设计问题：前者改变形状，后者允许接触面相对运动。",
+          "uses": ["U05012"]
+        }
+      ],
+      [
+        {
+          "id": "FD-A23-020",
+          "text": "For the driver, this distinction becomes practical when it is time to shift gears.",
+          "translation": "对驾驶员来说，到了需要换档的时候，这种区别就有了实际意义。",
+          "uses": ["U04506"]
+        },
+        {
+          "id": "FD-A23-021",
+          "text": "Depressing the clutch pedal interrupts the engine's drive while a new gear is selected; releasing it progressively brings the connection back.",
+          "translation": "踩下离合器踏板，会在选择新档位时中断发动机的动力传递；逐渐松开踏板，则会逐步恢复连接。",
+          "uses": []
+        },
+        {
+          "id": "FD-A23-022",
+          "text": "A driver may shift up as road speed rises, or shift down when a climb calls for more pulling force at the wheels.",
+          "translation": "随着车速提高，驾驶员可以升档；遇到爬坡、车轮需要更大牵引力时，则可以降档。",
+          "uses": ["U04508", "U04507"]
+        },
+        {
+          "id": "FD-A23-023",
+          "text": "Toyota also describes an automatic shift that selects gears under computer control, showing how the selection task can be assigned to another mechanism.",
+          "translation": "丰田还介绍了由电脑控制选档的自动换档机构，说明选档这项任务可以交给另一种机构完成。",
+          "uses": ["U04530"]
+        },
+        {
+          "id": "FD-A23-024",
+          "text": "Different transmission designs arrange these operations differently, so this account of a friction clutch should not be taken as a description of every vehicle.",
+          "translation": "不同的传动系统以不同方式安排这些操作，因此，这里对摩擦离合器的说明并不适用于每一种车辆。",
+          "uses": []
+        }
+      ],
+      [
+        {
+          "id": "FD-A23-025",
+          "text": "For a backward manoeuvre, the manual driver selects reverse and then reconnects the drive through the clutch, allowing the car to reverse.",
+          "translation": "需要向后移动时，手动档驾驶员先选择倒档，再通过离合器重新接通动力，让汽车倒行。",
+          "uses": ["U04309", "U04306"]
+        },
+        {
+          "id": "FD-A23-026",
+          "text": "The gearbox's reverser provides output in the reverse direction, so the driver does not need to reverse the engine.",
+          "translation": "变速箱里的反向传动装置使输出朝相反方向转动，因此，驾驶员不需要让发动机反向运转。",
+          "uses": ["U04329", "U04310", "U04307"]
+        },
+        {
+          "id": "FD-A23-027",
+          "text": "At the clutch's contact surfaces, even this backward movement begins with the same demanding interval: two speeds must become one without excessive heat.",
+          "translation": "而在离合器的接触面上，即使是这次向后行驶，也要经历同样要求精细控制的阶段：两种转速必须合为一种，同时避免产生过多热量。",
+          "uses": []
+        }
+      ]
+    ]
+  },
+  {
+    "id": "A31",
+    "title": "Who Stays in the Last Room?",
+    "sourceUrls": [
+      "https://www.gutenberg.org/files/7986/7986-h/7986-h.htm"
+    ],
+    "paragraphs": [
+      [
+        {
+          "id": "FD-A31-001",
+          "text": "Chekhov leaves the final room in The Cherry Orchard to Fiers, the household's eighty-seven-year-old footman.",
+          "translation": "契诃夫把《樱桃园》最后的房间留给了菲尔斯，这户人家八十七岁的老男仆。",
+          "uses": []
+        },
+        {
+          "id": "FD-A31-002",
+          "text": "The sale of an entire estate comes down to one sick man trying a locked door, after everyone else has left.",
+          "translation": "整座庄园的出售，最终落在了这样一幕上：众人离开后，一个病弱的老人试着打开一扇锁住的门。",
+          "uses": []
+        },
+        {
+          "id": "FD-A31-003",
+          "text": "To understand how he gets there, it helps to follow the arrangements people make for the property and for themselves.",
+          "translation": "要理解他如何落到这个境地，可以沿着众人对产业和自身去向的安排看下去。",
+          "uses": []
+        }
+      ],
+      [
+        {
+          "id": "FD-A31-004",
+          "text": "Fiers is a retainer of an old landed household, and his account of staying after Emancipation shows how deeply service has entered his identity.",
+          "translation": "菲尔斯是旧式地主家庭的家臣；他讲述农奴解放后仍留下侍奉主人的经历，显出了仆役身份与他自身认同融合之深。",
+          "uses": ["U04210"]
+        },
+        {
+          "id": "FD-A31-005",
+          "text": "The old retainer fusses over Gaev's coat as though the grown gentleman were a helpless schoolboy.",
+          "translation": "这位老家臣为加耶夫穿什么外套操心，仿佛这位成年绅士还是个不能照料自己的小学生。",
+          "uses": ["U04211"]
+        },
+        {
+          "id": "FD-A31-006",
+          "text": "He also recalls the days when prepared cherries brought in money, though the old method has been forgotten and Gaev tells him to be quiet.",
+          "translation": "他还回忆起加工樱桃曾经能赚钱的日子，不过，那套老方法已经被人遗忘，加耶夫也叫他别说了。",
+          "uses": []
+        },
+        {
+          "id": "FD-A31-007",
+          "text": "His knowledge belongs to the house's working past, even when its owners prefer to remember its beauty.",
+          "translation": "他的知识属于这座宅邸过去实际运转的生活，尽管主人们更愿意记住它的美。",
+          "uses": []
+        }
+      ],
+      [
+        {
+          "id": "FD-A31-008",
+          "text": "Lopakhin sees an emerging market for summer villas near the railway, while the family sees the orchard as an irreplaceable part of its past.",
+          "translation": "洛帕欣看到了铁路附近正在兴起的避暑别墅市场，而这家人把樱桃园视为自身往昔不可替代的一部分。",
+          "uses": ["U02007"]
+        },
+        {
+          "id": "FD-A31-009",
+          "text": "He proposes clearing the old buildings and trees so that plots can be leased, and eventually buys the estate himself.",
+          "translation": "他提议拆掉旧建筑、砍掉树木，以便分块出租土地，最后却由他自己买下了庄园。",
+          "uses": []
+        },
+        {
+          "id": "FD-A31-010",
+          "text": "The purchase reverses their roles as petitioner and decision-maker: he once asked the owners to act, and now Anya asks him to stop the axes until her mother has left.",
+          "translation": "这次购买使双方请求者与决策者的角色对调：从前是他请求主人们行动，如今却是安雅请求他先停下斧头，等母亲离开再砍。",
+          "uses": ["U04304"]
+        },
+        {
+          "id": "FD-A31-011",
+          "text": "His triumph carries a family history of its own, since his father and grandfather had been serfs on the land he now owns.",
+          "translation": "他的胜利也承载着自家的历史，因为他的父亲与祖父曾是这片土地上的农奴，而他如今成了这里的主人。",
+          "uses": []
+        }
+      ],
+      [
+        {
+          "id": "FD-A31-012",
+          "text": "Pischin obtains a different escape from debt when Englishmen discover exploitable white clay on his land.",
+          "translation": "英国人在皮希克的土地上发现可供开采的白陶土，使他获得了另一种摆脱债务的出路。",
+          "uses": ["U02406"]
+        },
+        {
+          "id": "FD-A31-013",
+          "text": "He leases the clay-bearing land to them for twenty-four years, giving them an opportunity to exploit the deposit and receiving money with which to repay creditors.",
+          "translation": "他把含陶土的土地租给他们二十四年，让他们有机会开发矿藏，自己则取得了可以用来偿还债权人的钱。",
+          "uses": ["U02404"]
+        },
+        {
+          "id": "FD-A31-014",
+          "text": "The lease anticipates the exploitation of a resource beneath the estate, although the play does not show any clay being dug.",
+          "translation": "这份租约以开发庄园地下的资源为前提，不过，剧中并没有呈现挖掘陶土的场面。",
+          "uses": ["U02410"]
+        },
+        {
+          "id": "FD-A31-015",
+          "text": "As a shift for meeting his debts, the arrangement succeeds because an accidental discovery can be turned into immediate cash.",
+          "translation": "作为应付债务的一种权宜办法，这项安排能成功，是因为一次偶然发现可以立即换成现金。",
+          "uses": ["U04519"]
+        }
+      ],
+      [
+        {
+          "id": "FD-A31-016",
+          "text": "Others have to build their next lives out of less spectacular resources.",
+          "translation": "其他人则得依靠不那么引人注目的资源，安排接下来的生活。",
+          "uses": []
+        },
+        {
+          "id": "FD-A31-017",
+          "text": "Charlotta asks Lopakhin to find her another position; without a secure place in the household, she must shift as best she can.",
+          "translation": "夏洛塔请洛帕欣替她另找一个职位；失去了这户人家里的安稳位置，她必须尽可能设法应付。",
+          "uses": ["U04514"]
+        },
+        {
+          "id": "FD-A31-018",
+          "text": "Varya has already agreed to work as a housekeeper elsewhere, preparing to shift for herself beyond the home she has managed.",
+          "translation": "瓦丽娅已经答应到别处做管家，准备离开自己一直操持的家，靠自己谋生。",
+          "uses": ["U04532"]
+        },
+        {
+          "id": "FD-A31-019",
+          "text": "Trofimov prefers to make shift without Lopakhin's money, supporting his claim to independence with the fee from a translation.",
+          "translation": "特罗菲莫夫宁愿不拿洛帕欣的钱，自己设法过下去，并用一笔翻译报酬支撑他关于独立的宣言。",
+          "uses": ["U04531"]
+        },
+        {
+          "id": "FD-A31-020",
+          "text": "Jobs, fees and leases give these departures a material basis, even as the characters speak of a new life.",
+          "translation": "尽管人物们口中谈着新生活，工作、报酬和租约仍为他们的离开提供着物质基础。",
+          "uses": []
+        }
+      ],
+      [
+        {
+          "id": "FD-A31-021",
+          "text": "The departure also has a timetable: the travellers have to shift if they are to catch their train.",
+          "translation": "离开还有列车时刻的约束：这些旅客要赶上火车，就得赶快了。",
+          "uses": ["U04512"]
+        },
+        {
+          "id": "FD-A31-022",
+          "text": "Anya asks whether Fiers has gone to hospital, and Yasha answers that he gave the order and supposes it was carried out.",
+          "translation": "安雅问菲尔斯是否已经去了医院，雅沙回答说自己已经吩咐过，想来人已经送去了。",
+          "uses": []
+        },
+        {
+          "id": "FD-A31-023",
+          "text": "By the time Anya reassures her mother, that supposition has hardened into the report of a completed event.",
+          "translation": "等到安雅安慰母亲时，这个推测已经变成了对一件既成事实的报告。",
+          "uses": []
+        },
+        {
+          "id": "FD-A31-024",
+          "text": "The family yields possession of the house and leaves, while the assurance travels more efficiently than the sick man.",
+          "translation": "这家人交出房屋的占有权，启程离开；那句令人放心的话，传递得比病人的转移顺利得多。",
+          "uses": ["U05002"]
+        }
+      ],
+      [
+        {
+          "id": "FD-A31-025",
+          "text": "Whatever the others intended, the locked doors constrain Fiers within the house when he tries the handle and discovers that everyone has gone.",
+          "translation": "无论其他人原本怎么想，当菲尔斯试着转动门把、发现众人都已离去时，锁住的门已经把他禁闭在屋内。",
+          "uses": ["U01303"]
+        },
+        {
+          "id": "FD-A31-026",
+          "text": "Under this physical constraint, his thoughts still return to Gaev's clothes and whether his master has dressed warmly enough.",
+          "translation": "在这种身体自由受限的处境中，他仍然想着加耶夫的衣服，惦记主人穿得够不够暖。",
+          "uses": ["U01308"]
+        },
+        {
+          "id": "FD-A31-027",
+          "text": "A director who adapts the play for the screen faces a precise choice of viewpoint here: the camera can leave with the family or stay behind with Fiers.",
+          "translation": "把这部戏改编成电影的导演，在这里面临着一个明确的视角选择：镜头可以随这家人离开，也可以留下陪着菲尔斯。",
+          "uses": ["U00103"]
+        },
+        {
+          "id": "FD-A31-028",
+          "text": "A stage production with shiftable walls could remove the room in seconds; keeping it around him would make the audience remain with him as well.",
+          "translation": "采用可移动墙面的舞台演出，可以在几秒内撤去这个房间；若让房间仍围在他身边，观众也就会跟他一起留在那里。",
+          "uses": ["U04535"]
+        },
+        {
+          "id": "FD-A31-029",
+          "text": "He lies motionless, the distant sound of a breaking string fades, and the axes continue in the orchard.",
+          "translation": "他一动不动地躺着，远处仿佛弦断的声音渐渐消失，樱桃园里的斧声却还在继续。",
+          "uses": []
+        }
+      ]
+    ]
+  }
+]

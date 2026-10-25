@@ -1,2 +1,4 @@
 * text=auto eol=lf
 web/labs/certification-reader/assets/audio-sources/KENNEY_LICENSE.txt -text
+# Keep the original direct-writing capture byte-identical to its reviewed SHA.
+research/first-draft-scale-2026-10-25/calibrated/first-draft.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

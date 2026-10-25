@@ -1,0 +1,371 @@
+[
+  {
+    "id": "A23",
+    "title": "A Clutch Must Know When to Slip",
+    "sourceUrls": [
+      "https://www.mathworks.com/help/sdl/ug/how-a-clutch-works.html",
+      "https://www.toyota.com/car-tips/types-of-transmissions/"
+    ],
+    "paragraphs": [
+      [
+        {
+          "id": "FC001",
+          "text": "A car's transmission connects engine power to the driven wheels through a system of shafts and gears.",
+          "translation": "汽车的传动系统通过轴和齿轮组成的系统，把发动机动力传到驱动轮。",
+          "uses": [
+            "U04913"
+          ]
+        },
+        {
+          "id": "FC002",
+          "text": "In a conventional manual arrangement, a friction clutch controls that connection, using a friction disc pressed between rotating faces.",
+          "translation": "在传统的手动传动结构中，摩擦离合器通过压在旋转接触面之间的摩擦片，控制这种连接。",
+          "uses": [
+            "U02504",
+            "U02505"
+          ]
+        },
+        {
+          "id": "FC003",
+          "text": "Its task is to let two shafts running at different speeds begin to turn together without imposing the whole change at once.",
+          "translation": "它的任务是让转速不同的两根轴逐渐开始同步转动，避免一下子完成整个转速变化。",
+          "uses": []
+        }
+      ],
+      [
+        {
+          "id": "FC004",
+          "text": "When disengaged, the faces are separated and the shafts can turn independently.",
+          "translation": "离合器分离时，接触面彼此分开，两根轴可以各自转动。",
+          "uses": []
+        },
+        {
+          "id": "FC005",
+          "text": "Repeated friction as one face rubs against the other produces frictional heat.",
+          "translation": "一个接触面反复擦过另一个接触面，会因这种摩擦动作产生摩擦热。",
+          "uses": [
+            "U02502",
+            "U02506"
+          ]
+        },
+        {
+          "id": "FC006",
+          "text": "Friction also provides the force opposing relative sliding, accelerating one shaft and slowing the other.",
+          "translation": "摩擦力还会阻碍两者的相对滑动，使一根轴加速、另一根轴减速。",
+          "uses": [
+            "U02503"
+          ]
+        },
+        {
+          "id": "FC007",
+          "text": "A frictionless contact could not transfer torque by this mechanism.",
+          "translation": "如果接触面没有摩擦，就无法通过这一原理传递转矩。",
+          "uses": [
+            "U02507"
+          ]
+        },
+        {
+          "id": "FC008",
+          "text": "When the shafts reach the same speed, static friction can hold them together without continuing slip.",
+          "translation": "两根轴达到相同转速后，静摩擦力可以让它们保持同步，而无需继续滑动。",
+          "uses": []
+        },
+        {
+          "id": "FC009",
+          "text": "The clutch's torque capacity is the greatest torque it can transmit without slipping under specified clamping conditions.",
+          "translation": "离合器的转矩承受能力，是它在规定的压紧条件下能够不发生滑动而传递的最大转矩。",
+          "uses": [
+            "U00803"
+          ]
+        },
+        {
+          "id": "FC010",
+          "text": "Demand more than that limit and the faces can slip again, generating heat and wear.",
+          "translation": "所需传递的转矩超过这一限值时，接触面就可能再次滑动，产生热量和磨损。",
+          "uses": []
+        }
+      ],
+      [
+        {
+          "id": "FC011",
+          "text": "In an imagined classroom cutaway, a stand must sustain the assembly's weight, while a retainer retains a separate component in its groove.",
+          "translation": "在一个假想的课堂剖切演示装置中，支架必须承受组件的重量，而一个保持件把另一部件固定在其凹槽内。",
+          "uses": [
+            "U04604",
+            "U04208",
+            "U04203"
+          ]
+        },
+        {
+          "id": "FC012",
+          "text": "These supports do different jobs: carrying a weight is distinct from keeping a part in position.",
+          "translation": "这些支承结构承担着不同任务：承受重量与把部件保持在位并不是一回事。",
+          "uses": []
+        },
+        {
+          "id": "FC013",
+          "text": "A yielding rubber mount may yield slightly under load; its yieldingness permits limited movement while supporting the assembly.",
+          "translation": "柔韧的橡胶支座在载荷下可能略有变形；它这种受压可弯的性质，允许组件在得到支撑的同时发生有限位移。",
+          "uses": [
+            "U05012",
+            "U05004",
+            "U05015"
+          ]
+        },
+        {
+          "id": "FC014",
+          "text": "Such deflection is distinct from the sliding that occurs between clutch faces.",
+          "translation": "这种挠曲与离合器接触面之间发生的滑动有所区别。",
+          "uses": []
+        }
+      ],
+      [
+        {
+          "id": "FC015",
+          "text": "A driver reaches for the shift, disengages the clutch and shifts gears before gradually reconnecting the engine.",
+          "translation": "驾驶员伸手握住变速杆，分离离合器并换档，然后再逐渐接通发动机与传动系统。",
+          "uses": [
+            "U04529",
+            "U04506"
+          ]
+        },
+        {
+          "id": "FC016",
+          "text": "The shifter operates the selection mechanism; in an automatic system, an automatic shift performs gear changes without the driver's hand moving a lever.",
+          "translation": "换档装置操纵选档机构；在自动传动系统中，自动换档机构执行换档，无需驾驶员用手扳动杆件。",
+          "uses": [
+            "U04536",
+            "U04530"
+          ]
+        },
+        {
+          "id": "FC017",
+          "text": "A driver may shift down when greater wheel torque is needed and shift up as speed and load allow.",
+          "translation": "需要更大的车轮转矩时，驾驶员可以降档；车速和载荷条件允许时，则可以升档。",
+          "uses": [
+            "U04507",
+            "U04508"
+          ]
+        },
+        {
+          "id": "FC018",
+          "text": "In reverse, the gearbox output turns in the reverse direction, allowing the driver to reverse the car.",
+          "translation": "挂倒档时，变速箱输出端沿反方向转动，使驾驶员能够倒车。",
+          "uses": [
+            "U04309",
+            "U04310",
+            "U04306"
+          ]
+        },
+        {
+          "id": "FC019",
+          "text": "This does not reverse the engine: the gearbox acts as a reverser, changing output rotation while the engine continues turning the same way.",
+          "translation": "这不会使发动机反向运转：变速箱起到反转装置的作用，改变输出端的旋转方向，而发动机仍沿原方向转动。",
+          "uses": [
+            "U04307",
+            "U04329"
+          ]
+        }
+      ]
+    ]
+  },
+  {
+    "id": "A31",
+    "title": "The Person Left Behind in The Cherry Orchard",
+    "sourceUrls": [
+      "https://www.gutenberg.org/files/7986/7986-h/7986-h.htm"
+    ],
+    "paragraphs": [
+      [
+        {
+          "id": "FC020",
+          "text": "In Chekhov's The Cherry Orchard, the sale makes Ranevsky yield control of the estate to Lopakhin, whose father and grandfather were serfs there.",
+          "translation": "在契诃夫的《樱桃园》中，庄园出售使拉涅夫斯卡娅不得不把庄园的控制权交给洛帕欣，而他的父亲和祖父曾是这里的农奴。",
+          "uses": [
+            "U05002"
+          ]
+        },
+        {
+          "id": "FC021",
+          "text": "The purchase appears to reverse the positions of master and servant across generations, yet Lopakhin's triumph breaks into tears as the dispossessed owner weeps.",
+          "translation": "这次购买仿佛把几代人之间主仆的位置对调了；但在失去庄园的原主人哭泣时，洛帕欣的得意也转成了泪水。",
+          "uses": [
+            "U04304"
+          ]
+        },
+        {
+          "id": "FC022",
+          "text": "His proposed villas and Pischin's mineral lease point to emerging ways of earning money from land.",
+          "translation": "他提出的别墅计划，以及皮希克围绕矿产签下的土地租约，显示出正在兴起的土地获利方式。",
+          "uses": [
+            "U02007"
+          ]
+        }
+      ],
+      [
+        {
+          "id": "FC023",
+          "text": "Pischin arrives with repayments after Englishmen discover exploitable white clay on his land.",
+          "translation": "英国人在皮希克的土地上发现了可供开发的白陶土之后，他带着还债的钱来到庄园。",
+          "uses": [
+            "U02406"
+          ]
+        },
+        {
+          "id": "FC024",
+          "text": "He has leased the ground to them for twenty-four years so that they can exploit the clay, turning a geological find into an immediate source of cash.",
+          "translation": "他把那块土地租给他们二十四年，供他们开发陶土，让一次地质发现立即带来了现金收入。",
+          "uses": [
+            "U02404"
+          ]
+        },
+        {
+          "id": "FC025",
+          "text": "He celebrates this prospect of exploitation with breathless thanks, then notices the trunks and learns that his friends are leaving.",
+          "translation": "他为这一开发前景气喘吁吁地道着谢，随后才注意到行李箱，得知朋友们就要离开。",
+          "uses": [
+            "U02410"
+          ]
+        }
+      ],
+      [
+        {
+          "id": "FC026",
+          "text": "Other people must shift for themselves: Varya has arranged work as a housekeeper, while Charlotta asks for a new position.",
+          "translation": "其他人也得靠自己应付今后的生活：瓦丽娅已经安排好去做管家，夏洛塔则在请求别人替她找份新工作。",
+          "uses": [
+            "U04532"
+          ]
+        },
+        {
+          "id": "FC027",
+          "text": "Trofimov, with money earned from translation, insists that he can shift without Lopakhin's financial help.",
+          "translation": "特罗菲莫夫手头有翻译挣来的钱，坚持说没有洛帕欣的资助，自己也能设法过下去。",
+          "uses": [
+            "U04514"
+          ]
+        },
+        {
+          "id": "FC028",
+          "text": "Ranevsky will make shift in Paris with money originally sent to buy the estate, though she admits it will soon run out.",
+          "translation": "拉涅夫斯卡娅打算靠原本寄来买回庄园的钱在巴黎勉强生活，尽管她承认这笔钱很快就会用完。",
+          "uses": [
+            "U04531"
+          ]
+        },
+        {
+          "id": "FC029",
+          "text": "Seeking employment and spending a dwindling fund are very different shifts for getting through the separation.",
+          "translation": "寻找工作与花用日渐减少的存款，是应付这场离散的两种截然不同的权宜办法。",
+          "uses": [
+            "U04519"
+          ]
+        }
+      ],
+      [
+        {
+          "id": "FC030",
+          "text": "The train's departure approaches, and Varya and Lopakhin are finally left alone, but their talk circles around luggage and the weather.",
+          "translation": "火车发车的时间越来越近，瓦丽娅和洛帕欣终于有了独处的机会，谈话却只围着行李和天气打转。",
+          "uses": []
+        },
+        {
+          "id": "FC031",
+          "text": "Pauses replace the expected proposal; a call from the doorway lets him escape, and she weeps over a bundle of clothes.",
+          "translation": "人们期待的求婚被一次次停顿取代；门口一声呼唤让他得以脱身，她则伏在一包衣服上哭泣。",
+          "uses": []
+        }
+      ],
+      [
+        {
+          "id": "FC032",
+          "text": "Fiers, a retainer of the old landed household, has meanwhile become the subject of an inquiry that nobody completes.",
+          "translation": "与此同时，旧式地主家庭的家仆菲尔斯成了众人询问的对象，却没有人把事情查清。",
+          "uses": [
+            "U04210"
+          ]
+        },
+        {
+          "id": "FC033",
+          "text": "Yasha says he gave an order for the sick man to go to hospital and assumes it was carried out.",
+          "translation": "雅沙说自己已经吩咐把这位生病的老人送去医院，并以为吩咐已经得到执行。",
+          "uses": []
+        },
+        {
+          "id": "FC034",
+          "text": "Anya asks Epikhodov to check, yet soon tells Varya that Fiers has gone; later she repeats the assurance to her mother.",
+          "translation": "安雅请叶皮霍多夫核实，却很快就告诉瓦丽娅，菲尔斯已经送走了；后来她又向母亲作了同样的保证。",
+          "uses": []
+        },
+        {
+          "id": "FC035",
+          "text": "Responsibility disappears into the message as an assumption hardens into a reported fact.",
+          "translation": "当一个猜想逐渐变成被当作事实传递的消息时，责任也在传话过程中消失了。",
+          "uses": []
+        }
+      ],
+      [
+        {
+          "id": "FC036",
+          "text": "A proposed British film version could adapt the play for the screen using shiftable set walls to follow departures from room to room.",
+          "translation": "如果提出一部英式电影改编方案，可以把这部戏改编上银幕，利用可移动的布景墙，跟随人物从一个房间走向另一个房间直至离去。",
+          "uses": [
+            "U00103",
+            "U04535"
+          ]
+        },
+        {
+          "id": "FC037",
+          "text": "A hurried 'We must shift!' could mark the rush for the train, followed by a thoughtless farewell joke about 'our old retainer'.",
+          "translation": "一句匆忙的“我们得赶快了！”可以表现赶火车的急迫，随后再安排一句不假思索的告别玩笑，提到“咱们那位老家臣”。",
+          "uses": [
+            "U04512",
+            "U04211"
+          ]
+        },
+        {
+          "id": "FC038",
+          "text": "The camera could stay behind after everybody leaves, preserving the wait before Fiers appears.",
+          "translation": "所有人离开后，镜头可以继续留在屋内，保留菲尔斯出现之前的那段等待。",
+          "uses": []
+        }
+      ],
+      [
+        {
+          "id": "FC039",
+          "text": "In the play, locks click, carriages recede and an axe sounds before the sick Fiers enters and tries the door.",
+          "translation": "回到原剧，门锁咔嗒作响，马车声渐渐远去，斧声响起，随后生病的菲尔斯才走进来试着开门。",
+          "uses": []
+        },
+        {
+          "id": "FC040",
+          "text": "The locked doors constrain him inside the house.",
+          "translation": "上锁的门把他禁闭在屋内。",
+          "uses": [
+            "U01303"
+          ]
+        },
+        {
+          "id": "FC041",
+          "text": "Even in this constraint, he worries whether Gaev is wearing a warm enough coat.",
+          "translation": "即使被这样关在屋内，他仍在担心盖耶夫穿的外套够不够暖。",
+          "uses": [
+            "U01308"
+          ]
+        },
+        {
+          "id": "FC042",
+          "text": "He lies motionless; a distant sound like a breaking string dies away, followed by silence and the axe in the orchard.",
+          "translation": "他躺着一动不动；远处传来仿佛琴弦绷断的声音，渐渐消失，随后是一片寂静，以及果园里的斧声。",
+          "uses": []
+        },
+        {
+          "id": "FC043",
+          "text": "The stage direction leaves his stillness before us without declaring that he has died.",
+          "translation": "舞台提示把他静止不动的身影留在我们面前，并没有明说他已经死去。",
+          "uses": []
+        }
+      ]
+    ]
+  }
+]

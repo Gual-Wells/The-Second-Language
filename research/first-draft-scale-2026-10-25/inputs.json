@@ -1,0 +1,682 @@
+[
+  {
+    "id": "A23",
+    "title": "A Clutch Must Know When to Slip",
+    "sourceUrls": [
+      "https://www.mathworks.com/help/sdl/ug/how-a-clutch-works.html",
+      "https://www.toyota.com/car-tips/types-of-transmissions/"
+    ],
+    "sources": [
+      {
+        "acquisitionMethod": "native-get",
+        "facts": [
+          "模型区分离合器分离、接触滑动和锁定状态；滑动与静摩擦分别作用于相对速度和转矩传递。",
+          "锁定条件取决于压力与作用转矩，状态变化在模型中为不连续事件。"
+        ],
+        "limitations": "实际通读相关原理正文；不复制页面把转矩与静摩擦直接比较时略去半径等因素的简写，不声称执行Simscape仿真。",
+        "publisher": "MathWorks",
+        "readAt": "2026-10-24T14:03:26.734Z",
+        "readDigest": "7057faba0a316ce35563d44561e11fb745d02000c95c35c6eafa3f7e859ec042",
+        "sourceId": "mathworks",
+        "title": "How a Clutch Works",
+        "url": "https://www.mathworks.com/help/sdl/ug/how-a-clutch-works.html"
+      },
+      {
+        "acquisitionMethod": "native-get",
+        "facts": [
+          "介绍手动档选档、变速杆、R倒档及高低档等驾驶与机构术语。",
+          "不同传动类型具有不同实现，不把所有车都视为同一离合器结构。"
+        ],
+        "limitations": "只采用已核对的通用术语和手动档说明；不采用营销推荐、无观察期的市场占比或把发动机功率直接称为动量的简化。",
+        "publisher": "Toyota vehicle explanations",
+        "readAt": "2026-10-24T14:06:51.177Z",
+        "readDigest": "39e4deee4bb1b7be8681d9cd406cd4453cbeb91e985d5023654cfdf68ed9e19a",
+        "sourceId": "toyota-technical",
+        "title": "Types of Transmissions",
+        "url": "https://www.toyota.com/car-tips/types-of-transmissions/"
+      }
+    ],
+    "uses": [
+      {
+        "id": "U00803",
+        "wordId": "W008",
+        "word": "capacity",
+        "label": "capacity · 设备承载与功率",
+        "gloss": "设备能够承载、提供或完成的规格量",
+        "teaching": "# capacity\n\n## capacity · 设备承载与功率 /kəˈpæsəti/\n`设备能够承载、提供或完成的规格量`\n\n可数，常以具体单位说明；如载重能力、发动机容量或设备功率。需看具体计量对象，不能一概译成体积。",
+        "examples": [
+          {
+            "text": "The display describes an aircraft with a bomb-carrying capacity of 454 kg.",
+            "translation": "展品说明介绍了一架载弹量为454千克的飞机。"
+          }
+        ]
+      },
+      {
+        "id": "U02502",
+        "wordId": "W025",
+        "word": "friction",
+        "label": "friction · 摩擦动作",
+        "gloss": "一个物体在另一个物体表面擦动的动作",
+        "teaching": "# friction\n\n## friction · 摩擦动作 /ˈfrɪkʃən/\n`一个物体在另一个物体表面擦动的动作`\n\n通常不可数。",
+        "examples": [
+          {
+            "text": "Repeated friction polished the edge of the stone.",
+            "translation": "反复摩擦把石头边缘磨得光滑了。"
+          }
+        ]
+      },
+      {
+        "id": "U02503",
+        "wordId": "W025",
+        "word": "friction",
+        "label": "friction · 摩擦力",
+        "gloss": "物体接触时阻碍相对滑动或滑动趋势的力",
+        "teaching": "# friction\n\n## friction · 摩擦力 /ˈfrɪkʃən/\n`物体接触时阻碍相对滑动或滑动趋势的力`\n\n通常不可数；reduce friction 指减小摩擦阻力。",
+        "examples": [
+          {
+            "text": "The pistons are graphite-coated to reduce friction.",
+            "translation": "活塞上涂了石墨，以减小摩擦阻力。"
+          }
+        ]
+      },
+      {
+        "id": "U02504",
+        "wordId": "W025",
+        "word": "friction",
+        "label": "friction clutch",
+        "gloss": "通过接触面的摩擦传递动力的离合器",
+        "teaching": "# friction\n\n## friction clutch /ˈfrɪkʃən klʌtʃ/\n`通过接触面的摩擦传递动力的离合器`\n\n机械用法；friction 在复合名称中说明传动原理。",
+        "examples": [
+          {
+            "text": "A friction clutch transfers torque through pressed contact surfaces.",
+            "translation": "摩擦离合器通过压紧的接触面传递转矩。"
+          }
+        ]
+      },
+      {
+        "id": "U02505",
+        "wordId": "W025",
+        "word": "friction",
+        "label": "friction disc",
+        "gloss": "通过摩擦接触参与动力传递的圆盘、摩擦片",
+        "teaching": "# friction\n\n## friction disc /ˈfrɪkʃən dɪsk/\n`通过摩擦接触参与动力传递的圆盘、摩擦片`\n\n机械用法。",
+        "examples": [
+          {
+            "text": "The mechanic inspected the worn friction disc.",
+            "translation": "机械师检查了磨损的摩擦片。"
+          }
+        ]
+      },
+      {
+        "id": "U02506",
+        "wordId": "W025",
+        "word": "friction",
+        "label": "frictional",
+        "gloss": "与摩擦动作或摩擦力有关的",
+        "teaching": "# friction\n\n## frictional /ˈfrɪkʃənəl/\n`与摩擦动作或摩擦力有关的`\n\n形容词。",
+        "examples": [
+          {
+            "text": "Frictional heating raises the temperature of the contacting surfaces.",
+            "translation": "摩擦发热会使接触面的温度升高。"
+          }
+        ]
+      },
+      {
+        "id": "U02507",
+        "wordId": "W025",
+        "word": "friction",
+        "label": "frictionless",
+        "gloss": "没有摩擦或摩擦阻力的",
+        "teaching": "# friction\n\n## frictionless /ˈfrɪkʃənləs/\n`没有摩擦或摩擦阻力的`\n\n形容词，物理模型中常把这一状态作为理想条件。",
+        "examples": [
+          {
+            "text": "The calculation assumes a frictionless surface.",
+            "translation": "这个计算假定表面没有摩擦。"
+          }
+        ]
+      },
+      {
+        "id": "U04203",
+        "wordId": "W042",
+        "word": "retain",
+        "label": "retain · 固定留住",
+        "gloss": "把某物保持在一定位置，使其不移开或流失",
+        "teaching": "# retain\n\n## retain · 固定留住 /rɪˈteɪn/\n`把某物保持在一定位置，使其不移开或流失`\n\n及物，可用于具体物体、液体等。",
+        "examples": [
+          {
+            "text": "The clip retains the lid in position.",
+            "translation": "这个夹子把盖子固定在位。"
+          }
+        ]
+      },
+      {
+        "id": "U04208",
+        "wordId": "W042",
+        "word": "retain",
+        "label": "retainer · 保持者或固定物",
+        "gloss": "起保留、固定作用的人或事物",
+        "teaching": "# retain\n\n## retainer · 保持者或固定物 /rɪˈteɪnər/\n`起保留、固定作用的人或事物`\n\n可数名词。",
+        "examples": [
+          {
+            "text": "The metal retainer holds the ring in its groove.",
+            "translation": "金属固定件把环保持在凹槽中。"
+          }
+        ]
+      },
+      {
+        "id": "U04306",
+        "wordId": "W043",
+        "word": "reverse",
+        "label": "reverse · 倒车",
+        "gloss": "车辆向后行驶，或把车辆向后开",
+        "teaching": "# reverse\n\n## reverse · 倒车 /rɪˈvɝs/\n`车辆向后行驶，或把车辆向后开`\n\n可及物或不及物，主要英式；美式通常说 back up。",
+        "examples": [
+          {
+            "text": "Another car reversed out of the drive.",
+            "translation": "另一辆车从车道里倒了出来。"
+          },
+          {
+            "text": "He reversed his car straight at the policeman.",
+            "translation": "他倒车，径直朝那名警员撞去。"
+          }
+        ]
+      },
+      {
+        "id": "U04307",
+        "wordId": "W043",
+        "word": "reverse",
+        "label": "reverse · 使反转运转",
+        "gloss": "使发动机等沿相反方向工作",
+        "teaching": "# reverse\n\n## reverse · 使反转运转 /rɪˈvɝs/\n`使发动机等沿相反方向工作`\n\n及物。",
+        "examples": [
+          {
+            "text": "The operator reversed the engine.",
+            "translation": "操作员让发动机反向运转。"
+          }
+        ]
+      },
+      {
+        "id": "U04309",
+        "wordId": "W043",
+        "word": "reverse",
+        "label": "reverse · 倒档与后退运动",
+        "gloss": "车辆用于后退的档位、装置或后退运动状态",
+        "teaching": "# reverse\n\n## reverse · 倒档与后退运动 /rɪˈvɝs/\n`车辆用于后退的档位、装置或后退运动状态`\n\n名词，常用 in/into reverse。",
+        "examples": [
+          {
+            "text": "He lurched the car in reverse along the ruts to the access road.",
+            "translation": "他挂着倒档，让汽车沿着车辙颠簸着退到入口道路上。"
+          }
+        ]
+      },
+      {
+        "id": "U04310",
+        "wordId": "W043",
+        "word": "reverse",
+        "label": "reverse · 方向相反的",
+        "gloss": "被摆成或转成相反方向、位置的",
+        "teaching": "# reverse\n\n## reverse · 方向相反的 /rɪˈvɝs/\n`被摆成或转成相反方向、位置的`\n\n形容词。",
+        "examples": [
+          {
+            "text": "The two panels face in reverse directions.",
+            "translation": "这两块面板朝向相反的方向。"
+          }
+        ]
+      },
+      {
+        "id": "U04329",
+        "wordId": "W043",
+        "word": "reverse",
+        "label": "reverser",
+        "gloss": "执行翻转、反向运转等动作的人或装置",
+        "teaching": "# reverse\n\n## reverser /rɪˈvɝsər/\n`执行翻转、反向运转等动作的人或装置`\n\n可数名词。",
+        "examples": [
+          {
+            "text": "The mechanism includes a reverser for changing the drive direction.",
+            "translation": "这个机构包含一个用于改变传动方向的反转装置。"
+          }
+        ]
+      },
+      {
+        "id": "U04506",
+        "wordId": "W045",
+        "word": "shift",
+        "label": "shift · 换档",
+        "gloss": "把车辆调到另一档位",
+        "teaching": "# shift\n\n## shift · 换档 /ʃɪft/\n`把车辆调到另一档位`\n\n北美用法，可及物 shift gears，也可不及物；英式通常说 change gear。",
+        "examples": [
+          {
+            "text": "He shifted gears as the car gained speed.",
+            "translation": "汽车加速时，他换了档。"
+          }
+        ]
+      },
+      {
+        "id": "U04507",
+        "wordId": "W045",
+        "word": "shift",
+        "label": "shift down",
+        "gloss": "把车辆换到较低档位",
+        "teaching": "# shift\n\n## shift down /ʃɪft daʊn/\n`把车辆换到较低档位`\n\n美式短语动词；英式说 change down。",
+        "examples": [
+          {
+            "text": "She shifted down before the steep climb.",
+            "translation": "陡坡开始前，她降了档。"
+          }
+        ]
+      },
+      {
+        "id": "U04508",
+        "wordId": "W045",
+        "word": "shift",
+        "label": "shift up",
+        "gloss": "把车辆换到较高档位",
+        "teaching": "# shift\n\n## shift up /ʃɪft ʌp/\n`把车辆换到较高档位`\n\n美式短语动词；英式说 change up。",
+        "examples": [
+          {
+            "text": "He shifted up once the engine speed increased.",
+            "translation": "发动机转速升高后，他升了档。"
+          }
+        ]
+      },
+      {
+        "id": "U04529",
+        "wordId": "W045",
+        "word": "shift",
+        "label": "shift · 变速杆",
+        "gloss": "机动车中操纵档位的杆",
+        "teaching": "# shift\n\n## shift · 变速杆 /ʃɪft/\n`机动车中操纵档位的杆`\n\n北美用法，可数名词。",
+        "examples": [
+          {
+            "text": "The driver reached for the shift.",
+            "translation": "驾驶员伸手去握变速杆。"
+          }
+        ]
+      },
+      {
+        "id": "U04530",
+        "wordId": "W045",
+        "word": "shift",
+        "label": "shift · 换档机构",
+        "gloss": "执行车辆换档的装置或机构",
+        "teaching": "# shift\n\n## shift · 换档机构 /ʃɪft/\n`执行车辆换档的装置或机构`\n\n北美用法，可数名词。",
+        "examples": [
+          {
+            "text": "The mechanic checked the automatic shift.",
+            "translation": "机械师检查了自动换档机构。"
+          }
+        ]
+      },
+      {
+        "id": "U04536",
+        "wordId": "W045",
+        "word": "shift",
+        "label": "shifter",
+        "gloss": "执行移动、转移或换档的人或装置",
+        "teaching": "# shift\n\n## shifter /ˈʃɪftər/\n`执行移动、转移或换档的人或装置`\n\n可数名词。",
+        "examples": [
+          {
+            "text": "The shifter controls the gear selection.",
+            "translation": "换档装置控制档位选择。"
+          }
+        ]
+      },
+      {
+        "id": "U04604",
+        "wordId": "W046",
+        "word": "sustain",
+        "label": "sustain · 承重",
+        "gloss": "支撑某物的重量，尤其长时间支撑",
+        "teaching": "# sustain\n\n## sustain · 承重 /səˈsteɪn/\n`支撑某物的重量，尤其长时间支撑`\n\n及物。",
+        "examples": [
+          {
+            "text": "The beams sustain the weight of the roof.",
+            "translation": "这些梁支撑屋顶的重量。"
+          }
+        ]
+      },
+      {
+        "id": "U04913",
+        "wordId": "W049",
+        "word": "transmit",
+        "label": "transmission · 车辆传动装置",
+        "gloss": "把发动机动力传到车轴、车轮的齿轮和传动轴等系统",
+        "teaching": "# transmit\n\n## transmission · 车辆传动装置 /trænzˈmɪʃən/\n`把发动机动力传到车轴、车轮的齿轮和传动轴等系统`\n\n可数或不可数，automatic/manual transmission 分别指自动、手动变速传动系统。",
+        "examples": [
+          {
+            "text": "The car was fitted with automatic transmission.",
+            "translation": "这辆车装有自动变速器。"
+          },
+          {
+            "text": "The vehicle uses a four-speed manual transmission.",
+            "translation": "这辆车使用四速手动变速器。"
+          }
+        ]
+      },
+      {
+        "id": "U05004",
+        "wordId": "W050",
+        "word": "yield",
+        "label": "yield · 受力移动",
+        "gloss": "物体受压力后弯曲、移位或让开",
+        "teaching": "# yield\n\n## yield · 受力移动 /jild/\n`物体受压力后弯曲、移位或让开`\n\n不及物，如门被推开、地面变软下陷。",
+        "examples": [
+          {
+            "text": "The door yielded easily when he pushed it.",
+            "translation": "他一推，门就轻易让开了。"
+          }
+        ]
+      },
+      {
+        "id": "U05012",
+        "wordId": "W050",
+        "word": "yield",
+        "label": "yielding · 柔软可弯",
+        "gloss": "受到压力会移动、弯曲，而非僵硬不动的",
+        "teaching": "# yield\n\n## yielding · 柔软可弯 /ˈjildɪŋ/\n`受到压力会移动、弯曲，而非僵硬不动的`\n\n形容表面、物体或材料。",
+        "examples": [
+          {
+            "text": "Their boots sank into the yielding ground.",
+            "translation": "他们的靴子陷进了松软的地面。"
+          },
+          {
+            "text": "She sat on the soft yielding cushions.",
+            "translation": "她坐在柔软、受压就凹下去的坐垫上。"
+          }
+        ]
+      },
+      {
+        "id": "U05015",
+        "wordId": "W050",
+        "word": "yield",
+        "label": "yieldingness",
+        "gloss": "顺从、愿让步，或柔软可弯的性质",
+        "teaching": "# yield\n\n## yieldingness /ˈjildɪŋnəs/\n`顺从、愿让步，或柔软可弯的性质`\n\n名词。",
+        "examples": [
+          {
+            "text": "The material's yieldingness makes it suitable for a cushion.",
+            "translation": "这种材料柔软可弯的性质，使它适合做坐垫。"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "A31",
+    "title": "The Person Left Behind in The Cherry Orchard",
+    "sourceUrls": [
+      "https://www.gutenberg.org/files/7986/7986-h/7986-h.htm"
+    ],
+    "sources": [
+      {
+        "acquisitionMethod": "native-get",
+        "facts": [
+          "洛帕欣买下庄园；皮希克出租含陶土土地还债；瓦丽娅另谋管家工作，菲尔斯最终留在锁上的旧宅。"
+        ],
+        "limitations": "实际读人物表、第一幕开头及地块方案相关段、第三幕购买宣告与农奴背景、第四幕全文；不是读完整部合集。作品是戏剧，文章作文本分析，不把人物当真实采访。",
+        "publisher": "Project Gutenberg primary literary texts",
+        "readAt": "2026-10-24T14:19:20.584Z",
+        "readDigest": "f7ddc4c645e0c729a4c6be8f96d5f26faa4d23dd10dcb2aadba4c81277713f99",
+        "sourceId": "gutenberg-primary",
+        "title": "The Cherry Orchard, Julius West translation",
+        "url": "https://www.gutenberg.org/files/7986/7986-h/7986-h.htm"
+      }
+    ],
+    "uses": [
+      {
+        "id": "U00103",
+        "wordId": "W001",
+        "word": "adapt",
+        "label": "adapt · 改编",
+        "gloss": "把作品改写或编排成适合另一种表现媒介的形式",
+        "teaching": "# adapt\n\n## adapt · 改编 /əˈdæpt/\n`把作品改写或编排成适合另一种表现媒介的形式`\n\nadapt a novel for the screen 表示改编成电影；be adapted from a play 表示由剧本改编而来。也可涉及广播、电视等形式。",
+        "examples": [
+          {
+            "text": "The scriptwriter helped him to adapt his novel for the screen.",
+            "translation": "编剧帮助他把小说改编成电影。"
+          },
+          {
+            "text": "The film has been adapted from a play of the same title.",
+            "translation": "这部电影改编自一部同名戏剧。"
+          }
+        ]
+      },
+      {
+        "id": "U01303",
+        "wordId": "W013",
+        "word": "constrain",
+        "label": "constrain · 拘禁",
+        "gloss": "强行限制某人的身体自由，把人关押或禁闭",
+        "teaching": "# constrain\n\n## constrain · 拘禁 /kənˈstreɪn/\n`强行限制某人的身体自由，把人关押或禁闭`\n\n及物；这里是实际限制自由，而非一般条件限制。",
+        "examples": [
+          {
+            "text": "The captives were constrained within the guarded enclosure.",
+            "translation": "俘虏被关押在有守卫的围栏内。"
+          }
+        ]
+      },
+      {
+        "id": "U01308",
+        "wordId": "W013",
+        "word": "constrain",
+        "label": "constraint · 约束行为与状态",
+        "gloss": "施加限制的行为、受限制的状态，或自由受到剥夺",
+        "teaching": "# constrain\n\n## constraint · 约束行为与状态 /kənˈstreɪnt/\n`施加限制的行为、受限制的状态，或自由受到剥夺`\n\n可涉及行动控制或实际禁闭；表示一般约束时常不可数。",
+        "examples": [
+          {
+            "text": "The prisoners lived under constant constraint.",
+            "translation": "囚犯们一直处于自由受限的状态。"
+          }
+        ]
+      },
+      {
+        "id": "U02007",
+        "wordId": "W020",
+        "word": "emerge",
+        "label": "emerging",
+        "gloss": "正在显露、产生或发展壮大的",
+        "teaching": "# emerge\n\n## emerging /ɪˈmɝdʒɪŋ/\n`正在显露、产生或发展壮大的`\n\n分词作形容词时由上下文确定阶段；emerging industries 指正在兴起的产业。",
+        "examples": [
+          {
+            "text": "New skills are demanded for emerging industries.",
+            "translation": "新兴产业需要新的技能。"
+          }
+        ]
+      },
+      {
+        "id": "U02404",
+        "wordId": "W024",
+        "word": "exploit",
+        "label": "exploit · 开发资源",
+        "gloss": "开发并利用自然资源或原料，供工业、商业使用",
+        "teaching": "# exploit\n\n## exploit · 开发资源 /ɪkˈsplɔɪt/\n`开发并利用自然资源或原料，供工业、商业使用`\n\n及物；是否有破坏性，要另看实际做法，词本身不一律作负面判断。",
+        "examples": [
+          {
+            "text": "I think we're being very shortsighted in not exploiting our own coal.",
+            "translation": "我认为，不开发我们自己的煤炭资源是很短视的做法。"
+          }
+        ]
+      },
+      {
+        "id": "U02406",
+        "wordId": "W024",
+        "word": "exploit",
+        "label": "exploitable · 可开发",
+        "gloss": "能够利用、开发以取得收益的",
+        "teaching": "# exploit\n\n## exploitable · 可开发 /ɪkˈsplɔɪtəbəl/\n`能够利用、开发以取得收益的`\n\n可形容原料、矿藏、油井等。",
+        "examples": [
+          {
+            "text": "Exploitable raw materials were in short supply.",
+            "translation": "可供开发利用的原材料很短缺。"
+          },
+          {
+            "text": "Of 27 new wells drilled, 16 have proved exploitable.",
+            "translation": "在新钻的27口井中，有16口已证实具有开采价值。"
+          }
+        ]
+      },
+      {
+        "id": "U02410",
+        "wordId": "W024",
+        "word": "exploit",
+        "label": "exploitation · 开发利用",
+        "gloss": "把资源或机会实际利用起来以获取成果、收益的过程",
+        "teaching": "# exploit\n\n## exploitation · 开发利用 /ˌeksplɔɪˈteɪʃən/\n`把资源或机会实际利用起来以获取成果、收益的过程`\n\n通常不可数；资源开发语境并不自动等于剥削人的含义。",
+        "examples": [
+          {
+            "text": "The report discusses the planned exploitation of its potential oil and natural gas reserves.",
+            "translation": "这份报告讨论了对其潜在石油与天然气储量的拟议开发。"
+          }
+        ]
+      },
+      {
+        "id": "U04210",
+        "wordId": "W042",
+        "word": "retain",
+        "label": "retainer · 历史家臣",
+        "gloss": "依附于有地位者的随从、家臣",
+        "teaching": "# retain\n\n## retainer · 历史家臣 /rɪˈteɪnər/\n`依附于有地位者的随从、家臣`\n\n历史用法。",
+        "examples": [
+          {
+            "text": "The nobleman's retainer carried his messages.",
+            "translation": "这位贵族的家臣替他传递信息。"
+          }
+        ]
+      },
+      {
+        "id": "U04211",
+        "wordId": "W042",
+        "word": "retain",
+        "label": "old retainer",
+        "gloss": "忠实的老朋友或服务多年的仆人",
+        "teaching": "# retain\n\n## old retainer /ˌoʊld rɪˈteɪnər/\n`忠实的老朋友或服务多年的仆人`\n\n诙谐用法，常见 old retainer。",
+        "examples": [
+          {
+            "text": "He jokingly called his oldest assistant the old retainer.",
+            "translation": "他开玩笑地把自己资历最老的助手称为“老家臣”。"
+          }
+        ]
+      },
+      {
+        "id": "U04304",
+        "wordId": "W043",
+        "word": "reverse",
+        "label": "reverse · 交换位置与职能",
+        "gloss": "让两者各取得原来属于对方的位置或作用",
+        "teaching": "# reverse\n\n## reverse · 交换位置与职能 /rɪˈvɝs/\n`让两者各取得原来属于对方的位置或作用`\n\n及物。",
+        "examples": [
+          {
+            "text": "He reversed the position of the two stamps.",
+            "translation": "他把两枚邮票的位置对调了。"
+          }
+        ]
+      },
+      {
+        "id": "U04512",
+        "wordId": "W045",
+        "word": "shift",
+        "label": "shift · 赶快",
+        "gloss": "赶紧行动、加快速度",
+        "teaching": "# shift\n\n## shift · 赶快 /ʃɪft/\n`赶紧行动、加快速度`\n\n英式俚语，不及物。",
+        "examples": [
+          {
+            "text": "We'll have to shift!",
+            "translation": "我们得赶快了！"
+          }
+        ]
+      },
+      {
+        "id": "U04514",
+        "wordId": "W045",
+        "word": "shift",
+        "label": "shift · 尽力应付",
+        "gloss": "尽可能筹划、设法把事情做下去",
+        "teaching": "# shift\n\n## shift · 尽力应付 /ʃɪft/\n`尽可能筹划、设法把事情做下去`\n\n不及物。",
+        "examples": [
+          {
+            "text": "They learned to shift as best they could.",
+            "translation": "他们学会了尽可能设法应付。"
+          }
+        ]
+      },
+      {
+        "id": "U04519",
+        "wordId": "W045",
+        "word": "shift",
+        "label": "shift · 权宜办法",
+        "gloss": "为应付情势而想出的手段、策略或临时办法",
+        "teaching": "# shift\n\n## shift · 权宜办法 /ʃɪft/\n`为应付情势而想出的手段、策略或临时办法`\n\n可数名词。",
+        "examples": [
+          {
+            "text": "They tried every shift to keep the workshop open.",
+            "translation": "他们想尽各种权宜办法，让工场继续开下去。"
+          }
+        ]
+      },
+      {
+        "id": "U04531",
+        "wordId": "W045",
+        "word": "shift",
+        "label": "make shift",
+        "gloss": "想办法勉强应付、把事情做下去",
+        "teaching": "# shift\n\n## make shift /meɪk ʃɪft/\n`想办法勉强应付、把事情做下去`\n\n固定搭配，可接 without something。",
+        "examples": [
+          {
+            "text": "They made shift without it.",
+            "translation": "没有它，他们也设法应付了过去。"
+          }
+        ]
+      },
+      {
+        "id": "U04532",
+        "wordId": "W045",
+        "word": "shift",
+        "label": "shift for oneself",
+        "gloss": "依靠自己的努力谋生或应付处境",
+        "teaching": "# shift\n\n## shift for oneself /ʃɪft fər wʌnˈself/\n`依靠自己的努力谋生或应付处境`\n\n固定搭配。",
+        "examples": [
+          {
+            "text": "He had to shift for himself after leaving home.",
+            "translation": "离家后，他不得不靠自己谋生。"
+          }
+        ]
+      },
+      {
+        "id": "U04535",
+        "wordId": "W045",
+        "word": "shift",
+        "label": "shiftable",
+        "gloss": "能够被移动、转移或改变的",
+        "teaching": "# shift\n\n## shiftable /ˈʃɪftəbəl/\n`能够被移动、转移或改变的`\n\n形容词。",
+        "examples": [
+          {
+            "text": "The partitions are shiftable.",
+            "translation": "这些隔断可以移动。"
+          }
+        ]
+      },
+      {
+        "id": "U05002",
+        "wordId": "W050",
+        "word": "yield",
+        "label": "yield · 交出",
+        "gloss": "把自己控制、负责的事物交给别人，或投降、放弃",
+        "teaching": "# yield\n\n## yield · 交出 /jild/\n`把自己控制、负责的事物交给别人，或投降、放弃`\n\n正式及物用法；yield control、yield a fortress，也可用 yield oneself a prisoner 表示束手就擒。",
+        "examples": [
+          {
+            "text": "He may yield control.",
+            "translation": "他可能会交出控制权。"
+          },
+          {
+            "text": "They yielded the fortress.",
+            "translation": "他们放弃了要塞。"
+          },
+          {
+            "text": "They yielded themselves prisoners.",
+            "translation": "他们束手就擒。"
+          }
+        ]
+      }
+    ]
+  }
+]

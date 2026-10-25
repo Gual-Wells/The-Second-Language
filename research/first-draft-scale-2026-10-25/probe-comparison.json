@@ -1,0 +1,135 @@
+{
+  "baselineDigest": "ddfd12d0adcd7f925c1bbfbd36361240edafddf9f447545fa7fb8dcca0f6cce3",
+  "scope": [
+    "A23",
+    "A31"
+  ],
+  "notice": "Two isolated direct-writing exercises, not a randomized comparison or a test of complete chapter quality, size or retention.",
+  "drafts": {
+    "probe": {
+      "jsonDigest": "4f4cfc32557bf7829e048ea8f97c9e8882cc4a1d93c277b4bd0f928f8ccff041",
+      "articles": [
+        {
+          "id": "A23",
+          "title": "Two Speeds, One Clutch",
+          "sentences": 27,
+          "englishWords": 553,
+          "translationHan": 961,
+          "uniqueUses": 25
+        },
+        {
+          "id": "A31",
+          "title": "Who Stays in the Last Room?",
+          "sentences": 29,
+          "englishWords": 601,
+          "translationHan": 1066,
+          "uniqueUses": 17
+        }
+      ],
+      "totalWords": 1154,
+      "sentences": 56,
+      "distinctTargetUses": 42,
+      "wordsPerTargetUse": 27.476190476190474,
+      "completePairReferences": true,
+      "semanticJudgement": "See review.md; marker coverage alone is not acceptance."
+    },
+    "calibrated": {
+      "jsonDigest": "bdd430e311a193e4e9125cf026c582a713f4aafa0c491becfd0da5947dbf43dd",
+      "articles": [
+        {
+          "id": "A23",
+          "title": "A Clutch Must Know When to Slip",
+          "sentences": 19,
+          "englishWords": 322,
+          "translationHan": 610,
+          "uniqueUses": 25
+        },
+        {
+          "id": "A31",
+          "title": "The Person Left Behind in The Cherry Orchard",
+          "sentences": 24,
+          "englishWords": 447,
+          "translationHan": 877,
+          "uniqueUses": 17
+        }
+      ],
+      "totalWords": 769,
+      "sentences": 43,
+      "distinctTargetUses": 42,
+      "wordsPerTargetUse": 18.30952380952381,
+      "completePairReferences": true,
+      "semanticJudgement": "See review.md; marker coverage alone is not acceptance."
+    },
+    "calibrated-reviewed": {
+      "jsonDigest": "ac022cefcc89654fa5ecba5acf0fd7d16aded707f893b7eae7cd378479c1d1d7",
+      "articles": [
+        {
+          "id": "A23",
+          "title": "A Clutch Must Know When to Slip",
+          "sentences": 19,
+          "englishWords": 322,
+          "translationHan": 610,
+          "uniqueUses": 25
+        },
+        {
+          "id": "A31",
+          "title": "The Person Left Behind in The Cherry Orchard",
+          "sentences": 24,
+          "englishWords": 454,
+          "translationHan": 886,
+          "uniqueUses": 17
+        }
+      ],
+      "totalWords": 776,
+      "sentences": 43,
+      "distinctTargetUses": 42,
+      "wordsPerTargetUse": 18.476190476190474,
+      "completePairReferences": true,
+      "semanticJudgement": "See review.md; marker coverage alone is not acceptance."
+    }
+  },
+  "sameArticlesInPriorStudy": {
+    "baseline": {
+      "articles": [
+        {
+          "id": "A23",
+          "title": "A Clutch Must Know When to Slip",
+          "sentences": 26,
+          "englishWords": 369,
+          "translationHan": 602,
+          "uniqueUses": 25
+        },
+        {
+          "id": "A31",
+          "title": "The Person Left Behind in The Cherry Orchard",
+          "sentences": 33,
+          "englishWords": 549,
+          "translationHan": 892,
+          "uniqueUses": 17
+        }
+      ],
+      "totalWords": 918
+    },
+    "selected": {
+      "articles": [
+        {
+          "id": "A23",
+          "title": "A Clutch Must Know When to Slip",
+          "sentences": 13,
+          "englishWords": 221,
+          "translationHan": 405,
+          "uniqueUses": 25
+        },
+        {
+          "id": "A31",
+          "title": "The Person Left Behind in The Cherry Orchard",
+          "sentences": 30,
+          "englishWords": 500,
+          "translationHan": 799,
+          "uniqueUses": 17
+        }
+      ],
+      "totalWords": 721
+    }
+  }
+}

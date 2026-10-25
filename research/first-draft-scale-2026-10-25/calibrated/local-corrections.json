@@ -1,0 +1,59 @@
+{
+  "originalDigest": "bdd430e311a193e4e9125cf026c582a713f4aafa0c491becfd0da5947dbf43dd",
+  "scope": "Three local corrections after ordinary review; not a second shortened whole draft.",
+  "changes": [
+    {
+      "reason": "Make the two exchanged functions explicit; do not imply the former owner became a servant.",
+      "before": {
+        "id": "FC021",
+        "text": "The purchase appears to reverse the positions of master and servant across generations, yet Lopakhin's triumph breaks into tears as the dispossessed owner weeps.",
+        "translation": "这次购买仿佛把几代人之间主仆的位置对调了；但在失去庄园的原主人哭泣时，洛帕欣的得意也转成了泪水。",
+        "uses": [
+          "U04304"
+        ]
+      },
+      "after": {
+        "id": "FCR021",
+        "text": "The purchase reverses their positions as petitioner and decision-maker: Lopakhin once asked the owners to act, but now Anya asks him to stop the axes until her mother leaves.",
+        "translation": "这次购买对调了请求者与决策者的位置：洛帕欣曾请求旧主人采取行动，现在则是安雅请求他暂停砍树，直到母亲离开。",
+        "uses": [
+          "U04304"
+        ]
+      }
+    },
+    {
+      "reason": "Avoid combining breathlessness, thanks and noticing luggage into a falsely precise sequence.",
+      "before": {
+        "id": "FC025",
+        "text": "He celebrates this prospect of exploitation with breathless thanks, then notices the trunks and learns that his friends are leaving.",
+        "translation": "他为这一开发前景气喘吁吁地道着谢，随后才注意到行李箱，得知朋友们就要离开。",
+        "uses": [
+          "U02410"
+        ]
+      },
+      "after": {
+        "id": "FCR025",
+        "text": "The prospect of exploitation gives him a way to pay his debts; the family's departure, however, catches him by surprise.",
+        "translation": "开发的前景给了他偿还债务的办法；然而，这家人即将离开的消息却让他十分意外。",
+        "uses": [
+          "U02410"
+        ]
+      }
+    },
+    {
+      "reason": "Reflect the actual topics and remove the added exclusive Chinese only.",
+      "before": {
+        "id": "FC030",
+        "text": "The train's departure approaches, and Varya and Lopakhin are finally left alone, but their talk circles around luggage and the weather.",
+        "translation": "火车发车的时间越来越近，瓦丽娅和洛帕欣终于有了独处的机会，谈话却只围着行李和天气打转。",
+        "uses": []
+      },
+      "after": {
+        "id": "FCR030",
+        "text": "The train's departure approaches, and Varya and Lopakhin are finally left alone, but their talk moves between luggage, future work and the weather.",
+        "translation": "火车发车的时间越来越近，瓦丽娅和洛帕欣终于有了独处的机会，谈话却在行李、今后的工作和天气之间游移。",
+        "uses": []
+      }
+    }
+  ]
+}
