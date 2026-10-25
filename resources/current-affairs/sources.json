@@ -13816,6 +13816,171 @@
           "evidenceUrl": "https://hub.yamaha.com/keyboards/k-how-to/how-to-use-keyboard-pedals/"
         }
       ]
+    },
+    {
+      "id": "us-house-representatives",
+      "name": "United States House of Representatives",
+      "home": "https://www.house.gov/",
+      "entryUrl": "https://www.house.gov/the-house-explained/the-legislative-process/house-floor",
+      "sourceType": "parliament",
+      "regions": [
+        "united-states"
+      ],
+      "topics": [
+        "politics",
+        "procedure",
+        "legislation"
+      ],
+      "language": "en",
+      "role": "primary-announcement",
+      "access": "open",
+      "evidenceUrl": "https://www.house.gov/the-house-explained/the-legislative-process/house-floor",
+      "verification": "opened",
+      "notes": "众议院官方程序说明；2026-10-25实际打开House Floor正文，页脚标明U.S. House of Representatives。机构说明不等同于某场具体辩论的逐字记录。",
+      "checkedOn": "2026-10-25",
+      "observations": [
+        {
+          "batch": "revision-20261025-first-draft",
+          "role": "primary-announcement",
+          "sourceType": "parliament",
+          "verification": "opened",
+          "access": "open",
+          "entryUrl": "https://www.house.gov/the-house-explained/the-legislative-process/house-floor",
+          "evidenceUrl": "https://www.house.gov/the-house-explained/the-legislative-process/house-floor"
+        }
+      ]
+    },
+    {
+      "id": "us-government-publishing-office",
+      "name": "United States Government Publishing Office (GovInfo)",
+      "home": "https://www.govinfo.gov/",
+      "entryUrl": "https://www.govinfo.gov/content/pkg/HMAN-117/html/HMAN-117-pg776.htm",
+      "sourceType": "government-publisher",
+      "regions": [
+        "united-states"
+      ],
+      "topics": [
+        "politics",
+        "procedure",
+        "law"
+      ],
+      "language": "en",
+      "role": "primary-announcement",
+      "access": "open",
+      "evidenceUrl": "https://www.govinfo.gov/content/pkg/HMAN-117/html/HMAN-117-pg776.htm",
+      "verification": "opened",
+      "notes": "GovInfo官方历史文献；2026-10-25实际打开第117届众议院手册Rule XVII，正文标明From the U.S. Government Publishing Office。不据历史届次材料推断2026新规则。",
+      "checkedOn": "2026-10-25",
+      "observations": [
+        {
+          "batch": "revision-20261025-first-draft",
+          "role": "primary-announcement",
+          "sourceType": "government-publisher",
+          "verification": "opened",
+          "access": "open",
+          "entryUrl": "https://www.govinfo.gov/content/pkg/HMAN-117/html/HMAN-117-pg776.htm",
+          "evidenceUrl": "https://www.govinfo.gov/content/pkg/HMAN-117/html/HMAN-117-pg776.htm"
+        }
+      ]
+    },
+    {
+      "id": "democratic-party-virginia",
+      "name": "Democratic Party of Virginia",
+      "home": "https://vademocrats.org/",
+      "entryUrl": "https://vademocrats.org/wp-content/uploads/2015/10/DPVA-2016-Del-Select-Plan-9_7_2015.pdf",
+      "sourceType": "political-party",
+      "regions": [
+        "united-states"
+      ],
+      "topics": [
+        "politics",
+        "elections",
+        "procedure"
+      ],
+      "language": "en",
+      "role": "primary-announcement",
+      "access": "open",
+      "evidenceUrl": "https://vademocrats.org/wp-content/uploads/2015/10/DPVA-2016-Del-Select-Plan-9_7_2015.pdf",
+      "verification": "opened",
+      "notes": "党派第一方规则文件；2026-10-25实际打开PDF，封面标明由Democratic Party of Virginia发布、2015-09-07修订，适用于2016全国大会。历史规则与当前政治事实分开，全文未通读。",
+      "checkedOn": "2026-10-25",
+      "observations": [
+        {
+          "batch": "revision-20261025-first-draft",
+          "role": "primary-announcement",
+          "sourceType": "political-party",
+          "verification": "opened",
+          "access": "open",
+          "entryUrl": "https://vademocrats.org/wp-content/uploads/2015/10/DPVA-2016-Del-Select-Plan-9_7_2015.pdf",
+          "evidenceUrl": "https://vademocrats.org/wp-content/uploads/2015/10/DPVA-2016-Del-Select-Plan-9_7_2015.pdf"
+        }
+      ]
+    },
+    {
+      "id": "american-archive-public-broadcasting",
+      "name": "American Archive of Public Broadcasting",
+      "home": "https://americanarchive.org/",
+      "entryUrl": "https://americanarchive.org/exhibits/first-amendment/protests-60s-70s",
+      "sourceType": "broadcast-archive",
+      "regions": [
+        "united-states"
+      ],
+      "topics": [
+        "history",
+        "media",
+        "culture"
+      ],
+      "language": "en",
+      "role": "research-reporting",
+      "access": "open",
+      "evidenceUrl": "https://americanarchive.org/exhibits/first-amendment/protests-60s-70s",
+      "verification": "opened",
+      "notes": "AAPB实际发布的网页历史叙述与资源链接；2026-10-25打开相关原文。网页和链接可读不代表已播放底层广播电视节目、检查逐字稿或图像。",
+      "checkedOn": "2026-10-25",
+      "observations": [
+        {
+          "batch": "revision-20261025-first-draft",
+          "role": "research-reporting",
+          "sourceType": "broadcast-archive",
+          "verification": "opened",
+          "access": "open",
+          "entryUrl": "https://americanarchive.org/exhibits/first-amendment/protests-60s-70s",
+          "evidenceUrl": "https://americanarchive.org/exhibits/first-amendment/protests-60s-70s"
+        }
+      ]
+    },
+    {
+      "id": "archives-new-zealand",
+      "name": "Archives New Zealand",
+      "home": "https://www.archives.govt.nz/",
+      "entryUrl": "https://www.archives.govt.nz/manage-information/how-to-manage-your-information/digital/best-practice-guidance-on-digital-storage-and-preservation",
+      "sourceType": "government-archive",
+      "regions": [
+        "new-zealand"
+      ],
+      "topics": [
+        "archives",
+        "technology",
+        "preservation"
+      ],
+      "language": "en",
+      "role": "technical-release",
+      "access": "open",
+      "evidenceUrl": "https://www.archives.govt.nz/manage-information/how-to-manage-your-information/digital/best-practice-guidance-on-digital-storage-and-preservation",
+      "verification": "opened",
+      "notes": "新西兰档案主管机构第一方数字保存指导；2026-10-25实际打开官方页面。一般技术建议和新西兰公法义务分别判断，不向美国馆藏外推法律义务。",
+      "checkedOn": "2026-10-25",
+      "observations": [
+        {
+          "batch": "revision-20261025-first-draft",
+          "role": "technical-release",
+          "sourceType": "government-archive",
+          "verification": "opened",
+          "access": "open",
+          "entryUrl": "https://www.archives.govt.nz/manage-information/how-to-manage-your-information/digital/best-practice-guidance-on-digital-storage-and-preservation",
+          "evidenceUrl": "https://www.archives.govt.nz/manage-information/how-to-manage-your-information/digital/best-practice-guidance-on-digital-storage-and-preservation"
+        }
+      ]
     }
   ]
 }

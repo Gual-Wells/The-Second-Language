@@ -89,6 +89,8 @@ node scripts/current-affairs-pool.mjs find --role technical-release --json
 
 ## 超出331条的扩展空间
 
+331为2026-10-23首批去重快照，之后已按真实制作需要扩展。2026-10-25第一章修订补入5个经实际阅读确认的议事及档案发布者，当前登记397项，详见由sources.json生成的CATALOGUE.md；不因此每日全池抓取，也不将新增数量当作内容质量。
+
 已核实三个官方发现入口，单独登记，**不冒充已逐站审核的池内来源**：
 
 - [Media Cloud Directory](https://www.mediacloud.org/media-cloud-directory)：官方页面称收录25,000余媒体及100多个国家的整理集合；可按地区/主题继续发现。

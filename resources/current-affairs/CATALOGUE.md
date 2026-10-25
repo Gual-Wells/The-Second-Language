@@ -1,6 +1,6 @@
 # 实事来源目录
 
-核验批次：2026-10-24。共 392 个去重来源；由 sources.json 生成。
+核验批次：2026-10-24。共 397 个去重来源；由 sources.json 生成。
 
 opened 仅表示打开入口页面；页面壳、全文、付费及技术限制见每条 notes。blocked/search-confirmed 保留为待复核候选。地区是检索提示，不是独立性或报道覆盖审计。
 
@@ -17,6 +17,12 @@ opened 仅表示打开入口页面；页面壳、全文、付费及技术限制�
 | 来源／官方发布入口 | 地区提示 | 主题提示 | 角色 | 访问／观测 |
 |---|---|---|---|---|
 | [Royal Botanic Gardens Kew](https://www.kew.org/kew-gardens/whats-in-the-gardens/palm-house) · `kew` | global | science, culture, education | technical-release | open / opened |
+
+## broadcast-archive
+
+| 来源／官方发布入口 | 地区提示 | 主题提示 | 角色 | 访问／观测 |
+|---|---|---|---|---|
+| [American Archive of Public Broadcasting](https://americanarchive.org/exhibits/first-amendment/protests-60s-70s) · `american-archive-public-broadcasting` | united-states | history, media, culture | research-reporting | open / opened |
 
 ## civil-society
 
@@ -214,6 +220,7 @@ opened 仅表示打开入口页面；页面壳、全文、付费及技术限制�
 | 来源／官方发布入口 | 地区提示 | 主题提示 | 角色 | 访问／观测 |
 |---|---|---|---|---|
 | [US National Archives](https://www.archives.gov/milestone-documents/brown-v-board-of-education) · `national-archives-us` | global | law, history | primary-announcement | open / opened |
+| [Archives New Zealand](https://www.archives.govt.nz/manage-information/how-to-manage-your-information/digital/best-practice-guidance-on-digital-storage-and-preservation) · `archives-new-zealand` | new-zealand | archives, technology, preservation | technical-release | open / opened |
 
 ## government-health
 
@@ -232,6 +239,12 @@ opened 仅表示打开入口页面；页面壳、全文、付费及技术限制�
 |---|---|---|---|---|
 | [US Naval History and Heritage Command](https://www.history.navy.mil/research/histories/ship-histories/danfs/k/kitty-hawk-cva-63-ii.html) · `naval-history-us` | global | history, maritime, technology | research-reporting | unknown / blocked |
 | [US Office of the Historian](https://history.state.gov/milestones/1953-1960/bandung-conf) · `state-history` | global | history, society | research-reporting | open / opened |
+
+## government-publisher
+
+| 来源／官方发布入口 | 地区提示 | 主题提示 | 角色 | 访问／观测 |
+|---|---|---|---|---|
+| [United States Government Publishing Office (GovInfo)](https://www.govinfo.gov/content/pkg/HMAN-117/html/HMAN-117-pg776.htm) · `us-government-publishing-office` | united-states | politics, procedure, law | primary-announcement | open / opened |
 
 ## government-research
 
@@ -387,6 +400,13 @@ opened 仅表示打开入口页面；页面壳、全文、付费及技术限制�
 | 来源／官方发布入口 | 地区提示 | 主题提示 | 角色 | 访问／观测 |
 |---|---|---|---|---|
 | [UK Parliament Living Heritage](https://www.parliament.uk/about/living-heritage/) · `uk-parliament-history` | global | history, politics | primary-announcement | open / opened |
+| [United States House of Representatives](https://www.house.gov/the-house-explained/the-legislative-process/house-floor) · `us-house-representatives` | united-states | politics, procedure, legislation | primary-announcement | open / opened |
+
+## political-party
+
+| 来源／官方发布入口 | 地区提示 | 主题提示 | 角色 | 访问／观测 |
+|---|---|---|---|---|
+| [Democratic Party of Virginia](https://vademocrats.org/wp-content/uploads/2015/10/DPVA-2016-Del-Select-Plan-9_7_2015.pdf) · `democratic-party-virginia` | united-states | politics, elections, procedure | primary-announcement | open / opened |
 
 ## product-announcement
 

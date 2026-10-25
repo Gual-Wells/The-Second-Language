@@ -7976,4179 +7976,2141 @@ In the negotiation he became the first yielder.
 
 <!-- PART:three -->
 
-<!-- ARTICLE:A01 -->
-# Two Clocks Changed by One Collision
-
-<!-- SENTENCE:S0001 USE:U03701 -->
-When DART struck Dimorphos in September 2022, it changed two clocks in the sky, each measuring a different orbit.
-`2022年9月DART撞击Dimorphos时，它改变了天空中的两只时钟，每只测量一种不同的轨道。`
-<!-- SENTENCE:S0002 USE:U03708,U03601 -->
-The small asteroid orbits Didymos, while their mutual gravitational attraction keeps the pair moving around a shared centre of mass.
-`小行星绕Didymos运行，而两者相互的引力使它们围绕共同质心运动。`
-<!-- SENTENCE:S0003 USE:U03702,U03703 -->
-Together they remain in orbit around the Sun, completing an orbit in roughly 770 days.
-`它们共同保持绕日运行状态，大约770天完成一周。`
-<!-- SENTENCE:S0004 USE:U03711 -->
-A 2026 study described by NASA found that the collision shortened this much larger orbital period by about 0.15 seconds.
-`NASA介绍的一项2026年研究发现，这次碰撞使这个尺度大得多的轨道周期缩短了约0.15秒。`
-<!-- SENTENCE:S0005 -->
-The previously measured reduction of 33 minutes concerned the moonlet's journey around Didymos, so the two results describe different motions.
-`此前测得的33分钟缩短涉及小卫星绕Didymos的运动，因此两个结果描述的是不同运动。`
-
-<!-- SENTENCE:S0006 USE:U03502 -->
-The physical explanation begins with momentum: in classical mechanics, an object's mass multiplied by its velocity.
-`物理解释从动量开始：在经典力学中，它是物体质量与速度矢量的乘积。`
-<!-- SENTENCE:S0007 USE:U02101 -->
-DART transferred momentum when it hit, but the rocky material thrown out of the asteroid enhanced the effect.
-`DART撞击时传递了动量，而从小行星抛出的岩石物质增强了这一效应。`
-<!-- SENTENCE:S0008 -->
-The escaping debris carried momentum away, giving the remaining asteroid an additional recoil.
-`逸出的碎屑带走动量，使余下的小行星获得额外反冲。`
-<!-- SENTENCE:S0009 USE:U02102 -->
-NASA reports an enhancement factor of about two, rather than an impact produced by the spacecraft alone.
-`NASA报告的增强因子约为二，而非只有航天器本身造成的撞击作用。`
-<!-- SENTENCE:S0010 USE:U01225 -->
-A conservative estimate may understate the expected change, but it still has to consider what leaves the target as well as what arrives.
-`保守估计可能低于预期的变化幅度，但它仍必须同时考虑离开目标和到达目标的物质。`
-<!-- SENTENCE:S0011 USE:U01210,U01301 -->
-In a short collision model that neglects external impulse, conservation of momentum constrains the combined result for spacecraft, asteroid and ejecta.
-`在忽略外部冲量的短时碰撞模型中，动量守恒约束航天器、小行星和抛出物的合并结果。`
-<!-- SENTENCE:S0012 USE:U01203,U04201 -->
-Such a model conserves total momentum; it does not require the asteroid alone to retain its original momentum.
-`这样的模型保持总动量守恒，并不要求小行星单独保有原来的动量。`
-
-<!-- SENTENCE:S0013 USE:U00601 -->
-The approximate change sounds negligible beside a journey lasting hundreds of days.
-`与持续数百天的运行相比，这个近似变化听起来微不足道。`
-<!-- SENTENCE:S0014 USE:U04005 -->
-To be precise, NASA gives the change in the pair's orbital speed as about 11.7 microns per second.
-`确切地说，NASA给出的双星轨道速度变化约为每秒11.7微米。`
-<!-- SENTENCE:S0015 USE:U00607,U04011 -->
-This is an approximation expressed at a stated level of precision, rather than a claim to infinitely many exact digits.
-`这是按明确精密程度表达的近似值，并非声称拥有无限多个确切数字。`
-<!-- SENTENCE:S0016 USE:U04013,U01501 -->
-An imprecise phrase such as a tiny push can convey the scale, but cannot by itself tell an astronomer where to point an instrument.
-`像“微小推动”这样不精确的说法能够传达尺度感，却不能单独告诉天文学家仪器该对准哪里。`
-<!-- SENTENCE:S0017 USE:U05009 -->
-Over a long interval, even a small difference in velocity can yield a substantial difference in position.
-`经过很长一段时间，即使速度只有微小差异，也能产生显著的位置差异。`
-<!-- SENTENCE:S0018 USE:U00606 -->
-The familiar image of nudging a moving ball is only a rough approximation of the actual gravitational problem.
-`轻推运动小球的熟悉图景，只是对实际引力问题的粗略近似描绘。`
-
-<!-- SENTENCE:S0019 USE:U02403 -->
-To find the change, the researchers exploited stellar occultations, when an asteroid briefly blocks a distant star.
-`为了发现这一变化，研究人员利用了恒星掩星：小行星短暂遮挡远处恒星。`
-<!-- SENTENCE:S0020 USE:U00501 -->
-Observers at separate stations had to anticipate the shadow's path and place their instruments along it.
-`不同观测站的观测者必须预料阴影路径，并沿路径安置仪器。`
-<!-- SENTENCE:S0021 USE:U02001 -->
-The star then disappeared and emerged again as the asteroid passed.
-`随后，小行星经过时，恒星先消失，又重新显露。`
-<!-- SENTENCE:S0022 USE:U04003 -->
-Precise timing from several locations helped the team establish the asteroid's position.
-`来自多个地点的精确计时，帮助团队确定了小行星的位置。`
-<!-- SENTENCE:S0023 -->
-NASA describes 22 such events recorded between October 2022 and March 2025, combined with other observations.
-`NASA介绍了2022年10月至2025年3月记录的22次此类事件，并将它们与其他观测结合。`
-<!-- SENTENCE:S0024 USE:U03003,U03109 -->
-A single missed event could result when weather intervened, even after a volunteer had travelled to an isolated observing site.
-`即使志愿者已经前往偏远观测点，天气突然阻碍，也可能使一次事件观测落空。`
-<!-- SENTENCE:S0025 USE:U03803 -->
-The result depended on persistence across many attempts, rather than one spectacular image.
-`这个结果依赖多次尝试中的坚持，而非一张壮观图像。`
-<!-- SENTENCE:S0026 USE:U00906,U02004 -->
-Their observations had to cohere with one another and with earlier records before the small change could emerge from the analysis.
-`各项观测必须彼此吻合，并与早先记录一致，分析才能显出这一微小变化。`
-
-<!-- SENTENCE:S1001 -->
-A different space mission shows what repeated observation from orbit can provide.
-`另一项太空任务说明，反复从轨道观测能够提供什么。`
-<!-- SENTENCE:S1002 USE:U03715 -->
-NASA's Odyssey, launched in 2001, was designed as an orbiter that mapped the Martian surface.
-`NASA于2001年发射的Odyssey，被设计为一艘绘制火星表面地图的轨道探测器。`
-<!-- SENTENCE:S1003 USE:U03710 -->
-The mission team had to orbit the spacecraft around Mars before that repeated mapping could begin.
-`任务团队必须先把探测器送入环火星轨道，才能开始这种反复测绘。`
-<!-- SENTENCE:S1004 -->
-NASA's 2021 account describes both its surface observations and its relay of data from rovers.
-`NASA的2021年介绍，既描述了它的表面观测，也描述了它对火星车数据的中继传送。`
-<!-- SENTENCE:S1005 -->
-A spacecraft's trajectory is consequently part of the scientific task it can perform.
-`因此，航天器的轨迹，是它能够执行的科学任务的一部分。`
-
-<!-- SENTENCE:S0027 USE:U04702 -->
-The DART study is a tangible achievement in measurement as well as in spacecraft engineering.
-`DART研究既是测量上的具体成果，也是航天器工程上的成果。`
-<!-- SENTENCE:S0028 USE:U04301 -->
-It does not mean that the impact reversed the asteroids' direction or made them a threat to Earth.
-`这并不意味着撞击使小行星反向运动，或让它们成为地球的威胁。`
-<!-- SENTENCE:S0029 -->
-NASA explicitly states that the system was not on an Earth-impact trajectory and that DART could not put it on one.
-`NASA明确说明，这个系统原本不在撞地轨道上，DART也不可能把它送入这样的轨道。`
-<!-- SENTENCE:S0030 USE:U03010 -->
-What the experiment supplies is a measured connection between an engineered intervention and a later celestial position.
-`实验提供的是工程干预与随后天体位置之间的一种实测联系。`
-<!-- SENTENCE:S0031 -->
-That connection gives future planetary-defence work a firmer physical basis, while leaving time, target structure and detection as central parts of the problem.
-`这种联系为未来行星防御工作提供了更牢固的物理基础，而时间、目标结构与探测仍是问题的核心部分。`
-
-<!-- ARTICLE:A02 -->
-# The River That Kept Moving After the Dams Were Gone
-
-<!-- SENTENCE:S0032 -->
-Removing a dam changes more than the place where the concrete once stood.
-`拆除水坝改变的，远不止混凝土曾经所在的地方。`
-<!-- SENTENCE:S0033 USE:U04402 -->
-On Washington's Elwha River, the removal of two dams beginning in 2011 released sediment that had accumulated behind them.
-`在华盛顿州的Elwha河，2011年开始的两座水坝拆除，释放了此前在坝后积累的沉积物。`
-<!-- SENTENCE:S0034 USE:U01502 -->
-Water conveyed sand, silt, rocks and old tree trunks downstream, reshaping the river and enlarging its delta.
-`水把沙、淤泥、岩块和旧树干输往下游，重塑河流并扩大三角洲。`
-<!-- SENTENCE:S0035 USE:U04501 -->
-The shoreline continued to shift even after the main pulse of released material had passed.
-`即使释放物质的主要一波已经过去，岸线仍在移动。`
-<!-- SENTENCE:S0036 USE:U04537 -->
-This shifting landscape made recovery a continuing process, rather than a return to one fixed picture.
-`这种各部分不断移位的景观，使恢复成为持续过程，而非回到一幅固定图景。`
-<!-- SENTENCE:S0037 -->
-The transformation was still unfolding when USGS described its first five years in 2018.
-`2018年USGS描述其最初五年变化时，这场转变仍在展开。`
-
-<!-- SENTENCE:S0038 -->
-The researchers estimated that the dams had trapped about 33 million tons of material.
-`研究人员估计，两座水坝曾拦住约3300万吨物质。`
-<!-- SENTENCE:S0039 -->
-About 8 million tons resettled along the river and at its mouth, while another 14 million dispersed into the ocean.
-`约800万吨重新沉积在河道和河口，另约1400万吨散入海洋。`
-<!-- SENTENCE:S0040 -->
-Those figures describe the redistribution of material, not the creation of new matter.
-`这些数字描述物质的重新分布，并非新物质的生成。`
-<!-- SENTENCE:S0041 USE:U04403 -->
-Some sedimented material became part of the river bed, where later flows could move it again.
-`部分沉积下来的物质成为河床的一部分，之后的水流仍可能再次搬动它。`
-<!-- SENTENCE:S0042 USE:U04407 -->
-Sedimentation therefore need not be the last stage in a grain's journey.
-`因此，沉降并不一定是一颗颗粒旅程的最后阶段。`
-<!-- SENTENCE:S0043 USE:U04406 -->
-Over geological time, deposits can become sedimentary rock, but the Elwha measurements concerned a much faster rearrangement of loose material.
-`在地质时间尺度上，沉积层可以形成沉积岩，但Elwha的测量涉及的是松散物质快得多的重新分布。`
-<!-- SENTENCE:S0044 USE:U03303 -->
-A river's channel may migrate as water erodes one bank and deposits material elsewhere.
-`水冲蚀一侧河岸、又在别处堆积物质时，河道便可能迁移。`
-<!-- SENTENCE:S0045 -->
-The geographical position of a channel is consequently not a permanent boundary between land and water.
-`因此，河道的地理位置并非陆地与水之间永久不变的界线。`
-
-<!-- SENTENCE:S0046 USE:U02601 -->
-For an organism, this changing structure is habitat: the actual environment in which it lives.
-`对生物而言，这种变化中的结构就是栖息地，即它实际生活的环境。`
-<!-- SENTENCE:S0047 -->
-A separate coastal study published in 2017 linked physical changes in the estuary to changes in its biological community.
-`2017年发表的另一项海岸研究，把河口的物理变化与生物群落变化联系起来。`
-<!-- SENTENCE:S0048 -->
-New deposits expanded some intertidal and supratidal areas, yet reduced the entry of seawater into the former estuary complex.
-`新的沉积扩大了部分潮间带和潮上带，却减少了海水进入原有河口水域。`
-<!-- SENTENCE:S0049 USE:U01701 -->
-During the period studied, the abundance of fish and larger invertebrates diminished, and freshwater species became more prominent.
-`在研究时段内，鱼类和大型无脊椎动物数量减少，淡水物种变得更突出。`
-<!-- SENTENCE:S0050 USE:U01904 -->
-The resulting diversity cannot be described simply by saying that every species benefited.
-`因此形成的多样性，不能简单说成所有物种都受益。`
-<!-- SENTENCE:S0051 USE:U01901 -->
-Diverse environments support different communities, and the same intervention can favour one group while disadvantaging another.
-`多样的环境支持不同群落，同一次干预可能有利于一类，却不利于另一类。`
-<!-- SENTENCE:S0052 USE:U03114 -->
-This is why biological responses cannot be considered in isolation from water movement and sediment supply.
-`这就是为什么不能脱离水流和沉积物供应，单独考虑生物反应。`
-<!-- SENTENCE:S0053 USE:U03208 -->
-The physical medium in which an aquatic animal lives is itself being rebuilt.
-`水生动物赖以生活的物理环境本身正在重建。`
-
-<!-- SENTENCE:S0054 USE:U01212 -->
-A conservationist concerned with river recovery therefore needs more than an image of an empty dam site.
-`因此，关心河流恢复的自然保护工作者，需要的不只是一张原坝址已空的照片。`
-<!-- SENTENCE:S0055 USE:U01211 -->
-Conservational measures have to address the moving connections among water, plants, animals and the surrounding land.
-`保护措施必须处理水、植物、动物与周边土地之间不断变化的联系。`
-<!-- SENTENCE:S0056 USE:U01207,U00801 -->
-Conservation here concerns the capacity of an ecosystem to continue functioning through change.
-`这里的环境保护，关注的是生态系统在变化中继续发挥功能的能力。`
-<!-- SENTENCE:S0057 USE:U01202 -->
-It is possible to conserve living systems while allowing their shapes and distributions to change.
-`允许形态与分布发生变化，同时仍保护生命系统，是可以做到的。`
-<!-- SENTENCE:S0058 USE:U04111 -->
-Restoration does not mean that a river must retain every modern road or campsite beside it.
-`生态恢复并不意味着河流必须保留沿岸每一条现代道路或每一处营地。`
-<!-- SENTENCE:S0059 -->
-Indeed, USGS reported that a later flood changed the river's course and badly damaged a road and two campgrounds.
-`事实上，USGS报告，后来的一次洪水改变了河道，并严重损坏一条道路和两处营地。`
-<!-- SENTENCE:S0060 USE:U02302 -->
-Those losses are part of the same evolving landscape, rather than an unrelated exception to it.
-`这些损失属于同一个逐渐演变的景观，并非与它无关的例外。`
-
-<!-- SENTENCE:S0061 USE:U02903 -->
-The study integrated pre-dam survey records, GPS measurements, laser surveys, photographs and river gauges.
-`研究整合了建坝前测绘记录、GPS测量、激光测绘、照片和河流测量仪器资料。`
-<!-- SENTENCE:S0062 USE:U02910 -->
-Integration of these different records allowed the researchers to follow changes that no single instrument could show.
-`整合不同记录，使研究人员能够追踪任何单一仪器都无法展示的变化。`
-<!-- SENTENCE:S0063 -->
-USGS scientists worked with several partners, including the Lower Elwha Klallam Tribe.
-`USGS科学家与多个伙伴合作，其中包括Lower Elwha Klallam Tribe。`
-<!-- SENTENCE:S0064 USE:U03602 -->
-Their mutual efforts produced a history of movement, not just a pair of before-and-after photographs.
-`他们共同的努力形成了一部运动变化史，而不只是两张前后对照照片。`
-<!-- SENTENCE:S0065 USE:U03804 -->
-The persistence of change after demolition is one of the Elwha's most revealing features.
-`拆除后变化持续存在，是Elwha最能揭示问题的特征之一。`
-<!-- SENTENCE:S0066 USE:U04615,U04601 -->
-A sustainable river landscape must sustain ecological processes as well as accommodate people who live beside it.
-`可持续的河流景观，既须维持生态过程，也须容纳沿岸居民。`
-<!-- SENTENCE:S0067 -->
-The 2018 account gives a detailed stage in that history; it does not freeze the river in 2018 or establish the condition of every species today.
-`2018年的记述呈现了这段历史的一个详细阶段；它既不能把河流冻结在2018年，也不能确定今天所有物种的状况。`
-
-<!-- ARTICLE:A03 -->
-# A Bus Network Reaches Beyond the Railway Map
-
-<!-- SENTENCE:S0068 -->
-A railway map can show a city as a set of connected stations while leaving a new residential estate looking close to everything.
-`铁路图可以把城市画成一组相连的车站，却让一个新住宅区看起来离哪里都很近。`
-<!-- SENTENCE:S0069 USE:U03005 -->
-For a resident carrying shopping home, the intervening distance between a flat and a station is part of the journey, not empty space on a diagram.
-`对提着购物袋回家的居民来说，住所与车站之间的距离是行程的一部分，而非图上的空白。`
-<!-- SENTENCE:S0070 -->
-Singapore's September 2026 bus announcement addresses this gap with services for places including Tengah and Woodlands.
-`新加坡2026年9月的公交公告，以服务Tengah、Woodlands等地区的线路来处理这种缺口。`
-<!-- SENTENCE:S0071 -->
-As of 24 October, services 873, 873M and 874 are scheduled to begin the following day, rather than already carrying passengers.
-`截至10月24日，873、873M和874路计划次日开始服务，并非已经载客运行。`
-<!-- SENTENCE:S0072 USE:U00403 -->
-The stated connections give Tengah residents alternative routes to several railway stations.
-`公告列明的连接，为Tengah居民提供了通往多个铁路站的备选路线。`
-<!-- SENTENCE:S0073 USE:U00401 -->
-A useful alternative can be a different connection, not necessarily a different means of transport for the entire trip.
-`有用的替代选择可以是一条不同的接驳路径，不一定是整段旅程换用另一种交通方式。`
-
-<!-- SENTENCE:S0074 -->
-LTA also describes earlier changes, including the extension of service 381 to Punggol Coast from 13 September.
-`LTA还介绍了此前的调整，包括381路自9月13日起延伸至Punggol Coast。`
-<!-- SENTENCE:S0075 USE:U02903,U02909 -->
-That extension integrates a bus route with an integrated transport hub, making a local connection part of a wider network.
-`这次延伸把公交线路接入综合交通枢纽，使一段本地接驳成为更大网络的一部分。`
-<!-- SENTENCE:S0076 USE:U02910 -->
-Network integration matters because passengers experience transfers, waiting and walking together.
-`网络整合之所以重要，是因为乘客同时经历换乘、等待和步行。`
-<!-- SENTENCE:S0077 -->
-A route may be geographically short yet provide poor access if the connecting service leaves just before passengers arrive.
-`一条线路地理上可能很短，但如果接驳班次恰好在乘客到达前离开，通达性仍会很差。`
-<!-- SENTENCE:S0078 USE:U00901 -->
-A coherent network needs its different parts to support the same journeys.
-`连贯的网络需要不同部分共同支持同一批出行。`
-<!-- SENTENCE:S0079 USE:U00401 -->
-This does not require every bus to imitate the railway; some routes supply an alternative to a heavily used rail corridor.
-`这并不要求每辆公交车都模仿铁路；一些线路为使用繁忙的铁路走廊提供替代选择。`
-<!-- SENTENCE:S0080 USE:U00408 -->
-Alternatively, a limited-stop bus can shorten the connection to a station without replacing the rail journey beyond it.
-`或者，有限停站公交可以缩短前往车站的接驳，而不取代之后的铁路行程。`
-
-<!-- SENTENCE:S0081 USE:U00805 -->
-Capacity is another part of the announcement: adding trips can increase the number of passengers a service can carry.
-`运力是公告的另一部分：增加班次能够提高一项服务可承载的乘客数量。`
-<!-- SENTENCE:S0082 USE:U00806 -->
-A bus filled to capacity offers no spare room simply because the next destination is nearby.
-`一辆已经满员的公交车，并不会因为下一目的地很近就凭空多出空间。`
-<!-- SENTENCE:S0083 USE:U00303 -->
-The allocation of vehicles and operating time therefore affects the practical value of a route.
-`因此，车辆与运营时间的分配影响一条线路的实际价值。`
-<!-- SENTENCE:S0084 USE:U00302 -->
-In a hypothetical fleet, an allocation of ten buses to the morning peak may leave fewer available for another period.
-`在一个假设车队中，把十辆公交车这一份运力分给早高峰，可能使其他时段可用的车辆变少。`
-<!-- SENTENCE:S0085 USE:U00304 -->
-Allocable resources are finite, so a timetable expresses choices about where service is most needed.
-`可分配资源有限，因此时刻表表达了哪些地方最需要服务的取舍。`
-<!-- SENTENCE:S0086 USE:U00102 -->
-The authority must adapt the network as residents' journeys change, rather than treat the first route map as permanent.
-`主管机构必须随居民出行变化调整网络，而不能把第一版线路图当成永久安排。`
-<!-- SENTENCE:S0087 USE:U00109 -->
-Such adaptation may involve more trips, an extended route or a new connection, each solving a different problem.
-`这种调整可以是增加班次、延伸路线或新增连接，各自解决不同问题。`
-
-<!-- SENTENCE:S0088 USE:U04509 -->
-For a person whose working shift ends late, the existence of a daytime connection alone may not make a journey possible.
-`对晚下班的人来说，只有白天的接驳可能还不足以使行程可行。`
-<!-- SENTENCE:S0089 USE:U01506 -->
-For a household, reliable conveyance can determine whether work, school and care can fit into the same day.
-`对家庭而言，可靠的运送服务可能决定工作、上学与照护能否安排在同一天。`
-<!-- SENTENCE:S0090 USE:U01508 -->
-The bus is a public conveyance, but the benefit lies in the activities it makes reachable.
-`公交车是一种公共交通工具，但它的价值在于让哪些活动变得可达。`
-<!-- SENTENCE:S0091 -->
-This gives transport planning a social dimension beyond the speed of the vehicle itself.
-`这使交通规划具有超出车辆本身速度的社会维度。`
-<!-- SENTENCE:S0092 USE:U04705 -->
-Service changes can tangibly alter the time available for those activities.
-`服务调整可以具体地改变人们能用于这些活动的时间。`
-<!-- SENTENCE:S0093 USE:U04601 -->
-Their value also depends on whether a workable connection can be sustained after the novelty of a new route has passed.
-`它们的价值还取决于：新线路的新鲜感过去后，可用的连接能否持续维持。`
-
-<!-- SENTENCE:S1006 -->
-A network can also connect places around a city without carrying every trip through its centre.
-`网络也可以连接城市周边地点，而不让每段行程都穿过市中心。`
-<!-- SENTENCE:S1007 USE:U03713 -->
-An orbital road, such as London's M25, provides one large-scale form of that arrangement.
-`像伦敦M25这样的环城公路，提供了这种安排的一种大尺度形式。`
-<!-- SENTENCE:S1008 -->
-The motorway archive traces London's circular-road ideas back to 1905, well before the modern M25 identity.
-`高速公路档案把伦敦环路的构想追溯至1905年，远早于现代M25的命名与形成。`
-<!-- SENTENCE:S1009 USE:U05003 -->
-At street level, a driver may have to yield to people crossing, so useful travel time includes more than a vehicle's free-running speed.
-`在街道层面，驾驶员可能必须给过街者让路，因此，实际行程时间所涉及的不只是车辆畅通行驶的速度。`
-
-<!-- SENTENCE:S0094 USE:U03409 -->
-LTA says it will continue to monitor travel patterns and make targeted modifications.
-`LTA表示将继续监测出行模式，并作有针对性的调整。`
-<!-- SENTENCE:S0095 USE:U03406 -->
-That makes the network modifiable in response to use, rather than a finished object whose success is settled on launch day.
-`这使网络能够根据使用情况调整，而不是一件在开通当天就确定成败的成品。`
-<!-- SENTENCE:S0096 -->
-The announcement also looks ahead to interim Jurong Region Line shuttle buses planned for the second half of 2027.
-`公告还展望了计划于2027年下半年运行的Jurong Region Line临时接驳公交。`
-<!-- SENTENCE:S0097 USE:U00502 -->
-Those future links may anticipate residents' travel needs before the railway arrives, although their operating details are not all settled.
-`这些未来连接可以在铁路开通前预先满足居民的出行需求，不过其运营细节尚未全部确定。`
-<!-- SENTENCE:S0098 -->
-For a traveller reading the notice now, the immediate gain is a clearer distinction between a connection already available and one still to come.
-`对现在阅读公告的出行者而言，直接收益是更清楚地区分已经可用的连接和仍待到来的连接。`
-
-<!-- ARTICLE:A04 -->
-# Learning a New Language Without Losing the Lesson
-
-<!-- SENTENCE:S0099 -->
-A child can understand a scientific idea and still be unable to explain it in the language chosen for school.
-`孩子可以理解一个科学概念，却仍无法用学校选定的语言解释它。`
-<!-- SENTENCE:S0100 USE:U03205 -->
-When the medium of instruction is unfamiliar, difficulty with expression can conceal knowledge rather than reveal its absence.
-`教学媒介语言不熟悉时，表达困难可能掩盖已有知识，而非表明知识不存在。`
-<!-- SENTENCE:S0101 USE:U01901 -->
-The problem becomes especially visible in classrooms with diverse linguistic backgrounds.
-`在语言背景多样的课堂中，这个问题尤其明显。`
-<!-- SENTENCE:S0102 USE:U01902 -->
-Children's experiences are also diverse: knowing several languages does not mean having equal command of every school register.
-`孩子们的经历也彼此不同：会多种语言，不等于同样掌握每种学校语体。`
-<!-- SENTENCE:S0103 USE:U00909,U00911 -->
-A learner may speak coherently at home yet sound incoherent when required to explain a complex idea in a newly learned language.
-`学习者在家能连贯表达，被要求用新学语言解释复杂概念时，却可能显得语无伦次。`
-<!-- SENTENCE:S0104 USE:U00914 -->
-That momentary incoherence should not be mistaken for an absence of intelligence.
-`不应把那一刻表达不连贯，误当成缺乏智力。`
-
-<!-- SENTENCE:S0105 USE:U00201 -->
-UNESCO's multilingual-education guidance advocates beginning learning in a language the child understands.
-`UNESCO的多语教育指导倡导从孩子能够理解的语言开始学习。`
-<!-- SENTENCE:S0106 USE:U00207 -->
-Its advocacy connects language policy with access to learning, rather than treating language merely as a classroom preference.
-`这种倡导把语言政策与学习机会联系起来，而非仅把语言当作课堂偏好。`
-<!-- SENTENCE:S0107 -->
-The recommended progression introduces another language as a subject before using it alongside the home language to teach other subjects.
-`建议的进程是：先把另一种语言作为学科学习，再让它与家庭语言并用，教授其他学科。`
-<!-- SENTENCE:S0108 USE:U00401 -->
-This is an alternative to an abrupt replacement of one teaching language by another.
-`这为突然用一种教学语言取代另一种语言提供了替代选择。`
-<!-- SENTENCE:S0109 USE:U03607 -->
-Maintaining one language and learning another are not mutually exclusive goals.
-`保持一种语言与学习另一种语言，并不是相互排斥的目标。`
-<!-- SENTENCE:S0110 USE:U03606 -->
-They can be mutually supportive when concepts learned through one language help a child understand work in the other.
-`如果通过一种语言学到的概念帮助孩子理解另一种语言的学习内容，两者就可以相互支持。`
-<!-- SENTENCE:S0111 USE:U02901 -->
-The aim is to integrate children from minority-language communities into school life as equal participants, while preserving their first means of understanding.
-`目标是让少数语言社群的孩子作为平等参与者融入学校生活，同时保留他们最初的理解手段。`
-<!-- SENTENCE:S0112 USE:U02911 -->
-Integration in this sense includes a child's opportunity to speak, question and be understood.
-`这种意义上的融合，包括孩子说话、提问和被理解的机会。`
-
-<!-- SENTENCE:S0113 USE:U00105 -->
-Such a policy requires adaptable teachers, not simply a translated heading on the same worksheet.
-`这样的政策需要能够适应情况的教师，而不只是在同一张练习纸上翻译标题。`
-<!-- SENTENCE:S0114 USE:U00106 -->
-Materials must also be adaptable, so that familiar examples and local knowledge can enter the lesson.
-`材料也必须可改用，使熟悉的例子和本地知识能够进入课堂。`
-<!-- SENTENCE:S0115 USE:U00104 -->
-A diagram well adapted for bilingual teaching can retain the relationship it shows while giving the labels in two languages.
-`适合双语教学的图表，可以在用两种语言标出名称的同时，保留所展示的关系。`
-<!-- SENTENCE:S0116 USE:U00108 -->
-Teachers working adaptably may change the route to an explanation while keeping its intellectual demand.
-`教师灵活适应情况地工作，可以改变通往解释的路径，同时保持思维要求。`
-<!-- SENTENCE:S0117 USE:U00107 -->
-Their adaptability is a professional resource, but it depends on training, time and usable materials.
-`他们的适应能力是一种专业资源，但依赖培训、时间和可用材料。`
-<!-- SENTENCE:S0118 USE:U00113 -->
-An adaptive curriculum can respond to a class's developing language resources instead of assuming that every learner follows one identical path.
-`能够适应变化的课程，可以回应全班不断发展的语言资源，而不假定每个学习者都沿着完全相同的路径前进。`
-
-<!-- SENTENCE:S0119 -->
-UNESCO accordingly places teacher recruitment, training, assessment and community involvement beside the choice of language.
-`因此，UNESCO把教师招聘、培训、评价和社区参与，与语言选择并列考虑。`
-<!-- SENTENCE:S0120 USE:U02917,U00912 -->
-An integrative policy must connect these elements; an incoherent set of requirements could ask teachers to support one language while examining children only in another.
-`起整合作用的政策必须连接这些要素；一组不一致的要求，可能一边让教师支持一种语言，一边只用另一种语言考查孩子。`
-<!-- SENTENCE:S0121 USE:U00914 -->
-Such incoherence would make the practical purpose of the policy difficult to explain.
-`这种不一致，会使政策的实际目的难以说明。`
-<!-- SENTENCE:S0122 USE:U00301 -->
-Schools need to allocate resources to the whole progression, including the period when two teaching languages coexist.
-`学校需要为整个进程分配资源，包括两种教学语言并存的阶段。`
-<!-- SENTENCE:S0123 USE:U01507 -->
-For parents, the conveyance of this plan matters too: they need to understand what children will learn now and what will change later.
-`向家长传达这一计划也很重要：他们需要理解孩子现在会学什么，之后又会改变什么。`
-<!-- SENTENCE:S0124 -->
-A family can then take part in education as a source of knowledge, rather than stand outside it as a recipient of instructions.
-`家庭便能够作为知识来源参与教育，而非站在教育之外只接受指令。`
-
-<!-- SENTENCE:S0125 USE:U02201 -->
-Equity here concerns access to understanding, not a promise that every child has the same linguistic history.
-`这里的公平，涉及获得理解的机会，而非保证每个孩子都有相同的语言经历。`
-<!-- SENTENCE:S0126 USE:U02207 -->
-An equitable system can offer different forms of support while expecting substantial learning from everyone.
-`公正的制度可以提供不同形式的支持，同时对每个人都保持实质学习要求。`
-<!-- SENTENCE:S0127 USE:U02210 -->
-Distributing support equitably may therefore require attention to needs that a uniform lesson overlooks.
-`因此，公平地分配支持，可能需要关注统一课程忽略的需求。`
-<!-- SENTENCE:S0128 USE:U02209 -->
-The equitableness of a policy is tested partly by whether those differences can actually be addressed.
-`政策是否公平，部分取决于这些差异能否得到实际处理。`
-<!-- SENTENCE:S0129 USE:U01905 -->
-Diversity also has an institutional meaning: families from different backgrounds must have a real place in decisions.
-`多元包容还具有制度意义：不同背景的家庭必须在决策中拥有实际位置。`
-<!-- SENTENCE:S0130 USE:U01906 -->
-A diversity of languages can then become a resource for learning rather than a reason for silence.
-`多种不同语言便能够成为学习资源，而非沉默的原因。`
-
-<!-- SENTENCE:S0131 USE:U03220 -->
-A multimedia lesson might combine a book, a recorded explanation and images without abandoning the language children understand.
-`多媒体课堂可以结合书本、录制的解释与图像，同时保留孩子能够理解的语言。`
-<!-- SENTENCE:S0132 USE:U03222 -->
-Multimedia in education is useful when the different media clarify an idea, not merely when a screen is present.
-`教学中的多媒体，在不同媒介能够说明概念时才有用，而非只要摆着屏幕就有用。`
-<!-- SENTENCE:S0133 USE:U01605 -->
-The teacher still has to cultivate the ability to move between explanation, question and response.
-`教师仍须着力培养在解释、提问与回应之间转换的能力。`
-<!-- SENTENCE:S0134 USE:U01611 -->
-That cultivation takes place in the ordinary exchanges through which a child gradually becomes able to say more.
-`这种能力培养，发生在让孩子逐渐能够表达更多内容的日常交流中。`
-<!-- SENTENCE:S0135 USE:U04202 -->
-The practical ambition is not simply a lesson delivered, but knowledge that learners can understand, retain and eventually express in more than one language.
-`实际追求的，不只是课已经讲过，而是学习者能理解、记住，并最终用不止一种语言表达的知识。`
-
-<!-- ARTICLE:A05 -->
-# The Work That Makes Other Work Possible
-
-<!-- SENTENCE:S0136 -->
-A meal prepared, an older person washed and a child collected from school all take time, whether or not anyone receives a wage.
-`做好一顿饭、为老人洗漱、接孩子放学，都需要时间，无论是否有人因此领取工资。`
-<!-- SENTENCE:S0137 USE:U04603 -->
-Care sustains people through those ordinary activities, providing support that does not disappear when it is unpaid.
-`照护通过这些日常活动支持人们，这种支持不会因为没有报酬就消失。`
-<!-- SENTENCE:S0138 USE:U04623 -->
-It also supplies sustenance in the literal sense: food and drink needed for life.
-`它还提供字面意义上的营养，即维持生命所需的食物与饮料。`
-<!-- SENTENCE:S0139 USE:U04624 -->
-The sustenance of a dependent person is a process of feeding and supporting, not merely a purchase on a household bill.
-`对依赖照顾者的滋养，是喂养与支持的过程，不只是家庭账单上的一次购买。`
-<!-- SENTENCE:S0140 USE:U04322 -->
-When an adult child begins looking after a parent, that relationship can involve a reversal of roles without any reversal of affection.
-`成年子女开始照顾父母时，这种关系可能涉及角色互换，而情感并不会随之反向。`
-<!-- SENTENCE:S0141 -->
-The need for care links the household to every other institution that relies on its members being able to participate.
-`照护需求把家庭与所有依赖其成员参与的机构连接起来。`
-
-<!-- SENTENCE:S0142 -->
-ILO estimates published in October 2024 put 748 million people aged fifteen or above outside the labour force because of care responsibilities in 2023.
-`ILO于2024年10月公布的估计显示，2023年有7.48亿十五岁及以上人口因照护责任不在劳动力市场。`
-<!-- SENTENCE:S0143 -->
-The total included 708 million women and 40 million men, using information from 125 countries.
-`根据125国资料，这一总数包括7.08亿女性和4000万男性。`
-<!-- SENTENCE:S0144 -->
-These people were not necessarily unemployed: the classification concerns participation in the labour force, not the presence or absence of useful work.
-`这些人不一定属于失业者：这一分类涉及劳动力市场参与，而非有没有从事有用劳动。`
-<!-- SENTENCE:S0145 USE:U01702 -->
-To diminish unpaid care as mere inactivity is to confuse a statistical category with the importance of a person's contribution.
-`把无报酬照护贬低为单纯无所事事，就是把统计类别与个人贡献的重要性混为一谈。`
-<!-- SENTENCE:S0146 USE:U01002 -->
-Time is a scarce commodity in this setting, even when it is not bought or sold.
-`在这种处境中，时间是一种稀缺的宝贵之物，即使它没有被买卖。`
-<!-- SENTENCE:S0147 -->
-The same hour cannot be wholly devoted to several demanding activities at once.
-`同一个小时，不能同时完整投入数项要求很高的活动。`
-<!-- SENTENCE:S0148 USE:U01301 -->
-Fixed working hours can constrain a carer's options even when the person wants paid employment.
-`即使照护者想从事有酬工作，固定工时仍可能限制其选择。`
-
-<!-- SENTENCE:S0149 USE:U02701 -->
-A financial incentive to accept a job may be insufficient if no one is available to provide care during the required hours.
-`如果规定工时内无人能够接手照护，接受工作的经济动机可能仍不够。`
-<!-- SENTENCE:S0150 USE:U02702 -->
-An output-linked incentive rewards production, but does not itself create a childcare place.
-`与产出挂钩的激励奖金奖励生产，却不会自行创造一个托育名额。`
-<!-- SENTENCE:S0151 USE:U02703 -->
-Incentive schemes and care services address different parts of the decision.
-`激励性方案与照护服务，处理的是决定中的不同部分。`
-<!-- SENTENCE:S0152 USE:U01309 -->
-The relevant constraint may be a journey, an unavailable service or a schedule that cannot be changed.
-`相关限制因素，可能是一段路程、一项无法获得的服务，或不可调整的时间表。`
-<!-- SENTENCE:S0153 USE:U01305 -->
-A person may feel constrained to refuse paid work while still wishing to undertake it.
-`一个人可能觉得自己不得不拒绝有酬工作，却仍然希望从事它。`
-<!-- SENTENCE:S0154 USE:U04538 -->
-It would be misleading to describe such a person as shiftless simply because their work is absent from an employer's payroll.
-`仅因某人的劳动不在雇主工资表上，就把这个人说成懒散无能，会产生误导。`
-<!-- SENTENCE:S0155 USE:U04539,U04540 -->
-Nor does the absence of wages establish that a carer lives shiftlessly or that shiftlessness explains the employment gap.
-`没有工资，也不能证明照护者懒散地生活，更不能证明懒散解释了就业差距。`
-
-<!-- SENTENCE:S0156 USE:U02213 -->
-The distribution of care can expose inequity within a household and across society.
-`照护的分配能够显出家庭内部及社会中的不公平。`
-<!-- SENTENCE:S0157 USE:U02211 -->
-An inequitable arrangement may leave one person with little opportunity to earn an independent income.
-`不公平的安排，可能使一个人几乎没有挣取独立收入的机会。`
-<!-- SENTENCE:S0158 USE:U02212 -->
-When time is shared inequitably, a nominally shared responsibility can become one person's permanent obligation.
-`当时间分担不公时，名义上共同的责任可能成为一个人的永久义务。`
-<!-- SENTENCE:S0159 USE:U03601 -->
-Mutual support involves more than mutual affection; it also requires practical decisions about who does what.
-`互相支持不只涉及彼此的感情，还需要实际决定谁做什么。`
-<!-- SENTENCE:S0160 USE:U03605 -->
-The mutuality of a relationship can be expressed through those decisions without making every contribution identical.
-`关系的互助性可以通过这些决定体现，而不必使每份贡献完全一样。`
-<!-- SENTENCE:S0161 USE:U02501 -->
-Friction may arise when one person's availability is treated as an unlimited family resource.
-`如果一个人的可支配时间被视为无限的家庭资源，就可能产生不和。`
-<!-- SENTENCE:S0162 USE:U01101 -->
-A compromise between competing needs can help, but a private compromise cannot substitute for a missing public service.
-`在不同需求间作出折中能够有所帮助，但私人折中不能替代缺失的公共服务。`
-
-<!-- SENTENCE:S0163 -->
-ILO's account calls attention to services, infrastructure, social protection and the conditions of paid care workers.
-`ILO的记述把注意力引向服务、基础设施、社会保障和有酬照护工作者的条件。`
-<!-- SENTENCE:S0164 USE:U02401 -->
-Expanding care provision should not depend on exploiting another worker by demanding long hours for very little pay.
-`扩大照护供给，不应依赖以很少报酬要求另一名劳动者长时间工作来剥削对方。`
-<!-- SENTENCE:S0165 -->
-Low-paid labour does not cease to be labour because an employer presents the job as a calling.
-`即使雇主把工作描述为一种使命，低薪劳动也不会因此不再是劳动。`
-<!-- SENTENCE:S0166 USE:U02411 -->
-An exploitative arrangement takes advantage of the worker while returning too little for the work provided.
-`剥削性安排利用劳动者，却为其提供的劳动给予过少回报。`
-<!-- SENTENCE:S0167 USE:U02412,U02408 -->
-An exploiter can appeal to devotion, but that appeal does not remove the underlying exploitation.
-`剥削者可以诉诸奉献精神，但这种诉求并不能消除背后的剥削。`
-<!-- SENTENCE:S0168 USE:U04201 -->
-A serious care policy therefore has to retain workers as well as make services available to families.
-`因此，严肃的照护政策既须留住劳动者，也须让家庭获得服务。`
-<!-- SENTENCE:S0169 USE:U04214,U04616 -->
-Retention depends on conditions under which the work can remain financially and physically sustainable.
-`人员留任，依赖工作在经济与身体层面都能维持下去的条件。`
-<!-- SENTENCE:S0170 USE:U04620 -->
-An arrangement that demands indefinitely more unpaid time from the same person is unsustainable, however valuable the care may be.
-`无论照护多么有价值，无限期要求同一个人投入越来越多无报酬时间的安排，都无法维持。`
-<!-- SENTENCE:S1123 USE:U04510 -->
-In a staffed care home, the night shift must continue attending to residents after the day staff leave.
-`在配备工作人员的护理院，日间人员离开后，夜班人员仍须继续照顾住户。`
-<!-- SENTENCE:S1124 USE:U04518 -->
-The shift from day carers to night carers replaces one team with another; a handover must carry knowledge of each resident across that change.
-`从日间照护人员到夜间照护人员的轮换，让一组人接替另一组；交接班必须使每位住户的情况都能跨过这次更替，传到接班人员手中。`
-<!-- SENTENCE:S1125 USE:U03809 -->
-Staff who are persistently asked to cover shortages may have less opportunity to rest themselves.
-`如果工作人员反复被要求顶补缺员，他们自己就可能更少有机会休息。`
-
-<!-- SENTENCE:S0996 USE:U03301 -->
-When people migrate for care work, their journeys connect one household's needs with labour supplied from another place.
-`人们为照护工作迁居时，他们的旅程把一个家庭的需求与来自另一地点的劳动连接起来。`
-<!-- SENTENCE:S0997 USE:U03309 -->
-A migrant domestic worker may care for someone else's family while arranging support for their own.
-`移居而来的家务工，可能一边照顾别人的家庭，一边为自己的家庭安排支持。`
-<!-- SENTENCE:S0998 -->
-The ILO places migrant care work within questions of recruitment, protection and decent employment.
-`国际劳工组织把移民照护工作，置于招聘、保护与体面就业的问题之中。`
-<!-- SENTENCE:S0999 USE:U01403 -->
-Its Domestic Workers Convention is an international convention that places household work within a framework of labour standards.
-`其《家庭工人公约》是一项国际公约，把家内工作纳入劳动标准框架。`
-<!-- SENTENCE:S1000 -->
-A private home can thus be a workplace within a much wider social arrangement.
-`因此，私人住宅可以成为一个更广泛社会安排中的工作场所。`
-
-<!-- SENTENCE:S0171 -->
-The report also shows why a single global figure cannot describe every woman's circumstances.
-`报告还说明，单一全球数字无法描述每位女性的处境。`
-<!-- SENTENCE:S0172 -->
-Regional differences, education, rural residence and the availability of support all affect participation.
-`地区差异、教育、农村居住以及支持是否可得，都会影响参与。`
-<!-- SENTENCE:S0173 USE:U03801 -->
-Care responsibilities persist, but their effect can change when the surrounding arrangements change.
-`照护责任持续存在，但周边安排改变时，它们的影响可以改变。`
-<!-- SENTENCE:S0174 -->
-The practical question is how to support a life in which giving care and earning a livelihood can coexist.
-`实际问题是怎样支持一种能够兼顾照护与谋生的生活。`
-<!-- SENTENCE:S0175 USE:U04625 -->
-Sustenance in the sense of a livelihood depends on that possibility, just as daily nourishment depends on the care itself.
-`作为生计的生活来源，依赖这种可能性，正如日常营养依赖照护本身。`
-
-<!-- ARTICLE:A06 -->
-# What an Antibiotic-Resistance Record Can Tell Us
-
-<!-- SENTENCE:S0176 -->
-An antibiotic-resistance report begins with infections and laboratory work, not with a single number floating above the world.
-`抗生素耐药性报告从感染与实验室工作开始，而不是从悬浮在世界上空的一个数字开始。`
-<!-- SENTENCE:S0177 -->
-WHO's 2025 report described resistance in laboratory-confirmed bacterial infections using data for 2023.
-`WHO的2025年报告，利用2023年数据描述实验室确诊细菌感染的耐药性。`
-<!-- SENTENCE:S0178 -->
-Its widely reported figure of one in six refers to those analysed infections, not to every illness experienced by every person.
-`广泛传播的六分之一，指的是所分析的感染，而非每个人经历的所有疾病。`
-<!-- SENTENCE:S0179 USE:U02008 -->
-The emergence of resistance narrows the range of treatments that can work against a particular pathogen.
-`耐药性的出现，缩小了能够对某种病原体起作用的治疗范围。`
-<!-- SENTENCE:S0180 USE:U03805 -->
-WHO describes a persistent problem whose effects differ among organisms, drugs and regions.
-`WHO描述的是一个长期存在的问题，其影响因微生物、药物与地区而异。`
-
-<!-- SENTENCE:S0181 USE:U03103 -->
-To understand a laboratory result, it helps to isolate the question of growth from the question of illness in a patient.
-`理解实验室结果时，把生长问题与病人患病问题分开辨识，会有所帮助。`
-<!-- SENTENCE:S0182 USE:U01604,U03209 -->
-Microorganisms can be cultivated under controlled conditions on a culture medium that supplies a suitable environment.
-`微生物可以在受控条件下，用提供适宜环境的培养基培养。`
-<!-- SENTENCE:S0183 USE:U01610 -->
-Cultivation makes some processes visible, but a culture is not a miniature copy of an entire human body.
-`培养能让某些过程显现，但培养物并不是整个人体的微缩复制品。`
-<!-- SENTENCE:S0184 USE:U03107 -->
-Not every organism is readily isolatable under the same conditions, and separating a component requires an appropriate method.
-`并非每种微生物都能在相同条件下轻易分离，分离某个成分需要恰当方法。`
-<!-- SENTENCE:S0185 USE:U03104 -->
-Scientists may isolate a substance from a mixture in order to study its properties separately.
-`科学家可以从混合物中分离取得一种物质，以单独研究其性质。`
-<!-- SENTENCE:S0186 USE:U01801 -->
-The ability to discriminate between a growing population and a suppressed one is a particular measurement task.
-`辨别生长中的种群与受到抑制的种群，是一项具体测量任务。`
-<!-- SENTENCE:S0187 USE:U01813 -->
-That discrimination is different from deciding which treatment is appropriate for an individual patient.
-`这种辨别能力，与决定哪种治疗适合某个病人，是不同的问题。`
-
-<!-- SENTENCE:S0188 -->
-The report found increases in resistance in over forty per cent of the pathogen–antibiotic combinations monitored between 2018 and 2023.
-`报告发现，2018至2023年受监测的病原体与抗生素组合中，超过百分之四十出现耐药上升。`
-<!-- SENTENCE:S0189 -->
-A combination is the relevant unit: the same organism can respond differently to different drugs.
-`这里的相关单位是组合：同一种微生物对不同药物可以有不同反应。`
-<!-- SENTENCE:S0190 USE:U01815 -->
-An indiscriminate summary saying that forty per cent of all infections became resistant would change the claim.
-`不加区别地概括为全部感染中百分之四十变得耐药，会改变原有结论。`
-<!-- SENTENCE:S0191 -->
-The distinction also shows why antimicrobial resistance and antibiotic resistance are not perfectly interchangeable terms.
-`这种区分还说明，抗微生物药物耐药性与抗生素耐药性并非完全可互换的术语。`
-<!-- SENTENCE:S0192 -->
-WHO's broader account covers viruses, fungi and parasites as well as bacteria, whereas antibiotics concern bacterial infections.
-`WHO更广泛的介绍还涉及病毒、真菌与寄生虫，而抗生素针对细菌感染。`
-<!-- SENTENCE:S0193 USE:U04903,U04910 -->
-Resistant pathogens can be transmitted between hosts, so transmission connects local observations to a wider public-health problem.
-`耐药病原体可以在宿主之间传播，因此传播把本地观测与更广泛的公共卫生问题联系起来。`
-<!-- SENTENCE:S0194 USE:U04907 -->
-The fact that an infection is transmissible does not by itself identify its route of transmission.
-`感染能够传播这一事实，本身并不能确定其传播途径。`
-
-<!-- SENTENCE:S0195 USE:U00801 -->
-Surveillance capacity is uneven: WHO reported that 104 countries submitted data for 2023, while many others did not.
-`监测能力分布不均：WHO报告104国提交了2023年数据，而许多其他国家没有提交。`
-<!-- SENTENCE:S0196 -->
-Even among reporting countries, the systems needed to produce reliable information were often incomplete.
-`即使在报告国家中，生成可靠信息所需的系统也常不完整。`
-<!-- SENTENCE:S0197 USE:U03111 -->
-Missing observations cannot be treated as an isolated case when they reflect a broader gap in laboratory infrastructure.
-`如果缺失观测反映更广泛的实验室基础设施缺口，就不能把它当成一个个别例外。`
-<!-- SENTENCE:S0198 USE:U04014,U04007 -->
-An imprecisely described sample can make a precisely calculated percentage sound more comprehensive than it is.
-`样本描述不精确，可以使精确算出的百分比听起来比实际更全面。`
-<!-- SENTENCE:S0199 USE:U04015 -->
-The imprecision lies in what the number is said to represent, not necessarily in the arithmetic.
-`不精确之处在于声称数字代表什么，而不一定在于算术。`
-<!-- SENTENCE:S0200 USE:U02102 -->
-Better coverage is therefore an enhancement of knowledge, rather than evidence that the disease has suddenly appeared where it was previously absent.
-`因此，改善覆盖是知识的增强，而不证明疾病突然出现在此前不存在的地方。`
-
-<!-- SENTENCE:S0201 -->
-Infection control and the experience of illness also need to be distinguished.
-`感染控制与患病体验也需要区分。`
-<!-- SENTENCE:S0202 USE:U03105 -->
-To isolate a patient for infection-control purposes is to separate people in order to reduce a specific route of spread.
-`为感染控制而隔离病人，是为了减少特定传播途径而将人分开。`
-<!-- SENTENCE:S0203 USE:U03116 -->
-An isolation ward serves that clinical purpose; it is not a description of how much friendship or support a patient deserves.
-`隔离病房服务于这种临床目的；它并不描述病人应当获得多少友情或支持。`
-<!-- SENTENCE:S0204 USE:U03110,U03113 -->
-A patient can nevertheless feel isolated, and that isolation is an experience of loneliness rather than a laboratory classification.
-`然而病人仍可能感到孤独无援，而这种孤独感是一种体验，并非实验室分类。`
-<!-- SENTENCE:S0205 -->
-Social support and infection-control measures address different needs that may exist at the same time.
-`社会支持与感染控制措施，处理可能同时存在的不同需要。`
-
-<!-- SENTENCE:S1173 -->
-Prevention also takes place before a medicine reaches a patient.
-`预防工作也发生在药物到达患者之前。`
-<!-- SENTENCE:S1174 -->
-In September 2026, Leicester's hospitals announced construction of an aseptic pharmacy facility intended to expand local preparation of sterile medicines.
-`2026年9月，莱斯特的医院宣布开始建设无菌药房，旨在扩大本地配制无菌药物的能力。`
-<!-- SENTENCE:S1175 USE:U03108 -->
-An isolator provides a sealed workstation that separates the preparation of a medicine from sources of contamination.
-`隔离操作箱提供一个密封工作站，将药物配制过程与污染来源隔开。`
-<!-- SENTENCE:S1176 -->
-The planned facility's clean rooms and isolators show how controlled environments can become part of everyday clinical capacity.
-`计划中的洁净室和隔离操作箱表明，受控环境怎样能够成为日常临床能力的一部分。`
-
-<!-- SENTENCE:S0206 -->
-WHO's One Health approach links human health, animal health and the environment.
-`WHO的One Health方法，把人类健康、动物健康与环境联系起来。`
-<!-- SENTENCE:S0207 USE:U02909 -->
-An integrated response has to join surveillance, prevention, diagnosis and access to appropriate treatment.
-`一体化的应对需要把监测、预防、诊断与获得适当治疗连接起来。`
-<!-- SENTENCE:S0208 USE:U01817 -->
-It cannot be sustained by indiscriminately expanding drug use, nor by denying useful medicines to people who need them.
-`既不能靠不加区别地扩大用药来维持应对，也不能靠拒绝有需要者获得有用药物来维持。`
-<!-- SENTENCE:S0209 -->
-The report's central contribution is to make a changing biological problem visible through a network of observations, while showing where that network remains weak.
-`报告的核心贡献，是通过观测网络让变化中的生物问题可见，同时显示网络仍薄弱的地方。`
-
-<!-- ARTICLE:A07 -->
-# When an Artwork Is Allowed to Change
-
-<!-- SENTENCE:S0210 USE:U03901 -->
-In 1978, Lita Albuquerque made Malibu Line by filling a shallow trench on a coastal cliff with powdered ultramarine pigment.
-`1978年，Lita Albuquerque把群青颜料粉填入海崖上的浅沟，创作了《Malibu Line》。`
-<!-- SENTENCE:S0211 -->
-The blue mark drew a visual connection between the ground and the distant horizon.
-`这道蓝色印记，在地面与远方地平线之间建立了视觉联系。`
-<!-- SENTENCE:S0212 -->
-Grass and flowers eventually covered it, and the work was gone two years later.
-`草与花最终覆盖了它，两年后这件作品消失了。`
-<!-- SENTENCE:S0213 USE:U03903 -->
-The artist had pigmented a piece of the landscape, yet the landscape continued to grow.
-`艺术家给景观的一部分着了色，而景观继续生长。`
-<!-- SENTENCE:S0214 USE:U01109 -->
-Its uncompromising colour had occupied real ground for a limited time.
-`那鲜明而毫不缓和的色彩，曾在有限时间里占据真实土地。`
-
-<!-- SENTENCE:S0215 USE:U01208 -->
-The disappearance changes what it means to speak about conservation of the work.
-`作品的消失，改变了谈论它的保存时所指的意义。`
-<!-- SENTENCE:S0216 USE:U04103 -->
-To restore a damaged painting can mean repairing its physical surface, but remaking a vanished earthwork introduces another event into its history.
-`修复一幅受损绘画可以意味着修补其物质表面，但重做一件已消失的大地艺术，则在其历史中引入另一次事件。`
-<!-- SENTENCE:S0217 USE:U04110 -->
-A restorer's task consequently depends on which qualities constitute the work: material, arrangement, experience or some combination.
-`因此，修复者的任务取决于哪些特质构成作品：材料、排列、体验，或它们的某种组合。`
-<!-- SENTENCE:S0218 USE:U01213 -->
-The conservator must understand those qualities before deciding what physical treatment could preserve them.
-`文物修复师必须理解这些特质，才能决定何种物理处理可以保存它们。`
-<!-- SENTENCE:S0219 USE:U01215 -->
-A museum conservator acting as a custodian also holds responsibility for the records through which later people will encounter the work.
-`作为保管者的博物馆管理员，还负责保存后人将借以接触作品的记录。`
-<!-- SENTENCE:S0220 USE:U04701,U04706 -->
-The question is substantial because a tangible object and an intangible experience can belong to the same artwork.
-`这个问题有实质内容，因为有形物体与无形体验，可以同属一件艺术作品。`
-<!-- SENTENCE:S0221 USE:U04704 -->
-The tangibility of a sculpture lets a conservator examine its surface directly, while an encounter with it may continue through memory.
-`雕塑的可触性让修复师能够直接检查其表面，而与它相遇的体验还可以通过记忆延续。`
-
-<!-- SENTENCE:S0222 -->
-Getty's Artist Dialogues records artists discussing such choices in their own voices.
-`Getty的《Artist Dialogues》记录艺术家以自己的声音讨论这些选择。`
-<!-- SENTENCE:S0223 USE:U01606 -->
-The project cultivates connections between researchers and contemporary artists, bringing knowledge of making into knowledge of keeping.
-`这个项目经营研究人员与当代艺术家之间的联系，把制作知识带入保存知识。`
-<!-- SENTENCE:S1270 USE:U03603 -->
-Artists and researchers can be mutual beneficiaries of the exchange: each gains knowledge that the other can supply.
-`艺术家与研究人员可以互为这种交流的受益者：双方各自获得对方能够提供的知识。`
-<!-- SENTENCE:S0224 USE:U03220 -->
-It combines spoken reflection with filmed working processes, creating a multimedia account of artistic practice.
-`它把口头反思与拍摄的工作过程结合，形成关于艺术实践的多媒体记述。`
-<!-- SENTENCE:S0225 USE:U00701 -->
-For a later viewer, an archive of such accounts can preserve decisions that are otherwise difficult to infer from a finished surface.
-`对后来的观看者而言，这样的记述档案能够保存仅凭完成后的表面难以推知的决定。`
-<!-- SENTENCE:S0226 USE:U00704 -->
-To archive a conversation is to give future interpretation another point of access.
-`把一段交谈归档，就是为未来理解增加一个入口。`
-<!-- SENTENCE:S0227 USE:U00706 -->
-Archival records can accompany physical objects without becoming substitutes for every aspect of them.
-`档案记录能够伴随实物保存，而不必成为其实物所有方面的替代品。`
-<!-- SENTENCE:S0228 USE:U00703 -->
-The resulting archive footage has value because it records a person making and explaining choices.
-`由此形成的档案影像之所以有价值，是因为它记录了一个人制作并解释选择。`
-
-<!-- SENTENCE:S0841 -->
-Powdered pigment becomes a different material when it is combined with a binder.
-`颜料粉与黏结剂结合时，便成为一种不同的材料。`
-<!-- SENTENCE:S0842 USE:U03212 -->
-An oil medium can carry the pigment and contribute to the film left after application.
-`油性调和剂可以承载颜料，并参与形成涂抹后留下的膜层。`
-<!-- SENTENCE:S0843 USE:U00905 -->
-The particles cohere through the binding material instead of remaining a loose powder.
-`颗粒通过黏结材料相互结合，不再保持松散粉末的状态。`
-<!-- SENTENCE:S0844 USE:U00903 -->
-A coherent paint film consequently has a physical continuity that a pile of dry pigment lacks.
-`因此，结合成一体的颜料膜，具有一堆干颜料所不具备的物理连续性。`
-<!-- SENTENCE:S0845 USE:U00908 -->
-Its coherence depends on how the components hold together, a material property that affects later treatment.
-`它的结合性取决于各组分怎样连在一起，这是一种会影响之后处理的材料特性。`
-<!-- SENTENCE:S1131 USE:U03206 -->
-As a medium for applying colour, oil paint gives an artist a workable substance whose drying and ageing will become part of the object's history.
-`油画颜料作为施加色彩的材料，提供了一种可操作的物质，而它的干燥与老化会成为作品历史的一部分。`
-
-<!-- SENTENCE:S0229 -->
-Different artists place different values on age and surface.
-`不同艺术家对年龄与表面赋予不同价值。`
-<!-- SENTENCE:S0230 USE:U04113 -->
-Getty describes Larry Bell accepting patina, while Helen Pashgian favours full restoration when a sculpture is scratched or chipped.
-`Getty介绍，Larry Bell接受岁月形成的表面变化，而Helen Pashgian在雕塑刮伤或缺损时，倾向于完整修复。`
-<!-- SENTENCE:S0231 USE:U04109 -->
-Neither preference can simply be transferred to every restorable object.
-`任何一种偏好，都不能直接移用于每一件可修复物。`
-<!-- SENTENCE:S0232 -->
-A repair that makes one work more faithful to its intended appearance could remove a quality another artist values.
-`使一件作品更忠于预期外观的修理，可能会移除另一位艺术家珍视的特质。`
-<!-- SENTENCE:S0233 USE:U03211 -->
-The artistic medium carries meaning through its behaviour as well as through its shape.
-`艺术媒介既通过形态承载意义，也通过自身的变化方式承载意义。`
-<!-- SENTENCE:S0234 USE:U04905 -->
-In Bell's coated glass, for example, a thin metallic layer changes how light is absorbed, reflected and transmitted.
-`例如，在Bell的镀膜玻璃中，薄金属层改变了光的吸收、反射与透过方式。`
-<!-- SENTENCE:S0235 USE:U04908 -->
-The transmissive properties of the material are part of what the viewer experiences.
-`材料的透光特性，是观看者体验的一部分。`
-
-<!-- SENTENCE:S1169 -->
-Care of an object can also require a change in where it belongs.
-`照管一件物品，有时也需要改变它的归属地点。`
-<!-- SENTENCE:S1170 USE:U04104 -->
-In August 2022, Getty announced plans to restore Orpheus and the Sirens to Italy after receiving information indicating illegal excavation.
-`2022年8月，Getty在收到表明《俄耳甫斯与塞壬》遭非法发掘的信息后，宣布了将其归还意大利的计划。`
-<!-- SENTENCE:S1171 -->
-The announcement linked the return of the fragile terracotta group with specially tailored packing and transport.
-`公告把这组脆弱陶塑的返还，与专门设计的包装和运输联系起来。`
-<!-- SENTENCE:S1172 -->
-An object's legal history and its material condition can thus enter the same practical task.
-`因此，一件物品的法律历史与材料状况，可能进入同一项实际工作。`
-
-<!-- SENTENCE:S0236 -->
-Alison Saar's use of cast-iron skillets gives another material a different life in art.
-`Alison Saar使用铸铁煎锅，让另一种材料在艺术中获得不同生命。`
-<!-- SENTENCE:S0237 -->
-The pan can be a surface for a portrait and a reminder of domestic labour at the same time.
-`锅既可以成为肖像的表面，也可以同时让人想到家务劳动。`
-<!-- SENTENCE:S0238 USE:U04904,U04709 -->
-A humble found object can transmit a feeling whose intangibility does not make it unimportant.
-`一件朴素的拾得物，能够传达一种情感；情感难以具体把握，并不使它变得不重要。`
-<!-- SENTENCE:S0239 USE:U04710 -->
-Such meanings may act intangibly, through associations that a viewer brings to an object.
-`这些意义可以通过观看者带来的联想，以无形方式发生作用。`
-<!-- SENTENCE:S0240 USE:U04603 -->
-Keeping the work therefore involves attention to both its changing matter and the human relationships it can continue to sustain.
-`因此，保存作品既涉及关注不断变化的物质，也涉及关注它能够继续维系的人际关系。`
-<!-- SENTENCE:S0241 -->
-Malibu Line offers one especially clear form of that relationship: a brief mark on the earth can leave an image that lasts beyond the mark itself.
-`《Malibu Line》提供了这种关系的一种特别清楚的形式：大地上短暂的印记，可以留下比印记本身更持久的图像。`
-
-<!-- ARTICLE:A08 -->
-# The Human Question Inside a Precise Industrial Picture
-
-<!-- SENTENCE:S0242 -->
-Around 1920, American artists began turning factories, buildings and familiar objects into sharply ordered pictures.
-`大约1920年前后，美国艺术家开始把工厂、建筑与熟悉物件，转化为秩序鲜明的画面。`
-<!-- SENTENCE:S0243 USE:U04018 -->
-The artists later known as Precisionists shared approaches to form without issuing a common manifesto.
-`后来被称为精确主义艺术家的这些人，共有一些形式处理方式，却没有发布共同宣言。`
-<!-- SENTENCE:S0244 USE:U04016 -->
-Precisionism reduced many subjects to clear contours, simplified shapes and controlled surfaces.
-`精确主义把许多题材化为清晰轮廓、简化形状与受到严格控制的表面。`
-<!-- SENTENCE:S0245 USE:U04019 -->
-A Precisionist picture can make the machine age appear remarkably still.
-`一幅精确主义画作，可以让机器时代显得格外静止。`
-<!-- SENTENCE:S0246 USE:U04006 -->
-Its preciseness is a visual quality, shaped by choices about what to show and what to leave out.
-`它的精确严谨是一种视觉性质，由展示什么、留下什么的选择塑成。`
-
-<!-- SENTENCE:S0247 USE:U04002 -->
-A precise account of the painting identifies which contours make the building seem so firmly present.
-`准确清楚的画作说明，会指出究竟哪些轮廓让建筑显得如此坚实。`
-<!-- SENTENCE:S0248 USE:U04001 -->
-The precise point at which one plane meets another may matter more than a wealth of small descriptive details.
-`一个平面与另一个平面相接的确切位置，可能比大量细小的描绘细节更重要。`
-<!-- SENTENCE:S0249 USE:U04010 -->
-The precision of the handling makes the organisation visible.
-`处理的准确性，使组织方式清楚可见。`
-<!-- SENTENCE:S0250 USE:U04012 -->
-Yet the picture need not function like a precision instrument measuring the building.
-`然而，画面不必像测量建筑的精密仪器那样工作。`
-<!-- SENTENCE:S0251 USE:U04007 -->
-A painting can control its shapes precisely while freely selecting its viewpoint and subject.
-`绘画可以精确控制形状，同时自由选择视角和题材。`
-<!-- SENTENCE:S0252 USE:U04017 -->
-A precisionist about terminology would distinguish that visual discipline from a claim that the image supplies a complete technical survey.
-`严格追求术语准确的人，会把这种视觉训练与声称图像提供完整技术测绘区分开。`
-
-<!-- SENTENCE:S0253 -->
-The Met's account places these pictures among influences from photography and European modern art.
-`Met的介绍，把这些画作置于摄影及欧洲现代艺术的影响之中。`
-<!-- SENTENCE:S0254 USE:U00102 -->
-Demuth adapted Cubist simplifications, while industrial structures supplied American subjects for several artists.
-`Demuth改用了立体主义的简化方式，而工业结构为多位艺术家提供了美国题材。`
-<!-- SENTENCE:S0255 USE:U00109 -->
-This adaptation of artistic methods could transform a familiar place into an unfamiliar arrangement of planes.
-`这种艺术方法的改用，能够把熟悉场所变成陌生的平面排列。`
-<!-- SENTENCE:S0256 USE:U01410 -->
-Conventional subjects such as fruit and flowers could receive the same fresh treatment.
-`水果与花卉等常见题材，也能够获得同样新鲜的处理。`
-<!-- SENTENCE:S0257 USE:U01418 -->
-A conventionalist committed to inherited styles might find such simplification unsettling.
-`坚持传承风格的循例者，可能觉得这种简化令人不安。`
-<!-- SENTENCE:S0258 USE:U01425 -->
-The unconventionality lay partly in making everyday structures look newly strange.
-`其不同寻常之处，部分就在于让日常结构显得重新陌生。`
-<!-- SENTENCE:S0259 USE:U01424 -->
-That artistic unconventionalism could coexist with a highly disciplined technique.
-`这种艺术上的不拘惯例，可以与训练严密的技法并存。`
-<!-- SENTENCE:S0260 USE:U01426 -->
-Artists could work unconventionally without giving up exact decisions about line and surface.
-`艺术家可以不按惯例工作，同时仍对线条与表面作出确切决定。`
-
-<!-- SENTENCE:S0261 -->
-The industrial landscape carried more than one promise.
-`工业景观承载着不止一种许诺。`
-<!-- SENTENCE:S0262 -->
-Machines offered an image of efficient production, cleaner order and greater speed.
-`机器提供了高效生产、更整洁秩序与更快速度的图景。`
-<!-- SENTENCE:S0263 -->
-They also raised questions about workers, pollution and the power of technology over a landscape.
-`它们也引发关于工人、污染以及技术支配景观之力量的问题。`
-<!-- SENTENCE:S0264 -->
-So a formally ordered picture can hold both attraction and unease?
-`这么说，形式井然的画面能够同时容纳吸引力与不安？`
-<!-- SENTENCE:S0265 USE:U04009 -->
-Precisely, and that coexistence gives an apparently simple image much of its force.
-`正是如此，而这种共存赋予看似简单的图像很大力量。`
-<!-- SENTENCE:S0266 USE:U04008 -->
-The painting becomes interesting precisely because its clarity does not settle every feeling about what it shows.
-`画作恰恰因为其清晰并未决定对所绘对象的所有感受，而变得有意思。`
-<!-- SENTENCE:S0267 USE:U01110 -->
-It can be uncompromisingly modern in form while leaving the human meaning of modernity open.
-`它可以在形式上彻底现代、毫不折中，同时让现代性的人类意义保持开放。`
-
-<!-- SENTENCE:S0268 USE:U03117 -->
-The Met also relates this art to American debates about identity and a period of political isolationism.
-`Met还把这种艺术与美国身份讨论及一个政治孤立主义时期联系起来。`
-<!-- SENTENCE:S0269 USE:U03118 -->
-An isolationist's desire to remain apart from foreign affairs was a political position; the pictures themselves still drew on international artistic exchanges.
-`孤立主义支持者远离外国事务的愿望，是一种政治立场；这些画作本身仍从国际艺术交流中汲取资源。`
-<!-- SENTENCE:S0270 -->
-Regional buildings, folk objects and industrial forms could meet within the same search for an American visual language.
-`地区建筑、民间物件与工业形式，可以在同一场美国视觉语言的探索中相遇。`
-<!-- SENTENCE:S0271 USE:U00901 -->
-What emerges is a coherent artistic problem rather than a single political message.
-`由此显现的是一个连贯的艺术问题，而非单一政治口号。`
-<!-- SENTENCE:S0272 USE:U00907 -->
-The coherence comes from relationships among shape, subject and viewpoint.
-`这种连贯性来自形状、题材与视角之间的关系。`
-<!-- SENTENCE:S0273 USE:U01809 -->
-A discriminating viewer can follow those relationships before deciding what the image seems to celebrate or question.
-`具有鉴赏力的观看者，可以先追随这些关系，再决定图像似乎在赞美或质疑什么。`
-<!-- SENTENCE:S0274 USE:U01810 -->
-Looking discriminatingly at a surface means noticing how a few exact choices organise an entire experience.
-`有鉴赏力地观看表面，就是注意少数确切选择怎样组织整段体验。`
-<!-- SENTENCE:S0275 -->
-The machine may occupy the picture, but the experience of looking remains a human activity.
-`机器可以占据画面，而观看体验仍是一种人类活动。`
-
-<!-- ARTICLE:A09 -->
-# A Blue Curtain Between India and an American Home
-
-<!-- SENTENCE:S0276 -->
-A small blue-and-white curtain fragment at the Met contains a long journey in its fibres.
-`Met的一小片蓝白窗帘残件，在纤维中包含着一段漫长旅程。`
-<!-- SENTENCE:S0277 USE:U04801 -->
-Dated to about 1725–1775, the textile combines a white cotton ground with patterns in different shades of indigo.
-`这件织物约制作于1725至1775年，将白色棉布底与不同深浅的靛蓝图案结合。`
-<!-- SENTENCE:S0278 USE:U04805 -->
-Its textile structure gives a pattern a flexible surface that can hang, fold and move.
-`其编织而成的结构，给图案提供了能够悬挂、折叠与移动的柔性表面。`
-<!-- SENTENCE:S0279 USE:U04802 -->
-The piece belongs to the history of textiles as an industry, linking material preparation, skilled making, commerce and furnishing.
-`这件物品属于纺织业的历史，把材料准备、熟练制作、商业与家居陈设连接起来。`
-<!-- SENTENCE:S0280 USE:U04803 -->
-The textile the makers began with was cotton fibre, which had to be spun before it could be woven.
-`制作者最初使用的纺织原料是棉纤维，先要将其纺成纱，才能织成布。`
-<!-- SENTENCE:S0281 USE:U04806 -->
-Cotton was a suitable textile material because its fibres could be spun into yarn and woven into a flexible ground.
-`棉花是适合织布的原料，因为其纤维可以纺成纱，再织成柔韧的底布。`
-
-<!-- SENTENCE:S0282 -->
-The blue-resist technique creates much of its image by preventing colour from entering selected areas.
-`蓝色防染技法主要通过阻止颜色进入选定区域来形成图像。`
-<!-- SENTENCE:S0283 -->
-Wax protects the places that are to remain pale while uncovered cloth takes colour from an indigo bath.
-`蜡保护需要保持浅色的地方，而无遮盖的布从靛蓝染浴中着色。`
-<!-- SENTENCE:S0284 -->
-The dyer can then cover some already light-blue areas and dye the remaining exposed parts again.
-`随后，染匠可以遮住部分已经呈浅蓝色的区域，再次染色其余裸露部分。`
-<!-- SENTENCE:S0285 USE:U00417 -->
-This alternation of covering and dipping builds a design through successive decisions.
-`这种遮盖与浸染的交替，通过接续的决定形成图案。`
-<!-- SENTENCE:S0286 USE:U00409 -->
-Light and darker areas alternate across the surface, yet their difference comes from the order of the work as well as from the drawing.
-`浅色与较深区域在表面交替出现，而它们的差别既来自绘图，也来自工序次序。`
-<!-- SENTENCE:S0287 USE:U00410 -->
-The method alternates protection with exposure, using absence of dye as an active part of the image.
-`这种方法交替安排保护与暴露，把染料的缺席作为图像的主动组成部分。`
-<!-- SENTENCE:S0288 USE:U01813 -->
-Fine wax lines can preserve a lighter detail inside a darker area, making the process capable of considerable discrimination.
-`细蜡线可以在深色区域中保留较浅细节，使工艺能够作出相当细致的区分。`
-<!-- SENTENCE:S0289 USE:U04804 -->
-A textile design therefore records actions carried out over time, even when its finished pattern looks simultaneous.
-`因此，即使成品图案看起来同时存在，纺织设计也记录了依次完成的行动。`
-
-<!-- SENTENCE:S0290 USE:U01001 -->
-The material also carries the history of a commodity, something made to be bought, transported and used.
-`材料还承载着一种商品的历史，即被制作出来买卖、运输与使用的东西。`
-<!-- SENTENCE:S0291 -->
-The Met's curatorial account argues that this type of cotton furnishing fabric was probably made in India and exported to American colonies through the East India Company.
-`Met的策展说明认为，这类棉质家居织物很可能在印度制作，并通过东印度公司出口到北美殖民地。`
-<!-- SENTENCE:S0292 -->
-Its evidence includes the history of Indian resist-dyeing, the cotton ground and merchants' orders.
-`所列证据包括印度防染史、棉布底料与商人订货记录。`
-<!-- SENTENCE:S0293 -->
-This interpretation also explains why a fabric can belong to an American household history while having been made elsewhere.
-`这种解释也说明，一块布为何能够属于美国家庭史，同时制作于别处。`
-<!-- SENTENCE:S0294 -->
-Objects enter local life through movements that exceed the boundaries of the home.
-`物件通过超出家宅边界的流动，进入本地生活。`
-<!-- SENTENCE:S0295 -->
-A curtain turns a traded material into a domestic presence, seen repeatedly in the same room.
-`窗帘把贸易材料变成家居中的存在，在同一房间中反复被看见。`
-<!-- SENTENCE:S0296 USE:U00110 -->
-The finished curtain is an adaptation of decorative cloth for use as a hanging in an interior.
-`成品窗帘是把装饰布改制为室内悬挂物而形成的成品。`
-
-<!-- SENTENCE:S0297 -->
-The fragment was given to the museum by Norman M. Isham in 1933.
-`这块残件由Norman M. Isham于1933年捐给博物馆。`
-<!-- SENTENCE:S0298 -->
-Its family provenance is associated, with some uncertainty, with Katrina Van Wie in Albany.
-`它的家族流传史与Albany的Katrina Van Wie有关联，其中仍有不确定之处。`
-<!-- SENTENCE:S0299 -->
-The catalogue's geography field still says probably made in America, while the longer discussion favours Indian manufacture.
-`目录的地理字段仍写着很可能制作于美国，而较长的说明倾向于印度制造。`
-<!-- SENTENCE:S0300 -->
-That unresolved attribution is part of the object's modern history of study.
-`这种未解决的归属判断，是物件现代研究史的一部分。`
-<!-- SENTENCE:S0301 USE:U02302 -->
-It allows readers to see a collection as an evolving body of knowledge, with older classifications and newer arguments sometimes visible together.
-`它让读者把收藏理解为不断发展的知识整体，其中较旧分类与较新论证有时会同时可见。`
-<!-- SENTENCE:S0302 -->
-The fragment's colour, weave and traces of use remain available for another generation to look at closely.
-`残件的颜色、织造与使用痕迹，仍可供下一代仔细观看。`
-<!-- SENTENCE:S0303 USE:U01812 -->
-A choice of detail made with discrimination can open that larger story without making the small piece of cloth stand for every textile traded in its century.
-`有鉴赏力地选择细节，可以打开更大的故事，而不必让这一小块布代表那个世纪贸易中的所有织物。`
-
-<!-- ARTICLE:A10 -->
-# Wallace's Specimens and His Wider World of Belief
-
-<!-- SENTENCE:S0304 -->
-Alfred Russel Wallace built a scientific life by travelling, collecting and noticing where animals lived.
-`Alfred Russel Wallace通过旅行、采集以及观察动物分布，建立了自己的科学人生。`
-<!-- SENTENCE:S0305 -->
-The Natural History Museum describes expeditions to the Amazon and the Malay Archipelago, financed in part by the sale of specimens.
-`自然历史博物馆介绍了他前往亚马孙与马来群岛的考察，部分经费来自出售标本。`
-<!-- SENTENCE:S0306 USE:U03802 -->
-A shipboard fire destroyed most of the specimens and notes from his Amazon journey, but he persisted in planning further work.
-`返航船上的火灾毁掉了他亚马孙之行的大部分标本与笔记，但他仍坚持规划后续工作。`
-<!-- SENTENCE:S0307 USE:U02003 -->
-He emerged from that disaster as a traveller preparing another expedition, rather than ending his collecting career.
-`他走出这场灾难，成为准备另一场考察的旅行者，而没有结束采集生涯。`
-<!-- SENTENCE:S0308 USE:U03806 -->
-His persistent collecting later supplied a large body of material from the Malay Archipelago.
-`他坚持不懈的采集，后来提供了大量马来群岛材料。`
-<!-- SENTENCE:S0309 -->
-The work also depended on people such as his Malay assistant Ali, whom Wallace acknowledged in his writing.
-`工作还依赖他的马来助手Ali等人，Wallace在写作中承认了Ali的贡献。`
-<!-- SENTENCE:S0310 USE:U02405 -->
-His exploits belong to a history of travel that includes those relationships as well as the celebrated naturalist.
-`他的冒险经历属于一段旅行史，其中既有著名博物学家，也有这些人与人的关系。`
-
-<!-- SENTENCE:S0311 USE:U02301 -->
-In 1858, Wallace sent Darwin an account of how species could evolve through differences in survival and reproduction.
-`1858年，Wallace向Darwin寄去一份说明，解释物种如何通过生存与繁殖差异演化。`
-<!-- SENTENCE:S0312 USE:U00503 -->
-Darwin's earlier private work had anticipated much of the explanation, while Wallace had arrived at his own account independently.
-`Darwin早先未公开的研究，已经先行提出了许多相关解释，而Wallace独立得出了自己的说明。`
-<!-- SENTENCE:S0313 USE:U00511 -->
-Being an anticipator in private work and being first to publish are different questions in this history.
-`在未公开研究中先行提出想法，与首先发表，是这段历史中的不同问题。`
-<!-- SENTENCE:S0314 -->
-The men's ideas were presented together in 1858, before Darwin's book appeared the following year.
-`两人的思想于1858年一同提出，随后一年Darwin的著作问世。`
-<!-- SENTENCE:S0315 USE:U02320 -->
-The slow evolvement of an explanation was therefore followed by a concentrated moment of public presentation.
-`于是，解释的缓慢形成，接上了一个集中的公开呈现时刻。`
-<!-- SENTENCE:S0316 USE:U02005 -->
-Wallace subsequently emerged as a recognised figure in the scientific establishment.
-`Wallace随后成为科学界受到认可的人物。`
-
-<!-- SENTENCE:S0317 USE:U02308 -->
-Evolution by natural selection concerns populations across generations.
-`自然选择导致的进化，涉及种群跨世代的变化。`
-<!-- SENTENCE:S0318 USE:U02803 -->
-Offspring inherit features, and differences in reproductive success can alter which features become common.
-`后代遗传特征，而繁殖成功程度的差异能够改变哪些特征更常见。`
-<!-- SENTENCE:S0319 USE:U02811 -->
-An inheritable difference can matter when it affects survival or reproduction in a particular environment.
-`能够遗传的差异，在影响特定环境中的生存或繁殖时，就可能起作用。`
-<!-- SENTENCE:S0320 USE:U02806 -->
-Genetic inheritance supplies part of the variation on which that process acts.
-`遗传特征提供了这一过程作用的一部分变异。`
-<!-- SENTENCE:S0321 USE:U02306 -->
-A population is evolvable because variation and inheritance permit changes across its generations.
-`种群能够演化，是因为变异与遗传允许其在世代之间改变。`
-<!-- SENTENCE:S0322 USE:U00111 -->
-Adaptation is the process through which a population becomes better suited to conditions, rather than an individual deliberately redesigning itself.
-`适应是种群变得更适合环境条件的过程，而非个体刻意重新设计自己。`
-<!-- SENTENCE:S0323 USE:U02316 -->
-Viewed evolutionarily, a useful feature has a history, and its usefulness can change with the environment.
-`从进化角度看，有用的特征具有历史，其用途可以随环境改变。`
-<!-- SENTENCE:S0324 USE:U02315 -->
-The museum's account also explains that natural selection is one evolutionary mechanism among others, including drift and gene flow.
-`博物馆的介绍还说明，自然选择是进化机制之一，其他机制包括遗传漂变与基因流动。`
-
-<!-- SENTENCE:S0325 -->
-Specimens make some of these differences available for repeated examination.
-`标本让其中一些差异可以被反复检查。`
-<!-- SENTENCE:S0326 USE:U03902,U03905 -->
-A bird skin can preserve the distribution of natural pigment and the visible pattern of pigmentation.
-`鸟皮标本可以保存天然色素的分布与可见的呈色图案。`
-<!-- SENTENCE:S0327 USE:U03904 -->
-Pigmentary differences are one kind of evidence, alongside shape, size and place of collection.
-`色素方面的差异是一类证据，还可结合形状、大小与采集地点。`
-<!-- SENTENCE:S0328 USE:U03707 -->
-A naturalist describing a bird may record the colour of its bare orbit—the area around the eye—as carefully as its feathers.
-`博物学家描述鸟时，可以像仔细记录羽毛那样，记录其裸露眼周区域的颜色。`
-<!-- SENTENCE:S0329 USE:U01806 -->
-The material acquires scientific meaning through a discriminative comparison of features.
-`通过对特征作有辨别能力的比较，这些材料获得科学意义。`
-<!-- SENTENCE:S0330 USE:U01803 -->
-A difference that discriminates one species from another is not necessarily the same feature that first catches a visitor's eye.
-`把一个物种与另一个物种区分开的差异，不一定就是最先吸引参观者目光的特征。`
-<!-- SENTENCE:S0331 -->
-This is part of the value of a collection: it lets successive investigators ask new questions of old material.
-`这也是收藏价值的一部分：它让后继研究者能够向旧材料提出新问题。`
-
-<!-- SENTENCE:S0332 -->
-Wallace's intellectual world also included spiritualism, a movement that claimed communication between the living and the dead.
-`Wallace的思想世界还包括通灵主义，一种声称生者与死者能够沟通的运动。`
-<!-- SENTENCE:S0333 USE:U03213,U03216 -->
-A medium claimed to act as the intermediary, and mediumship became a subject of public fascination.
-`通灵人声称充当中间人，而通灵活动成为公众着迷的对象。`
-<!-- SENTENCE:S0334 USE:U03217 -->
-Oxford's museum describes mediumistic practices such as table turning and spirit writing in the context of Victorian archives.
-`Oxford博物馆把转桌与灵书等通灵实践，放在维多利亚时代档案的背景中介绍。`
-<!-- SENTENCE:S0335 USE:U03216 -->
-Mediumism attracted believers and sceptics across professions, including people involved in science.
-`通灵活动吸引了各行业的信仰者与怀疑者，其中包括从事科学的人。`
-<!-- SENTENCE:S0336 USE:U02318 -->
-Wallace was an evolutionist who nevertheless believed natural selection could not fully explain human intellect.
-`Wallace是一位进化论支持者，但仍认为自然选择不能完全解释人的智力。`
-<!-- SENTENCE:S0337 USE:U02319 -->
-His evolutionistic account of species and his spiritualist account of mind consequently occupied different parts of his thought.
-`因此，他关于物种的进化论解释，与关于心灵的通灵主义解释，占据了其思想中的不同部分。`
-<!-- SENTENCE:S0338 USE:U02317 -->
-For a historian, evolutionism names one strand of that intellectual landscape, rather than every belief held by everyone who accepted evolution.
-`对历史研究者来说，进化论观点指这幅思想景观的一条线索，而非每位接受进化者拥有的全部信念。`
-
-<!-- SENTENCE:S0339 -->
-The surviving letters and specimens allow that complicated person to remain visible.
-`幸存的信件与标本，让这个复杂的人继续可见。`
-<!-- SENTENCE:S0340 USE:U00707 -->
-An archivist preserving such material keeps disagreements, changes of mind and unexpected interests available to later readers.
-`保存这些材料的档案工作者，为后来的读者保留分歧、思想变化与意外兴趣。`
-<!-- SENTENCE:S0341 USE:U00702 -->
-In the archive, a scientific career can be encountered as a developing human life.
-`在档案馆里，科学事业可以被当作一段发展中的人生来接触。`
-<!-- SENTENCE:S0342 USE:U02809 -->
-Its inheritors receive both powerful explanations and questions about the world in which those explanations were made.
-`其承接者既得到有力的解释，也得到关于这些解释形成于何种世界的问题。`
-<!-- SENTENCE:S0343 -->
-That inheritance of inquiry is one reason old collections can continue to matter.
-`这种对探究传统的承接，是旧收藏能够继续重要的一个原因。`
-
-<!-- ARTICLE:A11 -->
-# The Theatre Reopens, and the Stage Becomes a Profession
-
-<!-- SENTENCE:S0344 USE:U04116,U04105 -->
-During the Restoration of 1660, Charles II was restored to the throne and public theatres reopened after eighteen years of official closure.
-`1660年王政复辟期间，查理二世恢复王位，公共剧院在官方关闭十八年后重新开放。`
-<!-- SENTENCE:S0345 USE:U04115,U04101 -->
-The restoration of monarchy also restored a system in which royal permission helped determine who could present drama.
-`君主制的恢复，还重新确立了一种王室许可参与决定谁能演出戏剧的制度。`
-<!-- SENTENCE:S0346 USE:U04117 -->
-Restoration drama grew in that setting, combining theatrical opportunity with concentrated institutional power.
-`复辟时期戏剧在这种环境中发展，把舞台机会与集中的制度权力结合起来。`
-<!-- SENTENCE:S0347 -->
-The RSC places the dramatic period roughly between 1660 and 1710, extending beyond the reign of Charles II.
-`RSC把这一戏剧时期大致定在1660至1710年，延伸到查理二世统治之后。`
-<!-- SENTENCE:S0348 USE:U02006 -->
-The reopened English stage allowed a new profession for actresses to emerge.
-`英国舞台重新开放，使女演员这一新职业得以出现。`
-
-<!-- SENTENCE:S0349 -->
-The V&A describes Aphra Behn and other women whose writing entered this expanding theatrical life.
-`V&A介绍了Aphra Behn等女性，她们的写作进入了这一扩展中的戏剧生活。`
-<!-- SENTENCE:S0350 USE:U01608 -->
-For a cultivated writer, command of language could become the basis of a public career.
-`对有文化修养的作家来说，语言能力可以成为公共职业的基础。`
-<!-- SENTENCE:S0351 USE:U00101 -->
-Performers also had to adapt to audiences who expected wit, spectacle and recognisable social behaviour.
-`表演者也必须适应期待机智、奇观与熟悉社会行为的观众。`
-<!-- SENTENCE:S0352 USE:U01402 -->
-The conventions of theatre allowed a stage to represent rooms, social positions and relationships with a limited set of visible means.
-`戏剧惯例让舞台能够用有限的可见手段，表现房间、社会地位与关系。`
-<!-- SENTENCE:S0353 USE:U00807 -->
-A capacity audience brought spectators close together, making their laughter and attention part of a shared event.
-`满场观众紧密聚集，使笑声与注意力成为共同事件的一部分。`
-<!-- SENTENCE:S0354 USE:U04609 -->
-A performer had to sustain a role across the unfolding action, maintaining a character rather than merely delivering isolated lines.
-`表演者必须在展开的行动中持续胜任角色，保持人物，而不只是说出孤立台词。`
-<!-- SENTENCE:S0355 USE:U02309 -->
-The evolution of a plot gave each entrance, discovery and reversal its place in time.
-`情节的渐次展开，为每次入场、发现与逆转赋予了时间位置。`
-
-<!-- SENTENCE:S0356 USE:U01401 -->
-Comedy of manners works with social convention because an audience can recognise the expectations being played upon.
-`风俗喜剧利用社会惯例，因为观众能够识别戏剧所拨动的行为期待。`
-<!-- SENTENCE:S0357 USE:U01414,U01422 -->
-A merely conventional greeting, delivered without warmth, may conceal an unconventional desire.
-`一句不带温度、只是敷衍循套的问候，可以掩盖不循俗的欲望。`
-<!-- SENTENCE:S0358 USE:U01419 -->
-The conventionality of the greeting makes the contrast legible before a character explains anything.
-`问候的惯常形式，使人物尚未解释，反差就已清楚可见。`
-<!-- SENTENCE:S0359 USE:U01421 -->
-A character who behaves conventionally in public may struggle to preserve that appearance when private information emerges.
-`在公众面前循规蹈矩的人物，可能在私人信息显现后，努力维持那种外观。`
-<!-- SENTENCE:S0360 USE:U01106 -->
-A compromising letter or an unexpected witness can change the relationship between reputation and action.
-`一封有损名誉的信或一位意外证人，能够改变名誉与行动之间的关系。`
-<!-- SENTENCE:S0361 USE:U01107 -->
-Stage comedy can place two characters compromisingly close together, making physical arrangement carry a social consequence.
-`舞台喜剧可以让两个人物靠得过分亲密，使物理排列带来社会后果。`
-<!-- SENTENCE:S0362 USE:U01104 -->
-The result may compromise a character's respectable image while giving the audience a fuller account of what that image concealed.
-`结果可能损害人物体面的形象，同时让观众更充分地了解这种形象曾掩盖什么。`
-
-<!-- SENTENCE:S0363 USE:U01306,U01307 -->
-The same social pressure can be heard in a constrained voice or a reply delivered constrainedly.
-`同样的社会压力，可以在拘谨的声音或勉强说出的回答中听见。`
-<!-- SENTENCE:S0364 USE:U01310 -->
-Constraint in a conversation can be dramatically expressive even when the words remain polite.
-`即使措辞仍然礼貌，交谈中的拘谨也能具有戏剧表现力。`
-<!-- SENTENCE:S0365 USE:U03002 -->
-A sudden interruption lets another character intervene and redirect the exchange.
-`突然的打断，让另一个人物能够插话并改变交谈方向。`
-<!-- SENTENCE:S0366 USE:U04533 -->
-A character may shift his ground as soon as the earlier position becomes difficult to defend.
-`人物可能在原先立场变得难以维护时，马上改换立场。`
-<!-- SENTENCE:S0367 USE:U04541,U04542,U04543 -->
-Shifty behaviour, a response given shiftily and visible shiftiness can all become material for a performer.
-`躲闪的行为、含糊躲闪的回答与显出的不坦率，都可以成为表演材料。`
-<!-- SENTENCE:S0368 USE:U04520 -->
-An accusation can lead to more shifts and evasions before the scene reaches a disclosure.
-`指控可以引出更多推托伎俩与闪避，然后场景才走到揭露。`
-
-<!-- SENTENCE:S0369 -->
-Later theatre continued to remake the relationship between inherited texts and current audiences.
-`后来的戏剧继续重做传承文本与当下观众之间的关系。`
-<!-- SENTENCE:S0370 USE:U00102 -->
-The V&A describes eighteenth-century versions of Shakespeare adapted to contemporary taste, including a revised ending to King Lear.
-`V&A介绍了为适合当时品味而改编的十八世纪莎士比亚版本，其中包括改写结尾的《李尔王》。`
-<!-- SENTENCE:S0371 USE:U00110,U03402 -->
-Such an adaptation could modify the severity of an ending while preserving much of the earlier play.
-`这样的改编可以缓和结尾的严酷程度，同时保留早先戏剧的大量内容。`
-<!-- SENTENCE:S0372 -->
-The revision made an artistic argument through its changes: an audience's expectations could shape what happened to a familiar character.
-`修订通过改动提出艺术论点：观众的期待，可以塑造熟悉人物的命运。`
-<!-- SENTENCE:S0373 USE:U01222 -->
-A conservative taste for established forms could therefore coexist with a willingness to rewrite an established author.
-`偏好既有形式的保守品味，因此能够与重写既有作家的意愿共存。`
-<!-- SENTENCE:S0374 USE:U01217 -->
-Conservatism in theatrical taste did not always mean leaving the text untouched.
-`戏剧品味上的守旧，并不总意味着不碰文本。`
-
-<!-- SENTENCE:S0375 -->
-Public performance also developed under censorship, commercial pressure and changing ideas about who could speak on stage.
-`公共表演还在审查、商业压力与舞台发言资格变化之中发展。`
-<!-- SENTENCE:S0376 USE:U00405 -->
-The V&A traces later alternative theatre and experiments that moved beyond the usual commercial forms.
-`V&A追溯了后来有别于主流的戏剧，以及超出通常商业形式的实验。`
-<!-- SENTENCE:S0377 USE:U01423 -->
-Some artists sought unconventional methods of making work, involving the company in developing a script.
-`一些艺术家寻找非常规制作方法，让剧团参与剧本发展。`
-<!-- SENTENCE:S0378 USE:U02303 -->
-That process could evolve a working method as well as a finished performance.
-`这种过程既能逐渐形成工作方法，也能形成完成的演出。`
-<!-- SENTENCE:S0379 USE:U01907 -->
-A company could diversify its repertoire, giving an audience access to more than one kind of theatrical experience.
-`剧团可以增加剧目种类，让观众接触不止一种戏剧体验。`
-<!-- SENTENCE:S0380 USE:U01909 -->
-The diversification of a programme mattered culturally as well as commercially.
-`节目安排的多样化，既有文化意义，也有商业意义。`
-<!-- SENTENCE:S0846 USE:U02206 -->
-In present-day British performance, Equity represents actors and other creative workers through collective organization.
-`在今日英国表演行业中，Equity通过集体组织代表演员及其他创意从业者。`
-<!-- SENTENCE:S0847 -->
-Its account of the union emphasizes bargaining over pay, terms and working conditions.
-`该工会的自我介绍强调围绕报酬、条款及工作条件的谈判。`
-<!-- SENTENCE:S0848 -->
-The continuing life of theatre thus includes the conditions under which people can make it their work.
-`因此，戏剧持续的生命，也包括人们能够以此为业所需的条件。`
-<!-- SENTENCE:S0381 -->
-Across these changes, the stage remained a place where people made public lives through words, movement and the attention of others.
-`在这些变化中，舞台仍是人们借助语言、动作与他人注意力，建立公共生活的地方。`
-
-<!-- ARTICLE:A12 -->
-# From an Electron's Energy to a Useful Beam of Light
-
-<!-- SENTENCE:S0382 USE:U03704 -->
-The familiar drawing of an atom gives each electron an orbit around a central nucleus.
-`熟悉的原子图，给每个电子画出一条围绕中心原子核的轨道。`
-<!-- SENTENCE:S0383 -->
-That image belongs to a particular model, and its apparent simplicity helped make atomic structure imaginable.
-`这个图像属于一种特定模型，其表面的简单性帮助人们想象原子结构。`
-<!-- SENTENCE:S0384 USE:U03714 -->
-Quantum mechanics instead describes an orbital through a wavefunction, whose squared magnitude gives a probability density.
-`量子力学则通过波函数描述轨函数，波函数模的平方给出概率密度。`
-<!-- SENTENCE:S0385 USE:U00602 -->
-A useful approximate picture can support understanding while leaving some of the underlying theory outside the picture.
-`有用的粗略图景，可以支持理解，同时把部分底层理论留在图景之外。`
-<!-- SENTENCE:S0386 -->
-As an explanation approaches the scale of individual electrons, the language of fixed little planetary paths becomes less adequate.
-`当解释接近单个电子的尺度时，把电子说成沿着固定的微型行星轨道运动，就变得不够充分。`
-<!-- SENTENCE:S0387 USE:U00604 -->
-The model has to approximate the relevant behaviour, rather than merely look familiar.
-`模型必须近似呈现相关行为，而不只看起来熟悉。`
-
-<!-- SENTENCE:S0388 -->
-The connection to light comes through energy changes.
-`与光的联系，通过能量变化建立起来。`
-<!-- SENTENCE:S0389 -->
-When an atom absorbs or releases a photon, its electronic state can change.
-`原子吸收或放出光子时，电子状态能够改变。`
-<!-- SENTENCE:S0390 -->
-A laser makes use of excited states and stimulated emission, with energy supplied to the system.
-`激光利用激发态与受激辐射，并向系统供给能量。`
-<!-- SENTENCE:S0391 -->
-NIST explains how light bouncing within a mirror cavity can stimulate further emission in a cascading process.
-`NIST解释了光如何在反射镜腔内往返，刺激进一步发射，形成级联过程。`
-<!-- SENTENCE:S0392 USE:U04612 -->
-Sustainedly supplying energy helps maintain the conditions under which amplification can exceed loss.
-`持续供能，有助于维持放大能够超过损耗的条件。`
-<!-- SENTENCE:S0393 USE:U04613 -->
-The energy supply is a sustainer of the process, while absorption and escaping light contribute to its losses.
-`能量供给是维持过程的支撑，而吸收与逸出光构成其损耗。`
-<!-- SENTENCE:S0394 USE:U04614 -->
-Sustainment therefore involves an ongoing balance of physical processes.
-`因此，维持过程涉及物理过程之间持续的平衡。`
-
-<!-- SENTENCE:S0395 USE:U00904 -->
-Many laser beams are highly coherent: their waves maintain a stable phase relationship over a useful interval.
-`许多激光束高度相干：在有用的时间或空间间隔内，波保持稳定相位关系。`
-<!-- SENTENCE:S0396 USE:U00918,U00910 -->
-Coherence makes it possible for two suitable beams to combine coherently and produce a stable interference pattern.
-`相干性使两束合适的光能够相干叠加，形成稳定干涉图样。`
-<!-- SENTENCE:S0397 -->
-The pattern depends on where peaks and troughs meet, so a small change in path can change the observed brightness.
-`图样取决于波峰与波谷相遇的位置，因此，光程的微小变化就能改变观测亮度。`
-<!-- SENTENCE:S0398 USE:U00913 -->
-By contrast, independent thermal sources are generally mutually incoherent over ordinary observation intervals.
-`相比之下，独立热光源在普通观测时间内一般彼此非相干。`
-<!-- SENTENCE:S0399 USE:U00915 -->
-Their incoherence removes the stable phase relationship needed for such a fixed pattern.
-`其非相干性消除了形成这种固定图样所需的稳定相位关系。`
-<!-- SENTENCE:S0400 USE:U00917 -->
-Under the usual time averaging, their contributions add incoherently.
-`在通常的时间平均条件下，它们的贡献以非相干方式叠加。`
-<!-- SENTENCE:S0401 -->
-The difference concerns the behaviour of waves, not whether an account of the experiment is clearly written.
-`这种差别涉及波的行为，而非实验说明写得是否清楚。`
-
-<!-- SENTENCE:S0402 -->
-Light is able to carry information because a source can vary what it sends and a receiver can detect the variation.
-`光能够承载信息，是因为光源可以改变发送内容，接收器可以检测这种变化。`
-<!-- SENTENCE:S0403 USE:U03207 -->
-An optical fibre provides a medium through which that light can travel.
-`光纤提供了让光行进的介质。`
-<!-- SENTENCE:S0404 USE:U01504,U04901 -->
-The fibre conveys an optical signal, while the complete communication system transmits data.
-`光纤传导光信号，而完整通信系统传送数据。`
-<!-- SENTENCE:S0405 USE:U01514 -->
-Conveyance of the light and interpretation of the signal are related but separate functions.
-`光的传导与信号的解释，是彼此相关但不同的功能。`
-<!-- SENTENCE:S0406 USE:U04915 -->
-A transmitter generates the outgoing signal; a receiver turns the arriving signal into usable information.
-`发射设备产生发出的信号；接收器把到达的信号变为可用信息。`
-<!-- SENTENCE:S0407 -->
-In this physical chain, a tiny change can become a detectable event at the other end.
-`在这条物理链中，微小变化能够在另一端成为可检测事件。`
-
-<!-- SENTENCE:S0408 -->
-NIST points to applications ranging from optical communication to the reading and writing of data discs.
-`NIST列举了从光通信到数据光盘读写的应用。`
-<!-- SENTENCE:S0409 -->
-The same general beam can be useful in manufacturing, measurement or entertainment because different arrangements exploit different properties of the light.
-`同一类光束能够用于制造、测量或娱乐，是因为不同装置利用光的不同性质。`
-<!-- SENTENCE:S0410 -->
-Laser cooling adds a particularly surprising use: photon momentum can be arranged to reduce atomic motion.
-`激光冷却增加了一种尤其令人意外的用途：可以安排光子动量来减少原子运动。`
-<!-- SENTENCE:S0411 -->
-The light exchanges momentum with atoms, showing why a beam can be part of a mechanical process as well as a visual one.
-`光与原子交换动量，说明光束既能参与视觉过程，也能参与力学过程。`
-<!-- SENTENCE:S0412 -->
-A concise description of the beam thus opens onto atomic states, wave relationships and the engineering of information.
-`因此，对光束的简洁描述，能够通向原子状态、波之间的关系与信息工程。`
-
-<!-- ARTICLE:A13 -->
-# How a Gap Between Conductors Stores Charge
-
-<!-- SENTENCE:S0413 -->
-A capacitor begins with two conductors separated by a gap.
-`电容器从由间隙分开的两个导体开始。`
-<!-- SENTENCE:S0414 USE:U00603 -->
-The plates are approximate in position, close enough for their geometry to govern a strong electrical relationship.
-`两极板在位置上相邻，足够接近，使其几何关系能够支配强烈的电学联系。`
-<!-- SENTENCE:S0415 USE:U03106 -->
-An insulating layer can electrically isolate them while allowing an electric field to exist between them.
-`绝缘层可以在电气上把它们隔开，同时允许两者之间存在电场。`
-<!-- SENTENCE:S0416 -->
-When equal and opposite charges accumulate on the plates, the device remains neutral overall.
-`等量异号电荷在两极板积累时，器件整体仍保持电中性。`
-<!-- SENTENCE:S0417 USE:U00810 -->
-Its capacity to store charge at a given voltage is its capacitance.
-`它在给定电压下储存电荷的能力，就是电容。`
-<!-- SENTENCE:S0418 -->
-In the ideal linear model, capacitance is the stored charge magnitude divided by the potential difference.
-`在理想线性模型中，电容等于所存电荷的量值除以电势差。`
-<!-- SENTENCE:S0419 USE:U00811 -->
-A capacitive arrangement can therefore respond when the plate area, spacing or intervening material changes.
-`因此，当极板面积、间距或中间材料变化时，电容式结构能够作出响应。`
-
-<!-- SENTENCE:S0420 -->
-For parallel plates in the usual idealisation, increasing area increases capacitance and increasing separation reduces it.
-`对于通常理想化处理的平行板，增大面积会增大电容，增大间距会减小电容。`
-<!-- SENTENCE:S0421 -->
-This makes the physical arrangement part of the electrical behaviour.
-`这使物理排列成为电学行为的一部分。`
-<!-- SENTENCE:S0422 USE:U01413 -->
-A conventional circuit symbol gives that arrangement an agreed visual meaning without attempting to draw every detail.
-`常规电路符号为这种排列赋予约定的视觉意义，而不试图画出每个细节。`
-<!-- SENTENCE:S0423 USE:U03401 -->
-Changing the overlap of movable plates is one way to modify capacitance.
-`改变可动极板的重叠面积，是改变电容的一种方式。`
-<!-- SENTENCE:S0424 USE:U03407 -->
-The modificatory action changes a physical relationship rather than adding charge by definition.
-`这种起改变作用的动作，改变的是物理关系，而非按定义就增加电荷。`
-<!-- SENTENCE:S0425 -->
-In a linear capacitor of fixed geometry, charge and voltage change together while their ratio remains constant.
-`在几何固定的线性电容器中，电荷与电压共同变化，而两者比值保持不变。`
-
-<!-- SENTENCE:S0426 -->
-Charge storage can also be connected to time by asking how much charge a current has delivered.
-`还可以询问电流送来了多少电荷，从而把电荷储存与时间联系起来。`
-<!-- SENTENCE:S0427 USE:U02905 -->
-To integrate current over time is to add its contributions to obtain the accumulated charge.
-`对电流按时间积分，就是把各时段贡献相加，得到累积电荷。`
-<!-- SENTENCE:S0428 USE:U02906 -->
-Integrated current thus represents an accumulated quantity, not simply the current at one instant.
-`因此，积分电流表示累积量，而非仅表示某一瞬间的电流。`
-<!-- SENTENCE:S0429 USE:U02918 -->
-An integrator used in measurement records such a total, allowing changing inputs to be expressed as an accumulated result.
-`测量中使用的积分仪记录这种总量，使变化的输入能够表示为累积结果。`
-<!-- SENTENCE:S0430 USE:U02919 -->
-A graph acts as an integrator of the physical and mathematical accounts, connecting a changing signal with an area.
-`图像起着物理与数学说明整合者的作用，把变化信号与面积联系起来。`
-<!-- SENTENCE:S0431 USE:U02904 -->
-To integrate an incomplete account, the missing information about interval and units must be supplied.
-`要补全不完整的说明，必须补入缺少的时间区间与单位信息。`
-
-<!-- SENTENCE:S0432 -->
-The area can first be approximated by narrow rectangles, each with a height given by the signal over a small interval.
-`面积可以先用窄矩形近似表示，每个矩形的高度由一个小区间内的信号给出。`
-<!-- SENTENCE:S0433 -->
-Adding those rectangles gives an approximation that can improve as the intervals become smaller.
-`把这些矩形相加，就得到一种近似量；区间变小时，近似能够改善。`
-<!-- SENTENCE:S0434 USE:U02915 -->
-For a continuous function on a closed finite interval, the function is integrable in the Riemann sense.
-`闭合有限区间上的连续函数，在黎曼意义下可积。`
-<!-- SENTENCE:S0435 USE:U02916 -->
-Its integrability means that the limiting sums specify a definite accumulated quantity.
-`其可积性意味着，极限和确定了一个明确的累积量。`
-<!-- SENTENCE:S0436 USE:U02914 -->
-A sampled electrical signal is integrable into this explanation when its values, timing and calibration are known.
-`当采样电信号的数值、时间与校准已知时，它便能被整合进这种解释。`
-<!-- SENTENCE:S0437 USE:U02907 -->
-The resulting model is an integrate whole: geometry describes the device, while the time history describes what has been delivered to it.
-`由此形成的模型是一个完整整体：几何描述器件，而时间过程描述送入器件的电荷。`
-
-<!-- SENTENCE:S0438 -->
-An ideal model also makes assumptions visible.
-`理想模型还会让假设变得可见。`
-<!-- SENTENCE:S0439 -->
-It may neglect edge effects, leakage and changing material properties in order to isolate one relationship.
-`它可以忽略边缘效应、漏电与材料性质变化，以单独辨识一种关系。`
-<!-- SENTENCE:S0440 USE:U03408 -->
-Modification of the account adds effects relevant to the actual device.
-`修正这一解释模型，就要加入与实际器件有关的效应。`
-<!-- SENTENCE:S0441 USE:U01704 -->
-The diminution of an approximation error is a reduction in a particular difference between model and result.
-`近似误差的缩减，是模型与结果之间某种具体差异的减少。`
-<!-- SENTENCE:S0442 USE:U01703 -->
-The remaining error is diminishable only to the extent allowed by the measurements and the model's assumptions.
-`剩余误差能否缩减，取决于测量与模型假设所允许的程度。`
-<!-- SENTENCE:S1262 -->
-Suppose an initial estimate misses the measured charge by five microcoulombs, while a refined model reduces the error to three.
-`假设最初估计与实测电荷相差五微库仑，而改进模型把误差减至三微库仑。`
-<!-- SENTENCE:S0443 USE:U01705 -->
-The diminution of two microcoulombs describes the amount removed from the error, not the new error of three microcoulombs.
-`两微库仑的减少量，指从误差中减掉的数量，而不是三微库仑这一新的误差值。`
-<!-- SENTENCE:S0444 -->
-This is a general lesson from a very small device: a useful account joins a physical structure, a mathematical operation and a clearly stated quantity.
-`这是一个小器件带来的一般认识：有用的说明把物理结构、数学运算与清楚声明的量连接起来。`
-
-<!-- ARTICLE:A14 -->
-# Ninety Words Left to a Sister
-
-<!-- SENTENCE:S0445 -->
-On 27 April 1817, Jane Austen wrote a short will on a small sheet of paper.
-`1817年4月27日，Jane Austen在一小张纸上写下简短遗嘱。`
-<!-- SENTENCE:S0446 -->
-She left most of what she possessed, and what might later be due to her, to her sister Cassandra.
-`她把大部分已有财物以及以后可能应得之物，都留给了姐姐Cassandra。`
-<!-- SENTENCE:S0447 -->
-Two legacies of fifty pounds each went to her brother Henry and to Madame Bigeon.
-`另有两笔各五十英镑的遗赠，分别留给哥哥Henry与Madame Bigeon。`
-<!-- SENTENCE:S0448 USE:U02807 -->
-The document at The National Archives makes a family relationship visible through a practical act of inheritance.
-`英国国家档案馆的这份文件，通过一次实际继承安排，让家庭关系可见。`
-<!-- SENTENCE:S0449 USE:U02801 -->
-Cassandra would inherit personal possessions and money, while also serving as the person appointed to carry out the will.
-`Cassandra将继承私人物品与金钱，同时担任被指定执行遗嘱的人。`
-<!-- SENTENCE:S0450 USE:U02808 -->
-An inheritor receives property; an executor carries responsibilities, and one person can occupy both positions.
-`继承人接受财物；遗嘱执行人承担责任，而同一个人可以处于两种位置。`
-
-<!-- SENTENCE:S0451 USE:U04315 -->
-Austen folded the sheet and wrote a brief identification on its reverse.
-`Austen折起纸张，在背面写下简短识别文字。`
-<!-- SENTENCE:S0452 -->
-The folding joined the intimate act of writing to the later act of finding and reading.
-`折叠把私密的书写行动，与后来发现及阅读的行动连接起来。`
-<!-- SENTENCE:S0453 -->
-The will named Cassandra as executrix, the feminine form used in the document for the person who would administer it.
-`遗嘱把Cassandra列为executrix，即文件中用于遗嘱执行人的女性形式。`
-<!-- SENTENCE:S0454 USE:U02810 -->
-Cassandra appears here as an inheritrix as well, a female recipient of what her sister left.
-`Cassandra在这里也作为女性继承人出现，接收妹妹留下的财物。`
-<!-- SENTENCE:S0455 USE:U02812 -->
-The arrangement treated her as inheritable, capable of receiving the property designated for her.
-`这一安排把她视为具备继承资格的人，能够接收指定给她的财物。`
-<!-- SENTENCE:S0456 USE:U02804 -->
-Her inheritance was therefore both a material provision and an expression of trust.
-`因此，她得到的遗产既是物质安排，也是信任的表达。`
-
-<!-- SENTENCE:S0457 -->
-The future value of Austen's writing matters to the wording of the will.
-`Austen作品的未来价值，对遗嘱措辞具有意义。`
-<!-- SENTENCE:S0458 -->
-It included what might later become due, so the paper looked beyond the money already present.
-`遗嘱包括将来可能应得之物，因此，这张纸着眼于当时已有金钱之外。`
-<!-- SENTENCE:S0459 USE:U02811 -->
-Rights that are inheritable can continue to produce consequences after the person who created the work has died.
-`能够继承的权利，在作品创造者去世后仍能继续产生后果。`
-<!-- SENTENCE:S0460 USE:U02813 -->
-Their inheritability connects a legal arrangement with the continuing life of a work.
-`权利的可继承性，把法律安排与作品持续的生命联系起来。`
-<!-- SENTENCE:S0461 -->
-The archival account records later money received when Northanger Abbey and Persuasion were published.
-`档案说明记录了《诺桑觉寺》与《劝导》出版后，后来收到的款项。`
-<!-- SENTENCE:S0462 -->
-A small physical document could thus govern a relationship to literary value that continued beyond its writer's lifetime.
-`因此，一份小小的实体文件，能够支配一种超出作者生命期限的文学价值关系。`
-
-<!-- SENTENCE:S0463 -->
-The will was unwitnessed, a feature that made its handwriting particularly important in the subsequent proceedings.
-`遗嘱没有见证签名，这使其笔迹在后来的程序中尤其重要。`
-<!-- SENTENCE:S0464 -->
-Family friends gave evidence that they recognised Austen's handwriting and signature.
-`家族朋友作证，表示认得Austen的笔迹与签名。`
-<!-- SENTENCE:S0465 USE:U04608 -->
-Their evidence sustained the claim that the document was hers.
-`他们的证言支持并证实了文件出自她手的主张。`
-<!-- SENTENCE:S0466 -->
-The will was proved in September 1817, giving Cassandra authority to act.
-`遗嘱于1817年9月得到认证，赋予Cassandra执行权。`
-<!-- SENTENCE:S0467 USE:U00808 -->
-In her capacity as executrix, she held an office distinct from the affection that linked the sisters.
-`以遗嘱执行人的身份，她承担着一种职务，这与姐妹之间的感情是不同层面的关系。`
-<!-- SENTENCE:S0468 -->
-The interval between writing and legal recognition contains a sequence of human acts: making, preserving, identifying and administering.
-`从写作到法律认可之间的时间，包含一连串人类行动：制作、保存、识别与执行。`
-
-<!-- SENTENCE:S0469 -->
-The document's survival gives later readers access to more than a distribution of sums.
-`文件的幸存，让后来的读者接触到的不只是款项分配。`
-<!-- SENTENCE:S0470 -->
-Its concise language, folded surface and later annotations record how private intention entered an institutional world.
-`简洁语言、折叠表面与后加批注，记录了私人意愿怎样进入制度世界。`
-<!-- SENTENCE:S0471 USE:U04205 -->
-A retainable piece of evidence can acquire new value when later readers ask different questions of it.
-`一份能够保留的证据，可以在后人提出不同问题时获得新价值。`
-<!-- SENTENCE:S0472 USE:U04206 -->
-The retainability of old paper depends partly on its physical condition and the means available to preserve it.
-`旧纸的可保留性，部分取决于其物理状态以及可用的保存手段。`
-<!-- SENTENCE:S0473 USE:U04207 -->
-Its retainment allows the words to remain available even as the people and institutions around them change.
-`将它保留下来，使这些文字在周围人物与机构改变后仍可接触。`
-<!-- SENTENCE:S0474 USE:U04707 -->
-Some benefits of survival are intangible: a reader can sense a relationship without reducing it to an amount of money.
-`幸存带来的一些价值难以量化：读者能够感到一种关系，而不把它缩减为金钱数额。`
-<!-- SENTENCE:S0475 USE:U04708,U04703 -->
-Those intangibles accompany the tangibles of paper, ink and the property the will once governed.
-`这些难以量化的价值，伴随着纸、墨与遗嘱曾经支配的财产等有形之物。`
-<!-- SENTENCE:S0476 -->
-The sister's name on a modest sheet can consequently carry both a legal history and a history of care.
-`因此，小纸张上的姐姐之名，能够同时承载法律史与照护史。`
-
-<!-- ARTICLE:A15 -->
-# A Home Has a Price, a Title and a Balance Sheet
-
-<!-- SENTENCE:S0477 USE:U02602 -->
-A home is a habitat for people, but buying one also involves a transfer of legal rights.
-`住宅是人们的居所，但购买住宅还涉及法律权利的转移。`
-<!-- SENTENCE:S0478 USE:U01503 -->
-To convey the property is to transfer ownership, rather than physically carry the building somewhere else.
-`转让房产，是转移所有权，而非把建筑搬到别处。`
-<!-- SENTENCE:S0479 USE:U01509,U01510 -->
-The conveyance is the legal transaction, and a conveyance can also name the document that gives effect to it.
-`产权转移是法律交易，而conveyance也可以指使这种转移生效的文书。`
-<!-- SENTENCE:S0480 USE:U01511 -->
-A conveyancer handles the work of identifying the property, examining rights and completing the transfer.
-`产权转让事务经办人，负责识别房产、审查权利并完成转让。`
-<!-- SENTENCE:S0481 USE:U01512 -->
-Conveyancing consequently connects written descriptions with the actual place a buyer expects to occupy.
-`因此，产权转让业务把书面描述与买家预期居住的实际场所连接起来。`
-<!-- SENTENCE:S0482 USE:U01505 -->
-What is conveyable depends on the rights held and the legal restrictions attached to them.
-`什么能够被转让，取决于所持权利及其法律限制。`
-
-<!-- SENTENCE:S0483 -->
-The UK government's home-buying guide describes a contract containing the price, boundaries, included fittings, restrictions and proposed completion.
-`英国政府的购房指南介绍了载明价格、边界、所含装置、限制与拟定完成安排的合同。`
-<!-- SENTENCE:S0484 -->
-These details define the subject of the bargain, so a kitchen unit and a boundary line can matter alongside the headline price.
-`这些细节界定交易对象，因此，厨房装置与边界线，能够与醒目的价格同样重要。`
-<!-- SENTENCE:S0485 USE:U01102 -->
-Buyer and seller may compromise on details before they exchange final contracts.
-`买卖双方可以在交换最终合同前，就细节相互让步。`
-<!-- SENTENCE:S0486 USE:U01105 -->
-A compromiser looks for terms that can be accepted by both sides while keeping the agreement clear.
-`寻求折中的人，会寻找双方都能接受、同时保持协议清楚的条款。`
-<!-- SENTENCE:S0487 -->
-In the process described by the guide, exchanging contracts makes the agreement legally binding.
-`在该指南描述的程序中，交换合同使协议具有法律约束力。`
-<!-- SENTENCE:S0488 -->
-Completion then brings the transfer of money, documents, possession and keys into their agreed relationship.
-`随后，交易完成把资金、文书、占有与钥匙的移交，带入约定关系。`
-<!-- SENTENCE:S0489 -->
-The steps explain why agreeing on a price and becoming the owner are distinct stages.
-`这些步骤说明，议定价格与成为所有人，为何是不同阶段。`
-
-<!-- SENTENCE:S0490 USE:U02203 -->
-The home's financial position involves another quantity: equity.
-`住宅的财务状况还涉及另一个量：净权益。`
-<!-- SENTENCE:S0491 -->
-For this purpose, equity is the current property value minus the outstanding mortgage balance.
-`在这里，净权益等于房产当前价值减去未还按揭余额。`
-<!-- SENTENCE:S0492 -->
-A fall in value can reduce equity even while the owner continues to make regular payments.
-`即使房主继续定期还款，价值下跌仍能减少净权益。`
-<!-- SENTENCE:S0493 USE:U02214 -->
-Negative equity occurs when the mortgage balance exceeds the property's value.
-`按揭余额超过房产价值时，就出现负权益。`
-<!-- SENTENCE:S0494 -->
-In a hypothetical example, a home worth two hundred thousand pounds with a two-hundred-and-twenty-thousand-pound mortgage has negative equity of twenty thousand pounds.
-`在一个假设例子中，价值二十万英镑的住宅，若有二十二万英镑未还按揭，就有两万英镑负权益。`
-<!-- SENTENCE:S0495 -->
-The balance sheet compares value with debt; the price originally paid is not enough to determine the present result.
-`资产负债表比较的是价值与债务；原来支付的价格，不足以确定当前结果。`
-<!-- SENTENCE:S0496 -->
-This distinction gives a reader a more exact way to understand a discussion of moving or refinancing.
-`这种区分，给读者提供了理解搬家或再融资讨论的更确切方式。`
-
-<!-- SENTENCE:S0497 -->
-MoneyHelper explains that a shortfall can make a move more difficult because selling the asset may not repay the whole debt.
-`MoneyHelper解释，缺口可能使搬家更困难，因为出售资产未必能偿还全部债务。`
-<!-- SENTENCE:S0498 USE:U00402 -->
-A household unable to cover the shortfall may feel it has no alternative but to postpone the move.
-`无力补足缺口的家庭，可能觉得自己别无选择，只能推迟搬家。`
-<!-- SENTENCE:S0499 USE:U00404 -->
-Two proposed uses of the same money may be alternative in the strict sense that choosing one rules out the other.
-`对同一笔钱提出的两种用途，可以在严格意义上互为择一方案：选择一种，就排除另一种。`
-<!-- SENTENCE:S0500 USE:U00413 -->
-An alternate plan may change the timing or structure of a move without changing the underlying ownership problem.
-`一项备选计划，可以改变搬家的时间或结构，而不改变背后的所有权问题。`
-<!-- SENTENCE:S0501 USE:U02802 -->
-A buyer may also inherit a predecessor's maintenance problems, even after the paperwork is complete.
-`即使书面手续已经完成，买方还可能接手前任房主遗留的维护问题。`
-<!-- SENTENCE:S0502 USE:U02805 -->
-That inheritance of neglected repairs belongs to the property's recent history as well as to its present financial situation.
-`这份失修问题的遗留，既属于房产近期的历史，也属于它当前的财务处境。`
-<!-- SENTENCE:S0503 -->
-Understanding the language of title, equity and completion makes that situation easier to describe accurately.
-`理解产权、净权益与交易完成的语言，使这一处境更容易被准确描述。`
-
-<!-- ARTICLE:A16 -->
-# Robert Peel and the Cost of Changing a Policy
-
-<!-- SENTENCE:S0504 -->
-A political institution can continue while the policies pursued through it change profoundly.
-`政治制度可以延续，而通过它推行的政策却深刻改变。`
-<!-- SENTENCE:S0505 -->
-British parliamentary history provides many such changes, including settlements that gradually reworked the relationship between Crown and Parliament.
-`英国议会史提供了许多这种变化，包括逐渐重塑王权与议会关系的政治安排。`
-<!-- SENTENCE:S0506 USE:U01406 -->
-In 1689, a Convention of Lords and MPs met without having been summoned by the king.
-`1689年，贵族与议员在未经国王召集的情况下组成非常议会。`
-<!-- SENTENCE:S0507 USE:U01408 -->
-The convention of that assembly was itself part of the effort to establish an acceptable political settlement.
-`召集这一会议的行动本身，就是建立可接受政治安排的努力的一部分。`
-<!-- SENTENCE:S0508 USE:U03004 -->
-The intervening years brought further adjustments, rather than one moment settling the whole constitutional relationship.
-`其间岁月带来了进一步调整，而非某一时刻就决定全部宪制关系。`
-<!-- SENTENCE:S0509 -->
-That longer history helps explain why continuity and change can occupy the same political story.
-`这段更长的历史，帮助说明延续与变化为何能处于同一个政治故事中。`
-
-<!-- SENTENCE:S0510 USE:U01218 -->
-Robert Peel's career presents a later example within a Conservative government.
-`Robert Peel的生涯，提供了保守党政府内部的一个较晚例子。`
-<!-- SENTENCE:S0511 USE:U01219 -->
-Peel was a Conservative who held office in the 1830s and again in the 1840s.
-`Peel是一位保守党成员，曾在十九世纪三十年代与四十年代执政。`
-<!-- SENTENCE:S0512 -->
-The government's historical account describes reforms to criminal law, policing and factory work during his career.
-`政府的历史介绍，描述了他任内对刑法、警务与工厂劳动的改革。`
-<!-- SENTENCE:S0513 USE:U01216 -->
-His experience illustrates a tension within conservatism: an institution may be preserved partly by accepting changes to how it operates.
-`他的经历说明保守主义内部的一种张力：接受制度运行方式的改变，可能恰恰有助于保存制度。`
-<!-- SENTENCE:S0514 USE:U01221 -->
-A conservative can therefore face a choice between defending an existing policy and maintaining a wider political order.
-`因此，一位保守派人士可能面临选择：维护既有政策，还是维持更广泛的政治秩序。`
-<!-- SENTENCE:S0515 USE:U01229 -->
-The conservativeness of an institution does not determine every decision made by the people within it.
-`制度的保守性，并不能决定其中每个人的每项决策。`
-
-<!-- SENTENCE:S0516 -->
-Peel initially opposed Catholic emancipation, then helped carry it through Parliament after becoming persuaded of the danger of civil conflict.
-`Peel起初反对天主教解放，后来因相信内乱危险而帮助推动其在议会通过。`
-<!-- SENTENCE:S0517 USE:U04321 -->
-His reversal shocked supporters who had relied on his earlier position.
-`他的立场逆转，使依赖其早先立场的支持者震惊。`
-<!-- SENTENCE:S0518 USE:U01108 -->
-An uncompromising supporter of the earlier position could regard the change as betrayal.
-`坚定不肯让步的原立场支持者，可以把这种改变视为背叛。`
-<!-- SENTENCE:S0519 USE:U01111 -->
-Uncompromisingness gives a position consistency, but also makes a response to new circumstances harder.
-`不愿妥协使立场一致，却也使对新环境作出回应更难。`
-<!-- SENTENCE:S0520 -->
-The difficulty is practical as well as philosophical: government must act while disagreement continues.
-`困难既是实际的，也是哲学的：政府必须在分歧持续时行动。`
-<!-- SENTENCE:S0521 USE:U03009 -->
-An intervenient crisis can alter the consequences of leaving an old rule in place.
-`介入其间的危机，可以改变保留旧规则所带来的后果。`
-
-<!-- SENTENCE:S0522 -->
-In the 1840s, the Corn Laws placed barriers on imported grain.
-`十九世纪四十年代，《谷物法》对进口谷物设置壁垒。`
-<!-- SENTENCE:S0523 -->
-Harvest failure and the Irish famine brought the consequences of food policy into especially urgent focus.
-`歉收与爱尔兰饥荒，使粮食政策的后果变得格外迫切。`
-<!-- SENTENCE:S0524 -->
-Peel eventually decided that the laws had to be repealed, while landowners resisted and his party divided.
-`Peel最终认定必须废除这些法律，而地主抵制、其政党分裂。`
-<!-- SENTENCE:S0525 USE:U04503 -->
-The policy shift changed the terms of political loyalty as well as the rules of trade.
-`这次政策转变，既改变了政治忠诚的条件，也改变了贸易规则。`
-<!-- SENTENCE:S0526 USE:U04502 -->
-To shift a position under those conditions meant accepting consequences for the government itself.
-`在那些条件下改变立场，意味着接受政府本身也要承受后果。`
-<!-- SENTENCE:S0527 -->
-The repeal passed in June 1846, but Peel was defeated on another bill and resigned.
-`废除法案于1846年6月通过，但Peel在另一法案上遭到否决，随后辞职。`
-<!-- SENTENCE:S0528 USE:U04314 -->
-A legislative success and a major political reverse therefore formed part of the same outcome.
-`因此，一项立法成功与一次重大政治挫败，构成了同一结果的不同部分。`
-<!-- SENTENCE:S0529 USE:U04602 -->
-The party sustained a division that outlasted the immediate vote.
-`政党遭受了延续到当次表决之后的分裂。`
-
-<!-- SENTENCE:S0530 USE:U01220 -->
-The story makes a simple description of conservative politics less simple.
-`这个故事，使对保守政治的简单描述变得不再简单。`
-<!-- SENTENCE:S0531 USE:U01222 -->
-A conservative approach can mean caution about the pace of change, while a party label identifies a particular organisation.
-`保守做法可以意味着谨慎对待变革速度，而政党标签指认的是特定组织。`
-<!-- SENTENCE:S0532 USE:U01223 -->
-A proposal conservative in tone may avoid extremes even when it changes an established practice.
-`基调温和的提议，即使改变既有做法，也可以避免极端。`
-<!-- SENTENCE:S0533 -->
-These uses need to be kept distinct from the assumption that every Conservative must support every existing rule.
-`这些用法需要与一种假定区分：并非每位保守党成员都必定支持每条既有规则。`
-<!-- SENTENCE:S0534 -->
-What gives Peel's decision its historical force is the concrete conflict between a party's expectations and the consequences of governing.
-`赋予Peel决定历史力量的，是政党期待与治理后果之间的具体冲突。`
-<!-- SENTENCE:S0535 USE:U02802,U02805 -->
-His government had inherited a difficult situation, and its response became part of the inheritance passed to later governments.
-`他的政府接手了困难局面，而其回应又成为留给后来政府的遗留处境的一部分。`
-<!-- SENTENCE:S0536 USE:U02307 -->
-The result belongs to the evolution of political practice, in which institutions persist while their purposes and policies are contested.
-`结果属于政治实践的逐步发展：制度持续存在，其目的与政策却不断受到争论。`
-
-<!-- ARTICLE:A17 -->
-# A School Case and the Right to Be Heard
-
-<!-- SENTENCE:S0537 -->
-Brown v. Board of Education brought a constitutional question into the daily life of public schools.
-`《布朗诉教育委员会案》把一个宪法问题带入公立学校的日常生活。`
-<!-- SENTENCE:S0538 -->
-Children had been denied access to schools attended by white children under laws permitting or requiring racial separation.
-`在允许或要求种族隔离的法律下，孩子们被拒绝进入白人孩子就读的学校。`
-<!-- SENTENCE:S0539 USE:U01802 -->
-Those laws discriminated on the basis of race, making racial identity a condition of educational access.
-`这些法律基于种族作区别对待，把种族身份变为获得教育的条件。`
-<!-- SENTENCE:S0540 USE:U01808 -->
-A discriminatory arrangement could be enforced through ordinary administrative decisions about admission.
-`歧视性安排，可以通过普通的入学行政决定来执行。`
-<!-- SENTENCE:S0541 USE:U01811 -->
-The resulting discrimination concerned participation in an institution central to public life.
-`由此产生的歧视，涉及对公共生活核心机构的参与。`
-<!-- SENTENCE:S0542 -->
-In 1954, the Supreme Court unanimously held that state-imposed racial segregation in public schools violated equal protection.
-`1954年，最高法院一致裁定，公立学校中由州实施的种族隔离违反平等保护。`
-
-<!-- SENTENCE:S0543 -->
-The opinion examined a distinction between physical facilities and the wider experience of education.
-`判决意见考察了实体设施与更广泛教育体验之间的区别。`
-<!-- SENTENCE:S0544 -->
-Equal-looking buildings and equipment did not settle what separation itself did to the opportunity to learn.
-`看起来相等的建筑与设备，并不能决定隔离本身对学习机会造成什么影响。`
-<!-- SENTENCE:S0545 USE:U04707 -->
-The Court considered intangible elements such as participation in discussion and the exchange of ideas.
-`法院考虑了参与讨论、交流思想等难以量化的要素。`
-<!-- SENTENCE:S0546 USE:U04708 -->
-Those intangibles belonged to the substance of education, rather than merely to its atmosphere.
-`这些难以量化的要素属于教育实质，而不只是气氛。`
-<!-- SENTENCE:S0547 -->
-The case therefore asked what it meant to provide an educational opportunity on equal terms.
-`因此，案件追问的是：按平等条件提供教育机会，究竟意味着什么。`
-
-<!-- SENTENCE:S0548 USE:U02902 -->
-To integrate schools was to end an exclusion built into their admissions, allowing children of different races to participate together.
-`使学校取消种族隔离，就是结束嵌入招生制度的排斥，让不同种族的孩子共同参与。`
-<!-- SENTENCE:S0549 USE:U02908 -->
-An integrated school system would have to make that participation real in its operation.
-`取消隔离的学校系统，必须在实际运行中实现这种参与。`
-<!-- SENTENCE:S0550 USE:U02913,U02911 -->
-An integrationist supported that change, while the practical work of integration extended beyond the declaration of a legal principle.
-`主张取消隔离的人支持这种改变，而实际融合工作超出了宣布法律原则。`
-<!-- SENTENCE:S0551 -->
-The 1954 opinion returned the cases for further argument about the form of the orders.
-`1954年的判决意见，将案件交回，以进一步论辩命令应采取什么形式。`
-<!-- SENTENCE:S0552 -->
-This procedural step left the relation between constitutional judgment and implementation visible on the page.
-`这一程序步骤，让宪法裁断与实施之间的关系，在纸面上保持可见。`
-
-<!-- SENTENCE:S1177 USE:U04302 -->
-In 1955, the Court reversed the judgments below except in the Delaware case, and sent the cases back for further proceedings.
-`1955年，最高法院撤销了特拉华案以外的下级判决，并把案件发回作进一步处理。`
-<!-- SENTENCE:S1178 -->
-It affirmed the Delaware judgment ordering immediate admission, while also returning that case for further proceedings.
-`法院维持了特拉华案要求立即准许入学的判决，同时也将该案发回作后续处理。`
-<!-- SENTENCE:S1179 USE:U02208,U04201 -->
-The opinion directed courts to use equitable principles in shaping remedies and to retain jurisdiction during the transition.
-`判决要求法院依衡平原则制定救济措施，并在过渡期间保留管辖权。`
-<!-- SENTENCE:S1180 USE:U04607 -->
-In courtroom procedure more generally, a judge may sustain an objection to a question, preventing that question from proceeding in its challenged form.
-`在更一般的庭审程序中，法官可以认可针对某个问题的异议，使该问题不能以受到质疑的形式继续提出。`
-<!-- SENTENCE:S1181 -->
-A ruling on a question and an appellate judgment act at different levels of the legal process.
-`针对一个问题作出的裁定，与上诉审判决，作用于法律程序的不同层次。`
-
-<!-- SENTENCE:S0553 -->
-Legal representation made it possible for the children's claims to be presented through an established process.
-`法律代理使孩子们的主张能够通过既定程序提出。`
-<!-- SENTENCE:S0554 USE:U00204 -->
-An advocate for a child speaks for that person's rights and interests.
-`儿童权益代表为孩子的权利与利益发声。`
-<!-- SENTENCE:S0555 USE:U00205 -->
-An advocate appearing in court also occupies a professional role with obligations to the legal process.
-`出庭律师还承担着对法律程序负有义务的专业角色。`
-<!-- SENTENCE:S0556 USE:U00206 -->
-Professional advocateship is more than the ability to speak forcefully; it includes responsibility for how a case is presented.
-`专业律师身份不只是有力发言的能力，还包括对案件如何被陈述承担责任。`
-<!-- SENTENCE:S0557 USE:U00202 -->
-To advocate a client's position is to plead for it with reasons that the court can examine.
-`为当事人立场辩护，就是用法院能够审查的理由来申辩。`
-<!-- SENTENCE:S0558 USE:U00208 -->
-Advocacy in court connects a person's experience with questions of law, evidence and remedy.
-`法庭辩护把个人经历与法律、证据和救济问题连接起来。`
-<!-- SENTENCE:S0559 USE:U00203 -->
-An advocate for integrated education can also work outside court, publicly supporting a cause.
-`主张取消教育隔离的人，也能在法庭之外工作，公开支持一项事业。`
-<!-- SENTENCE:S0560 USE:U00209 -->
-An advocacy organisation seeks to influence institutions, while representation in a particular case gives a more specific responsibility.
-`倡议组织谋求影响制度，而特定案件中的代理赋予更具体的责任。`
-
-<!-- SENTENCE:S0561 -->
-The wider rules of civil procedure show another way a person can seek a place in an existing dispute.
-`更广泛的民事程序规则，展示了一个人寻求在既有争议中取得位置的另一种方式。`
-<!-- SENTENCE:S0562 USE:U03007 -->
-Under federal Rule 24, a person may be permitted to intervene in proceedings under specified conditions.
-`根据联邦第24条规则，一个人可以在特定条件下获准参加已有诉讼。`
-<!-- SENTENCE:S0563 USE:U03008 -->
-Such an intervenor enters as a party seeking to protect an interest, rather than simply commenting from outside.
-`这样的诉讼参加人，是作为寻求保护利益的一方进入，而不只是从外部评论。`
-<!-- SENTENCE:S0564 -->
-The rule distinguishes intervention as of right from permissive intervention and directs attention to adequate representation, delay and prejudice.
-`该规则区分当然参加诉讼与许可参加诉讼，并关注充分代理、拖延与不利影响。`
-<!-- SENTENCE:S0565 -->
-A rule about entering a case addresses a different procedural stage from an opinion deciding the constitutional question.
-`有关加入诉讼的规则与裁定宪法问题的判决意见，处理的是不同的诉讼阶段。`
-
-<!-- SENTENCE:S0566 USE:U02202,U02208 -->
-The legal language of equity adds a further historical dimension: courts have used equitable principles and remedies alongside rules of common law.
-`衡平法的法律语言还增添一个历史维度：法院曾在普通法规则之外，使用衡平原则与救济。`
-<!-- SENTENCE:S0567 -->
-A remedy has to address the right established, so declaring a principle and framing an order are related acts.
-`救济必须回应已确立的权利，因此，宣布原则与拟定命令，是彼此相关的行动。`
-<!-- SENTENCE:S0568 -->
-Brown's continuing significance lies partly in that connection between a lived exclusion and a public account of equal protection.
-`《布朗案》的持续意义，部分就在于把生活中的排斥与平等保护的公共说明连接起来。`
-<!-- SENTENCE:S0569 -->
-The record lets readers follow both the argument and the institutional steps through which people sought to change the conditions of learning.
-`这份记录让读者既能追随论证，也能追随人们寻求改变学习条件时经过的制度步骤。`
-
-<!-- ARTICLE:A18 -->
-# What a Share Owns and What a Yield Measures
-
-<!-- SENTENCE:S0570 -->
-A share gives its holder a stake in a company, rather than ownership of one particular machine in its factory.
-`股份使持有人拥有公司的一份权益，而非单独拥有工厂中的某台机器。`
-<!-- SENTENCE:S0571 USE:U02204 -->
-Equity represents that ownership interest, and issuing shares can provide a company with capital for its activities.
-`股本权益代表这种所有权利益，而发行股份能够为公司活动提供资本。`
-<!-- SENTENCE:S0572 USE:U02205 -->
-Equities are stocks, which investors may hold for income, changes in value or a combination of the two.
-`股票是股权投资，投资者可以为收入、价值变化或两者结合而持有它们。`
-<!-- SENTENCE:S0573 -->
-The SEC's investor explanation describes dividends as distributions from a company's earnings.
-`SEC的投资者说明，把股息描述为公司从盈利中作出的分配。`
-<!-- SENTENCE:S0574 -->
-It also distinguishes types of shares and notes that growth-oriented companies may pay little or no dividend.
-`它还区分股票类型，并指出以增长为主的公司可能很少支付或不支付股息。`
-<!-- SENTENCE:S0575 USE:U00802 -->
-A company's capacity to produce goods and its capacity to distribute cash are therefore different aspects of its business.
-`公司的商品产能与分配现金的能力，因此是其业务的不同方面。`
-
-<!-- SENTENCE:S0576 USE:U05007 -->
-An investment can yield income without its market price rising.
-`投资可以产生收入，而其市价未必上涨。`
-<!-- SENTENCE:S0577 USE:U05008 -->
-Yield expresses the income or return in relation to the investment, so the stated basis of calculation matters.
-`投资收益或收益率，把收入或回报与投资联系起来，因此，明示的计算基础很重要。`
-<!-- SENTENCE:S0578 -->
-In a simple hypothetical calculation, fifty pounds of annual income on a one-thousand-pound purchase gives an income yield of five per cent before costs.
-`在一个简单假设计算中，一千英镑买入的投资，每年产生五十英镑收入，成本前的收入收益率为百分之五。`
-<!-- SENTENCE:S0579 USE:U05017 -->
-A bond may be a modest yielder because its regular payments are small in relation to the amount invested.
-`一只债券可能属于收益不高的资产，因为其定期付款相对于投资金额较小。`
-<!-- SENTENCE:S0580 USE:U01228 -->
-In that hypothetical budget, income could be estimated conservatively at forty pounds rather than the expected fifty.
-`在这个假设预算中，可以把收入保守估计为四十英镑，低于预期的五十英镑。`
-<!-- SENTENCE:S0581 USE:U04621 -->
-A claim that every share must produce a dividend is unsustainable in the face of the different company policies described by the SEC.
-`面对SEC介绍的不同公司政策，声称每只股票都必定派息的主张无法成立。`
-
-<!-- SENTENCE:S0582 USE:U03210 -->
-A fund offers a medium through which money from several investors can be invested together.
-`基金提供了一个途径，使多位投资者的资金能够共同投资。`
-<!-- SENTENCE:S0583 USE:U00305 -->
-An allocator of that capital determines how it is distributed among the investments permitted by the fund's approach.
-`这些资本的分配者，决定资金怎样分布在基金方法允许的投资之中。`
-<!-- SENTENCE:S0584 USE:U01908 -->
-To diversify is to spread investment across different holdings instead of making the whole outcome depend on one company.
-`分散投资，就是把投资分布到不同持仓，而不让全部结果依赖一家公司。`
-<!-- SENTENCE:S0585 USE:U01903 -->
-Different holdings can behave diversely as business conditions change.
-`商业条件变化时，不同持仓可以以不同方式表现。`
-<!-- SENTENCE:S0586 USE:U04323 -->
-A series of reversals in one business can then have a different effect from the failure of the only business held.
-`一项业务的一系列经济挫折，便可能产生不同于唯一持有业务失败的影响。`
-<!-- SENTENCE:S0587 -->
-Diversification changes the distribution of exposure; it does not turn ownership into a fixed promise of income.
-`分散投资改变风险敞口的分布；它不会把所有权变成固定收入承诺。`
-
-<!-- SENTENCE:S0588 USE:U03604 -->
-A mutual building society offers a different relationship between an institution and its owners.
-`成员制建房互助会，为机构与所有者提供了另一种关系。`
-<!-- SENTENCE:S0589 -->
-The Building Societies Association describes institutions owned by members who are borrowers and savers, rather than by a separate body of outside shareholders.
-`建房互助会协会介绍，这类机构由借款者与储蓄者组成的成员所有，而非由一群独立的外部股东所有。`
-<!-- SENTENCE:S0590 -->
-The distinction concerns governance and purpose, not simply the size of the balance sheet.
-`这种区别涉及治理与目的，而不只是资产负债表的大小。`
-<!-- SENTENCE:S0591 -->
-Member interests give decisions a different institutional setting from decisions in a company owned by external shareholders.
-`与外部股东所有的公司相比，成员利益使决策具有不同的制度背景。`
-<!-- SENTENCE:S0592 -->
-The association speaks for that sector and advocates its interests in discussion with government and regulators.
-`协会代表该行业，在与政府和监管者讨论时倡导其利益。`
-<!-- SENTENCE:S0593 -->
-Its role is that of an industry voice, while regulation and complaint resolution are separate functions.
-`它承担行业发声角色，而监管与投诉处理是另外的职能。`
-
-<!-- SENTENCE:S0594 -->
-Ownership, income and institutional purpose consequently answer different questions about money.
-`因此，所有权、收入与机构目的，回答了关于金钱的不同问题。`
-<!-- SENTENCE:S0595 USE:U04619 -->
-The sustainability of an income stream depends on how it is produced and maintained.
-`收入流的可维持性，取决于它怎样产生和维持。`
-<!-- SENTENCE:S0596 USE:U04622 -->
-Distributing more than an activity can continue to support would mean drawing on it unsustainably.
-`分配超出活动能够持续支持的金额，就意味着以无法维持的方式从中提取资源。`
-<!-- SENTENCE:S0597 -->
-Reading financial language well begins with seeing which relationship a number describes: a share of ownership, a flow of income or a remaining obligation.
-`理解财务语言，始于看清数字描述的是哪种关系：一份所有权、一股收入流，还是一项剩余义务。`
-
-<!-- ARTICLE:A19 -->
-# What Soil Asks of the Gardener
-
-<!-- SENTENCE:S0598 -->
-A garden begins below the flowers, in the spaces between particles of earth.
-`花园的起点在花朵之下，在土壤颗粒之间的空隙里。`
-<!-- SENTENCE:S0599 -->
-Water and air must both reach the roots, although they compete for those spaces.
-`水和空气都必须到达根部，尽管它们要占据同一些空隙。`
-<!-- SENTENCE:S0600 -->
-The RHS distinguishes soils partly by particle size, with clay finer than silt and sand.
-`英国皇家园艺学会部分依据颗粒大小区分土壤，黏土颗粒比粉土和砂粒更细。`
-<!-- SENTENCE:S0601 USE:U04217 -->
-Fine clay is moisture-retentive, whereas a sandy bed can lose water quickly.
-`细黏土能保持水分，而砂质种植畦可能很快失水。`
-<!-- SENTENCE:S0602 USE:U04221 -->
-The retentiveness of a soil therefore matters as much as how easily a spade enters it.
-`因此，土壤的保水能力与铲子是否容易插入同样重要。`
-<!-- SENTENCE:S0603 USE:U01612 -->
-A loose handful and a sticky lump offer different problems to the cultivator.
-`对于耕种者而言，一把松散的土与一块黏土带来的是不同问题。`
-
-<!-- SENTENCE:S0604 USE:U01601 -->
-To cultivate a plot is to prepare and use its ground for growing plants.
-`耕作一块地，就是整理并利用那里的土壤种植植物。`
-<!-- SENTENCE:S0605 USE:U01602,U01613 -->
-To cultivate the surface more narrowly means to loosen it, often with a fork or a cultivator.
-`更具体地说，对表层进行中耕就是松土，常会用到叉子或耕耘工具。`
-<!-- SENTENCE:S0606 USE:U01610 -->
-That operation has a purpose; repeated disturbance is not itself proof of good cultivation.
-`这种操作应有目的；反复扰动本身并不能证明栽培得法。`
-<!-- SENTENCE:S0607 -->
-Wet clay can become compacted under feet and machinery, while bare silt can be carried away.
-`湿黏土会在踩踏和机械作用下板结，裸露的粉土则可能流失。`
-<!-- SENTENCE:S0608 -->
-The RHS describes adding organic matter as a way to improve the structure of several soil types.
-`皇家园艺学会介绍，加入有机质可以改善多种土壤的结构。`
-<!-- SENTENCE:S0609 -->
-In clay it helps produce workable crumbs, while in sand it improves the holding of water and nutrients.
-`在黏土中，它有助于形成便于耕作的团粒；在砂土中，它改善保水和保肥能力。`
-
-<!-- SENTENCE:S0610 USE:U01607 -->
-Cultivable land is land capable of supporting cultivation under the relevant conditions.
-`可耕地是指在相关条件下能够用于耕作的土地。`
-<!-- SENTENCE:S0611 USE:U01607 -->
-Calling a patch cultivatable does not specify which crop will thrive there.
-`说一块地可以耕作，并未说明哪一种作物能在那里茁壮生长。`
-<!-- SENTENCE:S0612 USE:U01609 -->
-A cultivated variety has a history of being grown and developed by people.
-`栽培品种有着由人种植和培育的历史。`
-<!-- SENTENCE:S0613 USE:U01603 -->
-To cultivate strawberries successfully, for example, requires attention to the plant as well as to the ground.
-`例如，要成功栽培草莓，除了土壤之外，还须关注植物本身。`
-<!-- SENTENCE:S0614 USE:U05016,U05006 -->
-A vigorous plant may be a good yielder, but its yield still depends on the season and its growing conditions.
-`一株长势旺盛的植物可能很丰产，但其产量仍取决于季节和生长条件。`
-<!-- SENTENCE:S0615 USE:U05005 -->
-A bed that yields little fruit may nevertheless reveal a great deal about light, drainage and care.
-`一块结果很少的种植畦，仍可能让人了解到许多有关光照、排水和养护的知识。`
-
-<!-- SENTENCE:S0616 USE:U01209 -->
-Water conservation connects these small decisions to a larger resource.
-`节约用水把这些细小决定与更大的资源问题联系起来。`
-<!-- SENTENCE:S0617 USE:U01201 -->
-Choosing plants suited to the soil helps conserve water rather than requiring the ground to imitate another climate.
-`选择适合当地土壤的植物有助于节水，而不必让土地模拟另一种气候。`
-<!-- SENTENCE:S0618 USE:U04617 -->
-Gardening sustainably includes keeping useful soil in place and avoiding needless inputs.
-`以可持续方式园艺，包括留住有用的土壤并避免不必要的投入。`
-<!-- SENTENCE:S0619 USE:U04618 -->
-Its sustainability depends on preserving the soil and water resources needed for future seasons.
-`它的生态可持续性，取决于能否保存未来各季所需的土壤与水资源。`
-<!-- SENTENCE:S0620 USE:U03215 -->
-The aim is a happy medium between constant interference and complete neglect.
-`目标是在不断干预与完全疏于照料之间找到恰当的平衡。`
-<!-- SENTENCE:S0621 USE:U03214 -->
-Such a medium is a practical balance, not a universal quantity of water or compost.
-`这种中间状态是实际的平衡，并非一套普适的浇水或施肥数量。`
-<!-- SENTENCE:S0622 -->
-Working with a soil's character makes the garden a continuing relationship with a living place.
-`顺应土壤特性开展园艺，使花园成为人与一处充满生命的地方持续交往的过程。`
-
-<!-- ARTICLE:A20 -->
-# A Strawberry Season Kept in Glass
-
-<!-- SENTENCE:S0623 -->
-Fresh fruit creates a problem of timing: the crop arrives faster than a household can eat it.
-`鲜果带来一个时间问题：收获到来的速度，可能比一家人吃掉它的速度更快。`
-<!-- SENTENCE:S0624 -->
-A bowl can be enjoyed at once, but a harvest asks what can be kept for later.
-`一碗水果可以立即享用，而收获季使人考虑怎样把一部分留到以后。`
-<!-- SENTENCE:S0625 USE:U01204 -->
-To conserve fruit in sugar is one answer with a long culinary history.
-`用糖保存水果，是一种有着悠久烹饪历史的答案。`
-<!-- SENTENCE:S0626 USE:U01205 -->
-Conserves can preserve recognizable pieces, giving the eater something more substantial than a smooth sweet paste.
-`糖渍水果可以保留可辨认的果块，吃起来比均匀的甜糊更有实在的果肉感。`
-<!-- SENTENCE:S0627 USE:U01206 -->
-A strawberry conserve, in the British jam sense, is valued for its generous fruit content.
-`英式果酱意义上的草莓conserve，以较高的果实含量受到重视。`
-<!-- SENTENCE:S0628 -->
-The American National Center for Home Food Preservation calls its related preparation strawberry preserves.
-`美国国家家庭食品保存中心，把其相关制品称为strawberry preserves。`
-
-<!-- SENTENCE:S0629 USE:U00411 -->
-Its published method begins by placing prepared fruit and sugar in alternate layers.
-`其公布的方法，先把处理好的水果与糖一层隔一层地放置。`
-<!-- SENTENCE:S0630 USE:U00416 -->
-The fruit and sugar thus enter the vessel alternately, before a resting period allows the mixture to develop.
-`于是，水果与糖交替进入容器，随后静置，使混合物逐渐形成。`
-<!-- SENTENCE:S0631 -->
-This sequence lets time do part of the work before heating begins.
-`这种顺序使加热开始前，时间就承担了一部分工作。`
-<!-- SENTENCE:S0632 -->
-The later heating thickens the syrup while gentle stirring helps keep the fruit from sticking.
-`之后的加热使糖浆变稠，轻轻搅拌则有助于防止水果黏底。`
-<!-- SENTENCE:S0633 USE:U00804 -->
-A pot's capacity matters because a bubbling mixture needs room as well as an accurate quantity of ingredients.
-`锅的容量很重要，因为沸腾的混合物不仅需要准确的配料量，也需要空间。`
-<!-- SENTENCE:S0634 USE:U00605 -->
-The published yield is approximately four half-pint jars.
-`所列制成量约为四个半品脱罐。`
-<!-- SENTENCE:S0635 -->
-That is a measure of finished preserves, distinct from the volume of freshly picked berries.
-`这是成品的量，与刚采下的浆果体积不同。`
-
-<!-- SENTENCE:S0636 -->
-Sugar contributes more than sweetness to this kind of preservation.
-`在这种保存方式中，糖的作用不只是提供甜味。`
-<!-- SENTENCE:S0637 -->
-The Center's accompanying explanation says that replacing it with a non-sugar sweetener can change the preservation requirements of syrupy fruit products.
-`该中心的附带说明指出，用非糖甜味剂替代糖，可能改变糖浆水果制品的保存要求。`
-<!-- SENTENCE:S0638 USE:U02103 -->
-A flavour enhancer can alter what the tongue notices without reproducing sugar's other functions.
-`增味剂可以改变舌头感受到的味道，却未必复制糖的其他作用。`
-<!-- SENTENCE:S0639 -->
-The full tested method includes processing instructions that vary with elevation.
-`完整的经检验方法包含随海拔变化的加工说明。`
-<!-- SENTENCE:S0640 -->
-A discussion of taste therefore cannot substitute for the published preparation and processing directions.
-`因此，关于口味的讨论不能代替所公布的制作与加工指引。`
-<!-- SENTENCE:S0641 -->
-The interesting transformation is nevertheless easy to appreciate: fruit that was briefly abundant becomes a food available at a different time.
-`然而，其中有趣的转变很容易理解：短时大量出现的水果，变成了另一个时段仍可享用的食物。`
-
-<!-- SENTENCE:S0642 USE:U00506 -->
-The anticipation of opening a jar later is part of the pleasure of making it.
-`期待日后打开一罐，也是制作的乐趣之一。`
-<!-- SENTENCE:S0643 USE:U00507 -->
-A household may conserve part of a harvest in anticipation of winter meals.
-`一家人可以预先为冬日餐食打算，把一部分收成保存下来。`
-<!-- SENTENCE:S0644 -->
-That act joins agricultural time to domestic time without pretending that the seasons have stopped.
-`这种做法把农业时间与家庭生活的时间连接起来，却不意味着季节停止了流转。`
-<!-- SENTENCE:S0645 USE:U04605 -->
-A meal can sustain the body and also recall the labour that made it possible.
-`一顿饭既能滋养身体，也能唤起人们对成就这顿饭的劳动的记忆。`
-<!-- SENTENCE:S0646 USE:U04513 -->
-A hungry diner could shift a whole jar at once, although the preserved harvest was meant to last.
-`饥饿的食客可能一口气就吃掉整罐，尽管保存下来的收成本应留着慢慢享用。`
-<!-- SENTENCE:S0647 -->
-The slower pleasure lies in letting a small portion carry something of summer into another day.
-`较为悠缓的乐趣，则是让一小份食物把一些夏日滋味带入另一天。`
-
-<!-- ARTICLE:A21 -->
-# Why Some Beer Keeps Changing in Its Container
-
-<!-- SENTENCE:S0648 -->
-A beer container can be more than packaging for a finished drink.
-`啤酒容器可能不只是成品饮料的包装。`
-<!-- SENTENCE:S0649 -->
-CAMRA's guide describes secondary fermentation in which live yeast continues to act on sugars after beer has entered a container.
-`CAMRA的指南介绍了二次发酵：啤酒装入容器后，活酵母继续作用于糖。`
-<!-- SENTENCE:S0650 USE:U02305 -->
-The yeast can evolve carbon dioxide, changing how the beer feels as well as how it matures.
-`酵母可以放出二氧化碳，既改变啤酒的口感，也影响其熟成。`
-<!-- SENTENCE:S0651 USE:U02311 -->
-This evolution of gas differs from simply adding gas under pressure.
-`这种气体的释放，与直接以压力加入气体不同。`
-<!-- SENTENCE:S0652 -->
-The continuing biological process helps explain why container handling matters.
-`这种持续的生物过程，有助于解释为什么容器的处理方式很重要。`
-<!-- SENTENCE:S0653 -->
-It also makes the boundary between production and distribution less tidy than a diagram might suggest.
-`它也使生产与流通的边界，比一张图表所呈现的更难截然划分。`
-
-<!-- SENTENCE:S0654 USE:U04401 -->
-When suspended yeast and other particles settle, sediment collects below the clearer liquid.
-`悬浮的酵母及其他颗粒沉降时，沉渣便聚集在较清澈的液体下方。`
-<!-- SENTENCE:S0655 USE:U04405 -->
-A sedimented drink has material at the bottom that can be disturbed by movement.
-`有沉淀的饮料，其底部物质可能因移动而重新扰动。`
-<!-- SENTENCE:S0656 -->
-Pouring and transport can therefore change what appears in a glass without changing the original ingredients.
-`因此，倾倒与运输可能改变杯中所见，而原先的配料并没有改变。`
-<!-- SENTENCE:S0657 USE:U01804 -->
-Judging the drink requires someone able to discriminate, noticing style and condition rather than treating every visible particle as the same phenomenon.
-`判断这种饮料，需要有鉴别力的人注意风格与状态，而不是把每一种可见颗粒都当成同一种现象。`
-<!-- SENTENCE:S0658 USE:U01819 -->
-An indiscriminative judgement would call all cloudiness a fault, regardless of what kind of beer was intended.
-`不加分辨的判断，会不顾所要制作的啤酒类型，把一切浑浊都称为缺陷。`
-<!-- SENTENCE:S0659 USE:U01814 -->
-A thoughtful taster makes a discrimination between an intended characteristic and an unwanted change.
-`善于思考的品尝者，会在预期特征与不希望出现的变化之间作出区分。`
-
-<!-- SENTENCE:S0660 -->
-Beer also has a social history carried by equipment, language and familiar ways of serving it.
-`啤酒还有一种由器具、语言和熟悉的供应方式承载的社会历史。`
-<!-- SENTENCE:S0661 USE:U04404 -->
-Hand pumps and casks can belong to sedimented traditions, built up through repeated work rather than invented afresh at each visit.
-`手压泵与酒桶可以属于长期积淀的传统，这些传统由反复劳动形成，而不是每次到访时重新发明。`
-<!-- SENTENCE:S0662 -->
-CAMRA's account notes that modern methods blur older divisions between cask and keg.
-`CAMRA的介绍指出，现代方法使旧有的木桶式与密闭酒桶式分类界限变得模糊。`
-<!-- SENTENCE:S0663 -->
-The continuity lies partly in people knowing how a living product behaves.
-`其中的延续性，部分来自人们了解一种仍在变化的产品如何表现。`
-<!-- SENTENCE:S0664 -->
-Once that knowledge is visible, a container becomes part of the craft rather than a silent object at its edge.
-`一旦这些知识显现出来，容器就成为工艺的一部分，而不再只是其边缘的无声物件。`
-
-<!-- ARTICLE:A22 -->
-# A Musical Phrase Has More Than One Kind of Time
-
-<!-- SENTENCE:S0665 -->
-A pianist can release a key while its sound continues into the next gesture.
-`钢琴演奏者可以松开琴键，同时让声音继续进入下一个动作。`
-<!-- SENTENCE:S0666 -->
-On an acoustic piano, the damper pedal lifts the dampers so that strings can keep vibrating.
-`在声学钢琴上，制音踏板抬起制音器，使琴弦能继续振动。`
-<!-- SENTENCE:S0667 USE:U04610 -->
-It allows a player to sustain a note across a movement of the hand.
-`它使演奏者能够在手移动时延续一个音。`
-<!-- SENTENCE:S0668 USE:U04611 -->
-The resulting sustain can join distant notes or let several tones overlap.
-`由此产生的延音，可以连接相距较远的音，也可以让多个音彼此重叠。`
-<!-- SENTENCE:S0669 -->
-Yamaha's guide describes both connected pedalling and deliberately overlapping sound.
-`雅马哈的指南既介绍了连接式踏板运用，也介绍了有意让声音重叠的做法。`
-<!-- SENTENCE:S0670 -->
-Refreshing the pedal can clear one harmony before the next fills the space.
-`重新抬落踏板，可以在下一个和声充满空间之前，清理前一个和声。`
-
-<!-- SENTENCE:S0671 -->
-Harmony has its own timing, which need not coincide exactly with a melody's arrival.
-`和声有自己的时间安排，它未必与旋律中某个音的到来完全一致。`
-<!-- SENTENCE:S0672 USE:U00509 -->
-An anticipation brings in a note belonging to the coming harmony before that harmony arrives.
-`先现音使属于下一个和声的音，在那个和声到来之前先出现。`
-<!-- SENTENCE:S0673 -->
-Open Music Theory explains that the same note then belongs to the new chord when the harmony changes.
-`《开放音乐理论》解释说，和声改变之后，同一个音便成为新和弦中的音。`
-<!-- SENTENCE:S0674 -->
-The listener hears a small arrival in advance, followed by a context that makes it settle.
-`听者先听到一个小小的提前到来，随后出现的语境使它安定下来。`
-<!-- SENTENCE:S0675 -->
-A suspension works differently: a note from the preceding harmony remains while the harmony changes, then resolves.
-`延留音以不同方式起作用：前一个和声中的音，在和声改变时仍然留住，随后才解决。`
-<!-- SENTENCE:S0676 -->
-These devices let a phrase contain both expectation and memory.
-`这些手法让一个乐句同时容纳期待与记忆。`
-
-<!-- SENTENCE:S0677 -->
-Duration can change the character of a recognizable idea as well.
-`时值也能改变一个可辨认乐思的性格。`
-<!-- SENTENCE:S0678 USE:U01706 -->
-In rhythmic diminution, a melody returns in shorter note values, perhaps with every value halved.
-`在节奏减值中，一段旋律以更短的音符时值重现，例如每个时值都减半。`
-<!-- SENTENCE:S0679 -->
-The proportions remain intelligible even as the material occupies less time.
-`即使材料占用的时间缩短，各部分的比例仍然能够被理解。`
-<!-- SENTENCE:S0680 -->
-This is different from holding the same written durations and merely changing tempo.
-`这与保留原有谱面时值、只是改变速度有所不同。`
-<!-- SENTENCE:S0681 -->
-A performance can therefore reorganize time through notation, harmony and the physical decay of sound.
-`因此，演奏可以通过记谱、和声以及声音在物理上的衰减，重新组织时间。`
-
-<!-- SENTENCE:S1186 -->
-A dance phrase joins this musical time to the movement of two people.
-`舞蹈乐句把这种音乐时间，与两个人的运动联系起来。`
-<!-- SENTENCE:S1187 USE:U04308 -->
-In a waltz, dancers can reverse, turning in the opposite rotational direction while the musical pulse continues.
-`跳华尔兹时，舞者可以反向旋转，而音乐的节拍仍在继续。`
-<!-- SENTENCE:S1188 -->
-The ISTD's 2018 teaching syllabus includes both Natural Turn and Reverse Turn and asks teachers to connect figures with timing, alignment and footwork.
-`帝国舞蹈教师协会（ISTD）2018年的教学纲要列有右转步与左转步，并要求教师将舞步与节奏、方位和步法联系起来。`
-<!-- SENTENCE:S1189 -->
-A change in turning direction can therefore fit within a continuing phrase rather than requiring the music itself to turn backwards.
-`因此，旋转方向的改变可以融入持续的乐句，而不需要音乐本身倒着进行。`
-
-<!-- SENTENCE:S0682 USE:U01232 -->
-Students at a conservatory study how such relationships work while developing the physical skill to realize them.
-`音乐学院的学生，一边研究这些关系如何起作用，一边发展实现它们所需的身体技能。`
-<!-- SENTENCE:S0683 USE:U01233 -->
-The same work belongs in a conservatoire, the term familiar in many European institutions.
-`同样的学习也属于conservatoire的教学内容，这个词在许多欧洲院校中很常见。`
-<!-- SENTENCE:S0684 USE:U00504 -->
-A learner may eagerly anticipate the day when a difficult phrase finally feels free.
-`学习者可能热切期待，艰难的乐句终于变得自如的那一天。`
-<!-- SENTENCE:S0685 USE:U00512 -->
-Anticipatory listening helps the player prepare a hand movement before the next note is needed.
-`预先听见后续声音的倾听方式，有助于演奏者在下一个音需要出现前准备手的动作。`
-<!-- SENTENCE:S0686 USE:U00510 -->
-This anticipative attention is active: it reaches towards a sound that has not yet happened.
-`这种预期性的注意是主动的：它朝向一个尚未发生的声音。`
-<!-- SENTENCE:S0687 USE:U03810 -->
-Practice done persistently can make preparation less visible while leaving it no less essential.
-`持续坚持的练习，能够使准备动作不那么显眼，却不会降低其必要性。`
-<!-- SENTENCE:S0688 -->
-The fluent phrase is thus a meeting of knowledge, trained movement and a listener's sense of time.
-`因而，流畅的乐句是知识、训练有素的动作与听者时间感的交会。`
-<!-- SENTENCE:S1120 USE:U01807 -->
-A trained ear becomes a discriminator of small differences in timing, helping a player hear why two apparently similar phrases feel unlike.
-`经过训练的耳朵成为细微时值差异的辨别者，帮助演奏者听出两段看似相似的乐句为何感受不同。`
-
-<!-- ARTICLE:A23 -->
-# A Clutch Must Know When to Slip
-
-<!-- SENTENCE:S0689 -->
-A useful machine does not always connect its moving parts rigidly.
-`实用的机器并不总是把运动部件刚性地连接起来。`
-<!-- SENTENCE:S0690 USE:U02504 -->
-A friction clutch connects rotating shafts through surfaces pressed together.
-`摩擦离合器通过相互压紧的表面连接转轴。`
-<!-- SENTENCE:S0691 USE:U02505 -->
-A friction disc provides one of those contact surfaces.
-`摩擦片提供其中的一个接触面。`
-<!-- SENTENCE:S0692 -->
-MathWorks describes three states: separated, touching while slipping, and locked together.
-`MathWorks介绍了三种状态：分离、接触但滑动，以及锁定在一起。`
-<!-- SENTENCE:S0693 USE:U02503 -->
-During slipping, friction between the surfaces tends to reduce their relative speed.
-`滑动期间，接触面之间的摩擦力倾向于降低它们的相对速度。`
-<!-- SENTENCE:S0694 USE:U02502 -->
-Repeated friction can also wear a contacting surface.
-`反复擦动也可能磨损接触面。`
-<!-- SENTENCE:S0695 USE:U02506 -->
-Frictional heating is a consequence of energy being dissipated rather than all becoming useful motion.
-`摩擦发热，是能量耗散而没有全部转化为有用运动的结果。`
-
-<!-- SENTENCE:S0696 -->
-When the surfaces lock, the shafts rotate together even though static friction can still transmit torque.
-`接触面锁定时，两根轴共同旋转，而静摩擦仍能传递转矩。`
-<!-- SENTENCE:S0697 USE:U02507 -->
-Thus the absence of sliding does not make the contact frictionless.
-`因此，没有滑动并不意味着接触处没有摩擦。`
-<!-- SENTENCE:S0698 USE:U02507 -->
-A completely frictionless clutch of this type would lose the very means by which it couples the shafts.
-`这种离合器若完全没有摩擦，就会失去使两根轴结合的手段。`
-<!-- SENTENCE:S0699 USE:U00803 -->
-Its capacity to transmit torque depends on the surfaces and the force pressing them together.
-`它传递转矩的能力，取决于接触面及将它们压在一起的力。`
-<!-- SENTENCE:S0700 USE:U04604 -->
-The mounting structure must also sustain the weight of the assembly while keeping the rotating parts aligned.
-`安装支撑结构还必须承受整个组件的重量，同时让各旋转部件保持对准。`
-<!-- SENTENCE:S0701 USE:U05012 -->
-A yielding component can bend under that load; whether this helps or harms the mechanism depends on its purpose.
-`可变形的部件能在该负荷下弯曲；这对机构有利还是有害，取决于它的用途。`
-<!-- SENTENCE:S0702 USE:U05015,U05004 -->
-Some yieldingness is useful in a spring, while a part intended to stay rigid may fail if it yields too far.
-`弹簧具有一定柔顺性是有用的；而本应保持刚性的部件若让变形发展过大，则可能失效。`
-<!-- SENTENCE:S0703 USE:U04208 -->
-Retainers keep other components in their intended positions, even while nearby parts move.
-`固定件使其他部件保持在预定位置，即使附近的部件正在运动。`
-<!-- SENTENCE:S0704 USE:U04203 -->
-A retaining clip, for example, can retain a part on a shaft.
-`例如，固定夹可以把部件保持在轴上。`
-
-<!-- SENTENCE:S0705 USE:U04913 -->
-A vehicle's transmission organizes the relationship between engine rotation and wheel rotation.
-`车辆的传动装置组织发动机转动与车轮转动之间的关系。`
-<!-- SENTENCE:S0706 USE:U04536 -->
-In a manual vehicle, the driver uses a shifter to select a gear.
-`在手动档车辆中，驾驶员用换档装置选择档位。`
-<!-- SENTENCE:S0707 USE:U04529,U04530 -->
-Moving the shift changes the position of a lever; inside the transmission, the shift must translate that movement into the engagement of a different gear.
-`移动变速杆，改变的是一根杆的位置；在传动装置内部，换档机构必须把这一移动转化为另一档齿轮的接合。`
-<!-- SENTENCE:S0708 USE:U04508,U04507 -->
-To shift up is to select a higher gear; to shift down is to select a lower one.
-`升档是选择更高的档位；降档是选择更低的档位。`
-<!-- SENTENCE:S0709 USE:U04506 -->
-The driver shifts gears as the demands on the engine and wheels change.
-`发动机与车轮所受要求改变时，驾驶员便换档。`
-<!-- SENTENCE:S0710 USE:U04307 -->
-The driver does not have to reverse the engine to make the vehicle travel backwards.
-`让车辆向后行驶，并不要求驾驶员使发动机反向运转。`
-<!-- SENTENCE:S0711 USE:U04310 -->
-A reverse gear changes the direction of the driven output instead.
-`倒档改变的是被驱动输出端的方向。`
-<!-- SENTENCE:S0712 USE:U04309,U04306 -->
-Selecting reverse enables the vehicle to reverse, with the wheels carrying it backwards.
-`挂入倒档后，车辆便能倒车，由车轮带着它向后移动。`
-<!-- SENTENCE:S0713 USE:U04329 -->
-The reversing arrangement acts as a reverser within the larger transmission system.
-`换向机构在更大的传动系统中起着反向器的作用。`
-<!-- SENTENCE:S0714 -->
-The same broad design problem recurs across machines: motion must be connected, interrupted and redirected at the right time.
-`同一个广泛的设计问题在各种机器中反复出现：运动须在适当时刻连接、中断并转向。`
-
-<!-- ARTICLE:A24 -->
-# A Folded Shield Opens a View into the Past
-
-<!-- SENTENCE:S0715 -->
-The James Webb Space Telescope had to become larger after leaving Earth.
-`詹姆斯·韦布空间望远镜必须在离开地球后变得更大。`
-<!-- SENTENCE:S0716 -->
-Its sunshield was folded for launch, then deployed remotely in a sequence completed on 4 January 2022.
-`它的遮阳板在发射时折叠，随后通过遥控逐步展开，并于2022年1月4日完成这一过程。`
-<!-- SENTENCE:S0717 USE:U02304 -->
-The mechanisms evolved the folded layers, opening them out before the final tensioning.
-`机构将折叠的各层展开，在最后张紧之前把它们打开。`
-<!-- SENTENCE:S0718 USE:U02312 -->
-This physical evolution gave the shield its broad working shape.
-`这种实际的展开，使遮阳板形成了宽阔的工作形态。`
-<!-- SENTENCE:S0719 -->
-Supports extended, the telescope and instruments gained separation from the shield, and the membranes were drawn into position.
-`支架伸出，望远镜与仪器同遮阳板拉开距离，薄膜被拉到位。`
-<!-- SENTENCE:S0720 -->
-The result was a five-layer barrier between delicate observations and unwanted heat.
-`结果是一道五层屏障，将精细观测与不需要的热量隔开。`
-
-<!-- SENTENCE:S0721 -->
-A warm telescope would itself produce infrared radiation that could obscure the faint signals being sought.
-`温热的望远镜自身会产生红外辐射，可能掩盖所要寻找的微弱信号。`
-<!-- SENTENCE:S0722 -->
-The shield's purpose was therefore closely tied to the kind of light Webb was designed to detect.
-`因此，遮阳板的用途与韦布设计要探测的光的类型密切相关。`
-<!-- SENTENCE:S0723 -->
-Some light that began its journey in an early galaxy reaches us at wavelengths longer than those at which it was emitted.
-`某些在早期星系开始旅程的光，到达我们时的波长，比发射时更长。`
-<!-- SENTENCE:S0724 -->
-As the universe expands, the wavelength of travelling light can be stretched.
-`随着宇宙膨胀，传播中的光的波长可以被拉长。`
-<!-- SENTENCE:S0725 USE:U04523 -->
-Astronomers identify a shift by comparing recognizable spectral features with their reference positions.
-`天文学家通过把可辨认的光谱特征与其参考位置比较，识别出位移。`
-<!-- SENTENCE:S0726 USE:U04544 -->
-A red shift is a displacement towards longer wavelengths, which may carry visible light into the infrared.
-`红移是向更长波长的偏移，它可能把可见光移入红外波段。`
-<!-- SENTENCE:S0727 -->
-The name describes a direction along the spectrum rather than a promise that every object will look red to the eye.
-`这个名称描述的是沿光谱的方向，并不表示每个物体在肉眼看来都会是红色。`
-
-<!-- SENTENCE:S0728 -->
-The journey of the light also takes time, so distant observations show galaxies at earlier stages of their history.
-`光的旅程也需要时间，因此，对远方的观测呈现的是星系历史上较早的阶段。`
-<!-- SENTENCE:S0729 -->
-Infrared instruments widen the range of that history available for study.
-`红外仪器扩大了能够研究的那段历史范围。`
-<!-- SENTENCE:S0730 -->
-The unfolding hardware and the stretched light thus meet in one scientific design.
-`展开的硬件与被拉长的光，因而在同一项科学设计中相遇。`
-<!-- SENTENCE:S0731 USE:U00508 -->
-Anticipation of the thermal conditions shaped the engineering long before the shield was opened.
-`对热条件的预先考虑，在遮阳板打开之前很久就影响了工程设计。`
-<!-- SENTENCE:S0732 -->
-A detector cannot recover a faint signal merely because people wish it to be there.
-`探测器不会仅因为人们希望某种微弱信号存在，就把它恢复出来。`
-<!-- SENTENCE:S0733 -->
-Its surroundings must make that signal physically distinguishable.
-`它所处的环境必须让那个信号在物理上能够被辨别。`
-<!-- SENTENCE:S0734 -->
-Here, a very large folded structure served the quiet work of receiving very small amounts of ancient light.
-`在这里，一个庞大的折叠结构，服务于接收极少量古老光线的安静工作。`
-<!-- SENTENCE:S0735 -->
-The achievement joined mechanics and thermal design to a question about how the universe once looked.
-`这一成就把机械与热设计，同宇宙昔日面貌的问题连接起来。`
-
-<!-- ARTICLE:A25 -->
-# The Work Behind a Court-Appointed Conservator
-
-<!-- SENTENCE:S0736 -->
-Managing another person's property involves ordinary tasks with an unusual source of authority.
-`管理另一个人的财产，涉及一些普通工作，但其授权来源却不普通。`
-<!-- SENTENCE:S0737 USE:U01214 -->
-Utah's courts explain that a conservator receives authority through an appointment order and the accompanying letters.
-`犹他州法院解释，财产监护人的权限来自任命命令及相应的证明文件。`
-<!-- SENTENCE:S0738 -->
-The order determines whether that authority is limited or full.
-`命令决定这种权限是有限的还是完整的。`
-<!-- SENTENCE:S0739 USE:U00809 -->
-Legal capacity is consequently a specific question about a person and an act, rather than a single informal judgement that someone is generally incapable.
-`因此，法律行为能力是有关某个人及某种行为的具体问题，而不是一句笼统认定某人总体上没有能力的非正式评语。`
-<!-- SENTENCE:S0740 -->
-The practical work may include accounts, property, payments and reports to the court.
-`实际工作可能包括账目、财产、付款及向法院提交报告。`
-<!-- SENTENCE:S0741 -->
-These are continuing responsibilities, not just a title acquired on the day of appointment.
-`这些都是持续的责任，并非任命当天得到的一个头衔而已。`
-
-<!-- SENTENCE:S0742 -->
-The Utah guidance allows a conservator to seek advice and use professional assistance.
-`犹他州的指引允许财产监护人寻求建议并使用专业协助。`
-<!-- SENTENCE:S0743 USE:U04204 -->
-If legal work is needed, the arrangement may require money to retain a lawyer for future services.
-`如需法律工作，相关安排可能需要预付费用聘请律师，以便日后获得服务。`
-<!-- SENTENCE:S0744 USE:U04209 -->
-A retainer secures that availability under the terms of the professional agreement.
-`预付服务费按照专业协议的条款，确保需要时能够获得服务。`
-<!-- SENTENCE:S0745 -->
-Hiring an agent for particular work does not transfer the court appointment itself.
-`聘请代理人办理特定工作，并不会转移法院任命的职位本身。`
-<!-- SENTENCE:S0746 -->
-The conservator still has to understand what has been delegated and remain responsible for it.
-`财产监护人仍须了解委托了哪些工作，并继续为其负责。`
-<!-- SENTENCE:S0747 USE:U04906 -->
-Nor can a person simply transmit the office to someone else as if handing over an ordinary object.
-`受任者也不能像交出普通物品一样，把职位直接转交给别人。`
-<!-- SENTENCE:S0748 USE:U04909 -->
-Responsibility survives that attempted transmittal because it derives from the court's order.
-`这种试图移交并不会消除责任，因为责任源于法院的命令。`
-<!-- SENTENCE:S1121 USE:U04504 -->
-The conservator cannot shift responsibility onto an adviser simply by asking for help.
-`财产监护人不能仅仅因为请人帮忙，就把责任推到顾问身上。`
-<!-- SENTENCE:S1122 USE:U04534 -->
-To shift off the duty onto someone else would leave precisely the gap in care that the appointment is meant to address.
-`把这项职责推给别人，恰好会留下设立该任命原本要解决的照管空缺。`
-
-<!-- SENTENCE:S0749 -->
-The job can require difficult conversations about needs, resources and different wishes.
-`这项工作可能要求人们就需求、资源与不同愿望开展艰难的谈话。`
-<!-- SENTENCE:S0750 USE:U03011 -->
-A family intervention intended to persuade someone to seek help is a different kind of activity from a court appointment.
-`家人为劝说某人寻求帮助而共同进行的劝助行动，与法院任命是不同性质的事情。`
-<!-- SENTENCE:S0751 USE:U03012 -->
-In a dispute, mediation may offer intervention aimed at helping the parties reach a settlement.
-`发生争执时，调解可以提供旨在帮助各方达成和解的居间介入。`
-<!-- SENTENCE:S0752 USE:U01103 -->
-Parties may compromise a dispute, in the formal legal sense of settling it by agreement.
-`当事人可以通过协议和解争端，这是compromise的一种正式法律用法。`
-<!-- SENTENCE:S0753 -->
-Neither conversation nor delegation removes the need to attend to the actual person whose affairs are being managed.
-`无论谈话还是委托，都不会消除关注那个事务被管理者本人的必要。`
-<!-- SENTENCE:S0754 -->
-Good administration gives that attention a material form in bills paid, property cared for and decisions explained.
-`妥善管理让这种关注通过支付账单、照管财产和解释决定，获得具体形式。`
-
-<!-- ARTICLE:A26 -->
-# Two Clubs Can Ask a Question
-
-<!-- SENTENCE:S0755 -->
-A bridge player speaks through an auction in which every legal call is public.
-`桥牌牌手通过叫牌交流，而每一个合法叫品都是公开的。`
-<!-- SENTENCE:S0756 -->
-The challenge is to describe two concealed hands well enough for a partnership to choose a contract.
-`挑战在于，搭档须把两手隐藏的牌描述得足够清楚，以便选择定约。`
-<!-- SENTENCE:S0757 -->
-Some bids describe a suit directly, while others carry an agreed question.
-`一些叫品直接描述某一花色，另一些则承载事先约定的问题。`
-<!-- SENTENCE:S0758 USE:U01407 -->
-The Welsh Bridge Union's teaching scheme introduces Stayman as a convention used after a one-no-trump opening.
-`威尔士桥牌联盟的教学方案，把Stayman介绍为一无将开叫后使用的一种叫牌约定。`
-<!-- SENTENCE:S0759 -->
-In the version taught there, two clubs asks whether opener has a four-card major.
-`在其中教授的版本中，二梅花询问开叫者是否持有四张高花。`
-<!-- SENTENCE:S0760 -->
-The named suit therefore does not itself promise a holding in clubs.
-`因此，叫出的花色本身，并不保证手里有相应的梅花牌。`
-
-<!-- SENTENCE:S0761 -->
-The replies distinguish no four-card major, four hearts, and four spades without four hearts.
-`回答区分没有四张高花、有四张红心，以及有四张黑桃但没有四张红心的情况。`
-<!-- SENTENCE:S0762 -->
-This gives the partnership a way to look for a four-four fit in hearts or spades.
-`这让搭档能够寻找红心或黑桃的四四配合。`
-<!-- SENTENCE:S0763 -->
-The agreement turns a short sequence into a useful exchange about distribution.
-`这项约定把一个简短序列，变成了有关牌型分布的有效交流。`
-<!-- SENTENCE:S0764 USE:U04526 -->
-A shift to a new suit during bidding can then disclose further information or seek a different destination.
-`随后，在叫牌中改叫新花色，可以披露更多信息，或寻找另一种定约方向。`
-<!-- SENTENCE:S0765 -->
-Its meaning depends on what has already been said and on the system the pair is using.
-`其意义取决于此前叫过什么，以及搭档所采用的体系。`
-<!-- SENTENCE:S0766 -->
-One cannot interpret an isolated call as though no earlier auction existed.
-`不能把一个孤立叫品理解得仿佛此前没有叫牌过程。`
-
-<!-- SENTENCE:S0767 -->
-The teaching notes emphasize being prepared for any reply to the question.
-`教学笔记强调，提出问题时须为任何可能回答做好准备。`
-<!-- SENTENCE:S0768 -->
-Asking about a major may lead to a reply that does not match responder's own hand.
-`询问高花，可能得到与应叫者自己手牌不相配的回答。`
-<!-- SENTENCE:S0769 -->
-The next bid must still represent the strength and distribution actually held.
-`下一个叫品仍必须表达实际持有的牌力与牌型。`
-<!-- SENTENCE:S0770 USE:U04527 -->
-Once play begins, a defender's shift to another suit changes the immediate problem in a different way.
-`开始打牌后，防守者改出另一花色，会以另一种方式改变眼前的问题。`
-<!-- SENTENCE:S0771 -->
-Cards already played become information that both sides can use.
-`已经打出的牌，变成双方都可以使用的信息。`
-<!-- SENTENCE:S0772 -->
-Bridge thus makes communication part of the game itself: a partnership must turn limited public signals into coordinated action.
-`因此，桥牌把交流变成游戏本身的一部分：搭档必须把有限的公开信号，转化为协调一致的行动。`
-<!-- SENTENCE:S0773 -->
-The pleasure lies in discovering how much a small, well-understood move can say.
-`乐趣在于发现，一个被充分理解的小小行动，能够传达多少信息。`
-
-<!-- ARTICLE:A27 -->
-# Mary Quant Put Everyday Movement into Fashion
-
-<!-- SENTENCE:S0774 -->
-Mary Quant's Bazaar opened in London in 1955, bringing design and retail into the same small enterprise.
-`Mary Quant的Bazaar于1955年在伦敦开业，把设计与零售放进同一家小型企业。`
-<!-- SENTENCE:S0775 -->
-The V&A describes an early cycle in which one day's sales financed cloth for clothes made overnight.
-`V&A介绍，其早期生产循环是：一天的销售收入，为连夜制作服装所需的布料提供资金。`
-<!-- SENTENCE:S0776 USE:U04505 -->
-To shift stock quickly was therefore part of keeping the next day's production possible.
-`因此，迅速卖出存货，是让次日生产得以进行的一部分。`
-<!-- SENTENCE:S0777 -->
-Design was connected to cash, cutting and the rhythm of a shop, as well as to a drawing on paper.
-`设计不仅与纸上的图画有关，也与现金、裁剪及店铺的节奏相连。`
-<!-- SENTENCE:S0778 -->
-This gave Quant a direct route from an idea to clothes that people could actually wear.
-`这使Quant能够从一个构想，直接走向人们真正能够穿着的衣服。`
-
-<!-- SENTENCE:S0779 USE:U04521 -->
-Her short shift dresses offered a shape that did not depend on a tightly defined waist.
-`她的短直筒裙提供了一种不依赖鲜明收腰的轮廓。`
-<!-- SENTENCE:S0780 USE:U04522 -->
-In a 1958 grey-flannel outfit, she also reworked the historical associations of a shift worn as an undergarment.
-`在一套1958年的灰色法兰绒服装中，她还改写了旧式贴身内衣shift所承载的历史联想。`
-<!-- SENTENCE:S0781 -->
-The old relation between hidden clothing and public clothing became material for a new design.
-`隐蔽衣物与公开衣物之间的旧关系，成为新设计的材料。`
-<!-- SENTENCE:S0782 USE:U01409 -->
-Someone conventional in dress might find such play with underclothes surprising.
-`衣着循俗的人，可能会对这种借用内衣的设计游戏感到惊讶。`
-<!-- SENTENCE:S0783 USE:U01224 -->
-A conservative suit, by contrast, can make familiarity itself part of its appeal.
-`相比之下，一套式样传统的套装，可以把熟悉感本身变成吸引力的一部分。`
-<!-- SENTENCE:S0784 USE:U01227 -->
-To dress conservatively is one way of taking a place within an existing visual language.
-`穿着得保守传统，是在既有视觉语言中取得位置的一种方式。`
-<!-- SENTENCE:S0785 USE:U01417 -->
-Conventionalism can make that language seem fixed even when its forms have changed across generations.
-`循守惯例的态度，能够让那种语言显得固定不变，即使其形式在世代之间已经改变。`
-
-<!-- SENTENCE:S0786 -->
-A garment also communicates through decisions that are less dramatic than a hemline.
-`一件衣服还通过一些不如裙摆高度显眼的决定来交流。`
-<!-- SENTENCE:S0787 USE:U03201 -->
-A medium-sized dress must still be shaped for a particular sizing system and intended fit.
-`一件中码连衣裙，仍须依据特定尺码体系和预期合身程度来裁制。`
-<!-- SENTENCE:S0788 USE:U03203 -->
-A medium-grey cloth can give the same outline a quieter presence than a brilliant colour.
-`中灰色布料，可以让同一种轮廓比鲜亮颜色显得更沉静。`
-<!-- SENTENCE:S0789 USE:U03202 -->
-Medium-weight fabric falls differently from a very light one, so the material can alter the apparent structure.
-`中等厚度的布料，与很轻的布料垂坠方式不同，因此材料能够改变看起来的结构。`
-<!-- SENTENCE:S0790 USE:U04325 -->
-If a garment is reversible, both faces need finishing suitable for being seen.
-`一件衣服若要双面穿，两面就都需要适合外露的收口处理。`
-<!-- SENTENCE:S0791 USE:U04305 -->
-Reverse it and the inward surface becomes the outward one, changing its visible relations.
-`把它翻过来，里面的表面便成为外面，从而改变可见的关系。`
-<!-- SENTENCE:S0792 -->
-These general construction choices show why an apparently simple dress can embody substantial work.
-`这些普遍的制作选择说明，为什么一件看似简单的连衣裙能够包含大量劳动。`
-
-<!-- SENTENCE:S0793 -->
-Quant's work helped give movement, youth and ordinary activity a public fashion vocabulary.
-`Quant的作品帮助运动、年轻感与日常活动获得了一套公开的时尚词汇。`
-<!-- SENTENCE:S0794 USE:U03501 -->
-The new look gathered momentum as clothes, shops and images reinforced one another.
-`随着衣服、店铺与图像相互加强，新面貌积聚了发展势头。`
-<!-- SENTENCE:S0795 -->
-A change in what could be worn was also a change in what everyday life could look like.
-`可穿衣物的变化，也改变了日常生活能够呈现的面貌。`
-<!-- SENTENCE:S0796 -->
-That is why a dress can belong at once to commerce, material craft and cultural history.
-`这就是为什么一件连衣裙能够同时属于商业、材料工艺与文化史。`
-
-<!-- ARTICLE:A28 -->
-# A Bladder Must Empty as Well as Fill
-
-<!-- SENTENCE:S0797 -->
-Urination depends on more than a bladder's ability to hold liquid.
-`排尿不仅取决于膀胱储存液体的能力。`
-<!-- SENTENCE:S0798 -->
-The organ must also empty effectively through the urinary outlet.
-`这个器官还必须能够通过尿液出口有效排空。`
-<!-- SENTENCE:S0799 USE:U04216 -->
-Urinary retention occurs when some or all of the urine cannot be emptied from the bladder.
-`部分或全部尿液无法从膀胱排出时，就出现了尿潴留。`
-<!-- SENTENCE:S0800 -->
-The NIDDK distinguishes a sudden acute form from a chronic form that develops over time.
-`美国NIDDK把突然发生的急性类型，与逐渐发展的慢性类型区分开。`
-<!-- SENTENCE:S0801 -->
-A person with chronic retention may still pass urine while leaving a substantial amount behind.
-`有慢性潴留的人，仍可能排出尿液，却把相当一部分留在膀胱里。`
-<!-- SENTENCE:S0802 -->
-This helps explain why the occurrence of urination alone cannot show that emptying is complete.
-`这有助于解释，为什么仅仅发生过排尿，并不能说明膀胱已经排空。`
-
-<!-- SENTENCE:S0803 -->
-The retained urine can allow bacteria to multiply and can place stress on the bladder and urinary system.
-`潴留的尿液可能让细菌繁殖，并给膀胱与泌尿系统造成负担。`
-<!-- SENTENCE:S0804 USE:U03807 -->
-Repeated infections can become a persistent problem when the underlying difficulty remains.
-`根本困难仍然存在时，反复感染可能成为一再出现的问题。`
-<!-- SENTENCE:S0805 -->
-Symptoms may be less obvious in the chronic form than in a sudden inability to urinate.
-`与突然无法排尿相比，慢性类型的症状可能不那么明显。`
-<!-- SENTENCE:S0806 -->
-Sudden inability to urinate requires immediate emergency medical attention, according to the NIDDK.
-`NIDDK指出，突然无法排尿需要立即接受急诊处理。`
-<!-- SENTENCE:S0807 -->
-The distinction is useful because a medical description names what a body is failing to do, not merely how uncomfortable someone feels.
-`这种区分之所以有用，是因为医学描述指出身体哪一项功能未能完成，而不仅是某人感到多么不适。`
-<!-- SENTENCE:S0808 -->
-Understanding the term turns an apparently simple act into a clearer picture of storage, flow and emptying.
-`理解这个术语，可以把一个看似简单的行为，转化为关于储存、流动与排空的更清楚图景。`
-
-<!-- ARTICLE:A29 -->
-# The Small Structure That Carries a Replacement Tooth
-
-<!-- SENTENCE:S0809 -->
-A replacement tooth needs a way to stay where biting and chewing will put forces upon it.
-`替代牙需要一种固定方式，使它能在承受咬合与咀嚼力量的位置保持不动。`
-<!-- SENTENCE:S0810 -->
-A fixed dental bridge spans a gap by obtaining support from one or more neighbouring teeth.
-`固定牙桥借助一颗或多颗邻牙的支持，跨过缺牙形成的空隙。`
-<!-- SENTENCE:S0811 USE:U04213 -->
-Its retainer connects the replacement to that support.
-`牙桥固位体把替代牙与支撑结构连接起来。`
-<!-- SENTENCE:S0812 -->
-Leeds Teaching Hospitals describes two broad approaches to this connection.
-`利兹教学医院介绍了这种连接的两种主要方式。`
-<!-- SENTENCE:S0813 -->
-A conventional bridge uses a crown fitted over a prepared supporting tooth.
-`传统牙桥使用套在经过制备的支持牙上的牙冠。`
-<!-- SENTENCE:S0814 -->
-An adhesive bridge instead uses a small metal wing attached behind an adjacent tooth.
-`黏接牙桥则使用固定在邻牙背面的小金属翼。`
-<!-- SENTENCE:S0815 -->
-The visible tooth and the less visible support therefore perform different parts of one job.
-`因此，可见的替代牙与不那么显眼的支撑结构，承担着同一项工作的不同部分。`
-
-<!-- SENTENCE:S0816 -->
-An impression allows a technician to make the bridge for the actual arrangement of the patient's teeth.
-`印模使技师能够依据患者牙齿的实际排列制作牙桥。`
-<!-- SENTENCE:S0817 -->
-Clinical fitting then checks the result, and modifications may be needed before the final placement.
-`随后，临床试戴检验结果，在最终安放前可能还需要修改。`
-<!-- SENTENCE:S0818 USE:U04102 -->
-The aim is to restore function and appearance within a mouth that keeps moving and changing.
-`目标是在不断运动和变化的口腔中，恢复功能与外观。`
-<!-- SENTENCE:S0819 USE:U04112 -->
-Restoration of chewing involves the relation between surfaces, supports and the forces they carry.
-`咀嚼功能的恢复，涉及各个表面、支撑结构及其所承受力量之间的关系。`
-<!-- SENTENCE:S0820 -->
-It is thus both an individual clinical task and a small exercise in structural design.
-`因而，它既是一项针对个人的临床工作，也是一项小型结构设计。`
-<!-- SENTENCE:S0821 -->
-Later cleaning remains part of the bridge's working life, especially around the supporting teeth and beneath the replacement.
-`之后的清洁仍是牙桥使用过程的一部分，尤其要照顾支持牙周围及替代牙下方。`
-<!-- SENTENCE:S0822 -->
-The successful object belongs to a continuing routine of eating, speaking and care.
-`成功的修复体，融入了吃饭、说话与护理的持续日常。`
-
-<!-- SENTENCE:S1182 -->
-Holding something in place is a wider practical problem in care.
-`让某个物体保持在位，是照护中一个更普遍的实际问题。`
-<!-- SENTENCE:S1183 USE:U04219,U04213 -->
-A retentive bandage holds a dressing in position, whereas the dental bridge's retainer holds a prosthetic structure against its support.
-`固位绷带把敷料固定在位，而牙桥的固位体则把修复结构固定在其支撑部位。`
-<!-- SENTENCE:S1184 -->
-St John Ambulance's guidance explains that bandages have different supporting and securing functions, while excessive tightness can restrict circulation.
-`圣约翰急救组织的指南说明，绷带有不同的支撑和固定功能，但过紧会限制血液循环。`
-<!-- SENTENCE:S1185 -->
-The useful connection is stability appropriate to the living structure involved, not maximum tightness for its own sake.
-`其中有用的联系，是获得适合相关活体结构的稳定性，而不是为紧而紧。`
-
-<!-- ARTICLE:A30 -->
-# The Eye Brings Its Recent Past into a Dark Room
-
-<!-- SENTENCE:S0823 -->
-Entering a dim room does not instantly give the eye its greatest sensitivity to dim light.
-`进入昏暗房间，并不会立刻让眼睛获得对弱光的最大敏感度。`
-<!-- SENTENCE:S0824 USE:U00112 -->
-Dark adaptation takes time, so the same room can look different after the eye has adjusted.
-`暗适应需要时间，因此，眼睛调节之后，同一个房间看起来也可能不同。`
-<!-- SENTENCE:S0825 -->
-The eye brings a recent history of illumination into each new setting.
-`眼睛把近期接受光照的经历，带入每一个新环境。`
-<!-- SENTENCE:S0826 -->
-NYU's perception demonstrations describe how two eyes exposed to different lighting beforehand can show different sensitivities.
-`纽约大学的知觉演示说明，事先处于不同照明条件中的两只眼睛，可以呈现不同的敏感度。`
-<!-- SENTENCE:S0827 -->
-The example makes a usually invisible process perceptible without assuming that the room itself has changed.
-`这个例子使通常不可见的过程变得可感知，而无须假定房间本身发生变化。`
-
-<!-- SENTENCE:S0828 USE:U03706 -->
-The eye is housed within an orbit, the socket formed by bones around it.
-`眼睛容纳在眼眶内，眼眶是周围骨骼形成的窝状结构。`
-<!-- SENTENCE:S0829 USE:U03712 -->
-Its orbital surroundings provide space for the muscles, nerves and other structures involved in its work.
-`眼眶周围为参与眼部活动的肌肉、神经及其他结构提供空间。`
-<!-- SENTENCE:S0830 -->
-The socket is a supporting structure, while the retina and nervous system participate in turning light into information.
-`眼眶是支撑结构，而视网膜与神经系统参与把光转化为信息。`
-<!-- SENTENCE:S0831 -->
-Rods are especially important in very dim conditions, when colour discrimination becomes limited.
-`视杆细胞在极暗条件下尤为重要，此时辨色能力受到限制。`
-<!-- SENTENCE:S0832 -->
-The distribution and behaviour of different cells help explain why seeing is not equally effective under every condition.
-`不同细胞的分布与活动方式，有助于解释为什么视觉在所有条件下并不同样有效。`
-<!-- SENTENCE:S0833 -->
-A faint object can sometimes be easier to detect a little away from direct central vision, as the NYU material explains.
-`纽约大学的材料解释，某个微弱物体有时在稍偏离正中央视线的位置更容易被察觉。`
-
-<!-- SENTENCE:S0834 -->
-The wider nervous system carries information through cells whose membranes maintain electrical differences.
-`更广泛的神经系统，通过细胞传递信息；这些细胞的膜维持着电势差。`
-<!-- SENTENCE:S0835 USE:U04916 -->
-At a chemical synapse, a neurotransmitter released by one neuron can bind to receptors on another.
-`在化学突触处，一个神经元释放的神经递质，可以与另一个神经元上的受体结合。`
-<!-- SENTENCE:S0836 -->
-OpenStax describes this communication as electrochemical: electrical activity along a neuron is joined to chemical signalling between cells.
-`OpenStax把这种交流描述为电化学过程：沿神经元的电活动，与细胞之间的化学信号连接在一起。`
-<!-- SENTENCE:S0837 -->
-The chemical signal also has to be cleared, through processes such as breakdown, diffusion or reuptake.
-`化学信号还必须通过分解、扩散或再摄取等过程被清除。`
-<!-- SENTENCE:S0838 -->
-Communication therefore includes changes in readiness and response, not just the existence of a connecting line.
-`因此，交流还包括待响应状态与反应方式的变化，而不仅是存在一条连接线。`
-<!-- SENTENCE:S0839 -->
-The gradual emergence of a dim room from apparent darkness is one everyday encounter with that active body.
-`昏暗房间逐渐从看似漆黑中显现，就是日常生活与这种活跃身体的一次相遇。`
-<!-- SENTENCE:S0840 -->
-The world has remained there, while the conditions under which it can be seen have altered.
-`世界一直在那里，而它能够被看见的条件改变了。`
-
-<!-- ARTICLE:A31 -->
-# The Person Left Behind in The Cherry Orchard
-
-<!-- SENTENCE:S0849 -->
-The last act of Chekhov's The Cherry Orchard begins in a room already losing the signs of a home.
-`契诃夫《樱桃园》的最后一幕，开始于一间已经逐渐失去家居痕迹的房间。`
-<!-- SENTENCE:S0850 -->
-Pictures and curtains have gone, luggage waits, and the remaining furniture is piled aside.
-`画与窗帘已不见，行李在等待，剩下的家具堆在一旁。`
-<!-- SENTENCE:S0851 -->
-A timetable presses upon the farewell: the characters must leave for the train.
-`时刻表催迫着告别：人物们必须动身赶火车。`
-<!-- SENTENCE:S0852 USE:U04512 -->
-They have to shift, in the informal sense of hurrying, even while some wish to look once more at the walls.
-`他们必须赶快行动，尽管有些人还想再看一眼墙壁。`
-<!-- SENTENCE:S0853 -->
-The scene gives departure a material form in coats, boxes, doors and misplaced footwear.
-`这一场景通过外套、箱子、门及放错地方的鞋，让离别获得了具体形态。`
-<!-- SENTENCE:S1126 USE:U04519 -->
-Earlier in the play, Lopakhin had proposed a shift: divide the land into building plots and lease them for summer cottages to save the estate.
-`在剧本较早处，洛帕欣曾提出一个权宜办法：把土地划成建房地块，出租供人建夏日别墅，以挽救庄园。`
-
-<!-- SENTENCE:S0854 -->
-Lopakhin, whose father and grandfather had been serfs on the estate, has bought the property.
-`洛帕欣买下了这份地产，而他的父亲与祖父曾在这里当农奴。`
-<!-- SENTENCE:S0855 USE:U04304 -->
-The sale reverses the old relation between owning family and servant family.
-`出售把原先主人家庭与仆人家庭之间的关系颠倒了。`
-<!-- SENTENCE:S0856 USE:U05002 -->
-For the former owners, a place filled with memory becomes property they must yield to someone else.
-`对原先的主人而言，充满记忆的地方，成为必须交给别人的财产。`
-<!-- SENTENCE:S0857 -->
-Elsewhere in the same act, Pischin returns money after leasing land containing valuable clay.
-`在同一幕的另一处，Pischin出租了含有贵重黏土的土地，随后回来还钱。`
-<!-- SENTENCE:S0858 USE:U02406 -->
-His land contains an exploitable resource that he had not previously turned into this income.
-`他的土地含有一种可开发的资源，而此前他并未靠它取得这笔收入。`
-<!-- SENTENCE:S0859 USE:U02404 -->
-The tenants plan to exploit the clay, while the lease gives him money to pay creditors.
-`承租者计划开发黏土，而租赁让他得到偿还债权人的钱。`
-<!-- SENTENCE:S0860 USE:U02410 -->
-This planned exploitation places a different value on the ground from the beauty of an orchard.
-`这种计划中的开发，赋予土地一种不同于果园之美的价值。`
-
-<!-- SENTENCE:S0861 -->
-Varya will take work as a housekeeper elsewhere, and Charlotta asks for a new position.
-`Varya将在别处当管家，Charlotta则请求别人为她找一份新工作。`
-<!-- SENTENCE:S0862 USE:U04532 -->
-Each must find a way to shift for herself when the household's familiar structure dissolves.
-`熟悉的家庭结构瓦解时，每个人都必须找到独自谋生的办法。`
-<!-- SENTENCE:S0863 USE:U04531 -->
-Varya must make shift with the new work available to her, as the estate no longer supplies her place.
-`Varya必须靠能找到的新工作设法过下去，因为庄园已不再为她提供原来的位置。`
-<!-- SENTENCE:S0864 USE:U04514 -->
-They must shift as best they can, although their prospects are very different.
-`他们必须尽可能设法过下去，尽管各自的前景很不相同。`
-<!-- SENTENCE:S0865 USE:U04535 -->
-The furniture may be shiftable, but the human ties cannot be packed into the same boxes.
-`家具可以搬走，人与人之间的联系却无法装进同样的箱子。`
-<!-- SENTENCE:S0866 USE:U02007 -->
-Anya imagines study, work and reading with her mother, giving the departure an emerging hope as well as a loss.
-`Anya想象着求学、工作和与母亲一起阅读，使离别既包含失落，也包含正在出现的希望。`
-
-<!-- SENTENCE:S0867 USE:U04211 -->
-Fiers, the elderly footman, belongs to the household as an old retainer whose attention still centres on its masters.
-`年迈男仆Fiers是多年忠心服侍这家人的老仆，他的注意仍围绕着主人们。`
-<!-- SENTENCE:S0868 USE:U04210 -->
-The retainer's place recalls a historical order in which service formed a lasting personal attachment to a great household.
-`这位家仆的位置，让人想到一种历史秩序：服侍构成了对大户人家持久的人身依附。`
-<!-- SENTENCE:S0869 -->
-Other characters say or assume that he has been sent to hospital.
-`其他人物说或以为，他已被送往医院。`
-<!-- SENTENCE:S0870 -->
-Their statements pass from person to person until an uncertain action sounds like a completed one.
-`这些说法在人与人之间传递，直到一项尚不确定的行动，听起来像是已经完成。`
-<!-- SENTENCE:S0871 -->
-The audience finally sees him enter the empty house and try its locked door.
-`观众最后看见他走进空屋，试了试锁住的门。`
-<!-- SENTENCE:S0872 USE:U01303 -->
-The locks constrain him within the house after the carriages have left.
-`马车离开后，门锁把他禁闭在屋内。`
-<!-- SENTENCE:S0873 USE:U01308 -->
-His final constraint is literal confinement, while his thoughts remain with the coat his master should have worn.
-`他最后受到的是实实在在的禁闭，而心里仍想着主人本该穿哪件外套。`
-
-<!-- SENTENCE:S0874 -->
-The sound of axes continues beyond the room.
-`斧声继续从房间外传来。`
-<!-- SENTENCE:S0875 -->
-A new economic future is beginning while a particular human life has been overlooked.
-`一种新的经济未来正在开始，而一个具体的人却被忽略了。`
-<!-- SENTENCE:S0876 -->
-Chekhov lets different times coexist: memory, urgent departure, promised work and the irreversible cutting of trees.
-`契诃夫让不同的时间并存：记忆、迫切的离去、应许的工作，以及不可挽回的砍树。`
-<!-- SENTENCE:S0877 -->
-The empty room becomes powerful because these changes happen through ordinary actions that the people within them do not fully comprehend.
-`空房间之所以有力量，是因为这些变化通过普通行动发生，而身处其中的人并未完全理解这些行动。`
-
-<!-- SENTENCE:S1263 USE:U00103 -->
-Anyone adapting the play for the screen would have to decide how to carry that final arrangement of empty space, an unseen axe and an overlooked man into a new medium.
-`任何把这部剧改编为银幕作品的人，都必须决定怎样把空荡的空间、看不见的斧头和被遗忘的人这一最终组合，带入新的媒介。`
-<!-- SENTENCE:S1264 -->
-A camera could follow the departing people outside, but doing so would change what the audience knows about the locked house.
-`镜头可以跟着离去的人走到屋外，但这样做会改变观众对于那栋锁住的房屋所知道的情况。`
-<!-- SENTENCE:S1265 -->
-Keeping the room in view instead would preserve the uncomfortable knowledge that the departure has left a person behind.
-`若让房间继续留在视野里，则会保留那份令人不安的知情：这场离去把一个人留在了身后。`
-
-<!-- ARTICLE:A32 -->
-# An Objection Given a Place in the Procedure
-
-<!-- SENTENCE:S0878 -->
-A procedure can assign someone the task of arguing against the result that others hope to reach.
-`一项程序可以指定某人，负责反对其他人希望达成的结果。`
-<!-- SENTENCE:S0879 -->
-Richard Burtsell's 1907 encyclopedia account describes such an office in the Catholic processes of beatification and canonization.
-`Richard Burtsell在1907年的百科条目中，介绍了天主教宣福与封圣程序里的这样一个职位。`
-<!-- SENTENCE:S0880 USE:U00211 -->
-The devil's advocate, officially the Promoter of the Faith, had to prepare written objections to a proposed recognition.
-`这位俗称devil's advocate、正式称为信仰促进官的审查员，必须针对拟议的认可准备书面异议。`
-<!-- SENTENCE:S0881 -->
-The account also required attention to procedural omissions and objections that might otherwise be passed over.
-`这份记述还要求关注程序遗漏，以及其他情况下可能被略过的异议。`
-<!-- SENTENCE:S0882 USE:U01302 -->
-Institutional duty constrained the official to raise difficulties even when a favourable decision was widely desired.
-`制度职责迫使这位官员提出难点，即使人们普遍希望作出有利决定。`
-<!-- SENTENCE:S0883 -->
-This was an assigned role within the institution, whose rules supplied both its authority and its purpose.
-`这是制度内部指定的角色，制度规则同时赋予它权威与目的。`
-<!-- SENTENCE:S0884 -->
-The historical account shows how disagreement could be made a formal part of reaching a decision.
-`这份历史记述说明，分歧如何能够被纳入作出决定的正式过程。`
-<!-- SENTENCE:S1190 USE:U04516 -->
-An official who shifts when pressed for a clear objection would evade the very work the office assigns.
-`一个在被要求明确提出异议时闪烁推托的官员，会逃避该职位所赋予的那项工作。`
-
-<!-- SENTENCE:S0885 USE:U00210 -->
-In a modern discussion, a devil's advocate may test a proposal by presenting objections without personally believing every one of them.
-`在现代讨论中，主动唱反调的人可以提出异议来检验方案，而不必本人相信其中每一条。`
-<!-- SENTENCE:S0886 USE:U00902 -->
-That role requires a coherent speaker who can make the objection intelligible to other people.
-`这一角色需要能够清楚表达的人，使别人听懂异议。`
-<!-- SENTENCE:S0887 USE:U00916 -->
-Speaking incoherently would make even a useful objection difficult to examine.
-`表达得不连贯，会使有用的异议也难以审视。`
-<!-- SENTENCE:S0888 USE:U05013 -->
-A yielding participant may accept the first confident answer before its implications have been worked through.
-`性格顺从的参与者，可能在问题的含义尚未想清楚前，就接受第一个自信的回答。`
-<!-- SENTENCE:S0889 USE:U05018 -->
-A habitual yielder can lose the opportunity to explain a difficulty that others have not noticed.
-`惯常让步的人，可能失去说明某个别人未曾察觉的难点的机会。`
-<!-- SENTENCE:S0890 USE:U05014 -->
-Agreement given yieldingly may express a wish to end an uncomfortable exchange rather than a settled conviction.
-`顺从地表示的同意，可能表达的是结束不自在交谈的愿望，而非已经形成的确信。`
-<!-- SENTENCE:S0891 USE:U01304 -->
-Pressure can constrain assent, producing the appearance of consent without resolving the original question.
-`压力能够强求赞同，制造同意的表象，却没有解决原来的问题。`
-
-<!-- SENTENCE:S0892 USE:U05011 -->
-A chair can give an objection time by asking the current speaker to yield the floor.
-`主持人可以请当前发言者让出发言权，为异议留出时间。`
-<!-- SENTENCE:S0893 USE:U05001 -->
-Yielding speaking time does not require the speaker to yield to an opposing view.
-`让出发言时间，并不要求发言者屈从于对立意见。`
-<!-- SENTENCE:S0894 USE:U05010 -->
-One may yield to none in respect for a shared institution and still question one of its decisions.
-`一个人对共同制度的尊重，可以不亚于任何人，同时仍质疑其某项决定。`
-<!-- SENTENCE:S0895 -->
-The productive achievement is a conversation in which another person's thought can alter the route to a conclusion.
-`富有成效的成果，是形成一种交谈，让另一个人的思想能够改变通向结论的路径。`
-<!-- SENTENCE:S0896 -->
-The old office and the modern conversational role make that possibility visible through different kinds of responsibility.
-`那个旧职位与现代交谈角色，以不同类型的责任，使这种可能性清楚可见。`
-
-<!-- ARTICLE:A33 -->
-# Returning the Gas Is Only Half of Reversing the Process
-
-<!-- SENTENCE:S0897 -->
-Imagine an insulated container divided into two halves, with an ideal gas in one half and a vacuum in the other.
-`设想一个被分成两半的绝热容器：一半装有理想气体，另一半是真空。`
-<!-- SENTENCE:S0898 -->
-Remove the partition and the gas spreads into the available volume.
-`移去隔板，气体便扩散到可用的体积中。`
-<!-- SENTENCE:S0899 -->
-OpenStax uses this expansion to introduce a question deeper than whether a piston could later compress the gas.
-`OpenStax用这种膨胀，引入一个比活塞以后能否压回气体更深入的问题。`
-<!-- SENTENCE:S0900 -->
-Could the entire change be undone while both gas and surroundings returned to their initial states?
-`能否在气体与周围环境都回到初态的同时，把整个变化撤销？`
-<!-- SENTENCE:S0901 USE:U04324 -->
-A reversible process must allow that complete return, not simply restore the gas's pressure and temperature.
-`可逆过程必须容许这种完整返回，而不只是恢复气体的压强与温度。`
-<!-- SENTENCE:S0902 USE:U04326 -->
-Reversibility consequently refers to a relation between the system and its surroundings.
-`因此，可逆性所指的是系统与周围环境之间的关系。`
-
-<!-- SENTENCE:S0903 -->
-Pushing the expanded gas back can require work and the removal of heat.
-`把膨胀后的气体压回去，可能需要做功并移走热量。`
-<!-- SENTENCE:S0904 -->
-The gas may then regain its former state while its surroundings carry the consequences of the operation.
-`之后，气体可能恢复原状态，而环境承受了这次操作带来的结果。`
-<!-- SENTENCE:S0905 USE:U04327 -->
-An ideal process carried out reversibly would leave no such net change outside the restored system.
-`一个以可逆方式进行的理想过程，不会在恢复后的系统以外留下这样的净变化。`
-<!-- SENTENCE:S0906 -->
-Slow, nearly balanced changes help construct that ideal, although slowness alone does not remove friction or every source of dissipation.
-`缓慢、接近平衡的变化有助于构造这个理想，但仅有缓慢，并不能消除摩擦或一切耗散来源。`
-<!-- SENTENCE:S0907 USE:U03006 -->
-In a real device, friction and heat leaks can intervene and prevent the intended return.
-`在实际装置中，摩擦与漏热可能介入，妨碍预期的恢复。`
-<!-- SENTENCE:S0908 -->
-The ideal remains useful as a reference for understanding what actual machines can approach.
-`这一理想仍可作为参考，用来理解实际机器能够接近什么状态。`
-
-<!-- SENTENCE:S0909 USE:U01226 -->
-A related mechanical idea concerns conservative forces, such as ideal gravity or an ideal spring force.
-`另一个相关的力学概念涉及保守力，例如理想重力或理想弹簧力。`
-<!-- SENTENCE:S0910 -->
-Their work between two positions does not depend on the chosen path.
-`它们在两个位置之间所做的功，不取决于选取的路径。`
-<!-- SENTENCE:S0911 -->
-The work around a closed path is zero when the force is conservative over that path and its domain.
-`当力在相关路径及其定义区域中为保守力时，沿闭合路径所做的功为零。`
-<!-- SENTENCE:S0912 -->
-This lets potential energy describe the relation between position and recoverable mechanical work.
-`这使势能能够描述位置与可恢复机械功之间的关系。`
-<!-- SENTENCE:S0913 -->
-Frictional dissipation instead makes the route and the amount of sliding matter.
-`摩擦耗散则使路径与滑动量变得重要。`
-<!-- SENTENCE:S0914 -->
-In both cases, a careful account asks where energy has gone, including places beyond the most visible moving part.
-`在两种情况下，严谨的解释都会追问能量去了哪里，包括最显眼运动部件之外的地方。`
-<!-- SENTENCE:S0915 -->
-The scientific value of an ideal lies in the relationships it reveals, which can remain useful when real devices depart from it.
-`理想模型的科学价值在于它揭示的关系；即使真实装置偏离理想，这些关系仍可能有用。`
-
-<!-- ARTICLE:A34 -->
-# An Old Arithmetic Word and a Curve Made by Unwinding
-
-<!-- SENTENCE:S0916 -->
-The 1911 Encyclopaedia Britannica used evolution as a term in arithmetic.
-`1911年版《大英百科全书》把evolution用作一个算术术语。`
-<!-- SENTENCE:S0917 USE:U02314 -->
-In its arithmetic account, evolution extracts a root from a given power.
-`在其算术说明中，开方从给定的幂求出根。`
-<!-- SENTENCE:S0918 -->
-For positive numbers, taking the cube root of 27 returns 3, undoing the cubing of 3.
-`对于正数，对27开立方得到3，撤销了对3求立方的运算。`
-<!-- SENTENCE:S0919 -->
-The companion operation, involution, raises a number to a power.
-`与之相对的运算involution，是对一个数求幂。`
-<!-- SENTENCE:S0920 USE:U04328 -->
-The two operations act reversely within that historical vocabulary, moving from root to power and from power to root.
-`在这套历史词汇中，两种运算以相反方式作用：一种由根到幂，另一种由幂到根。`
-<!-- SENTENCE:S0921 -->
-The old terminology makes the relation between a calculation and its inverse especially visible.
-`旧术语使计算与逆运算之间的关系格外清楚。`
-<!-- SENTENCE:S1127 USE:U01910 -->
-Such arithmetic served divers practical needs, from commercial reckoning to the calculations required in technical work.
-`这类算术服务于种种实际需要，从商业核算到技术工作所需的计算。`
-
-<!-- SENTENCE:S0922 -->
-Repeated multiplication by 3 gives 1, 3, 9, 27 and 81 when the sequence begins with the zeroth power.
-`数列从零次幂开始，反复乘以3，得到1、3、9、27与81。`
-<!-- SENTENCE:S0923 USE:U04303 -->
-Reverse the list and it runs 81, 27, 9, 3, 1.
-`把这个列表逆序排列，就得到81、27、9、3、1。`
-<!-- SENTENCE:S0924 USE:U04311 -->
-This reverse order does not itself perform every possible inverse calculation.
-`这种相反顺序，本身并未完成所有可能的逆运算。`
-<!-- SENTENCE:S0925 USE:U04318 -->
-It displays the selected powers in reverse, while a root calculation asks for a number satisfying a specified relation.
-`它以逆序展示选定的幂，而求根运算要求找到满足指定关系的数。`
-<!-- SENTENCE:S0926 -->
-The difference matters because finding an input requires knowing which operation and which domain are involved.
-`这种区别很重要，因为寻找输入值，必须知道涉及哪一种运算及哪一个定义域。`
-<!-- SENTENCE:S0927 -->
-For example, squaring both 3 and negative 3 gives 9, although the principal square root of 9 is 3.
-`例如，3与负3的平方都是9，尽管9的算术平方根是3。`
-<!-- SENTENCE:S0928 -->
-An inverse question can therefore require a convention about which answer is intended.
-`因此，逆向问题可能需要约定，说明所指的是哪一个答案。`
-
-<!-- SENTENCE:S0929 -->
-Geometry gives unfolding a different, visible form.
-`几何则赋予展开另一种可见形式。`
-<!-- SENTENCE:S0930 USE:U02313 -->
-The evolution of a curve can be represented by unwinding a taut thread from it, with the free end tracing an involute.
-`曲线的展开可以用从曲线上解绕一根绷紧的线来表示，线的自由端描出渐开线。`
-<!-- SENTENCE:S0931 -->
-For a circle, MacTutor describes the equivalent construction using a point on a straight line rolling around the circle.
-`对于圆，MacTutor以一条绕圆滚动的直线上的点，描述等价构造。`
-<!-- SENTENCE:S0932 -->
-The resulting involute has the original circle as its evolute.
-`所得渐开线，以原来的圆作为其渐屈线。`
-<!-- SENTENCE:S0933 -->
-The two names indicate a relation between curves, with different roles for the base and the traced path.
-`两个名称表示曲线之间的关系，基准曲线与描出的路径承担不同角色。`
-<!-- SENTENCE:S0934 -->
-MacTutor connects Huygens's study of such curves with the search for clocks that could keep useful time at sea.
-`MacTutor把惠更斯对这类曲线的研究，与寻找能够在海上准确计时的钟表联系起来。`
-<!-- SENTENCE:S0935 -->
-Timekeeping mattered for longitude because local solar time could be compared with a reference time.
-`计时对确定经度很重要，因为地方太阳时可以与参考时间比较。`
-<!-- SENTENCE:S0936 -->
-A geometric construction could therefore belong to the practical problem of finding a ship's position.
-`因此，一个几何构造能够参与确定船舶位置这一实际问题。`
-<!-- SENTENCE:S0937 -->
-These old uses of unfolding join language to operations that can still be calculated, drawn and understood.
-`这些关于展开的旧用法，把语言与今天仍能计算、绘制和理解的操作连接起来。`
-<!-- SENTENCE:S1128 USE:U04317 -->
-In a notebook, a learner can draw the winding construction on one side of a leaf and put the inverse relation on the reverse.
-`在笔记本里，学习者可以在一张书叶的一面画出绕线作图，在反面写出逆向关系。`
-<!-- SENTENCE:S1129 -->
-Turning the page then separates the construction from an explanation that can be recalled and checked.
-`这样翻动书页，就能把作图与可供回忆、核对的说明分开。`
-
-<!-- ARTICLE:A35 -->
-# Bandung Asked Who Could Speak for a New State
-
-<!-- SENTENCE:S0938 -->
-In April 1955, representatives of twenty-nine Asian and African governments met in Bandung, Indonesia.
-`1955年4月，二十九个亚非国家政府的代表在印度尼西亚万隆开会。`
-<!-- SENTENCE:S0939 -->
-The gathering connected decolonization with questions of development, peace and cultural cooperation.
-`这次集会把非殖民化与发展、和平及文化合作问题连接起来。`
-<!-- SENTENCE:S0940 USE:U02010 -->
-For emergent states newly established after colonial rule, sovereignty had an immediate practical meaning.
-`对殖民统治结束后新建的国家而言，主权有着直接而实际的意义。`
-<!-- SENTENCE:S0941 USE:U02009 -->
-An emergent international voice could ask how these countries would act together rather than only through the priorities of larger powers.
-`一种正在形成的国际声音，可以提出这些国家怎样共同行动，而不只是服从大国的优先事项。`
-<!-- SENTENCE:S0942 -->
-The meeting made room for governments with different alliances and political views.
-`会议为联盟归属和政治观点不同的政府提供了空间。`
-<!-- SENTENCE:S0943 -->
-Their presence together did not require every participant to share the same domestic system.
-`它们共同出席，并不要求每一方都拥有同一种国内制度。`
-
-<!-- SENTENCE:S0944 -->
-The principles emphasized self-determination, equality, non-aggression and non-interference in internal affairs.
-`这些原则强调自决、平等、互不侵犯与不干涉内政。`
-<!-- SENTENCE:S0945 USE:U03013 -->
-An interventionist policy claims a role in the affairs of another country.
-`干涉主义政策主张介入另一个国家的事务。`
-<!-- SENTENCE:S0946 USE:U03014 -->
-An interventionist may defend such action, whereas the Bandung principle placed weight on the state's own authority.
-`干涉主义支持者可能为这种行动辩护，而万隆原则重视国家自身的权威。`
-<!-- SENTENCE:S0947 USE:U03015 -->
-The dispute over interventionism concerns who may act, on what grounds, and with what relation to sovereignty.
-`围绕干涉主义的争论，涉及谁可以行动、依据何在，以及行动与主权是什么关系。`
-<!-- SENTENCE:S0948 USE:U03001 -->
-A stronger power can intervene in a domestic conflict through support, pressure or direct involvement.
-`强国可以通过支持、施压或直接参与，干预国内冲突。`
-<!-- SENTENCE:S0949 USE:U02402 -->
-It may exploit a crisis to obtain influence that would be harder to gain in more stable conditions.
-`它可能利用危机取得影响力，而在较稳定的情况下，这种影响力更难获得。`
-<!-- SENTENCE:S0950 USE:U02409 -->
-Such exploitation of vulnerability gives non-interference a meaning beyond diplomatic politeness.
-`这种对脆弱处境的利用，使不干涉具有超出外交礼貌的意义。`
-
-<!-- SENTENCE:S1010 USE:U03705 -->
-Some participating governments remained within the political orbit of established alliances.
-`一些参会政府仍处于既有联盟的政治影响范围之内。`
-<!-- SENTENCE:S1011 -->
-That variety gave the common statement its particular significance: cooperation had to be made among countries that were already differently connected.
-`这种差异赋予共同声明以特别意义：合作必须在已经具有不同外部联系的国家之间建立。`
-
-<!-- SENTENCE:S0951 USE:U03101 -->
-Cooperation could make it harder for an outside power to isolate a single government.
-`合作可以使外部强国更难孤立某一个政府。`
-<!-- SENTENCE:S0952 USE:U02407 -->
-Yet different alliances could also leave an exploitable opening in a coalition that sought solidarity.
-`然而，不同的联盟归属，也可能在寻求团结的联合体中留下可乘之隙。`
-<!-- SENTENCE:S0953 -->
-The Office of the Historian describes both the meeting's common aims and its variety of loyalties.
-`美国历史文献办公室既介绍了会议的共同目标，也介绍了各方不同的政治归属。`
-<!-- SENTENCE:S0954 -->
-It also describes the tension in American policy between support for self-determination and reliance on European colonial allies.
-`它还介绍了美国政策中的张力：一方面支持自决，另一方面依赖欧洲殖民盟国。`
-<!-- SENTENCE:S0955 -->
-Bandung therefore opened a space for action within an unequal world, rather than removing all the inequalities at once.
-`因此，万隆是在一个不平等的世界中打开了行动空间，而不是一次性消除了所有不平等。`
-<!-- SENTENCE:S0956 -->
-Its lasting historical interest lies in people trying to make independence effective through relationships with one another.
-`它持久的历史意义，在于人们试图通过相互关系，让独立真正发挥作用。`
-
-<!-- ARTICLE:A36 -->
-# The Sea Returns to the Forest Through a Fish
-
-<!-- SENTENCE:S0957 -->
-A salmon's return makes a river part of a larger route between fresh water and the sea.
-`鲑鱼的返回，使河流成为淡水与海洋之间一条更大路线的一部分。`
-<!-- SENTENCE:S0958 USE:U03302 -->
-Adults migrate upstream to spawn after a period of life in the ocean.
-`成年鱼在海洋中生活一段时间后，向上游洄游产卵。`
-<!-- SENTENCE:S0959 USE:U03304 -->
-This migration carries living bodies and marine nutrients into the river system.
-`这种洄游把活的鱼体与海洋营养物质带入河流系统。`
-<!-- SENTENCE:S0960 USE:U03310 -->
-A returning migrant is therefore more than an individual moving from one place to another.
-`因此，一条返回的洄游鱼，不只是一个从此地移到彼地的个体。`
-<!-- SENTENCE:S0961 -->
-Its body links environments that appear separate on a land map.
-`它的身体把陆地图上看似分离的环境连接起来。`
-<!-- SENTENCE:S0962 -->
-The Elwha dams interrupted that connection for much of the watershed.
-`Elwha河的水坝，曾切断流域大部分地区的这种联系。`
-
-<!-- SENTENCE:S0963 -->
-NOAA Fisheries describes how dam removal reopened access to habitats that anadromous fish had long been unable to reach.
-`NOAA渔业部门介绍，移坝如何重新开放了溯河洄游鱼类长期无法到达的栖息地。`
-<!-- SENTENCE:S0964 USE:U03307 -->
-A migratory fish needs connected places for the different stages of its life.
-`一种有洄游习性的鱼，需要在生命各阶段所用的地点之间保持连通。`
-<!-- SENTENCE:S0965 USE:U03305 -->
-The migrational connection depends on the river's physical continuity, not just on suitable water at one isolated site.
-`这种迁移联系取决于河流的物理连续性，而不仅是在一个孤立地点存在合适的水。`
-<!-- SENTENCE:S0966 USE:U03306 -->
-For a sea-going migrator, a barrier can separate a growing place from a breeding place.
-`对往返海洋的迁移者而言，一道障碍可以把生长地与繁殖地分开。`
-<!-- SENTENCE:S0967 USE:U03308 -->
-Restoring a migratory route can consequently change the use of habitat far beyond the former obstruction.
-`因此，恢复一条洄游路线，能够改变远超原先障碍位置的栖息地使用情况。`
-<!-- SENTENCE:S0968 USE:U02002,U03503 -->
-A fish may briefly emerge from the water when it leaps an obstacle, carrying its momentum into the air.
-`鱼跃过障碍时，可能短暂跃出水面，把运动的冲势带入空中。`
-<!-- SENTENCE:S0969 -->
-But a river-scale connection requires a passable route over the whole journey.
-`然而，河流尺度的连通，需要整段旅程都有可通过的路线。`
-
-<!-- SENTENCE:S0970 -->
-The nutrient connection continues through the food web.
-`营养物质的联系，通过食物网继续延伸。`
-<!-- SENTENCE:S0971 -->
-NOAA describes algae supporting invertebrates that in turn feed young salmon.
-`NOAA介绍，藻类支持无脊椎动物，而无脊椎动物又供幼鲑取食。`
-<!-- SENTENCE:S0972 -->
-Returning adults bring marine nutrients back upstream, helping sustain primary production.
-`返回的成年鱼把海洋营养物质带回上游，有助于维持初级生产。`
-<!-- SENTENCE:S0973 -->
-Physical access and biological production thus participate in the same cycle.
-`因此，物理通道与生物生产参与着同一个循环。`
-<!-- SENTENCE:S0974 -->
-The research also follows how disturbed invertebrate communities recover in density and diversity at different rates.
-`研究还追踪受扰动的无脊椎动物群落，在密度与多样性方面以不同速度恢复的情况。`
-<!-- SENTENCE:S0975 -->
-A restored river is a place of continuing relations, with movement helping make those relations possible.
-`恢复后的河流是一处持续发生联系的地方，而移动帮助这些联系成为可能。`
-
-<!-- ARTICLE:A37 -->
-# The Convention Floor Became a Broadcasting Space
-
-<!-- SENTENCE:S0976 USE:U01404 -->
-A party convention gathers delegates to conduct formal business while presenting a political event to a much wider public.
-`政党大会召集代表处理正式事务，同时把一场政治事件呈现给更广泛的公众。`
-<!-- SENTENCE:S0977 USE:U01405 -->
-At the Democratic nominating convention in Chicago in August 1968, Hubert Humphrey became the party's presidential candidate.
-`在1968年8月芝加哥的民主党提名大会上，Hubert Humphrey成为该党的总统候选人。`
-<!-- SENTENCE:S0978 -->
-Chicago Public Library's finding aid describes a meeting accompanied by anti-war demonstrations and police violence outside.
-`芝加哥公共图书馆的检索指南介绍，这场大会伴随着外面的反战示威和警察暴力。`
-<!-- SENTENCE:S0979 -->
-The official proceedings and the events in the streets belonged to the same historical moment.
-`正式议程与街头事件，属于同一个历史时刻。`
-<!-- SENTENCE:S0980 -->
-The library preserves records ranging from schedules and seating charts to statements and alternative newspapers.
-`图书馆保存的记录，从日程表、座位图，到声明及另类报纸，种类广泛。`
-<!-- SENTENCE:S0981 -->
-These materials show that the event was organized and interpreted through many different forms of communication.
-`这些材料说明，事件通过许多不同的交流形式被组织和解读。`
-<!-- SENTENCE:S1134 USE:U00414 -->
-At a party convention, an alternate can stand ready to replace a delegate who cannot serve.
-`在政党代表大会上，候补代表可以准备替代无法履职的代表。`
-<!-- SENTENCE:S1135 -->
-The distinction between attending the event and holding a delegate's place is therefore built into its organization.
-`因此，出席活动与占有代表席位之间的区别，本身就是大会组织方式的一部分。`
-
-<!-- SENTENCE:S0982 -->
-The Smithsonian Archives adds a technological history to that political setting.
-`史密森学会档案馆，为那个政治背景补充了一段技术史。`
-<!-- SENTENCE:S0983 -->
-Its account describes portable, battery-powered microphone equipment used by NBC commentators at the 1968 conventions.
-`其介绍描述了NBC评论员在1968年各次大会上使用的便携式电池供电话筒设备。`
-<!-- SENTENCE:S0984 -->
-Two-way communication connected a reporter on the floor with a director in the booth.
-`双向通信把会场中的记者与播报间里的导播连接起来。`
-<!-- SENTENCE:S0985 USE:U04902 -->
-A network could transmit an interview while the director coordinated its place in the coverage.
-`电视网可以播送一段采访，同时由导播协调它在报道中的位置。`
-<!-- SENTENCE:S0986 USE:U04911 -->
-The transmission of a report thus depended on both a moving journalist and a coordinated technical system.
-`因此，报道的播出，既依赖移动的记者，也依赖协调运作的技术系统。`
-<!-- SENTENCE:S0987 USE:U04912 -->
-Viewers received a television transmission assembled through decisions about timing, location and speakers.
-`观众接收到的电视节目，由有关时间、地点和发言者的选择编排而成。`
-<!-- SENTENCE:S0988 -->
-The technology gave reporters greater mobility within a tightly organized public occasion.
-`技术使记者能在一场组织严密的公共活动中，更自由地移动。`
-
-<!-- SENTENCE:S0989 USE:U03218 -->
-The media carried the convention beyond the people physically present in the hall.
-`媒体把大会带到了亲自在会场者之外的人们面前。`
-<!-- SENTENCE:S0990 USE:U03219 -->
-Mass media made a selected sequence of local moments available to audiences in many homes.
-`大众媒体把经过选择的一系列现场时刻，送到许多家庭的观众面前。`
-<!-- SENTENCE:S0991 -->
-This changed the scale of participation without making every viewer a delegate.
-`这改变了参与的规模，却并未让每个观众都成为大会代表。`
-<!-- SENTENCE:S0992 -->
-Later archives preserve another kind of access, in which a reader can move between an event's programme, images and subsequent descriptions.
-`后来的档案保存了另一种接触方式，让读者能够在事件的议程、图像及后续描述之间往返。`
-<!-- SENTENCE:S0993 USE:U03221 -->
-A computer-based multimedia account can bring those forms together, while hypermedia links allow different paths through them.
-`基于计算机的多媒体记述，可以把这些形式汇集起来，而超媒体链接让人们能够沿不同路径阅读。`
-<!-- SENTENCE:S0994 USE:U00705 -->
-To archive inactive digital files can move them from working storage to cheaper long-term storage while keeping them retrievable.
-`把不再常用的数字文件归档，可以将其从工作存储移到较便宜的长期存储中，同时保留日后检索的能力。`
-<!-- SENTENCE:S0995 -->
-The historical event continues to acquire readers through the means by which people recorded and organized it.
-`历史事件通过人们记录和组织它的方式，继续获得新的读者。`
-
-<!-- ARTICLE:A38 -->
-# Recovery Belongs to a Whole Life
-
-<!-- SENTENCE:S1012 -->
-Illness can alter sleep, movement, work and relationships at the same time.
-`疾病可以同时改变睡眠、运动、工作与人际关系。`
-<!-- SENTENCE:S1013 -->
-A clinical question about one organ consequently exists within a much larger life.
-`因此，关于某个器官的临床问题，存在于更广泛的生活之中。`
-<!-- SENTENCE:S1014 -->
-The NCCIH describes whole person health through interconnected biological, behavioural, social and environmental domains.
-`美国NCCIH通过相互关联的生物、行为、社会和环境领域，描述全人健康。`
-<!-- SENTENCE:S1015 -->
-Its account of integrative health emphasizes coordination among approaches, providers and institutions.
-`其对整合健康的说明，强调方法、服务提供者与机构之间的协调。`
-<!-- SENTENCE:S1016 -->
-The aim is to attend to the person's connected needs rather than treat an organ as an independent life.
-`目标是关注个人相互关联的需求，而不是把一个器官当成独立的生命。`
-
-<!-- SENTENCE:S1017 -->
-The terms used for care also describe relationships between approaches.
-`用于照护的术语，也描述不同方法之间的关系。`
-<!-- SENTENCE:S1018 USE:U00406 -->
-Alternative medicine is used in place of conventional medical care, in the terminology explained by the NCCIH.
-`按照NCCIH解释的术语，替代医学被用来取代常规医疗。`
-<!-- SENTENCE:S1019 -->
-A complementary approach is used alongside conventional care.
-`补充性方法则与常规医疗同时使用。`
-<!-- SENTENCE:S1020 -->
-An approach's place in the care arrangement does not by itself establish what it can accomplish.
-`一种方法在照护安排中的位置，本身并不能证明它能够达成什么效果。`
-<!-- SENTENCE:S1021 -->
-Coordination requires knowing what each part is intended to do and how the parts interact.
-`协调要求了解每一部分打算做什么，以及各部分如何相互作用。`
-<!-- SENTENCE:S1022 -->
-A name can help make that relationship explicit before more detailed questions are asked.
-`在提出更详细的问题之前，一个名称可以帮助把这种关系说明白。`
-
-<!-- SENTENCE:S1266 -->
-The fact sheet, last updated in April 2021, gives a concrete example: a collaborative model for veterans with spine pain and related mental-health conditions.
-`这份最后更新于2021年4月的说明资料，给出了一个具体例子：为患有脊柱疼痛及相关心理健康问题的退役军人建立协作模式。`
-<!-- SENTENCE:S1267 -->
-It brings chiropractors, primary-care providers and mental-health providers into the same model, rather than asking one profession to cover every need.
-`这一模式把脊椎矫正从业者、初级医疗服务者与心理健康服务者纳入同一安排，而不是让一种专业包揽所有需求。`
-<!-- SENTENCE:S1268 -->
-The same account describes cancer centres offering symptom support alongside conventional cancer treatment, while characterising research into such programmes as early-stage.
-`同一份资料还介绍，癌症中心在常规癌症治疗之外提供症状支持，同时将对这类项目的研究描述为仍处于早期阶段。`
-
-<!-- SENTENCE:S1023 -->
-Physical changes also have histories that are more specific than their appearance.
-`身体变化还有比其外观更具体的形成过程。`
-<!-- SENTENCE:S1024 USE:U03906 -->
-Excess pigmentation can leave a patch of skin darker than the surrounding area.
-`色素过度沉积，可以使一块皮肤比周围区域更深。`
-<!-- SENTENCE:S1025 -->
-The National Cancer Institute's definition connects hyperpigmentation with excess melanin and lists several possible causes.
-`美国国家癌症研究所的定义，把色素过多与过量黑色素联系起来，并列出多种可能原因。`
-<!-- SENTENCE:S1269 -->
-The NCI lists skin injury, sun damage and certain medicines, including some anticancer drugs, among the possible causes.
-`美国国家癌症研究所列出的可能原因，包括皮肤损伤、日晒损伤，以及某些药物，其中包括部分抗癌药。`
-<!-- SENTENCE:S1026 -->
-A visible patch thus supplies an observation to be understood within a person's circumstances.
-`因此，可见的色斑提供了一项观察，需要在个人处境中理解。`
-<!-- SENTENCE:S1027 -->
-This is one reason someone undergoing treatment may need help with daily comfort and visible changes as well as with the underlying disease.
-`这也是为什么接受治疗的人，除了根本疾病之外，还可能需要获得日常舒适和外观变化方面的帮助。`
-
-<!-- SENTENCE:S1028 USE:U02912 -->
-Recovering from illness can also demand psychological integration, as conflicting wishes for independence and support find a workable place in the same person's life.
-`从疾病中恢复，也可能需要心理整合，让对独立与支持的矛盾愿望，在同一个人的生活中找到可以共处的位置。`
-<!-- SENTENCE:S1029 USE:U04118 -->
-Restorative sleep can help a tired person regain strength.
-`具有恢复作用的睡眠，可以帮助疲惫的人重获精力。`
-<!-- SENTENCE:S1030 USE:U04119 -->
-A nourishing meal may serve as a restorative when hunger and exhaustion have left someone weak.
-`饥饿与疲惫使人虚弱时，一顿有营养的饭可以起到恢复元气的作用。`
-<!-- SENTENCE:S1031 USE:U04120 -->
-A quiet period away from daily demands can act restoratively without being a treatment for the underlying disease.
-`暂时远离日常事务的一段安静时光，可以使人恢复精力，却不等于治疗了根本疾病。`
-<!-- SENTENCE:S1032 -->
-These ordinary experiences explain why recovery is lived through a whole day, among other people, as well as through clinical appointments.
-`这些日常体验说明，为什么恢复不仅发生在就诊之中，也发生在与他人共同度过的整个一天里。`
-
-<!-- ARTICLE:A39 -->
-# Keeping a Rainforest Alive While Its Glass House Changes
-
-<!-- SENTENCE:S1033 -->
-A glasshouse preserves more than a shape made of iron and glass.
-`温室保存的不只是铁与玻璃构成的形状。`
-<!-- SENTENCE:S1034 -->
-It maintains conditions under which a living collection can continue to grow.
-`它维持着一组活植物能够继续生长的条件。`
-<!-- SENTENCE:S1035 -->
-Kew's Palm House opened in 1848, using a large iron-and-glass structure to house tropical plants in London.
-`邱园棕榈温室于1848年开放，用大型铁与玻璃结构在伦敦容纳热带植物。`
-<!-- SENTENCE:S1036 USE:U01230 -->
-The nearby Princess of Wales Conservatory provides another approach, with ten computer-controlled climate zones.
-`附近的威尔士王妃温室采用另一种方式，设有十个由计算机控制的气候区。`
-<!-- SENTENCE:S1037 -->
-The building can therefore contain a sequence of growing environments instead of imposing one condition on every plant.
-`因此，建筑可以容纳一系列生长环境，而不把同一种条件施加给每株植物。`
-
-<!-- SENTENCE:S1038 -->
-The Palm House now requires major work on its fabric and heating systems.
-`棕榈温室如今需要对建筑本体与供热系统进行重大整修。`
-<!-- SENTENCE:S1039 -->
-As described in Kew's October 2026 material, plants are being moved before the planned closures and renovation in 2027.
-`按照邱园2026年10月的材料，在计划于2027年进行的关闭与整修之前，植物正在迁出。`
-<!-- SENTENCE:S1040 USE:U03204 -->
-Some medium-sized specimens can be moved intact, while others are too large for that operation.
-`有些中等大小的植株可以整体搬走，而另一些太大，无法这样搬迁。`
-<!-- SENTENCE:S1041 -->
-Horticulturists take seeds and cuttings to preserve plants that cannot be moved as they stand.
-`园艺人员采集种子和插条，以保存无法原样搬走的植物。`
-<!-- SENTENCE:S1042 USE:U04106 -->
-Where possible, moved plants will later be restored to the renovated house.
-`在可行情况下，搬走的植物日后将被放回整修后的温室。`
-<!-- SENTENCE:S1043 -->
-Keeping the collection alive thus requires work before, during and after work on the building.
-`因此，让这组植物存活，需要在建筑施工之前、期间及之后持续工作。`
-<!-- SENTENCE:S1130 USE:U00505 -->
-If a plant begins to outgrow a temporary space, the team may need to anticipate its next move, bringing it forward rather than waiting for the original date.
-`如果一株植物开始长得超出临时空间所能容纳的范围，团队可能需要把它的下一次搬迁提前，而不等到原定日期。`
-
-<!-- SENTENCE:S1044 -->
-Kew plans to replace the gas boilers with an electrified heat-pump system and use renewable electricity.
-`邱园计划用电气化热泵系统替代燃气锅炉，并使用可再生电力。`
-<!-- SENTENCE:S1045 USE:U00407 -->
-Alternative energy is part of the plan, alongside reducing heat lost through the glazing.
-`替代能源是计划的一部分，同时还要减少从玻璃围护结构流失的热量。`
-<!-- SENTENCE:S1046 -->
-The project includes replacement glass and improved seals, as well as conservation of the existing structure.
-`项目包含更换玻璃、改善密封，以及保存既有结构。`
-<!-- SENTENCE:S1047 USE:U04511 -->
-Tests have examined how to remove and clean panes and how to shift old paint from the ironwork.
-`相关试验已经研究了怎样拆卸和清洁玻璃，以及怎样从铁构件上去掉旧漆。`
-<!-- SENTENCE:S1048 -->
-The thermal environment and the historical fabric have to be addressed together.
-`热环境与历史建筑本体，必须同时得到处理。`
-
-<!-- SENTENCE:S1049 -->
-The plants themselves invite close attention to patterns of growth.
-`植物本身也吸引人们仔细关注其生长模式。`
-<!-- SENTENCE:S1050 USE:U00415 -->
-An observer following alternate leaves up a stem finds one leaf at each node, placed successively rather than in opposing pairs.
-`观察者沿茎向上查看互生叶，会发现每个节上有一片叶，依次着生，而不是两两对生。`
-<!-- SENTENCE:S1051 USE:U03808 -->
-Persistent leaves remain attached across a season in which deciduous plants lose theirs.
-`宿存叶跨过落叶植物落叶的季节，仍然附着在植株上。`
-<!-- SENTENCE:S1052 -->
-Such details connect an individual plant's form to the conditions it can live through.
-`这些细节把单株植物的形态，与它能够经历的环境条件连接起来。`
-<!-- SENTENCE:S1053 USE:U01231 -->
-A domestic conservatory may instead give people a sunny room in which to sit, read or meet.
-`住宅里的日光房，则可能为人们提供一个可以坐着、阅读或相聚的阳光房间。`
-<!-- SENTENCE:S1054 -->
-In either setting, glass mediates between an interior life and the world outside.
-`在两种环境中，玻璃都在内部生活与外部世界之间起中介作用。`
-<!-- SENTENCE:S1055 -->
-At Kew, that relationship joins the care of living plants to the care of an inherited building.
-`在邱园，这种关系把活植物的照护，与一座传承建筑的维护连接起来。`
-
-<!-- ARTICLE:A40 -->
-# The Printed Word and the Moving Voice
-
-<!-- SENTENCE:S1056 -->
-A written English word can outlast the pronunciation that first made its spelling seem straightforward.
-`一个书面英语词，可能比起初使其拼写显得直接的那种发音存在得更久。`
-<!-- SENTENCE:S1057 -->
-Harvard's Chaucer teaching material connects differences between Middle and Modern English with the Great Vowel Shift.
-`哈佛的乔叟教学材料，把中古英语与现代英语之间的差别，与元音大推移联系起来。`
-<!-- SENTENCE:S1058 USE:U04524 -->
-That sound shift changed patterns among long stressed vowels over generations.
-`这场音变经过数代人，改变了重读长元音之间的模式。`
-<!-- SENTENCE:S1059 USE:U03404 -->
-Such changes can modify a linguistic unit's sound while leaving a familiar written form behind.
-`这种变化可以改变语言单位的语音，却留下熟悉的书写形式。`
-<!-- SENTENCE:S1060 -->
-The page also describes sixteenth-century attempts to redesign spelling so that written signs would fit contemporary speech more closely.
-`该网页还介绍了十六世纪重新设计拼写的尝试，目的是让书写符号更接近当时的语音。`
-<!-- SENTENCE:S1061 -->
-Historical spelling debates therefore preserve evidence about how people heard their own language.
-`因此，历史上的拼写争论，保存了人们怎样听见自己语言的证据。`
-<!-- SENTENCE:S1191 USE:U04525 -->
-On a standard computer keyboard, the Shift key can change a letter's case without changing the word's pronunciation.
-`在标准电脑键盘上，Shift键可以改变字母的大小写，却不改变词语的读音。`
-<!-- SENTENCE:S1192 -->
-Written form, grammatical function and spoken sound are connected, but a change in one does not mechanically change all three.
-`书写形式、语法功能和语音相互联系，但改变其中一项，并不会机械地同时改变三者。`
-
-<!-- SENTENCE:S1062 -->
-Reading also requires understanding relationships among words that remain on the page together.
-`阅读还要求理解同时留在纸面上的各个词之间的关系。`
-<!-- SENTENCE:S1063 USE:U03403 -->
-In the phrase a small stone bridge, small modifies bridge by adding a property to the noun.
-`在a small stone bridge这一短语中，small通过给名词增加一种属性来修饰bridge。`
-<!-- SENTENCE:S1064 USE:U03411 -->
-Stone acts as a noun modifier, classifying the bridge by its material.
-`stone起着名词修饰语的作用，按材料给桥分类。`
-<!-- SENTENCE:S1065 -->
-Cambridge's grammar account explains that adjectives generally precede these noun modifiers.
-`剑桥语法说明解释，形容词通常位于这些名词修饰语之前。`
-<!-- SENTENCE:S1066 USE:U01816 -->
-This helps explain why small stone bridge has a usual order rather than being an indiscriminate collection of three words.
-`这有助于解释，为什么small stone bridge有通常的词序，而不是三个词杂乱堆成的集合。`
-<!-- SENTENCE:S1067 USE:U01818 -->
-Indiscriminateness in word order would obscure the relationships that make the phrase useful.
-`词序上的杂乱，会使这个短语之所以有用的关系变得模糊。`
-<!-- SENTENCE:S1068 USE:U01801 -->
-A reader discriminates among these functions even when the process feels automatic.
-`即使这个过程感觉是自动完成的，读者仍在区分这些功能。`
-
-<!-- SENTENCE:S1069 -->
-The relation between position and meaning becomes especially clear when a word moves.
-`一个词移动位置时，位置与意义的关系会变得格外清楚。`
-<!-- SENTENCE:S1070 -->
-A late colleague and a colleague who is late do not ordinarily give the same information.
-`a late colleague与a colleague who is late，通常提供不同的信息。`
-<!-- SENTENCE:S1071 -->
-In the first, late can refer to someone who has died; in the second, it usually concerns arrival after the expected time.
-`在前者中，late可以指已经去世的人；在后者中，它通常涉及晚于预期时间到达。`
-<!-- SENTENCE:S1072 USE:U01805 -->
-The example asks a reader to attend discriminately to the whole construction.
-`这个例子要求读者有分辨地注意整个结构。`
-<!-- SENTENCE:S1073 USE:U04004 -->
-A precise, formal teacher may insist on such distinctions even when a casual conversation supplies enough context to repair a mistake.
-`一位严谨刻板的教师，可能会坚持这些区别，即使在随意交谈中，语境足以弥补一次错误。`
-<!-- SENTENCE:S1074 -->
-Language learners gradually acquire the ability to follow them without pausing over every term.
-`语言学习者逐渐获得一种能力，无须停下来逐个思考术语，也能理解这些关系。`
-<!-- SENTENCE:S1075 -->
-They join a history in which speakers have continually reshaped sounds while readers have learned how marks on a page work together.
-`他们参与了一段历史：说话者不断重塑语音，读者则学习纸面上的符号如何共同起作用。`
-
-<!-- ARTICLE:A41 -->
-# A Memory Needs a Route Back
-
-<!-- SENTENCE:S1076 -->
-A person can encounter a fact without later being able to recall it.
-`一个人可以接触过某项事实，却在之后无法想起来。`
-<!-- SENTENCE:S1077 -->
-OpenStax separates memory into encoding, storage and retrieval, three functions that ask different questions.
-`OpenStax把记忆区分为编码、储存与提取，这三种功能对应不同的问题。`
-<!-- SENTENCE:S1078 -->
-Encoding concerns how information enters the system; retrieval concerns how it becomes available again.
-`编码涉及信息如何进入系统；提取涉及信息怎样再次可用。`
-<!-- SENTENCE:S1079 USE:U04215 -->
-Retention is the ability to keep learned information in memory so that it remains available later.
-`记忆保持，是使学过的信息日后仍保存在记忆中、可供使用的能力。`
-<!-- SENTENCE:S1080 USE:U04218 -->
-A retentive memory can hold information well, yet a person may still need a useful cue to find a particular memory.
-`善于记住事物的记忆，能够很好地保持信息，但人仍可能需要有用的线索，才能找到某一项特定记忆。`
-<!-- SENTENCE:S1081 -->
-The route back is part of the practical experience of knowing.
-`返回信息的路径，是实际认知体验的一部分。`
-
-<!-- SENTENCE:S1082 -->
-The textbook describes experiments in which attention to meaning improved later memory for verbal material.
-`教材介绍了一些实验：关注意义，改善了之后对语言材料的记忆。`
-<!-- SENTENCE:S1083 -->
-A sentence that first seems puzzling can become easier to remember once a fitting context is supplied.
-`一句起初令人困惑的话，在得到合适语境之后，可能变得更容易记住。`
-<!-- SENTENCE:S1084 -->
-The words have not changed, but their relations now support a coherent scene or idea.
-`词本身没有改变，但词与词的关系，现在支持起一个连贯的场景或想法。`
-<!-- SENTENCE:S1085 USE:U04220 -->
-When someone reads retentively, new information becomes connected with material that can later help call it back.
-`有人以能够记住内容的方式阅读时，新信息会与日后有助于唤回它的材料连接起来。`
-<!-- SENTENCE:S1086 -->
-This is why understanding what a phrase contributes to a sentence can matter more than recognizing its shape.
-`这就是为什么理解短语对句子的作用，可能比认出它的字形更重要。`
-<!-- SENTENCE:S1087 -->
-A reader can build several routes to the same concept through meaning, sound and relevant experience.
-`读者可以通过意义、声音及相关经历，建立通向同一概念的多条路径。`
-
-<!-- SENTENCE:S1088 -->
-The chapter also discusses memory as organized through associations rather than a single undifferentiated list.
-`该章还讨论，记忆可以通过关联来组织，而不是存成一个没有区分的单一列表。`
-<!-- SENTENCE:S1089 -->
-Activating one concept can make related concepts easier to reach.
-`激活一个概念，可以让相关概念更容易被提取。`
-<!-- SENTENCE:S1090 -->
-A familiar melody may bring back words that would be difficult to recite without it.
-`熟悉的旋律，可能唤回离开旋律便难以背出的歌词。`
-<!-- SENTENCE:S1091 -->
-An example tied to an experience can supply a different cue.
-`与经历联系起来的例子，可以提供另一种线索。`
-<!-- SENTENCE:S1092 USE:U04914 -->
-People who teach become transmitters of knowledge partly by helping others form these connections.
-`教师之所以成为知识的传递者，部分就在于帮助他人建立这些连接。`
-<!-- SENTENCE:S1093 -->
-Learning then changes more than what has been encountered: it changes what a later situation can bring to mind.
-`因此，学习改变的不只是接触过什么，还改变了日后的情境能够使人想起什么。`
-
-<!-- ARTICLE:A42 -->
-# Reading the Gaps in a Greek Inscription
-
-<!-- SENTENCE:S1094 -->
-A broken inscription preserves a voice and interrupts it at the same time.
-`一块残损的铭文既保存了一个声音，也同时打断了它。`
-<!-- SENTENCE:S1095 USE:U04201 -->
-Stone can retain the terms of a lease or the wording of a law long after the people concerned have disappeared.
-`即使当事人早已不在人世，石头仍能保存租约的条款或法律的措辞。`
-<!-- SENTENCE:S1096 -->
-Yet one missing group of letters may determine whether a passage names an alliance, an assembly, or another institution.
-`然而，一组缺失的字母就可能决定一段文字说的是同盟、议会，还是另一种机构。`
-
-<!-- SENTENCE:S1097 USE:U04108 -->
-In 2022, DeepMind and academic collaborators presented Ithaca, a system trained to restore damaged ancient Greek texts and suggest their time and place of origin.
-`2022年，DeepMind与学术合作者介绍了Ithaca：一个经过训练、可补复残损古希腊文献并建议其年代和出处的系统。`
-<!-- SENTENCE:S1098 -->
-It processes characters as well as words, because a fragment may preserve only part of a word.
-`它既处理单个字符，也处理词语，因为残片可能只留下一个词的一部分。`
-<!-- SENTENCE:S1099 -->
-Several restoration hypotheses remain available to the historian rather than disappearing behind a single answer.
-`历史学者可以看到多个缺文复原假说，而不只是看见一个掩盖其他可能的答案。`
-
-<!-- SENTENCE:S1100 USE:U03115 -->
-A historian working in isolation can bring considerable expertise to a fragment, but cannot instantly recall every parallel inscription.
-`独自工作的历史学者可以凭借丰富的专业知识研究残片，却无法立即想起每一处相似铭文。`
-<!-- SENTENCE:S1101 -->
-The model offers another route through that accumulated material.
-`模型提供了检索这些积累材料的另一条路径。`
-<!-- SENTENCE:S1102 USE:U04108 -->
-In the project's reported evaluation, historians assisted by Ithaca restored text more accurately than either the unassisted historians or the model alone.
-`在该项目报告的评估中，得到Ithaca协助的历史学者补复文字的准确度，高于学者独自工作或模型独立工作时的准确度。`
-<!-- SENTENCE:S1103 -->
-That result describes an evaluation, not an unlimited power to recover anything once written.
-`这一结果描述的是一次评估，而不是一种能够找回所有既有文字的无限能力。`
-
-<!-- SENTENCE:S1104 -->
-For a reader, the most interesting consequence is that a damaged object can re-enter a larger conversation.
-`对读者而言，最有意思的结果是：一件残损之物可以重新进入更广阔的对话。`
-<!-- SENTENCE:S1105 -->
-Words beside a gap, comparable decrees, and a plausible date can illuminate one another.
-`缺口旁的词语、可资对照的法令和合理的年代，可以相互阐明意义。`
-<!-- SENTENCE:S1106 USE:U03112 -->
-The inscription's isolation is reduced even where the break in the stone remains.
-`即使石头上的断口依然存在，铭文与其他材料之间的隔绝也会有所减轻。`
-
-<!-- ARTICLE:A43 -->
-# The Dinosaur with a Spike in the Wrong Place
-
-<!-- SENTENCE:S1107 -->
-The Crystal Palace Iguanodon has a spike on its nose, where a living Iguanodon would have had none.
-`水晶宫的鬣蜥龙塑像鼻部有一根尖刺，而活着的鬣蜥龙那里并没有尖刺。`
-<!-- SENTENCE:S1108 USE:U04107 -->
-Its striking mistake survives from a serious attempt to restore an extinct animal from incomplete remains.
-`这个醒目的错误，来自一次依据不完整遗骸推测复原灭绝动物形态的认真尝试。`
-<!-- SENTENCE:S1109 USE:U04114 -->
-The restoration gave the public a body to imagine, long before a relatively complete skeleton became available.
-`在较为完整的骨架出现之前，这座复原模型已经给公众提供了一个可以想象的身体。`
-
-<!-- SENTENCE:S1110 -->
-Teeth found in Sussex in 1822 resembled those of an iguana on a far larger scale.
-`1822年在萨塞克斯发现的牙齿形似鬣蜥的牙齿，尺寸却大得多。`
-<!-- SENTENCE:S1111 -->
-Scattered bones added information without making their arrangement obvious.
-`散落的骨骼增加了信息，却并未让它们的排列方式变得一目了然。`
-<!-- SENTENCE:S1112 -->
-A spike could be fitted into a familiar, rhinoceros-like outline before its true position was understood.
-`在人们明白尖刺真正的位置之前，它可以被安放进一种熟悉的、类似犀牛的轮廓中。`
-<!-- SENTENCE:S1132 USE:U03102 -->
-To isolate one bone from the surrounding rock is to separate structures that reached the excavator as a single buried mass.
-`把一块骨骼从周围岩石中分离出来，就是将到达发掘者面前时混为一体的埋藏物分开。`
-<!-- SENTENCE:S1133 -->
-That separation makes study possible, while the positions of neighbouring remains can still help explain where the bone belongs.
-`这种分离让研究成为可能，而邻近遗骸的位置仍能帮助解释这块骨骼应当安放在哪里。`
-<!-- SENTENCE:S1193 USE:U01416 -->
-For a time, a nose spike belonged to the conventional wisdom about Iguanodon's form.
-`在一段时期内，鼻部有尖刺是人们对鬣蜥龙形态的普遍看法之一。`
-
-<!-- SENTENCE:S1113 -->
-Discoveries in the 1870s established that the spikes belonged to the thumbs.
-`19世纪70年代的发现确定了这些尖刺属于拇指。`
-<!-- SENTENCE:S1114 -->
-The Bernissart finds of 1878 supplied numerous skeletons, many relatively complete.
-`1878年的伯尼萨尔发现提供了大量骨架，其中许多相当完整。`
-<!-- SENTENCE:S1115 -->
-Even those skeletons were assembled into an upright posture reflecting nineteenth-century thinking.
-`即使是这些骨架，也被组装成了反映19世纪认识的直立姿态。`
-<!-- SENTENCE:S1116 -->
-The Natural History Museum explains that Iguanodon predominantly walked on all fours, while the old Belgian mounts are too fragile to rearrange.
-`英国自然历史博物馆解释说，鬣蜥龙主要以四足行走，而比利时那些旧装架骨骼已脆弱得无法重新排列。`
-
-<!-- SENTENCE:S1117 -->
-A reconstruction therefore has two histories: the life it depicts and the knowledge available when it was made.
-`因此，一件复原作品有两段历史：它所描绘的生命史，以及制作时可用的知识史。`
-<!-- SENTENCE:S1118 -->
-The old nose spike is informative precisely because it records where those histories diverged.
-`旧塑像的鼻刺之所以能提供信息，恰恰是因为它记录了这两段历史发生偏离的位置。`
-<!-- SENTENCE:S1119 USE:U02006 -->
-It shows how a convincing whole can emerge before every relationship between the surviving parts has been understood.
-`它表明：即使幸存各部分之间的关系尚未全部弄清，一个看似可信的整体也可能已经出现。`
-
-<!-- ARTICLE:A44 -->
-# The Hidden Movement Around a Ship
-
-<!-- SENTENCE:S1136 -->
-A ship's working life depends on movements that receive less attention than the ship itself.
-`舰船的工作寿命，依赖着一些比舰船本身更少受到关注的搬运与转移。`
-<!-- SENTENCE:S1137 -->
-Fuel, food and equipment must arrive in usable form, and useful equipment may leave again when the vessel retires.
-`燃料、食品和设备必须以可用的状态到达；当舰船退役时，仍有用的设备又可能被运出。`
-<!-- SENTENCE:S1138 -->
-A 2009 NAVAIR account describes the removal and redistribution of aviation support equipment from USS Kitty Hawk.
-`美国海军航空系统司令部2009年的一篇报道，讲述了从“小鹰号”航空母舰拆卸、卸载并重新分配航空保障设备的过程。`
-<!-- SENTENCE:S1139 USE:U01412 -->
-Kitty Hawk used conventional propulsion, drawing its shipboard power from a non-nuclear system.
-`“小鹰号”使用常规动力，以非核动力系统提供舰上动力。`
-<!-- SENTENCE:S1140 USE:U01411 -->
-Conventional weapons, whose effects do not depend on a nuclear explosion, belong to a different question about what a warship carries.
-`破坏效应不依赖核爆炸的常规武器，则属于舰船携带何种装备的另一个问题。`
-
-<!-- SENTENCE:S1141 -->
-The removal team had to coordinate work in San Diego and Bremerton, rather than perform the whole job in one yard.
-`卸载团队必须协调圣迭戈和布雷默顿两地的工作，而不是在同一个船厂完成全部任务。`
-<!-- SENTENCE:S1142 -->
-A large movement of equipment also required smaller permissions and preparations: job orders, access through bulkheads, lifting arrangements and transport.
-`大规模设备搬运也需要更细小的许可与准备：工单、穿过舱壁的通道、起吊安排和运输。`
-<!-- SENTENCE:S1143 -->
-The report describes missing job orders being entered and a packing station being organized so that equipment could be sorted, documented and sent onward.
-`报道描述了补录缺失工单、组织包装站的过程，以便把设备分类、登记并运往下一站。`
-<!-- SENTENCE:S1144 -->
-In Bremerton, limited shore space meant that equipment had to move directly from the ship to waiting trucks.
-`在布雷默顿，岸上空间有限，设备需要直接从舰船装上等候的卡车。`
-<!-- SENTENCE:S1145 USE:U04313 -->
-This was the reverse of the usual process of bringing equipment aboard to prepare a ship for service.
-`这与通常把设备运上舰船、为服役做准备的流程恰好相反。`
-<!-- SENTENCE:S1146 USE:U04312 -->
-Retirement might suggest an end to the equipment's working life; for the items redistributed to other users, the reverse was true.
-`退役可能让人想到设备工作寿命的终结；对于重新分配给其他使用者的那些物品，情况却恰恰相反。`
-
-<!-- SENTENCE:S1147 -->
-At sea, the same wider system of supply keeps a vessel away from port for longer.
-`在海上，同一个更广泛的补给体系，让舰船能够更长时间不返回港口。`
-<!-- SENTENCE:S1148 -->
-A Royal Navy account from October 2024 describes RFA Tidesurge transferring fuel and supplies to allied ships in the North Atlantic.
-`英国皇家海军2024年10月的一篇报道，描述了辅助舰队“潮涌号”在北大西洋向盟国舰船输送燃料和物资的情况。`
-<!-- SENTENCE:S1149 USE:U02310 -->
-During a replenishment evolution, ships manoeuvre into parallel courses and match their speed while lines and hoses connect them.
-`在一次补给机动中，舰船调整成平行航向、匹配航速，并以绳索和软管相连。`
-<!-- SENTENCE:S1150 -->
-Food and spare parts can also travel by a suspended load beneath a helicopter.
-`食品和备件也可以吊挂在直升机下方运输。`
-<!-- SENTENCE:S1151 -->
-The movement is a coordinated operation involving the people who steer, signal, lift, pack and receive.
-`这种移动是一项协调作业，涉及操舵、发信号、起吊、包装和接收物资的人。`
-
-<!-- SENTENCE:S1152 USE:U04517 -->
-An individual shift of a heavy load may be brief, but its place in the operation has to be understood.
-`一件重物的单次移位可能很短暂，但必须明白它在整体作业中的位置。`
-<!-- SENTENCE:S1153 USE:U04515 -->
-Cargo that shifts as a hull rolls can put forces where the crew did not intend them.
-`随着船体横摇而发生移位的货物，可能把力施加到船员未曾预期的位置。`
-<!-- SENTENCE:S1261 USE:U04606 -->
-Lifting systems must sustain the strain of repeated use, not merely carry a load once.
-`起吊系统必须经受反复使用的应力，而不仅是搬起一次重物。`
-<!-- SENTENCE:S1154 USE:U04602 -->
-Equipment that has sustained damage may need repair before another crew can rely on it.
-`已经遭受损坏的设备，可能必须先修理，另一组人员才能依赖它工作。`
-<!-- SENTENCE:S1155 -->
-These are general problems of moving material, whether the destination is another ship or a truck on the quay.
-`这些都是搬运物料时的一般问题，无论目的地是另一艘舰船，还是码头上的一辆卡车。`
-<!-- SENTENCE:S1156 -->
-The two accounts reveal different stages of one working world: supply supports a ship in service, and redistribution carries useful objects beyond its retirement.
-`这两篇报道揭示了同一个工作世界的不同阶段：补给支撑服役中的舰船，重新分配则让有用的物品在它退役后继续发挥作用。`
-
-<!-- ARTICLE:A45 -->
-# A Student Room Has More Than One Calendar
-
-<!-- SENTENCE:S1157 -->
-Looking for a student room involves more than locating an empty bedroom.
-`寻找学生住房，不只是找到一间空卧室。`
-<!-- SENTENCE:S1158 -->
-The search also connects a date, a group of people, a payment schedule and a set of daily arrangements.
-`找房还要把日期、一群人、付款安排和日常生活安排联系起来。`
-<!-- SENTENCE:S1159 -->
-Nottingham Trent University's private-accommodation guide distinguishes university accommodation from housing booked directly with a private provider.
-`诺丁汉特伦特大学的私人住宿指南，区分了大学住宿与直接向私人提供者预订的住房。`
-<!-- SENTENCE:S1160 -->
-The person answering a question about a booking may consequently be an agent or private provider rather than the university.
-`因此，回答预订问题的人，可能是中介或私人提供者，而不是大学。`
-
-<!-- SENTENCE:S1161 USE:U04212 -->
-In its housing guide revised in 2016, St Mary's University describes a summer retainer as reduced rent paid when the student is away.
-`在2016年修订的住房指南中，圣玛丽大学把暑期保房租金描述为学生不在时支付的较低租金。`
-<!-- SENTENCE:S1162 -->
-NTU's guide also uses retainer for a payment reserving accommodation before a contract begins, without itself granting occupation during that period.
-`诺丁汉特伦特大学的指南，也用retainer指合同开始前为预留住房支付的款项，而支付该款本身并不赋予该期间的入住权。`
-<!-- SENTENCE:S1163 -->
-The examples show how a student's calendar can separate paying for a room, keeping it available and actually living in it.
-`这些例子表明，学生的日历可以把为房间付费、使房间保持可用，以及实际住在其中分开。`
-<!-- SENTENCE:S1164 -->
-For planning the academic year, the useful detail is which period each payment covers and what use of the room belongs to that period.
-`规划学年生活时，有用的细节是每笔款项对应哪段时间，以及在那段时间里房间可作何使用。`
-
-<!-- SENTENCE:S1165 -->
-Once people share a home, time has another practical meaning.
-`人们合住以后，时间又有了另一种实际含义。`
-<!-- SENTENCE:S1166 USE:U00412 -->
-A cleaning rota might give two housemates responsibility in alternate weeks, so that each takes every other week.
-`清洁轮值表可以让两位室友隔周负责，因此每人每隔一周轮到一次。`
-<!-- SENTENCE:S1167 -->
-A change in the household then requires a change in who does the work, not merely a change in the name beside a room.
-`合住成员发生变化后，需要改变的是由谁来做这些工作，而不只是在房间旁改一个名字。`
-<!-- SENTENCE:S1168 -->
-The usefulness of a room grows through these ordinary arrangements: when someone can arrive, what has been reserved, and how people will live together after the keys are handed over.
-`房间的实用价值，正是在这些日常安排中形成的：何时能够到达、预留了什么，以及交钥匙以后人们怎样共同生活。`
-
-<!-- ARTICLE:A46 -->
-# A Phone Call Has Two Routes
-
-<!-- SENTENCE:S1194 -->
-A telephone call connects two people, but its sound and its bill need not travel in the same direction.
-`一次电话连接两个人，但声音与账单未必朝同一个方向传递。`
-<!-- SENTENCE:S1195 USE:U04319 -->
-A caller can ask an operator to reverse the charges, so that the person receiving the call pays for it.
-`拨打者可以请接线员安排由接听方付费，让接电话的人支付通话费用。`
-<!-- SENTENCE:S1196 -->
-BT's help page describes this as a reverse-charge or collect call.
-`BT的帮助页把这种方式称为reverse-charge call或collect call。`
-<!-- SENTENCE:S1197 -->
-The request changes the arrangement for payment, while the conversation still begins with someone trying to reach another person.
-`这一请求改变了付款安排，而谈话仍然始于一个人试图联系另一个人。`
-
-<!-- SENTENCE:S1198 -->
-The page also distinguishes ordinary telephone lines from categories of numbers to which that service does not apply.
-`该页还区分了普通电话线路与不适用这项服务的号码类别。`
-<!-- SENTENCE:S1199 -->
-A telephone number is therefore more than an address: its type can affect which arrangements the network supports.
-`因此，电话号码不只是一个地址；号码类型可以影响网络支持哪些安排。`
-<!-- SENTENCE:S1200 -->
-For someone discussing a bill, asking who initiated a call is not quite the same as asking who agreed to pay for it.
-`对于讨论账单的人来说，询问谁发起了通话，与询问谁同意付费，并不完全相同。`
-<!-- SENTENCE:S1201 -->
-This older operator-assisted mechanism makes a familiar feature of communication visible: reaching a person and arranging the cost are related tasks with separate participants.
-`这种由接线员协助的旧有机制，揭示了通信中一个熟悉的特点：联系到某个人与安排费用，是彼此相关、却可能涉及不同参与方的任务。`
-
-<!-- ARTICLE:A47 -->
-# A Hammer on a Roman Coin
-
-<!-- SENTENCE:S1202 -->
-A Roman denarius entered the Royal Mint Museum through the generosity of the numismatist L. A. Lawrence.
-`一枚罗马第纳里银币，通过钱币学家劳伦斯的慷慨捐赠进入了英国皇家铸币博物馆。`
-<!-- SENTENCE:S1203 -->
-The museum's account connects his collecting with objects he presented during the 1920s and 1930s.
-`博物馆的说明，把他的收藏活动与他在20世纪20至30年代捐赠的物品联系起来。`
-<!-- SENTENCE:S1204 USE:U04316 -->
-The coin's reverse bears a design involving a hammer and tongs.
-`这枚银币的背面有涉及锤和钳的图案。`
-<!-- SENTENCE:S1205 -->
-Those implements once seemed to represent the manufacture of coins, making the object especially appropriate for a mint's collection.
-`这些工具一度被认为表现了铸币活动，使这件物品显得格外适合铸币机构收藏。`
-
-<!-- SENTENCE:S1206 -->
-The museum also records another interpretation: the tools may refer to Vulcan, the god of metalworking.
-`博物馆也记录了另一种解释：这些工具可能指向金属加工之神伏尔甘。`
-<!-- SENTENCE:S1207 -->
-A workshop and a divine figure can share an attribute without telling the same story.
-`作坊与神祇可以共享同一种标志，却并不讲述相同的故事。`
-<!-- SENTENCE:S1208 USE:U01420 -->
-At the scale of a coin, an engraver may conventionalize a complicated tool into an established arrangement of lines.
-`在钱币这样的小尺度上，雕刻师可以把复杂工具的形态处理成约定俗成的线条组合。`
-<!-- SENTENCE:S1209 USE:U01415 -->
-A conventional representation follows a visual tradition rather than reproducing every irregular surface of the tool found in a workshop.
-`这种因袭画法遵循视觉传统，而不是再现作坊工具表面的每一处不规则细节。`
-<!-- SENTENCE:S1210 -->
-That economy makes a small design readable while allowing its associations to reach beyond the thing depicted.
-`这种简省使小图案可以被辨认，也让它的联想超出被描绘的物体本身。`
-
-<!-- SENTENCE:S1211 -->
-Lawrence's reason for giving the coin is consequently part of its history alongside the ancient design.
-`因此，劳伦斯捐赠这枚钱币的理由，也与古代图案一起，构成了它的历史。`
-<!-- SENTENCE:S1212 -->
-A collection preserves objects, but it also preserves earlier ways of asking what those objects mean.
-`收藏既保存物品，也保存人们先前追问物品意义的方式。`
-
-<!-- ARTICLE:A48 -->
-# Recycling Starts Before and After a Plastic Object Exists
-
-<!-- SENTENCE:S1213 -->
-A discarded plastic object has at least two structures: the visible shape and the molecular arrangement that makes the shape possible.
-`一件废弃塑料制品至少有两种结构：可见的外形，以及使这种外形成为可能的分子排列。`
-<!-- SENTENCE:S1214 -->
-Changing one is not always enough to change the other.
-`改变其中一种，并不总是足以改变另一种。`
-<!-- SENTENCE:S1215 USE:U01513 -->
-A conveyor can carry discarded bottles past a sorting point, organizing their physical journey before any chemical treatment begins.
-`输送带可以把废瓶运过分拣点，在化学处理开始前组织它们的物理行程。`
-<!-- SENTENCE:S1216 -->
-The sorter still faces mixtures of polymers, colours, additives and products assembled from several layers.
-`分拣过程仍然面临聚合物、颜色、添加剂，以及由多层材料构成的产品所形成的混合物。`
-
-<!-- SENTENCE:S1217 -->
-A Department of Energy account from 2021 explains why this complexity continues inside the material.
-`美国能源部2021年的一篇报道，说明了这种复杂性为何会延续到材料内部。`
-<!-- SENTENCE:S1218 -->
-Polymer chains have chemical bonds that do not simply disappear when a bottle is collected or ground into smaller pieces.
-`聚合物长链含有化学键；瓶子被收集起来或磨成小块时，这些键不会就此简单消失。`
-<!-- SENTENCE:S1219 USE:U03410 -->
-A manufacturer can use an additive as a modifier of flexibility or another working property.
-`制造商可以把添加剂用作柔韧性或其他使用性能的调节剂。`
-<!-- SENTENCE:S1220 USE:U03405 -->
-A chemist who modifies the substituent groups attached to a polymer chain can instead alter properties such as its behaviour in a solvent.
-`化学家改变聚合物链上所连的取代基时，则可以改变其在溶剂中的行为等性质。`
-<!-- SENTENCE:S1221 -->
-Physical sorting, formulation and chemical alteration therefore act on different parts of the object's material history.
-`因此，物理分拣、配方调配与化学改变，作用于制品材料历史的不同部分。`
-
-<!-- SENTENCE:S1222 -->
-The DOE report describes research on both redesigning plastics and transforming plastics that already exist.
-`这篇能源部报道，描述了重新设计塑料和转化既有塑料两方面的研究。`
-<!-- SENTENCE:S1223 -->
-At Berkeley's Molecular Foundry, researchers found that a polymer they had designed could break back into its building units under acidic conditions.
-`在伯克利分子铸造厂，研究人员发现，他们设计的一种聚合物能够在酸性条件下重新分解为构成单元。`
-<!-- SENTENCE:S1224 -->
-They also investigated removing dyes and additives and using the recovered components again.
-`他们还研究了去除染料和添加剂，并再次使用回收组分。`
-<!-- SENTENCE:S1225 -->
-This laboratory result asks the material to carry the possibility of its later recovery within its original design.
-`这项实验室成果，要求材料在最初设计中就包含日后回收的可能性。`
-
-<!-- SENTENCE:S1226 -->
-Other research in the account uses catalysts to turn existing plastics into potentially useful liquids and waxes.
-`报道中的其他研究，则利用催化剂把既有塑料转化为可能有用的液体和蜡。`
-<!-- SENTENCE:S1227 -->
-The two approaches begin at different points in time: one designs a future cycle, while the other works on material already made.
-`这两条路径始于不同时间点：一条设计未来的循环，另一条处理已经制成的材料。`
-<!-- SENTENCE:S1228 -->
-Both give molecular structure a role in a problem that is often pictured only as bins, trucks and accumulated rubbish.
-`两者都让分子结构参与了一个常常只被想象成垃圾桶、卡车和堆积垃圾的问题。`
-<!-- SENTENCE:S1229 -->
-A useful recycling system has to connect those scales, from the bond inside a chain to the route an object takes after use.
-`一个有用的回收体系，需要把这些尺度连接起来：从分子链内部的化学键，一直到物品使用后的去向。`
-
-<!-- ARTICLE:A49 -->
-# Why a Brick Wall Has a Pattern
-
-<!-- SENTENCE:S1230 -->
-A brick wall displays a pattern because small units have to become a continuous surface.
-`砖墙呈现图案，是因为小型单元必须组成连续的表面。`
-<!-- SENTENCE:S1231 -->
-The long face of a brick is its stretcher face; the short end is its header face.
-`砖的长面叫顺面，短端面叫丁面。`
-<!-- SENTENCE:S1232 -->
-Wienerberger's technical guide explains how different arrangements of those faces produce different bonds.
-`维纳博艮的技术指南，说明了这些砖面的不同排列怎样形成不同组砌方式。`
-<!-- SENTENCE:S1233 USE:U04528 -->
-In a common stretcher bond, the shift between successive courses places each vertical joint over the body of a brick below.
-`在常见的顺砖组砌中，相邻砖层之间的错缝，使每条竖缝落在下层砖的砖身上。`
-
-<!-- SENTENCE:S1234 -->
-English bond alternates courses of headers and stretchers, whereas Flemish bond combines the two within a course.
-`英式组砌让丁砖层与顺砖层交替出现，而佛兰芒式组砌则在一层中结合两者。`
-<!-- SENTENCE:S1235 -->
-The repeated unit is therefore part of a larger relation, not simply a rectangle copied without reference to its neighbours.
-`因此，重复的单元属于一种更大的关系，而不只是一个不顾相邻位置、被反复复制的长方形。`
-<!-- SENTENCE:S1236 -->
-The guide also describes stack bond, in which the bricks line up without the usual overlap.
-`该指南还描述了叠砌法，其中砖块对齐，没有通常的搭接。`
-<!-- SENTENCE:S1237 -->
-Its appearance and structural requirements differ from those of bonded arrangements with overlapping courses.
-`它的外观和结构要求，与砖层搭接的组砌方式不同。`
-
-<!-- SENTENCE:S1238 -->
-Mortar joints add another scale of design through their profile and weather exposure.
-`灰缝通过自身形状以及经受风雨的方式，增加了另一个设计尺度。`
-<!-- SENTENCE:S1239 -->
-The same brick can consequently belong to quite different walls, depending on orientation, spacing and the treatment of the joints.
-`因此，同一种砖可以因朝向、间距和接缝处理不同，而构成十分不同的墙。`
-<!-- SENTENCE:S1240 -->
-Looking closely at an ordinary wall reveals a material rhythm built out of these decisions.
-`仔细看一面普通墙，就能发现由这些决定构成的材料节律。`
-
-<!-- ARTICLE:A50 -->
-# The Stillness Around a Memorial
-
-<!-- SENTENCE:S1241 -->
-A memorial ceremony can make a familiar military formation carry a different meaning.
-`纪念仪式可以让一种熟悉的军事队形承载不同的意义。`
-<!-- SENTENCE:S1242 -->
-The Army Museum of South Australia describes a catafalque party standing around a coffin or a memorial.
-`南澳大利亚陆军博物馆介绍了围站在棺木或纪念碑周围的守灵警卫。`
-<!-- SENTENCE:S1243 -->
-Four members of the guard face outward with their heads bowed.
-`四名警卫面向外侧，低下头。`
-<!-- SENTENCE:S1244 USE:U04320 -->
-They reverse arms as a gesture of mourning, holding their weapons in the reversed ceremonial position.
-`他们倒持武器，以这一仪式姿势表示哀悼。`
-
-<!-- SENTENCE:S1245 -->
-The formation directs the guard's gaze away from the centre while keeping the centre protected and acknowledged.
-`这种队形让警卫的目光朝向中心之外，同时使中心得到守护和致敬。`
-<!-- SENTENCE:S1246 -->
-The museum connects the practice with both lying in state and occasions of remembrance such as Anzac Day.
-`博物馆把这一做法与遗体供瞻仰的守灵，以及澳新军团日等纪念场合联系起来。`
-<!-- SENTENCE:S1247 -->
-For an observer, the meaning comes through a relation among position, movement and stillness.
-`对观察者而言，意义通过位置、动作与静止之间的关系显现出来。`
-<!-- SENTENCE:S1248 -->
-A lowered head and a reversed weapon can turn the discipline of a guard into a public expression of loss.
-`低垂的头与倒持的武器，可以把警卫的纪律转化为对失去生命的公开哀悼。`
-
-<!-- ARTICLE:A51 -->
-# The Hurricane Had Two Eyewalls
-
-<!-- SENTENCE:S1249 -->
-A hurricane can change while an aircraft is still collecting observations inside it.
-`飞机还在飓风内部采集观测数据时，飓风就可能已经发生变化。`
-<!-- SENTENCE:S1250 -->
-In September 2023, NASA researcher Patrick Duran joined NOAA P-3 flights through Hurricane Lee.
-`2023年9月，NASA研究人员帕特里克·杜兰搭乘美国国家海洋和大气管理局的P-3飞机，穿越飓风“李”。`
-<!-- SENTENCE:S1251 -->
-His research concerned lightning in the inner eyewall and its relationship to clouds and rising air.
-`他的研究涉及内眼墙中的闪电，以及闪电与云和上升气流的关系。`
-
-<!-- SENTENCE:S1252 -->
-The first flight found a small, elliptical eye without lightning at that time.
-`第一次飞行发现了一个小型椭圆形风眼，当时那里没有闪电。`
-<!-- SENTENCE:S1253 -->
-A later flight encountered lightning, showing the scientist a changing version of the structure he had studied from a distance.
-`后一次飞行遇到了闪电，让这位科学家看到了他此前从远处研究的结构正在变化的样子。`
-<!-- SENTENCE:S1254 -->
-On 11 September, the storm was forming a secondary eyewall around its existing one.
-`9月11日，风暴正在原有眼墙外形成第二道眼墙。`
-<!-- SENTENCE:S1255 USE:U03709 -->
-The aircraft orbited around the eye while a radar in its tail collected information about both eyewalls.
-`飞机在风眼周围盘旋，尾部雷达同时收集两道眼墙的信息。`
-
-<!-- SENTENCE:S1256 -->
-That flight path gave the instruments time with a developing structure rather than a single crossing of a fixed object.
-`这条飞行路径让仪器得以持续观测一个正在发展的结构，而不只是一次穿过一个固定物体。`
-<!-- SENTENCE:S1257 -->
-Secondary eyewall formation matters because it can affect the intensity of a strong hurricane.
-`第二道眼墙的形成之所以重要，是因为它可以影响强飓风的强度。`
-<!-- SENTENCE:S1258 -->
-The NASA account presents the observations as material for further study, including questions about electrification.
-`NASA的报道把这些观测作为进一步研究的材料，其中包括带电过程方面的问题。`
-
-<!-- SENTENCE:S1259 -->
-The episode gives scientific fieldwork a particular kind of time: the process being studied does not wait for the observer.
-`这一经历赋予科学实地研究一种特定的时间特征：被研究的过程不会等待观察者。`
-<!-- SENTENCE:S1260 -->
-A useful observation must connect where the aircraft flew, when it arrived and what the storm was becoming.
-`一次有用的观测，必须把飞机飞到哪里、何时到达，以及风暴正在变成什么样子联系起来。`
+<!-- ARTICLE:R1A01 -->
+# One Impact, Two Celestial Clocks
+
+<!-- SENTENCE:R1S01_01 USE:U03708,U03601 -->
+Didymos and its smaller companion, Dimorphos, orbit a shared centre of mass, bound together by their mutual gravitational attraction.
+`迪迪莫斯与较小的伴星迪莫弗斯围绕共同的质心运行，彼此的引力将它们维系在一起。`
+<!-- SENTENCE:R1S01_02 USE:U03701,U00601 -->
+The pair also follows an orbit around the Sun, with an approximate period of 770 days.
+`这对小行星还沿着一条绕太阳的轨道运行，周期约为770天。`
+<!-- SENTENCE:R1S01_03 USE:U03702 -->
+In September 2022, NASA's DART spacecraft struck Dimorphos while the moonlet was in orbit around Didymos.
+`2022年9月，美国国家航空航天局的DART航天器撞上了当时正绕迪迪莫斯运行的小卫星迪莫弗斯。`
+<!-- SENTENCE:R1S01_04 USE:U03703,U03711 -->
+The time needed for one orbit of its companion shortened by about 33 minutes; a 2026 NASA report described a second, much smaller orbital change.
+`它绕伴星运行一周所需的时间缩短了约33分钟；NASA在2026年的一篇报道中又介绍了第二种小得多的轨道变化。`
+<!-- SENTENCE:R1S01_05 USE:U00607 -->
+For the system's period around the Sun, the reported change was about 0.15 seconds, an approximation far too small to notice unaided.
+`就这个系统的绕日周期而言，报道的变化约为0.15秒，这个近似数值小得远非肉眼所能察觉。`
+
+<!-- SENTENCE:R1S01_06 USE:U03502,U02101 -->
+The spacecraft supplied momentum, but the material thrown out of the asteroid carried momentum away and enhanced the push on what remained.
+`航天器带来了动量，而从小行星上抛出的物质也带走了动量，增强了留存部分受到的推动作用。`
+<!-- SENTENCE:R1S01_07 USE:U02102 -->
+NASA reported an enhancement of roughly two: the escaping debris approximately doubled the effect of the spacecraft alone.
+`NASA报道的增强倍数约为二：逸出的碎屑使效果大致达到了仅靠航天器撞击时的两倍。`
+<!-- SENTENCE:R1S01_08 USE:U01203 -->
+A short-duration collision model can conserve total momentum by including the spacecraft, both asteroids and the ejecta, while treating external impulses as negligible.
+`一个描述短时碰撞的模型，可以把航天器、两颗小行星和喷出物都纳入系统，并将外界冲量视为可以忽略，从而保持总动量守恒。`
+<!-- SENTENCE:R1S01_09 USE:U01210,U01301 -->
+Conservation of momentum then constrains the possible outcomes; counting only the surviving rock would leave part of the exchange outside the calculation.
+`这样，动量守恒就约束了可能的结果；如果只计算留下来的岩石，就会把部分动量交换排除在计算之外。`
+
+<!-- SENTENCE:R1S01_10 USE:U02403 -->
+To measure the smaller change, observers exploited occasions when the asteroids passed in front of distant stars and briefly blocked their light.
+`为了测量较小的那种变化，观测者利用了小行星从遥远恒星前方经过、短暂遮住星光的时机。`
+<!-- SENTENCE:R1S01_11 USE:U04005 -->
+The campaign recorded more than twenty such events—22, to be precise—between October 2022 and March 2025.
+`这次观测行动在2022年10月至2025年3月间记录了二十多次这样的事件，确切地说是22次。`
+<!-- SENTENCE:R1S01_12 USE:U04003,U04011 -->
+Precise timings from different stations helped reveal the body's position, while the precision of the combined observations made a tiny change measurable.
+`不同观测站提供的精确时刻有助于确定天体的位置，而综合观测达到的精密程度，使一个微小变化变得可以测量。`
+<!-- SENTENCE:R1S01_13 USE:U02001,U03109,U00501 -->
+Consider the practical work: an observer may emerge from a vehicle at an isolated site, having anticipated where the asteroid's narrow shadow path will fall.
+`不妨想想具体的观测工作：一位观测者预先判断了小行星投下的狭窄影迹将落在哪里，随后可能在偏远地点走下车辆。`
+<!-- SENTENCE:R1S01_14 USE:U03003,U03803 -->
+Bad weather can intervene after a long journey, so the volunteers' persistence mattered as well as their equipment.
+`长途跋涉之后，恶劣天气仍可能打断计划，因此志愿者的坚持和他们的设备一样重要。`
+<!-- SENTENCE:R1S01_15 USE:U05009,U00906,U02004 -->
+Their measurements yielded results that could cohere with earlier observations, and a change in the larger system's motion emerged from the combined record.
+`他们的测量给出了能够与早期观测相吻合的结果，将这些记录结合起来，较大系统运动的变化便显现出来。`
+
+<!-- SENTENCE:R1S01_16 USE:U00606,U01501 -->
+A diagram with two circles is only an approximation of this moving system, but it can convey why the two clocks must be distinguished.
+`一张画着两个圆的图，只是对这个运动系统的近似表达，却能说明为什么必须区分这两只时钟。`
+<!-- SENTENCE:R1S01_17 USE:U04013 -->
+Saying simply that the orbit changed is imprecise, because it hides which body is going around which.
+`笼统地说“轨道改变了”并不精确，因为这种说法隐藏了究竟是哪个天体在围绕哪个天体运行。`
+<!-- SENTENCE:R1S01_18 USE:U03715 -->
+The distinction also matters for a long-lived orbiter such as Mars Odyssey, whose 2021 anniversary account described mapping and communications work from above Mars.
+`这种区别对火星奥德赛号这样的长期在轨飞行器也很重要；它在2021年的周年报道中介绍了从火星上空开展的测绘和通信工作。`
+<!-- SENTENCE:R1S01_19 USE:U03710,U04201 -->
+A launcher can orbit a spacecraft; keeping it useful afterwards requires instruments, communications and records that researchers retain for later comparison.
+`运载火箭能够将航天器送入轨道；要让它此后持续发挥作用，还需要仪器、通信以及供研究者保留、日后比较的记录。`
+<!-- SENTENCE:R1S01_20 USE:U04702,U03010 -->
+DART supplied tangible evidence that deliberate intervention can alter celestial motion, although these two asteroids posed no threat to Earth.
+`DART提供了明确可见的证据，表明有意实施的干预能够改变天体运动，不过这两颗小行星并不威胁地球。`
+<!-- SENTENCE:R1S01_21 USE:U01225 -->
+For a hypothetical future deflection mission, a conservative estimate of the effect would allow for a smaller response when planning the necessary lead time.
+`对于一项假想的未来偏转任务，规划所需提前量时，可以采用保守的效果估计，将较小的响应也考虑进去。`
+
+<!-- ARTICLE:R3A01 -->
+# A River Continues Its Work
+
+<!-- SENTENCE:R3S001 USE:U04402,U01502 -->
+When removal of the Elwha River's two dams began in 2011, it released a store of sediment that water could convey downstream again.
+`2011年埃尔瓦河两座水坝开始拆除，原先积存的沉积物得到释放，河水又能把它们运往下游。`
+<!-- SENTENCE:R3S002 -->
+A 2018 USGS account put the original trapped mass at about 33 million tons: roughly 8 million resettled along the river or at its mouth, while another 14 million dispersed into the ocean.
+`据美国地质调查局2018年的介绍，以原文的tons为单位，原先被拦住的沉积物约为3300万，其中约800万重新沉积在河道沿线或河口，另有约1400万分散进入海洋。`
+<!-- SENTENCE:R3S003 -->
+These were movements of material, not merely changes in the amount of water visible between the banks.
+`这涉及物质的迁移，不只是两岸之间可见水量的变化。`
+
+<!-- SENTENCE:R3S004 USE:U04501,U04537 -->
+Channels shifted, and shifting deposits altered where the current could run.
+`河道发生移位，不断变动的堆积物也改变了水流能够经过的位置。`
+<!-- SENTENCE:R3S005 USE:U04403,U04407 -->
+Sedimented material could be picked up again; sedimentation at one location did not make that location permanent.
+`已经沉积下来的物质仍可能再次被水带走；某处发生沉积，并不意味着沉积位置就此固定。`
+<!-- SENTENCE:R3S006 USE:U03303,U04406 -->
+As bars and channels migrated under the force of flowing water, the delta's sedimentary record continued to develop.
+`随着沙洲与河道在流水作用下迁移，三角洲的沉积记录也继续形成。`
+<!-- SENTENCE:R3S007 USE:U01701,U03804 -->
+The main pulse diminished, yet the persistence of change outlasted the most dramatic disturbance.
+`主要的沉积物流动高峰减弱了，但变化的持续时间超过了扰动最剧烈的阶段。`
+
+<!-- SENTENCE:R3S008 USE:U02601 -->
+A related 2017 study linked these physical changes to habitat and biological communities in the estuary.
+`一项相关的2017年研究，把这些物理变化与河口生境及生物群落联系起来。`
+<!-- SENTENCE:R3S009 -->
+Deposits enlarged intertidal and supratidal areas while reducing the entry of seawater into the former estuary complex.
+`沉积物扩大了潮间带与潮上带区域，同时减少了海水进入原有河口水域的量。`
+<!-- SENTENCE:R3S010 USE:U03208 -->
+For organisms living in that watery medium, a change in salinity changed the conditions of life.
+`对于生活在这种水体环境中的生物来说，盐度改变也就改变了生存条件。`
+<!-- SENTENCE:R3S011 -->
+During the study, fish and large invertebrates became less abundant, and freshwater species came to dominate communities previously associated with brackish water.
+`在研究所观察的时期，鱼类与大型无脊椎动物的丰度下降，原先与半咸水环境相联系的群落逐渐转为淡水物种占优势。`
+<!-- SENTENCE:R3S012 USE:U01904,U01901,U03114 -->
+Habitat diversity and a diverse biological community could not be assessed in isolation from those changing connections with the sea.
+`评估生境多样性和一个物种多样的生物群落，不能脱离这些不断变化的海洋联系。`
+
+<!-- SENTENCE:R3S013 USE:U02903 -->
+Researchers integrated old surveys, GPS measurements, laser surveys, photographs and river measurements to follow the transformation.
+`研究人员整合了旧测量记录、GPS测量、激光测量、照片与河流观测，以追踪这场变化。`
+<!-- SENTENCE:R3S014 USE:U02910,U03602 -->
+That integration drew on partners including USGS, NOAA and the Lower Elwha Klallam Tribe, whose mutual interest was a river none could describe fully with one instrument.
+`这项整合工作依靠了美国地质调查局、美国国家海洋和大气管理局以及下埃尔瓦克拉勒姆部落等合作方；他们共同关注的这条河，无法仅凭一种仪器得到完整描述。`
+<!-- SENTENCE:R3S015 USE:U00801 -->
+The river's capacity to reshape its surroundings also produced damage: a later flood changed its course and badly damaged a road and two campgrounds.
+`河流重塑周边环境的能力也造成了破坏：后来的一次洪水改变了河道，并严重损坏一条道路和两处露营地。`
+
+<!-- SENTENCE:R3S016 USE:U01212,U04111 -->
+For a conservationist, these findings make restoration a continuing relationship between water, sediment, organisms and human infrastructure.
+`对自然保护工作者而言，这些发现表明，恢复工作持续涉及水、沉积物、生物与人类基础设施之间的关系。`
+<!-- SENTENCE:R3S017 USE:U01211,U02302,U01207 -->
+Conservational decisions must respond as that relationship evolves; conservation cannot mean fixing every channel in its present position.
+`保护决策必须随着这种关系的逐渐变化作出调整；环境保护不能意味着把每条河道都固定在眼下的位置。`
+<!-- SENTENCE:R3S018 USE:U01202,U04601,U04615 -->
+To conserve a functioning river and sustain its living communities, sustainable management has to leave room for the physical movement on which those communities depend.
+`要保护一条正常发挥作用的河流，并使其中的生物群落得以延续，符合生态可持续要求的管理就必须为这些群落赖以存在的物理迁移留下空间。`
+
+<!-- ARTICLE:R1A12 -->
+# The River Opens a Route Back from the Sea
+
+<!-- SENTENCE:R1S12_01 -->
+For more than a century, two dams on Washington State's Elwha River blocked fish from most of the watershed.
+`一个多世纪以来，华盛顿州埃尔瓦河上的两座坝，阻止鱼类进入流域的大部分区域。`
+<!-- SENTENCE:R1S12_02 USE:U03302 -->
+Their removal between 2011 and 2014 reopened routes along which salmon migrate between river and ocean.
+`2011年至2014年的拆坝工程，重新打开了鲑鱼在河流与海洋之间迁徙的路线。`
+<!-- SENTENCE:R1S12_03 USE:U03310,U03304 -->
+A returning migrant carries nutrients acquired at sea, so its migration links places that a map may separate into blue water and green land.
+`一尾返回的迁徙鱼携带着在海洋中获得的营养，因此它的迁徙连接了地图上可能分别涂成蓝色水域与绿色陆地的地方。`
+<!-- SENTENCE:R1S12_04 USE:U03307 -->
+These migratory fish bring more than their own bodies upstream: marine nutrients help sustain production within the river's food web.
+`这些有季节迁徙习性的鱼带到上游的，不只是自身的身体：海洋营养有助于维持河流食物网中的生产过程。`
+<!-- SENTENCE:R1S12_05 USE:U03305,U03308 -->
+A migrational route is therefore also a route for matter, and restoring a migratory corridor reconnects ecological processes.
+`因此，一条迁徙路线也是物质移动的路线，恢复迁徙通道会重新连接生态过程。`
+
+<!-- SENTENCE:R1S12_06 USE:U03306,U02002,U03503 -->
+Picture a salmon approaching a shallow rapid: the migrator may emerge from the water in a leap, its momentum carrying it forward through a brief arc.
+`不妨想象一尾鲑鱼接近浅急流的情景：这尾迁徙者可能跃出水面，已有的冲势让它沿一小段弧线继续向前。`
+<!-- SENTENCE:R1S12_07 -->
+That general scene is only one moment in a longer recovery that NOAA researchers follow through fish populations, nutrients and aquatic invertebrates.
+`这个一般性场景，只是较长恢复过程中的一个瞬间；NOAA研究者通过鱼类种群、营养与水生无脊椎动物追踪这一过程。`
+<!-- SENTENCE:R1S12_08 -->
+Their account also records an uneven response: some invertebrates recovered quickly after heavy suspended sediment subsided, while diversity initially remained low.
+`他们的介绍也记录了并不整齐一致的响应：大量悬浮泥沙消退后，一些无脊椎动物很快恢复，但多样性最初仍然较低。`
+
+<!-- ARTICLE:R3A02 -->
+# The Distance Between a Home and a Station
+
+<!-- SENTENCE:R3S019 USE:U03005 -->
+A railway map can make a neighbourhood appear connected even when a long stretch of streets intervenes between someone's home and the nearest station.
+`一张铁路图可能让某个街区看起来交通便利，即使某个人的家与最近车站之间还隔着长长一段街道。`
+<!-- SENTENCE:R3S020 USE:U00401,U00403 -->
+A bus offers an alternative to that walk, or an alternative route for a journey that would otherwise depend on a crowded rail corridor.
+`公交车提供了替代步行的选择，也可以为原本依赖拥挤铁路走廊的行程提供另一条可选路线。`
+<!-- SENTENCE:R3S021 USE:U00408 -->
+Alternatively, a limited-stop service can concentrate on the connection to the railway rather than serving every local stop.
+`或者，一条少停站的线路可以集中承担通往铁路车站的接驳，而不必停靠沿途每一个本地站点。`
+
+<!-- SENTENCE:R3S022 -->
+On 24 October 2026, Singapore's announced additions for Tengah were still a plan for the following day: Services 873, 873M and 874 were due to begin on 25 October.
+`在2026年10月24日，新加坡已公布的登加新增公交服务仍是次日的计划：873、873M和874路定于10月25日开始运营。`
+<!-- SENTENCE:R3S023 -->
+Services 873 and 873M were intended to connect Tengah with Bukit Gombak, Hillview and Hume MRT stations, while 874 would connect it with Choa Chu Kang.
+`873和873M路计划把登加与武吉甘柏、山景及谦道地铁站连接起来，874路则将通往蔡厝港。`
+<!-- SENTENCE:R3S024 USE:U03409,U04705 -->
+Service 381 had already been extended to Punggol Coast on 13 September, a modification that tangibly changed its reach by giving more residents direct access to the transport hub.
+`381路已于9月13日延长至榜鹅海岸；这一改动让更多居民能够直接到达交通枢纽，具体改变了该线路的覆盖范围。`
+<!-- SENTENCE:R3S025 -->
+LTA reported 37 new or extended services and improvements to 76 existing services since the enhancement programme began in July 2024.
+`陆路交通管理局称，自2024年7月这项改善计划启动以来，已新增或延长37项公交服务，并改善76项现有服务。`
+
+<!-- SENTENCE:R3S026 USE:U02909,U00901 -->
+An integrated network needs a coherent relationship between routes, stops and the times at which passengers can use them.
+`一体化网络需要让线路、站点与乘客能够使用它们的时间之间形成协调一致的关系。`
+<!-- SENTENCE:R3S027 USE:U00102,U00109,U00303 -->
+Planners must adapt services to changing travel patterns, and this adaptation involves the allocation of vehicles, staff and road space.
+`规划人员必须根据出行模式的变化调整服务，而这一调整过程涉及车辆、人员与道路空间的分配。`
+<!-- SENTENCE:R3S028 USE:U00302,U00304 -->
+Once one corridor receives its allocation of buses, fewer remain available elsewhere; only resources not already committed are freely allocable to an additional service.
+`当一条走廊领到分配给它的公交车辆份额后，其他地方剩余可用的车辆就更少；只有尚未承诺用途的资源，才能自由划拨给新增服务。`
+<!-- SENTENCE:R3S029 USE:U00805,U00806 -->
+The seating capacity of a vehicle sets one limit, but frequency matters too: buses filled to capacity can still leave people at a stop.
+`一辆车的座位容量构成一道上限，但发车频率同样重要：即使车辆已经满员，站点上仍可能有人未能上车。`
+<!-- SENTENCE:R3S030 USE:U00502 -->
+Scheduling additional trips before a predictable rush is one way to anticipate passengers' needs through action.
+`在可预见的客流高峰到来前安排加班车，就是以实际行动预先满足乘客需求的一种方式。`
+
+<!-- SENTENCE:R3S031 USE:U01506,U04509,U04601 -->
+Behind the conveyance of passengers are drivers working shifts and arrangements that must sustain a usable frequency throughout the day.
+`乘客运输的背后，是轮班工作的司机，以及必须让全天发车频率保持可用水平的各项安排。`
+<!-- SENTENCE:R3S032 USE:U01508 -->
+For a resident far from rail, an ordinary bus may be the essential conveyance that makes the larger network usable.
+`对于远离铁路的居民，一辆普通公交车可能就是让整个大网络真正可用的关键交通工具。`
+<!-- SENTENCE:R3S033 USE:U03406,U05003 -->
+Its route remains modifiable as estates grow, but a diagram cannot show every moment when its driver must yield to another road user with priority.
+`随着住宅区发展，它的线路仍可调整，但线路图无法显示司机必须让有优先通行权的其他道路使用者先行的每一个时刻。`
+<!-- SENTENCE:R3S034 USE:U02910 -->
+The integration of bus and rail therefore has to work both on the map and in the ordinary movement of people between them.
+`因此，公交与铁路的整合既要在线路图上成立，也要在乘客日常的换乘行进中发挥作用。`
+
+<!-- ARTICLE:R3A03 -->
+# Before the M25 Had One Name
+
+<!-- SENTENCE:R3S035 USE:U03713 -->
+London's orbital motorway grew from a much longer history of attempts to carry traffic around the city.
+`伦敦的环城高速公路，源于更漫长的一段设法让交通绕城通行的历史。`
+<!-- SENTENCE:R3S036 -->
+A royal commission recommended a circular road in 1905, but those early proposals cannot simply be read as a map of the later M25.
+`1905年，一个皇家委员会建议修建环路，但不能把那些早期方案直接视为后来M25的路线图。`
+<!-- SENTENCE:R3S037 -->
+Plans changed as London expanded, while administrative boundaries repeatedly failed to match the larger area through which traffic moved.
+`随着伦敦扩张，规划不断改变，行政边界则一再与交通实际流动的更大区域不相吻合。`
+
+<!-- SENTENCE:R3S038 -->
+For years, official planning treated the outer route as separate northern and southern roads.
+`多年间，官方规划把外围线路当作彼此分开的北段道路与南段道路。`
+<!-- SENTENCE:R3S039 -->
+In November 1975, the northern M16 and southern M25 were brought under the single M25 name.
+`1975年11月，北面的M16与南面的M25被统一纳入M25这个名称之下。`
+<!-- SENTENCE:R3S040 -->
+Even the resulting ring includes the A282 at Dartford, a general-purpose road section, so the circular journey and the motorway designation do not coincide everywhere.
+`这条最终形成的环线还包括达特福德的A282普通公路段，因此，绕城行程与高速公路的名称范围并非处处重合。`
+
+<!-- ARTICLE:R2A01 -->
+# Learning the Lesson While Learning a Language
+
+<!-- SENTENCE:R2S001 USE:U01901,U01902 -->
+A classroom may contain a diverse range of home languages, while communities as diverse as Indigenous villages and migrant neighbourhoods face different obstacles to schooling.
+`一间教室里可能有多种家庭语言，而原住民村落与移民社区这样彼此不同的群体，所面对的就学障碍也各不相同。`
+<!-- SENTENCE:R2S002 USE:U03205 -->
+The medium of instruction therefore matters before a lesson's difficulty can even be judged: a child must understand what the teacher is asking.
+`因此，在判断课程难度之前，教学语言就已至关重要：孩子必须听懂老师在问什么。`
+<!-- SENTENCE:R2S003 USE:U00911,U00909 -->
+A frightened learner may become incoherent when asked to explain an idea in an unfamiliar language, although the same learner can explain it coherently at home.
+`一个受惊的学生被要求用陌生语言解释想法时，可能说得语无伦次，尽管同一个学生在家里能把它讲得清清楚楚。`
+<!-- SENTENCE:R2S004 USE:U00914 -->
+That apparent incoherence is a poor basis for deciding how much the child knows.
+`这种表面上的表达不连贯，不足以成为判断孩子懂得多少的依据。`
+
+<!-- SENTENCE:R2S005 USE:U00201 -->
+UNESCO's 2025 guidance advocates beginning education in languages learners understand, and its accompanying report describes a gradual route towards additional languages.
+`联合国教科文组织2025年的指南主张，教育应从学习者理解的语言开始；配套报道则介绍了逐步引入其他语言的路径。`
+<!-- SENTENCE:R2S006 USE:U00401 -->
+The second language first becomes a subject and later a parallel teaching language, offering an alternative to an abrupt replacement of the home language.
+`第二语言先成为一门学科，之后再成为并用的教学语言，为突然替换家庭语言的做法提供另一种选择。`
+<!-- SENTENCE:R2S007 USE:U03607,U03606 -->
+Preserving a home language and learning a national or international one need not be mutually exclusive goals; the two can be mutually supportive.
+`保留家庭语言与学习一种全国性或国际性语言，不必是无法兼顾的目标；两者可以相互支持。`
+<!-- SENTENCE:R2S008 USE:U02917,U04202 -->
+An integrative lesson might connect a familiar local account of a river with a new scientific description, helping pupils retain the science while extending their vocabulary.
+`一节整合式课程可以把学生熟悉的当地河流叙述与新的科学描述联系起来，帮助他们在扩展词汇的同时记住科学知识。`
+
+<!-- SENTENCE:R2S009 USE:U00105,U00108 -->
+The policy needs adaptable teachers who can respond adaptably when pupils' understanding differs from the timetable's assumptions.
+`这项政策需要能灵活适应的教师，在学生的理解程度与课表预设不一致时，能够调整应对方式。`
+<!-- SENTENCE:R2S010 USE:U00106 -->
+It also needs adaptable materials that can be revised for another language, rather than merely copied with unfamiliar words substituted.
+`它也需要可以改用于另一种语言的教材，而非仅仅换上陌生词语、照搬原本内容。`
+<!-- SENTENCE:R2S011 USE:U00104,U01906 -->
+Materials well adapted to a local setting can include stories, illustrations, and a diversity of familiar objects without narrowing the curriculum to local knowledge.
+`适合当地环境的教材可以纳入故事、插图和各种熟悉物件，同时不必把课程范围局限于本地知识。`
+<!-- SENTENCE:R2S012 USE:U01605,U00107,U01611 -->
+Teacher training can cultivate this adaptability, while the cultivation of confidence gives pupils more room to ask questions.
+`教师培训可以培养这种适应能力，而对自信心的培养则让学生更有余地提出问题。`
+<!-- SENTENCE:R2S013 USE:U00113,U00912 -->
+An adaptive assessment system must then respond to what pupils can actually understand; otherwise a multilingual curriculum and a single-language examination may form an incoherent policy.
+`适应性评价体系还必须回应学生实际能够理解的内容；否则，多语课程与单一语言考试可能构成一套彼此不协调的政策。`
+
+<!-- SENTENCE:R2S014 USE:U00207,U01905 -->
+UNESCO's advocacy also places families and communities inside the planning process, where linguistic diversity involves actively including people who would otherwise be absent.
+`联合国教科文组织的倡导还把家庭与社区纳入规划过程；这里的语言多元参与，意味着主动让原本可能缺席的人参与进来。`
+<!-- SENTENCE:R2S015 USE:U02901,U02911 -->
+Helping newcomers integrate into classroom life requires opportunities to speak and contribute, so social integration has a practical classroom meaning.
+`帮助新来者融入课堂生活，需要让他们拥有发言和作出贡献的机会，因此社会融合在课堂里有具体含义。`
+<!-- SENTENCE:R2S016 USE:U02201,U02207,U00301 -->
+Equity requires an equitable allocation of teaching support, and ministries must allocate staff and materials where the language barriers are greatest.
+`公平要求合理分配教学支持，教育部门必须把人员和教材分配到语言障碍最严重的地方。`
+<!-- SENTENCE:R2S017 USE:U02210,U02209 -->
+Distributing those resources equitably may mean unequal quantities, with the equitableness of the arrangement judged by learners' needs.
+`公平分配这些资源，可能意味着数量并不相等；这种安排是否公正，应依据学习者的需要判断。`
+
+<!-- SENTENCE:R2S018 USE:U03220,U01507 -->
+A multimedia lesson could pair a book with an audio recording and pictures, giving the conveyance of an idea more than one route.
+`一节多媒体课程可以把书本、录音与图片结合起来，为一个想法的传达提供不止一条路径。`
+<!-- SENTENCE:R2S019 USE:U03222 -->
+Multimedia can support the transition between languages when those routes clarify the same subject, rather than compete for attention.
+`当这些路径共同说明同一个主题，而非争抢注意力时，多媒体教学能够帮助学生完成语言之间的过渡。`
+
+<!-- ARTICLE:R1A02 -->
+# The Working Day Behind a Blank Employment Record
+
+<!-- SENTENCE:R1S02_01 -->
+A child needs washing, an older relative needs lunch, and someone must stay close enough to help them both.
+`孩子需要洗漱，年长的亲人需要午饭，还必须有人留在附近，随时照顾他们。`
+<!-- SENTENCE:R1S02_02 USE:U04623,U04603 -->
+Meals provide sustenance, but the shopping, preparation and feeding also sustain people who could not manage the day alone.
+`饭菜提供食物营养，而采购、准备和喂食的工作，也支持着无法独立度过一天的人。`
+<!-- SENTENCE:R1S02_03 USE:U04624,U01301 -->
+The sustenance of a dependent person is a continuing process, and its demands can constrain the carer's access to paid employment.
+`使一个需要照护的人持续获得滋养，是一个不断进行的过程；它提出的要求会限制照护者获得有酬工作的机会。`
+<!-- SENTENCE:R1S02_04 USE:U04322 -->
+When an adult child begins caring for a parent, this reversal of roles may bring affection and a severe shortage of time together.
+`成年子女开始照顾父母时，这种角色互换可能既伴随着亲情，也伴随着严重的时间短缺。`
+<!-- SENTENCE:R1S02_05 USE:U01002 -->
+For the carer, an uninterrupted hour becomes a precious commodity.
+`对照护者而言，不受打扰的一小时成了十分宝贵的东西。`
+
+<!-- SENTENCE:R1S02_06 -->
+ILO estimates published in 2024 put the number of people aged 15 or older outside the labour force because of care responsibilities at 748 million in 2023, including 708 million women.
+`国际劳工组织于2024年公布的估计显示，2023年有7.48亿15岁及以上的人因照护责任而不在劳动力市场之内，其中女性为7.08亿。`
+<!-- SENTENCE:R1S02_07 USE:U01702 -->
+The figures describe participation, and calling those carers idle would diminish work that the employment count does not capture.
+`这些数字描述的是劳动力参与情况；把这些照护者称作无所事事，会贬低就业计数未能涵盖的劳动。`
+<!-- SENTENCE:R1S02_08 USE:U04538 -->
+Imagine a manager seeing a long gap in an applicant's employment record and assuming she is shiftless.
+`设想一位经理看到求职者的就业记录有很长一段空白，就认定她懒散无能。`
+<!-- SENTENCE:R1S02_09 USE:U04539 -->
+He pictures her drifting shiftlessly through the day until she explains the timetable of meals, washing and appointments.
+`他想象她整天懒散度日，直到她说明自己安排做饭、洗涤和赴约的时间表。`
+<!-- SENTENCE:R1S02_10 USE:U04540 -->
+His assumption of shiftlessness has confused an absence of wages with an absence of effort.
+`他关于懒散的判断，把没有工资混同于没有付出劳动。`
+<!-- SENTENCE:R1S02_11 USE:U02213 -->
+The inequity in care responsibilities is visible in the gender gap, although the new estimates cannot be directly compared with the 2018 figures because methods changed.
+`照护责任分配中的不公平，体现于性别差距之中，不过由于方法改变，这次新估计不能与2018年的数字直接比较。`
+
+<!-- SENTENCE:R1S02_12 USE:U04518 -->
+Consider a household in which the adults negotiate a regular shift of duties rather than leaving one person permanently on call.
+`再设想一个家庭，成年人商议定期轮换职责，而不是让某个人永远随叫随到。`
+<!-- SENTENCE:R1S02_13 USE:U01101 -->
+A workable compromise must fit school hours, transport and the times when help is actually needed.
+`一个可行的折中安排，必须兼顾上学时间、交通条件以及真正需要帮助的时段。`
+<!-- SENTENCE:R1S02_14 USE:U02211 -->
+If all the inconvenient hours are assigned to the lower earner, the arrangement can remain inequitable even when its arithmetic looks tidy.
+`如果所有不方便的时段都被分给收入较低的人，即使账面安排看起来整齐，仍可能是不公平的。`
+<!-- SENTENCE:R1S02_15 USE:U01309,U01305 -->
+Travel constraints can make matters worse: a carer who feels constrained to refuse extra hours may repeatedly lose income.
+`出行限制会使情况恶化：一位觉得自己不得不拒绝额外工时的照护者，可能一再损失收入。`
+<!-- SENTENCE:R1S02_16 USE:U03601,U03605,U03809 -->
+Mutual support requires mutuality in the arrangement, including attention to whose rest is persistently interrupted.
+`相互支持要求安排本身具有相互性，其中包括关注谁的休息总是反复被打断。`
+
+<!-- SENTENCE:R1S02_17 USE:U04616 -->
+Paid care services can widen the possibilities, provided the people doing that work also have a sustainable working day.
+`有酬照护服务能够扩大可选择的空间，前提是从事这些工作的人也拥有可以持续承受的工作日安排。`
+<!-- SENTENCE:R1S02_18 USE:U04510 -->
+At an imagined care service, the evening shift asks for enough overlap with the next team to explain each person's needs.
+`在一家假想的照护机构，晚班人员要求与下一班有足够的交接重叠时间，以便说明每位服务对象的需要。`
+<!-- SENTENCE:R1S02_19 USE:U02702,U02703 -->
+Management offers an incentive for completing more visits, but the incentive payment scheme could reward speed at the expense of time with clients.
+`管理方提出，完成更多探访可获得奖励，但这项激励报酬方案可能奖励速度，却挤占了陪伴服务对象的时间。`
+<!-- SENTENCE:R1S02_20 USE:U04620,U02501,U02701 -->
+A schedule that is unsustainable creates friction between teams, while reliable hours give workers an incentive to stay.
+`无法持续承受的排班会造成班组之间的不和，而可靠的工作时间则给员工留下来的动力。`
+<!-- SENTENCE:R1S02_21 USE:U04214,U04201 -->
+Retention of experienced staff can help a service retain the relationships through which clients make their needs known.
+`留住有经验的员工，有助于机构保有那些让服务对象能够表达自身需要的关系。`
+
+<!-- SENTENCE:R1S02_22 USE:U03301,U03309 -->
+Some workers migrate to find care jobs, and the ILO's policy brief on migrant care workers connects growing demand with gaps in protection and recruitment governance.
+`一些劳动者为寻找照护工作而迁移；国际劳工组织关于移民照护劳动者的政策简报，将增长的需求与保护及招聘治理中的缺口联系起来。`
+<!-- SENTENCE:R1S02_23 USE:U02401 -->
+An agency owner may exploit care workers by demanding long hours for token wages while charging clients for their labour.
+`中介机构的经营者可能向客户收取劳动费用，却只付给照护工象征性的工资，并要求他们长时间工作，以此剥削劳动者。`
+<!-- SENTENCE:R1S02_24 USE:U02411,U03801,U02212 -->
+Such an exploitative relationship can persist when the costs of speaking out fall inequitably on the worker.
+`当发声的代价不公平地落在劳动者身上时，这种剥削关系就可能持续存在。`
+<!-- SENTENCE:R1S02_25 USE:U02412,U02408 -->
+The exploiter receives the benefit, while preventing exploitation requires arrangements that let workers be heard and fairly paid.
+`剥削者得到了好处，而要防止剥削，就需要作出让劳动者能够表达意见并获得公平报酬的安排。`
+<!-- SENTENCE:R1S02_26 USE:U01403,U04625 -->
+The ILO lists the Domestic Workers Convention among its standards for this field, where wages may provide a family's sustenance while the work supports another household.
+`国际劳工组织将《家庭工人公约》列为这个领域的标准之一；在这一领域，劳动者的工资可能维持着一个家庭的生计，而他们的工作又支持着另一个家庭。`
+
+<!-- ARTICLE:R2A02 -->
+# From a Resistance Record to Infection Control
+
+<!-- SENTENCE:R2S020 USE:U02008,U03805 -->
+The emergence of antibiotic resistance turns familiar bacterial infections into a persistent health problem, but a global surveillance number needs a clearly stated denominator.
+`抗生素耐药性的出现，使常见细菌感染成为一个长期存在的健康问题，但全球监测数字需要明确说明其统计分母。`
+<!-- SENTENCE:R2S021 -->
+WHO reported in October 2025 that about one in six laboratory-confirmed common bacterial infections in its 2023 analysis was resistant to antibiotic treatment.
+`世界卫生组织2025年10月报告称，在其对2023年实验室确诊的常见细菌感染所作的分析中，约六分之一对抗生素治疗具有耐药性。`
+<!-- SENTENCE:R2S022 USE:U04014,U04015 -->
+Reading that imprecisely as one in six illnesses would erase the difference between the infections studied and all disease; the imprecision changes the claim.
+`如果不准确地把它读成六分之一的疾病，就会抹去受研究感染与所有疾病之间的区别；这种不精确改变了原本的说法。`
+<!-- SENTENCE:R2S023 USE:U04007 -->
+Likewise, resistance rose in over 40 percent of monitored pathogen–antibiotic combinations between 2018 and 2023, rather than in precisely 40 percent of all infections.
+`同样，2018至2023年间，耐药性上升的是受监测病原体与抗生素组合中的四成以上，而非恰好四成的所有感染。`
+
+<!-- SENTENCE:R2S024 USE:U03103 -->
+To interpret a laboratory result, first isolate the question being asked: which organism is present, and which medicine still works against it?
+`理解实验室结果时，首先要把所问的问题单独辨明：存在的是哪一种微生物，哪一种药物仍对它有效？`
+<!-- SENTENCE:R2S025 USE:U03104,U01604,U03209 -->
+In a culture-based investigation, the laboratory seeks to isolate a bacterial strain from mixed material and cultivate it in a suitable nutrient medium.
+`在以培养为基础的调查中，实验室尝试从混合材料中分离出一种细菌菌株，并在合适的营养培养基中培养它。`
+<!-- SENTENCE:R2S026 USE:U03107,U01610 -->
+Whether an organism is readily isolable, and whether its cultivation succeeds, are separate questions from whether it resists a particular drug.
+`一种微生物是否容易分离取得，以及培养是否成功，与它是否对某种药物耐药，是不同的问题。`
+<!-- SENTENCE:R2S027 USE:U00801,U01801,U01813,U03111 -->
+The capacity to discriminate between those questions supports sound scientific discrimination and avoids treating an isolated, atypical result as a complete population picture.
+`区分这些问题的能力，有助于作出可靠的科学辨别，避免把一个个别而不典型的结果当作完整的总体图景。`
+<!-- SENTENCE:R2S028 -->
+WHO received data from 104 countries for 2023, yet reported major gaps in both participation and the quality of surveillance systems.
+`世卫组织收到了104个国家的2023年数据，但也指出，参与程度和监测体系质量都存在重大缺口。`
+
+<!-- SENTENCE:R2S029 USE:U01815,U01817 -->
+Indiscriminate antibiotic use is one driver of resistance, so prescribing indiscriminately cannot substitute for access to appropriate diagnosis and treatment.
+`不加选择地使用抗生素是耐药性的一个推动因素，因此不作区分地开药，不能替代适当诊断和治疗的可及性。`
+<!-- SENTENCE:R2S030 USE:U04903,U04907 -->
+Resistant bacteria can transmit infection between people, and a transmissible infection creates a second problem beyond the treatment of its first patient.
+`耐药细菌可以在人与人之间传播感染，而一种能够传播的感染，带来的问题还超出了第一位病人的治疗本身。`
+<!-- SENTENCE:R2S031 USE:U04910,U02909 -->
+Reducing transmission therefore belongs within an integrated response linking appropriate medicines, clean water, infection prevention, and reliable monitoring.
+`因此，减少传播属于一体化应对的一部分，需要把适当用药、清洁饮水、感染预防和可靠监测衔接起来。`
+<!-- SENTENCE:R2S032 USE:U02102 -->
+An enhancement of one laboratory alone cannot fill every gap in that system.
+`仅仅改善一间实验室，无法填补这套体系中的所有缺口。`
+
+<!-- SENTENCE:R2S033 USE:U03105,U03116,U03110,U03113 -->
+When clinicians isolate a patient to prevent infection spreading, an isolation ward provides a protective separation, although the person may still feel isolated and need support against loneliness and isolation.
+`医生为防止感染传播而隔离病人时，隔离病房提供的是一种保护性分离，但病人仍可能感到孤独，需要支持来缓解孤单与无援感。`
+<!-- SENTENCE:R2S034 USE:U03108 -->
+Equipment can create a different kind of boundary: an isolator is a sealed workstation used to protect medicines during sterile preparation.
+`设备可以形成另一种边界：隔离操作箱是一种密闭工作台，用于在无菌配制过程中保护药物。`
+<!-- SENTENCE:R2S035 -->
+Leicester's hospitals announced construction of a pharmacy with such workstations in September 2026, with opening expected in early 2028.
+`莱斯特的医院于2026年9月宣布开建配有这类工作台的药房，预计2028年初开放。`
+
+<!-- ARTICLE:R1A03 -->
+# What Remains When an Artwork Changes
+
+<!-- SENTENCE:R1S03_01 USE:U03901 -->
+In 1978, Lita Albuquerque filled a shallow trench above the Pacific with ultramarine pigment, making a blue line that appeared to reach towards the horizon.
+`1978年，莉塔·阿尔布开克在太平洋上方的海崖浅沟里填入群青颜料，形成了一条仿佛伸向地平线的蓝线。`
+<!-- SENTENCE:R1S03_02 -->
+About two years later, flowers and grass had covered Malibu Line, and the work had disappeared.
+`大约两年之后，花草覆盖了《马里布线》，这件作品消失了。`
+<!-- SENTENCE:R1S03_03 USE:U01109 -->
+Its uncompromising colour had directed attention to earth and sky, yet its physical survival was never the only source of its meaning.
+`它鲜明而毫不缓和的色彩曾将人的注意力引向大地与天空，然而它的实体存续从来不是意义的唯一来源。`
+<!-- SENTENCE:R1S03_04 USE:U04701,U04706,U04709 -->
+A tangible line can leave an intangible experience, and the intangibility of that experience makes a photograph an incomplete substitute.
+`一条有形可触的线能够留下无形的体验，而体验难以具体把握的性质，使一张照片无法完全替代它。`
+<!-- SENTENCE:R1S03_05 USE:U04710 -->
+The remembered colour may still link the site intangibly to the viewer's sense of distance.
+`记忆中的色彩仍可能以一种难以言明的方式，把那个地点与观看者的距离感联系起来。`
+
+<!-- SENTENCE:R1S03_06 USE:U01208 -->
+Getty's Artist Dialogues explores such questions through films in which artists discuss materials, working methods and conservation.
+`盖蒂的“艺术家对话”通过影片探讨这些问题，让艺术家谈论材料、工作方法与艺术品保存。`
+<!-- SENTENCE:R1S03_07 USE:U01213,U04103 -->
+A conservator who cleans or restores an object needs to understand which changes the artist accepts and which qualities matter most.
+`清洁或修复物件的专业修复师，需要了解艺术家接受哪些变化，以及哪些特征最为重要。`
+<!-- SENTENCE:R1S03_08 USE:U04110,U04113 -->
+A restorer may aim for a smooth surface, whereas an artist may value the marks of age; restoration therefore begins with a question about the intended work.
+`修复人员可能希望得到平滑的表面，艺术家却可能重视岁月的痕迹；因此，修复首先要问，作品原本希望呈现什么。`
+<!-- SENTENCE:R1S03_09 USE:U01215 -->
+A conservator serving as an institution's official keeper must preserve those decisions, so later staff know why a surface was left alone.
+`担任机构正式保管者的人，必须保存这些决定的记录，让后来的工作人员知道某个表面为何未作处理。`
+<!-- SENTENCE:R1S03_10 USE:U01606,U03603 -->
+Researchers cultivate relationships with artists, and both can become mutual beneficiaries: one gains technical knowledge, while the other gains a clearer record of intentions.
+`研究者用心经营与艺术家的关系，双方都能从中受益：一方获得技术知识，另一方则获得对创作意图更清楚的记录。`
+
+<!-- SENTENCE:R1S03_11 USE:U03903,U03212,U00905 -->
+Material choices change the question further: a maker can pigment a resin, or bind loose colour in a medium that helps the particles cohere.
+`材料选择会进一步改变问题：制作者可以给树脂着色，也可以用帮助颗粒黏合的调和剂将松散色料结合起来。`
+<!-- SENTENCE:R1S03_12 USE:U00903,U00908 -->
+A coherent layer has a different physical structure from loose powder, and its coherence affects what can be handled without falling apart.
+`黏结成层的材料与松散粉末具有不同的物理结构，其结合性会影响哪些部分能够在拿取时不散开。`
+<!-- SENTENCE:R1S03_13 USE:U03206 -->
+This general comparison helps explain why the medium matters, without suggesting that Albuquerque's outdoor line was an ordinary painted surface.
+`这种一般性比较有助于说明材料为何重要，却不意味着阿尔布开克的户外蓝线就是一块普通的涂绘表面。`
+<!-- SENTENCE:R1S03_14 USE:U04905,U04908 -->
+Larry Bell used metallic films on glass to alter how it absorbs, reflects and transmits light; a transmissive surface can make the space beyond it part of the encounter.
+`拉里·贝尔在玻璃上使用金属薄膜，改变玻璃吸收、反射和透过光线的方式；能够透光的表面可以让其后方的空间也成为观看体验的一部分。`
+<!-- SENTENCE:R1S03_15 USE:U04704,U04904 -->
+Alison Saar's use of iron skillets gives portraiture a domestic setting, and the tangibility of the heavy object helps transmit a feeling of labour and human presence.
+`艾莉森·萨尔使用铁锅，为肖像创作赋予家庭生活的背景；沉重物件的可触可感性，有助于传达劳动与人的存在感。`
+<!-- SENTENCE:R1S03_16 USE:U03211 -->
+Sculpture, painting and film each offer a medium for preserving something of that encounter.
+`雕塑、绘画和电影各自提供了一种艺术形式，能够保存那种相遇中的某些东西。`
+
+<!-- SENTENCE:R1S03_17 USE:U00701,U00704 -->
+An archive can hold interview notes beside photographs; staff can archive a decision as well as the treatment report itself.
+`档案可以将访谈笔记与照片一同保存；工作人员既可以将处理报告本身归档，也可以将决定的来由归档。`
+<!-- SENTENCE:R1S03_18 USE:U00703,U00706 -->
+Archive film and other archival material may later show why an apparently damaged feature was meaningful.
+`历史档案影像与其他档案材料，日后可能说明某个看似损坏的特征为何具有意义。`
+<!-- SENTENCE:R1S03_19 USE:U04109 -->
+A cracked frame may be restorable, but rebuilding it cannot recreate every moment of the work's past.
+`开裂的画框可能可以修复，但重建它无法再现作品过去的每一个时刻。`
+
+<!-- SENTENCE:R1S03_20 USE:U04104 -->
+There is also the question of where an object belongs: in August 2022, Getty announced that Orpheus and the Sirens would be restored to Italy after evidence of illegal excavation.
+`还有一个问题是物件属于哪里：2022年8月，盖蒂在获得非法发掘的证据后，宣布将《俄耳甫斯与塞壬》归还意大利。`
+<!-- SENTENCE:R1S03_21 USE:U04301 -->
+Returning objects reverses a decision to keep them, while their extreme fragility still requires specialist equipment for transport.
+`归还物件意味着改变将它们留藏的决定，而它们极度脆弱的状态仍要求运输时使用专门设备。`
+
+<!-- ARTICLE:R1A04 -->
+# The Factory as a Picture of Modern Life
+
+<!-- SENTENCE:R1S04_01 USE:U04018 -->
+Around 1920, American artists later called Precisionists began turning factories, bridges and familiar buildings into compositions of controlled shapes and clear outlines.
+`1920年前后，一些后来被称为精确主义艺术家的美国画家，开始将工厂、桥梁和熟悉的建筑转化为形状严整、轮廓清晰的构图。`
+<!-- SENTENCE:R1S04_02 USE:U04016,U04019 -->
+Precisionism had no formal group or manifesto, and a Precisionist painting could draw as readily on a barn as on a steel mill.
+`精确主义没有正式的团体或宣言；一幅精确主义画作，既可以取材于钢厂，也可以同样自然地取材于谷仓。`
+<!-- SENTENCE:R1S04_03 USE:U00102 -->
+Photography offered methods of cropping and sharp focus that painters could adapt for the canvas.
+`摄影提供了裁切和清晰聚焦的方法，画家可以将其调整用于画布。`
+<!-- SENTENCE:R1S04_04 USE:U00109,U01410,U01110 -->
+This adaptation involved selecting and simplifying forms, so conventional subjects could acquire an uncompromisingly modern appearance.
+`这种改用包含对形式的选择与简化，因此常规题材也能呈现出彻底现代、毫不折中的面貌。`
+<!-- SENTENCE:R1S04_05 USE:U01425,U01426 -->
+The unconventionality lay partly in treating industrial structures as serious subjects and arranging the view unconventionally through angles and abrupt edges.
+`它不同寻常的地方，部分在于把工业结构当作严肃题材，并通过角度与突兀的边缘，不循惯例地安排视野。`
+<!-- SENTENCE:R1S04_06 USE:U01424 -->
+That artistic unconventionalism did not prevent the same artists from finding beauty in older American buildings and crafts.
+`这种艺术上不拘惯例的态度，并没有妨碍这些艺术家在美国较古老的建筑与工艺中发现美。`
+
+<!-- SENTENCE:R1S04_07 USE:U04010 -->
+Imagine two visitors pausing before such an industrial scene: one admires the precision of the edges, while the other searches for workers.
+`设想两位观众在这样一幅工业景象前停步：一位赞叹边缘处理的准确性，另一位则寻找画中的工人。`
+<!-- SENTENCE:R1S04_08 USE:U01809,U00907,U01418 -->
+A discriminating viewer might notice how an empty space changes the composition's coherence, while a conventionalist might prefer a familiar narrative full of people.
+`有鉴赏力的观看者可能注意到，一片空白怎样改变了构图的整体连贯性；遵循惯例的人则可能更喜欢人物充足、情节熟悉的画面。`
+<!-- SENTENCE:R1S04_09 USE:U01810 -->
+One visitor looks discriminatingly at the balance of empty space and solid forms before deciding where the picture draws her eye.
+`一位观众有眼力地审视空白与实体形状之间的平衡，然后判断画面将自己的视线引向哪里。`
+<!-- SENTENCE:R1S04_10 USE:U04017,U04002 -->
+One visitor, a precisionist about language, asks for a precise description of what makes the scene feel mechanical.
+`其中一位对语言严格求准的观众，要求准确地描述究竟是什么让画面显得机械化。`
+<!-- SENTENCE:R1S04_11 USE:U04006,U04012 -->
+The preciseness of the answer matters: a painted machine is not a diagram measured with precision instruments.
+`回答是否严谨很重要：画出来的机器，并不是用精密仪器测得的一张图解。`
+<!-- SENTENCE:R1S04_12 USE:U04001,U04007 -->
+At that precise moment, the other visitor points to a boundary where two planes meet and follows it precisely with a finger held in the air.
+`恰在那一刻，另一位观众指向两个平面相交的边界，悬空用手指准确地沿着它比画。`
+<!-- SENTENCE:R1S04_13 USE:U04009 -->
+“So the order comes from choices?” she asks, and her companion answers, “Precisely.”
+`“所以，这种秩序来自选择？”她问；同伴回答：“正是如此。”`
+<!-- SENTENCE:R1S04_14 USE:U04008,U00901 -->
+It is precisely this selection that makes a coherent picture possible, whether the mood seems hopeful or unsettling.
+`恰恰是这种选择，让一幅画形成了连贯的整体，无论它给人的情绪是充满希望，还是令人不安。`
+
+<!-- SENTENCE:R1S04_15 USE:U03117 -->
+The Met's historical account places the movement beside industrial expansion and political isolationism after the First World War and during the Depression.
+`大都会艺术博物馆的历史论述，将这一艺术潮流与工业扩张，以及第一次世界大战后和大萧条时期的政治孤立主义并置。`
+<!-- SENTENCE:R1S04_16 USE:U03118 -->
+An isolationist could seek distance from overseas disputes, while an artist interested in American identity might look towards local buildings without sharing every political belief.
+`孤立主义者可能希望远离海外争端；关注美国身份的艺术家则可能将目光转向本土建筑，却不必共享每一种政治信念。`
+<!-- SENTENCE:R1S04_17 -->
+The machine could promise efficiency and order, or suggest a landscape in which human beings had lost their place.
+`机器可以预示效率与秩序，也可以让人想到一个人类已失去自身位置的世界。`
+<!-- SENTENCE:R1S04_18 -->
+Sometimes those feelings inhabit the same painting, leaving its polished stillness open to both responses.
+`有时，这些感受共存于同一幅画中，让那种平整严密的静止同时向两种回应敞开。`
+
+<!-- ARTICLE:R2A03 -->
+# How Blue Entered a White Curtain
+
+<!-- SENTENCE:R2S037 USE:U04801 -->
+A partial curtain in the Metropolitan Museum, dated about 1725–1775, preserves a textile whose blue pattern depended on keeping dye out of selected areas.
+`大都会艺术博物馆收藏的一件窗帘残件，年代约为1725至1775年；这件织物的蓝色图案，取决于让染料无法进入选定区域。`
+<!-- SENTENCE:R2S038 USE:U04805 -->
+The textile fabric was loosely woven white cotton, and the design was created through successive indigo baths rather than by printing blue directly onto it.
+`这块织成的布料是疏织白棉布，图案通过先后的靛蓝染浴形成，而不是把蓝色直接印在布上。`
+<!-- SENTENCE:R2S039 USE:U04803,U04806 -->
+Before a textile such as cotton reached the loom, its fibres had to become yarn; choosing sound textile material was therefore part of making a usable cloth.
+`棉这类纺织原料上织机之前，其纤维必须先变成纱线；因此，选用质地良好、适合织造的材料，是制成可用布料的一个环节。`
+
+<!-- SENTENCE:R2S040 -->
+The dyer protected parts of the white ground with wax, leaving other areas exposed to the first bath, which coloured them light blue.
+`染工用蜡保护部分白色底布，让其他区域接触第一次染浴，这些区域便被染成浅蓝色。`
+<!-- SENTENCE:R2S041 -->
+The next stage covered some of that blue with more wax before a second bath deepened the colour of the areas still uncovered.
+`下一步用更多蜡覆盖部分浅蓝区域，再进行第二次染浴，使仍未覆盖的区域颜色加深。`
+<!-- SENTENCE:R2S042 USE:U00410,U00417 -->
+Such work required the dyer to alternate waxing with immersion, and the resulting alternation of pale and dark areas carried the design.
+`这样的制作要求染工交替安排上蜡与浸染，最终形成的浅色与深色区域交错，构成了图案。`
+<!-- SENTENCE:R2S043 USE:U00409,U01813 -->
+As light blue alternated with deeper blue across the pattern, colour discrimination would help a viewer follow the process behind the decoration.
+`当图案中浅蓝与深蓝交替出现时，辨别颜色的能力有助于观看者理解装饰背后的制作过程。`
+
+<!-- SENTENCE:R2S044 USE:U04802,U01001 -->
+The curtain also connects domestic taste with textiles as an industry, in which cloth travelled as a commodity across oceans.
+`这件窗帘也把家居品位与纺织业联系起来；在这一产业中，布料作为商品远渡重洋。`
+<!-- SENTENCE:R2S045 USE:U02302,U04804 -->
+Its attribution evolved as textile historians compared surviving pieces, trade records, and the history of cotton manufacture.
+`随着纺织史研究者比较留存实物、贸易记录与棉布制造史，对它产地的判断逐渐发生了变化。`
+<!-- SENTENCE:R2S046 -->
+The museum's curatorial account now favours manufacture in India for the American market, although its geography field still says probably made in America.
+`博物馆的策展说明如今倾向于认为，它是在印度为美国市场制作的，但地理信息栏仍写着可能产于美国。`
+<!-- SENTENCE:R2S047 USE:U01812 -->
+The disagreement leaves room for research, even while an appreciation of the pattern can exercise a viewer's artistic discrimination.
+`这种分歧仍为研究留下空间，而欣赏图案本身也能让观看者运用艺术鉴赏力。`
+
+<!-- ARTICLE:R2A04 -->
+# Wallace's Evidence and Wallace's Beliefs
+
+<!-- SENTENCE:R2S048 USE:U02405 -->
+Alfred Russel Wallace's collecting exploits included four years in the Amazon, followed by the loss of almost all his specimens and field notes when his homeward ship burned.
+`阿尔弗雷德·拉塞尔·华莱士的采集经历，包括在亚马孙地区度过四年，以及随后在返航船只失火时失去几乎全部标本与野外笔记。`
+<!-- SENTENCE:R2S049 USE:U02003,U03802,U03806 -->
+He emerged from that disaster alive and persisted in planning another expedition, showing the persistent curiosity that carried him to the Malay Archipelago.
+`他活着走出了那场灾难，继续坚持筹划下一次远征；这种不懈的好奇心将他带到了马来群岛。`
+<!-- SENTENCE:R2S050 -->
+There, with assistance from the Malay collector Ali, he gathered specimens and studied the striking differences between neighbouring animal populations.
+`在那里，他在马来采集者阿里的帮助下收集标本，研究相邻动物种群之间显著的差异。`
+<!-- SENTENCE:R2S051 USE:U02320 -->
+The slow evolvement of his explanation culminated in the argument he sent to Charles Darwin in 1858.
+`他的解释缓慢形成，最终成为1858年寄给查尔斯·达尔文的论述。`
+<!-- SENTENCE:R2S052 USE:U02005 -->
+Their ideas were presented jointly that year, before Darwin's book appeared in 1859, and Wallace emerged as a major scientific figure.
+`两人的思想于同年共同发表，早于达尔文1859年的著作；华莱士也由此成为重要的科学人物。`
+<!-- SENTENCE:R2S053 USE:U00503 -->
+Wallace thus anticipated the book's public explanation, although Darwin had developed the same mechanism privately over many years.
+`因此，华莱士先于那本书公开阐述了这一解释，尽管达尔文此前已私下研究同一机制多年。`
+<!-- SENTENCE:R2S054 USE:U00511 -->
+His status as an independent anticipator helps explain why the discovery is credited to both men.
+`他作为独立先行提出这一思想的人的地位，有助于解释为何这项发现归功于两人。`
+
+<!-- SENTENCE:R2S055 USE:U02301,U02811 -->
+Natural selection explains how populations evolve when individuals with certain inheritable differences leave proportionally more offspring in a particular environment.
+`自然选择解释了种群如何进化：在特定环境中，具有某些可遗传差异的个体，留下的后代在比例上更多。`
+<!-- SENTENCE:R2S056 USE:U02803,U02806 -->
+Offspring inherit traits from their parents, and variation in that inheritance gives selection something to work on.
+`后代从亲代遗传性状，而这些遗传特征的差异，为选择提供了作用对象。`
+<!-- SENTENCE:R2S057 USE:U00111 -->
+Across generations, adaptation to local conditions can change a population, without an individual deliberately redesigning its body.
+`经过一代又一代，对当地条件的适应能够改变种群，并不需要某个个体有意识地重新设计自身。`
+<!-- SENTENCE:R2S058 USE:U02306,U02315 -->
+An evolvable population therefore needs variation, while an evolutionary explanation must also account for reproduction and changing conditions.
+`因此，一个能够演化的种群需要差异，而进化解释还必须考虑繁殖与不断变化的条件。`
+<!-- SENTENCE:R2S059 USE:U02316,U02308 -->
+Evolutionarily, a feature useful in one setting may become less useful in another; natural selection is also only one mechanism of evolution.
+`从进化角度看，在一种环境中有用的特征，到了另一种环境可能就不那么有用；自然选择也只是进化的一种机制。`
+
+<!-- SENTENCE:R2S060 USE:U01806 -->
+Careful observation comes before such an explanation: a naturalist's discriminative eye must distinguish small differences without assuming that every visible mark has the same cause.
+`细致观察先于这样的解释：博物学家善于辨别的眼光，必须能看出细微差异，同时不假定每个可见斑纹都有相同成因。`
+<!-- SENTENCE:R2S061 USE:U03707,U01803 -->
+In a bird description, a coloured ring around the orbit might discriminate one form from another, but that observation alone would not establish its inheritance.
+`在鸟类形态描述中，眼周的彩色环纹可能构成一种形态与另一种形态的区别，但仅凭这一观察，还无法确定它的遗传性质。`
+<!-- SENTENCE:R2S062 USE:U03902,U03904,U03905 -->
+Where colour depends on pigment, a pigmentary difference concerns the substance producing the colour, while the resulting pigmentation is the visible feature being described.
+`当颜色由色素产生时，色素方面的差异涉及产生颜色的物质，而由此形成的天然呈色，则是描述中的可见特征。`
+<!-- SENTENCE:R2S063 -->
+This distinction keeps the description of a specimen separate from an explanation of why that feature became common.
+`这种区分，让标本的形态描述与解释该特征为何变得普遍保持着各自的层次。`
+
+<!-- SENTENCE:R2S064 USE:U02318,U02319 -->
+Wallace was an evolutionist, yet his evolutionistic account of natural diversity did not settle every question he asked about the human mind.
+`华莱士是进化论支持者，但他以进化论解释自然多样性的论述，并没有解决他对人类心智提出的每一个问题。`
+<!-- SENTENCE:R2S065 USE:U02317 -->
+His commitment to evolutionism coexisted with spiritualism, including the belief that the human spirit survived death.
+`他对进化论的认同，与通灵主义并存，其中包括人类灵魂在死后继续存在的信念。`
+<!-- SENTENCE:R2S066 USE:U03213,U03216 -->
+A medium claimed to communicate with the dead, and Wallace hoped that scientific inquiry could explain apparently supernatural events associated with mediumship.
+`通灵人声称能够与死者交流，而华莱士希望，科学探究能够解释与通灵活动有关的、看似超自然的事件。`
+<!-- SENTENCE:R2S067 USE:U03217 -->
+Oxford's museum presents historical records of mediumistic practices, including table turning and spirit writing, as evidence of what Victorians did and believed.
+`牛津的博物馆展示通灵活动的历史记录，包括转桌与灵书，把它们作为维多利亚时代的人们做过什么、相信什么的证据。`
+<!-- SENTENCE:R2S068 USE:U00702,U00707,U02809 -->
+In an archive, an archivist preserves such records so that later researchers, the inheritors of this complicated intellectual history, can investigate the claims in their original setting.
+`在档案馆中，档案工作者保存这些记录，让后来的研究者，也就是这段复杂思想史的承接者，能够在原有背景中调查这些说法。`
+
+<!-- ARTICLE:R2A05 -->
+# The Reopened Stage and the Work of Acting
+
+<!-- SENTENCE:R2S069 USE:U04116,U04105 -->
+The Restoration of 1660 restored Charles II to the throne and allowed English theatres to reopen after eighteen years of closure.
+`1660年的英国王政复辟使查理二世重登王位，也让关闭十八年的英格兰剧院得以重新开放。`
+<!-- SENTENCE:R2S070 USE:U04115,U04101,U02006 -->
+This political restoration helped restore public theatrical life, as women entered the professional stage and a new theatrical culture began to emerge.
+`这场政治上的王政复辟帮助恢复了公共戏剧生活；随着女性进入职业舞台，一种新的戏剧文化也开始形成。`
+<!-- SENTENCE:R2S071 USE:U04117 -->
+Restoration drama brought lavish design and bold humour, with works such as Aphra Behn's The Rover entering a changing theatrical world.
+`复辟时期的戏剧带来了华丽设计与大胆幽默，阿芙拉·贝恩的《浪子》等作品进入了这个变化中的戏剧世界。`
+<!-- SENTENCE:R2S072 USE:U00110 -->
+Scenery and stage machinery also encouraged semi-operas, many an adaptation of an earlier play, which combined drama with music, dance, and effects.
+`布景与舞台机械还推动了半歌剧，其中许多是早先剧作的改编作品，把戏剧、音乐、舞蹈与特效结合起来。`
+
+<!-- SENTENCE:R2S073 USE:U01401 -->
+The appeal of a comedy of manners depends partly on the distance between social convention and what its characters privately want.
+`风俗喜剧的吸引力，部分来自社会惯例与人物私下欲望之间的距离。`
+<!-- SENTENCE:R2S074 -->
+In The Provoked Wife, Lady Brute's unhappiness in marriage and interest in a younger man bring the threat of scandal.
+`在《被激怒的妻子》中，布鲁特夫人不幸的婚姻，以及她对年轻男子的兴趣，带来了丑闻的威胁。`
+<!-- SENTENCE:R2S075 USE:U01106,U01104,U01107 -->
+A compromising encounter could compromise a character's reputation, so the staging must make clear why standing compromisingly close to someone might matter.
+`一次会招来非议的会面可能损害人物名誉，因此舞台呈现必须让人看懂，为什么与某人站得过分亲密会产生后果。`
+<!-- SENTENCE:R2S076 USE:U01608,U01421,U04541 -->
+A cultivated manner and conventionally correct dress can protect an appearance of respectability even while a shifty character pursues a deception.
+`即使一个躲闪不诚实的人物正在行骗，有修养的举止与符合礼俗的衣着，也能维护其体面的外表。`
+<!-- SENTENCE:R2S077 USE:U04542,U04543 -->
+The actor may look away shiftily, but shiftiness has to develop through actions, rather than replace the character with a single suspicious gesture.
+`演员可以躲躲闪闪地移开目光，但人物的不坦率必须通过行动展开，而不能用一个可疑动作替代整个角色。`
+<!-- SENTENCE:R2S078 USE:U02309,U04520,U04533 -->
+Following the evolution of a deception means noticing each shift used to escape exposure and each moment when the speaker shifts their ground.
+`追随一场骗局的逐步展开，就要留意每一种逃避败露的伎俩，以及说话者每一次改换立场的时刻。`
+
+<!-- SENTENCE:R2S079 USE:U01402,U01419 -->
+Theatrical convention gives audiences ways to read such behaviour, but conventionality can become dull if every response is predictable.
+`戏剧惯例为观众提供了理解这些行为的方法，但如果每一种反应都可预料，因袭惯例便会变得乏味。`
+<!-- SENTENCE:R2S080 USE:U01414,U01306 -->
+A conventional apology may sound empty, while a constrained voice can reveal the effort required to keep anger hidden.
+`套式的道歉可能显得空洞，而拘谨不自然的声音，则能显露出压住怒气需要付出的努力。`
+<!-- SENTENCE:R2S081 USE:U01307,U01310 -->
+Smiling constrainedly can similarly make emotional constraint visible without requiring another speech.
+`同样，勉强地微笑能够让情感上的克制变得可见，而不必再加一段台词。`
+<!-- SENTENCE:R2S082 USE:U03002,U04609 -->
+When another character intervenes in the conversation, the actor must respond and still sustain the role through the interruption.
+`当另一个人物插话时，演员既要作出回应，又必须在打断之中继续完整地维持角色表现。`
+<!-- SENTENCE:R2S083 USE:U00807 -->
+In the early nineteenth century, Edmund Kean could draw a capacity audience to the vast Drury Lane theatre.
+`十九世纪初，埃德蒙·基恩能让庞大的德鲁里巷剧院座无虚席。`
+
+<!-- SENTENCE:R2S084 USE:U00101,U00102,U01222,U01217 -->
+Later theatre makers continued to adapt to audiences and to adapt inherited texts for new stages, sometimes meeting conservative management and institutional conservatism.
+`后来的戏剧创作者继续适应观众，并调整传承下来的文本以用于新舞台，有时会遭遇守旧的经营者与机构不愿改变的态度。`
+<!-- SENTENCE:R2S085 USE:U00405,U01422,U01423 -->
+After censorship ended in 1968, alternative theatre offered unconventional artists greater scope to pursue political subjects and unconventional methods of collective creation.
+`1968年戏剧审查结束后，非主流戏剧让不循俗套的艺术家有了更大空间，去探讨政治题材，并采用不同寻常的集体创作方法。`
+<!-- SENTENCE:R2S086 USE:U02303,U01907,U01909 -->
+A company could evolve a working method through workshops and diversify its repertoire, although diversification still required money and organisation.
+`剧团可以通过工作坊逐步形成创作方法，扩大剧目种类，但这种多样化仍需要经费与组织。`
+<!-- SENTENCE:R2S087 USE:U02206,U03402 -->
+Equity represents performers in negotiations over pay and conditions, where each side may have to modify its demands with people's livelihoods at stake.
+`Equity工会在报酬与工作条件的谈判中代表演艺工作者；在这种关乎人们生计的谈判里，各方都可能必须降低自己的要求。`
+
+<!-- ARTICLE:R1A05 -->
+# A Beam Built from Many Emissions
+
+<!-- SENTENCE:R1S05_01 USE:U00602,U03704 -->
+A sketch of an electron circling a nucleus gives an approximate picture of the Bohr model, in which the electron occupies an allowed orbit.
+`一张电子绕原子核运行的简图，大致呈现了玻尔模型；在这一模型中，电子处在某条允许的轨道上。`
+<!-- SENTENCE:R1S05_02 USE:U00604 -->
+For hydrogen, its calculated spectral lines approximate observations, but modern quantum theory describes an electron with a wavefunction rather than a fixed little path.
+`对氢而言，这个模型算出的谱线接近观测结果，但现代量子理论用波函数描述电子，而不是给它一条固定的小路径。`
+<!-- SENTENCE:R1S05_03 USE:U03714 -->
+An atomic orbital supplies a probability pattern around the nucleus; an energy change can be accompanied by the absorption or emission of a photon.
+`一个原子轨函数给出原子核周围的概率分布模式；能量变化可以伴随着光子的吸收或发射。`
+
+<!-- SENTENCE:R1S05_04 -->
+In a laser, energy is supplied to a material so that some of its atoms or other quantum components reach excited states.
+`在激光器中，能量被送入某种材料，使其中一些原子或其他量子组成部分达到激发态。`
+<!-- SENTENCE:R1S05_05 -->
+A passing photon can stimulate another emission, and mirrors send light repeatedly through the material; laser action is possible only when amplification exceeds losses.
+`一个经过的光子可以诱发新的发射，镜面则让光反复穿过材料；只有增益超过损耗时，才可能产生激光作用。`
+<!-- SENTENCE:R1S05_06 USE:U00904 -->
+The resulting coherent light makes effects possible that would disappear if the waves continually lost their phase relationship.
+`由此产生的相干光，使一些效应成为可能；如果这些波不断失去彼此的相位关系，那些效应便会消失。`
+<!-- SENTENCE:R1S05_07 USE:U00910,U00918 -->
+When suitable beams combine coherently, their coherence can support stable interference fringes at a detector.
+`合适的光束相干叠加时，它们的相干性能够在探测器上形成稳定的干涉条纹。`
+<!-- SENTENCE:R1S05_08 USE:U00913,U00917 -->
+Independent thermal sources generally produce mutually incoherent light, whose contributions add incoherently over the measurement time.
+`独立的热光源通常产生彼此非相干的光，在测量时段内，它们各自的贡献以非相干方式叠加。`
+<!-- SENTENCE:R1S05_09 USE:U00915 -->
+Their incoherence prevents a fixed pattern of bright and dark bands from surviving that averaging.
+`它们的非相干性，使固定的明暗条纹无法在这种平均过程中保留下来。`
+
+<!-- SENTENCE:R1S05_10 USE:U04612,U04613 -->
+For a laser designed to operate continuously, the energy supply must work sustainedly; it is the sustainer of the excited population, not an endless reserve inside the material.
+`对于设计为连续工作的激光器，供能必须持续进行；能量来源维持着激发态粒子群，而材料内部并没有无穷无尽的储备。`
+<!-- SENTENCE:R1S05_11 USE:U04614 -->
+Sustainment of the beam therefore requires a balance between pumping, amplification and the light that escapes or is absorbed.
+`因此，要维持光束，就必须在泵浦、放大以及逸出或被吸收的光之间保持平衡。`
+<!-- SENTENCE:R1S05_12 USE:U03207 -->
+One useful destination for that controlled light is an optical fibre, where glass serves as the medium through which signals travel.
+`这种受控光线的一种有用去向是光纤；在那里，玻璃充当信号传播所经过的介质。`
+<!-- SENTENCE:R1S05_13 USE:U04915,U01504 -->
+An optical transmitter converts information into changes in light, allowing the fibre to convey a signal over a distance.
+`光发射机将信息转换为光的变化，让光纤能够把信号传送到远处。`
+<!-- SENTENCE:R1S05_14 USE:U01514,U04901 -->
+This conveyance links the emission process to a communications system that can transmit data between electronic devices.
+`这一传导过程，将发射机制与通信系统联系起来，使电子设备之间能够传输数据。`
+
+<!-- ARTICLE:R1A06 -->
+# A Small Gap and an Accumulating Signal
+
+<!-- SENTENCE:R1S06_01 USE:U00603,U03106 -->
+Two conductors, approximate in position yet electrically isolated from each other, form the starting arrangement of a capacitor.
+`两个位置相邻、在电气上却相互绝缘隔离的导体，构成了电容器的起始结构。`
+<!-- SENTENCE:R1S06_02 -->
+Moving charge between them leaves equal and opposite charges on the plates, although the pair remains neutral overall.
+`在两个导体之间移动电荷，会在极板上留下等量异号的电荷，但这对极板总体仍然电中性。`
+<!-- SENTENCE:R1S06_03 USE:U00810 -->
+In a linear model, capacitance relates the magnitude of either plate's charge to the voltage between the plates through C = Q/V.
+`在线性模型中，电容通过C = Q/V，将任一极板上电荷的大小与两板之间的电压联系起来。`
+<!-- SENTENCE:R1S06_04 USE:U01413 -->
+The conventional meaning of V here is a potential difference, so reading it as the potential at one point would change the calculation.
+`这里V的约定意义是电势差，因此若将它理解为某一个点的电势，就会改变计算。`
+<!-- SENTENCE:R1S06_05 -->
+In the ideal parallel-plate case, ignoring edge effects, greater overlap gives greater capacitance when separation and the intervening material stay fixed.
+`在忽略边缘效应的理想平行板情形下，只要间距和中间材料保持不变，重叠面积越大，电容就越大。`
+
+<!-- SENTENCE:R1S06_06 USE:U03401,U03407 -->
+A rotating set of plates can modify that overlap, giving rotation a modificatory effect on the electrical arrangement without replacing the plates.
+`一组可以转动的极板能够改变重叠面积，使转动在无需更换极板的情况下，对这个电学结构起到改变作用。`
+<!-- SENTENCE:R1S06_07 USE:U03408,U01703,U00811 -->
+This modification makes the capacitance diminishable by turning the plates apart; a capacitive device can respond to the resulting change.
+`这种改动使电容能够通过将极板转开而减小；电容式装置能够对由此产生的变化作出响应。`
+<!-- SENTENCE:R1S06_08 USE:U01704 -->
+Suppose an ideal example begins at 20 picofarads and loses a quarter of its overlap: the diminution in capacitance leaves 15 picofarads.
+`假设一个理想算例起初为20皮法，随后减少四分之一的重叠面积：电容的缩减使其降至15皮法。`
+<!-- SENTENCE:R1S06_09 USE:U01705 -->
+The diminution is 5 picofarads, while the new value still describes charge stored per volt rather than a rate of charge flow.
+`减少量为5皮法，而新数值描述的仍是每伏电压对应的储存电荷，并非电荷的流动速率。`
+
+<!-- SENTENCE:R1S06_10 -->
+To connect this geometry with measurement, imagine a smooth, nonnegative current feeding a plate over a specified time interval.
+`为了把这种几何关系与测量联系起来，设想一段指定时间内，有平滑变化的非负电流流入一块极板。`
+<!-- SENTENCE:R1S06_11 -->
+A graph of current against time can be divided into narrow rectangles, each giving a small estimate of charge transferred during its width.
+`一张电流随时间变化的图，可以被分成许多狭窄的矩形；每个矩形都给出其宽度所代表时段内传输电荷的一个小估计值。`
+<!-- SENTENCE:R1S06_12 USE:U02905 -->
+As the rectangles become finer, their sum approaches the charge gained; mathematically, we integrate the current over that interval.
+`随着矩形划分得更细，它们的总和趋近于增加的电荷；在数学上，我们是在该时段内对电流求积分。`
+<!-- SENTENCE:R1S06_13 USE:U02915,U02916 -->
+A continuous current function is Riemann integrable on a closed, bounded interval, so continuity supplies the integrability needed for this model.
+`连续的电流函数在有界闭区间上黎曼可积，因此连续性为这一模型提供了所需的可积性。`
+<!-- SENTENCE:R1S06_14 USE:U02918,U02906 -->
+An integrator can record the integrated signal in coulombs when its input is in amperes and time is measured in seconds.
+`当输入以安培计、时间以秒计时，积分仪能够以库仑记录信号的积分值。`
+
+<!-- SENTENCE:R1S06_15 USE:U02919,U02914 -->
+In an imagined instrument project, a system integrator checks that the measuring module is integrable into the larger assembly.
+`在一个假想的仪器项目中，系统整合者检查测量模块能否整合进更大的组件。`
+<!-- SENTENCE:R1S06_16 USE:U02904 -->
+Adding the missing account of charge flow would integrate an incomplete description of the instrument.
+`补入缺失的电荷流动说明，能够使这份不完整的仪器描述得到补全。`
+<!-- SENTENCE:R1S06_17 USE:U02907 -->
+The description then treats geometry, current and measurement as an integrate whole, while keeping the units of each quantity visible.
+`这样，说明便将几何结构、电流与测量视为一个完整整体，同时清楚保留各个量的单位。`
+
+<!-- ARTICLE:R3A04 -->
+# A Sister, a Small Sheet and a Legal Afterlife
+
+<!-- SENTENCE:R3S041 USE:U02807 -->
+Jane Austen prepared for the inheritance of her estate in a will dated 27 April 1817, less than three months before her death.
+`简·奥斯汀在一份日期为1817年4月27日的遗嘱中，为其遗产的继承作了安排；不到三个月后，她便去世了。`
+<!-- SENTENCE:R3S042 USE:U02801 -->
+In ninety words, she directed that Cassandra should inherit her possessions and money still due to her, subject to funeral expenses and two legacies of fifty pounds each.
+`她用九十个词规定，由卡桑德拉继承她的财物及尚应付给她的钱款，但须先支付丧葬费用，并分别付出两笔各五十英镑的遗赠。`
+<!-- SENTENCE:R3S043 USE:U02808,U02810 -->
+The smaller gifts went to her brother Henry and Madame Bigeon; Cassandra was the principal inheritor, or inheritrix in the female form of the legal term.
+`两笔较小的遗赠分别给了她的兄长亨利和比让夫人；卡桑德拉是主要继承人，用法律词语中的女性形式来说，就是inheritrix。`
+
+<!-- SENTENCE:R3S044 USE:U02804,U04703 -->
+Cassandra's inheritance extended beyond the tangibles that could be held or carried away.
+`卡桑德拉所得的遗产，不限于能够拿在手中或搬走的有形物品。`
+<!-- SENTENCE:R3S045 USE:U02811,U02813 -->
+Money that became payable later was inheritable too, making the inheritability of future receipts important to the arrangement.
+`后来才到期应付的钱款同样可以继承，因此，未来应收款能否继承，对这项安排也很重要。`
+<!-- SENTENCE:R3S046 USE:U02812 -->
+Recognizing Cassandra as an inheritable successor was one legal side of the arrangement; identifying property that could pass was the other.
+`承认卡桑德拉具备继承资格，是这项安排的一个法律方面；确定哪些财产可以传承，则是另一个方面。`
+
+<!-- SENTENCE:R3S048 USE:U00808 -->
+Austen also appointed Cassandra to act in her capacity as executrix, carrying out the instructions rather than merely receiving the benefit.
+`奥斯汀还指定卡桑德拉以遗嘱女执行人的身份行事，负责落实这些指示，而不仅仅是接受遗产。`
+<!-- SENTENCE:R3S049 -->
+The will had no witnesses' signatures, so family friends gave evidence identifying Austen's handwriting and signature.
+`遗嘱没有见证人的签名，因此，家族友人提供证据，辨认奥斯汀的笔迹与签名。`
+<!-- SENTENCE:R3S050 USE:U04608 -->
+That evidence sustained the claim that the will was genuine, and probate was granted in London on 10 September 1817.
+`这些证据支持并证实了遗嘱真实这一判断；1817年9月10日，伦敦的法院完成了遗嘱认证。`
+<!-- SENTENCE:R3S051 -->
+The absence of witnesses did not invalidate this will under the rules then applicable to such personal property; the document belongs to its own legal period.
+`依当时适用于这类个人动产的规则，缺少见证人并未使这份遗嘱无效；这份文书应放在它所属的法律时代中理解。`
+
+<!-- SENTENCE:R3S052 USE:U04315 -->
+The reverse of the sheet carries both Austen's brief identification and the court's record, turning the paper over from private intention to public administration.
+`纸张背面既有奥斯汀简短的标识，也有法院记录，使这张纸从私人意愿转向了公共法律办理过程。`
+<!-- SENTENCE:R3S053 USE:U04205,U04206 -->
+The sheet has proved retainable across two centuries, and its retainability matters because later readers can examine these connected layers of evidence.
+`这张纸历经两个世纪仍得以保存；它能够保存下来的性质之所以重要，是因为后来的读者还能检视这些相互联系的证据层次。`
+<!-- SENTENCE:R3S054 USE:U04207 -->
+The retainment of the original also preserves something more intimate than the amounts of money.
+`保留原件，还保存了某种比钱款数额更贴近个人内心的东西。`
+<!-- SENTENCE:R3S055 USE:U04707,U04708 -->
+Affection is an intangible part of the will's meaning, while trust and confidence are intangibles expressed through the decision to make Cassandra both beneficiary and executor.
+`亲情是这份遗嘱含义中难以量化的一部分，而让卡桑德拉同时担任受益人与执行人的决定，又表达了信任与信赖这些无形的因素。`
+
+<!-- ARTICLE:R1A07 -->
+# The Home, the Title and the Debt
+
+<!-- SENTENCE:R1S07_01 USE:U02602 -->
+A house may become a family's permanent habitat, but buying it involves a legal description as well as a place to live.
+`一所房子可能成为一个家庭的长期住所，但购买它既涉及居住的地方，也涉及法律上的描述。`
+<!-- SENTENCE:R1S07_02 -->
+GOV.UK's home-buying guide describes a contract that specifies boundaries, included fittings, rights, restrictions and the proposed completion date.
+`英国政府的购房指南介绍了这样一种合同：其中明确边界、包含的附属装置、权利、限制以及拟定的交易完成日期。`
+<!-- SENTENCE:R1S07_03 USE:U01511,U01512,U01503 -->
+A conveyancer handling the conveyancing examines those details so that the documents describe what the seller is to convey to the buyer.
+`办理产权转让业务的事务人员会审查这些细节，使文书能够说明卖方将向买方转让什么。`
+<!-- SENTENCE:R1S07_04 USE:U01505 -->
+Questions about which rights are conveyable belong in that examination, rather than being settled by handing over keys.
+`哪些权利可以转让，属于这一审查要处理的问题，而不是交出钥匙就能解决的事情。`
+<!-- SENTENCE:R1S07_05 USE:U01509,U01510 -->
+In an imagined sale, the file contains a signed conveyance recording the conveyance of the house to its new owner.
+`在一笔假想交易中，文件夹内保存着一份已签署的转让契据，记载房屋产权向新所有者的转移。`
+
+<!-- SENTENCE:R1S07_06 USE:U00404 -->
+Imagine an American buyer negotiating within this route: two proposed completion dates are alternative, since the transaction cannot finish on both.
+`设想一位美国买家按这一流程协商：两个拟定的完成日期相互排斥，因为交易不可能在两个日期都完成。`
+<!-- SENTENCE:R1S07_07 USE:U01105,U01102,U00413 -->
+A skilled compromiser helps the parties compromise on an alternate schedule that each can manage.
+`一个善于寻求折中的人，帮助双方相互让步，商定一份各自都能做到的备选时间安排。`
+<!-- SENTENCE:R1S07_08 USE:U00402 -->
+Without that adjustment, this buyer might have no alternative but to abandon the proposed purchase before contracts are exchanged.
+`如果没有这项调整，这位买家可能别无选择，只能在交换合同前放弃拟议的购买。`
+<!-- SENTENCE:R1S07_09 USE:U02802,U02805 -->
+If the adviser changes, the replacement may inherit unresolved questions from a predecessor; that troublesome inheritance is unfinished work, not inherited property.
+`如果更换顾问，接任者可能从前任那里接手尚未解决的问题；这份棘手的遗留处境是未完成的工作，并不是继承来的房产。`
+<!-- SENTENCE:R1S07_10 -->
+In the government's described process, exchanging final contracts makes the agreement binding, and completion brings the money, documents and keys together.
+`在政府指南所述流程中，交换最终合同使协议产生约束力，而交易完成时，资金、文书与钥匙的移交便一同落实。`
+
+<!-- SENTENCE:R1S07_11 USE:U02203 -->
+The balance sheet asks another question: equity is the home's present value minus the mortgage still owed.
+`资产负债表提出的是另一个问题：净权益等于房屋现值减去仍未偿还的按揭贷款。`
+<!-- SENTENCE:R1S07_12 USE:U02214 -->
+In MoneyHelper's example, a £200,000 home with £220,000 outstanding has £20,000 of negative equity, whatever its earlier purchase price.
+`在MoneyHelper的算例中，价值20万英镑的房屋若还有22万英镑按揭未还，就有2万英镑负权益，无论它更早的买价是多少。`
+
+<!-- ARTICLE:R3A05 -->
+# The Different Speeds of Political Change
+
+<!-- SENTENCE:R3S056 -->
+After William of Orange landed in England in 1688 and James II departed, a political settlement had to establish who could exercise legitimate authority.
+`1688年奥兰治的威廉登陆英格兰、詹姆斯二世离开之后，需要通过政治安排确定谁能够行使合法权威。`
+<!-- SENTENCE:R3S057 USE:U01406 -->
+William called a Convention of lords and members of Parliament, an assembly that lacked the king's summons required for a Parliament in the usual constitutional form.
+`威廉召集了一个由贵族与议员组成的非御召会议；这一集会缺少通常宪制形式下召开议会所需的国王召集。`
+<!-- SENTENCE:R3S058 USE:U01408 -->
+The convention of that assembly helped provide a political settlement, but its significance remains contested.
+`召集这一会议有助于形成政治安排，但它的意义仍存在争论。`
+<!-- SENTENCE:R3S059 -->
+The British Parliament's historical account sets the celebratory Whig interpretation beside later challenges, and notes the bloodshed in Ireland and Scotland that an English story of peaceful change can obscure.
+`英国议会的历史介绍把辉格派赞颂性的解释与后来提出的质疑并列呈现，并指出：关于英格兰和平变革的叙述，可能遮蔽爱尔兰与苏格兰发生的流血。`
+<!-- SENTENCE:R3S060 USE:U02307 -->
+The evolution of relations between Crown and Parliament continued over subsequent years; one dramatic arrival did not complete the new arrangement.
+`王室与议会之间的关系在随后多年中继续逐步发展；一次戏剧性的到来，并没有完成全部新安排。`
+
+<!-- SENTENCE:R3S061 USE:U03004,U03009 -->
+More than a century intervened before Robert Peel's governments, and the intervenient years separate his policy choices from that earlier struggle over the throne.
+`从那时到罗伯特·皮尔执政，间隔了一个多世纪；这段中间岁月，也把他的政策选择与早先争夺王位的斗争区分开来。`
+<!-- SENTENCE:R3S062 USE:U01216 -->
+His career presents a different tension within conservatism: how far established institutions can be preserved through reform.
+`他的生涯呈现出保守主义内部的另一种张力：既有制度在多大程度上可以通过改革来维护。`
+<!-- SENTENCE:R3S063 USE:U01218,U01219,U04502 -->
+Peel led Conservative governments, but Conservatives did not always follow him when his judgment shifted.
+`皮尔领导过保守党政府，但当他的判断发生改变时，保守党人并不总是追随他。`
+<!-- SENTENCE:R3S064 USE:U02802,U02805 -->
+His second government inherited economic distress, unemployment and troubled international trade; this inheritance demanded decisions within an existing political system.
+`他的第二届政府接手了经济困境、失业与国际贸易受挫的局面；这份遗留处境要求他在既有政治体制内作出决定。`
+
+<!-- SENTENCE:R3S065 -->
+As Home Secretary, he had already changed criminal law and prisons and established London's Metropolitan Police.
+`在担任内政大臣时，他已经改革过刑法与监狱制度，并建立了伦敦都市警察机构。`
+<!-- SENTENCE:R3S066 USE:U01221 -->
+A conservative could support substantial reform without seeking the overthrow of the institutions through which he governed.
+`一位保守派人士可以支持实质性改革，同时并不谋求推翻自己赖以执政的制度。`
+<!-- SENTENCE:R3S067 USE:U01229 -->
+Yet the conservativeness of established interests could make a particular change politically explosive.
+`然而，既得利益者不愿改变的保守性格，也可能使某一项变革引发激烈的政治冲突。`
+<!-- SENTENCE:R3S068 USE:U01108 -->
+Peel's earlier uncompromising opposition to Catholic emancipation lasted about twenty years before he supported it, arguing that civil strife posed the greater danger.
+`皮尔早先对天主教解放的坚决反对持续了约二十年；后来他转而支持，理由是内乱构成了更大的危险。`
+<!-- SENTENCE:R3S069 USE:U04321 -->
+That reversal shocked supporters who had relied on his former position.
+`这一立场逆转，使原先信赖他旧立场的支持者大为震惊。`
+
+<!-- SENTENCE:R3S070 USE:U04503 -->
+The debate over the Corn Laws produced another shift in policy, as harvest failure and the Irish famine intensified pressure over imported grain.
+`在歉收与爱尔兰饥荒加剧进口谷物问题上的压力时，围绕谷物法的辩论又促成了一次政策转变。`
+<!-- SENTENCE:R3S071 USE:U01222,U01111 -->
+A conservative attachment to the existing restrictions made many landowners resist repeal; their uncompromisingness deepened the division in Peel's party.
+`对既有限制的守旧依恋，使许多地主抵制废法；他们不肯妥协的态度，加深了皮尔所在政党的分裂。`
+<!-- SENTENCE:R3S072 USE:U01220 -->
+The conflict shows why conservative politics cannot be understood as a single permanent position on trade.
+`这场冲突说明，为什么不能把右翼保守政治理解为贸易问题上一个永远不变的统一立场。`
+<!-- SENTENCE:R3S073 USE:U04602 -->
+The laws were repealed in 1846, but Peel's government sustained a defeat on another bill and he resigned.
+`1846年，谷物法得到废除，但皮尔政府在另一项法案上遭到失败，他随后辞职。`
+<!-- SENTENCE:R3S074 USE:U04314 -->
+This was a major reverse for his government, not a defeat of the repeal itself.
+`这对他的政府是一次重大挫败，却并不是废法本身在表决中失败。`
+<!-- SENTENCE:R3S075 USE:U01223 -->
+A historical judgment can remain conservative in tone, avoiding extremes of praise or blame, while recognizing the personal and political cost of that decision.
+`历史评价可以在基调上保持温和，避免赞扬或责备走向极端，同时承认这一决定带来的个人代价与政治代价。`
+
+<!-- ARTICLE:R3A06 -->
+# From an Unequal School to a Judicial Remedy
+
+<!-- SENTENCE:R3S076 USE:U01802 -->
+In Brown v. Board of Education, the question was whether a state could discriminate against children by separating public schools on racial grounds, even if buildings and other measurable provisions appeared equal.
+`在布朗诉教育委员会案中，问题是：即使校舍和其他可衡量条件看起来相等，州政府能否以种族为依据把公立学校分开，从而对儿童作不利的区别对待。`
+<!-- SENTENCE:R3S077 USE:U01808 -->
+The 1954 judgment treated the separation itself as discriminatory and held that it denied equal educational opportunity.
+`1954年的判决把隔离本身认定为具有歧视性，并认为它剥夺了平等的受教育机会。`
+<!-- SENTENCE:R3S078 USE:U01811 -->
+Discrimination could not be removed simply by matching equipment or salaries while preserving the compulsory division.
+`如果强制分隔仍然保留，仅仅使设备或工资相当，并不能消除歧视。`
+<!-- SENTENCE:R3S079 USE:U04707 -->
+The Court considered intangible aspects of education, including participation in discussion and the standing children understood themselves to have in their community.
+`法院考虑了教育中难以量化的方面，包括参与讨论的机会，以及儿童对自己在群体中所处地位的认识。`
+<!-- SENTENCE:R3S080 USE:U04708 -->
+Such intangibles were part of educational opportunity, not decorative additions to a list of material facilities.
+`这些无形因素本身就是教育机会的一部分，并不是物质设施清单之外可有可无的装饰。`
+
+<!-- SENTENCE:R3S081 USE:U00205,U00202 -->
+The plaintiffs' legal advocates had to advocate their position before the Court, turning the experience of exclusion into a constitutional argument.
+`原告的出庭律师必须在法院面前为他们的立场申辩，把遭到排斥的经历转化为宪法论证。`
+<!-- SENTENCE:R3S082 USE:U00208,U00206 -->
+Their advocacy concerned the legal effects of segregation; their advocateship placed them in the professional role of presenting the clients' case.
+`他们的法庭辩护针对的是种族隔离的法律后果；作为辩护人的身份，使他们承担了向法庭陈述当事人主张的专业职能。`
+<!-- SENTENCE:R3S083 USE:U00204,U00209 -->
+An advocate for families could also work outside litigation, as could an advocacy group seeking changes in public policy.
+`维护家庭权益的代表也可以在诉讼之外工作，寻求公共政策改变的倡议组织同样如此。`
+<!-- SENTENCE:R3S084 USE:U00203,U02913,U02902 -->
+An advocate of integration, or an integrationist, wanted schools to integrate so that children could attend together on equal terms.
+`一位融合政策的倡导者，也就是主张取消隔离的人，希望学校实现种族融合，让儿童能够在平等条件下共同就读。`
+<!-- SENTENCE:R3S085 USE:U02908,U02911 -->
+An integrated school was the institutional aim, while integration was the social process that a judicial declaration alone could not finish.
+`实行种族融合的学校是制度上的目标，而社会融合则是单靠司法宣告无法完成的过程。`
+
+<!-- SENTENCE:R3S086 USE:U04201 -->
+Brown II, delivered in 1955, retained the constitutional principle and addressed the form of relief.
+`1955年作出的第二次布朗案判决，保留了这一宪法原则，并处理具体救济的形式。`
+<!-- SENTENCE:R3S087 USE:U04607 -->
+The Court had sustained the claim that compulsory racial separation denied equal protection; now lower courts had to oversee implementation.
+`法院已经支持了强制种族隔离剥夺平等保护这一主张；接下来，需要由下级法院监督执行。`
+<!-- SENTENCE:R3S088 USE:U02202,U02208 -->
+It invoked equity, the legal tradition that allows practical flexibility in shaping remedies, and directed lower courts to frame equitable relief for the plaintiffs.
+`判决援用了衡平法这一允许在制定救济时保有实际灵活性的法律传统，并指示下级法院为原告制定衡平法上的救济。`
+<!-- SENTENCE:R3S089 USE:U04302 -->
+The judgments below were reversed except in Delaware, where the order for immediate admission was affirmed; the cases were sent back for further proceedings.
+`除特拉华案外，下级判决均被撤销；特拉华案要求立即准入的裁判得到维持，各案则被发回作进一步处理。`
+<!-- SENTENCE:R3S090 -->
+The opinion required a prompt and reasonable start and placed the burden of justifying necessary additional time on the defendants.
+`这份判决要求被告及时、合理地开始执行，并由被告承担证明额外时间确有必要的责任。`
+
+<!-- SENTENCE:R3S091 USE:U03007 -->
+A separate procedural question arises when a third party wants to intervene in an existing federal civil action.
+`当第三方希望参加一项已经存在的美国联邦民事诉讼时，就会产生另一个程序问题。`
+<!-- SENTENCE:R3S092 USE:U03008 -->
+Under Rule 24, an intervenor must apply in time; a court must permit entry when the specified statutory or interest-based conditions are met.
+`依据第24条规则，诉讼参加人必须及时提出申请；当规定的法定条件或基于利益的条件成立时，法院必须准许其加入。`
+<!-- SENTENCE:R3S093 -->
+The latter route applies when disposing of the action may impair the applicant's ability to protect a claimed interest in the property or transaction at issue, unless existing parties adequately represent that interest.
+`后一条途径适用于这种情形：处理该诉讼可能妨碍申请人保护其对争议财产或交易主张的利益；但现有当事人已充分代表该利益时除外。`
+<!-- SENTENCE:R3S094 -->
+Permissive entry can instead depend on a conditional statutory right or a shared question of law or fact, with delay and prejudice to the original parties also considered.
+`酌情准许的参加，则可以取决于附条件的法定权利，或共同的法律、事实问题；法院还须考虑对原当事人造成的迟延与不利影响。`
+<!-- SENTENCE:R3S095 -->
+These participation rules concern entrance into a case, while Brown II addressed remedies for the parties already before the Court.
+`这些诉讼参加规则涉及怎样加入案件，而第二次布朗案判决处理的是已经来到法院面前的当事人所能获得的救济。`
+
+<!-- ARTICLE:R2A06 -->
+# A Share's Income and Its Ownership
+
+<!-- SENTENCE:R2S088 USE:U02204,U00802 -->
+A company planning to expand its productive capacity can issue equity to help finance a new factory, selling investors an ownership interest.
+`计划扩大产能的公司，可以发行股本权益来帮助筹建新工厂，把所有权份额出售给投资者。`
+<!-- SENTENCE:R2S089 USE:U02205,U03210,U00305 -->
+Equities are consequently a medium through which capital reaches businesses, while each investor acts as an allocator of the money they commit.
+`因此，股票是资本流向企业的一条途径，而每个投资者都在为自己投入的资金作分配。`
+<!-- SENTENCE:R2S090 USE:U01903 -->
+Owners use that relationship diversely: some value dividend income, some hope for a rising share price, and some exercise voting rights.
+`持有人以不同方式运用这种关系：有人看重股息收入，有人希望股价上涨，也有人行使投票权。`
+
+<!-- SENTENCE:R2S091 USE:U05007 -->
+A simple calculation separates income from price: suppose a holding costs 1,000 dollars and yields 30 dollars in annual dividends.
+`一个简单计算可以把收入与价格区分开来：假设一笔持股成本为1000美元，每年产生30美元股息。`
+<!-- SENTENCE:R2S092 USE:U05008,U05017 -->
+Its dividend yield on that purchase cost is 3 percent before fees or taxes, making it a 3-percent yielder under those assumptions.
+`在未计手续费和税款时，它相对于买入成本的股息收益率为3%；在这些假设下，它是一项产生3%收益的投资。`
+<!-- SENTENCE:R2S093 USE:U01228 -->
+If the market price falls, that cash payment does not erase the owner's loss on a sale, and even a payment estimated conservatively is still an estimate.
+`如果市场价格下跌，这笔现金支付并不能抹去持有人出售时的亏损；即使支付金额估计得很保守，也依然只是估计。`
+<!-- SENTENCE:R2S094 USE:U04619 -->
+Growth companies may pay little or no dividend, so the sustainability of a payment must be examined in the context of the particular business.
+`成长型公司可能很少派息或完全不派息，因此，一笔支付能否持续，必须结合具体企业来考察。`
+<!-- SENTENCE:R2S095 USE:U04622,U04621 -->
+A business consuming cash unsustainably cannot make a permanent payout credible merely by announcing it; a guarantee unsupported by evidence is unsustainable.
+`一家以无法维持的速度消耗现金的企业，不能仅凭宣布就让永久派息变得可信；没有证据支持的保证无法成立。`
+
+<!-- SENTENCE:R2S096 USE:U01908,U04323 -->
+Investors can diversify across companies or other assets to reduce the impact of a single financial reversal, although that does not remove all risk.
+`投资者可以把资金分散到不同公司或其他资产，以减轻一次财务失利的影响，尽管这样并不能消除所有风险。`
+<!-- SENTENCE:R2S097 USE:U03604 -->
+Ownership itself also differs across institutions: British building societies are mutual organisations, owned by members rather than outside shareholders.
+`机构之间的所有权本身也有差异：英国的建房互助协会属于成员互助组织，由成员所有，而非外部股东所有。`
+<!-- SENTENCE:R2S098 -->
+The Building Societies Association explains this distinction from a listed bank; it represents the sector's interests and is not its regulator.
+`建房互助协会行业组织解释了它们与上市银行的这一区别；该组织代表行业利益，并非行业监管者。`
+
+<!-- ARTICLE:R2A07 -->
+# Work With the Soil You Have
+
+<!-- SENTENCE:R2S099 USE:U01612 -->
+Before a cultivator starts a garden, a handful of soil can reveal why one bed stays wet while another dries soon after rain.
+`耕种者开始经营园子之前，一把土就能透露，为什么一块种植床总是湿润，另一块却在雨后很快变干。`
+<!-- SENTENCE:R2S100 USE:U04217 -->
+The Royal Horticultural Society explains that clay is retentive of water because its tiny particles leave many small spaces that hold moisture.
+`英国皇家园艺学会解释说，黏土能够保水，是因为细小颗粒之间留下许多能够保持水分的小孔隙。`
+<!-- SENTENCE:R2S101 USE:U04221 -->
+Clay can also be fertile, but its retentiveness comes with a risk: wet soil is easily compacted and may drain too slowly for some plants.
+`黏土也可能很肥沃，但其保水性也伴随着风险：湿土容易板结，而且对某些植物来说排水可能过慢。`
+<!-- SENTENCE:R2S102 USE:U01601,U01607 -->
+Sandy ground is easier to cultivate, yet it loses water and nutrients quickly, so easily cultivable land is not automatically effortless land.
+`砂土地较容易耕作，却会迅速流失水分和养分，因此容易耕作的土地，并不意味着经营起来毫不费力。`
+
+<!-- SENTENCE:R2S103 USE:U03214 -->
+A loam offers a medium between the extremes associated with sandy and clay soils, although its exact mixture still matters.
+`壤土处在砂土与黏土各自极端特征之间的中间状态，但具体混合比例仍然重要。`
+<!-- SENTENCE:R2S104 -->
+Adding organic matter can improve the structure of several soil types, helping sand hold moisture and clay form more workable crumbs.
+`添加有机质能够改善几类土壤的结构，帮助砂土保持水分，也帮助黏土形成较易耕作的团粒。`
+<!-- SENTENCE:R2S105 USE:U01602,U01613 -->
+When gardeners cultivate the surface to break clods, a cultivator can do the loosening, but using machinery on wet, easily compacted soil may undo the benefit.
+`园丁给表层松土、打碎土块时，可以用耕耘机完成翻松工作；但在湿润、容易板结的土壤上使用机械，可能反而抵消益处。`
+<!-- SENTENCE:R2S106 USE:U01610 -->
+The timing of cultivation therefore matters as much as the decision to put a patch under cultivation at all.
+`因此，耕作时机与是否让一块土地投入耕作的决定同样重要。`
+
+<!-- SENTENCE:R2S107 USE:U01603,U01609 -->
+The choice of what to cultivate should follow the soil: cultivated plants with demanding water needs may be costly to maintain on dry sand.
+`栽培什么应依据土壤来决定：需水量大的栽培植物，在干燥砂土上可能需要较高的养护成本。`
+<!-- SENTENCE:R2S108 USE:U05016,U05005 -->
+Even a variety described as a reliable yielder needs suitable conditions if the bed is to yield a useful crop.
+`即使一个品种被称为产出稳定的品种，要让种植床产出有用的收成，也仍需要适合的条件。`
+<!-- SENTENCE:R2S109 USE:U05006,U01209 -->
+Pursuing the highest possible yield through constant watering may conflict with water conservation, especially where the supply is limited.
+`通过不停浇水追求最高产量，可能与节水发生冲突，尤其是在供水有限的地方。`
+<!-- SENTENCE:R2S110 USE:U01201,U03215 -->
+Choosing suitable plants can help conserve water and strike a happy medium between a productive garden and the resources needed to keep it growing.
+`选择适宜植物有助于节约用水，也有助于在园子的产出与维持生长所需资源之间找到合理平衡。`
+<!-- SENTENCE:R2S111 USE:U04617,U04618 -->
+Gardening sustainably begins with those local relationships; the garden's environmental sustainability cannot be inferred from the harvest alone.
+`以生态可持续的方式从事园艺，始于这些当地条件之间的关系；不能仅凭收成就判断园子的环境可持续性。`
+
+<!-- ARTICLE:R3A07 -->
+# Strawberries After the Season
+
+<!-- SENTENCE:R3S096 USE:U01204 -->
+To conserve strawberries in sugar is to give a short harvest a longer life in the kitchen.
+`用糖保存草莓，是让短暂的收获季在厨房里延续更久。`
+<!-- SENTENCE:R3S097 USE:U00411 -->
+The National Center for Home Food Preservation's method begins with alternate layers of prepared berries and sugar, left in a cool place before heating.
+`美国家庭食品保存中心的方法，先把处理好的草莓与糖相间铺层，在加热前放在凉爽处静置。`
+<!-- SENTENCE:R3S098 USE:U00605,U00804 -->
+It yields approximately four jars of half-pint capacity, but the complete method also specifies preparation, headspace and processing conditions.
+`其成品量约为四个半品脱容量的罐子；完整方法还规定了准备、顶部留空及加工条件。`
+<!-- SENTENCE:R3S099 USE:U00507 -->
+Jars and lids are prepared in anticipation of filling, so the work of storage begins before the fruit has finished cooking.
+`罐子与罐盖要为即将进行的装罐预先准备好，因此，储存准备在水果煮好之前就已开始。`
+
+<!-- SENTENCE:R3S100 USE:U00416 -->
+As the mixture cooks, attention moves alternately between the berries and the thickening syrup.
+`混合物加热时，注意力会在果实与逐渐变稠的糖浆之间交替转移。`
+<!-- SENTENCE:R3S101 USE:U02103 -->
+Sugar acts as a flavour enhancer, yet in some preserves it also has a preserving function that an equally sweet substitute does not reproduce.
+`糖可以增进风味，但在某些糖渍制品中，它还承担着同样甜的替代品无法复现的保存作用。`
+<!-- SENTENCE:R3S102 -->
+The centre consequently warns against simply replacing the sugar in certain syrupy fruit preserves while keeping their short processing times.
+`因此，该中心提醒，不能在某些浓糖浆水果蜜饯中直接替换糖，却仍沿用原来较短的加工时间。`
+<!-- SENTENCE:R3S103 USE:U01205,U01206 -->
+A dish of fruit conserve carries the berries beyond their season; strawberry conserve spread on toast brings pieces of fruit into an ordinary breakfast.
+`一碟糖渍水果把草莓留到产季之后；抹在吐司上的高果量草莓酱，则把一块块果肉带入普通的早餐。`
+
+<!-- SENTENCE:R3S104 USE:U00506 -->
+Part of the pleasure is anticipation: a closed jar promises the taste of fruit at a later meal.
+`其中一部分乐趣来自兴奋的期待：一只封好的罐子，预示着日后某一餐里的水果滋味。`
+<!-- SENTENCE:R3S105 USE:U04513,U04605 -->
+A hungry eater might shift a substantial breakfast, but the food that sustains the body reaches the table through slower work: growing, preparing and preserving.
+`饥肠辘辘的人可能很快吃下一顿丰盛早餐，但供养身体的食物到达餐桌，靠的是更缓慢的工作：种植、准备与保存。`
+
+<!-- ARTICLE:R1A08 -->
+# Beer That Finishes Its Work in the Container
+
+<!-- SENTENCE:R1S08_01 -->
+Some beer enters its final container with live yeast and remaining sugar, so packaging does not necessarily end the brewing story.
+`有些啤酒装入最终容器时仍含有活酵母和剩余糖分，因此包装并不一定意味着酿造故事结束。`
+<!-- SENTENCE:R1S08_02 USE:U02305,U02311 -->
+As fermentation continues, the process evolves carbon dioxide, and this evolution of gas helps carbonate the beer while its flavour matures.
+`发酵继续时，这一过程释放二氧化碳；这种气体释放有助于使啤酒充入碳酸气，同时风味逐渐熟成。`
+<!-- SENTENCE:R1S08_03 USE:U04405,U04401 -->
+In a sedimented beer, solids at the bottom form a sediment that can be disturbed when the container is moved.
+`在带有沉淀的啤酒中，底部固体形成一层沉渣，移动容器时可能将它搅起。`
+<!-- SENTENCE:R1S08_04 -->
+CAMRA's account explains that conditioning may occur in a brewery or in the final container, and modern methods can combine processes once treated as separate.
+`CAMRA的介绍说明，熟成充气可以在酒厂或最终容器中进行，而现代方法能够结合过去被视为彼此独立的过程。`
+
+<!-- SENTENCE:R1S08_05 USE:U01814 -->
+A simple discrimination between cask and keg therefore no longer tells the whole story of how a particular beer reached the glass.
+`因此，仅凭cask和keg这两种容器类别的区分，已不足以讲清某种啤酒如何来到杯中。`
+<!-- SENTENCE:R1S08_06 USE:U04404 -->
+Sedimented loyalties to one container can outlast the practices that originally shaped them.
+`对某一种容器根深蒂固的偏爱，可能比最初塑造这种偏爱的做法持续得更久。`
+<!-- SENTENCE:R1S08_07 USE:U01819,U01804 -->
+An indiscriminative enthusiast may praise every beer in a favoured format, whereas an experienced taster learns to discriminate through freshness, balance and the intended style.
+`缺乏辨别的爱好者可能称赞自己偏爱包装形式下的每一种啤酒，而有经验的品尝者则会通过新鲜度、平衡感与预期风格来鉴别品质。`
+
+<!-- ARTICLE:R3A08 -->
+# What Arrives Early, and What Lasts
+
+<!-- SENTENCE:R3S106 USE:U04610 -->
+A pianist can sustain a sound after releasing a key by using the damper pedal, which lifts the dampers away from the strings.
+`钢琴演奏者可以使用制音踏板，在松键之后延续声音；这一踏板会让制音器离开琴弦。`
+<!-- SENTENCE:R3S107 USE:U04611 -->
+A digital instrument can provide sustain electronically, extending the sound while the fingers move elsewhere.
+`数码乐器可以通过电子方式提供延音效果，使声音在手指移往别处时继续。`
+<!-- SENTENCE:R3S108 -->
+Pedalling also governs how old sounds meet new ones: keeping everything ringing through a change of harmony can produce an unwanted mixture.
+`踏板还决定旧声音怎样与新声音相遇：若和声改变时所有声音都继续鸣响，就可能产生并不想要的混杂。`
+<!-- SENTENCE:R3S109 USE:U00512 -->
+An anticipatory movement of the foot prepares that change, but the ear must judge when to clear the preceding harmony.
+`脚部预先作出的动作会为这种改变作准备，但何时清除前一和声，必须由耳朵判断。`
+
+<!-- SENTENCE:R3S110 USE:U00509 -->
+Inside the musical phrase, an anticipation introduces a note belonging to the next chord before that chord arrives.
+`在乐句内部，先现音会在下一个和弦到来之前，先引入属于该和弦的一个音。`
+<!-- SENTENCE:R3S111 -->
+A suspension does a different job: a note from the previous harmony remains over the change before resolving.
+`延留音完成的是另一种工作：前一个和声中的音越过和声变化而保留下来，之后才解决。`
+<!-- SENTENCE:R3S112 USE:U01807 -->
+The listener becomes a discriminator of these relationships, hearing whether a note reaches forward or lingers from behind.
+`听者由此成为这些关系的辨别者，听出一个音是在向前探入，还是从先前延续而来。`
+<!-- SENTENCE:R3S113 USE:U01706 -->
+Diminution changes another dimension of time: at the same tempo, a theme repeated with notes half as long passes more quickly, without necessarily becoming quieter.
+`减值改变的是时间的另一个维度：在速度相同的条件下，一个主题若以时值缩短一半的音符重复，就会更快经过，却不一定变得更轻。`
+
+<!-- SENTENCE:R3S114 USE:U01232,U01233 -->
+Whether studying at a North American conservatory or a European conservatoire, a musician has to turn such relationships into coordinated action.
+`无论在北美的音乐学院，还是在欧洲的艺术或音乐学院学习，音乐学习者都必须把这些关系转化为协调的动作。`
+<!-- SENTENCE:R3S115 USE:U00504,U03810 -->
+A student may anticipate a performance with pleasure while working persistently on a difficult passage in the programme.
+`学生可以愉快地期待一次演出，同时坚持不懈地练习节目中的一段难奏乐段。`
+<!-- SENTENCE:R3S116 USE:U00510 -->
+That anticipative listening gives the next event a place in the present movement of hand and foot.
+`这种预先关注后续声音的聆听，使下一个事件进入当下手脚的动作之中。`
+<!-- SENTENCE:R3S117 USE:U04308 -->
+Movement to music has its own timing: when waltzing partners reverse, they turn the other way while continuing to organize their steps around the music.
+`随音乐而动也有它的时间组织：跳华尔兹的舞伴反向旋转时，会转向另一方向，同时继续依照音乐安排舞步。`
+<!-- SENTENCE:R3S118 -->
+The ISTD's 2018 teaching syllabus placed Natural and Reverse Turns alongside knowledge of foot positions, tempo and counting in beats and bars, making technique inseparable from musical time.
+`帝国舞蹈教师协会2018年的教学考试大纲，在列出右转步与左转步的同时，还要求掌握脚位、速度及节拍和小节计数，把技术与音乐时间联系在一起。`
+
+<!-- ARTICLE:R1A09 -->
+# From Slipping Surfaces to Moving Wheels
+
+<!-- SENTENCE:R1S09_01 USE:U02504,U02505 -->
+A friction clutch connects shafts through surfaces pressed together, and a friction disc provides one of those working surfaces.
+`摩擦离合器通过压在一起的表面连接转轴，而摩擦片提供了其中一个工作表面。`
+<!-- SENTENCE:R1S09_02 USE:U02503 -->
+While the shafts turn at different speeds, friction opposes their relative sliding and tends to bring their speeds together.
+`当两根轴以不同转速旋转时，摩擦力阻碍它们之间的相对滑动，使二者的速度趋于一致。`
+<!-- SENTENCE:R1S09_03 USE:U02502,U02506 -->
+During the friction of one surface against the other, some mechanical energy becomes heat, so frictional heating accompanies this slipping stage.
+`一个表面在另一个表面上擦动时，部分机械能变为热，因此这个滑动阶段伴随着摩擦发热。`
+<!-- SENTENCE:R1S09_04 USE:U00803 -->
+Once locked, the shafts rotate together, and static friction transmits torque up to the clutch's capacity under the applied pressure.
+`锁定之后，两根轴共同旋转，静摩擦传递转矩，其上限取决于施加压力下离合器的传递能力。`
+<!-- SENTENCE:R1S09_05 USE:U02507 -->
+A frictionless version of this contact would remove the very means by which a friction clutch transfers torque.
+`如果这种接触完全无摩擦，就会消除摩擦离合器传递转矩所依赖的手段。`
+<!-- SENTENCE:R1S09_06 -->
+MathWorks separates disengaged, slipping and locked states, with transitions that depend on pressure and the torques acting on the mechanism.
+`MathWorks区分了分离、滑动和锁定状态；状态之间的转换取决于压力以及作用于机构的转矩。`
+
+<!-- SENTENCE:R1S09_07 USE:U04913,U04604 -->
+A transmission's supports must sustain its weight while holding its shafts in their working positions.
+`传动装置的支承结构必须支撑其重量，同时使转轴保持在工作位置。`
+<!-- SENTENCE:R1S09_08 USE:U05012,U05015 -->
+Where a support rests on a yielding pad, the pad compresses under load; too much yieldingness could let the assembly tilt.
+`当支座下面垫有柔软可压的垫片时，垫片会在载荷下压缩；如果柔软可变形的程度过大，就可能使组件倾斜。`
+<!-- SENTENCE:R1S09_09 USE:U05004,U04208 -->
+A spring can yield under pressure from a lever, while a metal retainer keeps loaded parts in place.
+`弹簧会在杠杆施加的压力下变形，而金属固定件则使受载部件保持在位。`
+<!-- SENTENCE:R1S09_10 USE:U04203 -->
+A groove can retain a fitted ring even when the mechanism vibrates.
+`即使机构产生振动，凹槽也能够把装入其中的环固定在位。`
+
+<!-- SENTENCE:R1S09_12 USE:U04529,U04536 -->
+In North American terms, the driver reaches for the shift, while the shifter carries that choice to the gears.
+`按北美英语的说法，驾驶员伸手握住变速杆，换档装置则将这一选择传至齿轮机构。`
+<!-- SENTENCE:R1S09_12b USE:U04530 -->
+The whole shift carries a lever movement through its linkage to the selected gear.
+`整个换档机构通过联动机构，将操纵杆的动作传递到选定的齿轮。`
+<!-- SENTENCE:R1S09_13 USE:U04506,U04508,U04507 -->
+A manual driver can shift gears, shift up as conditions permit, or shift down when a lower gear is needed.
+`驾驶手动档车辆的人可以换档，在条件允许时升档，或在需要较低档位时降档。`
+<!-- SENTENCE:R1S09_14 USE:U04309,U04307 -->
+Selecting reverse changes the direction delivered to the wheels without reversing the engine.
+`选择倒档会改变传到车轮的转动方向，而无需使发动机反向运转。`
+<!-- SENTENCE:R1S09_15 USE:U04306,U04310 -->
+The car can then reverse out of a parking space, with its wheels turning in the reverse direction from forward travel.
+`汽车随后就能倒出停车位，车轮转向与向前行驶时相反。`
+<!-- SENTENCE:R1S09_16 USE:U04329 -->
+A reverser in a drive path can change the output direction while the input continues in its original direction.
+`传动路径中的反转装置能够改变输出端的方向，同时让输入端继续沿原来的方向运转。`
+
+<!-- ARTICLE:R2A08 -->
+# Opening a Shield to Receive Ancient Light
+
+<!-- SENTENCE:R2S112 -->
+When the James Webb Space Telescope launched, its enormous sunshield had to travel folded inside the rocket's nose cone.
+`詹姆斯·韦布空间望远镜发射时，巨大的遮阳板必须折叠起来，装进火箭整流罩内。`
+<!-- SENTENCE:R2S113 USE:U00508,U02304 -->
+Anticipation of that restricted space shaped the engineering task: mechanisms would later have to evolve the folded structure far from human hands.
+`对有限装载空间的预先考虑，塑造了这项工程任务：之后，机械装置必须在人类双手无法触及的地方展开折叠结构。`
+<!-- SENTENCE:R2S114 -->
+NASA reported completion on 4 January 2022, after supports extended, covers released, and the five thin layers were pulled into position and tensioned.
+`美国国家航空航天局于2022年1月4日报告展开完成；此前，支撑结构伸出、保护罩释放，五层薄膜被拉到适当位置并张紧。`
+<!-- SENTENCE:R2S115 USE:U02312 -->
+The evolution of the shield separated its layers to protect the instruments from heat and allow the very cold conditions their observations required.
+`遮阳板向外展开，使各层分开，保护仪器免受热量影响，并让仪器达到观测所需的极低温度。`
+
+<!-- SENTENCE:R2S116 -->
+Infrared observation matters because light travelling through an expanding universe stretches towards longer wavelengths.
+`红外观测之所以重要，是因为在膨胀宇宙中传播的光，会被拉长到更长的波长。`
+<!-- SENTENCE:R2S117 USE:U04523 -->
+Astronomers can recognise a shift in familiar spectral features by comparing their observed positions with their normal positions.
+`天文学家可以把熟悉光谱特征的观测位置与正常位置比较，从而识别其位移。`
+<!-- SENTENCE:R2S118 USE:U04544 -->
+A cosmological red shift can carry light beyond the visible range into the infrared, rather than simply make a distant object look red to the eye.
+`宇宙学红移能够使光越过可见范围，进入红外波段，而非仅仅让遥远天体在肉眼中显得发红。`
+<!-- SENTENCE:R2S119 -->
+Webb's infrared reach therefore connects an intricate unfolding operation with the possibility of examining light from very early galaxies.
+`因此，韦布的红外观测能力，把一项复杂的展开操作与研究极早期星系光线的可能性联系了起来。`
+
+<!-- ARTICLE:R3A09 -->
+# Who Can Act for Someone Else?
+
+<!-- SENTENCE:R3S119 USE:U03011 -->
+A family facing serious difficulties may attempt an intervention, jointly urging someone to seek help; that action does not itself confer legal authority over the person's property.
+`一个面临严重困难的家庭，可能采取共同劝助行动，一起敦促某人寻求帮助；但这种行动本身并不赋予他们处置该人财产的法律权力。`
+<!-- SENTENCE:R3S120 USE:U01214 -->
+Utah's court guidance describes a conservator whose authority comes from an appointment order and a Letter of Conservatorship.
+`犹他州法院的指引介绍了一种法律监护人，其权限来自任命命令与财产监护证明书。`
+<!-- SENTENCE:R3S121 USE:U00809 -->
+Questions of capacity concern legal ability to perform particular acts; the letter shows what this appointed person is authorized to do for the protected person.
+`法律行为能力的问题，涉及依法实施特定行为的能力；证明书则显示，这名受任者获准代表受保护人做什么。`
+<!-- SENTENCE:R3S122 -->
+The appointment may be limited, and the guidance does not give a conservator power to decide what happens to the property at the person's death.
+`任命权限可能是有限的，而且这份指引并未赋予财产监护人决定受保护人去世后财产如何处理的权力。`
+
+<!-- SENTENCE:R3S123 USE:U04906 -->
+To establish authority with a bank, the conservator can transmit a copy of the letter, obtaining a certified copy from the court if required.
+`为向银行证明权限，财产监护人可以交送证明书副本；如果需要，则向法院取得认证副本。`
+<!-- SENTENCE:R3S124 USE:U04909 -->
+The transmittal starts a practical exchange: the institution can confirm whether the document is sufficient or something else is needed.
+`这次交送开启了一项实际沟通：机构可以确认文书是否已经足够，或者是否还需要其他材料。`
+<!-- SENTENCE:R3S125 -->
+Utah's guidance also requires an inventory and subsequent accounts, making the management of someone else's assets traceable.
+`犹他州这份指引还要求提交财产清单及后续账目，使他人资产的管理能够被追查核对。`
+<!-- SENTENCE:R3S126 USE:U04204,U04209 -->
+If legal assistance is needed and the relevant expense is authorized, a conservator might retain a lawyer by paying a retainer to secure professional availability.
+`如果需要法律协助，而且相关费用获得授权，财产监护人可以预付聘用律师，以预付服务费确保需要时能得到专业服务。`
+
+<!-- SENTENCE:R3S127 USE:U04504 -->
+Consultation and delegation are allowed, but a conservator cannot use a helper to shift responsibility unfairly onto someone else.
+`咨询与委派工作是允许的，但财产监护人不能借助助手，把本应承担的责任不公平地推给别人。`
+<!-- SENTENCE:R3S128 USE:U04534 -->
+Nor can the conservator simply shift off the entire responsibility onto a relative: resignation and replacement require the court.
+`财产监护人也不能直接把全部责任甩给亲属：辞任与更换受任者需要经过法院。`
+<!-- SENTENCE:R3S129 USE:U03012 -->
+Where relatives disagree, a mediator's intervention may help them reach terms.
+`亲属意见不合时，调停者的介入可能帮助他们达成条件一致的安排。`
+<!-- SENTENCE:R3S130 USE:U01103 -->
+An older legal account could say they compromised their dispute through mutual concessions, yet their agreement would not by itself transfer the court's appointment.
+`用旧式法律措辞，可以说他们通过彼此让步和解了争端；但他们的协议本身不会转移法院作出的任命。`
+
+<!-- ARTICLE:R2A09 -->
+# Why Two Clubs Can Be a Question
+
+<!-- SENTENCE:R2S120 -->
+In bridge, the auction helps partners select a contract before they play their cards, but a named suit does not always describe the bidder's cards literally.
+`桥牌中，同伴在出牌前通过叫牌选择定约，但叫出的花色并不总是在字面上描述叫牌者手里的牌。`
+<!-- SENTENCE:R2S121 USE:U01407 -->
+The Stayman convention uses a response of two clubs after an opening one no-trump to ask whether the opener holds a four-card major suit.
+`斯台曼约定叫在一无将开叫后，用二梅花应叫询问开叫者是否持有四张高花。`
+<!-- SENTENCE:R2S122 -->
+In the Welsh Bridge Union lesson, two diamonds denies either four-card major, two hearts shows four hearts and possibly four spades, and two spades shows four spades without four hearts.
+`在威尔士桥牌协会的这套课程中，二方块否认持有任何四张高花；二红心表示有四张红心，也可能有四张黑桃；二黑桃表示有四张黑桃而没有四张红心。`
+<!-- SENTENCE:R2S123 -->
+The purpose is to find a four-four major-suit fit, and the lesson warns that the responder must be ready for every possible answer.
+`目的是寻找高花的四四配合，而课程提醒，应叫者必须能应对每一种可能的回答。`
+
+<!-- SENTENCE:R2S124 USE:U04526,U04527 -->
+A later shift to another suit in the bidding changes the auction's direction, while a defender's shift to another suit during play changes the suit led.
+`之后在叫牌中改叫另一花色，会改变叫牌的走向；而防守者在出牌中改出另一花色，改变的则是引出的花色。`
+<!-- SENTENCE:R2S125 -->
+Keeping those stages distinct makes it easier to understand why the same suit name can function first as agreed information and later as an actual card played.
+`把这两个阶段区分清楚，就更容易理解，为什么同一个花色名称，先可以充当约定的信息，之后又可以指实际打出的牌。`
+
+<!-- ARTICLE:R1A10 -->
+# Mary Quant's Clothes Were Made to Move
+
+<!-- SENTENCE:R1S10_01 -->
+When Bazaar opened in London in 1955, Mary Quant entered a business in which each day's sales could pay for cloth sewn into tomorrow's stock.
+`1955年，Bazaar在伦敦开业时，玛丽·匡特进入了一种这样的经营模式：当天的销售收入可以购入布料，连夜缝成次日的新货。`
+<!-- SENTENCE:R1S10_02 USE:U04505,U03501 -->
+She needed to shift clothes, but short production runs also kept the rails changing as demand gathered momentum.
+`她需要把衣服卖出去，而小批量生产也让衣架上的货色不断更新，需求的发展势头随之增强。`
+<!-- SENTENCE:R1S10_03 USE:U04521 -->
+Her simple shift dresses left the waist loose and suited everyday movement, giving young customers an alternative to more structured mature styles.
+`她简洁的直筒裙不收腰，适合日常活动，让年轻顾客在较有结构感的成熟风格之外，有了另一种选择。`
+<!-- SENTENCE:R1S10_04 USE:U04522 -->
+A 1958 grey flannel ensemble reworked Victorian underwear, recalling the earlier shift worn beneath outer clothes and bringing private dress into public view.
+`一套1958年的灰色法兰绒组合重新运用了维多利亚时代的内衣元素，让人想起过去穿在外衣里面的宽松贴身内衣，并将私下穿着带入公共视野。`
+<!-- SENTENCE:R1S10_05 USE:U01409,U01417 -->
+For a conventional customer, this playful reuse could challenge the conventionalism of the clothes she had learned to admire.
+`对于观念循俗的顾客，这种诙谐的重新运用，可能挑战她一向欣赏的衣服所体现的拘守惯例。`
+<!-- SENTENCE:R1S10_05b USE:U01227,U01224 -->
+Someone who dressed conservatively might still choose a conservative coat for work and try the freer shape in the evening.
+`一个穿着传统的人，仍可能上班穿保守风格的外套，到了晚上再尝试这种更自由的轮廓。`
+
+<!-- SENTENCE:R1S10_06 -->
+The practical questions can be explored with an imagined modern garment, without treating it as a particular Quant museum object.
+`我们可以借一件假想的现代服装来探讨实用问题，而不把它当作某件具体的匡特馆藏。`
+<!-- SENTENCE:R1S10_07 USE:U03201,U03203,U03202 -->
+A designer chooses a medium size, a medium blue outer face and fabric of medium weight, balancing movement with coverage.
+`设计者选择中等尺码、中等深浅的蓝色外面，以及厚重程度适中的面料，在活动便利与遮覆之间取得平衡。`
+<!-- SENTENCE:R1S10_08 USE:U04325,U04305 -->
+If the garment is reversible, the wearer can reverse it to display the second face, provided the seams and fastenings work from either side.
+`如果这件衣服可以双面穿，穿着者就能将它翻过来，展示另一面，前提是缝线和扣合装置在两面都能正常使用。`
+<!-- SENTENCE:R1S10_09 -->
+That small design exercise brings attention back to Quant's interest in what people could actually do in their clothes.
+`这个小小的设计练习，把注意力重新带回匡特所关心的事情：人们穿着衣服究竟能够做些什么。`
+
+<!-- ARTICLE:R3A10 -->
+# Passing Urine Is Not Always Emptying the Bladder
+
+<!-- SENTENCE:R3S131 USE:U04216 -->
+Urinary retention means that the bladder does not empty completely, so the passage of some urine does not necessarily show that emptying is normal.
+`尿潴留是指膀胱不能完全排空，因此，能够排出一些尿液，并不一定表明排空功能正常。`
+<!-- SENTENCE:R3S132 -->
+The NIDDK distinguishes a sudden acute inability to urinate from a chronic condition that develops over time and may leave someone able to pass urine without emptying the bladder.
+`美国国家糖尿病、消化与肾脏疾病研究所区分了突然完全无法排尿的急性状态，与逐渐发展的慢性状态；在后一种情况下，人仍可能排尿，却无法排空膀胱。`
+<!-- SENTENCE:R3S133 USE:U03807 -->
+Persistent episodes of difficulty may attract attention, but chronic retention can also produce no obvious symptoms.
+`反复出现的排尿困难可能引起注意，但慢性尿潴留也可能没有明显症状。`
+<!-- SENTENCE:R3S134 -->
+Its patient information, reviewed in 2019, states that a sudden inability to urinate requires emergency medical treatment immediately.
+`其2019年复核的患者资料指出，突然无法排尿需要立即接受急诊医疗处理。`
+
+<!-- ARTICLE:R3A11 -->
+# The Part That Holds a Replacement Tooth
+
+<!-- SENTENCE:R3S135 -->
+A fixed dental bridge fills a gap with a false tooth supported by one or more neighbouring teeth.
+`固定牙桥用一颗假牙填补缺牙处，并由一颗或多颗邻牙提供支撑。`
+<!-- SENTENCE:R3S136 USE:U04213 -->
+The retainer attaches the bridge to a supporting tooth, so the visible replacement depends on a less conspicuous structure.
+`固位体把牙桥连接在支撑牙上，因此，可见的替代牙有赖于一个不那么显眼的结构。`
+<!-- SENTENCE:R3S137 -->
+Leeds Teaching Hospitals explains that a conventional bridge uses a crown over a prepared tooth, whereas an adhesive bridge uses a small metal wing bonded to the back of an adjacent tooth.
+`利兹教学医院介绍说，传统牙桥采用覆盖在预备牙上的牙冠，黏接牙桥则采用黏在邻牙背面的小金属翼。`
+<!-- SENTENCE:R3S138 USE:U04102,U04112 -->
+Either approach aims to restore appearance and function, with restoration of chewing depending on the whole fitted structure.
+`两种方式都旨在恢复外观与功能，而咀嚼功能的恢复有赖于整套安装就位的结构。`
+
+<!-- SENTENCE:R3S140 USE:U04219 -->
+A retentive bandage has a comparable purpose in a different setting: it holds a dressing in position.
+`固位绷带在另一种场合承担相似的功能：把敷料固定在适当位置。`
+<!-- SENTENCE:R3S141 -->
+St John Ambulance's guidance couples secure bandaging with protection of circulation, since keeping something in place must not come at the cost of restricting blood flow.
+`圣约翰急救组织的指引，把牢固包扎与保护血液循环并列要求，因为固定到位不能以阻碍血流为代价。`
+
+<!-- ARTICLE:R3A12 -->
+# An Eye Has Structure and a Recent History
+
+<!-- SENTENCE:R3S142 USE:U03706,U03712 -->
+The orbit is the space in the skull containing the eye and associated structures; orbital bones help surround and protect them.
+`眼眶是头骨中容纳眼球及相关结构的空间，眼眶骨参与围绕并保护这些结构。`
+<!-- SENTENCE:R3S143 -->
+That physical protection does not explain why a room can become easier to see after the lights have been dimmed for a while.
+`这种物理保护，却不能解释为什么灯光变暗一段时间后，房间里的东西会变得更容易看见。`
+<!-- SENTENCE:R3S144 USE:U00112 -->
+Dark adaptation increases sensitivity, and the eye's recent exposure to light affects how it responds in the present.
+`暗适应会提高敏感度，而眼睛近期接受过怎样的光照，也会影响它当下的反应。`
+<!-- SENTENCE:R3S145 -->
+NYU's teaching demonstrations distinguish rod and cone vision and show why two eyes with different lighting histories need not initially respond alike.
+`纽约大学的教学演示区分视杆与视锥视觉，并说明为什么此前光照经历不同的双眼，起初不一定作出相同反应。`
+
+<!-- SENTENCE:R3S146 USE:U04916 -->
+Communication in the nervous system adds another layer: at a chemical synapse, a neurotransmitter crosses the small gap and binds to a corresponding receptor.
+`神经系统中的信息传递又增加了另一个层次：在化学突触处，神经递质跨越狭小的间隙，并与相应受体结合。`
+<!-- SENTENCE:R3S147 -->
+Electrical activity along a neuron and chemical signalling between neurons are connected stages, while the bony socket supplies a different kind of support.
+`沿神经元传导的电活动，与神经元之间的化学信号传递，是相互联系的阶段；骨性眼窝提供的则是另一种支持。`
+
+<!-- ARTICLE:R3A13 -->
+# The Last Person in the House
+
+<!-- SENTENCE:R3S148 -->
+In The Cherry Orchard, Lopakhin proposes dividing the estate into plots for holiday villas to rescue its owners financially, at the cost of the landscape they love.
+`在《樱桃园》中，洛帕欣提出把庄园划成地块出租建别墅，以挽救主人们的经济处境，代价则是他们热爱的景观。`
+<!-- SENTENCE:R3S149 USE:U04519 -->
+This shift for escaping debt is unbearable to Ranevsky, whose memories make the orchard more than income-producing land.
+`这种摆脱债务的权宜办法让拉涅夫斯卡娅无法接受；对她而言，记忆使樱桃园远不止一片能产生收入的土地。`
+<!-- SENTENCE:R3S150 -->
+At the auction, however, Lopakhin buys it himself.
+`然而，在拍卖中，洛帕欣亲自买下了庄园。`
+<!-- SENTENCE:R3S151 -->
+“I bought it,” he announces, and his pleasure swells into the knowledge that he owns the place where his father and grandfather were serfs.
+`“我买下了，”他宣布；他的喜悦随之涌向一个认识：父亲与祖父曾为农奴的地方，如今归他所有。`
+<!-- SENTENCE:R3S152 USE:U04304 -->
+The purchase reverses the positions of host and guest: he now owns the house in which its former owners must spend their last hours before departure.
+`这次购买对调了主人与客人的位置：如今，他拥有了这座房子，而旧主人必须在这里度过离开前的最后时光。`
+<!-- SENTENCE:R3S153 USE:U05002 -->
+They have to yield control, although affection for the rooms survives the transfer.
+`他们不得不交出控制权，尽管对这些房间的眷恋并未随转让而消失。`
+
+<!-- SENTENCE:R3S154 USE:U04531 -->
+Other characters seek ways to make shift as the household breaks apart.
+`随着这个家分崩离析，其他人物也在寻找勉强应付下去的办法。`
+<!-- SENTENCE:R3S155 USE:U02406 -->
+English visitors have found exploitable white clay on Pischin's land and leased it, enabling him to repay part of his debts.
+`英国来客在皮希克的土地上发现了可供开发的白色陶土，并租下土地，使他能够偿还一部分债务。`
+<!-- SENTENCE:R3S156 USE:U02404 -->
+The prospect of exploiting a mineral resource brings money where appeals to friends had brought only temporary relief.
+`开发矿产资源的前景带来了钱，而向朋友求助此前只带来暂时缓解。`
+<!-- SENTENCE:R3S157 USE:U02410,U02007 -->
+The planned exploitation belongs to an emerging world of leases, villas and paid positions that runs through the play's old rooms.
+`这项计划中的资源开发，属于一个正在兴起的租约、别墅与受薪职位的世界；这个世界贯穿着剧中的旧房间。`
+<!-- SENTENCE:R3S158 USE:U04514,U04532 -->
+Charlotta needs another post and will have to shift as best she can; Varya has arranged to shift for herself as a housekeeper elsewhere.
+`夏洛塔需要另一份工作，必须尽力筹划着应付下去；瓦丽娅则已安排到别处做管家，靠自己谋生。`
+
+<!-- SENTENCE:R3S159 -->
+Varya's hoped-for marriage to Lopakhin never becomes a proposal.
+`瓦丽娅所盼望的与洛帕欣的婚事，始终没有变成一次求婚。`
+<!-- SENTENCE:R3S160 -->
+Left together, they speak about her new job, luggage and the weather; a pause opens, and a voice at the door gives him a reason to leave.
+`两人单独相处时，谈起她的新工作、行李与天气；停顿出现，门口的一声呼唤给了他离开的理由。`
+<!-- SENTENCE:R3S161 -->
+She sits on the floor and weeps over a bundle of clothes.
+`她坐到地上，对着一包衣服哭泣。`
+<!-- SENTENCE:R3S162 USE:U04512 -->
+Outside this failed conversation, the passengers must shift if they are to catch the train; Lopakhin's watch keeps imposing another timetable on farewell.
+`在这场失败的交谈之外，乘车的人若要赶上火车，就得赶快；洛帕欣的手表不断把另一套时间表强加给告别。`
+<!-- SENTENCE:R3S163 USE:U04535 -->
+Shiftable trunks and bundles gather near the door, while the question of whether Fiers has reached the hospital passes from one person to another without a reliable answer.
+`可以搬移的箱子与包裹聚在门边，而菲尔斯是否已到医院的问题，却在人与人之间传递，始终没有可靠的答案。`
+
+<!-- SENTENCE:R3S164 USE:U04210 -->
+Fiers is a retainer of the landed household who chose to remain after emancipation.
+`菲尔斯是依附于这个地主家庭的老仆，在农奴解放后选择继续留下。`
+<!-- SENTENCE:R3S165 USE:U04211 -->
+Earlier, the old retainer's fussing over Gaev's coat can sound affectionately comic, as though the household could never exhaust his readiness to serve.
+`早先，这位“老家臣”为加耶夫的外套操心，会显得带着亲切的喜剧意味，仿佛这个家庭永远消耗不尽他服侍人的热心。`
+<!-- SENTENCE:R3S166 -->
+In the last scene, everyone has gone, and he tries the door.
+`到最后一场，所有人都已离开，他去试门。`
+<!-- SENTENCE:R3S167 USE:U01303,U01308 -->
+“It's locked,” he says; the house constrains him within its walls, and physical constraint replaces the social bustle that filled the earlier acts.
+`“锁上了，”他说；房子把他禁闭在墙内，身体失去自由的状态，取代了前几幕充满屋子的社交喧闹。`
+<!-- SENTENCE:R3S168 -->
+Still anxious about Gaev's clothes, he lies down and becomes motionless.
+`他仍为加耶夫的衣着担忧，随后躺下，不再动弹。`
+<!-- SENTENCE:R3S169 -->
+A distant breaking-string sound dies away, leaving silence and the axes in the orchard.
+`远处仿佛琴弦绷断的声音渐渐消失，只留下寂静与樱桃园里的斧声。`
+<!-- SENTENCE:R3S170 USE:U00103 -->
+Anyone adapting the play for the screen must decide how to preserve that interval of listening: the ending happens through what the empty room lets us hear.
+`任何把这部戏剧改编成电影的人，都必须决定怎样保留这段聆听的间隙：结尾通过空房间让我们听见的东西而发生。`
+
+<!-- ARTICLE:R1A11 -->
+# An Objection with a Place at the Table
+
+<!-- SENTENCE:R1S11_01 USE:U00211 -->
+In Richard Burtsell's 1907 account of Catholic canonization, the devil's advocate had an official duty to present objections to a proposed elevation to sainthood.
+`在理查德·伯茨尔1907年对天主教列圣程序的介绍中，列圣审查员有正式职责，对拟议的列圣提出异议。`
+<!-- SENTENCE:R1S11_02 USE:U01302 -->
+The office constrained its holder to prepare all possible arguments in writing, including objections that might initially seem slight.
+`这一职务要求任职者必须以书面准备一切可能的反对论据，包括起初可能显得微不足道的异议。`
+<!-- SENTENCE:R1S11_03 -->
+The account makes the formally recognized officer's presence a condition for the validity of important procedural acts.
+`这篇记述把获得正式认可的审查员在场，列为重要程序行为有效的条件。`
+<!-- SENTENCE:R1S11_03b -->
+He also had to protest when prescribed procedural steps were omitted and insist that objections receive consideration.
+`他还必须对省略规定程序的行为提出抗议，并坚持让异议得到审议。`
+<!-- SENTENCE:R1S11_03c -->
+People following the case could return to the written objection and ask whether the reply actually answered it.
+`关注审查的人可以回到书面异议，检查答复是否真正回应了其中的问题。`
+
+<!-- SENTENCE:R1S11_04 USE:U00210 -->
+In ordinary discussion, someone playing devil's advocate tests a proposal against an argument that its supporters may have overlooked.
+`在日常讨论中，暂站反方的人用支持者可能忽略的反对论据来检验一项提议。`
+<!-- SENTENCE:R1S11_05 USE:U00916,U00902 -->
+Someone who speaks incoherently may become more coherent after separating a claim, its supporting evidence and the question still unanswered.
+`一个起初说得不连贯的人，在把主张、支撑它的证据和仍未回答的问题分开后，可能表达得更清楚。`
+<!-- SENTENCE:R1S11_06 USE:U04516 -->
+In a deliberately archaic description, a respondent who shifts instead of answering leaves that last question open.
+`如果刻意用古旧笔调来描述，答辩者若推托躲闪而不直接回答，那个尚未解答的问题就仍然悬而未决。`
+<!-- SENTENCE:R1S11_07 USE:U01304 -->
+Threats may constrain assent, but an answer obtained that way gives no explanation of why an objection fails.
+`威胁或许能迫使人表示赞同，但这样取得的答复，并没有解释一项异议为什么不能成立。`
+
+<!-- SENTENCE:R1S11_08 -->
+The US House's explanation of floor business describes debate time normally divided between proponents and opponents, each side allocating time to its speakers.
+`美国众议院对议事厅事务的说明指出，辩论时间通常在支持方与反对方之间划分，再由各方把时间分配给自己的发言者。`
+<!-- SENTENCE:R1S11_09 USE:U05011 -->
+Its 117th Congress manual allows a member to decide whether to yield to an interruption and bars repeated demands after a refusal.
+`第117届国会的众议院手册允许议员决定是否让出发言机会以接受插话，并禁止在遭到拒绝后反复提出这种要求。`
+<!-- SENTENCE:R1S11_09b -->
+These arrangements give disagreement a speaking order; permission to address the chamber does not settle the speaker's position on the bill.
+`这些安排为意见分歧确立了发言顺序；获准向议院发言，并不决定发言者对法案持何种立场。`
+
+<!-- SENTENCE:R1S11_10 USE:U05013 -->
+A yielding participant may agree to narrow a disputed claim while insisting that the remaining evidence be tested.
+`一位愿意让步的参与者，可以同意缩小有争议的主张范围，同时坚持检验剩下的证据。`
+<!-- SENTENCE:R1S11_10b USE:U05018 -->
+Other participants cannot infer from that first yielder's concession that every objection has been withdrawn.
+`其他参与者不能因为第一位让步者作出了一项让步，就认定所有异议均已撤回。`
+<!-- SENTENCE:R1S11_10c USE:U05014 -->
+A brief illustrative reply, 'I accept that correction,' can be given yieldingly, conceding one error while preserving the larger objection.
+`一句简短的例示回答——“我接受这项纠正”——可以用顺从让步的方式说出，承认一处错误，同时保留更大的异议。`
+<!-- SENTENCE:R1S11_11 USE:U05010,U05001 -->
+An equally illustrative 'I yield to none in concern for accuracy' asserts commitment to scrutiny; the speaker can still yield to persuasion when the evidence changes.
+`同样作为例示，“我对准确性的重视不亚于任何人”表达的是坚持审查的态度；证据发生变化时，发言者仍可以接受劝说而让步。`
+
+<!-- ARTICLE:R2A10 -->
+# Getting the Gas Back Is Not the Whole Test
+
+<!-- SENTENCE:R2S126 -->
+Imagine an ideal gas occupying half an insulated container, with a partition separating it from a vacuum in the other half.
+`设想理想气体占据绝热容器的一半，隔板将它与另一半的真空隔开。`
+<!-- SENTENCE:R2S127 -->
+Remove the partition and the gas spreads through the container; pushing it back afterwards can restore its volume, but affects the surroundings.
+`移除隔板，气体便扩散到整个容器；之后把它压回去，可以恢复它的体积，却会影响周围环境。`
+<!-- SENTENCE:R2S128 USE:U04324 -->
+For the complete process to be thermodynamically reversible, both the gas and its environment must be capable of returning simultaneously to their initial states.
+`要让完整过程在热力学上可逆，气体与环境都必须能够同时回到最初状态。`
+<!-- SENTENCE:R2S129 USE:U04326 -->
+Restoring the gas while leaving heat in the environment therefore does not demonstrate reversibility.
+`因此，把气体恢复原状、却在环境中留下热量，并不能证明可逆性。`
+
+<!-- SENTENCE:R2S130 USE:U04327 -->
+An ideal process can proceed reversibly in the limit of infinitesimally small changes, with equilibrium maintained and dissipative effects absent.
+`在理想极限下，过程可以通过无穷小的变化可逆地进行，同时保持平衡，并且不存在耗散效应。`
+<!-- SENTENCE:R2S131 USE:U03006 -->
+If friction intervenes, merely moving a piston slowly is insufficient to meet that condition.
+`如果摩擦介入，仅仅缓慢移动活塞，并不足以满足这一条件。`
+<!-- SENTENCE:R2S132 USE:U01226 -->
+Conservative forces offer a related mechanical idea: their work depends on endpoints rather than the route between them, and totals zero around a closed path.
+`保守力提供了一个相关的力学概念：它们做的功取决于起点和终点，而非两点间的路径；沿闭合路径做功的总和为零。`
+<!-- SENTENCE:R2S133 -->
+That property describes a force, while thermodynamic reversibility asks about an entire process and its effects on the world around it.
+`这一性质描述的是一种力，而热力学可逆性考察的是整个过程及其对周围世界的影响。`
+
+<!-- ARTICLE:R3A14 -->
+# A Root Is Not a List Read Backwards
+
+<!-- SENTENCE:R3S171 USE:U02314 -->
+In the 1911 Encyclopaedia Britannica's arithmetic, evolution finds the base from a known exponent and result, while involution calculates the result from base and exponent.
+`在1911年《大英百科全书》的算术叙述中，开方是根据已知指数与结果求底数，而乘方则是根据底数与指数求结果。`
+<!-- SENTENCE:R3S172 USE:U01910 -->
+Divers questions can be asked about the same relation: three cubed equals twenty-seven, but a reader may know any two of the base, the exponent and the result, and seek the third.
+`围绕同一个关系，可以提出种种问题：三的立方等于二十七，而读者可能已知底数、指数与结果中的任意两个量，要求出第三个。`
+<!-- SENTENCE:R3S173 -->
+Seeking the cube root of twenty-seven asks for the base that produced it, not for the preceding entry in a printed list.
+`求二十七的立方根，是要求出产生这一结果的底数，而不是寻找印刷列表中的前一项。`
+
+<!-- SENTENCE:R3S174 USE:U04303,U04311 -->
+Reverse the sequence three, nine, twenty-seven, and it reads twenty-seven, nine, three in reverse order.
+`把三、九、二十七这个序列倒置，它就按相反次序读成二十七、九、三。`
+<!-- SENTENCE:R3S175 USE:U04328,U04318 -->
+The reversely arranged series can be traversed by successive divisions by three; working through it in reverse does not by itself extract a cube root.
+`这个反向排列的序列，可以通过接连除以三走过；倒着走过它，本身并不等于求出了立方根。`
+<!-- SENTENCE:R3S176 USE:U04317 -->
+If an old worked example continues on the reverse of a leaf, the preceding page may hold the given values that distinguish a root problem from a logarithm problem.
+`如果一本旧书的演算例题续写在书叶反面，前一页可能记载着已知数值，使人能够区分它是开方问题还是对数问题。`
+
+<!-- SENTENCE:R3S177 USE:U02313 -->
+In geometry, the evolution of a curve has a different concrete picture: unwind a taut string from a circle, and its free end traces an involute.
+`在几何中，曲线展开有另一种具体形象：把绷紧的细线从圆周上逐渐展开，线的自由端就描出一条渐开线。`
+<!-- SENTENCE:R3S178 -->
+MacTutor describes the equivalent construction with a point on a straight line rolling around a circle and connects Huygens's study of the curve with the search for accurate clocks at sea.
+`MacTutor介绍了等价的作图：一条直线沿圆滚动，直线上的点描出曲线；它还把惠更斯对这种曲线的研究与寻找海上精确计时方法联系起来。`
+<!-- SENTENCE:R3S179 -->
+Here a shape unfolds; in the arithmetic account, a number is recovered from a known power.
+`在这里，展开的是一个形状；在算术叙述中，则是从已知的乘方结果求回一个数。`
+
+<!-- ARTICLE:R2A11 -->
+# Bandung and the Right to Choose a Direction
+
+<!-- SENTENCE:R2S134 -->
+In April 1955, representatives of twenty-nine Asian and African governments met in Bandung, Indonesia, as decolonisation transformed world politics.
+`1955年4月，当去殖民化正在改变世界政治时，二十九个亚非国家政府的代表在印度尼西亚万隆会面。`
+<!-- SENTENCE:R2S135 USE:U02010,U02009 -->
+For an emergent state, independence raised questions about development, alliances, and the right to decide its own future; an emergent international solidarity offered a way to discuss them together.
+`对新独立国家来说，独立带来了发展、联盟与自行决定未来的权利等问题；一种正在形成的国际团结，为共同讨论这些问题提供了途径。`
+<!-- SENTENCE:R2S136 -->
+The conference affirmed sovereignty, self-determination, and non-interference, while participants retained different ideologies and existing loyalties.
+`会议确认了主权、自决与不干涉原则，而与会者仍保留着不同的意识形态和既有联盟关系。`
+<!-- SENTENCE:R2S137 USE:U03705 -->
+They were not all moving into the orbit of a single power, and the meeting did not become the general denunciation of the West that some American observers had feared.
+`他们并非全都进入同一大国的影响范围，会议也没有变成一些美国观察者担心的那种对西方的全面谴责。`
+
+<!-- SENTENCE:R2S138 USE:U03013,U03001 -->
+Non-interference challenges an interventionist policy by asking what authority an outside government has to intervene in another state's affairs.
+`不干涉原则通过追问外部政府凭何种权威介入另一国事务，对干预型政策提出质疑。`
+<!-- SENTENCE:R2S139 USE:U03014,U03015 -->
+An interventionist may defend action as necessary assistance, but that argument leaves the scope and consequences of interventionism open to dispute.
+`干预主张者可能以必要援助为行动辩护，但这种论证仍留下了争论干预主义范围与后果的空间。`
+<!-- SENTENCE:R2S140 USE:U02402,U02407 -->
+More generally, a powerful state could exploit another's financial difficulty, treating its weakness as an exploitable opening for influence.
+`更一般地说，强国可能利用另一国的财政困难，把对方的弱点视为可乘之机，以扩大影响。`
+<!-- SENTENCE:R2S141 USE:U02409,U03101 -->
+Such exploitation need not involve an invasion: diplomatic pressure might instead isolate a government from possible partners.
+`这种利用局势谋利的行为不一定涉及入侵：外交压力也可能使某国政府失去潜在伙伴的支持。`
+<!-- SENTENCE:R2S142 -->
+Bandung gave governments with different loyalties a shared setting in which to insist that independence included a voice of their own.
+`万隆为联盟关系不同的政府提供了共同场所，让它们能够坚持主张：独立也包括拥有自己的发言权。`
+
+<!-- ARTICLE:R1A13 -->
+# From the Convention Floor to a Reusable Record
+
+<!-- SENTENCE:R1S13_01 USE:U01405 -->
+At the 1968 Democratic convention in Chicago, delegates nominated Hubert Humphrey while anti-war demonstrations and police violence unfolded elsewhere in the city.
+`在1968年芝加哥民主党提名大会上，代表们提名了休伯特·汉弗莱，与此同时，反战示威和警察暴力在城市其他地方发生。`
+<!-- SENTENCE:R1S13_02 USE:U01404 -->
+The convention's formal business generated schedules, committee records and statements, many of which are described in Chicago Public Library's finding aid.
+`这场正式大会的议事活动产生了日程、委员会记录和声明，其中许多都列在芝加哥公共图书馆的档案检索指南中。`
+<!-- SENTENCE:R1S13_03 USE:U03218 -->
+The media also needed to move through this crowded event, and portable equipment changed where a television reporter could work.
+`媒体也需要穿行于这场人群密集的活动中，便携设备改变了电视记者能够工作的地点。`
+<!-- SENTENCE:R1S13_04 -->
+The Smithsonian's account describes NBC's battery-powered microphone system, which allowed two-way communication between a reporter and a director in the booth.
+`史密森学会的介绍描述了NBC的电池供电麦克风系统，它让记者与播控间的导播能够双向通信。`
+<!-- SENTENCE:R1S13_05 USE:U04902,U03219 -->
+Networks could transmit live reports from the floor, bringing the sounds and encounters of the meeting to the mass media's audience.
+`电视网能够从会场内直播报道，将会议现场的声音与相遇传递给大众媒体的观众。`
+<!-- SENTENCE:R1S13_06 USE:U04911,U04912 -->
+Transmission could now follow a moving reporter, and a single transmission might carry viewers between several conversations.
+`节目播送如今可以跟随移动的记者，而一次播出的节目可能带观众穿梭于几段交谈之间。`
+
+<!-- SENTENCE:R1S13_07 -->
+The library's finding aid describes both official convention material and alternative newspapers covering the protests, keeping the inside and outside stories within reach.
+`图书馆的档案检索指南既介绍大会的官方材料，也介绍报道示威的另类报刊，让会场内外的故事都可供追索。`
+<!-- SENTENCE:R1S13_07b -->
+A seating chart records an arrangement of places, while a credentials record concerns entitlement to participate; the two kinds of evidence answer different questions.
+`座位表记录位置安排，而资格凭证记录关乎参与资格；这两类证据回答的是不同问题。`
+<!-- SENTENCE:R1S13_08 USE:U00414 -->
+A later example makes the substitute's role explicit: Virginia's 2016 selection plan allowed an alternate to act for a temporarily absent pledged delegate at the national convention.
+`一个较晚的实例明确了替补者的职责：弗吉尼亚州2016年的选任方案允许候补人员在全国代表大会上，临时接替短暂缺席的承诺支持特定候选人的代表。`
+<!-- SENTENCE:R1S13_08b -->
+That temporary replacement had to share the delegate's presidential preference; where possible, the rules also matched sex and locality.
+`这种临时接替者必须与原代表支持同一位总统候选人；规则还要求在可能时，使接替者与原代表性别相同、来自相同地区。`
+
+<!-- SENTENCE:R1S13_09 USE:U03220 -->
+The American Archive of Public Broadcasting's multimedia history of protest links explanatory text to radio recordings and television footage, including material on Chicago in 1968.
+`美国公共广播档案项目用多媒体形式呈现抗议活动史，将说明文字链接到广播录音和电视影像，其中包括有关1968年芝加哥的材料。`
+<!-- SENTENCE:R1S13_09b USE:U03221 -->
+Within this hypermedia, links join the historical narrative to individual source records, distinguishing a later explanation from the programme it cites.
+`在这种超媒体内容中，链接把历史叙述与各项来源记录连接起来，使后来的解释与它所引用的节目可以区分。`
+<!-- SENTENCE:R1S13_09c -->
+A broadcast selected encounters for its original audience; the linked account selects surviving material for a new historical question.
+`广播报道为当时的观众选择现场交谈，而带有链接的历史叙述则为新的历史问题选择留存材料。`
+
+<!-- SENTENCE:R1S13_10 -->
+Digital access also depends on storage decisions, which affect how quickly a surviving recording can be retrieved.
+`数字访问也取决于存储决策，这会影响提取一份留存录音录像的速度。`
+<!-- SENTENCE:R1S13_10b -->
+Archives New Zealand distinguishes immediately accessible online storage from offline media and near-line storage that must be retrieved before use.
+`新西兰档案馆把可立即访问的在线存储，与离线介质及使用前需要调取的近线存储加以区分。`
+<!-- SENTENCE:R1S13_10c USE:U00705 -->
+When institutions archive large, infrequently used files to a separate storage tier, they must retain a route for retrieval and check that the files remain intact.
+`机构把大型、很少使用的文件转存到独立存储层时，必须保留调取途径，并检查文件是否仍然完整。`
+<!-- SENTENCE:R1S13_10d -->
+The finding aid helps locate a record; a broadcast recording additionally needs a playable format if another audience is to hear or watch it.
+`档案检索指南帮助人们找到记录；广播电视节目的录制材料若要供另一批观众收听或观看，还需要可播放的格式。`
+
+<!-- ARTICLE:R2A12 -->
+# What Recovery Includes
+
+<!-- SENTENCE:R2S143 USE:U00406 -->
+The US National Center for Complementary and Integrative Health distinguishes alternative medicine, used in place of conventional treatment, from complementary approaches used alongside it.
+`美国国家补充与整合健康中心区分了替代常规治疗的替代医学，与同常规治疗并用的补充方法。`
+<!-- SENTENCE:R2S144 -->
+Its account of integrative health emphasises coordination between providers and attention to the whole person's biological, behavioural, social, and environmental circumstances.
+`该中心对整合健康的介绍，强调服务提供者之间的协调，以及对整个人的生物、行为、社会和环境状况的关注。`
+<!-- SENTENCE:R2S145 -->
+A 2021 explanation from the center described research into symptom support during conventional cancer care and characterised the programmes' overall evidence as still at an early stage.
+`该中心2021年的一份说明，介绍了常规癌症治疗期间症状支持方面的研究，并指出这些项目的总体证据仍处于早期阶段。`
+<!-- SENTENCE:R2S146 -->
+An aim to relieve symptoms must therefore be kept distinct from proof that a particular approach treats the cancer itself.
+`因此，缓解症状的目标，必须与某种方法能够治疗癌症本身的证据区分开来。`
+
+<!-- SENTENCE:R2S147 USE:U03906 -->
+Recovery can include visible changes as well as pain or fatigue: excess pigmentation can darken patches of skin, and the US National Cancer Institute lists several possible causes, including some medicines.
+`恢复过程除了疼痛或疲劳，也可能涉及外观变化：过度的色素沉积会使局部皮肤变深，美国国家癌症研究所列出了多种可能原因，包括某些药物。`
+<!-- SENTENCE:R2S148 -->
+The appearance alone does not identify its cause, but it may be part of the person's experience that a consultation needs to address.
+`仅凭外观无法确定其成因，但它可能是就诊时需要回应的个人体验的一部分。`
+<!-- SENTENCE:R2S149 USE:U02912 -->
+At a psychological level, integration involves bringing perceptions, feelings, and memories together within a person's sense of self, a different question from coordinating clinical services.
+`在心理层面，整合涉及把知觉、感受与记忆结合到一个人的自我感之中；这与协调临床服务是不同的问题。`
+
+<!-- SENTENCE:R2S150 USE:U04118,U04119,U04120 -->
+What feels restorative may be modest and personal: a meal can be a restorative after exhaustion, while an unhurried conversation may act restoratively by easing a sense of being alone.
+`令人恢复元气的事物，可能很平常，也因人而异：疲惫后一顿饭可以成为恢复力量的东西，而一次从容交谈也可能通过减轻孤单感，让人恢复精神。`
+<!-- SENTENCE:R2S151 -->
+Those experiences have value in a life undergoing treatment without becoming evidence for an unproven medical cure.
+`这些体验对正在接受治疗的生活具有价值，但并不因此成为某种未经证实的医疗治愈方法的证据。`
+
+<!-- ARTICLE:R3A15 -->
+# Moving a Collection Before Rebuilding Its Climate
+
+<!-- SENTENCE:R3S180 -->
+Kew's Palm House, opened in 1848, keeps tropical plants inside an iron-and-glass building whose warm, humid conditions also challenge its fabric.
+`邱园1848年开放的棕榈温室，把热带植物保存在一座铁与玻璃建成的建筑内，而温暖潮湿的环境也不断考验着建筑材料。`
+<!-- SENTENCE:R3S181 USE:U01230,U01231 -->
+A conservatory such as this is a managed growing environment, unlike a domestic conservatory used mainly as a bright room for reading or sitting.
+`这样的温室是受到管理的植物生长环境，与主要用于阅读或休坐的明亮住宅日光房用途不同。`
+<!-- SENTENCE:R3S182 -->
+The separate Princess of Wales Conservatory makes that management explicit through ten computer-controlled climate zones.
+`另一座威尔士王妃温室，以十个电脑控制的气候区，清楚体现了这种环境管理。`
+
+<!-- SENTENCE:R3S183 USE:U04511 -->
+Plans for the Palm House's renovation involve new glass and seals, work on the iron structure, and tests of ways to shift old paint without sacrificing historic material.
+`棕榈温室的整修计划涉及更换玻璃与密封、处理铁结构，以及测试去除旧漆而不牺牲历史材料的方法。`
+<!-- SENTENCE:R3S184 USE:U00407 -->
+Alternative energy is part of the heating plan: Kew proposes renewable electricity and air- and water-source heat pumps in place of gas boilers.
+`替代能源也是供热计划的一部分：邱园提出用可再生电力以及空气源、水源热泵，代替燃气锅炉。`
+<!-- SENTENCE:R3S185 -->
+These are intended changes, with closure phases planned for 2027, rather than evidence that the building has already achieved its emissions goals.
+`这些是拟实施的改变，计划于2027年分阶段关闭，并不意味着建筑已实现减排目标。`
+
+<!-- SENTENCE:R3S186 USE:U03204 -->
+Plants need somewhere to live throughout the work, and moving a medium-sized potted specimen presents a different problem from moving a palm that reaches the roof.
+`整个施工期间，植物都需要安置地点；搬动一株中等大小的盆栽，与搬动一株高达屋顶的棕榈，是不同的问题。`
+<!-- SENTENCE:R3S187 -->
+Kew is moving some plants to other glasshouses and nurseries and propagating replacements from plants too large to move.
+`邱园正在把部分植物移往其他温室与苗圃，并为大到无法搬动的植物繁殖后代。`
+<!-- SENTENCE:R3S188 USE:U00505 -->
+If a plant's condition required an earlier transfer, staff could anticipate its planned move, bringing it forward instead of waiting for the original date.
+`如果植物的状况要求更早转移，工作人员就可以把原定搬迁提前，而不等到原来的日期。`
+<!-- SENTENCE:R3S189 USE:U04106 -->
+The project intends to restore plants to the renovated Palm House when space is ready.
+`项目计划在空间准备好后，把植物放回整修后的棕榈温室。`
+
+<!-- SENTENCE:R3S190 -->
+Keeping a living collection also means keeping track of identity through the move.
+`保存一套活植物收藏，还意味着在搬迁中持续掌握每株植物的身份。`
+<!-- SENTENCE:R3S191 USE:U00415,U03808 -->
+An observer recording alternate leaves at successive nodes, or a persistent calyx still surrounding a fruit, is noting structures that help describe a plant beyond its moment of full flower.
+`观察者记录沿各节交替排列的互生叶，或仍围在果实周围的宿存花萼，是在记下能够帮助描述植物的结构，而不只关注它盛开的一刻。`
+<!-- SENTENCE:R3S192 -->
+Relocating a collection preserves those identities only if descriptions and labels continue to follow the living plants.
+`搬迁一套收藏时，只有让描述与标牌继续跟随活植物，才能把这些身份信息一并保存下来。`
+
+<!-- ARTICLE:R2A13 -->
+# Familiar Letters, Changing Voices
+
+<!-- SENTENCE:R2S152 -->
+A reader approaching Chaucer meets familiar letters whose historical sounds can be surprisingly unfamiliar.
+`读者开始阅读乔叟时，会遇到熟悉的字母，而这些字母在历史上的读音可能陌生得令人惊讶。`
+<!-- SENTENCE:R2S153 USE:U04524,U03404 -->
+The Great Vowel Shift was a sound shift that modified English long stressed vowels, helping to explain why modern spelling does not simply reproduce modern pronunciation.
+`元音大推移是一场改变了英语长重读元音的系统性音变，有助于解释为什么现代拼写并不直接再现现代读音。`
+<!-- SENTENCE:R2S154 -->
+Reconstructing Chaucer's pronunciation remains an approximation, even where the broad patterns of change are clear.
+`即使总体变化模式清楚，对乔叟读音的重建仍然只是近似的。`
+<!-- SENTENCE:R2S155 USE:U04525 -->
+Pressing a Shift key can change a letter's case immediately, but the written letter gives no comparable control over centuries of spoken change.
+`按下Shift转换键，可以立即改变字母的大小写，但书写的字母并不能以同样方式控制数百年的口语变化。`
+
+<!-- SENTENCE:R2S156 USE:U03403 -->
+Words also change meaning through their position: an adjective can modify a noun before it or appear after a linking verb, sometimes with a different sense.
+`词语也会因位置而呈现不同含义：形容词可以位于名词之前修饰它，也可以出现在系动词之后，有时含义会不同。`
+<!-- SENTENCE:R2S157 USE:U03411 -->
+In “a certain answer,” the modifier can identify one particular answer; in “the answer is certain,” the adjective expresses confidence about its truth.
+`在“a certain answer”中，修饰语可以指定某一个答案；在“the answer is certain”中，形容词表达的是对答案真实可靠的确信。`
+<!-- SENTENCE:R2S158 USE:U04004,U01801 -->
+A precise editor checks these small positional differences carefully and must discriminate between a grammatical pattern and a historical change in sound.
+`一位一丝不苟的编辑会仔细检查这些细微的位置差别，并且必须辨明语法模式与历史音变之间的不同。`
+
+<!-- SENTENCE:R2S159 USE:U01816 -->
+An indiscriminate heap of spellings, pronunciation notes, and sentence examples can conceal the particular question each item answers.
+`拼写、发音笔记与例句如果杂乱地堆在一起，就可能掩盖每项材料各自回答的具体问题。`
+<!-- SENTENCE:R2S160 USE:U01805 -->
+Selecting examples discriminately means choosing evidence for the feature under discussion, whether it is a vowel pattern or a word's syntactic role.
+`有选择地挑选例子，意味着为正在讨论的特征选取证据，无论所讨论的是元音模式，还是一个词的句法作用。`
+<!-- SENTENCE:R2S161 USE:U01818 -->
+Indiscrimination between those kinds of evidence makes an orderly language change look like a collection of unrelated errors.
+`如果对这些不同种类的证据不加区分，就会使有规律的语言变化看上去像一堆互不相干的错误。`
+
+<!-- ARTICLE:R1A14 -->
+# The Connections That Bring a Memory Back
+
+<!-- SENTENCE:R1S14_01 USE:U04914 -->
+A teacher can be a transmitter of knowledge, but a listener still has to connect the new material with something already understood.
+`教师可以是知识的传递者，但听者仍必须将新材料与已经理解的东西联系起来。`
+<!-- SENTENCE:R1S14_02 -->
+OpenStax's account of memory describes encoding, storage and retrieval as connected processes, with meaning helping information find a place among existing concepts.
+`OpenStax对记忆的介绍，将编码、存储和提取描述为相互联系的过程；意义有助于信息在已有概念之间找到位置。`
+<!-- SENTENCE:R1S14_03 USE:U04215 -->
+Imagine reading about a fish's journey and linking it to a river you know: that personal connection may support retention of the explanation.
+`设想你阅读鱼类的旅程，并将它与自己熟悉的一条河联系起来：这种个人关联可能帮助你保持对解释内容的记忆。`
+<!-- SENTENCE:R1S14_04 USE:U04218,U04220 -->
+Even a reader with a retentive memory can lose a detail, while someone reading retentively may remember the sequence by following its causes.
+`即使记忆力好的读者也可能遗忘细节，而阅读时善于记住内容的人，则可能顺着因果关系记住事件顺序。`
+<!-- SENTENCE:R1S14_05 -->
+The useful connection gives the reader a route back; it does not turn one encounter with a page into permanent recall.
+`有用的联系为读者提供了一条返回记忆的路径，却不会把一次翻阅变成永久记忆。`
+
+<!-- ARTICLE:R3A16 -->
+# A Missing Letter and a Misplaced Spike
+
+<!-- SENTENCE:R3S193 USE:U04201,U04108 -->
+A damaged Greek inscription retains letters while losing others, leaving the historian to restore missing text from an incomplete pattern.
+`一块受损的古希腊铭文保留了一些字母，却失去了另一些，历史学者必须根据不完整的模式补复缺文。`
+<!-- SENTENCE:R3S194 USE:U03112 -->
+Physical damage and isolation from an original location can remove different kinds of context: the surviving wording may be incomplete even when the stone itself is intact enough to read.
+`物理损伤以及与原来地点的分离，会带走不同种类的语境：即使石块本身仍保存得足以阅读，留存的措辞也可能并不完整。`
+<!-- SENTENCE:R3S195 -->
+Introduced in 2022, Ithaca uses words and individual characters to propose restorations, locations and dates for ancient Greek inscriptions.
+`2022年推出的Ithaca，利用词与单个字符，为古希腊铭文提出缺文复原、地点与年代的候选。`
+<!-- SENTENCE:R3S196 USE:U03115 -->
+DeepMind reported that historians working in isolation achieved 25 per cent accuracy on its restoration evaluation, compared with 72 per cent when using the system; the model alone achieved 62 per cent.
+`DeepMind报告称，在它的缺文复原评估中，历史学者独自工作时的准确率为25%，使用该系统时为72%；模型单独完成的准确率为62%。`
+<!-- SENTENCE:R3S197 -->
+The system offered several candidates and distributions of possible dates and places, giving scholars alternatives to assess within that reported test setting.
+`系统提供多个候选，以及可能年代与地点的分布，让学者在所报告的测试范围内评估不同选择。`
+
+<!-- SENTENCE:R3S198 -->
+The reconstruction of Iguanodon posed a more bodily problem: early finds supplied teeth and scattered bones without a complete arrangement.
+`禽龙的复原提出了一个更具身体形态的问题：早期发现提供了牙齿与零散骨骼，却没有完整的排列关系。`
+<!-- SENTENCE:R3S199 USE:U03102 -->
+The task was not merely to isolate bones from rock, but to determine where the separated pieces belonged together.
+`任务不仅是把骨骼从岩石中分离出来，还要判断这些分开的部分组合在一起时应处于什么位置。`
+<!-- SENTENCE:R3S200 USE:U04107 -->
+Mantell used the available fossils and living lizards to restore the animal on paper, with the spike placed near the nose.
+`曼特尔依据现有化石与活蜥蜴，在纸上推测复原这种动物，把尖刺放在了鼻部附近。`
+<!-- SENTENCE:R3S201 USE:U01416,U04114 -->
+That idea became conventional wisdom strong enough to shape the Crystal Palace restoration, a three-dimensional animal with a nasal spike.
+`这一想法成为普遍接受的看法，影响了水晶宫的复原模型：一只鼻部带有尖刺的立体动物。`
+<!-- SENTENCE:R3S202 USE:U02006 -->
+A new scientific category had emerged in 1842 when Richard Owen coined the dinosaur name using Iguanodon and two other reptiles, yet its members' detailed shapes were still being worked out.
+`1842年，理查德·欧文借禽龙及另外两种爬行动物创制“恐龙”这一名称，一个新的科学类别由此产生，但其成员的具体形态仍在探索之中。`
+<!-- SENTENCE:R3S203 -->
+Discoveries in the 1870s established that the spikes belonged to the thumbs, and the relatively complete skeletons found at Bernissart from 1878 supplied much fuller evidence of the body.
+`19世纪70年代的发现确定，尖刺属于拇指；而1878年起在伯尼萨尔发现的较完整骨架，则提供了丰富得多的身体证据。`
+<!-- SENTENCE:R3S204 -->
+Their precise use remains debated: placing a structure correctly and explaining everything it did are different achievements.
+`这些尖刺的确切用途仍有争论：把一个结构放对位置，与解释它发挥的所有作用，是不同的成果。`
+
+<!-- SENTENCE:R3S205 -->
+The inscription and the skeleton both require relationships among surviving parts, but the new evidence takes different forms: patterns across texts in one case, bones preserved together in the other.
+`铭文与骨架都需要建立留存部分之间的关系，但新证据的形式不同：前者依靠多份文本中的模式，后者依靠保存在一起的骨骼。`
+
+<!-- ARTICLE:R2A14 -->
+# Equipment Moves Through a Ship's Life
+
+<!-- SENTENCE:R2S162 USE:U01411 -->
+Keeping ships and their conventional weapons operational requires fuel, spare parts, and equipment, with much of the work taking place beyond the fighting itself.
+`让舰船及其常规武器保持运转，需要燃料、备件和设备，其中大量工作发生在战斗本身之外。`
+<!-- SENTENCE:R2S163 -->
+A Royal Navy report from October 2024 describes Tidesurge delivering fuel to allied warships while moving alongside them on matching courses and speeds.
+`英国皇家海军2024年10月的一篇报道，描述了“潮涌”号以相同航向和航速，与盟国军舰并航输送燃料的过程。`
+<!-- SENTENCE:R2S164 USE:U02310 -->
+This replenishment evolution brings two ships close enough to connect their equipment, while dry stores can also travel by wire or beneath a helicopter.
+`这种补给调动让两艘船靠得足够近，以便连接补给设备；干货还可以通过缆索或吊挂在直升机下方运送。`
+<!-- SENTENCE:R2S165 USE:U04515,U04517 -->
+In general, if cargo shifts at sea, even a small shift can place new pressure on its supports.
+`一般而言，如果货物在海上发生移位，即使很小的一次移位，也可能给支撑结构施加新的压力。`
+<!-- SENTENCE:R2S166 USE:U04606,U04602 -->
+Those supports must sustain the pressure if the cargo is to arrive without sustaining damage.
+`要让货物抵达时没有遭受损坏，这些支撑结构就必须承受住压力。`
+
+<!-- SENTENCE:R2S167 USE:U04313 -->
+Provisioning ordinarily moves supplies aboard; decommissioning can do the reverse, sending usable equipment ashore for another assignment.
+`补给通常把物资送上船；退役处理则可以反其道而行，把可用设备运到岸上，另作安排。`
+<!-- SENTENCE:R2S168 USE:U01412 -->
+In 2009, the US Naval Air Systems Command described the removal and redistribution of more than 8,500 items from Kitty Hawk, an aircraft carrier using conventional power.
+`2009年，美国海军航空系统司令部介绍了从采用常规动力的“小鹰”号航空母舰上移除并重新分配8500多件设备的工作。`
+<!-- SENTENCE:R2S169 -->
+Sorting, documenting, and packing had to fit work in two shipyards, and at Bremerton the equipment went directly from the ship onto waiting trucks.
+`分类、登记与包装必须配合两个船厂的作业，而在布雷默顿，设备从舰上卸下后直接装上等候的卡车。`
+<!-- SENTENCE:R2S170 USE:U04312 -->
+The carrier was approaching the end of its career, but for transferred items the reverse was true: they were beginning another period of work with ships or shore bases.
+`这艘航母正接近服役生涯的终点，但对转交出去的设备而言，情况恰恰相反：它们正在其他舰船或岸上基地开始下一段工作。`
+
+<!-- ARTICLE:R2A15 -->
+# A Room's Several Calendars
+
+<!-- SENTENCE:R2S171 -->
+A student room has a payment calendar, a contract calendar, and the dates on which someone actually lives there.
+`学生住房有付款日程、合同日程，还有住户实际居住的日期。`
+<!-- SENTENCE:R2S172 USE:U04212 -->
+St Mary's accommodation guide, revised in April 2016, described a summer retainer as reduced rent paid while a student was away, to preserve the accommodation.
+`圣玛丽大学2016年4月修订的住房指南，把暑期保房租金描述为学生离开期间，为保留住处而支付的较低租金。`
+<!-- SENTENCE:R2S173 -->
+Nottingham Trent University's terminology guide also distinguishes reserving a room before a contract begins from having permission to occupy it during that period.
+`诺丁汉特伦特大学的术语指南，也区分了合同开始前预留房间，与在那段时间获准入住。`
+<!-- SENTENCE:R2S174 -->
+The label alone therefore leaves important questions about which dates a payment covers and when the room becomes available to live in.
+`因此，仅凭这一名称，仍无法回答一些重要问题：付款覆盖哪些日期，以及何时可以实际入住。`
+
+<!-- SENTENCE:R2S175 USE:U00412 -->
+After moving in, two housemates may create a different calendar, taking kitchen duty on alternate days so that each person's turn comes every other day.
+`入住之后，两位合住者可能建立另一种日程，交替负责厨房事务，让每个人都隔一天轮到一次。`
+<!-- SENTENCE:R2S176 -->
+That domestic arrangement concerns shared work, while the earlier dates determine the difference between keeping a room and using it.
+`这种家务安排涉及共同劳动，而前面的日期则关系到保留房间与使用房间之间的区别。`
+
+<!-- ARTICLE:R3A17 -->
+# The Voice Travels One Way; the Bill May Not
+
+<!-- SENTENCE:R3S206 USE:U04319 -->
+A caller who asks to reverse the charges wants the receiving person to pay for the call.
+`来电者要求由接听方付费，是希望接电话的人承担通话费用。`
+<!-- SENTENCE:R3S207 -->
+The request concerns payment, while the caller still initiates the conversation.
+`这一请求涉及费用承担，发起谈话的仍然是来电者。`
+<!-- SENTENCE:R3S208 -->
+BT's help description limits eligible receiving lines and excludes mobiles and several special number types, so the billing arrangement does not imply that every destination can accept it.
+`BT的帮助说明限制了可接听这类电话的线路，排除了手机及若干特殊号码类型，因此，这种计费安排并不意味着所有目的号码都能接听。`
+
+<!-- ARTICLE:R2A16 -->
+# What Do the Hammer and Tongs Mean?
+
+<!-- SENTENCE:R2S177 USE:U04316 -->
+A Roman Republican denarius donated by L. A. Lawrence to the Royal Mint Museum has a reverse whose hammer and tongs invite more than one interpretation.
+`L·A·劳伦斯捐给英国皇家铸币博物馆的一枚罗马共和时期银币，其背面的锤子与钳子引出了不止一种解释。`
+<!-- SENTENCE:R2S178 -->
+The design was once read as equipment for making coins; some scholars later suggested a connection with Vulcan, the god of metalworking.
+`这一图案曾被解读为铸币设备；后来，一些学者提出，它可能与金属加工之神伏尔甘有关。`
+<!-- SENTENCE:R2S179 USE:U01420,U01415 -->
+An engraver can conventionalize the shape of a tool into a compact emblem, producing a conventional image that follows artistic tradition rather than reproduces every natural detail.
+`雕刻者可以把工具形状程式化，变成紧凑的象征图案，形成遵循艺术传统、而非再现每处自然细节的因袭形象。`
+<!-- SENTENCE:R2S180 -->
+Recognising a tool in such an image does not by itself reveal whether its purpose is to show a craft or invoke a deity associated with it.
+`在这样的图像中认出工具，本身并不能揭示其目的是表现一种手艺，还是指向与这种手艺相关的神祇。`
+<!-- SENTENCE:R2S181 -->
+The museum retains both readings, preserving the uncertainty as part of the small object's history.
+`博物馆保留了两种解读，也把这种不确定性保留为这件小物品历史的一部分。`
+
+<!-- ARTICLE:R1A15 -->
+# Sorting an Object Is Only the Beginning
+
+<!-- SENTENCE:R1S15_01 USE:U01513 -->
+A conveyor can carry plastic objects through a sorting line, but the chemistry inside each object creates another kind of sorting problem.
+`传送装置能够让塑料物件通过分拣线，但每个物件内部的化学组成又造成另一类分拣问题。`
+<!-- SENTENCE:R1S15_02 -->
+Long polymer chains, added colours and layers of different materials can all contribute to the useful object that later becomes mixed waste.
+`长聚合物链、添加的颜色和不同材料的层，都能共同构成一个有用的物件，而它后来又会成为混合废物。`
+<!-- SENTENCE:R1S15_03 USE:U03410 -->
+A modifier added during manufacture may alter the material's behaviour without becoming part of the polymer chain itself.
+`制造过程中加入的调节剂，可能改变材料的性能，却不成为聚合物链本身的一部分。`
+<!-- SENTENCE:R1S15_04 USE:U03405 -->
+In a hypothetical design, a chemist might instead modify the polymer chemically by replacing groups attached to its chain, aiming to change its solubility.
+`在一个假想设计中，化学家也可能通过替换连接在链上的基团，对聚合物本身作化学改性，以改变其溶解性为目标。`
+
+<!-- SENTENCE:R1S15_05 -->
+DOE's 2021 report describes research on breaking chains into useful products and on polymers that can be taken apart into units and rebuilt.
+`美国能源部2021年的报道介绍了两类研究：将分子链断开、制成有用产品，以及把聚合物拆回单元后再重新构建。`
+<!-- SENTENCE:R1S15_06 -->
+Such research has to connect the material's original usefulness with what can be recovered after use, including the additives that helped give it those properties.
+`这类研究必须把材料最初的实用性，与使用后能够回收什么联系起来，其中也包括曾帮助赋予这些性能的添加剂。`
+<!-- SENTENCE:R1S15_07 -->
+The reported laboratory routes are stages in that work, with manufacturing and collection systems still part of the larger problem.
+`报道中的实验室路线，是这项工作中的阶段，而制造和收集系统仍是更大问题的一部分。`
+
+<!-- ARTICLE:R2A17 -->
+# Reading a Brick Wall's Pattern
+
+<!-- SENTENCE:R2S182 -->
+A brick's long face is called its stretcher, while its short end is the header; their arrangement creates the wall's bond pattern.
+`砖的长面称为顺砖面，短端称为丁砖面；它们的排列形成墙体的组砌形式。`
+<!-- SENTENCE:R2S183 USE:U04528 -->
+In stretcher bond, the shift between courses places the vertical joints of one row near the middle of the bricks below.
+`在顺砖砌法中，砖层之间的错缝，使一层的竖向接缝落在下层砖块的中部附近。`
+<!-- SENTENCE:R2S184 -->
+English bond alternates rows of stretchers with rows of headers, whereas Flemish bond alternates the two faces within each row.
+`英式砌法让顺砖层与丁砖层交替，佛兰芒式砌法则在每一层内部交替排列这两种砖面。`
+<!-- SENTENCE:R2S185 -->
+Stack bond lines the joints up instead of overlapping the bricks, creating a visibly different grid.
+`叠砌式使接缝上下对齐，而非让砖块相互搭接，形成明显不同的网格。`
+<!-- SENTENCE:R2S186 -->
+Looking along a few rows can therefore reveal the organising pattern even when the individual bricks are all similar in colour and size.
+`因此，即使每块砖的颜色与尺寸都相近，沿着几层砖观察，也能看出其组织图案。`
+
+<!-- ARTICLE:R1A16 -->
+# A Quiet Guard at the Memorial
+
+<!-- SENTENCE:R1S16_01 -->
+A catafalque supports a coffin so mourners can pass and pay their respects; a guard may also be mounted around a memorial on a day of remembrance.
+`灵柩台托起棺木，让悼念者能够经过并致以敬意；在纪念日，也可以围绕纪念碑安排仪仗警卫。`
+<!-- SENTENCE:R1S16_02 USE:U04320 -->
+The Army Museum of South Australia describes four guards facing outwards with bowed heads and reversed arms, their rifles held muzzle down as a sign of mourning.
+`南澳大利亚陆军博物馆介绍，四名警卫面向外侧，垂首倒持武器，将步枪枪口朝下，作为致哀的表示。`
+<!-- SENTENCE:R1S16_03 -->
+The still formation makes respect visible through posture and silence.
+`静止的队形，通过姿态与沉默让敬意变得可见。`
+
+<!-- ARTICLE:R1A17 -->
+# Flying Between Two Eyewalls
+
+<!-- SENTENCE:R1S17_01 -->
+On a September 11, 2023 flight into Hurricane Lee, a NOAA P-3 encountered a second ring of strong storms forming around the original eyewall.
+`2023年9月11日，一架NOAA P-3飞机飞入李飓风时，遇到了正围绕原眼墙形成的第二圈强风暴。`
+<!-- SENTENCE:R1S17_02 USE:U03709 -->
+The aircraft entered the region between the rings and orbited around the eye while its tail-mounted Doppler radar collected data on both walls.
+`飞机进入两圈之间的区域，绕着风眼盘旋，同时用尾部安装的多普勒雷达收集两道眼墙的数据。`
+<!-- SENTENCE:R1S17_03 -->
+NASA scientist Patrick Duran wanted to connect the storm's changing structure with its electrical activity, using observations from three flights through different stages of Lee.
+`NASA科学家帕特里克·杜兰希望利用三次飞行对李飓风不同阶段的观测，把风暴不断变化的结构与其电活动联系起来。`
+<!-- SENTENCE:R1S17_04 -->
+The flights supplied a close view of a process that is difficult to predict, leaving the relationships within those measurements for further study.
+`这些飞行为一种难以预测的过程提供了近距离观察，而测量结果内部的关系仍有待进一步研究。`
