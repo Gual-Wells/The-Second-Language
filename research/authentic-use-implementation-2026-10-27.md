@@ -60,7 +60,13 @@
 
 同步包括共享解析器/测试与质检合同、质量执行器、原件校验器及所需来源目录；保留维护目录的gpt-6.1-sol/xhigh、question-worker、私有配置、队列/账本及旧修改。runtime-sources在原roots后追加新生产根，维护AGENTS加现行作用域/历史说明边界，不整份覆盖。音频执行器处理服务器给定units，不本机重新解释正文，无需改其模型或启动收费任务。实际恢复副本/回执留在`.cache/authentic-use-release/`，不公开。
 
-工程已验证，部署及最后线上核对尚待本轮完成后补记。此时不把提交、入队、模拟检查或新协议发布写成新课程/学习收益已验证。
+2026-10-27工程提交`9155166`已原子推送至main与codex/project-commemorative。deploy-app成功发布Worker与含API service binding的Pages网关：Worker版本`125be330-35e6-41ac-a40f-e77adfce678b`，本轮Pages部署[1eee7fbd](https://1eee7fbd.the-second-language.pages.dev)，正式入口仍为[第二语言](https://the-second-language.pages.dev/)。没有新增D1迁移。
+
+北京时间17:25最终线上回读：7个关键静态模块字节与本地完全相同，capabilities为chapter-quality-v2-contexts，未认证session不泄露readerUserId。正式章仅2026-10-24，正文及服务端digest均与基线`4cc6a2f9…f7a78`相同；restRequested=true，下一章audio=[]，支持项contexts。11个同步运行模块/资源逐文件与当前源码相同。线上已认证账户跨登录行为由隔离后端验证，本次未冒用真实通行密钥模拟登录。完整回读回执在私有`.cache/authentic-use-release/after.json`。
+
+末尾check-balances已完成：OpenRouter $3.985898686，低于现行三次最大流程预留；Cloudflare 10000 Neurons，腾讯9978调用为估算。章节库1,568,768/500,000,000字节，雅思库1,855,488，实验库86,016，近期缓存23,018,969/1,000,000,000，OneDrive 1,395,864,372/1,104,880,336,896。没有充值、付费模型/TTS、生产领取或VIX改动。余额页已更新，普通永久归档已排队，不能称归档已完成或私有研究包已永久保存。
+
+当前发布的是工程与协议支持，不是新课程成稿、实测个人等级或学习收益证明。新默认用于下一尚未冻结运行，仍须用户按现有设置放行，首份新全章内容须完成实际语义/采用审阅。
 
 ## 尚需真实使用校准
 
