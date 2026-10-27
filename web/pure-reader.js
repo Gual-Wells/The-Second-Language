@@ -1,4 +1,4 @@
-import {readerFocus,sentenceElement,wordAtPoint} from './reader-focus.js?v=47';
+import {readerFocus,sentenceElement,wordAtPoint} from './reader-focus.js?v=50';
 // A single arbiter owns taps, holds and scrolling, so one gesture has one action.
 export function installPureReader({prepareTap=()=>{},onToggle=()=>{},onQuestion=()=>{}}={}){
  const scope=document.getElementById('readingScroll'),shell=document.getElementById('app'),forwarded=new WeakSet();
@@ -19,8 +19,8 @@ export function installPureReader({prepareTap=()=>{},onToggle=()=>{},onQuestion=
  function toggle(target){
   const bounds=scope.getBoundingClientRect(),article=document.getElementById('article'),tools=document.getElementById('articleTools');
   const visibleTop=bounds.top+(tools.offsetParent?tools.getBoundingClientRect().height:0);
-  const candidates=[...article.querySelectorAll('.story-sentence,.word-heading,.example-pair,.sense-block,h1,h2,p')];
-  const clicked=article.contains(target)?target.closest('.story-sentence,.word-heading,.example-pair,.sense-block,h1,h2,p'):null;
+  const candidates=[...article.querySelectorAll('.story-sentence,.context-sentence,.word-heading,.example-pair,.sense-block,h1,h2,p')];
+  const clicked=article.contains(target)?target.closest('.story-sentence,.context-sentence,.word-heading,.example-pair,.sense-block,h1,h2,p'):null;
   const anchor=clicked||candidates.find(e=>e.getBoundingClientRect().bottom>visibleTop&&e.getBoundingClientRect().top<bounds.bottom)||article;
   const y=anchor?.getBoundingClientRect().top;
   shell.classList.toggle('pure-reading');

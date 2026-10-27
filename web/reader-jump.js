@@ -22,7 +22,7 @@ export function createReaderJump({shell,scope,notice}) {
    render();await document.fonts?.ready;await frame();await frame();if(ticket!==serial)return;
    const target=findTarget();if(!target)throw Error('没有找到对应内容');
    const tools=scope.querySelector('.article-tools');
-   const inset=target.matches('.story-article')&&tools&&!tools.hidden&&!shell.classList.contains('pure-reading')?tools.getBoundingClientRect().height+12:12;
+   const inset=(target.matches('.story-article,.usage-context,.context-sentence')||shell.classList.contains('context-mode'))&&tools&&!tools.hidden&&!shell.classList.contains('pure-reading')?tools.getBoundingClientRect().height+12:12;
    scope.scrollTop+=target.getBoundingClientRect().top-scope.getBoundingClientRect().top-inset;
    await frame();if(ticket!==serial)return;complete();
   }finally{if(ticket===serial){cover?.remove();cover=null;notice.hidden=true;}}

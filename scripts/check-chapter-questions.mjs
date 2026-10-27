@@ -1,16 +1,13 @@
 import {DatabaseSync} from 'node:sqlite';
-import {readFile} from 'node:fs/promises';
+import {readFile,readdir} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
 import assert from 'node:assert/strict';
 import {questionsRoute} from '../worker/src/questions.js';
 const sqlite=new DatabaseSync(':memory:');
-sqlite.exec(`PRAGMA foreign_keys=ON; CREATE TABLE chapter_revisions(digest TEXT PRIMARY KEY,chapter_id TEXT,content_key TEXT,title TEXT);CREATE TABLE published_chapters(chapter_id TEXT PRIMARY KEY);`);
-sqlite.exec(await readFile(new URL('../worker/migrations/0005_chapter_questions.sql',import.meta.url),'utf8'));
-sqlite.exec(await readFile(new URL('../worker/migrations/0010_chapter_tests.sql',import.meta.url),'utf8'));
-sqlite.exec(await readFile(new URL('../worker/migrations/0012_chapter_test_oral.sql',import.meta.url),'utf8'));
-sqlite.exec(await readFile(new URL('../worker/migrations/0013_temporary_chapter_tests.sql',import.meta.url),'utf8'));
-sqlite.exec(await readFile(new URL('../worker/migrations/0014_chapter_quality.sql',import.meta.url),'utf8'));
+for(const name of (await readdir('worker/migrations')).filter(n=>n.endsWith('.sql')).sort())sqlite.exec(await readFile('worker/migrations/'+name,'utf8'));
+sqlite.exec('PRAGMA foreign_keys=ON');
 const db={prepare(sql){let values=[];return {bind(...v){values=v;return this;},async first(){return sqlite.prepare(sql).get(...values)||null;},async all(){return {results:sqlite.prepare(sql).all(...values)};},async run(){if(/^\s*(SELECT|WITH)/i.test(sql))return {results:sqlite.prepare(sql).all(...values),meta:{changes:0}};const result=sqlite.prepare(sql).run(...values);return {meta:{changes:Number(result.changes)}};}};},async batch(items){sqlite.exec('BEGIN');try{const results=[];for(const i of items)results.push(await i.run());sqlite.exec('COMMIT');return results;}catch(e){sqlite.exec('ROLLBACK');throw e;}}};
-const digest='a'.repeat(64);sqlite.prepare('INSERT INTO chapter_revisions VALUES(?,?,?,?)').run(digest,'chapter-1','original','原版');sqlite.prepare('INSERT INTO published_chapters VALUES(?)').run('chapter-1');
+const digest=createHash('sha256').update('The original full chapter.').digest('hex');sqlite.prepare('INSERT INTO chapter_revisions(chapter_id,digest,content_key,title,number,subtitle,word_count,study_date,created_at,run_id,vix_commit,protocol_commit) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)').run('chapter-1',digest,'original','原版','第1章','',40,'2026-10-27',0,'fixture','a'.repeat(40),'b'.repeat(40));sqlite.prepare('INSERT INTO chapter_sources VALUES(?,?,?,?,?)').run(digest,'e'.repeat(64),'source-package','current-affairs-v1',0);sqlite.prepare('INSERT INTO published_chapters VALUES(?,?,?,?)').run('chapter-1','2026-10-27',digest,0);
 const env={DB:db,CHAPTERS:{async get(key){assert.equal(key,'original');return 'The original full chapter.';}}};
 async function request(path='',body=null,context={session:true,sameOrigin:true,isPublisher:false}){const r=await questionsRoute(new Request('https://example.test/api/questions'+path,{method:body?'POST':'GET',...(body?{body:JSON.stringify(body)}:{})}),env,context);return {status:r.status,data:await r.json()};}
 const first=crypto.randomUUID(),second=crypto.randomUUID(),input={id:first,chapterId:'chapter-1',digest,question:'解释原句'};
@@ -34,7 +31,7 @@ await request(`/${thread.threadId}/seen`,{seq:thread.messages.at(-1).seq});asser
 
 // Opening snapshots all unread replies; landing follows question order, not answer arrival.
 const otherDigest='b'.repeat(64),otherThread=crypto.randomUUID(),otherQ=crypto.randomUUID();
-sqlite.prepare('INSERT INTO chapter_revisions VALUES(?,?,?,?)').run(otherDigest,'chapter-2','original','另一章');
+sqlite.prepare('INSERT INTO chapter_revisions(chapter_id,digest,content_key,title,number,subtitle,word_count,study_date,created_at,run_id,vix_commit,protocol_commit) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)').run('chapter-2',otherDigest,'original','另一章','第2章','',40,'2026-10-28',0,'fixture-2','a'.repeat(40),'b'.repeat(40));sqlite.prepare('INSERT INTO chapter_sources VALUES(?,?,?,?,?)').run(otherDigest,'f'.repeat(64),'source-package-2','current-affairs-v1',0);
 sqlite.prepare('INSERT INTO chapter_conversations(id,chapter_id,chapter_digest,created_at) VALUES(?,?,?,?)').run(otherThread,'chapter-2',otherDigest,0);
 sqlite.prepare("INSERT INTO chapter_messages(id,conversation_id,role,content,created_at) VALUES(?,?,'user',?,?)").run(otherQ,otherThread,'历史问题',0);
 sqlite.prepare("INSERT INTO chapter_messages(id,conversation_id,role,content,reply_to,created_at) VALUES(?,?,'assistant',?,?,?)").run(crypto.randomUUID(),otherThread,'历史未读',otherQ,0);
@@ -55,5 +52,5 @@ assert.equal((await request('/summary')).data.threads.find(t=>t.id===otherThread
 const history=(await request('/open',{chapterId:'chapter-1',digest})).data;
 assert.equal(history.threadId,otherThread);assert.equal(history.firstUnreadQuestionId,otherLateQ);
 const clean=(await request('/open',{chapterId:'chapter-1',digest})).data;assert.equal(clean.firstUnreadQuestionId,null);assert.equal(clean.threadId,thread.threadId);
-const empty=(await request('/open',{chapterId:'unseen',digest:'c'.repeat(64)})).data;assert.equal(empty.threadId,null);assert.deepEqual(empty.messages,[]);
+assert.equal((await request('/open',{chapterId:'unseen',digest:'c'.repeat(64)})).status,409,'An unregistered chapter cannot open a new formal conversation');
 sqlite.close();console.log('通过：认证、CSRF、版本全文、重发去重、串行领取、追问上下文、重复回推、未读确认');

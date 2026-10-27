@@ -3,7 +3,8 @@ import {createHash} from 'node:crypto';
 import assert from 'node:assert/strict';
 import {createRequire} from 'node:module';
 const {chromium}=createRequire(process.execPath)('playwright');
-const folder=process.env.UI_CHAPTER_DIR||'chapters/2026-10-09',meta=JSON.parse(await readFile(folder+'/meta.json','utf8')),markdown=await readFile(folder+'/chapter.md','utf8');
+const folder=process.env.UI_CHAPTER_DIR||'chapters/2026-10-24',meta=JSON.parse(await readFile(folder+'/meta.json','utf8')),markdown=await readFile(folder+'/chapter.md','utf8');
+const hasArticles=markdown.includes('<!-- ARTICLE:');
 const chapter={...meta,id:meta.date,markdown,digest:createHash('sha256').update(markdown).digest('hex')},out='.cache/reader-position';await mkdir(out,{recursive:true});
 const browser=await chromium.launch({executablePath:process.env.CHROME_PATH||'C:/Users/huawei/AppData/Local/ms-playwright/chromium-1223/chrome-win64/chrome.exe',headless:true});
 const page=await browser.newPage({viewport:{width:402,height:874},isMobile:true,hasTouch:true,serviceWorkers:'block'}),errors=[];page.on('pageerror',e=>errors.push(e.message));
@@ -63,7 +64,7 @@ try{
  await page.locator('#wordIndexButton').click();await page.locator('#indexDialog').waitFor({state:'visible'});await page.locator('[data-close="indexDialog"]').click();
  await page.waitForFunction(()=>!document.getElementById('app').classList.contains('pure-controls-visible'));assert.deepEqual(await geometry(),position);
  await blankTap();await page.locator('.pure-controls-visible').waitFor();await page.locator('[data-part="two"]').click();assert(await page.locator('#wordIndexButton').isVisible());
- await page.locator('[data-part="three"]').click();assert(await page.locator('#translationButton').isVisible());assert(await page.locator('#wordIndexButton').isHidden());
+ await page.locator('[data-part="three"]').click();assert(await page.locator('#translationButton').isVisible());assert(hasArticles?await page.locator('#wordIndexButton').isVisible():await page.locator('#wordIndexButton').isHidden());
  const translated=await page.locator('#article').evaluate(e=>e.classList.contains('show-translations'));await page.locator('#translationButton').click();await page.waitForTimeout(40);assert.notEqual(await page.locator('#article').evaluate(e=>e.classList.contains('show-translations')),translated);
  await page.locator('#highlightButton').click();await page.waitForTimeout(40);assert(await page.locator('#article').evaluate(e=>e.classList.contains('highlight-sentences')));
  const paragraphPosition=await geometry();await page.waitForFunction(()=>!document.getElementById('app').classList.contains('pure-controls-visible'));assert.deepEqual(await geometry(),paragraphPosition);

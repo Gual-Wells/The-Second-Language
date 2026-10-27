@@ -55,10 +55,11 @@ try{
  assert.equal(sql.prepare('SELECT count(*) n FROM audio_requests').get().n,1,'Claiming and resting do not enqueue audio');
 
  const audio=(await call('/api/audio-config')).data;assert.deepEqual(audio.next,[]);
- const selected=await call('/api/audio-config/next',{parts:['two'],revision:audio.revision},'PUT');
- assert.equal(selected.status,200);assert.deepEqual(selected.data.next,['two']);
- assert.equal((await call('/api/audio-config/next',{parts:['three'],revision:audio.revision},'PUT')).status,409,'Concurrent stale audio saves cannot overwrite a newer selection');
- assert.deepEqual((await call('/api/audio-config')).data.next,['two']);
+ assert.equal((await call('/api/audio-config/next',{parts:['two'],revision:audio.revision},'PUT')).status,400,'Legacy scopes do not authorize a new single-body chapter');
+ const selected=await call('/api/audio-config/next',{parts:['contexts'],revision:audio.revision},'PUT');
+ assert.equal(selected.status,200);assert.deepEqual(selected.data.next,['contexts']);
+ assert.equal((await call('/api/audio-config/next',{parts:[],revision:audio.revision},'PUT')).status,409,'Concurrent stale audio saves cannot overwrite a newer selection');
+ assert.deepEqual((await call('/api/audio-config')).data.next,['contexts']);
  assert.deepEqual(sql.prepare('SELECT * FROM audio_requests').get(),priorAudio,'No setting change resumes or mutates stopped audio work');
  sql.exec('DELETE FROM study_settings WHERE id=1');
  assert.equal((await call('/api/settings')).data.restRequested,true,'Missing settings never display an implied opt-in');

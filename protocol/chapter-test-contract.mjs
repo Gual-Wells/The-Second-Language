@@ -1,3 +1,5 @@
+import {validateAnnotatedContent} from '../web/annotations.js';
+import {isUsageContextContent} from './usage-context.mjs';
 export const legacyChapterTestPolicy='chapter-understanding-v1';
 export const chapterTestPolicy='chapter-understanding-v2-oral7';
 export const chapterTestSize=20;
@@ -7,12 +9,23 @@ const text={type:'string'};
 export const chapterTestSchema=object({items:{type:'array',items:object({wordId:text,type:{type:'string',enum:['single','multi','oral']},prompt:text,options:{type:'array',items:object({id:text,text,reason:text})},correct:{type:'array',items:text},quote:text,explanation:text})}});
 export const chapterAnswerSchema=object({items:{type:'array',items:object({id:text,state:{type:'string',enum:['resolved','uncertain']},choice:{type:'string',enum:['A','B','C','D','none','']},transcript:text,evidence:text,reason:text})}});
 export function sourceWords(markdown){
+ if(isUsageContextContent(markdown)){
+  const parsed=validateAnnotatedContent(markdown),heads=[...markdown.matchAll(/^<!-- WORD:([^ ]+) -->\s*\n# ([^\n]+)$/gm)];
+  return new Map(heads.map((h,i)=>{
+   const useIds=new Set([...parsed.uses].filter(([,u])=>u.wordId===h[1]).map(([id])=>id));
+   const rawBlock=markdown.slice(h.index,heads[i+1]?.index??markdown.length),block=rawBlock.replace(/<!--[^]*?-->/g,'');
+   // A naturally shared context can be defined beside another word. Supply its
+   // actual text, without importing that other word's definitions or evidence.
+   const shared=parsed.contexts.filter(c=>c.refs.some(u=>useIds.has(u))&&!rawBlock.includes('<!-- CONTEXT:'+c.id+' '));
+   return [h[1],block+'\n'+shared.map(c=>c.sentences.map(s=>s.text).join('\n')+'\n'+c.translation).join('\n\n')];
+  }));
+ }
  const words=new Map();let part='',id='';for(const line of markdown.split('\n')){const p=line.match(/^<!-- PART:(one|two|three) -->/);if(p){part=p[1];continue;}if(part!=='one')continue;const w=line.match(/^<!-- WORD:([^ ]+) -->/);if(w){id=w[1];if(!words.has(id))words.set(id,'');continue;}if(id)words.set(id,words.get(id)+line+'\n');}return words;
 }
 export async function chapterTestTargets(markdown,seed,policy=chapterTestPolicy){
  const words=[...sourceWords(markdown).keys()];if(words.length<chapterTestSize)throw Error('本章可核对的主词不足二十个');
  let round=0,bytes=[],cursor=0;async function number(limit){const boundary=Math.floor(256/limit)*limit;for(;;){if(cursor>=bytes.length){bytes=[...new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(seed+':'+round++)))];cursor=0;}const n=bytes[cursor++];if(n<boundary)return n%limit;}}
- // Formal chapters have forty words. Guard the one-byte rejection sampler.
+ // Guard the one-byte rejection sampler, independently of formal chapter size.
  if(words.length>256)throw Error('章节主词索引异常');
  for(let i=words.length-1;i>0;i--){const j=await number(i+1);[words[i],words[j]]=[words[j],words[i]];}
  const targets=[];for(const wordId of words.slice(0,chapterTestSize))targets.push({wordId,type:(await number(2))?'multi':'single'});

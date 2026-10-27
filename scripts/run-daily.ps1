@@ -45,27 +45,8 @@ else {
     Sort-Object LastWriteTime -Descending | Select-Object -First 1 -ExpandProperty FullName
 }
 if (-not $codexExecutable) { throw '未找到 Codex CLI' }
-$prompt = @"
-执行第二语言项目北京时间 $studyDate 的正式日课。先完整读取AGENTS.md、protocol/DAILY_RUN.md、protocol/RECOMMENDATION.md、protocol/CURRENT_AFFAIRS.md、protocol/QUALITY_WORKFLOW.md、protocol/QUALITY_SCALE.md、protocol/CONTENT.md、protocol/USAGE_LABELS.md、protocol/ETYMOLOGY.md、protocol/ANNOTATIONS.md、protocol/TEACHING_AUTHORING.md、protocol/PART_THREE_PRODUCTION.md及领取到临时需求时的protocol/TEMPORARY.md。按实际输入和现行内容协议完成，不用上下文旧摘要替代。先恢复 work/runs/$studyDate 已有文件；未完成留具体resume.md，不因05:00开始生成就设发布截止。
-
-定时入口已领取一次运行，幂等读取control.json；休息立即结束，本日已发布则回读确认后结束。旧章已经封存，不迁移、不补修、不用旧数量推算，按服务端现行新章序列取得章号。模型 gpt-6.1-sol/max，正式50主词；完整双教材、真实词族、所有义项和原例保持，难度适度上调且不按owner词表分桶。
-
-新输入按 node scripts/prepare-vix.mjs $studyDate 固定；恢复反馈快照。用完整VIX候选与实际读取的现实材料双向选词，不能先取前50个rank。node scripts/current-affairs.mjs discover $studyDate 只是feed捷径；以 node scripts/current-affairs-pool.mjs find 检索完整来源池，结合live web补找有内容的真实文章。用current-affairs.mjs read或import固定读件，实际打开textPath通读相关原文；摘要、URL或工具成功不算读过。材料不足继续补读，不做全池爬取、来源配额或逐词新闻打分。科学、文化、社会、技术和人的真实处境都有内容价值；即用偏好在适合部分体现，不把整章写成核实/比较/风险的说教。
-
-最终冻结前按TEACHING_AUTHORING以candidate-scope运行prepare-teaching-materials，逐词阅读完整Collins再Oxford；主词、各词族词形及明确引用独立补查，父条提到派生名不能算读完独立条目。确认全义与真实词族后按原协议冻结50词，再prepare-vix-marking/mark-vix/publish-vix，复用原副本和回执。已有冻结或标注必须原组原输入续作，不重抓热点来重新推荐，不重置VIX。
-
-按TEACHING_AUTHORING复用不可变材料包，在teaching/authored逐词协同写完整第一、二部分、教材事实与全部相关原例去向。缺例由你针对该用法实际创作，禁止装配脚本自动抓第三部分句子补位。
-
-全义稳定、第三部分动笔前按QUALITY_SCALE在已有article-plan确定本组真实理解任务、必要解释/场面/限制、粗略规模预期与关键展开理由，预安放专业/历史/少见或配价受限用法；不是每USE分配字数。直接创作充分紧凑的唯一首稿，不先宽松扩写全章再例行整体缩略。按真实内容共享背景，定义不例行重讲，讲清任务就推进，不自动附通用开场、泛例或抽象升华；也不省必要停顿/解释、不堆密长句。初稿可按自然篇章分批跨上下文续作，不要求一次响应写完整章。
-
-建设真实取材文章组，不设固定篇数/长度/体裁：词间及词内义项完全不按顺序，各篇按内容需要自由取用，整组真实覆盖所有用法。每篇隐藏USE后仍有充分现实内容和完整组织；不能将虚构中心切成展台或用孤立短句容纳剩余词。专业/历史/少见义补找适合的真实材料，不删义、不捏造采访或发生过的例子。
-
-在自然写作批次间恢复已有正文和剩余语境；每块英文稳定后配好逐句译文与身份，保存进唯一articles.json，再执行 node scripts/chapter-footprint.mjs --draft $studyDate 只读观察完整USE分母、已保存词数与不同引用进度。未保存临时英文不在统计内，不能以空统计冒充未写或低体量；未完成比率不是成稿效率，不预测剩余规模/分配余额。发现偏离写前内容预期时先改善未写部分的组织、重复背景和非必要支线，必要新增理解任务简记于原计划；不等到全章结束才发现膨胀。18.44词/USE是首章已审阅候选的章级参照，不是新章系数或逐义上限；不为数字拆义、删义、少例、降低难度或重选。
-
-成稿继续按QUALITY_SCALE及原语义审阅保质精简：装配时观察三部分总规模，清理实际重复解释/泛收尾；删改后复核目标义、对象、事实条件/归因、指代、译文和阅读密度。不限篇幅不是无限扩写，压成浓缩难句也不是减负。无硬字数/减量率，不每天再造多份全文；保留有理解/叙事价值的较长段落，实际错误照常修正，必要时返修。已有冻结选择、主词数、全义原例、来源与发布身份保持。
-
-最终articles.json为唯一可装配终稿，ARTICLE身份与逐篇实际来源同源，SENTENCE全章唯一。node scripts/assemble-teaching.mjs $studyDate 输出候选；分别实际审阅教材原件与讲解/例句、每篇内容价值、全组逐义真用、事实和译文，记录实际纠错，不把材料记录和结构通过冒称语义审阅完成。采用候选后设置authoringPolicy=sourced-collection-v1，保留contentPolicy与sourcePolicy；source-notes采用导出的articles数组。按原pack-current-affairs、pack-chapter、publish-chapter发布并回读正文/来源摘要，之后才推送。固定选择、计费、休息、恢复保护按DAILY_RUN，不修改卷轴或雅思设计。按BALANCES末尾更新实际额度，不自动跨日重试，不泄露密钥。
-"@
+$promptTemplate = Join-Path $projectRoot 'protocol/daily-prompt.txt'
+$prompt = [System.IO.File]::ReadAllText($promptTemplate, [System.Text.Encoding]::UTF8).Replace('{STUDY_DATE}', $studyDate)
 # Windows PowerShell 5.1 promotes native stderr to an error record. Codex may write
 # nonfatal warnings there, so judge this command by its actual process exit code.
 $ErrorActionPreference = 'Continue'

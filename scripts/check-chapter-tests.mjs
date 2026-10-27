@@ -1,16 +1,15 @@
 import {DatabaseSync} from 'node:sqlite';
-import {readFile} from 'node:fs/promises';
+import {readFile,readdir} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import assert from 'node:assert/strict';
 import {chapterTestsRoute} from '../worker/src/chapter-tests.js';
 import {questionsRoute} from '../worker/src/questions.js';
 import {chapterTestTargets,validateChapterPaper} from '../protocol/chapter-test-contract.mjs';
 const sqlite=new DatabaseSync(':memory:');
-sqlite.exec('CREATE TABLE chapter_revisions(chapter_id TEXT,digest TEXT,content_key TEXT,title TEXT);CREATE TABLE published_chapters(chapter_id TEXT);');
-for(const name of ['0005_chapter_questions','0010_chapter_tests','0012_chapter_test_oral','0017_chapter_certifications','0013_temporary_chapter_tests','0014_chapter_quality'])sqlite.exec(await readFile(`worker/migrations/${name}.sql`,'utf8'));
+for(const name of (await readdir('worker/migrations')).filter(n=>n.endsWith('.sql')).sort())sqlite.exec(await readFile('worker/migrations/'+name,'utf8'));
 const db={prepare(sql){let values=[];return{bind(...v){values=v;return this;},async first(){return sqlite.prepare(sql).get(...values)||null;},async all(){return{results:sqlite.prepare(sql).all(...values)};},async run(){return{meta:{changes:Number(sqlite.prepare(sql).run(...values).changes)}};}};},async batch(items){sqlite.exec('BEGIN');try{const results=[];for(const i of items)results.push(await i.run());sqlite.exec('COMMIT');return results;}catch(e){sqlite.exec('ROLLBACK');throw e;}}};
 const markdown='<!-- PART:one -->\n'+Array.from({length:40},(_,i)=>`<!-- WORD:W${i} -->\n# word${i}\nMeaning ${i}: context distinguishes this sense from the other choices.\n`).join('')+'<!-- PART:two -->\n<!-- PART:three -->',sha=s=>createHash('sha256').update(s).digest('hex'),digest=sha(markdown);
-sqlite.prepare('INSERT INTO chapter_revisions VALUES(?,?,?,?)').run('chapter',digest,'source','测试章');sqlite.prepare('INSERT INTO published_chapters VALUES(?)').run('chapter');
+sqlite.prepare('INSERT INTO chapter_revisions(chapter_id,digest,content_key,title,number,subtitle,word_count,study_date,created_at,run_id,vix_commit,protocol_commit) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)').run('chapter',digest,'source','测试章','第1章','',40,'2026-10-27',0,'fixture','a'.repeat(40),'b'.repeat(40));sqlite.prepare('INSERT INTO chapter_sources VALUES(?,?,?,?,?)').run(digest,'e'.repeat(64),'source-package','current-affairs-v1',0);sqlite.prepare('INSERT INTO published_chapters VALUES(?,?,?,?)').run('chapter','2026-10-27',digest,0);
 const env={DB:db,CHAPTERS:{get:async()=>markdown}},files=new Map(),bucket={async putContent(text){const digest=sha(text);files.set(digest,text);return{digest};},async getContent(digest){return files.has(digest)?new Response(files.get(digest)):null;}};
 const user={session:true,sameOrigin:true},publisher={isPublisher:true},claim='a'.repeat(64);
 async function call(path='',body=null,ctx=user){const response=await chapterTestsRoute(new Request('https://example.test/api/chapter-tests'+path,{method:body?'POST':'GET',...(body?{body:JSON.stringify(body)}:{})}),env,ctx,bucket);return{status:response.status,data:await response.json()};}

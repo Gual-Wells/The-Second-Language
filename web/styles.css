@@ -179,6 +179,27 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
 .article.prose.highlight-sentences .story-sentence:focus-visible { outline: 2px solid #d79030; outline-offset: 2px; }
 .article.prose.show-translations .story-pair { display: block; margin-bottom: 1.05em; }
 .article.prose.show-translations .story-translation { display: block; margin: 4px 0 0; border-left: 3px solid #80a6c9; padding: 6px 9px; background: #edf4fa; color: #3c5e7b; font: 12px/1.7 ui-monospace, SFMono-Regular, Consolas, monospace; white-space: normal; }
+.app-shell.context-mode:not(.pure-reading) { grid-template-rows: auto auto minmax(0, 1fr); }
+.app-shell.context-mode.temporary-mode:not(.pure-reading) { grid-template-rows: auto minmax(0, 1fr); }
+.context-mode .toolbar { display: none !important; }
+.usage-context { margin: 12px 0 10px; padding-top: 8px; border-top: 1px solid #d5e1ec; scroll-margin-top: 52px; }
+.context-source { display: flex; flex-wrap: wrap; align-items: baseline; gap: 5px 8px; color: #617d96; font: 11px/1.6 -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; }
+.context-kind { color: #37688f; }
+.context-source-button { border: 0; border-bottom: 1px solid #b7cbdc; padding: 1px 0; background: transparent; color: #37688f; font-size: 11px; }
+.article .context-introduction { margin: 4px 0 7px; color: #61768b; font-size: 12px; line-height: 1.6; }
+.article .context-paragraph { margin: 7px 0; color: #263e54; font-size: 16px; line-height: 1.85; }
+.context-speaker { margin-right: 4px; font-size: 13px; }
+.context-sentence { scroll-margin-top: 52px; }
+.highlight-sentences .context-sentence.linked-use { border-radius: 2px; background: linear-gradient(transparent 56%, #efd77b99 56%, #efd77b99 88%, transparent 88%); -webkit-box-decoration-break: clone; box-decoration-break: clone; cursor: pointer; }
+.context-translation { position: relative; display: grid; width: 100%; margin: 7px 0 2px; border: 1px solid #c1d3e2; border-left: 3px solid #80a6c9; border-radius: 2px; padding: 8px 10px; overflow: hidden; background: #edf4fa; color: #3c5e7b; font: 13px/1.75 ui-monospace, SFMono-Regular, Consolas, monospace; text-align: left; white-space: pre-wrap; overflow-wrap: anywhere; }
+.context-translation-measure, .context-translation-text { grid-area: 1 / 1; min-width: 0; white-space: pre-wrap; }
+.context-translation-measure { visibility: hidden; pointer-events: none; -webkit-user-select: none; user-select: none; }
+.context-translation-text { -webkit-user-select: text; user-select: text; }
+.context-translation-mask { position: absolute; inset: 0; display: grid; place-items: center; background: repeating-linear-gradient(0deg, #d8e5ef66 0 6px, #c8dbe999 6px 12px), repeating-linear-gradient(90deg, #afc6d755 0 7px, #eaf2f899 7px 14px); }
+.context-translation-hint { border: 1px solid #b0c6d9; border-radius: 2px; padding: 2px 7px; background: #eef5fbe8; color: #587a96; font: 11px/1.6 -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; }
+.context-translation.translation-revealed .context-translation-mask { display: none; }
+.context-translation.translation-revealed { cursor: pointer; }
+.context-mode.pure-reading .article-tools { top: max(8px, var(--safe-top)); }
 .reader-statusbar { display: flex; align-items: center; gap: 6px; min-height: 28px; border-top: 1px solid #9fb4c8; padding: 4px 8px; background: #e1ebf4; color: #52708b; font-size: 9px; }
 .reader-statusbar #syncStatus { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .status-lamp { width: 7px; height: 7px; flex: none; border: 1px solid #48844d; border-radius: 50%; background: #72ad6e; }
@@ -284,7 +305,11 @@ textarea.text-input { resize: vertical; }
 #article[data-audio-part="one"] .word-entry h2,
 #article[data-audio-part="one"] .word-entry h3,
 #article[data-audio-part="two"] .example-pair p,
-#article[data-audio-part="three"] .story-sentence { -webkit-touch-callout: none; -webkit-user-select: none; user-select: none; touch-action: pan-y; }
+#article[data-audio-part="three"] .story-sentence,
+#article[data-audio-part="contexts"] .word-entry h1,
+#article[data-audio-part="contexts"] .word-entry h2,
+#article[data-audio-part="contexts"] .word-entry h3,
+#article[data-audio-part="contexts"] .context-sentence { -webkit-touch-callout: none; -webkit-user-select: none; user-select: none; touch-action: pan-y; }
 .temporary-intro { border-bottom: 1px solid #c7d7e5; padding: 10px 12px; background: #f8fbfe; color: #526b83; font-size: 11px; line-height: 1.6; }
 .temporary-list { max-height: min(60dvh, 500px); overflow-y: auto; background: #fff; }
 .temporary-item { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 5px 9px; width: 100%; border: 0; border-bottom: 1px solid #d8e3ed; padding: 10px 12px; background: #fff; text-align: left; }

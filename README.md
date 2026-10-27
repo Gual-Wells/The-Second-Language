@@ -6,15 +6,17 @@
 
 ## 学习功能
 
+2026-10-27 新协议及对应实现正在本轮整合，发布状态以部署与章节执行记录为准。下表说明新单正文的行为；已有冻结选择及历史章节继续各自原内容合同。
+
 | 入口 | 当前能力 |
 | --- | --- |
-| 每日章节 | 50个主词，词汇与用法、例句与翻译、真实取材文章组；词间/词内义项自由跨篇取用，全组合计覆盖所有用法；VIX结合实际材料判断推荐 |
-| 词源与讲解 | 新启动日课在一级词头下集中讲词源，辅助理解记忆；双教材同一用法融合讲解，保留独有信息与原例句 |
+| 每日章节 | 50个主词，按词条与真实语义用法连续阅读；每个 USE 就地嵌入 1–5 份取优语境，多份须有不同收益，VIX结合实际材料判断推荐 |
+| 词源与讲解 | 一级词头下集中讲词源；双教材同一用法融合讲解，保留独有信息及原例的原件、定位与去向，不要求全部原例都展示 |
 | 章节质检 | 标题旁“质检”按需申请，固定原章与教材来源；逐项核查、反证复核、永久报告；与章节测试及学习者认证分开 |
 | 章节测试与认证 | 二十题随机理解测试，可独立重测；新具资格试卷全部明确正确后，保存本章唯一首次通过事件及版本，之后重测不覆盖 |
 | 纪念卷轴 | 首次通过后明确申请独立创作，审阅及永久封存后领取；设置“认证阅览”只列已领取章号与独立项目纪念，提供纯享开合及英中释读 |
-| 阅读 | 章节册搜索与月历从章首打开；七日条、词条索引、用法回看与逐句译文；保存各部分位置，双击非英文句子区域进入／退出纯净模式 |
-| 点读 | 第一部分不发音；第二部分标题返回第一部分、例句整句；第三部分整句。固定 Kokoro Bella，默认不提前生成；可一次选配，主动点读按需生成或复用，已有音频可下载、不自动播放 |
+| 阅读 | 章节册搜索与月历从章首打开；七日条、词条索引、用法回看；每份语境一个完整译文块，默认马赛克隐藏、可反复揭示并保存状态；双击非英文句子区域进入／退出纯净模式 |
+| 点读 | 新正文只点读语境中的完整英文句子；冻结历史章保留原第二／三部分整句范围。固定 Kokoro Bella，默认不提前生成；可一次选配，主动点读按需生成或复用，已有音频可下载、不自动播放 |
 | 临时页 | 按申请建设测试或复习页，48 小时有效；不改变日课与 VIX |
 | 雅思 | 仅完整／微缩两种全科申请；听力、阅读、写作、口语依次组织，按科目与 Task／Part 作答 |
 | 作答分析 | 原声录制／上传、写作及文字补充草稿、隐藏参考答案、独立答卷与 Codex 教学反馈 |
@@ -47,7 +49,7 @@ iPhone PWA → 同源 Pages 网关 → Cloudflare Worker
 | 范围 | 协议 |
 | --- | --- |
 | 词源与教材质检 | [ETYMOLOGY](protocol/ETYMOLOGY.md)、[CONTENT](protocol/CONTENT.md)、[CHAPTER_QUALITY](protocol/CHAPTER_QUALITY.md) |
-| 日课 | [DAILY_RUN](protocol/DAILY_RUN.md)、[QUALITY_WORKFLOW](protocol/QUALITY_WORKFLOW.md)、[ANNOTATIONS](protocol/ANNOTATIONS.md) |
+| 日课与真实语境 | [AUTHENTIC_CONTEXT](protocol/AUTHENTIC_CONTEXT.md)、[DAILY_RUN](protocol/DAILY_RUN.md)、[QUALITY_WORKFLOW](protocol/QUALITY_WORKFLOW.md)、[ANNOTATIONS](protocol/ANNOTATIONS.md) |
 | 雅思 | [EXPRESSION](protocol/EXPRESSION.md)、[PRACTICE_SIZES](protocol/PRACTICE_SIZES.md)、[LISTENING](protocol/LISTENING.md)、[READING](protocol/READING.md) |
 | 发音与原声 | [VOICE_ROUTING](protocol/VOICE_ROUTING.md)、[SPEAKING_PIPELINE](protocol/SPEAKING_PIPELINE.md)、[SPEAKING_RUNTIME](protocol/SPEAKING_RUNTIME.md) |
 | 答疑与界面 | [CHAPTER_QUESTIONS](protocol/CHAPTER_QUESTIONS.md)、[READER_INTERACTION](protocol/READER_INTERACTION.md) |
@@ -56,19 +58,25 @@ iPhone PWA → 同源 Pages 网关 → Cloudflare Worker
 
 `research/` 是历史研究依据；价格、旧方案和试听结论以现行协议及配置为准。
 
-新正式日课按[实事协同协议](protocol/CURRENT_AFFAIRS.md)从[331来源池](resources/current-affairs/README.md)按内容需要取材，与VIX双向判断50词。采用[可复用制作工具](protocol/TEACHING_AUTHORING.md)独立补查完整词族，协同制作讲解和针对性例句；第三部分篇数由内容需要决定，各篇有真实内容价值，全组覆盖全部用法，不按教学词序或义项次序写作。原索引位置提供篇目导航，末尾“现实参考”可按篇目查看实际来源。默认feed只提供发现捷径，不限定来源池。旧章封存，新序列从第1章开始；已有原件、冻结输入及付费产物保留，雅思和卷轴工艺不变。
+对尚未冻结 selection 的新运行，采用[真实语境逐义教学](protocol/AUTHENTIC_CONTEXT.md)：按字典序组织50个主词，依次呈现词源、具体用法与核心义、就地语境及所需解释，不再独立组织第二部分例句集和第三部分文章组。按[实事协同协议](protocol/CURRENT_AFFAIRS.md)从[实事与真实材料来源池](resources/current-affairs/README.md)及按需补充的材料与VIX双向判断推荐，并用[制作工具](protocol/TEACHING_AUTHORING.md)独立补查完整双教材与真实词族。默认feed只提供发现捷径，不限定来源池。
 
-内容按[质量与规模规范](protocol/QUALITY_SCALE.md)在现有规划和语义审阅中保质精简，装配输出三部分规模观察；不以删义、降难、硬字数或用法密度评分减负。[首章实际双语试验](research/quality-scale-2026-10-25/README.md)保留原稿对照、两种试稿、交叉审阅与择优结果；研究稿不自动替换正式第一章。用户随后明确授权的[第一章重做](research/chapter-one-rebuild-2026-10-25.md)已发布：原选词、VIX及前两部分保留，第三部分按首稿约束直接重写为12,771英文词，较原版减少37.1%。
+每个实际语义用法（USE）取优1–5份语境；3份仅在各有独立收益时作为偏好，一份已经充分就保留一份，增加的每份都须说明它补了什么。优先保真缩编原文中实际使用目标义的局部，保留原来的指南、话轮、裁定等语言行为；必要短摘和有理由的教学例句回退均诚实标明。共享仅自然允许，不为提高覆盖数主动选词、合篇或拉长语境。
 
-规模约束现已前移至写前内容计划、首次成文和分批续写，直接写充分紧凑的唯一初稿；原成稿审阅继续。`chapter-footprint.mjs --draft DATE`提供只读途中观察，未完稿不冒充完稿效率。[前置设计研究](research/first-draft-scale-2026-10-25/README.md)记录分母分析、成熟方法取舍及隔离首次创作小样；不用整章生成后统一缩略作为默认流程。
+每份语境有稳定context身份、英文句子标记和一个完整中文译文块，不逐句配译。译文始终占位，默认马赛克隐藏，点击可反复显示／隐藏；显隐状态按已认证用户、不可变章节摘要与context身份隔离保存，同一context自然复用时同步。隐藏译文不进入复制文本或屏幕阅读器名称；无稳定用户身份或本机存储不可用时仍可当次切换。来源按钮查看该份语境实际采用的来源。
+
+已有冻结选择或VIX标注的运行继续原合同；冻结历史章保留原三部分、逐句译文、篇目导航和音频范围，可继续读取，不自动转码、重选、重标或改写原件。已有原件、冻结输入、学习记录及付费产物保留，雅思和卷轴工艺不变。
+
+内容继续按[质量与规模规范](protocol/QUALITY_SCALE.md)在写前计划、首次成文、续写和语义审阅中保质精简，不以删义、降难、硬字数或用法密度评分减负。`chapter-footprint.mjs --draft DATE`提供只读途中观察，未完稿不冒充完稿效率；不以整章生成后统一缩略作为默认流程。
+
+历史三部分流程的[首章实际双语试验](research/quality-scale-2026-10-25/README.md)保留原稿、两种试稿和交叉审阅，研究稿不自动替换正式第一章；用户随后授权的[第一章重做](research/chapter-one-rebuild-2026-10-25.md)已发布：原选词、VIX及前两部分保留，第三部分为12,771英文词，较原版减少37.1%。[前置设计研究](research/first-draft-scale-2026-10-25/README.md)保留分母分析、方法取舍及隔离首次创作小样；这些历史记录不作为新格式已经发布的证明。
 
 ### 正式章节测试
 
-章节标题页与第三部分末尾均可申请/查看测试。每次新申请从固定版本的完整章节独立生成二十道理解题：十三道文字单选/多选，固定七道听题口答，目标约十分钟完成；草稿保存在本机，提交后保存不可改写的答卷及逐题解析，可不限次重新申请。听说题采用 Bella 题音、Whisper 转写和本机 Codex 内容核对，必要时 Qwen 补听；不评价口语表现，未听清只补录对应题。原声与结果永久保存，核对期间可继续学习。
+章节标题页与正文末尾均可申请/查看测试，历史章的末尾入口仍在第三部分。每次新申请从固定版本的完整章节独立生成二十道理解题：十三道文字单选/多选，固定七道听题口答，目标约十分钟完成；草稿保存在本机，提交后保存不可改写的答卷及逐题解析，可不限次重新申请。听说题采用 Bella 题音、Whisper 转写和本机 Codex 内容核对，必要时 Qwen 补听；不评价口语表现，未听清只补录对应题。原声与结果永久保存，核对期间可继续学习。
 
 2026-10-23用户授权接通章节认证：新具资格的正式二十题全部明确正确后，服务器在最终成绩同一事务保存本章唯一首次通过；绑定真实章节版本、姓名和毫秒时间，重测不覆盖。临时／运维验证及旧无资格试卷不补造认证。认证是私人学习纪念资格，不是外部机构学历或全量掌握证明；纪念币不接正式流程。见 [CHAPTER_TESTS](protocol/CHAPTER_TESTS.md)。
 
-词汇点读已正式取消；只保留第二部分例句及第三部分整句 Bella 点读/默认提前备齐（下一章可一次性调整）。第二部分词汇标题仍返回第一部分对应标题，词汇长按答疑保留。收费历史原件不删除。
+词汇点读已正式取消；新正文只提供语境完整英文句子的 Bella 点读，词条／用法标题、词源、释义、译文及来源说明不发音，标题长按答疑保留。历史章仍可点读第二部分例句与第三部分整句，第二部分词汇标题返回第一部分对应标题。音频默认不提前生成，收费历史原件不删除。
 
 2026-10-18 已完成获批七章的第一部分释义融合与词源升级：280 个主词、1,411 个原用法编号保留，第二、三部分逐字节不变，2,511 条句子音频复用，无新增 TTS。新旧正文及音频包已核验；范围外用法和待核实例外见 [执行记录](research/legacy-first-part-upgrade-2026-10-18.json)，不等同于全章重新质检。
 
@@ -104,9 +112,10 @@ node scripts/check-default-controls.mjs
 node scripts/check-current-affairs-backend.mjs
 node scripts/check-chapter-questions.mjs
 node scripts/check-reader-ui.mjs
+node scripts/check-context-reader.mjs
 ```
 
-界面检查需要 Playwright 与 Chromium；`BROWSER_EXECUTABLE` 可指定浏览器，`UI_CHAPTER_DIR` 可指定本机真实章节。全部请求隔离，不调用付费模型、不写正式数据；截图存入忽略的 `.cache/reader-ui/`。浏览器模拟不等于 iPhone Safari 真机验收。旧`check-publishing-closure.mjs`与`check-audio-config.mjs`夹具尚未适配当前来源封存/50词流程，不列为现行门槛。
+界面检查需要 Playwright 与 Chromium；`BROWSER_EXECUTABLE` 可指定浏览器，旧章检查的`UI_CHAPTER_DIR`可指定本机真实章节。全部请求隔离，不调用付费模型、不写正式数据；旧章UI截图存入忽略的 `.cache/reader-ui/`，新单正文、整块译文、隔离与交互检查结果存入 `.cache/context-reader/`。新格式已检查402×874及320×620触控模拟视口，浏览器模拟不等于 iPhone Safari 真机验收。旧`check-publishing-closure.mjs`与`check-audio-config.mjs`夹具尚未适配当前来源封存/50词流程，不列为现行门槛。
 
 正式发布使用 `node scripts/deploy-app.mjs`，同时部署 API Worker 与带 service binding 的 Pages 网关；不能直接以普通静态 `web/` 部署替代网关。任务结束执行 `node scripts/check-balances.mjs` 更新额度、存储用量并排入归档；归档完成后再次核对存储大小。设置中的“存储空间”显示 OneDrive、三座 D1 与账户共享 KV 的上次用量、上限和核对时间；只核对容量可运行 `node scripts/check-storage-usage.mjs`。额度不足不自动次日恢复，已有产物保留，需用户明确续作；不自动付款。
 
@@ -120,7 +129,7 @@ Third-party packages, model/provider outputs, voices, APIs, dictionary or textbo
 
 ### 章节音频选配
 
-设置中的“音频配置”默认不生成，可为下一新章一次性选择第二部分例句、第三部分范文逐句音频，首次发布后恢复不生成，也可对已有章节申请；词汇标题已取消发音。已有章节先显示费用预估，再确认不可撤销；后台沿用Kokoro Bella与永久音频库，相同文字、音色和读音跨章节复用。预下载开关仍只下载已生成音频。协议与运行入口见 [AUDIO_CONFIGURATION](protocol/AUDIO_CONFIGURATION.md)。
+设置中的“音频配置”默认不生成。新格式提供`contexts`（语境英文整句）范围，可为下一新章一次性选配，首次发布后恢复不生成；已有章节按固定版本显示可用范围，冻结历史章仍为第二部分例句／第三部分范文。旧存选配不自动映射为新格式授权，需重新选择适用范围。已有章节先显示费用预估，再确认不可撤销；后台沿用Kokoro Bella与永久音频库，相同文字、音色和读音跨章节复用。预下载开关仍只下载已生成音频。协议与运行入口见 [AUDIO_CONFIGURATION](protocol/AUDIO_CONFIGURATION.md)。
 
 ### 月度纪念展厅实验（历史样件）
 

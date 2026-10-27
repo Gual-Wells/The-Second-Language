@@ -76,7 +76,7 @@ USER-DECISION：语义提炼、文书创作、图像指导和成品艺术审阅�
 
 | 对象 | 必要内容 |
 | --- | --- |
-| source | 固定commit/来源对象、chapterId/Number、正式章名、chapterDigest、完整三部分；文件字节摘要另记，不混称章节摘要 |
+| source | 固定commit/来源对象、chapterId/Number、正式章名、chapterDigest、完整固定版本正文（新单正文或旧三部分）；文件字节摘要另记，不混称章节摘要 |
 | eligibility | 正式模式的真实首次通过事件及姓名快照；样品为null，另有固定sampleTime |
 | artPlan | 意图及简短来源依据、艺术/正式题名区别、完整英中、构图、材料变体、资源/许可、种子和工艺基座版本 |
 | profile | 经验证的字体/印模、纸幅/变形、扣具/材质/动作、照明/雾染、构建工具及兼容范围；引用固定版本/摘要 |

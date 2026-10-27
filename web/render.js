@@ -32,6 +32,72 @@ function addExampleJump(container, id, onJump) {
   container.append(button);
 }
 
+export function updateContextTranslation(button, revealed) {
+  button.classList.toggle('translation-revealed', Boolean(revealed));
+  button.setAttribute('aria-expanded', String(Boolean(revealed)));
+  button.querySelector('.context-translation-text').textContent = revealed ? button.translationText : '';
+  if (revealed) button.removeAttribute('aria-label');
+  else button.setAttribute('aria-label', '显示整份译文');
+  button.title = revealed ? '点击隐藏整份译文' : '点击显示整份译文';
+}
+
+function renderContext(record, occurrenceRefs, options) {
+  const block = document.createElement('section');
+  block.className = 'usage-context'; block.dataset.contextId = record.id;
+  block.dataset.useRefs = occurrenceRefs.join(',');
+  const source = document.createElement('div'); source.className = 'context-source';
+  const kind = document.createElement('span'); kind.className = 'context-kind';
+  kind.textContent = ({abridgment:'缩编', excerpt:'节选', example:'教学例句'})[record.kind] || '';
+  source.append(kind);
+  if (record.title) { const title = document.createElement('span'); title.textContent = record.title; source.append(title); }
+  if (record.sourceUrls?.length) {
+    const button = document.createElement('button'); button.type = 'button'; button.className = 'context-source-button'; button.textContent = '来源 ›';
+    button.addEventListener('click', () => options.onContextSource?.(record)); source.append(button);
+  }
+  block.append(source);
+  if (record.displayContext) {
+    const lead = document.createElement('p'); lead.className = 'context-introduction'; lead.textContent = record.displayContext; block.append(lead);
+  }
+  for (const paragraph of record.paragraphs) {
+    const p = document.createElement('p'); p.className = 'context-paragraph';
+    for (const sentence of paragraph) {
+      if (p.childNodes.length) p.append(document.createTextNode(' '));
+      if (sentence.speaker) {
+        const speaker = document.createElement('strong'); speaker.className = 'context-speaker'; speaker.textContent = sentence.speaker + '：'; p.append(speaker);
+      }
+      const line = document.createElement('span'); line.className = 'context-sentence';
+      line.dataset.sentenceId = sentence.id; line.dataset.contextId = record.id;
+      if (sentence.refs.length) { line.dataset.useRefs = sentence.refs.join(','); line.classList.add('linked-use'); }
+      appendInline(line, sentence.text);
+      if (sentence.refs.length && options.highlight) {
+        line.tabIndex = 0; line.setAttribute('role','button'); line.setAttribute('aria-label','查看对应用法');
+        line.addEventListener('click', () => options.onSentence?.(sentence.refs));
+        line.addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); options.onSentence?.(sentence.refs); } });
+      }
+      p.append(line);
+    }
+    block.append(p);
+  }
+  const translation = document.createElement('button');
+  translation.type = 'button'; translation.className = 'context-translation'; translation.dataset.contextId = record.id;
+  translation.translationText = record.translation;
+  // The invisible measure reserves exactly the revealed height. It is inert,
+  // invisible to accessibility, unselectable, and not the revealed text node.
+  const measure = document.createElement('span'); measure.className = 'context-translation-measure'; measure.textContent = record.translation;
+  measure.setAttribute('aria-hidden','true'); measure.inert = true;
+  const text = document.createElement('span'); text.className = 'context-translation-text';
+  const mask = document.createElement('span'); mask.className = 'context-translation-mask'; mask.setAttribute('aria-hidden','true');
+  const hint = document.createElement('span'); hint.className = 'context-translation-hint'; hint.textContent = '点击显示译文'; hint.setAttribute('aria-hidden','true');
+  mask.append(hint); translation.append(measure,text,mask);
+  updateContextTranslation(translation, options.translationRevealed?.(record.id));
+  translation.addEventListener('click', () => {
+    if (globalThis.getSelection?.()?.isCollapsed === false) return;
+    options.onTranslationToggle?.(record.id);
+  });
+  block.append(translation);
+  return block;
+}
+
 function renderStory(source, target, options) {
   let paragraph = null, pending = null, pair = null, container = target;
   target.classList.toggle('highlight-sentences', Boolean(options.highlight));
@@ -75,10 +141,12 @@ function renderStory(source, target, options) {
 }
 
 export function renderPart(source, part, target, options = {}) {
-  target.dataset.audioPart = part;
+  const contextual = options.format === 'usage-context-v1';
+  target.dataset.audioPart = contextual ? 'contexts' : part;
   target.replaceChildren();
   target.classList.toggle('prose', part === 'three');
   target.classList.remove('highlight-sentences', 'show-translations');
+  if (contextual) target.classList.toggle('highlight-sentences', Boolean(options.highlight));
   if (part === 'three' && source.includes('<!-- SENTENCE:')) return renderStory(source, target, options);
   const words = [];
   let container = target;
@@ -87,6 +155,7 @@ export function renderPart(source, part, target, options = {}) {
   let quote = null;
   let example = null;
   let pendingWord = null, pendingUse = null, pendingExample = null;
+  let skippingContext = null;
 
   function flushParagraph() {
     if (!paragraph.length) return;
@@ -100,7 +169,7 @@ export function renderPart(source, part, target, options = {}) {
       container.append(example);
     } else if (part === 'one' && pendingUse) {
       const block = document.createElement('div'); block.className = 'usage-detail';
-      block.append(p); addExampleJump(block, pendingUse, options.onJump);
+      block.append(p); if (contextual) block.dataset.useId = pendingUse; else addExampleJump(block, pendingUse, options.onJump);
       container.append(block); pendingUse = null;
     } else (quote || container).append(p);
     paragraph = [];
@@ -108,6 +177,20 @@ export function renderPart(source, part, target, options = {}) {
 
   for (const raw of source.replace(/\r\n?/g, '\n').split('\n')) {
     const line = raw.trim();
+    if (contextual) {
+      if (/^<!-- FORMAT:usage-context-v1 -->$/.test(line)) continue;
+      if (skippingContext) { if (line === `<!-- END_CONTEXT:${skippingContext} -->`) skippingContext = null; continue; }
+      const context = /^<!-- CONTEXT:([A-Za-z][A-Za-z0-9_-]{0,31}) USE:([^ ]+) KIND:(abridgment|excerpt|example) -->$/.exec(line);
+      const reference = /^<!-- CONTEXT_REF:([A-Za-z][A-Za-z0-9_-]{0,31}) USE:([^ ]+) -->$/.exec(line);
+      if (context || reference) {
+        flushParagraph(); list = null; quote = null; example = null;
+        const marker = context || reference, record = options.contexts?.get(marker[1]);
+        if (!record) throw new Error('语境暂不可读取');
+        container.append(renderContext(record, marker[2].split(','), options));
+        if (context) skippingContext = marker[1];
+        continue;
+      }
+    }
     if (!line) { flushParagraph(); list = null; quote = null; continue; }
 
     const wordMarker = /^<!-- WORD:([A-Za-z][A-Za-z0-9_-]{0,31}) -->$/.exec(line);
@@ -157,7 +240,7 @@ export function renderPart(source, part, target, options = {}) {
           title.append(document.createTextNode(' '), ipa);
         }
         head.append(title);
-        if (pendingUse) { addExampleJump(head, pendingUse, options.onJump); pendingUse = null; }
+        if (pendingUse) { if (!contextual) addExampleJump(head, pendingUse, options.onJump); pendingUse = null; }
         sense.append(head);
         if (definition) { const summary=document.createElement('p');summary.className='sense-definition';summary.textContent=definition;sense.append(summary); }
         if (words.length) words.at(-1).element.append(sense);
@@ -193,7 +276,7 @@ export function renderPart(source, part, target, options = {}) {
       if (!list || list.tagName.toLowerCase() !== kind) { list = document.createElement(kind); container.append(list); }
       const item = document.createElement('li');
       appendInline(item, listItem[2]);
-      if (part === 'one' && pendingUse) { addExampleJump(item, pendingUse, options.onJump); pendingUse = null; }
+      if (part === 'one' && pendingUse) { if (contextual) item.dataset.useId = pendingUse; else addExampleJump(item, pendingUse, options.onJump); pendingUse = null; }
       list.append(item);
       continue;
     }

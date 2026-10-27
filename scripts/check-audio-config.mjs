@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import {DatabaseSync} from 'node:sqlite';
 import {audioConfigRoute} from '../worker/src/audio-config.js';
 import {audioUnits,uniqueAudioUnits} from '../web/audio-plan.js';
-import {readFile} from 'node:fs/promises';
+import {readFile,readdir} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {pronunciationRoute} from '../worker/src/pronunciation.js';
 import {permanentBucket,storageRoute} from '../worker/src/storage.js';
@@ -10,8 +10,8 @@ import {digestBytes} from '../worker/src/pronunciation-store.js';
 import {rowidPages} from './lib/storage-scan.mjs';
 import {ttsModel,defaultVoice,voicePolicyVersion} from '../protocol/voices.mjs';
 const db=new DatabaseSync(':memory:');
-for(const file of ['worker/migrations/0006_permanent_storage.sql','worker/migrations/0007_archive_recovery.sql','worker/practice_migrations/0005_pronunciation.sql','worker/practice_migrations/0006_permanent_audio.sql','worker/practice_migrations/0007_compact_pronunciation.sql','worker/practice_migrations/0008_compact_chapter_links.sql'])db.exec(await readFile(new URL('../'+file,import.meta.url),'utf8'));
-db.exec('CREATE TABLE chapter_revisions(chapter_id TEXT,digest TEXT,title TEXT,content_key TEXT);CREATE TABLE published_chapters(chapter_id TEXT);CREATE TABLE chapter_audio_work(chapter_id TEXT,chapter_digest TEXT,requested_at INTEGER,PRIMARY KEY(chapter_id,chapter_digest));');
+for(const file of (await readdir('worker/migrations')).filter(n=>n.endsWith('.sql')).sort())db.exec(await readFile('worker/migrations/'+file,'utf8'));
+for(const file of ['0005_pronunciation.sql','0006_permanent_audio.sql','0007_compact_pronunciation.sql','0008_compact_chapter_links.sql'])db.exec(await readFile('worker/practice_migrations/'+file,'utf8'));
 let databaseSize=327680;
 const adapter={prepare(sql){let args=[];return{bind(...values){args=values.map(v=>v instanceof ArrayBuffer?new Uint8Array(v):v);return this;},async first(){return db.prepare(sql).get(...args)||null;},async run(){const result=db.prepare(sql).run(...args);return{meta:{changes:result.changes}};},async all(){return{results:db.prepare(sql).all(...args),meta:{size_after:databaseSize}};}};},async batch(statements){db.exec('BEGIN');try{const rows=[];for(const statement of statements)rows.push(await statement.run());db.exec('COMMIT');return rows;}catch(e){db.exec('ROLLBACK');throw e;}}};
 const encoder=new TextEncoder(),secret=crypto.getRandomValues(new Uint8Array(32)),iv=crypto.getRandomValues(new Uint8Array(12)),key=await crypto.subtle.importKey('raw',secret,'AES-GCM',false,['encrypt']);
@@ -22,7 +22,7 @@ const env={DB:adapter,PRACTICE_DB:adapter,ONEDRIVE_KEY:Buffer.from(secret).toStr
 const descriptor={model:ttsModel,voice:defaultVoice,input:'analysis',response_format:'mp3',voicePolicyVersion},hash=bytes=>createHash('sha256').update(bytes).digest('hex'),id=hash(JSON.stringify(descriptor)),audio=Buffer.concat([Buffer.from('ID3'),Buffer.alloc(1200,41)]),chapterDigest='b'.repeat(64);
 db.prepare("INSERT INTO pronunciation_audio(id,request_json,state,audio,response_json,created_at) VALUES(?,?,'ready',?,?,?)").run(id,JSON.stringify(descriptor),audio,JSON.stringify({digest:hash(audio),detail:'保真返回'}),Date.now());
 db.prepare('INSERT INTO chapter_pronunciation VALUES(?,?,?)').run('chapter',chapterDigest,id);
-db.prepare('INSERT INTO chapter_revisions VALUES(?,?,?,?)').run('chapter',chapterDigest,'Fixture','chapter-key');db.prepare('INSERT INTO published_chapters VALUES(?)').run('chapter');
+db.prepare('INSERT INTO chapter_revisions(chapter_id,digest,title,content_key,number,subtitle,word_count,study_date,run_id,vix_commit,protocol_commit,created_at) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)').run('chapter',chapterDigest,'Fixture','chapter-key','第1章','',1,'2026-10-27','fixture','a'.repeat(40),'b'.repeat(40),0);db.prepare('INSERT INTO published_chapters VALUES(?,?,?,?)').run('chapter','2026-10-27',chapterDigest,0);
 const originalFetch=globalThis.fetch,files=new Map();let uploads=0,providerCalls=0,failUploads=false;
 globalThis.fetch=async(url,options={})=>{
  if(url==='https://openrouter.ai/api/v1/credits')return Response.json({data:{total_credits:10,total_usage:0}});
@@ -37,9 +37,8 @@ globalThis.fetch=async(url,options={})=>{
 };
 
 const context={isPublisher:true};
-db.exec(await readFile('worker/migrations/0009_audio_requests.sql','utf8'));
 const markdown=['<!-- PART:one -->','<!-- WORD:W001 -->','# record','<!-- USE:U001 -->','## record · noun /ˈrekərd/','<!-- USE:U002 -->','## record · verb /rɪˈkɔːrd/','<!-- PART:two -->','<!-- WORD:W001 -->','# record','<!-- EXAMPLE:U001 -->','Keep a record.','`译文`','<!-- EXAMPLE:U002 -->','Keep a record.','`译文`','<!-- PART:three -->','<!-- SENTENCE:S001 USE:U001 -->','Keep a record.','`译文`'].join('\n');
-const chapterHash=hash(markdown);db.prepare('UPDATE chapter_revisions SET digest=?').run(chapterHash);env.CHAPTERS={get:async()=>markdown};
+const chapterHash=hash(markdown);db.prepare('DELETE FROM published_chapters WHERE chapter_id=?').run('chapter');db.prepare('UPDATE chapter_revisions SET digest=?').run(chapterHash);db.prepare('INSERT INTO chapter_sources VALUES(?,?,?,?,?)').run(chapterHash,'e'.repeat(64),'fixture-source','current-affairs-v1',0);db.prepare('INSERT INTO published_chapters VALUES(?,?,?,?)').run('chapter','2026-10-27',chapterHash,0);env.CHAPTERS={get:async()=>markdown};
 const call=(path,body,ctx=context)=>audioConfigRoute(new Request('https://test/api/audio-config'+path,{method:'POST',body:JSON.stringify(body)}),env,ctx);
 try{
  assert.equal(uniqueAudioUnits(audioUnits(markdown).filter(u=>u.part==='one')).length,0);

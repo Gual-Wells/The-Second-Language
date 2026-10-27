@@ -1,16 +1,16 @@
 import {DatabaseSync} from 'node:sqlite';
-import {readFile} from 'node:fs/promises';
+import {readFile,readdir} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import assert from 'node:assert/strict';
 import {chapterTestsRoute} from '../worker/src/chapter-tests.js';
 import {questionsRoute} from '../worker/src/questions.js';
 import {chapterTestTargets,chapterTestPolicy,validateChapterInterpretations} from '../protocol/chapter-test-contract.mjs';
 import {audioDescriptor} from '../worker/src/audio-config.js';
-const sqlite=new DatabaseSync(':memory:');sqlite.exec('CREATE TABLE chapter_revisions(chapter_id TEXT,digest TEXT,content_key TEXT,title TEXT);CREATE TABLE published_chapters(chapter_id TEXT);CREATE TABLE pronunciation_results(id INTEGER PRIMARY KEY,generation_digest BLOB,content_digest BLOB);');
-for(const name of ['0005_chapter_questions','0010_chapter_tests','0012_chapter_test_oral','0017_chapter_certifications','0013_temporary_chapter_tests','0014_chapter_quality'])sqlite.exec(await readFile(`worker/migrations/${name}.sql`,'utf8'));
+const sqlite=new DatabaseSync(':memory:');sqlite.exec('CREATE TABLE pronunciation_results(id INTEGER PRIMARY KEY,generation_digest BLOB,content_digest BLOB);');
+for(const name of (await readdir('worker/migrations')).filter(n=>n.endsWith('.sql')).sort())sqlite.exec(await readFile('worker/migrations/'+name,'utf8'));
 const db={prepare(sql){let values=[];return{bind(...v){values=v;return this;},async first(){return sqlite.prepare(sql).get(...values)||null;},async all(){return{results:sqlite.prepare(sql).all(...values)};},async run(){return{meta:{changes:Number(sqlite.prepare(sql).run(...values).changes)}};}};},async batch(items){sqlite.exec('BEGIN');try{const out=[];for(const i of items)out.push(await i.run());sqlite.exec('COMMIT');return out;}catch(e){sqlite.exec('ROLLBACK');throw e;}}};
 const sha=s=>createHash('sha256').update(s).digest('hex'),markdown='<!-- PART:one -->\n'+Array.from({length:40},(_,i)=>`<!-- WORD:W${i} -->\n# word${i}\nMeaning ${i}: this sense identifies information rather than an action.\n`).join('')+'<!-- PART:two -->\n<!-- PART:three -->',digest=sha(markdown),files=new Map();
-sqlite.prepare('INSERT INTO chapter_revisions VALUES(?,?,?,?)').run('chapter',digest,'source','测试章');sqlite.prepare('INSERT INTO published_chapters VALUES(?)').run('chapter');
+sqlite.prepare('INSERT INTO chapter_revisions(chapter_id,digest,content_key,title,number,subtitle,word_count,study_date,created_at,run_id,vix_commit,protocol_commit) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)').run('chapter',digest,'source','测试章','第1章','',40,'2026-10-27',0,'fixture','a'.repeat(40),'b'.repeat(40));sqlite.prepare('INSERT INTO chapter_sources VALUES(?,?,?,?,?)').run(digest,'e'.repeat(64),'source-package','current-affairs-v1',0);sqlite.prepare('INSERT INTO published_chapters VALUES(?,?,?,?)').run('chapter','2026-10-27',digest,0);
 let aiCalls=0;const env={DB:db,PRACTICE_DB:db,CHAPTERS:{get:async()=>markdown},AI:{async run(){aiCalls++;return{text:'It refers to stored information.',segments:[]};}}},bucket={async putContent(value){const bytes=typeof value==='string'?Buffer.from(value):Buffer.from(value),digest=sha(bytes);files.set(digest,bytes);return{digest,bytes:bytes.length};},async getContent(d){return files.has(d)?new Response(files.get(d)):null;},async responseContent(d,request,mime){return files.has(d)?new Response(files.get(d),{headers:{'content-type':mime,'x-chapter-test-policy':chapterTestPolicy}}):null;}};
 const user={session:true,sameOrigin:true},publisher={isPublisher:true},claim='a'.repeat(64);
 async function call(path='',body=null,context=user,method=body?'POST':'GET',mime='application/json'){const response=await chapterTestsRoute(new Request('https://test.local/api/chapter-tests'+path,{method,headers:{'x-chapter-test-policy':chapterTestPolicy},...(body?{body:mime==='application/json'?JSON.stringify(body):body,headers:{'content-type':mime,'x-chapter-test-policy':chapterTestPolicy}}:{})}),env,context,bucket);return{status:response.status,data:response.headers.get('content-type')?.includes('json')?await response.json():await response.arrayBuffer()};}

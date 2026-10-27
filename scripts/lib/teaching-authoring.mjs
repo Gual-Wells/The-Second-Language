@@ -5,8 +5,11 @@ import path from 'node:path';
 import {hash,loadTextbooks,lookupBooks} from './textbook-sources.mjs';
 import {canonicalSourcePackage as canonical} from '../../protocol/current-affairs.mjs';
 import {validateAnnotatedContent} from '../../web/annotations.js';
+import {assembleUsageContextCollection} from './usage-context-authoring.mjs';
+import {CONTEXT_AUTHORING_POLICY} from '../../protocol/usage-context.mjs';
 
 export const AUTHORING_POLICY = 'sourced-collection-v1';
+export const DEFAULT_AUTHORING_POLICY = CONTEXT_AUTHORING_POLICY;
 const readJson = async file => JSON.parse(await fs.readFile(file,'utf8'));
 const norm = s => s.normalize('NFKC').trim().toLowerCase().replace(/\s+/g,' ');
 const text = (s,name) => { if(typeof s!=='string'||!s.trim())throw Error(`缺少 ${name}`); return s; };
@@ -64,6 +67,7 @@ export async function prepareTeachingMaterials(root,date,{scopeFile,additionalFi
 export async function readTeachingMaterials(root,date,selection){
   const run=path.join(root,'work/runs',date),manifest=await readJson(path.join(run,'teaching/materials.json'));
   const lock=await readJson(path.join(run,'vix-source.json'));
+  if(lock.authoringPolicy===CONTEXT_AUTHORING_POLICY&&selection.authoringPolicy!==CONTEXT_AUTHORING_POLICY)throw Error('新输入制作策略与冻结selection不一致');
   if(manifest.policy!==AUTHORING_POLICY||manifest.commit!==lock.commit||selection.vixInputCommit!==lock.commit||manifest.scopeDigest!==digest(teachingScope(selection))||manifest.scopeDigest!==digest(manifest.scope)||manifest.packets.length!==selection.mainWords.length)throw Error('教材材料包与冻结范围或原输入不一致；按原范围补查，不重选');
   const packets=[];
   for(const word of teachingScope(selection)){
@@ -134,8 +138,11 @@ export async function assembleRun(root,date){
   const names=(await fs.readdir(folder)).filter(n=>/^word-[A-Za-z0-9_-]+\.json$/.test(n));
   const words=await Promise.all(names.map(n=>readJson(path.join(folder,n))));
   if(words.length!==selection.mainWords.length||new Set(words.map(w=>w.text)).size!==words.length||words.some(w=>!selection.mainWords.some(s=>s.text===w.text)))throw Error('作者词条与冻结主词不一致');
-  const articles=await readJson(path.join(folder,'articles.json'));
-  const result=assembleTeachingCollection(words,articles,{expectedWordCount:selection.mainWords.length});
+  const isContexts=selection.authoringPolicy===CONTEXT_AUTHORING_POLICY;
+  if(selection.authoringPolicy!=null&&!isContexts&&selection.authoringPolicy!==AUTHORING_POLICY)throw Error('未知冻结制作协议');
+  if(!isContexts&&words.some(w=>w.contexts!=null||w.contextChoices!=null))throw Error('旧冻结运行不能静默切换新作者合同');
+  const articles=isContexts?[]:await readJson(path.join(folder,'articles.json'));
+  const result=isContexts?assembleUsageContextCollection(words,{expectedWordCount:selection.mainWords.length}):assembleTeachingCollection(words,articles,{expectedWordCount:selection.mainWords.length});
   for(const w of words)checkMaterialDisposition(w,packets.find(p=>p.word===w.text),result.parsed);
-  return {...result,articles,words};
+  return {...result,articles,words,authoringPolicy:isContexts?CONTEXT_AUTHORING_POLICY:AUTHORING_POLICY};
 }

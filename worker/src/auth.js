@@ -1,6 +1,9 @@
 import { generateRegistrationOptions, verifyRegistrationResponse, generateAuthenticationOptions, verifyAuthenticationResponse } from '@simplewebauthn/server';
 
 const encoder = new TextEncoder();
+// One installed reader account, matching the WebAuthn user handle below. This
+// is deliberately independent of sessions and replaceable passkey credentials.
+const READER_HANDLE = 'second-language-owner';
 const MINUTE = 60_000;
 const SESSION_AGE = 90 * 24 * 60 * MINUTE;
 const COOKIE = '__Host-second_language';
@@ -32,6 +35,13 @@ export async function sessionFor(request, env) {
     JOIN auth_control c ON c.id = 1 AND c.epoch = s.epoch
     JOIN auth_credential k ON k.id = 1
     WHERE s.token_hash = ? AND s.expires_at > ?`).bind(await hash(token), Date.now()).first();
+}
+
+export async function readerIdentity(env) {
+  // This deployment is single-tenant. A future multi-user auth system must use
+  // its actual stable subject here, never a session token or credential list.
+  let origin;try { origin = new URL(env.APP_ORIGIN).origin; } catch { return null; }
+  return 'reader-' + await hash('second-language:reader:v1:' + origin + ':' + READER_HANDLE);
 }
 
 async function issueChallenge(env, kind, challenge, epoch, expiry) {
@@ -81,7 +91,7 @@ export async function authRoute(request, env, input = {}) {
     if (!env.ENROLLMENT_KEY || !equal(input.setupKey, env.ENROLLMENT_KEY)) return json({ error: '初始化密钥无效' }, 401);
     if (path.endsWith('/options')) {
       const options = await generateRegistrationOptions({ rpName: '第二语言', rpID,
-        userName: 'owner', userDisplayName: '第二语言读者', userID: encoder.encode('second-language-owner'),
+        userName: 'owner', userDisplayName: '第二语言读者', userID: encoder.encode(READER_HANDLE),
         attestationType: 'none', authenticatorSelection: { residentKey: 'required', userVerification: 'required' }, supportedAlgorithmIDs: [-7, -257] });
       const ticket = await issueChallenge(env, 'enroll', options.challenge, settings.epoch, Math.min(Date.now() + 2 * MINUTE, settings.enrollment_until));
       return json({ options, ticket });

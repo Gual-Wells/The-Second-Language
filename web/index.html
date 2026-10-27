@@ -14,7 +14,7 @@
   <link rel="manifest" href="/manifest.webmanifest?v=41">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=41">
   <link rel="icon" href="/icon-192.png?v=41" type="image/png">
-  <link rel="stylesheet" href="/styles.css?v=47">
+  <link rel="stylesheet" href="/styles.css?v=50">
 </head>
 <body>
   <main class="app-shell login-mode" id="app">
@@ -206,6 +206,7 @@
         <div id="audioConfigDetail" hidden><button class="bevel-button" id="audioConfigBack" type="button">‹ 音频配置</button><h3 id="audioModeTitle"></h3><label id="audioChapterRow" class="field-label">选择章节<select id="audioChapter" class="text-input"></select></label>
           <label class="switch-row" for="audioPart-two"><span><strong>第二部分例句</strong><small>每条例句独立点读</small><small id="audioCost-two">正在核对…</small></span><input id="audioPart-two" type="checkbox"></label>
           <label class="switch-row" for="audioPart-three"><span><strong>第三部分逐句</strong><small>范文每句独立点读</small><small id="audioCost-three">正在核对…</small></span><input id="audioPart-three" type="checkbox"></label>
+          <label class="switch-row" for="audioPart-contexts" hidden><span><strong>语境英文整句</strong><small>每份语境中的英文句子；译文不生成</small><small id="audioCost-contexts">正在核对…</small></span><input id="audioPart-contexts" type="checkbox"></label>
           <p id="audioConfigStatus" role="status"></p><button class="bevel-button" id="audioSave" type="button">保存选配</button>
           <div id="audioConfirmation" class="audio-confirmation" hidden><p id="audioConfirmSummary"></p><p><strong>确认后即进入生成队列，不能撤销。</strong></p><div class="button-row"><button class="bevel-button" id="audioConfirmBack" type="button">返回修改</button><button class="bevel-button" id="audioConfirm" type="button">确认并生成</button></div></div>
         </div><p>人民币费用为估算，复用不收费；下一章选配在首次发布后恢复不生成。点读与已有音频下载不受此默认选配影响。</p><div id="audioJobs" aria-live="polite"></div>
@@ -258,6 +259,6 @@
     </div>
   </dialog>
   <div id="toast" role="status" aria-live="polite"></div>
-  <script type="module" src="/app.js?v=49"></script>
+  <script type="module" src="/app.js?v=50"></script>
 </body>
 </html>

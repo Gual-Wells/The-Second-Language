@@ -190,7 +190,7 @@ try{
  assert.equal((await stage({...first,contentPolicy:'current-affairs-v1'})).status,400);
  const malformed=structuredClone(first);malformed.sourcePackage.sources[0].facts=[];assert.equal((await stage(malformed)).status,400);
  const unscoped=structuredClone(first);unscoped.markdown=fixture('unscoped');unscoped.digest=hash(unscoped.markdown);unscoped.sourcePackage.chapterDigest=unscoped.digest;delete unscoped.sourcePackage.articles;unscoped.sourceDigest=hash(canonicalSourcePackage(unscoped.sourcePackage));
- const refused=await stage(unscoped);assert.equal(refused.status,400);assert.match(refused.data.error,/ARTICLE/,'New production cannot skip the collection format');
+ const refused=await stage(unscoped);assert.equal(refused.status,400);assert.match(refused.data.error,/ARTICLE|真实取材文章组/,'Legacy collection production cannot skip its article markers');
  const wrongArticle=structuredClone(first);wrongArticle.sourcePackage.articles[0].title='Another work';wrongArticle.sourceDigest=hash(canonicalSourcePackage(wrongArticle.sourcePackage));assert.equal((await stage(wrongArticle)).status,400,'Source attribution cannot drift to another article');
  const oldReplacement=await payload(old.id,'old-replacement');await claim(old.id);assert.equal((await stage(oldReplacement)).status,409);
  assert.equal(sql.prepare('SELECT count(*) n FROM chapter_sources').get().n,0);
@@ -249,7 +249,10 @@ try{
  assert.equal((await call('/api/settings',{method:'PUT',body:{restRequested:false},reader:true})).status,200);
  await claim(second.date);assert.equal((await stage(second)).data.number,'第 2 章');
  const audioNext=(await call('/api/audio-config')).data;
- assert.equal((await call('/api/audio-config/next',{method:'PUT',body:{parts:['three'],revision:audioNext.revision},reader:true})).status,200);
+ assert.equal((await call('/api/audio-config/next',{method:'PUT',body:{parts:['three'],revision:audioNext.revision},reader:true})).status,400,'Old scopes are no longer offered for next new-format production');
+ // A choice frozen before the format change retains its old scope. This legacy
+ // publication fixture may consume it; a new-format chapter may not.
+ sql.prepare('UPDATE audio_next_config SET parts=?,revision=revision+1 WHERE id=1').run('["three"]');
  const audioSelection=sql.prepare('SELECT parts,revision FROM audio_next_config').get();
  assert.equal((await commit(first)).status,200);
  assert.deepEqual(sql.prepare('SELECT parts,revision FROM audio_next_config').get(),audioSelection,'Republishing an existing chapter preserves a later audio selection');

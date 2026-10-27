@@ -40,7 +40,7 @@ export async function questionsRoute(request,env,{isPublisher,session,sameOrigin
    const thread=await db.prepare('SELECT * FROM chapter_conversations WHERE id=?').bind(message.conversation_id).first();
    const chapter=await db.prepare('SELECT * FROM chapter_revisions WHERE digest=? AND chapter_id=?').bind(thread.chapter_digest,thread.chapter_id).first();
    const markdown=env.ONEDRIVE_ENABLED==='true'?await chapterText(env,chapter.content_key):await env.CHAPTERS.get(chapter.content_key);
-   if(!markdown) {await db.prepare("UPDATE chapter_question_jobs SET status='failed',error='原版章节暂不可用',claim=NULL WHERE id=?").bind(row.id).run();return json({error:'原版章节暂不可用'},503);}
+   if(!markdown||await sha(markdown)!==chapter.digest) {await db.prepare("UPDATE chapter_question_jobs SET status='failed',error='原版章节暂不可核对',claim=NULL WHERE id=?").bind(row.id).run();return json({error:'原版章节暂不可核对'},503);}
    const {results:messages}=await db.prepare(`SELECT role,content,seq FROM chapter_messages WHERE conversation_id=? AND
     (seq<=? OR reply_to IN (SELECT id FROM chapter_messages WHERE conversation_id=? AND seq<?)) ORDER BY seq`).bind(thread.id,message.seq,thread.id,message.seq).all();
    return json({job:{id:row.id,chapter:{id:chapter.chapter_id,digest:chapter.digest,title:chapter.title,markdown},messages}});

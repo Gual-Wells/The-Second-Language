@@ -40,7 +40,7 @@ export async function buildChapterSources(root, date, input) {
     sources.push(value);
   }
   const chapterDigest=hash(markdown),selectionDigest=hash(canonicalSourcePackage(selection));
-  const sourcePackage=validateSourcePackage({schemaVersion:1,studyDate:date,chapterDigest,selectionDigest,vixInputCommit:lock.commit,context:input.context,sources,...(input.articles?{articles:input.articles}:{})},{chapterDigest,studyDate:date,vixInputCommit:lock.commit,markdown});
+  const sourcePackage=validateSourcePackage({schemaVersion:1,studyDate:date,chapterDigest,selectionDigest,vixInputCommit:lock.commit,context:input.context,sources,...(input.articles?{articles:input.articles}:{}),...(input.contexts?{contexts:input.contexts}:{})},{chapterDigest,studyDate:date,vixInputCommit:lock.commit,markdown});
   const canonical=canonicalSourcePackage(sourcePackage),sourceDigest=hash(canonical);
   await immutable(path.join(run,'sources',sourceDigest+'.json'),canonical);
   // Keep recovery receipts but do not copy third-party full text into a public chapter/Git payload.
@@ -66,4 +66,21 @@ export async function loadChapterSources(root,date,markdown,meta,words){
   if(words && JSON.stringify(words)!==JSON.stringify(selection.mainWords.map(item=>item.text).sort((a,b)=>a.localeCompare(b,'en'))))throw Error('正文50主词与已冻结selection不一致');
   if(hash(canonicalSourcePackage(selection))!==sourcePackage.selectionDigest)throw Error('选词已改变，不能沿用旧来源绑定');
   return {sourcePolicy:CURRENT_AFFAIRS_POLICY,sourceDigest,vixInputCommit:sourcePackage.vixInputCommit,sourcePackage};
+}
+
+// Author provenance and the immutable adopted source must refer to the same
+// verified original bytes. URL equality alone cannot distinguish two reads.
+export async function validateContextSourceEvidence(root,words,sourcePackage){
+  const sources=new Map(sourcePackage.sources.map(s=>[s.url,s])),records=new Map();
+  for(const word of words)for(const context of word.contexts||[]){
+    const evidence=context.sourceEvidence||[];
+    if(evidence.length!==context.sourceUrls.length||new Set(evidence.map(e=>e.url)).size!==evidence.length)throw Error(`语境${context.id}来源证据须与采用URL一一对应`);
+    for(const url of context.sourceUrls){
+      const adopted=sources.get(url),item=evidence.find(e=>e.url===url);
+      if(!adopted||!item)throw Error(`语境${context.id}来源证据未绑定封存来源`);
+      const file=path.resolve(root,item.readRecord),key=JSON.stringify([file,adopted.sourceId,url]);
+      if(!records.has(key))records.set(key,await validateReadRecord(file,{root,sourceId:adopted.sourceId,url}));
+      if(records.get(key).textDigest!==adopted.readDigest)throw Error(`语境${context.id}作者原文与采用来源readDigest不同；须回同一原件核对`);
+    }
+  }
 }

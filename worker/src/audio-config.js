@@ -1,9 +1,10 @@
-import {audioUnits,uniqueAudioUnits,audioParts,audioCost,audioPrice} from '../../web/audio-plan.js';
+import {audioUnits,uniqueAudioUnits,audioParts,audioPartsFor,audioCost,audioPrice} from '../../web/audio-plan.js';
 import {ttsModel,defaultVoice,voicePolicyVersion} from '../../protocol/voices.mjs';
 import {chapterText,permanentBucket} from './storage.js';
 import {sha256} from './practice-media.js';
 import {digestBytes,digestHex} from './pronunciation-store.js';
 import {isCurrentAffairsChapter,isCurrentAffairsRevision} from './current-affairs.js';
+import {isUsageContextContent} from '../../protocol/usage-context.mjs';
 const projectAudio="EXISTS(SELECT 1 FROM formal_chapter_sources s WHERE s.digest=audio_requests.chapter_digest AND s.policy='current-affairs-v1')";
 export function audioDescriptor(text,phonemes=''){
  const d={model:ttsModel,voice:defaultVoice,input:phonemes?`[${text}](/${phonemes}/)`:text,response_format:'mp3',voicePolicyVersion};
@@ -11,19 +12,21 @@ export function audioDescriptor(text,phonemes=''){
 }
 const json=(v,s=200)=>Response.json(v,{status:s,headers:{'cache-control':'no-store'}});
 const partsOf=p=>Array.isArray(p)&&p.length<=3&&new Set(p).size===p.length&&p.every(x=>audioParts.includes(x))?audioParts.filter(x=>p.includes(x)):null;
+export const chapterAudioParts=audioPartsFor;
 export async function buildAudioPlan(env,chapterId,digest,parts){
  if(!await isCurrentAffairsRevision(env.DB,chapterId,digest))throw Error('旧章音频已封存');
  const chapter=await env.DB.prepare('SELECT * FROM chapter_revisions WHERE chapter_id=? AND digest=? AND EXISTS(SELECT 1 FROM published_chapters WHERE chapter_id=?)').bind(chapterId,digest,chapterId).first();
  if(!chapter)throw Error('章节版本不存在');const markdown=await chapterText(env,chapter.content_key);if(!markdown||await sha256(markdown)!==digest)throw Error('章节原件暂不可用');
+ const availableParts=chapterAudioParts(markdown);if(parts.some(part=>!availableParts.includes(part))){const e=Error('音频项目与固定正文格式不一致，请重新选择');e.code='AUDIO_SCOPE';throw e;}
  const all=audioUnits(markdown),unique=uniqueAudioUnits(all),indexed=await Promise.all(unique.map(async u=>({...u,id:await sha256(JSON.stringify(audioDescriptor(u.text,u.phonemes)))}))),states=new Map();
  for(let start=0;start<indexed.length;start+=80){const ids=indexed.slice(start,start+80).map(u=>u.id),marks=ids.map(()=>'?').join(',');
   for(const r of (await env.PRACTICE_DB.prepare(`SELECT generation_digest FROM pronunciation_results WHERE generation_digest IN (${marks})`).bind(...ids.map(digestBytes)).all()).results)states.set(digestHex(r.generation_digest),'ready');
   for(const r of (await env.PRACTICE_DB.prepare(`SELECT id,state FROM pronunciation_audio WHERE id IN (${marks})`).bind(...ids).all()).results)if(!states.has(r.id))states.set(r.id,r.state);
  }
  const selectedKeys=new Set(uniqueAudioUnits(all.filter(u=>parts.includes(u.part))).map(u=>JSON.stringify([u.text,u.phonemes]))),units=indexed.filter(u=>selectedKeys.has(JSON.stringify([u.text,u.phonemes]))).map(u=>({...u,cached:states.get(u.id)==='ready',existingState:states.get(u.id)||null}));
- const estimates=audioParts.map(part=>{const list=uniqueAudioUnits(all.filter(u=>u.part===part)),newUnits=list.filter(u=>!indexed.some(v=>states.get(v.id)==='ready'&&v.text===u.text&&v.phonemes===u.phonemes)),characters=newUnits.reduce((n,u)=>n+audioDescriptor(u.text,u.phonemes).input.length,0);return{part,count:list.length,characters,cost:audioCost(characters)};});
+ const estimates=availableParts.map(part=>{const list=uniqueAudioUnits(all.filter(u=>u.part===part)),newUnits=list.filter(u=>!indexed.some(v=>states.get(v.id)==='ready'&&v.text===u.text&&v.phonemes===u.phonemes)),characters=newUnits.reduce((n,u)=>n+audioDescriptor(u.text,u.phonemes).input.length,0);return{part,count:list.length,characters,cost:audioCost(characters)};});
  const characters=units.filter(u=>!u.cached).reduce((n,u)=>n+audioDescriptor(u.text,u.phonemes).input.length,0);
- return{chapterId,digest,title:chapter.title,parts,units,estimates,characters,cost:audioCost(characters),price:audioPrice};
+ return{chapterId,digest,title:chapter.title,parts,availableParts,units,estimates,characters,cost:audioCost(characters),price:audioPrice};
 }
 export async function audioConfigRoute(request,env,{isPublisher,session,sameOrigin}){
  const url=new URL(request.url),p=url.pathname.replace('/api/audio-config',''),db=env.DB,now=Date.now();
@@ -32,10 +35,10 @@ export async function audioConfigRoute(request,env,{isPublisher,session,sameOrig
  let b={};if(request.method!=='GET'){try{const raw=await request.text();if(raw.length>6000)throw Error();b=JSON.parse(raw);}catch{return json({error:'申请无效'},400);}}
  if(p===''&&request.method==='GET'){
   const next=await db.prepare('SELECT parts,revision FROM audio_next_config WHERE id=1').first(),jobs=await db.prepare("SELECT id,chapter_id,parts,state,cursor,total,error FROM audio_requests WHERE state!='quoted' AND "+projectAudio+" ORDER BY created_at DESC LIMIT 15").all();
-  return json({next:JSON.parse(next.parts).filter(p=>audioParts.includes(p)),revision:next.revision,jobs:jobs.results,price:audioPrice});
+  const saved=JSON.parse(next.parts);return json({next:saved.filter(p=>p==='contexts'),unsupportedSelection:saved.filter(p=>p!=='contexts'),supportedParts:['contexts'],revision:next.revision,jobs:jobs.results,price:audioPrice});
  }
  if(p==='/next'&&request.method==='PUT'){
-  const parts=partsOf(b.parts);if(!parts)return json({error:'请选择有效的音频项目'},400);
+  const parts=partsOf(b.parts);if(!parts||parts.some(p=>p!=='contexts'))return json({error:'下一章只支持语境句音频，旧部分选配不转换为新授权'},400);
   if(!Number.isInteger(b.revision))return json({error:'请重新读取设置'},409);
   const r=await db.prepare('UPDATE audio_next_config SET parts=?,revision=revision+1,updated_at=? WHERE id=1 AND revision=?').bind(JSON.stringify(parts),now,b.revision).run();
   if(!r.meta.changes)return json({error:'选配已变化，请重新读取后保存'},409);return json({ok:true,next:parts,revision:b.revision+1});
@@ -43,18 +46,19 @@ export async function audioConfigRoute(request,env,{isPublisher,session,sameOrig
  if(p==='/estimate'&&request.method==='POST'){
   if(b.mode==='next'){
    const {results}=await db.prepare("SELECT r.* FROM published_chapters p JOIN chapter_revisions r ON r.digest=p.digest JOIN formal_chapter_sources s ON s.digest=p.digest AND s.policy='current-affairs-v1' ORDER BY p.study_date DESC LIMIT 3").all();const samples=[];
-   for(const c of results){const text=await chapterText(env,c.content_key);if(text&&await sha256(text)===c.digest)samples.push(audioUnits(text));}
-   const estimates=audioParts.map(part=>{const characters=samples.map(s=>uniqueAudioUnits(s.filter(u=>u.part===part)).reduce((n,u)=>n+audioDescriptor(u.text,u.phonemes).input.length,0));return{part,cost:characters.length?[audioCost(Math.min(...characters))[0],audioCost(Math.max(...characters))[1]]:null};});
-   return json({estimates,approximate:true,price:audioPrice});
+   for(const c of results){const text=await chapterText(env,c.content_key);if(text&&await sha256(text)===c.digest&&isUsageContextContent(text))samples.push(audioUnits(text));}
+   const estimates=['contexts'].map(part=>{const characters=samples.map(s=>uniqueAudioUnits(s.filter(u=>u.part===part)).reduce((n,u)=>n+audioDescriptor(u.text,u.phonemes).input.length,0));return{part,cost:characters.length?[audioCost(Math.min(...characters))[0],audioCost(Math.max(...characters))[1]]:null};});
+   return json({estimates,availableParts:['contexts'],approximate:true,price:audioPrice});
   }
   if(!await isCurrentAffairsChapter(db,b.chapterId,b.digest))return json({error:'旧章音频已封存，仅可读取历史记录'},409);
-  const plan=await buildAudioPlan(env,b.chapterId,b.digest,audioParts);return json({...plan,units:undefined});
+  const chapter=await db.prepare('SELECT content_key FROM chapter_revisions WHERE chapter_id=? AND digest=?').bind(b.chapterId,b.digest).first(),markdown=chapter&&await chapterText(env,chapter.content_key);if(!markdown||await sha256(markdown)!==b.digest)return json({error:'章节原件暂不可核对'},503);
+  const plan=await buildAudioPlan(env,b.chapterId,b.digest,chapterAudioParts(markdown));return json({...plan,units:undefined});
  }
  if(p==='/quote'&&request.method==='POST'){
   const parts=partsOf(b.parts);if(!parts?.length)return json({error:'请至少选择一项'},400);
   if(typeof b.chapterId!=='string'||!/^[a-f0-9]{64}$/.test(b.digest||''))return json({error:'请选择章节'},400);
   if(!await isCurrentAffairsChapter(db,b.chapterId,b.digest))return json({error:'旧章音频已封存，仅可读取历史记录'},409);
-  const plan=await buildAudioPlan(env,b.chapterId,b.digest,parts),id=crypto.randomUUID(),planKey=`audio-requests/${id}/plan.json`;
+  let plan;try{plan=await buildAudioPlan(env,b.chapterId,b.digest,parts);}catch(e){if(e.code==='AUDIO_SCOPE')return json({error:e.message},422);throw e;}const id=crypto.randomUUID(),planKey=`audio-requests/${id}/plan.json`;
   await permanentBucket(env).put(planKey,JSON.stringify(plan),{httpMetadata:{contentType:'application/json'}});
   await db.prepare("DELETE FROM audio_requests WHERE state='quoted' AND expires_at<? AND "+projectAudio).bind(now).run();
   await db.prepare("INSERT INTO audio_requests(id,chapter_id,chapter_digest,parts,source,plan_key,state,created_at,expires_at,total) VALUES(?,?,?,?,'existing',?,'quoted',?,?,?)").bind(id,b.chapterId,b.digest,JSON.stringify(parts),planKey,now,now+600000,plan.units.length).run();

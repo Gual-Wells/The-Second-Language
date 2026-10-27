@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "owner-initial-2026-10-27",
+  "scope": "Current single-owner project's initial teaching prior; not a default diagnosis for other users",
+  "evidenceType": "user-self-report",
+  "evidenceDocument": "research/learner-baseline-2026-10-27.md",
+  "status": "provisional-not-a-proficiency-test",
+  "recognizedVocabularySize": null,
+  "observations": {
+    "reading": "Good performance on self-reported English II reading-related items; relatively stronger written receptive ability",
+    "speaking": "Can make simple expressions on familiar matters; unfamiliar matters are difficult to initiate; cause may include planning, lexical retrieval, construction and interaction",
+    "unknown": ["Individual known-word list", "Listening comprehension", "Pronunciation", "Spontaneous interaction", "Cross-domain transfer", "Delayed productive retention"]
+  },
+  "initialTaskRange": {
+    "reading": "Provisionally try B2-like general-interest authentic materials with local support; adjust using actual comprehension, never infer measured CEFR",
+    "productiveStartingPoint": "B1-like complete communication tasks on familiar matters; B2-like explanation, comparison and follow-up as stretch",
+    "repair": "If needed, break the same communicative purpose into A2-like short exchanges before rejoining it; this does not lower the chapter vocabulary challenge",
+    "levelMeaning": "Task-design references only; not the learner's certified or measured level"
+  },
+  "selectionGuidance": [
+    "Use approximate recognition as support, not mastery of the entire word or family",
+    "Include valuable advanced senses, collocations and constructions of familiar-looking words",
+    "Prefer complementary resources that make a complete communicative act possible, alongside worthwhile outward expansion",
+    "Distinguish missing ideas, retrieval, construction and pronunciation problems before prescribing new vocabulary",
+    "Keep complete dual-textbook meanings and real families; do not lower overall challenge, reward rarity, filter by owner, or force level proportions",
+    "Permit natural relationships including shared context, but do not actively optimize sharing, graph density or coverage-per-word",
+    "Revise the candidate frontier from actual feedback; freeze each run's original input and never rewrite earlier snapshots"
+  ]
+}

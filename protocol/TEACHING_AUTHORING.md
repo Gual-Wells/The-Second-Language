@@ -1,76 +1,71 @@
-# 可复用的课程制作工具
+# 逐词教材与真实语境制作工具
 
-2026-10-24生产回退取证后建设。语义权威仍是 CONTENT、USAGE_LABELS、ETYMOLOGY、QUALITY_WORKFLOW 和 CURRENT_AFFAIRS；工具只固定原材料、装配作者成稿及检查引用，不选择词族、融合释义、生成例句或替作者审阅。50主词、全义、真实词族、Max、05:00开始生成保持。
+2026-10-27起尚未冻结的新运行采用 AUTHENTIC_CONTEXT：`authoringPolicy=authentic-context-v1`，正文 `FORMAT:usage-context-v1`。50主词、完整双教材/真实词族/全义、gpt-6.1-sol/max、05:00开始、默认休息和音频空选配保持。工具只固定原件、装配和结构检查；候选比较、释义、缩编和语义审阅由Codex完成。
 
-## 一、先取得完整词族原件
+已冻结selection没有authoringPolicy或为sourced-collection-v1，继续其原三部分合同及作者稿，从原protocolCommit或切换前Git版本恢复；不静默升级、重选、重标。以下为新默认。
 
-固定VIX输入后，在最终冻结前，用候选范围文件准备材料。形状沿用selection的 `mainWords`：每项 `text` 与 `family:[{text}]`，候选不需伪造VIX身份。范围由Codex阅读教材后判断；新增真实派生和必要交叉引用要继续补查。
+## 固定完整教材
+
+prepare-vix固定VIX、教材、词源；feedback-snapshot保存原目标/反馈及learnerBaseline，已有快照只复用。冻结前候选范围仍是`mainWords:[{text,family:[{text}]}]`。
 
 ```sh
 node scripts/prepare-teaching-materials.mjs DATE --scope=work/runs/DATE/candidate-scope.json
-# 冻结后复用同一范围；补查项按主词列字符串数组，不改冻结selection
 node scripts/prepare-teaching-materials.mjs DATE --additional=work/runs/DATE/additional-terms.json
 ```
 
-没有额外补查项时省略additional。补查文件如 `{"compensate":["compensatory"]}`；它是查找意图，不自动把查到的条目纳入教学或新增VIX标注。
+additional如`{"compensate":["compensatory"]}`只表示补查意图，不自动认词族或标注。逐主词、每个实际派生和必要引用独立查询两书，再实际先读完整Collins、后Oxford；精确标题无命中须查拆行、同名组及交叉引用，不从旧不完整lookup筛选冒充补查。
 
-工具对主词、每个实际纳入的词族词形及明确补查项分别查询完整Collins、Oxford，再取得相关词源候选。不会从旧的混合lookup集合筛选来假装补查。返回 `work/runs/DATE/teaching/materials.json` 指向不可变逐词包，包内有实际全文、原件摘要、逐词查询结果及原例句标记候选。**实际打开各包，先读Collins后读Oxford及必要上下文**；查询无命中时检查拆行派生/词组/交叉引用，不据此断言不存在。无命中项不自动排除，匹配条目也可能不属本词族。
+材料实存在D盘`teaching/materials/<SHA>.json`且不可覆盖，materials.json记录原输入和独立查询。materialDigest、条目excerptDigest、教材digest实际核对。该材料manifest的sourced-collection-v1属于既有取得合同，不代表新作者稿仍用三部分。材料变更后实际复核受影响稿件，不只换摘要。
 
-包的摘要记录真实输入，不能证明读过或理解正确。`□`/`◊`候选保留原始片段及定位，可能包括标签、译文、重复和非本族内容，必须回到完整条目判断。不能按自动提取的候选数量推断义项数量。词源不用逐义或逐断言建表。
+`□/◊`只是原例定位候选，可能有片段、重复、标签或非本族内容；回到完整条目判断。全部相关原例及去向仍可回查，新默认不要求全部展示。选择的是完整词族全义，不是新闻命中子集。
 
-材料按内容摘要保存，补查不覆盖先前原件；冻结前后同一教学范围可直接复用。补查导致材料包变化后，旧作者稿必须实际核查新增内容并更新其材料绑定，不能仅换摘要宣称复核完成。
+## 冻结与作者稿
 
-## 二、第一、二部分协同写作
+读清全义后、冻结前将`authoringPolicy:"authentic-context-v1"`同studyDate、vixInputCommit、vixMarkLabel和50主词/实际family一起保存。不能在旧冻结selection追加该字段。原时点prepare-vix-marking/mark-vix/publish-vix，原副本/标签/回执和未知计费保护不变。
 
-在 `work/runs/DATE/teaching/authored/word-W001.json` 等文件保存模型实际撰写的自然词族；每文件一主词。第一、二部分保持完整Markdown自由表达，不引入机械释义模板。结构如下（仅格式示意，不是教学成品）：
+每词权威文件仍为`teaching/authored/word-W001.json`，新稿不含partTwo，不以articles.json为权威。形状示意：
 
 ```json
 {
-  "wordId":"W001", "text":"compensate", "materialDigest":"实际逐词包SHA256",
-  "partOne":"<!-- WORD:W001 -->\n# compensate\n\n**词源**：实际讲解……\n\n<!-- USE:U001 -->\n## compensate · 必要短标识 /实际美式音标/\n`融合后的核心义`\n\n实际句法、搭配、语域、限制与区别……",
-  "partTwo":"<!-- WORD:W001 -->\n# compensate\n\n<!-- EXAMPLE:U001 -->\n实际原例或针对该义创作的英文例句。\n`准确译文`",
-  "sourceCoverage":[{"sourceId":"实际collins或oxford条目ID","disposition":"该条各项事实、标签、短语及原例进入哪些用法；必要合并或非本族排除的具体解释"}],
-  "exampleCoverage":[{"exampleId":"材料中实际example候选ID","uses":["U001"],"disposition":"原例在第二部分的具体去向；真正重复的合并关系或原片段的补足方式"}]
+  "wordId":"W001", "text":"adapt", "materialDigest":"真实材料摘要",
+  "partOne":"<!-- WORD:W001 -->\n# adapt\n\n**词源**：实际说明。\n\n<!-- USE:U001 -->\n## adapt · 适应 /əˈdæpt/\n`融合核心义`\n\n必要限制。\n\n<!-- CONTEXT_SLOT:U001 -->\n\n其余语法、搭配和区别。",
+  "contexts":[{
+    "id":"C001", "kind":"abridgment", "uses":["U001"],
+    "title":"必要短标题", "displayContext":"必要时间或情境", "sourceUrls":["https://实际原文"],
+    "paragraphs":[[{"id":"S001","text":"Actual complete English sentence.","uses":["U001"]}]],
+    "translation":"整份连贯中文，可有自然段，不逐句配对。",
+    "sourceEvidence":[{"url":"https://实际原文","readRecord":"真实读件路径","locator":"原段页行","senseEvidence":"实际目标义及结构依据","changes":"保留删改及限定","publicationBasis":"本版本用于该种摘抄或改编的实际依据"}]
+  }],
+  "contextChoices":[{"useId":"U001","contextIds":["C001"],"reason":"实际取舍理由"}],
+  "sourceCoverage":[{"sourceId":"实际教材条目ID","disposition":"实际内容/标签/区别去向或具体排除理由"}],
+  "exampleCoverage":[{"exampleId":"实际原例候选ID","uses":["U001"],"disposition":"选到何语境，或原件留存而未胜出的具体理由"}]
 }
 ```
 
-完整材料中每份现代教材条目都交代内容去向。每条标记原例候选交代第二部分去向；确为重复、非本族、同义词举例等不纳入时，uses为空数组并具体解释原因。不能用统一“无关”措辞批量跳过。保留全部相关原例；片段按正文规范恰当补足并说明，不伪装成原有完整句。必要补写例由Codex真实创作，针对该义，译文准确，不能自动从范文选第一句补位。
+示意占位不能作为成稿。context.kind仅abridgment/excerpt/example。纯教学例句用sourceUrls及sourceEvidence空数组，并写fallbackReason；若声明实际采用URL，例句也须相应来源证据。英文paragraphs按自然段，每完整句唯一id，可带speaker；真实目标义才给uses，承接句可空。禁止sentence.translation，中文只写一份context.translation。
 
-sourceCoverage和exampleCoverage承接既有教材/原例去向要求，不是通过打勾就能取得的语义认证。装配会检查来源和用法身份、是否缺记录；作者仍须核对实际正文是否真的保留内容、例句是否准确。无条件复制第三部分句子的装配回退不存在。模型判断确有教学价值时可以主动共享合适句子，不禁止合理复用。
+每个真正教学用法最终1–5份。3只是各份有充分独立增量时的甜区，不是目标。多份须choice.contributions逐份`{contextId,reason}`说明不可替代的学习增量，否则只取1份最佳。可选candidates只记录实际候选id和decision，不强凑三类/数量，最终5份上限不是检索配额。
 
-## 三、真实取材、自由组稿
+partOne只放讲解和每USE唯一CONTEXT_SLOT；禁止夹入已装配CONTEXT、REF、句子/译文绕过作者证据。插槽位于完整标题/核心义/必要限制后，其余说明前。新真实语义分支独立USE，不按“或”机械拆旧身份。
 
-词汇材料与实际读件相互启发。全义集合稳定后，以有价值的现实内容形成文章组，篇数、体裁、长度按需要决定；每篇有完整内容，不用短句碎片收容剩余USE。科技、文化、社会、历史及专业材料都可以进入；恰当部分偏向现实表达和运用，不把全部作品收窄成比较/核实/谨慎的劝导。
+自然共享可以只定义一个context被几个真实用法选择，工具在其他位置输出CONTEXT_REF；每个(use,context)均要就地呈现，同一位置不重复。refs只列实际采用教学关联，不把偶然出现的目标词全挂上。不得主动找共享、合并题材或考核复用率。
 
-写前规划、首次成文与编辑同时执行[QUALITY_SCALE](QUALITY_SCALE.md)：先明确真实内容任务、必要展开和粗略规模预期，预安放语域/配价受限用法，直接写充分紧凑的唯一首稿；不先整章扩写再例行缩略。分批续作恢复已有背景与未安放用法，在自然批次间用`node scripts/chapter-footprint.mjs --draft DATE`只读观察完整分母、已写规模和实际引用进度，及时调整尚未写出的组织。定义不例行重讲，任务讲清就推进，不自动附泛收尾；保留必要解释、场面、停顿和事实条件。成稿后原语义审阅与保质精简继续，检查真用、对象/条件、指代、译文与阅读密度；不删教学范围、不降低难度、不设篇数/词数配额。装配规模观察只供判断，不认证质量。保持一个权威稿，不把研究多稿复制为每日任务。
-
-**词间无顺序，词内各义也无顺序。** 不按USE、词典或第一二部分排列推进文章，同词不同义可以分到不同篇。全部文章的真实用法合计覆盖完整集合；允许自然复现、无目标词的承接句及一句合理多义。文章之间是否关联或连续、如何排序，由内容与阅读判断。
-
-创作中的意图、材料缺口和具体续作保留article-plan.md/continuity.md/resume.md即可，不另造评分或层层审批。最终可装配稿的唯一权威是 `teaching/authored/articles.json`；每个自然写作块的英文稳定后按下列英中配对格式将已完成内容保存进它，供续作及途中观察，不等整章完稿。临时英文尚未保存时，JSON空统计不等于实际未写。article.md如果用于前期草稿或通读导出，明确其阶段，不能两份同时作为终稿。格式是数组：
-
-```json
-[
-  {"id":"A01","title":"实际文章标题","sourceUrls":["实际读件URL"],"paragraphs":[
-    [{"id":"S001","text":"一条完整英文原句。","translation":"准确的中文译文。","uses":["U007","U002"]}],
-    [{"id":"S002","text":"一条有内容需要的承接句。","translation":"与上下文连续的译文。","uses":[]}]
-  ]}
-]
-```
-
-实际英文记录当然写英文，不照抄格式占位内容。段落数组保持自然段；全章SENTENCE身份唯一，不能每篇从S001重计。各篇sourceUrls指向实际读取并采用的source-notes来源；同篇可采用多份材料，跨篇可共享来源，不设数量配额。不要冒充原报道原文、采访或当事人话语；基于充分材料独立编排事实和解释，必要引用按来源权限处理。
+## 装配和封存
 
 ```sh
 node scripts/assemble-teaching.mjs DATE
 ```
 
-输出 `teaching/chapter.md` 和 `teaching/article-sources.json`，不发布、不标VIX、不调用TTS。缺独立例句、漏材料去向、重复身份、未覆盖用法、原句与译文缺失会停止；不限制文章数量或用法顺序，也不能判断文章是否有价值。分别完成教材内容审阅、每篇文章内容审阅、全组逐义真用与译文审阅后，才采用装配稿。
+核原selection、不可变材料、全部词条/用法身份、原条/原例去向、语境及选择；输出teaching/chapter.md和teaching/context-sources.json。不发布、不标VIX、不调用声音。漏译、1–5越界、多份缺增量、无来源、重复身份/插槽/局部REF、未知USE或共享缺就地引用都会拒绝。工具不认证词义/自然度/真实收益。
 
-## 四、沿现有通路发布
+按QUALITY_WORKFLOW实际语义审阅后采用同源chapter.md。meta保留contentPolicy:etymology-fused-v1与sourcePolicy:current-affairs-v1，并设置authoringPolicy:authentic-context-v1。source-notes.contexts采用导出索引，URL绑定实际readRecord、自写事实及边界，不用articles数组。
 
-把确认的 `teaching/chapter.md` 采用为 `chapters/DATE/chapter.md`，meta增加 `authoringPolicy: "sourced-collection-v1"`，并继续保留 `contentPolicy: "etymology-fused-v1"`、`sourcePolicy: "current-affairs-v1"`。source-notes顶层的articles使用导出的article-sources.json数组，其他实际读件/facts/context按CURRENT_AFFAIRS建设。
+```sh
+node scripts/pack-current-affairs.mjs DATE work/runs/DATE/source-notes.json
+node scripts/pack-chapter.mjs DATE
+node scripts/publish-chapter.mjs DATE
+```
 
-原 `pack-current-affairs → pack-chapter → publish-chapter` 通路不变。pack-chapter会重新装配并要求正式正文与作者稿一致；之后修订在作者稿进行，重新检查与封存来源。检查不是内容质量的替身。正文ARTICLE编码、来源包篇目标题/身份/来源引用在服务端也核对，不能读到甲篇却看到乙篇的来源。
+正文必须逐字来自作者稿装配。pack-chapter还逐context实际验证作者sourceEvidence.readRecord，采用URL一一对应，原件readDigest须与封存来源相同；网址相同不足以证明同版原文。正文/来源分别摘要、OneDrive原件回读再发布，D1只存轻量引用。不将新闻全文放公开Git/正文；新旧格式不靠空PART壳混装。中断只续缺项，具体写resume，不重选/重标/重做成功收费资产。
 
-所有正文和来源仍在既有OneDrive原件及D1章级索引中，不新增逐词、逐义、逐篇数据库。点读沿全章唯一句子身份和文本缓存复用；标题、来源摘要与内部去向不是朗读单元。答疑、测试继续读取固定digest的整章。
-
-已经发布的2026-10-24章保持原件和冻结选择；本次工具建设不等于重新发布、补造源材料已阅读或补齐语义内容。旧章只供研究制作工艺，不恢复正式目录。生产验收必须在实际新章中继续检查文章内容，不能把隔离fixture的结构通过称为真实新章质量已通过。
+验证入口：check-usage-context-authoring、check-usage-context-packaging、check-usage-context-backend、check-context-reader。结构与浏览器仿真不能证明语义正确、用户已掌握或物理iPhone体验。全部新增数据实存D，任务末尾按BALANCES核查；休息、独立雅思/答疑/测试/认证/卷轴及计费保护继续。

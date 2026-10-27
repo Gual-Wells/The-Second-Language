@@ -1,7 +1,7 @@
 import {collectNext} from '../speaking/collector.mjs';
 import {speakingEnvironment} from './private-assets.js';
 import { rawPayload, sendPushNotification } from '@mmmike/web-push/send';
-import { authRoute, sessionFor } from './auth.js';
+import { authRoute, sessionFor, readerIdentity } from './auth.js';
 import { validateAnnotatedContent, validateTeachingLayout, DAILY_WORD_COUNT } from '../../web/annotations.js';
 import { practiceRoute } from './practice.js';
 import {balanceRoute} from './balances.js';
@@ -16,7 +16,7 @@ import {storageUsageRoute} from './storage-usage.js';
 import {expireTemporaryTests,deleteTemporaryTest} from './temporary-test-store.js';
 import {certificationLabRoute} from './certification-lab.js';
 import {storageRoute,permanentBucket,chapterText,storageRequestEnvironment} from './storage.js';
-import {audioConfigRoute} from './audio-config.js';
+import {audioConfigRoute,chapterAudioParts} from './audio-config.js';
 import {CURRENT_AFFAIRS_POLICY,prepareChapterSources,readChapterSources} from './current-affairs.js';
 
 const encoder = new TextEncoder();
@@ -62,6 +62,7 @@ async function inputJson(request) {
 }
 
 function countMainWords(markdown) {
+  if (/^<!-- FORMAT:usage-context-v1 -->\s*$/m.test(markdown)) return (markdown.match(/^<!-- WORD:[A-Za-z][A-Za-z0-9_-]{0,31} -->\s*$/gm) || []).length;
   const m = markdown.match(/^<!-- PART:one -->\s*$/m);
   const n = markdown.match(/^<!-- PART:two -->\s*$/m);
   const k = markdown.match(/^<!-- PART:three -->\s*$/m);
@@ -97,7 +98,10 @@ async function route(request, env) {
   if(path==='/api/audio-config'||path.startsWith('/api/audio-config/'))return audioConfigRoute(request,env,{isPublisher:publisher(request,env),session:await sessionFor(request,env),sameOrigin:sameOrigin(request,env)});
   if (path === '/api/practice' || path.startsWith('/api/practice/')) return practiceRoute(request, env, publisher);
 
-  if (path === '/api/session' && request.method === 'GET') return json({ authenticated: Boolean(await sessionFor(request, env)), demo: false });
+  if (path === '/api/session' && request.method === 'GET') {
+    const session = await sessionFor(request, env);
+    return json({ authenticated: Boolean(session), readerUserId: session ? await readerIdentity(env) : null, demo: false });
+  }
 
   if (path === '/api/feedback-snapshot' && request.method === 'GET') {
     if (!publisher(request, env)) return json({ error: '发布身份无效' }, 401);
@@ -161,18 +165,20 @@ async function route(request, env) {
       typeof value.number !== 'string' || value.number.length > 80 ||
       value.contentPolicy!=='etymology-fused-v1' || !/^[0-9a-f]{40}$/.test(value.vixCommit || '') || !/^[0-9a-f]{40}$/.test(value.protocolCommit || '')) return json({ error: '章节元数据或结构无效' }, 400);
     let parsed;
-    try { parsed=validateTeachingLayout(value.markdown, value.contentPolicy);if(value.contentPolicy==='etymology-fused-v1')assertTeachingText(parsed); }
+    try { parsed=validateTeachingLayout(value.markdown, value.contentPolicy);if(value.contentPolicy==='etymology-fused-v1')assertTeachingText(parsed);
+      if(parsed.format==='usage-context-v1'&&value.authoringPolicy!=='authentic-context-v1')throw Error('单正文须绑定真实语境制作策略');
+      if(parsed.format!=='usage-context-v1'&&value.authoringPolicy==='authentic-context-v1')throw Error('制作策略与正文格式不一致'); }
     catch (error) { return json({ error: `章节编码与逐句译文无效：${error.message}` }, 400); }
     const runClaim = await effectiveRunClaim(env.DB,value.runId,value.date);
     if (!runClaim || claimIsRest(runClaim)) return json({ error: '本日未领取运行或已选择休息' }, 409);
     const digest = await sha256(value.markdown), key = `chapters/${value.date}/${digest}.md`;
     if(await env.DB.prepare('SELECT 1 FROM chapter_withdrawals WHERE digest=? OR (run_id=? AND (vix_commit=? OR selection_digest=?))').bind(digest,value.runId,value.vixCommit,value.sourcePackage?.selectionDigest||'').first())return json({error:'该章节及原选词已撤回，不能重新暂存'},409);
-    let sources;try{sources=await prepareChapterSources(value,digest,parsed.articles);}catch(error){return json({error:`来源包无效：${error.message}`},400);}
+    let sources;try{sources=await prepareChapterSources(value,digest,parsed);}catch(error){return json({error:`来源包无效：${error.message}`},400);}
     const archived=await env.DB.prepare(`SELECT 1 FROM chapter_revisions r WHERE r.chapter_id=?
       AND NOT EXISTS(SELECT 1 FROM chapter_sources s WHERE s.digest=r.digest AND s.policy=?) LIMIT 1`).bind(value.id,CURRENT_AFFAIRS_POLICY).first();
     if(archived)return json({error:'旧章已封存，不能回填来源或改作新正式章节'},409);
     const prior=await env.DB.prepare(`SELECT r.chapter_id,r.run_id,r.number,s.source_digest FROM chapter_revisions r LEFT JOIN chapter_sources s ON s.digest=r.digest WHERE r.digest=?`).bind(digest).first();
-    if(!prior&&!parsed.articles.length)return json({error:'新制作版本须采用真实取材文章组及ARTICLE篇目标记；已有原件不回写'},400);
+    if(!prior&&parsed.format!=='usage-context-v1'&&!parsed.articles.length)return json({error:'新制作版本须采用真实取材文章组或单正文真实语境；已有原件不回写'},400);
     if(prior&&(prior.chapter_id!==value.id||prior.run_id!==value.runId||prior.source_digest!==sources.digest))return json({error:'正文版本与已冻结的来源或运行身份冲突'},409);
     const run=await env.DB.prepare('SELECT selection_digest FROM daily_runs WHERE run_id=?').bind(value.runId).first();
     if(run?.selection_digest&&run.selection_digest!==value.sourcePackage.selectionDigest)return json({error:'来源包与最终选词摘要不一致'},409);
@@ -204,14 +210,19 @@ async function route(request, env) {
     const binding=await env.DB.prepare('SELECT * FROM formal_chapter_sources WHERE digest=? AND policy=?').bind(revision.digest,CURRENT_AFFAIRS_POLICY).first();
     if(!binding)return json({error:'章节未完成新流程来源封存，不能加入正式目录'},409);
     try{await readChapterSources(env,{...binding,chapter_id:revision.chapter_id,study_date:revision.study_date});}catch{return json({error:'来源包原件暂不可核对，尚未发布'},503);}
+    let publishedText;try{publishedText=await chapterText(env,revision.content_key);}catch{return json({error:'章节原件暂不可核对，尚未发布'},503);}
+    if(!publishedText||await sha256(publishedText)!==revision.digest)return json({error:'章节原件暂不可核对，尚未发布'},503);
+    const admittedAudioParts=JSON.stringify(chapterAudioParts(publishedText));
     const upgraded=await env.DB.prepare('SELECT 1 FROM chapter_first_part_upgrades WHERE chapter_id=? LIMIT 1').bind(revision.chapter_id).first();
     if(upgraded){const current=await env.DB.prepare('SELECT digest FROM published_chapters WHERE chapter_id=?').bind(revision.chapter_id).first();return current?.digest===revision.digest?json({ok:true,id:revision.chapter_id,digest:revision.digest,reused:true}):json({error:'此章已有第一部分升级，旧日课请求不能覆盖'},409);}
     const now = Date.now();
     await env.DB.batch([
       env.DB.prepare(`INSERT OR IGNORE INTO audio_requests(id,chapter_id,chapter_digest,parts,source,state,created_at)
         SELECT 'next-'||revision||'-'||?,?,?,parts,'next','pending',? FROM audio_next_config
-        WHERE id=1 AND parts!='[]' AND NOT EXISTS(SELECT 1 FROM published_chapters WHERE chapter_id=?)`)
-        .bind(revision.chapter_id,revision.chapter_id,revision.digest,now,revision.chapter_id),
+        WHERE id=1 AND parts!='[]' AND NOT EXISTS(SELECT 1 FROM published_chapters WHERE chapter_id=?)
+        AND NOT EXISTS(SELECT 1 FROM json_each(audio_next_config.parts) selected
+          WHERE selected.value NOT IN (SELECT value FROM json_each(?)))`)
+        .bind(revision.chapter_id,revision.chapter_id,revision.digest,now,revision.chapter_id,admittedAudioParts),
       env.DB.prepare(`UPDATE audio_next_config SET parts='[]',revision=revision+1,updated_at=? WHERE id=1
         AND NOT EXISTS(SELECT 1 FROM published_chapters WHERE chapter_id=?)`)
         .bind(now,revision.chapter_id),
@@ -317,7 +328,7 @@ async function route(request, env) {
       WHERE r.chapter_id=? AND r.digest=COALESCE(?,p.digest)`).bind(CURRENT_AFFAIRS_POLICY,id,version).first();
     if (!row) return json({ error: '章节尚未发布' }, 404);
     const markdown = env.ONEDRIVE_ENABLED==='true'?await chapterText(env,row.content_key):await env.CHAPTERS.get(row.content_key);
-    if (markdown === null) return json({ error: '章节正文暂不可用' }, 503);
+    if (markdown === null||await sha256(markdown)!==row.digest) return json({ error: '章节正文暂不可核对' }, 503);
     const { content_key, ...meta } = row;
     return json({...meta,number:archive&&(row.withdrawn||row.sourcePolicy!==CURRENT_AFFAIRS_POLICY)?row.number:await numberForDate(env.DB,row.date),...(archive?{archived:Boolean(row.withdrawn)||row.sourcePolicy!==CURRENT_AFFAIRS_POLICY}:{}),markdown});
   }

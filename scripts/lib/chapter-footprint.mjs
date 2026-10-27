@@ -27,6 +27,14 @@ function thirdFootprint(parsed) {
 }
 export function chapterFootprint(markdown) {
   const parsed=validateAnnotatedContent(markdown);
+  if(parsed.format==='usage-context-v1'){
+    const units=parsed.sentences.map(s=>s.text),english=sum(units.map(englishWords));
+    return {format:parsed.format,measurement,mainWords:parsed.words.length,uses:parsed.uses.size,
+      definitions:{han:han(parsed.definitions)},
+      contexts:{count:parsed.contexts.length,sentences:parsed.sentences.length,englishWords:english,translationHan:sum(parsed.contexts.map(c=>han(c.translation)))},
+      scale:{englishWordsPerUse:english/parsed.uses.size,notice:'Descriptive only. Natural sharing is allowed, never an optimization target; counts do not establish sense coverage or learning quality.'},
+      eligibleAudio:{uniqueTexts:new Set(units).size,characters:[...new Set(units)].reduce((n,s)=>n+s.length,0),note:'Final sentence strings only; no paid request or billing promise.'},notice};
+  }
   const examples=[...parsed.parts.two.matchAll(/<!-- EXAMPLE:([^ ]+) -->\s*\n([^\n]+)\n`([^`\n]+)`/g)]
     .map(([,use,text,translation])=>({use,text,translation}));
   const {articles,partThree}=thirdFootprint(parsed),p2Words=sum(examples.map(e=>englishWords(e.text)));
@@ -102,6 +110,13 @@ export async function authoredDraftFootprint(root,date){
   const names=(await readdir(folder)).filter(name=>/^word-[A-Za-z0-9_-]+\.json$/.test(name));
   const words=await Promise.all(names.map(async name=>{const word=JSON.parse(await readFile(path.join(folder,name),'utf8'));if(name!==`word-${word.wordId}.json`)throw Error('作者文件名与WORD身份不符：'+name);return word;}));
   if(words.length!==selection.mainWords.length||new Set(selection.mainWords.map(word=>word.text)).size!==DAILY_WORD_COUNT||words.some(word=>!selection.mainWords.some(item=>item.text===word.text)))throw Error('第一部分作者稿未齐或与冻结主词不一致，不能观察完整分母');
+  if(selection.authoringPolicy==='authentic-context-v1'){
+    const uses=draftUseInventory(words,DAILY_WORD_COUNT),contexts=words.flatMap(w=>w.contexts||[]),sentences=contexts.flatMap(c=>(c.paragraphs||[]).flat());
+    const referenced=new Set(sentences.flatMap(s=>s.uses||[]));
+    if(new Set(contexts.map(c=>c.id)).size!==contexts.length||new Set(sentences.map(s=>s.id)).size!==sentences.length||[...referenced].some(id=>!uses.has(id)))throw Error('草稿语境/句子身份重复或指向未知用法');
+    return {mode:'draft-observation',format:'usage-context-v1',date,measurement,mainWords:words.length,uses:uses.size,referencedUses:referenced.size,
+      contexts:{written:contexts.length,sentences:sentences.length,englishWords:sum(sentences.map(s=>englishWords(s.text||''))),translationHan:sum(contexts.map(c=>han(c.translation||'')))},notice:draftNotice};
+  }
   let articles=[],articlesStatus='not-created';
   try{articles=JSON.parse(await readFile(path.join(folder,'articles.json'),'utf8'));articlesStatus=Array.isArray(articles)&&!articles.length?'empty':'present';}catch(error){if(error.code!=='ENOENT')throw error;}
   return{...draftChapterFootprint(words,articles),date,articlesStatus};

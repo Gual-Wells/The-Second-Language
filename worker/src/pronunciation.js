@@ -63,7 +63,7 @@ export async function pronunciationRoute(request,env,{isPublisher,isReader,sessi
   if(!chapter)return json({error:'章节版本不存在'},404);
   let markdown;try{markdown=await chapterText(env,chapter.content_key);}catch{return json({error:'章节原件暂不可用，未发起生成'},503);}
   if(!markdown||await sha256(markdown)!==b.digest)return json({error:'章节原件暂不可核对，未发起生成'},503);
-  if(!isChapterAudioRequest(markdown,text,b.kind,phonemes))return json({error:'请点按完整例句或范文句子'},422);
+  if(!isChapterAudioRequest(markdown,text,b.kind,phonemes))return json({error:'请点按正文中可朗读的完整英文语境句或例句'},422);
  }
  const descriptor=audioDescriptor(text,phonemes),id=await sha256(JSON.stringify(descriptor));
  await associate(env,b,id);

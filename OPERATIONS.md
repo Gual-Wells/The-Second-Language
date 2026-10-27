@@ -2,21 +2,22 @@
 
 此文件只说明工具如何连接；每天推荐、词典整合与创作判断以 `protocol/` 为准。运行命令均从项目根目录执行。`work/runs/` 可自由存放续作资料，不把密钥放进去。
 
-## 现行日课制作与文章组（2026-10-24）
+## 现行逐义真实语境日课（2026-10-27）
 
-实际日课任务在 `D:/CodexStorage/workspaces/second-language-certification-reader`，北京时间05:00触发，gpt-6.1-sol/max、50主词。2026-10-25起默认休息、默认不提前生成音频；关闭休息仅放行下一次新领取日期，领取时原子恢复休息，下一章音频选配在首次发布后恢复为空。主库0021迁移与现行Worker共同执行该约定。任务通过原隐藏启动器读取本仓库run-daily.ps1，休息先领取，已发布同日不重做；无需重装任务或改变触发时间。后文旧日期安装记录是历史，不据其恢复旧生产范围、词汇音频或旧模型档位。
+新输入锁authoringPolicy=authentic-context-v1，正文FORMAT=usage-context-v1。实际日课入口为D:/CodexStorage/workspaces/second-language-certification-reader/scripts/run-daily.ps1；它按UTF-8读取版本化protocol/daily-prompt.txt，替换STUDY_DATE。北京时间05:00触发，gpt-6.1-sol/max、live search、50主词。默认休息、下一章音频默认[]；关闭休息仅放行下一次新领取并原子复位，首次发布只消费同格式的一次选配。此次格式建设不触发生产、不重做正式第一章、不撤VIX、不启动音频。
 
-从DAILY_RUN、QUALITY_WORKFLOW和TEACHING_AUTHORING恢复：prepare-teaching-materials按明确主词/词族独立取得完整双教材包；作者协同写第一二部分及实际教材/原例去向；第三部分真实组稿，篇数和词间/词内义项次序自由，全组真用全义。assemble-teaching只装配与检查结构，不能冒充语义审阅。
+从DAILY_RUN、AUTHENTIC_CONTEXT、RECOMMENDATION、CONTENT、QUALITY_WORKFLOW、QUALITY_SCALE、ANNOTATIONS、TEACHING_AUTHORING恢复。feedback-snapshot固定实际反馈及provisional learner-baseline；后者是阅读接受较强、熟悉题简单表达/陌生题提取困难的任务试配先验，不是CEFR实测或词汇量测量。择词兼顾表达覆盖/深度/多样性/口语支撑，不能按owner或原文碰撞率机械筛。冻结前独立读取实际词族完整双教材，仍全义教学、总体不降难。
 
-2026-10-25起实际run-daily.ps1提示词加载QUALITY_SCALE。第三部分写前在article-plan按实际内容设粗略规模预期，直接创作充分紧凑的唯一首稿，不默认先写长再全章缩略；原语义审阅和保质精简继续。途中可用`node scripts/chapter-footprint.mjs --draft DATE`只读观察完整P1分母、已写P3及引用进度，不输出chapter.md、不预测规模；完整装配门禁不变。assemble-teaching附三部分规模与章级比率，完整稿独立复算用`node scripts/chapter-footprint.mjs chapters/DATE/chapter.md`，不自动删句或判质量。首章对照试验在research/quality-scale-2026-10-25，前置设计与隔离首稿试样在research/first-draft-scale-2026-10-25；其脚本不发布、不领取日课、不改VIX或生成音频。生产仍只维护一个权威作者稿，不要求每日多稿试验。
+按CURRENT_AFFAIRS取材并读真实原件，为每USE实际比较可用缩编/必要短摘/独立例句，保原话语功能与目标义。最终1–5份，3仅在每份有独立增量时较理想，否则一份取优；不强凑三候选，不主动追求共享。逐词作者稿partOne用CONTEXT_SLOT就地定位，contexts保完整英文句及一个整块译文，contextChoices记录真实取优和增份理由；无独立P2/P3、articles.json或逐句中译。译文位置始终存在，默认马赛克隐藏，按稳定账户+正文digest+context身份持久显隐；无身份/存储失败仅本次内存降级。
 
-新文章组meta增加authoringPolicy=sourced-collection-v1；采用工具生成的chapter.md和article-sources.json，沿pack-current-affairs、pack-chapter、publish-chapter封存与回读。正文ARTICLE与来源包articles同源；服务端拒绝无篇目标记的新制作版本，既有原件读取/幂等重试不回写。静态壳v47，篇目复用原索引入口，来源同窗筛选，音频和答疑仍绑定整章原摘要；无D1迁移、新队列、新订阅或新监测器。
+assemble-teaching从唯一作者稿输出chapter.md及context-sources.json；pack-current-affairs用contexts绑定readRecord原件、readDigest及实际事实/边界，pack-chapter要求作者稿与正文逐字一致及政策匹配。随后publish-chapter沿暂存→OneDrive原件/来源回读→提交/通知，D1仍只索引和状态，来源全文留私有文件基座。本次不需数据库迁移。运行时source包独立摘要，最大1MiB只是新语境绑定索引边界，不是新闻全文或学习量目标。没有新订阅、付费接口或常驻爬虫。
 
-不能假定后台都运行在此仓库：答疑/测试/质检及音频准备仍在second-language-maintenance。此次在共享Questions互斥锁空闲窗口，保留备份后仅原子同步web/annotations.js和protocol/chapter-quality-contract.mjs，使其认识ARTICLE与现行50词；其他已修改脚本、模型设置、队列和目录不覆盖。当前章与三篇隔离样例分别验证实际消费者的质检目标、测试主词与音频句子读取。以后变更公共格式时先核对实际任务根目录，再做必要兼容同步；不热迁工作资料或重启收费任务。
+旧已冻结selection缺authoringPolicy或为sourced-collection-v1，按原protocolCommit及原作者稿恢复旧三部分；不添加新字段改变其摘要。必要时从切换前5573946b10023df3c9b83f0d02a139860afef2bc恢复原协议，不能混用今天的新默认。旧章读取/回放/更正仍支持，旧音频two/three不隐式转为新contexts授权；同正文不能静默更换来源包。原测试、首次认证、卷轴艺术品及雅思生命周期不变。
 
-针对性验证：check-teaching-authoring（独立派生补查、拒绝自动补例、自由组稿及50词实际打包）、check-article-collection-ui（手机分篇阅读及真实手势请求夹具）、check-current-affairs-package、check-current-affairs-backend和check-daily-affairs。均隔离数据，不发布测试课、不标VIX、不调用付费模型。原阅读手势/位置检查可用UI_CHAPTER_DIR指向本机真实长章；模拟通过不是实体iPhone验收。发布用deploy-app，末尾check-balances。
+后台消费者不都在此checkout：Questions/测试/质检/音频准备实际目录为second-language-maintenance。跨格式公共模块须连同真实相对依赖，在Local\TheSecondLanguageQuestions与Local\TheSecondLanguageAudio互斥锁空闲窗口原子同步，先保存D盘恢复副本；不覆盖生产队列、账本、本机配置、模型档位或其他对话修改，不停止正在收费调用。每次变更先核对实际任务Actions，不因主仓代码已改就宣称后台已生效。具体本轮同步清单/证据见research/authentic-use-implementation-2026-10-27.md。
 
-## 新正式实事日课（2026-10-23）
+针对性验证：check-usage-context-authoring、check-usage-context-packaging、check-usage-context-backend、check-context-reader，另保留daily/VIX/旧章/音频/质检/答疑/测试专项。夹具在D盘隔离，无真实付费或生产标注。手机触控仿真不等于实体iPhone/Safari验收。部署用deploy-app（Worker→含API绑定Pages网关），最后check-balances；本轮真实发布结果以实施报告为准。
+## 历史基础设施安装记录（2026-10-23，新格式以首节为准）
 
 主协议CURRENT_AFFAIRS.md与DAILY_RUN.md。新流程从第1章开始，旧章/旧未完业务只读封存，不回填、不撤VIX标记、不迁移正文；正式新申请不再取旧章。旧原件通过publisher `GET /api/chapters?archive=1` 和 `GET /api/chapters/ID?digest=SHA&archive=1` 可核对，归档器已显式使用archive读取。原件、历史成绩及收费资产不删，物理紧凑索引维护保持。
 
@@ -76,9 +77,7 @@ powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File scripts/
 
 本机的定时任务每日北京时间 **05:00触发，默认休息**，调用 `scripts/run-daily.ps1`；只有明确放行的新领取运行才启动已登录的Codex CLI，以 `gpt-6.1-sol`、`max` 和live search运行本协议。修改实际DailyCodex触发器使用 `powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/set-daily-schedule.ps1 -Apply`：备份XML、只改时间并核对NextRunTime，保留Action/Principal/Settings，不立即启动生成。先领取后端一次性控制状态；关闭休息仅放行下一次新领取日期，领取后恢复休息。已领取的休息只有用户明确撤回才能按DAILY_RUN记录不可变恢复授权。任务提示词核心为：
 
-> 定时入口先领取当天运行控制，休息则直接结束；非休息日 Codex 阅读 AGENTS.md、protocol/DAILY_RUN.md、protocol/QUALITY_WORKFLOW.md、protocol/CONTENT.md、protocol/TEMPORARY.md 和 protocol/ANNOTATIONS.md，先处理已领取的临时需求，再完成 50 个主词的推荐、VIX 标注、逐词双教材交接、三部分正文、语义审阅与发布。续作写入 work/，未完成时记录 resume.md。
-
-2026-10-24定时必读清单明确加入RECOMMENDATION与CURRENT_AFFAIRS。择词前实际读取feedback-snapshot；候选导出保留全量未标记词，同时附原始可见通用英语多词表成员关系及owner说明，既不打分也不按owner筛难度。实事与早期生活收益的取舍写入selection.md，第三部分通过article-plan及成稿语义回看兑现；整体挑战适度上调且不因实用性降低。只更新尚未冻结选择，已冻结/已标注运行保护不变。生效依赖实际Daily Action指向本工作区；无前端或Worker改动，不要求重复部署静态资产。
+当前完整提示词见protocol/daily-prompt.txt；运行器实际从该文件读取，不维护第二份复制。必读、冻结、全教材、逐义取材、整块译文、作者装配、原件回读及失败恢复由该文件与首节协议共同约束。旧冻结运行恢复原protocolCommit，不按当前新模板重选。
 
 定时任务与机器保持运行。若当日工作未结束，下次唤醒继续同一工作目录下的 `work/runs/<YYYY-MM-DD>/`；不要重新选词。使用另一工作树时，把 `SECOND_LANGUAGE_CREDENTIAL_FILE` 指向本机忽略的 `.cache/deployment-secrets.json`，并确保中间文档可续用。目标日期和 VIX 的真实 `YY-MM-DD` 标注标签必须分别保存，后者为目标日期去掉年份前两位。
 
@@ -99,9 +98,9 @@ node scripts/publish-temporary.mjs --page=work/temporary/ID/page.json
 node scripts/delete-temporary.mjs 临时页ID
 ```
 
-`prepare-vix` 首次将 VIX 的当前 `main` 固定到 commit，续作只恢复/校验同一锁定输入，并分段下载辅助索引、两份 textbook 和构建脚本到 `.cache/vix/<commit>/`，逐文件验证 Git blob 摘要；它要求运行环境可访问 GitHub API 和 raw 文件。若命令行网络不可用，Codex 可用已连接的 GitHub 仓库工具取得同一 commit 的文件。冻结selection后才运行prepare-vix-marking；标注与发布使用独立工作副本，不修改原输入。工作副本重跑不覆写，发布commit另记meta/回执，不修改冻结selection。远端main变化时保留原选择及未提交标注待核对，不能刷新输入重选。`publish-vix` 优先使用 `GITHUB_TOKEN` 或 `GH_TOKEN`，没有环境变量时读取本机 GitHub Git 凭据。反馈与章节发布优先读取环境变量 `SECOND_LANGUAGE_API_URL`、`SECOND_LANGUAGE_PUBLISH_TOKEN`；本机部署环境也可从忽略的 `.cache/deployment-secrets.json` 自动取得发布 token，默认连接线上站点。给定日期正式正文存于 `chapters/YYYY-MM-DD/chapter.md`；同目录 `meta.json` 需含 `date`、`title`、`subtitle`、`number`、`wordCount: 50`、`runId`、已提交的 `vixCommit` 和 `protocolCommit`。`pack-chapter` 会检查两部分各有相同顺序的 50 个主词。
+`prepare-vix` 首次将 VIX 的当前 `main` 固定到 commit，续作只恢复/校验同一锁定输入，并分段下载辅助索引、两份 textbook 和构建脚本到 `.cache/vix/<commit>/`，逐文件验证 Git blob 摘要；它要求运行环境可访问 GitHub API 和 raw 文件。若命令行网络不可用，Codex 可用已连接的 GitHub 仓库工具取得同一 commit 的文件。冻结selection后才运行prepare-vix-marking；标注与发布使用独立工作副本，不修改原输入。工作副本重跑不覆写，发布commit另记meta/回执，不修改冻结selection。远端main变化时保留原选择及未提交标注待核对，不能刷新输入重选。`publish-vix` 优先使用 `GITHUB_TOKEN` 或 `GH_TOKEN`，没有环境变量时读取本机 GitHub Git 凭据。反馈与章节发布优先读取环境变量 `SECOND_LANGUAGE_API_URL`、`SECOND_LANGUAGE_PUBLISH_TOKEN`；本机部署环境也可从忽略的 `.cache/deployment-secrets.json` 自动取得发布 token，默认连接线上站点。给定日期正式正文存于 `chapters/YYYY-MM-DD/chapter.md`；同目录 `meta.json` 需含 `date`、`title`、`subtitle`、`number`、`wordCount: 50`、`runId`、已提交的 `vixCommit` 和 `protocolCommit`。`pack-chapter`按实际格式检查50主词；新格式还核对完整作者稿、逐义语境及同源来源索引，旧冻结格式保留原检查。
 
-内容续作以 `work/runs/<date>/words/` 的逐词材料、`article-plan.md`、`article.md`、`continuity.md` 和必要时的 `resume.md` 为交接点；这些文件由 Codex 按内容自由写，不进入发布正文。`pack-chapter` 能核对第三部分带或不带 `USE` 的句子都已逐句翻译，并核对每个用法至少被标出一次；教材保真与用法是否真实成立仍由 Codex 在发布前审阅。
+新格式续作保work/runs/<date>/words/、teaching/materials/不可变材料、author/逐词稿、source-notes/readRecord原件及resume。旧冻结文章稿保留原位置不迁移。pack-chapter检查每USE真实就地绑定1–5份完整语境、整块译文及作者稿一致；语义保真、取优/增份是否成立仍需实际独立审阅，结构通过不能替代。
 
 2026-10-24流程复盘补强：最终冻结前读全拟选词族双教材范围，选定后全部相关义项教授；只把完全重复VIX身份作为确定性错误拦截，真实词族仍由内容判断。feedback-snapshot已有即复用、不覆盖。publish-vix在更新main前保存work/runs/DATE/vix-publication.json，绑定输入/选择/拟提交文件；未知结果先读回核对，成功重跑复用同一提交。meta.vixCommit取已验证回执，publish-chapter要求该回执匹配本次来源包，再发布并回读正文/来源原件SHA。未完成的语义、学习难度和现实收益不能靠这些结构检查宣称合格。详见research/daily-flow-review-2026-10-24.md。
 
@@ -158,7 +157,7 @@ node scripts/practice-job.mjs review-complete <答卷ID> work/expression/reviews
 本仓库不保存实际 secrets，也不把两词演示章节当作正式课程。需要重新部署到另一账号时，应重建资源并更换配置中的资源 ID 与域名。
 
 
-第四部分 v2：微缩规格与难度见 PRACTICE_SIZES.md；阅读见 READING.md；原声操作见 SPEAKING_RUNTIME.md 和 scripts/speaking-practice.mjs。正式 Worker 已绑定 AI、私有媒体兼容 KV、OpenRouter secret；分钟任务采集原声，Codex 本机转换和分析，日课仍独立北京时间 05:00。日课点读固定 Kokoro Bella，由 Cloudflare 按需生成并永久复用；第一部分只读词汇标题对应音标，第二部分标题复用该音标、例句整句，第三部分整句。practice 0006 迁移新增 audio_key，已核验点读移出 D1 BLOB；失败时保留旧副本，不重新生成收费音频。听力通过 practice-audio.mjs cast 冻结授权音色池的人物绑定，后台校验同人同声；口语考官固定 Bella。长期预生成整章朗读仍是可选扩展，不增加每日生产负担。
+第四部分 v2：微缩规格与难度见 PRACTICE_SIZES.md；阅读见 READING.md；原声操作见 SPEAKING_RUNTIME.md 和 scripts/speaking-practice.mjs。正式 Worker 已绑定 AI、私有媒体兼容 KV、OpenRouter secret；分钟任务采集原声，Codex 本机转换和分析，日课仍独立北京时间 05:00。日课点读固定 Kokoro Bella，由 Cloudflare 按需生成并永久复用；新单正文仅读语境完整英文句（contexts），旧章仅第二/三部分整句；词汇标题和音标已停用，不恢复。practice 0006 迁移新增 audio_key，已核验点读移出 D1 BLOB；失败时保留旧副本，不重新生成收费音频。听力通过 practice-audio.mjs cast 冻结授权音色池的人物绑定，后台校验同人同声；口语考官固定 Bella。长期预生成整章朗读仍是可选扩展，不增加每日生产负担。
 
 ## 当前答疑与永久存储设施（2026-10-06）
 
@@ -184,15 +183,15 @@ node scripts/practice-job.mjs review-complete <答卷ID> work/expression/reviews
 
 ## iPhone 阅读器交互检查
 
-正式交互规则见 `protocol/READER_INTERACTION.md`。`node scripts/check-reader-ui.mjs` 用隔离接口检查前端草稿、手势、雅思科目导航、计时与上传保护；需要 Playwright 和 Chromium，截图留在忽略的 `.cache/reader-ui/`。可设置 `UI_CHAPTER_DIR=chapters/YYYY-MM-DD` 检查真实 50 词长章，`BROWSER_EXECUTABLE` 指定已安装浏览器。现行运行控制、发布与新流程隔离闭环使用 `node scripts/check-default-controls.mjs`、`node scripts/check-current-affairs-backend.mjs`，不调用真实收费模型、不写正式学习数据。`check-publishing-closure.mjs`与`check-audio-config.mjs`仍是未适配当前来源封存/50词流程的旧夹具，不列为现行发布门槛；不能把其旧默认断言当现行规则。
+正式交互规则见 `protocol/READER_INTERACTION.md`。`node scripts/check-reader-ui.mjs` 用隔离接口检查前端草稿、手势、雅思科目导航、计时与上传保护；需要 Playwright 和 Chromium，截图留在忽略的 `.cache/reader-ui/`。可设置 `UI_CHAPTER_DIR=chapters/YYYY-MM-DD` 检查真实 50 词长章，`BROWSER_EXECUTABLE` 指定已安装浏览器。现行运行控制、发布与新流程隔离闭环使用 `node scripts/check-default-controls.mjs`、`node scripts/check-current-affairs-backend.mjs`，不调用真实收费模型、不写正式学习数据。check-publishing-closure仍有旧夹具边界；check-audio-config已补当前默认/格式选配检查。新格式发布以首节四项贯通测试及现行实际来源保护为准，不能用旧默认覆盖。
 
-当前壳版本 v25，新增手势、设置导航、安全文本排版和雅思工作区模块一并预缓存。发布仍使用 `scripts/deploy-app.mjs` 保留 Pages API 网关，最后执行 `scripts/check-balances.mjs`。模拟检查不能宣称真实 iPhone 的键盘、触摸和后台音频全部验收。
+当前新格式静态壳v50，包含usage-context、teaching-units与context-translations并预缓存；旧章按原格式渲染。发布仍使用 `scripts/deploy-app.mjs` 保留 Pages API 网关，最后执行 `scripts/check-balances.mjs`。模拟检查不能宣称真实 iPhone 的键盘、触摸和后台音频全部验收。
 
 ## 章节音频选配（v24）
 
 v25 点读范围见 READER_INTERACTION.md 和 research/reader-point-audio-scope-2026-10-09.md。无需 D1 迁移；清洗运行 `node scripts/clean-point-audio.mjs --apply`，再运行 `node scripts/storage-upgrade.mjs packs` 并回读历史和现行版本清单。核查先于清洗写入；清洗只调整可变清单，保留收费原件及不可变恢复索引，不调用模型。
 
-见 protocol/AUDIO_CONFIGURATION.md。main D1 增量迁移 0009_audio_requests.sql，原有练习库不改。node scripts/deploy-app.mjs 保留同源 Pages 网关。scripts/install-audio-task.ps1 -CredentialFile <忽略的发布凭据文件> 安装独立无窗口 SecondLanguage-AudioPreparation，每分钟检查一次，在本机在线时执行已确认的申请，不调用 Codex；其他四个任务时刻不改。现行默认选配、发布消费和来源/原件保护运行 `node scripts/check-default-controls.mjs`及 `node scripts/check-current-affairs-backend.mjs`；旧`check-audio-config.mjs`尚未适配formal_chapter_sources，不以其结果代替现行验证。
+见 protocol/AUDIO_CONFIGURATION.md。main D1 增量迁移 0009_audio_requests.sql，原有练习库不改。node scripts/deploy-app.mjs 保留同源 Pages 网关。scripts/install-audio-task.ps1 -CredentialFile <忽略的发布凭据文件> 安装独立无窗口 SecondLanguage-AudioPreparation，每分钟检查一次，在本机在线时执行已确认的申请，不调用 Codex；其他四个任务时刻不改。现行默认选配、发布消费和来源/原件保护运行 `node scripts/check-default-controls.mjs`及 `node scripts/check-current-affairs-backend.mjs`；check-audio-config与新check-usage-context-backend分别核对选配及完整来源/原件通路。
 
 ## Windows 构建存储（2026-10-10）
 
@@ -212,7 +211,7 @@ v25 点读范围见 READER_INTERACTION.md 和 research/reader-point-audio-scope-
 
 `retire-word-audio.mjs --apply` 从既有不可变章节清单按原件摘要重新打包句子，下载每个旧包一次；不调用模型，不删除收费原件及历史索引。`clean-point-audio.mjs` 的全池关联修复仍保留供单独维护，常规取消词汇功能无需扫描全部付费返回。
 
-章节测试运行 `question-worker.mjs` 与现有答疑共用排队；`--tests-only` 可进行明确的实际出题验收。数据库迁移 0010 新增测试状态、0011 清除未执行下一章选配中的词汇项，原件未删除。测试前后均查询额度，正式认证与纪念币仍不启用。
+章节测试运行 `question-worker.mjs` 与现有答疑共用排队；`--tests-only` 可进行明确的实际出题验收。数据库迁移 0010 新增测试状态、0011 清除未执行下一章选配中的词汇项，原件未删除。测试前后均查询额度，该日期认证/纪念币尚未启用是历史状态；当前正式认证与卷轴按上方现行段落，纪念币仍独立停用。
 
 ## 词源与章节质检（v34）
 新课先读 ETYMOLOGY.md；`node scripts/lookup-textbooks.mjs YYYY-MM-DD word [related-word]` 从固定 VIX 资料取得候选和原文定位。首次安装本更新对主库执行 `0014_chapter_quality.sql` 迁移，再部署 Worker 和 Pages。原 `run-questions.ps1` 自动处理 chapter-quality，无新监测器或订阅；work/quality 纳入永久工作归档。每个自然工作块可让出给答疑/测试，失败由界面明确继续。

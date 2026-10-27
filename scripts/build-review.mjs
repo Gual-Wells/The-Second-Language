@@ -1,7 +1,8 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { publisherConfig } from './lib/publisher-config.mjs';
-import { sentenceRecords, splitParts, validateAnnotatedContent } from '../web/annotations.js';
+import { sentenceRecords, validateAnnotatedContent } from '../web/annotations.js';
+import {buildContextReview} from './lib/context-review.mjs';
 
 const planPath = process.argv[2];
 if (!planPath) throw new Error('用法: node scripts/build-review.mjs work/temporary/ID/plan.json');
@@ -19,8 +20,8 @@ async function source(id) {
     const response = await fetch(new URL(`/api/chapters/${encodeURIComponent(id)}`, base), { headers: { authorization: `Bearer ${token}` } });
     const chapter = await response.json();
     if (!response.ok) throw new Error(`读取原章节 ${id} 失败：${chapter.error || response.status}`);
-    validateAnnotatedContent(chapter.markdown);
-    sources.set(id, { chapter, parts: splitParts(chapter.markdown) });
+    const parsed=validateAnnotatedContent(chapter.markdown);
+    sources.set(id, { chapter, parsed, parts: parsed.parts });
   }
   return sources.get(id);
 }
@@ -40,6 +41,10 @@ function remap(block, wordId, newWordId, useIds) {
 }
 const sections = { one: [], two: [], three: [] };
 let sentenceNumber = 0;
+const selectedSources=await Promise.all(plan.entries.map(async item=>({...item,...await source(item.chapterId)})));
+const singleBody=selectedSources.some(s=>s.parsed.format==='usage-context-v1');
+if(singleBody&&selectedSources.some(s=>s.parsed.format!=='usage-context-v1'))throw Error('复习来源格式不同，请分别建立单正文和封存三部分复习页');
+if(!singleBody){
 for (const [index, item] of plan.entries.entries()) {
   const { parts } = await source(item.chapterId);
   const first = wordBlock(parts.one, item.word);
@@ -65,7 +70,8 @@ for (const [index, item] of plan.entries.entries()) {
   }
   sections.three.push(`# ${item.word}\n\n${selected.join('\n')}`);
 }
-const markdown = ['one', 'two', 'three'].map(part => `<!-- PART:${part} -->\n\n${sections[part].join('\n\n')}`).join('\n\n') + '\n';
+}
+const markdown = singleBody?buildContextReview(selectedSources):['one', 'two', 'three'].map(part => `<!-- PART:${part} -->\n\n${sections[part].join('\n\n')}`).join('\n\n') + '\n';
 validateAnnotatedContent(markdown, { maxWordCount: 40 });
 const page = { id: plan.id, kind: 'review', title: plan.title || '章节复习', subtitle: plan.subtitle || '', requestId: plan.requestId || null, markdown };
 const folder = path.dirname(path.resolve(planPath));

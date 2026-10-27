@@ -1,12 +1,12 @@
-import {cachedPronunciation,keepPronunciation,chapterIdentity} from './audio-library.js?v=41';
-import {ipaToKokoro,pronunciationKey} from './audio-plan.js?v=41';
+import {cachedPronunciation,keepPronunciation,chapterIdentity} from './audio-library.js?v=50';
+import {ipaToKokoro,pronunciationKey} from './audio-plan.js?v=50';
 export function installReaderSpeech({toast,onWordJump=()=>{}}){
  const mode=document.getElementById('speechMode'),label=document.getElementById('speechModeLabel'),stopButton=document.getElementById('speechStop'),buffers=new Map();let context,current,serial=0;
  function renderMode(){mode.dataset.mode='word';label.textContent='点读';mode.removeAttribute('aria-pressed');mode.setAttribute('aria-label','点读说明');}
  renderMode();
  function stop(){serial++;if(current)try{current.stop();}catch{}current=null;stopButton.hidden=true;stopButton.textContent='停止';}
  function clear(){stop();buffers.clear();}
- mode.onclick=()=>toast('例句和范文点句朗读；例句标题返回词汇');stopButton.onclick=stop;
+ mode.onclick=()=>toast(document.getElementById('article').dataset.audioPart==='contexts'?'点按英文语境整句朗读；标题、释义和译文不发音':'例句和范文点句朗读；例句标题返回词汇');stopButton.onclick=stop;
  async function api(path,options={}){const r=await fetch(path,{credentials:'same-origin',...options});let b;try{b=await r.json();}catch{throw Error('朗读服务暂不可用');}if(!r.ok)throw Error(b.error||'发音请求未完成');return b;}
  function prepareTap(){try{context??=new(window.AudioContext||window.webkitAudioContext)({latencyHint:'playback'});context.resume().catch(()=>{});}catch{}}
  async function say(text,kind,ipa=''){
@@ -43,6 +43,7 @@ export function installReaderSpeech({toast,onWordJump=()=>{}}){
   if(part==='two'&&event.target.closest('.word-heading h1')){event.preventDefault();event.stopImmediatePropagation();stop();onWordJump(event.target.closest('.word-entry')?.dataset.wordId);return;}
   if(!unit&&part==='two'){const sentence=event.target.closest('.example-pair p');if(sentence)unit={text:sentence.textContent,kind:'sentence'};}
   if(!unit&&part==='three'){const sentence=event.target.closest('.story-sentence');if(sentence)unit={text:sentence.textContent,kind:'sentence'};}
+  if(!unit&&part==='contexts'){const sentence=event.target.closest('.context-sentence');if(sentence)unit={text:sentence.textContent,kind:'sentence'};}
   if(unit){event.preventDefault();event.stopImmediatePropagation();say(unit.text,unit.kind,unit.ipa||'');}
  },true);
  document.addEventListener('visibilitychange',()=>{if(document.hidden)stop();});document.getElementById('practiceButton').addEventListener('click',stop,true);window.addEventListener('tsl-stop-speech',stop);return{stop,clear,prepareTap,setChapter:()=>{}};
