@@ -22,6 +22,8 @@
 
 ## 全范围确定与VIX原时点标注
 
+冻结前执行RECOMMENDATION的“择词质量边界与冻结前反证复核”：完整教学和原B2/C1实质挑战先保持，再优化互补与近期收益；B1口语起点/A2拆小/B2阅读支架不构成择词上限。实际检查起点变上限、取材便利、熟悉单主题和短小/表面难度偏置，按可得固定正式参照及真实候选内容判断，不凭比例或字段签发质量。selection.md只留真实取舍，发现问题局部修复后再冻结；不新增分数、逐词审计、固定反选量或无限检索。已冻结选择不因本补丁重选/重标。
+
 冻结前按TEACHING_AUTHORING以candidate-scope准备不可变材料，逐主词/真实派生/必要引用独立查两书，先完整Collins后Oxford。父条提名不算读派生条目，缺标题继续查拆行/同名组/引用。全义/真实词族范围读清后，在selection.md写实际取舍；selection.json一次冻结studyDate、vixInputCommit、vixMarkLabel、authoringPolicy:authentic-context-v1、恰50个mainWords及实际family。每有VIX身份的成员留entryId/globalRank/text，无身份派生不造标注；选择完整范围，不是原文命中义子集。
 
 vixMarkLabel为真实YY-MM-DD，由studyDate.slice(2)取得。冻结后prepare-vix-marking建立独立副本，再用同副本mark-vix和publish-vix。原缓存只读；副本绑定原输入与selection摘要，成功或回包丢失先找同一回执/commit，不重复写，不向冻结selection后加策略字段。meta.vixCommit取本次核实回执。时间/标签/输入不符停在原物核对，不重抓main或重选。

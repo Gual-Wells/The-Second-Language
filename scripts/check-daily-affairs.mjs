@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { mkdir, mkdtemp, readFile, realpath, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { spawnSync } from 'node:child_process';
 import { prepareVix } from './prepare-vix.mjs';
 
@@ -138,17 +138,43 @@ try {
   assert.equal(calls.length, 0, 'Invalid input is rejected before any network or replacement');
 
   const launcherPath = path.join(projectRoot, 'scripts/run-daily.ps1');
+  const baselineBytes = await readFile(path.join(projectRoot, 'protocol/learner-baseline.json'));
+  const baseline = JSON.parse(baselineBytes.toString('utf8'));
+  const fixtureData = {fixture: 'new isolated feedback',goals: ['Self-authored transport fixture; no real learner measurement.']};
+  const fetchLog = path.join(root, 'feedback-fetch.log'), preload = path.join(root, 'feedback-fetch-fixture.mjs');
+  await writeFile(preload, `import {appendFileSync} from 'node:fs';
+globalThis.fetch = async (target, options) => {
+  appendFileSync(process.env.SECOND_LANGUAGE_FIXTURE_FETCH_LOG, 'fixture-fetch\\n');
+  if (process.env.SECOND_LANGUAGE_FIXTURE_FORBID_FETCH === '1') throw Error('Frozen feedback fixture forbids all fetch calls');
+  if (String(target) !== 'https://daily-feedback-fixture.invalid/api/feedback-snapshot' || options?.headers?.authorization !== 'Bearer isolated-feedback-fixture-token') throw Error('Unexpected request in isolated feedback fixture');
+  return Response.json(${JSON.stringify(fixtureData)});
+};\n`);
+  const feedbackCLI = ['--import', pathToFileURL(preload).href, path.join(projectRoot, 'scripts/feedback-snapshot.mjs')];
+  const freshDate = '2099-01-04', freshFeedbackPath = path.join(root, 'work/runs', freshDate, 'feedback.json');
+  const freshOptions = {cwd: root, encoding: 'utf8', windowsHide: true, env: {...process.env, SECOND_LANGUAGE_API_URL: 'https://daily-feedback-fixture.invalid/', SECOND_LANGUAGE_PUBLISH_TOKEN: 'isolated-feedback-fixture-token', SECOND_LANGUAGE_FIXTURE_FETCH_LOG: fetchLog, SECOND_LANGUAGE_FIXTURE_FORBID_FETCH: '0'}};
+  const createdFeedback = spawnSync(process.execPath, [...feedbackCLI, freshDate], freshOptions);
+  assert.equal(createdFeedback.status, 0, `Actual feedback CLI must create its isolated snapshot: ${createdFeedback.stderr}`);
+  const freshFeedbackBytes = await readFile(freshFeedbackPath, 'utf8'), freshFeedback = JSON.parse(freshFeedbackBytes);
+  assert.deepEqual(freshFeedback.data, fixtureData);
+  // This proves lossless delivery of the current selection guidance (including
+  // levelMeaning), not that its prose or the eventual word selection is sound.
+  assert.deepEqual(freshFeedback.learnerBaseline, baseline, 'The current complete prior, not an older or shortened copy, enters a new snapshot');
+  assert.equal(freshFeedback.learnerBaselineDigest, createHash('sha256').update(baselineBytes).digest('hex'), 'The prior digest binds the actual authoritative bytes');
+  const forbiddenOptions = {...freshOptions, env: {...freshOptions.env, SECOND_LANGUAGE_FIXTURE_FORBID_FETCH: '1'}};
+  assert.equal(spawnSync(process.execPath, [...feedbackCLI, freshDate], forbiddenOptions).status, 0, 'A completed new snapshot replays without another request');
+  assert.equal(await readFile(freshFeedbackPath, 'utf8'), freshFeedbackBytes, 'New snapshots also remain byte-for-byte immutable on resume');
   const feedbackPath=path.join(root,'work/runs',date,'feedback.json');
   const feedbackBytes=JSON.stringify({capturedAt:'2099-01-01T00:00:00.000Z',data:{fixture:'frozen feedback'}});
   await writeFile(feedbackPath,feedbackBytes);
-  const feedbackArgs=[path.join(projectRoot,'scripts/feedback-snapshot.mjs'),date];
-  const childOptions={cwd:root,encoding:'utf8',windowsHide:true,env:{...process.env,SECOND_LANGUAGE_API_URL:'http://127.0.0.1:1',SECOND_LANGUAGE_CREDENTIAL_FILE:path.join(root,'absent-private-credentials.json'),SECOND_LANGUAGE_PUBLISH_TOKEN:''}};
+  const feedbackArgs=[...feedbackCLI,date];
+  const childOptions={cwd:root,encoding:'utf8',windowsHide:true,env:{...forbiddenOptions.env,SECOND_LANGUAGE_CREDENTIAL_FILE:path.join(root,'absent-private-credentials.json'),SECOND_LANGUAGE_PUBLISH_TOKEN:''}};
   const reusedFeedback=spawnSync(process.execPath,feedbackArgs,childOptions);
   assert.equal(reusedFeedback.status,0,'Existing feedback must be reusable without credentials or network');
   assert.equal(await readFile(feedbackPath,'utf8'),feedbackBytes,'A resumed feedback snapshot cannot be overwritten');
   await writeFile(feedbackPath,'null');
   assert.notEqual(spawnSync(process.execPath,feedbackArgs,childOptions).status,0,'Invalid feedback must remain unresolved, not refreshed');
   assert.equal(await readFile(feedbackPath,'utf8'),'null');
+  assert.equal(await readFile(fetchLog, 'utf8'), 'fixture-fetch\n', 'Only the initial injected response is requested; new/old replay and invalid old snapshots do not fetch');
   const launcherBytes = await readFile(launcherPath), launcher = launcherBytes.toString('utf8');
   const templatePath = path.join(projectRoot, 'protocol/daily-prompt.txt');
   const template = await readFile(templatePath, 'utf8');
@@ -166,6 +192,8 @@ try {
   assert.ok(!launcher.includes('CURRENT_AFFAIRS.md'), 'Versioned prompt semantics come from the referenced template, not a second inline copy');
   assert.ok(template.includes('{STUDY_DATE}') && template.replaceAll('{STUDY_DATE}', date).includes(`work/runs/${date}`));
   for (const value of ['protocol/DAILY_RUN.md', 'protocol/AUTHENTIC_CONTEXT.md', 'protocol/RECOMMENDATION.md', 'protocol/CURRENT_AFFAIRS.md', 'protocol/TEACHING_AUTHORING.md']) assert.ok(template.includes(value), `Actual prompt template must reference ${value}`);
+  const fullMaterialsAt = template.indexOf('实际读完整Collins'), recommendationAt = template.indexOf('执行RECOMMENDATION'), freezeAt = template.indexOf('后冻结50主词');
+  assert.ok(fullMaterialsAt >= 0 && fullMaterialsAt < recommendationAt && recommendationAt < freezeAt, 'The actual prompt routes complete material reading into recommendation review before freezing; this does not certify that review');
   for (const value of ['正式50主词', 'gpt-6.1-sol/max', 'rest=true立即结束', '默认休息与音频空选配不改', '05:00开始生成', 'prepare-vix', 'feedback-snapshot', '不把05:00开始生成当发布截止']) assert.ok(template.includes(value), `Prompt must preserve daily control ${value}`);
   for (const value of ['实际读完整Collins', '再完整Oxford', '全部相关义项', '发现原文不等于已读', 'read/import', 'textPath', '不全池爬取', '原例去向', '原件留存', '只续缺项', '不重做成功付费资源']) assert.ok(template.includes(value), `Prompt must preserve material/original recovery ${value}`);
   for (const value of ['逐义真实语境单正文', '不生产第二/第三部分', 'authoringPolicy:authentic-context-v1', 'CONTEXT_SLOT', 'context-sources.json', '每份只撰写一个连贯的整块中文translation', '最终每用法1–5份', '不是目标或默认最低数', '共享只是允许自然关系']) assert.ok(template.includes(value), `Prompt must preserve new authoring requirement ${value}`);
@@ -180,7 +208,7 @@ try {
     const parse = spawnSync('powershell.exe', ['-NoProfile', '-NonInteractive', '-Command', `$tokens=$null;$errors=$null;$ast=[System.Management.Automation.Language.Parser]::ParseFile('${psLiteral}',[ref]$tokens,[ref]$errors);if($errors.Count){exit 1};$promptNode=$ast.Find({param($n) $n -is [System.Management.Automation.Language.AssignmentStatementAst] -and $n.Left.Extent.Text -eq '$prompt'},$true);if(-not $promptNode -or -not $promptNode.Right.Extent.Text.Contains('ReadAllText') -or -not $promptNode.Right.Extent.Text.Contains('UTF8')){exit 2};$rendered=[System.IO.File]::ReadAllText('${templateLiteral}',[System.Text.Encoding]::UTF8).Replace('{STUDY_DATE}','${date}');if(-not $rendered.Contains('真实语境') -or -not $rendered.Contains('work/runs/${date}') -or $rendered.Contains('{STUDY_DATE}')){exit 3}`], { encoding: 'utf8', windowsHide: true });
     assert.equal(parse.status, 0, `Windows PowerShell launcher syntax/Unicode failed: ${parse.stderr}`);
   }
-  console.log('Daily affairs contracts passed: immutable input recovery, offline reuse, new policy downgrade rejection, old frozen replay, actual versioned template, 50/max/05:00/rest/originals, server numbering, and Windows PowerShell syntax/Unicode. No production calls or task changes.');
+  console.log('Daily affairs contracts passed: immutable input recovery, offline reuse, new policy downgrade rejection, old frozen replay, real feedback CLI with exact current baseline/digest and immutable new/old snapshots, actual versioned template/recommendation order, 50/max/05:00/rest/originals, server numbering, and Windows PowerShell syntax/Unicode. Configuration transport only, not semantic quality certification. No production calls or task changes.');
 } finally {
   globalThis.fetch = originalFetch;
   const physicalParent = await realpath(fixtureParent), physicalRoot = await realpath(root), relative = path.relative(physicalParent, physicalRoot);

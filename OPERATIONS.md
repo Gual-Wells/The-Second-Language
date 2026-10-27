@@ -8,6 +8,8 @@
 
 从DAILY_RUN、AUTHENTIC_CONTEXT、RECOMMENDATION、CONTENT、QUALITY_WORKFLOW、QUALITY_SCALE、ANNOTATIONS、TEACHING_AUTHORING恢复。feedback-snapshot固定实际反馈及provisional learner-baseline；后者是阅读接受较强、熟悉题简单表达/陌生题提取困难的任务试配先验，不是CEFR实测或词汇量测量。择词兼顾表达覆盖/深度/多样性/口语支撑，不能按owner或原文碰撞率机械筛。冻结前独立读取实际词族完整双教材，仍全义教学、总体不降难。
 
+择词防降级复核按RECOMMENDATION执行：完整教材读清之后、冻结/标注之前，用实际内容查口语起点上限、取材便利和熟悉单主题等偏置；原B2/C1实质挑战先保持，selection.md留真实取舍，无分数、比例或固定候选量。新反馈快照原样携带该选择边界；旧快照/冻结范围不补写、不重选。daily-prompt由当前入口动态读取，规则更新不要求网页重新部署，也不能据此启动日课。
+
 按CURRENT_AFFAIRS取材并读真实原件，为每USE实际比较可用缩编/必要短摘/独立例句，保原话语功能与目标义。最终1–5份，3仅在每份有独立增量时较理想，否则一份取优；不强凑三候选，不主动追求共享。逐词作者稿partOne用CONTEXT_SLOT就地定位，contexts保完整英文句及一个整块译文，contextChoices记录真实取优和增份理由；无独立P2/P3、articles.json或逐句中译。译文位置始终存在，默认马赛克隐藏，按稳定账户+正文digest+context身份持久显隐；无身份/存储失败仅本次内存降级。
 
 assemble-teaching从唯一作者稿输出chapter.md及context-sources.json；pack-current-affairs用contexts绑定readRecord原件、readDigest及实际事实/边界，pack-chapter要求作者稿与正文逐字一致及政策匹配。随后publish-chapter沿暂存→OneDrive原件/来源回读→提交/通知，D1仍只索引和状态，来源全文留私有文件基座。本次不需数据库迁移。运行时source包独立摘要，最大1MiB只是新语境绑定索引边界，不是新闻全文或学习量目标。没有新订阅、付费接口或常驻爬虫。
