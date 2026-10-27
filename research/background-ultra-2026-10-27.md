@@ -32,6 +32,10 @@ Daily/Scroll就在当前D工作区。Questions实际在D盘second-language-maint
 
 真实旧样品`.cache/scroll-lossless-candidate-2026-10-23`的24文件/2分卷通过成品包检查，原摘要不变。新background-codex模块进入每件作品的recoverable源码清单；D隔离真ZIP提取20文件后可导入独立contract/policy，复跑恢复不重写原ZIP/manifest。本机无推理features解析验证普通multi_agent=true、单次图像=false。没有重注册共享基座或重制已颁作品。
 
-最终发布和线上控制回读在本轮完成后补记。配置解析不代表账号实际完成过一轮ultra推理，也不证明内容质量改善；没有为了验配置制造付费任务。
+工程提交`ea83b55`已推送main与codex/project-commemorative；部署期间持有原`Local\TheSecondLanguageScrollProduction`互斥，成功发布Worker `8a69d623-b8c8-42ba-ac3c-9493f0548bf6`及[Pages部署2d292970](https://2d292970.the-second-language.pages.dev)，随后正常释放。静态文件未变，Pages上传0个新资产。公开会话/私有API认证核验通过，无D1迁移。
+
+北京时间2026-10-27 21:13最终核对：六份计划任务XML逐字一致；维护目录两个Questions主调用及shared配置、旧C实际Practice命令均已核ultra/默认子max/6.1-sol。线上默认休息仍true、下一章音频仍[]、第一章服务端digest与实际字节SHA仍`4cc6a2f9edee37555418c365c1da29033b43c1f6854a3ac2dddf2aa9e03f7a78`。私有after.json保存回读与实际目录检查结果。未触发日课/业务领取或实际模型来验配置。
+
+末尾余额页已更新，普通永久归档已排队（未宣称完成）。OpenRouter仍$3.985898686、低于原预留；没有充值、新订阅、第三方模型/TTS或原生图像调用。配置解析与隔离测试不代表账号实际完成过一轮ultra后台推理，也不证明内容质量改善。
 
 官方依据已实际查询并读取：[OpenAI配置参考](https://learn.chatgpt.com/docs/config-file/config-reference)、[子代理默认及继承规则](https://learn.chatgpt.com/docs/agent-configuration/subagents)。新ultra与多代理可能增加Codex额度消耗和耗时，不增加订阅、不自动购买/充值，OpenRouter语音/TTS等原路线与计费保护保持。
