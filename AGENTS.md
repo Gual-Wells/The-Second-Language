@@ -4,7 +4,9 @@
 
 仅尚未冻结的新运行采用authoringPolicy:authentic-context-v1、FORMAT:usage-context-v1；meta仍保contentPolicy:etymology-fused-v1、sourcePolicy:current-affairs-v1。新prepare-vix输入锁记录默认策略，冻结selection时同样写入，装配/打包核对。旧冻结无该字段或为sourced-collection-v1的运行沿其原protocolCommit/原作者稿续作，不静默转换；旧已发布第一章原件不改、不重选、不撤标。旧三部分工艺恢复见PART_THREE_PRODUCTION和切换前5573946b10023df3c9b83f0d02a139860afef2bc对应文件，不能把旧文义务混入新默认。
 
-正式每章50主词，gpt-6.1-sol/max，日课北京时间05:00开始生成而非保证发布时间。默认休息、音频空选配；领取、原子复位、恢复/未知计费保护不变。本次建设不放行休息、不触发日课、不恢复已中止声音。
+正式每章50主词，gpt-6.1-sol/ultra，日课北京时间05:00开始生成而非保证发布时间。默认休息、音频空选配；领取、原子复位、恢复/未知计费保护不变。本次建设不放行休息、不触发日课、不恢复已中止声音。
+
+后台档位按BACKGROUND_AUTOMATION：全部后台Codex新主调用ultra，子代理允许max且默认max，可按需要降低；不强制额外并行/重复审阅。历史内容合同不覆盖这次新执行默认，旧成功结果仍按真实原档位复用，未知调用不借新档位重发。只读/工具隔离与单次生图保护保持，子代理不得重复提交收费或原生图像请求；纯归档/音频脚本不新增Codex调用。
 
 推荐起点结合实际目标/反馈与protocol/learner-baseline.json（证据与研究见research/learner-baseline-2026-10-27.md）。用户阅读接受相对强、熟悉题可简单表达、陌生题难启动；一般阅读B2式试配，熟悉题B1式完整行为起步/B2式展开伸展，均为任务参考而非用户已测等级，词汇量未知。区分构思、词义、搭配句法、声音提取和互动缺口，用可完成的交流行为组织互补资源并向外扩张，平衡覆盖面、深度、多样性、口语支撑。不以VIX标注当掌握，不按owner分难度/取最高表标签打分，不因即用降低整体挑战。
 

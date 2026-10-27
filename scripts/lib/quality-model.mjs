@@ -1,7 +1,8 @@
-// Reviewers receive data in stdin. Disable execution/connected tools locally;
-// never narrow the user's interactive Codex configuration.
+// Reviewers receive data in stdin. Keep execution/connected tools disabled for
+// the main reviewer and its inherited subagents; multi-agent reasoning is allowed.
+// Never narrow the user's interactive Codex configuration.
 export const qualityModelArgs=[
- ...['shell_tool','code_mode','code_mode_host','apps','plugins','multi_agent','browser_use','browser_use_external','computer_use','view_image','image_generation','workspace_dependencies','memories'].flatMap(name=>['--disable',name]),
+ ...['shell_tool','code_mode','code_mode_host','apps','plugins','browser_use','browser_use_external','computer_use','view_image','image_generation','workspace_dependencies','memories'].flatMap(name=>['--disable',name]),
  '-c','web_search="disabled"'
 ];
 export function qualityModelEnvironment(source=process.env){

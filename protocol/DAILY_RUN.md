@@ -2,7 +2,7 @@
 
 2026-10-27起尚未冻结的新运行执行AUTHENTIC_CONTEXT单正文。旧已冻结selection没有authoringPolicy或为sourced-collection-v1，沿原protocolCommit/作者稿继续旧合同，不静默升级、重选或重标。新默认由本文件、AUTHENTIC_CONTEXT、RECOMMENDATION、CONTENT、QUALITY_WORKFLOW、QUALITY_SCALE、ANNOTATIONS和TEACHING_AUTHORING共同执行；版本化提示词为daily-prompt.txt。
 
-正式50推荐主词，gpt-6.1-sol/max，启用live search，每日北京时间05:00开始生成；没有保证发布截止。完整双教材、真词族、全义、标签/词源和总体不降难保持。默认休息、音频不生成，本次改造不自动触发新章。
+正式50推荐主词，gpt-6.1-sol/ultra，启用live search，每日北京时间05:00开始生成；没有保证发布截止。完整双教材、真词族、全义、标签/词源和总体不降难保持。默认休息、音频不生成，本次改造不自动触发新章。
 
 ## 领取与恢复
 

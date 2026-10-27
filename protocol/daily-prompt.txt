@@ -1,6 +1,8 @@
 执行第二语言项目北京时间 {STUDY_DATE} 的正式日课。先完整读取AGENTS.md、protocol/DAILY_RUN.md、protocol/AUTHENTIC_CONTEXT.md、protocol/RECOMMENDATION.md、protocol/CURRENT_AFFAIRS.md、protocol/QUALITY_WORKFLOW.md、protocol/QUALITY_SCALE.md、protocol/CONTENT.md、protocol/USAGE_LABELS.md、protocol/ETYMOLOGY.md、protocol/ANNOTATIONS.md、protocol/TEACHING_AUTHORING.md；领取到临时需求时再读TEMPORARY。新正式默认是逐义真实语境单正文，不生产第二/第三部分。不可用旧对话摘要替代实际协议。先恢复work/runs/{STUDY_DATE}；未完成写具体resume，不把05:00开始生成当发布截止。
 
-入口已领取一次control，幂等读取；rest=true立即结束，本日已发布回读后结束。默认休息与音频空选配不改，不因本次协议建设自动开工。正式50主词、gpt-6.1-sol/max，完整双教材、真实词族与全义不缩减，总体挑战不降。已冻结selection若无authoringPolicy或为sourced-collection-v1，继续其原三部分合同与原作者稿：从冻结meta.protocolCommit/已有材料恢复旧协议，不转换、不重选、不重新标注。只有尚未冻结的新运行采用authentic-context-v1。
+后台新执行档位按protocol/BACKGROUND_AUTOMATION.md：主ultra，子代理默认max且可按需要降低。子代理只承担有实际独立收益的任务，不强制额外轮次或并发；明确文件/词族所有权，交回教材事实、原件定位、完成内容与疑点，由主实际核对整合，不用单结论/多数票代替。运行领取、选择冻结、VIX标注与最终发布由主顺序控制，子代理不重复领取/并发提交。旧冻结恢复的是内容合同与身份，不把其中旧max/xhigh当作新调用档位；已有成功结果仍按原真实记录复用，未知调用不自动重发，不擅自追加收费任务。
+
+入口已领取一次control，幂等读取；rest=true立即结束，本日已发布回读后结束。默认休息与音频空选配不改，不因本次协议建设自动开工。正式50主词、gpt-6.1-sol/ultra，完整双教材、真实词族与全义不缩减，总体挑战不降。已冻结selection若无authoringPolicy或为sourced-collection-v1，继续其原三部分合同与原作者稿：从冻结meta.protocolCommit/已有材料恢复旧协议，不转换、不重选、不重新标注。只有尚未冻结的新运行采用authentic-context-v1。
 
 新输入用prepare-vix固定；运行feedback-snapshot并实际读其原目标/反馈及learnerBaseline，已有快照只复用。初始认识先验来自用户自述：阅读接受相对较强，熟悉题能简单表达，陌生题难启动；B2式阅读试配、熟悉题B1式完整行为起步/B2式展开与追问作伸展，均为任务难度非用户已测等级，词数未知。区分构思、词义、搭配句法、声音提取和互动缺口；不以VIX标注表示掌握。
 

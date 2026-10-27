@@ -1,5 +1,9 @@
 // Data-only authoring contract; executable rendering belongs to the fixed craft.
-export const SCROLL_MODEL=Object.freeze({model:'gpt-6.1-sol',reasoningEffort:'xhigh'});
+import {BACKGROUND_REASONING_EFFORT} from './background-codex.mjs';
+export const SCROLL_MODEL=Object.freeze({model:'gpt-6.1-sol',reasoningEffort:BACKGROUND_REASONING_EFFORT});
+// Completed originals keep their recorded policy; a default upgrade never
+// changes their evidence or grants a new attempt at an unknown result.
+export const isScrollModel=value=>value?.model===SCROLL_MODEL.model&&['xhigh','ultra'].includes(value.reasoningEffort);
 export function canonical(value){if(Array.isArray(value))return '['+value.map(canonical).join(',')+']';if(value&&typeof value==='object')return '{'+Object.keys(value).sort().filter(k=>value[k]!==undefined).map(k=>JSON.stringify(k)+':'+canonical(value[k])).join(',')+'}';return JSON.stringify(value);}
 export function contentIdentityContent(record){return {schema:'second-language.scroll-content.v1',workId:record.workId,certificationId:record.certificationId??null,chapterId:record.chapterId,chapterDigest:record.chapterDigest,ownerId:record.ownerId,recipient:record.recipient,passedAt:record.passedAt??null,madeAt:record.madeAt,...(!record.certificationId?{sampleTime:record.sampleTime,issued:false}:{}),copy:record.copy};}
 export async function scrollContentSHA(record){return [...new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(canonical(contentIdentityContent(record)))))].map(x=>x.toString(16).padStart(2,'0')).join('');}

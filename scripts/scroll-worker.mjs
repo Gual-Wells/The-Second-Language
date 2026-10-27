@@ -2,14 +2,63 @@ import {readFile,writeFile,mkdir,copyFile} from 'node:fs/promises';
 import path from 'node:path';import {fileURLToPath} from 'node:url';import {randomBytes} from 'node:crypto';
 import {publisherConfig} from './lib/publisher-config.mjs';
 import {finishTaskBalances} from './check-balances.mjs';
-import {SCROLL_MODEL,scrollArtSchema,scrollReviewSchema,validateArt,canonical} from '../protocol/scroll-production-contract.mjs';
+import {SCROLL_MODEL,isScrollModel,scrollArtSchema,scrollReviewSchema,validateArt,canonical} from '../protocol/scroll-production-contract.mjs';
+import {BACKGROUND_SUBAGENT_EFFORT} from '../protocol/background-codex.mjs';
 import {artPrompt,reviewPrompt} from '../protocol/scroll-production-prompt.mjs';
-import {runScrollModel,generateScrollImage,sha} from './lib/scroll-model.mjs';
+import {runScrollModel,generateScrollImage,scrollImagePrompt,sha} from './lib/scroll-model.mjs';
 import {renderScroll,materials} from './lib/scroll-render.mjs';
 import {prepareScrollRecord,workArchive,candidateFiles} from './lib/scroll-package.mjs';
 import {loadLocalFrozenScroll,publishLocalFrozenScroll,finishRemoteFrozenScroll} from './lib/scroll-resume.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const readJSON=async file=>JSON.parse(await readFile(file,'utf8')),save=async(file,v)=>writeFile(file,canonical(v)+'\n');
+const attention=message=>Object.assign(Error(message),{attention:true});
+// Model defaults are not invocation identity. Read the original immutable input
+// before restoring a completed stage or creating any new external ledger row.
+export async function runScrollExternal({jobId,directory,stage,name,prompt,state,pastStage=false,request,upload,restore,action}){
+ if(!request)return action();
+ const inputFor=(model,execution)=>({schema:'second-language.scroll-model-input.v1',jobId,stage,name,prompt,model,...(execution?{execution}:{})});
+ const readInput=async inputDigest=>{
+  const input=await request('CONTENT:'+inputDigest);
+  if(sha(Buffer.from(canonical(input)))!==inputDigest||input.schema!=='second-language.scroll-model-input.v1'||input.jobId!==jobId||input.stage!==stage||typeof input.name!=='string'||typeof input.prompt!=='string'||!isScrollModel(input.model))throw attention('Stored external input does not match this scroll stage; restore the original');
+  return input;
+ };
+ const restoreBound=async bound=>{
+  const input=await readInput(bound.inputDigest);
+  if(input.name!==name||input.prompt!==prompt)throw attention('Changed completed stage requires a versioned revision');
+  const result=await restore(bound.outputDigest);
+  if(result.evidence?.state!=='complete'||result.evidence.model!==input.model.model||result.evidence.reasoningEffort!==input.model.reasoningEffort)throw attention('Recovered model evidence does not match the original external input');
+  state.outputs[name]={inputDigest:bound.inputDigest,outputDigest:bound.outputDigest};return result;
+ };
+ if(state.outputs[name])return restoreBound(state.outputs[name]);
+ const status=await request('/external',{stage,action:'status'});
+ if(!Array.isArray(status.calls))throw attention('External call ledger is unavailable; no new model attempt');
+ if(status.calls.some(c=>['calling','outcome_unknown'].includes(c.state)))throw attention('An existing external result is unknown; recover it before retrying');
+ const matches=[];
+ for(const call of status.calls){const input=await readInput(call.inputDigest);if(input.name===name&&input.prompt===prompt)matches.push(call);}
+ const completed=matches.filter(c=>c.state==='complete');
+ if(completed.length){if(new Set(completed.map(c=>c.outputDigest)).size!==1)throw attention('Multiple completed originals require explicit recovery selection');return restoreBound(completed[0]);}
+ if(matches.some(c=>c.state!=='retry_authorized'))throw attention('A previous external attempt must be resolved before a new model version');
+ if(pastStage)throw attention('Completed stage source is unavailable; recover the stored checkpoint before retrying');
+ let model=SCROLL_MODEL,execution={subagentReasoningEffort:BACKGROUND_SUBAGENT_EFFORT,agentsEnabled:name!=='material-image'},local;
+ try{local=await readJSON(path.join(directory,name+'.attempt.json'));}catch(e){if(e.code!=='ENOENT')throw e;}
+ if(local){
+  const expected=name==='material-image'?scrollImagePrompt(prompt):prompt;
+  if(local.inputSHA!==sha(expected)||local.state!=='complete'||!isScrollModel(local))throw attention('A local model result is changed or unknown; recover it before retrying');
+  model={model:local.model,reasoningEffort:local.reasoningEffort};
+  execution=local.subagentReasoningEffort?{subagentReasoningEffort:local.subagentReasoningEffort,agentsEnabled:local.agentsEnabled}:null;
+ }
+ const input=inputFor(model,execution),inputBytes=Buffer.from(canonical(input)),inputDigest=sha(inputBytes);
+ if(matches.some(c=>c.inputDigest!==inputDigest))throw attention('Existing retry authorization belongs to another frozen model input; do not replace it');
+ await upload(inputBytes,'application/json');
+ const existing=await request('/external',{stage,inputDigest,action:'begin'});
+ if(existing.reused)return restoreBound({inputDigest:existing.inputDigest||inputDigest,outputDigest:existing.outputDigest});
+ try{
+  const result=await action();
+  if(result.evidence?.state!=='complete'||result.evidence.model!==model.model||result.evidence.reasoningEffort!==model.reasoningEffort)throw attention('Model result evidence does not match the submitted external input');
+  const stored={...result};if(result.file){stored.imageDigest=await upload(await readFile(result.file),'image/png');delete stored.file;}
+  const outputDigest=await upload(Buffer.from(canonical(stored)),'application/json');await request('/external',{stage,inputDigest,action:'resolve',outputDigest,providerId:result.evidence.runId});state.outputs[name]={inputDigest,outputDigest};return result;
+ }catch(e){await request('/external',{stage,inputDigest,action:'unknown'}).catch(()=>{});throw e;}
+}
 async function produceScrollAttempt({job,directory,request=null,upload=null,baseManifestDigest=null,artFile=null,materialOverride=null,modelRunner=runScrollModel,imageGenerator=generateScrollImage,renderer=renderScroll}){
  if(request&&job.stage==='archive'&&job.checkpoint?.manifestDigest)return finishRemoteFrozenScroll({job,manifestDigest:job.checkpoint.manifestDigest,request});
  const frozen=await loadLocalFrozenScroll({directory,job});if(frozen){if(!request)return {status:'unissued-specimen',directory,manifest:frozen.manifest,review:frozen.review,reusedFrozen:true};return publishLocalFrozenScroll({job,directory,frozen,request,upload,state:job.checkpoint?.state||{outputs:{}}});}
@@ -19,12 +68,11 @@ async function produceScrollAttempt({job,directory,request=null,upload=null,base
  if(state.record){await save(path.join(directory,'record.json'),state.record);}
  const checkpoint=async(stage,extra={})=>{const value={schema:'second-language.scroll-checkpoint.v1',jobId:job.id,certificationId:job.certification?.id||null,stage,state,...extra};if(stages.indexOf(stage)<stages.indexOf(currentStage))return;await save(path.join(directory,'checkpoint.json'),value);if(request){const digest=await upload(Buffer.from(canonical(value)),'application/json');await request('/checkpoint',{stage,digest});}currentStage=stage;};
  const restore=async outputDigest=>{const result=await request('CONTENT:'+outputDigest);if(result.imageDigest){const file=path.join(directory,'material-image.png'),bytes=await request('ASSET:'+result.imageDigest);if(sha(bytes)!==result.imageDigest)throw Error('Recovered image digest mismatch');await writeFile(file,bytes);result.file=file;}return result;};
- const external=async(stage,name,prompt,action)=>{const input={schema:'second-language.scroll-model-input.v1',jobId:job.id,stage,name,prompt,model:SCROLL_MODEL},inputBytes=Buffer.from(canonical(input)),inputDigest=sha(inputBytes);if(request&&state.outputs[name]){if(state.outputs[name].inputDigest!==inputDigest)throw Error('Changed completed stage requires a versioned revision');return restore(state.outputs[name].outputDigest);}if(request&&stages.indexOf(stage)<stages.indexOf(currentStage))throw Object.assign(Error('Completed stage source is unavailable; recover the stored checkpoint before retrying'),{attention:true});if(request){await upload(inputBytes,'application/json');const existing=await request('/external',{stage,inputDigest,action:'begin'});if(existing.reused){state.outputs[name]={inputDigest,outputDigest:existing.outputDigest};return restore(existing.outputDigest);}}
-  try{const result=await action();if(request){const stored={...result};if(result.file){stored.imageDigest=await upload(await readFile(result.file),'image/png');delete stored.file;}const outputDigest=await upload(Buffer.from(canonical(stored)),'application/json');await request('/external',{stage,inputDigest,action:'resolve',outputDigest,providerId:result.evidence?.runId});state.outputs[name]={inputDigest,outputDigest};}return result;}catch(e){if(request)await request('/external',{stage,inputDigest,action:'unknown'}).catch(()=>{});throw e;}};
+ const external=(stage,name,prompt,action)=>runScrollExternal({jobId:job.id,directory,stage,name,prompt,state,pastStage:stages.indexOf(stage)<stages.indexOf(currentStage),request,upload,restore,action});
  // A real lease is advanced in the same order as the service. Resume may reuse
  // successful immutable local output; unknown external outcomes stop upstream.
  await checkpoint('source',{chapterDigest:job.chapter.digest});await checkpoint('art');
- const creativePrompt=state.creativePrompt||artPrompt(job);let art;if(artFile){const value=await readJSON(artFile),evidence=await readJSON(artFile.replace(/\.json$/,'.attempt.json'));if(evidence.state!=='complete'||evidence.model!==SCROLL_MODEL.model||evidence.reasoningEffort!=='xhigh')throw Error('Missing actual creative execution evidence');art={value,evidence};}else art=await external('art','creative',creativePrompt,()=>modelRunner({directory,name:'creative',schema:scrollArtSchema,prompt:creativePrompt,images:[path.join(root,'web/labs/scroll-runtime/assets/first-v6-lossless.png')]}));
+ const creativePrompt=state.creativePrompt||artPrompt(job);let art;if(artFile){const value=await readJSON(artFile),evidence=await readJSON(artFile.replace(/\.json$/,'.attempt.json'));if(evidence.state!=='complete'||!isScrollModel(evidence))throw Error('Missing actual creative execution evidence');art={value,evidence};}else art=await external('art','creative',creativePrompt,()=>modelRunner({directory,name:'creative',schema:scrollArtSchema,prompt:creativePrompt,images:[path.join(root,'web/labs/scroll-runtime/assets/first-v6-lossless.png')]}));
  const plan=validateArt(structuredClone(art.value),job.chapter);if(materialOverride){if(!Object.hasOwn(materials,materialOverride)||job.certification)throw Error('Material override is an explicit unissued engineering test only');const before=sha(canonical(plan));plan.material.paperId=materialOverride;art.evidence={...art.evidence,engineeringAdaptation:{scope:'Explicit original-byte material route test; no new literary/art creation or model invocation',sourceArtPlanDigest:before,resourceId:materialOverride}};}
  await save(path.join(directory,'creator.json'),art.evidence);const record=await prepareScrollRecord(job,plan,directory);state.record=record;
  await checkpoint('materials',{artPlanDigest:record.artPlanDigest});let newPaper=null;

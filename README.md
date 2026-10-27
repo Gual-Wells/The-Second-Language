@@ -121,7 +121,7 @@ node scripts/check-context-reader.mjs
 
 正式发布使用 `node scripts/deploy-app.mjs`，同时部署 API Worker 与带 service binding 的 Pages 网关；不能直接以普通静态 `web/` 部署替代网关。任务结束执行 `node scripts/check-balances.mjs` 更新额度、存储用量并排入归档；归档完成后再次核对存储大小。设置中的“存储空间”显示 OneDrive、三座 D1 与账户共享 KV 的上次用量、上限和核对时间；只核对容量可运行 `node scripts/check-storage-usage.mjs`。额度不足不自动次日恢复，已有产物保留，需用户明确续作；不自动付款。
 
-本机日课北京时间05:00检查安排，使用 `gpt-6.1-sol/max`；默认休息，用户关闭休息后仅放行下一次新领取运行，领取后恢复休息。雅思与答疑使用独立队列，安静启动器避免控制台闪窗。任务安装、日志、凭据与恢复命令见 [OPERATIONS.md](OPERATIONS.md)。
+本机日课北京时间05:00检查安排，使用 `gpt-6.1-sol/ultra`；默认休息，用户关闭休息后仅放行下一次新领取运行，领取后恢复休息。雅思、答疑/测试/质检及卷轴的新主调用也统一ultra，子代理默认max可按需要降低，见[后台执行设置](protocol/BACKGROUND_AUTOMATION.md)。各服务仍用独立队列，安静启动器避免控制台闪窗。任务安装、日志、凭据与恢复命令见 [OPERATIONS.md](OPERATIONS.md)。
 
 ## Intellectual property and third-party materials
 
@@ -139,7 +139,7 @@ Third-party packages, model/provider outputs, voices, APIs, dictionary or textbo
 
 ### 认证阅览
 
-首次通过后，在章节测试窗口明确申请本章纪念卷轴。专用创作与独立审阅采用`gpt-6.1-sol/xhigh`，文图、构图和纸张使用史按章设计；复用已认可机构与工艺，不将旧成品换标题或镜像。通过审阅并完整封存、回读后才显示领取；失败保留同一任务、认证和原件，未知计费不自动重试。
+首次通过后，在章节测试窗口明确申请本章纪念卷轴。专用创作与独立审阅的新调用采用`gpt-6.1-sol/ultra`，子代理默认max；文图、构图和纸张使用史按章设计，复用已认可机构与工艺，不将旧成品换标题或镜像。旧成功xhigh记录保真复用，不因升级重制。通过审阅并完整封存、回读后才显示领取；失败保留同一任务、认证和原件，未知计费不自动重试。
 
 设置 → 认证阅览：目录保留独立“项目纪念”，正常章卷只列本人已领取章号，不显示题名或锁定占位。进入纯享卷轴后保留真实解扣与交互雾染，音乐和v42材质拟音默认开启；“文书”提供同源完整英中、真实首次通过／制作／发布时刻及内容短码／完整SHA，可复制。第一／第五章旧研究样品仍不升格，未来真实新通过须另作正式件。藏馆与取藏转场已取消。见[现行规范](protocol/CERTIFICATION_READER.md)、[工艺主协议](protocol/CHARTER.md)及[风格核对](research/certification-reader-2026-10-23/theme-consistency.json)。
 

@@ -1,6 +1,6 @@
 # 逐词教材与真实语境制作工具
 
-2026-10-27起尚未冻结的新运行采用 AUTHENTIC_CONTEXT：`authoringPolicy=authentic-context-v1`，正文 `FORMAT:usage-context-v1`。50主词、完整双教材/真实词族/全义、gpt-6.1-sol/max、05:00开始、默认休息和音频空选配保持。工具只固定原件、装配和结构检查；候选比较、释义、缩编和语义审阅由Codex完成。
+2026-10-27起尚未冻结的新运行采用 AUTHENTIC_CONTEXT：`authoringPolicy=authentic-context-v1`，正文 `FORMAT:usage-context-v1`。50主词、完整双教材/真实词族/全义、gpt-6.1-sol/ultra、05:00开始、默认休息和音频空选配保持。工具只固定原件、装配和结构检查；候选比较、释义、缩编和语义审阅由Codex完成。
 
 已冻结selection没有authoringPolicy或为sourced-collection-v1，继续其原三部分合同及作者稿，从原protocolCommit或切换前Git版本恢复；不静默升级、重选、重标。以下为新默认。
 

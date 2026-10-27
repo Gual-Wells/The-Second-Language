@@ -1,6 +1,6 @@
 import {permanentBucket,chapterText} from './storage.js';
 import {recipient,certificationFor,certificationView} from './chapter-certifications.js';
-import {canonical,contentIdentityContent,scrollContentSHA} from '../../protocol/scroll-production-contract.mjs';
+import {SCROLL_MODEL,isScrollModel,canonical,contentIdentityContent,scrollContentSHA} from '../../protocol/scroll-production-contract.mjs';
 import {isCurrentAffairsRevision} from './current-affairs.js';
 const projectScroll="EXISTS(SELECT 1 FROM chapter_certifications scope_cert JOIN formal_chapter_sources scope_source ON scope_source.digest=scope_cert.chapter_digest AND scope_source.policy='current-affairs-v1' WHERE scope_cert.id=scroll_jobs.certification_id)";
 
@@ -79,7 +79,7 @@ export async function validateScrollPackage(bucket,manifest,cert,verified=null,{
  const candidate=await read(bucket,manifest.candidateDigest),review=await read(bucket,manifest.reviewDigest);
  if(candidate.schema!=='second-language.scroll-candidate.v1'||candidate.contentSHA!==manifest.contentSHA||candidate.certificationId!==cert.id||JSON.stringify(candidate.files)!==JSON.stringify(manifest.files))throw Error('候选清单与封存包不一致');
  if(canonical(candidate.creator)!==canonical(review.creator)||candidate.creator?.state!=='complete'||review.reviewer?.state!=='complete')throw Error('创作及独立审阅执行记录不一致');
- if(review.schema!=='second-language.scroll-review.v1'||review.candidateDigest!==manifest.candidateDigest||review.contentSHA!==manifest.contentSHA||review.approved!==true||review.reviewer?.model!=='gpt-6.1-sol'||review.reviewer?.reasoningEffort!=='xhigh'||review.creator?.model!=='gpt-6.1-sol'||review.creator?.reasoningEffort!=='xhigh'||typeof review.creator?.runId!=='string'||!review.creator.runId||typeof review.reviewer?.runId!=='string'||!review.reviewer.runId||review.creator.runId===review.reviewer.runId||typeof review.notes!=='string'||!review.notes.trim()||!Array.isArray(review.evidence)||!review.evidence.length||review.evidence.some(x=>!digests.has(x))||['source','translation','theme','material','layout','dynamic','engineering'].some(k=>review.checks?.[k]!==true))throw Error('独立审阅未覆盖当前成品');
+ if(review.schema!=='second-language.scroll-review.v1'||review.candidateDigest!==manifest.candidateDigest||review.contentSHA!==manifest.contentSHA||review.approved!==true||!isScrollModel(review.reviewer)||!isScrollModel(review.creator)||typeof review.creator?.runId!=='string'||!review.creator.runId||typeof review.reviewer?.runId!=='string'||!review.reviewer.runId||review.creator.runId===review.reviewer.runId||typeof review.notes!=='string'||!review.notes.trim()||!Array.isArray(review.evidence)||!review.evidence.length||review.evidence.some(x=>!digests.has(x))||['source','translation','theme','material','layout','dynamic','engineering'].some(k=>review.checks?.[k]!==true))throw Error('独立审阅未覆盖当前成品');
  const v=manifest.viewer,r=v?.record;
  if(v?.schema!=='second-language.chapter-scroll-viewer.v1'||v.profile?.base!=='scroll-v42'||!Array.isArray(v.profile.nominalSizeMM)||v.profile.nominalSizeMM.length!==2||v.profile.nominalSizeMM.some(x=>!Number.isFinite(x)||x<100||x>1000)||!r||r.category!==(specimen?'chapter-specimen':'chapter-certified')||!(specimen?r.status==='specimen':['prepared','ready'].includes(r.status))||r.certificationId!==cert.id||r.chapterId!==cert.chapterId||r.chapterDigest!==cert.chapterDigest||String(r.chapterNumber)!==String(cert.chapterNumber)||r.ownerId!==cert.recipientId||r.recipient!==cert.recipientName||r.passedAt!==cert.passedAt||r.sha256!==manifest.contentSHA||typeof r.workId!=='string'||!r.workId||!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/.test(r.madeAt||'')||!Number.isFinite(Date.parse(r.madeAt))||Date.parse(r.madeAt)<Date.parse(cert.passedAt)||!digest(r.artPlanDigest)||!digests.has(r.artPlanDigest)||!r.copy||!r.copy.translation||(specimen&&(r.issued!==false||!r.sampleTime)))throw Error('阅览数据与真实认证不一致');
  const identityFile=manifest.files.find(f=>f.role==='content-identity');if(!identityFile||canonical(await read(bucket,identityFile.digest))!==canonical(contentIdentityContent(r))||await scrollContentSHA(r)!==manifest.contentSHA)throw Error('内容摘要与实际文书不一致');
@@ -143,7 +143,7 @@ export async function scrollsRoute(request,env,context,bucket=permanentBucket(en
   const cert=certificationView(await db.prepare('SELECT * FROM chapter_certifications WHERE id=?').bind(row.certification_id).first()),revision=await db.prepare('SELECT * FROM chapter_revisions WHERE chapter_id=? AND digest=?').bind(cert.chapterId,cert.chapterDigest).first();
   const markdown=revision&&(env.ONEDRIVE_ENABLED==='true'?await chapterText(env,revision.content_key):await env.CHAPTERS.get(revision.content_key));
   if(!markdown||await hash(markdown)!==cert.chapterDigest){await db.prepare("UPDATE scroll_jobs SET status='attention',claim=NULL,error='章节原件暂不可核对',updated_at=? WHERE id=? AND claim=?").bind(now,row.id,row.claim).run();return json({error:'章节原件暂不可核对'},503);}
-  return json({job:{...scrollJobView(row),kind:'chapter-scroll',certification:cert,chapter:{id:cert.chapterId,digest:cert.chapterDigest,number:cert.chapterNumber,title:cert.chapterTitle,markdown},checkpoint:row.checkpoint_digest?await read(bucket,row.checkpoint_digest):null,model:{model:'gpt-6.1-sol',reasoningEffort:'xhigh'},trigger:'user-request'}});
+  return json({job:{...scrollJobView(row),kind:'chapter-scroll',certification:cert,chapter:{id:cert.chapterId,digest:cert.chapterDigest,number:cert.chapterNumber,title:cert.chapterTitle,markdown},checkpoint:row.checkpoint_digest?await read(bucket,row.checkpoint_digest):null,model:SCROLL_MODEL,trigger:'user-request'}});
  }
  const action=path.match(/^\/jobs\/([a-f0-9-]{36})\/(heartbeat|checkpoint|revise|verify|external|recover|complete|fail|resume)$/);
  if(action&&request.method==='POST'){
@@ -203,6 +203,11 @@ export async function scrollsRoute(request,env,context,bucket=permanentBucket(en
    const changed=await db.prepare(`UPDATE scroll_jobs SET stage=?,checkpoint_digest=?,updated_at=? WHERE ${claimGuard} AND stage=?`).bind(b.stage,b.digest,now,...guard(),row.stage).run();return changed.meta.changes?json({ok:true}):json({error:'处理权已失效'},409);
   }
   if(action[2]==='external'){
+   if(b.action==='status'){
+    if(!['art','materials','review'].includes(b.stage)||stages.indexOf(b.stage)>stages.indexOf(row.stage))return json({error:'外部阶段查询无效'},422);
+    const {results}=await db.prepare('SELECT input_digest,state,output_digest FROM scroll_external_calls WHERE job_id=? AND stage=? ORDER BY created_at,input_digest').bind(row.id,b.stage).all();
+    return json({calls:results.map(c=>({inputDigest:c.input_digest,state:c.state,outputDigest:c.output_digest}))});
+   }
    if(b.stage!==row.stage||!digest(b.inputDigest)||!['begin','resolve','unknown','retry-authorized'].includes(b.action))return json({error:'外部阶段请求无效'},422);
    const input=await stored(bucket,b.inputDigest);await input.arrayBuffer();
    if(b.action==='begin'){

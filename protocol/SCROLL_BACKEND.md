@@ -31,11 +31,12 @@
 
 | POST 路径 | 正文与行为 |
 | --- | --- |
-| `/api/scrolls/jobs/claim` | `{claim}`；最早pending原子领取。返回完整固定章节、认证、当前阶段、最近有效检查点及 `gpt-6.1-sol/xhigh` 专用要求。 |
+| `/api/scrolls/jobs/claim` | `{claim}`；最早pending原子领取。返回完整固定章节、认证、当前阶段、最近有效检查点及 `gpt-6.1-sol/ultra` 专用要求。 |
 | `/api/scrolls/jobs/JOB/heartbeat` | `{claim}`；有效租约续5分钟。 |
 | `/api/scrolls/jobs/JOB/checkpoint` | `{claim,stage,digest}`；digest指永久JSON `{jobId,certificationId,stage,...}`；只可留本阶段或前进一阶段。 |
 | `/api/scrolls/jobs/JOB/revise` | `{claim,stage,digest}`；review/archive可有依据地回art/materials/layout。检查点须 `reason,failedReviewDigest`，真实退稿原件须 `approved:false`。 |
 | `/api/scrolls/jobs/JOB/external` | `{claim,stage,inputDigest,action:'begin'|'resolve'|'unknown',outputDigest?,providerId?}`；调用前存calling，同阶段最多一个未明确调用；已有成功结果直接复用。 |
+| `/api/scrolls/jobs/JOB/external` 的只读 `status` | `{claim,stage,action:'status'}`；仅当前有效处理权/租约可读当前或已过的外部阶段账本，返回原inputDigest/state/outputDigest，不创建调用或授予重试。按原input读取核验job/stage/name/prompt/model后恢复，不能以新ultra摘要替代旧身份。 |
 | `/api/scrolls/jobs/JOB/fail` | `{claim,error,attention?}`；保留阶段和检查点；存在calling会转unknown/attention。 |
 | `/api/scrolls/jobs/JOB/recover` | attention中的 `{stage,inputDigest,action:'found',outputDigest,providerId?}` 找回原件；或 `action:'authorize-retry'/'failed',evidenceDigest`。依据JSON绑定job/stage/input，类型为`explicit-user-retry`或`definitive-provider-failure`并有reason。这是人工授权/服务端证据入口，不能自动编造用户同意。 |
 | `/api/scrolls/jobs/JOB/resume` | 空对象；只恢复failed/attention且没有calling/unknown的任务，不新建任务或付费重发。 |

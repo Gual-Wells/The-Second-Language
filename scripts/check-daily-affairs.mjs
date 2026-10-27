@@ -185,7 +185,8 @@ globalThis.fetch = async (target, options) => {
   const restAt = launcher.indexOf('if ($control.rest)'), promptAt = launcher.indexOf('$prompt ='), modelAt = launcher.indexOf('& $codexExecutable --search');
   assert.ok(restAt >= 0 && restAt < promptAt && promptAt < modelAt, 'Rest is handled before loading the prompt, model and material preparation');
   assert.match(launcher, /if \(\$control\.rest\)\s*\{[^]*?exit 0\s*\}/);
-  assert.match(launcher, /-m gpt-6\.1-sol -c model_reasoning_effort=max/);
+  assert.match(launcher, /-m gpt-6\.1-sol -c model_reasoning_effort=ultra/);
+  assert.match(launcher, /-c agents\.enabled=true -c agents\.default_subagent_reasoning_effort=max --enable multi_agent/);
   assert.match(launcher, /--search -a never exec -C \$projectRoot/);
   assert.match(launcher, /\$promptTemplate = Join-Path \$projectRoot 'protocol\/daily-prompt\.txt'/);
   assert.match(launcher, /\$prompt = \[System\.IO\.File\]::ReadAllText\(\$promptTemplate, \[System\.Text\.Encoding\]::UTF8\)\.Replace\('\{STUDY_DATE\}', \$studyDate\)/);
@@ -194,7 +195,7 @@ globalThis.fetch = async (target, options) => {
   for (const value of ['protocol/DAILY_RUN.md', 'protocol/AUTHENTIC_CONTEXT.md', 'protocol/RECOMMENDATION.md', 'protocol/CURRENT_AFFAIRS.md', 'protocol/TEACHING_AUTHORING.md']) assert.ok(template.includes(value), `Actual prompt template must reference ${value}`);
   const fullMaterialsAt = template.indexOf('实际读完整Collins'), recommendationAt = template.indexOf('执行RECOMMENDATION'), freezeAt = template.indexOf('后冻结50主词');
   assert.ok(fullMaterialsAt >= 0 && fullMaterialsAt < recommendationAt && recommendationAt < freezeAt, 'The actual prompt routes complete material reading into recommendation review before freezing; this does not certify that review');
-  for (const value of ['正式50主词', 'gpt-6.1-sol/max', 'rest=true立即结束', '默认休息与音频空选配不改', '05:00开始生成', 'prepare-vix', 'feedback-snapshot', '不把05:00开始生成当发布截止']) assert.ok(template.includes(value), `Prompt must preserve daily control ${value}`);
+  for (const value of ['正式50主词', 'gpt-6.1-sol/ultra', 'rest=true立即结束', '默认休息与音频空选配不改', '05:00开始生成', 'prepare-vix', 'feedback-snapshot', '不把05:00开始生成当发布截止']) assert.ok(template.includes(value), `Prompt must preserve daily control ${value}`);
   for (const value of ['实际读完整Collins', '再完整Oxford', '全部相关义项', '发现原文不等于已读', 'read/import', 'textPath', '不全池爬取', '原例去向', '原件留存', '只续缺项', '不重做成功付费资源']) assert.ok(template.includes(value), `Prompt must preserve material/original recovery ${value}`);
   for (const value of ['逐义真实语境单正文', '不生产第二/第三部分', 'authoringPolicy:authentic-context-v1', 'CONTEXT_SLOT', 'context-sources.json', '每份只撰写一个连贯的整块中文translation', '最终每用法1–5份', '不是目标或默认最低数', '共享只是允许自然关系']) assert.ok(template.includes(value), `Prompt must preserve new authoring requirement ${value}`);
   for (const value of ['已冻结selection若无authoringPolicy或为sourced-collection-v1', '继续其原三部分合同与原作者稿', 'meta.protocolCommit/已有材料恢复旧协议', '不转换、不重选、不重新标注', '只有尚未冻结的新运行采用authentic-context-v1']) assert.ok(template.includes(value), `Prompt must preserve old frozen replay ${value}`);
@@ -208,7 +209,7 @@ globalThis.fetch = async (target, options) => {
     const parse = spawnSync('powershell.exe', ['-NoProfile', '-NonInteractive', '-Command', `$tokens=$null;$errors=$null;$ast=[System.Management.Automation.Language.Parser]::ParseFile('${psLiteral}',[ref]$tokens,[ref]$errors);if($errors.Count){exit 1};$promptNode=$ast.Find({param($n) $n -is [System.Management.Automation.Language.AssignmentStatementAst] -and $n.Left.Extent.Text -eq '$prompt'},$true);if(-not $promptNode -or -not $promptNode.Right.Extent.Text.Contains('ReadAllText') -or -not $promptNode.Right.Extent.Text.Contains('UTF8')){exit 2};$rendered=[System.IO.File]::ReadAllText('${templateLiteral}',[System.Text.Encoding]::UTF8).Replace('{STUDY_DATE}','${date}');if(-not $rendered.Contains('真实语境') -or -not $rendered.Contains('work/runs/${date}') -or $rendered.Contains('{STUDY_DATE}')){exit 3}`], { encoding: 'utf8', windowsHide: true });
     assert.equal(parse.status, 0, `Windows PowerShell launcher syntax/Unicode failed: ${parse.stderr}`);
   }
-  console.log('Daily affairs contracts passed: immutable input recovery, offline reuse, new policy downgrade rejection, old frozen replay, real feedback CLI with exact current baseline/digest and immutable new/old snapshots, actual versioned template/recommendation order, 50/max/05:00/rest/originals, server numbering, and Windows PowerShell syntax/Unicode. Configuration transport only, not semantic quality certification. No production calls or task changes.');
+  console.log('Daily affairs contracts passed: immutable input recovery, offline reuse, new policy downgrade rejection, old frozen replay, real feedback CLI with exact current baseline/digest and immutable new/old snapshots, actual versioned template/recommendation order, 50/ultra/subagent-max/05:00/rest/originals, server numbering, and Windows PowerShell syntax/Unicode. Configuration transport only, not semantic quality certification. No production calls or task changes.');
 } finally {
   globalThis.fetch = originalFetch;
   const physicalParent = await realpath(fixtureParent), physicalRoot = await realpath(root), relative = path.relative(physicalParent, physicalRoot);

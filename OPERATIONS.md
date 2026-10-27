@@ -2,9 +2,11 @@
 
 此文件只说明工具如何连接；每天推荐、词典整合与创作判断以 `protocol/` 为准。运行命令均从项目根目录执行。`work/runs/` 可自由存放续作资料，不把密钥放进去。
 
+2026-10-27后台档位更新见BACKGROUND_AUTOMATION与research/background-ultra-2026-10-27.md：日课、雅思、答疑/测试/质检、卷轴新主调用统一gpt-6.1-sol/ultra，子代理默认max可按需降低；纯归档/音频脚本不新增Codex调用。旧成功结果与未知调用身份保护不变，不因新档位重做；原排期、休息、空音频和现行服务认证保持。
+
 ## 现行逐义真实语境日课（2026-10-27）
 
-新输入锁authoringPolicy=authentic-context-v1，正文FORMAT=usage-context-v1。实际日课入口为D:/CodexStorage/workspaces/second-language-certification-reader/scripts/run-daily.ps1；它按UTF-8读取版本化protocol/daily-prompt.txt，替换STUDY_DATE。北京时间05:00触发，gpt-6.1-sol/max、live search、50主词。默认休息、下一章音频默认[]；关闭休息仅放行下一次新领取并原子复位，首次发布只消费同格式的一次选配。此次格式建设不触发生产、不重做正式第一章、不撤VIX、不启动音频。
+新输入锁authoringPolicy=authentic-context-v1，正文FORMAT=usage-context-v1。实际日课入口为D:/CodexStorage/workspaces/second-language-certification-reader/scripts/run-daily.ps1；它按UTF-8读取版本化protocol/daily-prompt.txt，替换STUDY_DATE。北京时间05:00触发，gpt-6.1-sol/ultra、live search、50主词。默认休息、下一章音频默认[]；关闭休息仅放行下一次新领取并原子复位，首次发布只消费同格式的一次选配。此次格式建设不触发生产、不重做正式第一章、不撤VIX、不启动音频。
 
 从DAILY_RUN、AUTHENTIC_CONTEXT、RECOMMENDATION、CONTENT、QUALITY_WORKFLOW、QUALITY_SCALE、ANNOTATIONS、TEACHING_AUTHORING恢复。feedback-snapshot固定实际反馈及provisional learner-baseline；后者是阅读接受较强、熟悉题简单表达/陌生题提取困难的任务试配先验，不是CEFR实测或词汇量测量。择词兼顾表达覆盖/深度/多样性/口语支撑，不能按owner或原文碰撞率机械筛。冻结前独立读取实际词族完整双教材，仍全义教学、总体不降难。
 
@@ -25,7 +27,7 @@ assemble-teaching从唯一作者稿输出chapter.md及context-sources.json；pac
 
 部署先对主库应用0018_current_affairs.sql，再对PRACTICE_DB应用0009_current_affairs_scope.sql，随后部署API Worker与v45静态壳。迁移不回填旧行；新来源绑定及新雅思来源快照保持不可变。正文仍用原SHA定义，来源包独立以摘要在OneDrive永久封存，D1只存小引用。部署后无新章时正式列表为空，项目特殊纪念卷轴继续保留。
 
-日课入口为scripts/run-daily.ps1，gpt-6.1-sol/max、`--search`，领取休息先于模型。`powershell.exe -NoProfile -File scripts/activate-affairs-tasks.ps1` 先显示实际任务路径；显式 `-Apply` 只把DailyCodex未来Action切到本工作区，备份原XML，保留现有Trigger、Principal及Settings；该脚本不更新时间，当前DailyCodex的05:00触发器须单独核对，不停止正在执行的其它进程。永久归档任务已经使用本工作区，不重复改其它任务。生产核对见research/current-affairs-runtime-2026-10-23.md。
+日课入口为scripts/run-daily.ps1，gpt-6.1-sol/ultra、`--search`，领取休息先于模型。`powershell.exe -NoProfile -File scripts/activate-affairs-tasks.ps1` 先显示实际任务路径；显式 `-Apply` 只把DailyCodex未来Action切到本工作区，备份原XML，保留现有Trigger、Principal及Settings；该脚本不更新时间，当前DailyCodex的05:00触发器须单独核对，不停止正在执行的其它进程。永久归档任务已经使用本工作区，不重复改其它任务。生产核对见research/current-affairs-runtime-2026-10-23.md。
 
 按需取材：current-affairs-pool.mjs find→current-affairs.mjs discover/read（live web/PDF原文用import）→模型实际阅读/与VIX共同选择→原时点标注→全义三部分建设→pack-current-affairs.mjs绑定source-notes→pack-chapter.mjs→publish-chapter.mjs。章节meta保留contentPolicy并另设sourcePolicy；具体命令、读件边界和字段看CURRENT_AFFAIRS。没有新增付费API或常驻爬虫。
 
@@ -33,7 +35,7 @@ assemble-teaching从唯一作者稿输出chapter.md及context-sources.json；pac
 
 使用主库迁移`0017_chapter_certifications.sql`，不迁移雅思库或实验认证库。先部署数据库迁移，再部署API Worker，最后发布v43 Pages壳。`deploy-certification-reader.mjs --production`只发布Pages，不能替代Worker上线。UI是章节测试首次真实满分认证→本人申请→后台制作/核验→本人领取→设置认证阅览；旧第一/第五章研究样品不升级、不补造历史成绩。项目纪念仍为独立类别。
 
-工艺/合同入口：`protocol/SCROLL_CRAFT.md`、`SCROLL_PRODUCTION.md`、`SCROLL_BACKEND.md`。`node scripts/scroll-worker.mjs`只处理一次真实队列任务；空队列退出，不调用模型。创作与独立图审实际使用`gpt-6.1-sol/xhigh`，图像按需走Codex内置生图，未配置付费API回退。正常返修与进程恢复采用检查点；未知调用先找回原件或取得明确单次重试授权，不能用resume清除保护。正式已领取资产不因模板更新重排字、换时间或重制。
+工艺/合同入口：`protocol/SCROLL_CRAFT.md`、`SCROLL_PRODUCTION.md`、`SCROLL_BACKEND.md`。`node scripts/scroll-worker.mjs`只处理一次真实队列任务；空队列退出，不调用模型。创作与独立图审实际使用`gpt-6.1-sol/ultra`，图像按需走Codex内置生图，未配置付费API回退。正常返修与进程恢复采用检查点；未知调用先找回原件或取得明确单次重试授权，不能用resume清除保护。正式已领取资产不因模板更新重排字、换时间或重制。
 
 本机受忽略的`.cache/local-services.json`配置已有`publisherCredentialFile`、`privateCacheDirectory`、`archiveStateDirectory`、`nativeCraftDirectory`，可选`networkProxy`；均不提交凭据。本轮实际服务位于D盘`second-language-certification-reader`工作区，复用原凭据、OneDrive DPAPI与归档账本。新增缓存/构建/原件都在D；Worker依赖复用maintenance入口，其node_modules实体经realpath核实仍在旧C盘活动项目，未热搬、未新增安装，也不冒称已经迁走。后续恢复可通过`PLAYWRIGHT_MODULE`、`CHROME_PATH`、`SECOND_LANGUAGE_PYTHON`、`SECOND_LANGUAGE_CODEX_EXECUTABLE`明确定位，不能把本机路径写成网络安装保证。
 
@@ -77,7 +79,7 @@ powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File scripts/
 
 直接用 PowerShell 的 `-WindowStyle Hidden` 可能先分配控制台再隐藏，不能作为无闪窗保证。当前原生启动器不依赖 VBScript、常驻窗口、Windows 服务或管理员密码；源码纳入仓库，生成的 exe、任务 XML 和日志留在忽略目录。纯轮询仍产生正常网络请求，零模型调用不等于零 Cloudflare 用量。
 
-本机的定时任务每日北京时间 **05:00触发，默认休息**，调用 `scripts/run-daily.ps1`；只有明确放行的新领取运行才启动已登录的Codex CLI，以 `gpt-6.1-sol`、`max` 和live search运行本协议。修改实际DailyCodex触发器使用 `powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/set-daily-schedule.ps1 -Apply`：备份XML、只改时间并核对NextRunTime，保留Action/Principal/Settings，不立即启动生成。先领取后端一次性控制状态；关闭休息仅放行下一次新领取日期，领取后恢复休息。已领取的休息只有用户明确撤回才能按DAILY_RUN记录不可变恢复授权。任务提示词核心为：
+本机的定时任务每日北京时间 **05:00触发，默认休息**，调用 `scripts/run-daily.ps1`；只有明确放行的新领取运行才启动已登录的Codex CLI，以 `gpt-6.1-sol`、`ultra` 和live search运行本协议。修改实际DailyCodex触发器使用 `powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/set-daily-schedule.ps1 -Apply`：备份XML、只改时间并核对NextRunTime，保留Action/Principal/Settings，不立即启动生成。先领取后端一次性控制状态；关闭休息仅放行下一次新领取日期，领取后恢复休息。已领取的休息只有用户明确撤回才能按DAILY_RUN记录不可变恢复授权。任务提示词核心为：
 
 当前完整提示词见protocol/daily-prompt.txt；运行器实际从该文件读取，不维护第二份复制。必读、冻结、全教材、逐义取材、整块译文、作者装配、原件回读及失败恢复由该文件与首节协议共同约束。旧冻结运行恢复原protocolCommit，不按当前新模板重选。
 
@@ -136,7 +138,7 @@ node scripts/speaking-detail.mjs .cache/补听计划.json
 
 表达练习使用单独 D1 `the-second-language-practice`，数据库绑定 `PRACTICE_DB`，迁移目录为 `worker/practice_migrations/`。在 `worker/` 运行 `wrangler d1 migrations apply PRACTICE_DB --remote`。表达练习的文字作答不进入原有 `DB` 或 Git；PWA 已接录音/已有文件提交，原件和多路返回永久存 OneDrive，故障兼容副本使用私有 PRACTICE_MEDIA KV。可选 `PRACTICE_READ_TOKEN` 是未来 Chat/MCP 只读接入的独立 Worker secret；不得向 Chat 提供 `PUBLISH_TOKEN`。本机 `scripts/practice-job.mjs` 的建设与批改命令仍使用发布令牌。
 
-表达练习监测脚本 `scripts/run-practice.ps1` 先通过 `node scripts/practice-job.mjs next` 轻量检查申请、文字/听力/阅读答卷与原声转换/分析队列；空队列不启动模型，有工作才使用 `gpt-6-sol`、`high` 继续 `work/expression/` 的中间文档。该脚本与每日 05:00 日课独立，部署与本地凭据确定后已有 SecondLanguage-PracticeCodex 每三十分钟 Windows 任务；若在另一 worktree 运行，先设置 `SECOND_LANGUAGE_CREDENTIAL_FILE` 为当前机器上忽略的正式凭据文件。手动命令：
+表达练习监测脚本 `scripts/run-practice.ps1` 先通过 `node scripts/practice-job.mjs next` 轻量检查申请、文字/听力/阅读答卷与原声转换/分析队列；空队列不启动模型，有工作才使用 `gpt-6.1-sol`、`ultra` 继续 `work/expression/` 的中间文档。该脚本与每日 05:00 日课独立，部署与本地凭据确定后已有 SecondLanguage-PracticeCodex 每三十分钟 Windows 任务；若在另一 worktree 运行，先设置 `SECOND_LANGUAGE_CREDENTIAL_FILE` 为当前机器上忽略的正式凭据文件。手动命令：
 
 ```sh
 node scripts/practice-job.mjs next
@@ -167,7 +169,7 @@ node scripts/practice-job.mjs review-complete <答卷ID> work/expression/reviews
 
 首次迁移：`node scripts/onedrive-connect.mjs begin 69e35375-8fe6-497b-9e02-7e7425058e19` 发起设备登录，浏览器授权后执行 `node scripts/onedrive-connect.mjs finish` 保存授权，再用 `verify` 验证应用目录；`node scripts/onedrive-install.mjs` 安装加密连接。先检查 status / 写入回读验证，随后启用开关、部署并运行 `node scripts/storage-upgrade.mjs migrate`。现有正式连接已完成，不为普通发布重新授权或生成加密密钥。部署/恢复到别的 Windows 用户时重新授权，不能把旧 DPAPI 文件当可移植凭据。
 
-`SecondLanguage-ChapterQuestions` 每分钟执行 run-questions.ps1，Codex gpt-6-sol/high 接收全文与会话、回推章节答疑；空队列不启动模型。`SecondLanguage-PermanentArchive` 每五分钟检查 storage-maintain.mjs 的普通归档队列，也接受任务末尾即时触发；同类型任务 IgnoreNew，隐藏运行。两者与原有日课、雅思监测独立，不改休息设置。运行需当前 Windows 用户会话、有效网络及相应登录。正式 credentials 文件通过包装脚本的 CredentialFile 指向本机忽略路径。
+`SecondLanguage-ChapterQuestions` 每分钟执行 run-questions.ps1，Codex gpt-6.1-sol/ultra 接收全文与会话、回推章节答疑；空队列不启动模型。`SecondLanguage-PermanentArchive` 每五分钟检查 storage-maintain.mjs 的普通归档队列，也接受任务末尾即时触发；同类型任务 IgnoreNew，隐藏运行。两者与原有日课、雅思监测独立，不改休息设置。运行需当前 Windows 用户会话、有效网络及相应登录。正式 credentials 文件通过包装脚本的 CredentialFile 指向本机忽略路径。
 
 末尾 check-balances.mjs 更新余额页，并排入永久归档；migrate/packs/backup 由独立服务执行，不阻塞下一份问答。状态在本机 `.cache/storage-upgrade/request.json`，成功删除，失败保留原因和需要处理标记。Cloudflare OAuth 到期由已有 Wrangler 刷新一次，刷新失败需要重新登录；不把失效凭据当额度归零。
 

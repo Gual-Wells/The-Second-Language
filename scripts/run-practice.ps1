@@ -33,7 +33,7 @@ try {
 "@
   $ErrorActionPreference = 'Continue'
   try {
-    & $codexExecutable -a never exec -C $projectRoot -m gpt-6-sol -c model_reasoning_effort=high -s danger-full-access $prompt 2>&1 |
+    & $codexExecutable -a never exec -C $projectRoot -m gpt-6.1-sol -c model_reasoning_effort=ultra -c agents.enabled=true -c agents.default_subagent_reasoning_effort=max --enable multi_agent -s danger-full-access $prompt 2>&1 |
       Out-File -LiteralPath $logFile -Append -Encoding utf8
     $exitCode = $LASTEXITCODE
   } finally { $ErrorActionPreference = 'Stop' }
