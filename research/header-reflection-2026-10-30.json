@@ -1,0 +1,39 @@
+{
+  "date": "2026-10-30",
+  "baseline": "929d42df391f4538c906e743f146cc579e655c0f",
+  "userDecision": {
+    "fill": "#cfe8ff",
+    "motion": "Original second candidate: stable silhouette, white reflection opacity .02/.35/.68/.35/.02 at 0/1200/2400/3600/4800ms, 4.8s ease-in-out infinite",
+    "geometry": {
+      "svg": [
+        52,
+        52
+      ],
+      "slot": [
+        76,
+        38
+      ]
+    },
+    "reducedMotion": "reflection .10, no animation",
+    "background": "pause and resume existing phase"
+  },
+  "sourceEvidence": {
+    "buildSHA256": "88a6892a4821f95900ec0ae5e334391a79a1f0390529592b16c72ba4fa1c15d9",
+    "motionSHA256": "c118dcd75708130d6648c0728d3a1217059fddbe6b870c93c07095c1139232c5",
+    "historicalBase": "#b8d7f3; this release combines selected ice-blue with recovered reflection"
+  },
+  "validation": {
+    "logoChecks": 41,
+    "readerUiChecks": 105,
+    "paidCalls": 0,
+    "physicalIPhone": false,
+    "browserResponseReport": "research/header-reflection-2026-10-30/scroll-verification/verification.json"
+  },
+  "preservedAssetHashes": {
+    "web/icon.svg": "a6187d27e9c733a2470bedcefbe3947166706b06fa9c4be05a6dd577cba25b2b",
+    "web/icon-192.png": "32373b0edaab98b53f5ac5827bb2c4b4c5cdeba053d5612b2fd74f2c3b78d15b",
+    "web/icon-512.png": "92b439ae13c5170735bbe50ebd85c6896ce7a327c25dd80d37c3c17bc30189c7",
+    "web/apple-touch-icon.png": "c70473432d6a36917f4ccf256a08a3843d972c4f71bd939e4233aaaa84a840e2"
+  },
+  "deployment": "pending"
+}

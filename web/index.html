@@ -14,7 +14,7 @@
   <link rel="manifest" href="/manifest.webmanifest?v=41">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=41">
   <link rel="icon" href="/icon-192.png?v=41" type="image/png">
-  <link rel="stylesheet" href="/styles.css?v=51">
+  <link rel="stylesheet" href="/styles.css?v=52">
 </head>
 <body>
   <main class="app-shell login-mode" id="app">
@@ -31,7 +31,10 @@
               <path d="M432 129c0-13-10-23-23-23h-84c-30 0-53 9-69 27v264c17-18 40-27 69-27h84c13 0 23-10 23-23V129Z" fill="#fff"/>
               <path d="M132 176h77m-77 53h77m-77 53h77m171-106h-77m77 53h-77m77 53h-77" fill="none" stroke="#000" stroke-linecap="round" stroke-width="13"/>
             </mask></defs>
-            <rect width="512" height="512" fill="#cfe8ff" mask="url(#header-book-cut)"/>
+            <g mask="url(#header-book-cut)">
+              <rect width="512" height="512" fill="#cfe8ff"/>
+              <rect class="header-logo-reflection" width="512" height="512" fill="#fff"/>
+            </g>
           </svg>
         </span>
       </div></div>
@@ -268,6 +271,6 @@
     </div>
   </dialog>
   <div id="toast" role="status" aria-live="polite"></div>
-  <script type="module" src="/app.js?v=51"></script>
+  <script type="module" src="/app.js?v=52"></script>
 </body>
 </html>

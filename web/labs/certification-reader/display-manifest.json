@@ -18,7 +18,7 @@
     "includedInStaticFiles": false
   },
   "verificationReports": [
-    "research/header-logo-2026-10-29/scroll-verification/verification.json"
+    "research/header-reflection-2026-10-30/scroll-verification/verification.json"
   ],
   "files": [
     {
@@ -29,7 +29,7 @@
     {
       "url": "/app.js",
       "bytes": 55956,
-      "sha256": "9fd28ba4d8a44ab2a5f42e52fb4bb6523dd2f6a30a1d893a29f63d072f73ee7e"
+      "sha256": "66bbcb1ab28e0ff66bbe2159fd3ba049f6fdb9388c9735bf769a7806b4375293"
     },
     {
       "url": "/audio-config.js",
@@ -103,8 +103,8 @@
     },
     {
       "url": "/index.html",
-      "bytes": 32536,
-      "sha256": "9d3ea7ce6cbebd046ad31a939c38e392d5c1e8faf55926fed78e8a6c0570aa66"
+      "bytes": 32661,
+      "sha256": "789eec84ed2cc92c5378283bd4b2fb6fc81e830d40352e267854207d8ca4cbdf"
     },
     {
       "url": "/labs/certification-reader/AUDIO_CREDITS.md",
@@ -463,8 +463,8 @@
     },
     {
       "url": "/styles.css",
-      "bytes": 65578,
-      "sha256": "1e7a0ccafff4410208c0652d3da9c1715b8f749c461cde201ac07ccdec69f1af"
+      "bytes": 65736,
+      "sha256": "8fb9a1179dbfff81f17f00854396fdc236fd978d53feb60a76ac48f511ce5e5d"
     },
     {
       "url": "/teaching-units.js",
@@ -482,5 +482,5 @@
       "sha256": "44a5475d29af09b16c50662ea507326d38d87081209e9beb9ae325a71926e794"
     }
   ],
-  "bytes": 50651738
+  "bytes": 50652021
 }
