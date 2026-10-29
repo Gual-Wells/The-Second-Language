@@ -1,0 +1,623 @@
+{
+  "passed": true,
+  "checks": [
+    "Chromium 402: logo replaces mode controls",
+    "Chromium 402: decorative logo has no focus/action",
+    "Chromium 402: selected footprint and ice-blue fill",
+    "Chromium 402: selected soft-reflection timing",
+    "Chromium 402: original header geometry without overflow",
+    "Chromium 402: playing keeps logo fixed",
+    "Chromium 402: playing keeps header height",
+    "Chromium 402: reduced motion retains a stable mark",
+    "Chromium 402: hidden document pauses motion",
+    "Chromium 402: visible document resumes motion",
+    "Chromium 402: restored page resumes stale header pause",
+    "Chromium 402: foreground focus repairs missed visibility notification",
+    "Chromium 402: full sine has ice zero, white positive peak and real-background negative peak",
+    "Chromium 402: both color halves have equal duration",
+    "Chromium 402: touch opening does not leave a selection outline",
+    "Chromium 402: keyboard keeps a visible focus indicator",
+    "Chromium 402: pointer clears keyboard residue",
+    "Chromium 320: logo replaces mode controls",
+    "Chromium 320: decorative logo has no focus/action",
+    "Chromium 320: selected footprint and ice-blue fill",
+    "Chromium 320: selected soft-reflection timing",
+    "Chromium 320: original header geometry without overflow",
+    "Chromium 320: playing keeps logo fixed",
+    "Chromium 320: playing keeps header height",
+    "Chromium 320: reduced motion retains a stable mark",
+    "Chromium 320: hidden document pauses motion",
+    "Chromium 320: visible document resumes motion",
+    "Chromium 320: restored page resumes stale header pause",
+    "Chromium 320: foreground focus repairs missed visibility notification",
+    "Chromium 320: full sine has ice zero, white positive peak and real-background negative peak",
+    "Chromium 320: both color halves have equal duration",
+    "Chromium 320: touch opening does not leave a selection outline",
+    "Chromium 320: keyboard keeps a visible focus indicator",
+    "Chromium 320: pointer clears keyboard residue",
+    "WebKit 402: logo replaces mode controls",
+    "WebKit 402: decorative logo has no focus/action",
+    "WebKit 402: selected footprint and ice-blue fill",
+    "WebKit 402: selected soft-reflection timing",
+    "WebKit 402: original header geometry without overflow",
+    "WebKit 402: playing keeps logo fixed",
+    "WebKit 402: playing keeps header height",
+    "WebKit 402: reduced motion retains a stable mark",
+    "WebKit 402: hidden document pauses motion",
+    "WebKit 402: visible document resumes motion",
+    "WebKit 402: restored page resumes stale header pause",
+    "WebKit 402: foreground focus repairs missed visibility notification",
+    "WebKit 402: full sine has ice zero, white positive peak and real-background negative peak",
+    "WebKit 402: both color halves have equal duration",
+    "WebKit 402: touch opening does not leave a selection outline",
+    "WebKit 402: keyboard keeps a visible focus indicator",
+    "WebKit 402: pointer clears keyboard residue",
+    "actual speech module exposes cancel during preparation",
+    "cancelled in-flight response never begins playback",
+    "actual sentence reading still starts and offers stop",
+    "stop halts the source and hides control",
+    "repeat reading reuses existing decoded audio",
+    "natural completion hides stop",
+    "logo click does not call pronunciation",
+    "no production frontend exceptions"
+  ],
+  "observations": [
+    {
+      "engine": "Chromium",
+      "width": 402,
+      "initial": {
+        "width": 52,
+        "height": 52,
+        "slotWidth": 76,
+        "slotHeight": 38,
+        "color": "#cfe8ff",
+        "duration": "4.8s",
+        "easing": "linear",
+        "iterations": "infinite",
+        "wholeOpacity": "1",
+        "headerHeight": 91,
+        "overflow": false
+      },
+      "phases": [
+        {
+          "time": 0,
+          "ink": 1,
+          "reflection": 0
+        },
+        {
+          "time": 150,
+          "ink": 1,
+          "reflection": 0.19509
+        },
+        {
+          "time": 300,
+          "ink": 1,
+          "reflection": 0.382683
+        },
+        {
+          "time": 450,
+          "ink": 1,
+          "reflection": 0.55557
+        },
+        {
+          "time": 600,
+          "ink": 1,
+          "reflection": 0.707107
+        },
+        {
+          "time": 750,
+          "ink": 1,
+          "reflection": 0.83147
+        },
+        {
+          "time": 900,
+          "ink": 1,
+          "reflection": 0.92388
+        },
+        {
+          "time": 1050,
+          "ink": 1,
+          "reflection": 0.980785
+        },
+        {
+          "time": 1200,
+          "ink": 1,
+          "reflection": 1
+        },
+        {
+          "time": 1350,
+          "ink": 1,
+          "reflection": 0.980785
+        },
+        {
+          "time": 1500,
+          "ink": 1,
+          "reflection": 0.92388
+        },
+        {
+          "time": 1650,
+          "ink": 1,
+          "reflection": 0.83147
+        },
+        {
+          "time": 1800,
+          "ink": 1,
+          "reflection": 0.707107
+        },
+        {
+          "time": 1950,
+          "ink": 1,
+          "reflection": 0.55557
+        },
+        {
+          "time": 2100,
+          "ink": 1,
+          "reflection": 0.382683
+        },
+        {
+          "time": 2250,
+          "ink": 1,
+          "reflection": 0.19509
+        },
+        {
+          "time": 2400,
+          "ink": 1,
+          "reflection": 0
+        },
+        {
+          "time": 2550,
+          "ink": 0.80491,
+          "reflection": 0
+        },
+        {
+          "time": 2700,
+          "ink": 0.617317,
+          "reflection": 0
+        },
+        {
+          "time": 2850,
+          "ink": 0.44443,
+          "reflection": 0
+        },
+        {
+          "time": 3000,
+          "ink": 0.292893,
+          "reflection": 0
+        },
+        {
+          "time": 3150,
+          "ink": 0.16853,
+          "reflection": 0
+        },
+        {
+          "time": 3300,
+          "ink": 0.0761205,
+          "reflection": 0
+        },
+        {
+          "time": 3450,
+          "ink": 0.0192147,
+          "reflection": 0
+        },
+        {
+          "time": 3600,
+          "ink": 0,
+          "reflection": 0
+        },
+        {
+          "time": 3750,
+          "ink": 0.0192147,
+          "reflection": 0
+        },
+        {
+          "time": 3900,
+          "ink": 0.0761205,
+          "reflection": 0
+        },
+        {
+          "time": 4050,
+          "ink": 0.16853,
+          "reflection": 0
+        },
+        {
+          "time": 4200,
+          "ink": 0.292893,
+          "reflection": 0
+        },
+        {
+          "time": 4350,
+          "ink": 0.44443,
+          "reflection": 0
+        },
+        {
+          "time": 4500,
+          "ink": 0.617317,
+          "reflection": 0
+        },
+        {
+          "time": 4650,
+          "ink": 0.80491,
+          "reflection": 0
+        },
+        {
+          "time": 4800,
+          "ink": 1,
+          "reflection": 0
+        }
+      ]
+    },
+    {
+      "engine": "Chromium",
+      "width": 320,
+      "initial": {
+        "width": 52,
+        "height": 52,
+        "slotWidth": 76,
+        "slotHeight": 38,
+        "color": "#cfe8ff",
+        "duration": "4.8s",
+        "easing": "linear",
+        "iterations": "infinite",
+        "wholeOpacity": "1",
+        "headerHeight": 91,
+        "overflow": false
+      },
+      "phases": [
+        {
+          "time": 0,
+          "ink": 1,
+          "reflection": 0
+        },
+        {
+          "time": 150,
+          "ink": 1,
+          "reflection": 0.19509
+        },
+        {
+          "time": 300,
+          "ink": 1,
+          "reflection": 0.382683
+        },
+        {
+          "time": 450,
+          "ink": 1,
+          "reflection": 0.55557
+        },
+        {
+          "time": 600,
+          "ink": 1,
+          "reflection": 0.707107
+        },
+        {
+          "time": 750,
+          "ink": 1,
+          "reflection": 0.83147
+        },
+        {
+          "time": 900,
+          "ink": 1,
+          "reflection": 0.92388
+        },
+        {
+          "time": 1050,
+          "ink": 1,
+          "reflection": 0.980785
+        },
+        {
+          "time": 1200,
+          "ink": 1,
+          "reflection": 1
+        },
+        {
+          "time": 1350,
+          "ink": 1,
+          "reflection": 0.980785
+        },
+        {
+          "time": 1500,
+          "ink": 1,
+          "reflection": 0.92388
+        },
+        {
+          "time": 1650,
+          "ink": 1,
+          "reflection": 0.83147
+        },
+        {
+          "time": 1800,
+          "ink": 1,
+          "reflection": 0.707107
+        },
+        {
+          "time": 1950,
+          "ink": 1,
+          "reflection": 0.55557
+        },
+        {
+          "time": 2100,
+          "ink": 1,
+          "reflection": 0.382683
+        },
+        {
+          "time": 2250,
+          "ink": 1,
+          "reflection": 0.19509
+        },
+        {
+          "time": 2400,
+          "ink": 1,
+          "reflection": 0
+        },
+        {
+          "time": 2550,
+          "ink": 0.80491,
+          "reflection": 0
+        },
+        {
+          "time": 2700,
+          "ink": 0.617317,
+          "reflection": 0
+        },
+        {
+          "time": 2850,
+          "ink": 0.44443,
+          "reflection": 0
+        },
+        {
+          "time": 3000,
+          "ink": 0.292893,
+          "reflection": 0
+        },
+        {
+          "time": 3150,
+          "ink": 0.16853,
+          "reflection": 0
+        },
+        {
+          "time": 3300,
+          "ink": 0.0761205,
+          "reflection": 0
+        },
+        {
+          "time": 3450,
+          "ink": 0.0192147,
+          "reflection": 0
+        },
+        {
+          "time": 3600,
+          "ink": 0,
+          "reflection": 0
+        },
+        {
+          "time": 3750,
+          "ink": 0.0192147,
+          "reflection": 0
+        },
+        {
+          "time": 3900,
+          "ink": 0.0761205,
+          "reflection": 0
+        },
+        {
+          "time": 4050,
+          "ink": 0.16853,
+          "reflection": 0
+        },
+        {
+          "time": 4200,
+          "ink": 0.292893,
+          "reflection": 0
+        },
+        {
+          "time": 4350,
+          "ink": 0.44443,
+          "reflection": 0
+        },
+        {
+          "time": 4500,
+          "ink": 0.617317,
+          "reflection": 0
+        },
+        {
+          "time": 4650,
+          "ink": 0.80491,
+          "reflection": 0
+        },
+        {
+          "time": 4800,
+          "ink": 1,
+          "reflection": 0
+        }
+      ]
+    },
+    {
+      "engine": "WebKit",
+      "width": 402,
+      "initial": {
+        "width": 52,
+        "height": 52,
+        "slotWidth": 76,
+        "slotHeight": 38,
+        "color": "#cfe8ff",
+        "duration": "4.8s",
+        "easing": "linear",
+        "iterations": "infinite",
+        "wholeOpacity": "1",
+        "headerHeight": 91,
+        "overflow": false
+      },
+      "phases": [
+        {
+          "time": 0,
+          "ink": 1,
+          "reflection": 0
+        },
+        {
+          "time": 150,
+          "ink": 1,
+          "reflection": 0.19509
+        },
+        {
+          "time": 300,
+          "ink": 1,
+          "reflection": 0.382683
+        },
+        {
+          "time": 450,
+          "ink": 1,
+          "reflection": 0.55557
+        },
+        {
+          "time": 600,
+          "ink": 1,
+          "reflection": 0.707107
+        },
+        {
+          "time": 750,
+          "ink": 1,
+          "reflection": 0.83147
+        },
+        {
+          "time": 900,
+          "ink": 1,
+          "reflection": 0.92388
+        },
+        {
+          "time": 1050,
+          "ink": 1,
+          "reflection": 0.980785
+        },
+        {
+          "time": 1200,
+          "ink": 1,
+          "reflection": 1
+        },
+        {
+          "time": 1350,
+          "ink": 1,
+          "reflection": 0.980785
+        },
+        {
+          "time": 1500,
+          "ink": 1,
+          "reflection": 0.92388
+        },
+        {
+          "time": 1650,
+          "ink": 1,
+          "reflection": 0.83147
+        },
+        {
+          "time": 1800,
+          "ink": 1,
+          "reflection": 0.707107
+        },
+        {
+          "time": 1950,
+          "ink": 1,
+          "reflection": 0.55557
+        },
+        {
+          "time": 2100,
+          "ink": 1,
+          "reflection": 0.382683
+        },
+        {
+          "time": 2250,
+          "ink": 1,
+          "reflection": 0.19509
+        },
+        {
+          "time": 2400,
+          "ink": 1,
+          "reflection": 0
+        },
+        {
+          "time": 2550,
+          "ink": 0.80491,
+          "reflection": 0
+        },
+        {
+          "time": 2700,
+          "ink": 0.617317,
+          "reflection": 0
+        },
+        {
+          "time": 2850,
+          "ink": 0.44443,
+          "reflection": 0
+        },
+        {
+          "time": 3000,
+          "ink": 0.292893,
+          "reflection": 0
+        },
+        {
+          "time": 3150,
+          "ink": 0.16853,
+          "reflection": 0
+        },
+        {
+          "time": 3300,
+          "ink": 0.07612,
+          "reflection": 0
+        },
+        {
+          "time": 3450,
+          "ink": 0.019215,
+          "reflection": 0
+        },
+        {
+          "time": 3600,
+          "ink": 0,
+          "reflection": 0
+        },
+        {
+          "time": 3750,
+          "ink": 0.019215,
+          "reflection": 0
+        },
+        {
+          "time": 3900,
+          "ink": 0.07612,
+          "reflection": 0
+        },
+        {
+          "time": 4050,
+          "ink": 0.16853,
+          "reflection": 0
+        },
+        {
+          "time": 4200,
+          "ink": 0.292893,
+          "reflection": 0
+        },
+        {
+          "time": 4350,
+          "ink": 0.44443,
+          "reflection": 0
+        },
+        {
+          "time": 4500,
+          "ink": 0.617317,
+          "reflection": 0
+        },
+        {
+          "time": 4650,
+          "ink": 0.80491,
+          "reflection": 0
+        },
+        {
+          "time": 4800,
+          "ink": 1,
+          "reflection": 0
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "pronunciationBoundary": "Synthetic cache, API and AudioContext; actual reader-speech lifecycle module. No live or paid calls.",
+  "liveRequests": 0,
+  "paidCalls": 0,
+  "physicalIPhone": false
+}

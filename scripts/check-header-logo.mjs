@@ -59,7 +59,7 @@ try{
    const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));await page.goto(origin+'/');await page.locator('#reader').waitFor({state:'visible'});
    check(engine+' '+width+': logo replaces mode controls',await page.locator('#headerLogo .header-logo').count()===1&&await page.locator('#speechMode,#speechModeLabel').count()===0);
    check(engine+' '+width+': decorative logo has no focus/action',await page.locator('#headerLogo').evaluate(e=>e.getAttribute('aria-hidden')==='true'&&!e.matches('button,a,[tabindex]')&&!e.closest('button,a,[tabindex]')));
-   const initial=await page.evaluate(()=>{const n=document.querySelector('.header-logo'),slot=document.querySelector('#headerLogo'),r=n.getBoundingClientRect(),s=slot.getBoundingClientRect();return{width:r.width,height:r.height,slotWidth:s.width,slotHeight:s.height,color:n.querySelector('rect[fill="#cfe8ff"]')?.getAttribute('fill'),duration:getComputedStyle(n.querySelector(".header-logo-reflection")).animationDuration,easing:getComputedStyle(n.querySelector(".header-logo-reflection")).animationTimingFunction,iterations:getComputedStyle(n.querySelector(".header-logo-reflection")).animationIterationCount,wholeOpacity:getComputedStyle(n).opacity,headerHeight:document.querySelector('.app-header').getBoundingClientRect().height,overflow:document.documentElement.scrollWidth>innerWidth}});
+   const initial=await page.evaluate(()=>{const n=document.querySelector('.header-logo'),slot=document.querySelector('#headerLogo'),r=n.getBoundingClientRect(),s=slot.getBoundingClientRect();return{width:r.width,height:r.height,slotWidth:s.width,slotHeight:s.height,color:n.querySelector('rect[fill="#cfe8ff"]')?.getAttribute('fill'),duration:getComputedStyle(n.querySelector(".header-logo-ink")).animationDuration,easing:getComputedStyle(n.querySelector(".header-logo-ink")).animationTimingFunction,iterations:getComputedStyle(n.querySelector(".header-logo-ink")).animationIterationCount,wholeOpacity:getComputedStyle(n).opacity,headerHeight:document.querySelector('.app-header').getBoundingClientRect().height,overflow:document.documentElement.scrollWidth>innerWidth}});
    check(engine+' '+width+': selected footprint and ice-blue fill',initial.width===52&&initial.height===52&&initial.slotWidth===76&&initial.slotHeight===38&&initial.color==='#cfe8ff');
    check(engine+' '+width+': selected soft-reflection timing',initial.duration==='4.8s'&&initial.easing==='linear'&&initial.iterations==='infinite'&&initial.wholeOpacity==='1');
    check(engine+' '+width+': original header geometry without overflow',initial.headerHeight===91&&!initial.overflow);
@@ -67,18 +67,26 @@ try{
    check(engine+' '+width+': playing keeps logo fixed',JSON.stringify(await page.locator('#headerLogo').boundingBox())===JSON.stringify(before));
    check(engine+' '+width+': playing keeps header height',await page.locator('.app-header').evaluate(n=>n.getBoundingClientRect().height)===initial.headerHeight);
    await page.locator('#speechStop').evaluate(n=>n.hidden=true);
-   await page.emulateMedia({reducedMotion:'reduce'});check(engine+' '+width+': reduced motion retains a stable mark',await page.locator('.header-logo-reflection').evaluate(n=>getComputedStyle(n).animationName==='none'&&getComputedStyle(n).opacity==='0'));
+   await page.emulateMedia({reducedMotion:'reduce'});check(engine+' '+width+': reduced motion retains a stable mark',await page.locator('.header-logo-ink').evaluate(n=>getComputedStyle(n).animationName==='none'&&getComputedStyle(n).opacity==='1'));
    await page.emulateMedia({reducedMotion:'no-preference'});
    await page.evaluate(()=>{Object.defineProperty(document,'hidden',{configurable:true,value:true});document.dispatchEvent(new Event('visibilitychange'))});
-   check(engine+' '+width+': hidden document pauses motion',await page.locator('.header-logo-reflection').evaluate(n=>getComputedStyle(n).animationPlayState==='paused'));
+   check(engine+' '+width+': hidden document pauses motion',await page.locator('.header-logo-ink').evaluate(n=>getComputedStyle(n).animationPlayState==='paused'));
    await page.evaluate(()=>{delete document.hidden;document.dispatchEvent(new Event('visibilitychange'))});
-   check(engine+' '+width+': visible document resumes motion',await page.locator('.header-logo-reflection').evaluate(n=>getComputedStyle(n).animationPlayState==='running'));
+   check(engine+' '+width+': visible document resumes motion',await page.locator('.header-logo-ink').evaluate(n=>getComputedStyle(n).animationPlayState==='running'));
    await page.evaluate(()=>{Object.defineProperty(document,'hidden',{configurable:true,value:true});document.dispatchEvent(new Event('visibilitychange'));delete document.hidden;window.dispatchEvent(new PageTransitionEvent('pageshow',{persisted:true}));});
-   check(engine+' '+width+': restored page resumes stale header pause',await page.locator('.header-logo-reflection').evaluate(n=>getComputedStyle(n).animationPlayState==='running'));
+   check(engine+' '+width+': restored page resumes stale header pause',await page.locator('.header-logo-ink').evaluate(n=>getComputedStyle(n).animationPlayState==='running'));
    await page.evaluate(()=>{document.documentElement.classList.add('header-motion-paused');window.dispatchEvent(new Event('focus'));});
-   check(engine+' '+width+': foreground focus repairs missed visibility notification',await page.locator('.header-logo-reflection').evaluate(n=>getComputedStyle(n).animationPlayState==='running'));
-   const phases=await page.locator('.header-logo').evaluate(async n=>{const reflection=n.querySelector('.header-logo-reflection'),a=reflection.getAnimations()[0],v=[];for(const time of [0,1200,2400,3600,4800]){a.pause();a.currentTime=time;await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));if(getComputedStyle(n).opacity!=='1')throw Error('Logo silhouette must remain stable');v.push(Number(getComputedStyle(reflection).opacity))}return v});
-   check(engine+' '+width+': closed reflection phases keep an ice-blue base',JSON.stringify(phases)===JSON.stringify([0,.08,.32,.08,0]));
+   check(engine+' '+width+': foreground focus repairs missed visibility notification',await page.locator('.header-logo-ink').evaluate(n=>getComputedStyle(n).animationPlayState==='running'));
+   const phases=await page.locator('.header-logo').evaluate(async n=>{const ink=n.querySelector('.header-logo-ink'),reflection=n.querySelector('.header-logo-reflection'),a=ink.getAnimations()[0],v=[];a.pause();const w=reflection.getAnimations()[0];w.pause();for(let i=0;i<=32;i++){const time=4800*i/32;a.currentTime=time;w.currentTime=time;await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));v.push({time,ink:Number(getComputedStyle(ink).opacity),reflection:Number(getComputedStyle(reflection).opacity)})}return v});
+   check(engine+' '+width+': full sine has ice zero, white positive peak and real-background negative peak',phases.every(p=>{const wave=Math.sin(p.time/4800*2*Math.PI);return Math.abs(p.ink-(1+Math.min(0,wave)))<.0001&&Math.abs(p.reflection-Math.max(0,wave))<.0001}));
+   check(engine+' '+width+': both color halves have equal duration',phases.filter(p=>p.reflection>.0001).length===phases.filter(p=>p.ink<.9999).length);
+   await page.locator('#settingsButton').click();
+   check(engine+' '+width+': touch opening does not leave a selection outline',await page.locator('#settingsDialog').evaluate(e=>[...e.querySelectorAll(':focus-visible')].every(n=>getComputedStyle(n).outlineStyle==='none')));
+   await page.locator('#settingsDialog [data-close]').click();await page.keyboard.press('Tab');await page.locator('#settingsButton').focus();
+   check(engine+' '+width+': keyboard keeps a visible focus indicator',await page.evaluate(()=>document.documentElement.classList.contains('keyboard-navigation')&&getComputedStyle(document.activeElement).outlineStyle==='solid'));
+   await page.locator('#settingsButton').click();
+   check(engine+' '+width+': pointer clears keyboard residue',await page.evaluate(()=>!document.documentElement.classList.contains('keyboard-navigation')));
+   await page.locator('#settingsDialog [data-close]').click();
    await page.screenshot({path:out+`/${engine.toLowerCase()}-${width}.png`,scale:'css'});observations.push({engine,width,initial,phases});await context.close();
   }
  }

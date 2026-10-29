@@ -835,7 +835,7 @@ $('chapterNav').addEventListener('touchend', event => {
   if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.5) moveChapter(dx < 0 ? 1 : -1);
   swipeStart = null;
 }, { passive: true });
-if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=53', { updateViaCache: 'none' }).catch(() => {});
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=54', { updateViaCache: 'none' }).catch(() => {});
 refreshInstallStatus();
 initialize().then(()=>{if(state.authenticated&&new URLSearchParams(location.search).has('balances'))balances.open();});
 
@@ -845,3 +845,9 @@ document.addEventListener('visibilitychange', updateHeaderMotion);
 window.addEventListener('pageshow', updateHeaderMotion);
 window.addEventListener('focus', updateHeaderMotion);
 updateHeaderMotion();
+
+// Pointer taps and script focus must not leave a keyboard selection frame behind.
+document.addEventListener('pointerdown', () => document.documentElement.classList.remove('keyboard-navigation'), true);
+document.addEventListener('keydown', event => {
+  if (!event.altKey && !event.ctrlKey && !event.metaKey && !['Shift', 'Control', 'Alt', 'Meta'].includes(event.key)) document.documentElement.classList.add('keyboard-navigation');
+}, true);

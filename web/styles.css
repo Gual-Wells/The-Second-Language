@@ -21,7 +21,12 @@ body { margin: 0; overflow: hidden; background: repeating-linear-gradient(0deg, 
 button, input, textarea { font: inherit; }
 button { color: inherit; cursor: pointer; touch-action: manipulation; }
 button:disabled { opacity: .46; cursor: default; }
-button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px solid #f7ad35; outline-offset: 1px; }
+/* Programmatic reader/dialog focus is semantic, not a persistent selection frame.
+   Keyboard navigation still has a visible series-blue focus indicator. */
+:focus-visible { outline: none; }
+.keyboard-navigation :focus-visible:not([tabindex="-1"]) { outline: 2px solid #4c8ec3; outline-offset: 2px; }
+input:focus, textarea:focus, select:focus { border-color: #4c8ec3; }
+
 [hidden] { display: none !important; }
 
 .app-shell { display: grid; grid-template-rows: auto auto auto minmax(0, 1fr); width: min(960px, 100%); height: 100vh; height: 100dvh; min-height: 100svh; margin: auto; padding: max(8px, var(--safe-top)) 8px max(8px, var(--safe-bottom)); border-left: 1px solid #859bb2; border-right: 1px solid #859bb2; background: var(--shell); box-shadow: 0 0 0 1px #eef4fa inset, 0 0 14px #67819c66; overflow: hidden; }
@@ -39,17 +44,21 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
 .header-identity { display: flex; flex: none; align-items: center; justify-content: flex-end; gap: 4px; }
 .header-logo-mark { display: flex; flex: none; align-items: center; justify-content: center; width: 76px; height: 38px; pointer-events: none; user-select: none; }
 .header-logo { display: block; flex: none; width: 52px; height: 52px; filter: drop-shadow(0 1px 1px #082e5870); }
-/* Closed highlight: matching segment slopes keep every join smooth, with no white hold. */
-.header-logo-reflection { opacity: 0; animation: header-reflection 4.8s linear infinite; }
-@keyframes header-reflection {
-  0% { opacity: 0; animation-timing-function: cubic-bezier(.4,0,.8,.4); }
-  25% { opacity: .08; animation-timing-function: cubic-bezier(.2,.2,.6,1); }
-  50% { opacity: .32; animation-timing-function: cubic-bezier(.4,0,.8,.8); }
-  75% { opacity: .08; animation-timing-function: cubic-bezier(.2,.6,.6,1); }
-  100% { opacity: 0; }
+/* The same registered angle drives both halves of a true sine, without a replay hold.
+   sin=0: ice blue; +1: white; -1: transparent ink reveals the real gradient. */
+@property --header-phase { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+.header-logo-ink { opacity: 1; }
+.header-logo-reflection { opacity: 0; }
+@supports (opacity: calc(sin(1rad))) {
+  .header-logo-ink, .header-logo-reflection { animation: header-cycle 4.8s linear infinite; }
+  .header-logo-ink { opacity: calc(1 + min(0, sin(var(--header-phase)))); }
+  .header-logo-reflection { opacity: max(0, sin(var(--header-phase))); }
 }
-.header-motion-paused .header-logo-reflection { animation-play-state: paused; }
-@media (prefers-reduced-motion: reduce) { .header-logo-reflection { animation: none; opacity: 0; } }
+@keyframes header-cycle { from { --header-phase: 0deg; } to { --header-phase: 360deg; } }
+.header-motion-paused .header-logo-ink, .header-motion-paused .header-logo-reflection { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) { .header-logo-ink { animation: none; --header-phase: 0deg; opacity: 1; } .header-logo-reflection { animation: none; --header-phase: 0deg; opacity: 0; } }
+
+
 .speech-stop { min-height: 38px; padding: 4px 7px; border: 1px solid #adc8e0; border-radius: 3px; background: #e1ebf5; color: #244f74; font-size: 10px; text-shadow: none; }
 .header-meta { margin: 0 0 2px; color: #dcecff; font-size: 10px; line-height: 1.1; }
 .app-header h1 { margin: 0; font-size: 20px; line-height: 1.12; letter-spacing: .035em; white-space: nowrap; }
@@ -183,7 +192,7 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
 .article.prose .story-pair { display: inline; }
 .article.prose .story-translation { display: none; }
 .article.prose.highlight-sentences .story-sentence.linked-use { border-radius: 2px; background: linear-gradient(transparent 56%, #efd77b99 56%, #efd77b99 88%, transparent 88%); -webkit-box-decoration-break: clone; box-decoration-break: clone; cursor: pointer; }
-.article.prose.highlight-sentences .story-sentence:focus-visible { outline: 2px solid #d79030; outline-offset: 2px; }
+.keyboard-navigation .article.prose.highlight-sentences .story-sentence:focus-visible { outline: 2px solid #4c8ec3; outline-offset: 2px; }
 .article.prose.show-translations .story-pair { display: block; margin-bottom: 1.05em; }
 .article.prose.show-translations .story-translation { display: block; margin: 4px 0 0; border-left: 3px solid #80a6c9; padding: 6px 9px; background: #edf4fa; color: #3c5e7b; font: 12px/1.7 ui-monospace, SFMono-Regular, Consolas, monospace; white-space: normal; }
 .app-shell.context-mode:not(.pure-reading) { grid-template-rows: auto auto minmax(0, 1fr); }
@@ -269,7 +278,8 @@ textarea.text-input { resize: vertical; }
 .calendar button.has-chapter { border-color: #abc2d7; background: linear-gradient(#fff, #e5eff9); color: #164b7e; font-weight: 700; box-shadow: 0 1px 0 #fff inset; }
 .calendar button.has-chapter::after { content: "•"; display: block; margin-top: -6px; color: #d47c16; line-height: 1; }
 .calendar button.selected { border-color: #4d7cad; background: linear-gradient(#d9ebfa, #b8d4ed); }
-.calendar button.today { outline: 1px solid #bb792d; outline-offset: -2px; }
+.calendar button.today { position: relative; }
+.calendar button.today::after { content: ""; position: absolute; bottom: 3px; left: calc(50% - 2px); width: 4px; height: 4px; border-radius: 50%; background: #4c789e; pointer-events: none; }
 .calendar + .section-band { border-right: 0; border-left: 0; }
 .chapter-list { max-height: 32dvh; overflow-y: auto; background: #fff; }
 .chapter-item { display: block; width: 100%; border: 0; border-bottom: 1px solid #d8e3ed; padding: 8px 11px; background: #fff; text-align: left; }
