@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-29",
+  "baseline": "6fc3a272155f78d8c7cc440bce883f4a126e4d30",
+  "userDecision": {
+    "logo": "Original book shape, transparent background, cut-out lines",
+    "fill": "#cfe8ff",
+    "motion": "Startup-original breathe, 1.8s ease-in-out, whole-logo opacity 1 → .55 → 1, infinite",
+    "interaction": "Decorative, no action or focus; independent cancel/stop to the left; logo remains fixed"
+  },
+  "scope": "PWA header, its speech-controller bindings and release cache identity only",
+  "shellVersion": 51,
+  "validation": {
+    "logoChecks": 41,
+    "readerUiChecks": 105,
+    "contextChecks": 49,
+    "positionChecks": {
+      "interior": 44,
+      "naturalEdges": 20,
+      "staticJumps": 3
+    },
+    "runtimeErrors": [],
+    "paidCalls": 0,
+    "physicalIPhone": false
+  },
+  "preservedAssetHashes": {
+    "web/icon.svg": "a6187d27e9c733a2470bedcefbe3947166706b06fa9c4be05a6dd577cba25b2b",
+    "web/icon-192.png": "32373b0edaab98b53f5ac5827bb2c4b4c5cdeba053d5612b2fd74f2c3b78d15b",
+    "web/icon-512.png": "92b439ae13c5170735bbe50ebd85c6896ce7a327c25dd80d37c3c17bc30189c7",
+    "web/apple-touch-icon.png": "c70473432d6a36917f4ccf256a08a3843d972c4f71bd939e4233aaaa84a840e2",
+    "web/labs/certification-reader/display-manifest.json": "d7a9b3b2e3a54065e77d404cad4643c487747ad67c6e1c6cda89d9c4ae83d5ba"
+  },
+  "deployment": "Not yet deployed; successful upload and independent live checks will be recorded separately."
+}

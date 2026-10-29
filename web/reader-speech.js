@@ -1,16 +1,14 @@
 import {cachedPronunciation,keepPronunciation,chapterIdentity} from './audio-library.js?v=50';
 import {ipaToKokoro,pronunciationKey} from './audio-plan.js?v=50';
 export function installReaderSpeech({toast,onWordJump=()=>{}}){
- const mode=document.getElementById('speechMode'),label=document.getElementById('speechModeLabel'),stopButton=document.getElementById('speechStop'),buffers=new Map();let context,current,serial=0;
- function renderMode(){mode.dataset.mode='word';label.textContent='点读';mode.removeAttribute('aria-pressed');mode.setAttribute('aria-label','点读说明');}
- renderMode();
- function stop(){serial++;if(current)try{current.stop();}catch{}current=null;stopButton.hidden=true;stopButton.textContent='停止';}
+ const stopButton=document.getElementById('speechStop'),buffers=new Map();let context,current,serial=0;
+ function stop(){serial++;if(current)try{current.stop();}catch{}current=null;stopButton.hidden=true;stopButton.textContent='停止';stopButton.setAttribute('aria-label','停止朗读');}
  function clear(){stop();buffers.clear();}
- mode.onclick=()=>toast(document.getElementById('article').dataset.audioPart==='contexts'?'点按英文语境整句朗读；标题、释义和译文不发音':'例句和范文点句朗读；例句标题返回词汇');stopButton.onclick=stop;
+ stopButton.onclick=stop;
  async function api(path,options={}){const r=await fetch(path,{credentials:'same-origin',...options});let b;try{b=await r.json();}catch{throw Error('朗读服务暂不可用');}if(!r.ok)throw Error(b.error||'发音请求未完成');return b;}
  function prepareTap(){try{context??=new(window.AudioContext||window.webkitAudioContext)({latencyHint:'playback'});context.resume().catch(()=>{});}catch{}}
  async function say(text,kind,ipa=''){
-  if(!/[A-Za-z]/.test(text))return;stop();const ticket=serial;stopButton.hidden=false;stopButton.textContent='取消';
+  if(!/[A-Za-z]/.test(text))return;stop();const ticket=serial;stopButton.hidden=false;stopButton.textContent='取消';stopButton.setAttribute('aria-label','取消声音准备');
   try{
    try{if(navigator.audioSession)navigator.audioSession.type='playback';}catch{}
    // Resume inside the original tap before awaiting any network work on iPhone.
@@ -32,7 +30,7 @@ export function installReaderSpeech({toast,onWordJump=()=>{}}){
     if(buffers.size>=30)buffers.delete(buffers.keys().next().value);buffers.set(cacheKey,audio);
    }
    if(ticket!==serial)return;
-   const source=context.createBufferSource();source.buffer=audio;source.connect(context.destination);current=source;stopButton.textContent='停止';source.onended=()=>{if(ticket===serial){current=null;stopButton.hidden=true;}};source.start();
+   const source=context.createBufferSource();source.buffer=audio;source.connect(context.destination);current=source;stopButton.textContent='停止';stopButton.setAttribute('aria-label','停止朗读');source.onended=()=>{if(ticket===serial){current=null;stopButton.hidden=true;}};source.start();
   }catch(error){if(ticket===serial){stop();toast(error.message||'朗读暂不可用');}}
  }
  document.getElementById('article').addEventListener('click',event=>{

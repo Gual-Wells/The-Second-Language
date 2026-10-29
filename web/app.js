@@ -4,7 +4,7 @@ import {installPureReader} from './pure-reader.js?v=50';
 import {chapterNumber, createChapterBook} from './chapters.js?v=41';
 import {installSettingsNavigation} from './settings.js?v=41';
 import {createAudioConfig} from './audio-config.js?v=50';
-import {installReaderSpeech} from './reader-speech.js?v=50';
+import {installReaderSpeech} from './reader-speech.js?v=51';
 import { parseParts, renderPart, updateContextTranslation } from './render.js?v=50';
 import {createContextTranslationState} from './context-translations.js?v=50';
 import { validateAnnotatedContent } from './annotations.js?v=50';
@@ -835,6 +835,11 @@ $('chapterNav').addEventListener('touchend', event => {
   if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.5) moveChapter(dx < 0 ? 1 : -1);
   swipeStart = null;
 }, { passive: true });
-if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=50', { updateViaCache: 'none' }).catch(() => {});
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=51', { updateViaCache: 'none' }).catch(() => {});
 refreshInstallStatus();
 initialize().then(()=>{if(state.authenticated&&new URLSearchParams(location.search).has('balances'))balances.open();});
+
+// Keep decorative header motion independent of speech and background work.
+const updateHeaderMotion = () => document.documentElement.classList.toggle('header-motion-paused', document.hidden);
+document.addEventListener('visibilitychange', updateHeaderMotion);
+updateHeaderMotion();
