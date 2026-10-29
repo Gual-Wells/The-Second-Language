@@ -1,0 +1,54 @@
+{
+  "sha": "87be577821287a0487f07b8da2e34323053be2de",
+  "branch": "main",
+  "immutable": "https://379ed1ea.the-second-language.pages.dev",
+  "productionMainUpdated": true,
+  "independentAPIWorkerUpdated": false,
+  "displayFiles": 92,
+  "displayBytes": 50652021,
+  "run": "D:\\CodexStorage\\workspaces\\second-language-certification-reader\\.cache\\certification-release\\87be5778-WNSIXL",
+  "verified": true,
+  "checkedAt": "2026-10-29T18:19:07.498Z",
+  "liveChecks": [
+    {
+      "base": "https://379ed1ea.the-second-language.pages.dev",
+      "file": "index.html",
+      "matched": true
+    },
+    {
+      "base": "https://379ed1ea.the-second-language.pages.dev",
+      "file": "styles.css",
+      "matched": true
+    },
+    {
+      "base": "https://379ed1ea.the-second-language.pages.dev",
+      "file": "app.js",
+      "matched": true
+    },
+    {
+      "base": "https://379ed1ea.the-second-language.pages.dev",
+      "file": "sw.js",
+      "matched": true
+    },
+    {
+      "base": "https://the-second-language.pages.dev",
+      "file": "index.html",
+      "matched": true
+    },
+    {
+      "base": "https://the-second-language.pages.dev",
+      "file": "styles.css",
+      "matched": true
+    },
+    {
+      "base": "https://the-second-language.pages.dev",
+      "file": "app.js",
+      "matched": true
+    },
+    {
+      "base": "https://the-second-language.pages.dev",
+      "file": "sw.js",
+      "matched": true
+    }
+  ]
+}
