@@ -1,0 +1,58 @@
+{
+  "verified": true,
+  "sourceCommit": "33feebc1001159354f4af6e7a9109ac8b2b78c07",
+  "checkedAt": "2026-10-29T18:59:26Z",
+  "checks": [
+    {
+      "project": "language",
+      "base": "https://4b70631e.the-second-language.pages.dev",
+      "file": "index.html",
+      "matched": true
+    },
+    {
+      "project": "language",
+      "base": "https://4b70631e.the-second-language.pages.dev",
+      "file": "styles.css",
+      "matched": true
+    },
+    {
+      "project": "language",
+      "base": "https://4b70631e.the-second-language.pages.dev",
+      "file": "app.js",
+      "matched": true
+    },
+    {
+      "project": "language",
+      "base": "https://4b70631e.the-second-language.pages.dev",
+      "file": "sw.js",
+      "matched": true
+    },
+    {
+      "project": "language",
+      "base": "https://the-second-language.pages.dev",
+      "file": "index.html",
+      "matched": true
+    },
+    {
+      "project": "language",
+      "base": "https://the-second-language.pages.dev",
+      "file": "styles.css",
+      "matched": true
+    },
+    {
+      "project": "language",
+      "base": "https://the-second-language.pages.dev",
+      "file": "app.js",
+      "matched": true
+    },
+    {
+      "project": "language",
+      "base": "https://the-second-language.pages.dev",
+      "file": "sw.js",
+      "matched": true
+    }
+  ],
+  "authBoundariesVerified": true,
+  "paidCalls": 0,
+  "physicalIPhone": false
+}
