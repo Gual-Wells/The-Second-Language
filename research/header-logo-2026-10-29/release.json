@@ -1,0 +1,96 @@
+{
+  "passed": true,
+  "verifiedAt": "2026-10-29T14:31:49.149Z",
+  "sha": "2bab60fabe8bb1bf7128fa633dd499d8e64e3d43",
+  "immutable": "https://895071a8.the-second-language.pages.dev",
+  "production": "https://the-second-language.pages.dev",
+  "static": [
+    {
+      "base": "https://895071a8.the-second-language.pages.dev",
+      "checks": [
+        {
+          "file": "index.html",
+          "status": 200,
+          "sha256": "9d3ea7ce6cbebd046ad31a939c38e392d5c1e8faf55926fed78e8a6c0570aa66"
+        },
+        {
+          "file": "styles.css",
+          "status": 200,
+          "sha256": "1e7a0ccafff4410208c0652d3da9c1715b8f749c461cde201ac07ccdec69f1af"
+        },
+        {
+          "file": "app.js",
+          "status": 200,
+          "sha256": "9fd28ba4d8a44ab2a5f42e52fb4bb6523dd2f6a30a1d893a29f63d072f73ee7e"
+        },
+        {
+          "file": "reader-speech.js",
+          "status": 200,
+          "sha256": "81c2246c5094dad5adfdd494d246cbbd1ec0f826436c9ee442df98d46e7fa7e2"
+        },
+        {
+          "file": "sw.js",
+          "status": 200,
+          "sha256": "32ea0b2f5ec2a7d7fd2509e35102b336cdaf4481685b9f3f13404dd13ca6279f"
+        },
+        {
+          "file": "icon.svg",
+          "status": 200,
+          "sha256": "a6187d27e9c733a2470bedcefbe3947166706b06fa9c4be05a6dd577cba25b2b"
+        }
+      ]
+    },
+    {
+      "base": "https://the-second-language.pages.dev",
+      "checks": [
+        {
+          "file": "index.html",
+          "status": 200,
+          "sha256": "9d3ea7ce6cbebd046ad31a939c38e392d5c1e8faf55926fed78e8a6c0570aa66"
+        },
+        {
+          "file": "styles.css",
+          "status": 200,
+          "sha256": "1e7a0ccafff4410208c0652d3da9c1715b8f749c461cde201ac07ccdec69f1af"
+        },
+        {
+          "file": "app.js",
+          "status": 200,
+          "sha256": "9fd28ba4d8a44ab2a5f42e52fb4bb6523dd2f6a30a1d893a29f63d072f73ee7e"
+        },
+        {
+          "file": "reader-speech.js",
+          "status": 200,
+          "sha256": "81c2246c5094dad5adfdd494d246cbbd1ec0f826436c9ee442df98d46e7fa7e2"
+        },
+        {
+          "file": "sw.js",
+          "status": 200,
+          "sha256": "32ea0b2f5ec2a7d7fd2509e35102b336cdaf4481685b9f3f13404dd13ca6279f"
+        },
+        {
+          "file": "icon.svg",
+          "status": 200,
+          "sha256": "a6187d27e9c733a2470bedcefbe3947166706b06fa9c4be05a6dd577cba25b2b"
+        }
+      ]
+    }
+  ],
+  "session": {
+    "status": 200,
+    "authenticated": false
+  },
+  "privateStatus": 401,
+  "paidRequests": 0,
+  "physicalIPhone": false,
+  "releaseCache": "second-language-shell-v51",
+  "newRecurringCost": 0,
+  "balanceAndStorageRefreshed": true,
+  "balanceWarning": {
+    "pool": "openrouter",
+    "remainingUSD": 3.985898686,
+    "low": true
+  },
+  "testEvidence": "research/header-logo-2026-10-29.json",
+  "scope": "Ice-blue original-breath header mark, independent cancellation/stopping, cache-safe frontend release. Existing API Worker and protected teaching/audio originals preserved."
+}
