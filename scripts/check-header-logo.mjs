@@ -61,20 +61,24 @@ try{
    check(engine+' '+width+': decorative logo has no focus/action',await page.locator('#headerLogo').evaluate(e=>e.getAttribute('aria-hidden')==='true'&&!e.matches('button,a,[tabindex]')&&!e.closest('button,a,[tabindex]')));
    const initial=await page.evaluate(()=>{const n=document.querySelector('.header-logo'),slot=document.querySelector('#headerLogo'),r=n.getBoundingClientRect(),s=slot.getBoundingClientRect();return{width:r.width,height:r.height,slotWidth:s.width,slotHeight:s.height,color:n.querySelector('rect[fill="#cfe8ff"]')?.getAttribute('fill'),duration:getComputedStyle(n.querySelector(".header-logo-reflection")).animationDuration,easing:getComputedStyle(n.querySelector(".header-logo-reflection")).animationTimingFunction,iterations:getComputedStyle(n.querySelector(".header-logo-reflection")).animationIterationCount,wholeOpacity:getComputedStyle(n).opacity,headerHeight:document.querySelector('.app-header').getBoundingClientRect().height,overflow:document.documentElement.scrollWidth>innerWidth}});
    check(engine+' '+width+': selected footprint and ice-blue fill',initial.width===52&&initial.height===52&&initial.slotWidth===76&&initial.slotHeight===38&&initial.color==='#cfe8ff');
-   check(engine+' '+width+': selected soft-reflection timing',initial.duration==='4.8s'&&initial.easing==='ease-in-out'&&initial.iterations==='infinite'&&initial.wholeOpacity==='1');
+   check(engine+' '+width+': selected soft-reflection timing',initial.duration==='4.8s'&&initial.easing==='linear'&&initial.iterations==='infinite'&&initial.wholeOpacity==='1');
    check(engine+' '+width+': original header geometry without overflow',initial.headerHeight===91&&!initial.overflow);
    const before=await page.locator('#headerLogo').boundingBox();await page.locator('#speechStop').evaluate(n=>{n.hidden=false;n.textContent='停止'});
    check(engine+' '+width+': playing keeps logo fixed',JSON.stringify(await page.locator('#headerLogo').boundingBox())===JSON.stringify(before));
    check(engine+' '+width+': playing keeps header height',await page.locator('.app-header').evaluate(n=>n.getBoundingClientRect().height)===initial.headerHeight);
    await page.locator('#speechStop').evaluate(n=>n.hidden=true);
-   await page.emulateMedia({reducedMotion:'reduce'});check(engine+' '+width+': reduced motion retains a stable mark',await page.locator('.header-logo-reflection').evaluate(n=>getComputedStyle(n).animationName==='none'&&getComputedStyle(n).opacity==='0.1'));
+   await page.emulateMedia({reducedMotion:'reduce'});check(engine+' '+width+': reduced motion retains a stable mark',await page.locator('.header-logo-reflection').evaluate(n=>getComputedStyle(n).animationName==='none'&&getComputedStyle(n).opacity==='0'));
    await page.emulateMedia({reducedMotion:'no-preference'});
    await page.evaluate(()=>{Object.defineProperty(document,'hidden',{configurable:true,value:true});document.dispatchEvent(new Event('visibilitychange'))});
    check(engine+' '+width+': hidden document pauses motion',await page.locator('.header-logo-reflection').evaluate(n=>getComputedStyle(n).animationPlayState==='paused'));
    await page.evaluate(()=>{delete document.hidden;document.dispatchEvent(new Event('visibilitychange'))});
    check(engine+' '+width+': visible document resumes motion',await page.locator('.header-logo-reflection').evaluate(n=>getComputedStyle(n).animationPlayState==='running'));
+   await page.evaluate(()=>{Object.defineProperty(document,'hidden',{configurable:true,value:true});document.dispatchEvent(new Event('visibilitychange'));delete document.hidden;window.dispatchEvent(new PageTransitionEvent('pageshow',{persisted:true}));});
+   check(engine+' '+width+': restored page resumes stale header pause',await page.locator('.header-logo-reflection').evaluate(n=>getComputedStyle(n).animationPlayState==='running'));
+   await page.evaluate(()=>{document.documentElement.classList.add('header-motion-paused');window.dispatchEvent(new Event('focus'));});
+   check(engine+' '+width+': foreground focus repairs missed visibility notification',await page.locator('.header-logo-reflection').evaluate(n=>getComputedStyle(n).animationPlayState==='running'));
    const phases=await page.locator('.header-logo').evaluate(async n=>{const reflection=n.querySelector('.header-logo-reflection'),a=reflection.getAnimations()[0],v=[];for(const time of [0,1200,2400,3600,4800]){a.pause();a.currentTime=time;await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));if(getComputedStyle(n).opacity!=='1')throw Error('Logo silhouette must remain stable');v.push(Number(getComputedStyle(reflection).opacity))}return v});
-   check(engine+' '+width+': actual reflection phases match selected demo',JSON.stringify(phases)===JSON.stringify([.02,.35,.68,.35,.02]));
+   check(engine+' '+width+': closed reflection phases keep an ice-blue base',JSON.stringify(phases)===JSON.stringify([0,.08,.32,.08,0]));
    await page.screenshot({path:out+`/${engine.toLowerCase()}-${width}.png`,scale:'css'});observations.push({engine,width,initial,phases});await context.close();
   }
  }

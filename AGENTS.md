@@ -89,3 +89,5 @@
 本轮完整纠错以 scripts/repair-chapter-content.mjs 的正式逐词内容去向、完整范文审阅及最终产物为准；此前仅第一部分的候选和中断资料只是输入材料，不再作为必须先执行的步骤。correction 工作目录中的 full-audit-input 标记不是已完成候选，不得按第一部分发布命令冒充完整修正。
 
 2026-10-18 correction 已完成七章正式内容修正并逐章发布回读；当前状态、摘要、补充用法、音频任务和验证见 `research/main-protocol-correction-2026-10-18.json`。不再以已结束的临时迁移范围判断现行内容完整性；后续正常日课仍直接执行正式协议。
+
+2026-10-30用户复看后要求连续循环：标题白反光峰值改为.32，四分点.08，首尾0；分段切线连续，不设白色停驻。pageshow和focus按真实document.hidden重新校正暂停状态，不能仅依赖visibilitychange。此项取代原演示.68峰值。

@@ -835,11 +835,13 @@ $('chapterNav').addEventListener('touchend', event => {
   if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.5) moveChapter(dx < 0 ? 1 : -1);
   swipeStart = null;
 }, { passive: true });
-if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=52', { updateViaCache: 'none' }).catch(() => {});
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=53', { updateViaCache: 'none' }).catch(() => {});
 refreshInstallStatus();
 initialize().then(()=>{if(state.authenticated&&new URLSearchParams(location.search).has('balances'))balances.open();});
 
 // Keep decorative header motion independent of speech and background work.
 const updateHeaderMotion = () => document.documentElement.classList.toggle('header-motion-paused', document.hidden);
 document.addEventListener('visibilitychange', updateHeaderMotion);
+window.addEventListener('pageshow', updateHeaderMotion);
+window.addEventListener('focus', updateHeaderMotion);
 updateHeaderMotion();
