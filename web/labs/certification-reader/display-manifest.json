@@ -18,33 +18,33 @@
     "includedInStaticFiles": false
   },
   "verificationReports": [
-    "research/scroll-sound-adoption-2026-10-23/verification.json"
+    "research/header-logo-2026-10-29/scroll-verification/verification.json"
   ],
   "files": [
     {
       "url": "/annotations.js",
-      "bytes": 8731,
-      "sha256": "c79f058a250e8126e593866a343d2aa5928f289f6bdc504ec40a8498aece1cd2"
+      "bytes": 7761,
+      "sha256": "7df8d1c0159f6c2d7a6967fa07976bd677f8b6a704176155285bbdb9c3e4feee"
     },
     {
       "url": "/app.js",
-      "bytes": 51143,
-      "sha256": "193ac5d5496441207f22f50bbc16ae7763074c7c9b766e23ae26099105dfa2c2"
+      "bytes": 55956,
+      "sha256": "9fd28ba4d8a44ab2a5f42e52fb4bb6523dd2f6a30a1d893a29f63d072f73ee7e"
     },
     {
       "url": "/audio-config.js",
-      "bytes": 5657,
-      "sha256": "b357a117ac381ed5629a8dd0e5f6e0fb56c52fb9d8b4c306b0ec69eb602e0ceb"
+      "bytes": 6428,
+      "sha256": "0c0a6252d7e61fa8bfa949c99beed34cd4317c449f93e50ff8cc387e9176e268"
     },
     {
       "url": "/audio-library.js",
       "bytes": 3317,
-      "sha256": "666e58582a073e437e4a970e0d14505204f805dd7a923b45d7b0efb704765e02"
+      "sha256": "cc725f2b57d0743c025de97f071c8e1aefdf40ae129cc84c360fb17d56e92239"
     },
     {
       "url": "/audio-plan.js",
-      "bytes": 3637,
-      "sha256": "7d8d06cff12e0ec639564dd76d4d509ca14a78434897445f521a33bfae46f411"
+      "bytes": 4980,
+      "sha256": "fe4e8b85b6be0a2cc57def09e80dd5ad33ebba4877d88aa347e49b8900cda4a9"
     },
     {
       "url": "/balances.js",
@@ -63,8 +63,8 @@
     },
     {
       "url": "/chapter-quality.js",
-      "bytes": 7859,
-      "sha256": "3de6c44fb1dd4b6ec815ce24b2971114063f665c9298fd81e9d0d9e405da79d7"
+      "bytes": 8431,
+      "sha256": "0e0ff651342ddd165325d478b5445ebcd3ae174c206ed863c05f1af065a30890"
     },
     {
       "url": "/chapter-test-recorder.js",
@@ -80,6 +80,11 @@
       "url": "/chapters.js",
       "bytes": 3824,
       "sha256": "d16d9429dda60052481cc2dd6ed5d71eccf96df98616923fd5c199fc3618f019"
+    },
+    {
+      "url": "/context-translations.js",
+      "bytes": 2443,
+      "sha256": "ceb595ccf206fd93a2a4fdd849bce86db421ad1f06ed864dea08d13a645619be"
     },
     {
       "url": "/exam-spec.js",
@@ -98,8 +103,8 @@
     },
     {
       "url": "/index.html",
-      "bytes": 31677,
-      "sha256": "c86362cd40620e6d46ee7da2f9da535f7baf8a058f3949262b05fb298b947d3b"
+      "bytes": 32536,
+      "sha256": "9d3ea7ce6cbebd046ad31a939c38e392d5c1e8faf55926fed78e8a6c0570aa66"
     },
     {
       "url": "/labs/certification-reader/AUDIO_CREDITS.md",
@@ -403,8 +408,8 @@
     },
     {
       "url": "/pure-reader.js",
-      "bytes": 6274,
-      "sha256": "5ca38c1a403bce3bfd6ea3fbcc9fee2332e551466b05eda3c7cbcb92a08e22b5"
+      "bytes": 6319,
+      "sha256": "80008bf9f1311666b166ed9fe987e1a7910c182942b4095e67d8a55332cef38e"
     },
     {
       "url": "/question-pairs.js",
@@ -414,22 +419,22 @@
     {
       "url": "/questions.js",
       "bytes": 10456,
-      "sha256": "cd2296b5f470d75222b6b83207742bd50eff0396a4ef8dc6dc723e980f031c65"
+      "sha256": "20f62d2802dea5164e722e88e84d6736bb9adf96e3fd7ebe4c68acc10948f7c3"
     },
     {
       "url": "/reader-focus.js",
-      "bytes": 3735,
-      "sha256": "a10c240fae24480fce5221e047a7ffce191081b7656715ef0669ec886a73455e"
+      "bytes": 5218,
+      "sha256": "12c5dad071a756e75bb64d72f3f7bf62830673aa81a30b17d0235d91324d124d"
     },
     {
       "url": "/reader-jump.js",
-      "bytes": 2367,
-      "sha256": "78cd4ce1b8e00b0b272bcb3f11ad5e05b17d153b99f0624e707daf977e68d118"
+      "bytes": 2658,
+      "sha256": "d228be8baa42d9ddfb7bef838c80789ddc3e5915f079239626c3a3b9d6f760fa"
     },
     {
       "url": "/reader-speech.js",
-      "bytes": 4930,
-      "sha256": "facc5ef138e3c1d0f4dddd0a028c11f9bb9c2c56a8723a38486808da33fb99dd"
+      "bytes": 4897,
+      "sha256": "81c2246c5094dad5adfdd494d246cbbd1ec0f826436c9ee442df98d46e7fa7e2"
     },
     {
       "url": "/reading.js",
@@ -443,8 +448,8 @@
     },
     {
       "url": "/render.js",
-      "bytes": 9713,
-      "sha256": "d9751bdc1581eb45b2b28742fc6ccb4841af22003f84837bc843cf37631fa1d8"
+      "bytes": 15536,
+      "sha256": "db0fd2b9eee739e96781ce8644c2c2b7881bae7e48f7046d7cb61bd64d03e022"
     },
     {
       "url": "/settings.js",
@@ -458,14 +463,24 @@
     },
     {
       "url": "/styles.css",
-      "bytes": 63006,
-      "sha256": "c637476ddc1d363f64eabfd9ba62a6c1d2de12f60ce386d0e672270493f99cdd"
+      "bytes": 65578,
+      "sha256": "1e7a0ccafff4410208c0652d3da9c1715b8f749c461cde201ac07ccdec69f1af"
+    },
+    {
+      "url": "/teaching-units.js",
+      "bytes": 2829,
+      "sha256": "4227077ba804ca4e6bf6964db8ae05ca3a5d9f8b782a75e436aceb131303e8e1"
     },
     {
       "url": "/text.js",
       "bytes": 2113,
       "sha256": "8c4f3c17e6d1f45f32bb892307cff4a4a5a08d3af76c0a1e67b355ddf7d419b8"
+    },
+    {
+      "url": "/usage-context.js",
+      "bytes": 10138,
+      "sha256": "44a5475d29af09b16c50662ea507326d38d87081209e9beb9ae325a71926e794"
     }
   ],
-  "bytes": 50618759
+  "bytes": 50651738
 }

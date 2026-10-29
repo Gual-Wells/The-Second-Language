@@ -1,0 +1,10 @@
+{
+  "error": "locator.tap: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#settingsButton')\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"button\" id=\"settingsButton\" class=\"header-button\">设置</button>\u001b[22m\n\u001b[2m  - attempting tap action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying tap action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying tap action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    54 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying tap action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n    at catalogue (D:\\CodexStorage\\workspaces\\second-language-certification-reader\\scripts\\verify-project-beginning.mjs:52:96)\n    at async file:///D:/CodexStorage/workspaces/second-language-certification-reader/scripts/verify-project-beginning.mjs:71:39",
+  "errors": [],
+  "consoleErrors": [
+    "Failed to load module script: Expected a JavaScript-or-Wasm module script but the server responded with a MIME type of \"text/plain\". Strict MIME type checking is enforced for module scripts per HTML spec."
+  ],
+  "requestFailures": [],
+  "missing": [],
+  "writes": []
+}

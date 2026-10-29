@@ -26,8 +26,40 @@
     "web/icon.svg": "a6187d27e9c733a2470bedcefbe3947166706b06fa9c4be05a6dd577cba25b2b",
     "web/icon-192.png": "32373b0edaab98b53f5ac5827bb2c4b4c5cdeba053d5612b2fd74f2c3b78d15b",
     "web/icon-512.png": "92b439ae13c5170735bbe50ebd85c6896ce7a327c25dd80d37c3c17bc30189c7",
-    "web/apple-touch-icon.png": "c70473432d6a36917f4ccf256a08a3843d972c4f71bd939e4233aaaa84a840e2",
-    "web/labs/certification-reader/display-manifest.json": "d7a9b3b2e3a54065e77d404cad4643c487747ad67c6e1c6cda89d9c4ae83d5ba"
+    "web/apple-touch-icon.png": "c70473432d6a36917f4ccf256a08a3843d972c4f71bd939e4233aaaa84a840e2"
   },
-  "deployment": "Not yet deployed; successful upload and independent live checks will be recorded separately."
+  "deployment": "Not yet deployed; successful upload and independent live checks will be recorded separately.",
+  "previousDisplayManifestSHA256": "d7a9b3b2e3a54065e77d404cad4643c487747ad67c6e1c6cda89d9c4ae83d5ba",
+  "packagingCorrection": {
+    "reason": "Previously stale shared reader closure rejected before upload; current browser evidence and original packager regenerated the manifest.",
+    "verification": "research/header-logo-2026-10-29/scroll-verification/verification.json",
+    "checks": 28,
+    "observedAssetsMatchedGit": 76,
+    "frozenWorkIdentitiesUnchanged": true,
+    "frozenLabAssetsChanged": [],
+    "sharedFilesRefreshed": [
+      "/annotations.js",
+      "/app.js",
+      "/audio-config.js",
+      "/audio-library.js",
+      "/audio-plan.js",
+      "/chapter-quality.js",
+      "/index.html",
+      "/pure-reader.js",
+      "/questions.js",
+      "/reader-focus.js",
+      "/reader-jump.js",
+      "/reader-speech.js",
+      "/render.js",
+      "/styles.css"
+    ],
+    "newFiles": [
+      "/context-translations.js",
+      "/teaching-units.js",
+      "/usage-context.js"
+    ],
+    "removedFiles": [],
+    "displayManifestSHA256": "c5c4f20ae2b353fade2fbc293135d8341eaa7f9992815f3782ec23e4ac4fc6b4",
+    "earlierFailure": "Initial verification MIME failure retained in the new report directory; no production upload had occurred."
+  }
 }
