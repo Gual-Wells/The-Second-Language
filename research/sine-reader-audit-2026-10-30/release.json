@@ -1,0 +1,89 @@
+{
+  "project": "second-language",
+  "verifiedAt": "2026-10-29T19:39:02Z",
+  "passed": true,
+  "files": [
+    {
+      "origin": "https://the-second-language.pages.dev",
+      "file": "index.html",
+      "status": 200,
+      "sha256": "bb9646e714aa58dd67de30ddc1fd4f6d52a6287878142026d329e5642d59f901",
+      "matches": true
+    },
+    {
+      "origin": "https://the-second-language.pages.dev",
+      "file": "styles.css",
+      "status": 200,
+      "sha256": "208898e891a61cef0bf1a131edc80f3ce8b098af06a27248127df433e1522234",
+      "matches": true
+    },
+    {
+      "origin": "https://the-second-language.pages.dev",
+      "file": "app.js",
+      "status": 200,
+      "sha256": "623c64c633c53e3a53c3e66aba9fbcd27a9e622b9b8cddb01b468005bb6eddf0",
+      "matches": true
+    },
+    {
+      "origin": "https://the-second-language.pages.dev",
+      "file": "sw.js",
+      "status": 200,
+      "sha256": "e840d28ee158239c40fd943732e66ad41677fa04504b8c677333b528f83f668a",
+      "matches": true
+    },
+    {
+      "origin": "https://4fc9389e.the-second-language.pages.dev",
+      "file": "index.html",
+      "status": 200,
+      "sha256": "bb9646e714aa58dd67de30ddc1fd4f6d52a6287878142026d329e5642d59f901",
+      "matches": true
+    },
+    {
+      "origin": "https://4fc9389e.the-second-language.pages.dev",
+      "file": "styles.css",
+      "status": 200,
+      "sha256": "208898e891a61cef0bf1a131edc80f3ce8b098af06a27248127df433e1522234",
+      "matches": true
+    },
+    {
+      "origin": "https://4fc9389e.the-second-language.pages.dev",
+      "file": "app.js",
+      "status": 200,
+      "sha256": "623c64c633c53e3a53c3e66aba9fbcd27a9e622b9b8cddb01b468005bb6eddf0",
+      "matches": true
+    },
+    {
+      "origin": "https://4fc9389e.the-second-language.pages.dev",
+      "file": "sw.js",
+      "status": 200,
+      "sha256": "e840d28ee158239c40fd943732e66ad41677fa04504b8c677333b528f83f668a",
+      "matches": true
+    }
+  ],
+  "anonymousBoundaries": [
+    {
+      "origin": "https://the-second-language.pages.dev",
+      "route": "/api/session",
+      "status": 200
+    },
+    {
+      "origin": "https://the-second-language.pages.dev",
+      "route": "/api/practice",
+      "status": 401
+    },
+    {
+      "origin": "https://4fc9389e.the-second-language.pages.dev",
+      "route": "/api/session",
+      "status": 200
+    },
+    {
+      "origin": "https://4fc9389e.the-second-language.pages.dev",
+      "route": "/api/practice",
+      "status": 401
+    }
+  ],
+  "physicalIPhone": false,
+  "paidCalls": 0,
+  "sourceCommit": "95a490f5926ac173b9f58ebe648c77ced5813e68",
+  "immutable": "https://4fc9389e.the-second-language.pages.dev"
+}
