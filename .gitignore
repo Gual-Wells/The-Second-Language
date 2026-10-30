@@ -18,3 +18,5 @@ work/preview-mobile*.png
 .dev.vars
 .dev.vars.*
 *.log
+
+work/questions-api/

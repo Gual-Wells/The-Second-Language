@@ -5,12 +5,14 @@ import {pendingTencentUsage,markTencentUsageReported} from './lib/tencent-quota-
 import {tencentBalance,cloudflareQuota} from './lib/account-quotas.mjs';
 import {finishTaskStorage} from './lib/storage-finish.mjs';
 import {reportStorageUsage} from './check-storage-usage.mjs';
+import {openAIQuota} from './lib/openai-quota.mjs';
 export async function checkTaskBalances(){
  try {
  const reports=await Promise.all(['cloudflare','tencent'].map(async pool=>{
   try{return pool==='cloudflare'?await cloudflareQuota():await tencentBalance(JSON.parse(await readFile(new URL('../.cache/speaking-provider.json',import.meta.url),'utf8')));}
   catch{return {pool,verified:false,remaining:null,checkedAt:new Date().toISOString()};}
  }));
+ try{reports.push(await openAIQuota(JSON.parse(await readFile(new URL('../.cache/openai-config.json',import.meta.url),'utf8'))));}catch{}
  const usage=await pendingTencentUsage();
  const {base,token}=await publisherConfig();
  let result;

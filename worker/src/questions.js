@@ -24,15 +24,19 @@ export async function questionsRoute(request,env,{isPublisher,session,sameOrigin
    // An expired worker is stopped for manual retry; never pay for an uncertain run again.
    await db.prepare("UPDATE chapter_question_jobs SET status='failed',error='处理被中断，请重试',claim=NULL WHERE status='running' AND lease_until<? AND "+projectQuestion).bind(now).run();
    if(typeof b.claim!=='string'||!/^[a-f0-9]{64}$/.test(b.claim))return json({error:'领取凭据无效'},400);
-   const candidate=await db.prepare(`SELECT j.id,m.created_at FROM chapter_question_jobs j JOIN chapter_messages m ON m.id=j.id
+   if(b.questionsOnly===true&&env.API_QUESTIONS_ENABLED!=='true')return json({error:'API答疑尚未启用'},503);
+   const questionsOnly=b.questionsOnly===true;
+   const candidate=env.API_QUESTIONS_ENABLED==='true'&&!questionsOnly?null:await db.prepare(`SELECT j.id,m.created_at FROM chapter_question_jobs j JOIN chapter_messages m ON m.id=j.id
     JOIN chapter_conversations c ON c.id=m.conversation_id JOIN formal_chapter_sources s ON s.digest=c.chapter_digest AND s.policy='current-affairs-v1'
     WHERE j.status='pending' AND NOT EXISTS(SELECT 1 FROM chapter_messages earlier JOIN chapter_question_jobs ej ON ej.id=earlier.id
      WHERE earlier.conversation_id=m.conversation_id AND earlier.seq<m.seq AND ej.status IN ('pending','running','failed'))
     ORDER BY m.seq LIMIT 1`).first();
+   if(!questionsOnly){
    await db.prepare("UPDATE chapter_tests SET status='failed',claim=NULL,error='出题被中断，可重新处理',updated_at=? WHERE status='running' AND lease_until<? AND EXISTS(SELECT 1 FROM formal_chapter_sources s WHERE s.digest=chapter_tests.chapter_digest AND s.policy='current-affairs-v1')").bind(now,now).run();
    const regular=await chapterTestQueueTime(env),temporary=await temporaryTestQueueTime(env),test=temporary&&(!regular||temporary.created_at<regular.created_at)?{...temporary,temporary:true}:regular;
-   if(test&&(!candidate||test.created_at<candidate.created_at))return json({job:test.temporary?await claimTemporaryTest(env,b.claim):await claimChapterTest(env,b.claim)});
-   if(!candidate){if(await qualityQueueTime(env))return json({job:await claimQuality(env,b.claim)});return json({job:null});}
+   if(!questionsOnly&&test&&(!candidate||test.created_at<candidate.created_at))return json({job:test.temporary?await claimTemporaryTest(env,b.claim):await claimChapterTest(env,b.claim)});
+   }
+   if(!candidate){if(!questionsOnly&&await qualityQueueTime(env))return json({job:await claimQuality(env,b.claim)});return json({job:null});}
    if(typeof b.claim!=='string'||b.claim.length!==64)return json({error:'领取凭据无效'},400);
    const row=await db.prepare("UPDATE chapter_question_jobs SET status='running',claim=?,lease_until=?,attempts=attempts+1,updated_at=? WHERE id=? AND status='pending' RETURNING id").bind(await sha(b.claim),now+300000,now,candidate.id).first();
    if(!row)return json({job:null});
@@ -54,7 +58,7 @@ export async function questionsRoute(request,env,{isPublisher,session,sameOrigin
    if(!chapter||!await isCurrentAffairsRevision(db,chapter.chapter_id,chapter.chapter_digest))return json({error:'旧章答疑已封存，仅可读取历史记录'},409);
    if(job.status!=='running'||job.claim!==await sha(String(b.claim||''))||job.lease_until<now)return json({error:'处理权已失效'},409);
    if(match[2]==='heartbeat') {await db.prepare('UPDATE chapter_question_jobs SET lease_until=? WHERE id=? AND claim=?').bind(now+300000,job.id,job.claim).run();return json({ok:true});}
-   if(match[2]==='fail') {await db.prepare("UPDATE chapter_question_jobs SET status='failed',error='处理暂未完成，请稍后重试',claim=NULL,updated_at=? WHERE id=? AND claim=?").bind(now,job.id,job.claim).run();return json({ok:true});}
+   if(match[2]==='fail') {await db.prepare("UPDATE chapter_question_jobs SET status='failed',error=?,claim=NULL,updated_at=? WHERE id=? AND claim=?").bind(b.outcomeUnknown===true?'API结果待核对，暂不重复生成':'处理暂未完成，请稍后重试',now,job.id,job.claim).run();return json({ok:true});}
    if(typeof b.answer!=='string'||!b.answer.trim()||b.answer.length>100000)return json({error:'回答无效'},400);
    const replyId=crypto.randomUUID();
    await db.batch([

@@ -6,7 +6,7 @@ const empty=pool=>({pool,verified:false,remaining:null,checkedAt:null,note:'尚�
 export async function balanceView(env){
  const {results}=await env.DB.prepare('SELECT pool,snapshot_json FROM service_balances').all();
  const data=new Map(results.map(r=>[r.pool,JSON.parse(r.snapshot_json)]));
- const pools=['openrouter','cloudflare','tencent'].map(pool=>{
+ const pools=['openrouter','cloudflare','tencent','openai'].map(pool=>{
   const p=data.get(pool)||empty(pool);
   const stale=!p.checkedAt||Date.now()-Date.parse(p.estimated?p.checkedAt:p.quotaCheckedAt||p.checkedAt)>24*3600000||(pool==='cloudflare'&&p.period!==new Date().toISOString().slice(0,10));
   return {...p,stale,low:!stale&&(p.verified||p.estimated)&&p.low===true};
@@ -37,6 +37,14 @@ async function recordUsage(env,usage){
 export async function checkBalances(env,{reports=[],usage=[],notify=false}={}){
  await recordUsage(env,usage);
  for(const input of reports){
+  if(input.pool==='openai'){
+   if(typeof input.verified!=='boolean'||(input.verified&&(!Number.isFinite(input.remaining)||input.remaining<0||input.remaining>1000000)))throw Error('OpenAI额度记录无效');
+   if(input.issuedAmount!==null&&(!Number.isFinite(input.issuedAmount)||input.issuedAmount<0||input.issuedAmount>1000000))throw Error('OpenAI发放记录无效');
+   if(input.expiresOn!==null&&!/^\d{4}-\d{2}-\d{2}$/.test(input.expiresOn||''))throw Error('OpenAI到期记录无效');
+   const usage=input.usage;if(!usage||['inputTokens','outputTokens','cachedInputTokens','responses'].some(k=>!Number.isSafeInteger(usage[k])||usage[k]<0))throw Error('OpenAI用量记录无效');
+   const oldRow=await env.DB.prepare('SELECT snapshot_json FROM service_balances WHERE pool=?').bind('openai').first(),old=oldRow?JSON.parse(oldRow.snapshot_json):{};
+   await store(env,{pool:'openai',unit:'USD',verified:input.verified,remaining:input.verified?input.remaining:null,lastKnownRemaining:input.verified?input.remaining:old.verified?old.remaining:old.lastKnownRemaining??null,issuedAmount:input.issuedAmount??old.issuedAmount??null,expiresOn:input.expiresOn||old.expiresOn||null,creditCheckedAt:input.creditCheckedAt||old.creditCheckedAt||null,checkedAt:input.checkedAt,usage,low:false,note:'第二系列共用 API · 问答与日程识别；剩余额度独立核实'},false);continue;
+  }
   if(!['cloudflare','tencent'].includes(input.pool)||typeof input.verified!=='boolean')throw Error('额度报告无效');
   if(input.verified&&(!Number.isFinite(input.remaining)||input.remaining<0))throw Error('额度数值无效');
   const cf=input.pool==='cloudflare';let remaining=input.verified?input.remaining:null;
@@ -81,7 +89,7 @@ export async function balanceRoute(request,env,{isPublisher,session,sameOrigin})
  if(!isPublisher)return json({error:'发布身份无效'},401);
  let body={};if(path==='/api/balances/report'){
   const raw=await request.text();if(raw.length>16000)return json({error:'报告过大'},400);
-  try{body=JSON.parse(raw);if(!Array.isArray(body.reports)||body.reports.length>2)throw Error();}catch{return json({error:'报告无效'},400);}
+  try{body=JSON.parse(raw);if(!Array.isArray(body.reports)||body.reports.length>3)throw Error();}catch{return json({error:'报告无效'},400);}
  }
  try{return json(await checkBalances(env,{reports:body.reports||[],usage:body.usage||[],notify:path==='/api/balances/report'}));}catch(e){return json({error:e.message},400);}
 }

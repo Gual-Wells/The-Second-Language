@@ -17,7 +17,10 @@ assert.equal((await request('',input)).status,201);assert.equal((await request('
 assert.equal((await request('',{...input,question:'不同的问题'})).status,409);
 await request('',{...input,id:second,question:'再解释搭配'});
 const publisher={isPublisher:true},claim='f'.repeat(64);
-const one=(await request('/jobs/claim',{claim},publisher)).data.job;assert.equal(one.id,first);assert.equal(one.chapter.markdown,'The original full chapter.');
+env.API_QUESTIONS_ENABLED='true';
+assert.equal((await request('/jobs/claim',{claim},publisher)).data.job,null,'Legacy shared runner leaves questions to API service');
+const one=(await request('/jobs/claim',{claim,questionsOnly:true},publisher)).data.job;
+delete env.API_QUESTIONS_ENABLED;assert.equal(one.id,first);assert.equal(one.chapter.markdown,'The original full chapter.');
 assert.equal((await request('/jobs/claim',{claim},publisher)).data.job,null);
 assert.equal((await request(`/jobs/${first}/complete`,{claim:'x',answer:'错误'},publisher)).status,409);
 await request(`/jobs/${first}/complete`,{claim,answer:'第一条解释'},publisher);

@@ -9,14 +9,18 @@ export function createBalanceUI({api,showDialog}){
    for(const p of result.pools){
     const card=document.createElement('section');card.className='balance-card';
     const heading=document.createElement('div');heading.className='balance-heading';
-    const name=document.createElement('strong');name.textContent={openrouter:'OpenRouter',cloudflare:'Whisper · 每日免费额度',tencent:'腾讯云 · 口语专项'}[p.pool];
+    const name=document.createElement('strong');name.textContent={openrouter:'OpenRouter',cloudflare:'Whisper · 每日免费额度',tencent:'腾讯云 · 口语专项',openai:'OpenAI · 共用 API'}[p.pool];
     const amount=document.createElement('span');amount.className='balance-amount';amount.textContent=money(p);heading.append(name,amount);
     const note=document.createElement('p');note.textContent=p.note;
     const time=document.createElement('small');time.textContent=`${p.estimated?'更新':'核对'}：${date(p.checkedAt)}${p.stale?' · 旧记录':''}`;
     card.append(heading,note,time);
+    if(p.pool==='openai'){
+     if(Number.isFinite(p.issuedAmount)){const issued=document.createElement('small');issued.textContent=`已登记发放：$${p.issuedAmount.toFixed(2)}`;card.append(issued);}
+     if(p.usage?.responses){const usage=document.createElement('small');usage.textContent=`已记录 ${p.usage.responses} 次响应 · 输入 ${p.usage.inputTokens.toLocaleString()} / 输出 ${p.usage.outputTokens.toLocaleString()} tokens`;card.append(usage);}
+    }
     if(Number.isFinite(p.cashBalanceCny)){const cash=document.createElement('small');cash.textContent=`现金余额（补充）：¥${p.cashBalanceCny.toFixed(2)}`;card.append(cash);}
     if(p.uncertainCalls){const pending=document.createElement('small');pending.textContent=`${p.uncertainCalls} 次调用待核对`;card.append(pending);}
-    if(p.expiresOn){const expiry=document.createElement('small');expiry.textContent=`套餐有效至 ${p.expiresOn}`;card.append(expiry);}
+    if(p.expiresOn){const expiry=document.createElement('small');expiry.textContent=`${p.pool==='openai'?'发放额度':'套餐'}有效至 ${p.expiresOn}`;card.append(expiry);}
     if(p.expiresAt){const expiry=document.createElement('small');expiry.textContent=`套餐到期：${date(p.expiresAt)}`;card.append(expiry);}
     if(p.refreshAt){const reset=document.createElement('small');reset.textContent=`刷新：${date(p.refreshAt)}`;card.append(reset);}
     if(p.low){const warning=document.createElement('p');warning.className='balance-warning';warning.textContent=p.warning;card.append(warning);}
