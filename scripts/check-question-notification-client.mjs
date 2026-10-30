@@ -6,7 +6,7 @@ const {chromium}=createRequire(process.execPath)('playwright'),out='.cache/quest
 const origin='https://the-second-language.pages.dev',meta=JSON.parse(await readFile('chapters/demo/index.json','utf8')).chapters[0],markdown=await readFile('chapters/demo/chapter.md','utf8');
 const chapter={...meta,id:meta.date,markdown,digest:createHash('sha256').update(markdown).digest('hex')},historicalDigest='b'.repeat(64),questionId='00000000-0000-4000-8000-000000000010';
 const endpoint='https://fixture.push.apple.com/device-current',deviceId=createHash('sha256').update(endpoint).digest('hex'),publicKey=Buffer.concat([Buffer.from([4]),Buffer.alloc(64,1)]).toString('base64url');
-let registered=false;const calls=[],errors=[],checks=[];const check=(name,value)=>{assert.ok(value,name);checks.push(name);};
+let registered=false,historyUnread=0;const currentMessages=[];const calls=[],errors=[],checks=[];const check=(name,value)=>{assert.ok(value,name);checks.push(name);};
 const browser=await chromium.launch({headless:true,executablePath:process.env.BROWSER_EXECUTABLE||'C:/Users/huawei/AppData/Local/ms-playwright/chromium-1223/chrome-win64/chrome.exe'});
 const context=await browser.newContext({viewport:{width:402,height:874},deviceScaleFactor:1,isMobile:true,hasTouch:true,serviceWorkers:'block',userAgent:'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile Safari/604.1'});
 await context.addInitScript(({endpoint})=>{
@@ -28,8 +28,12 @@ await page.route('**/*',async route=>{
   else if(p.startsWith('/api/chapters/'))body=chapter;
   else if(p==='/api/settings')body={goal:'',restRequested:true,temporaryRequested:false};
   else if(p==='/api/temporary')body={pages:[]};
-  else if(p==='/api/questions/summary')body={threads:[{chapterId:'historical-chapter',digest:historicalDigest,title:'固定历史会话',unread:0}]};
-  else if(p==='/api/questions/open')body={chapterId:bodyValue.chapterId,digest:bodyValue.digest,threadId:'history',readOnly:true,focusQuestionId:bodyValue.questionId,threads:[{chapterId:bodyValue.chapterId,digest:bodyValue.digest,title:'固定历史会话',unread:1}],messages:[{id:questionId,seq:1,role:'user',content:'已封存版本的问题',status:'answered'},{id:'history-answer',seq:2,role:'assistant',replyTo:questionId,content:'完整保留的历史回答。'}]};
+  else if(p==='/api/questions/summary')body={threads:[{chapterId:'historical-chapter',digest:historicalDigest,title:'固定历史会话',unread:historyUnread}]};
+  else if(p==='/api/questions/open'){
+   const historical=bodyValue.chapterId==='historical-chapter'||(!bodyValue.questionId&&historyUnread>0),chapterId=historical?'historical-chapter':bodyValue.chapterId,digest=historical?historicalDigest:bodyValue.digest;
+   body={chapterId,digest,threadId:historical?'history':'current',readOnly:historical,focusQuestionId:bodyValue.questionId,threads:[{chapterId:'historical-chapter',digest:historicalDigest,title:'固定历史会话',unread:historyUnread,firstUnreadQuestionId:historyUnread?questionId:null}],messages:historical?[{id:questionId,seq:1,role:'user',content:'已封存版本的问题',status:'answered'},{id:'history-answer',seq:2,role:'assistant',replyTo:questionId,content:'完整保留的历史回答。'}]:currentMessages};historyUnread=0;
+  }
+  else if(p==='/api/questions')body={threadId:'current',readOnly:false,messages:currentMessages};
   else if(p==='/api/push/status')body={configured:true,deviceCount:registered?1:0,deviceIds:registered?[deviceId]:[]};
   else if(p==='/api/push/public-key')body={publicKey};
   else if(p==='/api/push/register'){registered=true;body={ok:true};}
@@ -52,6 +56,22 @@ try{
  check('confirmed status includes new chapter and replies',await page.locator('#pushStatus').textContent()==='这台设备已开启新章与答疑提醒。');
  await page.screenshot({path:out+'/reminders-confirmed-402x874.png'});
  await page.locator('#disablePushButton').click();await page.waitForFunction(()=>!document.getElementById('pushButton').hidden);check('disable removes both browser and server subscription',!registered&&await page.locator('#disablePushButton').isHidden());
+ await page.locator('[data-close="settingsDialog"]').click();
+ const boot=await page.evaluate(()=>performance.timeOrigin),catalogueRequests=calls.filter(c=>c.path==='/api/chapters').length;
+ currentMessages.push({id:'current-question',seq:1,role:'user',content:'保持打开的问题',status:'pending'});
+ await page.locator('#questionsButton').click();await page.waitForFunction(()=>!document.getElementById('questionChapter').disabled);
+ check('in-app entry opens directly in the already running reader',await page.locator('#questionsDialog').evaluate(e=>e.open)&&await page.evaluate(()=>performance.timeOrigin)===boot);
+ await page.locator('#questionText').fill('下一问仍保留');
+ currentMessages[0].status='answered';currentMessages.push({id:'current-answer',seq:2,role:'assistant',replyTo:'current-question',content:'保持打开时抵达的新回答。'});
+ await page.evaluate(()=>document.dispatchEvent(new Event('visibilitychange')));
+ await page.waitForFunction(()=>document.getElementById('questionMessages').textContent.includes('保持打开时抵达的新回答。'));
+ check('reply arriving while questions stay open appears without reopening',await page.locator('#questionText').inputValue()==='下一问仍保留'&&await page.evaluate(()=>performance.timeOrigin)===boot);
+ await page.locator('[data-close="questionsDialog"]').click();
+ historyUnread=1;await page.evaluate(()=>document.dispatchEvent(new Event('visibilitychange')));await page.locator('#questionDot').waitFor({state:'visible'});
+ await page.locator('#questionsButton').click();await page.waitForFunction(()=>!document.getElementById('questionChapter').disabled);
+ check('live unread dot opens its other-chapter reply on the first click',(await page.locator('#questionChapter').inputValue())===`historical-chapter@${historicalDigest}`&&await page.locator('#questionMessages').innerText().then(s=>s.includes('完整保留的历史回答。')));
+ check('in-app unread navigation does not rerun startup or refetch the catalogue',await page.evaluate(()=>performance.timeOrigin)===boot&&calls.filter(c=>c.path==='/api/chapters').length===catalogueRequests);
+ await page.locator('[data-close="questionsDialog"]').click();
  calls.length=0;
  await page.goto(`${origin}/?questions=${questionId}&chapter=historical-chapter&digest=${historicalDigest}`);await page.locator('#questionsDialog[open]').waitFor();await page.waitForFunction(()=>!document.getElementById('questionChapter').disabled);
  check('startup notification opens the exact historical conversation',(await page.locator('#questionChapter').inputValue())===`historical-chapter@${historicalDigest}`);
