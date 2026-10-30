@@ -11,7 +11,7 @@ configureAPIProxy(config);await loadOpenAIKey(config);
 const {base,token}=await publisherConfig();
 async function call(route,body){const r=await fetch(new URL('/api/questions/jobs'+route,base),{method:'POST',headers:{authorization:'Bearer '+token,'content-type':'application/json'},body:JSON.stringify(body),signal:AbortSignal.timeout(120000)});const value=await r.json();if(!r.ok)throw Error(value.error||'答疑服务暂不可用');return value;}
 const claim=randomBytes(32).toString('hex'),{job}=await call('/claim',{claim,questionsOnly:true});
-if(!job)process.exit(0);
+if(job){
 const directory=path.join(root,'work/questions-api',job.id);await mkdir(directory,{recursive:true});
 await writeFile(path.join(directory,'request.json'),JSON.stringify(job,null,2));
 let heartbeatError;
@@ -37,3 +37,5 @@ try{
  await call('/'+job.id+'/complete',{claim,answer});console.log('API章节答疑已回推 '+job.id);
 }catch(error){await call('/'+job.id+'/fail',{claim,outcomeUnknown:error.outcomeUnknown===true}).catch(()=>{});console.error(error.message);process.exitCode=1;}
 finally{clearInterval(timer);await finishTaskBalances();}
+
+}
