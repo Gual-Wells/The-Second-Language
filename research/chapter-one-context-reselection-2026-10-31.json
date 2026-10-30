@@ -1,7 +1,7 @@
 {
   "version": 1,
   "preparedAt": "2026-10-30T19:22:01.923Z",
-  "status": "ready-for-publication",
+  "status": "published-and-read-back",
   "date": "2026-10-24",
   "number": "第 1 章",
   "title": "运动、材料与人的生活",
@@ -144,7 +144,145 @@
         320
       ],
       "physicalIPhone": false,
-      "record": ".cache/chapter-one-context-reselection-20261031/real-reader/verification.json"
+      "record": ".cache/chapter-one-context-reselection-20261031/real-reader/verification.json",
+      "verifiedRecord": {
+        "passed": true,
+        "chapterDigest": "11a04f15f43d130d0408332f7a5db9ac96b0c6452d9192bbefffb19690f133ba",
+        "words": 50,
+        "uses": 685,
+        "contexts": 732,
+        "sentences": 807,
+        "renderedTranslationButtons": 734,
+        "checkCount": 34,
+        "checks": [
+          "one complete fused explanation per actual use",
+          "no short-gloss or source/type/prompt layers",
+          "all685 actual uses parse",
+          "each of685 actual uses has one inline quick gloss",
+          "all685 quick glosses are nonempty and after final POS in their heading",
+          "every actual use has a POS heading",
+          "50 real headwords render",
+          "single stream hides old section navigation",
+          "all local selected contexts render",
+          "all732 unique context identities render",
+          "all807 unique English sentence identities render",
+          "translations default masked",
+          "no horizontal overflow at iPhone width",
+          "all rendered content blocks have no horizontal overflow at402px",
+          "example flows directly after explanation with6–8px gap",
+          "no line or inset separates explanation from example",
+          "translation controls retain44px touch minimum",
+          "real translation reveals",
+          "revealed translation keeps its masked height",
+          "real translation hides again",
+          "hidden translation restores same height",
+          "all rendered translation buttons reveal at402",
+          "all rendered translations retain equal height when shown at402",
+          "all translation buttons hide again at402",
+          "all rendered translations retain equal height when hidden at402",
+          "real chapter fits narrow320px",
+          "all rendered content blocks have no horizontal overflow at320px",
+          "all rendered translation buttons reveal at320",
+          "all rendered translations retain equal height when shown at320",
+          "all translation buttons hide again at320",
+          "all rendered translations retain equal height when hidden at320",
+          "no page errors",
+          "no attempted paid or question request",
+          "no attempted external requests"
+        ],
+        "overflowByWidth": [
+          {
+            "width": 402,
+            "offenders": []
+          },
+          {
+            "width": 320,
+            "offenders": []
+          }
+        ],
+        "errors": [],
+        "apiRequests": [
+          {
+            "path": "/api/session",
+            "method": "GET"
+          },
+          {
+            "path": "/api/chapters",
+            "method": "GET"
+          },
+          {
+            "path": "/api/temporary",
+            "method": "GET"
+          },
+          {
+            "path": "/api/settings",
+            "method": "GET"
+          },
+          {
+            "path": "/api/chapters/2026-10-24",
+            "method": "GET"
+          },
+          {
+            "path": "/api/progress/2026-10-24",
+            "method": "GET"
+          },
+          {
+            "path": "/api/questions/summary",
+            "method": "GET"
+          },
+          {
+            "path": "/api/storage/chapters/2026-10-24",
+            "method": "GET"
+          }
+        ],
+        "externalAttempts": [],
+        "capability": "chapter-quality-v4-presentation",
+        "platform": "Playwright desktop Chromium headless with mobile viewport/touch emulation; isolated local routes, service workers blocked",
+        "browserVersion": "148.0.7778.96",
+        "physicalIPhone": false,
+        "paidCalls": 0,
+        "liveRequests": 0
+      },
+      "visualReview": {
+        "chapterDigest": "11a04f15f43d130d0408332f7a5db9ac96b0c6452d9192bbefffb19690f133ba",
+        "method": "Actually opened all seven saved PNG files with view_image after the final successful isolated reader run.",
+        "screenshots": [
+          {
+            "path": "first.png",
+            "observed": "402px opening, first headword, etymology, inline POS/quick gloss and complete explanation flow naturally into the authentic context. No extra source/type/prompt layer is visible."
+          },
+          {
+            "path": "use-masked.png",
+            "observed": "402px first actual use, full English context and reserved masked translation block remain readable in a single stream; next use follows without an added instruction layer."
+          },
+          {
+            "path": "use-revealed.png",
+            "observed": "The same translation block shows the whole Chinese translation without pushing the following use downward; geometry was independently checked for all rendered translations."
+          },
+          {
+            "path": "multi-form.png",
+            "observed": "U01210 displays the three forms with their own IPA/POS, one shared quick gloss after the final POS, the full explanation, and distinct energy/mass/momentum contexts. The long heading wraps within the column."
+          },
+          {
+            "path": "medium.png",
+            "observed": "The middle headword medium and its first uses retain clear hierarchy, word forms, POS, quick gloss, full explanation, English and masked Chinese blocks."
+          },
+          {
+            "path": "yield.png",
+            "observed": "The final headword yield is present with complete first-use content, two independent selected examples and masked translations; the following use begins below it."
+          },
+          {
+            "path": "narrow.png",
+            "observed": "320px first-use heading, mixed Chinese/English full explanation, long authentic English paragraph and taller masked translation all wrap within the available column without horizontal clipping."
+          }
+        ],
+        "blockingVisualFindings": [],
+        "automatedChecks": 34,
+        "renderedTranslationButtons": 734,
+        "platform": "Playwright Chromium148.0.7778.96 on Windows, headless, mobile viewport and touch emulation at402x874 and320x874; service workers blocked. Real local web source and assembled chapter were served through intercepted routes; capability fixture is chapter-quality-v4-presentation.",
+        "boundaries": "This is local browser rendering QA, not physical iPhone/Safari/WebKit testing, online deployment verification, or paid audio/question/quality execution. The screenshots test article layout; scroll-progress tracking and unrelated application features were not accepted by this task.",
+        "network": "All application requests intercepted locally; eight GET API requests, zero POST or external attempts, zero live/paid calls. No product UI changed or deployed."
+      }
     }
   },
   "cost": {
@@ -157,5 +295,27 @@
     "A complete production/review pass is not a learner mastery result or a formal chapter-quality certification.",
     "Browser acceptance is Chromium touch emulation plus actual screenshots, not physical iPhone Safari.",
     "Identical text remains eligible for the existing permanent Bella cache; clip availability is not inferred from text identity."
-  ]
+  ],
+  "protocolCommit": "79d74c69173d9660a6911ffd6645970ab5404b3f",
+  "liveVerification": {
+    "verifiedAt": "2026-10-30T19:25:47.911Z",
+    "passed": true,
+    "number": "第 1 章",
+    "chapterDigest": "11a04f15f43d130d0408332f7a5db9ac96b0c6452d9192bbefffb19690f133ba",
+    "sourceDigest": "e0702af015ac308307644a53275e200301c7205181a11ef57236746fc4f27595",
+    "evidenceDigest": "347805df901c18793957014751a7e1c47dc35f88d858412fd08e754571e926ef",
+    "sourceOriginals": 110,
+    "evidenceObjectsUploadedAndHashReadBackByPublisher": 5,
+    "totalEvidenceBytes": 26473874,
+    "manifestIndependentHashReadBack": true,
+    "historicalDigest": "99ee6268e2bb274f7a9480e97a11734818d3c003c981de9d7c02fbaa851ea0ec",
+    "historicalBodyAndSourceUnchanged": true,
+    "formalChapterCount": 1,
+    "anonymousEvidenceStatus": 401,
+    "restRequested": true,
+    "nextAudio": [],
+    "newPaidModelApiCalls": 0,
+    "newTtsCalls": 0,
+    "archiveQueued": true
+  }
 }
