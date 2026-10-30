@@ -1,0 +1,25 @@
+{
+  "sourceCommit": "0881ce8552be2f5ac4ccf9da873ee034d7890a64",
+  "immutable": "https://4a0cca18.the-second-language.pages.dev",
+  "workerVersion": "87842320-c066-4efa-a45a-dfd4155224e7",
+  "shell": "v58",
+  "verifiedAt": "2026-10-30T10:24:09.744Z",
+  "chapters": [
+    {
+      "id": "2026-10-24",
+      "digest": "4cc6a2f9edee37555418c365c1da29033b43c1f6854a3ac2dddf2aa9e03f7a78"
+    }
+  ],
+  "restRequested": true,
+  "nextAudio": [],
+  "oldClientCapability": {
+    "policy": "chapter-quality-v2-contexts",
+    "executionPolicy": "chapter-quality-v3-evidence"
+  },
+  "newClientCapability": {
+    "policy": "chapter-quality-v3-evidence",
+    "executionPolicy": "chapter-quality-v3-evidence"
+  },
+  "paidModelCalls": 0,
+  "contentTasksStarted": 0
+}
