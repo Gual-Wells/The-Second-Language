@@ -40,6 +40,19 @@ vixMarkLabel为真实YY-MM-DD，由studyDate.slice(2)取得。冻结后prepare-v
 
 ## 审阅、装配、发布
 
+本轮及后续生产沿以下职责衔接，不另立一份正文权威，也不把可自动检查的结构等同于教学或视觉验收：
+
+| 阶段 | 现行依据与交付边界 |
+| --- | --- |
+| 研究与采用 | RECOMMENDATION、CURRENT_AFFAIRS及AUTHENTIC_CONTEXT：读完整教材与实际源段，确认全义、真实用法和采用条件；不为短快释、排版或取材便利缩小范围。 |
+| 逐义写作 | CONTENT、USAGE_LABELS及TEACHING_AUTHORING：词形／美式音标／实际词性／逐USE快释，语境前一次完整融合解释；来源身份留在既有证据，不画正文附层。快释需实际语义编写，不能机械截取解释。 |
+| 确定性装配 | ANNOTATIONS及版本化作者合同：从唯一作者稿生成同源正文和语境来源，核标题、身份、引用、译文、材料与摘要绑定；只验证工具能够证明的结构。 |
+| 内容审阅 | QUALITY_WORKFLOW、QUALITY_SCALE及CHAPTER_QUALITY：回完整原件核全义、独有信息和语境事实，再通读装配后的词条与全章；发现错义、解释重复／例后补讲或英中偏差就定点修正，不能以字段通过签发语义质量。 |
+| 移动阅读验收 | READER_INTERACTION及web/DESIGN.md：实际查看完整章节与复杂用法，检查紧凑间距、无例前分隔线、平静遮罩、显隐等高、复制／无障碍、点句／长按／双击和纯净模式；普通与纯净阅读均不得破坏正文。iPhone目标的窄屏仿真与实体机体验分别记录，不把结构计数或仿真冒称用户认可。 |
+| 能力先行 | 新标题或显示合同发布前，先交付并核实兼容读取能力，再切换正文；快释标题按READER_INTERACTION的能力3合同隔离旧客户端与缓存。旧正文保原读路，不为省事改写历史。 |
+| 封存与发布回读 | 沿既有来源／正文／证据封存、stage和commit通路，核实际线上正文与永久原件摘要、正式指针和读取边界；上传成功不能代替永久回读。 |
+| 冻结与恢复 | 原输入、selection、VIX与已成功资产续用；先核当前正式身份再修订，不从旧研究报告恢复过时版本。旧合同原件、答疑／试卷／认证与收费结果继续各自绑定，不借协议更新重选、重标或重合成。 |
+
 按QUALITY_WORKFLOW实际审阅教材全义及原例去向、每份所选目标义/句法语域、来源事实与原话语功能、多份的独立增量、英文自然度与整块译文。必要定点返修、重择候选；不把结构/字段通过当语义或学习收益证明，不重复整章竞赛、不设逐义字数或共享率目标。
 
 assemble-teaching输出同源chapter.md及context-sources.json，采用前实际审阅，正式正文须逐字匹配作者稿装配。meta保留contentPolicy:etymology-fused-v1和sourcePolicy:current-affairs-v1，设置authoringPolicy:authentic-context-v1。source-notes采用contexts数组和实际读件/关键事实/边界，逐采用来源核对用途。

@@ -25,6 +25,8 @@ additional如`{"compensate":["compensatory"]}`只表示补查意图，不自动�
 
 每词权威文件仍为`teaching/authored/word-W001.json`，新稿不含partTwo，不以articles.json为权威。新输入锁固定teachingLayoutVersion:2，逐词稿写layoutVersion:2；新增输入锁及逐词稿另写quickGlossVersion:1，要求每USE的词性后快释；旧锁／固定私有证据无该字段仍按原合同可读，不回填。形状示意：
 
+经用户明确授权修订旧冻结章时，可在本次meta显式声明teachingLayoutVersion:2／quickGlossVersion:1，装配和发布同样核对每词作者稿及封存证据，不允许因旧输入锁没有字段而绕过已声明的新合同；声明之间冲突应失败，不能改旧锁消除冲突。历史原件仍按自身合同恢复。各阶段职责及实际移动阅读验收见DAILY_RUN的映射表。
+
 ```json
 {
   "wordId":"W001", "text":"adapt", "materialDigest":"真实材料摘要", "layoutVersion":2, "quickGlossVersion":1,

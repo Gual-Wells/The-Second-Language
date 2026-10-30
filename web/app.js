@@ -1,4 +1,5 @@
-import {createChapterQualityUI} from './chapter-quality.js?v=58';
+import {READER_LAYOUT_CAPABILITY} from './reader-capability.js?v=62';
+import {createChapterQualityUI} from './chapter-quality.js?v=62';
 import {createReaderJump} from './reader-jump.js?v=50';
 import {installPureReader} from './pure-reader.js?v=61';
 import {chapterNumber, createChapterBook} from './chapters.js?v=41';
@@ -420,7 +421,7 @@ async function openChapter(id, resume = true, digest = null) {
   saveReadingPosition();
   setSyncStatus(navigator.onLine ? '正在打开章节…' : '正在读取离线章节', !navigator.onLine);
   try {
-    const chapter = await api(`/api/chapters/${encodeURIComponent(id)}${digest ? `?digest=${encodeURIComponent(digest)}` : ''}`, {headers:{'x-reader-layout':'3'}});
+    const chapter = await api(`/api/chapters/${encodeURIComponent(id)}${digest ? `?digest=${encodeURIComponent(digest)}` : ''}`, {headers:{'x-reader-layout':String(READER_LAYOUT_CAPABILITY)}});
     const progress = chapter.historical ? {} : await loadProgress(id);
     if (request !== state.chapterRequest) return;
     state.current = chapter;
@@ -831,7 +832,7 @@ $('chapterNav').addEventListener('touchend', event => {
   if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.5) moveChapter(dx < 0 ? 1 : -1);
   swipeStart = null;
 }, { passive: true });
-if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=61', { updateViaCache: 'none' }).catch(() => {});
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=62', { updateViaCache: 'none' }).catch(() => {});
 refreshInstallStatus();
 initialize().then(()=>{if(state.authenticated&&new URLSearchParams(location.search).has('balances'))balances.open();});
 

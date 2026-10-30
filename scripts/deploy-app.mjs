@@ -3,6 +3,7 @@ import {fileURLToPath} from 'node:url';
 import path from 'node:path';
 import {mkdir} from 'node:fs/promises';
 import {pagesBuildDirectory} from '../worker/gateway/build-path.mjs';
+import {verifyReaderRelease} from './lib/reader-release.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..'),worker=path.join(root,'worker');
 const wrangler=path.join(worker,'node_modules/wrangler/bin/wrangler.js');
 if(process.platform==='win32'){
@@ -21,4 +22,5 @@ const session=await fetch(base+'/api/session',{signal:AbortSignal.timeout(60000)
 if(!session.ok||!session.headers.get('content-type')?.includes('application/json')||typeof(await session.json()).authenticated!=='boolean')throw Error('已发布，但同源 API 网关核验未通过');
 const privateRoute=await fetch(base+'/api/practice',{signal:AbortSignal.timeout(60000)});
 if(privateRoute.status!==401)throw Error('已发布，但私有接口认证核验未通过');
-console.log('已发布：API Worker、含 API service binding 的 Pages 网关；公开会话及私有认证核验通过。');
+const reader=await verifyReaderRelease({base,root});
+console.log(`已发布：API Worker、含 API service binding 的 Pages 网关；公开会话、私有认证及${reader.assets.length}份线上阅读器资源核验通过（能力${reader.readerCapability}）。`);

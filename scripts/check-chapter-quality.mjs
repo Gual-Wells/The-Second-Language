@@ -3,7 +3,7 @@ import {validateTeachingLayout} from '../web/annotations.js';
 import assert from 'node:assert/strict';
 import {DatabaseSync} from 'node:sqlite';
 import {readFile,readdir,mkdir,writeFile} from 'node:fs/promises';
-import {qualityPolicy,qualityPolicyDigest,qualityTargets,factTargets,finalizeQuality,validateReview,validateRefs,validateInventory,scopedQualitySchema,reviewSchema,digestText} from '../protocol/chapter-quality-contract.mjs';
+import {qualityPolicy,qualityPolicyV3,resolveQualityPolicy,qualityPolicyDigest,qualityTargets,factTargets,finalizeQuality,validateReview,validateRefs,validateInventory,scopedQualitySchema,reviewSchema,digestText} from '../protocol/chapter-quality-contract.mjs';
 import {chapterQualityRoute,claimQuality} from '../worker/src/chapter-quality.js';
 import {questionsRoute} from '../worker/src/questions.js';
 import {indexTextbook,hash} from './lib/textbook-sources.mjs';
@@ -20,6 +20,9 @@ sqlite.prepare('INSERT INTO published_chapters(chapter_id,digest,study_date,publ
 sqlite.prepare('INSERT INTO chapter_sources(digest,source_digest,source_key,policy,created_at) VALUES(?,?,?,?,?)').run(chapter.digest,'e'.repeat(64),'isolated-source','current-affairs-v1',0);
 const files=new Map(),bucket={async putContent(text){const digest=hash(Buffer.from(text));files.set(digest,text);return{digest};},async getContent(digest){return files.has(digest)?new Response(files.get(digest)):null;}},env={DB:db,CHAPTERS:{get:async()=>fixture}},user={session:true,sameOrigin:true},publisher={isPublisher:true};
 const call=async(p='',b=null,context=user,store=bucket)=>{const r=await chapterQualityRoute(new Request('https://test/api/chapter-quality'+p,{method:b?'POST':'GET',...(b?{body:JSON.stringify(b)}:{})}),env,context,store);return {status:r.status,data:await r.json()};};
+const legacyDigest=await qualityPolicyDigest(qualityPolicyV3);assert.equal(legacyDigest,'3c9c3cc48d976305765b37713c1055f010623b6cccdccad0cd4833c58c780a3a');
+assert.equal((await resolveQualityPolicy({id:qualityPolicyV3.id,digest:legacyDigest})).id,qualityPolicyV3.id);await assert.rejects(resolveQualityPolicy({id:qualityPolicy.id,digest:legacyDigest}),/身份不匹配/);
+assert.equal((await call('/capabilities?client='+qualityPolicy.id)).data.policy,qualityPolicy.id);const legacyCapabilities=await call('/capabilities?client='+qualityPolicyV3.id);assert.equal(legacyCapabilities.data.policy,qualityPolicyV3.id);assert.equal(legacyCapabilities.data.executionPolicy,qualityPolicy.id);
 assert.equal((await call('',null,{})).status,401);assert.equal((await call('',{}, {session:true})).status,403);
 const id=crypto.randomUUID(),body={id,chapterId:chapter.id,digest:chapter.digest,policy:qualityPolicy.id};assert.equal((await call('',body)).status,201);assert.equal((await call('',body)).data.reused,true);assert.equal((await call('',{...body,digest:'b'.repeat(64)})).status,409);assert.equal((await call('',{...body,id:crypto.randomUUID()})).data.id,id);
 const claim='a'.repeat(64),job=await claimQuality(env,claim);assert.equal(job.id,id);const owned={claim,attemptId:job.attemptId};
@@ -53,7 +56,16 @@ assert.equal((await call('/jobs/'+id+'/complete',{...owned,reportDigest},publish
 sqlite.prepare('UPDATE chapter_quality_requests SET attempt_id=? WHERE id=?').run(job.attemptId,id);
 assert.equal((await call('/jobs/'+id+'/complete',{...owned,reportDigest},publisher)).status,200);assert.equal((await call('/jobs/'+id+'/complete',{...owned,reportDigest},publisher)).data.reused,true);assert.equal((await call('/jobs/'+id+'/complete',{...owned,reportDigest:'c'.repeat(64)},publisher)).status,409);
 assert.equal((await call('/'+id+'/report')).data.chapter.digest,chapter.digest);
-const secondId=crypto.randomUUID();await call('',{...body,id:secondId});const secondJob=await claimQuality(env,claim),secondOwned={claim,attemptId:secondJob.attemptId};
+// An old pending/failed/checkpoint job keeps its original policy through claim,
+// resume and server finalization; new requests using the old wire name use v4.
+const legacyId=crypto.randomUUID();sqlite.prepare('INSERT INTO chapter_quality_requests(id,chapter_id,chapter_digest,policy_id,policy_digest,status,created_at,queued_at,updated_at) VALUES(?,?,?,?,?,?,?,?,?)').run(legacyId,chapter.id,chapter.digest,qualityPolicyV3.id,legacyDigest,'failed',1,1,1);
+assert.equal((await call('/'+legacyId+'/retry',{})).status,200);const legacyJob=await claimQuality(env,claim);assert.equal(legacyJob.policy.id,qualityPolicyV3.id);assert.equal(legacyJob.policyDigest,legacyDigest);
+const legacyOwned={claim,attemptId:legacyJob.attemptId},legacyEvidence={...evidence,policyDigest:legacyDigest},legacyEvidenceDigest=(await bucket.putContent(JSON.stringify(legacyEvidence))).digest;
+const legacyState={...state,requestId:legacyId,policyDigest:legacyDigest,evidenceDigest:legacyEvidenceDigest},legacyCheckpoint=(await bucket.putContent(JSON.stringify(legacyState))).digest;
+assert.equal((await call('/jobs/'+legacyId+'/checkpoint',{...legacyOwned,checkpointDigest:legacyCheckpoint,evidenceDigest:legacyEvidenceDigest},publisher)).status,200);
+const legacyReport=finalizeQuality({...args,evidence:legacyEvidence,policy:qualityPolicyV3,policyDigest:legacyDigest,evidenceDigest:legacyEvidenceDigest}),legacyReportDigest=(await bucket.putContent(JSON.stringify(legacyReport))).digest;
+assert.equal(legacyReport.policy,qualityPolicyV3.id);assert.equal((await call('/jobs/'+legacyId+'/complete',{...legacyOwned,reportDigest:legacyReportDigest},publisher)).status,200);assert.deepEqual((await call('/'+legacyId+'/report')).data,legacyReport);
+const secondId=crypto.randomUUID();await call('',{...body,id:secondId,policy:qualityPolicyV3.id});assert.equal(sqlite.prepare('SELECT policy_id FROM chapter_quality_requests WHERE id=?').get(secondId).policy_id,qualityPolicy.id);const secondJob=await claimQuality(env,claim),secondOwned={claim,attemptId:secondJob.attemptId};
 const pendingTest=crypto.randomUUID();sqlite.prepare('INSERT INTO chapter_tests(id,chapter_id,chapter_digest,seed,created_at,updated_at) VALUES(?,?,?,?,?,?)').run(pendingTest,chapter.id,chapter.digest,'fixture',Date.now(),Date.now());
 const partial={...state,requestId:secondId,phase:'sources',inventory:[],reviews:[],expected:parsed.targets.length},partialDigest=(await bucket.putContent(JSON.stringify(partial))).digest;
 assert.equal((await call('/jobs/'+secondId+'/checkpoint',{...secondOwned,checkpointDigest:partialDigest,evidenceDigest:state.evidenceDigest},publisher)).data.yield,true);

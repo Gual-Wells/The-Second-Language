@@ -4,6 +4,7 @@ import path from 'node:path';
 import {buildChapterSources,loadChapterSources} from './lib/current-affairs-package.mjs';
 import {readMaterial,repositoryRoot} from './lib/current-affairs-reader.mjs';
 import {canonicalSourcePackage} from '../protocol/current-affairs.mjs';
+import {verifyChapterPublication} from './lib/chapter-publication-preflight.mjs';
 import {spawnSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 
@@ -32,6 +33,11 @@ const pack=()=>spawnSync(process.execPath,[fileURLToPath(new URL('./pack-chapter
 const packed=pack();assert.equal(packed.status,0,packed.stderr);
 assert.equal(JSON.parse(await fs.readFile(path.join(folder,'chapter.json'),'utf8')).wordCount,50);
 const frozenMeta=await fs.readFile(path.join(folder,'meta.json'),'utf8');
+const classicPackage=JSON.parse(await fs.readFile(path.join(folder,'chapter.json'),'utf8'));
+const classicInput=await fs.readFile(path.join(run,'vix-source.json'));
+await assert.rejects(fs.access(path.join(run,'teaching/authored')),{code:'ENOENT'});
+assert.deepEqual((await verifyChapterPublication({root,date,chapter:classicPackage,meta:JSON.parse(frozenMeta)})).versions,{},'An original classic package has no structured-author requirement to invent');
+assert.deepEqual(await fs.readFile(path.join(run,'vix-source.json')),classicInput,'Legacy admission never migrates the original input');
 await put(path.join(folder,'meta.json'),{...JSON.parse(frozenMeta),wordCount:40});
 assert.notEqual(pack().status,0,'Old wordCount metadata must not enter the new formal package');
 await fs.writeFile(path.join(folder,'meta.json'),frozenMeta);

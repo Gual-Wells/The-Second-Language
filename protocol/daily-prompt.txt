@@ -25,3 +25,5 @@
 assemble-teaching装配并导出context-sources.json；采用同源chapter.md，meta保留contentPolicy:etymology-fused-v1和sourcePolicy:current-affairs-v1，加authoringPolicy:authentic-context-v1。source-notes用contexts数组绑定实际原读件、自写事实和来源边界，逐份采用前核对实际摘抄/改编用途。按pack-current-affairs、pack-chapter、publish-chapter封存、回读正文/来源摘要后推送。音频仅为选定英文完整句，标题/说明/译文不合成；默认不生成，新contexts选配与旧two/three授权不互转，保护成功缓存与未知计费。雅思、答疑、测试、认证与卷轴仍沿各独立协议，不改纪念艺术设计。
 
 中断保留同输入、同选择、已读资料和已审自然词族；只续缺项，不重做成功付费资源。任务末尾按BALANCES更新额度/容量；不自动付款、放行休息、跨日重试收费任务，不泄露密钥。
+
+按DAILY_RUN的研究→写作→装配→内容审阅→移动验收→能力先行→永久回读→冻结恢复映射执行。实际完整章节及复杂用法检查紧凑间距、无例前横线、雾面遮罩、等高显隐和既有手势，仿真不可冒称实体iPhone或用户认可。发布脚本会纯校验当前包／作者／冻结合同，并在上传前核验线上兼容资源；失败先修正或等待部署，不绕过门槛、不拿旧研究digest覆盖当前正式修订。启动器仍读取本地当前模板，恢复旧运行须实际取原protocolCommit的内容合同，不能假称启动器已自动pin旧模板。

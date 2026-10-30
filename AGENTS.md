@@ -30,7 +30,7 @@
 
 工具只做原件取得/摘要、确定性装配/身份检查、VIX/封存/发布，语义与候选判断由Codex完成。assemble-teaching输出chapter.md和context-sources.json；实际审阅全义、真用/语域、原事实和语篇功能、多份增量、英中整块译文，再按原pack-current-affairs/pack-chapter/publish-chapter回读交付。不用结构通过、统计/评分或更多知识冒称体验合格，不套每义字数、不例行全章多代压缩。来源索引仍存文件基座，D1只存轻量绑定。
 
-新单正文pack-current-affairs自动封存chapter-evidence-v1私有采用原文/作者/教材包，publish-chapter先永久上传与回读，公开来源包只带evidenceDigest。首次封存核实际作者readRecord同版，后续恢复从固定包读取，不依赖旧绝对缓存路径或换用当前新稿。质检现行为chapter-quality-v3-evidence：独立教材先行，随后核原例去向与语境增量，允许原例留存不展示，缺证不签passed。新HTML按已验证成熟提取路由读取并保原HTML，配置及D盘依赖见CURRENT_AFFAIRS；提取成功不证明读懂或可采用。旧章、旧来源绑定、检查点与收费原件不倒改。
+新单正文pack-current-affairs自动封存chapter-evidence-v1私有采用原文/作者/教材包，publish-chapter先永久上传与回读，公开来源包只带evidenceDigest。首次封存核实际作者readRecord同版，后续恢复从固定包读取，不依赖旧绝对缓存路径或换用当前新稿。质检新申请现行为chapter-quality-v4-presentation：按固定作者layoutVersion／quickGlossVersion核快释语义和完整融合解释；精确保留v3策略、检查点和历史报告，旧任务按自身摘要续作。独立教材先行，随后核原例去向与语境增量，允许原例留存不展示，缺证不签passed。新HTML按已验证成熟提取路由读取并保原HTML，配置及D盘依赖见CURRENT_AFFAIRS；提取成功不证明读懂或可采用。旧章、旧来源绑定、检查点与收费原件不倒改。
 
 临时页不是正式课，不标VIX；chapters/demo和隔离fixture只演示，不可发布为50词正式章。旧章封存、新正式序列、已撤回原件和收费历史保留；2026-10-24撤回/复原VIX是那次明确例外，不授权今后重选重置。卷轴、雅思、口语分析、章节答疑/质检/认证与永久存储继续独立协议，不因读旧研究恢复纪念币/藏馆或给旧样品补造通过。
 

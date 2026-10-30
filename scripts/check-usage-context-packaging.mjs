@@ -12,6 +12,7 @@ import {indexTextbook} from './lib/textbook-sources.mjs';
 import {readMaterial, validateReadRecord} from './lib/current-affairs-reader.mjs';
 import {canonicalSourcePackage, validateSourcePackage} from '../protocol/current-affairs.mjs';
 import {validateTeachingLayout} from '../web/annotations.js';
+import {verifyChapterPublication} from './lib/chapter-publication-preflight.mjs';
 
 const repoRoot = fileURLToPath(new URL('../', import.meta.url));
 const parent = path.join(repoRoot, '.cache/usage-context-packaging-checks');
@@ -26,6 +27,7 @@ const json = async file => JSON.parse(await fs.readFile(file, 'utf8'));
 const selectionFile = path.join(run, 'selection.json'), lockFile = path.join(run, 'vix-source.json');
 const chapterFile = path.join(folder, 'chapter.md'), metaFile = path.join(folder, 'meta.json');
 const sourceFile = path.join(folder, 'sources.json'), packedFile = path.join(folder, 'chapter.json');
+const preflight=async()=>verifyChapterPublication({root,date,chapter:await json(packedFile),meta:await json(metaFile)});
 const notesFile = path.join(run, 'source-notes.json'), blocker = path.join(root, 'network-block.mjs');
 const originalFetch = globalThis.fetch;
 globalThis.fetch = async () => { throw Error('Network disabled in usage-context packaging QA'); };
@@ -159,12 +161,26 @@ try {
     const missing = clone(sourcePackage); delete missing.sources[0].readDigest;
     assert.throws(() => validateSourcePackage(missing), /读件摘要/);
   });
+  await check('publication admission accepts the old frozen contract without adding new version flags',async()=>{
+    const value=await preflight();assert.deepEqual(value.versions,{});assert.equal(value.evidence.authoring.length,50);
+    assert.deepEqual(await fs.readFile(lockFile),frozenLock);assert.deepEqual(await fs.readFile(selectionFile),frozenSelection);
+  });
+  await check('publication admission rejects a stale manuscript and changed metadata before any upload',async()=>{
+    await withFile(chapterFile,authored.markdown+'\nA deliberately unsealed edit.\n',()=>assert.rejects(preflight(),/发布包已过期：当前正文/));
+    const changed=await json(metaFile);changed.title+=' changed';
+    await withJSON(metaFile,changed,()=>assert.rejects(preflight(),/元数据title不一致/));
+  });
+  await check('explicit meta upgrades and fresh-lock requirements cannot be bypassed by a valid older package',async()=>{
+    const meta=await json(metaFile);
+    await withJSON(metaFile,{...meta,teachingLayoutVersion:2,quickGlossVersion:1},()=>assert.rejects(preflight(),/layoutVersion:2/));
+    await withJSON(lockFile,{commit,authoringPolicy:policy,teachingLayoutVersion:2,quickGlossVersion:1},()=>assert.rejects(preflight(),/layoutVersion:2/));
+  });
   await check('sealed publication can be packed unchanged while the acquisition cache is unavailable', async () => {
     const cache=path.join(root,'.cache/current-affairs-research'),held=cache+'-temporarily-held';
     const physical=await fs.realpath(cache),scope=await fs.realpath(root),relative=path.relative(scope,physical);
     assert(relative&&!relative.startsWith('..')&&!path.isAbsolute(relative),'Only this isolated fixture cache may be moved');
     await fs.rename(cache,held);
-    try{await assertOutputsUnchanged(async()=>succeeds(cli('./pack-chapter.mjs',date)));}
+    try{await assertOutputsUnchanged(async()=>{succeeds(cli('./pack-chapter.mjs',date));await preflight();});}
     finally{await fs.rename(held,cache);}
   });
   await check('packing rejects changed author provenance instead of reusing an older sealed package', async () => {
@@ -177,6 +193,7 @@ try {
     await withJSON(authorFile, changed, () => assertOutputsUnchanged(async () => {
       assert.equal((await assembleRun(root, date)).markdown, authored.markdown, 'Private evidence changes must not masquerade as a public-body mismatch.');
       rejectsCLI(cli('./pack-chapter.mjs', date), /当前作者去向已改变/);
+      await assert.rejects(preflight(),/当前作者稿或去向已改变/);
     }));
   });
   await check('chapter packing rejects another verified read of the same URL with different original bytes', async () => {
@@ -236,6 +253,25 @@ try {
     });
     assert.deepEqual(await fs.readFile(lockFile), frozenLock);
     assert.deepEqual(await fs.readFile(selectionFile), frozenSelection);
+  });
+  await check('an explicit revision on the original old lock seals, packs and passes publication with layout2 and quick gloss1',async()=>{
+    const meta=await json(metaFile);await put(metaFile,{...meta,teachingLayoutVersion:2,quickGlossVersion:1});
+    const authoredFolder=path.join(run,'teaching/authored');
+    for(const name of (await fs.readdir(authoredFolder)).filter(name=>/^word-/.test(name))){
+      const file=path.join(authoredFolder,name),word=await json(file);
+      word.layoutVersion=2;word.quickGlossVersion=1;
+      word.partOne=word.partOne.replace(`## ${word.text} · 验证义 /test/`,`## ${word.text} /test/ n. · 隔离验证义`);
+      await put(file,word);
+    }
+    const current=await assembleRun(root,date);await fs.writeFile(chapterFile,current.markdown);
+    succeeds(cli('./pack-current-affairs.mjs',date,notesFile));succeeds(cli('./pack-chapter.mjs',date));
+    assert.deepEqual((await preflight()).versions,{teachingLayoutVersion:2,quickGlossVersion:1});
+    assert.deepEqual(await fs.readFile(lockFile),frozenLock);assert.deepEqual(await fs.readFile(selectionFile),frozenSelection);
+    await withJSON(lockFile,{commit,authoringPolicy:policy,teachingLayoutVersion:2,quickGlossVersion:1},async()=>assert.deepEqual((await preflight()).versions,{teachingLayoutVersion:2,quickGlossVersion:1}));
+    const authorFile=path.join(authoredFolder,'word-W001.json'),changed=await json(authorFile);delete changed.quickGlossVersion;
+    await withJSON(authorFile,changed,()=>assert.rejects(preflight(),/quickGlossVersion:1/));
+    const currentMeta=await json(metaFile);
+    await withJSON(metaFile,{...currentMeta,teachingLayoutVersion:1},()=>assert.rejects(preflight(),/版本无效或.*冲突/));
   });
 } catch (error) {
   process.exitCode = 1;

@@ -6,6 +6,9 @@ import { publisherConfig } from './lib/publisher-config.mjs';
 import {validatePublishedVixReceipt} from './lib/vix-publication.mjs';
 import {canonicalSourcePackage} from '../protocol/current-affairs.mjs';
 import {publishChapterEvidence} from './lib/publish-chapter-evidence.mjs';
+import {verifyChapterPublication} from './lib/chapter-publication-preflight.mjs';
+import {verifyReaderRelease} from './lib/reader-release.mjs';
+import {requiredReaderLayout} from '../protocol/reader-layout.mjs';
 const date = process.argv[2];
 if (!/^\d{4}-\d{2}-\d{2}$/.test(date || '')) throw new Error('用法: node scripts/publish-chapter.mjs YYYY-MM-DD');
 const { base, token } = await publisherConfig();
@@ -18,6 +21,9 @@ try {vixReceipt=JSON.parse(await readFile(path.resolve('work/runs',date,'vix-pub
 catch(error){if(error.code==='ENOENT')throw new Error('缺少本次VIX发布回执；先核对原标注提交，不重新选词');throw error;}
 validatePublishedVixReceipt(vixReceipt,{studyDate:date,inputCommit:chapter.vixInputCommit,selectionDigest:chapter.sourcePackage?.selectionDigest,vixCommit:meta.vixCommit});
 const runId = meta.runId || date;
+// Complete local, read-only admission before any permanent upload or stage.
+await verifyChapterPublication({root:process.cwd(),date,chapter,meta});
+await verifyReaderRelease({base,required:requiredReaderLayout(chapter.markdown),root:process.cwd()});
 const hash=text=>createHash('sha256').update(text).digest('hex');
 async function post(route, body) {
   const response = await fetch(new URL(route, base), { method: 'POST', headers: { authorization: `Bearer ${token}`, 'content-type': 'application/json' }, body: JSON.stringify(body) });

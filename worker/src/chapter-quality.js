@@ -1,5 +1,5 @@
 import {chapterText,permanentBucket} from './storage.js';
-import {qualityPolicy,qualityPolicyDigest,digestText,finalizeQuality} from '../../protocol/chapter-quality-contract.mjs';
+import {qualityPolicy,qualityPolicyV3,resolveQualityPolicy,qualityPolicyDigest,digestText,finalizeQuality} from '../../protocol/chapter-quality-contract.mjs';
 import {isCurrentAffairsChapter,isCurrentAffairsRevision,readChapterSources} from './current-affairs.js';
 import {isUsageContextContent} from '../../protocol/usage-context.mjs';
 const projectQuality="EXISTS(SELECT 1 FROM formal_chapter_sources s WHERE s.digest=chapter_quality_requests.chapter_digest AND s.policy='current-affairs-v1')";
@@ -10,7 +10,7 @@ async function source(env,row){const c=await env.DB.prepare('SELECT * FROM chapt
 export async function qualityQueueTime(env){const now=Date.now();await env.DB.prepare("UPDATE chapter_quality_requests SET status='failed',claim=NULL,error='审阅被中断，已保存进度',updated_at=? WHERE status='running' AND lease_until<? AND "+projectQuality).bind(now,now).run();return env.DB.prepare("SELECT queued_at AS created_at FROM chapter_quality_requests WHERE status='pending' AND "+projectQuality+" ORDER BY queued_at LIMIT 1").first();}
 export async function claimQuality(env,claim){
  await qualityQueueTime(env);const now=Date.now(),attemptId=crypto.randomUUID();const row=await env.DB.prepare("UPDATE chapter_quality_requests SET status='running',claim=?,attempt_id=?,lease_until=?,updated_at=? WHERE id=(SELECT id FROM chapter_quality_requests WHERE status='pending' AND "+projectQuality+" ORDER BY queued_at LIMIT 1) AND status='pending' RETURNING *").bind(await digestText(claim),attemptId,now+300000,now).first();if(!row)return null;
- try{if(row.policy_digest!==await qualityPolicyDigest())throw Error('质检标准已更新，请重新申请');return{kind:'chapter-quality',id:row.id,attemptId,policy:qualityPolicy,policyDigest:row.policy_digest,chapter:await source(env,row),checkpointDigest:row.checkpoint_digest,evidenceDigest:row.evidence_digest};}catch(e){await env.DB.prepare("UPDATE chapter_quality_requests SET status='failed',claim=NULL,error=?,updated_at=? WHERE id=? AND attempt_id=?").bind(e.message.slice(0,200),now,row.id,attemptId).run();throw e;}
+ try{const policy=await resolveQualityPolicy({id:row.policy_id,digest:row.policy_digest});return{kind:'chapter-quality',id:row.id,attemptId,policy,policyDigest:row.policy_digest,chapter:await source(env,row),checkpointDigest:row.checkpoint_digest,evidenceDigest:row.evidence_digest};}catch(e){await env.DB.prepare("UPDATE chapter_quality_requests SET status='failed',claim=NULL,error=?,updated_at=? WHERE id=? AND attempt_id=?").bind(e.message.slice(0,200),now,row.id,attemptId).run();throw e;}
 }
 export async function chapterQualityRoute(request,env,{isPublisher,session,sameOrigin},bucket=permanentBucket(env)){
  const url=new URL(request.url),p=url.pathname.slice('/api/chapter-quality'.length),db=env.DB;
@@ -18,12 +18,12 @@ export async function chapterQualityRoute(request,env,{isPublisher,session,sameO
  let b={};if(request.method==='POST'){try{const raw=await request.text();if(raw.length>12000)throw Error();b=JSON.parse(raw);if(!b||Array.isArray(b)||typeof b!=='object')throw Error();}catch{return json({error:'申请格式无效'},400);}}
  try{
  // The installed v50-v57 reader accepts only the v2 capability name. Keep that
- // wire alias during a shell update; every new job still records the real v3
+ // wire aliases during a shell update; every new job records the current v4
  // policy and digest, and old checkpoints are never reinterpreted.
- if(p==='/capabilities'&&request.method==='GET')return json({policy:url.searchParams.get('client')===qualityPolicy.id?qualityPolicy.id:'chapter-quality-v2-contexts',executionPolicy:qualityPolicy.id});
+ if(p==='/capabilities'&&request.method==='GET')return json({policy:[qualityPolicy.id,qualityPolicyV3.id].includes(url.searchParams.get('client'))?url.searchParams.get('client'):'chapter-quality-v2-contexts',executionPolicy:qualityPolicy.id});
  if(p===''&&request.method==='GET'){const {results}=await db.prepare('SELECT * FROM chapter_quality_requests WHERE chapter_id=? ORDER BY created_at DESC LIMIT 100').bind(url.searchParams.get('chapter')).all();return json({requests:results.map(view)});}
  if(p===''&&request.method==='POST'){
-  if(!uuid(b.id)||typeof b.chapterId!=='string'||b.chapterId.length>110||!digest(b.digest)||![qualityPolicy.id,'chapter-quality-v2-contexts'].includes(b.policy))return json({error:'章节或质检标准已更新，请重新打开'},400);
+  if(!uuid(b.id)||typeof b.chapterId!=='string'||b.chapterId.length>110||!digest(b.digest)||![qualityPolicy.id,qualityPolicyV3.id,'chapter-quality-v2-contexts'].includes(b.policy))return json({error:'章节或质检标准已更新，请重新打开'},400);
   const policyDigest=await qualityPolicyDigest(),prior=await db.prepare('SELECT * FROM chapter_quality_requests WHERE id=?').bind(b.id).first();if(prior)return prior.chapter_id===b.chapterId&&prior.chapter_digest===b.digest&&prior.policy_digest===policyDigest?json({id:prior.id,reused:true}):json({error:'申请编号已被使用'},409);
   if(!await isCurrentAffairsChapter(db,b.chapterId,b.digest))return json({error:'正式章节版本不存在'},404);
   const now=Date.now();await db.prepare('INSERT OR IGNORE INTO chapter_quality_requests(id,chapter_id,chapter_digest,policy_id,policy_digest,created_at,queued_at,updated_at) VALUES(?,?,?,?,?,?,?,?)').bind(b.id,b.chapterId,b.digest,qualityPolicy.id,policyDigest,now,now,now).run();
@@ -55,11 +55,12 @@ export async function chapterQualityRoute(request,env,{isPublisher,session,sameO
   if(!digest(b.reportDigest)||!row.checkpoint_digest||!row.evidence_digest)return json({error:'报告或证据未保存'},400);
   const state=await original(bucket,row.checkpoint_digest),evidence=await original(bucket,row.evidence_digest),chapter=await source(env,row),report=await original(bucket,b.reportDigest);
   if(state.phase!=='complete'||state.requestId!==row.id||state.chapterDigest!==row.chapter_digest||state.policyDigest!==row.policy_digest||state.evidenceDigest!==row.evidence_digest||evidence.chapterDigest!==row.chapter_digest||evidence.policyDigest!==row.policy_digest)return json({error:'完整审阅检查点不匹配'},409);
-  const computed=finalizeQuality({chapter,policyDigest:row.policy_digest,evidenceDigest:row.evidence_digest,evidence,inventory:state.inventory,reviews:state.reviews,verification:state.verification});if(JSON.stringify(computed)!==JSON.stringify(report))return json({error:'报告与已核验检查点不一致'},409);
+  const policy=await resolveQualityPolicy({id:row.policy_id,digest:row.policy_digest});
+  const computed=finalizeQuality({chapter,policy,policyDigest:row.policy_digest,evidenceDigest:row.evidence_digest,evidence,inventory:state.inventory,reviews:state.reviews,verification:state.verification});if(JSON.stringify(computed)!==JSON.stringify(report))return json({error:'报告与已核验检查点不一致'},409);
   const result=await db.prepare("UPDATE chapter_quality_requests SET status='completed',claim=NULL,report_digest=?,decision=?,completed=?,expected=?,error=NULL,updated_at=? WHERE "+ownership).bind(b.reportDigest,computed.decision,computed.coverage.completed,computed.coverage.expected,Date.now(),...args()).run();return result.meta.changes?json({ok:true,decision:computed.decision}):json({error:'处理权已失效'},409);
  }
  const item=p.match(/^\/([a-f0-9-]{36})(?:\/(retry|report))?$/);if(item){const row=await db.prepare('SELECT * FROM chapter_quality_requests WHERE id=?').bind(item[1]).first();if(!row)return json({error:'记录不存在'},404);
-  if(item[2]==='retry'&&request.method==='POST'){if(!await isCurrentAffairsRevision(db,row.chapter_id,row.chapter_digest))return json({error:'旧章质检已封存，仅可读取历史记录'},409);if(row.policy_digest!==await qualityPolicyDigest())return json({error:'标准已更新，请重新申请'},409);const active=await db.prepare("SELECT id FROM chapter_quality_requests WHERE chapter_digest=? AND policy_digest=? AND status IN ('pending','running')").bind(row.chapter_digest,row.policy_digest).first();if(active)return json({error:'已有本版申请正在处理'},409);const r=await db.prepare("UPDATE chapter_quality_requests SET status='pending',claim=NULL,error=NULL,queued_at=?,updated_at=? WHERE id=? AND status='failed'").bind(Date.now(),Date.now(),row.id).run();return r.meta.changes?json({ok:true}):json({error:'此记录无需继续处理'},409);}
+  if(item[2]==='retry'&&request.method==='POST'){if(!await isCurrentAffairsRevision(db,row.chapter_id,row.chapter_digest))return json({error:'旧章质检已封存，仅可读取历史记录'},409);try{await resolveQualityPolicy({id:row.policy_id,digest:row.policy_digest});}catch{return json({error:'旧标准不再受支持，请重新申请'},409);}const active=await db.prepare("SELECT id FROM chapter_quality_requests WHERE chapter_digest=? AND policy_digest=? AND status IN ('pending','running')").bind(row.chapter_digest,row.policy_digest).first();if(active)return json({error:'已有本版申请正在处理'},409);const r=await db.prepare("UPDATE chapter_quality_requests SET status='pending',claim=NULL,error=NULL,queued_at=?,updated_at=? WHERE id=? AND status='failed'").bind(Date.now(),Date.now(),row.id).run();return r.meta.changes?json({ok:true}):json({error:'此记录无需继续处理'},409);}
   if(request.method==='GET'){if(item[2]==='report'){if(!row.report_digest)return json({error:'报告尚未完成'},409);return json(await original(bucket,row.report_digest));}return json({request:view(row)});}
  }
  return json({error:'接口不存在'},404);

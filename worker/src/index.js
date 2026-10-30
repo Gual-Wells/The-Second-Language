@@ -8,7 +8,7 @@ import {balanceRoute} from './balances.js';
 import {chapterQualityRoute} from './chapter-quality.js';
 import {chapterNumber,numberForDate} from './chapter-number.js';
 import {assertTeachingText} from '../../protocol/teaching-text.mjs';
-import {readerLayoutUpgrade} from '../../protocol/reader-layout.mjs';
+import {readerLayoutUpgrade,READER_LAYOUT_CAPABILITY} from '../../protocol/reader-layout.mjs';
 import {questionsRoute} from './questions.js';
 import {sendQuestionReplies} from './question-notifications.js';
 import {chapterTestsRoute} from './chapter-tests.js';
@@ -102,7 +102,7 @@ async function route(request, env) {
 
   if (path === '/api/session' && request.method === 'GET') {
     const session = await sessionFor(request, env);
-    return json({ authenticated: Boolean(session), readerUserId: session ? await readerIdentity(env) : null, demo: false });
+    return json({ authenticated: Boolean(session), readerUserId: session ? await readerIdentity(env) : null, demo: false, readerLayoutCapability:READER_LAYOUT_CAPABILITY });
   }
 
   if (path === '/api/feedback-snapshot' && request.method === 'GET') {

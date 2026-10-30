@@ -10,7 +10,7 @@ import {parseUsageContextContent, isUsageContextContent} from '../web/usage-cont
 import {parseTeachingUnits} from '../web/teaching-units.js';
 import {validateAnnotatedContent, validateTeachingLayout} from '../web/annotations.js';
 import {assembleUsageContextCollection} from './lib/usage-context-authoring.mjs';
-import {prepareTeachingMaterials, readTeachingMaterials, checkMaterialDisposition, assembleRun} from './lib/teaching-authoring.mjs';
+import {prepareTeachingMaterials, readTeachingMaterials, checkMaterialDisposition, assembleRun, assertTeachingAuthoringVersions} from './lib/teaching-authoring.mjs';
 import {indexTextbook} from './lib/textbook-sources.mjs';
 import {readerLayoutUpgrade} from '../protocol/reader-layout.mjs';
 
@@ -120,6 +120,19 @@ check('quick-gloss author flag requires a real inline gloss without changing the
   const result=assemble(words);assert.equal(result.parsed.uses.get('U001').quickGloss,'预算安排');assert.equal(result.parsed.uses.get('U001').forms.length,2);
   const missing=clone(words);missing[0].partOne=missing[0].partOne.replace(' · 预算安排','');assert.throws(()=>assemble(missing),/词性后附简短释义/);
   const unknown=clone(words);unknown[0].quickGlossVersion=2;assert.throws(()=>assemble(unknown),/快释版本/);
+});
+
+check('frozen and explicit revision versions enforce the same author contract without migrating old locks',()=>{
+  const oldLock={commit:'a'.repeat(40)},oldBytes=JSON.stringify(oldLock),words=[{layoutVersion:2,quickGlossVersion:1}];
+  assert.deepEqual(assertTeachingAuthoringVersions(oldLock,{},[{}]),{});
+  assert.deepEqual(assertTeachingAuthoringVersions(oldLock,{teachingLayoutVersion:2,quickGlossVersion:1},words),{teachingLayoutVersion:2,quickGlossVersion:1});
+  assert.equal(JSON.stringify(oldLock),oldBytes);
+  assert.deepEqual(assertTeachingAuthoringVersions({...oldLock,teachingLayoutVersion:2,quickGlossVersion:1},{},words),{teachingLayoutVersion:2,quickGlossVersion:1});
+  assert.throws(()=>assertTeachingAuthoringVersions({teachingLayoutVersion:2},{},[{}]),/layoutVersion:2/);
+  assert.throws(()=>assertTeachingAuthoringVersions(oldLock,{teachingLayoutVersion:2,quickGlossVersion:1},[{layoutVersion:2}]),/quickGlossVersion:1/);
+  assert.throws(()=>assertTeachingAuthoringVersions(oldLock,{quickGlossVersion:1},words),/同时明确teachingLayoutVersion:2/);
+  assert.throws(()=>assertTeachingAuthoringVersions({teachingLayoutVersion:2},{teachingLayoutVersion:1},words),/版本无效或.*冲突/);
+  assert.throws(()=>assertTeachingAuthoringVersions({quickGlossVersion:2},{},words),/版本无效或.*冲突/);
 });
 
 check('authoring -> shared parser keeps a single stream and one whole translation per context', () => {
@@ -342,6 +355,10 @@ check('persisted fifty-word new run uses the real assembler and retains original
     assert.equal(validateTeachingLayout(result.markdown, 'etymology-fused-v1').words.length, 50);
     assert(!/<!-- PART:/.test(result.markdown));
     assert.equal(result.articles.length, 0);
+    const metaFile=path.join(root,'chapters',date,'meta.json');
+    await put(metaFile,{teachingLayoutVersion:2});
+    await assert.rejects(assembleRun(root,date),/layoutVersion:2/,'A current explicit revision cannot evade layout requirements through an unversioned old input lock');
+    await fs.unlink(metaFile);
     const changed = clone(authors[0]); changed.exampleCoverage = [];
     await put(path.join(run, 'teaching/authored/word-W001.json'), changed);
     await assert.rejects(assembleRun(root, date), /原例句候选尚未交代/);

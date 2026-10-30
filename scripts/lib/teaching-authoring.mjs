@@ -16,6 +16,20 @@ const norm = s => s.normalize('NFKC').trim().toLowerCase().replace(/\s+/g,' ');
 const text = (s,name) => { if(typeof s!=='string'||!s.trim())throw Error(`缺少 ${name}`); return s; };
 const digest = value => hash(Buffer.from(canonical(value)));
 const id = s => /^[A-Za-z][A-Za-z0-9_-]{0,31}$/.test(s||'');
+// New frozen runs declare this in their immutable input lock. Explicitly
+// authorized revisions can opt in through meta without rewriting an old lock.
+// Missing flags keep the original contract; unknown/conflicting flags never
+// become a request to migrate or silently repair the author objects.
+export function assertTeachingAuthoringVersions(inputLock={},meta={},words=[]){
+  const required={};
+  for(const [field,version,authorField] of [['teachingLayoutVersion',2,'layoutVersion'],['quickGlossVersion',1,'quickGlossVersion']]){
+    for(const [origin,value] of [['冻结输入',inputLock[field]],['章节元数据',meta[field]]])if(value!=null&&value!==version)throw Error(`${origin}${field}版本无效或与当前作者合同冲突`);
+    if(inputLock[field]!=null||meta[field]!=null)required[field]=version;
+    if(required[field]&&words.some(word=>word[authorField]!==version))throw Error(`${field==='teachingLayoutVersion'?'完整融合解释层级':'词性后的用法快释'}已由冻结输入或章节元数据固定；作者稿须使用${authorField}:${version}`);
+  }
+  if(required.quickGlossVersion===1&&required.teachingLayoutVersion!==2)throw Error('用法快释合同须同时明确teachingLayoutVersion:2，不能隐式补齐');
+  return required;
+}
 export function teachingScope(value) {
   if(!Array.isArray(value?.mainWords)||!value.mainWords.length)throw Error('材料范围须有 mainWords；冻结前可用相同形状的候选范围');
   const rows=value.mainWords.map(w=>({text:text(w.text,'主词'),family:(w.family||[]).filter(f=>f.included!==false).map(f=>typeof f==='string'?f:text(f.text,'词族文字')).sort((a,b)=>a.localeCompare(b,'en'))})).sort((a,b)=>a.text.localeCompare(b.text,'en'));
@@ -139,11 +153,12 @@ export async function assembleRun(root,date){
   const names=(await fs.readdir(folder)).filter(n=>/^word-[A-Za-z0-9_-]+\.json$/.test(n));
   const words=await Promise.all(names.map(n=>readJson(path.join(folder,n))));
   const inputLock=await readJson(path.join(run,'vix-source.json'));
-  if(inputLock.teachingLayoutVersion===2&&words.some(w=>w.layoutVersion!==2))throw Error('新输入已固定完整融合解释层级；作者稿须使用layoutVersion:2');
-  if(inputLock.quickGlossVersion===1&&words.some(w=>w.quickGlossVersion!==1))throw Error('新输入已固定词性后的用法快释；作者稿须使用quickGlossVersion:1');
+  let meta={};try{meta=await readJson(path.join(root,'chapters',date,'meta.json'));}catch(error){if(error.code!=='ENOENT')throw error;}
+  const versions=assertTeachingAuthoringVersions(inputLock,meta,words);
   if(words.length!==selection.mainWords.length||new Set(words.map(w=>w.text)).size!==words.length||words.some(w=>!selection.mainWords.some(s=>s.text===w.text)))throw Error('作者词条与冻结主词不一致');
-  const contract=await loadAuthoringContract(root,date,selection);
+  const contract=await loadAuthoringContract(root,date,selection,{meta});
   const isContexts=contract.policy===CONTEXT_AUTHORING_POLICY;
+  if(!isContexts&&Object.keys(versions).length)throw Error('新版正文层级与快释须属于真实语境单正文合同；旧冻结运行不静默转换');
   if(selection.authoringPolicy!=null&&!isContexts&&selection.authoringPolicy!==AUTHORING_POLICY)throw Error('未知冻结制作协议');
   if(!isContexts&&words.some(w=>w.contexts!=null||w.contextChoices!=null))throw Error('旧冻结运行不能静默切换新作者合同');
   const articles=isContexts?[]:await readJson(path.join(folder,'articles.json'));

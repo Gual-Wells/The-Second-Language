@@ -1,4 +1,5 @@
 import {parseTeachingHeading} from '../web/teaching-units.js';
+export {READER_LAYOUT_CAPABILITY} from '../web/reader-capability.js';
 
 // No identity remapping or alternate content. Old open JS realms receive a
 // useful upgrade message instead of an unparseable immutable chapter.
