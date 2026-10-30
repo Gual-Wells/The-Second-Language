@@ -1,4 +1,4 @@
-import {parseTeachingUnits} from './teaching-units.js?v=59';
+import {parseTeachingUnits} from './teaching-units.js?v=61';
 
 export const USAGE_CONTEXT_FORMAT = 'usage-context-v1';
 export const CONTEXT_AUTHORING_POLICY = 'authentic-context-v1';

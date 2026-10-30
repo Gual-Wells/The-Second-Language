@@ -6,9 +6,8 @@ const linesOf=text=>text.replace(/\r\n?/g,'\n').split('\n').map(line=>line.trim(
 const POS='(?:n|v|adj|adv|prep|pron|det|conj|interj|aux|num)\\.';
 // Shared by the reader, teaching transport and question targeting. A form has
 // its own pronunciation and category; legacy headings retain their old gloss.
-export function parseTeachingHeading(value) {
-  if(typeof value!=='string')return null;
-  const source=value.trim(),forms=[];
+function modernHeading(source) {
+  const forms=[];
   let remaining=source;
   const modern=new RegExp(`^([^/\\n]+?)\\s+(/[^/\\n]+/)\\s+(${POS}(?:\\s*/\\s*${POS})*)(?:\\s*;\\s*|$)`);
   while(remaining){
@@ -17,11 +16,21 @@ export function parseTeachingHeading(value) {
     forms.push({word,ipa:match[2],partOfSpeech:match[3].replace(/\s*\/\s*/g,' / ')});
     remaining=remaining.slice(match[0].length);
   }
-  if(forms.length&&!remaining)return{forms,label:forms.map(f=>f.word).join('; '),definition:'',modern:true};
+  return forms.length&&!remaining?{forms,label:forms.map(f=>f.word).join('; '),definition:'',quickGloss:'',modern:true}:null;
+}
+export function parseTeachingHeading(value) {
+  if(typeof value!=='string')return null;
+  const source=value.trim(),separator=source.lastIndexOf(' · ');
+  if(separator>=0){
+    const parsed=modernHeading(source.slice(0,separator)),quickGloss=source.slice(separator+3).trim();
+    if(parsed&&quickGloss&&!/[\r\n<>`]/.test(quickGloss))return{...parsed,quickGloss};
+  }
+  const parsed=modernHeading(source);
+  if(parsed)return parsed;
   const legacy=/^(.*?)\s+(\/[^/\n]+\/)\s*$/.exec(source);
   if(!legacy?.[1])return null;
   const label=legacy[1].trim(),split=label.indexOf(' · ');
-  return{forms:[{word:split<0?label:label.slice(0,split),ipa:legacy[2],partOfSpeech:''}],label,definition:split<0?'':label.slice(split+3),modern:false};
+  return{forms:[{word:split<0?label:label.slice(0,split),ipa:legacy[2],partOfSpeech:''}],label,definition:split<0?'':label.slice(split+3),quickGloss:'',modern:false};
 }
 export function parseTeachingUnits(source) {
   const words = [], uses = new Map(), allIds = new Set();
@@ -51,7 +60,7 @@ export function parseTeachingUnits(source) {
       if (pending?.kind !== 'use' || !currentWord) throw new Error(`二级用法缺少 USE 编码：${heading[2]}`);
       const title = parseTeachingHeading(heading[2]);
       if (!title) throw new Error(`二级用法须写词形及美式音标，新版在对应音标后写词性：${heading[2]}`);
-      uses.set(pending.id, { label: title.label, wordId: currentWord.id, forms:title.forms });
+      uses.set(pending.id, { label: title.label, wordId: currentWord.id, forms:title.forms, ...(title.quickGloss?{quickGloss:title.quickGloss}:{}) });
       awaitingGloss = pending.id; pending = null; continue;
     }
     if (pending?.kind === 'word') throw new Error(`WORD 编码 ${pending.id} 后必须是一级词条`);

@@ -12,7 +12,7 @@
 **词源**：实际说明。
 
 <!-- USE:U001 -->
-## adapt /əˈdæpt/ v.
+## adapt /əˈdæpt/ v. · 适应新环境
 `双教材一次完整融合解释；语域、对象限制、句法、搭配与区别在这里讲清。`
 
 <!-- CONTEXT:C001 USE:U001 KIND:abridgment -->
@@ -27,7 +27,7 @@ Another sentence needed for the same context.
 
 ```
 
-WORD、USE、CONTEXT、SENTENCE各自身份唯一，字母开头，字母数字/下划线/连字符，最长32字符。词头字典序；词形、音标、词性和一次完整解释按CONTENT。多词形编码为`form /IPA/ POS; form /IPA/ POS`，共享标题解析函数parseTeachingHeading。旧版末尾音标语法继续只读兼容。词源不新增USE、不点读。各USE先完成全部融合解释再放语境，例后不补讲；不能在USE标记与实际标题/释义之间插入块。
+WORD、USE、CONTEXT、SENTENCE各自身份唯一，字母开头，字母数字/下划线/连字符，最长32字符。词头字典序；词形、音标、词性、紧随其后的快释和一次完整解释按CONTENT。多词形编码为`form /IPA/ POS; form /IPA/ POS · 本用法快释`，共享标题解析函数parseTeachingHeading。旧版末尾音标语法及已有词性无快释语法继续只读兼容；旧固定证据不回填新要求。词源不新增USE、不点读。各USE先完成全部融合解释再放语境，例后不补讲；不能在USE标记与实际标题/释义之间插入块。
 
 CONTEXT关联真实所选教学用法，kind仅abridgment/excerpt/example；元数据含title、sourceUrls、displayContext，可选speakers对象（如S001映射真实发言者）。JSON仅为数据。URL须无凭据HTTPS；真实缩编/摘录必须有来源，纯教学例句可空，不伪称真实出处。
 

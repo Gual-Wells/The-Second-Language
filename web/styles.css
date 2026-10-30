@@ -166,6 +166,7 @@ input:focus, textarea:focus, select:focus { border-color: #4c8ec3; }
 .context-mode .sense-block h2 { margin-bottom: 3px; }
 .sense-ipa, .sense-pos { color: #617d96; font: 12px/1.4 ui-monospace, SFMono-Regular, Consolas, monospace; white-space: nowrap; }
 .sense-form { display: inline; }
+.sense-quick-gloss { display: inline-block; max-width: 100%; margin-left: 4px; vertical-align: baseline; color: #365d7c; font: 400 13px/1.4 -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; }
 .article .fused-explanation { margin: 3px 0 6px; }
 .sense-head { display: flex; align-items: start; justify-content: space-between; gap: 8px; }
 .sense-head h2 { min-width: 0; flex: 1; }

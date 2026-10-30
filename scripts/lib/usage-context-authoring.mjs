@@ -12,6 +12,7 @@ const jsonComment = value => JSON.stringify(value).replace(/</g,'\\u003c').repla
 // Content judgement remains the author's; this prevents a new artifact from
 // silently reverting to split explanations or unpaired word/IPA/category rows.
 export function validateFusedExplanationLayout(word) {
+  if(word.quickGlossVersion!=null&&(word.quickGlossVersion!==1||word.layoutVersion!==2))throw Error('用法快释版本或正文层级无效');
   if(word.layoutVersion == null)return;
   if(word.layoutVersion!==2)throw Error('未知逐词正文层级版本');
   const blocks=[...word.partOne.matchAll(/^<!-- USE:([^ ]+) -->\r?\n([^]*?)(?=^<!-- USE:|$(?![^]))/gm)];
@@ -21,6 +22,7 @@ export function validateFusedExplanationLayout(word) {
     const heading=/^## (.+)$/.exec(lines[0]||'');
     const parsed=heading&&parseTeachingHeading(heading[1]);
     if(!parsed?.modern)throw Error(`用法${id}须逐词形配对音标和词性`);
+    if(word.quickGlossVersion===1&&!parsed.quickGloss)throw Error(`用法${id}须在最后一个词性后附简短释义`);
     if(!/^`[^`]+`$/.test(lines[1]||''))throw Error(`用法${id}缺少完整融合解释`);
     if(lines.at(-1)!==`<!-- CONTEXT_SLOT:${id} -->`||lines.filter(line=>line.startsWith('<!-- CONTEXT_SLOT:')).length!==1)throw Error(`用法${id}全部解释须在唯一语境插槽前完成`);
     if(lines.slice(2,-1).some(line=>line.startsWith('<!--')||/^#{1,6}\s/.test(line)))throw Error(`用法${id}解释不能新增栏目或隐藏结构`);

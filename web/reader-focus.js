@@ -1,5 +1,5 @@
 import {headingWord} from './audio-plan.js?v=50';
-import {parseTeachingHeading} from './teaching-units.js?v=59';
+import {parseTeachingHeading} from './teaching-units.js?v=61';
 
 export function sentenceElement(target){
  const article=target.closest('#article');if(!article)return null;

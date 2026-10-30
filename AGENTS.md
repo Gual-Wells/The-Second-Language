@@ -6,6 +6,8 @@
 
 用户随后否决这一版的正文规范性，明确要求取消逐份教学例句／来源说明／译文提示附层、取消标记用法、音标后标词性，并取消独立补充解释。最新研究与下一版设计见protocol/TEACHING_LAYOUT_V2.md：每义在语境前一次完成完整融合解释，不能照搬旧“核心义→语境→补充”结构，也不以隐藏CSS代替重编。用户继而明确要求重做第一章上线；本轮以638978c6为重编基线，保留原马赛克显隐且撤去提示，先交付v59兼容读取及旧壳升级保护，再发布新正文。新输入锁teachingLayoutVersion:2，作者layoutVersion:2；旧锁不回填。本轮已完成并线上回读：第一章正文6e17cda5、来源58d450a5、证据89477658，685用法保持，v59兼容壳；完整身份与验收见research/chapter-one-fused-layout-2026-10-30.json。
 
+2026-10-30用户最新补充：每USE在最后一个词性后额外生成简明快释，方便快速理解与记忆，编码为`form /IPA/ POS · 快释`，多形式只共用一份。它是同行标题索引，不恢复独立中文短义段；完整解释、语境及原音频不重写。新输入锁及新作者稿quickGlossVersion:1，旧冻结不回填；第一章本次明确授权追加，发布身份见research/chapter-one-quick-gloss-2026-10-30.json。先发布v61／读者能力3，再发布新标题；已有能力2仍读无快释现代标题。
+
 仅尚未冻结的新运行采用authoringPolicy:authentic-context-v1、FORMAT:usage-context-v1；meta仍保contentPolicy:etymology-fused-v1、sourcePolicy:current-affairs-v1。新prepare-vix输入锁记录默认策略，冻结selection时同样写入，装配/打包核对。旧冻结无该字段或为sourced-collection-v1的运行沿其原protocolCommit/原作者稿续作，不静默转换；旧已发布第一章原件不改、不重选、不撤标。旧三部分工艺恢复见PART_THREE_PRODUCTION和切换前5573946b10023df3c9b83f0d02a139860afef2bc对应文件，不能把旧文义务混入新默认。
 
 正式每章50主词，gpt-6.1-sol/ultra，日课北京时间05:00开始生成而非保证发布时间。默认休息、音频空选配；领取、原子复位、恢复/未知计费保护不变。本次建设不放行休息、不触发日课、不恢复已中止声音。

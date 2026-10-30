@@ -16,7 +16,7 @@
 
 逐义比较实际可用候选：优先高质量保真缩编；确实难以高质量保留原功能时取短摘；没有合适可采用真实材料时独立教学例句回退并明确原因。候选数不强凑，不强制每类都有。最终每用法1–5份；3仅是各份有充分独立增量时的甜区，不是目标或默认最低数。多份须分别说明新增搭配/句法/对象/语域/交际价值，否则只留一份最佳，不能只换名字/同义改写凑多份。自然同段可共享一个稳定对象，仅不禁止，不主动优化。
 
-按TEACHING_AUTHORING在teaching/authored/word-Wxxx.json写layoutVersion:2、partOne、contexts、contextChoices与原教材/全部原例去向；新输入锁teachingLayoutVersion:2，旧锁不回填。按CONTENT以词形／对应美式音标／具体词性为标题，取消中文短义，在语境前一次完整融合意义、必要句法、搭配、标签及区别，不分核心义和补充说明，不机械串接旧稿。CONTEXT_SLOT逐义置于全部解释之后且为该USE末行，例后不再讲解。不保留partTwo或articles.json作为新稿权威。全部相关原例作为候选与原件留存、可追索，不要求全部挤入正文。旧USE含多个真正分支时，新章给独立USE，不按“或”机械拆旧ID。
+按TEACHING_AUTHORING在teaching/authored/word-Wxxx.json写layoutVersion:2、quickGlossVersion:1、partOne、contexts、contextChoices与原教材/全部原例去向；新输入锁teachingLayoutVersion:2及quickGlossVersion:1，旧锁不回填。按CONTENT以词形／对应美式音标／具体词性／本用法快释为标题；快释紧跟最后一个词性，以 · 编码，简短清楚且突出当前义，有利于快速理解与记忆，不机械截断长解释、不写词形身份代替含义，不单设短义段，在语境前一次完整融合意义、必要句法、搭配、标签及区别，不分核心义和补充说明，不机械串接旧稿。CONTEXT_SLOT逐义置于全部解释之后且为该USE末行，例后不再讲解。不保留partTwo或articles.json作为新稿权威。全部相关原例作为候选与原件留存、可追索，不要求全部挤入正文。旧USE含多个真正分支时，新章给独立USE，不按“或”机械拆旧ID。
 
 每份context有完整英文自然段，逐完整句给全章唯一SENTENCE身份，保真正USE引用以便点读/答疑；不要求逐句翻译。每份只撰写一个连贯的整块中文translation，可有自然段。读者译文位置固定、默认马赛克隐藏，点击显示/再隐藏并按账户、章节digest、context持久；不加入全局译文模式切换或可视显隐教程。前端撤去逐份教学例句／来源／导语附层，但kind、sourceUrls、sourceEvidence及实际采用条件继续永久保真，不把内部编码、候选理由或审计过程打印成学习正文。
 

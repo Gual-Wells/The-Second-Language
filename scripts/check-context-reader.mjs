@@ -19,7 +19,7 @@ const lines=['<!-- FORMAT:usage-context-v1 -->'];
 const secret='整份译文甲：第一段。\n\n第二段包含 <img src=x onerror=alert(1)> 字样。';
 for(let i=1;i<=50;i++){
   const n=String(i).padStart(3,'0'),use='U'+n+'01',word='W'+n;
-  const heading=i===5?`fixture${n} · 旧版释义 /test/`:i===4?`fixture${n} /test/ n.; fixtures${n} /tests/ n.`:`fixture${n} /test/ n.`;
+  const heading=i===5?`fixture${n} · 旧版释义 /test/`:i===4?`fixture${n} /test/ n.; fixtures${n} /tests/ n. · 同一用途的不同形式`:i===6?`fixture${n} /test/ n.`:`fixture${n} /test/ n. · 快捷识别记录`;
   lines.push(`<!-- WORD:${word} -->\n# fixture${n}\n\n**词源**：独立自写界面材料。\n\n<!-- USE:${use} -->\n## ${heading}\n\`用于界面核对的用法。\`\n\n`);
   if(i===2){lines.push('<!-- CONTEXT_REF:C001 USE:U00201 -->');continue;}
   const refs=i===1?'U00101,U00201':use;
@@ -34,6 +34,13 @@ assert.equal(parsed.contexts.length,49);assert.equal(parsed.format,'usage-contex
 assert.equal(parseTeachingHeading('integrate /a/ n./adj.').forms[0].partOfSpeech,'n. / adj.');
 assert.equal(parseTeachingHeading('a /a/ n.; b /b/ n.').forms.length,2);
 assert.equal(parseTeachingHeading('word /test/ nonsense'),null);
+assert.equal(parseTeachingHeading('adapt /a/ v. · 适应新环境').quickGloss,'适应新环境');
+assert.equal(parseTeachingHeading('a /a/ n.; b /b/ n. · 一组词形').forms.length,2);
+assert.equal(parseTeachingHeading('a /a/ n.; b /b/ n. · 一组词形').quickGloss,'一组词形');
+assert.equal(parseTeachingHeading('adapt /a/ v.').quickGloss,'');
+assert.equal(parseTeachingHeading('adapt · 原有短义 /a/').definition,'原有短义');
+assert.equal(parseTeachingHeading('adapt · 原有短义 /a/').quickGloss,'');
+assert.equal(parseTeachingHeading('adapt /a/ v. · <bad>'),null);
 const originalDigest=sha(markdown);
 const chapter={id:'2026-10-27',date:'2026-10-27',number:'第 2 章',title:'语境阅读 · 隔离界面核验',subtitle:'自写材料，不是正式课程',wordCount:50,markdown,digest:originalDigest,sourcePolicy:'current-affairs-v1',sourceDigest:sha('source-fixture')};
 const legacyMeta=JSON.parse(await readFile('chapters/history/2026-10-24/4cc6a2f9/meta.json','utf8'));
@@ -54,7 +61,7 @@ await context.route('**/*',async route=>{
     if(p==='/api/session')body={authenticated:true,demo:false,readerUserId};
     else if(p==='/api/chapters')body={chapters:[legacy,chapter]};
     else if(p.startsWith('/api/chapters/')&&p.endsWith('/sources'))body={chapterId:chapter.id,chapterDigest:chapter.digest,sourcePolicy:chapter.sourcePolicy,sourceDigest:chapter.sourceDigest,sourcePackage:{chapterDigest:chapter.digest,context:'独立自写来源包，不是事实证据。',sources:[{url:'https://source.context-reader.test/item',title:'Self-written source fixture',publisher:'Fixture publisher',readAt:'2026-10-27T00:00:00Z',facts:['Only a safe interface fixture.']}]}};
-    else if(p.startsWith('/api/chapters/')){assert.equal(request.headers()['x-reader-layout'],'2');body=p.includes(legacy.id)?legacy:chapter;}
+    else if(p.startsWith('/api/chapters/')){assert.equal(request.headers()['x-reader-layout'],'3');body=p.includes(legacy.id)?legacy:chapter;}
     else if(p==='/api/temporary')body={pages:[]};
     else if(p==='/api/questions/summary')body={threads:[]};
     else if(p==='/api/questions'&&request.method()==='POST'){questions.push(request.postDataJSON());body={id:questions.at(-1).id};}
@@ -101,7 +108,7 @@ try{
   await click(shared().first());readerUserId='isolated-reader-B';await open();check('another user never inherits revealed translations',await shared().first().getAttribute('aria-expanded')==='false');
   readerUserId='isolated-reader-A';chapter.markdown=markdown+'\n';chapter.digest=sha(chapter.markdown);await open();check('another digest never inherits revealed translations',await shared().first().getAttribute('aria-expanded')==='false');
   chapter.markdown=markdown;chapter.digest=originalDigest;await open();check('original user and version recover their own preference',await shared().first().getAttribute('aria-expanded')==='true');
-  let count=points.length;await click(page.locator('.word-heading h1').first());await click(page.locator('.fused-explanation').first());check('titles and definitions remain silent',points.length===count);
+  let count=points.length;await click(page.locator('.word-heading h1').first());await click(page.locator('.fused-explanation').first());await click(page.locator('.sense-quick-gloss').first());check('titles, quick glosses and definitions remain silent',points.length===count);
   const sentence=page.locator('.context-sentence').first(),sentenceText=await sentence.innerText();await click(sentence);
   check('context tap submits only the complete English sentence',points.length===count+1&&points.at(-1).text===sentenceText&&points.at(-1).kind==='sentence'&&points.at(-1).digest===chapter.digest);
   check('shared server audio contract accepts rendered English only',isChapterAudioRequest(markdown,sentenceText,'sentence')&&!isChapterAudioRequest(markdown,secret,'sentence'));
@@ -127,13 +134,16 @@ try{
   check('marked-use controls and source/hint chrome are absent',await page.locator('#highlightButton,#usageDialog,.context-source,.context-kind,.context-introduction,.context-translation-hint').count()===0);
   check('old highlight preference is removed without removing translations',await page.evaluate(()=>{const p=JSON.parse(localStorage.getItem('second-language-article-display-v1'));return Object.values(p).every(row=>!Object.hasOwn(row,'highlight'))&&p.old.translations===true;}));
   check('POS follows each corresponding IPA',await page.locator('.sense-pos').first().innerText()==='n.'&&await page.locator('[data-use-id="U00401"] .sense-form').count()===2);
+  check('quick gloss follows the final POS within its heading',await page.locator('[data-use-id="U00101"] h2').evaluate(e=>{const p=e.querySelector('.sense-pos'),g=e.querySelector('.sense-quick-gloss');return g?.textContent==='快捷识别记录'&&Boolean(p.compareDocumentPosition(g)&Node.DOCUMENT_POSITION_FOLLOWING)&&g.parentElement===e;}));
+  check('multi-form use has one quick gloss after both form categories',await page.locator('[data-use-id="U00401"] h2').evaluate(e=>e.querySelectorAll('.sense-form').length===2&&e.querySelectorAll('.sense-quick-gloss').length===1&&e.lastElementChild.classList.contains('sense-quick-gloss')));
+  check('previous modern heading without quick gloss remains readable',await page.locator('[data-use-id="U00601"] .fused-explanation').count()===1&&await page.locator('[data-use-id="U00601"] .sense-quick-gloss').count()===0);
   check('new explanation has one ordinary paragraph and no extra short gloss',await page.locator('[data-use-id="U00101"] .fused-explanation').count()===1&&await page.locator('[data-use-id="U00101"] .sense-definition').count()===0);
   check('legacy heading retains its own original short gloss',await page.locator('[data-use-id="U00501"] .sense-definition').innerText()==='旧版释义');
   check('translation has no native tooltip',await shared().first().getAttribute('title')===null);
   count=points.length;await click(page.locator('.context-sentence').first());
   check('stale highlight cannot intercept normal sentence audio',points.length===count+1&&await page.locator('#article').evaluate(e=>!e.classList.contains('highlight-sentences')));
   const questionCount=questions.length;await hold(page.locator('.sense-head h2').first());
-  check('POS heading long-press targets the real vocabulary',questions.length===questionCount+1&&questions.at(-1).question.includes('fixture001')&&questions.at(-1).question.includes('/test/ n.'));
+  check('POS and quick-gloss heading long-press targets the real vocabulary',questions.length===questionCount+1&&questions.at(-1).question.includes('fixture001')&&questions.at(-1).question.includes('/test/ n.')&&questions.at(-1).question.includes('快捷识别记录'));
   await page.locator('#wordIndexButton').click();await page.locator('.index-item').nth(20).click();await page.locator('.reader-jump-cover').waitFor({state:'hidden'});
   check('word index clears sticky toolbar',await page.locator('.word-entry').nth(20).evaluate(e=>{const b=document.getElementById('readingScroll').getBoundingClientRect(),h=document.getElementById('articleTools').getBoundingClientRect().height;return Math.abs(e.getBoundingClientRect().top-b.top-h-12)<=1;}));
   await click(page.locator('#chapterSourcesButton'));await page.locator('#chapterSourcesDialog[open]').waitFor();check('source evidence remains available outside the learning unit',await page.locator('#chapterSourcesDialog').innerText().then(t=>t.includes('Fixture publisher')));await page.locator('[data-close="chapterSourcesDialog"]').click();

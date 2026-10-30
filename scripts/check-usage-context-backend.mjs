@@ -38,7 +38,7 @@ async function call(route,{body,method=body===undefined?'GET':'POST',reader=fals
 const words=Array.from({length:50},(_,i)=>({id:'W'+String(i).padStart(3,'0'),use:'U'+String(i).padStart(3,'0'),text:'word'+String(i).padStart(3,'0')}));
 function fixture(version='one'){
  return '<!-- FORMAT:usage-context-v1 -->\n\n'+words.map((w,i)=>{
-  const intro=`<!-- WORD:${w.id} -->\n# ${w.text}\n\n**词源**：只供隔离接口验证，不是正式教学内容。\n\n<!-- USE:${w.use} -->\n## ${w.text}${version==='layout2'?' /wɝd/ n.':' · 验证义 /wɝd/'}\n\`隔离验证用法\`\n\n`;
+  const intro=`<!-- WORD:${w.id} -->\n# ${w.text}\n\n**词源**：只供隔离接口验证，不是正式教学内容。\n\n<!-- USE:${w.use} -->\n## ${w.text}${version==='layout3'?' /wɝd/ n. · 测试用途':version==='layout2'?' /wɝd/ n.':' · 验证义 /wɝd/'}\n\`隔离验证用法\`\n\n`;
   if(i===49)return intro+'<!-- CONTEXT_REF:C048 USE:U049 -->\n';
   const id='C'+String(i).padStart(3,'0'),refs=i===48?'U048,U049':w.use,text=i===48?`We compare word048 with word049 in fixture ${version}.`:`We use ${w.text} in fixture ${version}.`;
   return intro+`<!-- CONTEXT:${id} USE:${refs} KIND:${i===0?'abridgment':'example'} -->\n<!-- CONTEXT_META:${JSON.stringify({title:'Isolated context',sourceUrls:i===0?['https://example.test/reference']:[],displayContext:'Not real teaching material.'})} -->\n<!-- SENTENCE:S${String(i).padStart(3,'0')} USE:${refs} -->\n${text}\n<!-- TRANSLATION:${id} -->\n本段仅用于独立工程验证，并非正式学习内容。\n\n整块译文不进入英文发音白名单。\n<!-- END_CONTEXT:${id} -->\n`;
@@ -111,6 +111,10 @@ try{
  const capable=await call('/api/chapters/'+modern.id,{reader:true,layout:'2'});assert.equal(capable.status,200);assert.equal(capable.data.digest,modern.digest);assert.equal(capable.headers.get('vary'),'x-reader-layout','Cache API matches the explicit reader capability');
  assert.equal((await call('/api/chapters/'+modern.id)).data.markdown,modern.markdown,'Publisher readback keeps exact bytes');
  assert.equal((await call('/api/chapters/'+first.id+'?digest='+first.digest,{reader:true})).data.markdown,first.markdown,'Legacy fixed-version reader path stays available');
+ const quick=payload('2026-10-31','layout3');await claim(quick.date);assert.equal((await stage(quick)).status,200);assert.equal((await commit(quick)).status,200);
+ assert.equal((await call('/api/chapters/'+quick.id,{reader:true,layout:'2'})).status,426,'Old no-gloss parser cannot receive the new tail');
+ assert.equal((await call('/api/chapters/'+quick.id,{reader:true,layout:'3'})).data.digest,quick.digest);
+ assert.equal((await call('/api/chapters/'+modern.id,{reader:true,layout:'3'})).status,200,'Capability3 continues reading capability2 content');
  assert.equal(db.prepare('PRAGMA integrity_check').get().integrity_check,'ok');assert.equal(practice.prepare('PRAGMA integrity_check').get().integrity_check,'ok');
  console.log(JSON.stringify({ok:true,format:'usage-context-v1',wordCount:50,contexts:49,sharedContext:true,publicationAndSourceReadback:true,audioDefaultEmpty:true,oldAudioSelectionNotReinterpreted:true,pointAudioWhitelist:true,fixedVersionQuestionAndTest:true,twentyTargetsSevenOral:true,qualityWholeTranslationAndMissingOriginal:true,reviewContextExtraction:true,singleTenantStableReaderIdentity:true,graphFixtureRequests:graphRequests,noProductionWrites:true,noPaidCalls:true}));
 }finally{globalThis.fetch=originalFetch;db.close();practice.close();}

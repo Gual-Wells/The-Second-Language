@@ -140,6 +140,7 @@ export async function assembleRun(root,date){
   const words=await Promise.all(names.map(n=>readJson(path.join(folder,n))));
   const inputLock=await readJson(path.join(run,'vix-source.json'));
   if(inputLock.teachingLayoutVersion===2&&words.some(w=>w.layoutVersion!==2))throw Error('新输入已固定完整融合解释层级；作者稿须使用layoutVersion:2');
+  if(inputLock.quickGlossVersion===1&&words.some(w=>w.quickGlossVersion!==1))throw Error('新输入已固定词性后的用法快释；作者稿须使用quickGlossVersion:1');
   if(words.length!==selection.mainWords.length||new Set(words.map(w=>w.text)).size!==words.length||words.some(w=>!selection.mainWords.some(s=>s.text===w.text)))throw Error('作者词条与冻结主词不一致');
   const contract=await loadAuthoringContract(root,date,selection);
   const isContexts=contract.policy===CONTEXT_AUTHORING_POLICY;

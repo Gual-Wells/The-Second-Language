@@ -108,6 +108,18 @@ check('old open reader cannot receive unsupported POS headings; publisher and ca
   assert.equal(readerLayoutUpgrade(plain,old),false);
   assert.equal(readerLayoutUpgrade(plain,modern,{isPublisher:true}),false);
   assert.equal(readerLayoutUpgrade(new Request(plain,{headers:{'x-reader-layout':'2'}}),modern),false);
+  assert.equal(readerLayoutUpgrade(new Request(plain,{headers:{'x-reader-layout':'3'}}),modern),false);
+  const quick=modern.replace(' v.',' v. · 适应新环境');
+  assert.equal(readerLayoutUpgrade(new Request(plain,{headers:{'x-reader-layout':'2'}}),quick),true);
+  assert.equal(readerLayoutUpgrade(new Request(plain,{headers:{'x-reader-layout':'3'}}),quick),false);
+});
+
+check('quick-gloss author flag requires a real inline gloss without changing the fused explanation',()=>{
+  const words=makeWords();words[0].layoutVersion=2;words[0].quickGlossVersion=1;
+  words[0].partOne='<!-- WORD:W001 -->\n# budget\n\n<!-- USE:U001 -->\n## budget /test/ n.; budgeting /testɪŋ/ n. · 预算安排\n`A complete fixture explanation including the actual restriction.`\n\n<!-- CONTEXT_SLOT:U001 -->';
+  const result=assemble(words);assert.equal(result.parsed.uses.get('U001').quickGloss,'预算安排');assert.equal(result.parsed.uses.get('U001').forms.length,2);
+  const missing=clone(words);missing[0].partOne=missing[0].partOne.replace(' · 预算安排','');assert.throws(()=>assemble(missing),/词性后附简短释义/);
+  const unknown=clone(words);unknown[0].quickGlossVersion=2;assert.throws(()=>assemble(unknown),/快释版本/);
 });
 
 check('authoring -> shared parser keeps a single stream and one whole translation per context', () => {

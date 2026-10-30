@@ -1,5 +1,5 @@
-import {parseTeachingUnits} from './teaching-units.js?v=59';
-import {isUsageContextContent,parseUsageContextContent} from './usage-context.js?v=59';
+import {parseTeachingUnits} from './teaching-units.js?v=61';
+import {isUsageContextContent,parseUsageContextContent} from './usage-context.js?v=61';
 const ID = '[A-Za-z][A-Za-z0-9_-]{0,31}';
 const WORD = new RegExp(`^<!-- WORD:(${ID}) -->$`);
 const USE = new RegExp(`^<!-- USE:(${ID}) -->$`);

@@ -36,7 +36,7 @@ vixMarkLabel为真实YY-MM-DD，由studyDate.slice(2)取得。冻结后prepare-v
 
 每用法最终1–5份；3仅在各份有充分独立增量时较理想，不设最低三份。不强凑候选类型/数目，多份各有不可替代搭配/对象/语域/交际收益，否则单份取优。共享可自然出现但不主动追求；已经自然选中同段时复用稳定contextId并在每义旁放引用，不重复造文。
 
-逐词作者稿只有partOne、contexts、contextChoices及教材/原例去向，新输入锁teachingLayoutVersion:2对应逐词layoutVersion:2。按CONTENT逐词形标音标及词性，语境前一次完成全部融合解释，唯一CONTEXT_SLOT位于每USE末尾，不再例后补讲。英文保自然段、完整句唯一SENTENCE ID，只标实际目标义；每份语境写一个整块连贯译文，不逐句翻译。译文固定位置、默认马赛克、点击显隐按账户/正文digest/context持久，正文无提示文字或逐份来源／教学例句附层。格式精确见ANNOTATIONS；成品不显示内部审核过程。
+逐词作者稿只有partOne、contexts、contextChoices及教材/原例去向，新输入锁teachingLayoutVersion:2对应逐词layoutVersion:2；新输入锁及作者稿另写quickGlossVersion:1。按CONTENT逐词形标音标及词性，最后一个词性后附逐义编写的快释，语境前一次完成全部融合解释，唯一CONTEXT_SLOT位于每USE末尾，不再例后补讲。英文保自然段、完整句唯一SENTENCE ID，只标实际目标义；每份语境写一个整块连贯译文，不逐句翻译。译文固定位置、默认马赛克、点击显隐按账户/正文digest/context持久，正文无提示文字或逐份来源／教学例句附层。格式精确见ANNOTATIONS；成品不显示内部审核过程。
 
 ## 审阅、装配、发布
 

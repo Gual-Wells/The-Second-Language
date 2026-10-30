@@ -1,4 +1,4 @@
-import {parseTeachingHeading} from './teaching-units.js?v=59';
+import {parseTeachingHeading} from './teaching-units.js?v=61';
 
 export function parseParts(markdown) {
   const parts = { one: '', two: '', three: '' };
@@ -218,6 +218,7 @@ export function renderPart(source, part, target, options = {}) {
             if(form.partOfSpeech){const pos=document.createElement('span');pos.className='sense-pos';pos.textContent=form.partOfSpeech;group.append(document.createTextNode(' '),pos);}
             title.append(group);
           });
+          if(parsed.quickGloss){const gloss=document.createElement('span');gloss.className='sense-quick-gloss';gloss.textContent=parsed.quickGloss;title.append(document.createTextNode(' '),gloss);}
         }else title.append(document.createTextNode(heading[2]));
         head.append(title);
         if (pendingUse) { if (!contextual) addExampleJump(head, pendingUse, options.onJump); pendingUse = null; }

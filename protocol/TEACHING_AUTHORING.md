@@ -23,12 +23,12 @@ additional如`{"compensate":["compensatory"]}`只表示补查意图，不自动�
 
 读清全义后、冻结前将`authoringPolicy:"authentic-context-v1"`同studyDate、vixInputCommit、vixMarkLabel和50主词/实际family一起保存。不能在旧冻结selection追加该字段。原时点prepare-vix-marking/mark-vix/publish-vix，原副本/标签/回执和未知计费保护不变。
 
-每词权威文件仍为`teaching/authored/word-W001.json`，新稿不含partTwo，不以articles.json为权威。新输入锁固定teachingLayoutVersion:2，逐词稿写layoutVersion:2；旧锁／固定私有证据无该字段仍按原合同可读，不回填。形状示意：
+每词权威文件仍为`teaching/authored/word-W001.json`，新稿不含partTwo，不以articles.json为权威。新输入锁固定teachingLayoutVersion:2，逐词稿写layoutVersion:2；新增输入锁及逐词稿另写quickGlossVersion:1，要求每USE的词性后快释；旧锁／固定私有证据无该字段仍按原合同可读，不回填。形状示意：
 
 ```json
 {
-  "wordId":"W001", "text":"adapt", "materialDigest":"真实材料摘要", "layoutVersion":2,
-  "partOne":"<!-- WORD:W001 -->\n# adapt\n\n**词源**：实际说明。\n\n<!-- USE:U001 -->\n## adapt /əˈdæpt/ v.\n`一次完整融合的解释，包含真正需要的意义、句法、搭配、条件和区别。`\n\n<!-- CONTEXT_SLOT:U001 -->",
+  "wordId":"W001", "text":"adapt", "materialDigest":"真实材料摘要", "layoutVersion":2, "quickGlossVersion":1,
+  "partOne":"<!-- WORD:W001 -->\n# adapt\n\n**词源**：实际说明。\n\n<!-- USE:U001 -->\n## adapt /əˈdæpt/ v. · 适应新环境\n`一次完整融合的解释，包含真正需要的意义、句法、搭配、条件和区别。`\n\n<!-- CONTEXT_SLOT:U001 -->",
   "contexts":[{
     "id":"C001", "kind":"abridgment", "uses":["U001"],
     "title":"必要短标题", "displayContext":"必要时间或情境", "sourceUrls":["https://实际原文"],
@@ -46,7 +46,7 @@ additional如`{"compensate":["compensatory"]}`只表示补查意图，不自动�
 
 每个真正教学用法最终1–5份。3只是各份有充分独立增量时的甜区，不是目标。多份须choice.contributions逐份`{contextId,reason}`说明不可替代的学习增量，否则只取1份最佳。可选candidates只记录实际候选id和decision，不强凑三类/数量，最终5份上限不是检索配额。
 
-partOne只放讲解和每USE唯一CONTEXT_SLOT；禁止夹入已装配CONTEXT、REF、句子/译文绕过作者证据。按CONTENT完成一次完整融合解释，插槽必须位于该USE末尾，不在语境后补讲。标题逐词形写音标和词性、不写中文短义；新层级校验只作用于layoutVersion:2，不使旧固定证据失效。新真实语义分支独立USE，不按“或”机械拆旧身份。
+partOne只放讲解和每USE唯一CONTEXT_SLOT；禁止夹入已装配CONTEXT、REF、句子/译文绕过作者证据。按CONTENT完成一次完整融合解释，插槽必须位于该USE末尾，不在语境后补讲。标题逐词形写音标和词性，在最后一个词性后用 · 编码一份当前用法快释；快释按CONTENT由模型逐义写，不从长解释机械截取；快释严格校验只作用于quickGlossVersion:1；新层级校验只作用于layoutVersion:2，不使旧固定证据失效。新真实语义分支独立USE，不按“或”机械拆旧身份。
 
 自然共享可以只定义一个context被几个真实用法选择，工具在其他位置输出CONTEXT_REF；每个(use,context)均要就地呈现，同一位置不重复。refs只列实际采用教学关联，不把偶然出现的目标词全挂上。不得主动找共享、合并题材或考核复用率。
 
