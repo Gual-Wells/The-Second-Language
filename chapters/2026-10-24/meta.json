@@ -10,8 +10,8 @@
   "authoringPolicy": "authentic-context-v1",
   "vixInputCommit": "e235aa2a301b65b54e9938bdc46578d1b3810637",
   "vixCommit": "f92e945322fc30cd5546f8848c47777fe26364d0",
-  "protocolCommit": "a1237b7ae282cff9965496d9b9762f26583865e8",
-  "sourceDigest": "d7a9844a3aa42e309eca85fecb064d1af792b04c3fd545cbdef525f454dea08e",
+  "protocolCommit": "79d74c69173d9660a6911ffd6645970ab5404b3f",
+  "sourceDigest": "e0702af015ac308307644a53275e200301c7205181a11ef57236746fc4f27595",
   "authoringRevision": {
     "schemaVersion": 1,
     "kind": "chapter-authoring-revision-v1",

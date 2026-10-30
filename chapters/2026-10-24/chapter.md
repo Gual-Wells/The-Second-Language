@@ -29,6 +29,16 @@ Shelves were built to adapt the library for use as an office.
 <!-- TRANSLATION:CU00102a -->
 人们搭建了架子，把图书室改成适合办公的地方。
 <!-- END_CONTEXT:CU00102a -->
+
+<!-- CONTEXT:R31AU00102a USE:U00102 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.ifrc.org/early-warning-early-action"]} -->
+<!-- SENTENCE:S31AU00102a1 USE:U00102 -->
+National Societies can adapt disaster-risk messages to their local risks, languages and contexts.
+<!-- SENTENCE:S31AU00102a2 -->
+Partners can then broadcast those messages alongside hazard alerts.
+<!-- TRANSLATION:R31AU00102a -->
+各国红会可以根据本地的风险、语言和具体情况调整减灾宣传信息。合作伙伴随后可以把这些信息与灾害预警一同播出。
+<!-- END_CONTEXT:R31AU00102a -->
 <!-- USE:U00103 -->
 ## adapt /əˈdæpt/ v. · 改编作品
 `把作品改写或编排成适合另一种媒介的形式。adapt a novel for the screen 表示把小说改编成电影；be adapted from a play 表示由剧本改编而来，也可涉及广播、电视等形式。`
@@ -135,15 +145,15 @@ We watched Branagh's screen adaptation of Shakespeare's Henry the Fifth.
 ## adaptation /ˌædæpˈteɪʃən/ n. · 生物适应过程
 `生物学中，生物或物种逐渐变得适合其环境的过程。讨论长期适应时，应与个体有意识地调整行为区分。`
 
-<!-- CONTEXT:CU00111r USE:U00111 KIND:abridgment -->
-<!-- CONTEXT_META:{"title":"适应产生抗性之后，换一种预防思路","sourceUrls":["https://openstax.org/books/microbiology/pages/9-1-how-microbes-grow"],"displayContext":"OpenStax《Microbiology》§9.1引用2023年研究的说明，缩编与中译，CC BY-NC-SA4.0；未独立复验该研究。"} -->
-<!-- SENTENCE:SCU00111r1 USE:U00111 -->
-Rapid microbial adaptation can produce resistant strains.
-<!-- SENTENCE:SCU00111r2 -->
-To prevent biofilms in space, researchers tried making surfaces slippery rather than killing the organisms, so that the microbes could not attach.
-<!-- TRANSLATION:CU00111r -->
-微生物的快速适应可能产生抗性菌株。为了防止太空环境中的生物膜，研究者尝试把表面变得润滑，使微生物无法附着，而不是将它们杀死。
-<!-- END_CONTEXT:CU00111r -->
+<!-- CONTEXT:R31AU00111b USE:U00111 KIND:example -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
+<!-- SENTENCE:S31AU00111b1 -->
+In a model beetle population, a heritable waxy coating reduces water loss, so beetles with the coating leave more offspring during repeated droughts.
+<!-- SENTENCE:S31AU00111b2 USE:U00111 -->
+Adaptation occurs over generations as the trait becomes more common, rather than through an individual beetle's decision.
+<!-- TRANSLATION:R31AU00111b -->
+在一个甲虫种群模型中，可遗传的蜡质外层能减少水分流失，因此具有这种外层的甲虫在反复干旱中留下更多后代。随着这一性状在一代代个体中变得更常见，适应便逐渐发生，而不是由某只甲虫自行作出决定。
+<!-- END_CONTEXT:R31AU00111b -->
 <!-- USE:U00112 -->
 ## adaptation /ˌædæpˈteɪʃən/ n. · 感官适应调节
 `生物学中，感觉系统针对持续刺激或环境变化作出的适应性调节，例如视觉对明暗变化的适应。`
@@ -211,24 +221,28 @@ He was a strong advocate of free market policies and a multi-party system.
 ## advocate /ˈædvəkət/ n. · 权益代表
 `替别人发声、维护某一群体利益的权益代表，常用 an advocate for somebody。这一用法尤其见于美式英语，所指的人不必是律师。`
 
-<!-- CONTEXT:CU00204a USE:U00204 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU00204a1 USE:U00204 -->
-Advocates for the charity spoke on behalf of the families.
-<!-- TRANSLATION:CU00204a -->
-该慈善机构的权益代表替这些家庭发声。
-<!-- END_CONTEXT:CU00204a -->
+<!-- CONTEXT:R31AU00204a USE:U00204 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.unicef.org/youth/youth-advocates"]} -->
+<!-- SENTENCE:S31AU00204a1 USE:U00204 -->
+As a UNICEF Youth Advocate in the Democratic Republic of the Congo, Ketsia supports young people's participation in decisions.
+<!-- SENTENCE:S31AU00204a2 -->
+Her work aims to make children's voices heard, especially on climate and environmental issues.
+<!-- TRANSLATION:R31AU00204a -->
+凯齐娅是联合国儿童基金会在刚果民主共和国的一名青年权益代表，她支持年轻人参与决策。她的工作旨在让儿童的声音得到倾听，尤其是在气候与环境议题上。
+<!-- END_CONTEXT:R31AU00204a -->
 <!-- USE:U00205 -->
 ## advocate /ˈædvəkət/ n. · 出庭辩护律师
 `法律上，在法庭替人陈述、辩护的专业人士；在苏格兰也特指出庭律师，具体执业称谓依司法辖区而定。`
 
-<!-- CONTEXT:CU00205a USE:U00205 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU00205a1 USE:U00205 -->
-She instructed an advocate to represent her in the Scottish court.
-<!-- TRANSLATION:CU00205a -->
-她委托了一名出庭律师，在苏格兰法院代表她。
-<!-- END_CONTEXT:CU00205a -->
+<!-- CONTEXT:R31AU00205a USE:U00205 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.advocates.org.uk/about-advocates/life-at-the-scottish-bar/investigating-becoming-an-advocate"]} -->
+<!-- SENTENCE:S31AU00205a1 USE:U00205 -->
+In Scotland, advocates are self-employed lawyers trained to present legal arguments.
+<!-- SENTENCE:S31AU00205a2 -->
+They can represent clients in the highest courts.
+<!-- TRANSLATION:R31AU00205a -->
+在苏格兰，出庭律师是经过法律论辩训练、独立执业的律师。他们可以在最高级别的法院代表当事人。
+<!-- END_CONTEXT:R31AU00205a -->
 <!-- USE:U00206 -->
 ## advocateship /ˈædvəkətʃɪp/ n. · 辩护人的身份
 `担任辩护人或律师的身份、职务。由名词 advocate 加 -ship 构成，重在所处身份。`
@@ -255,13 +269,13 @@ I support your advocacy of free trade.
 ## advocacy /ˈædvəkəsi/ n. · 律师论辩工作
 `律师替当事人陈述、论辩的工作、职能或方式，属于正式用语，通常不可数。`
 
-<!-- CONTEXT:CU00208a USE:U00208 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU00208a1 USE:U00208 -->
-Sir Peter would also like to see the current adversarial system of advocacy examined by the royal commission.
-<!-- TRANSLATION:CU00208a -->
-彼得爵士也希望皇家委员会审查现行的对抗式法庭辩护制度。
-<!-- END_CONTEXT:CU00208a -->
+<!-- CONTEXT:R31AU00208a USE:U00208 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.advocates.org.uk/about-advocates/life-at-the-scottish-bar/investigating-becoming-an-advocate"]} -->
+<!-- SENTENCE:S31AU00208a1 USE:U00208 -->
+An advocate's work includes advocacy in courts or tribunals, drafting legal documents, and giving opinions on legal questions.
+<!-- TRANSLATION:R31AU00208a -->
+出庭律师的工作包括在法院或审裁机构替当事人论辩、起草法律文件，以及就法律问题提出意见。
+<!-- END_CONTEXT:R31AU00208a -->
 <!-- USE:U00209 -->
 ## advocacy /ˈædvəkəsi/ n. · 影响决策的倡议
 `在美式英语的 advocacy group、advocacy organization 等组合中作定语，说明组织以影响政府或其他机构决策为目标；advocacy 本身仍是名词。`
@@ -346,24 +360,26 @@ Town planning and land allocation had to be coordinated.
 ## allocable /ˈæləkəbəl/ adj. · 可分配的
 `可以分配、划拨给某个对象或归入特定用途的。`
 
-<!-- CONTEXT:CU00304a USE:U00304 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU00304a1 USE:U00304 -->
-Only the uncommitted funds are allocable to the new project.
-<!-- TRANSLATION:CU00304a -->
-只有尚未承诺用途的资金可以拨给这个新项目。
-<!-- END_CONTEXT:CU00304a -->
+<!-- CONTEXT:R31AU00304a USE:U00304 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.govinfo.gov/content/pkg/CFR-2026-title2-vol01/xhtml/CFR-2026-title2-vol01-part200.html"]} -->
+<!-- SENTENCE:S31AU00304a1 USE:U00304 -->
+Under U.S. federal award rules, a cost is allocable to an award when it can be assigned according to the relative benefits received.
+<!-- SENTENCE:S31AU00304a2 -->
+A cost benefiting both the award and other work may be distributed between them in reasonably estimated proportions.
+<!-- TRANSLATION:R31AU00304a -->
+依照美国联邦资助项目的规则，一项费用若可按所获得的相对收益归入某项资助，便可分摊给该项目。一项同时有益于资助项目和其他工作的费用，可以按合理估算的比例分摊。
+<!-- END_CONTEXT:R31AU00304a -->
 <!-- USE:U00305 -->
 ## allocator /ˈæləkeɪtər/ n. · 资源分配者
 `负责分配的人或执行分配功能的事物，可数；可指人员，也可指承担资源分配任务的系统部件。`
 
-<!-- CONTEXT:CU00305a USE:U00305 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU00305a1 USE:U00305 -->
-The memory allocator assigns space to each running program.
-<!-- TRANSLATION:CU00305a -->
-内存分配器为每个正在运行的程序分配空间。
-<!-- END_CONTEXT:CU00305a -->
+<!-- CONTEXT:R31AU00305a USE:U00305 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://doc.rust-lang.org/std/alloc/trait.Allocator.html"]} -->
+<!-- SENTENCE:S31AU00305a1 USE:U00305 -->
+In Rust's experimental Allocator interface, an allocator can allocate, resize and release blocks of data.
+<!-- TRANSLATION:R31AU00305a -->
+在Rust的实验性Allocator接口中，分配器可以分配、调整和释放数据块。
+<!-- END_CONTEXT:R31AU00305a -->
 
 <!-- WORD:W004 -->
 # alternative
@@ -425,14 +441,6 @@ The story follows unconventional parents who embraced the alternative lifestyle 
 <!-- TRANSLATION:CU00405a -->
 故事讲述了一对不循常规、接受了六十年代非主流生活方式的父母。
 <!-- END_CONTEXT:CU00405a -->
-
-<!-- CONTEXT:CU00405b USE:U00405 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU00405b1 USE:U00405 -->
-The festival included alternative theatre.
-<!-- TRANSLATION:CU00405b -->
-这个节日的活动包括非主流戏剧。
-<!-- END_CONTEXT:CU00405b -->
 <!-- USE:U00406 -->
 ## alternative /ɔlˈtɝnətɪv/ adj. · 替代常规医疗的
 `在 alternative medicine 等组合中，表示用植物药、按摩、针灸等非常规方法替代常规医疗的；这一类别名称本身不证明某种疗法的疗效。`
@@ -541,14 +549,6 @@ His group was forced to turn back and take an alternate route.
 <!-- TRANSLATION:CU00413a -->
 他所在的小组被迫折返，改走另一条路线。
 <!-- END_CONTEXT:CU00413a -->
-
-<!-- CONTEXT:CU00413b USE:U00413 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU00413b1 USE:U00413 -->
-They chose an alternate lifestyle.
-<!-- TRANSLATION:CU00413b -->
-他们选择了另一种有别于惯常方式的生活。
-<!-- END_CONTEXT:CU00413b -->
 <!-- USE:U00414 -->
 ## alternate /ˈɔltərnət/ n. · 候补者或替代物
 `需要时接替别人或代替另一事物的人或物，可数，尤其见于北美英语，如候补陪审员。`
@@ -562,15 +562,15 @@ In most jurisdictions, twelve jurors and two alternates are chosen.
 <!-- END_CONTEXT:CU00414a -->
 <!-- USE:U00415 -->
 ## alternate /ˈɔltərnət/ adj. · 叶序互生的
-`植物学中，叶等在茎的两侧交替排列、并非成对对生的，即“互生的”。`
+`植物学中，叶等在茎上逐个着生、位置交错而非成对对生，即“互生的”；可在两侧交替，也可沿茎螺旋排列。`
 
-<!-- CONTEXT:CU00415a USE:U00415 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU00415a1 USE:U00415 -->
-The plant has alternate leaves along its stem.
-<!-- TRANSLATION:CU00415a -->
-这种植物的叶片沿着茎互生。
-<!-- END_CONTEXT:CU00415a -->
+<!-- CONTEXT:R31AU00415a USE:U00415 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.govinfo.gov/content/pkg/CZIC-qk154-i521-1987/html/CZIC-qk154-i521-1987.htm"]} -->
+<!-- SENTENCE:S31AU00415a1 USE:U00415 -->
+In an alternate leaf arrangement, leaves attach singly at different points on the stem, usually in an alternating or spiral pattern, as in Ilex coriacea.
+<!-- TRANSLATION:R31AU00415a -->
+在互生叶序中，叶片逐个着生在茎的不同位置，通常交错或沿茎螺旋排列；冬青属的Ilex coriacea便是例子。
+<!-- END_CONTEXT:R31AU00415a -->
 <!-- USE:U00416 -->
 ## alternately /ˈɔltərnətli/ adv. · 交替地
 `交替地、轮流地，说明两种状态或动作轮番出现；须与引出另一选择的 alternatively 区分。`
@@ -603,13 +603,15 @@ The alternation of sun and snow continued for the rest of our holiday.
 ## anticipate /ænˈtɪsəpeɪt/ v. · 预料将发生
 `预先意识到某事可能发生，或预料某种结果，有时也包含做好准备。通常接名词或 that 从句；单纯表示 expect 的用法曾有争议，但现代英语中也广泛使用，不宜一概判错。`
 
-<!-- CONTEXT:CU00501a USE:U00501 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU00501a1 USE:U00501 -->
-At the time we couldn't have anticipated the result of our campaigning.
-<!-- TRANSLATION:CU00501a -->
-当时，我们不可能预料到这场倡议行动的结果。
-<!-- END_CONTEXT:CU00501a -->
+<!-- CONTEXT:R31AU00501a USE:U00501 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.gutenberg.org/files/1260/1260-h/1260-h.htm"]} -->
+<!-- SENTENCE:S31AU00501a1 -->
+Mrs Fairfax treated me like a visitor.
+<!-- SENTENCE:S31AU00501a2 USE:U00501 -->
+I had anticipated only coldness and stiffness, so this reception surprised me.
+<!-- TRANSLATION:R31AU00501a -->
+费尔法克斯太太把我当客人一样招待。我原本只料到冷淡与拘谨，所以这样的接待让我很意外。
+<!-- END_CONTEXT:R31AU00501a -->
 
 <!-- CONTEXT:CU00501b USE:U00501 KIND:example -->
 <!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
@@ -715,13 +717,15 @@ Accurate anticipation of demand helps a library order enough copies.
 ## anticipation /ænˌtɪsəˈpeɪʃən/ n. · 和弦音提前出现
 `音乐中，下一个和弦中的音在该和弦到来前先出现的处理，通常提前出现的是随后和弦的一部分。`
 
-<!-- CONTEXT:CU00509a USE:U00509 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU00509a1 USE:U00509 -->
-The melody introduces an anticipation before the next chord sounds.
-<!-- TRANSLATION:CU00509a -->
-旋律在下一个和弦响起之前先引入了一个先现音。
-<!-- END_CONTEXT:CU00509a -->
+<!-- CONTEXT:R31AU00509a USE:U00509 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://openmusictheory.github.io/embellishingTones.html"]} -->
+<!-- SENTENCE:S31AU00509a1 USE:U00509 -->
+An anticipation typically sounds just before the harmony changes; the same note is then played again as part of the new chord.
+<!-- SENTENCE:S31AU00509a2 -->
+If the early note is tied into the next chord instead of being played again, the effect is syncopation.
+<!-- TRANSLATION:R31AU00509a -->
+先现音通常在和声改变前先响起；和声改变时，同一个音再奏一次，此时它已是新和弦的一部分。如果提前出现的音是用延音线连入下一个和弦，而不是重新奏出，这便是切分。
+<!-- END_CONTEXT:R31AU00509a -->
 <!-- USE:U00510 -->
 ## anticipative /ænˈtɪsəpətɪv/ adj. · 预先期待或准备的
 `预先期待、预料或作准备的，体现事情发生前先作反应的特点。`
@@ -755,6 +759,16 @@ She gave an anticipatory smile.
 <!-- TRANSLATION:CU00512a -->
 她露出了期待的微笑。
 <!-- END_CONTEXT:CU00512a -->
+
+<!-- CONTEXT:R31AU00512a USE:U00512 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.ifrc.org/early-warning-early-action"]} -->
+<!-- SENTENCE:S31AU00512a1 USE:U00512 -->
+Anticipatory action can reduce a predicted hazard’s impact before it hits.
+<!-- SENTENCE:S31AU00512a2 -->
+It can include early evacuation, reinforcing homes or distributing cash, and it must meaningfully involve the communities at risk.
+<!-- TRANSLATION:R31AU00512a -->
+预先行动可以在预计的灾害到来之前减轻其影响。这样的行动可以包括提前疏散、加固住房或发放现金，而且必须让面临风险的社区实质参与。
+<!-- END_CONTEXT:R31AU00512a -->
 
 <!-- WORD:W006 -->
 # approximate
@@ -839,15 +853,15 @@ That is a fair approximation of the way in which the next boss is being chosen.
 ## approximation /əˌprɑksəˈmeɪʃən/ n. · 近似估计值
 `接近正确数值、计算结果或位置的估计值，可数；表示近似结果，须与精确测量值区分。`
 
-<!-- CONTEXT:CU00607r USE:U00607 KIND:abridgment -->
-<!-- CONTEXT_META:{"title":"用矩形逐步逼近面积","sourceUrls":["https://openstax.org/books/calculus-volume-1/pages/5-1-approximating-areas"],"displayContext":"OpenStax《Calculus Volume1》§5.1，缩编与中译，CC BY-NC-SA4.0。"} -->
-<!-- SENTENCE:SCU00607r1 -->
-For a continuous, nonnegative function, first approximate the area under its graph using rectangles.
-<!-- SENTENCE:SCU00607r2 USE:U00607 -->
-Smaller and smaller rectangles give closer and closer approximations to the area; taking a limit gives the exact area.
-<!-- TRANSLATION:CU00607r -->
-对于连续且非负的函数，先用矩形估算其图像下的面积。矩形越来越小，得到的面积近似值就越来越接近真实面积；取极限则可得到精确面积。
-<!-- END_CONTEXT:CU00607r -->
+<!-- CONTEXT:R31AU00607b USE:U00607 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.gutenberg.org/cache/epub/33283/pg33283-images.html"]} -->
+<!-- SENTENCE:S31AU00607b1 -->
+Construct a rising curve from short straight pieces of increasing slope, joined at their corners.
+<!-- SENTENCE:S31AU00607b2 USE:U00607 -->
+This gives an approximation to the curve; using twice as many pieces, each half as long, gives a better approximation.
+<!-- TRANSLATION:R31AU00607b -->
+用斜率逐渐增大的短直线段，在端点处连接起来，构造一条上升的曲线。这样得到的是该曲线的近似形状；把每段长度减半、段数加倍，就能得到更好的近似形状。
+<!-- END_CONTEXT:R31AU00607b -->
 
 <!-- WORD:W007 -->
 # archive
@@ -915,24 +929,28 @@ The system archives inactive records to a separate storage tier.
 ## archival /ɑrˈkaɪvəl/ adj. · 档案相关的
 `属于档案、与档案有关的，通常放在名词前，如 archival material。`
 
-<!-- CONTEXT:CU00706a USE:U00706 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU00706a1 USE:U00706 -->
-The introduction discusses his extensive use of archival material.
-<!-- TRANSLATION:CU00706a -->
-导言讨论了他对档案材料的广泛使用。
-<!-- END_CONTEXT:CU00706a -->
+<!-- CONTEXT:R31AU00706a USE:U00706 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.archives.gov/chicago/archives/faqs/collections.html"]} -->
+<!-- SENTENCE:S31AU00706a1 -->
+How are the records arranged?
+<!-- SENTENCE:S31AU00706a2 USE:U00706 -->
+Archival materials at the National Archives at Chicago are grouped by the government body that created them; the records keep the order maintained by that agency or court.
+<!-- TRANSLATION:R31AU00706a -->
+这些记录怎样编排？美国国家档案馆芝加哥分馆的档案材料，按形成它们的政府机构归类；记录保留原机构或法院维护的顺序。
+<!-- END_CONTEXT:R31AU00706a -->
 <!-- USE:U00707 -->
 ## archivist /ˈɑrkɪvɪst/ n. · 档案工作人员
 `以收集、整理、保管历史档案与记录为工作的人，即档案工作人员，可数。`
 
-<!-- CONTEXT:CU00707a USE:U00707 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU00707a1 USE:U00707 -->
-An archivist arranged the papers by their original office of creation.
-<!-- TRANSLATION:CU00707a -->
-一位档案工作人员按文件最初形成的部门整理了这些文件。
-<!-- END_CONTEXT:CU00707a -->
+<!-- CONTEXT:R31AU00707a USE:U00707 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.archives.gov/chicago/archives/faqs/collections.html"]} -->
+<!-- SENTENCE:S31AU00707a1 USE:U00707 -->
+Ask an archivist at the National Archives at Chicago about its finding aids and holdings.
+<!-- SENTENCE:S31AU00707a2 -->
+For extensive research, consult the office’s list of researchers available for hire.
+<!-- TRANSLATION:R31AU00707a -->
+可以向美国国家档案馆芝加哥分馆的档案工作人员询问检索工具和馆藏情况。如果需要大规模的代查研究，可查看该馆提供的受雇研究人员名单。
+<!-- END_CONTEXT:R31AU00707a -->
 
 <!-- WORD:W008 -->
 # capacity
@@ -973,13 +991,13 @@ Bread factories are working at full capacity.
 ## capacity /kəˈpæsəti/ n. · 设备能力规格
 `设备能够承载、提供或完成的规格量，可数，常以具体单位说明，如载重能力、发动机容量或设备功率。具体含义取决于计量对象，不都表示体积。`
 
-<!-- CONTEXT:CU00803a USE:U00803 KIND:example -->
+<!-- CONTEXT:R31AU00803a USE:U00803 KIND:example -->
 <!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU00803a1 USE:U00803 -->
-The display describes an aircraft with a bomb-carrying capacity of 454 kg.
-<!-- TRANSLATION:CU00803a -->
-展品说明介绍了一架载弹量为454千克的飞机。
-<!-- END_CONTEXT:CU00803a -->
+<!-- SENTENCE:S31AU00803a1 USE:U00803 -->
+The aircraft had a bomb-carrying capacity of 454 kg.
+<!-- TRANSLATION:R31AU00803a -->
+这架飞机的载弹能力为454千克。
+<!-- END_CONTEXT:R31AU00803a -->
 <!-- USE:U00804 -->
 ## capacity /kəˈpæsəti/ n. · 容积
 `容器或内部空间能够容纳的体积，可数或不可数，常用升、加仑等计量，如 fuel、lung、storage capacity。`
@@ -1074,15 +1092,15 @@ The court considered her capacity to enter into the contract.
 ## capacity /kəˈpæsəti/ n.; capacitance /kəˈpæsɪtəns/ n. · 电容
 `电学中，电系统储存电荷的能力，或储存电荷量的变化与相应电势差变化的比值。现代技术表达常用 capacitance，符号为 C；线性情形可写 C = Q/V，更一般的微分电容写作 dQ/dV。这里指电荷储存能力，而非电流。`
 
-<!-- CONTEXT:CU00810r USE:U00810 KIND:abridgment -->
-<!-- CONTEXT_META:{"title":"同样电压能储存多少电荷","sourceUrls":["https://openstax.org/books/university-physics-volume-2/pages/8-1-capacitors-and-capacitance"],"displayContext":"OpenStax《University Physics Volume2》§8.1，缩编与中译，CC BY-NC-SA4.0。"} -->
-<!-- SENTENCE:SCU00810r1 -->
-Capacitors with different shapes and sizes store different amounts of charge at the same voltage.
-<!-- SENTENCE:SCU00810r2 USE:U00810 -->
-Capacitance is the amount of charge stored per volt across the plates.
-<!-- TRANSLATION:CU00810r -->
-形状和尺寸不同的电容器，在相同电压下储存的电荷量不同。电容表示极板间每单位电压所对应的储存电荷量。
-<!-- END_CONTEXT:CU00810r -->
+<!-- CONTEXT:R31AU00810b USE:U00810 KIND:example -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
+<!-- SENTENCE:S31AU00810b1 -->
+An ideal linear capacitor stores 30 microcoulombs of charge when connected across 6 volts.
+<!-- SENTENCE:S31AU00810b2 USE:U00810 -->
+Its capacitance is therefore 5 microfarads; this describes stored charge per volt, not the current through a wire.
+<!-- TRANSLATION:R31AU00810b -->
+一个理想线性电容器两端接上6伏电压时，储存的电荷量为30微库仑。因此它的电容为5微法拉；这个数值表示每单位电压对应的储存电荷量，而不是导线中的电流。
+<!-- END_CONTEXT:R31AU00810b -->
 <!-- USE:U00811 -->
 ## capacitative /kəˈpæsətətɪv/ adj.; capacitive /kəˈpæsətɪv/ adj. · 电容相关的
 `与电容有关、依靠电容作用的，用于电学；capacitive 是 capacitative 的另一形式。`
@@ -1139,13 +1157,15 @@ The particles form a coherent layer rather than a loose powder.
 ## coherent /koʊˈhɪrənt/ adj. · 波相干的
 `物理学中，波之间具有恒定相位关系的，即“相干的”；这里不评价语言是否有条理。`
 
-<!-- CONTEXT:CU00904a USE:U00904 KIND:example -->
+<!-- CONTEXT:R31AU00904b USE:U00904 KIND:example -->
 <!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU00904a1 USE:U00904 -->
-The two coherent waves maintain a fixed phase relationship.
-<!-- TRANSLATION:CU00904a -->
-这两列相干波保持固定的相位关系。
-<!-- END_CONTEXT:CU00904a -->
+<!-- SENTENCE:S31AU00904b1 -->
+In an ideal acoustic test, two fixed speakers receive the same 400-Hz signal.
+<!-- SENTENCE:S31AU00904b2 USE:U00904 -->
+They produce coherent waves, allowing a stable pattern of loud and quiet regions to form.
+<!-- TRANSLATION:R31AU00904b -->
+在一个理想声学测试中，两只固定的扬声器接收同一个400赫兹信号。它们产生相干波，因而能够形成稳定的强音区和弱音区分布。
+<!-- END_CONTEXT:R31AU00904b -->
 <!-- USE:U00905 -->
 ## cohere /koʊˈhɪr/ v. · 黏合或团结
 `各部分黏在一起，或整体保持团结、连结。不及物，既可描述物质黏合，也可描述组织整体的维系。`
@@ -1176,14 +1196,6 @@ The various elements of the novel fail to cohere.
 <!-- TRANSLATION:CU00906a -->
 这部小说的各个要素未能形成连贯的整体。
 <!-- END_CONTEXT:CU00906a -->
-
-<!-- CONTEXT:CU00906b USE:U00906 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU00906b1 USE:U00906 -->
-This coheres with Peel's championing of alternative music.
-<!-- TRANSLATION:CU00906b -->
-这与皮尔对非主流音乐的支持是一致的。
-<!-- END_CONTEXT:CU00906b -->
 <!-- USE:U00907 -->
 ## coherence /koʊˈhɪrəns/ n.; coherency /koʊˈhɪrənsi/ n. · 表达与内容连贯性
 `思想、作品或表达的各部分彼此一致、清楚连贯的性质，也可描述一个人说话时的连贯、清醒程度。coherence 通常不可数，coherency 是相应的另一名词形式。`
@@ -1218,24 +1230,26 @@ The binder improves the coherence of the pressed powder.
 ## coherently /koʊˈhɪrəntli/ adv. · 有条理地
 `以条理清楚、前后一致的方式，常说明说话、解释或论证的方式。`
 
-<!-- CONTEXT:CU00909a USE:U00909 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU00909a1 USE:U00909 -->
-She explained the sequence of events coherently.
-<!-- TRANSLATION:CU00909a -->
-她有条理地解释了事情的先后经过。
-<!-- END_CONTEXT:CU00909a -->
+<!-- CONTEXT:R31AU00909a USE:U00909 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.gutenberg.org/files/1260/1260-h/1260-h.htm"]} -->
+<!-- SENTENCE:S31AU00909a1 USE:U00909 -->
+I reflected for a few minutes to arrange coherently what I had to say, then told Miss Temple the story of my sad childhood.
+<!-- TRANSLATION:R31AU00909a -->
+我思考了几分钟，把要说的话有条理地组织好，然后向坦普尔小姐讲述了自己悲伤的童年经历。
+<!-- END_CONTEXT:R31AU00909a -->
 <!-- USE:U00910 -->
 ## coherently /koʊˈhɪrəntli/ adv. · 保持波相干地
 `物理语境中，波等在保持稳定相位关系的情况下，即“相干地”。`
 
-<!-- CONTEXT:CU00910a USE:U00910 KIND:example -->
+<!-- CONTEXT:R31AU00910b USE:U00910 KIND:example -->
 <!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU00910a1 USE:U00910 -->
-The beams combine coherently at the detector.
-<!-- TRANSLATION:CU00910a -->
-这些光束在探测器处相干叠加。
-<!-- END_CONTEXT:CU00910a -->
+<!-- SENTENCE:S31AU00910b1 USE:U00910 -->
+In the receiver's ideal model, two copies of a radio signal are aligned in phase and added coherently.
+<!-- SENTENCE:S31AU00910b2 -->
+At the combining point, their matching crests reinforce one another.
+<!-- TRANSLATION:R31AU00910b -->
+在接收机的理想模型中，同一无线电信号的两个副本先对齐相位，再相干地相加。在合并点，两者对齐的波峰会相互加强。
+<!-- END_CONTEXT:R31AU00910b -->
 <!-- USE:U00911 -->
 ## incoherent /ˌɪnkoʊˈhɪrənt/ adj. · 说话难懂的
 `无法把话说得清楚、让人理解的，形容人的表达状态；可用 incoherent with fear 等说明原因。`
@@ -1262,13 +1276,15 @@ The report identifies an incoherent set of objectives.
 ## incoherent /ˌɪnkoʊˈhɪrənt/ adj. · 波非相干的
 `物理学中，波之间没有明确、稳定相位关系的，即“非相干的”，与 coherent 相对。`
 
-<!-- CONTEXT:CU00913a USE:U00913 KIND:example -->
+<!-- CONTEXT:R31AU00913b USE:U00913 KIND:example -->
 <!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU00913a1 USE:U00913 -->
-The sources emit mutually incoherent light.
-<!-- TRANSLATION:CU00913a -->
-这些光源发出的光彼此非相干。
-<!-- END_CONTEXT:CU00913a -->
+<!-- SENTENCE:S31AU00913b1 -->
+In the simulation, the relative phase of two light waves is chosen independently and uniformly at random over a full cycle at each time step.
+<!-- SENTENCE:S31AU00913b2 USE:U00913 -->
+The waves are incoherent, so averaging many time steps washes out their interference fringes.
+<!-- TRANSLATION:R31AU00913b -->
+在模拟中，每个时间步都独立地从一个完整周期中均匀随机选取两列光波的相对相位。这两列波是非相干的，因此对许多时间步取平均后，干涉条纹会被抹平。
+<!-- END_CONTEXT:R31AU00913b -->
 <!-- USE:U00914 -->
 ## incoherence /ˌɪnkoʊˈhɪrəns/ n.; incoherency /ˌɪnkoʊˈhɪrənsi/ n. · 表达或内容不连贯
 `人的表达难以理解，或论述、政策各部分缺乏一致性的状态。incoherency 还可用复数表示具体的不连贯之处。`
@@ -1432,6 +1448,16 @@ She refused the promotion rather than compromise her principles.
 <!-- TRANSLATION:CU01104b -->
 她宁可放弃晋升，也不愿损害自己的原则。
 <!-- END_CONTEXT:CU01104b -->
+
+<!-- CONTEXT:R31AU01104a USE:U01104 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.nist.gov/cybersecurity-and-privacy/how-do-i-create-good-password"]} -->
+<!-- SENTENCE:S31AU01104a1 -->
+Use a different password for each website.
+<!-- SENTENCE:S31AU01104a2 USE:U01104 -->
+If you reuse one, an attacker who compromises it at a single site may gain access to your other accounts too.
+<!-- TRANSLATION:R31AU01104a -->
+每个网站都应使用不同的密码。如果重复使用同一个密码，攻击者一旦在某个网站攻破它，也可能进入你的其他账户。
+<!-- END_CONTEXT:R31AU01104a -->
 <!-- USE:U01105 -->
 ## compromiser /ˈkɑmprəmaɪzər/ n. · 寻求折中者
 `通过互让寻求解决办法的人，可数，由 compromise 加 -er 构成。`
@@ -1553,13 +1579,15 @@ How do you conserve site-specific art exposed to environmental change?
 ## conserve /kənˈsɝv/ v. · 使物理量守恒
 `物理学中，使某个物理量保持不变。须明确系统与成立条件，不能把热与总能量等概念随意互换。`
 
-<!-- CONTEXT:CU01203a USE:U01203 KIND:example -->
+<!-- CONTEXT:R31AU01203b USE:U01203 KIND:example -->
 <!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU01203a1 USE:U01203 -->
-The isolated collision model conserves total momentum.
-<!-- TRANSLATION:CU01203a -->
-这个孤立系统的碰撞模型保持总动量守恒。
-<!-- END_CONTEXT:CU01203a -->
+<!-- SENTENCE:S31AU01203b1 -->
+A 1 kg cart moving at 2 m/s hits another 1 kg cart at rest, and they stick together.
+<!-- SENTENCE:S31AU01203b2 USE:U01203 -->
+Neglecting external horizontal impulse, momentum is conserved and the joined carts move at 1 m/s.
+<!-- TRANSLATION:R31AU01203b -->
+一辆质量为1千克、速度为2米每秒的小车撞上另一辆静止的1千克小车，两车粘在一起。忽略水平方向的外部冲量时，动量守恒，两车结合后的速度为1米每秒。
+<!-- END_CONTEXT:R31AU01203b -->
 <!-- USE:U01204 -->
 ## conserve /kənˈsɝv/ v. · 以糖等保存食品
 `保存食品，尤其指用糖保存水果，直接接所保存的食物。`
@@ -1575,24 +1603,26 @@ They conserve the fruit in sugar.
 ## conserve /ˈkɑnsɝv/ n. · 蜜饯或果脯
 `用糖保存的水果等，即蜜饯或果脯，可数或不可数；名词的重音与动词不同。`
 
-<!-- CONTEXT:CU01205a USE:U01205 KIND:example -->
+<!-- CONTEXT:R31AU01205a USE:U01205 KIND:example -->
 <!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU01205a1 USE:U01205 -->
-A small dish of fruit conserve accompanied the meal.
-<!-- TRANSLATION:CU01205a -->
-餐点配了一小碟糖渍水果。
-<!-- END_CONTEXT:CU01205a -->
+<!-- SENTENCE:S31AU01205a1 USE:U01205 -->
+Whole pears preserved in sugar were served as a conserve after dinner.
+<!-- TRANSLATION:R31AU01205a -->
+餐后端上了一份用糖保存的整梨甜食。
+<!-- END_CONTEXT:R31AU01205a -->
 <!-- USE:U01206 -->
 ## conserve /ˈkɑnsɝv/ n. · 含整块果肉的果酱
 `含大量果实、常保留整块果肉的果酱，也可指鲜果酱。`
 
-<!-- CONTEXT:CU01206a USE:U01206 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU01206a1 USE:U01206 -->
-She spread strawberry conserve on the toast.
-<!-- TRANSLATION:CU01206a -->
-她把高果量草莓酱抹在吐司上。
-<!-- END_CONTEXT:CU01206a -->
+<!-- CONTEXT:R31AU01206a USE:U01206 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.gutenberg.org/files/9939/old/8loc510h.htm"]} -->
+<!-- SENTENCE:S31AU01206a1 USE:U01206 -->
+Strawberries and pineapple can be combined to make an appetizing conserve.
+<!-- SENTENCE:S31AU01206a2 -->
+Peel and slice the pineapple, remove the eyes, and cut it into small pieces.
+<!-- TRANSLATION:R31AU01206a -->
+草莓与菠萝可以搭配制成果味浓厚的果酱。把菠萝去皮、切片，去掉芽眼，再切成小块。
+<!-- END_CONTEXT:R31AU01206a -->
 <!-- USE:U01207 -->
 ## conservation /ˌkɑnsərˈveɪʃən/ n. · 自然环境保护
 `保护自然环境、物种等的行动，通常不可数。`
@@ -1646,13 +1676,15 @@ In an ordinary chemical reaction in a closed system, conservation of mass lets u
 在封闭系统的一般化学反应中，质量守恒使我们能够比较反应前后的总质量。
 <!-- END_CONTEXT:CU01210b -->
 
-<!-- CONTEXT:CU01210c USE:U01210 KIND:example -->
+<!-- CONTEXT:R31AU01210b USE:U01210 KIND:example -->
 <!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU01210c1 USE:U01210 -->
-Conservation of momentum applies to a system when there is no net external impulse.
-<!-- TRANSLATION:CU01210c -->
-系统没有受到净外冲量时，动量守恒成立。
-<!-- END_CONTEXT:CU01210c -->
+<!-- SENTENCE:S31AU01210b1 -->
+Two skaters of 40 kg and 60 kg start at rest and push apart on level ice.
+<!-- SENTENCE:S31AU01210b2 USE:U01210 -->
+With external horizontal impulse neglected, conservation of momentum means that a speed of 3 m/s for the lighter skater corresponds to 2 m/s in the opposite direction for the heavier skater.
+<!-- TRANSLATION:R31AU01210b -->
+两名质量分别为40千克和60千克的滑冰者原本静止，在水平冰面上相互推开。忽略水平方向的外部冲量时，由动量守恒可知：若较轻者的速度为3米每秒，较重者就以2米每秒的速度向相反方向移动。
+<!-- END_CONTEXT:R31AU01210b -->
 <!-- USE:U01211 -->
 ## conservational /ˌkɑnsərˈveɪʃənəl/ adj. · 保护或守恒相关的
 `与保护、保存或守恒有关的。`
@@ -1824,15 +1856,15 @@ A conservative estimate of the bill, so far, is about £22,000.
 ## conservative /kənˈsɝvətɪv/ adj. · 保存或守恒的
 `倾向于保存某物、使某种量保持不变的；在物理等技术语境中可表示守恒的性质。`
 
-<!-- CONTEXT:CU01226r USE:U01226 KIND:abridgment -->
-<!-- CONTEXT_META:{"title":"做功是否依赖路径","sourceUrls":["https://openstax.org/books/university-physics-volume-1/pages/8-2-conservative-and-non-conservative-forces"],"displayContext":"OpenStax《University Physics Volume1》§8.2，缩编与中译，CC BY-NC-SA4.0。"} -->
-<!-- SENTENCE:SCU01226r1 USE:U01226 -->
-A conservative force does the same work along any path between two fixed points.
-<!-- SENTENCE:SCU01226r2 -->
-Gravity and spring forces are examples; friction and air resistance are non-conservative.
-<!-- TRANSLATION:CU01226r -->
-保守力在两个固定点之间沿任意路径做的功都相同。重力和弹簧力属于保守力，摩擦力和空气阻力则是非保守力。
-<!-- END_CONTEXT:CU01226r -->
+<!-- CONTEXT:R31AU01226b USE:U01226 KIND:example -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
+<!-- SENTENCE:S31AU01226b1 -->
+A ball moves between two marked heights, once along a direct path and once along a curved track.
+<!-- SENTENCE:S31AU01226b2 USE:U01226 -->
+In the uniform-gravity model, gravity is a conservative force, so its work depends on the height change, not the extra distance along the curve.
+<!-- TRANSLATION:R31AU01226b -->
+一个球在两个标定高度之间移动，一次沿直接路径，一次沿弯曲轨道。在均匀重力模型中，重力是保守力，所以重力做的功取决于高度变化，而不取决于弯曲路径多出来的距离。
+<!-- END_CONTEXT:R31AU01226b -->
 <!-- USE:U01227 -->
 ## conservatively /kənˈsɝvətɪvli/ adv. · 按传统保守地
 `以传统、不求新变或避免过激的方式，可说明衣着等。`
@@ -1988,13 +2020,15 @@ He answered in a constrained voice.
 ## constrainedly /kənˈstreɪnɪdli/ adv. · 拘谨勉强地
 `拘谨、勉强或不自然地，描述 constrained 所表示的表现状态。`
 
-<!-- CONTEXT:CU01307a USE:U01307 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU01307a1 USE:U01307 -->
-She smiled constrainedly during the awkward introduction.
-<!-- TRANSLATION:CU01307a -->
-在尴尬的介绍过程中，她勉强笑了笑。
-<!-- END_CONTEXT:CU01307a -->
+<!-- CONTEXT:R31AU01307a USE:U01307 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.gutenberg.org/files/41010/41010-h/41010-h.htm"]} -->
+<!-- SENTENCE:S31AU01307a1 -->
+“Jean knows nothing of love,” declared Emily.
+<!-- SENTENCE:S31AU01307a2 USE:U01307 -->
+Jean joined somewhat constrainedly in the laugh that followed and wondered whether Miss Stuart’s smile concealed a sneer.
+<!-- TRANSLATION:R31AU01307a -->
+“简对爱情一无所知。”艾米莉断言。简有些勉强地跟着众人笑起来，心里疑惑，斯图尔特小姐的微笑里是否藏着嘲讽。
+<!-- END_CONTEXT:R31AU01307a -->
 <!-- USE:U01308 -->
 ## constraint /kənˈstreɪnt/ n. · 约束或禁闭
 `施加限制的行为、受限制的状态，或自由受到剥夺。可涉及行动控制或实际禁闭，泛指约束时常不可数。`
@@ -2021,13 +2055,13 @@ Their decision to abandon the trip was made because of financial constraints.
 ## constraint /kənˈstreɪnt/ n. · 情感克制与拘谨
 `对自然感情或表达的克制、抑制，也指由此显出的拘谨，通常不可数；须与具体的预算等限制因素区分。`
 
-<!-- CONTEXT:CU01310a USE:U01310 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU01310a1 USE:U01310 -->
-There was a noticeable constraint in their conversation after the disagreement.
-<!-- TRANSLATION:CU01310a -->
-发生分歧后，他们的谈话显得明显拘谨。
-<!-- END_CONTEXT:CU01310a -->
+<!-- CONTEXT:R31AU01310a USE:U01310 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.gutenberg.org/files/1260/1260-h/1260-h.htm"]} -->
+<!-- SENTENCE:S31AU01310a1 USE:U01310 -->
+Mr Rochester thinks Jane still shows some of the constraint she learned at Lowood: it controls her features, muffles her voice, and restricts her movements.
+<!-- TRANSLATION:R31AU01310a -->
+罗切斯特先生觉得，简身上仍留有一些在洛伍德养成的拘谨：这种拘谨限制着她的表情，压低了她的声音，也拘束了她的动作。
+<!-- END_CONTEXT:R31AU01310a -->
 
 <!-- WORD:W014 -->
 # convention
@@ -2038,13 +2072,13 @@ There was a noticeable constraint in their conversation after the disagreement.
 ## convention /kənˈvenʃən/ n. · 社会惯例
 `多数人默契接受的行为准则或惯常做法，可数或不可数，尤其涉及礼貌、习俗；也可指刻板、形式化的惯例。`
 
-<!-- CONTEXT:CU01401a USE:U01401 KIND:example -->
+<!-- CONTEXT:R31AU01401a USE:U01401 KIND:example -->
 <!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU01401a1 USE:U01401 -->
-It's just a social convention that men don't wear skirts.
-<!-- TRANSLATION:CU01401a -->
-男人不穿裙子，只是一种社会习俗。
-<!-- END_CONTEXT:CU01401a -->
+<!-- SENTENCE:S31AU01401a1 USE:U01401 -->
+Men here do not wear skirts; it is simply a social convention.
+<!-- TRANSLATION:R31AU01401a -->
+这里的男人不穿裙子；这只是一种社会习俗。
+<!-- END_CONTEXT:R31AU01401a -->
 <!-- USE:U01402 -->
 ## convention /kənˈvenʃən/ n. · 艺术传统手法
 `艺术、文学或戏剧中传统采用的手法或风格，可数，常接 of。`
@@ -2060,13 +2094,15 @@ The essay examines the stylistic conventions of Egyptian art.
 ## convention /kənˈvenʃən/ n. · 正式协议或公约
 `群体或国家之间正式达成的协议，可数。国际用法常译作公约，有时指形式不如 treaty 正式的协议。`
 
-<!-- CONTEXT:CU01403a USE:U01403 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU01403a1 USE:U01403 -->
-The discussion concerns the U.N. convention on climate change.
-<!-- TRANSLATION:CU01403a -->
-讨论涉及联合国气候变化公约。
-<!-- END_CONTEXT:CU01403a -->
+<!-- CONTEXT:R31AU01403a USE:U01403 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://unfccc.int/cop4/conv/conv.htm"]} -->
+<!-- SENTENCE:S31AU01403a1 USE:U01403 -->
+The UN climate convention aims to stabilize atmospheric greenhouse gas concentrations at a level that prevents dangerous human interference with the climate system.
+<!-- SENTENCE:S31AU01403a2 -->
+That level should be reached in time for ecosystems to adapt naturally, food production to remain secure, and economic development to continue sustainably.
+<!-- TRANSLATION:R31AU01403a -->
+联合国气候变化公约旨在把大气中的温室气体浓度稳定在一个防止人类危险干扰气候系统的水平。应在足够的时间内达到这一水平，让生态系统能够自然适应，粮食生产不受威胁，经济也能持续发展。
+<!-- END_CONTEXT:R31AU01403a -->
 <!-- USE:U01404 -->
 ## convention /kənˈvenʃən/ n. · 正式大会
 `为共同目的召开的正式会议或组织大会，可数，如行业年会、政党大会。`
@@ -2082,15 +2118,15 @@ She attended the annual convention of the Society of Professional Journalists.
 ## convention /kənˈvenʃən/ n. · 政党提名大会
 `美式政治用语，指政党代表为选定公职候选人而举行的大会。`
 
-<!-- CONTEXT:CU01405r USE:U01405 KIND:abridgment -->
-<!-- CONTEXT_META:{"title":"1968年大会现场的无线报道","sourceUrls":["https://siarchives.si.edu/blog/science-service-technology-political-conventions"],"displayContext":"Smithsonian Archives，2016年历史文章；缩编1968年大会及器材部分，不采用照片。"} -->
-<!-- SENTENCE:SCU01405r1 USE:U01405 -->
-For television coverage of the 1968 national political conventions, NBC equipped four commentators with special backpacks.
-<!-- SENTENCE:SCU01405r2 -->
-The system let a reporter communicate wirelessly with a director in the booth.
-<!-- TRANSLATION:CU01405r -->
-为了报道1968年的全国政党代表大会，美国全国广播公司为四名评论员配备了特殊背包。这套系统使记者能够与转播间的导演无线通话。
-<!-- END_CONTEXT:CU01405r -->
+<!-- CONTEXT:R31AU01405a USE:U01405 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.usa.gov/presidential-general-election"]} -->
+<!-- SENTENCE:S31AU01405a1 USE:U01405 -->
+In U.S. presidential elections, the major political parties choose their presidential and vice-presidential nominees at a national convention.
+<!-- SENTENCE:S31AU01405a2 USE:U01405 -->
+Minor-party and independent candidates may appear on state ballots without having a national convention, provided they meet the state’s eligibility rules.
+<!-- TRANSLATION:R31AU01405a -->
+在美国总统选举中，主要政党在全国代表大会上提名总统和副总统候选人。小党及独立候选人也可能不经全国大会出现在各州选票上，但必须符合所在州的资格要求。
+<!-- END_CONTEXT:R31AU01405a -->
 <!-- USE:U01406 -->
 ## convention /kənˈvenʃən/ n. · 非君主召集的议会
 `历史上，未经君主召集而举行的议会会议。`
@@ -2141,13 +2177,13 @@ The character is a respectable married woman with conventional opinions.
 ## conventional /kənˈvenʃənəl/ adj. · 常规沿用的
 `方法或产品按常规采用、沿用已久的，常放在名词前。`
 
-<!-- CONTEXT:CU01410a USE:U01410 KIND:example -->
+<!-- CONTEXT:R31AU01410a USE:U01410 KIND:example -->
 <!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU01410a1 USE:U01410 -->
-The report examines the risks and drawbacks of conventional family planning methods.
-<!-- TRANSLATION:CU01410a -->
-这份报告考察常规计划生育方法的风险和缺点。
-<!-- END_CONTEXT:CU01410a -->
+<!-- SENTENCE:S31AU01410a1 USE:U01410 -->
+This new memory stick holds twice as much information as a conventional pen drive.
+<!-- TRANSLATION:R31AU01410a -->
+这种新存储棒能容纳的信息量，是常规U盘的两倍。
+<!-- END_CONTEXT:R31AU01410a -->
 <!-- USE:U01411 -->
 ## conventional /kənˈvenʃənəl/ adj. · 非核武备的
 `武器或战争不使用核爆炸物的，常修饰 weapons、arms、war；具体武备分类须依语境判断。`
@@ -2240,13 +2276,15 @@ A conventionalist may prefer established forms to experimentation.
 ## conventionality /kənˌvenʃəˈnæləti/ n. · 惯例性或惯常形式
 `符合惯例的性质，或具体的一种惯常形式；复数形式为 conventionalities。`
 
-<!-- CONTEXT:CU01419a USE:U01419 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU01419a1 USE:U01419 -->
-The conventionality of the ending disappointed her.
-<!-- TRANSLATION:CU01419a -->
-结局落入俗套，令她失望。
-<!-- END_CONTEXT:CU01419a -->
+<!-- CONTEXT:R31AU01419a USE:U01419 KIND:excerpt -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.gutenberg.org/files/1260/1260-h/1260-h.htm"]} -->
+<!-- SENTENCE:S31AU01419a1 USE:U01419 -->
+Conventionality is not morality.
+<!-- SENTENCE:S31AU01419a2 -->
+Self-righteousness is not religion.
+<!-- TRANSLATION:R31AU01419a -->
+循从世俗惯例不等于道德，自以为义也不等于宗教信仰。
+<!-- END_CONTEXT:R31AU01419a -->
 <!-- USE:U01420 -->
 ## conventionalize /kənˈvenʃənəlaɪz/ v.; conventionalise /kənˈvenʃənəlaɪz/ v. · 使符合惯例
 `使某物符合惯例或成为约定形式，直接接所规范化的对象；conventionalise 是另一拼写。`
@@ -2443,13 +2481,15 @@ A diagram can help with the conveyance of a complex idea.
 ## conveyance /kənˈveɪəns/ n. · 交通运载工具
 `载送人或物的工具、车辆，可数；属于用来称呼车辆的文学性表达。`
 
-<!-- CONTEXT:CU01508a USE:U01508 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU01508a1 USE:U01508 -->
-Mahoney had never seen such a conveyance before.
-<!-- TRANSLATION:CU01508a -->
-马奥尼以前从未见过这样的交通工具。
-<!-- END_CONTEXT:CU01508a -->
+<!-- CONTEXT:R31AU01508a USE:U01508 KIND:excerpt -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.gutenberg.org/files/1260/1260-h/1260-h.htm"]} -->
+<!-- SENTENCE:S31AU01508a1 USE:U01508 -->
+“Have you any sort of conveyance?”
+<!-- SENTENCE:S31AU01508a2 -->
+“We have a chaise, ma’am, a very handsome chaise.”
+<!-- TRANSLATION:R31AU01508a -->
+“你们有交通工具吗？”“我们有一辆轻便马车，小姐，一辆很漂亮的轻便马车。”
+<!-- END_CONTEXT:R31AU01508a -->
 <!-- USE:U01509 -->
 ## conveyance /kənˈveɪəns/ n. · 产权转让行为
 `财产所有权从一方转给另一方的法律行为。`
@@ -2573,15 +2613,15 @@ They cultivate rice in the flooded fields.
 ## cultivate /ˈkʌltəveɪt/ v. · 培养菌体或细胞
 `在适合的条件下使细菌、细胞等生物材料生长，即培养生物材料。`
 
-<!-- CONTEXT:CU01604r USE:U01604 KIND:abridgment -->
-<!-- CONTEXT_META:{"title":"培养基要不要特意抑制某类菌","sourceUrls":["https://openstax.org/books/microbiology/pages/9-6-media-used-for-bacterial-growth"],"displayContext":"OpenStax《Microbiology》§9.6，缩编与中译，CC BY-NC-SA4.0；不是实验操作指导。"} -->
-<!-- SENTENCE:SCU01604r1 USE:U01604 -->
-Non-selective media can be used to cultivate organisms without specifically inhibiting particular microbes.
-<!-- SENTENCE:SCU01604r2 -->
-Mueller-Hinton agar is one example used in antibiotic testing.
-<!-- TRANSLATION:CU01604r -->
-非选择性培养基可用于培养生物，而不特意抑制某类微生物。用于抗生素试验的穆勒—辛顿琼脂便是一例。
-<!-- END_CONTEXT:CU01604r -->
+<!-- CONTEXT:R31AU01604b USE:U01604 KIND:example -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
+<!-- SENTENCE:S31AU01604b1 USE:U01604 -->
+For a growth study, the laboratory cultivates yeast cells in a nutrient medium.
+<!-- SENTENCE:S31AU01604b2 -->
+The technician compares samples from the start and end of the study to see how much the population has grown.
+<!-- TRANSLATION:R31AU01604b -->
+为了研究生长，实验室在营养培养基中培养酵母细胞。技术人员比较研究开始和结束时的样本，查看细胞群体增长了多少。
+<!-- END_CONTEXT:R31AU01604b -->
 <!-- USE:U01605 -->
 ## cultivate /ˈkʌltəveɪt/ v. · 培养心智与技能
 `着力发展心智、态度、技能、形象或举止，强调持续培养与改善，直接接所培养的素养。`
@@ -2657,13 +2697,15 @@ The collection includes a mixture of wild and cultivated varieties.
 ## cultivation /ˌkʌltəˈveɪʃən/ n. · 耕作与作物栽培
 `耕作土地、栽培作物的过程，通常不可数。cultivation of crops 指作物栽培，land under cultivation 指投入耕作的土地；须与培养细菌、细胞等的生物学用法区分。`
 
-<!-- CONTEXT:CU01610a USE:U01610 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU01610a1 USE:U01610 -->
-The book covers the cultivation of fruits and vegetables.
-<!-- TRANSLATION:CU01610a -->
-这本书介绍水果和蔬菜的栽培。
-<!-- END_CONTEXT:CU01610a -->
+<!-- CONTEXT:R31AU01610a USE:U01610 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.rhs.org.uk/soil-composts-mulches/soil-cultivation"]} -->
+<!-- SENTENCE:S31AU01610a1 USE:U01610 -->
+Use only minimum cultivation, because over-cultivating can damage soil structure.
+<!-- SENTENCE:S31AU01610a2 -->
+Avoid digging around plants, where roots may be damaged.
+<!-- TRANSLATION:R31AU01610a -->
+只需进行最低限度的土壤耕作，因为过度耕作可能破坏土壤结构。避免在植物周围翻挖，以免损伤根部。
+<!-- END_CONTEXT:R31AU01610a -->
 
 <!-- CONTEXT:CU01610b USE:U01610 KIND:example -->
 <!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
@@ -2676,13 +2718,13 @@ Farmers with many acres under cultivation profited.
 ## cultivation /ˌkʌltəˈveɪʃən/ n. · 素养或关系培养
 `着力培养某种心智、态度、能力或关系的过程，通常不可数，常接 of。`
 
-<!-- CONTEXT:CU01611a USE:U01611 KIND:example -->
+<!-- CONTEXT:R31AU01611a USE:U01611 KIND:example -->
 <!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU01611a1 USE:U01611 -->
-The discussion concerns the cultivation of a positive approach to life and health.
-<!-- TRANSLATION:CU01611a -->
-讨论涉及如何培养积极对待生活与健康的态度。
-<!-- END_CONTEXT:CU01611a -->
+<!-- SENTENCE:S31AU01611a1 USE:U01611 -->
+The cultivation of patience is part of learning to listen without interrupting.
+<!-- TRANSLATION:R31AU01611a -->
+培养耐心，也是学习倾听而不打断别人的一部分。
+<!-- END_CONTEXT:R31AU01611a -->
 <!-- USE:U01612 -->
 ## cultivator /ˈkʌltəveɪtər/ n. · 耕种培养者
 `从事耕种、栽培或培养工作的人或事物，可数，强调执行耕作、培养的主体。`
@@ -2819,13 +2861,15 @@ He is incapable of discriminating between a good idea and a terrible one.
 ## discriminate /dɪˈskrɪməneɪt/ v. · 区别对待群体
 `因群体、种族、年龄或性别等作区别待遇，尤指不公平待遇。discriminate against somebody 指使其受到不利待遇，discriminate in favour of somebody 指给予优待；具体公平性依语境判断，不能把辨别颜色等中性用法译成社会歧视。`
 
-<!-- CONTEXT:CU01802a USE:U01802 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SU01802a USE:U01802 -->
-They believe the law discriminates against women.
-<!-- TRANSLATION:CU01802a -->
-他们认为这项法律歧视女性。
-<!-- END_CONTEXT:CU01802a -->
+<!-- CONTEXT:R31BU01802a USE:U01802 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.eeoc.gov/prohibited-employment-policiespractices"]} -->
+<!-- SENTENCE:S31BU01802a1 USE:U01802 -->
+Under the laws enforced by the U.S. Equal Employment Opportunity Commission, an employer may not discriminate against a job applicant because of race.
+<!-- SENTENCE:S31BU01802a2 USE:U01802 -->
+For example, an employer may not refuse to give application forms to people of a particular race.
+<!-- TRANSLATION:R31BU01802a -->
+根据美国平等就业机会委员会执行的法律，雇主不得因种族而歧视求职者。例如，雇主不得拒绝向某一种族的人发放求职申请表。
+<!-- END_CONTEXT:R31BU01802a -->
 
 <!-- CONTEXT:CU01802b USE:U01802 KIND:example -->
 <!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
@@ -2860,13 +2904,13 @@ When buying old furniture, learn to discriminate: a fresh coat of paint can hide
 ## discriminately /dɪˈskrɪmənətli/ adv. · 有选择地
 `有区别、有选择地，强调并非一律或盲目处理。`
 
-<!-- CONTEXT:CU01805a USE:U01805 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SU01805a USE:U01805 -->
-The editor selected the photographs discriminately.
-<!-- TRANSLATION:CU01805a -->
-编辑有选择地挑选了这些照片。
-<!-- END_CONTEXT:CU01805a -->
+<!-- CONTEXT:R31BU01805a USE:U01805 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.gutenberg.org/cache/epub/71518/pg71518-images.html"]} -->
+<!-- SENTENCE:S31BU01805a1 USE:U01805 -->
+In his 1866 essay on art and photography, A. V. Sutton urges readers to avoid following the crowd and to go forward, judging discriminately for themselves.
+<!-- TRANSLATION:R31BU01805a -->
+A. V. 萨顿在1866年关于艺术与摄影的随笔中，劝读者不要随大流，而要向前探索，自己作出有辨别的判断。
+<!-- END_CONTEXT:R31BU01805a -->
 <!-- USE:U01806 -->
 ## discriminative /dɪˈskrɪmənətɪv/ adj. · 有辨别功能的
 `具有辨别能力、用来作区别的，强调识别、区分的功能。`
@@ -2893,13 +2937,13 @@ The circuit includes a discriminator that separates signals by frequency.
 ## discriminatory /dɪˈskrɪmənəˌtɔri/ adj. · 歧视性的
 `不公正地给予某一群体较差待遇的，常修饰 laws、practices 等，具有负面评价。`
 
-<!-- CONTEXT:CU01808a USE:U01808 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SU01808a USE:U01808 -->
-The rule was challenged as a discriminatory hiring practice.
-<!-- TRANSLATION:CU01808a -->
-这项规定被质疑是一种带有歧视性的招聘做法。
-<!-- END_CONTEXT:CU01808a -->
+<!-- CONTEXT:R31BU01808a USE:U01808 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.eeoc.gov/prohibited-employment-policiespractices"]} -->
+<!-- SENTENCE:S31BU01808a1 USE:U01808 -->
+Under the laws enforced by the U.S. Equal Employment Opportunity Commission, discriminatory practices can include making the workplace so intolerable that a reasonable person would be unable to stay, forcing an employee to resign.
+<!-- TRANSLATION:R31BU01808a -->
+在美国平等就业机会委员会执行的法律下，歧视性做法可能包括把工作环境变得令人无法忍受，以至于一个理性人也无法留下，从而迫使员工辞职。
+<!-- END_CONTEXT:R31BU01808a -->
 <!-- USE:U01809 -->
 ## discriminating /dɪˈskrɪməneɪtɪŋ/ adj. · 有鉴赏力的
 `能够细察差别、识别优良品质的，通常为褒义，重在鉴赏、品位；与表示歧视性的 discriminatory 不同。`
@@ -3129,24 +3173,26 @@ These firms have been given a tough lesson in the need to diversify their market
 ## diversify /daɪˈvɝsəfaɪ/ v. · 分散投资
 `商业中，把投资分布到多家企业或多种产品，或在企业中引入多方面投资，常以降低单一投资损失的影响为目的。`
 
-<!-- CONTEXT:CU01908a USE:U01908 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SU01908a USE:U01908 -->
-The fund diversified its investments across several industries.
-<!-- TRANSLATION:CU01908a -->
-这只基金把投资分散到了几个行业。
-<!-- END_CONTEXT:CU01908a -->
+<!-- CONTEXT:R31BU01908a USE:U01908 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.investor.gov/introduction-investing"]} -->
+<!-- SENTENCE:S31BU01908a1 USE:U01908 -->
+One way to diversify is to spread your investments among different kinds of assets.
+<!-- SENTENCE:S31BU01908a2 USE:U01908 -->
+If one investment loses money, others may offset some of the loss.
+<!-- TRANSLATION:R31BU01908a -->
+分散投资的一种方式，是把资金分布在不同类型的资产中。如果某项投资亏损，其他投资可能弥补部分损失。
+<!-- END_CONTEXT:R31BU01908a -->
 <!-- USE:U01909 -->
 ## diversification /daɪˌvɝsəfɪˈkeɪʃən/ n. · 多样化过程
 `使业务、产品、活动或投资变得更多样的过程或实例，可数或不可数，具体对象由上下文决定。`
 
-<!-- CONTEXT:CU01909a USE:U01909 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SU01909a USE:U01909 -->
-The seminar was to discuss diversification of agriculture.
-<!-- TRANSLATION:CU01909a -->
-这次研讨会原计划讨论农业多样化。
-<!-- END_CONTEXT:CU01909a -->
+<!-- CONTEXT:R31BU01909a USE:U01909 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.investor.gov/introduction-investing/investing-basics/save-and-invest/diversify-your-investments"]} -->
+<!-- SENTENCE:S31BU01909a1 USE:U01909 -->
+Diversification cannot guarantee that your investments will avoid losses when the market falls, but it may reduce how much you lose.
+<!-- TRANSLATION:R31BU01909a -->
+分散投资不能保证你的投资在市场下跌时免遭损失，但可能减少亏损幅度。
+<!-- END_CONTEXT:R31BU01909a -->
 <!-- USE:U01910 -->
 ## divers /ˈdaɪvərz/ adj. · 种种的
 `种种的、各式各样的、好几个的，属于古义或文学用语。diverse 也有首音节重读的读法，但 divers 词尾读 /z/，两者的现代用法不同。`
@@ -3275,13 +3321,13 @@ The report describes an emergent nationalist movement.
 ## emergent /ɪˈmɝdʒənt/ adj. · 国家初建或独立的
 `国家刚成立或新取得独立的，描述国家形成的阶段。`
 
-<!-- CONTEXT:CU02010a USE:U02010 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SU02010a USE:U02010 -->
-The novel is set in an emergent state, newly independent and still building its institutions.
-<!-- TRANSLATION:CU02010a -->
-小说的背景是一个刚刚独立、仍在建立制度的新国家。
-<!-- END_CONTEXT:CU02010a -->
+<!-- CONTEXT:R31BU02010a USE:U02010 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://history.state.gov/historicaldocuments/frus1969-76ve07/d376"]} -->
+<!-- SENTENCE:S31BU02010a1 USE:U02010 -->
+“We have no issues or problems with the emergent state of Bangla Desh,” a U.S. State Department paper argued in December 1971, as it considered the timing of American recognition.
+<!-- TRANSLATION:R31BU02010a -->
+1971年12月，美国国务院一份讨论美国何时承认孟加拉国的文件主张：“我们与新成立的孟加拉国之间没有争议或问题。”
+<!-- END_CONTEXT:R31BU02010a -->
 
 <!-- WORD:W021 -->
 # enhance
@@ -3368,15 +3414,13 @@ It can grow as you repay the mortgage or as the property’s value rises.
 ## equity /ˈekwəti/ n. · 公司股权价值
 `公司已发行股份所代表的价值或所有者权益，属于商业用语，可与债务融资等区别。`
 
-<!-- CONTEXT:CU02204a USE:U02204 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SU02204a USE:U02204 -->
-The company raised money by issuing equity rather than taking out a loan.
-<!-- SENTENCE:SU02204a2 USE:U02204 -->
-The new investors received a share of the business.
-<!-- TRANSLATION:CU02204a -->
-公司通过发行股权筹集资金，而不是借款。新投资者获得了企业的一部分所有权。
-<!-- END_CONTEXT:CU02204a -->
+<!-- CONTEXT:R31BU02204a USE:U02204 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.investor.gov/introduction-investing/investing-basics/glossary/stock"]} -->
+<!-- SENTENCE:S31BU02204a1 USE:U02204 -->
+A share of stock represents equity in a company: ownership with a proportional claim on the company’s assets and profits.
+<!-- TRANSLATION:R31BU02204a -->
+一股股票代表公司的股权：持有者拥有公司的一部分，并按比例享有对公司资产和利润的权益。
+<!-- END_CONTEXT:R31BU02204a -->
 <!-- USE:U02205 -->
 ## equities /ˈekwətiz/ n. · 股票
 `股票，尤其指收益并非固定利息的股权投资。用复数，属于商业用语，不等同于固定利息债券。`
@@ -3458,13 +3502,15 @@ A rule that excludes equally qualified applicants solely because of where they l
 ## inequitably /ɪnˈekwətəbli/ adv. · 不公平地
 `以不公平、不公正的方式。`
 
-<!-- CONTEXT:CU02212a USE:U02212 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SU02212a USE:U02212 -->
-If one team bears all the extra work while both receive the same reward, the burden is being shared inequitably.
-<!-- TRANSLATION:CU02212a -->
-如果额外工作全由一个团队承担，而两个团队得到同样的奖励，负担的分配就是不公平的。
-<!-- END_CONTEXT:CU02212a -->
+<!-- CONTEXT:R31BU02212a USE:U02212 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.who.int/data/gho/data/themes/health-workforce/1000"]} -->
+<!-- SENTENCE:S31BU02212a1 USE:U02212 -->
+In its discussion of the COVID-19 response, WHO warned that health workers were in short supply and inequitably distributed within and between countries.
+<!-- SENTENCE:S31BU02212a2 USE:U02212 -->
+Even where national staffing density appeared adequate, disparities in workforce density could persist between rural or remote areas and capital cities.
+<!-- TRANSLATION:R31BU02212a -->
+世界卫生组织在讨论新冠疫情应对时提醒，卫生工作者数量不足，且在国家内部与国家之间分布不公平。即使全国人员密度看似足够，农村或偏远地区与首都之间仍可能存在卫生人员密度差异。
+<!-- END_CONTEXT:R31BU02212a -->
 <!-- USE:U02213 -->
 ## inequity /ɪnˈekwəti/ n. · 不公平现象
 `不公平、偏私的性质或具体表现，属于正式用语，含批评意味。可数或不可数，复数为 inequities；the inequity of something 表示某事的不公平，如 inequity of income。`
@@ -3541,13 +3587,13 @@ As the folded structure evolved, its tightly packed sections opened out into a b
 ## evolve /ɪˈvɑlv/ v. · 产生并释放气体等
 `产生并释放气体、热量等，直接接释放物，用于化学、物理等具体过程。`
 
-<!-- CONTEXT:CU02305a USE:U02305 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SU02305a USE:U02305 -->
-When the two substances react, they evolve a gas that must be collected in a separate container.
-<!-- TRANSLATION:CU02305a -->
-这两种物质发生反应时会放出一种气体，气体必须收集在另一个容器中。
-<!-- END_CONTEXT:CU02305a -->
+<!-- CONTEXT:R31BU02305a USE:U02305 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.gutenberg.org/files/14986/14986-h/14986-h.htm"]} -->
+<!-- SENTENCE:S31BU02305a1 USE:U02305 -->
+In Faraday’s experiment, a tin plate in acid evolved hydrogen while electrically connected to a tin plate in alkali; breaking the contact stopped the action.
+<!-- TRANSLATION:R31BU02305a -->
+在法拉第的实验中，酸中的锡板与碱中的锡板保持电连接时会释放氢气；断开连接就会使这一作用停止。
+<!-- END_CONTEXT:R31BU02305a -->
 <!-- USE:U02306 -->
 ## evolvable /ɪˈvɑlvəbəl/ adj. · 可逐渐演化的
 `能够逐渐发展或演化的。`
@@ -3600,24 +3646,24 @@ The slow evolution of the plot allows the reader to discover the family secret a
 ## evolution /ˌevəˈluʃən/ n. · 部队舰船部署变化
 `军事语境中，部队或舰船部署、队形的改变。`
 
-<!-- CONTEXT:CU02310a USE:U02310 KIND:excerpt -->
-<!-- CONTEXT_META:{"title":"Tidesurge North Atlantic support","sourceUrls":["https://www.royalnavy.mod.uk/news/2024/october/22/20241022-tidesurge-supports-uk-and-nato-ops-in-north-atlantic"],"displayContext":"2024年Tidesurge油船报道：两船并行靠近并匹配航向、速度进行补给。以下为三副Josh Sylvester的短引语。","speakers":{"SU02310a":"Josh Sylvester, Tidesurge's third officer"}} -->
-<!-- SENTENCE:SU02310a USE:U02310 -->
-A replenishment at sea is a dangerous and challenging evolution for all involved.
-<!-- TRANSLATION:CU02310a -->
-海上补给是一项对所有参与者都充满危险和挑战的操演。
-<!-- END_CONTEXT:CU02310a -->
+<!-- CONTEXT:R31BU02310a USE:U02310 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.gutenberg.org/cache/epub/33445/pg33445-images.html"]} -->
+<!-- SENTENCE:S31BU02310a1 USE:U02310 -->
+In the sailing fleets of the Dutch Wars, ships in line ahead were placed close enough to support one another, while retaining individual freedom of evolution and manoeuvre.
+<!-- TRANSLATION:R31BU02310a -->
+在英荷战争时期的帆船舰队中，战舰以前后纵列排列，间距既要足以相互支援，也要让每艘船保有单独变换部署和机动的自由。
+<!-- END_CONTEXT:R31BU02310a -->
 <!-- USE:U02311 -->
 ## evolution /ˌevəˈluʃən/ n. · 气体热量的释放
 `气体、热量等的产生与排放，用于具体科学过程，须与生物进化区分。`
 
-<!-- CONTEXT:CU02311a USE:U02311 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SU02311a USE:U02311 -->
-The apparatus measures the evolution of gas during the reaction and records how the rate changes.
-<!-- TRANSLATION:CU02311a -->
-这台装置测量反应过程中气体的释放，并记录释放速率如何变化。
-<!-- END_CONTEXT:CU02311a -->
+<!-- CONTEXT:R31BU02311a USE:U02311 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.gutenberg.org/files/14986/14986-h/14986-h.htm"]} -->
+<!-- SENTENCE:S31BU02311a1 USE:U02311 -->
+In Faraday’s account, dilute sulphuric acid acting on ordinary zinc exposed impurity metals on its surface, which formed tiny electrical circuits, causing zinc consumption and evolution of hydrogen at those impurity metals.
+<!-- TRANSLATION:R31BU02311a -->
+按法拉第的描述，稀硫酸作用于普通锌，使锌表面的杂质金属暴露出来；这些杂质形成微小电路，造成锌的消耗，并在杂质金属上释放氢气。
+<!-- END_CONTEXT:R31BU02311a -->
 <!-- USE:U02312 -->
 ## evolution /ˌevəˈluʃən/ n. · 展开过程
 `向外打开、展开的行为或过程，保留这个名词的展开意义。`
@@ -3633,13 +3679,13 @@ The mechanism controls the evolution of the folded structure, allowing each sect
 ## evolution /ˌevəˈluʃən/ n. · 几何曲线展开
 `几何语境中，曲线的展开。`
 
-<!-- CONTEXT:CU02313a USE:U02313 KIND:example -->
+<!-- CONTEXT:R31BU02313a USE:U02313 KIND:example -->
 <!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SU02313a USE:U02313 -->
-The geometric diagram shows the evolution of a curve as it is unfolded into a new line.
-<!-- TRANSLATION:CU02313a -->
-这幅几何图展示了一条曲线展开而形成新线的过程。
-<!-- END_CONTEXT:CU02313a -->
+<!-- SENTENCE:S31BU02313a1 USE:U02313 -->
+In older geometrical terminology, the evolution of a curve is its unfolding or opening out.
+<!-- TRANSLATION:R31BU02313a -->
+在较旧的几何术语中，曲线的 evolution 指它的展开。
+<!-- END_CONTEXT:R31BU02313a -->
 <!-- USE:U02314 -->
 ## evolution /ˌevəˈluʃən/ n. · 数学开方
 `数学中，从某个乘方结果求出其根，即开方；与表示乘方的 involution 相对。`
@@ -3831,13 +3877,13 @@ Not all labour exploitation is forced labour: the latter removes a worker’s fr
 ## exploitation /ˌeksplɔɪˈteɪʃən/ n. · 乘困境谋利
 `为自己谋利而利用某种困境或事件的行为，带批评意味；特指一次此类利用时用单数，常用 the exploitation of something。`
 
-<!-- CONTEXT:CU02409a USE:U02409 KIND:example -->
+<!-- CONTEXT:R31BU02409a USE:U02409 KIND:example -->
 <!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SU02409a USE:U02409 -->
-An emergency is no excuse for the exploitation of tenants who have nowhere else to live.
-<!-- TRANSLATION:CU02409a -->
-紧急情况不能成为利用那些无处可去的租户谋利的借口。
-<!-- END_CONTEXT:CU02409a -->
+<!-- SENTENCE:S31BU02409a1 USE:U02409 -->
+The exploitation of the housing crisis for private profit is no way to help families who cannot find a home.
+<!-- TRANSLATION:R31BU02409a -->
+利用住房危机牟取私利，无法帮助那些找不到住房的家庭。
+<!-- END_CONTEXT:R31BU02409a -->
 <!-- USE:U02410 -->
 ## exploitation /ˌeksplɔɪˈteɪʃən/ n. · 资源机会的开发利用
 `把资源或机会实际利用起来以获取成果、收益的过程，通常不可数；资源开发语境不自动具有剥削人的含义。`
@@ -3860,6 +3906,14 @@ Poor or exploitative working conditions are not, by themselves, the same as forc
 <!-- TRANSLATION:CU02411a -->
 恶劣或具有剥削性的劳动条件，本身并不等于强迫劳动；行动限制和威胁等，是识别胁迫时使用的指标。
 <!-- END_CONTEXT:CU02411a -->
+
+<!-- CONTEXT:R31BU02411b USE:U02411 KIND:example -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
+<!-- SENTENCE:S31BU02411b1 USE:U02411 -->
+An exploitive contract lets the company keep nearly all the revenue while the creators receive almost nothing.
+<!-- TRANSLATION:R31BU02411b -->
+一份剥削性的合同让公司拿走几乎全部收入，而创作者几乎得不到回报。
+<!-- END_CONTEXT:R31BU02411b -->
 <!-- USE:U02412 -->
 ## exploiter /ɪkˈsplɔɪtər/ n. · 剥削他人者
 `不公平、残酷地利用他人的人，可数，属于正式用语，含批评意味。`
@@ -3914,27 +3968,27 @@ Friction can damage an engine without proper lubrication, yet a car also needs f
 ## friction clutch /ˈfrɪkʃən klʌtʃ/ n. · 摩擦传动离合器
 `机械中，通过接触面的摩擦传递动力的离合器；名称中的 friction 说明传动原理。`
 
-<!-- CONTEXT:CU02504a USE:U02504,U02505,U02506 KIND:abridgment -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.mathworks.com/help/sdl/ref/discfrictionclutch.html"],"displayContext":"MathWorks Simscape Driveline R2026b文档的非连续缩编：模块添加、接合原理与几何参数。未运行MATLAB。"} -->
-<!-- SENTENCE:SU02504a USE:U02504 -->
-Add a Disc Friction Clutch block to the model.
-<!-- SENTENCE:SU02504a2 USE:U02506 -->
-When plate pressure exceeds the engagement threshold, frictional torques allow power to pass between the shafts.
-<!-- SENTENCE:SU02504a3 USE:U02505 -->
-To enter the friction disc’s outer and inner diameters, set Geometry model to Define annular region.
-<!-- TRANSLATION:CU02504a -->
-在模型中加入Disc Friction Clutch模块。当摩擦片间的压力超过接合阈值时，摩擦转矩使动力能够在两根轴之间传递。要输入摩擦盘的外径和内径，请把Geometry model设置为Define annular region。
-<!-- END_CONTEXT:CU02504a -->
+<!-- CONTEXT:R31BU02504a USE:U02504,U02505,U02506 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.mathworks.com/help/sdl/ref/discfrictionclutch.html"]} -->
+<!-- SENTENCE:S31BU02504a1 USE:U02504 -->
+The Disc Friction Clutch block models a friction clutch whose flat plate sets engage when the applied pressure exceeds a threshold.
+<!-- SENTENCE:S31BU02504a2 USE:U02506 -->
+Once engaged, frictional torques transmit power between the shafts.
+<!-- SENTENCE:S31BU02504a3 USE:U02505 -->
+The model uses the friction disc’s inner and outer diameters to define its annular geometry.
+<!-- TRANSLATION:R31BU02504a -->
+Disc Friction Clutch 模块模拟一种摩擦离合器：施加的压力超过阈值时，两组平面摩擦片便接合。接合后，摩擦力矩在轴之间传递动力。模型用摩擦圆盘的内径与外径来定义其环形几何形状。
+<!-- END_CONTEXT:R31BU02504a -->
 <!-- USE:U02505 -->
 ## friction disc /ˈfrɪkʃən dɪsk/ n. · 摩擦传动圆盘
 `机械中，通过摩擦接触参与动力传递的圆盘、摩擦片。`
 
-<!-- CONTEXT_REF:CU02504a USE:U02505 -->
+<!-- CONTEXT_REF:R31BU02504a USE:U02505 -->
 <!-- USE:U02506 -->
 ## frictional /ˈfrɪkʃənəl/ adj. · 摩擦相关的
 `与摩擦动作或摩擦力有关的。`
 
-<!-- CONTEXT_REF:CU02504a USE:U02506 -->
+<!-- CONTEXT_REF:R31BU02504a USE:U02506 -->
 <!-- USE:U02507 -->
 ## frictionless /ˈfrɪkʃənləs/ adj. · 无摩擦阻力的
 `没有摩擦或摩擦阻力的，物理模型常把这种状态作为理想条件。`
@@ -3986,24 +4040,26 @@ In CHAPEA, four crew members live in an isolated 1,700-square-foot habitat to si
 ## incentive /ɪnˈsentɪv/ n. · 行动诱因
 `促使人采取行动的理由、刺激或鼓励因素。可数或不可数；an incentive to do something 表示做某事的动力，an incentive to action 表示行动的诱因。`
 
-<!-- CONTEXT:CU02701a USE:U02701 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SU02701a USE:U02701 -->
-A clear chance to use the skill gives learners an incentive to keep practising, even when progress is slow.
-<!-- TRANSLATION:CU02701a -->
-明确知道有机会运用这项技能，会使学习者有动力继续练习，即使进步缓慢。
-<!-- END_CONTEXT:CU02701a -->
+<!-- CONTEXT:R31BU02701a USE:U02701 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.ofgem.gov.uk/environmental-and-social-schemes/domestic-renewable-heat-incentive-domestic-rhi"]} -->
+<!-- SENTENCE:S31BU02701a1 USE:U02701 -->
+Great Britain’s Domestic Renewable Heat Incentive was a government financial incentive to encourage renewable heating.
+<!-- SENTENCE:S31BU02701a2 USE:U02701 -->
+The scheme closed to new applicants on 31 March 2022; only applications following a change of ownership can now be made.
+<!-- TRANSLATION:R31BU02701a -->
+英国本土的家庭可再生供热激励计划，是政府为鼓励使用可再生供热而设的经济诱因。该计划于2022年3月31日停止接受新申请；目前仅可因所有权变更而提出申请。
+<!-- END_CONTEXT:R31BU02701a -->
 <!-- USE:U02702 -->
 ## incentive /ɪnˈsentɪv/ n. · 激励性奖励
 `为鼓励员工提高产出而给予的具体付款、奖励或优惠，可数。`
 
-<!-- CONTEXT:CU02702a USE:U02702 KIND:abridgment -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.irs.gov/publications/p525"],"displayContext":"IRS2025税年Publication525的假设汽车销售人员示例；将incentive payments改为名词an incentive，保原条件。"} -->
-<!-- SENTENCE:SU02702a USE:U02702 -->
-In a car-salesperson example in IRS Publication 525 for 2025, you receive an incentive from the manufacturer each time you sell a particular model of car.
-<!-- TRANSLATION:CU02702a -->
-在美国国税局2025税年《第525号刊物》的一个汽车销售人员示例中，每卖出一辆特定型号的汽车，你就会收到制造商提供的一笔奖励。
-<!-- END_CONTEXT:CU02702a -->
+<!-- CONTEXT:R31BU02702a USE:U02702 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.ilo.org/sites/default/files/wcmsp5/groups/public/%40asia/%40ro-bangkok/documents/publication/wcms_853019.pdf"]} -->
+<!-- SENTENCE:S31BU02702a1 USE:U02702 -->
+Higher wages and better benefits can provide workers with incentives to perform better, including bonuses, paid leave or free meals.
+<!-- TRANSLATION:R31BU02702a -->
+更高的工资和更好的福利可以通过奖金、带薪休假或免费餐食等激励，促使员工表现得更好。
+<!-- END_CONTEXT:R31BU02702a -->
 <!-- USE:U02703 -->
 ## incentive /ɪnˈsentɪv/ adj. · 激励行动的
 `用来激励、推动行动的，放在名词前，如 incentive payment 指激励性报酬。`
@@ -4025,13 +4081,13 @@ In the car-salesperson example in IRS Publication 525 for 2025, you report the m
 ## inherit /ɪnˈherɪt/ v. · 依法继承
 `依法从前人承接财产、地位或称号，通常在前人去世后发生。可说 inherit something from somebody；继承对象已明确时也可省略宾语。具体继承资格由相应法律和制度决定。`
 
-<!-- CONTEXT:CU02801a USE:U02801 KIND:abridgment -->
-<!-- CONTEXT_META:{"title":"《求婚》：洛莫夫谈继承土地","sourceUrls":["https://www.gutenberg.org/files/7986/7986-h/7986-h.htm"],"displayContext":"契诃夫《求婚》早期英译本；洛莫夫对娜塔莉娅的台词缩编，保角色陈述身份。","speakers":{"SU02801a":"Lomov (Chekhov, The Proposal)"}} -->
-<!-- SENTENCE:SU02801a USE:U02801 -->
-I inherited my land from relatives who are now dead; they always held your parents in the greatest respect.
-<!-- TRANSLATION:CU02801a -->
-我的土地继承自已故的亲属；他们一直非常尊敬您的父母。
-<!-- END_CONTEXT:CU02801a -->
+<!-- CONTEXT:R31BU02801a USE:U02801 KIND:excerpt -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.gutenberg.org/files/7986/7986-h/7986-h.htm"]} -->
+<!-- SENTENCE:S31BU02801a1 USE:U02801 -->
+In Chekhov’s The Proposal, Lomov tells Natalya, “My late aunt and her husband, from whom, as you know, I inherited my land, always had the greatest respect for your father and your late mother.”
+<!-- TRANSLATION:R31BU02801a -->
+在契诃夫的《求婚》中，洛莫夫对娜塔莉娅说：“我已故的姑妈和她丈夫——如您所知，我的土地就是从他们那里继承来的——一向极为敬重您的父亲和已故的母亲。”
+<!-- END_CONTEXT:R31BU02801a -->
 
 <!-- CONTEXT:CU02801b USE:U02801 KIND:example -->
 <!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
@@ -4245,13 +4301,15 @@ The missing sections were added to integrate the incomplete account.
 ## integrate /ˈɪntəɡreɪt/ v. · 求积分
 `数学上求函数或某个量的积分，可接所求积分的函数等作宾语；已知运算对象时也可说 integrate along a path，表示沿路径积分。`
 
-<!-- CONTEXT:CU02905a USE:U02905 KIND:abridgment -->
-<!-- CONTEXT_META:{"title":"沿径向路径积分","sourceUrls":["https://openstax.org/books/university-physics-volume-2/pages/8-1-capacitors-and-capacitance"],"displayContext":"OpenStax University Physics Vol2 §8.1（CC BY-NC-SA4.0）；推导局部缩编。"} -->
-<!-- SENTENCE:SU02905a USE:U02905 -->
-To find the potential difference between the spherical shells, substitute the electric field into the equation and integrate along a radial path between them.
-<!-- TRANSLATION:CU02905a -->
-要求两球壳之间的电势差，先将电场代入方程，再沿两者之间的径向路径积分。
-<!-- END_CONTEXT:CU02905a -->
+<!-- CONTEXT:R31BU02905b USE:U02905 KIND:example -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
+<!-- SENTENCE:S31BU02905b1 USE:U02905 -->
+To find the area under y = 2x between x = 0 and x = 3, integrate 2x over that interval.
+<!-- SENTENCE:S31BU02905b2 -->
+The area is 9 square units.
+<!-- TRANSLATION:R31BU02905b -->
+要计算 y = 2x 在 x = 0 到 x = 3 这个区间内与 x 轴之间的面积，就在该区间上对 2x 积分。结果是9平方单位。
+<!-- END_CONTEXT:R31BU02905b -->
 <!-- USE:U02906 -->
 ## integrated /ˈɪntəɡreɪtɪd/ adj. · 表示总量或均值的
 `表示某个物理量经累积得到的总量或平均值的，用于数学、测量等语境。具体代表总量还是平均值，要依相应定义和计算方式判断。`
@@ -4482,13 +4540,15 @@ Chance may intervene even in a carefully planned experiment.
 ## intervene /ˌɪntərˈvin/ v. · 第三方参加诉讼
 `法律上作为第三方加入已有诉讼，不及物。`
 
-<!-- CONTEXT:CU03007a USE:U03007 KIND:abridgment -->
-<!-- CONTEXT_META:{"title":"第三方获准参加诉讼的条件","sourceUrls":["https://www.law.cornell.edu/rules/frcp/rule_24"],"displayContext":"既有读件所展示的美国联邦民诉规则24(b)(1)(B)分支；仅语言例，不替代完整程序。"} -->
-<!-- SENTENCE:SU03007a USE:U03007 -->
+<!-- CONTEXT:R31BU03007a USE:U03007 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.law.cornell.edu/rules/frcp/rule_24"]} -->
+<!-- SENTENCE:S31BU03007a1 USE:U03007 -->
 Under Rule 24(b)(1)(B) of the U.S. Federal Rules of Civil Procedure, a court may permit someone to intervene on a timely motion if their claim or defense shares a common question of law or fact with the main action.
-<!-- TRANSLATION:CU03007a -->
-按美国《联邦民事诉讼规则》第24条(b)(1)(B)这一分支，在及时提出动议的情况下，如果申请人的请求或抗辩与主诉讼有共同的法律或事实问题，法院可以允许其参加诉讼。
-<!-- END_CONTEXT:CU03007a -->
+<!-- SENTENCE:S31BU03007a2 -->
+The court must also consider whether the intervention would unduly delay the case or prejudice the original parties’ rights.
+<!-- TRANSLATION:R31BU03007a -->
+根据美国《联邦民事诉讼规则》第24条(b)(1)(B)，若第三方及时提出申请，其主张或抗辩与主要诉讼具有共同的法律或事实问题，法院可以允许其参加诉讼。法院还必须考虑，这种介入是否会不当地拖延案件，或损害原当事人的权利。
+<!-- END_CONTEXT:R31BU03007a -->
 <!-- USE:U03008 -->
 ## intervener /ˌɪntərˈvinər/ n.; intervenor /ˌɪntərˈvinər/ n. · 介入者／参诉第三方
 `介入者，也可指加入已有诉讼的第三方，可数；法律语境也常用 intervenor。`
@@ -4515,13 +4575,13 @@ An intervenient strip of land lies between the two estates.
 ## intervention /ˌɪntərˈvenʃən/ n. · 干预行动
 `介入事态的行为或一次介入，尤其可指国家干涉他国事务。可数或不可数，常接 in；military intervention 指军事干预。`
 
-<!-- CONTEXT:CU03010a USE:U03010 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SU03010a USE:U03010 -->
-The debate concerned military interventions.
-<!-- TRANSLATION:CU03010a -->
-辩论涉及军事干预。
-<!-- END_CONTEXT:CU03010a -->
+<!-- CONTEXT:R31BU03010a USE:U03010 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://history.state.gov/milestones/1953-1960/suez"]} -->
+<!-- SENTENCE:S31BU03010a1 USE:U03010 -->
+During the Suez Crisis of 1956, the Eisenhower administration feared possible Soviet intervention in the conflict and tried to broker a diplomatic settlement between Britain, France and Egypt.
+<!-- TRANSLATION:R31BU03010a -->
+1956年苏伊士运河危机期间，艾森豪威尔政府担忧苏联可能介入冲突，并试图促成英国、法国与埃及之间的外交和解。
+<!-- END_CONTEXT:R31BU03010a -->
 <!-- USE:U03011 -->
 ## intervention /ˌɪntərˈvenʃən/ n. · 亲友联合劝助
 `亲友共同劝告有严重问题的人寻求帮助的一次行动，可数，并不局限于某一种问题。`
@@ -4559,13 +4619,13 @@ An interventionist industrial policy gives the government an active role in shap
 ## interventionist /ˌɪntərˈvenʃənɪst/ n. · 干预政策支持者
 `支持干预政策的人，可数，常见于新闻语境。`
 
-<!-- CONTEXT:CU03014a USE:U03014 KIND:example -->
+<!-- CONTEXT:R31BU03014a USE:U03014 KIND:example -->
 <!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SU03014a USE:U03014 -->
-An interventionist argued that the government should act.
-<!-- TRANSLATION:CU03014a -->
-一位干预政策支持者认为，政府应当采取行动。
-<!-- END_CONTEXT:CU03014a -->
+<!-- SENTENCE:S31BU03014a1 USE:U03014 -->
+The interventionist favoured government support for selected industries, while her opponent wanted firms to compete without state help.
+<!-- TRANSLATION:R31BU03014a -->
+这位干预政策支持者主张政府扶持选定的产业，而她的对手希望企业在没有国家帮助的情况下竞争。
+<!-- END_CONTEXT:R31BU03014a -->
 <!-- USE:U03015 -->
 ## interventionism /ˌɪntərˈvenʃənɪzəm/ n. · 干预主义
 `主张或实行干预的政策、观点。`
@@ -4628,13 +4688,13 @@ To debug the failure, first isolate the problem instead of changing every compon
 ## isolate /ˈaɪsəleɪt/ v. · 分离提取物质
 `用科学方法从混合材料中分离取得某种物质或成分。属于技术、化学用法，及物，常接 from 表明分离来源。`
 
-<!-- CONTEXT:CU03104a USE:U03104 KIND:abridgment -->
-<!-- CONTEXT_META:{"title":"从混合培养物中分离细菌","sourceUrls":["https://openstax.org/books/microbiology/pages/9-6-media-used-for-bacterial-growth"],"displayContext":"OpenStax Microbiology §9.6（CC BY-NC-SA4.0）；实验原理局部缩编。"} -->
-<!-- SENTENCE:SU03104a USE:U03104 -->
-To isolate bacteria that break down crude oil, repeatedly transfer the culture into a medium whose only carbon source is crude oil. This enriches the culture with oil-eating bacteria.
-<!-- TRANSLATION:CU03104a -->
-若要分离能分解原油的细菌，可以将培养物反复转入唯一碳源是原油的培养基中。这会富集能利用原油的细菌。
-<!-- END_CONTEXT:CU03104a -->
+<!-- CONTEXT:R31BU03104b USE:U03104 KIND:example -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
+<!-- SENTENCE:S31BU03104b1 USE:U03104 -->
+Before testing the new compound, isolate it from the reaction mixture so that the other substances do not affect the results.
+<!-- TRANSLATION:R31BU03104b -->
+测试这种新化合物之前，先把它从反应混合物中分离出来，以免其他物质影响结果。
+<!-- END_CONTEXT:R31BU03104b -->
 <!-- USE:U03105 -->
 ## isolate /ˈaɪsəleɪt/ v. · 隔离传染个体
 `把可能有传染性的病人或动物与其他个体分开，以防疾病传播。及物，与一般的社交孤立区分。`
@@ -4650,13 +4710,15 @@ The veterinary team isolated the sick animals from the rest of the herd to reduc
 ## isolate /ˈaɪsəleɪt/ v. · 使电气隔绝
 `使电气设备在电方面隔绝、绝缘，及物，属于电气用法。`
 
-<!-- CONTEXT:CU03106a USE:U03106 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SU03106a USE:U03106 -->
-The circuit is electrically isolated from the case.
-<!-- TRANSLATION:CU03106a -->
-这个电路与外壳在电气上绝缘隔离。
-<!-- END_CONTEXT:CU03106a -->
+<!-- CONTEXT:R31BU03106a USE:U03106 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.gov.uk/product-safety-alerts-reports-recalls/product-recall-proteus-switchgear-100-amp-double-pole-isolator-2111-0064"]} -->
+<!-- SENTENCE:S31BU03106a1 USE:U03106 -->
+A UK recall notice for two batches of Proteus 100-amp double-pole switches reported that the switch did not isolate the circuit, creating a serious risk of electric shock.
+<!-- SENTENCE:S31BU03106a2 -->
+The notice states that the affected products were inspected and corrective measures completed.
+<!-- TRANSLATION:R31BU03106a -->
+英国一份针对两批 Proteus 100安双极开关的召回通报称，这种开关未能使电路隔离，造成严重触电风险。通报说明，受影响产品已接受检查，纠正措施已经完成。
+<!-- END_CONTEXT:R31BU03106a -->
 <!-- USE:U03107 -->
 ## isolable /ˈaɪsələbəl/ adj.; isolatable /ˈaɪsəleɪtəbəl/ adj. · 可被分离的
 `能够被隔离、分开或分离取得的，具体意义取决于所描述的对象。`
@@ -4687,24 +4749,24 @@ An isolator is a sealed workstation that protects sterile medicines from contami
 ## isolated /ˈaɪsəleɪtɪd/ adj. · 偏远难达的
 `地点偏远、远离城镇或其他联系点而难以到达的，如 an isolated farmhouse。`
 
-<!-- CONTEXT:CU03109a USE:U03109 KIND:example -->
+<!-- CONTEXT:R31BU03109a USE:U03109 KIND:example -->
 <!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SU03109a USE:U03109 -->
-They found an isolated farmhouse.
-<!-- TRANSLATION:CU03109a -->
-他们找到了一所偏僻的农舍。
-<!-- END_CONTEXT:CU03109a -->
+<!-- SENTENCE:S31BU03109a1 USE:U03109 -->
+The isolated farmhouse stood miles from the nearest village and could be reached only by a narrow track.
+<!-- TRANSLATION:R31BU03109a -->
+那座偏远的农舍距离最近的村庄有数英里，只有一条狭窄小路通往那里。
+<!-- END_CONTEXT:R31BU03109a -->
 <!-- USE:U03110 -->
 ## isolated /ˈaɪsəleɪtɪd/ adj. · 孤立无援的
 `缺少朋友、帮助或社会联系的，可描述孤独的感受，也可描述与他人隔开的状态。`
 
-<!-- CONTEXT:CU03110a USE:U03110 KIND:example -->
+<!-- CONTEXT:R31BU03110a USE:U03110 KIND:example -->
 <!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SU03110a USE:U03110 -->
-She described feeling isolated.
-<!-- TRANSLATION:CU03110a -->
-她描述了自己孤独无援的感受。
-<!-- END_CONTEXT:CU03110a -->
+<!-- SENTENCE:S31BU03110a1 USE:U03110 -->
+After moving to a city where she knew nobody, she felt isolated and had no one to turn to for help.
+<!-- TRANSLATION:R31BU03110a -->
+搬到一座谁也不认识的城市后，她感到孤立无援，找不到可以求助的人。
+<!-- END_CONTEXT:R31BU03110a -->
 <!-- USE:U03111 -->
 ## isolated /ˈaɪsəleɪtɪd/ adj. · 个别孤立的
 `单独出现、不常见或不具典型性的，通常放在名词前，如 an isolated case、an isolated example。`
@@ -4764,13 +4826,13 @@ Malcolm works in isolation but I have no doubts about his abilities.
 ## isolation /ˌaɪsəˈleɪʃən/ n. · 传染病隔离用
 `作定语表示供传染病人隔离使用，如 isolation ward、isolation hospital；isolation 在这里仍是名词。`
 
-<!-- CONTEXT:CU03116a USE:U03116 KIND:example -->
+<!-- CONTEXT:R31BU03116a USE:U03116 KIND:example -->
 <!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SU03116a USE:U03116 -->
-The patient was transferred to an isolation ward.
-<!-- TRANSLATION:CU03116a -->
-病人被转入了隔离病房。
-<!-- END_CONTEXT:CU03116a -->
+<!-- SENTENCE:S31BU03116a1 USE:U03116 -->
+Patients with contagious infections are cared for in an isolation ward, apart from other patients.
+<!-- TRANSLATION:R31BU03116a -->
+患有传染性感染的病人在隔离病房接受护理，与其他病人分开。
+<!-- END_CONTEXT:R31BU03116a -->
 <!-- USE:U03117 -->
 ## isolationism /ˌaɪsəˈleɪʃənɪzəm/ n. · 孤立主义
 `避免密切参与他国或其他群体事务、在其争端中不选边的政策，尤用于政治和国际关系。`
@@ -4891,13 +4953,13 @@ The shape of a fish is ideal for its fluid medium.
 ## medium /ˈmidiəm/ n. · 培养基
 `供微生物等生长的培养环境或物质，即培养基，可数，是生物环境义的一种具体应用。`
 
-<!-- CONTEXT:CU03209a USE:U03209 KIND:abridgment -->
-<!-- CONTEXT_META:{"title":"培养基为什么有不同类型？","sourceUrls":["https://openstax.org/books/microbiology/pages/9-6-media-used-for-bacterial-growth"],"displayContext":"OpenStax Microbiology §9.6（CC BY-NC-SA4.0）；局部缩编。"} -->
-<!-- SENTENCE:SU03209a USE:U03209 -->
-An all-purpose medium can support many kinds of microorganisms. Other media supply extra nutrients needed by organisms that cannot make those nutrients themselves.
-<!-- TRANSLATION:CU03209a -->
-通用培养基可以支持多种微生物生长。另一些培养基则提供某些生物无法自行合成、因而需要额外获得的营养物质。
-<!-- END_CONTEXT:CU03209a -->
+<!-- CONTEXT:R31BU03209b USE:U03209 KIND:example -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
+<!-- SENTENCE:S31BU03209b1 USE:U03209 -->
+A technician spreads the sample over a solid nutrient medium and later counts the colonies that grow on it.
+<!-- TRANSLATION:R31BU03209b -->
+技术员把样本涂布在固体营养培养基表面，随后清点其上长出的菌落。
+<!-- END_CONTEXT:R31BU03209b -->
 <!-- USE:U03210 -->
 ## medium /ˈmidiəm/ n. · 实现目的的途径
 `实现某事的途径、机构或手段，可数；the medium through which 后说明借此完成的事情。`
@@ -4935,13 +4997,15 @@ The painter mixed the pigment with an oil-based medium.
 ## medium /ˈmidiəm/ n. · 自称通灵的人
 `声称能与死者灵魂接触并在生者与死者之间传话的人，可数，复数用 mediums。`
 
-<!-- CONTEXT:CU03213a USE:U03213 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SU03213a USE:U03213 -->
-The medium claimed to carry messages from the dead.
-<!-- TRANSLATION:CU03213a -->
-那位通灵人声称能传递死者的信息。
-<!-- END_CONTEXT:CU03213a -->
+<!-- CONTEXT:R31BU03213a USE:U03213 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://blogs.loc.gov/loc/2020/10/houdini-and-the-spirit-realm-transcribe-hockleys-world-of-the-beyond/"]} -->
+<!-- SENTENCE:S31BU03213a1 USE:U03213 -->
+Frederick Hockley, a nineteenth-century British Spiritualist, attempted to contact the dead through a medium.
+<!-- SENTENCE:S31BU03213a2 -->
+His notebooks are largely arranged as questions and answers.
+<!-- TRANSLATION:R31BU03213a -->
+19世纪英国唯灵论者弗雷德里克·霍克利曾试图通过通灵人联系死者。他的笔记大多以问答形式编排。
+<!-- END_CONTEXT:R31BU03213a -->
 <!-- USE:U03214 -->
 ## medium /ˈmidiəm/ n. · 中间状态
 `两个极端之间的中间状态、质量或程度，可数。`
@@ -4968,13 +5032,13 @@ I aim to strike a happy medium between playing entertaining football and getting
 ## mediumism /ˈmidiəmɪzəm/ n.; mediumship /ˈmidiəmʃɪp/ n. · 通灵者活动与能力
 `通灵人的活动、身份或所声称的能力，限于 medium 的通灵人义，不用于大众传播或物理介质。`
 
-<!-- CONTEXT:CU03216a USE:U03216 KIND:example -->
+<!-- CONTEXT:R31BU03216a USE:U03216 KIND:example -->
 <!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SU03216a USE:U03216 -->
-The exhibition compares mediumism with other spiritualist practices and examines claims of mediumship.
-<!-- TRANSLATION:CU03216a -->
-展览比较通灵活动与其他唯灵论实践，并考察有关通灵能力的声称。
-<!-- END_CONTEXT:CU03216a -->
+<!-- SENTENCE:S31BU03216a1 USE:U03216 -->
+In spiritualist writing, mediumism and mediumship refer to practices or claimed abilities associated with communicating with the dead.
+<!-- TRANSLATION:R31BU03216a -->
+在唯灵论著作中，mediumism 和 mediumship 指与和死者沟通有关的活动或所声称的能力。
+<!-- END_CONTEXT:R31BU03216a -->
 <!-- USE:U03217 -->
 ## mediumistic /ˌmidiəˈmɪstɪk/ adj. · 通灵活动相关的
 `与通灵人或其活动有关的。`
@@ -5023,21 +5087,15 @@ The school staged a multimedia performance combining dance, projected images and
 ## multimedia /ˌmʌltiˈmidiə/ n.; hypermedia /ˌhaɪpərˈmidiə/ n. · 交互多媒体内容
 `把文字、声音、图像、影片等结合并相互链接的计算机内容或产品，不可数，也可作名词修饰语；hypermedia 尤其强调超文本中的跨媒介链接。`
 
-<!-- CONTEXT:CU03221a USE:U03221 KIND:example -->
+<!-- CONTEXT:R31BU03221a USE:U03221 KIND:example -->
 <!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SU03221a USE:U03221 -->
-Hypermedia links a passage of text to audio and video.
-<!-- TRANSLATION:CU03221a -->
-超媒体把一段文字与音频和视频链接起来。
-<!-- END_CONTEXT:CU03221a -->
-
-<!-- CONTEXT:CU03221b USE:U03221 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SU03221b USE:U03221 -->
-The multimedia application combines text, recorded speech, pictures, and short films.
-<!-- TRANSLATION:CU03221b -->
-这个多媒体应用把文字、录音讲话、图片和短片结合在一起。
-<!-- END_CONTEXT:CU03221b -->
+<!-- SENTENCE:S31BU03221a1 USE:U03221 -->
+This multimedia application combines text, recorded speech, pictures and short films.
+<!-- SENTENCE:S31BU03221a2 USE:U03221 -->
+Its hypermedia links let readers move from a passage of text to a related audio or video clip.
+<!-- TRANSLATION:R31BU03221a -->
+这个多媒体应用把文字、录音、图片与短片结合起来。它的超媒体链接让读者能够从一段文字转到相关的音频或视频片段。
+<!-- END_CONTEXT:R31BU03221a -->
 <!-- USE:U03222 -->
 ## multimedia /ˌmʌltiˈmidiə/ n. · 多媒介教学
 `教学中把书本、电视等不同媒介结合使用，不可数，不限于单一计算机程序。`
@@ -5070,13 +5128,15 @@ People migrate to cities like Jakarta in search of work.
 ## migrate /ˈmaɪɡreɪt/ v. · 动物季节迁徙
 `鸟、鱼等动物随季节改变生活区域，通常为繁殖或觅食。不及物，可说明起点和终点；是否迁徙及迁徙距离因物种而异。`
 
-<!-- CONTEXT:CU03302a USE:U03302 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SU03302a USE:U03302 -->
-These fish migrate from freshwater streams to the ocean and later return to breed.
-<!-- TRANSLATION:CU03302a -->
-这些鱼从淡水溪流迁往海洋，之后返回繁殖。
-<!-- END_CONTEXT:CU03302a -->
+<!-- CONTEXT:R31BU03302a USE:U03302 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.fisheries.noaa.gov/species/gray-whale"]} -->
+<!-- SENTENCE:S31BU03302a1 USE:U03302 -->
+In autumn, eastern North Pacific gray whales migrate south along the North American coast toward wintering and calving areas off Baja California, Mexico.
+<!-- SENTENCE:S31BU03302a2 USE:U03302 -->
+From mid-February to May, they can be seen migrating northward along the U.S. West Coast.
+<!-- TRANSLATION:R31BU03302a -->
+秋季，北太平洋东部的灰鲸沿北美海岸向南迁徙，前往墨西哥下加利福尼亚附近的越冬和产仔水域。2月中旬到5月期间，可以看到它们沿美国西海岸向北迁徙。
+<!-- END_CONTEXT:R31BU03302a -->
 <!-- USE:U03303 -->
 ## migrate /ˈmaɪɡreɪt/ v. · 自然力促成迁移
 `在自然力量作用下移动、迁移，不及物，主语不限于人或动物。`
@@ -5127,13 +5187,13 @@ The salmon is a long-distance migrator.
 ## migratory /ˈmaɪɡrəˌtɔri/ adj. · 随季节迁徙的
 `每年随季节迁徙的，用来描述鸟、鱼或其他动物。`
 
-<!-- CONTEXT:CU03307a USE:U03307 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SU03307a USE:U03307 -->
-The wetland provides a resting place for migratory birds.
-<!-- TRANSLATION:CU03307a -->
-这片湿地为候鸟提供歇脚处。
-<!-- END_CONTEXT:CU03307a -->
+<!-- CONTEXT:R31BU03307a USE:U03307 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.rspb.org.uk/birds-and-wildlife/bird-migration"]} -->
+<!-- SENTENCE:S31BU03307a1 USE:U03307 -->
+To protect migratory birds passing through the UK, the RSPB works with partners along the East Atlantic Flyway, a migration route stretching from the Arctic to southern Africa.
+<!-- TRANSLATION:R31BU03307a -->
+为了保护经过英国的候鸟，英国皇家鸟类保护协会与东大西洋迁徙通道沿线的伙伴合作；这条迁徙路线从北极地区延伸到非洲南部。
+<!-- END_CONTEXT:R31BU03307a -->
 <!-- USE:U03308 -->
 ## migratory /ˈmaɪɡrəˌtɔri/ adj. · 迁移活动相关的
 `与人或动物的迁移、迁徙有关的，如 migratory farm labour 指随地区和农时迁移的农业劳动力。`
@@ -5160,13 +5220,15 @@ An ILO policy brief focuses on migrant care workers, especially women, and the d
 ## migrant /ˈmaɪɡrənt/ n./adj. · 迁徙动物；迁徙的
 `在不同区域间迁移的动物，尤其鸟类。作名词时可数，也可作形容词，如 migrant birds。`
 
-<!-- CONTEXT:CU03310a USE:U03310 KIND:abridgment -->
-<!-- CONTEXT_META:{"title":"图森巴赫谈迁徙的鸟","sourceUrls":["https://www.gutenberg.org/files/7986/7986-h/7986-h.htm"],"displayContext":"契诃夫《三姐妹》早期英译本；图森巴赫台词节选，文学比喻。","speakers":{"SU03310a":"Tuzenbach (Chekhov, Three Sisters)"}} -->
-<!-- SENTENCE:SU03310a USE:U03310 -->
-Migrant birds, cranes for example, fly and fly, and whatever thoughts, high or low, enter their heads, they will still fly and not know why or where.
-<!-- TRANSLATION:CU03310a -->
-迁徙的鸟，比如鹤，总是飞呀飞。不论高深还是浅薄的念头进入它们脑中，它们仍会飞，却不知道为什么飞、飞向哪里。
-<!-- END_CONTEXT:CU03310a -->
+<!-- CONTEXT:R31BU03310a USE:U03310 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.rspb.org.uk/birds-and-wildlife/bird-migration"]} -->
+<!-- SENTENCE:S31BU03310a1 USE:U03310 -->
+UK wetlands give migrants places to recover during their journeys.
+<!-- SENTENCE:S31BU03310a2 USE:U03310 -->
+Disturbing birds at these stops can prevent them from resting or feeding.
+<!-- TRANSLATION:R31BU03310a -->
+英国的湿地为迁徙鸟类提供途中恢复体力的地方。在这些停留地打扰鸟类，可能妨碍它们休息或觅食。
+<!-- END_CONTEXT:R31BU03310a -->
 
 <!-- WORD:W034 -->
 # modify
@@ -5188,13 +5250,13 @@ Under the U.S. House procedure recorded in the 117th Congress's manual, once the
 ## modify /ˈmɑdəfaɪ/ v. · 缓和要求或程度
 `使要求或程度不那么严厉、极端，即缓和、减轻，及物，如 modify one's demands。`
 
-<!-- CONTEXT:CU03402a USE:U03402 KIND:example -->
+<!-- CONTEXT:R31BU03402a USE:U03402 KIND:example -->
 <!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SU03402a USE:U03402 -->
-They agreed to modify their demands.
-<!-- TRANSLATION:CU03402a -->
-他们同意降低要求。
-<!-- END_CONTEXT:CU03402a -->
+<!-- SENTENCE:S31BU03402a1 USE:U03402 -->
+To reach an agreement, both sides modified their demands and accepted less than they had first requested.
+<!-- TRANSLATION:R31BU03402a -->
+为了达成协议，双方降低了要求，接受的条件都低于最初所提。
+<!-- END_CONTEXT:R31BU03402a -->
 <!-- USE:U03403 -->
 ## modify /ˈmɑdəfaɪ/ v. · 语法上修饰
 `语法上一个词或词组描述、限定或扩展另一个词的意义，及物；起修饰作用的成分不限于形容词。`
@@ -5210,24 +5272,26 @@ A noun can modify another noun by giving more information about it. In “sports
 ## modify /ˈmɑdəfaɪ/ v. · 改变语音形式
 `语音学上改变某个语言单位的语音形式，及物。`
 
-<!-- CONTEXT:CU03404a USE:U03404 KIND:example -->
+<!-- CONTEXT:R31BU03404a USE:U03404 KIND:example -->
 <!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SU03404a USE:U03404 -->
-The sound change modified the vowel in that syllable.
-<!-- TRANSLATION:CU03404a -->
-这一音变改变了该音节中的元音。
-<!-- END_CONTEXT:CU03404a -->
+<!-- SENTENCE:S31BU03404a1 USE:U03404 -->
+Modify the vowel by rounding your lips while keeping your tongue in the same position.
+<!-- TRANSLATION:R31BU03404a -->
+保持舌位不变，通过把嘴唇拢圆来改变这个元音。
+<!-- END_CONTEXT:R31BU03404a -->
 <!-- USE:U03405 -->
 ## modify /ˈmɑdəfaɪ/ v. · 化学改性
 `化学上通过改变或替换聚合物的取代基等来改变其溶解性等物理性质，及物，如 modified starch 指改性淀粉。`
 
-<!-- CONTEXT:CU03405a USE:U03405 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SU03405a USE:U03405 -->
-Modified starch can have properties different from those of the original starch.
-<!-- TRANSLATION:CU03405a -->
-改性淀粉的性质可能与原淀粉不同。
-<!-- END_CONTEXT:CU03405a -->
+<!-- CONTEXT:R31BU03405a USE:U03405 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://nchfp.uga.edu/how/can/canning-fruits-and-fruit-products/pie-fillings/"]} -->
+<!-- SENTENCE:S31BU03405a1 USE:U03405 -->
+The USDA fruit-pie filling recipes use Clear Jel®, a chemically modified corn starch that keeps the sauce thick after canning and baking.
+<!-- SENTENCE:S31BU03405a2 USE:U03405 -->
+Other starches can break down in these recipes and leave a runny filling.
+<!-- TRANSLATION:R31BU03405a -->
+美国农业部的水果派馅罐藏配方使用 Clear Jel®，这是一种化学改性玉米淀粉，经过罐藏和烘烤后仍能使酱汁保持稠度。其他淀粉在这些配方中可能分解，使派馅变得稀薄。
+<!-- END_CONTEXT:R31BU03405a -->
 <!-- USE:U03406 -->
 ## modifiable /ˈmɑdəfaɪəbəl/ adj. · 可修改的
 `能够被修改、调节或改变的。`
@@ -5304,13 +5368,13 @@ Adjectives come before noun modifiers: in “a red sports car,” “red” come
 ## momentum /moʊˈmentəm/ n. · 发展势头
 `某过程或运动不断发展、加快并越来越难停下来的势头，通常不可数；gain/build momentum 表示形成、增强势头，lose momentum 表示势头减弱。`
 
-<!-- CONTEXT:CU03501a USE:U03501 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU03501a USE:U03501 -->
-This campaign is really gaining momentum.
-<!-- TRANSLATION:CU03501a -->
-这场行动确实越来越有势头。
-<!-- END_CONTEXT:CU03501a -->
+<!-- CONTEXT:R31CU03501a USE:U03501 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.nps.gov/articles/000/jim-stimpfle-and-the-melting-of-the-ice-curtain.htm"]} -->
+<!-- SENTENCE:S31CU03501a USE:U03501 -->
+After Lynne Cox swam between the Diomede Islands, Jim Stimpfle and other campaigners used the momentum to start a letter-writing campaign for reopening the US–Soviet border.
+<!-- TRANSLATION:R31CU03501a -->
+林恩·考克斯游过两座迪奥米德岛之间的海峡后，吉姆·斯廷普夫尔等倡议者借助这股势头，发起写信运动，呼吁重新开放美苏边境。
+<!-- END_CONTEXT:R31CU03501a -->
 <!-- USE:U03502 -->
 ## momentum /moʊˈmentəm/ n. · 物理动量
 `经典力学中运动物体的质量与其速度矢量的乘积，即动量，方向是定义的一部分；复数为 momenta /moʊˈmentə/。动量与使动量改变的冲量是不同概念。`
@@ -5326,13 +5390,13 @@ DART撞上迪莫弗斯时，岩石碎屑从小行星带走动量，并给它施�
 ## momentum /moʊˈmentəm/ n. · 运动的推动势头
 `运动开始后形成、使运动继续的推动势头，用于一般运动描述，不必是在计算物理量。`
 
-<!-- CONTEXT:CU03503a USE:U03503 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU03503a USE:U03503 -->
-The bicycle's momentum carried it a little farther up the slope.
-<!-- TRANSLATION:CU03503a -->
-自行车已有的冲势使它又向坡上滑行了一小段。
-<!-- END_CONTEXT:CU03503a -->
+<!-- CONTEXT:R31CU03503a USE:U03503 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://hub.yamaha.com/keyboards/k-how-to/how-to-use-keyboard-pedals/"]} -->
+<!-- SENTENCE:S31CU03503a USE:U03503 -->
+On an upright piano, the soft pedal moves the hammers closer to the strings, giving them less momentum and producing a softer sound.
+<!-- TRANSLATION:R31CU03503a -->
+立式钢琴的柔音踏板会让音槌靠近琴弦，使音槌的运动冲势减小，发出的声音也更轻。
+<!-- END_CONTEXT:R31CU03503a -->
 
 <!-- WORD:W036 -->
 # mutual
@@ -5350,6 +5414,14 @@ The Bandung Conference's principles included mutual respect for sovereignty, non
 <!-- TRANSLATION:CU03601a -->
 万隆会议的原则包括相互尊重主权、互不侵犯和平等。
 <!-- END_CONTEXT:CU03601a -->
+
+<!-- CONTEXT:R31CU03601b USE:U03601 KIND:example -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
+<!-- SENTENCE:S31CU03601b USE:U03601 -->
+It's plain that he adores his daughter, and the feeling is mutual.
+<!-- TRANSLATION:R31CU03601b -->
+显然他很爱女儿，而女儿也同样爱他。
+<!-- END_CONTEXT:R31CU03601b -->
 <!-- USE:U03602 -->
 ## mutual /ˈmjutʃuəl/ adj. · 双方共有的
 `两人或多人共同具有、涉及同一对象的，如 a mutual friend 指双方共同认识的朋友，a mutual interest 指共同兴趣。这一义曾有用法争议，但在现代英语中广泛使用。`
@@ -5376,24 +5448,26 @@ The two organisations are mutual beneficiaries of the arrangement.
 ## mutual /ˈmjutʃuəl/ adj. · 成员共有互惠的
 `由顾客或成员、而非外部股东拥有，并让成员分享收益的。属于英式商业用法，可描述保险机构、建房互助协会等的组织性质。`
 
-<!-- CONTEXT:CU03604a USE:U03604 KIND:abridgment -->
-<!-- CONTEXT_META:{"title":"成员所有的金融机构","sourceUrls":["https://www.bsa.org.uk/about-us/about-the-bsa"]} -->
-<!-- SENTENCE:SCU03604a USE:U03604 -->
-Building societies are mutual institutions: their members own them, and they operate for their members' benefit.
-<!-- TRANSLATION:CU03604a -->
-建房互助协会是成员互助型机构：机构归成员所有，并为成员的利益运营。
-<!-- END_CONTEXT:CU03604a -->
+<!-- CONTEXT:R31CU03604a USE:U03604 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.bsa.org.uk/media-centre/press-releases/mutuals-group-urges-action-to-realise-huge-growth-and-social-dividend-from-labour%E2%80%99s-%E2%80%98doubling%E2%80%99-ambit"]} -->
+<!-- SENTENCE:S31CU03604a USE:U03604 -->
+The Building Societies Association argues that financial and legal barriers prevent the benefits of the mutual model from being fully realised.
+<!-- TRANSLATION:R31CU03604a -->
+英国建房互助协会认为，融资和法律障碍使成员互助所有制模式的益处未能充分实现。
+<!-- END_CONTEXT:R31CU03604a -->
 <!-- USE:U03605 -->
 ## mutuality /ˌmjutʃuˈæləti/ n. · 相互性／共同性
 `相互性、共同性或互助关系的性质，具体意义取决于所谈关系。`
 
-<!-- CONTEXT:CU03605a USE:U03605 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU03605a USE:U03605 -->
-The partnership depends on mutuality rather than one-sided assistance.
-<!-- TRANSLATION:CU03605a -->
-这种伙伴关系依赖相互性，而非单方面援助。
-<!-- END_CONTEXT:CU03605a -->
+<!-- CONTEXT:R31CU03605a USE:U03605 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.gov.uk/hmrc-internal-manuals/employment-status-manual/esm0543"]} -->
+<!-- SENTENCE:S31CU03605a USE:U03605 -->
+HMRC's employment-status guidance uses mutuality of obligation for a bargain in which the worker must provide their own work or skill and the engager must pay.
+<!-- SENTENCE:S31CU03605a2 USE:U03605 -->
+Those obligations alone do not determine whether the contract is employment or self-employment.
+<!-- TRANSLATION:R31CU03605a -->
+英国税务海关总署的就业身份指南用“义务的相互性”描述这样一种约定：劳动者本人必须提供劳动或技能，聘用方必须付酬。但仅凭这些相互义务，不能确定合同属于雇佣还是自雇。
+<!-- END_CONTEXT:R31CU03605a -->
 <!-- USE:U03606 -->
 ## mutually /ˈmjutʃuəli/ adv. · 相互地／共同地
 `相互地，或由相关各方共同地，可放在形容词、副词或动词前，如 mutually agreed 表示各方共同同意的。`
@@ -5409,13 +5483,13 @@ Attempts to reach a mutually agreed solution had been fruitless.
 ## mutually exclusive /ˌmjutʃuəli ɪkˈsklusɪv/ adj. · 不能同时并存的
 `相互排斥、不能同时成立或发生的；强调不能并存，而非仅仅彼此不同。`
 
-<!-- CONTEXT:CU03607a USE:U03607 KIND:example -->
+<!-- CONTEXT:R31CU03607b USE:U03607 KIND:example -->
 <!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU03607a USE:U03607 -->
-They both have learnt that ambition and successful fatherhood can be mutually exclusive.
-<!-- TRANSLATION:CU03607a -->
-他们都已体会到，事业雄心和成功履行父亲职责有时可能无法兼得。
-<!-- END_CONTEXT:CU03607a -->
+<!-- SENTENCE:S31CU03607b USE:U03607 -->
+On a single roll of a six-sided die, getting a 2 and getting a 5 are mutually exclusive: one roll cannot produce both numbers.
+<!-- TRANSLATION:R31CU03607b -->
+在一枚六面骰子的一次投掷中，掷出2点与掷出5点是互斥的：一次投掷不可能同时得到这两个点数。
+<!-- END_CONTEXT:R31CU03607b -->
 
 <!-- WORD:W037 -->
 # orbit
@@ -5437,35 +5511,35 @@ DART对迪莫弗斯的撞击，也改变了这对小行星绕太阳运行的轨�
 ## orbit /ˈɔrbɪt/ n. · 在轨运行状态
 `沿轨道运动的状态。in orbit 表示在轨运行，into orbit 表示进入轨道，out of orbit 表示脱离轨道。`
 
-<!-- CONTEXT:CU03702a USE:U03702 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU03702a USE:U03702 -->
-The planet is probably in orbit around a small star.
-<!-- TRANSLATION:CU03702a -->
-这颗行星很可能正围绕一颗小恒星运行。
-<!-- END_CONTEXT:CU03702a -->
+<!-- CONTEXT:R31CU03702a USE:U03702 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://science.nasa.gov/mission/explorer-1/about/"]} -->
+<!-- SENTENCE:S31CU03702a USE:U03702 -->
+Explorer 1 stopped transmitting in May 1958, but it remained in orbit until March 1970.
+<!-- TRANSLATION:R31CU03702a -->
+“探险者一号”于1958年5月停止发射信号，但一直在轨运行到1970年3月。
+<!-- END_CONTEXT:R31CU03702a -->
 <!-- USE:U03703 -->
 ## orbit /ˈɔrbɪt/ n. · 完整绕行一圈
 `围绕某个天体完整运行的一圈，可数，强调一次完整周回。`
 
-<!-- CONTEXT:CU03703a USE:U03703 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU03703a USE:U03703 -->
-The spacecraft completed three orbits before the manoeuvre.
-<!-- TRANSLATION:CU03703a -->
-航天器在机动操作前完成了三圈运行。
-<!-- END_CONTEXT:CU03703a -->
+<!-- CONTEXT:R31CU03703a USE:U03703 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://science.nasa.gov/mission/explorer-1/about/"]} -->
+<!-- SENTENCE:S31CU03703a USE:U03703 -->
+Explorer 1 completed 58,376 orbits before its time in orbit ended on March 31, 1970.
+<!-- TRANSLATION:R31CU03703a -->
+到1970年3月31日在轨生涯结束时，“探险者一号”已完成58,376圈运行。
+<!-- END_CONTEXT:R31CU03703a -->
 <!-- USE:U03704 -->
 ## orbit /ˈɔrbɪt/ n. · 旧原子模型轨道
 `原子模型中电子围绕原子核运动的轨道图式，属于物理学用法；不能直接等同于现代量子力学中以波函数描述的 orbital。`
 
-<!-- CONTEXT:CU03704a USE:U03704 KIND:example -->
+<!-- CONTEXT:R31CU03704b USE:U03704 KIND:example -->
 <!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU03704a USE:U03704 -->
-The Bohr model represents the electron in an orbit around the nucleus.
-<!-- TRANSLATION:CU03704a -->
-玻尔模型把电子表示为沿原子核周围的一条轨道运动。
-<!-- END_CONTEXT:CU03704a -->
+<!-- SENTENCE:S31CU03704b USE:U03704 -->
+When drawing the Bohr model of hydrogen, label the lowest-energy electron orbit n = 1.
+<!-- TRANSLATION:R31CU03704b -->
+绘制氢原子的玻尔模型时，把最低能的电子轨道标为n=1。
+<!-- END_CONTEXT:R31CU03704b -->
 <!-- USE:U03705 -->
 ## orbit /ˈɔrbɪt/ n. · 活动或影响范围
 `某人或组织发挥行动、影响的范围，常用单数；within/in the orbit of somebody/something 表示处于其活动或影响范围内。`
@@ -5558,24 +5632,24 @@ The scan shows the orbital bones.
 ## orbital /ˈɔrbɪtəl/ adj. · 环城绕行的
 `道路沿城市外围绕行的，主要为英式用法；美式英语常把这类道路称为 beltway。`
 
-<!-- CONTEXT:CU03713a USE:U03713 KIND:example -->
+<!-- CONTEXT:R31CU03713a USE:U03713 KIND:example -->
 <!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU03713a USE:U03713 -->
-An early idea for a London orbital road, a predecessor of the M25, was proposed in 1905.
-<!-- TRANSLATION:CU03713a -->
-1905年曾有人提出伦敦环城道路的早期设想，这是后来M25的前身。
-<!-- END_CONTEXT:CU03713a -->
+<!-- SENTENCE:S31CU03713a USE:U03713 -->
+An orbital road carries traffic around the city instead of through its centre.
+<!-- TRANSLATION:R31CU03713a -->
+环城道路让车流绕城而行，而不穿过市中心。
+<!-- END_CONTEXT:R31CU03713a -->
 <!-- USE:U03714 -->
 ## orbital /ˈɔrbɪtəl/ n. · 电子轨道函数
 `物理学上用波函数表示的原子核周围电子密度模式或相应状态，即轨函数，可数；不表示电子像行星一样沿某条确定路线转动。`
 
-<!-- CONTEXT:CU03714a USE:U03714 KIND:example -->
+<!-- CONTEXT:R31CU03714b USE:U03714 KIND:example -->
 <!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU03714a USE:U03714 -->
-An orbital describes a possible electron-density pattern around an atomic nucleus.
-<!-- TRANSLATION:CU03714a -->
-一个轨函数描述原子核周围一种可能的电子密度模式。
-<!-- END_CONTEXT:CU03714a -->
+<!-- SENTENCE:S31CU03714b USE:U03714 -->
+In the usual two-lobed drawing of a p orbital, the lobes represent regions of electron probability rather than a track around the nucleus.
+<!-- TRANSLATION:R31CU03714b -->
+在常见的p轨道双叶形图示中，两瓣表示电子出现的概率区域，而不是电子绕原子核运动的一条路线。
+<!-- END_CONTEXT:R31CU03714b -->
 <!-- USE:U03715 -->
 ## orbiter /ˈɔrbɪtər/ n. · 在轨航天器
 `设计为沿轨道运行、尤其长时间留在轨道上的航天器，可数。`
@@ -5671,24 +5745,24 @@ She is a persistent critic of the government's transport policies.
 ## persistent /pərˈsɪstənt/ adj. · 反复发生的
 `不断重复发生的，强调反复，如 persistent nagging 指不停的唠叨。`
 
-<!-- CONTEXT:CU03807a USE:U03807 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU03807a USE:U03807 -->
-He complained about the persistent nagging.
-<!-- TRANSLATION:CU03807a -->
-他抱怨那些没完没了的唠叨。
-<!-- END_CONTEXT:CU03807a -->
+<!-- CONTEXT:R31CU03807a USE:U03807 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.who.int/europe/news-room/questions-and-answers/item/public-health-advice-on-dengue-fever/"]} -->
+<!-- SENTENCE:S31CU03807a USE:U03807 -->
+If you live in or have recently travelled to an area with dengue, seek medical care immediately for symptoms such as severe abdominal pain, persistent vomiting or rapid breathing.
+<!-- TRANSLATION:R31CU03807a -->
+如果你居住在登革热流行地区，或最近去过这类地区，出现严重腹痛、反复呕吐、呼吸急促等症状时，应立即就医。
+<!-- END_CONTEXT:R31CU03807a -->
 <!-- USE:U03808 -->
 ## persistent /pərˈsɪstənt/ adj. · 宿存不脱落的
 `生物学上指通常应脱落的叶、角等仍保留着的，即宿存的。`
 
-<!-- CONTEXT:CU03808a USE:U03808 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU03808a USE:U03808 -->
-A persistent calyx remains around the fruit after flowering.
-<!-- TRANSLATION:CU03808a -->
-宿存花萼在开花后仍留在果实周围。
-<!-- END_CONTEXT:CU03808a -->
+<!-- CONTEXT:R31CU03808a USE:U03808 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30060186-2/general-information"]} -->
+<!-- SENTENCE:S31CU03808a USE:U03808 -->
+Flora of Tropical East Africa describes Bryophyllum plants as having a persistent calyx that enlarges as the fruit develops.
+<!-- TRANSLATION:R31CU03808a -->
+《东非热带植物志》描述，Bryophyllum类群的植物花萼宿存，并随果实发育而增大。
+<!-- END_CONTEXT:R31CU03808a -->
 <!-- USE:U03809 -->
 ## persistently /pərˈsɪstəntli/ adv. · 持续或反复地
 `长时间或一次又一次地，说明状态持续或动作反复。`
@@ -5754,24 +5828,24 @@ The maker pigments the resin before casting it.
 ## pigmental /pɪɡˈmentəl/ adj.; pigmentary /ˈpɪɡmənˌteri/ adj. · 颜料或色素相关的
 `与颜料、色素或其作用有关的。`
 
-<!-- CONTEXT:CU03904a USE:U03904 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU03904a USE:U03904 -->
-The study examines pigmentary changes in the tissue.
-<!-- TRANSLATION:CU03904a -->
-这项研究考察组织中的色素相关变化。
-<!-- END_CONTEXT:CU03904a -->
+<!-- CONTEXT:R31CU03904a USE:U03904 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.cancer.gov/types/skin/hp/skin-genetics-pdq"]} -->
+<!-- SENTENCE:S31CU03904a USE:U03904 -->
+Clinicians assess pigmentary characteristics, including skin type and freckling, when evaluating the risk of melanoma and other skin cancers.
+<!-- TRANSLATION:R31CU03904a -->
+临床人员评估黑色素瘤及其他皮肤癌的风险时，会考察肤型、雀斑等色素相关特征。
+<!-- END_CONTEXT:R31CU03904a -->
 <!-- USE:U03905 -->
 ## pigmentation /ˌpɪɡmənˈteɪʃən/ n. · 天然色素呈色
 `动物、植物等由色素形成的天然颜色。属于较正式的用语，通常不可数，可接 of 或 in 说明呈色的部位、对象。`
 
-<!-- CONTEXT:CU03905a USE:U03905 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU03905a USE:U03905 -->
-I have a skin disorder that destroys the natural pigmentation in my skin.
-<!-- TRANSLATION:CU03905a -->
-我有一种皮肤疾病，会破坏皮肤的天然色素呈色。
-<!-- END_CONTEXT:CU03905a -->
+<!-- CONTEXT:R31CU03905a USE:U03905 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.cancer.gov/types/skin/hp/skin-genetics-pdq"]} -->
+<!-- SENTENCE:S31CU03905a USE:U03905 -->
+Melanin in skin cells is packaged and passed to nearby cells, producing the skin’s natural pigmentation.
+<!-- TRANSLATION:R31CU03905a -->
+皮肤细胞中的黑色素经过包裹后被传递给邻近细胞，从而形成皮肤的天然颜色。
+<!-- END_CONTEXT:R31CU03905a -->
 <!-- USE:U03906 -->
 ## pigmentation /ˌpɪɡmənˈteɪʃən/ n. · 色素过度沉积
 `色素在组织中过度积聚而造成的呈色，用于描述组织的颜色变化。`
@@ -5793,13 +5867,13 @@ The examination noted excessive pigmentation in the affected tissue.
 ## precise /prɪˈsaɪs/ adj. · 恰好所指的
 `恰好是所指的那一个，而非含糊所指或另一个，常放在名词前起强调作用；at that precise moment 指恰恰在那个时刻，the precise location 指确切位置。`
 
-<!-- CONTEXT:CU04001a USE:U04001 KIND:example -->
+<!-- CONTEXT:R31CU04001a USE:U04001 KIND:example -->
 <!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU04001a USE:U04001 -->
-The precise location of the wreck was discovered in 1988.
-<!-- TRANSLATION:CU04001a -->
-沉船的确切位置于1988年被发现。
-<!-- END_CONTEXT:CU04001a -->
+<!-- SENTENCE:S31CU04001a USE:U04001 -->
+At that precise moment I felt sorry for him and didn't want to hurt him.
+<!-- TRANSLATION:R31CU04001a -->
+恰恰在那个时刻，我为他感到难过，不想伤害他。
+<!-- END_CONTEXT:R31CU04001a -->
 <!-- USE:U04002 -->
 ## precise /prɪˈsaɪs/ adj. · 表述准确清楚的
 `说法、叙述在各项细节上准确清楚的，可描述说明、描述等。`
@@ -5921,14 +5995,6 @@ The laboratory uses precision instruments.
 <!-- TRANSLATION:CU04012a -->
 实验室使用精密仪器。
 <!-- END_CONTEXT:CU04012a -->
-
-<!-- CONTEXT:CU04012b USE:U04012 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU04012b USE:U04012 -->
-The experiment requires precision timing.
-<!-- TRANSLATION:CU04012b -->
-这个实验需要精确计时。
-<!-- END_CONTEXT:CU04012b -->
 <!-- USE:U04013 -->
 ## imprecise /ˌɪmprɪˈsaɪs/ adj. · 不精确的
 `不清楚、不准确或不精确的。`
@@ -6016,13 +6082,13 @@ Even familiar still-life subjects, such as fruit and flowers, received a fresh t
 ## restore /rɪˈstɔr/ v. · 恢复秩序或关系
 `使某种情况、实践或秩序重新存在，及物，如 restore order、restore relations。`
 
-<!-- CONTEXT:CU04101a USE:U04101 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU04101a USE:U04101 -->
-The army has recently been brought in to restore order.
-<!-- TRANSLATION:CU04101a -->
-军队最近被调来恢复秩序。
-<!-- END_CONTEXT:CU04101a -->
+<!-- CONTEXT:R31CU04101a USE:U04101 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.vam.ac.uk/articles/the-story-of-theatre"]} -->
+<!-- SENTENCE:S31CU04101a USE:U04101 -->
+In 1809, protesters at Covent Garden sought to force the theatre’s management to restore the old system of pricing.
+<!-- TRANSLATION:R31CU04101a -->
+1809年，考文特花园剧院的抗议者力图迫使剧院管理方恢复旧有票价制度。
+<!-- END_CONTEXT:R31CU04101a -->
 <!-- USE:U04102 -->
 ## restore /rɪˈstɔr/ v. · 恢复较好状态
 `使人或事物回到先前较好的状态，及物；restore somebody to health 表示使某人恢复健康，也可谈恢复经济等。`
@@ -6178,24 +6244,24 @@ The museum displays a restoration of the animal's skeleton.
 ## restoration /ˌrestəˈreɪʃən/ n. · 君主统治复辟
 `重新确立君主统治，或其后的一段时期，属于一般历史政治用法，不限定某一国家。`
 
-<!-- CONTEXT:CU04115a USE:U04115 KIND:example -->
+<!-- CONTEXT:R31CU04115a USE:U04115 KIND:example -->
 <!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU04115a USE:U04115 -->
-The historian compares two periods of restoration.
-<!-- TRANSLATION:CU04115a -->
-这位历史学家比较了两个王政复辟时期。
-<!-- END_CONTEXT:CU04115a -->
+<!-- SENTENCE:S31CU04115a USE:U04115 -->
+The historian compares two periods of monarchical restoration.
+<!-- TRANSLATION:R31CU04115a -->
+这位历史学家比较两个君主统治复辟时期。
+<!-- END_CONTEXT:R31CU04115a -->
 <!-- USE:U04116 -->
 ## Restoration /ˌrestəˈreɪʃən/ n. · 查理二世复辟
 `1660 年查理二世在无君主统治时期之后重新成为英格兰、苏格兰和爱尔兰国王的事件。用作专名时首字母大写，通常带 the。`
 
-<!-- CONTEXT:CU04116a USE:U04116 KIND:abridgment -->
-<!-- CONTEXT_META:{"title":"英国复辟与剧场重开","sourceUrls":["https://www.rsc.org.uk/restoration-plays"]} -->
-<!-- SENTENCE:SCU04116a USE:U04116 -->
-The Restoration period followed the return of the English, Scottish, and Irish monarchies under Charles II in 1660.
-<!-- TRANSLATION:CU04116a -->
-英国王政复辟时期始于1660年查理二世治下英格兰、苏格兰和爱尔兰君主制的恢复之后。
-<!-- END_CONTEXT:CU04116a -->
+<!-- CONTEXT:R31CU04116a USE:U04116 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.rsc.org.uk/restoration-plays"]} -->
+<!-- SENTENCE:S31CU04116a USE:U04116 -->
+The Restoration of the English, Scottish and Irish monarchies under Charles II in 1660 was followed by the reopening of the theatres.
+<!-- TRANSLATION:R31CU04116a -->
+1660年查理二世治下英格兰、苏格兰和爱尔兰君主制复辟，随后剧院重新开放。
+<!-- END_CONTEXT:R31CU04116a -->
 <!-- USE:U04117 -->
 ## Restoration /ˌrestəˈreɪʃən/ adj. · 英国复辟时期的
 `查理二世复辟后时期的，尤其描述该时期戏剧、文学或建筑的风格，通常放在名词前，如 Restoration comedy。`
@@ -6261,13 +6327,13 @@ Kew plans to conserve, retain, and reuse as much of the existing structure as po
 ## retain /rɪˈteɪn/ v. · 记住
 `把经历、知识等保存在记忆中，及物。`
 
-<!-- CONTEXT:CU04202a USE:U04202 KIND:abridgment -->
-<!-- CONTEXT_META:{"title":"记忆中的保存","sourceUrls":["https://openstax.org/books/psychology-2e/pages/8-1-how-memory-functions"],"displayContext":"OpenStax《Psychology 2e》缩编／节录，CC BY-NC-SA 4.0"} -->
-<!-- SENTENCE:SCU04202a USE:U04202 -->
-Once information has been encoded, we must retain it; storage is the creation of a lasting record of that information.
-<!-- TRANSLATION:CU04202a -->
-信息经过编码后，还必须将它保持在记忆中；存储就是形成这份信息的持久记录。
-<!-- END_CONTEXT:CU04202a -->
+<!-- CONTEXT:R31CU04202b USE:U04202 KIND:example -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
+<!-- SENTENCE:S31CU04202b USE:U04202 -->
+I retain directions better when I picture the turns, so I drew a quick map before leaving.
+<!-- TRANSLATION:R31CU04202b -->
+在脑中想象各个转弯时，我更能记住路线，所以出发前我画了一张简图。
+<!-- END_CONTEXT:R31CU04202b -->
 <!-- USE:U04203 -->
 ## retain /rɪˈteɪn/ v. · 使保持在位
 `把某物保持在一定位置，使其不移开或流失，及物，可用于具体物体、液体等。`
@@ -6283,13 +6349,13 @@ The clip retains the lid in position.
 ## retain /rɪˈteɪn/ v. · 预付费聘请
 `预先付费以确保某人在需要时提供服务，及物，尤用于聘请律师等专业人员。`
 
-<!-- CONTEXT:CU04204a USE:U04204 KIND:example -->
+<!-- CONTEXT:R31CU04204a USE:U04204 KIND:example -->
 <!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU04204a USE:U04204 -->
-He decided to retain him for the trial.
-<!-- TRANSLATION:CU04204a -->
-他决定预付费用，请这位律师在庭审中代表他。
-<!-- END_CONTEXT:CU04204a -->
+<!-- SENTENCE:S31CU04204a USE:U04204 -->
+He paid a fee in advance to retain a lawyer for the trial.
+<!-- TRANSLATION:R31CU04204a -->
+他预先付了一笔费用，聘请一位律师在庭审中代表他。
+<!-- END_CONTEXT:R31CU04204a -->
 <!-- USE:U04205 -->
 ## retainable /rɪˈteɪnəbəl/ adj. · 可保留的
 `能够被保留、留住的。`
@@ -6408,13 +6474,13 @@ They supported the retention of a strong central government.
 ## retention /rɪˈtenʃən/ n. · 记忆保持能力
 `把经历或学过的东西保存在记忆中的能力。`
 
-<!-- CONTEXT:CU04215a USE:U04215 KIND:abridgment -->
-<!-- CONTEXT_META:{"title":"短时记忆的干扰","sourceUrls":["https://openstax.org/books/psychology-2e/pages/8-1-how-memory-functions"],"displayContext":"OpenStax《Psychology 2e》缩编／节录，CC BY-NC-SA 4.0"} -->
-<!-- SENTENCE:SCU04215a USE:U04215 -->
-Memory trace decay and interference both affect short-term memory retention.
-<!-- TRANSLATION:CU04215a -->
-记忆痕迹衰退和干扰都会影响短时记忆保持。
-<!-- END_CONTEXT:CU04215a -->
+<!-- CONTEXT:R31CU04215b USE:U04215 KIND:example -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
+<!-- SENTENCE:S31CU04215b USE:U04215 -->
+Her retention of the poem surprised me: a month after learning it, she could still recite every line.
+<!-- TRANSLATION:R31CU04215b -->
+她对那首诗的记忆保持能力让我意外：学过一个月后，她仍能一行不漏地背出来。
+<!-- END_CONTEXT:R31CU04215b -->
 <!-- USE:U04216 -->
 ## retention /rɪˈtenʃən/ n. · 体液滞留
 `医学上尿液或其他分泌物未能排出的潴留状态。`
@@ -6554,13 +6620,13 @@ Another car reversed out of the drive.
 另一辆车从车道里倒了出来。
 <!-- END_CONTEXT:CU04306a -->
 
-<!-- CONTEXT:CU04306b USE:U04306 KIND:example -->
+<!-- CONTEXT:R31CU04306b USE:U04306 KIND:example -->
 <!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU04306b USE:U04306 -->
-He reversed his car straight at the policeman.
-<!-- TRANSLATION:CU04306b -->
-他倒车，径直朝那名警员撞去。
-<!-- END_CONTEXT:CU04306b -->
+<!-- SENTENCE:S31CU04306b USE:U04306 -->
+She reversed the car into the parking space.
+<!-- TRANSLATION:R31CU04306b -->
+她把车倒进了停车位。
+<!-- END_CONTEXT:R31CU04306b -->
 <!-- USE:U04307 -->
 ## reverse /rɪˈvɝs/ v. · 使机器反向运转
 `使发动机等沿相反方向工作，及物。`
@@ -6587,24 +6653,24 @@ The dancers reversed and began turning the other way.
 ## reverse /rɪˈvɝs/ n. · 倒档／后退状态
 `车辆用于后退的档位、装置或后退运动状态，常用 in reverse、into reverse。`
 
-<!-- CONTEXT:CU04309a USE:U04309 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU04309a USE:U04309 -->
-He lurched the car in reverse along the ruts to the access road.
-<!-- TRANSLATION:CU04309a -->
-他挂着倒档，让汽车沿着车辙颠簸着退到入口道路上。
-<!-- END_CONTEXT:CU04309a -->
+<!-- CONTEXT:R31CU04309a USE:U04309 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.toyota.com/car-tips/types-of-transmissions/"]} -->
+<!-- SENTENCE:S31CU04309a USE:U04309 -->
+On an automatic shifter, R stands for reverse, while P stands for park.
+<!-- TRANSLATION:R31CU04309a -->
+在自动换档操纵装置上，R表示倒档，P表示停车档。
+<!-- END_CONTEXT:R31CU04309a -->
 <!-- USE:U04310 -->
 ## reverse /rɪˈvɝs/ adj. · 朝向相反的
 `被摆成或转成相反方向、位置的。`
 
-<!-- CONTEXT:CU04310a USE:U04310 KIND:example -->
+<!-- CONTEXT:R31CU04310a USE:U04310 KIND:example -->
 <!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU04310a USE:U04310 -->
-The two panels face in reverse directions.
-<!-- TRANSLATION:CU04310a -->
-这两块面板朝向相反的方向。
-<!-- END_CONTEXT:CU04310a -->
+<!-- SENTENCE:S31CU04310a USE:U04310 -->
+The motor can turn in the reverse direction.
+<!-- TRANSLATION:R31CU04310a -->
+这台电机可以沿反方向转动。
+<!-- END_CONTEXT:R31CU04310a -->
 <!-- USE:U04311 -->
 ## reverse /rɪˈvɝs/ adj. · 性质或次序相反的
 `性质、效果或排列次序相反的，如 reverse effect、reverse order。`
@@ -6675,13 +6741,13 @@ The reverse design of a Roman denarius was once thought to show coin-making tool
 ## reverse /rɪˈvɝs/ n. · 书叶背面
 `一张书叶的背面，打开书时通常位于左侧的页。`
 
-<!-- CONTEXT:CU04317a USE:U04317 KIND:example -->
+<!-- CONTEXT:R31CU04317a USE:U04317 KIND:example -->
 <!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU04317a USE:U04317 -->
-The note is written on the reverse of the leaf.
-<!-- TRANSLATION:CU04317a -->
-这条批注写在书叶背面。
-<!-- END_CONTEXT:CU04317a -->
+<!-- SENTENCE:S31CU04317a USE:U04317 -->
+The note appears on the reverse of the book’s first leaf.
+<!-- TRANSLATION:R31CU04317a -->
+批注写在这本书第一张书叶的背面。
+<!-- END_CONTEXT:R31CU04317a -->
 <!-- USE:U04318 -->
 ## reverse /rɪˈvɝs/ n. · 倒序或逆向运行
 `在 in reverse、into reverse 中表示以相反的方向、顺序或进程运行，可用于倒序叙事、过程逆转等，不限于倒车。`
@@ -6857,13 +6923,13 @@ The core contains layers of sedimented material.
 ## sedimented /ˈsedəmentɪd/ adj. · 积淀而根深蒂固的
 `根深蒂固、经过长时间形成并确立的，是沉积的比喻用法，可描述思想、态度等。`
 
-<!-- CONTEXT:CU04404a USE:U04404 KIND:example -->
+<!-- CONTEXT:R31CU04404a USE:U04404 KIND:example -->
 <!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU04404a USE:U04404 -->
-The essay examines sedimented radicalism.
-<!-- TRANSLATION:CU04404a -->
-这篇文章探讨根深蒂固的激进主义。
-<!-- END_CONTEXT:CU04404a -->
+<!-- SENTENCE:S31CU04404a USE:U04404 -->
+Their sedimented radicalism survived even after the movement that had formed it disappeared.
+<!-- TRANSLATION:R31CU04404a -->
+即使孕育这种思想的运动已经消失，他们长期积淀而根深蒂固的激进主义仍然留存。
+<!-- END_CONTEXT:R31CU04404a -->
 <!-- USE:U04405 -->
 ## sedimented /ˈsedəmentɪd/ adj. · 啤酒含沉淀的
 `啤酒中带有沉淀物的。`
@@ -6879,24 +6945,24 @@ The sedimented beer must be poured carefully.
 ## sedimentary /ˌsedəˈmentəri/ adj. · 沉积形成的
 `由沉积物形成或与沉积有关的，属于地质用语；sedimentary rocks 指沉积岩。`
 
-<!-- CONTEXT:CU04406a USE:U04406 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU04406a USE:U04406 -->
-The cliff exposes sedimentary rock.
-<!-- TRANSLATION:CU04406a -->
-悬崖露出了沉积岩。
-<!-- END_CONTEXT:CU04406a -->
+<!-- CONTEXT:R31CU04406a USE:U04406 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.usgs.gov/faqs/what-are-sedimentary-rocks?qt-news_science_products=0"]} -->
+<!-- SENTENCE:S31CU04406a USE:U04406 -->
+Sedimentary rocks such as sandstone and shale often begin as river-borne sediments that become buried and cemented together.
+<!-- TRANSLATION:R31CU04406a -->
+砂岩、页岩等沉积岩常由河流搬运的沉积物形成，这些沉积物被埋藏后逐渐胶结在一起。
+<!-- END_CONTEXT:R31CU04406a -->
 <!-- USE:U04407 -->
 ## sedimentation /ˌsedəmənˈteɪʃən/ n. · 沉降积聚过程
 `固体颗粒沉降、沉积物逐渐形成的过程。`
 
-<!-- CONTEXT:CU04407a USE:U04407 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU04407a USE:U04407 -->
-The tank allows sedimentation before the water is filtered.
-<!-- TRANSLATION:CU04407a -->
-水箱让水在过滤前先进行沉淀。
-<!-- END_CONTEXT:CU04407a -->
+<!-- CONTEXT:R31CU04407a USE:U04407 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.usgs.gov/publications/sediment-transport-and-deposition"]} -->
+<!-- SENTENCE:S31CU04407a USE:U04407 -->
+Sedimentation reduces the volume of a reservoir available for storing water and can therefore affect the water supply.
+<!-- TRANSLATION:R31CU04407a -->
+沉积过程会减少水库可用于蓄水的容积，因此可能影响供水。
+<!-- END_CONTEXT:R31CU04407a -->
 
 <!-- WORD:W045 -->
 # shift
@@ -6981,24 +7047,24 @@ To shift gears in a manual transmission, depress the clutch pedal, move the gear
 ## shift down /ʃɪft daʊn/ v. · 降档
 `把车辆换到较低档位，美式短语动词；英式英语说 change down。`
 
-<!-- CONTEXT:CU04507a USE:U04507 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU04507a USE:U04507 -->
-She shifted down before the steep climb.
-<!-- TRANSLATION:CU04507a -->
-陡坡开始前，她降了档。
-<!-- END_CONTEXT:CU04507a -->
+<!-- CONTEXT:R31CU04507a USE:U04507 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.toyota.com/car-tips/types-of-transmissions/"]} -->
+<!-- SENTENCE:S31CU04507a USE:U04507 -->
+Some automatic transmissions let you shift down manually, but most of these vehicles will not allow a very low gear at high speeds because it could damage the engine.
+<!-- TRANSLATION:R31CU04507a -->
+有些自动变速器允许手动降档，但这类车辆大多不会在高速时允许换入很低的档位，因为这可能损坏发动机。
+<!-- END_CONTEXT:R31CU04507a -->
 <!-- USE:U04508 -->
 ## shift up /ʃɪft ʌp/ v. · 升档
 `把车辆换到较高档位，美式短语动词；英式英语说 change up。`
 
-<!-- CONTEXT:CU04508a USE:U04508 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU04508a USE:U04508 -->
-He shifted up once the engine speed increased.
-<!-- TRANSLATION:CU04508a -->
-发动机转速升高后，他升了档。
-<!-- END_CONTEXT:CU04508a -->
+<!-- CONTEXT:R31CU04508a USE:U04508 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.toyota.com/car-tips/types-of-transmissions/"]} -->
+<!-- SENTENCE:S31CU04508a USE:U04508 -->
+Some automatic transmissions have a manual mode that lets you shift up with a ‘+’ control, within the limits set by the vehicle.
+<!-- TRANSLATION:R31CU04508a -->
+有些自动变速器具有手动模式，可在车辆设定的限制范围内，用“+”操纵装置升档。
+<!-- END_CONTEXT:R31CU04508a -->
 <!-- USE:U04509 -->
 ## shift /ʃɪft/ n. · 轮班时段
 `一组工作人员工作、然后由下一组接替的时段，可数；an eight-hour shift 指八小时的班次，work shifts 指轮班工作。`
@@ -7036,35 +7102,35 @@ Washing won't shift the stains.
 ## shift /ʃɪft/ v. · 赶快行动
 `赶紧行动、加快速度，不及物，属于英式俚语。`
 
-<!-- CONTEXT:CU04512a USE:U04512 KIND:example -->
+<!-- CONTEXT:R31CU04512a USE:U04512 KIND:example -->
 <!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU04512a USE:U04512 -->
-We'll have to shift!
-<!-- TRANSLATION:CU04512a -->
-我们得赶快了！
-<!-- END_CONTEXT:CU04512a -->
+<!-- SENTENCE:S31CU04512a USE:U04512 -->
+We’ll have to shift if we’re going to catch the last bus!
+<!-- TRANSLATION:R31CU04512a -->
+要赶上末班车，我们可得快点了！
+<!-- END_CONTEXT:R31CU04512a -->
 <!-- USE:U04513 -->
 ## shift /ʃɪft/ v. · 快速大量吃喝
 `快速或大量吃下食物、喝下饮料，及物，属于英式俚语。`
 
-<!-- CONTEXT:CU04513a USE:U04513 KIND:example -->
+<!-- CONTEXT:R31CU04513a USE:U04513 KIND:example -->
 <!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU04513a USE:U04513 -->
-The hungry workers shifted a huge meal.
-<!-- TRANSLATION:CU04513a -->
-饥饿的工人们狼吞虎咽地吃了一大顿。
-<!-- END_CONTEXT:CU04513a -->
+<!-- SENTENCE:S31CU04513a USE:U04513 -->
+He can shift a whole roast dinner in ten minutes.
+<!-- TRANSLATION:R31CU04513a -->
+他十分钟就能吃掉一整份烤肉大餐。
+<!-- END_CONTEXT:R31CU04513a -->
 <!-- USE:U04514 -->
 ## shift /ʃɪft/ v. · 设法应付
 `尽可能筹划、设法把事情做下去，不及物。`
 
-<!-- CONTEXT:CU04514a USE:U04514 KIND:example -->
+<!-- CONTEXT:R31CU04514a USE:U04514 KIND:example -->
 <!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU04514a USE:U04514 -->
-They learned to shift as best they could.
-<!-- TRANSLATION:CU04514a -->
-他们学会了尽可能设法应付。
-<!-- END_CONTEXT:CU04514a -->
+<!-- SENTENCE:S31CU04514a USE:U04514 -->
+With no one to help them, they had to shift as best they could.
+<!-- TRANSLATION:R31CU04514a -->
+无人相助，他们只得尽力设法应付。
+<!-- END_CONTEXT:R31CU04514a -->
 <!-- USE:U04515 -->
 ## shift /ʃɪft/ v. · 货物滑移
 `装载的货物因摇晃而离开原位，不及物。`
@@ -7080,13 +7146,13 @@ The cargo shifted during the storm.
 ## shift /ʃɪft/ v. · 古义：含糊回避
 `说话或行动间接、逃避明确表态，不及物，属于古义。`
 
-<!-- CONTEXT:CU04516a USE:U04516 KIND:example -->
+<!-- CONTEXT:R31CU04516a USE:U04516 KIND:example -->
 <!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU04516a USE:U04516 -->
-In the old account, the witness shifted instead of answering directly.
-<!-- TRANSLATION:CU04516a -->
-在这份旧记述中，证人推托躲闪，没有直接回答。
-<!-- END_CONTEXT:CU04516a -->
+<!-- SENTENCE:S31CU04516a USE:U04516 -->
+He shifts and evades, but gives me no plain answer.
+<!-- TRANSLATION:R31CU04516a -->
+他推托躲闪，却不给我明确的答复。
+<!-- END_CONTEXT:R31CU04516a -->
 <!-- USE:U04517 -->
 ## shift /ʃɪft/ n. · 位置转移
 `一次位置的转移、移位，可数。`
@@ -7146,13 +7212,13 @@ Short skirts and shift dresses became Mary Quant’s trademark and were populari
 ## shift /ʃɪft/ n. · 旧式宽松内衣
 `宽松的贴身内衣，可数，属于古义。`
 
-<!-- CONTEXT:CU04522a USE:U04522 KIND:example -->
+<!-- CONTEXT:R31CU04522a USE:U04522 KIND:example -->
 <!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU04522a USE:U04522 -->
-The inventory lists a linen shift worn beneath the dress.
-<!-- TRANSLATION:CU04522a -->
-清单列有一件穿在裙子里面的亚麻旧式内衣。
-<!-- END_CONTEXT:CU04522a -->
+<!-- SENTENCE:S31CU04522a USE:U04522 -->
+She wore a linen shift beneath her gown.
+<!-- TRANSLATION:R31CU04522a -->
+她在长袍里面穿着一件亚麻旧式宽松内衣。
+<!-- END_CONTEXT:R31CU04522a -->
 <!-- USE:U04523 -->
 ## shift /ʃɪft/ n. · 谱线偏移
 `光谱线相对于原来位置的偏移，用于物理、天文学等语境。`
@@ -7179,13 +7245,13 @@ The Great Vowel Shift changed long, stressed vowels; unstressed endings such as 
 ## shift /ʃɪft/ n. · Shift切换键
 `键盘上用来切换大小写或其他输入状态的键，可数，键名常写 Shift。`
 
-<!-- CONTEXT:CU04525a USE:U04525 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU04525a USE:U04525 -->
-Hold the Shift key while typing the letter.
-<!-- TRANSLATION:CU04525a -->
-输入字母时按住Shift键。
-<!-- END_CONTEXT:CU04525a -->
+<!-- CONTEXT:R31CU04525a USE:U04525 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://support.microsoft.com/en-us/word/change-the-capitalization-or-case-of-text"]} -->
+<!-- SENTENCE:S31CU04525a USE:U04525 -->
+In Word for Windows, select the text and press Shift + F3 to cycle between lowercase, uppercase and initial capitals.
+<!-- TRANSLATION:R31CU04525a -->
+在Windows版Word中，先选中文字，再按Shift+F3，就能在小写、大写和每词首字母大写之间切换。
+<!-- END_CONTEXT:R31CU04525a -->
 <!-- USE:U04526 -->
 ## shift /ʃɪft/ n. · 桥牌改叫花色
 `桥牌叫牌时改叫另一花色，可数。`
@@ -7245,13 +7311,13 @@ The mechanic checked the automatic shift.
 ## make shift /meɪk ʃɪft/ v. · 勉强应付
 `想办法勉强应付、把事情做下去，可接 without something，说明缺少某物也设法对付。`
 
-<!-- CONTEXT:CU04531a USE:U04531 KIND:example -->
+<!-- CONTEXT:R31CU04531a USE:U04531 KIND:example -->
 <!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU04531a USE:U04531 -->
-They made shift without it.
-<!-- TRANSLATION:CU04531a -->
-没有它，他们也设法应付了过去。
-<!-- END_CONTEXT:CU04531a -->
+<!-- SENTENCE:S31CU04531a USE:U04531 -->
+They had no table, so they made shift with a large packing case.
+<!-- TRANSLATION:R31CU04531a -->
+他们没有桌子，便用一个大包装箱勉强凑合。
+<!-- END_CONTEXT:R31CU04531a -->
 <!-- USE:U04532 -->
 ## shift for oneself /ʃɪft fər wʌnˈself/ v. · 自谋生计
 `依靠自己的努力谋生或应付处境。`
@@ -7355,13 +7421,13 @@ The account attributes the failure to shiftlessness.
 ## shifty /ˈʃɪfti/ adj. · 躲闪不诚实的
 `显得不诚实、说话行动躲躲闪闪的，属于非正式口语用法，含批评意味；比较级为 shiftier，最高级为 shiftiest。`
 
-<!-- CONTEXT:CU04541a USE:U04541 KIND:example -->
+<!-- CONTEXT:R31CU04541a USE:U04541 KIND:example -->
 <!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU04541a USE:U04541 -->
-He had a shifty face and previous convictions.
-<!-- TRANSLATION:CU04541a -->
-他面相显得躲闪不诚实，而且有犯罪前科。
-<!-- END_CONTEXT:CU04541a -->
+<!-- SENTENCE:S31CU04541a USE:U04541 -->
+He gave a shifty answer and quickly changed the subject.
+<!-- TRANSLATION:R31CU04541a -->
+他回答得躲躲闪闪，随后很快转移了话题。
+<!-- END_CONTEXT:R31CU04541a -->
 <!-- USE:U04542 -->
 ## shiftily /ˈʃɪftəli/ adv. · 躲闪不坦率地
 `以躲闪、不坦率的方式。`
@@ -7504,13 +7570,13 @@ She sustained the character convincingly through the final act.
 ## sustain /səˈsteɪn/ v. · 延长声音
 `让声音持续不断，及物，常见于音乐语境。`
 
-<!-- CONTEXT:CU04610a USE:U04610 KIND:abridgment -->
-<!-- CONTEXT_META:{"title":"松开琴键后延续声音","sourceUrls":["https://hub.yamaha.com/keyboards/k-how-to/how-to-use-keyboard-pedals/"]} -->
-<!-- SENTENCE:SCU04610a USE:U04610 -->
-The sustain pedal lets you sustain notes after lifting your fingers from the keys.
-<!-- TRANSLATION:CU04610a -->
-延音踏板能让你在手指离开琴键后仍延续音符。
-<!-- END_CONTEXT:CU04610a -->
+<!-- CONTEXT:R31CU04610a USE:U04610 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://hub.yamaha.com/keyboards/k-how-to/how-to-use-keyboard-pedals/"]} -->
+<!-- SENTENCE:S31CU04610a USE:U04610 -->
+A sostenuto middle pedal can sustain only the notes whose keys are depressed when you press it, while you play other notes freely.
+<!-- TRANSLATION:R31CU04610a -->
+具有sostenuto功能的中踏板只延续踩下踏板时已按住琴键的那些音符，同时让你自由弹奏其他音符。
+<!-- END_CONTEXT:R31CU04610a -->
 <!-- USE:U04611 -->
 ## sustain /səˈsteɪn/ n. · 音乐延音效果
 `使音符持续所形成的延音效果，尤其可由电子手段产生，属于音乐用法。`
@@ -7592,13 +7658,13 @@ The forest is managed sustainably.
 ## sustainability /səˌsteɪnəˈbɪləti/ n. · 生态可持续性
 `在不耗竭资源、不破坏生态平衡的条件下继续的能力，属于生态用法。`
 
-<!-- CONTEXT:CU04618a USE:U04618 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU04618a USE:U04618 -->
-The article examines the growing concern about environmental sustainability.
-<!-- TRANSLATION:CU04618a -->
-这篇文章考察人们对环境可持续性日益增长的关注。
-<!-- END_CONTEXT:CU04618a -->
+<!-- CONTEXT:R31CU04618a USE:U04618 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.kew.org/kew-gardens/palm-house-renovation"]} -->
+<!-- SENTENCE:S31CU04618a USE:U04618 -->
+Kew intends its Palm House renovation to showcase expertise in sustainability and conservation while protecting the glasshouse and its tropical plants.
+<!-- TRANSLATION:R31CU04618a -->
+邱园希望通过棕榈温室修缮展示可持续性与保护方面的专业实践，同时保护温室及其中的热带植物。
+<!-- END_CONTEXT:R31CU04618a -->
 <!-- USE:U04619 -->
 ## sustainability /səˌsteɪnəˈbɪləti/ n. · 活动可维持性
 `活动、增长或安排能够继续维持的性质，不限于生态问题。`
@@ -7730,13 +7796,13 @@ The tangibility of the object matters to the sculptor.
 ## tangibly /ˈtændʒəbli/ adv. · 具体可感地
 `以具体、确实可感知的方式，可说明某种结果显现得明确。`
 
-<!-- CONTEXT:CU04705a USE:U04705 KIND:example -->
+<!-- CONTEXT:R31CU04705a USE:U04705 KIND:example -->
 <!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU04705a USE:U04705 -->
-This tangibly demonstrated that the world situation could be improved.
-<!-- TRANSLATION:CU04705a -->
-这具体证明了世界局势能够得到改善。
-<!-- END_CONTEXT:CU04705a -->
+<!-- SENTENCE:S31CU04705a USE:U04705 -->
+The new wheelchair ramp tangibly improved access to the library.
+<!-- TRANSLATION:R31CU04705a -->
+新建的轮椅坡道切实改善了进入图书馆的便利程度。
+<!-- END_CONTEXT:R31CU04705a -->
 <!-- USE:U04706 -->
 ## intangible /ɪnˈtændʒəbəl/ adj. · 无形不可触的
 `不能被触摸、不具有实体的。`
@@ -7763,13 +7829,13 @@ In Brown v. Board of Education (1954), the U.S. Supreme Court recalled McLaurin'
 ## intangible /ɪnˈtændʒəbəl/ n.; intangibles /ɪnˈtændʒəbəlz/ n. · 难量化的东西或利益
 `难以精确测量、评估的东西或利益，常用复数 intangibles。`
 
-<!-- CONTEXT:CU04708a USE:U04708 KIND:example -->
+<!-- CONTEXT:R31CU04708a USE:U04708 KIND:example -->
 <!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU04708a USE:U04708 -->
-Women workers place more importance on intangibles such as a sense of achievement.
-<!-- TRANSLATION:CU04708a -->
-女性员工更重视成就感等难以量化的因素。
-<!-- END_CONTEXT:CU04708a -->
+<!-- SENTENCE:S31CU04708a USE:U04708 -->
+For me, intangibles such as a sense of achievement matter as much as the salary.
+<!-- TRANSLATION:R31CU04708a -->
+对我来说，成就感等难以量化的因素和薪水同样重要。
+<!-- END_CONTEXT:R31CU04708a -->
 <!-- USE:U04709 -->
 ## intangibility /ɪnˌtændʒəˈbɪləti/ n. · 无形或难把握性
 `无形或难以明确把握的性质。`
@@ -7813,13 +7879,13 @@ Blue-resist textiles show indigo-blue designs on a loosely woven white cotton gr
 ## textiles /ˈtekstaɪlz/ n. · 纺织产业
 `制造布料的纺织产业，用复数形式 textiles，常不带限定词。`
 
-<!-- CONTEXT:CU04802a USE:U04802 KIND:example -->
+<!-- CONTEXT:R31CU04802a USE:U04802 KIND:example -->
 <!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU04802a USE:U04802 -->
-Another 75,000 jobs will be lost in textiles and clothing.
-<!-- TRANSLATION:CU04802a -->
-纺织和服装业还将失去七万五千个岗位。
-<!-- END_CONTEXT:CU04802a -->
+<!-- SENTENCE:S31CU04802a USE:U04802 -->
+She has worked in textiles for twenty years.
+<!-- TRANSLATION:R31CU04802a -->
+她已在纺织行业工作了二十年。
+<!-- END_CONTEXT:R31CU04802a -->
 <!-- USE:U04803 -->
 ## textile /ˈtekstaɪl/ n. · 纺织原料
 `用于织布的纤维、长丝或纱线，可数，指纺织原料，不一定是已织成的成品。`
@@ -7846,13 +7912,13 @@ Determining where the blue-resist fabric was made frustrated several generations
 ## textile /ˈtekstaɪl/ adj. · 编织而成的
 `经过编织形成的，如 textile fabrics。`
 
-<!-- CONTEXT:CU04805a USE:U04805 KIND:example -->
+<!-- CONTEXT:R31CU04805a USE:U04805 KIND:example -->
 <!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU04805a USE:U04805 -->
-The collection includes textile fabrics made from cotton.
-<!-- TRANSLATION:CU04805a -->
-这批收藏包括用棉制成的织物。
-<!-- END_CONTEXT:CU04805a -->
+<!-- SENTENCE:S31CU04805a USE:U04805 -->
+The mill produces textile fabrics by interlacing cotton yarns on looms.
+<!-- TRANSLATION:R31CU04805a -->
+这家工厂用织机将棉纱交织，生产编织织物。
+<!-- END_CONTEXT:R31CU04805a -->
 <!-- USE:U04806 -->
 ## textile /ˈtekstaɪl/ adj. · 适合织布的
 `适合用于织布的，如 textile materials。`
@@ -7874,13 +7940,13 @@ These flexible fibres can serve as textile materials, unlike the brittle fibres 
 ## transmit /trænzˈmɪt/ v. · 传送电子信息
 `用电线、电波、卫星等把数据或电子信息送到另一处，可及物；对象明确时也可省略宾语，用 to 说明接收对象。`
 
-<!-- CONTEXT:CU04901a USE:U04901 KIND:abridgment -->
-<!-- CONTEXT_META:{"title":"同轴电缆的用途","sourceUrls":["https://openstax.org/books/university-physics-volume-2/pages/8-1-capacitors-and-capacitance"],"displayContext":"OpenStax《University Physics Volume 2》缩编／节录，CC BY-NC-SA 4.0"} -->
-<!-- SENTENCE:SCU04901a USE:U04901 -->
-A coaxial cable is commonly used to transmit time-varying electrical signals.
-<!-- TRANSLATION:CU04901a -->
-同轴电缆常用于传送随时间变化的电信号。
-<!-- END_CONTEXT:CU04901a -->
+<!-- CONTEXT:R31CU04901b USE:U04901 KIND:example -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
+<!-- SENTENCE:S31CU04901b USE:U04901 -->
+The sensor transmits a temperature reading to the receiver every ten seconds.
+<!-- TRANSLATION:R31CU04901b -->
+这个传感器每十秒向接收器发送一次温度读数。
+<!-- END_CONTEXT:R31CU04901b -->
 <!-- USE:U04902 -->
 ## transmit /trænzˈmɪt/ v. · 播送节目
 `播送广播、电视节目，及物；be transmitted live 表示直播。`
@@ -7896,13 +7962,13 @@ The game was transmitted live in Spain and Italy.
 ## transmit /trænzˈmɪt/ v. · 传播疾病
 `使疾病或感染由一个人、动物等传播给另一个个体。及物，属于较正式的用语，常说 transmit a disease to somebody；传播风险取决于具体感染与过程，某一情境的判断不能推广为普遍零风险。`
 
-<!-- CONTEXT:CU04903a USE:U04903 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU04903a USE:U04903 -->
-The report describes mosquitoes that transmit disease to humans.
-<!-- TRANSLATION:CU04903a -->
-这份报告描述了把疾病传给人类的蚊子。
-<!-- END_CONTEXT:CU04903a -->
+<!-- CONTEXT:R31CU04903a USE:U04903 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.who.int/europe/news-room/questions-and-answers/item/public-health-advice-on-dengue-fever/"]} -->
+<!-- SENTENCE:S31CU04903a USE:U04903 -->
+Not all mosquitoes can transmit dengue: the Aedes mosquitoes that spread it usually live near homes and are active during the day.
+<!-- TRANSLATION:R31CU04903a -->
+并非所有蚊子都能传播登革热：传播这种疾病的伊蚊通常生活在人类住处附近，并在白天活动。
+<!-- END_CONTEXT:R31CU04903a -->
 <!-- USE:U04904 -->
 ## transmit /trænzˈmɪt/ v. · 传达思想情感
 `使他人理解、感受到某种想法或情绪，属于文学用法；也可由承载思想、情感的信息或作品本身作主语。`
@@ -7918,24 +7984,24 @@ He transmitted his keen enjoyment of singing to the audience.
 ## transmit /trænzˈmɪt/ v. · 使光热等通过
 `让热、光、声、电等通过，充当介质。及物，主语常是材料或物体。`
 
-<!-- CONTEXT:CU04905a USE:U04905 KIND:abridgment -->
-<!-- CONTEXT_META:{"title":"玻璃作品与透光","sourceUrls":["https://www.getty.edu/news/artist-dialogues-getty-conservation-lita-albuquerque-malibu-line/"]} -->
-<!-- SENTENCE:SCU04905a USE:U04905 -->
-By depositing a thin metallic layer on plate glass, artists altered how it absorbed, reflected, and transmitted light.
-<!-- TRANSLATION:CU04905a -->
-艺术家通过在平板玻璃上沉积一层薄金属，改变了玻璃吸收、反射和透过光线的方式。
-<!-- END_CONTEXT:CU04905a -->
+<!-- CONTEXT:R31CU04905a USE:U04905 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.getty.edu/news/artist-dialogues-getty-conservation-lita-albuquerque-malibu-line/"]} -->
+<!-- SENTENCE:S31CU04905a USE:U04905 -->
+By applying a thin metallic layer to plate glass, artist Larry Bell altered how the glass absorbed, reflected and transmitted light.
+<!-- TRANSLATION:R31CU04905a -->
+艺术家拉里·贝尔通过在平板玻璃上加一层薄金属，改变了玻璃吸收、反射和透过光线的方式。
+<!-- END_CONTEXT:R31CU04905a -->
 <!-- USE:U04906 -->
 ## transmit /trænzˈmɪt/ v. · 递送或转交
 `把某物交送、传递给另一方，及物，不限定电子方式。`
 
-<!-- CONTEXT:CU04906a USE:U04906 KIND:example -->
+<!-- CONTEXT:R31CU04906a USE:U04906 KIND:example -->
 <!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU04906a USE:U04906 -->
-They transmitted the message.
-<!-- TRANSLATION:CU04906a -->
-他们传递了这条消息。
-<!-- END_CONTEXT:CU04906a -->
+<!-- SENTENCE:S31CU04906a USE:U04906 -->
+The messenger transmitted the sealed letter to the commander.
+<!-- TRANSLATION:R31CU04906a -->
+信使把密封的信件递交给了指挥官。
+<!-- END_CONTEXT:R31CU04906a -->
 <!-- USE:U04907 -->
 ## transmissible /trænzˈmɪsəbəl/ adj.; transmittable /trænzˈmɪtəbəl/ adj. · 可被传送传播的
 `能够被传送、传播或传递的，具体对象和传播方式由语境确定。`
@@ -7962,13 +8028,13 @@ The layer is highly transmissive to visible light.
 ## transmittal /trænzˈmɪtəl/ n. · 传送行为
 `把某物传送、交递出去的行为。`
 
-<!-- CONTEXT:CU04909a USE:U04909 KIND:abridgment -->
-<!-- CONTEXT_META:{"title":"髓鞘受损与信息传递","sourceUrls":["https://openstax.org/books/psychology-2e/pages/3-2-cells-of-the-nervous-system"],"displayContext":"OpenStax《Psychology 2e》缩编／节录，CC BY-NC-SA 4.0"} -->
-<!-- SENTENCE:SCU04909a USE:U04909 -->
-Loss of the insulating myelin sheath interferes with electrical signalling, preventing the quick transmittal of information by neurons.
-<!-- TRANSLATION:CU04909a -->
-绝缘性髓鞘的丧失会干扰电信号，使神经元无法快速传递信息。
-<!-- END_CONTEXT:CU04909a -->
+<!-- CONTEXT:R31CU04909b USE:U04909 KIND:example -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
+<!-- SENTENCE:S31CU04909b USE:U04909 -->
+Please confirm the transmittal of the signed contract to our legal team.
+<!-- TRANSLATION:R31CU04909b -->
+请确认已把签署好的合同递送给我们的法律团队。
+<!-- END_CONTEXT:R31CU04909b -->
 <!-- USE:U04910 -->
 ## transmission /trænzˈmɪʃən/ n. · 传递传播过程
 `信息、疾病、知识等从一方传到另一方的过程或实例，可数或不可数，常接 of。`
@@ -8028,24 +8094,24 @@ A teacher can be a transmitter of knowledge.
 ## transmitter /trænzˈmɪtər/ n. · 电磁波发射机
 `产生并发出承载信息的电磁波的设备，可数，尤指广播、电视发射机或发射台。`
 
-<!-- CONTEXT:CU04915a USE:U04915 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU04915a USE:U04915 -->
-The transmitter sends a radio signal to the receiver.
-<!-- TRANSLATION:CU04915a -->
-发射机向接收器发送无线电信号。
-<!-- END_CONTEXT:CU04915a -->
+<!-- CONTEXT:R31CU04915a USE:U04915 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://science.nasa.gov/mission/explorer-1/about/"]} -->
+<!-- SENTENCE:S31CU04915a USE:U04915 -->
+Explorer 1 carried two transmitters powered by batteries that made up 40 percent of its payload weight.
+<!-- TRANSLATION:R31CU04915a -->
+“探险者一号”携带两台发射机，供电电池占其有效载荷重量的40%。
+<!-- END_CONTEXT:R31CU04915a -->
 <!-- USE:U04916 -->
 ## transmitter /trænzˈmɪtər/ n.; neurotransmitter /ˌnʊroʊtrænzˈmɪtər/ n. · 神经递质
 `由神经纤维释放、使神经信号传到另一神经或肌肉的化学物质，即神经递质。属于生物化学用法，此处 transmitter 与 neurotransmitter 同义。`
 
-<!-- CONTEXT:CU04916a USE:U04916 KIND:abridgment -->
-<!-- CONTEXT_META:{"title":"神经递质跨越突触间隙","sourceUrls":["https://openstax.org/books/psychology-2e/pages/3-2-cells-of-the-nervous-system"],"displayContext":"OpenStax《Psychology 2e》缩编／节录，CC BY-NC-SA 4.0"} -->
-<!-- SENTENCE:SCU04916a USE:U04916 -->
-Released into the synaptic cleft, neurotransmitters cross the gap and bind to matching receptors on a neighbouring neuron.
-<!-- TRANSLATION:CU04916a -->
-神经递质被释放到突触间隙后，会跨过间隙，与相邻神经元上相匹配的受体结合。
-<!-- END_CONTEXT:CU04916a -->
+<!-- CONTEXT:R31CU04916b USE:U04916 KIND:example -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
+<!-- SENTENCE:S31CU04916b USE:U04916 -->
+A neurotransmitter released by a motor neuron crosses the tiny gap to a skeletal muscle fibre, where it helps trigger a contraction.
+<!-- TRANSLATION:R31CU04916b -->
+运动神经元释放的一种神经递质跨过微小的间隙，到达骨骼肌纤维，并帮助触发收缩。
+<!-- END_CONTEXT:R31CU04916b -->
 
 <!-- WORD:W050 -->
 # yield
@@ -8094,13 +8160,13 @@ They yielded themselves prisoners.
 ## yield /jild/ v. · 让行
 `减速或停下，让有优先权的人或车辆先通过。不及物，美式英语常说 yield to somebody，英式通常说 give way。`
 
-<!-- CONTEXT:CU05003a USE:U05003 KIND:abridgment -->
-<!-- CONTEXT_META:{"title":"专用右转车道仍须让行人","sourceUrls":["https://www.dmv.ca.gov/portal/handbook/california-driver-handbook/navigating-the-roads/"],"displayContext":"加州驾驶手册中的专用右转车道情境。"} -->
-<!-- SENTENCE:SCU05003a USE:U05003 -->
-Even in a dedicated right-turn lane, always yield to pedestrians in a crosswalk when turning.
-<!-- TRANSLATION:CU05003a -->
-即使在专用右转车道，转弯时也始终要让人行横道上的行人先行。
-<!-- END_CONTEXT:CU05003a -->
+<!-- CONTEXT:R31CU05003a USE:U05003 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.dmv.ca.gov/portal/handbook/california-driver-handbook/navigating-the-roads/"]} -->
+<!-- SENTENCE:S31CU05003a USE:U05003 -->
+In California, even in a dedicated right-turn lane, always yield to pedestrians in a crosswalk when turning.
+<!-- TRANSLATION:R31CU05003a -->
+在加利福尼亚州，即使在专用右转车道，转弯时也始终要让人行横道上的行人先行。
+<!-- END_CONTEXT:R31CU05003a -->
 <!-- USE:U05004 -->
 ## yield /jild/ v. · 受压弯曲或让开
 `物体受压力后弯曲、移位或让开，不及物，如门被推开、地面变软下陷。`
@@ -8116,32 +8182,32 @@ The door yielded easily when he pushed it.
 ## yield /jild/ v. · 产出农产品
 `土地、动物等产出一定数量的作物或食物，及物；也可不带宾语来说明产出状况。`
 
-<!-- CONTEXT:CU05005a USE:U05005 KIND:example -->
+<!-- CONTEXT:R31CU05005a USE:U05005 KIND:example -->
 <!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU05005a USE:U05005 -->
-The land yields crops.
-<!-- TRANSLATION:CU05005a -->
-这块土地产出农作物。
-<!-- END_CONTEXT:CU05005a -->
+<!-- SENTENCE:S31CU05005a USE:U05005 -->
+This field yields two crops a year.
+<!-- TRANSLATION:R31CU05005a -->
+这块田一年产出两茬作物。
+<!-- END_CONTEXT:R31CU05005a -->
 
-<!-- CONTEXT:CU05005b USE:U05005 KIND:example -->
+<!-- CONTEXT:R31CU05005b USE:U05005 KIND:example -->
 <!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU05005b USE:U05005 -->
-The land yields poorly.
-<!-- TRANSLATION:CU05005b -->
-这块土地产量很低。
-<!-- END_CONTEXT:CU05005b -->
+<!-- SENTENCE:S31CU05005b USE:U05005 -->
+Despite regular watering, this land still yields poorly.
+<!-- TRANSLATION:R31CU05005b -->
+虽然定期浇水，这块土地的产量仍然很低。
+<!-- END_CONTEXT:R31CU05005b -->
 <!-- USE:U05006 -->
 ## yield /jild/ n. · 农产品产量
 `土地、动物等所产出的食物数量，可数，如 crop yield、grain yield、milk yield；good/poor yield 表示产量好或差，boost/increase yields 表示提高产量。`
 
-<!-- CONTEXT:CU05006a USE:U05006 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU05006a USE:U05006 -->
-Polluted water lessens crop yields.
-<!-- TRANSLATION:CU05006a -->
-受污染的水会降低作物产量。
-<!-- END_CONTEXT:CU05006a -->
+<!-- CONTEXT:R31CU05006a USE:U05006 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.fao.org/in-action/drought-portal/preparedness/vulnerability-and-impact-assessment/compendium---vulnerability-indicators-%28infrastructural%29/ratio-between-rainfed-and-irrigation-yields/en"]} -->
+<!-- SENTENCE:S31CU05006a USE:U05006 -->
+Regions that depend heavily on rainfed farming may face lower crop yields during droughts, while well-developed irrigation can help maintain productivity.
+<!-- TRANSLATION:R31CU05006a -->
+高度依赖雨养农业的地区，在干旱期间可能面临作物减产；完善的灌溉设施则有助于维持生产力。
+<!-- END_CONTEXT:R31CU05006a -->
 <!-- USE:U05007 -->
 ## yield /jild/ v. · 带来收入利润
 `税收、投资等带来一定金额的收入或利润，及物，属于商业用法。`
@@ -8157,24 +8223,24 @@ In this hypothetical calculation, the investment yields 15%.
 ## yield /jild/ n. · 投资收益
 `投资产生的收入、利润或相应收益水平，可数，属于商业用语，常接 on。可谈 bond/dividend/gilt yield；attractive、high、low 描述收益是否有吸引力或高低，average、gross、net、prospective 分别说明平均、总额、净额或预期收益。`
 
-<!-- CONTEXT:CU05008a USE:U05008 KIND:example -->
-<!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->
-<!-- SENTENCE:SCU05008a USE:U05008 -->
-The high yields available on the dividend shares made them attractive to private investors.
-<!-- TRANSLATION:CU05008a -->
-这些派息股票可带来的高收益，使它们受到私人投资者青睐。
-<!-- END_CONTEXT:CU05008a -->
+<!-- CONTEXT:R31CU05008a USE:U05008 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.investor.gov/introduction-investing/investing-basics/glossary/current-yield"]} -->
+<!-- SENTENCE:S31CU05008a USE:U05008 -->
+A bond priced at $1,000 that pays $80 a year has a current yield of 8 percent.
+<!-- TRANSLATION:R31CU05008a -->
+一只市场价格为1,000美元、每年支付80美元利息的债券，其当期收益率为8%。
+<!-- END_CONTEXT:R31CU05008a -->
 <!-- USE:U05009 -->
 ## yield /jild/ v. · 产生结果
 `提供结果、信息或成果，及物，不限于金钱或农产品。`
 
-<!-- CONTEXT:CU05009a USE:U05009 KIND:abridgment -->
-<!-- CONTEXT_META:{"title":"矩形近似得到的面积","sourceUrls":["https://openstax.org/books/calculus-volume-1/pages/5-1-approximating-areas"],"displayContext":"该书以f(x)=(x−1)³+4、区间[0,2]演示的具体近似；不是一般公式。 OpenStax《Calculus Volume 1》缩编／节录，CC BY-NC-SA 4.0"} -->
-<!-- SENTENCE:SCU05009a USE:U05009 -->
-For f(x) = (x − 1)³ + 4 on [0, 2], a right-endpoint approximation using four equal-width rectangles yields an area estimate of 8.5.
-<!-- TRANSLATION:CU05009a -->
-对于区间[0, 2]上的函数f(x) = (x − 1)³ + 4，用四个等宽矩形作右端点近似，会得到8.5的面积估计值。
-<!-- END_CONTEXT:CU05009a -->
+<!-- CONTEXT:R31CU05009a USE:U05009 KIND:abridgment -->
+<!-- CONTEXT_META:{"title":"","sourceUrls":["https://www.nasa.gov/centers-and-facilities/marshall/the-marshall-star-408/"]} -->
+<!-- SENTENCE:S31CU05009a USE:U05009 -->
+Challenge manager Angela Herblet said one goal of NASA’s Deep Space Food Challenge was to yield food systems that would not be too difficult for crews to use.
+<!-- TRANSLATION:R31CU05009a -->
+项目经理安杰拉·赫布莱特说，NASA“深空食物挑战赛”的一个目标，是产出不会给乘员造成过大操作负担的食物系统。
+<!-- END_CONTEXT:R31CU05009a -->
 <!-- USE:U05010 -->
 ## yield /jild/ v. · 承认不如他人
 `承认自己在某方面不如别人，不及物，常接 to；I yield to none in... 表示在某方面不比任何人差。`
@@ -8278,7 +8344,7 @@ This variety is a reliable yielder.
 <!-- END_CONTEXT:CU05016a -->
 <!-- USE:U05017 -->
 ## yielder /ˈjildər/ n. · 产生投资回报之物
-`能产生投资收益或回报的事物，可数，属于财务用法，不是领取收益的人。`
+`能产生投资收益或回报的事物，可数，属于财务用法。`
 
 <!-- CONTEXT:CU05017a USE:U05017 KIND:example -->
 <!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->

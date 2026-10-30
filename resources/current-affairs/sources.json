@@ -12870,7 +12870,7 @@
       "access": "open",
       "evidenceUrl": "https://openstax.org/books/chemistry-2e/pages/6-3-development-of-quantum-theory",
       "verification": "opened",
-      "notes": "2026-10-24为专业用法实际补查官方开放教材；已打开量子理论、电容和积分面积页面，正文按需读取固定，不以入口可达代替阅读。遵循各书页面所列开放许可和署名信息。",
+      "notes": "2026-10-24为专业用法实际补查官方开放教材；已打开量子理论、电容和积分面积页面，正文按需读取固定，不以入口可达代替阅读。遵循各书页面所列开放许可和署名信息。 2026-10-31实际核本轮书页footer及官方许可说明：当前BY-NC-SA4.0、每数字页归属和书页额外AI条件，不能泛称旧CC BY或仅因开放访问认定可采用。本项目本轮未满足对应展示/额外权利条件，已决定换用兼容来源或独立教学构造，不通过改kind或删署名规避。具体书版/历史已授许可不得凭当前页面倒改原件。",
       "checkedOn": "2026-10-24",
       "observations": [
         {
@@ -14089,6 +14089,307 @@
       "verification": "opened",
       "notes": "2026-10-30通过web实际打开驾驶手册Navigating the Roads；仅登记已读官方入口，不新增feed或全站抓取。加州适用范围与版本日期不得推广为他地规则；开放访问不等于完整手册、插图或第三方材料的转载授权。",
       "checkedOn": "2026-10-30"
+    },
+    {
+      "id": "eeoc",
+      "name": "U.S. Equal Employment Opportunity Commission",
+      "home": "https://www.eeoc.gov/",
+      "entryUrl": "https://www.eeoc.gov/prohibited-employment-policiespractices",
+      "sourceType": "public-regulator",
+      "topics": [
+        "employment",
+        "law",
+        "public-services"
+      ],
+      "role": "official-guidance",
+      "verification": "opened",
+      "notes": "2026-10-31实际打开官方Prohibited Employment Policies/Practices；语境须保美国雇佣法适用对象和原条件，不推作个人法律建议，不因政府网站自动认定第三方材料可转载。",
+      "regions": [
+        "global"
+      ],
+      "language": "en",
+      "access": "open",
+      "evidenceUrl": "https://www.eeoc.gov/prohibited-employment-policiespractices",
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "id": "faculty-advocates",
+      "name": "Faculty of Advocates",
+      "home": "https://www.advocates.org.uk/",
+      "entryUrl": "https://www.advocates.org.uk/instructing-advocates",
+      "sourceType": "professional-body",
+      "topics": [
+        "law",
+        "professional-services"
+      ],
+      "role": "professional-primary",
+      "verification": "opened",
+      "notes": "2026-10-31实际打开Instructing Advocates；苏格兰职业和服务说明，不泛化为全球律师制度；只采用必要局部且核署名/处理依据。",
+      "regions": [
+        "global"
+      ],
+      "language": "en",
+      "access": "open",
+      "evidenceUrl": "https://www.advocates.org.uk/instructing-advocates",
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "id": "us-national-park-service",
+      "name": "U.S. National Park Service",
+      "home": "https://www.nps.gov/",
+      "entryUrl": "https://www.nps.gov/media/article-search.htm",
+      "sourceType": "public-agency",
+      "topics": [
+        "nature",
+        "heritage",
+        "history"
+      ],
+      "role": "official-guidance",
+      "verification": "opened",
+      "notes": "2026-10-31实际打开Article Search发现入口；入口不是已读文章，不证明任何词义或各页材料许可，实际采用须逐页读取。",
+      "regions": [
+        "global"
+      ],
+      "language": "en",
+      "access": "open",
+      "evidenceUrl": "https://www.nps.gov/media/article-search.htm",
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "id": "electronic-cfr",
+      "name": "Electronic Code of Federal Regulations",
+      "home": "https://www.ecfr.gov/",
+      "entryUrl": "https://www.ecfr.gov/current/title-2/section-200.405",
+      "sourceType": "legal-primary",
+      "topics": [
+        "law",
+        "public-finance"
+      ],
+      "role": "legal-primary",
+      "verification": "blocked",
+      "notes": "2026-10-31web实际尝试2CFR200.405返回不可访问；仅登记待取原始法规渠道，不把失败当已读。采用必须取得并实际阅读对应版本原文，可优先已登记GPO正式原件。",
+      "regions": [
+        "global"
+      ],
+      "language": "en",
+      "access": "unverified",
+      "evidenceUrl": "https://www.ecfr.gov/current/title-2/section-200.405",
+      "checkedOn": "2026-10-31"
+    },
+    {
+      "id": "rust-documentation",
+      "name": "Rust Standard Library Documentation",
+      "home": "https://doc.rust-lang.org/",
+      "entryUrl": "https://doc.rust-lang.org/std/alloc/trait.Allocator.html",
+      "sourceType": "official-documentation",
+      "regions": [
+        "global"
+      ],
+      "topics": [
+        "programming",
+        "computing"
+      ],
+      "language": "en",
+      "role": "technical-primary",
+      "access": "open",
+      "evidenceUrl": "https://doc.rust-lang.org/std/alloc/trait.Allocator.html",
+      "verification": "opened",
+      "checkedOn": "2026-10-31",
+      "notes": "实际打开标准库Allocator文档；保nightly/unstable和具体接口范围，不把编程分配义混作行政分配；采用应核官方文档Apache/MIT及署名条件。"
+    },
+    {
+      "id": "nhs-guidance",
+      "name": "NHS service guidance",
+      "home": "https://www.nhs.uk/",
+      "entryUrl": "https://www.nhs.uk/social-care-and-support/help-from-social-services-and-charities/someone-to-speak-up-for-you-advocate/",
+      "sourceType": "public-health-service",
+      "regions": [
+        "global"
+      ],
+      "topics": [
+        "health",
+        "social-care"
+      ],
+      "language": "en",
+      "role": "official-primary",
+      "access": "open",
+      "evidenceUrl": "https://www.nhs.uk/social-care-and-support/help-from-social-services-and-charities/someone-to-speak-up-for-you-advocate/",
+      "verification": "opened",
+      "checkedOn": "2026-10-31",
+      "notes": "2026-10-31实际web打开发现入口。官方照护权益代表指南，适用地区和实际资格/流程不泛化，不推作个人医疗建议。 本轮因改编/中译与固定来源署名适配问题未采用；须另核NHS Terms第3.6节实际条件，登记不构成改编授权。"
+    },
+    {
+      "id": "usa-government",
+      "name": "USAGov",
+      "home": "https://www.usa.gov/",
+      "entryUrl": "https://www.usa.gov/presidential-general-election",
+      "sourceType": "public-agency",
+      "regions": [
+        "global"
+      ],
+      "topics": [
+        "elections",
+        "public-services"
+      ],
+      "language": "en",
+      "role": "official-primary",
+      "access": "open",
+      "evidenceUrl": "https://www.usa.gov/presidential-general-election",
+      "verification": "opened",
+      "checkedOn": "2026-10-31",
+      "notes": "2026-10-31实际web打开发现入口。美国选举官方流程，保政党大会提名功能，不将说明页面改写成特定年份已发生事件。"
+    },
+    {
+      "id": "kew-powo",
+      "name": "Plants of the World Online - Royal Botanic Gardens Kew",
+      "home": "https://powo.science.kew.org/",
+      "entryUrl": "https://powo.science.kew.org/",
+      "sourceType": "botanical-primary",
+      "regions": [
+        "global"
+      ],
+      "topics": [
+        "botany",
+        "biodiversity"
+      ],
+      "language": "en",
+      "role": "official-primary",
+      "access": "unverified",
+      "evidenceUrl": "https://powo.science.kew.org/",
+      "verification": "blocked",
+      "checkedOn": "2026-10-31",
+      "notes": "2026-10-31root实际打开入口返回403；仅登记待取物种原件渠道，不能视为已读。实际采用须取得对应物种描述读件，核形态/许可/版本。"
+    },
+    {
+      "id": "microsoft-support",
+      "name": "Microsoft Support",
+      "home": "https://support.microsoft.com/",
+      "entryUrl": "https://support.microsoft.com/en-us/windows/using-your-keyboard-18b2efc1-9e32-ba5a-0896-676f9f3b994f",
+      "sourceType": "official-documentation",
+      "regions": [
+        "global"
+      ],
+      "topics": [
+        "computing",
+        "public-services"
+      ],
+      "language": "en",
+      "role": "official-primary",
+      "access": "open",
+      "evidenceUrl": "https://support.microsoft.com/en-us/windows/using-your-keyboard-18b2efc1-9e32-ba5a-0896-676f9f3b994f",
+      "verification": "opened",
+      "checkedOn": "2026-10-31",
+      "notes": "2026-10-31实际web打开发现入口。官方键盘操作说明，保具体按键操作条件，不把操作指令改成词典式定义；只采用教学必要局部。 原Using your keyboard链接本轮跳转到Windows keyboard tips and tricks；入口跳转不证明Shift段，须另取实际所需原文。"
+    },
+    {
+      "id": "unfccc-primary",
+      "name": "UNFCCC Convention - Official Text",
+      "home": "https://unfccc.int/",
+      "entryUrl": "https://unfccc.int/cop4/conv/conv.htm",
+      "sourceType": "intergovernmental-primary",
+      "regions": [
+        "global"
+      ],
+      "topics": [
+        "climate",
+        "law",
+        "treaty"
+      ],
+      "language": "en",
+      "role": "treaty-primary",
+      "access": "open",
+      "evidenceUrl": "https://unfccc.int/cop4/conv/conv.htm",
+      "verification": "opened",
+      "checkedOn": "2026-10-31",
+      "notes": "实际打开公约英文全文；目标段须保公约目的和定义的适用范围，不把目的条款写成已实现结果。仅采用教学所需短局部，核联合国材料署名与处理边界。"
+    },
+    {
+      "id": "loc-findingaids",
+      "name": "Library of Congress Finding Aids",
+      "home": "https://findingaids.loc.gov/",
+      "entryUrl": "https://findingaids.loc.gov/repositories/19/resources/2245",
+      "sourceType": "archival-primary",
+      "regions": [
+        "united-states",
+        "global"
+      ],
+      "topics": [
+        "history",
+        "archives",
+        "social-history"
+      ],
+      "language": "en",
+      "role": "archival-description",
+      "access": "unverified",
+      "evidenceUrl": "https://findingaids.loc.gov/repositories/19/resources/2245",
+      "verification": "blocked",
+      "checkedOn": "2026-10-31",
+      "notes": "2026-10-31root实际打开此Kenneth Bancroft Clark Papers目录返回403；仅登记待取原件渠道，不视为已读。必须另取得实际馆藏说明并保归属，不能把目录视为已读全部私人档案。"
+    },
+    {
+      "id": "loc-blogs",
+      "name": "Library of Congress Blogs",
+      "home": "https://blogs.loc.gov/",
+      "entryUrl": "https://blogs.loc.gov/loc/2020/10/houdini-and-the-spirit-realm-transcribe-hockleys-world-of-the-beyond/",
+      "sourceType": "library-primary",
+      "regions": [
+        "united-states",
+        "global"
+      ],
+      "topics": [
+        "history",
+        "archives",
+        "culture"
+      ],
+      "language": "en",
+      "role": "curatorial-description",
+      "access": "open",
+      "evidenceUrl": "https://blogs.loc.gov/loc/2020/10/houdini-and-the-spirit-realm-transcribe-hockleys-world-of-the-beyond/",
+      "verification": "opened",
+      "checkedOn": "2026-10-31",
+      "notes": "root实际打开官方馆员文章；须分别保馆藏介绍/历史人物宣称与已证实事实，不把通灵者的尝试写成灵魂存在证据；不采用档案图像或第三方长引。"
+    },
+    {
+      "id": "nasa-glenn-education",
+      "name": "NASA Glenn Research Center Educational Resources",
+      "home": "https://www.grc.nasa.gov/",
+      "entryUrl": "https://www.grc.nasa.gov/www/k-12/VirtualAero/BottleRocket/airplane/conmo.html",
+      "topics": [
+        "physics",
+        "aeronautics"
+      ],
+      "role": "government-educational-primary",
+      "sourceType": "official-documentation",
+      "regions": [
+        "global"
+      ],
+      "language": "en",
+      "access": "open",
+      "verification": "opened",
+      "evidenceUrl": "https://www.grc.nasa.gov/www/k-12/VirtualAero/BottleRocket/airplane/conmo.html",
+      "checkedOn": "2026-10-31",
+      "notes": "实际web打开原始入口，逐采用材料仍须实读并核其具体条件；不新增全站抓取或feed。"
+    },
+    {
+      "id": "openstax-licensing-help",
+      "name": "OpenStax licensing help",
+      "home": "https://help.openstax.org/",
+      "entryUrl": "https://help.openstax.org/s/article/Openstax-textbook-licensing-and-customization",
+      "topics": [
+        "licensing",
+        "education"
+      ],
+      "role": "publisher-rights-primary",
+      "sourceType": "official-documentation",
+      "regions": [
+        "global"
+      ],
+      "language": "en",
+      "access": "open",
+      "verification": "opened",
+      "evidenceUrl": "https://help.openstax.org/s/article/Openstax-textbook-licensing-and-customization",
+      "checkedOn": "2026-10-31",
+      "notes": "实际web打开原始入口，逐采用材料仍须实读并核其具体条件；不新增全站抓取或feed。"
     }
   ]
 }

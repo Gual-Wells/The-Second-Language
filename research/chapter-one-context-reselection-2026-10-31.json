@@ -1,0 +1,161 @@
+{
+  "version": 1,
+  "preparedAt": "2026-10-30T19:22:01.923Z",
+  "status": "ready-for-publication",
+  "date": "2026-10-24",
+  "number": "第 1 章",
+  "title": "运动、材料与人的生活",
+  "authorization": "用户明确要求：第一章择词不用改，例句流程重新完整执行，有更好的按当前协议替换，多个各有独立收益时按协议保留。",
+  "baseline": {
+    "chapterDigest": "99ee6268e2bb274f7a9480e97a11734818d3c003c981de9d7c02fbaa851ea0ec",
+    "sourceDigest": "d7a9844a3aa42e309eca85fecb064d1af792b04c3fd545cbdef525f454dea08e",
+    "selectedMainWords": 50,
+    "uses": 685,
+    "contexts": 732,
+    "sentences": 774,
+    "byKind": {
+      "abridgment": 134,
+      "excerpt": 3,
+      "example": 595
+    }
+  },
+  "candidate": {
+    "chapterDigest": "11a04f15f43d130d0408332f7a5db9ac96b0c6452d9192bbefffb19690f133ba",
+    "sourceDigest": "e0702af015ac308307644a53275e200301c7205181a11ef57236746fc4f27595",
+    "evidenceDigest": "347805df901c18793957014751a7e1c47dc35f88d858412fd08e754571e926ef",
+    "selectedMainWords": 50,
+    "uses": 685,
+    "contexts": 732,
+    "sentences": 807,
+    "byKind": {
+      "abridgment": {
+        "contexts": 179,
+        "sentences": 234,
+        "contextPercent": 24.453551912568305,
+        "sentencePercent": 28.99628252788104
+      },
+      "example": {
+        "contexts": 548,
+        "sentences": 565,
+        "contextPercent": 74.86338797814207,
+        "sentencePercent": 70.01239157372986
+      },
+      "excerpt": {
+        "contexts": 5,
+        "sentences": 8,
+        "contextPercent": 0.6830601092896175,
+        "sentencePercent": 0.9913258983890955
+      }
+    }
+  },
+  "scope": {
+    "allUseChoicesRevisited": 685,
+    "selectedWordsAndFamiliesUnchanged": true,
+    "selectionDigest": "d3adaa2a05b07263262b6bfd86d8601eadbaf8ff4fae57cd76062f3b93449c9f",
+    "vixReceiptDigest": "7e80bd6f8106d7d6839fc84f981f38887f41527acdf9421487d3cf6604ee63bd",
+    "usesAndOrderPreserved": true,
+    "semanticReview": "Three scoped authors read fixed full dictionaries and existing contexts; live targeted source discovery and actual originals; changes and multiple-context gains reviewed. Rotating peers checked changes against originals and translations; root reviewed actual deltas and corrected substantive conditions.",
+    "noSourceOrContextCountQuota": true,
+    "rootDefinitionCorrections": {
+      "version": 1,
+      "scope": "Bounded actual teaching defects found while reselecting contexts; no selected word, family or USE changes",
+      "corrections": [
+        {
+          "wordId": "W004",
+          "useId": "U00415",
+          "old": "植物学中，叶等在茎的两侧交替排列、并非成对对生的，即“互生的”。",
+          "new": "植物学中，叶等在茎上逐个着生、位置交错而非成对对生，即“互生的”；可在两侧交替，也可沿茎螺旋排列。",
+          "reason": "固定Oxford对两侧排列的简写过窄。实际GPO湿地植物鉴别手册包含alternate/spiral及single attachment条件；新语境须与准确形态条件一致。",
+          "evidence": "Scope A actual GPO read record to be attached in lane sourceEvidence and review."
+        },
+        {
+          "wordId": "W050",
+          "useId": "U05017",
+          "old": "能产生投资收益或回报的事物，可数，属于财务用法，不是领取收益的人。",
+          "new": "能产生投资收益或回报的事物，可数，属于财务用法。",
+          "reason": "固定Oxford仅列获益者且没有明确英文细分解释，不足以支撑原稿的额外排他断言；删除无须作出的绝对排除。实际金融发行资料确有lowest/highest yielder指股息股票，支持本USE所教资产义，不据此倒证教材所有潜在所指。",
+          "evidence": "Root actually opened Morgan Stanley primary PDF https://www.morganstanley.com/content/dam/msdotcom/en/wealth-investmentsolutions/pdfs/uma/mlh-e.pdf , page2 Manager's Investment Process, Decile1=lowest yielder/Decile10=highest yielder; fixed Oxford14255732 and14256790 read in full."
+        }
+      ]
+    }
+  },
+  "changes": {
+    "exactEnglishAndWholeTranslationPreserved": 600,
+    "otherContexts": 132,
+    "sourceOriginals": 110,
+    "sameUrlAndOriginalDigestReused": 65,
+    "newOrDifferentSourceReads": 45,
+    "sameAudioTextKeys": 634,
+    "newAudioTextKeys": 173,
+    "audioCountsAreEligibilityNotProofOfExistingClips": true
+  },
+  "adoptionConditions": {
+    "openstaxAdoptedContexts": 0,
+    "resolution": {
+      "version": 1,
+      "decidedAt": "2026-10-30T19:06:57.490Z",
+      "authority": "Actual book-footer HTML preserved by scope B and official OpenStax licensing help opened by root; unresolved compatibility with existing presentation and no additional AI permission obtained",
+      "resolution": "Replace 21 affected contexts with independently selected compatible originals or materially new honest teaching examples. Do not relabel the same paraphrase, claim general permission, change the reader chrome or rewrite historical originals.",
+      "affectedUseIds": [
+        "U00111",
+        "U00607",
+        "U00810",
+        "U00904",
+        "U00910",
+        "U00913",
+        "U01226",
+        "U01203",
+        "U01210",
+        "U01604",
+        "U02905",
+        "U03104",
+        "U03209",
+        "U03607",
+        "U03704",
+        "U03714",
+        "U04202",
+        "U04215",
+        "U04901",
+        "U04909",
+        "U04916"
+      ],
+      "nasaBoundary": {
+        "source": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+        "read": "Actual root web read L248-255 and285-299",
+        "decision": "NASA factual source disclosure may remain in existing source window; explicitly separate original material from this project generated output, no implied approval and no NASA responsibility for output accuracy. This is not the same per-page attribution condition as the rejected OpenStax derivatives.",
+        "scope": "No extra learning-unit chrome, new purchase or blanket rejection of NASA facts."
+      }
+    },
+    "originalCandidatesAndActualReadingEvidenceRetained": true
+  },
+  "checks": {
+    "frozenIdentityAndWholeAssembly": true,
+    "actualMaterialDisposition": true,
+    "actualSourceReadDigests": 110,
+    "sealedAuthorEvidence": 50,
+    "sealedPrivateObjects": 5,
+    "readerCapability": 3,
+    "actualLiveReaderAssetsMatched": 15,
+    "readerVisual": {
+      "passed": 34,
+      "bodyDigest": "11a04f15f43d130d0408332f7a5db9ac96b0c6452d9192bbefffb19690f133ba",
+      "widths": [
+        402,
+        320
+      ],
+      "physicalIPhone": false,
+      "record": ".cache/chapter-one-context-reselection-20261031/real-reader/verification.json"
+    }
+  },
+  "cost": {
+    "newPaidModelApiCalls": 0,
+    "newTtsCalls": 0,
+    "newRecurringCharges": 0,
+    "codexResearchAndReviewExecuted": true
+  },
+  "boundaries": [
+    "A complete production/review pass is not a learner mastery result or a formal chapter-quality certification.",
+    "Browser acceptance is Chromium touch emulation plus actual screenshots, not physical iPhone Safari.",
+    "Identical text remains eligible for the existing permanent Bella cache; clip availability is not inferred from text identity."
+  ]
+}
