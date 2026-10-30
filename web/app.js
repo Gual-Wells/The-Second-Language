@@ -13,7 +13,7 @@ import {createBalanceUI} from './balances.js?v=56';
 import {createStorageUsageUI} from './storage-usage.js?v=41';
 import {createCertificationReader} from './certification-reader.js?v=43';
 import {createChapterTestsUI} from './chapter-tests.js?v=43';
-import {createQuestionsUI} from './questions.js?v=50';
+import {createQuestionsUI} from './questions.js?v=57';
 import {openAudioChapter,clearAudioLibrary,preloadEnabled,setPreload} from './audio-library.js?v=50';
 
 const $ = id => document.getElementById(id);
@@ -658,12 +658,14 @@ async function initialize() {
     else await refreshSettings();
     await flushPending();
     refreshPushStatus();
-    const requestedTemporary = new URLSearchParams(location.search).get('temporary');
+    const requestedParameters = new URLSearchParams(location.search),requestedQuestion = requestedParameters.get('questions');
+    const requestedTemporary = requestedParameters.get('temporary');
     if (requestedTemporary && state.temporary.some(page => page.id === requestedTemporary)) { await openTemporary(requestedTemporary); return; }
-    const requested = new URLSearchParams(location.search).get('chapter');
+    const requested = requestedParameters.get('chapter');
     const selected = state.chapters.find(chapter => chapter.id === requested) || state.chapters.find(chapter => chapter.date === TODAY) || sortedChapters().at(-1);
-    if (selected) await openChapter(selected.id, true, requested === selected.id ? new URLSearchParams(location.search).get('digest') : null);
+    if (selected) await openChapter(selected.id, true, !requestedQuestion&&requested === selected.id ? requestedParameters.get('digest') : null);
     else { $('app').classList.add('empty-mode'); $('reader').hidden = true; $('readingScroll').scrollTop = 0; $('emptyState').hidden = false; setSyncStatus(state.demo ? '本地预览' : '等待第一章发布'); }
+    if(requestedQuestion)await questions.openTarget({chapterId:requested,digest:requestedParameters.get('digest'),questionId:requestedQuestion});
   } catch (error) {
     $('loadingState').hidden = true;
     $('loginState').hidden=false;$('loginDescription').textContent='连接暂不可用，请检查网络后重试。';$('loginMessage').textContent=error.message;$('loginButton').textContent='重新连接';$('loginButton').disabled=false;$('loginButton').dataset.retry='true';
@@ -694,17 +696,25 @@ async function signIn() {
   }
 }
 
+let pushSetup=null;
 async function refreshPushStatus() {
-  if (state.demo || !state.authenticated) { $('pushStatus').textContent = '演示模式不会发送新章提醒。'; return; }
+  pushSetup=null;$('pushButton').disabled=true;
+  if (state.demo || !state.authenticated) { $('pushStatus').textContent = '演示模式不会发送提醒。'; return; }
   if (isIOS && !standalone()) { $('pushStatus').textContent = 'iPhone 请先添加到主屏幕，再从主屏幕打开并开启提醒。'; $('pushButton').disabled = true; return; }
-  if (!('PushManager' in window) || !('serviceWorker' in navigator)) { $('pushStatus').textContent = '当前浏览器不支持系统推送。'; $('pushButton').disabled = true; return; }
+  if (!('PushManager' in window) || !('serviceWorker' in navigator)||typeof Notification==='undefined') { $('pushStatus').textContent = '当前浏览器不支持系统推送。'; $('pushButton').disabled = true; return; }
   try {
+    const reader=state.readerUserId;
     const registration = await navigator.serviceWorker.ready;
-    const subscription = await registration.pushManager.getSubscription();
-    $('pushStatus').textContent = subscription ? '这台设备已经订阅新章提醒。' : '发布新章后，可向这台设备发送系统通知。';
-    $('pushButton').hidden = Boolean(subscription);
+    const [subscription,status,key]=await Promise.all([registration.pushManager.getSubscription(),api('/api/push/status'),api('/api/push/public-key')]);
+    if(reader!==state.readerUserId||!state.authenticated)return;
+    const subscriptionId=subscription?[...new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(subscription.endpoint)))].map(v=>v.toString(16).padStart(2,'0')).join(''):null;
+    if(reader!==state.readerUserId||!state.authenticated)return;
+    const registered=Boolean(subscriptionId&&status.deviceIds?.includes(subscriptionId));
+    pushSetup=status.configured&&key.publicKey?{registration,publicKey:key.publicKey,reader}:null;
+    $('pushStatus').textContent = !pushSetup?'提醒尚未配置。':registered?'这台设备已开启新章与答疑提醒。':subscription?'本机提醒尚未连接，点按开启可重新连接。':'新章发布或答疑回复后，可向这台设备发送系统通知。';
+    $('pushButton').textContent='开启本机提醒';$('pushButton').hidden = registered;
     $('disablePushButton').hidden = !subscription;
-    $('pushButton').disabled = false;
+    $('pushButton').disabled = !pushSetup;
   } catch { $('pushStatus').textContent = '暂时无法读取这台设备的提醒状态。'; }
 }
 
@@ -778,15 +788,21 @@ document.addEventListener('visibilitychange', () => {
   if (state.current?.kind && state.current.expiresAt <= Date.now()) $('backToCourse').click();
 });
 $('pushButton').addEventListener('click', async () => {
+  const setup=pushSetup;if(!setup||setup.reader!==state.readerUserId||!state.authenticated)return;
+  // iPhone requires the permission request inside this actual click, before awaiting a network request.
+  let permission;try{permission=Notification.permission==='default'?Notification.requestPermission():Promise.resolve(Notification.permission);}catch{$('pushStatus').textContent='提醒权限暂不可用，请检查系统设置。';return;}
+  $('pushButton').disabled=true;
   try {
-    const { publicKey } = await api('/api/push/public-key');
-    if (!publicKey) throw new Error('提醒尚未配置');
-    const registration = await navigator.serviceWorker.ready;
-    const subscription = await registration.pushManager.subscribe({ userVisibleOnly: true, applicationServerKey: fromBase64url(publicKey) });
+    if(await permission!=='granted')throw new Error('提醒权限未获允许，请在系统设置中检查。');
+    if(setup.reader!==state.readerUserId||!state.authenticated)return;
+    const registration=setup.registration,subscription=await registration.pushManager.getSubscription()||await registration.pushManager.subscribe({ userVisibleOnly: true, applicationServerKey: fromBase64url(setup.publicKey) });
+    if(setup.reader!==state.readerUserId||!state.authenticated)return;
     await api('/api/push/register', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(subscription.toJSON()) });
+    if(setup.reader!==state.readerUserId||!state.authenticated)return;
     await refreshPushStatus();
-    toast('这台设备已开启新章提醒');
+    toast('这台设备已开启新章与答疑提醒');
   } catch (error) { $('pushStatus').textContent = error.message; }
+  finally{if(setup.reader===state.readerUserId&&state.authenticated)$('pushButton').disabled=!pushSetup;}
 });
 $('disablePushButton').addEventListener('click', async () => {
   try {
@@ -797,7 +813,7 @@ $('disablePushButton').addEventListener('click', async () => {
       await subscription.unsubscribe();
     }
     await refreshPushStatus();
-    toast('这台设备的新章提醒已关闭');
+    toast('这台设备的新章与答疑提醒已关闭');
   } catch (error) { $('pushStatus').textContent = error.message; }
 });
 $('logoutButton').addEventListener('click', async () => {

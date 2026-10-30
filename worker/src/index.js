@@ -9,6 +9,7 @@ import {chapterQualityRoute} from './chapter-quality.js';
 import {chapterNumber,numberForDate} from './chapter-number.js';
 import {assertTeachingText} from '../../protocol/teaching-text.mjs';
 import {questionsRoute} from './questions.js';
+import {sendQuestionReplies} from './question-notifications.js';
 import {chapterTestsRoute} from './chapter-tests.js';
 import {certificationsRoute,scrollsRoute} from './scrolls.js';
 import {temporaryTestsRoute} from './temporary-tests.js';
@@ -396,6 +397,10 @@ async function route(request, env) {
     }
   }
   if (path === '/api/push/public-key' && request.method === 'GET') return json({ publicKey: env.VAPID_PUBLIC_KEY || '' });
+  if (path === '/api/push/status' && request.method === 'GET') {
+    const {results}=await env.DB.prepare('SELECT id FROM push_subscriptions ORDER BY updated_at DESC').all();
+    return json({configured:Boolean(env.VAPID_PUBLIC_KEY&&env.VAPID_PRIVATE_KEY&&env.VAPID_SUBJECT),deviceCount:results.length,deviceIds:results.map(row=>row.id)});
+  }
   if (path === '/api/push/register' && request.method === 'POST') {
     if (!sameOrigin(request, env)) return json({ error: '来源不允许' }, 403);
     const subscription = await inputJson(request);
@@ -415,6 +420,7 @@ async function route(request, env) {
       env.DB.prepare('DELETE FROM push_outbox WHERE subscription_id=?').bind(id),
       env.DB.prepare('DELETE FROM temporary_push_outbox WHERE subscription_id=?').bind(id),
       env.DB.prepare('DELETE FROM balance_push_outbox WHERE subscription_id=?').bind(id),
+      env.DB.prepare('DELETE FROM question_push_outbox WHERE subscription_id=?').bind(id),
       env.DB.prepare('DELETE FROM push_subscriptions WHERE id=?').bind(id)
     ]);
     return json({ ok: true });
@@ -423,6 +429,7 @@ async function route(request, env) {
 }
 
 async function sendDue(env) {
+  await sendQuestionReplies(env);
   if (!env.VAPID_PUBLIC_KEY || !env.VAPID_PRIVATE_KEY || !env.VAPID_SUBJECT) return;
   const now = Date.now();
   const alerts=await env.DB.prepare(`SELECT o.*,s.endpoint,s.p256dh,s.auth FROM balance_push_outbox o JOIN push_subscriptions s ON s.id=o.subscription_id
@@ -501,8 +508,14 @@ async function removeExpiredTemporary(env) {
 }
 
 export default {
-  async fetch(request, env) {
-    try { return await route(request, storageRequestEnvironment(env)); }
+  async fetch(request, env, context) {
+    try {
+      const scoped=storageRequestEnvironment(env),response=await route(request,scoped);
+      if(response.ok&&request.method==='POST'&&/^\/api\/questions\/jobs\/[a-f0-9-]{36}\/complete$/.test(new URL(request.url).pathname)){
+        const delivery=sendQuestionReplies(scoped).catch(()=>{});if(context?.waitUntil)context.waitUntil(delivery);else await delivery;
+      }
+      return response;
+    }
     catch (error) { console.error('Worker error', error); return json({ error: '服务暂不可用' }, 500); }
   },
   async scheduled(_event, env, context) { context.waitUntil(Promise.all([sendDue(env), removeExpiredTemporary(env),collectNext(speakingEnvironment(env)).catch(error=>console.error('Speaking collection',String(error.message)))])); }

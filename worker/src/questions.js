@@ -3,6 +3,7 @@ import {chapterText} from './storage.js';
 import {claimChapterTest,chapterTestsRoute,chapterTestQueueTime} from './chapter-tests.js';
 import {temporaryTestQueueTime,claimTemporaryTest,temporaryTestsRoute} from './temporary-tests.js';
 import {isCurrentAffairsChapter,isCurrentAffairsRevision} from './current-affairs.js';
+import {questionReplyStatement} from './question-notifications.js';
 const projectQuestion="EXISTS(SELECT 1 FROM chapter_messages m JOIN chapter_conversations c ON c.id=m.conversation_id JOIN formal_chapter_sources s ON s.digest=c.chapter_digest AND s.policy='current-affairs-v1' WHERE m.id=chapter_question_jobs.id)";
 const json = (v,s=200) => Response.json(v,{status:s,headers:{'cache-control':'no-store'}});
 const uuid = v => typeof v==='string' && /^[a-f0-9-]{36}$/.test(v);
@@ -22,7 +23,7 @@ export async function questionsRoute(request,env,{isPublisher,session,sameOrigin
   if(path==='/jobs/claim'&&request.method==='POST') {
    const b=await input(request);
    // An expired worker is stopped for manual retry; never pay for an uncertain run again.
-   await db.prepare("UPDATE chapter_question_jobs SET status='failed',error='处理被中断，请重试',claim=NULL WHERE status='running' AND lease_until<? AND "+projectQuestion).bind(now).run();
+   await db.prepare("UPDATE chapter_question_jobs SET status='failed',error=?,claim=NULL WHERE status='running' AND lease_until<? AND "+projectQuestion).bind(env.API_QUESTIONS_ENABLED==='true'?'API结果待核对，暂不重复生成':'处理被中断，请重试',now).run();
    if(typeof b.claim!=='string'||!/^[a-f0-9]{64}$/.test(b.claim))return json({error:'领取凭据无效'},400);
    if(b.questionsOnly===true&&env.API_QUESTIONS_ENABLED!=='true')return json({error:'API答疑尚未启用'},503);
    const questionsOnly=b.questionsOnly===true;
@@ -65,7 +66,8 @@ export async function questionsRoute(request,env,{isPublisher,session,sameOrigin
     db.prepare(`INSERT OR IGNORE INTO chapter_messages(id,conversation_id,role,content,reply_to,created_at)
      SELECT ?,m.conversation_id,'assistant',?,m.id,? FROM chapter_messages m JOIN chapter_question_jobs j ON j.id=m.id
      WHERE m.id=? AND j.status='running' AND j.claim=? AND j.lease_until>=?`).bind(replyId,b.answer,now,job.id,job.claim,now),
-    db.prepare("UPDATE chapter_question_jobs SET status='answered',claim=NULL,updated_at=? WHERE id=? AND claim=? AND EXISTS(SELECT 1 FROM chapter_messages WHERE reply_to=?)").bind(now,job.id,job.claim,job.id)
+    db.prepare("UPDATE chapter_question_jobs SET status='answered',claim=NULL,updated_at=? WHERE id=? AND claim=? AND EXISTS(SELECT 1 FROM chapter_messages WHERE reply_to=?)").bind(now,job.id,job.claim,job.id),
+    questionReplyStatement(db,job.id,now)
    ]);return json({ok:true});
   }
   return json({error:'接口不存在'},404);
@@ -79,35 +81,40 @@ export async function questionsRoute(request,env,{isPublisher,session,sameOrigin
  if(path==='/open'&&request.method==='POST') {
   const b=await input(request);
   if(typeof b.chapterId!=='string'||typeof b.digest!=='string'||!/^[a-f0-9]{64}$/.test(b.digest))return json({error:'章节版本无效'},400);
-  if(!await isCurrentAffairsRevision(db,b.chapterId,b.digest))return json({error:'旧章答疑已封存，请读取历史会话'},409);
+  if(b.questionId!==undefined&&!uuid(b.questionId))return json({error:'问题编号无效'},400);
+  const requested=b.questionId?await db.prepare(`SELECT c.id FROM chapter_messages q JOIN chapter_conversations c ON c.id=q.conversation_id
+   WHERE q.id=? AND q.role='user' AND c.chapter_id=? AND c.chapter_digest=?`).bind(b.questionId,b.chapterId,b.digest).first():null;
+  if(b.questionId&&!requested)return json({error:'提醒对应的问题不存在'},404);
+  if(!requested&&!await isCurrentAffairsRevision(db,b.chapterId,b.digest))return json({error:'旧章答疑已封存，请读取历史会话'},409);
+  const sourceScope=requested?'WHERE EXISTS(SELECT 1 FROM formal_chapter_sources s WHERE s.digest=c.chapter_digest AND s.policy=\'current-affairs-v1\') OR c.id=?':"WHERE EXISTS(SELECT 1 FROM formal_chapter_sources s WHERE s.digest=c.chapter_digest AND s.policy='current-affairs-v1')";
+  const sourceArgs=requested?[requested.id]:[];
   const threadSQL=`SELECT c.id,c.chapter_id AS chapterId,c.chapter_digest AS digest,r.title,c.created_at AS createdAt,c.seen_seq AS seenSeq,
    (SELECT count(*) FROM chapter_messages a WHERE a.conversation_id=c.id AND a.role='assistant' AND a.seq>c.seen_seq) AS unread,
    (SELECT q.id FROM chapter_messages q JOIN chapter_messages a ON a.reply_to=q.id
     WHERE q.conversation_id=c.id AND q.role='user' AND a.role='assistant' AND a.seq>c.seen_seq ORDER BY q.seq LIMIT 1) AS firstUnreadQuestionId
-   FROM chapter_conversations c JOIN chapter_revisions r ON r.digest=c.chapter_digest
-   JOIN formal_chapter_sources s ON s.digest=c.chapter_digest AND s.policy='current-affairs-v1'`;
+   FROM chapter_conversations c JOIN chapter_revisions r ON r.digest=c.chapter_digest ${sourceScope}`;
   // Read the unread boundary and acknowledge the same snapshot atomically. A reply
   // committed after this batch remains unread, even if its question is much older.
   const [snapshot,selected]=await db.batch([
-   db.prepare(threadSQL+' ORDER BY c.created_at DESC'),
+   db.prepare(threadSQL+' ORDER BY c.created_at DESC').bind(...sourceArgs),
    db.prepare(`WITH threads AS (${threadSQL}),chosen AS (
-    SELECT * FROM threads WHERE (chapterId=? AND digest=?) OR unread>0
+    SELECT * FROM threads WHERE (chapterId=? AND digest=?) ${requested?'':'OR unread>0'}
     ORDER BY CASE WHEN chapterId=? AND digest=? AND unread>0 THEN 0 WHEN unread>0 THEN 1 ELSE 2 END,createdAt LIMIT 1)
     SELECT c.id AS threadId,c.chapterId,c.digest,c.firstUnreadQuestionId,m.id,m.seq,m.role,m.content,m.reply_to AS replyTo,m.created_at AS createdAt,j.status,j.error
-    FROM chosen c LEFT JOIN chapter_messages m ON m.conversation_id=c.id LEFT JOIN chapter_question_jobs j ON j.id=m.id ORDER BY m.seq`).bind(b.chapterId,b.digest,b.chapterId,b.digest),
+    FROM chosen c LEFT JOIN chapter_messages m ON m.conversation_id=c.id LEFT JOIN chapter_question_jobs j ON j.id=m.id ORDER BY m.seq`).bind(...sourceArgs,b.chapterId,b.digest,b.chapterId,b.digest),
    db.prepare(`UPDATE chapter_conversations SET seen_seq=max(seen_seq,coalesce((SELECT max(seq) FROM chapter_messages a
     WHERE a.conversation_id=chapter_conversations.id AND a.role='assistant'),seen_seq))
-    WHERE EXISTS(SELECT 1 FROM formal_chapter_sources s WHERE s.digest=chapter_conversations.chapter_digest AND s.policy='current-affairs-v1')`)
+    WHERE EXISTS(SELECT 1 FROM formal_chapter_sources s WHERE s.digest=chapter_conversations.chapter_digest AND s.policy='current-affairs-v1') ${requested?'OR id=?':''}`).bind(...sourceArgs)
   ]);
   const rows=selected.results||[],chosen=rows[0];
-  return json({threads:snapshot.results||[],threadId:chosen?.threadId||null,chapterId:chosen?.chapterId||b.chapterId,digest:chosen?.digest||b.digest,
+  return json({threads:snapshot.results||[],threadId:chosen?.threadId||null,chapterId:chosen?.chapterId||b.chapterId,digest:chosen?.digest||b.digest,focusQuestionId:b.questionId||null,readOnly:!await isCurrentAffairsChapter(db,chosen?.chapterId||b.chapterId,chosen?.digest||b.digest),
    firstUnreadQuestionId:chosen?.firstUnreadQuestionId||null,messages:rows.filter(m=>m.id).map(({threadId,chapterId,digest,firstUnreadQuestionId,...m})=>m)});
  }
  if(path===''&&request.method==='GET') {
   const thread=await db.prepare('SELECT * FROM chapter_conversations WHERE chapter_id=? AND chapter_digest=?').bind(url.searchParams.get('chapter'),url.searchParams.get('digest')).first();
-  if(!thread)return json({messages:[]});
+  if(!thread)return json({messages:[],readOnly:!await isCurrentAffairsChapter(db,url.searchParams.get('chapter'),url.searchParams.get('digest'))});
   const {results:messages}=await db.prepare(`SELECT m.id,m.seq,m.role,m.content,m.reply_to AS replyTo,m.created_at AS createdAt,j.status,j.error FROM chapter_messages m LEFT JOIN chapter_question_jobs j ON j.id=m.id WHERE m.conversation_id=? ORDER BY m.seq`).bind(thread.id).all();
-  return json({threadId:thread.id,messages});
+  return json({threadId:thread.id,messages,readOnly:!await isCurrentAffairsChapter(db,thread.chapter_id,thread.chapter_digest)});
  }
  if(path===''&&request.method==='POST') {
   const b=await input(request);
@@ -125,11 +132,15 @@ export async function questionsRoute(request,env,{isPublisher,session,sameOrigin
  if(action&&request.method==='POST') {
   const b=await input(request);
   const chapter=await db.prepare(action[2]==='seen'?'SELECT chapter_id,chapter_digest FROM chapter_conversations WHERE id=?':'SELECT c.chapter_id,c.chapter_digest FROM chapter_messages m JOIN chapter_conversations c ON c.id=m.conversation_id WHERE m.id=?').bind(action[1]).first();
-  if(chapter&&!await isCurrentAffairsRevision(db,chapter.chapter_id,chapter.chapter_digest))return json({error:'旧章答疑已封存，仅可读取历史记录'},409);
+  if(action[2]==='retry'&&chapter&&!await isCurrentAffairsRevision(db,chapter.chapter_id,chapter.chapter_digest))return json({error:'旧章答疑已封存，仅可读取历史记录'},409);
   if(action[2]==='seen') {
    if(!Number.isSafeInteger(b.seq)||b.seq<0)return json({error:'阅读位置无效'},400);
    await db.prepare(`UPDATE chapter_conversations SET seen_seq=max(seen_seq,coalesce((SELECT max(seq) FROM chapter_messages WHERE conversation_id=? AND role='assistant' AND seq<=?),seen_seq)) WHERE id=?`).bind(action[1],b.seq,action[1]).run();
-  }else await db.prepare("UPDATE chapter_question_jobs SET status='pending',error=NULL,updated_at=? WHERE id=? AND status='failed'").bind(now,action[1]).run();
+  }else {
+   const job=await db.prepare('SELECT status,error FROM chapter_question_jobs WHERE id=?').bind(action[1]).first();
+   if(job?.status==='failed'&&(job.error==='outcome_unknown'||/结果待核对/.test(job.error||'')))return json({error:'本次结果待核对，暂不重复生成'},409);
+   await db.prepare("UPDATE chapter_question_jobs SET status='pending',error=NULL,updated_at=? WHERE id=? AND status='failed'").bind(now,action[1]).run();
+  }
   return json({ok:true});
  }
  return json({error:'接口不存在'},404);

@@ -56,4 +56,17 @@ const history=(await request('/open',{chapterId:'chapter-1',digest})).data;
 assert.equal(history.threadId,otherThread);assert.equal(history.firstUnreadQuestionId,otherLateQ);
 const clean=(await request('/open',{chapterId:'chapter-1',digest})).data;assert.equal(clean.firstUnreadQuestionId,null);assert.equal(clean.threadId,thread.threadId);
 assert.equal((await request('/open',{chapterId:'unseen',digest:'c'.repeat(64)})).status,409,'An unregistered chapter cannot open a new formal conversation');
+// A notification is an explicit historical focus, not permission to generate from an archived revision.
+assert.equal((await request('/open',{chapterId:'chapter-1',digest,questionId:'invalid'})).status,400);
+assert.equal((await request('/open',{chapterId:'chapter-1',digest,questionId:otherQ})).status,404);
+sqlite.prepare('INSERT INTO chapter_withdrawals VALUES(?,?,?,?,?,?,?,?)').run(otherDigest,'chapter-2','fixture-2','a'.repeat(64),'b'.repeat(40),Date.now(),'fixture withdrawal','{}');
+assert.equal((await request('/open',{chapterId:'chapter-2',digest:otherDigest})).status,409);
+const focused=(await request('/open',{chapterId:'chapter-2',digest:otherDigest,questionId:otherQ})).data;
+assert.equal(focused.chapterId,'chapter-2');assert.equal(focused.digest,otherDigest);assert.equal(focused.focusQuestionId,otherQ);assert.equal(focused.readOnly,true);assert(focused.messages.some(m=>m.id===otherQ));
+assert.equal((await request('',{id:crypto.randomUUID(),chapterId:'chapter-2',digest:otherDigest,question:'新付费问题'})).status,404);
+const archived=(await request(`?chapter=chapter-2&digest=${otherDigest}`)).data;assert.equal(archived.readOnly,true);
+assert.equal((await request(`/${otherThread}/seen`,{seq:100000})).status,200,'reading retained history does not reopen generation');
+const uncertain=crypto.randomUUID();await request('',{...input,id:uncertain,question:'费用未知的失败'});
+sqlite.prepare("UPDATE chapter_question_jobs SET status='failed',error='API结果待核对，暂不重复生成' WHERE id=?").run(uncertain);
+assert.equal((await request(`/${uncertain}/retry`,{})).status,409);assert.equal(sqlite.prepare('SELECT status FROM chapter_question_jobs WHERE id=?').get(uncertain).status,'failed');
 sqlite.close();console.log('通过：认证、CSRF、版本全文、重发去重、串行领取、追问上下文、重复回推、未读确认');

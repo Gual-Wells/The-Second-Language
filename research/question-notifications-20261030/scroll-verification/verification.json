@@ -1,0 +1,5615 @@
+{
+  "base": "http://127.0.0.1:8157",
+  "checkedAt": "2026-10-30T08:30:34.422Z",
+  "profile": "beginning",
+  "mode": "project-beginning-only-document-default-sound",
+  "catalogueWork": "project-beginning",
+  "projectCatalogue": "project-beginning",
+  "chapterLabels": [
+    "项目纪念"
+  ],
+  "record": {
+    "schema": "second-language.project-commemorative.v1",
+    "category": "project-commemorative",
+    "workId": "SL-PROJECT-BEGINNING-20261021",
+    "status": "commemorative",
+    "recipient": "Gual Wells",
+    "madeAt": "2026-10-21T12:10:23.227Z",
+    "publishedAt": null,
+    "projectFoundedAt": null,
+    "attestation": null,
+    "issued": false,
+    "source": {
+      "repository": "Gual-Wells/The-Second-Language",
+      "mainSHA": "620d4fb96bc1cd37ed74d6aca0a84ff71aa7f8ea",
+      "artDirection": "research/project-scroll-redesign-2026-10-21/design.md",
+      "artDirectionSHA256": "041c3b1fc8cce9b4e1a82988da68c231cc792fcf087c27525fc2ca218d5e7e33",
+      "artDirectionEncoding": "UTF-8 LF",
+      "userCommission": {
+        "basis": "User commissioned a project-specific commemorative scroll, rejected the prior work, and required a new work informed by the complete first-chapter manufacturing process.",
+        "recordedBy": "primary executing agent and scoped manufacturing implementation",
+        "reference": "Project-special-scroll commission and manufacturing restart, 2026-10-21"
+      }
+    },
+    "template": "project-commemorative-beginning-v1",
+    "sha256": "4a83d1952e133bcecd6c1aa2e14a788159b410e9a6ea2a7f5bcf42610943e37b",
+    "contentDigest": "4a83d1952e133bcecd6c1aa2e14a788159b410e9a6ea2a7f5bcf42610943e37b",
+    "artPlanDigest": "e2e11c35d07383023cf454646d8ea7434f1b16622f5deae15cc2acf390065e9b",
+    "canonicalization": "sorted-key UTF-8 JSON; publication time excluded",
+    "canonicalPayload": "{\"artPlan\":{\"category\":\"project-commemorative\",\"copy\":{\"artTitle\":\"A Day in Another Tongue\",\"colophon\":[\"For Gual Wells,\",\"to mark the beginning of The Second Language.\"],\"institution\":\"The Second Language\",\"labels\":{\"contentMark\":{\"en\":\"Content mark\",\"zh\":\"内容短记\"},\"contentSHA256\":{\"en\":\"Content SHA-256\",\"zh\":\"内容 SHA-256 摘要\"},\"made\":{\"en\":\"Made\",\"zh\":\"制作于\"},\"published\":{\"en\":\"Published\",\"zh\":\"发布于\"}},\"rubric\":\"A project remembrance\",\"sealLegends\":[\"The Second Language\",\"In remembrance\"],\"status\":\"Private commemorative work\",\"translation\":{\"artTitle\":\"另一种语言里的一日\",\"colophon\":[\"为 Gual Wells 而作，\",\"纪念《第二语言》的启程。\"],\"institution\":\"第二语言\",\"rubric\":\"项目特别留念\",\"sealLegends\":[\"第二语言\",\"留作纪念\"],\"status\":\"私人纪念作品\",\"verse\":[\"这项工作，始于第一个词：\",\"窗板边的雨，木案上的面包，\",\"敞开的门口，一声招呼有了回应。\",\"一页之后，还将有一页。\",\"另一种语言，走进这一日。\"]},\"verse\":[\"With a first word, the work begins:\",\"rain at the shutter, bread upon the board,\",\"a greeting answered at an open door.\",\"Page will follow page.\",\"Another tongue enters the day.\"]},\"id\":\"SL-PROJECT-BEGINNING-1\",\"intention\":\"A private remembrance of the project beginning: words enter ordinary life through context and response, then page follows page. This draft makes no claim about a founding date, the recipient's personal experience or an examination event.\",\"layout\":{\"blocks\":[{\"align\":\"center\",\"color\":\"#58372d\",\"fontSize\":52,\"id\":\"rubric\",\"lineHeight\":74,\"width\":1500,\"x\":1024,\"y\":285},{\"align\":\"center\",\"color\":\"#30251b\",\"fontSize\":124,\"id\":\"institution\",\"lineHeight\":160,\"minFontSize\":116,\"width\":1600,\"x\":1024,\"y\":475},{\"align\":\"center\",\"color\":\"#30251b\",\"fontSize\":82,\"id\":\"subtitle\",\"lineHeight\":108,\"width\":1560,\"x\":1024,\"y\":650},{\"align\":\"center\",\"color\":\"#30251b\",\"fontSize\":86,\"id\":\"verseBefore\",\"lineHeight\":140,\"width\":1560,\"x\":1024,\"y\":875},{\"align\":\"center\",\"color\":\"#30251b\",\"fontSize\":90,\"id\":\"verseAfter\",\"lineHeight\":140,\"width\":1500,\"x\":1024,\"y\":2040},{\"align\":\"center\",\"color\":\"#30251b\",\"fontSize\":56,\"id\":\"colophon\",\"lineHeight\":90,\"width\":1540,\"x\":1024,\"y\":2350},{\"align\":\"left\",\"color\":\"#30251b\",\"fontSize\":42,\"id\":\"identity\",\"lineHeight\":70,\"width\":1010,\"x\":750,\"y\":2545},{\"align\":\"center\",\"color\":\"#30251b\",\"fontSize\":40,\"id\":\"status\",\"lineHeight\":54,\"width\":1450,\"x\":1024,\"y\":2765}],\"height\":2868,\"inkWearVersion\":\"dry-quill-1\",\"microstructure\":{\"impressionScale\":0.0045,\"normalScale\":0.035,\"repeat\":[1.4,2.1]},\"nominalSizeMM\":[300,420],\"ornament\":{\"height\":650,\"opacity\":0.9,\"width\":1160,\"x\":444,\"y\":1260},\"paperFolds\":{\"diagonal\":{\"depth\":0.008,\"offset\":0.229,\"slope\":0.179,\"width\":0.009},\"lower\":{\"depth\":0.009,\"offset\":0.655,\"sine\":0.021,\"slope\":0.005,\"width\":0.01},\"provenance\":\"Trial approximation from the actual paper image; not precision measurement or artistic acceptance\"},\"seal\":{\"height\":138,\"width\":300,\"x\":310,\"y\":2525},\"textSafeRect\":{\"height\":2640,\"width\":1628,\"x\":210,\"y\":180},\"width\":2048},\"models\":{\"creativeDispatch\":{\"inheritedModel\":\"gpt-6.1-sol\",\"inheritedReasoningEffort\":\"xhigh\",\"note\":\"Continuing the explicitly configured creative agent; image model is separate and not exposed.\",\"task\":\"project_scroll_art_direction\",\"tool\":\"collaboration.followup_task\"},\"creativePolicy\":{\"model\":\"gpt-6.1-sol\",\"reasoningEffort\":\"xhigh\"},\"creativeSource\":\"research/project-scroll-redesign-2026-10-21/design.md\",\"executionEvidence\":\"Creative dispatch and actual image-generation evidence are retained by the primary executor; this field alone is not execution attestation.\",\"imageModel\":\"not exposed\",\"imageQuality\":\"not exposed\",\"imageTool\":\"built-in image_gen.imagegen\"},\"resources\":{\"environment\":{\"sha256\":\"e7cfda5f4e98e623db12b8bfd0184e048488e4855d9c83e2751fb44a32e80c45\",\"source\":\"Sergej Majboroda / Poly Haven Studio Small 09, CC0\",\"src\":\"../chapter-scroll-v3/assets/studio.hdr\"},\"font\":{\"family\":\"Aboensis\",\"sha256\":\"0ad00fb94899b3a8277680377eb7270c5fb3ee73dd9fefbd6fb31d9f94c4707b\",\"src\":\"../chapter-scroll/assets/Aboensis-Regular.otf\"},\"inkShoulder\":{\"material\":\"Retained independent surplus-ink density source used by the v12 oblong remembrance impression.\",\"sha256\":\"5dbfab038a6ba4a9cb7f047beed26c4c105fa1cab46143479fb3bbab4c66dd2c\",\"src\":\"../chapter-scroll-v10/assets/ink-shoulder.png\"},\"normal\":{\"material\":\"Unmodified OpenGL micro-normal scan, low-amplitude artistic skin approximation; not measured parchment.\",\"sha256\":\"d0057cdbee5be6223b35f0a463441404144fcdae699f69ff610eec4d86d48970\",\"source\":\"Rob Tuytel / Poly Haven Leather Red 02, CC0\",\"sourceURL\":\"https://polyhaven.com/a/leather_red_02\",\"src\":\"../chapter-scroll-v4/assets/skin-normal.jpg\"},\"ornament\":{\"material\":\"Independent transparent ink-and-wash miniature: blank open book, small bread heel, a little window shutter and sparse rain.\",\"sha256\":\"70c58500dfd07879eef40896bfe88d581ddaebf73ab63b73d5be6472aa93a09e\",\"sourceOriginal\":\"research/project-scroll-redesign-2026-10-21/source/daily-miniature.png\",\"src\":\"assets/daily-miniature.png\"},\"paper\":{\"material\":\"Author-designed aged warm parchment; albedo carries colour ageing, broad wear and fold shading. Trial, not an accepted material or measured height field.\",\"sha256\":\"10b3316df6408655a4c917e652ce739c446a00614fd475033bbe575c606df4b1\",\"sourceOriginal\":\"research/project-scroll-redesign-2026-10-21/source/parchment.png\",\"src\":\"assets/parchment.webp\",\"variant\":\"independently-authored-project-beginning-sheet-trial\"},\"roughness\":{\"material\":\"Unmodified scan channel, remapped by the retained paper shader to a matte .88-.98 range.\",\"sha256\":\"dd3b860a9510a44fd857c04e0c8cc63ea1f944c25abe9bdcbf844cc4a22c88d8\",\"source\":\"Rob Tuytel / Poly Haven Leather Red 02, CC0\",\"sourceURL\":\"https://polyhaven.com/a/leather_red_02\",\"src\":\"../chapter-scroll-v4/assets/skin-roughness.jpg\"}},\"schema\":\"second-language.project-art-plan.v1\",\"source\":{\"artDirection\":\"research/project-scroll-redesign-2026-10-21/design.md\",\"artDirectionSHA256\":\"041c3b1fc8cce9b4e1a82988da68c231cc792fcf087c27525fc2ca218d5e7e33\",\"mainSHA\":\"620d4fb96bc1cd37ed74d6aca0a84ff71aa7f8ea\"},\"workId\":\"SL-PROJECT-BEGINNING-20261021\"},\"attestation\":null,\"category\":\"project-commemorative\",\"edition\":\"SL-PROJECT-BEGINNING-1\",\"madeAt\":\"2026-10-21T12:10:23.227Z\",\"ownerId\":\"second-language-owner\",\"projectFoundedAt\":null,\"recipient\":\"Gual Wells\",\"schema\":\"second-language.project-content.v1\",\"sealVariant\":\"oblong\",\"source\":{\"artDirection\":\"research/project-scroll-redesign-2026-10-21/design.md\",\"artDirectionEncoding\":\"UTF-8 LF\",\"artDirectionSHA256\":\"041c3b1fc8cce9b4e1a82988da68c231cc792fcf087c27525fc2ca218d5e7e33\",\"mainSHA\":\"620d4fb96bc1cd37ed74d6aca0a84ff71aa7f8ea\",\"repository\":\"Gual-Wells/The-Second-Language\",\"userCommission\":{\"basis\":\"User commissioned a project-specific commemorative scroll, rejected the prior work, and required a new work informed by the complete first-chapter manufacturing process.\",\"recordedBy\":\"primary executing agent and scoped manufacturing implementation\",\"reference\":\"Project-special-scroll commission and manufacturing restart, 2026-10-21\"}},\"status\":\"commemorative\",\"template\":\"project-commemorative-beginning-v1\",\"workId\":\"SL-PROJECT-BEGINNING-20261021\"}",
+    "copy": {
+      "rubric": "A project remembrance",
+      "institution": "The Second Language",
+      "artTitle": "A Day in Another Tongue",
+      "verse": [
+        "With a first word, the work begins:",
+        "rain at the shutter, bread upon the board,",
+        "a greeting answered at an open door.",
+        "Page will follow page.",
+        "Another tongue enters the day."
+      ],
+      "colophon": [
+        "For Gual Wells,",
+        "to mark the beginning of The Second Language."
+      ],
+      "sealLegends": [
+        "The Second Language",
+        "In remembrance"
+      ],
+      "status": "Private commemorative work",
+      "translation": {
+        "rubric": "项目特别留念",
+        "institution": "第二语言",
+        "artTitle": "另一种语言里的一日",
+        "verse": [
+          "这项工作，始于第一个词：",
+          "窗板边的雨，木案上的面包，",
+          "敞开的门口，一声招呼有了回应。",
+          "一页之后，还将有一页。",
+          "另一种语言，走进这一日。"
+        ],
+        "colophon": [
+          "为 Gual Wells 而作，",
+          "纪念《第二语言》的启程。"
+        ],
+        "sealLegends": [
+          "第二语言",
+          "留作纪念"
+        ],
+        "status": "私人纪念作品"
+      },
+      "labels": {
+        "made": {
+          "en": "Made",
+          "zh": "制作于"
+        },
+        "contentMark": {
+          "en": "Content mark",
+          "zh": "内容短记"
+        },
+        "contentSHA256": {
+          "en": "Content SHA-256",
+          "zh": "内容 SHA-256 摘要"
+        },
+        "published": {
+          "en": "Published",
+          "zh": "发布于"
+        }
+      }
+    },
+    "resources": {
+      "paper": {
+        "src": "assets/parchment.webp",
+        "sha256": "10b3316df6408655a4c917e652ce739c446a00614fd475033bbe575c606df4b1",
+        "variant": "independently-authored-project-beginning-sheet-trial",
+        "sourceOriginal": "research/project-scroll-redesign-2026-10-21/source/parchment.png",
+        "material": "Author-designed aged warm parchment; albedo carries colour ageing, broad wear and fold shading. Trial, not an accepted material or measured height field."
+      },
+      "normal": {
+        "src": "../chapter-scroll-v4/assets/skin-normal.jpg",
+        "sha256": "d0057cdbee5be6223b35f0a463441404144fcdae699f69ff610eec4d86d48970",
+        "source": "Rob Tuytel / Poly Haven Leather Red 02, CC0",
+        "sourceURL": "https://polyhaven.com/a/leather_red_02",
+        "material": "Unmodified OpenGL micro-normal scan, low-amplitude artistic skin approximation; not measured parchment."
+      },
+      "roughness": {
+        "src": "../chapter-scroll-v4/assets/skin-roughness.jpg",
+        "sha256": "dd3b860a9510a44fd857c04e0c8cc63ea1f944c25abe9bdcbf844cc4a22c88d8",
+        "source": "Rob Tuytel / Poly Haven Leather Red 02, CC0",
+        "sourceURL": "https://polyhaven.com/a/leather_red_02",
+        "material": "Unmodified scan channel, remapped by the retained paper shader to a matte .88-.98 range."
+      },
+      "ornament": {
+        "src": "assets/daily-miniature.png",
+        "sha256": "70c58500dfd07879eef40896bfe88d581ddaebf73ab63b73d5be6472aa93a09e",
+        "sourceOriginal": "research/project-scroll-redesign-2026-10-21/source/daily-miniature.png",
+        "material": "Independent transparent ink-and-wash miniature: blank open book, small bread heel, a little window shutter and sparse rain."
+      },
+      "font": {
+        "src": "../chapter-scroll/assets/Aboensis-Regular.otf",
+        "sha256": "0ad00fb94899b3a8277680377eb7270c5fb3ee73dd9fefbd6fb31d9f94c4707b",
+        "family": "Aboensis"
+      },
+      "environment": {
+        "src": "../chapter-scroll-v3/assets/studio.hdr",
+        "sha256": "e7cfda5f4e98e623db12b8bfd0184e048488e4855d9c83e2751fb44a32e80c45",
+        "source": "Sergej Majboroda / Poly Haven Studio Small 09, CC0"
+      },
+      "inkShoulder": {
+        "src": "../chapter-scroll-v10/assets/ink-shoulder.png",
+        "sha256": "5dbfab038a6ba4a9cb7f047beed26c4c105fa1cab46143479fb3bbab4c66dd2c",
+        "material": "Retained independent surplus-ink density source used by the v12 oblong remembrance impression."
+      }
+    },
+    "sourceRecordUrl": "http://127.0.0.1:8157/labs/project-beginning/record.json"
+  },
+  "checks": {
+    "minimalProjectEntry": true,
+    "researchProfilesRejected": true,
+    "rejectedWorkAbsent": true,
+    "noFakeChapterOrCertification": true,
+    "fixedMadeAtAndContentSHA": true,
+    "frozenOriginals": true,
+    "noRuntimeTypesetting": true,
+    "decodedOriginalPixelsMatch": true,
+    "actualMaterialProfileRestored": true,
+    "trustedEntryUnlocksDefaultSound": true,
+    "oldMuteIgnored": true,
+    "noSoundSettingsUI": true,
+    "realOpenAndClose": true,
+    "foleyDuringRealMotion": true,
+    "musicContinuesAcrossOpening": true,
+    "documentFullEnglishChineseFromRecord": true,
+    "documentMetadataFromRecord": true,
+    "actualClipboardCopies": true,
+    "documentTabsKeyboardAndScroll": true,
+    "documentControlsDoNotToggle": true,
+    "documentFocusAndEscape": true,
+    "hiddenPausesWithoutReplay": true,
+    "foregroundResumesPosition": true,
+    "exitStopsSound": true,
+    "lateDecodeCannotRevive": true,
+    "modalBackStack": true,
+    "portraitLandscape": true,
+    "noAccountWrites": true
+  },
+  "initial": {
+    "open": true,
+    "ready": true,
+    "lost": false,
+    "chapter": null,
+    "workId": "project-beginning",
+    "category": "project-commemorative",
+    "issued": false,
+    "viewer": {
+      "progress": 0,
+      "paperProgress": 0,
+      "renderCount": 10,
+      "vertices": 14893,
+      "camera": [
+        0,
+        0,
+        12
+      ],
+      "keeperVisible": true,
+      "viewHeight": 11.088059701492536,
+      "drawBuffer": {
+        "width": 804,
+        "height": 1748
+      },
+      "deformation": "Continuous GPU winding and shared rest displacement",
+      "keeperMotion": "material-coordinate unfastening and rigid hinged prong",
+      "keeperSize": [
+        0.22978254735617945,
+        0.7659418245205982
+      ],
+      "specularIntensity": 0,
+      "toneMapping": "none; preserve source colors",
+      "restCurl": true,
+      "cameraType": "PerspectiveCamera",
+      "keeperPose": {
+        "r": 0,
+        "pin": 0,
+        "feed": 0,
+        "angle": 0,
+        "along": 0,
+        "sideMm": 0,
+        "circleCenter": [
+          0,
+          0
+        ],
+        "phase": "fastened",
+        "slide": 0,
+        "depart": 0,
+        "freeEndBehindFrame": false,
+        "expandedRadiusMm": 30.00000857204946,
+        "visible": true,
+        "opacity": 1,
+        "x": 0,
+        "y": 0.008683982907575327,
+        "z": 0.30201379091612,
+        "fitScale": 12.765697075343304,
+        "fitScaleVector": [
+          12.765697075343304,
+          12.765697075343304,
+          12.765697075343304
+        ],
+        "bandWidth": 0.22978254735617945,
+        "usesFade": false,
+        "usesStrapDeformation": true,
+        "deformation": "material-coordinate curve; dimensioned continuous cut mesh; native bevel residual",
+        "sourceBones": 76,
+        "restDeviationMm": {
+          "maximum": 5.542281843203895e-9,
+          "mean": 4.4898961188127906e-11
+        }
+      },
+      "sealRelief": true,
+      "runtime": {
+        "motionPrepared": true,
+        "preparationMs": 6031.5999999940395,
+        "preparedPrograms": 11,
+        "programs": 11
+      },
+      "edition": "project beginning — manufacturing trial",
+      "paperMaterial": "chapter-one scan microstructure starting profile; independent new albedo; retained v6 matte response",
+      "aging": {
+        "version": "v19 native multi-pass finishing",
+        "leather": [
+          "scanned grain",
+          "hide variation",
+          "dark contact polish",
+          "grain-coat loss",
+          "opened flex creases",
+          "worn hand-incised borders",
+          "terminal lozenge"
+        ],
+        "metal": [
+          "scanned microstructure",
+          "planishing depressions",
+          "file dressing",
+          "paired incised grooves",
+          "brown stable oxide",
+          "subdued crevice patina",
+          "rubbed crowns"
+        ],
+        "sourceGeometry": "unchanged v17",
+        "offlineBaked": true,
+        "noMold": true
+      },
+      "paperFolds": {
+        "provenance": "Trial approximation from the actual paper image; not precision measurement or artistic acceptance",
+        "diagonal": {
+          "offset": 0.229,
+          "slope": 0.179,
+          "width": 0.009,
+          "depth": 0.008
+        },
+        "lower": {
+          "offset": 0.655,
+          "sine": 0.021,
+          "slope": 0.005,
+          "width": 0.01,
+          "depth": 0.009
+        }
+      },
+      "paperProfilePrepared": true,
+      "paperProfile": {
+        "normalScale": [
+          0.035,
+          0.035
+        ],
+        "bumpScale": 0.0045,
+        "normal": {
+          "repeat": [
+            1.4,
+            2.1
+          ],
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "colorSpace": "",
+          "source": "http://127.0.0.1:8157/labs/chapter-scroll-v4/assets/skin-normal.jpg"
+        },
+        "roughness": {
+          "repeat": [
+            1.4,
+            2.1
+          ],
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "colorSpace": "",
+          "source": "http://127.0.0.1:8157/labs/chapter-scroll-v4/assets/skin-roughness.jpg"
+        },
+        "sheen": 0,
+        "specularIntensity": 0,
+        "envMapIntensity": 0.07,
+        "actualGPUVerified": false,
+        "artisticApproval": false
+      },
+      "ready": true,
+      "disposed": false,
+      "paused": false,
+      "lost": false,
+      "environmentAvailable": true,
+      "contextReleased": false,
+      "animating": false,
+      "chapterId": null,
+      "category": "project-commemorative",
+      "workId": "SL-PROJECT-BEGINNING-20261021",
+      "issued": false,
+      "status": "ready",
+      "error": null,
+      "layout": {
+        "width": 2048,
+        "height": 2868,
+        "nominalSizeMM": [
+          300,
+          420
+        ],
+        "artPlanId": "SL-PROJECT-BEGINNING-1",
+        "artPlanDigest": "e2e11c35d07383023cf454646d8ea7434f1b16622f5deae15cc2acf390065e9b",
+        "composition": "project-title-and-subtitle; three-verse-lines; daily-miniature; two-verse-lines; private-colophon-and-record",
+        "stage": "frozen",
+        "artisticApproval": "agent-review-for-user-evaluation",
+        "paperVariant": "independently-authored-project-beginning-sheet-trial",
+        "sealVersion": "SL-KEEPSAKE-1",
+        "sealVariant": "oblong",
+        "sealBox": {
+          "x": 310,
+          "y": 2525,
+          "width": 300,
+          "height": 138
+        },
+        "ornamentBox": {
+          "x": 444,
+          "y": 1260,
+          "width": 1160,
+          "height": 650,
+          "opacity": 0.9
+        },
+        "ornamentPlacement": {
+          "x": 471.6351351351351,
+          "y": 1260,
+          "width": 1104.7297297297298,
+          "height": 650
+        },
+        "ornamentDigest": "70c58500dfd07879eef40896bfe88d581ddaebf73ab63b73d5be6472aa93a09e",
+        "printedFonts": [
+          "Aboensis"
+        ],
+        "textBounds": [
+          {
+            "block": "rubric",
+            "text": "A project remembrance",
+            "left": 775.0380706787109,
+            "right": 1274.2139434814453,
+            "top": 248,
+            "bottom": 314,
+            "fontSize": 52,
+            "baseline": 285,
+            "align": "center"
+          },
+          {
+            "block": "institution",
+            "text": "The Second Language",
+            "left": 415.21405029296875,
+            "right": 1635.3099975585938,
+            "top": 376,
+            "bottom": 540,
+            "fontSize": 124,
+            "baseline": 475,
+            "align": "center"
+          },
+          {
+            "block": "subtitle",
+            "text": "A Day in Another Tongue",
+            "left": 575.2230834960938,
+            "right": 1474.0589599609375,
+            "top": 582,
+            "bottom": 685,
+            "fontSize": 82,
+            "baseline": 650,
+            "align": "center"
+          },
+          {
+            "block": "verseBefore",
+            "text": "With a first word, the work begins:",
+            "left": 445.31707763671875,
+            "right": 1604.1109008789062,
+            "top": 808,
+            "bottom": 916,
+            "fontSize": 86,
+            "baseline": 875,
+            "align": "center"
+          },
+          {
+            "block": "verseBefore",
+            "text": "rain at the shutter, bread upon the board,",
+            "left": 309.48809814453125,
+            "right": 1729.3119506835938,
+            "top": 955,
+            "bottom": 1060,
+            "fontSize": 86,
+            "baseline": 1015,
+            "align": "center"
+          },
+          {
+            "block": "verseBefore",
+            "text": "a greeting answered at an open door.",
+            "left": 385.654052734375,
+            "right": 1660.241943359375,
+            "top": 1096,
+            "bottom": 1204,
+            "fontSize": 86,
+            "baseline": 1155,
+            "align": "center"
+          },
+          {
+            "block": "verseAfter",
+            "text": "Page will follow page.",
+            "left": 634.5350341796875,
+            "right": 1413.7049560546875,
+            "top": 1979,
+            "bottom": 2092,
+            "fontSize": 90,
+            "baseline": 2040,
+            "align": "center"
+          },
+          {
+            "block": "verseAfter",
+            "text": "Another tongue enters the day.",
+            "left": 482.00006103515625,
+            "right": 1563.2399291992188,
+            "top": 2117,
+            "bottom": 2219,
+            "fontSize": 90,
+            "baseline": 2180,
+            "align": "center"
+          },
+          {
+            "block": "colophon",
+            "text": "For Gual Wells,",
+            "left": 824.4720458984375,
+            "right": 1224.3279418945312,
+            "top": 2312,
+            "bottom": 2384,
+            "fontSize": 56,
+            "baseline": 2350,
+            "align": "center"
+          },
+          {
+            "block": "colophon",
+            "text": "to mark the beginning of The Second Language.",
+            "left": 454.3402099609375,
+            "right": 1586.475830078125,
+            "top": 2395,
+            "bottom": 2469,
+            "fontSize": 56,
+            "baseline": 2440,
+            "align": "center"
+          },
+          {
+            "block": "identity",
+            "text": "Made 21 October 2026",
+            "left": 737,
+            "right": 1146.535888671875,
+            "top": 2512,
+            "bottom": 2569,
+            "fontSize": 42,
+            "baseline": 2545,
+            "align": "left"
+          },
+          {
+            "block": "identity",
+            "text": "20:10:23.227 +08:00",
+            "left": 750,
+            "right": 1096.121826171875,
+            "top": 2589,
+            "bottom": 2635,
+            "fontSize": 42,
+            "baseline": 2615,
+            "align": "left"
+          },
+          {
+            "block": "identity",
+            "text": "Content mark 4A83 D195 2E13 3BCE",
+            "left": 751,
+            "right": 1420.4337158203125,
+            "top": 2650,
+            "bottom": 2707,
+            "fontSize": 42,
+            "baseline": 2685,
+            "align": "left"
+          },
+          {
+            "block": "status",
+            "text": "Private commemorative work",
+            "left": 793.2400817871094,
+            "right": 1263.5599060058594,
+            "top": 2734,
+            "bottom": 2788,
+            "fontSize": 40,
+            "baseline": 2765,
+            "align": "center"
+          }
+        ],
+        "blocks": [
+          {
+            "id": "rubric",
+            "x": 1024,
+            "y": 285,
+            "width": 1500,
+            "fontSize": 52,
+            "lineHeight": 74,
+            "align": "center",
+            "color": "#58372d",
+            "actualFontSize": 52
+          },
+          {
+            "id": "institution",
+            "x": 1024,
+            "y": 475,
+            "width": 1600,
+            "fontSize": 124,
+            "minFontSize": 116,
+            "lineHeight": 160,
+            "align": "center",
+            "color": "#30251b",
+            "actualFontSize": 124
+          },
+          {
+            "id": "subtitle",
+            "x": 1024,
+            "y": 650,
+            "width": 1560,
+            "fontSize": 82,
+            "lineHeight": 108,
+            "align": "center",
+            "color": "#30251b",
+            "actualFontSize": 82
+          },
+          {
+            "id": "verseBefore",
+            "x": 1024,
+            "y": 875,
+            "width": 1560,
+            "fontSize": 86,
+            "lineHeight": 140,
+            "align": "center",
+            "color": "#30251b",
+            "actualFontSize": 86
+          },
+          {
+            "id": "verseAfter",
+            "x": 1024,
+            "y": 2040,
+            "width": 1500,
+            "fontSize": 90,
+            "lineHeight": 140,
+            "align": "center",
+            "color": "#30251b",
+            "actualFontSize": 90
+          },
+          {
+            "id": "colophon",
+            "x": 1024,
+            "y": 2350,
+            "width": 1540,
+            "fontSize": 56,
+            "lineHeight": 90,
+            "align": "center",
+            "color": "#30251b",
+            "actualFontSize": 56
+          },
+          {
+            "id": "identity",
+            "x": 750,
+            "y": 2545,
+            "width": 1010,
+            "fontSize": 42,
+            "lineHeight": 70,
+            "align": "left",
+            "color": "#30251b",
+            "actualFontSize": 42
+          },
+          {
+            "id": "status",
+            "x": 1024,
+            "y": 2765,
+            "width": 1450,
+            "fontSize": 40,
+            "lineHeight": 54,
+            "align": "center",
+            "color": "#30251b",
+            "actualFontSize": 40
+          }
+        ],
+        "status": "commemorative",
+        "issued": false,
+        "recipient": "Gual Wells",
+        "identity": [
+          "Content mark 4A83 D195 2E13 3BCE",
+          "Made 21 October 2026",
+          "20:10:23.227 +08:00"
+        ],
+        "artifactDigest": "4a83d1952e133bcecd6c1aa2e14a788159b410e9a6ea2a7f5bcf42610943e37b",
+        "contentDigest": "4a83d1952e133bcecd6c1aa2e14a788159b410e9a6ea2a7f5bcf42610943e37b",
+        "artSeed": 1250152853,
+        "fixedSurfaces": true,
+        "frozen": true,
+        "frozenManifestURL": "http://127.0.0.1:8157/labs/project-beginning/assets/surfaces.json"
+      },
+      "mist": {
+        "available": true,
+        "enabled": true,
+        "frames": 1,
+        "time": 2.033333333333336,
+        "interactionEnergy": 0,
+        "drive": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+        "simulationHz": 30,
+        "fixedDirectionalInlet": false,
+        "regionalVelocities": [
+          -0.020485862923676927,
+          -0.004082536389315201,
+          0.002640794078327065,
+          -0.0015965025312611595,
+          -0.012321467390427039,
+          0.04617624871700925,
+          0.0020262034236530765,
+          0.000357739375534707
+        ],
+        "confinement": 0.38
+      },
+      "atmosphereWanted": true
+    },
+    "sound": {
+      "active": true,
+      "paused": false,
+      "disposed": false,
+      "unlocked": true,
+      "musicEnabled": true,
+      "foleyEnabled": true,
+      "musicVolume": 0.35,
+      "foleyVolume": 0.65,
+      "contextState": "running",
+      "musicTrack": "a-new-town",
+      "musicPosition": 8.010666666666667,
+      "musicDuration": 62.2565625,
+      "musicState": "playing",
+      "restRemainingMs": 0,
+      "completedPlays": 0,
+      "musicVoices": 1,
+      "foleyVoices": 0,
+      "downloaded": 13,
+      "decoded": [
+        "bendOpen",
+        "holeClose",
+        "slideOpen",
+        "tailOpen",
+        "bendClose",
+        "slideClose",
+        "park",
+        "seat",
+        "holeOpen",
+        "tailClose",
+        "paperUnroll",
+        "paperRollup",
+        "music"
+      ],
+      "failures": {},
+      "eventsPlayed": 0,
+      "lastEvent": null,
+      "materialTargets": {
+        "paper": 0,
+        "leather": 0
+      },
+      "materialLevels": {
+        "paper": 0,
+        "leather": 0
+      },
+      "performances": [],
+      "motionModel": "actual keeper path coordinates and paper winding velocity",
+      "contacts": [],
+      "listeningReview": "Pitch-preserving stretched Adobe performances with a continuous quiet tail; user adopted for normal automatic opening/closing on 2026-10-23. Original A/B keeper unchanged.",
+      "seamlessLoop": false,
+      "issued": false,
+      "variant": "recorded-foley-v42",
+      "candidateOnly": false,
+      "foleyMethod": "Adopted phase-based recorded keeper and independent paper performance",
+      "cueTrace": [],
+      "userApproved": true,
+      "paperState": "adopted-full-automatic-motion-tail",
+      "keeperReference": "466132c A/B",
+      "paperGain": 0,
+      "paperKey": null,
+      "paperExhausted": false,
+      "maximumPaperGain": 0.1,
+      "paperEnvelope": []
+    },
+    "document": {
+      "open": false,
+      "language": "en",
+      "ready": true,
+      "madeAt": "2026-10-21T12:10:23.227Z",
+      "publishedAt": null,
+      "contentSHA256": "4a83d1952e133bcecd6c1aa2e14a788159b410e9a6ea2a7f5bcf42610943e37b"
+    }
+  },
+  "opened": {
+    "open": true,
+    "ready": true,
+    "lost": false,
+    "chapter": null,
+    "workId": "project-beginning",
+    "category": "project-commemorative",
+    "issued": false,
+    "viewer": {
+      "progress": 1,
+      "paperProgress": 1,
+      "renderCount": 348,
+      "vertices": 14893,
+      "camera": [
+        0,
+        0,
+        12
+      ],
+      "keeperVisible": false,
+      "viewHeight": 11.088059701492536,
+      "drawBuffer": {
+        "width": 804,
+        "height": 1748
+      },
+      "deformation": "Continuous GPU winding and shared rest displacement",
+      "keeperMotion": "material-coordinate unfastening and rigid hinged prong",
+      "keeperSize": [
+        0.22978254735617945,
+        0.7659418245205982
+      ],
+      "specularIntensity": 0,
+      "toneMapping": "none; preserve source colors",
+      "restCurl": true,
+      "cameraType": "PerspectiveCamera",
+      "keeperPose": {
+        "r": 1,
+        "pin": -1.2,
+        "feed": 1,
+        "angle": 0.55,
+        "along": 10,
+        "sideMm": 0,
+        "circleCenter": [
+          3.646872468895074,
+          10.532281291615423
+        ],
+        "phase": "off",
+        "slide": 1,
+        "depart": 1,
+        "freeEndBehindFrame": true,
+        "expandedRadiusMm": 39.33302658638709,
+        "visible": false,
+        "opacity": 1,
+        "x": -3.4587197590548064,
+        "y": 3.103445130789676,
+        "z": 0.556465703397188,
+        "fitScale": 12.765697075343304,
+        "fitScaleVector": [
+          12.765697075343304,
+          12.765697075343304,
+          12.765697075343304
+        ],
+        "bandWidth": 0.22978254735617945,
+        "usesFade": false,
+        "usesStrapDeformation": true,
+        "deformation": "material-coordinate curve; dimensioned continuous cut mesh; native bevel residual",
+        "sourceBones": 76,
+        "restDeviationMm": {
+          "maximum": 5.542281843203895e-9,
+          "mean": 4.4898961188127906e-11
+        }
+      },
+      "sealRelief": true,
+      "runtime": {
+        "motionPrepared": true,
+        "preparationMs": 6031.5999999940395,
+        "preparedPrograms": 11,
+        "programs": 11
+      },
+      "edition": "project beginning — manufacturing trial",
+      "paperMaterial": "chapter-one scan microstructure starting profile; independent new albedo; retained v6 matte response",
+      "aging": {
+        "version": "v19 native multi-pass finishing",
+        "leather": [
+          "scanned grain",
+          "hide variation",
+          "dark contact polish",
+          "grain-coat loss",
+          "opened flex creases",
+          "worn hand-incised borders",
+          "terminal lozenge"
+        ],
+        "metal": [
+          "scanned microstructure",
+          "planishing depressions",
+          "file dressing",
+          "paired incised grooves",
+          "brown stable oxide",
+          "subdued crevice patina",
+          "rubbed crowns"
+        ],
+        "sourceGeometry": "unchanged v17",
+        "offlineBaked": true,
+        "noMold": true
+      },
+      "paperFolds": {
+        "provenance": "Trial approximation from the actual paper image; not precision measurement or artistic acceptance",
+        "diagonal": {
+          "offset": 0.229,
+          "slope": 0.179,
+          "width": 0.009,
+          "depth": 0.008
+        },
+        "lower": {
+          "offset": 0.655,
+          "sine": 0.021,
+          "slope": 0.005,
+          "width": 0.01,
+          "depth": 0.009
+        }
+      },
+      "paperProfilePrepared": true,
+      "paperProfile": {
+        "normalScale": [
+          0.035,
+          0.035
+        ],
+        "bumpScale": 0.0045,
+        "normal": {
+          "repeat": [
+            1.4,
+            2.1
+          ],
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "colorSpace": "",
+          "source": "http://127.0.0.1:8157/labs/chapter-scroll-v4/assets/skin-normal.jpg"
+        },
+        "roughness": {
+          "repeat": [
+            1.4,
+            2.1
+          ],
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "colorSpace": "",
+          "source": "http://127.0.0.1:8157/labs/chapter-scroll-v4/assets/skin-roughness.jpg"
+        },
+        "sheen": 0,
+        "specularIntensity": 0,
+        "envMapIntensity": 0.07,
+        "actualGPUVerified": false,
+        "artisticApproval": false
+      },
+      "ready": true,
+      "disposed": false,
+      "paused": false,
+      "lost": false,
+      "environmentAvailable": true,
+      "contextReleased": false,
+      "animating": false,
+      "chapterId": null,
+      "category": "project-commemorative",
+      "workId": "SL-PROJECT-BEGINNING-20261021",
+      "issued": false,
+      "status": "ready",
+      "error": null,
+      "layout": {
+        "width": 2048,
+        "height": 2868,
+        "nominalSizeMM": [
+          300,
+          420
+        ],
+        "artPlanId": "SL-PROJECT-BEGINNING-1",
+        "artPlanDigest": "e2e11c35d07383023cf454646d8ea7434f1b16622f5deae15cc2acf390065e9b",
+        "composition": "project-title-and-subtitle; three-verse-lines; daily-miniature; two-verse-lines; private-colophon-and-record",
+        "stage": "frozen",
+        "artisticApproval": "agent-review-for-user-evaluation",
+        "paperVariant": "independently-authored-project-beginning-sheet-trial",
+        "sealVersion": "SL-KEEPSAKE-1",
+        "sealVariant": "oblong",
+        "sealBox": {
+          "x": 310,
+          "y": 2525,
+          "width": 300,
+          "height": 138
+        },
+        "ornamentBox": {
+          "x": 444,
+          "y": 1260,
+          "width": 1160,
+          "height": 650,
+          "opacity": 0.9
+        },
+        "ornamentPlacement": {
+          "x": 471.6351351351351,
+          "y": 1260,
+          "width": 1104.7297297297298,
+          "height": 650
+        },
+        "ornamentDigest": "70c58500dfd07879eef40896bfe88d581ddaebf73ab63b73d5be6472aa93a09e",
+        "printedFonts": [
+          "Aboensis"
+        ],
+        "textBounds": [
+          {
+            "block": "rubric",
+            "text": "A project remembrance",
+            "left": 775.0380706787109,
+            "right": 1274.2139434814453,
+            "top": 248,
+            "bottom": 314,
+            "fontSize": 52,
+            "baseline": 285,
+            "align": "center"
+          },
+          {
+            "block": "institution",
+            "text": "The Second Language",
+            "left": 415.21405029296875,
+            "right": 1635.3099975585938,
+            "top": 376,
+            "bottom": 540,
+            "fontSize": 124,
+            "baseline": 475,
+            "align": "center"
+          },
+          {
+            "block": "subtitle",
+            "text": "A Day in Another Tongue",
+            "left": 575.2230834960938,
+            "right": 1474.0589599609375,
+            "top": 582,
+            "bottom": 685,
+            "fontSize": 82,
+            "baseline": 650,
+            "align": "center"
+          },
+          {
+            "block": "verseBefore",
+            "text": "With a first word, the work begins:",
+            "left": 445.31707763671875,
+            "right": 1604.1109008789062,
+            "top": 808,
+            "bottom": 916,
+            "fontSize": 86,
+            "baseline": 875,
+            "align": "center"
+          },
+          {
+            "block": "verseBefore",
+            "text": "rain at the shutter, bread upon the board,",
+            "left": 309.48809814453125,
+            "right": 1729.3119506835938,
+            "top": 955,
+            "bottom": 1060,
+            "fontSize": 86,
+            "baseline": 1015,
+            "align": "center"
+          },
+          {
+            "block": "verseBefore",
+            "text": "a greeting answered at an open door.",
+            "left": 385.654052734375,
+            "right": 1660.241943359375,
+            "top": 1096,
+            "bottom": 1204,
+            "fontSize": 86,
+            "baseline": 1155,
+            "align": "center"
+          },
+          {
+            "block": "verseAfter",
+            "text": "Page will follow page.",
+            "left": 634.5350341796875,
+            "right": 1413.7049560546875,
+            "top": 1979,
+            "bottom": 2092,
+            "fontSize": 90,
+            "baseline": 2040,
+            "align": "center"
+          },
+          {
+            "block": "verseAfter",
+            "text": "Another tongue enters the day.",
+            "left": 482.00006103515625,
+            "right": 1563.2399291992188,
+            "top": 2117,
+            "bottom": 2219,
+            "fontSize": 90,
+            "baseline": 2180,
+            "align": "center"
+          },
+          {
+            "block": "colophon",
+            "text": "For Gual Wells,",
+            "left": 824.4720458984375,
+            "right": 1224.3279418945312,
+            "top": 2312,
+            "bottom": 2384,
+            "fontSize": 56,
+            "baseline": 2350,
+            "align": "center"
+          },
+          {
+            "block": "colophon",
+            "text": "to mark the beginning of The Second Language.",
+            "left": 454.3402099609375,
+            "right": 1586.475830078125,
+            "top": 2395,
+            "bottom": 2469,
+            "fontSize": 56,
+            "baseline": 2440,
+            "align": "center"
+          },
+          {
+            "block": "identity",
+            "text": "Made 21 October 2026",
+            "left": 737,
+            "right": 1146.535888671875,
+            "top": 2512,
+            "bottom": 2569,
+            "fontSize": 42,
+            "baseline": 2545,
+            "align": "left"
+          },
+          {
+            "block": "identity",
+            "text": "20:10:23.227 +08:00",
+            "left": 750,
+            "right": 1096.121826171875,
+            "top": 2589,
+            "bottom": 2635,
+            "fontSize": 42,
+            "baseline": 2615,
+            "align": "left"
+          },
+          {
+            "block": "identity",
+            "text": "Content mark 4A83 D195 2E13 3BCE",
+            "left": 751,
+            "right": 1420.4337158203125,
+            "top": 2650,
+            "bottom": 2707,
+            "fontSize": 42,
+            "baseline": 2685,
+            "align": "left"
+          },
+          {
+            "block": "status",
+            "text": "Private commemorative work",
+            "left": 793.2400817871094,
+            "right": 1263.5599060058594,
+            "top": 2734,
+            "bottom": 2788,
+            "fontSize": 40,
+            "baseline": 2765,
+            "align": "center"
+          }
+        ],
+        "blocks": [
+          {
+            "id": "rubric",
+            "x": 1024,
+            "y": 285,
+            "width": 1500,
+            "fontSize": 52,
+            "lineHeight": 74,
+            "align": "center",
+            "color": "#58372d",
+            "actualFontSize": 52
+          },
+          {
+            "id": "institution",
+            "x": 1024,
+            "y": 475,
+            "width": 1600,
+            "fontSize": 124,
+            "minFontSize": 116,
+            "lineHeight": 160,
+            "align": "center",
+            "color": "#30251b",
+            "actualFontSize": 124
+          },
+          {
+            "id": "subtitle",
+            "x": 1024,
+            "y": 650,
+            "width": 1560,
+            "fontSize": 82,
+            "lineHeight": 108,
+            "align": "center",
+            "color": "#30251b",
+            "actualFontSize": 82
+          },
+          {
+            "id": "verseBefore",
+            "x": 1024,
+            "y": 875,
+            "width": 1560,
+            "fontSize": 86,
+            "lineHeight": 140,
+            "align": "center",
+            "color": "#30251b",
+            "actualFontSize": 86
+          },
+          {
+            "id": "verseAfter",
+            "x": 1024,
+            "y": 2040,
+            "width": 1500,
+            "fontSize": 90,
+            "lineHeight": 140,
+            "align": "center",
+            "color": "#30251b",
+            "actualFontSize": 90
+          },
+          {
+            "id": "colophon",
+            "x": 1024,
+            "y": 2350,
+            "width": 1540,
+            "fontSize": 56,
+            "lineHeight": 90,
+            "align": "center",
+            "color": "#30251b",
+            "actualFontSize": 56
+          },
+          {
+            "id": "identity",
+            "x": 750,
+            "y": 2545,
+            "width": 1010,
+            "fontSize": 42,
+            "lineHeight": 70,
+            "align": "left",
+            "color": "#30251b",
+            "actualFontSize": 42
+          },
+          {
+            "id": "status",
+            "x": 1024,
+            "y": 2765,
+            "width": 1450,
+            "fontSize": 40,
+            "lineHeight": 54,
+            "align": "center",
+            "color": "#30251b",
+            "actualFontSize": 40
+          }
+        ],
+        "status": "commemorative",
+        "issued": false,
+        "recipient": "Gual Wells",
+        "identity": [
+          "Content mark 4A83 D195 2E13 3BCE",
+          "Made 21 October 2026",
+          "20:10:23.227 +08:00"
+        ],
+        "artifactDigest": "4a83d1952e133bcecd6c1aa2e14a788159b410e9a6ea2a7f5bcf42610943e37b",
+        "contentDigest": "4a83d1952e133bcecd6c1aa2e14a788159b410e9a6ea2a7f5bcf42610943e37b",
+        "artSeed": 1250152853,
+        "fixedSurfaces": true,
+        "frozen": true,
+        "frozenManifestURL": "http://127.0.0.1:8157/labs/project-beginning/assets/surfaces.json"
+      },
+      "mist": {
+        "available": true,
+        "enabled": true,
+        "frames": 180,
+        "time": 7.999999999999981,
+        "interactionEnergy": 0.5080754251358108,
+        "drive": [
+          0.0001437455983149638,
+          -0.00014374559831478918,
+          -1.3215725083570084e-22,
+          -1.3011292138392897e-24
+        ],
+        "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+        "simulationHz": 30,
+        "fixedDirectionalInlet": false,
+        "regionalVelocities": [
+          -0.04483050977258452,
+          -0.023295025534037558,
+          -0.007044657638211223,
+          -0.00016281821665196664,
+          -0.00496634072856479,
+          0.008779637932243836,
+          0.012341174147897208,
+          0.003145911692798058
+        ],
+        "confinement": 0.38
+      },
+      "atmosphereWanted": true
+    },
+    "sound": {
+      "active": true,
+      "paused": false,
+      "disposed": false,
+      "unlocked": true,
+      "musicEnabled": true,
+      "foleyEnabled": true,
+      "musicVolume": 0.35,
+      "foleyVolume": 0.65,
+      "contextState": "running",
+      "musicTrack": "a-new-town",
+      "musicPosition": 13.96,
+      "musicDuration": 62.2565625,
+      "musicState": "playing",
+      "restRemainingMs": 0,
+      "completedPlays": 0,
+      "musicVoices": 1,
+      "foleyVoices": 1,
+      "downloaded": 13,
+      "decoded": [
+        "bendOpen",
+        "holeClose",
+        "slideOpen",
+        "tailOpen",
+        "bendClose",
+        "slideClose",
+        "park",
+        "seat",
+        "holeOpen",
+        "tailClose",
+        "paperUnroll",
+        "paperRollup",
+        "music"
+      ],
+      "failures": {},
+      "eventsPlayed": 6,
+      "lastEvent": "paperUnroll",
+      "materialTargets": {
+        "paper": 0,
+        "leather": 0
+      },
+      "materialLevels": {
+        "paper": 0,
+        "leather": 0
+      },
+      "performances": [
+        {
+          "key": "paperUnroll",
+          "loop": false,
+          "rate": 1,
+          "offset": 0,
+          "stopping": true
+        }
+      ],
+      "motionModel": "actual keeper path coordinates and paper winding velocity",
+      "contacts": [
+        {
+          "kind": "prong-park",
+          "progress": 0.31219430399999976,
+          "r": 0.7804857599999994,
+          "phase": "park-pin",
+          "pin": -1.2
+        }
+      ],
+      "listeningReview": "Pitch-preserving stretched Adobe performances with a continuous quiet tail; user adopted for normal automatic opening/closing on 2026-10-23. Original A/B keeper unchanged.",
+      "seamlessLoop": false,
+      "issued": false,
+      "variant": "recorded-foley-v42",
+      "candidateOnly": false,
+      "foleyMethod": "Adopted phase-based recorded keeper and independent paper performance",
+      "cueTrace": [
+        {
+          "key": "bendOpen",
+          "mode": "automatic",
+          "direction": 1,
+          "audioTime": 9.181333333333333,
+          "wallTime": 11654.199999988079,
+          "offset": 0,
+          "duration": 0.9,
+          "gain": 0.9,
+          "progress": 0.000026308875091109022,
+          "r": 0.00006577218772777256,
+          "phase": "unload-hole",
+          "contact": false
+        },
+        {
+          "key": "holeOpen",
+          "mode": "automatic",
+          "direction": 1,
+          "audioTime": 10.08,
+          "wallTime": 12556.09999999404,
+          "offset": 0,
+          "duration": 0.42,
+          "gain": 0.7,
+          "progress": 0.07406911382747576,
+          "r": 0.18517278456868938,
+          "phase": "release-hole",
+          "contact": false
+        },
+        {
+          "key": "tailOpen",
+          "mode": "automatic",
+          "direction": 1,
+          "audioTime": 10.501333333333333,
+          "wallTime": 12973.5,
+          "offset": 0,
+          "duration": 0.65,
+          "gain": 0.95,
+          "progress": 0.14632635978498543,
+          "r": 0.36581589946246357,
+          "phase": "withdraw-tail",
+          "contact": false
+        },
+        {
+          "key": "park",
+          "mode": "automatic",
+          "direction": 1,
+          "audioTime": 11.232,
+          "wallTime": 13705.5,
+          "offset": 0,
+          "duration": 0.17754166666666665,
+          "gain": 0.4,
+          "progress": 0.31219430399999976,
+          "r": 0.7804857599999994,
+          "phase": "park-pin",
+          "contact": true
+        },
+        {
+          "key": "slideOpen",
+          "mode": "automatic",
+          "direction": 1,
+          "audioTime": 11.250666666666667,
+          "wallTime": 13722.90000000596,
+          "offset": 0,
+          "duration": 0.24,
+          "gain": 0.65,
+          "progress": 0.3163811386320267,
+          "r": 0.7909528465800667,
+          "phase": "slide-clear",
+          "contact": false
+        },
+        {
+          "key": "paperUnroll",
+          "progress": 0.4023383489199502,
+          "paperProgress": 0.00389724819991695,
+          "audioTime": 11.581333333333333,
+          "offset": 0,
+          "rate": 1,
+          "loop": false,
+          "mode": "automatic"
+        }
+      ],
+      "userApproved": true,
+      "paperState": "adopted-full-automatic-motion-tail",
+      "keeperReference": "466132c A/B",
+      "paperGain": 0,
+      "paperKey": null,
+      "paperExhausted": false,
+      "maximumPaperGain": 0.1,
+      "paperEnvelope": [
+        {
+          "q": 0.00389724819991695,
+          "speed": 22.2237586663192,
+          "target": 0.043882263076077094,
+          "audioTime": 11.581333333333333
+        },
+        {
+          "q": 0.04053665445963547,
+          "speed": 139.873982173836,
+          "target": 0.08177393032157004,
+          "audioTime": 11.672
+        },
+        {
+          "q": 0.07748838386025925,
+          "speed": 174.61320964951773,
+          "target": 0.08478841494865208,
+          "audioTime": 11.752
+        },
+        {
+          "q": 0.11459861904122219,
+          "speed": 181.66761159976346,
+          "target": 0.08528255670384219,
+          "audioTime": 11.832
+        },
+        {
+          "q": 0.15175665960018847,
+          "speed": 186.5621685756037,
+          "target": 0.08560693548662995,
+          "audioTime": 11.92
+        },
+        {
+          "q": 0.18894109398727893,
+          "speed": 184.89833283305552,
+          "target": 0.0854982857975754,
+          "audioTime": 12
+        },
+        {
+          "q": 0.2260860956790567,
+          "speed": 187.75030034411807,
+          "target": 0.08568352907916982,
+          "audioTime": 12.08
+        },
+        {
+          "q": 0.26321458956923005,
+          "speed": 183.44317670537026,
+          "target": 0.08540190775486252,
+          "audioTime": 12.170666666666667
+        },
+        {
+          "q": 0.3000386257706395,
+          "speed": 187.72153684201257,
+          "target": 0.08568168446513494,
+          "audioTime": 12.250666666666667
+        },
+        {
+          "q": 0.336713852751894,
+          "speed": 184.6348820341386,
+          "target": 0.08548093147225859,
+          "audioTime": 12.330666666666668
+        },
+        {
+          "q": 0.3730854552173866,
+          "speed": 188.5367149032612,
+          "target": 0.08573377842560671,
+          "audioTime": 12.421333333333333
+        },
+        {
+          "q": 0.40904444925291533,
+          "speed": 178.32051900675887,
+          "target": 0.08505217253606207,
+          "audioTime": 12.501333333333333
+        },
+        {
+          "q": 0.4445264549477643,
+          "speed": 180.52226991617334,
+          "target": 0.08520452609765078,
+          "audioTime": 12.581333333333333
+        },
+        {
+          "q": 0.4795510048984716,
+          "speed": 178.44344262480016,
+          "target": 0.08506076118617616,
+          "audioTime": 12.672
+        },
+        {
+          "q": 0.51405035182825,
+          "speed": 175.90266078317723,
+          "target": 0.08488120403622335,
+          "audioTime": 12.752
+        },
+        {
+          "q": 0.5479160717030906,
+          "speed": 170.15472553701278,
+          "target": 0.08445860110003446,
+          "audioTime": 12.832
+        },
+        {
+          "q": 0.5810427785566996,
+          "speed": 168.3224690687743,
+          "target": 0.08431887103656241,
+          "audioTime": 12.92
+        },
+        {
+          "q": 0.6134823747741097,
+          "speed": 162.40245212907783,
+          "target": 0.08384968784225783,
+          "audioTime": 13
+        },
+        {
+          "q": 0.6449388440998538,
+          "speed": 160.9782006046941,
+          "target": 0.08373258365202571,
+          "audioTime": 13.08
+        },
+        {
+          "q": 0.6756489791844511,
+          "speed": 154.8031998615638,
+          "target": 0.08320455030686018,
+          "audioTime": 13.170666666666667
+        },
+        {
+          "q": 0.7053229774052476,
+          "speed": 152.01792009743684,
+          "target": 0.08295497180378186,
+          "audioTime": 13.250666666666667
+        },
+        {
+          "q": 0.7339359233333328,
+          "speed": 147.15958198077644,
+          "target": 0.0821753531265268,
+          "audioTime": 13.330666666666668
+        },
+        {
+          "q": 0.7615232332609028,
+          "speed": 141.1207649783699,
+          "target": 0.07922451471119826,
+          "audioTime": 13.421333333333333
+        },
+        {
+          "q": 0.7878868727604166,
+          "speed": 135.76967632013245,
+          "target": 0.07472286832611894,
+          "audioTime": 13.501333333333333
+        },
+        {
+          "q": 0.8131171116140328,
+          "speed": 128.85788796068886,
+          "target": 0.06911073869659307,
+          "audioTime": 13.581333333333333
+        },
+        {
+          "q": 0.8369947322511236,
+          "speed": 121.15010432413281,
+          "target": 0.0630514023266661,
+          "audioTime": 13.672
+        },
+        {
+          "q": 0.8595420310981535,
+          "speed": 115.94299951164142,
+          "target": 0.05730182861844461,
+          "audioTime": 13.752
+        },
+        {
+          "q": 0.8806145980174926,
+          "speed": 109.56095061168119,
+          "target": 0.05181976471392034,
+          "audioTime": 13.832
+        },
+        {
+          "q": 0.9002251900998955,
+          "speed": 101.68893450425998,
+          "target": 0.04676225849093999,
+          "audioTime": 13.92
+        },
+        {
+          "q": 0.9183025025908989,
+          "speed": 91.58327536689912,
+          "target": 0.04214187060632193,
+          "audioTime": 14
+        },
+        {
+          "q": 0.9347372922291058,
+          "speed": 85.72417305707748,
+          "target": 0.038698505446621095,
+          "audioTime": 14.08
+        },
+        {
+          "q": 0.9494863538985625,
+          "speed": 76.891522690852,
+          "target": 0.03556679612952557,
+          "audioTime": 14.170666666666667
+        },
+        {
+          "q": 0.9624838610758325,
+          "speed": 67.82096030628436,
+          "target": 0.03291732815797913,
+          "audioTime": 14.250666666666667
+        },
+        {
+          "q": 0.9736762901943632,
+          "speed": 58.5351630185545,
+          "target": 0.030568138043815894,
+          "audioTime": 14.330666666666668
+        },
+        {
+          "q": 0.9829809083398627,
+          "speed": 49.597347091620904,
+          "target": 0.028402173044529966,
+          "audioTime": 14.421333333333333
+        },
+        {
+          "q": 0.9903316516338679,
+          "speed": 39.194751486630544,
+          "target": 0.02574475220258815,
+          "audioTime": 14.501333333333333
+        },
+        {
+          "q": 0.9956521412937318,
+          "speed": 30.053172485723767,
+          "target": 0.022885602461485036,
+          "audioTime": 14.581333333333333
+        },
+        {
+          "q": 0.9988994032980102,
+          "speed": 19.653483554911922,
+          "target": 0.01851313788644338,
+          "audioTime": 14.672
+        },
+        {
+          "q": 0.9999999984056314,
+          "speed": 8.598838055509823,
+          "target": 0.01125806160772436,
+          "audioTime": 14.752
+        }
+      ]
+    },
+    "document": {
+      "open": false,
+      "language": "en",
+      "ready": true,
+      "madeAt": "2026-10-21T12:10:23.227Z",
+      "publishedAt": null,
+      "contentSHA256": "4a83d1952e133bcecd6c1aa2e14a788159b410e9a6ea2a7f5bcf42610943e37b"
+    }
+  },
+  "closed": {
+    "open": true,
+    "ready": true,
+    "lost": false,
+    "chapter": null,
+    "workId": "project-beginning",
+    "category": "project-commemorative",
+    "issued": false,
+    "viewer": {
+      "progress": 0,
+      "paperProgress": 0,
+      "renderCount": 687,
+      "vertices": 14893,
+      "camera": [
+        0,
+        0,
+        12
+      ],
+      "keeperVisible": true,
+      "viewHeight": 11.088059701492536,
+      "drawBuffer": {
+        "width": 804,
+        "height": 1748
+      },
+      "deformation": "Continuous GPU winding and shared rest displacement",
+      "keeperMotion": "material-coordinate unfastening and rigid hinged prong",
+      "keeperSize": [
+        0.22978254735617945,
+        0.7659418245205982
+      ],
+      "specularIntensity": 0,
+      "toneMapping": "none; preserve source colors",
+      "restCurl": true,
+      "cameraType": "PerspectiveCamera",
+      "keeperPose": {
+        "r": 0,
+        "pin": 0,
+        "feed": 0,
+        "angle": 0,
+        "along": 0,
+        "sideMm": 0,
+        "circleCenter": [
+          0,
+          0
+        ],
+        "phase": "fastened",
+        "slide": 0,
+        "depart": 0,
+        "freeEndBehindFrame": false,
+        "expandedRadiusMm": 30.00000857204946,
+        "visible": true,
+        "opacity": 1,
+        "x": 0,
+        "y": 0.008683982907575327,
+        "z": 0.30201379091612,
+        "fitScale": 12.765697075343304,
+        "fitScaleVector": [
+          12.765697075343304,
+          12.765697075343304,
+          12.765697075343304
+        ],
+        "bandWidth": 0.22978254735617945,
+        "usesFade": false,
+        "usesStrapDeformation": true,
+        "deformation": "material-coordinate curve; dimensioned continuous cut mesh; native bevel residual",
+        "sourceBones": 76,
+        "restDeviationMm": {
+          "maximum": 5.542281843203895e-9,
+          "mean": 4.4898961188127906e-11
+        }
+      },
+      "sealRelief": true,
+      "runtime": {
+        "motionPrepared": true,
+        "preparationMs": 6031.5999999940395,
+        "preparedPrograms": 11,
+        "programs": 11
+      },
+      "edition": "project beginning — manufacturing trial",
+      "paperMaterial": "chapter-one scan microstructure starting profile; independent new albedo; retained v6 matte response",
+      "aging": {
+        "version": "v19 native multi-pass finishing",
+        "leather": [
+          "scanned grain",
+          "hide variation",
+          "dark contact polish",
+          "grain-coat loss",
+          "opened flex creases",
+          "worn hand-incised borders",
+          "terminal lozenge"
+        ],
+        "metal": [
+          "scanned microstructure",
+          "planishing depressions",
+          "file dressing",
+          "paired incised grooves",
+          "brown stable oxide",
+          "subdued crevice patina",
+          "rubbed crowns"
+        ],
+        "sourceGeometry": "unchanged v17",
+        "offlineBaked": true,
+        "noMold": true
+      },
+      "paperFolds": {
+        "provenance": "Trial approximation from the actual paper image; not precision measurement or artistic acceptance",
+        "diagonal": {
+          "offset": 0.229,
+          "slope": 0.179,
+          "width": 0.009,
+          "depth": 0.008
+        },
+        "lower": {
+          "offset": 0.655,
+          "sine": 0.021,
+          "slope": 0.005,
+          "width": 0.01,
+          "depth": 0.009
+        }
+      },
+      "paperProfilePrepared": true,
+      "paperProfile": {
+        "normalScale": [
+          0.035,
+          0.035
+        ],
+        "bumpScale": 0.0045,
+        "normal": {
+          "repeat": [
+            1.4,
+            2.1
+          ],
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "colorSpace": "",
+          "source": "http://127.0.0.1:8157/labs/chapter-scroll-v4/assets/skin-normal.jpg"
+        },
+        "roughness": {
+          "repeat": [
+            1.4,
+            2.1
+          ],
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "colorSpace": "",
+          "source": "http://127.0.0.1:8157/labs/chapter-scroll-v4/assets/skin-roughness.jpg"
+        },
+        "sheen": 0,
+        "specularIntensity": 0,
+        "envMapIntensity": 0.07,
+        "actualGPUVerified": false,
+        "artisticApproval": false
+      },
+      "ready": true,
+      "disposed": false,
+      "paused": false,
+      "lost": false,
+      "environmentAvailable": true,
+      "contextReleased": false,
+      "animating": false,
+      "chapterId": null,
+      "category": "project-commemorative",
+      "workId": "SL-PROJECT-BEGINNING-20261021",
+      "issued": false,
+      "status": "ready",
+      "error": null,
+      "layout": {
+        "width": 2048,
+        "height": 2868,
+        "nominalSizeMM": [
+          300,
+          420
+        ],
+        "artPlanId": "SL-PROJECT-BEGINNING-1",
+        "artPlanDigest": "e2e11c35d07383023cf454646d8ea7434f1b16622f5deae15cc2acf390065e9b",
+        "composition": "project-title-and-subtitle; three-verse-lines; daily-miniature; two-verse-lines; private-colophon-and-record",
+        "stage": "frozen",
+        "artisticApproval": "agent-review-for-user-evaluation",
+        "paperVariant": "independently-authored-project-beginning-sheet-trial",
+        "sealVersion": "SL-KEEPSAKE-1",
+        "sealVariant": "oblong",
+        "sealBox": {
+          "x": 310,
+          "y": 2525,
+          "width": 300,
+          "height": 138
+        },
+        "ornamentBox": {
+          "x": 444,
+          "y": 1260,
+          "width": 1160,
+          "height": 650,
+          "opacity": 0.9
+        },
+        "ornamentPlacement": {
+          "x": 471.6351351351351,
+          "y": 1260,
+          "width": 1104.7297297297298,
+          "height": 650
+        },
+        "ornamentDigest": "70c58500dfd07879eef40896bfe88d581ddaebf73ab63b73d5be6472aa93a09e",
+        "printedFonts": [
+          "Aboensis"
+        ],
+        "textBounds": [
+          {
+            "block": "rubric",
+            "text": "A project remembrance",
+            "left": 775.0380706787109,
+            "right": 1274.2139434814453,
+            "top": 248,
+            "bottom": 314,
+            "fontSize": 52,
+            "baseline": 285,
+            "align": "center"
+          },
+          {
+            "block": "institution",
+            "text": "The Second Language",
+            "left": 415.21405029296875,
+            "right": 1635.3099975585938,
+            "top": 376,
+            "bottom": 540,
+            "fontSize": 124,
+            "baseline": 475,
+            "align": "center"
+          },
+          {
+            "block": "subtitle",
+            "text": "A Day in Another Tongue",
+            "left": 575.2230834960938,
+            "right": 1474.0589599609375,
+            "top": 582,
+            "bottom": 685,
+            "fontSize": 82,
+            "baseline": 650,
+            "align": "center"
+          },
+          {
+            "block": "verseBefore",
+            "text": "With a first word, the work begins:",
+            "left": 445.31707763671875,
+            "right": 1604.1109008789062,
+            "top": 808,
+            "bottom": 916,
+            "fontSize": 86,
+            "baseline": 875,
+            "align": "center"
+          },
+          {
+            "block": "verseBefore",
+            "text": "rain at the shutter, bread upon the board,",
+            "left": 309.48809814453125,
+            "right": 1729.3119506835938,
+            "top": 955,
+            "bottom": 1060,
+            "fontSize": 86,
+            "baseline": 1015,
+            "align": "center"
+          },
+          {
+            "block": "verseBefore",
+            "text": "a greeting answered at an open door.",
+            "left": 385.654052734375,
+            "right": 1660.241943359375,
+            "top": 1096,
+            "bottom": 1204,
+            "fontSize": 86,
+            "baseline": 1155,
+            "align": "center"
+          },
+          {
+            "block": "verseAfter",
+            "text": "Page will follow page.",
+            "left": 634.5350341796875,
+            "right": 1413.7049560546875,
+            "top": 1979,
+            "bottom": 2092,
+            "fontSize": 90,
+            "baseline": 2040,
+            "align": "center"
+          },
+          {
+            "block": "verseAfter",
+            "text": "Another tongue enters the day.",
+            "left": 482.00006103515625,
+            "right": 1563.2399291992188,
+            "top": 2117,
+            "bottom": 2219,
+            "fontSize": 90,
+            "baseline": 2180,
+            "align": "center"
+          },
+          {
+            "block": "colophon",
+            "text": "For Gual Wells,",
+            "left": 824.4720458984375,
+            "right": 1224.3279418945312,
+            "top": 2312,
+            "bottom": 2384,
+            "fontSize": 56,
+            "baseline": 2350,
+            "align": "center"
+          },
+          {
+            "block": "colophon",
+            "text": "to mark the beginning of The Second Language.",
+            "left": 454.3402099609375,
+            "right": 1586.475830078125,
+            "top": 2395,
+            "bottom": 2469,
+            "fontSize": 56,
+            "baseline": 2440,
+            "align": "center"
+          },
+          {
+            "block": "identity",
+            "text": "Made 21 October 2026",
+            "left": 737,
+            "right": 1146.535888671875,
+            "top": 2512,
+            "bottom": 2569,
+            "fontSize": 42,
+            "baseline": 2545,
+            "align": "left"
+          },
+          {
+            "block": "identity",
+            "text": "20:10:23.227 +08:00",
+            "left": 750,
+            "right": 1096.121826171875,
+            "top": 2589,
+            "bottom": 2635,
+            "fontSize": 42,
+            "baseline": 2615,
+            "align": "left"
+          },
+          {
+            "block": "identity",
+            "text": "Content mark 4A83 D195 2E13 3BCE",
+            "left": 751,
+            "right": 1420.4337158203125,
+            "top": 2650,
+            "bottom": 2707,
+            "fontSize": 42,
+            "baseline": 2685,
+            "align": "left"
+          },
+          {
+            "block": "status",
+            "text": "Private commemorative work",
+            "left": 793.2400817871094,
+            "right": 1263.5599060058594,
+            "top": 2734,
+            "bottom": 2788,
+            "fontSize": 40,
+            "baseline": 2765,
+            "align": "center"
+          }
+        ],
+        "blocks": [
+          {
+            "id": "rubric",
+            "x": 1024,
+            "y": 285,
+            "width": 1500,
+            "fontSize": 52,
+            "lineHeight": 74,
+            "align": "center",
+            "color": "#58372d",
+            "actualFontSize": 52
+          },
+          {
+            "id": "institution",
+            "x": 1024,
+            "y": 475,
+            "width": 1600,
+            "fontSize": 124,
+            "minFontSize": 116,
+            "lineHeight": 160,
+            "align": "center",
+            "color": "#30251b",
+            "actualFontSize": 124
+          },
+          {
+            "id": "subtitle",
+            "x": 1024,
+            "y": 650,
+            "width": 1560,
+            "fontSize": 82,
+            "lineHeight": 108,
+            "align": "center",
+            "color": "#30251b",
+            "actualFontSize": 82
+          },
+          {
+            "id": "verseBefore",
+            "x": 1024,
+            "y": 875,
+            "width": 1560,
+            "fontSize": 86,
+            "lineHeight": 140,
+            "align": "center",
+            "color": "#30251b",
+            "actualFontSize": 86
+          },
+          {
+            "id": "verseAfter",
+            "x": 1024,
+            "y": 2040,
+            "width": 1500,
+            "fontSize": 90,
+            "lineHeight": 140,
+            "align": "center",
+            "color": "#30251b",
+            "actualFontSize": 90
+          },
+          {
+            "id": "colophon",
+            "x": 1024,
+            "y": 2350,
+            "width": 1540,
+            "fontSize": 56,
+            "lineHeight": 90,
+            "align": "center",
+            "color": "#30251b",
+            "actualFontSize": 56
+          },
+          {
+            "id": "identity",
+            "x": 750,
+            "y": 2545,
+            "width": 1010,
+            "fontSize": 42,
+            "lineHeight": 70,
+            "align": "left",
+            "color": "#30251b",
+            "actualFontSize": 42
+          },
+          {
+            "id": "status",
+            "x": 1024,
+            "y": 2765,
+            "width": 1450,
+            "fontSize": 40,
+            "lineHeight": 54,
+            "align": "center",
+            "color": "#30251b",
+            "actualFontSize": 40
+          }
+        ],
+        "status": "commemorative",
+        "issued": false,
+        "recipient": "Gual Wells",
+        "identity": [
+          "Content mark 4A83 D195 2E13 3BCE",
+          "Made 21 October 2026",
+          "20:10:23.227 +08:00"
+        ],
+        "artifactDigest": "4a83d1952e133bcecd6c1aa2e14a788159b410e9a6ea2a7f5bcf42610943e37b",
+        "contentDigest": "4a83d1952e133bcecd6c1aa2e14a788159b410e9a6ea2a7f5bcf42610943e37b",
+        "artSeed": 1250152853,
+        "fixedSurfaces": true,
+        "frozen": true,
+        "frozenManifestURL": "http://127.0.0.1:8157/labs/project-beginning/assets/surfaces.json"
+      },
+      "mist": {
+        "available": true,
+        "enabled": true,
+        "frames": 483,
+        "time": 18.10000000000006,
+        "interactionEnergy": 1.0105877661132043,
+        "drive": [
+          -1.4088688429452269e-18,
+          1.408868842945221e-18,
+          3.0465851204815248e-15,
+          -0.0000014882931434762818
+        ],
+        "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+        "simulationHz": 30,
+        "fixedDirectionalInlet": false,
+        "regionalVelocities": [
+          0.0028231569204744613,
+          -0.0011988279028269798,
+          -0.02276624196042804,
+          -0.011165038282216972,
+          0.00011989335913795817,
+          -0.00013695347650023108,
+          0.008125495773094786,
+          -0.0017062203430365044
+        ],
+        "confinement": 0.38
+      },
+      "atmosphereWanted": true
+    },
+    "sound": {
+      "active": true,
+      "paused": false,
+      "disposed": false,
+      "unlocked": true,
+      "musicEnabled": true,
+      "foleyEnabled": true,
+      "musicVolume": 0.35,
+      "foleyVolume": 0.65,
+      "contextState": "running",
+      "musicTrack": "a-new-town",
+      "musicPosition": 24.090666666666667,
+      "musicDuration": 62.2565625,
+      "musicState": "playing",
+      "restRemainingMs": 0,
+      "completedPlays": 0,
+      "musicVoices": 1,
+      "foleyVoices": 0,
+      "downloaded": 13,
+      "decoded": [
+        "bendOpen",
+        "holeClose",
+        "slideOpen",
+        "tailOpen",
+        "bendClose",
+        "slideClose",
+        "park",
+        "seat",
+        "holeOpen",
+        "tailClose",
+        "paperUnroll",
+        "paperRollup",
+        "music"
+      ],
+      "failures": {},
+      "eventsPlayed": 12,
+      "lastEvent": "seat",
+      "materialTargets": {
+        "paper": 0,
+        "leather": 0
+      },
+      "materialLevels": {
+        "paper": 0,
+        "leather": 0
+      },
+      "performances": [],
+      "motionModel": "actual keeper path coordinates and paper winding velocity",
+      "contacts": [
+        {
+          "kind": "prong-park",
+          "progress": 0.31219430399999976,
+          "r": 0.7804857599999994,
+          "phase": "park-pin",
+          "pin": -1.2
+        },
+        {
+          "kind": "prong-seat",
+          "progress": 0.004533132130803197,
+          "r": 0.011332830327007992,
+          "phase": "unload-hole",
+          "pin": -0.005126761077531018
+        }
+      ],
+      "listeningReview": "Pitch-preserving stretched Adobe performances with a continuous quiet tail; user adopted for normal automatic opening/closing on 2026-10-23. Original A/B keeper unchanged.",
+      "seamlessLoop": false,
+      "issued": false,
+      "variant": "recorded-foley-v42",
+      "candidateOnly": false,
+      "foleyMethod": "Adopted phase-based recorded keeper and independent paper performance",
+      "cueTrace": [
+        {
+          "key": "bendOpen",
+          "mode": "automatic",
+          "direction": 1,
+          "audioTime": 9.181333333333333,
+          "wallTime": 11654.199999988079,
+          "offset": 0,
+          "duration": 0.9,
+          "gain": 0.9,
+          "progress": 0.000026308875091109022,
+          "r": 0.00006577218772777256,
+          "phase": "unload-hole",
+          "contact": false
+        },
+        {
+          "key": "holeOpen",
+          "mode": "automatic",
+          "direction": 1,
+          "audioTime": 10.08,
+          "wallTime": 12556.09999999404,
+          "offset": 0,
+          "duration": 0.42,
+          "gain": 0.7,
+          "progress": 0.07406911382747576,
+          "r": 0.18517278456868938,
+          "phase": "release-hole",
+          "contact": false
+        },
+        {
+          "key": "tailOpen",
+          "mode": "automatic",
+          "direction": 1,
+          "audioTime": 10.501333333333333,
+          "wallTime": 12973.5,
+          "offset": 0,
+          "duration": 0.65,
+          "gain": 0.95,
+          "progress": 0.14632635978498543,
+          "r": 0.36581589946246357,
+          "phase": "withdraw-tail",
+          "contact": false
+        },
+        {
+          "key": "park",
+          "mode": "automatic",
+          "direction": 1,
+          "audioTime": 11.232,
+          "wallTime": 13705.5,
+          "offset": 0,
+          "duration": 0.17754166666666665,
+          "gain": 0.4,
+          "progress": 0.31219430399999976,
+          "r": 0.7804857599999994,
+          "phase": "park-pin",
+          "contact": true
+        },
+        {
+          "key": "slideOpen",
+          "mode": "automatic",
+          "direction": 1,
+          "audioTime": 11.250666666666667,
+          "wallTime": 13722.90000000596,
+          "offset": 0,
+          "duration": 0.24,
+          "gain": 0.65,
+          "progress": 0.3163811386320267,
+          "r": 0.7909528465800667,
+          "phase": "slide-clear",
+          "contact": false
+        },
+        {
+          "key": "paperUnroll",
+          "progress": 0.4023383489199502,
+          "paperProgress": 0.00389724819991695,
+          "audioTime": 11.581333333333333,
+          "offset": 0,
+          "rate": 1,
+          "loop": false,
+          "mode": "automatic"
+        },
+        {
+          "key": "paperRollup",
+          "progress": 0.9999841051235243,
+          "paperProgress": 0.9999735085392073,
+          "audioTime": 19.82133333333333,
+          "offset": 0,
+          "rate": 1,
+          "loop": false,
+          "mode": "automatic"
+        },
+        {
+          "key": "slideClose",
+          "mode": "automatic",
+          "direction": -1,
+          "audioTime": 23.08,
+          "wallTime": 25555.59999999404,
+          "offset": 0,
+          "duration": 0.24,
+          "gain": 0.65,
+          "progress": 0.37281804345393155,
+          "r": 0.9320451086348288,
+          "phase": "slide-clear",
+          "contact": false
+        },
+        {
+          "key": "tailClose",
+          "mode": "automatic",
+          "direction": -1,
+          "audioTime": 23.432,
+          "wallTime": 25904.59999999404,
+          "offset": 0,
+          "duration": 0.65,
+          "gain": 0.95,
+          "progress": 0.28426365722732794,
+          "r": 0.7106591430683198,
+          "phase": "withdraw-tail",
+          "contact": false
+        },
+        {
+          "key": "holeClose",
+          "mode": "automatic",
+          "direction": -1,
+          "audioTime": 24.072,
+          "wallTime": 26539.69999998808,
+          "offset": 0,
+          "duration": 0.42,
+          "gain": 0.7,
+          "progress": 0.14382538949694945,
+          "r": 0.35956347374237363,
+          "phase": "release-hole",
+          "contact": false
+        },
+        {
+          "key": "bendClose",
+          "mode": "automatic",
+          "direction": -1,
+          "audioTime": 24.501333333333335,
+          "wallTime": 26972.40000000596,
+          "offset": 0,
+          "duration": 0.9,
+          "gain": 0.9,
+          "progress": 0.06974965421748813,
+          "r": 0.17437413554372033,
+          "phase": "unload-hole",
+          "contact": false
+        },
+        {
+          "key": "seat",
+          "mode": "automatic",
+          "direction": -1,
+          "audioTime": 25.181333333333335,
+          "wallTime": 27656.59999999404,
+          "offset": 0,
+          "duration": 0.222375,
+          "gain": 0.4,
+          "progress": 0.004533132130803197,
+          "r": 0.011332830327007992,
+          "phase": "unload-hole",
+          "contact": true
+        }
+      ],
+      "userApproved": true,
+      "paperState": "adopted-full-automatic-motion-tail",
+      "keeperReference": "466132c A/B",
+      "paperGain": 0,
+      "paperKey": null,
+      "paperExhausted": false,
+      "maximumPaperGain": 0.1,
+      "paperEnvelope": [
+        {
+          "q": 0.00389724819991695,
+          "speed": 22.2237586663192,
+          "target": 0.043882263076077094,
+          "audioTime": 11.581333333333333
+        },
+        {
+          "q": 0.04053665445963547,
+          "speed": 139.873982173836,
+          "target": 0.08177393032157004,
+          "audioTime": 11.672
+        },
+        {
+          "q": 0.07748838386025925,
+          "speed": 174.61320964951773,
+          "target": 0.08478841494865208,
+          "audioTime": 11.752
+        },
+        {
+          "q": 0.11459861904122219,
+          "speed": 181.66761159976346,
+          "target": 0.08528255670384219,
+          "audioTime": 11.832
+        },
+        {
+          "q": 0.15175665960018847,
+          "speed": 186.5621685756037,
+          "target": 0.08560693548662995,
+          "audioTime": 11.92
+        },
+        {
+          "q": 0.18894109398727893,
+          "speed": 184.89833283305552,
+          "target": 0.0854982857975754,
+          "audioTime": 12
+        },
+        {
+          "q": 0.2260860956790567,
+          "speed": 187.75030034411807,
+          "target": 0.08568352907916982,
+          "audioTime": 12.08
+        },
+        {
+          "q": 0.26321458956923005,
+          "speed": 183.44317670537026,
+          "target": 0.08540190775486252,
+          "audioTime": 12.170666666666667
+        },
+        {
+          "q": 0.3000386257706395,
+          "speed": 187.72153684201257,
+          "target": 0.08568168446513494,
+          "audioTime": 12.250666666666667
+        },
+        {
+          "q": 0.336713852751894,
+          "speed": 184.6348820341386,
+          "target": 0.08548093147225859,
+          "audioTime": 12.330666666666668
+        },
+        {
+          "q": 0.3730854552173866,
+          "speed": 188.5367149032612,
+          "target": 0.08573377842560671,
+          "audioTime": 12.421333333333333
+        },
+        {
+          "q": 0.40904444925291533,
+          "speed": 178.32051900675887,
+          "target": 0.08505217253606207,
+          "audioTime": 12.501333333333333
+        },
+        {
+          "q": 0.4445264549477643,
+          "speed": 180.52226991617334,
+          "target": 0.08520452609765078,
+          "audioTime": 12.581333333333333
+        },
+        {
+          "q": 0.4795510048984716,
+          "speed": 178.44344262480016,
+          "target": 0.08506076118617616,
+          "audioTime": 12.672
+        },
+        {
+          "q": 0.51405035182825,
+          "speed": 175.90266078317723,
+          "target": 0.08488120403622335,
+          "audioTime": 12.752
+        },
+        {
+          "q": 0.5479160717030906,
+          "speed": 170.15472553701278,
+          "target": 0.08445860110003446,
+          "audioTime": 12.832
+        },
+        {
+          "q": 0.5810427785566996,
+          "speed": 168.3224690687743,
+          "target": 0.08431887103656241,
+          "audioTime": 12.92
+        },
+        {
+          "q": 0.6134823747741097,
+          "speed": 162.40245212907783,
+          "target": 0.08384968784225783,
+          "audioTime": 13
+        },
+        {
+          "q": 0.6449388440998538,
+          "speed": 160.9782006046941,
+          "target": 0.08373258365202571,
+          "audioTime": 13.08
+        },
+        {
+          "q": 0.6756489791844511,
+          "speed": 154.8031998615638,
+          "target": 0.08320455030686018,
+          "audioTime": 13.170666666666667
+        },
+        {
+          "q": 0.7053229774052476,
+          "speed": 152.01792009743684,
+          "target": 0.08295497180378186,
+          "audioTime": 13.250666666666667
+        },
+        {
+          "q": 0.7339359233333328,
+          "speed": 147.15958198077644,
+          "target": 0.0821753531265268,
+          "audioTime": 13.330666666666668
+        },
+        {
+          "q": 0.7615232332609028,
+          "speed": 141.1207649783699,
+          "target": 0.07922451471119826,
+          "audioTime": 13.421333333333333
+        },
+        {
+          "q": 0.7878868727604166,
+          "speed": 135.76967632013245,
+          "target": 0.07472286832611894,
+          "audioTime": 13.501333333333333
+        },
+        {
+          "q": 0.8131171116140328,
+          "speed": 128.85788796068886,
+          "target": 0.06911073869659307,
+          "audioTime": 13.581333333333333
+        },
+        {
+          "q": 0.8369947322511236,
+          "speed": 121.15010432413281,
+          "target": 0.0630514023266661,
+          "audioTime": 13.672
+        },
+        {
+          "q": 0.8595420310981535,
+          "speed": 115.94299951164142,
+          "target": 0.05730182861844461,
+          "audioTime": 13.752
+        },
+        {
+          "q": 0.8806145980174926,
+          "speed": 109.56095061168119,
+          "target": 0.05181976471392034,
+          "audioTime": 13.832
+        },
+        {
+          "q": 0.9002251900998955,
+          "speed": 101.68893450425998,
+          "target": 0.04676225849093999,
+          "audioTime": 13.92
+        },
+        {
+          "q": 0.9183025025908989,
+          "speed": 91.58327536689912,
+          "target": 0.04214187060632193,
+          "audioTime": 14
+        },
+        {
+          "q": 0.9347372922291058,
+          "speed": 85.72417305707748,
+          "target": 0.038698505446621095,
+          "audioTime": 14.08
+        },
+        {
+          "q": 0.9494863538985625,
+          "speed": 76.891522690852,
+          "target": 0.03556679612952557,
+          "audioTime": 14.170666666666667
+        },
+        {
+          "q": 0.9624838610758325,
+          "speed": 67.82096030628436,
+          "target": 0.03291732815797913,
+          "audioTime": 14.250666666666667
+        },
+        {
+          "q": 0.9736762901943632,
+          "speed": 58.5351630185545,
+          "target": 0.030568138043815894,
+          "audioTime": 14.330666666666668
+        },
+        {
+          "q": 0.9829809083398627,
+          "speed": 49.597347091620904,
+          "target": 0.028402173044529966,
+          "audioTime": 14.421333333333333
+        },
+        {
+          "q": 0.9903316516338679,
+          "speed": 39.194751486630544,
+          "target": 0.02574475220258815,
+          "audioTime": 14.501333333333333
+        },
+        {
+          "q": 0.9956521412937318,
+          "speed": 30.053172485723767,
+          "target": 0.022885602461485036,
+          "audioTime": 14.581333333333333
+        },
+        {
+          "q": 0.9988994032980102,
+          "speed": 19.653483554911922,
+          "target": 0.01851313788644338,
+          "audioTime": 14.672
+        },
+        {
+          "q": 0.9999999984056314,
+          "speed": 8.598838055509823,
+          "target": 0.01125806160772436,
+          "audioTime": 14.752
+        },
+        {
+          "q": 0.9999735085392073,
+          "speed": 0.15342687035668826,
+          "target": 0.0011634374744952118,
+          "audioTime": 19.82133333333333
+        },
+        {
+          "q": 0.9985383651513918,
+          "speed": 6.106071979765999,
+          "target": 0.019842803720519196,
+          "audioTime": 19.901333333333334
+        },
+        {
+          "q": 0.994972618949682,
+          "speed": 15.54847307655842,
+          "target": 0.03610875348717163,
+          "audioTime": 19.981333333333332
+        },
+        {
+          "q": 0.9893330471236838,
+          "speed": 24.442930922303137,
+          "target": 0.04604499147477802,
+          "audioTime": 20.072
+        },
+        {
+          "q": 0.981667778520217,
+          "speed": 34.49668805265373,
+          "target": 0.05401474731846578,
+          "audioTime": 20.16
+        },
+        {
+          "q": 0.9720921380036668,
+          "speed": 47.614616457102834,
+          "target": 0.061394714056682745,
+          "audioTime": 20.232
+        },
+        {
+          "q": 0.9606180324798748,
+          "speed": 56.056635422242195,
+          "target": 0.06499496668747025,
+          "audioTime": 20.32
+        },
+        {
+          "q": 0.9473492286394045,
+          "speed": 64.49383406971006,
+          "target": 0.06797387446318319,
+          "audioTime": 20.4
+        },
+        {
+          "q": 0.9323198664931144,
+          "speed": 73.90451860620469,
+          "target": 0.07074634890900976,
+          "audioTime": 20.48
+        },
+        {
+          "q": 0.9155898493770313,
+          "speed": 82.05645307652514,
+          "target": 0.07278495136011397,
+          "audioTime": 20.570666666666668
+        },
+        {
+          "q": 0.8973341071994985,
+          "speed": 90.91691362166159,
+          "target": 0.074699748698458,
+          "audioTime": 20.650666666666666
+        },
+        {
+          "q": 0.8774923744081736,
+          "speed": 97.4098441112368,
+          "target": 0.07593954682556098,
+          "audioTime": 20.730666666666668
+        },
+        {
+          "q": 0.8561460522299196,
+          "speed": 105.67313423686763,
+          "target": 0.07735138591396515,
+          "audioTime": 20.82133333333333
+        },
+        {
+          "q": 0.8333841094617505,
+          "speed": 113.3200287330611,
+          "target": 0.07851745733276809,
+          "audioTime": 20.901333333333334
+        },
+        {
+          "q": 0.8093319929977628,
+          "speed": 119.97479858175863,
+          "target": 0.07943845079260808,
+          "audioTime": 20.981333333333332
+        },
+        {
+          "q": 0.7839711879129487,
+          "speed": 125.01808682038838,
+          "target": 0.08008534312470106,
+          "audioTime": 21.072
+        },
+        {
+          "q": 0.7573630274941385,
+          "speed": 131.9160200110697,
+          "target": 0.08090678673691121,
+          "audioTime": 21.152
+        },
+        {
+          "q": 0.7296372126716203,
+          "speed": 138.50084906141961,
+          "target": 0.08162998555586717,
+          "audioTime": 21.232
+        },
+        {
+          "q": 0.7007931727456096,
+          "speed": 144.39904770128334,
+          "target": 0.08223269511779296,
+          "audioTime": 21.32
+        },
+        {
+          "q": 0.6709659704677521,
+          "speed": 149.21922783710545,
+          "target": 0.08269659308271438,
+          "audioTime": 21.4
+        },
+        {
+          "q": 0.64018748404928,
+          "speed": 154.29612634895122,
+          "target": 0.08315965993537477,
+          "audioTime": 21.48
+        },
+        {
+          "q": 0.6084850223394054,
+          "speed": 157.7842648987096,
+          "target": 0.08346368641201464,
+          "audioTime": 21.570666666666668
+        },
+        {
+          "q": 0.5760399648842394,
+          "speed": 162.87458765438572,
+          "target": 0.08388813577438668,
+          "audioTime": 21.650666666666666
+        },
+        {
+          "q": 0.5428025851845458,
+          "speed": 166.43192818344775,
+          "target": 0.08417203371210759,
+          "audioTime": 21.730666666666668
+        },
+        {
+          "q": 0.5088361136588498,
+          "speed": 170.2436194904224,
+          "target": 0.08446531685632198,
+          "audioTime": 21.82133333333333
+        },
+        {
+          "q": 0.4742878970674342,
+          "speed": 172.59072110263483,
+          "target": 0.08464055658855701,
+          "audioTime": 21.901333333333334
+        },
+        {
+          "q": 0.4391409843941395,
+          "speed": 176.94387924758857,
+          "target": 0.08495530710264304,
+          "audioTime": 21.981333333333332
+        },
+        {
+          "q": 0.40354555319336766,
+          "speed": 178.27586132645845,
+          "target": 0.08504904986302612,
+          "audioTime": 22.072
+        },
+        {
+          "q": 0.3675256080863552,
+          "speed": 181.2276565727549,
+          "target": 0.08525268083332252,
+          "audioTime": 22.152
+        },
+        {
+          "q": 0.33110311460040676,
+          "speed": 183.7094281073619,
+          "target": 0.08541963790177445,
+          "audioTime": 22.232
+        },
+        {
+          "q": 0.2944313092367166,
+          "speed": 184.01355081863426,
+          "target": 0.08543983727930737,
+          "audioTime": 22.32
+        },
+        {
+          "q": 0.2574881423266116,
+          "speed": 184.02815128765812,
+          "target": 0.08457836187552999,
+          "audioTime": 22.4
+        },
+        {
+          "q": 0.22042809898861002,
+          "speed": 187.66375551174596,
+          "target": 0.08018649811425295,
+          "audioTime": 22.48
+        },
+        {
+          "q": 0.18322819741004434,
+          "speed": 186.512385270784,
+          "target": 0.07261942231250067,
+          "audioTime": 22.570666666666668
+        },
+        {
+          "q": 0.14599890770329746,
+          "speed": 186.7431781189026,
+          "target": 0.0635859403480686,
+          "audioTime": 22.650666666666666
+        },
+        {
+          "q": 0.10893993561528664,
+          "speed": 188.25857556571873,
+          "target": 0.05442842444012419,
+          "audioTime": 22.730666666666668
+        },
+        {
+          "q": 0.0718495733280422,
+          "speed": 185.26355134288895,
+          "target": 0.046187194879472634,
+          "audioTime": 22.82133333333333
+        },
+        {
+          "q": 0.034927776908154254,
+          "speed": 187.26222167700158,
+          "target": 0.04055970806852507,
+          "audioTime": 22.901333333333334
+        }
+      ]
+    },
+    "document": {
+      "open": false,
+      "language": "zh-CN",
+      "ready": true,
+      "madeAt": "2026-10-21T12:10:23.227Z",
+      "publishedAt": null,
+      "contentSHA256": "4a83d1952e133bcecd6c1aa2e14a788159b410e9a6ea2a7f5bcf42610943e37b"
+    }
+  },
+  "exited": {
+    "open": false,
+    "ready": false,
+    "lost": false,
+    "chapter": null,
+    "workId": "project-beginning",
+    "category": "project-commemorative",
+    "issued": false,
+    "sound": {
+      "active": false,
+      "paused": false,
+      "disposed": false,
+      "unlocked": true,
+      "musicEnabled": true,
+      "foleyEnabled": true,
+      "musicVolume": 0.35,
+      "foleyVolume": 0.65,
+      "contextState": "running",
+      "musicTrack": null,
+      "musicPosition": 24.18133333333334,
+      "musicDuration": 62.2565625,
+      "musicState": "paused",
+      "restRemainingMs": 0,
+      "completedPlays": 0,
+      "musicVoices": 0,
+      "foleyVoices": 0,
+      "downloaded": 13,
+      "decoded": [
+        "bendOpen",
+        "holeClose",
+        "slideOpen",
+        "tailOpen",
+        "bendClose",
+        "slideClose",
+        "park",
+        "seat",
+        "holeOpen",
+        "tailClose",
+        "paperUnroll",
+        "paperRollup",
+        "music"
+      ],
+      "failures": {},
+      "eventsPlayed": 12,
+      "lastEvent": "seat",
+      "materialTargets": {
+        "paper": 0,
+        "leather": 0
+      },
+      "materialLevels": {
+        "paper": 0,
+        "leather": 0
+      },
+      "performances": [],
+      "motionModel": "actual keeper path coordinates and paper winding velocity",
+      "contacts": [
+        {
+          "kind": "prong-park",
+          "progress": 0.31219430399999976,
+          "r": 0.7804857599999994,
+          "phase": "park-pin",
+          "pin": -1.2
+        },
+        {
+          "kind": "prong-seat",
+          "progress": 0.004533132130803197,
+          "r": 0.011332830327007992,
+          "phase": "unload-hole",
+          "pin": -0.005126761077531018
+        }
+      ],
+      "listeningReview": "Pitch-preserving stretched Adobe performances with a continuous quiet tail; user adopted for normal automatic opening/closing on 2026-10-23. Original A/B keeper unchanged.",
+      "seamlessLoop": false,
+      "issued": false,
+      "variant": "recorded-foley-v42",
+      "candidateOnly": false,
+      "foleyMethod": "Adopted phase-based recorded keeper and independent paper performance",
+      "cueTrace": [
+        {
+          "key": "bendOpen",
+          "mode": "automatic",
+          "direction": 1,
+          "audioTime": 9.181333333333333,
+          "wallTime": 11654.199999988079,
+          "offset": 0,
+          "duration": 0.9,
+          "gain": 0.9,
+          "progress": 0.000026308875091109022,
+          "r": 0.00006577218772777256,
+          "phase": "unload-hole",
+          "contact": false
+        },
+        {
+          "key": "holeOpen",
+          "mode": "automatic",
+          "direction": 1,
+          "audioTime": 10.08,
+          "wallTime": 12556.09999999404,
+          "offset": 0,
+          "duration": 0.42,
+          "gain": 0.7,
+          "progress": 0.07406911382747576,
+          "r": 0.18517278456868938,
+          "phase": "release-hole",
+          "contact": false
+        },
+        {
+          "key": "tailOpen",
+          "mode": "automatic",
+          "direction": 1,
+          "audioTime": 10.501333333333333,
+          "wallTime": 12973.5,
+          "offset": 0,
+          "duration": 0.65,
+          "gain": 0.95,
+          "progress": 0.14632635978498543,
+          "r": 0.36581589946246357,
+          "phase": "withdraw-tail",
+          "contact": false
+        },
+        {
+          "key": "park",
+          "mode": "automatic",
+          "direction": 1,
+          "audioTime": 11.232,
+          "wallTime": 13705.5,
+          "offset": 0,
+          "duration": 0.17754166666666665,
+          "gain": 0.4,
+          "progress": 0.31219430399999976,
+          "r": 0.7804857599999994,
+          "phase": "park-pin",
+          "contact": true
+        },
+        {
+          "key": "slideOpen",
+          "mode": "automatic",
+          "direction": 1,
+          "audioTime": 11.250666666666667,
+          "wallTime": 13722.90000000596,
+          "offset": 0,
+          "duration": 0.24,
+          "gain": 0.65,
+          "progress": 0.3163811386320267,
+          "r": 0.7909528465800667,
+          "phase": "slide-clear",
+          "contact": false
+        },
+        {
+          "key": "paperUnroll",
+          "progress": 0.4023383489199502,
+          "paperProgress": 0.00389724819991695,
+          "audioTime": 11.581333333333333,
+          "offset": 0,
+          "rate": 1,
+          "loop": false,
+          "mode": "automatic"
+        },
+        {
+          "key": "paperRollup",
+          "progress": 0.9999841051235243,
+          "paperProgress": 0.9999735085392073,
+          "audioTime": 19.82133333333333,
+          "offset": 0,
+          "rate": 1,
+          "loop": false,
+          "mode": "automatic"
+        },
+        {
+          "key": "slideClose",
+          "mode": "automatic",
+          "direction": -1,
+          "audioTime": 23.08,
+          "wallTime": 25555.59999999404,
+          "offset": 0,
+          "duration": 0.24,
+          "gain": 0.65,
+          "progress": 0.37281804345393155,
+          "r": 0.9320451086348288,
+          "phase": "slide-clear",
+          "contact": false
+        },
+        {
+          "key": "tailClose",
+          "mode": "automatic",
+          "direction": -1,
+          "audioTime": 23.432,
+          "wallTime": 25904.59999999404,
+          "offset": 0,
+          "duration": 0.65,
+          "gain": 0.95,
+          "progress": 0.28426365722732794,
+          "r": 0.7106591430683198,
+          "phase": "withdraw-tail",
+          "contact": false
+        },
+        {
+          "key": "holeClose",
+          "mode": "automatic",
+          "direction": -1,
+          "audioTime": 24.072,
+          "wallTime": 26539.69999998808,
+          "offset": 0,
+          "duration": 0.42,
+          "gain": 0.7,
+          "progress": 0.14382538949694945,
+          "r": 0.35956347374237363,
+          "phase": "release-hole",
+          "contact": false
+        },
+        {
+          "key": "bendClose",
+          "mode": "automatic",
+          "direction": -1,
+          "audioTime": 24.501333333333335,
+          "wallTime": 26972.40000000596,
+          "offset": 0,
+          "duration": 0.9,
+          "gain": 0.9,
+          "progress": 0.06974965421748813,
+          "r": 0.17437413554372033,
+          "phase": "unload-hole",
+          "contact": false
+        },
+        {
+          "key": "seat",
+          "mode": "automatic",
+          "direction": -1,
+          "audioTime": 25.181333333333335,
+          "wallTime": 27656.59999999404,
+          "offset": 0,
+          "duration": 0.222375,
+          "gain": 0.4,
+          "progress": 0.004533132130803197,
+          "r": 0.011332830327007992,
+          "phase": "unload-hole",
+          "contact": true
+        }
+      ],
+      "userApproved": true,
+      "paperState": "adopted-full-automatic-motion-tail",
+      "keeperReference": "466132c A/B",
+      "paperGain": 0,
+      "paperKey": null,
+      "paperExhausted": false,
+      "maximumPaperGain": 0.1,
+      "paperEnvelope": [
+        {
+          "q": 0.00389724819991695,
+          "speed": 22.2237586663192,
+          "target": 0.043882263076077094,
+          "audioTime": 11.581333333333333
+        },
+        {
+          "q": 0.04053665445963547,
+          "speed": 139.873982173836,
+          "target": 0.08177393032157004,
+          "audioTime": 11.672
+        },
+        {
+          "q": 0.07748838386025925,
+          "speed": 174.61320964951773,
+          "target": 0.08478841494865208,
+          "audioTime": 11.752
+        },
+        {
+          "q": 0.11459861904122219,
+          "speed": 181.66761159976346,
+          "target": 0.08528255670384219,
+          "audioTime": 11.832
+        },
+        {
+          "q": 0.15175665960018847,
+          "speed": 186.5621685756037,
+          "target": 0.08560693548662995,
+          "audioTime": 11.92
+        },
+        {
+          "q": 0.18894109398727893,
+          "speed": 184.89833283305552,
+          "target": 0.0854982857975754,
+          "audioTime": 12
+        },
+        {
+          "q": 0.2260860956790567,
+          "speed": 187.75030034411807,
+          "target": 0.08568352907916982,
+          "audioTime": 12.08
+        },
+        {
+          "q": 0.26321458956923005,
+          "speed": 183.44317670537026,
+          "target": 0.08540190775486252,
+          "audioTime": 12.170666666666667
+        },
+        {
+          "q": 0.3000386257706395,
+          "speed": 187.72153684201257,
+          "target": 0.08568168446513494,
+          "audioTime": 12.250666666666667
+        },
+        {
+          "q": 0.336713852751894,
+          "speed": 184.6348820341386,
+          "target": 0.08548093147225859,
+          "audioTime": 12.330666666666668
+        },
+        {
+          "q": 0.3730854552173866,
+          "speed": 188.5367149032612,
+          "target": 0.08573377842560671,
+          "audioTime": 12.421333333333333
+        },
+        {
+          "q": 0.40904444925291533,
+          "speed": 178.32051900675887,
+          "target": 0.08505217253606207,
+          "audioTime": 12.501333333333333
+        },
+        {
+          "q": 0.4445264549477643,
+          "speed": 180.52226991617334,
+          "target": 0.08520452609765078,
+          "audioTime": 12.581333333333333
+        },
+        {
+          "q": 0.4795510048984716,
+          "speed": 178.44344262480016,
+          "target": 0.08506076118617616,
+          "audioTime": 12.672
+        },
+        {
+          "q": 0.51405035182825,
+          "speed": 175.90266078317723,
+          "target": 0.08488120403622335,
+          "audioTime": 12.752
+        },
+        {
+          "q": 0.5479160717030906,
+          "speed": 170.15472553701278,
+          "target": 0.08445860110003446,
+          "audioTime": 12.832
+        },
+        {
+          "q": 0.5810427785566996,
+          "speed": 168.3224690687743,
+          "target": 0.08431887103656241,
+          "audioTime": 12.92
+        },
+        {
+          "q": 0.6134823747741097,
+          "speed": 162.40245212907783,
+          "target": 0.08384968784225783,
+          "audioTime": 13
+        },
+        {
+          "q": 0.6449388440998538,
+          "speed": 160.9782006046941,
+          "target": 0.08373258365202571,
+          "audioTime": 13.08
+        },
+        {
+          "q": 0.6756489791844511,
+          "speed": 154.8031998615638,
+          "target": 0.08320455030686018,
+          "audioTime": 13.170666666666667
+        },
+        {
+          "q": 0.7053229774052476,
+          "speed": 152.01792009743684,
+          "target": 0.08295497180378186,
+          "audioTime": 13.250666666666667
+        },
+        {
+          "q": 0.7339359233333328,
+          "speed": 147.15958198077644,
+          "target": 0.0821753531265268,
+          "audioTime": 13.330666666666668
+        },
+        {
+          "q": 0.7615232332609028,
+          "speed": 141.1207649783699,
+          "target": 0.07922451471119826,
+          "audioTime": 13.421333333333333
+        },
+        {
+          "q": 0.7878868727604166,
+          "speed": 135.76967632013245,
+          "target": 0.07472286832611894,
+          "audioTime": 13.501333333333333
+        },
+        {
+          "q": 0.8131171116140328,
+          "speed": 128.85788796068886,
+          "target": 0.06911073869659307,
+          "audioTime": 13.581333333333333
+        },
+        {
+          "q": 0.8369947322511236,
+          "speed": 121.15010432413281,
+          "target": 0.0630514023266661,
+          "audioTime": 13.672
+        },
+        {
+          "q": 0.8595420310981535,
+          "speed": 115.94299951164142,
+          "target": 0.05730182861844461,
+          "audioTime": 13.752
+        },
+        {
+          "q": 0.8806145980174926,
+          "speed": 109.56095061168119,
+          "target": 0.05181976471392034,
+          "audioTime": 13.832
+        },
+        {
+          "q": 0.9002251900998955,
+          "speed": 101.68893450425998,
+          "target": 0.04676225849093999,
+          "audioTime": 13.92
+        },
+        {
+          "q": 0.9183025025908989,
+          "speed": 91.58327536689912,
+          "target": 0.04214187060632193,
+          "audioTime": 14
+        },
+        {
+          "q": 0.9347372922291058,
+          "speed": 85.72417305707748,
+          "target": 0.038698505446621095,
+          "audioTime": 14.08
+        },
+        {
+          "q": 0.9494863538985625,
+          "speed": 76.891522690852,
+          "target": 0.03556679612952557,
+          "audioTime": 14.170666666666667
+        },
+        {
+          "q": 0.9624838610758325,
+          "speed": 67.82096030628436,
+          "target": 0.03291732815797913,
+          "audioTime": 14.250666666666667
+        },
+        {
+          "q": 0.9736762901943632,
+          "speed": 58.5351630185545,
+          "target": 0.030568138043815894,
+          "audioTime": 14.330666666666668
+        },
+        {
+          "q": 0.9829809083398627,
+          "speed": 49.597347091620904,
+          "target": 0.028402173044529966,
+          "audioTime": 14.421333333333333
+        },
+        {
+          "q": 0.9903316516338679,
+          "speed": 39.194751486630544,
+          "target": 0.02574475220258815,
+          "audioTime": 14.501333333333333
+        },
+        {
+          "q": 0.9956521412937318,
+          "speed": 30.053172485723767,
+          "target": 0.022885602461485036,
+          "audioTime": 14.581333333333333
+        },
+        {
+          "q": 0.9988994032980102,
+          "speed": 19.653483554911922,
+          "target": 0.01851313788644338,
+          "audioTime": 14.672
+        },
+        {
+          "q": 0.9999999984056314,
+          "speed": 8.598838055509823,
+          "target": 0.01125806160772436,
+          "audioTime": 14.752
+        },
+        {
+          "q": 0.9999735085392073,
+          "speed": 0.15342687035668826,
+          "target": 0.0011634374744952118,
+          "audioTime": 19.82133333333333
+        },
+        {
+          "q": 0.9985383651513918,
+          "speed": 6.106071979765999,
+          "target": 0.019842803720519196,
+          "audioTime": 19.901333333333334
+        },
+        {
+          "q": 0.994972618949682,
+          "speed": 15.54847307655842,
+          "target": 0.03610875348717163,
+          "audioTime": 19.981333333333332
+        },
+        {
+          "q": 0.9893330471236838,
+          "speed": 24.442930922303137,
+          "target": 0.04604499147477802,
+          "audioTime": 20.072
+        },
+        {
+          "q": 0.981667778520217,
+          "speed": 34.49668805265373,
+          "target": 0.05401474731846578,
+          "audioTime": 20.16
+        },
+        {
+          "q": 0.9720921380036668,
+          "speed": 47.614616457102834,
+          "target": 0.061394714056682745,
+          "audioTime": 20.232
+        },
+        {
+          "q": 0.9606180324798748,
+          "speed": 56.056635422242195,
+          "target": 0.06499496668747025,
+          "audioTime": 20.32
+        },
+        {
+          "q": 0.9473492286394045,
+          "speed": 64.49383406971006,
+          "target": 0.06797387446318319,
+          "audioTime": 20.4
+        },
+        {
+          "q": 0.9323198664931144,
+          "speed": 73.90451860620469,
+          "target": 0.07074634890900976,
+          "audioTime": 20.48
+        },
+        {
+          "q": 0.9155898493770313,
+          "speed": 82.05645307652514,
+          "target": 0.07278495136011397,
+          "audioTime": 20.570666666666668
+        },
+        {
+          "q": 0.8973341071994985,
+          "speed": 90.91691362166159,
+          "target": 0.074699748698458,
+          "audioTime": 20.650666666666666
+        },
+        {
+          "q": 0.8774923744081736,
+          "speed": 97.4098441112368,
+          "target": 0.07593954682556098,
+          "audioTime": 20.730666666666668
+        },
+        {
+          "q": 0.8561460522299196,
+          "speed": 105.67313423686763,
+          "target": 0.07735138591396515,
+          "audioTime": 20.82133333333333
+        },
+        {
+          "q": 0.8333841094617505,
+          "speed": 113.3200287330611,
+          "target": 0.07851745733276809,
+          "audioTime": 20.901333333333334
+        },
+        {
+          "q": 0.8093319929977628,
+          "speed": 119.97479858175863,
+          "target": 0.07943845079260808,
+          "audioTime": 20.981333333333332
+        },
+        {
+          "q": 0.7839711879129487,
+          "speed": 125.01808682038838,
+          "target": 0.08008534312470106,
+          "audioTime": 21.072
+        },
+        {
+          "q": 0.7573630274941385,
+          "speed": 131.9160200110697,
+          "target": 0.08090678673691121,
+          "audioTime": 21.152
+        },
+        {
+          "q": 0.7296372126716203,
+          "speed": 138.50084906141961,
+          "target": 0.08162998555586717,
+          "audioTime": 21.232
+        },
+        {
+          "q": 0.7007931727456096,
+          "speed": 144.39904770128334,
+          "target": 0.08223269511779296,
+          "audioTime": 21.32
+        },
+        {
+          "q": 0.6709659704677521,
+          "speed": 149.21922783710545,
+          "target": 0.08269659308271438,
+          "audioTime": 21.4
+        },
+        {
+          "q": 0.64018748404928,
+          "speed": 154.29612634895122,
+          "target": 0.08315965993537477,
+          "audioTime": 21.48
+        },
+        {
+          "q": 0.6084850223394054,
+          "speed": 157.7842648987096,
+          "target": 0.08346368641201464,
+          "audioTime": 21.570666666666668
+        },
+        {
+          "q": 0.5760399648842394,
+          "speed": 162.87458765438572,
+          "target": 0.08388813577438668,
+          "audioTime": 21.650666666666666
+        },
+        {
+          "q": 0.5428025851845458,
+          "speed": 166.43192818344775,
+          "target": 0.08417203371210759,
+          "audioTime": 21.730666666666668
+        },
+        {
+          "q": 0.5088361136588498,
+          "speed": 170.2436194904224,
+          "target": 0.08446531685632198,
+          "audioTime": 21.82133333333333
+        },
+        {
+          "q": 0.4742878970674342,
+          "speed": 172.59072110263483,
+          "target": 0.08464055658855701,
+          "audioTime": 21.901333333333334
+        },
+        {
+          "q": 0.4391409843941395,
+          "speed": 176.94387924758857,
+          "target": 0.08495530710264304,
+          "audioTime": 21.981333333333332
+        },
+        {
+          "q": 0.40354555319336766,
+          "speed": 178.27586132645845,
+          "target": 0.08504904986302612,
+          "audioTime": 22.072
+        },
+        {
+          "q": 0.3675256080863552,
+          "speed": 181.2276565727549,
+          "target": 0.08525268083332252,
+          "audioTime": 22.152
+        },
+        {
+          "q": 0.33110311460040676,
+          "speed": 183.7094281073619,
+          "target": 0.08541963790177445,
+          "audioTime": 22.232
+        },
+        {
+          "q": 0.2944313092367166,
+          "speed": 184.01355081863426,
+          "target": 0.08543983727930737,
+          "audioTime": 22.32
+        },
+        {
+          "q": 0.2574881423266116,
+          "speed": 184.02815128765812,
+          "target": 0.08457836187552999,
+          "audioTime": 22.4
+        },
+        {
+          "q": 0.22042809898861002,
+          "speed": 187.66375551174596,
+          "target": 0.08018649811425295,
+          "audioTime": 22.48
+        },
+        {
+          "q": 0.18322819741004434,
+          "speed": 186.512385270784,
+          "target": 0.07261942231250067,
+          "audioTime": 22.570666666666668
+        },
+        {
+          "q": 0.14599890770329746,
+          "speed": 186.7431781189026,
+          "target": 0.0635859403480686,
+          "audioTime": 22.650666666666666
+        },
+        {
+          "q": 0.10893993561528664,
+          "speed": 188.25857556571873,
+          "target": 0.05442842444012419,
+          "audioTime": 22.730666666666668
+        },
+        {
+          "q": 0.0718495733280422,
+          "speed": 185.26355134288895,
+          "target": 0.046187194879472634,
+          "audioTime": 22.82133333333333
+        },
+        {
+          "q": 0.034927776908154254,
+          "speed": 187.26222167700158,
+          "target": 0.04055970806852507,
+          "audioTime": 22.901333333333334
+        }
+      ]
+    },
+    "document": {
+      "open": false,
+      "language": "en",
+      "ready": false,
+      "madeAt": null,
+      "publishedAt": null,
+      "contentSHA256": null
+    }
+  },
+  "hidden": {
+    "open": true,
+    "ready": true,
+    "lost": false,
+    "chapter": null,
+    "workId": "project-beginning",
+    "category": "project-commemorative",
+    "issued": false,
+    "viewer": {
+      "progress": 1,
+      "paperProgress": 1,
+      "renderCount": 348,
+      "vertices": 14893,
+      "camera": [
+        0,
+        0,
+        12
+      ],
+      "keeperVisible": false,
+      "viewHeight": 11.088059701492536,
+      "drawBuffer": {
+        "width": 804,
+        "height": 1748
+      },
+      "deformation": "Continuous GPU winding and shared rest displacement",
+      "keeperMotion": "material-coordinate unfastening and rigid hinged prong",
+      "keeperSize": [
+        0.22978254735617945,
+        0.7659418245205982
+      ],
+      "specularIntensity": 0,
+      "toneMapping": "none; preserve source colors",
+      "restCurl": true,
+      "cameraType": "PerspectiveCamera",
+      "keeperPose": {
+        "r": 1,
+        "pin": -1.2,
+        "feed": 1,
+        "angle": 0.55,
+        "along": 10,
+        "sideMm": 0,
+        "circleCenter": [
+          3.646872468895074,
+          10.532281291615423
+        ],
+        "phase": "off",
+        "slide": 1,
+        "depart": 1,
+        "freeEndBehindFrame": true,
+        "expandedRadiusMm": 39.33302658638709,
+        "visible": false,
+        "opacity": 1,
+        "x": -3.4587197590548064,
+        "y": 3.103445130789676,
+        "z": 0.556465703397188,
+        "fitScale": 12.765697075343304,
+        "fitScaleVector": [
+          12.765697075343304,
+          12.765697075343304,
+          12.765697075343304
+        ],
+        "bandWidth": 0.22978254735617945,
+        "usesFade": false,
+        "usesStrapDeformation": true,
+        "deformation": "material-coordinate curve; dimensioned continuous cut mesh; native bevel residual",
+        "sourceBones": 76,
+        "restDeviationMm": {
+          "maximum": 5.542281843203895e-9,
+          "mean": 4.4898961188127906e-11
+        }
+      },
+      "sealRelief": true,
+      "runtime": {
+        "motionPrepared": true,
+        "preparationMs": 6031.5999999940395,
+        "preparedPrograms": 11,
+        "programs": 11
+      },
+      "edition": "project beginning — manufacturing trial",
+      "paperMaterial": "chapter-one scan microstructure starting profile; independent new albedo; retained v6 matte response",
+      "aging": {
+        "version": "v19 native multi-pass finishing",
+        "leather": [
+          "scanned grain",
+          "hide variation",
+          "dark contact polish",
+          "grain-coat loss",
+          "opened flex creases",
+          "worn hand-incised borders",
+          "terminal lozenge"
+        ],
+        "metal": [
+          "scanned microstructure",
+          "planishing depressions",
+          "file dressing",
+          "paired incised grooves",
+          "brown stable oxide",
+          "subdued crevice patina",
+          "rubbed crowns"
+        ],
+        "sourceGeometry": "unchanged v17",
+        "offlineBaked": true,
+        "noMold": true
+      },
+      "paperFolds": {
+        "provenance": "Trial approximation from the actual paper image; not precision measurement or artistic acceptance",
+        "diagonal": {
+          "offset": 0.229,
+          "slope": 0.179,
+          "width": 0.009,
+          "depth": 0.008
+        },
+        "lower": {
+          "offset": 0.655,
+          "sine": 0.021,
+          "slope": 0.005,
+          "width": 0.01,
+          "depth": 0.009
+        }
+      },
+      "paperProfilePrepared": true,
+      "paperProfile": {
+        "normalScale": [
+          0.035,
+          0.035
+        ],
+        "bumpScale": 0.0045,
+        "normal": {
+          "repeat": [
+            1.4,
+            2.1
+          ],
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "colorSpace": "",
+          "source": "http://127.0.0.1:8157/labs/chapter-scroll-v4/assets/skin-normal.jpg"
+        },
+        "roughness": {
+          "repeat": [
+            1.4,
+            2.1
+          ],
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "colorSpace": "",
+          "source": "http://127.0.0.1:8157/labs/chapter-scroll-v4/assets/skin-roughness.jpg"
+        },
+        "sheen": 0,
+        "specularIntensity": 0,
+        "envMapIntensity": 0.07,
+        "actualGPUVerified": false,
+        "artisticApproval": false
+      },
+      "ready": true,
+      "disposed": false,
+      "paused": true,
+      "lost": false,
+      "environmentAvailable": true,
+      "contextReleased": false,
+      "animating": false,
+      "chapterId": null,
+      "category": "project-commemorative",
+      "workId": "SL-PROJECT-BEGINNING-20261021",
+      "issued": false,
+      "status": "ready",
+      "error": null,
+      "layout": {
+        "width": 2048,
+        "height": 2868,
+        "nominalSizeMM": [
+          300,
+          420
+        ],
+        "artPlanId": "SL-PROJECT-BEGINNING-1",
+        "artPlanDigest": "e2e11c35d07383023cf454646d8ea7434f1b16622f5deae15cc2acf390065e9b",
+        "composition": "project-title-and-subtitle; three-verse-lines; daily-miniature; two-verse-lines; private-colophon-and-record",
+        "stage": "frozen",
+        "artisticApproval": "agent-review-for-user-evaluation",
+        "paperVariant": "independently-authored-project-beginning-sheet-trial",
+        "sealVersion": "SL-KEEPSAKE-1",
+        "sealVariant": "oblong",
+        "sealBox": {
+          "x": 310,
+          "y": 2525,
+          "width": 300,
+          "height": 138
+        },
+        "ornamentBox": {
+          "x": 444,
+          "y": 1260,
+          "width": 1160,
+          "height": 650,
+          "opacity": 0.9
+        },
+        "ornamentPlacement": {
+          "x": 471.6351351351351,
+          "y": 1260,
+          "width": 1104.7297297297298,
+          "height": 650
+        },
+        "ornamentDigest": "70c58500dfd07879eef40896bfe88d581ddaebf73ab63b73d5be6472aa93a09e",
+        "printedFonts": [
+          "Aboensis"
+        ],
+        "textBounds": [
+          {
+            "block": "rubric",
+            "text": "A project remembrance",
+            "left": 775.0380706787109,
+            "right": 1274.2139434814453,
+            "top": 248,
+            "bottom": 314,
+            "fontSize": 52,
+            "baseline": 285,
+            "align": "center"
+          },
+          {
+            "block": "institution",
+            "text": "The Second Language",
+            "left": 415.21405029296875,
+            "right": 1635.3099975585938,
+            "top": 376,
+            "bottom": 540,
+            "fontSize": 124,
+            "baseline": 475,
+            "align": "center"
+          },
+          {
+            "block": "subtitle",
+            "text": "A Day in Another Tongue",
+            "left": 575.2230834960938,
+            "right": 1474.0589599609375,
+            "top": 582,
+            "bottom": 685,
+            "fontSize": 82,
+            "baseline": 650,
+            "align": "center"
+          },
+          {
+            "block": "verseBefore",
+            "text": "With a first word, the work begins:",
+            "left": 445.31707763671875,
+            "right": 1604.1109008789062,
+            "top": 808,
+            "bottom": 916,
+            "fontSize": 86,
+            "baseline": 875,
+            "align": "center"
+          },
+          {
+            "block": "verseBefore",
+            "text": "rain at the shutter, bread upon the board,",
+            "left": 309.48809814453125,
+            "right": 1729.3119506835938,
+            "top": 955,
+            "bottom": 1060,
+            "fontSize": 86,
+            "baseline": 1015,
+            "align": "center"
+          },
+          {
+            "block": "verseBefore",
+            "text": "a greeting answered at an open door.",
+            "left": 385.654052734375,
+            "right": 1660.241943359375,
+            "top": 1096,
+            "bottom": 1204,
+            "fontSize": 86,
+            "baseline": 1155,
+            "align": "center"
+          },
+          {
+            "block": "verseAfter",
+            "text": "Page will follow page.",
+            "left": 634.5350341796875,
+            "right": 1413.7049560546875,
+            "top": 1979,
+            "bottom": 2092,
+            "fontSize": 90,
+            "baseline": 2040,
+            "align": "center"
+          },
+          {
+            "block": "verseAfter",
+            "text": "Another tongue enters the day.",
+            "left": 482.00006103515625,
+            "right": 1563.2399291992188,
+            "top": 2117,
+            "bottom": 2219,
+            "fontSize": 90,
+            "baseline": 2180,
+            "align": "center"
+          },
+          {
+            "block": "colophon",
+            "text": "For Gual Wells,",
+            "left": 824.4720458984375,
+            "right": 1224.3279418945312,
+            "top": 2312,
+            "bottom": 2384,
+            "fontSize": 56,
+            "baseline": 2350,
+            "align": "center"
+          },
+          {
+            "block": "colophon",
+            "text": "to mark the beginning of The Second Language.",
+            "left": 454.3402099609375,
+            "right": 1586.475830078125,
+            "top": 2395,
+            "bottom": 2469,
+            "fontSize": 56,
+            "baseline": 2440,
+            "align": "center"
+          },
+          {
+            "block": "identity",
+            "text": "Made 21 October 2026",
+            "left": 737,
+            "right": 1146.535888671875,
+            "top": 2512,
+            "bottom": 2569,
+            "fontSize": 42,
+            "baseline": 2545,
+            "align": "left"
+          },
+          {
+            "block": "identity",
+            "text": "20:10:23.227 +08:00",
+            "left": 750,
+            "right": 1096.121826171875,
+            "top": 2589,
+            "bottom": 2635,
+            "fontSize": 42,
+            "baseline": 2615,
+            "align": "left"
+          },
+          {
+            "block": "identity",
+            "text": "Content mark 4A83 D195 2E13 3BCE",
+            "left": 751,
+            "right": 1420.4337158203125,
+            "top": 2650,
+            "bottom": 2707,
+            "fontSize": 42,
+            "baseline": 2685,
+            "align": "left"
+          },
+          {
+            "block": "status",
+            "text": "Private commemorative work",
+            "left": 793.2400817871094,
+            "right": 1263.5599060058594,
+            "top": 2734,
+            "bottom": 2788,
+            "fontSize": 40,
+            "baseline": 2765,
+            "align": "center"
+          }
+        ],
+        "blocks": [
+          {
+            "id": "rubric",
+            "x": 1024,
+            "y": 285,
+            "width": 1500,
+            "fontSize": 52,
+            "lineHeight": 74,
+            "align": "center",
+            "color": "#58372d",
+            "actualFontSize": 52
+          },
+          {
+            "id": "institution",
+            "x": 1024,
+            "y": 475,
+            "width": 1600,
+            "fontSize": 124,
+            "minFontSize": 116,
+            "lineHeight": 160,
+            "align": "center",
+            "color": "#30251b",
+            "actualFontSize": 124
+          },
+          {
+            "id": "subtitle",
+            "x": 1024,
+            "y": 650,
+            "width": 1560,
+            "fontSize": 82,
+            "lineHeight": 108,
+            "align": "center",
+            "color": "#30251b",
+            "actualFontSize": 82
+          },
+          {
+            "id": "verseBefore",
+            "x": 1024,
+            "y": 875,
+            "width": 1560,
+            "fontSize": 86,
+            "lineHeight": 140,
+            "align": "center",
+            "color": "#30251b",
+            "actualFontSize": 86
+          },
+          {
+            "id": "verseAfter",
+            "x": 1024,
+            "y": 2040,
+            "width": 1500,
+            "fontSize": 90,
+            "lineHeight": 140,
+            "align": "center",
+            "color": "#30251b",
+            "actualFontSize": 90
+          },
+          {
+            "id": "colophon",
+            "x": 1024,
+            "y": 2350,
+            "width": 1540,
+            "fontSize": 56,
+            "lineHeight": 90,
+            "align": "center",
+            "color": "#30251b",
+            "actualFontSize": 56
+          },
+          {
+            "id": "identity",
+            "x": 750,
+            "y": 2545,
+            "width": 1010,
+            "fontSize": 42,
+            "lineHeight": 70,
+            "align": "left",
+            "color": "#30251b",
+            "actualFontSize": 42
+          },
+          {
+            "id": "status",
+            "x": 1024,
+            "y": 2765,
+            "width": 1450,
+            "fontSize": 40,
+            "lineHeight": 54,
+            "align": "center",
+            "color": "#30251b",
+            "actualFontSize": 40
+          }
+        ],
+        "status": "commemorative",
+        "issued": false,
+        "recipient": "Gual Wells",
+        "identity": [
+          "Content mark 4A83 D195 2E13 3BCE",
+          "Made 21 October 2026",
+          "20:10:23.227 +08:00"
+        ],
+        "artifactDigest": "4a83d1952e133bcecd6c1aa2e14a788159b410e9a6ea2a7f5bcf42610943e37b",
+        "contentDigest": "4a83d1952e133bcecd6c1aa2e14a788159b410e9a6ea2a7f5bcf42610943e37b",
+        "artSeed": 1250152853,
+        "fixedSurfaces": true,
+        "frozen": true,
+        "frozenManifestURL": "http://127.0.0.1:8157/labs/project-beginning/assets/surfaces.json"
+      },
+      "mist": {
+        "available": true,
+        "enabled": false,
+        "frames": 313,
+        "time": 12.4333333333333,
+        "interactionEnergy": 0.5080897282914227,
+        "drive": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+        "simulationHz": 30,
+        "fixedDirectionalInlet": false,
+        "regionalVelocities": [
+          -0.0020081811325343194,
+          -0.0019203550728524304,
+          -0.014404284458323348,
+          -0.002015072819288129,
+          -0.005587018291584709,
+          0.009492374723350357,
+          0.055435875198131486,
+          0.006637790304822533
+        ],
+        "confinement": 0.38
+      },
+      "atmosphereWanted": true
+    },
+    "sound": {
+      "active": true,
+      "paused": true,
+      "disposed": false,
+      "unlocked": true,
+      "musicEnabled": true,
+      "foleyEnabled": true,
+      "musicVolume": 0.35,
+      "foleyVolume": 0.65,
+      "contextState": "running",
+      "musicTrack": null,
+      "musicPosition": 18.400000000000002,
+      "musicDuration": 62.2565625,
+      "musicState": "paused",
+      "restRemainingMs": 0,
+      "completedPlays": 0,
+      "musicVoices": 0,
+      "foleyVoices": 0,
+      "downloaded": 13,
+      "decoded": [
+        "bendOpen",
+        "holeClose",
+        "slideOpen",
+        "tailOpen",
+        "bendClose",
+        "slideClose",
+        "park",
+        "seat",
+        "holeOpen",
+        "tailClose",
+        "paperUnroll",
+        "paperRollup",
+        "music"
+      ],
+      "failures": {},
+      "eventsPlayed": 6,
+      "lastEvent": "paperUnroll",
+      "materialTargets": {
+        "paper": 0,
+        "leather": 0
+      },
+      "materialLevels": {
+        "paper": 0,
+        "leather": 0
+      },
+      "performances": [],
+      "motionModel": "actual keeper path coordinates and paper winding velocity",
+      "contacts": [
+        {
+          "kind": "prong-park",
+          "progress": 0.31219430399999976,
+          "r": 0.7804857599999994,
+          "phase": "park-pin",
+          "pin": -1.2
+        }
+      ],
+      "listeningReview": "Pitch-preserving stretched Adobe performances with a continuous quiet tail; user adopted for normal automatic opening/closing on 2026-10-23. Original A/B keeper unchanged.",
+      "seamlessLoop": false,
+      "issued": false,
+      "variant": "recorded-foley-v42",
+      "candidateOnly": false,
+      "foleyMethod": "Adopted phase-based recorded keeper and independent paper performance",
+      "cueTrace": [
+        {
+          "key": "bendOpen",
+          "mode": "automatic",
+          "direction": 1,
+          "audioTime": 9.181333333333333,
+          "wallTime": 11654.199999988079,
+          "offset": 0,
+          "duration": 0.9,
+          "gain": 0.9,
+          "progress": 0.000026308875091109022,
+          "r": 0.00006577218772777256,
+          "phase": "unload-hole",
+          "contact": false
+        },
+        {
+          "key": "holeOpen",
+          "mode": "automatic",
+          "direction": 1,
+          "audioTime": 10.08,
+          "wallTime": 12556.09999999404,
+          "offset": 0,
+          "duration": 0.42,
+          "gain": 0.7,
+          "progress": 0.07406911382747576,
+          "r": 0.18517278456868938,
+          "phase": "release-hole",
+          "contact": false
+        },
+        {
+          "key": "tailOpen",
+          "mode": "automatic",
+          "direction": 1,
+          "audioTime": 10.501333333333333,
+          "wallTime": 12973.5,
+          "offset": 0,
+          "duration": 0.65,
+          "gain": 0.95,
+          "progress": 0.14632635978498543,
+          "r": 0.36581589946246357,
+          "phase": "withdraw-tail",
+          "contact": false
+        },
+        {
+          "key": "park",
+          "mode": "automatic",
+          "direction": 1,
+          "audioTime": 11.232,
+          "wallTime": 13705.5,
+          "offset": 0,
+          "duration": 0.17754166666666665,
+          "gain": 0.4,
+          "progress": 0.31219430399999976,
+          "r": 0.7804857599999994,
+          "phase": "park-pin",
+          "contact": true
+        },
+        {
+          "key": "slideOpen",
+          "mode": "automatic",
+          "direction": 1,
+          "audioTime": 11.250666666666667,
+          "wallTime": 13722.90000000596,
+          "offset": 0,
+          "duration": 0.24,
+          "gain": 0.65,
+          "progress": 0.3163811386320267,
+          "r": 0.7909528465800667,
+          "phase": "slide-clear",
+          "contact": false
+        },
+        {
+          "key": "paperUnroll",
+          "progress": 0.4023383489199502,
+          "paperProgress": 0.00389724819991695,
+          "audioTime": 11.581333333333333,
+          "offset": 0,
+          "rate": 1,
+          "loop": false,
+          "mode": "automatic"
+        }
+      ],
+      "userApproved": true,
+      "paperState": "adopted-full-automatic-motion-tail",
+      "keeperReference": "466132c A/B",
+      "paperGain": 0,
+      "paperKey": null,
+      "paperExhausted": false,
+      "maximumPaperGain": 0.1,
+      "paperEnvelope": [
+        {
+          "q": 0.00389724819991695,
+          "speed": 22.2237586663192,
+          "target": 0.043882263076077094,
+          "audioTime": 11.581333333333333
+        },
+        {
+          "q": 0.04053665445963547,
+          "speed": 139.873982173836,
+          "target": 0.08177393032157004,
+          "audioTime": 11.672
+        },
+        {
+          "q": 0.07748838386025925,
+          "speed": 174.61320964951773,
+          "target": 0.08478841494865208,
+          "audioTime": 11.752
+        },
+        {
+          "q": 0.11459861904122219,
+          "speed": 181.66761159976346,
+          "target": 0.08528255670384219,
+          "audioTime": 11.832
+        },
+        {
+          "q": 0.15175665960018847,
+          "speed": 186.5621685756037,
+          "target": 0.08560693548662995,
+          "audioTime": 11.92
+        },
+        {
+          "q": 0.18894109398727893,
+          "speed": 184.89833283305552,
+          "target": 0.0854982857975754,
+          "audioTime": 12
+        },
+        {
+          "q": 0.2260860956790567,
+          "speed": 187.75030034411807,
+          "target": 0.08568352907916982,
+          "audioTime": 12.08
+        },
+        {
+          "q": 0.26321458956923005,
+          "speed": 183.44317670537026,
+          "target": 0.08540190775486252,
+          "audioTime": 12.170666666666667
+        },
+        {
+          "q": 0.3000386257706395,
+          "speed": 187.72153684201257,
+          "target": 0.08568168446513494,
+          "audioTime": 12.250666666666667
+        },
+        {
+          "q": 0.336713852751894,
+          "speed": 184.6348820341386,
+          "target": 0.08548093147225859,
+          "audioTime": 12.330666666666668
+        },
+        {
+          "q": 0.3730854552173866,
+          "speed": 188.5367149032612,
+          "target": 0.08573377842560671,
+          "audioTime": 12.421333333333333
+        },
+        {
+          "q": 0.40904444925291533,
+          "speed": 178.32051900675887,
+          "target": 0.08505217253606207,
+          "audioTime": 12.501333333333333
+        },
+        {
+          "q": 0.4445264549477643,
+          "speed": 180.52226991617334,
+          "target": 0.08520452609765078,
+          "audioTime": 12.581333333333333
+        },
+        {
+          "q": 0.4795510048984716,
+          "speed": 178.44344262480016,
+          "target": 0.08506076118617616,
+          "audioTime": 12.672
+        },
+        {
+          "q": 0.51405035182825,
+          "speed": 175.90266078317723,
+          "target": 0.08488120403622335,
+          "audioTime": 12.752
+        },
+        {
+          "q": 0.5479160717030906,
+          "speed": 170.15472553701278,
+          "target": 0.08445860110003446,
+          "audioTime": 12.832
+        },
+        {
+          "q": 0.5810427785566996,
+          "speed": 168.3224690687743,
+          "target": 0.08431887103656241,
+          "audioTime": 12.92
+        },
+        {
+          "q": 0.6134823747741097,
+          "speed": 162.40245212907783,
+          "target": 0.08384968784225783,
+          "audioTime": 13
+        },
+        {
+          "q": 0.6449388440998538,
+          "speed": 160.9782006046941,
+          "target": 0.08373258365202571,
+          "audioTime": 13.08
+        },
+        {
+          "q": 0.6756489791844511,
+          "speed": 154.8031998615638,
+          "target": 0.08320455030686018,
+          "audioTime": 13.170666666666667
+        },
+        {
+          "q": 0.7053229774052476,
+          "speed": 152.01792009743684,
+          "target": 0.08295497180378186,
+          "audioTime": 13.250666666666667
+        },
+        {
+          "q": 0.7339359233333328,
+          "speed": 147.15958198077644,
+          "target": 0.0821753531265268,
+          "audioTime": 13.330666666666668
+        },
+        {
+          "q": 0.7615232332609028,
+          "speed": 141.1207649783699,
+          "target": 0.07922451471119826,
+          "audioTime": 13.421333333333333
+        },
+        {
+          "q": 0.7878868727604166,
+          "speed": 135.76967632013245,
+          "target": 0.07472286832611894,
+          "audioTime": 13.501333333333333
+        },
+        {
+          "q": 0.8131171116140328,
+          "speed": 128.85788796068886,
+          "target": 0.06911073869659307,
+          "audioTime": 13.581333333333333
+        },
+        {
+          "q": 0.8369947322511236,
+          "speed": 121.15010432413281,
+          "target": 0.0630514023266661,
+          "audioTime": 13.672
+        },
+        {
+          "q": 0.8595420310981535,
+          "speed": 115.94299951164142,
+          "target": 0.05730182861844461,
+          "audioTime": 13.752
+        },
+        {
+          "q": 0.8806145980174926,
+          "speed": 109.56095061168119,
+          "target": 0.05181976471392034,
+          "audioTime": 13.832
+        },
+        {
+          "q": 0.9002251900998955,
+          "speed": 101.68893450425998,
+          "target": 0.04676225849093999,
+          "audioTime": 13.92
+        },
+        {
+          "q": 0.9183025025908989,
+          "speed": 91.58327536689912,
+          "target": 0.04214187060632193,
+          "audioTime": 14
+        },
+        {
+          "q": 0.9347372922291058,
+          "speed": 85.72417305707748,
+          "target": 0.038698505446621095,
+          "audioTime": 14.08
+        },
+        {
+          "q": 0.9494863538985625,
+          "speed": 76.891522690852,
+          "target": 0.03556679612952557,
+          "audioTime": 14.170666666666667
+        },
+        {
+          "q": 0.9624838610758325,
+          "speed": 67.82096030628436,
+          "target": 0.03291732815797913,
+          "audioTime": 14.250666666666667
+        },
+        {
+          "q": 0.9736762901943632,
+          "speed": 58.5351630185545,
+          "target": 0.030568138043815894,
+          "audioTime": 14.330666666666668
+        },
+        {
+          "q": 0.9829809083398627,
+          "speed": 49.597347091620904,
+          "target": 0.028402173044529966,
+          "audioTime": 14.421333333333333
+        },
+        {
+          "q": 0.9903316516338679,
+          "speed": 39.194751486630544,
+          "target": 0.02574475220258815,
+          "audioTime": 14.501333333333333
+        },
+        {
+          "q": 0.9956521412937318,
+          "speed": 30.053172485723767,
+          "target": 0.022885602461485036,
+          "audioTime": 14.581333333333333
+        },
+        {
+          "q": 0.9988994032980102,
+          "speed": 19.653483554911922,
+          "target": 0.01851313788644338,
+          "audioTime": 14.672
+        },
+        {
+          "q": 0.9999999984056314,
+          "speed": 8.598838055509823,
+          "target": 0.01125806160772436,
+          "audioTime": 14.752
+        }
+      ]
+    },
+    "document": {
+      "open": false,
+      "language": "zh-CN",
+      "ready": true,
+      "madeAt": "2026-10-21T12:10:23.227Z",
+      "publishedAt": null,
+      "contentSHA256": "4a83d1952e133bcecd6c1aa2e14a788159b410e9a6ea2a7f5bcf42610943e37b"
+    }
+  },
+  "resumed": {
+    "open": true,
+    "ready": true,
+    "lost": false,
+    "chapter": null,
+    "workId": "project-beginning",
+    "category": "project-commemorative",
+    "issued": false,
+    "viewer": {
+      "progress": 1,
+      "paperProgress": 1,
+      "renderCount": 350,
+      "vertices": 14893,
+      "camera": [
+        0,
+        0,
+        12
+      ],
+      "keeperVisible": false,
+      "viewHeight": 11.088059701492536,
+      "drawBuffer": {
+        "width": 804,
+        "height": 1748
+      },
+      "deformation": "Continuous GPU winding and shared rest displacement",
+      "keeperMotion": "material-coordinate unfastening and rigid hinged prong",
+      "keeperSize": [
+        0.22978254735617945,
+        0.7659418245205982
+      ],
+      "specularIntensity": 0,
+      "toneMapping": "none; preserve source colors",
+      "restCurl": true,
+      "cameraType": "PerspectiveCamera",
+      "keeperPose": {
+        "r": 1,
+        "pin": -1.2,
+        "feed": 1,
+        "angle": 0.55,
+        "along": 10,
+        "sideMm": 0,
+        "circleCenter": [
+          3.646872468895074,
+          10.532281291615423
+        ],
+        "phase": "off",
+        "slide": 1,
+        "depart": 1,
+        "freeEndBehindFrame": true,
+        "expandedRadiusMm": 39.33302658638709,
+        "visible": false,
+        "opacity": 1,
+        "x": -3.4587197590548064,
+        "y": 3.103445130789676,
+        "z": 0.556465703397188,
+        "fitScale": 12.765697075343304,
+        "fitScaleVector": [
+          12.765697075343304,
+          12.765697075343304,
+          12.765697075343304
+        ],
+        "bandWidth": 0.22978254735617945,
+        "usesFade": false,
+        "usesStrapDeformation": true,
+        "deformation": "material-coordinate curve; dimensioned continuous cut mesh; native bevel residual",
+        "sourceBones": 76,
+        "restDeviationMm": {
+          "maximum": 5.542281843203895e-9,
+          "mean": 4.4898961188127906e-11
+        }
+      },
+      "sealRelief": true,
+      "runtime": {
+        "motionPrepared": true,
+        "preparationMs": 6031.5999999940395,
+        "preparedPrograms": 11,
+        "programs": 11
+      },
+      "edition": "project beginning — manufacturing trial",
+      "paperMaterial": "chapter-one scan microstructure starting profile; independent new albedo; retained v6 matte response",
+      "aging": {
+        "version": "v19 native multi-pass finishing",
+        "leather": [
+          "scanned grain",
+          "hide variation",
+          "dark contact polish",
+          "grain-coat loss",
+          "opened flex creases",
+          "worn hand-incised borders",
+          "terminal lozenge"
+        ],
+        "metal": [
+          "scanned microstructure",
+          "planishing depressions",
+          "file dressing",
+          "paired incised grooves",
+          "brown stable oxide",
+          "subdued crevice patina",
+          "rubbed crowns"
+        ],
+        "sourceGeometry": "unchanged v17",
+        "offlineBaked": true,
+        "noMold": true
+      },
+      "paperFolds": {
+        "provenance": "Trial approximation from the actual paper image; not precision measurement or artistic acceptance",
+        "diagonal": {
+          "offset": 0.229,
+          "slope": 0.179,
+          "width": 0.009,
+          "depth": 0.008
+        },
+        "lower": {
+          "offset": 0.655,
+          "sine": 0.021,
+          "slope": 0.005,
+          "width": 0.01,
+          "depth": 0.009
+        }
+      },
+      "paperProfilePrepared": true,
+      "paperProfile": {
+        "normalScale": [
+          0.035,
+          0.035
+        ],
+        "bumpScale": 0.0045,
+        "normal": {
+          "repeat": [
+            1.4,
+            2.1
+          ],
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "colorSpace": "",
+          "source": "http://127.0.0.1:8157/labs/chapter-scroll-v4/assets/skin-normal.jpg"
+        },
+        "roughness": {
+          "repeat": [
+            1.4,
+            2.1
+          ],
+          "wrapS": 1000,
+          "wrapT": 1000,
+          "colorSpace": "",
+          "source": "http://127.0.0.1:8157/labs/chapter-scroll-v4/assets/skin-roughness.jpg"
+        },
+        "sheen": 0,
+        "specularIntensity": 0,
+        "envMapIntensity": 0.07,
+        "actualGPUVerified": false,
+        "artisticApproval": false
+      },
+      "ready": true,
+      "disposed": false,
+      "paused": false,
+      "lost": false,
+      "environmentAvailable": true,
+      "contextReleased": false,
+      "animating": false,
+      "chapterId": null,
+      "category": "project-commemorative",
+      "workId": "SL-PROJECT-BEGINNING-20261021",
+      "issued": false,
+      "status": "ready",
+      "error": null,
+      "layout": {
+        "width": 2048,
+        "height": 2868,
+        "nominalSizeMM": [
+          300,
+          420
+        ],
+        "artPlanId": "SL-PROJECT-BEGINNING-1",
+        "artPlanDigest": "e2e11c35d07383023cf454646d8ea7434f1b16622f5deae15cc2acf390065e9b",
+        "composition": "project-title-and-subtitle; three-verse-lines; daily-miniature; two-verse-lines; private-colophon-and-record",
+        "stage": "frozen",
+        "artisticApproval": "agent-review-for-user-evaluation",
+        "paperVariant": "independently-authored-project-beginning-sheet-trial",
+        "sealVersion": "SL-KEEPSAKE-1",
+        "sealVariant": "oblong",
+        "sealBox": {
+          "x": 310,
+          "y": 2525,
+          "width": 300,
+          "height": 138
+        },
+        "ornamentBox": {
+          "x": 444,
+          "y": 1260,
+          "width": 1160,
+          "height": 650,
+          "opacity": 0.9
+        },
+        "ornamentPlacement": {
+          "x": 471.6351351351351,
+          "y": 1260,
+          "width": 1104.7297297297298,
+          "height": 650
+        },
+        "ornamentDigest": "70c58500dfd07879eef40896bfe88d581ddaebf73ab63b73d5be6472aa93a09e",
+        "printedFonts": [
+          "Aboensis"
+        ],
+        "textBounds": [
+          {
+            "block": "rubric",
+            "text": "A project remembrance",
+            "left": 775.0380706787109,
+            "right": 1274.2139434814453,
+            "top": 248,
+            "bottom": 314,
+            "fontSize": 52,
+            "baseline": 285,
+            "align": "center"
+          },
+          {
+            "block": "institution",
+            "text": "The Second Language",
+            "left": 415.21405029296875,
+            "right": 1635.3099975585938,
+            "top": 376,
+            "bottom": 540,
+            "fontSize": 124,
+            "baseline": 475,
+            "align": "center"
+          },
+          {
+            "block": "subtitle",
+            "text": "A Day in Another Tongue",
+            "left": 575.2230834960938,
+            "right": 1474.0589599609375,
+            "top": 582,
+            "bottom": 685,
+            "fontSize": 82,
+            "baseline": 650,
+            "align": "center"
+          },
+          {
+            "block": "verseBefore",
+            "text": "With a first word, the work begins:",
+            "left": 445.31707763671875,
+            "right": 1604.1109008789062,
+            "top": 808,
+            "bottom": 916,
+            "fontSize": 86,
+            "baseline": 875,
+            "align": "center"
+          },
+          {
+            "block": "verseBefore",
+            "text": "rain at the shutter, bread upon the board,",
+            "left": 309.48809814453125,
+            "right": 1729.3119506835938,
+            "top": 955,
+            "bottom": 1060,
+            "fontSize": 86,
+            "baseline": 1015,
+            "align": "center"
+          },
+          {
+            "block": "verseBefore",
+            "text": "a greeting answered at an open door.",
+            "left": 385.654052734375,
+            "right": 1660.241943359375,
+            "top": 1096,
+            "bottom": 1204,
+            "fontSize": 86,
+            "baseline": 1155,
+            "align": "center"
+          },
+          {
+            "block": "verseAfter",
+            "text": "Page will follow page.",
+            "left": 634.5350341796875,
+            "right": 1413.7049560546875,
+            "top": 1979,
+            "bottom": 2092,
+            "fontSize": 90,
+            "baseline": 2040,
+            "align": "center"
+          },
+          {
+            "block": "verseAfter",
+            "text": "Another tongue enters the day.",
+            "left": 482.00006103515625,
+            "right": 1563.2399291992188,
+            "top": 2117,
+            "bottom": 2219,
+            "fontSize": 90,
+            "baseline": 2180,
+            "align": "center"
+          },
+          {
+            "block": "colophon",
+            "text": "For Gual Wells,",
+            "left": 824.4720458984375,
+            "right": 1224.3279418945312,
+            "top": 2312,
+            "bottom": 2384,
+            "fontSize": 56,
+            "baseline": 2350,
+            "align": "center"
+          },
+          {
+            "block": "colophon",
+            "text": "to mark the beginning of The Second Language.",
+            "left": 454.3402099609375,
+            "right": 1586.475830078125,
+            "top": 2395,
+            "bottom": 2469,
+            "fontSize": 56,
+            "baseline": 2440,
+            "align": "center"
+          },
+          {
+            "block": "identity",
+            "text": "Made 21 October 2026",
+            "left": 737,
+            "right": 1146.535888671875,
+            "top": 2512,
+            "bottom": 2569,
+            "fontSize": 42,
+            "baseline": 2545,
+            "align": "left"
+          },
+          {
+            "block": "identity",
+            "text": "20:10:23.227 +08:00",
+            "left": 750,
+            "right": 1096.121826171875,
+            "top": 2589,
+            "bottom": 2635,
+            "fontSize": 42,
+            "baseline": 2615,
+            "align": "left"
+          },
+          {
+            "block": "identity",
+            "text": "Content mark 4A83 D195 2E13 3BCE",
+            "left": 751,
+            "right": 1420.4337158203125,
+            "top": 2650,
+            "bottom": 2707,
+            "fontSize": 42,
+            "baseline": 2685,
+            "align": "left"
+          },
+          {
+            "block": "status",
+            "text": "Private commemorative work",
+            "left": 793.2400817871094,
+            "right": 1263.5599060058594,
+            "top": 2734,
+            "bottom": 2788,
+            "fontSize": 40,
+            "baseline": 2765,
+            "align": "center"
+          }
+        ],
+        "blocks": [
+          {
+            "id": "rubric",
+            "x": 1024,
+            "y": 285,
+            "width": 1500,
+            "fontSize": 52,
+            "lineHeight": 74,
+            "align": "center",
+            "color": "#58372d",
+            "actualFontSize": 52
+          },
+          {
+            "id": "institution",
+            "x": 1024,
+            "y": 475,
+            "width": 1600,
+            "fontSize": 124,
+            "minFontSize": 116,
+            "lineHeight": 160,
+            "align": "center",
+            "color": "#30251b",
+            "actualFontSize": 124
+          },
+          {
+            "id": "subtitle",
+            "x": 1024,
+            "y": 650,
+            "width": 1560,
+            "fontSize": 82,
+            "lineHeight": 108,
+            "align": "center",
+            "color": "#30251b",
+            "actualFontSize": 82
+          },
+          {
+            "id": "verseBefore",
+            "x": 1024,
+            "y": 875,
+            "width": 1560,
+            "fontSize": 86,
+            "lineHeight": 140,
+            "align": "center",
+            "color": "#30251b",
+            "actualFontSize": 86
+          },
+          {
+            "id": "verseAfter",
+            "x": 1024,
+            "y": 2040,
+            "width": 1500,
+            "fontSize": 90,
+            "lineHeight": 140,
+            "align": "center",
+            "color": "#30251b",
+            "actualFontSize": 90
+          },
+          {
+            "id": "colophon",
+            "x": 1024,
+            "y": 2350,
+            "width": 1540,
+            "fontSize": 56,
+            "lineHeight": 90,
+            "align": "center",
+            "color": "#30251b",
+            "actualFontSize": 56
+          },
+          {
+            "id": "identity",
+            "x": 750,
+            "y": 2545,
+            "width": 1010,
+            "fontSize": 42,
+            "lineHeight": 70,
+            "align": "left",
+            "color": "#30251b",
+            "actualFontSize": 42
+          },
+          {
+            "id": "status",
+            "x": 1024,
+            "y": 2765,
+            "width": 1450,
+            "fontSize": 40,
+            "lineHeight": 54,
+            "align": "center",
+            "color": "#30251b",
+            "actualFontSize": 40
+          }
+        ],
+        "status": "commemorative",
+        "issued": false,
+        "recipient": "Gual Wells",
+        "identity": [
+          "Content mark 4A83 D195 2E13 3BCE",
+          "Made 21 October 2026",
+          "20:10:23.227 +08:00"
+        ],
+        "artifactDigest": "4a83d1952e133bcecd6c1aa2e14a788159b410e9a6ea2a7f5bcf42610943e37b",
+        "contentDigest": "4a83d1952e133bcecd6c1aa2e14a788159b410e9a6ea2a7f5bcf42610943e37b",
+        "artSeed": 1250152853,
+        "fixedSurfaces": true,
+        "frozen": true,
+        "frozenManifestURL": "http://127.0.0.1:8157/labs/project-beginning/assets/surfaces.json"
+      },
+      "mist": {
+        "available": true,
+        "enabled": true,
+        "frames": 313,
+        "time": 12.4333333333333,
+        "interactionEnergy": 0.5080897282914227,
+        "drive": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "model": "advected mist with broad regional currents, staggered gusts and bounded object wakes",
+        "simulationHz": 30,
+        "fixedDirectionalInlet": false,
+        "regionalVelocities": [
+          -0.0020081811325343194,
+          -0.0019203550728524304,
+          -0.014404284458323348,
+          -0.002015072819288129,
+          -0.005587018291584709,
+          0.009492374723350357,
+          0.055435875198131486,
+          0.006637790304822533
+        ],
+        "confinement": 0.38
+      },
+      "atmosphereWanted": true
+    },
+    "sound": {
+      "active": true,
+      "paused": false,
+      "disposed": false,
+      "unlocked": true,
+      "musicEnabled": true,
+      "foleyEnabled": true,
+      "musicVolume": 0.35,
+      "foleyVolume": 0.65,
+      "contextState": "running",
+      "musicTrack": "a-new-town",
+      "musicPosition": 18.410666666666668,
+      "musicDuration": 62.2565625,
+      "musicState": "playing",
+      "restRemainingMs": 0,
+      "completedPlays": 0,
+      "musicVoices": 1,
+      "foleyVoices": 0,
+      "downloaded": 13,
+      "decoded": [
+        "bendOpen",
+        "holeClose",
+        "slideOpen",
+        "tailOpen",
+        "bendClose",
+        "slideClose",
+        "park",
+        "seat",
+        "holeOpen",
+        "tailClose",
+        "paperUnroll",
+        "paperRollup",
+        "music"
+      ],
+      "failures": {},
+      "eventsPlayed": 6,
+      "lastEvent": "paperUnroll",
+      "materialTargets": {
+        "paper": 0,
+        "leather": 0
+      },
+      "materialLevels": {
+        "paper": 0,
+        "leather": 0
+      },
+      "performances": [],
+      "motionModel": "actual keeper path coordinates and paper winding velocity",
+      "contacts": [
+        {
+          "kind": "prong-park",
+          "progress": 0.31219430399999976,
+          "r": 0.7804857599999994,
+          "phase": "park-pin",
+          "pin": -1.2
+        }
+      ],
+      "listeningReview": "Pitch-preserving stretched Adobe performances with a continuous quiet tail; user adopted for normal automatic opening/closing on 2026-10-23. Original A/B keeper unchanged.",
+      "seamlessLoop": false,
+      "issued": false,
+      "variant": "recorded-foley-v42",
+      "candidateOnly": false,
+      "foleyMethod": "Adopted phase-based recorded keeper and independent paper performance",
+      "cueTrace": [
+        {
+          "key": "bendOpen",
+          "mode": "automatic",
+          "direction": 1,
+          "audioTime": 9.181333333333333,
+          "wallTime": 11654.199999988079,
+          "offset": 0,
+          "duration": 0.9,
+          "gain": 0.9,
+          "progress": 0.000026308875091109022,
+          "r": 0.00006577218772777256,
+          "phase": "unload-hole",
+          "contact": false
+        },
+        {
+          "key": "holeOpen",
+          "mode": "automatic",
+          "direction": 1,
+          "audioTime": 10.08,
+          "wallTime": 12556.09999999404,
+          "offset": 0,
+          "duration": 0.42,
+          "gain": 0.7,
+          "progress": 0.07406911382747576,
+          "r": 0.18517278456868938,
+          "phase": "release-hole",
+          "contact": false
+        },
+        {
+          "key": "tailOpen",
+          "mode": "automatic",
+          "direction": 1,
+          "audioTime": 10.501333333333333,
+          "wallTime": 12973.5,
+          "offset": 0,
+          "duration": 0.65,
+          "gain": 0.95,
+          "progress": 0.14632635978498543,
+          "r": 0.36581589946246357,
+          "phase": "withdraw-tail",
+          "contact": false
+        },
+        {
+          "key": "park",
+          "mode": "automatic",
+          "direction": 1,
+          "audioTime": 11.232,
+          "wallTime": 13705.5,
+          "offset": 0,
+          "duration": 0.17754166666666665,
+          "gain": 0.4,
+          "progress": 0.31219430399999976,
+          "r": 0.7804857599999994,
+          "phase": "park-pin",
+          "contact": true
+        },
+        {
+          "key": "slideOpen",
+          "mode": "automatic",
+          "direction": 1,
+          "audioTime": 11.250666666666667,
+          "wallTime": 13722.90000000596,
+          "offset": 0,
+          "duration": 0.24,
+          "gain": 0.65,
+          "progress": 0.3163811386320267,
+          "r": 0.7909528465800667,
+          "phase": "slide-clear",
+          "contact": false
+        },
+        {
+          "key": "paperUnroll",
+          "progress": 0.4023383489199502,
+          "paperProgress": 0.00389724819991695,
+          "audioTime": 11.581333333333333,
+          "offset": 0,
+          "rate": 1,
+          "loop": false,
+          "mode": "automatic"
+        }
+      ],
+      "userApproved": true,
+      "paperState": "adopted-full-automatic-motion-tail",
+      "keeperReference": "466132c A/B",
+      "paperGain": 0,
+      "paperKey": null,
+      "paperExhausted": false,
+      "maximumPaperGain": 0.1,
+      "paperEnvelope": [
+        {
+          "q": 0.00389724819991695,
+          "speed": 22.2237586663192,
+          "target": 0.043882263076077094,
+          "audioTime": 11.581333333333333
+        },
+        {
+          "q": 0.04053665445963547,
+          "speed": 139.873982173836,
+          "target": 0.08177393032157004,
+          "audioTime": 11.672
+        },
+        {
+          "q": 0.07748838386025925,
+          "speed": 174.61320964951773,
+          "target": 0.08478841494865208,
+          "audioTime": 11.752
+        },
+        {
+          "q": 0.11459861904122219,
+          "speed": 181.66761159976346,
+          "target": 0.08528255670384219,
+          "audioTime": 11.832
+        },
+        {
+          "q": 0.15175665960018847,
+          "speed": 186.5621685756037,
+          "target": 0.08560693548662995,
+          "audioTime": 11.92
+        },
+        {
+          "q": 0.18894109398727893,
+          "speed": 184.89833283305552,
+          "target": 0.0854982857975754,
+          "audioTime": 12
+        },
+        {
+          "q": 0.2260860956790567,
+          "speed": 187.75030034411807,
+          "target": 0.08568352907916982,
+          "audioTime": 12.08
+        },
+        {
+          "q": 0.26321458956923005,
+          "speed": 183.44317670537026,
+          "target": 0.08540190775486252,
+          "audioTime": 12.170666666666667
+        },
+        {
+          "q": 0.3000386257706395,
+          "speed": 187.72153684201257,
+          "target": 0.08568168446513494,
+          "audioTime": 12.250666666666667
+        },
+        {
+          "q": 0.336713852751894,
+          "speed": 184.6348820341386,
+          "target": 0.08548093147225859,
+          "audioTime": 12.330666666666668
+        },
+        {
+          "q": 0.3730854552173866,
+          "speed": 188.5367149032612,
+          "target": 0.08573377842560671,
+          "audioTime": 12.421333333333333
+        },
+        {
+          "q": 0.40904444925291533,
+          "speed": 178.32051900675887,
+          "target": 0.08505217253606207,
+          "audioTime": 12.501333333333333
+        },
+        {
+          "q": 0.4445264549477643,
+          "speed": 180.52226991617334,
+          "target": 0.08520452609765078,
+          "audioTime": 12.581333333333333
+        },
+        {
+          "q": 0.4795510048984716,
+          "speed": 178.44344262480016,
+          "target": 0.08506076118617616,
+          "audioTime": 12.672
+        },
+        {
+          "q": 0.51405035182825,
+          "speed": 175.90266078317723,
+          "target": 0.08488120403622335,
+          "audioTime": 12.752
+        },
+        {
+          "q": 0.5479160717030906,
+          "speed": 170.15472553701278,
+          "target": 0.08445860110003446,
+          "audioTime": 12.832
+        },
+        {
+          "q": 0.5810427785566996,
+          "speed": 168.3224690687743,
+          "target": 0.08431887103656241,
+          "audioTime": 12.92
+        },
+        {
+          "q": 0.6134823747741097,
+          "speed": 162.40245212907783,
+          "target": 0.08384968784225783,
+          "audioTime": 13
+        },
+        {
+          "q": 0.6449388440998538,
+          "speed": 160.9782006046941,
+          "target": 0.08373258365202571,
+          "audioTime": 13.08
+        },
+        {
+          "q": 0.6756489791844511,
+          "speed": 154.8031998615638,
+          "target": 0.08320455030686018,
+          "audioTime": 13.170666666666667
+        },
+        {
+          "q": 0.7053229774052476,
+          "speed": 152.01792009743684,
+          "target": 0.08295497180378186,
+          "audioTime": 13.250666666666667
+        },
+        {
+          "q": 0.7339359233333328,
+          "speed": 147.15958198077644,
+          "target": 0.0821753531265268,
+          "audioTime": 13.330666666666668
+        },
+        {
+          "q": 0.7615232332609028,
+          "speed": 141.1207649783699,
+          "target": 0.07922451471119826,
+          "audioTime": 13.421333333333333
+        },
+        {
+          "q": 0.7878868727604166,
+          "speed": 135.76967632013245,
+          "target": 0.07472286832611894,
+          "audioTime": 13.501333333333333
+        },
+        {
+          "q": 0.8131171116140328,
+          "speed": 128.85788796068886,
+          "target": 0.06911073869659307,
+          "audioTime": 13.581333333333333
+        },
+        {
+          "q": 0.8369947322511236,
+          "speed": 121.15010432413281,
+          "target": 0.0630514023266661,
+          "audioTime": 13.672
+        },
+        {
+          "q": 0.8595420310981535,
+          "speed": 115.94299951164142,
+          "target": 0.05730182861844461,
+          "audioTime": 13.752
+        },
+        {
+          "q": 0.8806145980174926,
+          "speed": 109.56095061168119,
+          "target": 0.05181976471392034,
+          "audioTime": 13.832
+        },
+        {
+          "q": 0.9002251900998955,
+          "speed": 101.68893450425998,
+          "target": 0.04676225849093999,
+          "audioTime": 13.92
+        },
+        {
+          "q": 0.9183025025908989,
+          "speed": 91.58327536689912,
+          "target": 0.04214187060632193,
+          "audioTime": 14
+        },
+        {
+          "q": 0.9347372922291058,
+          "speed": 85.72417305707748,
+          "target": 0.038698505446621095,
+          "audioTime": 14.08
+        },
+        {
+          "q": 0.9494863538985625,
+          "speed": 76.891522690852,
+          "target": 0.03556679612952557,
+          "audioTime": 14.170666666666667
+        },
+        {
+          "q": 0.9624838610758325,
+          "speed": 67.82096030628436,
+          "target": 0.03291732815797913,
+          "audioTime": 14.250666666666667
+        },
+        {
+          "q": 0.9736762901943632,
+          "speed": 58.5351630185545,
+          "target": 0.030568138043815894,
+          "audioTime": 14.330666666666668
+        },
+        {
+          "q": 0.9829809083398627,
+          "speed": 49.597347091620904,
+          "target": 0.028402173044529966,
+          "audioTime": 14.421333333333333
+        },
+        {
+          "q": 0.9903316516338679,
+          "speed": 39.194751486630544,
+          "target": 0.02574475220258815,
+          "audioTime": 14.501333333333333
+        },
+        {
+          "q": 0.9956521412937318,
+          "speed": 30.053172485723767,
+          "target": 0.022885602461485036,
+          "audioTime": 14.581333333333333
+        },
+        {
+          "q": 0.9988994032980102,
+          "speed": 19.653483554911922,
+          "target": 0.01851313788644338,
+          "audioTime": 14.672
+        },
+        {
+          "q": 0.9999999984056314,
+          "speed": 8.598838055509823,
+          "target": 0.01125806160772436,
+          "audioTime": 14.752
+        }
+      ]
+    },
+    "document": {
+      "open": false,
+      "language": "zh-CN",
+      "ready": true,
+      "madeAt": "2026-10-21T12:10:23.227Z",
+      "publishedAt": null,
+      "contentSHA256": "4a83d1952e133bcecd6c1aa2e14a788159b410e9a6ea2a7f5bcf42610943e37b"
+    }
+  },
+  "lateLoad": {
+    "heldCount": 13,
+    "snapshot": {
+      "open": false,
+      "ready": false,
+      "lost": false,
+      "chapter": null,
+      "workId": "project-beginning",
+      "category": "project-commemorative",
+      "issued": false,
+      "sound": {
+        "active": false,
+        "paused": false,
+        "disposed": false,
+        "unlocked": false,
+        "musicEnabled": true,
+        "foleyEnabled": true,
+        "musicVolume": 0.35,
+        "foleyVolume": 0.65,
+        "contextState": "running",
+        "musicTrack": null,
+        "musicPosition": 0,
+        "musicDuration": null,
+        "musicState": "paused",
+        "restRemainingMs": 0,
+        "completedPlays": 0,
+        "musicVoices": 0,
+        "foleyVoices": 0,
+        "downloaded": 13,
+        "decoded": [
+          "holeOpen",
+          "slideClose",
+          "park",
+          "seat",
+          "slideOpen",
+          "tailClose",
+          "bendClose",
+          "bendOpen",
+          "holeClose",
+          "tailOpen",
+          "paperUnroll",
+          "paperRollup"
+        ],
+        "failures": {},
+        "eventsPlayed": 0,
+        "lastEvent": null,
+        "materialTargets": {
+          "paper": 0,
+          "leather": 0
+        },
+        "materialLevels": {
+          "paper": 0,
+          "leather": 0
+        },
+        "performances": [],
+        "motionModel": "actual keeper path coordinates and paper winding velocity",
+        "contacts": [],
+        "listeningReview": "Pitch-preserving stretched Adobe performances with a continuous quiet tail; user adopted for normal automatic opening/closing on 2026-10-23. Original A/B keeper unchanged.",
+        "seamlessLoop": false,
+        "issued": false,
+        "variant": "recorded-foley-v42",
+        "candidateOnly": false,
+        "foleyMethod": "Adopted phase-based recorded keeper and independent paper performance",
+        "cueTrace": [],
+        "userApproved": true,
+        "paperState": "adopted-full-automatic-motion-tail",
+        "keeperReference": "466132c A/B",
+        "paperGain": 0,
+        "paperKey": null,
+        "paperExhausted": false,
+        "maximumPaperGain": 0.1,
+        "paperEnvelope": []
+      },
+      "document": {
+        "open": false,
+        "language": "en",
+        "ready": false,
+        "madeAt": null,
+        "publishedAt": null,
+        "contentSHA256": null
+      }
+    }
+  },
+  "decodedOriginal": {
+    "equal": true,
+    "width": 2048,
+    "height": 2868
+  },
+  "errors": [],
+  "missing": [],
+  "writes": [],
+  "resources": [
+    "http://127.0.0.1:8157/",
+    "http://127.0.0.1:8157/styles.css?v=56",
+    "http://127.0.0.1:8157/icon.svg?v=41",
+    "http://127.0.0.1:8157/icon-192.png?v=41",
+    "http://127.0.0.1:8157/app.js?v=57",
+    "http://127.0.0.1:8157/chapter-quality.js?v=50",
+    "http://127.0.0.1:8157/reader-jump.js?v=50",
+    "http://127.0.0.1:8157/pure-reader.js?v=50",
+    "http://127.0.0.1:8157/chapters.js?v=41",
+    "http://127.0.0.1:8157/settings.js?v=41",
+    "http://127.0.0.1:8157/audio-config.js?v=50",
+    "http://127.0.0.1:8157/reader-speech.js?v=51",
+    "http://127.0.0.1:8157/render.js?v=50",
+    "http://127.0.0.1:8157/context-translations.js?v=50",
+    "http://127.0.0.1:8157/annotations.js?v=50",
+    "http://127.0.0.1:8157/practice.js?v=41",
+    "http://127.0.0.1:8157/balances.js?v=56",
+    "http://127.0.0.1:8157/storage-usage.js?v=41",
+    "http://127.0.0.1:8157/certification-reader.js?v=43",
+    "http://127.0.0.1:8157/chapter-tests.js?v=43",
+    "http://127.0.0.1:8157/questions.js?v=57",
+    "http://127.0.0.1:8157/audio-library.js?v=50",
+    "http://127.0.0.1:8157/reader-focus.js?v=50",
+    "http://127.0.0.1:8157/audio-plan.js?v=50",
+    "http://127.0.0.1:8157/teaching-units.js",
+    "http://127.0.0.1:8157/usage-context.js",
+    "http://127.0.0.1:8157/practice-workspace.js?v=41",
+    "http://127.0.0.1:8157/recorder.js?v=41",
+    "http://127.0.0.1:8157/reading.js?v=41",
+    "http://127.0.0.1:8157/listening.js?v=41",
+    "http://127.0.0.1:8157/labs/certification-reader/sound.js?v=42",
+    "http://127.0.0.1:8157/chapter-test-recorder.js?v=41",
+    "http://127.0.0.1:8157/chapter-certification.js?v=43",
+    "http://127.0.0.1:8157/text.js?v=41",
+    "http://127.0.0.1:8157/question-pairs.js?v=41",
+    "http://127.0.0.1:8157/objective.js?v=41",
+    "http://127.0.0.1:8157/exam-spec.js?v=41",
+    "http://127.0.0.1:8157/labs/certification-reader/keeper-sound.js?v=42",
+    "http://127.0.0.1:8157/labs/certification-reader/sound-base.js?v=42",
+    "http://127.0.0.1:8157/labs/certification-reader/material-motion.js?v=41",
+    "http://127.0.0.1:8157/api/session",
+    "http://127.0.0.1:8157/api/chapters",
+    "http://127.0.0.1:8157/api/audio-config",
+    "http://127.0.0.1:8157/api/scrolls",
+    "http://127.0.0.1:8157/labs/certification-reader/reader.bundle.js?v=43",
+    "http://127.0.0.1:8157/labs/certification-reader/assets/audio-foley/v42/bendOpen.wav",
+    "http://127.0.0.1:8157/labs/certification-reader/assets/audio-foley/v42/bendClose.wav",
+    "http://127.0.0.1:8157/labs/certification-reader/assets/audio-foley/v42/holeOpen.wav",
+    "http://127.0.0.1:8157/labs/certification-reader/assets/audio-foley/v42/holeClose.wav",
+    "http://127.0.0.1:8157/labs/certification-reader/assets/audio-foley/v42/tailOpen.wav",
+    "http://127.0.0.1:8157/labs/certification-reader/assets/audio-foley/v42/tailClose.wav",
+    "http://127.0.0.1:8157/labs/certification-reader/assets/audio-foley/v42/slideOpen.wav",
+    "http://127.0.0.1:8157/labs/certification-reader/assets/audio-foley/v42/slideClose.wav",
+    "http://127.0.0.1:8157/labs/certification-reader/assets/audio-foley/v42/park.wav",
+    "http://127.0.0.1:8157/labs/certification-reader/assets/audio-foley/v42/seat.wav",
+    "http://127.0.0.1:8157/labs/certification-reader/assets/audio-music/a-new-town.mp3",
+    "http://127.0.0.1:8157/labs/certification-reader/assets/audio-foley/v42/paper-unroll-v5.wav",
+    "http://127.0.0.1:8157/labs/certification-reader/assets/audio-foley/v42/paper-rollup-v5.wav",
+    "http://127.0.0.1:8157/labs/project-beginning/record.json",
+    "http://127.0.0.1:8157/labs/project-beginning/art-plan.json",
+    "http://127.0.0.1:8157/labs/chapter-scroll-v14/assets/unused-keeper.png",
+    "http://127.0.0.1:8157/labs/project-beginning/assets/surfaces.json",
+    "http://127.0.0.1:8157/labs/project-beginning/assets/final-front.png",
+    "http://127.0.0.1:8157/labs/project-beginning/assets/final-back.png",
+    "http://127.0.0.1:8157/labs/project-beginning/assets/final-ink.png",
+    "http://127.0.0.1:8157/labs/project-beginning/assets/final-relief.png",
+    "http://127.0.0.1:8157/labs/project-beginning/assets/final-seal-ink.png",
+    "http://127.0.0.1:8157/labs/project-beginning/assets/final-seal-mask.png",
+    "http://127.0.0.1:8157/labs/chapter-scroll-v3/assets/studio.hdr",
+    "http://127.0.0.1:8157/labs/chapter-scroll-v17/keeper-path.json",
+    "http://127.0.0.1:8157/labs/chapter-scroll-v4/assets/skin-normal.jpg",
+    "http://127.0.0.1:8157/labs/chapter-scroll-v4/assets/skin-roughness.jpg",
+    "http://127.0.0.1:8157/labs/certification-reader/assets/keeper-display.glb",
+    "http://127.0.0.1:8157/labs/chapter-scroll-v19/assets/leather-color.webp",
+    "http://127.0.0.1:8157/labs/chapter-scroll-v19/assets/leather-orm.webp",
+    "http://127.0.0.1:8157/labs/chapter-scroll-v19/assets/leather-normal.webp",
+    "http://127.0.0.1:8157/labs/chapter-scroll-v19/assets/bronze-color.webp",
+    "http://127.0.0.1:8157/labs/chapter-scroll-v19/assets/bronze-orm.webp",
+    "http://127.0.0.1:8157/labs/chapter-scroll-v19/assets/bronze-normal.webp",
+    "http://127.0.0.1:8157/labs/chapter-scroll-v17/vendor/noise2D.glsl"
+  ],
+  "observedSHA256": {
+    "/index.html": "40ff9225052dc6e250fd15cb4e6199ade55909221d276e16f4063baef541a98d",
+    "/styles.css": "e836fc918b6a224929df0d00f10073a2fc6e80b985d5c26ef3fa78f9801d2249",
+    "/icon.svg": "a6187d27e9c733a2470bedcefbe3947166706b06fa9c4be05a6dd577cba25b2b",
+    "/icon-192.png": "32373b0edaab98b53f5ac5827bb2c4b4c5cdeba053d5612b2fd74f2c3b78d15b",
+    "/app.js": "0b2864aa67a2ab20f3dc8f7125b1eee4b45a0c691f820b5b342174fd97151238",
+    "/chapter-quality.js": "0e0ff651342ddd165325d478b5445ebcd3ae174c206ed863c05f1af065a30890",
+    "/reader-jump.js": "d228be8baa42d9ddfb7bef838c80789ddc3e5915f079239626c3a3b9d6f760fa",
+    "/pure-reader.js": "80008bf9f1311666b166ed9fe987e1a7910c182942b4095e67d8a55332cef38e",
+    "/chapters.js": "d16d9429dda60052481cc2dd6ed5d71eccf96df98616923fd5c199fc3618f019",
+    "/settings.js": "9c647e1a65a9dd6aa8173a9633bc6d84d0101ec1724d1d124b34f76647e8b3d7",
+    "/reader-speech.js": "81c2246c5094dad5adfdd494d246cbbd1ec0f826436c9ee442df98d46e7fa7e2",
+    "/render.js": "db0fd2b9eee739e96781ce8644c2c2b7881bae7e48f7046d7cb61bd64d03e022",
+    "/audio-config.js": "0c0a6252d7e61fa8bfa949c99beed34cd4317c449f93e50ff8cc387e9176e268",
+    "/context-translations.js": "ceb595ccf206fd93a2a4fdd849bce86db421ad1f06ed864dea08d13a645619be",
+    "/balances.js": "7b8dd362d42c3b6f5e3dc39511f7d298649d4898ff4ab06b6acf81e8dc0120f2",
+    "/annotations.js": "7df8d1c0159f6c2d7a6967fa07976bd677f8b6a704176155285bbdb9c3e4feee",
+    "/storage-usage.js": "c719e96cdf6eaf16a630866924d1d0bc188ced9ff1967618b193f25ec1888a35",
+    "/practice.js": "a31d88faa2fe20a140d2a96b7ea7ddcfa8b043d2fc2ee14944d09a8399f67146",
+    "/certification-reader.js": "a79513f104b1f2bc70faed88cce87612c9d3e5d328ef74eb47b6a73c57cb7c6f",
+    "/chapter-tests.js": "6c94723bc7322878d917dddc065149eafcd9d74803fd910fe46e67098cd2fc7e",
+    "/audio-library.js": "cc725f2b57d0743c025de97f071c8e1aefdf40ae129cc84c360fb17d56e92239",
+    "/questions.js": "ea5763b054207a2a6d313e6f2ccd8473c03854f2f209a7eb89e834d26d1f05f1",
+    "/teaching-units.js": "4227077ba804ca4e6bf6964db8ae05ca3a5d9f8b782a75e436aceb131303e8e1",
+    "/reader-focus.js": "12c5dad071a756e75bb64d72f3f7bf62830673aa81a30b17d0235d91324d124d",
+    "/audio-plan.js": "fe4e8b85b6be0a2cc57def09e80dd5ad33ebba4877d88aa347e49b8900cda4a9",
+    "/practice-workspace.js": "af259de73afebbfc91ab9aa54690ef37214a96e12ee7526898e80d448ee80329",
+    "/usage-context.js": "44a5475d29af09b16c50662ea507326d38d87081209e9beb9ae325a71926e794",
+    "/recorder.js": "4b8ec3aff0465edb4f17b3023ec544f8dc8c5c7cda6a5ea1d7dfebfb0a356dc3",
+    "/listening.js": "83575739eae407c1773791645945b8b2d987df1ed0dd70c34ca21178a7a6e2ee",
+    "/reading.js": "58d05fe3a53e5851cd309dd79a16c3bc6f7a972252d2a09cad041ebd72ef03eb",
+    "/labs/certification-reader/sound.js": "d077d7a8ad6bca2f8a9c1e8c919827b026209076ee0ce2f0bae231d0513dd56b",
+    "/chapter-certification.js": "2d55d6f08a3606fb28323a7a7a1f48231b438866b440e0f637f9ad52d64a96a6",
+    "/text.js": "8c4f3c17e6d1f45f32bb892307cff4a4a5a08d3af76c0a1e67b355ddf7d419b8",
+    "/question-pairs.js": "9d48e50045d222403f7e7521ae9c82ff36917b8bf7162383899abd80e86b1df9",
+    "/chapter-test-recorder.js": "6f6ef850141784f819130846b278ff7ec1e5358c5f45c99a8cea416d1398b57c",
+    "/objective.js": "13c7ce4eb9f74002e43fcb391a06f23c2d1cd0ae7433cfb0439b28d9efc13cd0",
+    "/exam-spec.js": "6d0050b920917f7806ea0c8fab7b930ea949e8f2168a3d8c5e3856a978f28241",
+    "/labs/certification-reader/keeper-sound.js": "7b01ee59bed833dbe4287b10b2438c32545bc474202918047535b2eda444999b",
+    "/labs/certification-reader/sound-base.js": "0b44df208352fcb99457062dd5a2e80842dabc0ba5dfd938c4c74d5dfc12947a",
+    "/labs/certification-reader/material-motion.js": "13454e924c75c5d88f828143fa1ea8ee93461de0a45bfb6bacc908395d236b30",
+    "/labs/certification-reader/assets/audio-foley/v42/bendOpen.wav": "650893bdcd634a0cb36382ed53b79d776f147ce38bb3ee4b95930214d0c1c0fc",
+    "/labs/certification-reader/assets/audio-foley/v42/bendClose.wav": "c22792a8c149b4cafe9a25d51a2b7979a813b7ea864f17b00a44512115be3736",
+    "/labs/certification-reader/assets/audio-foley/v42/holeOpen.wav": "46a43b9b719f4afcbfcca0b5ead042ce0abead83d550c088292689631cf1a88c",
+    "/labs/certification-reader/assets/audio-foley/v42/holeClose.wav": "97874a858f0081efcb2737526331a3eca8249e1ea2ccd251be8a988b85e10be6",
+    "/labs/certification-reader/assets/audio-foley/v42/tailOpen.wav": "edf8e801ceb9b2dbabae864b79d627b861a5a2ed1c8522aacb304b5ce9d08a9f",
+    "/labs/certification-reader/assets/audio-foley/v42/tailClose.wav": "32c339c42d951178c4973e80050207d8bc3a7e6ef34856aa10ec7bc41d3afeff",
+    "/labs/certification-reader/assets/audio-foley/v42/slideOpen.wav": "c47e77a5ba19e2689e48c14b5a9f2731f6d7db519c7422c07e908dd46bf5131e",
+    "/labs/certification-reader/assets/audio-foley/v42/slideClose.wav": "f60f03943a3fc9ee2482a7d9a9e716765cbeaaa9537c68841bf39a9b6284a77c",
+    "/labs/certification-reader/assets/audio-foley/v42/park.wav": "d95364858538b9f038f1354d930fe3e696a0e64672e5225477a6fd16adb5090d",
+    "/labs/certification-reader/assets/audio-foley/v42/seat.wav": "3c3aa2b7d0222fdb96e1978376a6c3b3b499867464365ee7daaee7d25a5cc953",
+    "/labs/certification-reader/reader.bundle.js": "4f12ae76a77f0bdf048b8f78d09b1b0c3e01e9c5f456ab429058fcd5229fa463",
+    "/labs/certification-reader/assets/audio-music/a-new-town.mp3": "8a83b97f06cad1052eea0a3fa8f65966db742e68275a1d82816773c820578ad2",
+    "/labs/certification-reader/assets/audio-foley/v42/paper-unroll-v5.wav": "703972ab4cf662fcee45af743bf08c2135f55fc1497a489ed897b9f5aae59860",
+    "/labs/certification-reader/assets/audio-foley/v42/paper-rollup-v5.wav": "36a7fa2374abe0a0d5c1a3bd05fa936335fc5c9ea6e92a9926fc4069952d9e99",
+    "/labs/project-beginning/record.json": "f2466f4ea3f57d5cbf4e42b8b0cdc08ac810498602ff3ab9d7c85d43179616e5",
+    "/labs/project-beginning/art-plan.json": "10fbd67f29b0464c632342a213fd4697bbf92af4a2086c5d7963fdea93ce20db",
+    "/labs/chapter-scroll-v14/assets/unused-keeper.png": "c2153f77e11087fcb078ae38527fa83bef29791e3700e30cc87fec4405a66d0f",
+    "/labs/project-beginning/assets/surfaces.json": "e3405c93225ee394d75498190f998c41171f2b90cd21eb5b04a9d775c89d9921",
+    "/labs/project-beginning/assets/final-ink.png": "2007be6f580a5cc72f24388bf4eb487290063136e60937a6114d2c16917ecb5a",
+    "/labs/project-beginning/assets/final-relief.png": "030eb09ed2ee219a5ee3508e3cca6832635d7199470c8425ab8451cf0bf6ae29",
+    "/labs/project-beginning/assets/final-seal-ink.png": "7e6e6ab3541b1807fd75da6b761f58144f1922578a4de203ec655891d8d61cea",
+    "/labs/project-beginning/assets/final-seal-mask.png": "d8411063350187c541bc503775180041dcea1ecbd5a9726ab7b0e69dafc135fc",
+    "/labs/project-beginning/assets/final-back.png": "925c1db1f8810d452a318fb75b30f2a53790be6c05a4cd04fbf9cc883d7b715e",
+    "/labs/project-beginning/assets/final-front.png": "b82b5c4c8e220443e8c4ae0a1b84aeaa908f88e6cd2c53fb5231e09aceacae7b",
+    "/labs/chapter-scroll-v4/assets/skin-normal.jpg": "d0057cdbee5be6223b35f0a463441404144fcdae699f69ff610eec4d86d48970",
+    "/labs/chapter-scroll-v4/assets/skin-roughness.jpg": "dd3b860a9510a44fd857c04e0c8cc63ea1f944c25abe9bdcbf844cc4a22c88d8",
+    "/labs/chapter-scroll-v3/assets/studio.hdr": "e7cfda5f4e98e623db12b8bfd0184e048488e4855d9c83e2751fb44a32e80c45",
+    "/labs/chapter-scroll-v17/keeper-path.json": "0e8d71fbdc36fdda9e475b7ded3eaf23ccff38b01f275cbfac045cbcff21e6e6",
+    "/labs/certification-reader/assets/keeper-display.glb": "118ad3e48f4a37034551aa7330b033a79a9b4e5711972eb92553774ffb37bffa",
+    "/labs/chapter-scroll-v19/assets/leather-orm.webp": "ce92f7819c466c5ec0291e5609da152cc98e0d5c47627d89a81fd3d82a8e6ad1",
+    "/labs/chapter-scroll-v19/assets/bronze-color.webp": "f850970297e8c5d19c7002132e59e877ea54dce0a757d2f642a592f46bd3d9cd",
+    "/labs/chapter-scroll-v19/assets/leather-normal.webp": "6b3c1601b766712a527d51145aa211fd98b73f4747e0d97490809ac407efbf1c",
+    "/labs/chapter-scroll-v19/assets/leather-color.webp": "5c99db712479fb6f8c661f1b4d4422d5e689c59a21c2c197e1dca77bb0c04e95",
+    "/labs/chapter-scroll-v19/assets/bronze-normal.webp": "a2b951c269e4e6d20ef18cd7f360c3045b2ecc605a63e5e910f819a9a8bcc2bd",
+    "/labs/chapter-scroll-v19/assets/bronze-orm.webp": "1672624ae4ae60a342346bb3188f974d05258be13d392da027a82468fdae8b4b",
+    "/labs/chapter-scroll-v17/vendor/noise2D.glsl": "b0f27c923227e8b2d7618f09dc666e2397f608ca7929f798da632647c3f41884"
+  },
+  "responseBodyUnavailable": [],
+  "responseHashFallbacks": [],
+  "evidenceLimits": {
+    "decodedOriginalPixelsMatch": "Canvas2D export versus frozen PNG proves original delivery, not GPU lighting fidelity.",
+    "visibility": "Synthetic hidden signal drives real browser lifecycle handlers and WebAudio; not a physical lock-screen test.",
+    "audio": "Playback nodes, decoding and trusted UI unlock verified; no human listening approval or precise motion-phase certification.",
+    "artisticApproval": "Not asserted by this interaction test."
+  },
+  "environment": "Local Chrome mobile simulation 402x874/DPR2 and landscape; no physical iPhone/Safari claim. Empty demo API is browser-mocked; display/audio resources and clipboard operations are real."
+}
