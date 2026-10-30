@@ -1,0 +1,196 @@
+{
+  "status": "published-and-permanently-read-back",
+  "studyDate": "2026-10-24",
+  "number": "第 1 章",
+  "chapterDigest": "99ee6268e2bb274f7a9480e97a11734818d3c003c981de9d7c02fbaa851ea0ec",
+  "previousDigest": "6e17cda5b91552d576428023781bef28990c8ba59e99edb5fea4e332a154a8c8",
+  "sourceDigest": "d7a9844a3aa42e309eca85fecb064d1af792b04c3fd545cbdef525f454dea08e",
+  "evidenceDigest": "195cc8a9a03f9c1293a1e575db889a4558c32ead2a57623a3f91faaff60e8a3d",
+  "wordCount": 50,
+  "quickGlossCount": 685,
+  "layoutVersion": 2,
+  "quickGlossVersion": 1,
+  "authoringMethod": "Each actual use reviewed and given a concise semantic phrase by two scoped authors (W001-W025 and W026-W050); root read all685 quick glosses and refined seven for precision and plain Chinese. Not first-clause slicing or retired-label copying.",
+  "contentPreservation": {
+    "only685HeadingSuffixesChanged": true,
+    "completeExplanationsUnchanged": true,
+    "allContextsAndTranslationsUnchanged": true,
+    "all774AudioRecordsIdentical": true,
+    "selectionAndVixReceiptUnchanged": true
+  },
+  "checks": {
+    "authoringCases": 46,
+    "backend": "Isolated publication and exact readback, capability2 denied on quick-gloss text;3 accepts old/no-gloss and new; publisher unchanged",
+    "readerContract": {
+      "format": "usage-context-v1",
+      "checks": [
+        "new format is one reader stream",
+        "contexts have one translation each, never sentence translations",
+        "shared context repeats with the same identity",
+        "all contexts default masked",
+        "hidden translations do not enter copied text",
+        "hidden translations do not enter accessibility names",
+        "speaker labels are outside actual spoken sentences",
+        "masked has no horizontal overflow",
+        "shared translation states update together",
+        "reveal preserves allocated block height",
+        "revealed translation is copyable",
+        "translation renders unsafe markup as text",
+        "revealed has no horizontal overflow",
+        "revealed preference persists across reload",
+        "hidden preference persists across reload",
+        "another user never inherits revealed translations",
+        "another digest never inherits revealed translations",
+        "original user and version recover their own preference",
+        "titles, quick glosses and definitions remain silent",
+        "context tap submits only the complete English sentence",
+        "shared server audio contract accepts rendered English only",
+        "translation toggle does not pronounce or submit a question",
+        "sentence hold carries complete English context and stable identity",
+        "questions carry no hidden translation text",
+        "context word double-tap resolves its actual repeated occurrence",
+        "pure reader still enters",
+        "pure has no horizontal overflow",
+        "pure reader still exits",
+        "new pure-mode coordinates preserve interior and native scroll boundaries",
+        "marked-use controls and source/hint chrome are absent",
+        "old highlight preference is removed without removing translations",
+        "POS follows each corresponding IPA",
+        "quick gloss follows the final POS within its heading",
+        "multi-form use has one quick gloss after both form categories",
+        "previous modern heading without quick gloss remains readable",
+        "new explanation has one ordinary paragraph and no extra short gloss",
+        "legacy heading retains its own original short gloss",
+        "translation has no native tooltip",
+        "stale highlight cannot intercept normal sentence audio",
+        "POS and quick-gloss heading long-press targets the real vocabulary",
+        "word index clears sticky toolbar",
+        "source evidence remains available outside the learning unit",
+        "new quality request uses advertised context policy",
+        "context-level quality finding locates its frozen context",
+        "new next chapter shows only context audio scope",
+        "old next scope is not silently converted",
+        "old chapter keeps original audio scope",
+        "new chapter audio estimate restores context-only scope",
+        "narrow has no horizontal overflow",
+        "old formal chapter retains three-part controls",
+        "old story sentence rendering remains",
+        "same-user tabs synchronize both reveal and hide",
+        "missing user identity defaults to masked",
+        "missing user identity still supports local toggle",
+        "missing user identity never persists across reload",
+        "storage quota failure leaves reversible memory-only translation controls",
+        "no runtime page errors"
+      ],
+      "errors": [],
+      "browser": "Chromium touch emulation, 402x874 and 320x620; not physical iOS Safari",
+      "paidCalls": 0,
+      "liveApiCalls": 0
+    },
+    "actualChapter": {
+      "passed": true,
+      "chapterDigest": "99ee6268e2bb274f7a9480e97a11734818d3c003c981de9d7c02fbaa851ea0ec",
+      "words": 50,
+      "uses": 685,
+      "contexts": 732,
+      "checks": [
+        "one complete fused explanation per actual use",
+        "no standalone legacy gloss paragraph or source/type/prompt layers",
+        "each actual use has one inline quick gloss",
+        "actual quick gloss is directly after final POS",
+        "every actual use has a POS heading",
+        "50 real headwords render",
+        "single stream hides old section navigation",
+        "all local selected contexts render",
+        "translations default masked",
+        "no horizontal overflow at iPhone width",
+        "example flows directly after explanation with6–8px gap",
+        "no line or inset separates explanation from example",
+        "translation controls retain44px touch minimum",
+        "real translation reveals",
+        "real translation hides again",
+        "real chapter fits narrow320px",
+        "no page errors",
+        "no actual paid or external requests"
+      ],
+      "physicalIPhone": false,
+      "paidCalls": 0,
+      "liveRequests": 0
+    },
+    "dailyInputRecoveryPassed": true
+  },
+  "deployment": {
+    "shell": {
+      "verifiedAt": "2026-10-30T14:46:04.951Z",
+      "shell": 61,
+      "results": [
+        {
+          "file": "index.html",
+          "status": 200,
+          "sha256": "b6cffc6cf369e6565536bbdcd4cba06f0a42f506008a9f4f4a2ec1fa3c323957"
+        },
+        {
+          "file": "app.js",
+          "status": 200,
+          "sha256": "483fab3c6c53da4e0794d4bab7e425db9f7fd42a79cbd8300dce756b12fd7b64"
+        },
+        {
+          "file": "render.js",
+          "status": 200,
+          "sha256": "151356dcf2c52b750b9e5c289814654034a4573aa0e11a4c1d6adf55dcc6232a"
+        },
+        {
+          "file": "teaching-units.js",
+          "status": 200,
+          "sha256": "304e3c350fcaaafa629db8940bd588f7a7f87bec2e69ef799dc861298d059017"
+        },
+        {
+          "file": "styles.css",
+          "status": 200,
+          "sha256": "3bb2b2d709469377ac4b58d77d6bb37a4a4fb222507813cb09ae2162175eeb43"
+        },
+        {
+          "file": "sw.js",
+          "status": 200,
+          "sha256": "d001d1d3592c59be4cbadbc0ae61db9ad6ae45bb83f9a109cd5849bc7ac6e37b"
+        }
+      ]
+    },
+    "workerVersion": "ac349b88-fa09-4496-8509-03a18fdbf7f4"
+  },
+  "liveVerification": {
+    "verifiedAt": "2026-10-30T14:48:06.508Z",
+    "passed": true,
+    "base": "https://the-second-language.pages.dev/",
+    "number": "第 1 章",
+    "chapterDigest": "99ee6268e2bb274f7a9480e97a11734818d3c003c981de9d7c02fbaa851ea0ec",
+    "sourceDigest": "d7a9844a3aa42e309eca85fecb064d1af792b04c3fd545cbdef525f454dea08e",
+    "evidenceDigest": "195cc8a9a03f9c1293a1e575db889a4558c32ead2a57623a3f91faaff60e8a3d",
+    "evidenceObjects": 3,
+    "evidenceWords": 50,
+    "evidenceOriginals": 74,
+    "historicalDigest": "4cc6a2f9edee37555418c365c1da29033b43c1f6854a3ac2dddf2aa9e03f7a78",
+    "historicalOriginalAndSourceUnchanged": true,
+    "priorSingleStreamUnchanged": true,
+    "layoutVersion": 2,
+    "quickGlossVersion": 1,
+    "noGlossRevisionRetained": true,
+    "restRequested": true,
+    "nextAudio": [],
+    "anonymousEvidenceStatus": 401,
+    "paidCalls": 0,
+    "physicalIPhone": false
+  },
+  "runtimeSynchronization": {
+    "changedFiles": 16,
+    "importsPassed": true,
+    "scopedDirectiveUpdated": true,
+    "credentialsModified": false
+  },
+  "costs": {
+    "externalModelAPICalls": 0,
+    "newTTSCalls": 0,
+    "newSubscription": false
+  },
+  "physicalIPhone": false
+}

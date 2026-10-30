@@ -10,8 +10,8 @@
   "authoringPolicy": "authentic-context-v1",
   "vixInputCommit": "e235aa2a301b65b54e9938bdc46578d1b3810637",
   "vixCommit": "f92e945322fc30cd5546f8848c47777fe26364d0",
-  "protocolCommit": "be8abaac6ff555db77de5b8ca20f028a7bbf0cc3",
-  "sourceDigest": "58d450a5d1a978ca51cbe7c8878911db0fa368d830e69f08a6743fcd8af77ea4",
+  "protocolCommit": "a1237b7ae282cff9965496d9b9762f26583865e8",
+  "sourceDigest": "d7a9844a3aa42e309eca85fecb064d1af792b04c3fd545cbdef525f454dea08e",
   "authoringRevision": {
     "schemaVersion": 1,
     "kind": "chapter-authoring-revision-v1",
@@ -29,5 +29,6 @@
     "baselineFile": "work/runs/2026-10-24/revisions/20261030-authentic-context-v1/baseline.json",
     "baselineDigest": "f2c61d20745888868691567b99bfc75fdc964a13c715519eaa048c058ecc0c24"
   },
-  "teachingLayoutVersion": 2
+  "teachingLayoutVersion": 2,
+  "quickGlossVersion": 1
 }
