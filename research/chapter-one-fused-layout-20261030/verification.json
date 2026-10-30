@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "chapterDigest": "6e17cda5b91552d576428023781bef28990c8ba59e99edb5fea4e332a154a8c8",
+  "words": 50,
+  "uses": 685,
+  "contexts": 732,
+  "checks": [
+    "one complete fused explanation per actual use",
+    "no short-gloss or source/type/prompt layers",
+    "every actual use has a POS heading",
+    "50 real headwords render",
+    "single stream hides old section navigation",
+    "all local selected contexts render",
+    "translations default masked",
+    "no horizontal overflow at iPhone width",
+    "real translation reveals",
+    "real translation hides again",
+    "real chapter fits narrow320px",
+    "no page errors",
+    "no actual paid or external requests"
+  ],
+  "physicalIPhone": false,
+  "paidCalls": 0,
+  "liveRequests": 0
+}

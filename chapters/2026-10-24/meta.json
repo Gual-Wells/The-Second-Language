@@ -10,8 +10,8 @@
   "authoringPolicy": "authentic-context-v1",
   "vixInputCommit": "e235aa2a301b65b54e9938bdc46578d1b3810637",
   "vixCommit": "f92e945322fc30cd5546f8848c47777fe26364d0",
-  "protocolCommit": "47b19cd2abc5fbe5ed927b6c70ae0d58c77f5d3a",
-  "sourceDigest": "3ffc2654d6161768524cc13d962a794b655a03761319d3899ffe1c7a0e9f7a7d",
+  "protocolCommit": "be8abaac6ff555db77de5b8ca20f028a7bbf0cc3",
+  "sourceDigest": "58d450a5d1a978ca51cbe7c8878911db0fa368d830e69f08a6743fcd8af77ea4",
   "authoringRevision": {
     "schemaVersion": 1,
     "kind": "chapter-authoring-revision-v1",
@@ -28,5 +28,6 @@
     "authorization": "用户于2026-10-30明确要求将现有第一章按真实语境单正文协议处理后重新上线。",
     "baselineFile": "work/runs/2026-10-24/revisions/20261030-authentic-context-v1/baseline.json",
     "baselineDigest": "f2c61d20745888868691567b99bfc75fdc964a13c715519eaa048c058ecc0c24"
-  }
+  },
+  "teachingLayoutVersion": 2
 }

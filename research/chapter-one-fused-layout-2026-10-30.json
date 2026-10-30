@@ -1,0 +1,164 @@
+{
+  "preparedAt": "2026-10-30T12:51:17.988Z",
+  "studyDate": "2026-10-24",
+  "number": "第 1 章",
+  "status": "published-and-permanently-read-back",
+  "layoutVersion": 2,
+  "format": "usage-context-v1",
+  "previousDigest": "638978c616d040ef958800e4ed95b636bac8414097de657fb517411a6b2127be",
+  "chapterDigest": "6e17cda5b91552d576428023781bef28990c8ba59e99edb5fea4e332a154a8c8",
+  "sourceDigest": "58d450a5d1a978ca51cbe7c8878911db0fa368d830e69f08a6743fcd8af77ea4",
+  "evidenceDigest": "894776580ac8a3f070d227925980eecef033e4eb365b5b95402a400736e0f0bd",
+  "wordCount": 50,
+  "useCount": 685,
+  "contexts": 732,
+  "sentenceRecords": 774,
+  "selectionAndVixReceiptUnchanged": true,
+  "oldUseIdentitiesAndOrderPreserved": true,
+  "semanticReview": {
+    "authors": [
+      "W001-W025:313 USE; actual full Collins then Oxford and existing contexts",
+      "W026-W050:372 USE; actual full Collins then Oxford and existing contexts"
+    ],
+    "rootSpotChecks": [
+      "adapt",
+      "advocate",
+      "capacity",
+      "integrate",
+      "isolate",
+      "medium",
+      "precise",
+      "yield"
+    ],
+    "sourceSelfContainment": {
+      "reviewed": 137,
+      "repaired": 33,
+      "unchanged": 104,
+      "rootAdjustments": [
+        "Restore around in CU03709a to preserve the selected intransitive orbit construction.",
+        "Remove USE claims from CU02102a and CU02507a support sentences without an actual target form.",
+        "Separate the two full English sentences in CU03108a and CU03304a under independent sentence identities."
+      ]
+    },
+    "limits": "Scoped author reviews and root checks do not constitute learner mastery or a new independent chapter-quality certification."
+  },
+  "checks": {
+    "authoring": 45,
+    "packaging": 18,
+    "evidence": 17,
+    "readerContract": 54,
+    "legacyReaderUI": 106,
+    "legacyArticleUI": 17,
+    "legacyInteriorPositions": 44,
+    "legacyNativeEdges": 20,
+    "backend": "isolated Worker/D1/permanent-store publication/readback/audio/questions/tests/quality; old reader426, capable/publisher200, Vary",
+    "inputRecovery": "daily affairs contract passed",
+    "actualChapter": {
+      "passed": true,
+      "chapterDigest": "6e17cda5b91552d576428023781bef28990c8ba59e99edb5fea4e332a154a8c8",
+      "words": 50,
+      "uses": 685,
+      "contexts": 732,
+      "checks": [
+        "one complete fused explanation per actual use",
+        "no short-gloss or source/type/prompt layers",
+        "every actual use has a POS heading",
+        "50 real headwords render",
+        "single stream hides old section navigation",
+        "all local selected contexts render",
+        "translations default masked",
+        "no horizontal overflow at iPhone width",
+        "real translation reveals",
+        "real translation hides again",
+        "real chapter fits narrow320px",
+        "no page errors",
+        "no actual paid or external requests"
+      ],
+      "physicalIPhone": false,
+      "paidCalls": 0,
+      "liveRequests": 0
+    },
+    "cache": {
+      "passed": true,
+      "oldRealmCannotMatchNewChapter": true,
+      "capableRealmReceivesExactText": true,
+      "physicalIPhone": false,
+      "liveRequests": 0
+    }
+  },
+  "audio": {
+    "unchangedTextUnits": 739,
+    "changedOrNewTextUnits": 35,
+    "permanentOriginalsRetained": true,
+    "newTTSCalls": 0,
+    "automaticRegeneration": false
+  },
+  "deployment": {
+    "shell": {
+      "verifiedAt": "2026-10-30T12:40:19.838Z",
+      "shell": 59,
+      "results": [
+        {
+          "file": "index.html",
+          "status": 200,
+          "sha256": "9e32c8fea4780ac461c659ccfc38ff323b8a6db2276db3ebd0799147bfcfaef9"
+        },
+        {
+          "file": "app.js",
+          "status": 200,
+          "sha256": "ec2234ebf0f664d3b6b46461c279ecdb97c9310dd076c7ad2007c3c02eb6bafb"
+        },
+        {
+          "file": "render.js",
+          "status": 200,
+          "sha256": "a9de5abad4d0a75cd126229bde9a50bdeb81abe9890072d1f3c8c3ba0322f38c"
+        },
+        {
+          "file": "teaching-units.js",
+          "status": 200,
+          "sha256": "adf77de87b5270b00a1913c5e5aa9cdc935bcff15fd1026fa915b65b2fa75abc"
+        },
+        {
+          "file": "sw.js",
+          "status": 200,
+          "sha256": "f6a527dd36a8e151ef12499c1a11260db370b1c6e331e225d8d3723d4286de89"
+        }
+      ]
+    },
+    "workerVersion": "4c41b320-f381-49fa-8ba8-31ad814d4d03"
+  },
+  "runtimeSynchronization": {
+    "changedFiles": 17,
+    "importsPassed": true,
+    "scopedDirectiveAdded": true,
+    "credentialsModified": false
+  },
+  "costs": {
+    "newPaidModelCalls": 0,
+    "newTTSCalls": 0,
+    "newSubscription": false
+  },
+  "physicalIPhone": false,
+  "liveVerification": {
+    "verifiedAt": "2026-10-30T12:51:56.208Z",
+    "passed": true,
+    "base": "https://the-second-language.pages.dev/",
+    "number": "第 1 章",
+    "chapterDigest": "6e17cda5b91552d576428023781bef28990c8ba59e99edb5fea4e332a154a8c8",
+    "sourceDigest": "58d450a5d1a978ca51cbe7c8878911db0fa368d830e69f08a6743fcd8af77ea4",
+    "evidenceDigest": "894776580ac8a3f070d227925980eecef033e4eb365b5b95402a400736e0f0bd",
+    "evidenceObjects": 3,
+    "evidenceWords": 50,
+    "evidenceOriginals": 74,
+    "historicalDigest": "4cc6a2f9edee37555418c365c1da29033b43c1f6854a3ac2dddf2aa9e03f7a78",
+    "historicalOriginalAndSourceUnchanged": true,
+    "priorSingleStreamUnchanged": true,
+    "layoutVersion": 2,
+    "restRequested": true,
+    "nextAudio": [],
+    "anonymousEvidenceStatus": 401,
+    "paidCalls": 0,
+    "physicalIPhone": false
+  },
+  "visualEvidence": "research/chapter-one-fused-layout-20261030"
+}
