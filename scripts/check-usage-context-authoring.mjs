@@ -14,7 +14,7 @@ import {prepareTeachingMaterials, readTeachingMaterials, checkMaterialDispositio
 import {indexTextbook} from './lib/textbook-sources.mjs';
 
 const repoRoot = fileURLToPath(new URL('../', import.meta.url));
-const legacyFile = path.join(repoRoot, 'chapters/2026-10-24/chapter.md');
+const legacyFile = path.join(repoRoot, 'chapters/history/2026-10-24/4cc6a2f9/chapter.md');
 const legacyDigest = '4cc6a2f9edee37555418c365c1da29033b43c1f6854a3ac2dddf2aa9e03f7a78';
 const hash = bytes => createHash('sha256').update(bytes).digest('hex');
 const clone = value => structuredClone(value);

@@ -7,6 +7,7 @@ import {canonicalSourcePackage as canonical} from '../../protocol/current-affair
 import {validateAnnotatedContent} from '../../web/annotations.js';
 import {assembleUsageContextCollection} from './usage-context-authoring.mjs';
 import {CONTEXT_AUTHORING_POLICY} from '../../protocol/usage-context.mjs';
+import {loadAuthoringContract} from './chapter-authoring-revision.mjs';
 
 export const AUTHORING_POLICY = 'sourced-collection-v1';
 export const DEFAULT_AUTHORING_POLICY = CONTEXT_AUTHORING_POLICY;
@@ -138,7 +139,8 @@ export async function assembleRun(root,date){
   const names=(await fs.readdir(folder)).filter(n=>/^word-[A-Za-z0-9_-]+\.json$/.test(n));
   const words=await Promise.all(names.map(n=>readJson(path.join(folder,n))));
   if(words.length!==selection.mainWords.length||new Set(words.map(w=>w.text)).size!==words.length||words.some(w=>!selection.mainWords.some(s=>s.text===w.text)))throw Error('作者词条与冻结主词不一致');
-  const isContexts=selection.authoringPolicy===CONTEXT_AUTHORING_POLICY;
+  const contract=await loadAuthoringContract(root,date,selection);
+  const isContexts=contract.policy===CONTEXT_AUTHORING_POLICY;
   if(selection.authoringPolicy!=null&&!isContexts&&selection.authoringPolicy!==AUTHORING_POLICY)throw Error('未知冻结制作协议');
   if(!isContexts&&words.some(w=>w.contexts!=null||w.contextChoices!=null))throw Error('旧冻结运行不能静默切换新作者合同');
   const articles=isContexts?[]:await readJson(path.join(folder,'articles.json'));

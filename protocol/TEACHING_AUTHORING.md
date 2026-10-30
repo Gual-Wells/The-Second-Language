@@ -70,4 +70,6 @@ node scripts/publish-chapter.mjs DATE
 
 2026-10-30起，pack-current-affairs自动生成chapter-evidence-v1私有包，将实际采用原文、读取凭据、已有原HTML、完整材料、原例去向及取境记录按正文/运行/选择摘要固定。publish-chapter先永久上传并回读，再提交正式章节，读者来源页只得到evidenceDigest。恢复不访问旧凭据中的绝对路径，当前作者去向改变不能沿用旧证据；语义与实际采用权仍须正常核对。旧同正文来源包不可静默改绑，缺失原件不能靠重新抓取伪造历史。
 
+2026-10-30用户随后明确要求将现有第1章处理后重新上线，这是该章的显式重编授权，不是以后自动迁移旧章的默认许可。重编前保存`work/runs/DATE/revisions/REV/original/{chapter,run,authored}`原件，再显式运行`prepare-authoring-revision.mjs DATE REV 授权说明`。工具从原章节、来源、完整selection和原VIX回执建立不可变baseline.json及meta.authoringRevision；不修改selection或VIX回执、不重新领取日课、不重标VIX。装配只在基线、授权元数据、原runId/日期、原50词与全部词族完全一致时派生新作者策略。基线与授权同时封入私有采用证据，恢复不依赖本机旧路径；无声明或绑定不一致仍按旧合同拒绝静默转换。同日新正文继续正式修订通路，原正文/来源/付费音频及各自固定历史不改，章号和下一章音频不重复消费。
+
 验证入口：check-usage-context-authoring、check-usage-context-packaging、check-usage-context-backend、check-context-reader。结构与浏览器仿真不能证明语义正确、用户已掌握或物理iPhone体验。全部新增数据实存D，任务末尾按BALANCES核查；休息、独立雅思/答疑/测试/认证/卷轴及计费保护继续。

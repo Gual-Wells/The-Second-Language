@@ -1,0 +1,15 @@
+{
+  "date": "2026-10-24",
+  "runId": "2026-10-24",
+  "number": "第 1 章",
+  "title": "运动、材料与人的生活",
+  "subtitle": "从小行星与河流，到语言、照护和日常工艺",
+  "wordCount": 50,
+  "contentPolicy": "etymology-fused-v1",
+  "sourcePolicy": "current-affairs-v1",
+  "authoringPolicy": "sourced-collection-v1",
+  "vixInputCommit": "e235aa2a301b65b54e9938bdc46578d1b3810637",
+  "vixCommit": "f92e945322fc30cd5546f8848c47777fe26364d0",
+  "protocolCommit": "57ddbedafd9d65282a546a72fd54a1f5a3393d21",
+  "sourceDigest": "ebd667899181db4cea62d6bafe75140385ea0497c9a61367d5bf551e7c4b6869"
+}

@@ -31,8 +31,8 @@ const markdown=lines.join('\n'),parsed=validateAnnotatedContent(markdown,{expect
 assert.equal(parsed.contexts.length,49);assert.equal(parsed.format,'usage-context-v1');
 const originalDigest=sha(markdown);
 const chapter={id:'2026-10-27',date:'2026-10-27',number:'第 2 章',title:'语境阅读 · 隔离界面核验',subtitle:'自写材料，不是正式课程',wordCount:50,markdown,digest:originalDigest,sourcePolicy:'current-affairs-v1',sourceDigest:sha('source-fixture')};
-const legacyMeta=JSON.parse(await readFile('chapters/2026-10-24/meta.json','utf8'));
-const legacyText=await readFile('chapters/2026-10-24/chapter.md','utf8');
+const legacyMeta=JSON.parse(await readFile('chapters/history/2026-10-24/4cc6a2f9/meta.json','utf8'));
+const legacyText=await readFile('chapters/history/2026-10-24/4cc6a2f9/chapter.md','utf8');
 const legacy={...legacyMeta,id:legacyMeta.date,markdown:legacyText,digest:sha(legacyText)};
 let readerUserId='isolated-reader-A';
 let qualityComplete=false;

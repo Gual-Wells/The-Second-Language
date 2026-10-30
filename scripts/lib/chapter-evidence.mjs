@@ -6,6 +6,7 @@ import {CHAPTER_EVIDENCE_POLICY, MAX_EVIDENCE_OBJECT_BYTES, validateEvidenceMani
 import {assembleUsageContextCollection} from './usage-context-authoring.mjs';
 import {readTeachingMaterials, checkMaterialDisposition, teachingScope} from './teaching-authoring.mjs';
 import {validateReadRecord} from './current-affairs-reader.mjs';
+import {loadAuthoringContract,validateAuthoringRevision} from './chapter-authoring-revision.mjs';
 
 const hash = value => createHash('sha256').update(value).digest('hex');
 const json = file => fs.readFile(file, 'utf8').then(JSON.parse);
@@ -81,8 +82,9 @@ function verifyRecords(manifest, groups, chapter) {
   const controls = records.filter(record => record.kind === 'control');
   if (controls.length !== 1) throw Error('章节私有证据须有唯一冻结材料身份');
   const control = controls[0], selection = control.selection;
+  const policy=control.authoringRevision?validateAuthoringRevision(control.authoringRevision,{selection,baselineText:control.revisionBaselineText,date:manifest.studyDate,runId:manifest.runId}).policy:selection?.authoringPolicy;
   if (!selection || selection.studyDate !== manifest.studyDate || selection.vixInputCommit !== manifest.vixInputCommit ||
-      selection.authoringPolicy !== manifest.authoringPolicy || hash(canonicalSourcePackage(selection)) !== manifest.selectionDigest ||
+      policy !== manifest.authoringPolicy || hash(canonicalSourcePackage(selection)) !== manifest.selectionDigest ||
       typeof control.materialsManifestText !== 'string' || hash(control.materialsManifestText) !== control.materialsManifestDigest) throw Error('章节私有证据的冻结选择或教材清单摘要不符');
   const materials = JSON.parse(control.materialsManifestText), scope = teachingScope(selection);
   if (scope.length !== manifest.wordCount || materials.commit !== manifest.vixInputCommit ||
@@ -135,9 +137,10 @@ export async function prepareChapterEvidence(root, date, {markdown, selection, s
   assertDate(date);
   root = await safeRoot(root);
   const run = path.join(root,'work/runs',date), frozen = await json(path.join(run,'selection.json'));
-  if (canonicalSourcePackage(frozen) !== canonicalSourcePackage(selection) || selection.authoringPolicy !== 'authentic-context-v1') throw Error('只能为原冻结的单正文运行保存采用证据');
+  const contract=await loadAuthoringContract(root,date,selection);
+  if (canonicalSourcePackage(frozen) !== canonicalSourcePackage(selection) || contract.policy !== 'authentic-context-v1') throw Error('只能为原冻结的单正文运行或已明确授权重编保存采用证据');
   const {manifest:materials} = await readTeachingMaterials(root,date,selection), materialsManifestText = await fs.readFile(path.join(run,'teaching/materials.json'),'utf8');
-  const records = [{kind:'control', selection, materialsManifestText, materialsManifestDigest:hash(materialsManifestText)}];
+  const records = [{kind:'control', selection, materialsManifestText, materialsManifestDigest:hash(materialsManifestText),...(contract.revision?{authoringRevision:contract.revision,revisionBaselineText:contract.baselineText}:{})}];
   for (const name of (await fs.readdir(path.join(run,'teaching/authored'))).filter(name => /^word-[A-Za-z0-9_-]+\.json$/.test(name)).sort()) {
     const authorText = await fs.readFile(path.join(run,'teaching/authored',name),'utf8'), authored = JSON.parse(authorText);
     const ref = materials.packets.find(ref => ref.word === authored.text);
@@ -187,7 +190,7 @@ export async function prepareChapterEvidence(root, date, {markdown, selection, s
   }
   if (current.length) groups.push(object({schemaVersion:1,kind:'chapter-evidence-group-v1',records:current}));
   let runId = date; try { runId = (await json(path.join(root,'chapters',date,'meta.json'))).runId || date; } catch(error) { if(error.code!=='ENOENT')throw error; }
-  const manifest = validateEvidenceManifest({schemaVersion:1,kind:CHAPTER_EVIDENCE_POLICY,studyDate:date,runId,chapterDigest:hash(markdown),selectionDigest:hash(canonicalSourcePackage(selection)),vixInputCommit:selection.vixInputCommit,authoringPolicy:selection.authoringPolicy,wordCount:selection.mainWords.length,sourceCount:sources.length,groups:groups.map(({digest,bytes})=>({digest,bytes}))});
+  const manifest = validateEvidenceManifest({schemaVersion:1,kind:CHAPTER_EVIDENCE_POLICY,studyDate:date,runId,chapterDigest:hash(markdown),selectionDigest:hash(canonicalSourcePackage(selection)),vixInputCommit:selection.vixInputCommit,authoringPolicy:contract.policy,wordCount:selection.mainWords.length,sourceCount:sources.length,groups:groups.map(({digest,bytes})=>({digest,bytes}))});
   verifyRecords(manifest,groups.map(group=>JSON.parse(group.text)),{markdown,sourcePackage:{sources}});
   const manifestObject = object(manifest), objects = [...groups,manifestObject], folder = path.join(run,'sources/evidence');
   for (const item of objects) await immutable(path.join(folder,item.digest+'.json'),item.text);

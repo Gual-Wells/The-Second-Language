@@ -13981,6 +13981,114 @@
           "evidenceUrl": "https://www.archives.govt.nz/manage-information/how-to-manage-your-information/digital/best-practice-guidance-on-digital-storage-and-preservation"
         }
       ]
+    },
+    {
+      "id": "irs-tax",
+      "name": "Internal Revenue Service",
+      "home": "https://www.irs.gov/",
+      "entryUrl": "https://www.irs.gov/publications/p525",
+      "sourceType": "public-service",
+      "regions": [
+        "US"
+      ],
+      "topics": [
+        "finance",
+        "law",
+        "public-services"
+      ],
+      "language": "en",
+      "role": "technical-release",
+      "access": "open",
+      "evidenceUrl": "https://www.irs.gov/publications/p525",
+      "verification": "opened",
+      "notes": "按需读取官方税务用语与实例，保税年/适用范围；教学采用不构成用户税务建议。",
+      "checkedOn": "2026-10-30"
+    },
+    {
+      "id": "nasa-jpl-education",
+      "name": "NASA JPL Education",
+      "home": "https://www.jpl.nasa.gov/",
+      "entryUrl": "https://www.jpl.nasa.gov/edu/resources/lesson-plan/hovering-on-a-cushion-of-air/",
+      "sourceType": "science-institution",
+      "regions": [
+        "US"
+      ],
+      "topics": [
+        "science",
+        "education"
+      ],
+      "language": "en",
+      "role": "technical-release",
+      "access": "open",
+      "evidenceUrl": "https://www.jpl.nasa.gov/edu/resources/lesson-plan/hovering-on-a-cushion-of-air/",
+      "verification": "opened",
+      "notes": "按需读取JPL实际教学活动；不以NASA品牌自动推定每份第三方图像或代码均可复用。",
+      "checkedOn": "2026-10-30"
+    },
+    {
+      "id": "bfi",
+      "name": "British Film Institute",
+      "home": "https://www.bfi.org.uk/",
+      "entryUrl": "https://www.bfi.org.uk/bfi-film-releases/house-mirth",
+      "sourceType": "cultural-institution",
+      "regions": [
+        "GB"
+      ],
+      "topics": [
+        "arts",
+        "culture"
+      ],
+      "language": "en",
+      "role": "technical-release",
+      "access": "open",
+      "evidenceUrl": "https://www.bfi.org.uk/bfi-film-releases/house-mirth",
+      "verification": "opened",
+      "notes": "按需读取官方影片介绍；区分片介内容与完整影片，不复制剧照或未获准长摘。",
+      "checkedOn": "2026-10-30"
+    },
+    {
+      "id": "gao",
+      "name": "U.S. Government Accountability Office",
+      "home": "https://www.gao.gov/",
+      "role": "primary-government-decisions",
+      "language": "en",
+      "topics": [
+        "government",
+        "law",
+        "public-administration"
+      ],
+      "access": "open",
+      "notes": "Added2026-10-30 for targeted reading of actual GAO B-220172 decision,1986-03-04; no feed activation or bulk crawling. Formal case scope and archived decision date retained.",
+      "evidenceUrl": "https://www.gao.gov/products/b-220172-0",
+      "entryUrl": "https://www.gao.gov/products/b-220172-0",
+      "sourceType": "government-audit-office",
+      "regions": [
+        "US"
+      ],
+      "verification": "opened",
+      "checkedOn": "2026-10-30"
+    },
+    {
+      "id": "california-dmv",
+      "name": "California Department of Motor Vehicles",
+      "home": "https://www.dmv.ca.gov/",
+      "entryUrl": "https://www.dmv.ca.gov/portal/handbook/california-driver-handbook/",
+      "sourceType": "government",
+      "regions": [
+        "North America"
+      ],
+      "topics": [
+        "transport",
+        "public-safety",
+        "official-guidance"
+      ],
+      "language": "en",
+      "role": "official-driver-handbook",
+      "access": "open",
+      "evidenceUrl": "https://www.dmv.ca.gov/portal/handbook/california-driver-handbook/navigating-the-roads/",
+      "verification": "opened",
+      "notes": "2026-10-30通过web实际打开驾驶手册Navigating the Roads；仅登记已读官方入口，不新增feed或全站抓取。加州适用范围与版本日期不得推广为他地规则；开放访问不等于完整手册、插图或第三方材料的转载授权。",
+      "checkedOn": "2026-10-30"
     }
   ]
 }
