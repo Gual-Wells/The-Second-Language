@@ -1,0 +1,207 @@
+{
+  "version": 1,
+  "recordedAt": "2026-10-30T15:11:23.190Z",
+  "baselineCommit": "a50809e28dbe7cf7ebc5d27046a2bf3bac6c4f55",
+  "implementationCommit": "b3ac32943e1880f0b53cf88774c2a42fb0000797",
+  "scope": "Latest content and presentation requirements mapped into research, authoring, validation, versioned quality and publication. No chapter revision or production learner task.",
+  "currentChapter": {
+    "date": "2026-10-24",
+    "digest": "99ee6268e2bb274f7a9480e97a11734818d3c003c981de9d7c02fbaa851ea0ec",
+    "sourceDigest": "d7a9844a3aa42e309eca85fecb064d1af792b04c3fd545cbdef525f454dea08e",
+    "evidenceDigest": "195cc8a9a03f9c1293a1e575db889a4558c32ead2a57623a3f91faaff60e8a3d",
+    "unchanged": true,
+    "versions": {
+      "teachingLayoutVersion": 2,
+      "quickGlossVersion": 1
+    },
+    "words": 50,
+    "sealedAuthorWords": 50
+  },
+  "publication": {
+    "reader": {
+      "required": 3,
+      "readerCapability": 3,
+      "workerCapability": 3,
+      "checkedAt": "2026-10-30T15:11:21.547Z",
+      "assets": [
+        {
+          "path": "/",
+          "digest": "697a87960f205437e5408e0f136ba23b4d91ff60902a144723df34bf663ec6a3"
+        },
+        {
+          "path": "/annotations.js?v=61",
+          "digest": "9d860d217e36cbf397eb33200bb9d924ae16622481e976b67558fb0b2e265077"
+        },
+        {
+          "path": "/app.js?v=62",
+          "digest": "acb0fe24b2b9ec1acf36591639e829ec167137e6812b1687f6454c418062b194"
+        },
+        {
+          "path": "/chapter-quality.js?v=62",
+          "digest": "3e409fa37213611f07467e836eaf1ca1b668a804a66987c7448a89d9e9cd0e0e"
+        },
+        {
+          "path": "/context-translations.js?v=50",
+          "digest": "ceb595ccf206fd93a2a4fdd849bce86db421ad1f06ed864dea08d13a645619be"
+        },
+        {
+          "path": "/pure-reader.js?v=61",
+          "digest": "7ec5f65a3421ea65e56bd7da2aca5f4d67bab0072a65cd1f5ebfb459f869c3a5"
+        },
+        {
+          "path": "/reader-capability.js?v=62",
+          "digest": "60383b8018a27ae53e540c733d928231e523d0df9ae5ea9a460449df02c09772"
+        },
+        {
+          "path": "/reader-focus.js?v=50",
+          "digest": "2d1d3c4ce04290e4de72ed2b1149ab487adce110878d8a8fa0046c2d0b9a3925"
+        },
+        {
+          "path": "/reader-focus.js?v=61",
+          "digest": "2d1d3c4ce04290e4de72ed2b1149ab487adce110878d8a8fa0046c2d0b9a3925"
+        },
+        {
+          "path": "/render.js?v=61",
+          "digest": "151356dcf2c52b750b9e5c289814654034a4573aa0e11a4c1d6adf55dcc6232a"
+        },
+        {
+          "path": "/styles.css?v=61",
+          "digest": "3bb2b2d709469377ac4b58d77d6bb37a4a4fb222507813cb09ae2162175eeb43"
+        },
+        {
+          "path": "/sw.js?v=62",
+          "digest": "44d8f1db5a16b2870527fe1b1fcadf082bee54e8b1cfff89a535acfc505e81cb"
+        },
+        {
+          "path": "/teaching-units.js?v=61",
+          "digest": "304e3c350fcaaafa629db8940bd588f7a7f87bec2e69ef799dc861298d059017"
+        },
+        {
+          "path": "/usage-context.js",
+          "digest": "6777c3e3a2ba5f7dbfc0b86cabf5b081910c8e9c3c9846892e0b4aeecbed2bac"
+        },
+        {
+          "path": "/usage-context.js?v=61",
+          "digest": "6777c3e3a2ba5f7dbfc0b86cabf5b081910c8e9c3c9846892e0b4aeecbed2bac"
+        }
+      ]
+    },
+    "workerVersion": "4a9b352f-11b4-4f3b-bd6e-47915d1ac8bb",
+    "pages": "https://380f40db.the-second-language.pages.dev",
+    "anonymousPrivateStatus": 401
+  },
+  "quality": {
+    "current": "chapter-quality-v4-presentation",
+    "digest": "52fe2fc27a693b4d9edac35c4c638513624cd3f4bafe0f5d2831f0ab037dbdfa",
+    "retainedV3Digest": "3c9c3cc48d976305765b37713c1055f010623b6cccdccad0cd4833c58c780a3a",
+    "v3Comparison": "32 fake model prompts, schemas and cache stems, plus final report, identical to prior HEAD implementation"
+  },
+  "checks": [
+    {
+      "command": "node scripts/check-usage-context-authoring.mjs",
+      "passed": 47
+    },
+    {
+      "command": "node scripts/check-usage-context-packaging.mjs",
+      "passed": 22
+    },
+    {
+      "command": "node scripts/check-current-affairs-package.mjs",
+      "result": "passed, includes original legacy package without author directory"
+    },
+    {
+      "command": "node scripts/check-chapter-quality.mjs",
+      "result": "passed, includes v3 lifecycle and new client aliases"
+    },
+    {
+      "command": "node scripts/check-context-quality-evidence.mjs",
+      "passed": 11
+    },
+    {
+      "command": "node scripts/check-reader-release.mjs",
+      "result": "passed, actual URLs and mixed deployment fail closed before publication"
+    },
+    {
+      "command": "node scripts/check-daily-affairs.mjs",
+      "result": "passed"
+    },
+    {
+      "command": "node scripts/check-usage-context-backend.mjs",
+      "result": "passed, isolated SQLite and encrypted permanent transport"
+    },
+    {
+      "command": "node scripts/check-context-reader.mjs",
+      "passed": 57,
+      "browser": "Chromium touch emulation, 402x874 and 320x620; not physical iOS Safari",
+      "errors": []
+    }
+  ],
+  "runtime": {
+    "path": "D:/CodexStorage/workspaces/second-language-maintenance",
+    "files": [
+      {
+        "file": "protocol/CHAPTER_QUALITY.md",
+        "sha256": "593b909422a277ff0c5a8006ac78837ff364c1d96181706d082b02f6957e406f"
+      },
+      {
+        "file": "protocol/CURRENT_AFFAIRS.md",
+        "sha256": "93f5496334a83d91ad905fabe5962606e4e1bde8ff123fed46e84a3c47cdc6ab"
+      },
+      {
+        "file": "protocol/DAILY_RUN.md",
+        "sha256": "a5f9fbca0d50bf5570a750600c113a618804552d0fb3a52401bb21748289f72e"
+      },
+      {
+        "file": "protocol/READER_INTERACTION.md",
+        "sha256": "7c104ac70c14eff82b293220a2cae23c8208c0a883d1d094ee6fb462197e0e22"
+      },
+      {
+        "file": "protocol/TEACHING_AUTHORING.md",
+        "sha256": "54e1a46f3bae295dd46e26bb0567d336ecb73581f85f651dc8734b5e60c682dd"
+      },
+      {
+        "file": "protocol/TEACHING_LAYOUT_V2.md",
+        "sha256": "46de387f23d5df7d35c95e8cda4be4df9c839c982fb9da4a8055f4d26c2efe1e"
+      },
+      {
+        "file": "protocol/chapter-quality-contract.mjs",
+        "sha256": "dab826caa455bd6d1fa16c6e2c1cbbca8c57834dc9ef16b2685d232b14b0bd5e"
+      },
+      {
+        "file": "protocol/daily-prompt.txt",
+        "sha256": "90862aead4cf017cb751eaf8bb167e9f5c243e54ea65db6da214f0943db54c8f"
+      },
+      {
+        "file": "scripts/lib/chapter-quality-runner.mjs",
+        "sha256": "6de0d2b501e2841d4351206d438e9da737c4795402b7d1954d86dc74c4d6e634"
+      },
+      {
+        "file": "scripts/lib/teaching-authoring.mjs",
+        "sha256": "6107e472a507ec4e6d36c22f34c7066ee44ecf4e3fec7a8dd5cd6d7d4837067e"
+      }
+    ],
+    "importsPassed": true,
+    "reload": "Scheduled task starts a fresh question-worker process under its existing mutex. No running job killed; no queue claimed."
+  },
+  "safeguards": {
+    "restRequested": true,
+    "nextAudio": [],
+    "newModelCalls": 0,
+    "newTtsCalls": 0,
+    "chapterPublishes": 0,
+    "databaseMigrations": 0,
+    "newRecurringCost": 0
+  },
+  "boundaries": [
+    "Deterministic checks and fake-model execution are not a semantic model-quality evaluation.",
+    "Chromium narrow-screen touch checks are not physical iPhone Safari acceptance.",
+    "Current chapter and its historical evidence identities are unchanged."
+  ],
+  "closeout": {
+    "balancesUpdated": true,
+    "openrouterUsd": 3.985861486,
+    "openaiVerified": false,
+    "recentCacheUpdateFailed": true,
+    "permanentArchiveQueued": true
+  }
+}
