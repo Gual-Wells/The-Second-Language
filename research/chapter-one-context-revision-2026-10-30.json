@@ -1,0 +1,103 @@
+{
+  "preparedAt": "2026-10-30T11:28:43.208Z",
+  "studyDate": "2026-10-24",
+  "number": "第 1 章",
+  "format": "usage-context-v1",
+  "authoringPolicy": "authentic-context-v1",
+  "previousDigest": "4cc6a2f9edee37555418c365c1da29033b43c1f6854a3ac2dddf2aa9e03f7a78",
+  "chapterDigest": "638978c616d040ef958800e4ed95b636bac8414097de657fb517411a6b2127be",
+  "sourceDigest": "3ffc2654d6161768524cc13d962a794b655a03761319d3899ffe1c7a0e9f7a7d",
+  "evidenceDigest": "42168fbbc81e51dacb62697aae09025a66d75d5663447822305028952f15c427",
+  "wordCount": 50,
+  "oldUseIdentitiesPreserved": 680,
+  "useCount": 685,
+  "independentBranchesAdded": [
+    "U01614",
+    "U01820",
+    "U02814",
+    "U05014M",
+    "U05015P"
+  ],
+  "contexts": 732,
+  "sourceContexts": 137,
+  "teachingExamples": 595,
+  "sourceOriginals": 74,
+  "frozenSelectionUnchanged": true,
+  "vixReceiptUnchanged": true,
+  "newTTSCalls": 0,
+  "newModelAPICalls": 0,
+  "semanticReview": {
+    "authors": "Full referenced Collins then Oxford and actual selected contexts read by three scoped authors plus root.",
+    "peer": "Cross-lane English/Chinese/target-sense/source checks; unchanged historical example base not represented as a fresh independent certification.",
+    "corrected": [
+      "calculate/approach sense mix-up in approximate",
+      "separate agriculture from biological cultivation",
+      "separate sensitive discrimination from taste",
+      "separate inherited traits from inherited interests",
+      "separate compliance from pliability in yield derivatives",
+      "incorrect cloth-ground translation",
+      "overbroad ownership and historical timing",
+      "missing normal-incidence qualification for refraction",
+      "wrong function in numerical area context"
+    ]
+  },
+  "checks": {
+    "revisionContract": "17/17",
+    "evidenceRegression": "17/17",
+    "authoringContract": "43/43",
+    "packaging": "18/18",
+    "readerContract": "49 checks",
+    "actualChapterTouchEmulation": {
+      "passed": true,
+      "chapterDigest": "638978c616d040ef958800e4ed95b636bac8414097de657fb517411a6b2127be",
+      "words": 50,
+      "uses": 685,
+      "contexts": 732,
+      "checks": [
+        "50 real headwords render",
+        "single stream hides old section navigation",
+        "all local selected contexts render",
+        "translations default masked",
+        "no horizontal overflow at iPhone width",
+        "real translation reveals",
+        "real translation hides again",
+        "no page errors",
+        "no actual paid or external requests"
+      ],
+      "physicalIPhone": false,
+      "paidCalls": 0,
+      "liveRequests": 0
+    }
+  },
+  "status": "published-and-independently-verified",
+  "liveVerification": {
+    "verifiedAt": "2026-10-30T11:34:18.307Z",
+    "passed": true,
+    "base": "https://the-second-language.pages.dev/",
+    "number": "第 1 章",
+    "chapterDigest": "638978c616d040ef958800e4ed95b636bac8414097de657fb517411a6b2127be",
+    "sourceDigest": "3ffc2654d6161768524cc13d962a794b655a03761319d3899ffe1c7a0e9f7a7d",
+    "evidenceDigest": "42168fbbc81e51dacb62697aae09025a66d75d5663447822305028952f15c427",
+    "evidenceObjects": 3,
+    "evidenceWords": 50,
+    "evidenceOriginals": 74,
+    "historicalDigest": "4cc6a2f9edee37555418c365c1da29033b43c1f6854a3ac2dddf2aa9e03f7a78",
+    "historicalOriginalAndSourceUnchanged": true,
+    "restRequested": true,
+    "nextAudio": [],
+    "anonymousEvidenceStatus": 401,
+    "paidCalls": 0,
+    "physicalIPhone": false
+  },
+  "runtimeSynchronization": {
+    "changedFiles": 4,
+    "importCheckPassed": true,
+    "idleMutex": "Local\\TheSecondLanguageQuestions",
+    "credentialsModified": false
+  },
+  "costs": {
+    "newPaidModelCalls": 0,
+    "newTTSCalls": 0,
+    "newSubscription": false
+  }
+}

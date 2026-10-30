@@ -7,9 +7,26 @@
   "wordCount": 50,
   "contentPolicy": "etymology-fused-v1",
   "sourcePolicy": "current-affairs-v1",
-  "authoringPolicy": "sourced-collection-v1",
+  "authoringPolicy": "authentic-context-v1",
   "vixInputCommit": "e235aa2a301b65b54e9938bdc46578d1b3810637",
   "vixCommit": "f92e945322fc30cd5546f8848c47777fe26364d0",
-  "protocolCommit": "57ddbedafd9d65282a546a72fd54a1f5a3393d21",
-  "sourceDigest": "ebd667899181db4cea62d6bafe75140385ea0497c9a61367d5bf551e7c4b6869"
+  "protocolCommit": "47b19cd2abc5fbe5ed927b6c70ae0d58c77f5d3a",
+  "sourceDigest": "3ffc2654d6161768524cc13d962a794b655a03761319d3899ffe1c7a0e9f7a7d",
+  "authoringRevision": {
+    "schemaVersion": 1,
+    "kind": "chapter-authoring-revision-v1",
+    "studyDate": "2026-10-24",
+    "runId": "2026-10-24",
+    "fromChapterDigest": "4cc6a2f9edee37555418c365c1da29033b43c1f6854a3ac2dddf2aa9e03f7a78",
+    "fromSourceDigest": "ebd667899181db4cea62d6bafe75140385ea0497c9a61367d5bf551e7c4b6869",
+    "selectionDigest": "1eac3225bbad246aff89ebd0131ad5b5cbb58b4f99f952bb47bcb8658a68975d",
+    "vixInputCommit": "e235aa2a301b65b54e9938bdc46578d1b3810637",
+    "vixCommit": "f92e945322fc30cd5546f8848c47777fe26364d0",
+    "fromAuthoringPolicy": "sourced-collection-v1",
+    "toAuthoringPolicy": "authentic-context-v1",
+    "authorizedAt": "2026-10-30T11:11:26.727Z",
+    "authorization": "用户于2026-10-30明确要求将现有第一章按真实语境单正文协议处理后重新上线。",
+    "baselineFile": "work/runs/2026-10-24/revisions/20261030-authentic-context-v1/baseline.json",
+    "baselineDigest": "f2c61d20745888868691567b99bfc75fdc964a13c715519eaa048c058ecc0c24"
+  }
 }

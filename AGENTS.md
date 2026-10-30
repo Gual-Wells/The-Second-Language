@@ -2,6 +2,8 @@
 
 2026-10-27用户正式采用逐义真实语境单正文，权威入口为protocol/AUTHENTIC_CONTEXT.md、DAILY_RUN.md、RECOMMENDATION.md、CONTENT.md、QUALITY_WORKFLOW.md、QUALITY_SCALE.md、ANNOTATIONS.md、TEACHING_AUTHORING.md和CURRENT_AFFAIRS.md。先实际恢复已有输入、协议和研究，不用旧对话摘要替代。
 
+2026-10-30用户明确要求将现有第1章按新合同处理并重新上线，作为该章专用显式重编例外。当前2026-10-24仍第1章、原50词、原selection/VIX回执；685用法含原680身份及5个独立分支，单正文。旧4cc6a2f9原件、来源与原绑定记录保留在云端及chapters/history/2026-10-24/4cc6a2f9；不将历史版本重放成当前指针。重编合同与固定证据见TEACHING_AUTHORING及research/chapter-one-context-revision-2026-10-30.json；不据此启动其他旧章迁移、重选、重标或音频重生成。默认休息和下一章空音频保持。
+
 仅尚未冻结的新运行采用authoringPolicy:authentic-context-v1、FORMAT:usage-context-v1；meta仍保contentPolicy:etymology-fused-v1、sourcePolicy:current-affairs-v1。新prepare-vix输入锁记录默认策略，冻结selection时同样写入，装配/打包核对。旧冻结无该字段或为sourced-collection-v1的运行沿其原protocolCommit/原作者稿续作，不静默转换；旧已发布第一章原件不改、不重选、不撤标。旧三部分工艺恢复见PART_THREE_PRODUCTION和切换前5573946b10023df3c9b83f0d02a139860afef2bc对应文件，不能把旧文义务混入新默认。
 
 正式每章50主词，gpt-6.1-sol/ultra，日课北京时间05:00开始生成而非保证发布时间。默认休息、音频空选配；领取、原子复位、恢复/未知计费保护不变。本次建设不放行休息、不触发日课、不恢复已中止声音。
