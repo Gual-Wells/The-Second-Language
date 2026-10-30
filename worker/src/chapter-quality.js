@@ -17,10 +17,13 @@ export async function chapterQualityRoute(request,env,{isPublisher,session,sameO
  if(!isPublisher&&!session)return json({error:'请先登录'},401);if(request.method!=='GET'&&!isPublisher&&!sameOrigin)return json({error:'请从阅读器提交'},403);
  let b={};if(request.method==='POST'){try{const raw=await request.text();if(raw.length>12000)throw Error();b=JSON.parse(raw);if(!b||Array.isArray(b)||typeof b!=='object')throw Error();}catch{return json({error:'申请格式无效'},400);}}
  try{
- if(p==='/capabilities'&&request.method==='GET')return json({policy:qualityPolicy.id});
+ // The installed v50-v57 reader accepts only the v2 capability name. Keep that
+ // wire alias during a shell update; every new job still records the real v3
+ // policy and digest, and old checkpoints are never reinterpreted.
+ if(p==='/capabilities'&&request.method==='GET')return json({policy:url.searchParams.get('client')===qualityPolicy.id?qualityPolicy.id:'chapter-quality-v2-contexts',executionPolicy:qualityPolicy.id});
  if(p===''&&request.method==='GET'){const {results}=await db.prepare('SELECT * FROM chapter_quality_requests WHERE chapter_id=? ORDER BY created_at DESC LIMIT 100').bind(url.searchParams.get('chapter')).all();return json({requests:results.map(view)});}
  if(p===''&&request.method==='POST'){
-  if(!uuid(b.id)||typeof b.chapterId!=='string'||b.chapterId.length>110||!digest(b.digest)||b.policy!==qualityPolicy.id)return json({error:'章节或质检标准已更新，请重新打开'},400);
+  if(!uuid(b.id)||typeof b.chapterId!=='string'||b.chapterId.length>110||!digest(b.digest)||![qualityPolicy.id,'chapter-quality-v2-contexts'].includes(b.policy))return json({error:'章节或质检标准已更新，请重新打开'},400);
   const policyDigest=await qualityPolicyDigest(),prior=await db.prepare('SELECT * FROM chapter_quality_requests WHERE id=?').bind(b.id).first();if(prior)return prior.chapter_id===b.chapterId&&prior.chapter_digest===b.digest&&prior.policy_digest===policyDigest?json({id:prior.id,reused:true}):json({error:'申请编号已被使用'},409);
   if(!await isCurrentAffairsChapter(db,b.chapterId,b.digest))return json({error:'正式章节版本不存在'},404);
   const now=Date.now();await db.prepare('INSERT OR IGNORE INTO chapter_quality_requests(id,chapter_id,chapter_digest,policy_id,policy_digest,created_at,queued_at,updated_at) VALUES(?,?,?,?,?,?,?,?)').bind(b.id,b.chapterId,b.digest,qualityPolicy.id,policyDigest,now,now,now).run();

@@ -159,7 +159,15 @@ try {
     const missing = clone(sourcePackage); delete missing.sources[0].readDigest;
     assert.throws(() => validateSourcePackage(missing), /读件摘要/);
   });
-  await check('chapter packing rejects a missing author context read record while preserving the completed package', async () => {
+  await check('sealed publication can be packed unchanged while the acquisition cache is unavailable', async () => {
+    const cache=path.join(root,'.cache/current-affairs-research'),held=cache+'-temporarily-held';
+    const physical=await fs.realpath(cache),scope=await fs.realpath(root),relative=path.relative(scope,physical);
+    assert(relative&&!relative.startsWith('..')&&!path.isAbsolute(relative),'Only this isolated fixture cache may be moved');
+    await fs.rename(cache,held);
+    try{await assertOutputsUnchanged(async()=>succeeds(cli('./pack-chapter.mjs',date)));}
+    finally{await fs.rename(held,cache);}
+  });
+  await check('packing rejects changed author provenance instead of reusing an older sealed package', async () => {
     const authorFile = path.join(run, 'teaching/authored/word-W001.json'), changed = await json(authorFile);
     const suffix = read.recordPath.endsWith('-00000000.json') ? '-11111111.json' : '-00000000.json';
     const missing = read.recordPath.replace(/-[a-f0-9]{8}\.json$/, suffix);
@@ -168,7 +176,7 @@ try {
     changed.contexts[0].sourceEvidence[0].readRecord = path.relative(root, missing);
     await withJSON(authorFile, changed, () => assertOutputsUnchanged(async () => {
       assert.equal((await assembleRun(root, date)).markdown, authored.markdown, 'Private evidence changes must not masquerade as a public-body mismatch.');
-      rejectsCLI(cli('./pack-chapter.mjs', date), /ENOENT/);
+      rejectsCLI(cli('./pack-chapter.mjs', date), /当前作者去向已改变/);
     }));
   });
   await check('chapter packing rejects another verified read of the same URL with different original bytes', async () => {
@@ -181,7 +189,7 @@ try {
     changed.contexts[0].sourceEvidence[0].readRecord = path.relative(root, revised.recordPath);
     await withJSON(authorFile, changed, () => assertOutputsUnchanged(async () => {
       assert.equal((await assembleRun(root, date)).markdown, authored.markdown, 'Only the private author read selection differs.');
-      rejectsCLI(cli('./pack-chapter.mjs', date), /作者原文与采用来源readDigest不同/);
+      rejectsCLI(cli('./pack-chapter.mjs', date), /当前作者去向已改变/);
     }));
   });
   await check('a changed context URL is rejected by the actual source-pack CLI', async () => {

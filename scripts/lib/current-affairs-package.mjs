@@ -4,6 +4,7 @@ import {createHash} from 'node:crypto';
 import {CURRENT_AFFAIRS_POLICY,canonicalSourcePackage,validateSourcePackage} from '../../protocol/current-affairs.mjs';
 import {familyRecords} from './vix-index.mjs';
 import {validateReadRecord} from './current-affairs-reader.mjs';
+import {prepareChapterEvidence} from './chapter-evidence.mjs';
 
 const hash = text => createHash('sha256').update(text).digest('hex');
 const readJson = async file => JSON.parse(await fs.readFile(file, 'utf8'));
@@ -41,6 +42,7 @@ export async function buildChapterSources(root, date, input) {
   }
   const chapterDigest=hash(markdown),selectionDigest=hash(canonicalSourcePackage(selection));
   const sourcePackage=validateSourcePackage({schemaVersion:1,studyDate:date,chapterDigest,selectionDigest,vixInputCommit:lock.commit,context:input.context,sources,...(input.articles?{articles:input.articles}:{}),...(input.contexts?{contexts:input.contexts}:{})},{chapterDigest,studyDate:date,vixInputCommit:lock.commit,markdown});
+  if(input.contexts)sourcePackage.evidenceDigest=(await prepareChapterEvidence(root,date,{markdown,selection,sources,inputSources:input.sources})).digest;
   const canonical=canonicalSourcePackage(sourcePackage),sourceDigest=hash(canonical);
   await immutable(path.join(run,'sources',sourceDigest+'.json'),canonical);
   // Keep recovery receipts but do not copy third-party full text into a public chapter/Git payload.

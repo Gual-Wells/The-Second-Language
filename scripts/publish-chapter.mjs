@@ -5,6 +5,7 @@ import path from 'node:path';
 import { publisherConfig } from './lib/publisher-config.mjs';
 import {validatePublishedVixReceipt} from './lib/vix-publication.mjs';
 import {canonicalSourcePackage} from '../protocol/current-affairs.mjs';
+import {publishChapterEvidence} from './lib/publish-chapter-evidence.mjs';
 const date = process.argv[2];
 if (!/^\d{4}-\d{2}-\d{2}$/.test(date || '')) throw new Error('用法: node scripts/publish-chapter.mjs YYYY-MM-DD');
 const { base, token } = await publisherConfig();
@@ -22,6 +23,7 @@ async function post(route, body) {
   const response = await fetch(new URL(route, base), { method: 'POST', headers: { authorization: `Bearer ${token}`, 'content-type': 'application/json' }, body: JSON.stringify(body) });
   const payload = await response.json(); if (!response.ok) throw new Error(`${route}: ${payload.error || response.status}`); return payload;
 }
+await publishChapterEvidence(process.cwd(),date,chapter,{base,token});
 const staged = await post('/api/publish/stage', { ...chapter, runId, vixCommit: meta.vixCommit, protocolCommit: meta.protocolCommit });
 if (staged.digest !== chapter.digest || staged.sourceDigest !== chapter.sourceDigest) throw new Error('后端暂存正文/来源摘要与本地章节不一致');
 if(staged.number && staged.number!==chapter.number){

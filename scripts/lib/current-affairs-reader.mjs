@@ -4,7 +4,7 @@ import path from 'node:path';
 import {createHash, randomUUID} from 'node:crypto';
 import {createRequire} from 'node:module';
 import {fileURLToPath} from 'node:url';
-import {spawnSync} from 'node:child_process';
+import {extractMatureHtml} from './html-extractor.mjs';
 
 export const repositoryRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const digest = value => createHash('sha256').update(value).digest('hex');
@@ -224,59 +224,8 @@ export async function discoverMaterials(date,{root=repositoryRoot,sourceIds=[],t
   return {...report,file};
 }
 
-const htmlProgram = String.raw`
-import sys,json,re,base64
-from lxml import html
-v=json.load(sys.stdin)
-body=base64.b64decode(v["htmlBase64"]) if v.get("htmlBase64") else v["html"]
-doc=html.fromstring(body,base_url=v["url"],parser=html.HTMLParser(encoding=v.get("encoding")))
-def first(xs): return xs[0].strip() if xs and isinstance(xs[0],str) else None
-title=first(doc.xpath("//meta[@property='og:title']/@content")) or first(doc.xpath("//title/text()"))
-canonical=first(doc.xpath("//link[contains(concat(' ',normalize-space(@rel),' '),' canonical ')]/@href"))
-dates=[]
-for n in doc.xpath("//meta[@content]"):
- key=n.get("property") or n.get("name") or n.get("itemprop") or ""
- if key.lower() in ["article:published_time","article:modified_time","datepublished","datemodified","pubdate","publishdate"]:
-  dates.append({"field":key,"raw":n.get("content"),"origin":"html-meta"})
-for n in doc.xpath("//time[@datetime]"):
- dates.append({"field":"time","raw":n.get("datetime"),"origin":"html-time"})
-for n in doc.xpath("//script[@type='application/ld+json']"):
- try:
-  data=json.loads(n.text or "")
-  stack=data if isinstance(data,list) else [data]
-  while stack:
-   obj=stack.pop()
-   if not isinstance(obj,dict): continue
-   for key in ["datePublished","dateModified"]:
-    if isinstance(obj.get(key),str): dates.append({"field":key,"raw":obj[key],"origin":"json-ld"})
-   g=obj.get("@graph")
-   if isinstance(g,list): stack.extend(g)
- except (ValueError,TypeError): pass
-for n in doc.xpath("//script|//style|//noscript|//template|//nav|//header|//footer|//aside|//form|//button|//svg|//iframe"):
- n.drop_tree()
-candidates=doc.xpath("//article")
-method="lxml-article"
-if not candidates: candidates=doc.xpath("//main|//*[@role='main']");method="lxml-main"
-if not candidates: candidates=[doc];method="lxml-body-fallback"
-node=max(candidates,key=lambda x:len(x.text_content()))
-blocks={"p","div","section","article","main","h1","h2","h3","h4","h5","h6","li","blockquote","pre","tr","td","th","br"}
-for n in node.iter():
- if isinstance(n.tag,str) and n.tag.lower() in blocks:
-  n.text="\n"+(n.text or "")
-  n.tail="\n"+(n.tail or "")
-lines=[re.sub(r"[^\S\n]+"," ",x).strip() for x in node.text_content().splitlines()]
-text="\n".join(x for x in lines if x)
-print(json.dumps({"title":title,"canonicalUrl":canonical,"text":text,"pageTimestamps":dates,"extractionMethod":method,"warnings":["Body fallback may include navigation or omit visual context"] if method=="lxml-body-fallback" else []},ensure_ascii=False))
-`;
-function pythonExecutable() {
-  return process.env.SECOND_LANGUAGE_PYTHON || path.resolve(path.dirname(process.execPath),'../../python/python.exe');
-}
 export function extractHtml(html,url,encoding=null) {
-  const input=Buffer.isBuffer(html)?{htmlBase64:html.toString('base64'),url,encoding}:{html,url,encoding};
-  const result=spawnSync(pythonExecutable(),['-c',htmlProgram],{input:JSON.stringify(input),encoding:'utf8',maxBuffer:8*1024*1024,timeout:20000,windowsHide:true,env:{...process.env,PYTHONIOENCODING:'utf-8'}});
-  if(result.status!==0) throw Error('Installed lxml HTML extraction failed: '+(result.error?.message||result.stderr?.slice(0,300)||'Python unavailable; set SECOND_LANGUAGE_PYTHON'));
-  const data=JSON.parse(result.stdout.replace(/^\uFEFF/,''));
-  if(data.text.length<120 || /^(access denied|just a moment|attention required|verify (?:you|that))/i.test(data.title||'')) throw Error('No readable article text; authentication, challenge or script-only page may be present');
+  const data=extractMatureHtml(html,url,encoding);
   data.pageTimestamps=data.pageTimestamps.map(t=>({...t,parsedAt:iso(t.raw)}));
   return data;
 }
@@ -326,6 +275,14 @@ async function checkedReadRecord(recordPath,{base,source,feed,canonicalUrl}) {
   await assertPrivateLocation(textPath);
   const text=await fs.readFile(textPath,'utf8');
   if(digest(text)!==record.textDigest || text.length!==record.textChars) throw Error('Previously read original text failed digest verification; refusing to replace it');
+  // Historical receipts without raw HTML remain unchanged and valid. New GETs
+  // preserve the exact response for body/caption/template checks and recovery.
+  if(record.responseBodyPath!=null){
+    if(method!=='native-get'||typeof record.responseBodyPath!=='string'||!path.isAbsolute(record.responseBodyPath)||!samePath(record.responseBodyPath,path.join(folder,record.responseDigest+'.html'))||!Number.isSafeInteger(record.responseBytes)||record.responseBytes<1||record.responseBytes>24*1024*1024)throw Error('Raw HTML response must stay in its source/URL original directory');
+    await assertPrivateLocation(record.responseBodyPath);
+    const raw=await fs.readFile(record.responseBodyPath);
+    if(raw.length!==record.responseBytes||digest(raw)!==record.responseDigest)throw Error('Raw HTML response failed its observed digest verification');
+  }else if(record.responseBytes!=null)throw Error('Raw response byte count requires its original file');
   return record;
 }
 // Shared by a metadata packer: validates existing private files; does not fetch or emit text.
@@ -369,10 +326,16 @@ async function withReadWriteLock(folder,fn) {
     finally {release();if(readWrites.get(folder)===finished) readWrites.delete(folder);}
   }
 }
-async function saveReadOriginal(paths,{source,feed,record,text}) {
+async function saveReadOriginal(paths,{source,feed,record,text,responseBytes=null}) {
   const {canonicalUrl}=record,folder=readFolder(paths.base,source.id,canonicalUrl),indexFile=path.join(folder,'index.json');
   return withReadWriteLock(folder,async()=>{
     const prior=await existingRead(indexFile,{base:paths.base,source,feed,canonicalUrl});
+    if(responseBytes){
+      if(digest(responseBytes)!==record.responseDigest)throw Error('Raw HTML does not match the observed response');
+      const responseBodyPath=path.join(folder,record.responseDigest+'.html');await assertPrivateLocation(responseBodyPath);
+      try{await fs.writeFile(responseBodyPath,responseBytes,{flag:'wx'});}catch(e){if(e.code!=='EEXIST')throw e;if(digest(await fs.readFile(responseBodyPath))!==record.responseDigest)throw Error('Stored raw HTML digest conflict');}
+      record={...record,responseBodyPath,responseBytes:responseBytes.length};
+    }
     const textDigest=digest(text),textPath=path.join(folder,textDigest.slice(0,32)+'.txt');
     await assertPrivateLocation(textPath);
     try {await fs.writeFile(textPath,text,{flag:'wx'});}
@@ -385,6 +348,16 @@ async function saveReadOriginal(paths,{source,feed,record,text}) {
     await immutableJson(path.join(paths.day,'read-observations',randomUUID()+'.json'),{sourceId:source.id,url:record.requestedUrl,recordPath,readAt:record.readAt,recordedAt,textDigest,acquisitionMethod:record.acquisitionMethod});
     return record;
   });
+}
+async function saveHtmlResponse(paths,sourceId,canonicalUrl,response){
+ const folder=readFolder(paths.base,sourceId,canonicalUrl),responseDigest=response.observation.responseDigest;
+ if(digest(response.bytes)!==responseDigest)throw Error('Raw HTML does not match its observed response');
+ const responseBodyPath=path.join(folder,responseDigest+'.html');
+ await withReadWriteLock(folder,async()=>{
+  await assertPrivateLocation(responseBodyPath);
+  try{await fs.writeFile(responseBodyPath,response.bytes,{flag:'wx'});}catch(e){if(e.code!=='EEXIST')throw e;if(digest(await fs.readFile(responseBodyPath))!==responseDigest)throw Error('Stored raw HTML digest conflict');}
+ });
+ return{responseBodyPath,responseBytes:response.bytes.length,responseDigest,http:response.observation};
 }
 function publicRead(record, extra={}) {
   const notice='Private research text is at textPath; metadata is not verified facts or permission to republish.';
@@ -403,19 +376,23 @@ export async function readMaterial(date,{root=repositoryRoot,sourceId,url,offlin
   const prior=await existingRead(indexFile,{base:paths.base,source,feed,canonicalUrl});
   if(prior && (!refresh||offline)) return publicRead(prior.record,{researchDate:date,reused:true,cacheState:offline?'read-offline':'already-read',asOf:prior.record.readAt,networkAttempted:false});
   if(offline) throw Error('No previously read original is available offline for this URL');
+  let rawResponse=null;
   try {
     const response=await request(url,{allowed,fetchImpl,limit:config.limits.maxArticleBytes,timeoutMs:config.limits.timeoutMs,budget:{used:0,max:4},headers:{accept:'text/html, application/xhtml+xml'},});
     if(!/^(text\/html|application\/xhtml\+xml)(;|$)/i.test(response.observation.headers['content-type']||'')) throw Error('read accepts actual text/html only; PDF and other formats need a separate reader');
+    // Retain successful HTTP bytes even if extraction or dependencies fail.
+    // Such a response is not promoted to an accepted read-original-text record.
+    rawResponse=await saveHtmlResponse(paths,source.id,canonicalUrl,response);
     const charset=(response.observation.headers['content-type']||'').match(/charset\s*=\s*["']?([^;"'\s]+)/i)?.[1]||null;
     const extracted=extractHtml(response.bytes,response.observation.finalUrl,charset);
     let pageCanonicalUrl=null;
     if(extracted.canonicalUrl) {try {pageCanonicalUrl=assertUrl(new URL(extracted.canonicalUrl,response.observation.finalUrl).href,allowed).href;} catch {}}
     const readAt=response.observation.checkedAt;
-    const record=await saveReadOriginal(paths,{source,feed,text:extracted.text,record:{schemaVersion:1,kind:'read-original-text',acquisitionMethod:'native-get',sourceId,sourceName:source.name,sourceRole:source.role,canonicalUrl,requestedUrl:url,finalUrl:response.observation.finalUrl,pageCanonicalUrl,title:extracted.title,readAt,responseDigest:response.observation.responseDigest,extractionMethod:extracted.extractionMethod,pageTimestamps:extracted.pageTimestamps,warnings:extracted.warnings,http:response.observation,rightsMode:feed?.rights.mode||'private-research-only',publicBodyReuseAuthorized:false,factsVerified:false}});
+    const record=await saveReadOriginal(paths,{source,feed,text:extracted.text,responseBytes:response.bytes,record:{schemaVersion:1,kind:'read-original-text',acquisitionMethod:'native-get',sourceId,sourceName:source.name,sourceRole:source.role,canonicalUrl,requestedUrl:url,finalUrl:response.observation.finalUrl,pageCanonicalUrl,title:extracted.title,readAt,responseDigest:response.observation.responseDigest,extractionMethod:extracted.extractionMethod,extractionTool:extracted.extractionTool,pageTimestamps:extracted.pageTimestamps,warnings:extracted.warnings,http:response.observation,rightsMode:feed?.rights.mode||'private-research-only',publicBodyReuseAuthorized:false,factsVerified:false}});
     return publicRead(record,{researchDate:date,reused:false,cacheState:'read-from-official-page',asOf:readAt,networkAttempted:true});
   } catch(e) {
     const observationPath=path.join(paths.day,'read-observations',randomUUID()+'.json');
-    await immutableJson(observationPath,{sourceId,url,attemptedAt:stamp(),error:e.message,httpStatus:e.httpStatus||null,reusedRecordPath:prior?.record.recordPath||null,asOf:prior?.record.readAt||null});
+    await immutableJson(observationPath,{sourceId,url,attemptedAt:stamp(),error:e.message,httpStatus:e.httpStatus||null,...(rawResponse?{rawResponse}:{}),reusedRecordPath:prior?.record.recordPath||null,asOf:prior?.record.readAt||null});
     e.observationPath=observationPath;
     if(!prior) throw e;
     return publicRead(prior.record,{researchDate:date,reused:true,cacheState:'read-after-error',asOf:prior.record.readAt,networkAttempted:true,latestAttemptAt:stamp(),error:e.message,observationPath});

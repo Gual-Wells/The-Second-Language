@@ -18,7 +18,7 @@ import {expireTemporaryTests,deleteTemporaryTest} from './temporary-test-store.j
 import {certificationLabRoute} from './certification-lab.js';
 import {storageRoute,permanentBucket,chapterText,storageRequestEnvironment} from './storage.js';
 import {audioConfigRoute,chapterAudioParts} from './audio-config.js';
-import {CURRENT_AFFAIRS_POLICY,prepareChapterSources,readChapterSources} from './current-affairs.js';
+import {CURRENT_AFFAIRS_POLICY,prepareChapterSources,readChapterSources,verifyChapterEvidence} from './current-affairs.js';
 
 const encoder = new TextEncoder();
 const MAX_BODY = 5_000_000;
@@ -179,6 +179,7 @@ async function route(request, env) {
       AND NOT EXISTS(SELECT 1 FROM chapter_sources s WHERE s.digest=r.digest AND s.policy=?) LIMIT 1`).bind(value.id,CURRENT_AFFAIRS_POLICY).first();
     if(archived)return json({error:'旧章已封存，不能回填来源或改作新正式章节'},409);
     const prior=await env.DB.prepare(`SELECT r.chapter_id,r.run_id,r.number,s.source_digest FROM chapter_revisions r LEFT JOIN chapter_sources s ON s.digest=r.digest WHERE r.digest=?`).bind(digest).first();
+    if(!prior&&parsed.format==='usage-context-v1'&&!value.sourcePackage.evidenceDigest)return json({error:'单正文须先永久封存采用原文与作者证据'},400);
     if(!prior&&parsed.format!=='usage-context-v1'&&!parsed.articles.length)return json({error:'新制作版本须采用真实取材文章组或单正文真实语境；已有原件不回写'},400);
     if(prior&&(prior.chapter_id!==value.id||prior.run_id!==value.runId||prior.source_digest!==sources.digest))return json({error:'正文版本与已冻结的来源或运行身份冲突'},409);
     const run=await env.DB.prepare('SELECT selection_digest FROM daily_runs WHERE run_id=?').bind(value.runId).first();
@@ -186,6 +187,7 @@ async function route(request, env) {
     if(env.ONEDRIVE_ENABLED!=='true')return json({error:'新章及来源包必须先完成永久封存'},503);
     const number=prior?.number||await numberForDate(env.DB,value.date),bucket=permanentBucket(env);
     try{
+      await verifyChapterEvidence(env,value.sourcePackage,value.runId);
       const saved=await bucket.put(sources.key,sources.text,{httpMetadata:{contentType:'application/json; charset=utf-8'}});
       if(saved.digest!==sources.digest)throw Error('来源包上传摘要不一致');
       await bucket.put(key,value.markdown,{httpMetadata:{contentType:'text/markdown; charset=utf-8'}});
@@ -210,7 +212,7 @@ async function route(request, env) {
     if (!revision) return json({ error: '暂存章节不存在' }, 404);
     const binding=await env.DB.prepare('SELECT * FROM formal_chapter_sources WHERE digest=? AND policy=?').bind(revision.digest,CURRENT_AFFAIRS_POLICY).first();
     if(!binding)return json({error:'章节未完成新流程来源封存，不能加入正式目录'},409);
-    try{await readChapterSources(env,{...binding,chapter_id:revision.chapter_id,study_date:revision.study_date});}catch{return json({error:'来源包原件暂不可核对，尚未发布'},503);}
+    try{const frozen=await readChapterSources(env,{...binding,chapter_id:revision.chapter_id,study_date:revision.study_date});await verifyChapterEvidence(env,frozen.sourcePackage,revision.run_id,{readGroups:true});}catch{return json({error:'来源包或采用证据原件暂不可核对，尚未发布'},503);}
     let publishedText;try{publishedText=await chapterText(env,revision.content_key);}catch{return json({error:'章节原件暂不可核对，尚未发布'},503);}
     if(!publishedText||await sha256(publishedText)!==revision.digest)return json({error:'章节原件暂不可核对，尚未发布'},503);
     const admittedAudioParts=JSON.stringify(chapterAudioParts(publishedText));

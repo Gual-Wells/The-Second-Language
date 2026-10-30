@@ -2,6 +2,8 @@
 
 ## 分层权威
 
+2026-10-30起，新单正文的正式采用原文、读取凭据、已有原HTML、教材材料及作者去向保存在chapter-evidence-v1私有内容寻址包。公开来源包仅持evidenceDigest，沿原章级sourceDigest不可变绑定；原文与作者内容不进D1，不向读者下发。约8MiB分组、单对象24MiB上限，发布前上传并回读、commit核实际字节，丢回执以同摘要继续，不重新生成。work/runs/DATE/sources/evidence同时属于既有工作归档范围；不是把整个研究缓存加入永久存储。恢复按包中固定字节与摘要，不依赖原机器绝对路径，也不改写历史receipt。旧章、缺证记录和已有收费资产保持原身份。
+
 个人 Microsoft OneDrive 是所有永久大文件的存储基座，仅授权 Apps/The Second Language 目录。Graph 由 Cloudflare 后端访问，刷新凭据 AES-GCM 加密后保存在 D1，加密密钥为 Worker secret；本机授权副本由 Windows DPAPI 保护。产品不返回预授权下载地址或 Microsoft 凭据。
 
 D1 保存课程版本、答卷、参考答案、答疑、运行状态、资产位置及完整历史版本索引。OneDrive 对每份文件按 SHA-256 去重存储；同一个逻辑路径改变内容时保留旧摘要版本。点读音频离开 D1 BLOB 进入永久文件存储；相同文本、声音参数复用既有身份，不为迁移、缓存过期或余额不足重新合成。

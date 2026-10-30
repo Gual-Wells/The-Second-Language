@@ -32,7 +32,8 @@ const html='<html><head><title>Actual article</title><meta property="article:pub
 const extracted=extractHtml(Buffer.from(html,'latin1'),'https://example.org/story','iso-8859-1');
 assert.ok(extracted.text.includes('café'));
 assert.ok(!extracted.text.includes('NAVIGATION NOISE'));
-assert.equal(extracted.extractionMethod,'lxml-article');
+assert.equal(extracted.extractionMethod,'trafilatura-default');
+assert.equal(extracted.extractionTool.version,'2.3.1');
 assert.ok(extracted.pageTimestamps.some(x=>x.field==='article:published_time'&&x.parsedAt==='2020-02-12T00:00:00.000Z'));
 assert.ok(extracted.pageTimestamps.some(x=>x.field==='article:modified_time'&&x.parsedAt==='2026-10-23T12:00:00.000Z'));
 
@@ -65,6 +66,8 @@ assert.equal(read.actualTextIncluded,false);
 assert.equal('text' in read,false);
 const originalText=await fs.readFile(read.textPath,'utf8');
 const originalRecord=await fs.readFile(read.recordPath,'utf8');
+assert.deepEqual(await fs.readFile(read.responseBodyPath),Buffer.from(html));
+assert.equal(read.responseBytes,Buffer.byteLength(html));
 assert.equal((await validateReadRecord(read.recordPath,{root,sourceId:'fixture',url:'https://example.org/story?origin=rss'})).textDigest,read.textDigest);
 const reuse=await readMaterial('2026-11-02',{root,sourceId:'fixture',url:'https://example.org/story',offline:true,fetchImpl:noNetwork});
 assert.equal(reuse.textDigest,read.textDigest);
@@ -77,6 +80,9 @@ assert.equal(fallback.readAt,read.readAt);
 assert.ok(fallback.observationPath);
 assert.equal(await fs.readFile(read.textPath,'utf8'),originalText);
 assert.equal(await fs.readFile(read.recordPath,'utf8'),originalRecord);
+const rawHtml=await fs.readFile(read.responseBodyPath);await fs.writeFile(read.responseBodyPath,'tampered raw HTML');
+await assert.rejects(()=>validateReadRecord(read.recordPath,{root,sourceId:'fixture',url:read.canonicalUrl}),/Raw HTML response failed/);
+await fs.writeFile(read.responseBodyPath,rawHtml);
 const other=await readMaterial('2026-11-01',{root,sourceId:'fixture',url:'https://example.org/other-story',fetchImpl:async()=>new Response(html,{status:200,headers:{'content-type':'text/html'}})});
 await assert.rejects(()=>validateReadRecord(other.recordPath,{root,sourceId:'fixture',url:'https://example.org/story'}),/original directory/);
 const indexPath=path.join(path.dirname(read.recordPath),'index.json'),originalIndex=await fs.readFile(indexPath,'utf8');
@@ -89,9 +95,21 @@ await assert.rejects(()=>validateReadRecord(forgedPath,{root,sourceId:'fixture',
 assert.equal(await fs.readFile(read.recordPath,'utf8'),originalRecord);
 const legacyRecord={...JSON.parse(originalRecord)};
 delete legacyRecord.acquisitionMethod;delete legacyRecord.recordedAt;
+delete legacyRecord.responseBodyPath;delete legacyRecord.responseBytes;delete legacyRecord.extractionTool;
 legacyRecord.recordPath=path.join(path.dirname(read.recordPath),read.readAt.replace(/[:.]/g,'-')+'-11111111.json');
 await fs.writeFile(legacyRecord.recordPath,JSON.stringify(legacyRecord));
 assert.equal((await validateReadRecord(legacyRecord.recordPath,{root,sourceId:'fixture',url:read.canonicalUrl})).http.httpStatus,200);
+const configuredPython=process.env.SECOND_LANGUAGE_EXTRACTION_PYTHON;
+try{
+  process.env.SECOND_LANGUAGE_EXTRACTION_PYTHON=path.join(root,'missing-extraction-python.exe');
+  assert.equal((await readMaterial('2026-11-01',{root,sourceId:'fixture',url:read.canonicalUrl,offline:true,fetchImpl:noNetwork})).textDigest,read.textDigest,'original reuse does not require a new extraction runtime');
+  let failedExtraction;
+  try{await readMaterial('2026-11-01',{root,sourceId:'fixture',url:'https://example.org/extractor-unavailable',fetchImpl:async()=>new Response(html,{headers:{'content-type':'text/html'}})});}catch(e){failedExtraction=e;}
+  assert.ok(failedExtraction?.message.includes('runtime'));
+  const observation=JSON.parse(await fs.readFile(failedExtraction.observationPath,'utf8'));
+  assert.deepEqual(await fs.readFile(observation.rawResponse.responseBodyPath),Buffer.from(html),'a failed extractor still preserves actual observed HTML');
+  await assert.rejects(()=>fs.readFile(path.join(path.dirname(observation.rawResponse.responseBodyPath),'index.json')),{code:'ENOENT'},'failed extraction is not accepted as a read-original-text record');
+}finally{if(configuredPython===undefined)delete process.env.SECOND_LANGUAGE_EXTRACTION_PYTHON;else process.env.SECOND_LANGUAGE_EXTRACTION_PYTHON=configuredPython;}
 const textFile=path.join(root,'actual-tool-original.txt');
 const toolText='\uFEFFActual tool fixture: café. This is the exact relevant source paragraph.\n';
 await fs.writeFile(textFile,toolText,'utf8');

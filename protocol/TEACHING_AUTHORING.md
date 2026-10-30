@@ -66,6 +66,8 @@ node scripts/pack-chapter.mjs DATE
 node scripts/publish-chapter.mjs DATE
 ```
 
-正文必须逐字来自作者稿装配。pack-chapter还逐context实际验证作者sourceEvidence.readRecord，采用URL一一对应，原件readDigest须与封存来源相同；网址相同不足以证明同版原文。正文/来源分别摘要、OneDrive原件回读再发布，D1只存轻量引用。不将新闻全文放公开Git/正文；新旧格式不靠空PART壳混装。中断只续缺项，具体写resume，不重选/重标/重做成功收费资产。
+正文必须逐字来自作者稿装配。首次封存逐context实际验证作者sourceEvidence.readRecord，采用URL一一对应，原件readDigest须与封存来源相同；网址相同不足以证明同版原文。pack-chapter核固定证据与当前同源作者稿，原文取得缓存可不再存在。正文/来源分别摘要、OneDrive原件回读再发布，D1只存轻量引用。不将新闻全文放公开Git/正文；新旧格式不靠空PART壳混装。中断只续缺项，具体写resume，不重选/重标/重做成功收费资产。
+
+2026-10-30起，pack-current-affairs自动生成chapter-evidence-v1私有包，将实际采用原文、读取凭据、已有原HTML、完整材料、原例去向及取境记录按正文/运行/选择摘要固定。publish-chapter先永久上传并回读，再提交正式章节，读者来源页只得到evidenceDigest。恢复不访问旧凭据中的绝对路径，当前作者去向改变不能沿用旧证据；语义与实际采用权仍须正常核对。旧同正文来源包不可静默改绑，缺失原件不能靠重新抓取伪造历史。
 
 验证入口：check-usage-context-authoring、check-usage-context-packaging、check-usage-context-backend、check-context-reader。结构与浏览器仿真不能证明语义正确、用户已掌握或物理iPhone体验。全部新增数据实存D，任务末尾按BALANCES核查；休息、独立雅思/答疑/测试/认证/卷轴及计费保护继续。

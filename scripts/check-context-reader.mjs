@@ -5,6 +5,7 @@ import {createRequire} from 'node:module';
 import path from 'node:path';
 import {validateAnnotatedContent} from '../web/annotations.js';
 import {isChapterAudioRequest} from '../web/audio-plan.js';
+import {qualityPolicy} from '../protocol/chapter-quality-contract.mjs';
 
 // Real reader and browser; every API, source link and paid request is isolated.
 const root=await realpath(process.cwd());
@@ -51,7 +52,7 @@ await context.route('**/*',async route=>{
     else if(p==='/api/temporary')body={pages:[]};
     else if(p==='/api/questions/summary')body={threads:[]};
     else if(p==='/api/questions'&&request.method()==='POST'){questions.push(request.postDataJSON());body={id:questions.at(-1).id};}
-    else if(p==='/api/chapter-quality/capabilities')body={policy:'chapter-quality-v2-contexts'};
+    else if(p==='/api/chapter-quality/capabilities')body={policy:qualityPolicy.id};
     else if(p==='/api/chapter-quality'&&request.method()==='POST'){qualityRequests.push(request.postDataJSON());body={id:'quality-fixture'};}
     else if(p==='/api/chapter-quality')body={requests:qualityComplete?[{id:'quality-fixture',digest:chapter.digest,status:'completed',decision:'revision_required',createdAt:Date.now()}]:[]};
     else if(p==='/api/chapter-quality/quality-fixture')body={request:{id:'quality-fixture',status:qualityComplete?'completed':'pending'}};
@@ -127,7 +128,7 @@ try{
   check('word index clears sticky toolbar',await page.locator('.word-entry').nth(20).evaluate(e=>{const b=document.getElementById('readingScroll').getBoundingClientRect(),h=document.getElementById('articleTools').getBoundingClientRect().height;return Math.abs(e.getBoundingClientRect().top-b.top-h-12)<=1;}));
   await click(page.locator('.context-source-button').first());await page.locator('#chapterSourcesDialog[open]').waitFor();check('source window uses current context',await page.locator('#chapterSourcesDialog').innerText().then(t=>t.includes('A reading task')&&t.includes('Fixture publisher')));await page.locator('[data-close="chapterSourcesDialog"]').click();
   await page.locator('#chapterQualityButton').click();await page.locator('#chapterQualityApply').waitFor({state:'visible'});await page.waitForFunction(()=>!document.getElementById('chapterQualityApply').disabled);await page.locator('#chapterQualityApply').click();await page.locator('#chapterQualityStatus').getByText('等待质检',{exact:true}).waitFor();
-  check('new quality request uses advertised context policy',qualityRequests.length===1&&qualityRequests[0].policy==='chapter-quality-v2-contexts');await page.locator('[data-close="chapterQualityDialog"]').click();
+  check('new quality request uses advertised context policy',qualityRequests.length===1&&qualityRequests[0].policy===qualityPolicy.id);await page.locator('[data-close="chapterQualityDialog"]').click();
   qualityComplete=true;await page.locator('#chapterQualityButton').click();await page.locator('#chapterQualityBody .chapter-test-record').click();await page.locator('.quality-finding button').click();await page.waitForFunction(()=>{const e=document.querySelector('#article .usage-context[data-context-id="C003"]'),scope=document.getElementById('readingScroll'),tools=document.getElementById('articleTools');return e&&scope&&tools&&Math.abs(e.getBoundingClientRect().top-scope.getBoundingClientRect().top-tools.getBoundingClientRect().height-12)<=1;});await page.locator('.reader-jump-cover').waitFor({state:'hidden'});
   check('context-level quality finding locates its frozen context',await page.locator('.usage-context[data-context-id="C003"]').evaluate(e=>{const scope=document.getElementById('readingScroll').getBoundingClientRect(),h=document.getElementById('articleTools').getBoundingClientRect().height;return Math.abs(e.getBoundingClientRect().top-scope.top-h-12)<=1;}));
   await page.locator('#settingsButton').click();await page.locator('.settings-row').getByText('音频配置',{exact:true}).click();await page.locator('#audioNextChoice').click();await page.waitForFunction(()=>!document.getElementById('audioSave').disabled);

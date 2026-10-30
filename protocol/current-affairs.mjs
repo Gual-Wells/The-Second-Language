@@ -33,6 +33,7 @@ export function validateSourcePackage(value, { chapterDigest, studyDate, vixInpu
     if (source.limitations != null) text(source.limitations, 'limitations');
   }
   const integrated=contexts!=null||value.contexts!=null||markdown!=null&&isUsageContextContent(markdown);
+  if(value.evidenceDigest!=null&&(!integrated||!digest(value.evidenceDigest)))throw Error('采用证据摘要只适用于单正文且须为有效SHA-256');
   if(integrated&&markdown!=null&&!isUsageContextContent(markdown))throw Error('语境来源包不能绑定旧三部分正文');
   const actualContexts=contexts??(markdown!=null&&integrated?parseUsageContextContent(markdown).contexts:null);
   if(integrated){

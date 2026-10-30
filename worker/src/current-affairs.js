@@ -1,5 +1,7 @@
 import {CURRENT_AFFAIRS_POLICY,validateSourcePackage,canonicalSourcePackage} from '../../protocol/current-affairs.mjs';
 import {permanentBucket} from './storage.js';
+import {validateEvidenceManifest} from '../../protocol/chapter-evidence.mjs';
+import {DAILY_WORD_COUNT} from '../../web/annotations.js';
 
 export {CURRENT_AFFAIRS_POLICY};
 const sha=async text=>[...new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(text)))].map(x=>x.toString(16).padStart(2,'0')).join('');
@@ -28,6 +30,20 @@ export async function prepareChapterSources(value,chapterDigest,parsed){
  const text=canonicalSourcePackage(value.sourcePackage),digest=await sha(text);
  if(value.sourceDigest!==digest)throw Error('来源包摘要不匹配');
  return{policy:CURRENT_AFFAIRS_POLICY,text,digest,key:`chapter-sources/${chapterDigest}/${digest}.json`};
+}
+
+// Private evidence stays in the existing content-addressed file store. Reader
+// source responses carry only its digest; normal page reads do not fetch it.
+export async function verifyChapterEvidence(env,sourcePackage,runId,{readGroups=false}={}){
+ const digest=sourcePackage.evidenceDigest;if(!digest)return;
+ const bucket=permanentBucket(env),stored=await bucket.getContent(digest);
+ if(!stored)throw Error('采用证据清单尚未永久保存');
+ const manifest=validateEvidenceManifest(await stored.json(),{chapterDigest:sourcePackage.chapterDigest,studyDate:sourcePackage.studyDate,runId,selectionDigest:sourcePackage.selectionDigest,vixInputCommit:sourcePackage.vixInputCommit});
+ if(manifest.wordCount!==DAILY_WORD_COUNT||manifest.sourceCount!==sourcePackage.sources.length)throw Error('采用证据的词条或来源范围不一致');
+ for(const group of manifest.groups){
+  if(readGroups){const saved=await bucket.getContent(group.digest);if(!saved||(await saved.arrayBuffer()).byteLength!==group.bytes)throw Error('采用证据分组原件尚不可核对');}
+  else{const saved=await bucket.contentHead(group.digest);if(!saved||saved.bytes!==group.bytes)throw Error('采用证据分组尚未完整封存');}
+ }
 }
 
 export async function readChapterSources(env,row){

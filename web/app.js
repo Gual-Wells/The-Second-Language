@@ -1,4 +1,4 @@
-import {createChapterQualityUI} from './chapter-quality.js?v=50';
+import {createChapterQualityUI} from './chapter-quality.js?v=58';
 import {createReaderJump} from './reader-jump.js?v=50';
 import {installPureReader} from './pure-reader.js?v=50';
 import {chapterNumber, createChapterBook} from './chapters.js?v=41';
@@ -851,7 +851,7 @@ $('chapterNav').addEventListener('touchend', event => {
   if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.5) moveChapter(dx < 0 ? 1 : -1);
   swipeStart = null;
 }, { passive: true });
-if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=56', { updateViaCache: 'none' }).catch(() => {});
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=58', { updateViaCache: 'none' }).catch(() => {});
 refreshInstallStatus();
 initialize().then(()=>{if(state.authenticated&&new URLSearchParams(location.search).has('balances'))balances.open();});
 

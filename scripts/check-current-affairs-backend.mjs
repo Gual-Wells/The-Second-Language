@@ -109,7 +109,7 @@ async function archiveQueues(old){
  for(const prefix of ['chapter-tests','temporary-tests'])for(const action of ['retry','submit'])assert.equal((await call(`/api/${prefix}/${oldTests.failed}/${action}`,{body:{},reader:true})).status,409,`${prefix}/${action}`);
  for(const action of ['transcribe','supplement','check-question'])assert.equal((await call(`/api/chapter-tests/jobs/${oldTests.running}/${action}`,{body:{claim:claimValue}})).status,409);
  assert.equal((await call(`/api/chapter-tests/${oldTests.ready}/answers/q1/${crypto.randomUUID()}`,{method:'PUT',body:{},reader:true})).status,409);
- assert.equal((await call('/api/questions/'+conversation+'/seen',{body:{},reader:true})).status,409);
+ assert.equal((await call('/api/questions/'+conversation+'/seen',{body:{seq:0},reader:true})).status,200,'Reading historical answers is allowed without reactivating generation');
  assert.equal((await call('/api/questions/'+oldQuestions.failed+'/retry',{body:{},reader:true})).status,409);
  assert.equal((await call('/api/questions/open',{body:{chapterId:old.id,digest:old.digest},reader:true})).status,409);
  assert.equal((await call('/api/chapter-quality/'+oldQuality.failed+'/retry',{body:{},reader:true})).status,409);

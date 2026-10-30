@@ -18,7 +18,7 @@
     "includedInStaticFiles": false
   },
   "verificationReports": [
-    "research/question-notifications-20261030/scroll-verification/verification.json"
+    "research/publication-reliability-20261030/scroll-verification/verification.json"
   ],
   "files": [
     {
@@ -29,7 +29,7 @@
     {
       "url": "/app.js",
       "bytes": 58479,
-      "sha256": "0b2864aa67a2ab20f3dc8f7125b1eee4b45a0c691f820b5b342174fd97151238"
+      "sha256": "922c8ff5c7c748f12b0773987e105f0f908d92ef651622007dc0394c08829028"
     },
     {
       "url": "/audio-config.js",
@@ -63,8 +63,8 @@
     },
     {
       "url": "/chapter-quality.js",
-      "bytes": 8431,
-      "sha256": "0e0ff651342ddd165325d478b5445ebcd3ae174c206ed863c05f1af065a30890"
+      "bytes": 8537,
+      "sha256": "4e162576d08ac06d85f134875121b4de39f16983ed820261889f295e8645565a"
     },
     {
       "url": "/chapter-test-recorder.js",
@@ -104,7 +104,7 @@
     {
       "url": "/index.html",
       "bytes": 32685,
-      "sha256": "40ff9225052dc6e250fd15cb4e6199ade55909221d276e16f4063baef541a98d"
+      "sha256": "0a340b03e9a8b6c1efddd0f61718643b6dde75ba234f2dcc45f05e102c3e8320"
     },
     {
       "url": "/labs/certification-reader/AUDIO_CREDITS.md",
@@ -482,5 +482,5 @@
       "sha256": "44a5475d29af09b16c50662ea507326d38d87081209e9beb9ae325a71926e794"
     }
   ],
-  "bytes": 50658609
+  "bytes": 50658715
 }

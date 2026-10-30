@@ -3,9 +3,11 @@ import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { validateTeachingLayout, DAILY_WORD_COUNT } from '../web/annotations.js';
 import {assertTeachingText} from '../protocol/teaching-text.mjs';
-import {loadChapterSources,validateContextSourceEvidence} from './lib/current-affairs-package.mjs';
+import {loadChapterSources} from './lib/current-affairs-package.mjs';
 import {AUTHORING_POLICY,assembleRun} from './lib/teaching-authoring.mjs';
 import {CONTEXT_AUTHORING_POLICY} from '../protocol/usage-context.mjs';
+import {loadChapterEvidence} from './lib/chapter-evidence.mjs';
+import {canonicalSourcePackage} from '../protocol/current-affairs.mjs';
 
 const date = process.argv[2];
 if (!/^\d{4}-\d{2}-\d{2}$/.test(date || '')) throw new Error('用法: node scripts/pack-chapter.mjs YYYY-MM-DD');
@@ -37,7 +39,12 @@ if (words.some((word, i) => i > 0 && words[i - 1].localeCompare(word, 'en') > 0)
 if (meta.date !== date || meta.wordCount !== DAILY_WORD_COUNT || !meta.title || !meta.number) throw new Error('章节元数据不匹配');
 const digest = createHash('sha256').update(markdown).digest('hex');
 const source=await loadChapterSources(process.cwd(),date,markdown,meta,words);
-if(integrated)await validateContextSourceEvidence(process.cwd(),authored.words,source.sourcePackage);
+if(integrated){
+  if(!source.sourcePackage.evidenceDigest)throw Error('单正文须先封存采用原文和作者去向证据，再整理发布包');
+  const sealed=await loadChapterEvidence(process.cwd(),date,source.sourcePackage,{markdown});
+  const sealedWords=new Map(sealed.authoring.map(word=>[word.wordId,word.authored]));
+  if(authored.words.some(word=>canonicalSourcePackage(word)!==canonicalSourcePackage(sealedWords.get(word.wordId))))throw Error('当前作者去向已改变，不能沿用旧封存证据；请重新核对来源包');
+}
 const packed = { id: date, date, title: meta.title, subtitle: meta.subtitle || '', number: meta.number, wordCount: DAILY_WORD_COUNT, contentPolicy: meta.contentPolicy, ...(meta.authoringPolicy?{authoringPolicy:meta.authoringPolicy}:{}), ...(integrated?{format:parsed.format}:{}), digest, markdown, ...source };
 await writeFile(path.join(folder, 'chapter.json'), JSON.stringify(packed));
 console.log(`章节已整理：${date}，${DAILY_WORD_COUNT} 主词，SHA-256 ${digest}`);
