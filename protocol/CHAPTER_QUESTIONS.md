@@ -31,3 +31,5 @@ question-api-worker.mjs仅领取questionsOnly；服务端API_QUESTIONS_ENABLED�
 所有新API调用先落盘不可重复的发送标记，保存原始返回及usage，成功回答先保存后回推；网络中断、服务端5xx或不完整返回不自动重发。明确4xx拒绝只在用户重新处理后允许新的调用，不做SDK重试或跨日续跑。API额度登记发放与已核余额分开；本机token记录不是官方钱包余额。没有任务仅查询自有队列，不调用OpenAI。
 
 2026-10-30故障修复：本机API运行器使用Node 24.14或以上。代理配置在任何请求之前调用Node官方setGlobalProxyFromEnv，重新配置fetch及HTTP/HTTPS代理；仅在进程启动后修改环境变量不足以更新已经初始化的请求分派器。失败只保存安全错误码、阶段和耗时，不记录凭据或原始网络异常。网络结果未知仍停止自动重发；更换档位不绕过发送标记。
+
+长分析使用Responses官方SSE流式传输（stream=true），保留store=false、完整上下文及原结构化输出。只采用response.completed的完整结果，先持久化响应头和原始事件；连接中断或缺终态即使HTTP200也作为未知结果停止，不自动重发。SSE分帧复用固定MIT eventsource-parser 4.1.3，不自行实现通用协议、不引入其重连行为。仅stream开关变化时可复用已有完整响应，其他语义输入变化仍拒绝；旧未知请求仍须授权处理。
