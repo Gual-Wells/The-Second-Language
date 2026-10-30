@@ -8,6 +8,7 @@ import {balanceRoute} from './balances.js';
 import {chapterQualityRoute} from './chapter-quality.js';
 import {chapterNumber,numberForDate} from './chapter-number.js';
 import {assertTeachingText} from '../../protocol/teaching-text.mjs';
+import {readerLayoutUpgrade} from '../../protocol/reader-layout.mjs';
 import {questionsRoute} from './questions.js';
 import {sendQuestionReplies} from './question-notifications.js';
 import {chapterTestsRoute} from './chapter-tests.js';
@@ -332,8 +333,11 @@ async function route(request, env) {
     if (!row) return json({ error: '章节尚未发布' }, 404);
     const markdown = env.ONEDRIVE_ENABLED==='true'?await chapterText(env,row.content_key):await env.CHAPTERS.get(row.content_key);
     if (markdown === null||await sha256(markdown)!==row.digest) return json({ error: '章节正文暂不可核对' }, 503);
+    if(readerLayoutUpgrade(request,markdown,{isPublisher:publisher(request,env)}))return json({error:'章节排版已更新，请重新打开应用后阅读。'},426);
     const { content_key, ...meta } = row;
-    return json({...meta,number:archive&&(row.withdrawn||row.sourcePolicy!==CURRENT_AFFAIRS_POLICY)?row.number:await numberForDate(env.DB,row.date),...(archive?{archived:Boolean(row.withdrawn)||row.sourcePolicy!==CURRENT_AFFAIRS_POLICY}:{}),markdown});
+    const response=json({...meta,number:archive&&(row.withdrawn||row.sourcePolicy!==CURRENT_AFFAIRS_POLICY)?row.number:await numberForDate(env.DB,row.date),...(archive?{archived:Boolean(row.withdrawn)||row.sourcePolicy!==CURRENT_AFFAIRS_POLICY}:{}),markdown});
+    response.headers.set('vary','x-reader-layout');
+    return response;
   }
   if (path === '/api/settings' && request.method === 'GET') {
     const row = await env.DB.prepare('SELECT * FROM study_settings WHERE id=1').first();
