@@ -1,0 +1,133 @@
+{
+  "status": "published-and-read-back",
+  "scope": "Single-stream reader spacing and translation concealment only",
+  "shell": 60,
+  "chapterUnchanged": true,
+  "chapterDigest": "6e17cda5b91552d576428023781bef28990c8ba59e99edb5fea4e332a154a8c8",
+  "design": [
+    "Reduce actual iPhone inset and stacked same-use margins",
+    "Remove the example top rule; distinguish explanation and English by typography and a6px gap",
+    "Replace checkerboard with a quiet matte mask and synthetic unequal traces; never blur actual translation text"
+  ],
+  "actualChapter": {
+    "passed": true,
+    "chapterDigest": "6e17cda5b91552d576428023781bef28990c8ba59e99edb5fea4e332a154a8c8",
+    "words": 50,
+    "uses": 685,
+    "contexts": 732,
+    "checks": [
+      "one complete fused explanation per actual use",
+      "no short-gloss or source/type/prompt layers",
+      "every actual use has a POS heading",
+      "50 real headwords render",
+      "single stream hides old section navigation",
+      "all local selected contexts render",
+      "translations default masked",
+      "no horizontal overflow at iPhone width",
+      "example flows directly after explanation with6–8px gap",
+      "no line or inset separates explanation from example",
+      "translation controls retain44px touch minimum",
+      "real translation reveals",
+      "real translation hides again",
+      "real chapter fits narrow320px",
+      "no page errors",
+      "no actual paid or external requests"
+    ],
+    "physicalIPhone": false,
+    "paidCalls": 0,
+    "liveRequests": 0
+  },
+  "readerContract": {
+    "format": "usage-context-v1",
+    "checks": [
+      "new format is one reader stream",
+      "contexts have one translation each, never sentence translations",
+      "shared context repeats with the same identity",
+      "all contexts default masked",
+      "hidden translations do not enter copied text",
+      "hidden translations do not enter accessibility names",
+      "speaker labels are outside actual spoken sentences",
+      "masked has no horizontal overflow",
+      "shared translation states update together",
+      "reveal preserves allocated block height",
+      "revealed translation is copyable",
+      "translation renders unsafe markup as text",
+      "revealed has no horizontal overflow",
+      "revealed preference persists across reload",
+      "hidden preference persists across reload",
+      "another user never inherits revealed translations",
+      "another digest never inherits revealed translations",
+      "original user and version recover their own preference",
+      "titles and definitions remain silent",
+      "context tap submits only the complete English sentence",
+      "shared server audio contract accepts rendered English only",
+      "translation toggle does not pronounce or submit a question",
+      "sentence hold carries complete English context and stable identity",
+      "questions carry no hidden translation text",
+      "context word double-tap resolves its actual repeated occurrence",
+      "pure reader still enters",
+      "pure has no horizontal overflow",
+      "pure reader still exits",
+      "new pure-mode coordinates preserve interior and native scroll boundaries",
+      "marked-use controls and source/hint chrome are absent",
+      "old highlight preference is removed without removing translations",
+      "POS follows each corresponding IPA",
+      "new explanation has one ordinary paragraph and no extra short gloss",
+      "legacy heading retains its own original short gloss",
+      "translation has no native tooltip",
+      "stale highlight cannot intercept normal sentence audio",
+      "POS heading long-press targets the real vocabulary",
+      "word index clears sticky toolbar",
+      "source evidence remains available outside the learning unit",
+      "new quality request uses advertised context policy",
+      "context-level quality finding locates its frozen context",
+      "new next chapter shows only context audio scope",
+      "old next scope is not silently converted",
+      "old chapter keeps original audio scope",
+      "new chapter audio estimate restores context-only scope",
+      "narrow has no horizontal overflow",
+      "old formal chapter retains three-part controls",
+      "old story sentence rendering remains",
+      "same-user tabs synchronize both reveal and hide",
+      "missing user identity defaults to masked",
+      "missing user identity still supports local toggle",
+      "missing user identity never persists across reload",
+      "storage quota failure leaves reversible memory-only translation controls",
+      "no runtime page errors"
+    ],
+    "errors": [],
+    "browser": "Chromium touch emulation, 402x874 and 320x620; not physical iOS Safari",
+    "paidCalls": 0,
+    "liveApiCalls": 0
+  },
+  "verificationNote": "One concurrent run timed out initializing new tabs after48 checks. An isolated rerun, with unchanged product code, passed all54 checks; no runtime page errors. The timeout cause was not isolated.",
+  "live": {
+    "verifiedAt": "2026-10-30T14:24:35.653Z",
+    "shell": 60,
+    "passed": true,
+    "verified": [
+      {
+        "file": "index.html",
+        "sha256": "eccef51192fe1382694e1b4e3448470a7fd1a1ef1c0ad693a878c073aa88a4d0"
+      },
+      {
+        "file": "app.js",
+        "sha256": "f0949c623632d78f57710f9bcd29832b10b1fa38e006148d67dc1a6181c02f7f"
+      },
+      {
+        "file": "styles.css",
+        "sha256": "e2876ae3ba4b03831890644f9dd99f372389ad88b6dbea95e1481b1e63406599"
+      },
+      {
+        "file": "sw.js",
+        "sha256": "5cb5f0017012ae33f668b9160da384c82d66910a76229757fbea469923e669c9"
+      }
+    ],
+    "chapterDigest": "6e17cda5b91552d576428023781bef28990c8ba59e99edb5fea4e332a154a8c8",
+    "chapterUnchanged": true,
+    "anonymousPrivateStatus": 401
+  },
+  "newTTSCalls": 0,
+  "newPaidModelCalls": 0,
+  "physicalIPhone": false
+}
