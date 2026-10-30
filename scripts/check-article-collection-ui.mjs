@@ -52,17 +52,14 @@ try{
   check('article index reveals selected article',point.y>=panel.y&&point.y<panel.y+100);await shot('article-jump');
   const before=await page.locator('#readingScroll').evaluate(e=>e.scrollTop);
   await page.locator('#translationButton').click();check('translations include every article',await page.locator('.story-translation:visible').count()===50);
-  await page.locator('#highlightButton').click();check('all real-use sentences highlight',await page.locator('.highlight-sentences .linked-use').count()===50);
+  check('marked-use control is removed while real-use identities remain',await page.locator('#highlightButton').count()===0&&await page.locator('.story-sentence.linked-use').count()===50);
   await page.locator('#translationButton').click();
   await page.locator('[data-part=one]').click();await page.locator('[data-part=three]').click();
   await page.waitForTimeout(80);check('part switching restores article reading location',Math.abs(await page.locator('#readingScroll').evaluate(e=>e.scrollTop)-before)<4);
 
   const focus=await page.evaluate(async()=>{const m=await import('/reader-focus.js?v=47');const sentence=document.querySelector('#story-article-A01 .story-sentence');const f=m.readerFocus(sentence);return{focus:f,question:m.focusQuestion(f)};});
   check('question focus identifies exact article and original sentence',focus.focus.articleTitle==='A second independent topic'&&focus.focus.sentenceId==='S015'&&focus.question.includes('S015'));
-  // Actual highlighter keyboard activation still reaches the original use.
-  await page.locator('#story-article-A01 .story-sentence').first().press('Enter');await page.locator('.reader-jump-cover').waitFor({state:'hidden'});
-  check('cross-article use jump keeps original identity',await page.locator('#article').getAttribute('data-audio-part')==='one');
-  await page.locator('[data-part=three]').click();
+  check('sentence retains its use identity without a removed navigation action',await page.locator('#story-article-A01 .story-sentence').first().getAttribute('data-use-refs')==='U015'&&await page.locator('#story-article-A01 .story-sentence').first().getAttribute('role')===null);
   await page.locator('#chapterSourcesButton').click();await page.locator('#chapterSourcesArticle').waitFor();
   check('all sources initially available',await page.locator('.chapter-source-item').count()===3);
   await page.locator('#chapterSourcesArticle').selectOption('A01');check('article source filter shows only corresponding actual source',await page.locator('.chapter-source-item').count()===1&&await page.locator('.chapter-source-item a').getAttribute('href')==='https://example.org/second');await shot('article-sources');

@@ -2,10 +2,30 @@
 // are performed by the author and independent semantic review.
 import {validateAnnotatedContent} from '../../web/annotations.js';
 import {CONTEXT_AUTHORING_POLICY, USAGE_CONTEXT_FORMAT} from '../../protocol/usage-context.mjs';
+import {parseTeachingHeading} from '../../web/teaching-units.js';
 const ID = /^[A-Za-z][A-Za-z0-9_-]{0,31}$/;
 const nonempty = (s, label) => { if (typeof s !== 'string' || !s.trim()) throw Error(`缺少${label}`); return s; };
 const safeLine = (s, label) => { nonempty(s,label); if (/[\r\n]|-->|<!--/.test(s)) throw Error(`${label}须为一行普通文本`); return s; };
 const jsonComment = value => JSON.stringify(value).replace(/</g,'\\u003c').replace(/>/g,'\\u003e');
+
+// Opt in per author artifact: frozen v1 evidence remains readable unchanged.
+// Content judgement remains the author's; this prevents a new artifact from
+// silently reverting to split explanations or unpaired word/IPA/category rows.
+export function validateFusedExplanationLayout(word) {
+  if(word.layoutVersion == null)return;
+  if(word.layoutVersion!==2)throw Error('未知逐词正文层级版本');
+  const blocks=[...word.partOne.matchAll(/^<!-- USE:([^ ]+) -->\r?\n([^]*?)(?=^<!-- USE:|$(?![^]))/gm)];
+  if(!blocks.length)throw Error('新版讲解缺少USE');
+  for(const [,id,body] of blocks){
+    const lines=body.split(/\r?\n/).map(line=>line.trim()).filter(Boolean);
+    const heading=/^## (.+)$/.exec(lines[0]||'');
+    const parsed=heading&&parseTeachingHeading(heading[1]);
+    if(!parsed?.modern)throw Error(`用法${id}须逐词形配对音标和词性`);
+    if(!/^`[^`]+`$/.test(lines[1]||''))throw Error(`用法${id}缺少完整融合解释`);
+    if(lines.at(-1)!==`<!-- CONTEXT_SLOT:${id} -->`||lines.filter(line=>line.startsWith('<!-- CONTEXT_SLOT:')).length!==1)throw Error(`用法${id}全部解释须在唯一语境插槽前完成`);
+    if(lines.slice(2,-1).some(line=>line.startsWith('<!--')||/^#{1,6}\s/.test(line)))throw Error(`用法${id}解释不能新增栏目或隐藏结构`);
+  }
+}
 
 function contextBlock(c) {
   if (!ID.test(c?.id || '') || !['abridgment','excerpt','example'].includes(c.kind) || !Array.isArray(c.uses) || !c.uses.length || c.uses.some(u=>!ID.test(u))) throw Error('语境身份、类型或用法无效');
@@ -31,6 +51,7 @@ export function assembleUsageContextCollection(words,{expectedWordCount}={}) {
   const sorted = [...words].sort((a,b)=>a.text.localeCompare(b.text,'en'));
   const contexts = new Map(), choices = new Map();
   for (const w of sorted) {
+    validateFusedExplanationLayout(w);
     const match = [...nonempty(w.partOne,'完整逐词讲解').matchAll(/^<!-- WORD:([^ ]+) -->\r?\n# ([^\r\n]+)$/gm)];
     if (match.length!==1 || match[0][1]!==w.wordId || match[0][2]!==w.text || /<!-- (?:FORMAT|PART):/.test(w.partOne)) throw Error('词头身份与正文不一致');
     if (/<!-- (?:CONTEXT:|CONTEXT_REF:|CONTEXT_META:|SENTENCE:|TRANSLATION:|END_CONTEXT:)/.test(w.partOne)) throw Error('作者讲解只能含CONTEXT_SLOT；语境须来自有证据的contexts对象');

@@ -4,7 +4,7 @@
 
 2026-10-30用户明确要求将现有第1章按新合同处理并重新上线，作为该章专用显式重编例外。当前2026-10-24仍第1章、原50词、原selection/VIX回执；685用法含原680身份及5个独立分支，单正文。旧4cc6a2f9原件、来源与原绑定记录保留在云端及chapters/history/2026-10-24/4cc6a2f9；不将历史版本重放成当前指针。重编合同与固定证据见TEACHING_AUTHORING及research/chapter-one-context-revision-2026-10-30.json；不据此启动其他旧章迁移、重选、重标或音频重生成。默认休息和下一章空音频保持。
 
-用户随后否决这一版的正文规范性，明确要求取消逐份教学例句／来源说明／译文提示附层、取消标记用法、音标后标词性，并取消独立补充解释。最新研究与下一版设计见protocol/TEACHING_LAYOUT_V2.md：每义在语境前一次完成完整融合解释，不能照搬旧“核心义→语境→补充”结构，也不以隐藏CSS代替重编。目前仅完成设计与隔离样品，线上仍是上述638978c6版本；不要将设计稿误报为已经实装。译文显隐与可视提示是两件事，按用户澄清处理，不擅自删除全部译文。
+用户随后否决这一版的正文规范性，明确要求取消逐份教学例句／来源说明／译文提示附层、取消标记用法、音标后标词性，并取消独立补充解释。最新研究与下一版设计见protocol/TEACHING_LAYOUT_V2.md：每义在语境前一次完成完整融合解释，不能照搬旧“核心义→语境→补充”结构，也不以隐藏CSS代替重编。用户继而明确要求重做第一章上线；本轮以638978c6为重编基线，保留原马赛克显隐且撤去提示，先交付v59兼容读取及旧壳升级保护，再发布新正文。新输入锁teachingLayoutVersion:2，作者layoutVersion:2；旧锁不回填。最终上线身份以research/chapter-one-fused-layout-2026-10-30.json为准。
 
 仅尚未冻结的新运行采用authoringPolicy:authentic-context-v1、FORMAT:usage-context-v1；meta仍保contentPolicy:etymology-fused-v1、sourcePolicy:current-affairs-v1。新prepare-vix输入锁记录默认策略，冻结selection时同样写入，装配/打包核对。旧冻结无该字段或为sourced-collection-v1的运行沿其原protocolCommit/原作者稿续作，不静默转换；旧已发布第一章原件不改、不重选、不撤标。旧三部分工艺恢复见PART_THREE_PRODUCTION和切换前5573946b10023df3c9b83f0d02a139860afef2bc对应文件，不能把旧文义务混入新默认。
 
@@ -24,7 +24,7 @@
 
 共享只是自然关系中的普通情况，仅不禁止；不主动找共享、不为共享合并词/题材、不把复用率或图密度作指标。自然同段可复用稳定contextId并在每个所选用法旁就地引用，同一位置不重复；不能靠远处声明掩盖缺本地材料。
 
-新版逐词作者文件保存partOne、contexts、contextChoices与sourceCoverage/exampleCoverage，不维护partTwo/articles.json新稿。每USE完整核心义/必要限制后放唯一CONTEXT_SLOT；余下语法自然安排。英文按完整句ID支持点读/答疑，译文每份context一个完整连贯块，不逐句配译。译文位置固定、默认马赛克隐藏，点击显/隐按稳定账户+正文digest+context持久，隐藏文本不经复制/无障碍泄漏；无全局译文模式开关。保原蓝银美学/纯净阅读，不加审核面板给学习者。
+新版逐词作者文件保存partOne、contexts、contextChoices与sourceCoverage/exampleCoverage，不维护partTwo/articles.json新稿。按CONTENT逐词形配音标和词性，语境前一次完成全部融合解释；每USE唯一CONTEXT_SLOT为末行，例后不再补充讲解。英文按完整句ID支持点读/答疑，译文每份context一个完整连贯块，不逐句配译。译文位置固定、默认马赛克隐藏，点击显/隐按稳定账户+正文digest+context持久，隐藏文本不经复制/无障碍泄漏；无全局译文模式开关。保原蓝银美学/纯净阅读，不加审核面板给学习者。
 
 工具只做原件取得/摘要、确定性装配/身份检查、VIX/封存/发布，语义与候选判断由Codex完成。assemble-teaching输出chapter.md和context-sources.json；实际审阅全义、真用/语域、原事实和语篇功能、多份增量、英中整块译文，再按原pack-current-affairs/pack-chapter/publish-chapter回读交付。不用结构通过、统计/评分或更多知识冒称体验合格，不套每义字数、不例行全章多代压缩。来源索引仍存文件基座，D1只存轻量绑定。
 

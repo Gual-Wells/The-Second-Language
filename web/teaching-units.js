@@ -3,6 +3,26 @@ const WORD=new RegExp(`^<!-- WORD:(${ID}) -->$`);
 const USE=new RegExp(`^<!-- USE:(${ID}) -->$`);
 const mono=line=>/^`[^`]+`$/.test(line);
 const linesOf=text=>text.replace(/\r\n?/g,'\n').split('\n').map(line=>line.trim());
+const POS='(?:n|v|adj|adv|prep|pron|det|conj|interj|aux|num)\\.';
+// Shared by the reader, teaching transport and question targeting. A form has
+// its own pronunciation and category; legacy headings retain their old gloss.
+export function parseTeachingHeading(value) {
+  if(typeof value!=='string')return null;
+  const source=value.trim(),forms=[];
+  let remaining=source;
+  const modern=new RegExp(`^([^/\\n]+?)\\s+(/[^/\\n]+/)\\s+(${POS}(?:\\s*/\\s*${POS})*)(?:\\s*;\\s*|$)`);
+  while(remaining){
+    const match=modern.exec(remaining);if(!match)break;
+    const word=match[1].trim();if(!word||word.includes(' · '))return null;
+    forms.push({word,ipa:match[2],partOfSpeech:match[3].replace(/\s*\/\s*/g,' / ')});
+    remaining=remaining.slice(match[0].length);
+  }
+  if(forms.length&&!remaining)return{forms,label:forms.map(f=>f.word).join('; '),definition:'',modern:true};
+  const legacy=/^(.*?)\s+(\/[^/\n]+\/)\s*$/.exec(source);
+  if(!legacy?.[1])return null;
+  const label=legacy[1].trim(),split=label.indexOf(' · ');
+  return{forms:[{word:split<0?label:label.slice(0,split),ipa:legacy[2],partOfSpeech:''}],label,definition:split<0?'':label.slice(split+3),modern:false};
+}
 export function parseTeachingUnits(source) {
   const words = [], uses = new Map(), allIds = new Set();
   let pending = null, currentWord = null, awaitingGloss = null;
@@ -29,9 +49,9 @@ export function parseTeachingUnits(source) {
     }
     if (heading?.[1] === '##') {
       if (pending?.kind !== 'use' || !currentWord) throw new Error(`二级用法缺少 USE 编码：${heading[2]}`);
-      const title = /^(.*?)\s+(\/[^/\n]+\/)\s*$/.exec(heading[2]);
-      if (!title?.[1]) throw new Error(`二级用法须在标题末尾直接写美式音标：${heading[2]}`);
-      uses.set(pending.id, { label: title[1].trim(), wordId: currentWord.id });
+      const title = parseTeachingHeading(heading[2]);
+      if (!title) throw new Error(`二级用法须写词形及美式音标，新版在对应音标后写词性：${heading[2]}`);
+      uses.set(pending.id, { label: title.label, wordId: currentWord.id, forms:title.forms });
       awaitingGloss = pending.id; pending = null; continue;
     }
     if (pending?.kind === 'word') throw new Error(`WORD 编码 ${pending.id} 后必须是一级词条`);

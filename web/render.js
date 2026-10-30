@@ -1,3 +1,5 @@
+import {parseTeachingHeading} from './teaching-units.js?v=59';
+
 export function parseParts(markdown) {
   const parts = { one: '', two: '', three: '' };
   const matches = [...markdown.matchAll(/^<!-- PART:(one|two|three) -->\s*$/gm)];
@@ -37,27 +39,14 @@ export function updateContextTranslation(button, revealed) {
   button.setAttribute('aria-expanded', String(Boolean(revealed)));
   button.querySelector('.context-translation-text').textContent = revealed ? button.translationText : '';
   if (revealed) button.removeAttribute('aria-label');
-  else button.setAttribute('aria-label', '显示整份译文');
-  button.title = revealed ? '点击隐藏整份译文' : '点击显示整份译文';
+  else button.setAttribute('aria-label', '译文');
+  button.removeAttribute('title');
 }
 
 function renderContext(record, occurrenceRefs, options) {
   const block = document.createElement('section');
   block.className = 'usage-context'; block.dataset.contextId = record.id;
   block.dataset.useRefs = occurrenceRefs.join(',');
-  const source = document.createElement('div'); source.className = 'context-source';
-  const kind = document.createElement('span'); kind.className = 'context-kind';
-  kind.textContent = ({abridgment:'缩编', excerpt:'节选', example:'教学例句'})[record.kind] || '';
-  source.append(kind);
-  if (record.title) { const title = document.createElement('span'); title.textContent = record.title; source.append(title); }
-  if (record.sourceUrls?.length) {
-    const button = document.createElement('button'); button.type = 'button'; button.className = 'context-source-button'; button.textContent = '来源 ›';
-    button.addEventListener('click', () => options.onContextSource?.(record)); source.append(button);
-  }
-  block.append(source);
-  if (record.displayContext) {
-    const lead = document.createElement('p'); lead.className = 'context-introduction'; lead.textContent = record.displayContext; block.append(lead);
-  }
   for (const paragraph of record.paragraphs) {
     const p = document.createElement('p'); p.className = 'context-paragraph';
     for (const sentence of paragraph) {
@@ -69,11 +58,6 @@ function renderContext(record, occurrenceRefs, options) {
       line.dataset.sentenceId = sentence.id; line.dataset.contextId = record.id;
       if (sentence.refs.length) { line.dataset.useRefs = sentence.refs.join(','); line.classList.add('linked-use'); }
       appendInline(line, sentence.text);
-      if (sentence.refs.length && options.highlight) {
-        line.tabIndex = 0; line.setAttribute('role','button'); line.setAttribute('aria-label','查看对应用法');
-        line.addEventListener('click', () => options.onSentence?.(sentence.refs));
-        line.addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); options.onSentence?.(sentence.refs); } });
-      }
       p.append(line);
     }
     block.append(p);
@@ -87,8 +71,7 @@ function renderContext(record, occurrenceRefs, options) {
   measure.setAttribute('aria-hidden','true'); measure.inert = true;
   const text = document.createElement('span'); text.className = 'context-translation-text';
   const mask = document.createElement('span'); mask.className = 'context-translation-mask'; mask.setAttribute('aria-hidden','true');
-  const hint = document.createElement('span'); hint.className = 'context-translation-hint'; hint.textContent = '点击显示译文'; hint.setAttribute('aria-hidden','true');
-  mask.append(hint); translation.append(measure,text,mask);
+  translation.append(measure,text,mask);
   updateContextTranslation(translation, options.translationRevealed?.(record.id));
   translation.addEventListener('click', () => {
     if (globalThis.getSelection?.()?.isCollapsed === false) return;
@@ -100,7 +83,6 @@ function renderContext(record, occurrenceRefs, options) {
 
 function renderStory(source, target, options) {
   let paragraph = null, pending = null, pair = null, container = target;
-  target.classList.toggle('highlight-sentences', Boolean(options.highlight));
   target.classList.toggle('show-translations', Boolean(options.translations));
   for (const raw of source.replace(/\r\n?/g, '\n').split('\n')) {
     const line = raw.trim();
@@ -125,11 +107,6 @@ function renderStory(source, target, options) {
       sentence.dataset.sentenceId = pending.id;
       if (refs.length) { sentence.classList.add('linked-use'); sentence.dataset.useRefs = refs.join(','); }
       appendInline(sentence, line);
-      if (refs.length) {
-        sentence.addEventListener('click', () => { if (options.highlight) options.onSentence?.(refs); });
-        sentence.addEventListener('keydown', event => { if (options.highlight && (event.key === 'Enter' || event.key === ' ')) { event.preventDefault(); options.onSentence?.(refs); } });
-        if (options.highlight) { sentence.tabIndex = 0; sentence.setAttribute('role', 'button'); sentence.setAttribute('aria-label', `查看对应词汇用法 ${refs.join('、')}`); }
-      }
       pair.append(sentence); paragraph.append(pair); continue;
     }
     if (pending && pair && /^`[^`]+`$/.test(line)) {
@@ -146,7 +123,6 @@ export function renderPart(source, part, target, options = {}) {
   target.replaceChildren();
   target.classList.toggle('prose', part === 'three');
   target.classList.remove('highlight-sentences', 'show-translations');
-  if (contextual) target.classList.toggle('highlight-sentences', Boolean(options.highlight));
   if (part === 'three' && source.includes('<!-- SENTENCE:')) return renderStory(source, target, options);
   const words = [];
   let container = target;
@@ -231,18 +207,22 @@ export function renderPart(source, part, target, options = {}) {
         const head = document.createElement('div'); head.className = 'sense-head';
         const title = document.createElement('h2');
         title.dataset.heading = heading[2];
-        const pronunciation = /^(.*?)\s+(\/[^/\n]+\/)\s*$/.exec(heading[2]);
-        const label = pronunciation ? pronunciation[1] : heading[2], split = label.indexOf(' · ');
-        const word = split < 0 ? label : label.slice(0,split), definition = split < 0 ? '' : label.slice(split+3);
-        title.append(document.createTextNode(word));
-        if (pronunciation) {
-          const ipa = document.createElement('span'); ipa.className = 'sense-ipa'; ipa.textContent = pronunciation[2];
-          title.append(document.createTextNode(' '), ipa);
-        }
+        const parsed = parseTeachingHeading(heading[2]);
+        if(parsed?.modern)sense.classList.add('fused-sense');
+        if(parsed){
+          parsed.forms.forEach((form,index)=>{
+            if(index)title.append(document.createTextNode('; '));
+            const group=document.createElement('span');group.className='sense-form';
+            group.append(document.createTextNode(form.word+' '));
+            const ipa=document.createElement('span');ipa.className='sense-ipa';ipa.textContent=form.ipa;group.append(ipa);
+            if(form.partOfSpeech){const pos=document.createElement('span');pos.className='sense-pos';pos.textContent=form.partOfSpeech;group.append(document.createTextNode(' '),pos);}
+            title.append(group);
+          });
+        }else title.append(document.createTextNode(heading[2]));
         head.append(title);
         if (pendingUse) { if (!contextual) addExampleJump(head, pendingUse, options.onJump); pendingUse = null; }
         sense.append(head);
-        if (definition) { const summary=document.createElement('p');summary.className='sense-definition';summary.textContent=definition;sense.append(summary); }
+        if (parsed?.definition) { const summary=document.createElement('p');summary.className='sense-definition';summary.textContent=parsed.definition;sense.append(summary); }
         if (words.length) words.at(-1).element.append(sense);
         else target.append(sense);
         container = sense;
@@ -257,8 +237,9 @@ export function renderPart(source, part, target, options = {}) {
     if (/^---+$/.test(line)) { flushParagraph(); list = null; quote = null; container.append(document.createElement('hr')); continue; }
     if (/^`[^`]+`$/.test(line)) {
       flushParagraph(); list = null; quote = null;
-      const code = document.createElement('code');
-      code.className = 'mono';
+      const fused=container.classList.contains('fused-sense');
+      const code = document.createElement(fused?'p':'code');
+      code.className = fused?'fused-explanation':'mono';
       code.textContent = line.slice(1, -1);
       (part === 'two' && example ? example : container).append(code);
       continue;

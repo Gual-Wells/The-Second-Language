@@ -66,7 +66,7 @@ try{
  await blankTap();await page.locator('.pure-controls-visible').waitFor();await page.locator('[data-part="two"]').click();assert(await page.locator('#wordIndexButton').isVisible());
  await page.locator('[data-part="three"]').click();assert(await page.locator('#translationButton').isVisible());assert(hasArticles?await page.locator('#wordIndexButton').isVisible():await page.locator('#wordIndexButton').isHidden());
  const translated=await page.locator('#article').evaluate(e=>e.classList.contains('show-translations'));await page.locator('#translationButton').click();await page.waitForTimeout(40);assert.notEqual(await page.locator('#article').evaluate(e=>e.classList.contains('show-translations')),translated);
- await page.locator('#highlightButton').click();await page.waitForTimeout(40);assert(await page.locator('#article').evaluate(e=>e.classList.contains('highlight-sentences')));
+ assert.equal(await page.locator('#highlightButton').count(),0);assert(await page.locator('#article').evaluate(e=>!e.classList.contains('highlight-sentences')));
  const paragraphPosition=await geometry();await page.waitForFunction(()=>!document.getElementById('app').classList.contains('pure-controls-visible'));assert.deepEqual(await geometry(),paragraphPosition);
  assert(await page.locator('.toolbar').isHidden());assert(await page.locator('#translationButton').isHidden());assert(await page.locator('.reader-statusbar').isHidden());await toggle();
  // Observe the cover while the actual destination renders behind it. No animated

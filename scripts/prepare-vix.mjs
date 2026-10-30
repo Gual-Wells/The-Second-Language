@@ -33,6 +33,7 @@ function validateLock(lock, root, date) {
   if (!lock || lock.protocol !== LOCK_PROTOCOL || lock.repository !== repo || lock.branch !== 'main' || lock.studyDate !== date || !/^[0-9a-f]{40}$/.test(lock.commit || '') || !Number.isFinite(Date.parse(lock.capturedAt))) throw new Error('VIX 原输入锁无效；不得覆盖锁或重新获取 main');
   validateInputs(lock.inputs);
   if(lock.authoringPolicy!=null&&![CONTEXT_AUTHORING_POLICY,'sourced-collection-v1'].includes(lock.authoringPolicy))throw new Error('VIX输入锁制作协议无效');
+  if(lock.teachingLayoutVersion!=null&&lock.teachingLayoutVersion!==2)throw new Error('VIX输入锁正文层级版本无效');
   const dest = path.resolve(root, '.cache/vix', lock.commit);
   if (lock.files !== lock.inputs.length || typeof lock.localDirectory !== 'string' || path.resolve(lock.localDirectory) !== dest) throw new Error('VIX 原输入锁的文件数或缓存目录不一致');
   return dest;
@@ -100,7 +101,7 @@ export async function prepareVix(date, { root = process.cwd(), log = console.log
     validateInputs(inputs);
     await mkdir(runDir, { recursive: true });
     // Publish the complete manifest before downloading. A competing start cannot overwrite it.
-    lock = await installLock(lockFile, { protocol: LOCK_PROTOCOL, repository: repo, branch: 'main', studyDate: date, authoringPolicy:CONTEXT_AUTHORING_POLICY, commit, files: inputs.length, capturedAt: new Date().toISOString(), localDirectory: path.join(root, '.cache/vix', commit), inputs });
+    lock = await installLock(lockFile, { protocol: LOCK_PROTOCOL, repository: repo, branch: 'main', studyDate: date, authoringPolicy:CONTEXT_AUTHORING_POLICY, teachingLayoutVersion:2, commit, files: inputs.length, capturedAt: new Date().toISOString(), localDirectory: path.join(root, '.cache/vix', commit), inputs });
   }
   const dest = validateLock(lock, root, date);
   if (selection !== undefined && selection.vixInputCommit !== lock.commit) throw new Error('已固定 selection 与 VIX 原输入 commit 不一致；不得刷新输入或重选');

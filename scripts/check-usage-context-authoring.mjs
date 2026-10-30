@@ -12,6 +12,7 @@ import {validateAnnotatedContent, validateTeachingLayout} from '../web/annotatio
 import {assembleUsageContextCollection} from './lib/usage-context-authoring.mjs';
 import {prepareTeachingMaterials, readTeachingMaterials, checkMaterialDisposition, assembleRun} from './lib/teaching-authoring.mjs';
 import {indexTextbook} from './lib/textbook-sources.mjs';
+import {readerLayoutUpgrade} from '../protocol/reader-layout.mjs';
 
 const repoRoot = fileURLToPath(new URL('../', import.meta.url));
 const legacyFile = path.join(repoRoot, 'chapters/history/2026-10-24/4cc6a2f9/chapter.md');
@@ -84,6 +85,30 @@ function makeShared() {
   for (let i = 0; i < words.length; i++) words[i].contextChoices = [{useId: `U00${i + 1}`, contextIds: ['C_shared'], reason: 'Natural sharing in this fixture; only one object, with an explicit local reference at each use.'}];
   return words;
 }
+
+check('fused layout pairs POS per form, puts all explanation before context and preserves fixed v1',()=>{
+  const words=makeWords();
+  words[0].layoutVersion=2;
+  words[0].partOne='<!-- WORD:W001 -->\n# budget\n\n<!-- USE:U001 -->\n## budget /test/ n.; budgeting /testɪŋ/ n.\n`A complete fixture explanation including the actual restriction.`\n\n<!-- CONTEXT_SLOT:U001 -->';
+  const result=assemble(words);
+  assert.equal(result.parsed.uses.get('U001').forms.length,2);
+  assert.equal(result.parsed.uses.get('U001').forms[1].partOfSpeech,'n.');
+  assert.equal(assemble(makeWords()).parsed.uses.size,2);
+  const invalid=clone(words);invalid[0].partOne+='\n\nA second explanation after the example.';
+  assert.throws(()=>assemble(invalid),/全部解释须在唯一语境插槽前/);
+  invalid[0].partOne=words[0].partOne.replace('/test/ n.; budgeting /testɪŋ/ n.','/test/');
+  assert.throws(()=>assemble(invalid),/配对音标和词性/);
+});
+
+check('old open reader cannot receive unsupported POS headings; publisher and capable reader keep exact content',()=>{
+  const modern='<!-- FORMAT:usage-context-v1 -->\n## adapt /əˈdæpt/ v.\n`Complete explanation.`';
+  const old='<!-- FORMAT:usage-context-v1 -->\n## adapt · 适应 /əˈdæpt/\n`Old explanation.`';
+  const plain=new Request('https://example.invalid/api/chapters/chapter');
+  assert.equal(readerLayoutUpgrade(plain,modern),true);
+  assert.equal(readerLayoutUpgrade(plain,old),false);
+  assert.equal(readerLayoutUpgrade(plain,modern,{isPublisher:true}),false);
+  assert.equal(readerLayoutUpgrade(new Request(plain,{headers:{'x-reader-layout':'2'}}),modern),false);
+});
 
 check('authoring -> shared parser keeps a single stream and one whole translation per context', () => {
   const result = assemble(makeWords());

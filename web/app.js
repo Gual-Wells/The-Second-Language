@@ -1,13 +1,13 @@
 import {createChapterQualityUI} from './chapter-quality.js?v=58';
 import {createReaderJump} from './reader-jump.js?v=50';
-import {installPureReader} from './pure-reader.js?v=50';
+import {installPureReader} from './pure-reader.js?v=59';
 import {chapterNumber, createChapterBook} from './chapters.js?v=41';
 import {installSettingsNavigation} from './settings.js?v=41';
 import {createAudioConfig} from './audio-config.js?v=50';
-import {installReaderSpeech} from './reader-speech.js?v=51';
-import { parseParts, renderPart, updateContextTranslation } from './render.js?v=50';
+import {installReaderSpeech} from './reader-speech.js?v=59';
+import { parseParts, renderPart, updateContextTranslation } from './render.js?v=59';
 import {createContextTranslationState} from './context-translations.js?v=50';
-import { validateAnnotatedContent } from './annotations.js?v=50';
+import { validateAnnotatedContent } from './annotations.js?v=59';
 import { createPracticeUI } from './practice.js?v=41';
 import {createBalanceUI} from './balances.js?v=56';
 import {createStorageUsageUI} from './storage-usage.js?v=41';
@@ -25,7 +25,7 @@ const LAST_PART_KEY = 'second-language-last-part-v1';
 const DISPLAY_KEY = 'second-language-article-display-v1';
 const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
 const standalone = () => matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
-const state = { chapters: [], temporary: [], current: null, lastDailyId: null, parts: {}, words: [], articles: [], contexts: [], format: null, readerUserId: null, useLabels: new Map(), hasAnnotations: false, highlight: false, translations: false, month: TODAY.slice(0, 7), part: 'one', difficulty: null, progress: {}, demo: false, authenticated: false, authStatus: null, installPrompt: null, chapterRequest: 0 };
+const state = { chapters: [], temporary: [], current: null, lastDailyId: null, parts: {}, words: [], articles: [], contexts: [], format: null, readerUserId: null, hasAnnotations: false, translations: false, month: TODAY.slice(0, 7), part: 'one', difficulty: null, progress: {}, demo: false, authenticated: false, authStatus: null, installPrompt: null, chapterRequest: 0 };
 const contextTranslations = createContextTranslationState();
 contextTranslations.subscribe(id => {
   for (const button of $('article').querySelectorAll('.context-translation')) {
@@ -335,22 +335,23 @@ function prepareContent(markdown, id) {
     state.format = annotated.format || null;
     state.contexts = annotated.contexts || [];
     if (state.format === 'usage-context-v1') state.parts = annotated.parts;
-    state.useLabels = new Map([...annotated.uses].map(([code, item]) => [code, item.label]));
     state.hasAnnotations = true;
     document.querySelector('[data-part="three"] span').textContent=annotated.articles.length?'现实选读':'任意文';
   } catch (error) {
     if (/^\s*<!-- FORMAT:/.test(markdown)) throw error;
-    state.useLabels = new Map(); state.hasAnnotations = false; document.querySelector('[data-part="three"] span').textContent='任意文';
+    state.hasAnnotations = false; document.querySelector('[data-part="three"] span').textContent='任意文';
   }
   contextTranslations.setScope({readerUserId:state.readerUserId,digest:state.current?.digest});
-  const display = readStored(DISPLAY_KEY)[id] || {};
-  state.highlight = Boolean(display.highlight);
-  state.translations = Boolean(display.translations);
+  const displays = readStored(DISPLAY_KEY);
+  let migrated=false;
+  for(const display of Object.values(displays))if(display&&Object.hasOwn(display,'highlight')){delete display.highlight;migrated=true;}
+  if(migrated)writeStored(DISPLAY_KEY,displays);
+  state.translations = Boolean(displays[id]?.translations);
 }
 
 function rememberDisplay() {
   const display = readStored(DISPLAY_KEY);
-  display[state.current.id] = { highlight: state.highlight, translations: state.translations };
+  display[state.current.id] = { translations: state.translations };
   const keys = Object.keys(display);
   for (const key of keys.slice(0, Math.max(0, keys.length - 90))) delete display[key];
   writeStored(DISPLAY_KEY, display);
@@ -364,22 +365,6 @@ function jumpTo(part, code) {
 }
 function jumpToWord(wordId){
   jumpWithin(()=>[...$('article').querySelectorAll('.word-entry')].find(e=>e.dataset.wordId===wordId),'one');
-}
-
-function openSentenceReference(codes) {
-  const refs = [...new Set(codes)].filter(code => state.useLabels.has(code));
-  if (!refs.length) { toast('这一句没有可定位的用法'); return; }
-  if (refs.length === 1) { jumpTo('one', refs[0]); return; }
-  const list = $('usageChoices'); list.replaceChildren();
-  for (const code of refs) {
-    const button = document.createElement('button'); button.type = 'button';
-    const small = document.createElement('small'); small.textContent = code;
-    const label = document.createElement('strong'); label.textContent = state.useLabels.get(code);
-    button.append(small, label);
-    button.addEventListener('click', () => { closeDialog('usageDialog'); jumpTo('one', code); });
-    list.append(button);
-  }
-  showDialog('usageDialog');
 }
 
 function showPart(part, restore = false, rememberCurrent = true, managePosition = true) {
@@ -404,18 +389,14 @@ function showPart(part, restore = false, rememberCurrent = true, managePosition 
   }
   state.words = renderPart(state.parts[part] || '', part, $('article'), {
     format:state.format, contexts:new Map(state.contexts.map(record=>[record.id,record])),
-    highlight:state.highlight, translations:state.translations, onJump:jumpTo, onSentence:openSentenceReference,
-    translationRevealed:id=>contextTranslations.revealed(id), onTranslationToggle:id=>contextTranslations.toggle(id),
-    onContextSource:record=>chapterSources.openContext(record)
+    translations:state.translations, onJump:jumpTo,
+    translationRevealed:id=>contextTranslations.revealed(id), onTranslationToggle:id=>contextTranslations.toggle(id)
   });
   state.articles=[...$('article').querySelectorAll('.story-article')].map(element=>({text:element.querySelector('h1')?.textContent||'',element}));
   const collection=part==='three'&&state.articles.length;
   if(collection)$('partTitle').textContent='现实选读';
   $('articleTools').hidden = part === 'three' ? !state.hasAnnotations : !state.words.length;
-  $('highlightButton').hidden = !contextual && part !== 'three';
   $('translationButton').hidden = contextual || part !== 'three';
-  $('articleToolsHint').textContent = contextual ? '点按遮罩显示译文' : part === 'three' ? '点按标记句可回看对应用法' : '按词条定位';
-  $('highlightButton').setAttribute('aria-pressed', String(state.highlight));
   $('translationButton').setAttribute('aria-pressed', String(state.translations));
   $('wordIndexButton').hidden = !state.words.length&&!collection;
   $('wordIndexButton').textContent=collection?'篇目':'词条索引';
@@ -439,7 +420,7 @@ async function openChapter(id, resume = true, digest = null) {
   saveReadingPosition();
   setSyncStatus(navigator.onLine ? '正在打开章节…' : '正在读取离线章节', !navigator.onLine);
   try {
-    const chapter = await api(`/api/chapters/${encodeURIComponent(id)}${digest ? `?digest=${encodeURIComponent(digest)}` : ''}`);
+    const chapter = await api(`/api/chapters/${encodeURIComponent(id)}${digest ? `?digest=${encodeURIComponent(digest)}` : ''}`, {headers:{'x-reader-layout':'2'}});
     const progress = chapter.historical ? {} : await loadProgress(id);
     if (request !== state.chapterRequest) return;
     state.current = chapter;
@@ -746,7 +727,6 @@ $('todayMonth').addEventListener('click', () => { state.month = TODAY.slice(0, 7
 $('monthPicker').addEventListener('change', event => { if (/^\d{4}-\d{2}$/.test(event.target.value)) { state.month = event.target.value; renderCalendar(); } });
 $('wordIndexButton').addEventListener('click', () => { $('indexFilter').value = ''; renderIndex(); showDialog('indexDialog'); });
 function toggleDisplay(field){const scope=$('readingScroll'),top=scope.getBoundingClientRect().top+$('articleTools').getBoundingClientRect().height;const anchor=[...$('article').querySelectorAll('[data-sentence-id]')].find(e=>e.getBoundingClientRect().bottom>top),id=anchor?.dataset.sentenceId,y=anchor?.getBoundingClientRect().top;state[field]=!state[field];rememberDisplay();showPart(state.format==='usage-context-v1'?'one':'three',true);requestAnimationFrame(()=>{const next=[...$('article').querySelectorAll('[data-sentence-id]')].find(e=>e.dataset.sentenceId===id);if(next)scope.scrollTop+=next.getBoundingClientRect().top-y;});}
-$('highlightButton').addEventListener('click',()=>toggleDisplay('highlight'));
 $('translationButton').addEventListener('click',()=>toggleDisplay('translations'));
 $('indexFilter').addEventListener('input', event => renderIndex(event.target.value));
 for (const button of document.querySelectorAll('[data-close]')) button.addEventListener('click', () => closeDialog(button.dataset.close));
@@ -851,7 +831,7 @@ $('chapterNav').addEventListener('touchend', event => {
   if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.5) moveChapter(dx < 0 ? 1 : -1);
   swipeStart = null;
 }, { passive: true });
-if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=58', { updateViaCache: 'none' }).catch(() => {});
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=59', { updateViaCache: 'none' }).catch(() => {});
 refreshInstallStatus();
 initialize().then(()=>{if(state.authenticated&&new URLSearchParams(location.search).has('balances'))balances.open();});
 

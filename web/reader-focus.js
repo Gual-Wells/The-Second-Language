@@ -1,4 +1,5 @@
 import {headingWord} from './audio-plan.js?v=50';
+import {parseTeachingHeading} from './teaching-units.js?v=59';
 
 export function sentenceElement(target){
  const article=target.closest('#article');if(!article)return null;
@@ -11,7 +12,7 @@ export function readerFocus(target){
  const article=target.closest('#article'),heading=target.closest('h1,h2,h3');
  if(!['one','contexts'].includes(article?.dataset.audioPart)||!heading||!heading.closest('.word-entry'))return null;
  const original=heading.dataset.heading||heading.textContent;
- if(heading.tagName!=='H1'&&!/\/[^/]+\/\s*$/.test(original))return null;
+ if(heading.tagName!=='H1'&&!parseTeachingHeading(original))return null;
  return{kind:'vocabulary',part:article.dataset.audioPart,word:headingWord(original),heading:original};
 }
 // Resolve the actual glyph under the finger, including text split by inline markup.

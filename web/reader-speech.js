@@ -36,7 +36,6 @@ export function installReaderSpeech({toast,onWordJump=()=>{}}){
  document.getElementById('article').addEventListener('click',event=>{
   if(event.target.closest('button,a,.story-translation,.mono'))return;
   if(window.getSelection()?.isCollapsed===false)return;
-  if(document.getElementById('article').classList.contains('highlight-sentences')&&event.target.closest('.linked-use'))return;
   const part=document.getElementById('article').dataset.audioPart;let unit;
   if(part==='two'&&event.target.closest('.word-heading h1')){event.preventDefault();event.stopImmediatePropagation();stop();onWordJump(event.target.closest('.word-entry')?.dataset.wordId);return;}
   if(!unit&&part==='two'){const sentence=event.target.closest('.example-pair p');if(sentence)unit={text:sentence.textContent,kind:'sentence'};}

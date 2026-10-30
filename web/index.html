@@ -14,7 +14,7 @@
   <link rel="manifest" href="/manifest.webmanifest?v=41">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=41">
   <link rel="icon" href="/icon-192.png?v=41" type="image/png">
-  <link rel="stylesheet" href="/styles.css?v=56">
+  <link rel="stylesheet" href="/styles.css?v=59">
 </head>
 <body>
   <main class="app-shell login-mode" id="app">
@@ -103,7 +103,7 @@
             <p id="chapterSubtitle"></p>
           </div>
           <div class="part-heading"><span id="partNumber">PART 01</span><strong id="partTitle">词汇与用法</strong><span id="partSummary">按词序阅读</span></div>
-          <div class="article-tools" id="articleTools" hidden><button class="bevel-button" id="wordIndexButton" type="button" hidden>词条索引</button><button class="bevel-button" id="highlightButton" type="button" aria-pressed="false">标记用法</button><button class="bevel-button" id="translationButton" type="button" aria-pressed="false">逐句译文</button><span id="articleToolsHint">点按标记句可回看对应用法</span></div>
+          <div class="article-tools" id="articleTools" hidden><button class="bevel-button" id="wordIndexButton" type="button" hidden>词条索引</button><button class="bevel-button" id="translationButton" type="button" aria-pressed="false">逐句译文</button></div>
           <article class="article" id="article"></article>
           <section class="reflection" id="reflection" hidden>
             <div class="section-band"><strong>章节测试</strong><span>CHAPTER TEST</span></div>
@@ -146,13 +146,6 @@
       <div class="sheet-head"><div><small>WORD INDEX</small><h2 id="indexTitle">词条索引</h2></div><button class="sheet-close" data-close="indexDialog" type="button" aria-label="关闭">×</button></div>
       <div class="index-search"><label for="indexFilter">查找本章词条</label><input class="text-input" id="indexFilter" type="search" placeholder="输入词汇筛选"></div>
       <div class="index-list" id="indexList"></div>
-    </div>
-  </dialog>
-
-  <dialog class="sheet-dialog" id="usageDialog" aria-labelledby="usageTitle">
-    <div class="sheet usage-sheet">
-      <div class="sheet-head"><div><small>ARTICLE REFERENCE</small><h2 id="usageTitle">选择对应用法</h2></div><button class="sheet-close" data-close="usageDialog" type="button" aria-label="关闭">×</button></div>
-      <div class="usage-choices" id="usageChoices"></div>
     </div>
   </dialog>
 
@@ -271,6 +264,6 @@
     </div>
   </dialog>
   <div id="toast" role="status" aria-live="polite"></div>
-  <script type="module" src="/app.js?v=58"></script>
+  <script type="module" src="/app.js?v=59"></script>
 </body>
 </html>

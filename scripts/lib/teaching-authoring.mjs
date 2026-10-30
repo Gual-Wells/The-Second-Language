@@ -138,6 +138,8 @@ export async function assembleRun(root,date){
   const {packets}=await readTeachingMaterials(root,date,selection),folder=path.join(run,'teaching/authored');
   const names=(await fs.readdir(folder)).filter(n=>/^word-[A-Za-z0-9_-]+\.json$/.test(n));
   const words=await Promise.all(names.map(n=>readJson(path.join(folder,n))));
+  const inputLock=await readJson(path.join(run,'vix-source.json'));
+  if(inputLock.teachingLayoutVersion===2&&words.some(w=>w.layoutVersion!==2))throw Error('新输入已固定完整融合解释层级；作者稿须使用layoutVersion:2');
   if(words.length!==selection.mainWords.length||new Set(words.map(w=>w.text)).size!==words.length||words.some(w=>!selection.mainWords.some(s=>s.text===w.text)))throw Error('作者词条与冻结主词不一致');
   const contract=await loadAuthoringContract(root,date,selection);
   const isContexts=contract.policy===CONTEXT_AUTHORING_POLICY;
