@@ -27,7 +27,7 @@ export function validateSeriesStorageRegistry(registry=defaultRegistry){
  for(const project of SERIES_STORAGE_PROJECTS){
   const routes=registry.allocations[project];if(!Array.isArray(routes)||routes.length>16)invalid('存储分配登记无效');
   const seen=new Set();for(const route of routes){const resource=resources.get(route?.resourceId);
-   if(!plain(route)||!resource||resource.scope==='project'&&resource.owner!==project||typeof route.purpose!=='string'||!/^[a-z-]{1,40}$/.test(route.purpose)||!['current','planned'].includes(route.mode)||!bytes(route.softAllowanceBytes)||seen.has(route.resourceId))invalid('存储分配归属无效');seen.add(route.resourceId);
+   if(!plain(route)||!resource||resource.scope==='project'&&resource.owner!==project||typeof route.purpose!=='string'||!/^[a-z-]{1,40}$/.test(route.purpose)||!['current','legacy-read','planned'].includes(route.mode)||!bytes(route.softAllowanceBytes)||seen.has(route.resourceId))invalid('存储分配归属无效');seen.add(route.resourceId);
   }
  }
  return registry;

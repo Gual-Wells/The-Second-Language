@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "policyRevision": 3,
+  "policyRevision": 4,
   "administrator": "language",
   "projects": {
     "language": {
@@ -196,8 +196,8 @@
       },
       {
         "resourceId": "onedrive-account",
-        "purpose": "publication-archive",
-        "mode": "current",
+        "purpose": "publication-history",
+        "mode": "legacy-read",
         "softAllowanceBytes": null
       },
       {
@@ -208,7 +208,7 @@
       },
       {
         "resourceId": "hf-private-account",
-        "purpose": "api-evidence",
+        "purpose": "publication-and-api-archive",
         "mode": "current",
         "softAllowanceBytes": null
       }

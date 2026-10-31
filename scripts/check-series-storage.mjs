@@ -35,6 +35,15 @@ test('project policy contains only its own allocations and never grants content 
  policy.allocations[0].resource.name='changed';assert.notEqual(seriesStoragePolicy('algorithm').allocations[0].resource.name,'changed');
  assert.throws(()=>seriesStoragePolicy('paper'),/项目无效/);
 });
+test('algorithm policy records new HF publication writes separately from legacy OneDrive reads',()=>{
+ const policy=seriesStoragePolicy('algorithm');
+ assert.equal(policy.allocations.find(route=>route.resourceId==='onedrive-account').mode,'legacy-read');
+ const current=policy.allocations.find(route=>route.resourceId==='hf-private-account');
+ assert.equal(current.mode,'current');assert.equal(current.purpose,'publication-and-api-archive');
+ const invalid=copy(registry);invalid.allocations.algorithm[1].mode='write-anywhere';
+ assert.throws(()=>validateSeriesStorageRegistry(invalid),/存储分配归属无效/);
+});
+
 test('private fields, file identifiers and arbitrary nested content are rejected before any row is written',async()=>{
  const f=fixture();try{
   for(const extra of [{question:'private'},{answer:'private'},{taskId:'private'},{url:'https://example.invalid/'},{filename:'secret.bin'},{token:'secret'},{body:{text:'private'}},{provider:'arbitrary'}])await assert.rejects(f.send(report('onedrive-account',extra)),/汇总存储字段/);

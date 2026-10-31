@@ -35,4 +35,3 @@ await check('write redirects are rejected without forwarding keys or retrying wr
 await check('24MiB admission bound, digest bounds and missing key fail before network',async()=>{const before=seen.length;await assert.rejects(()=>store.putContent(new Uint8Array(24*1024*1024+1)),/24MiB/);await assert.rejects(()=>store.getContent('../bad'),/摘要/);await assert.rejects(()=>create({secretAccessKey:{get:async()=>null}}).getContent(digest),/凭据/);assert.equal(seen.length,before);});
 await check('failed PUT is not transformed into a missing result or deleted asset',async()=>{putStatus=503;await assert.rejects(()=>store.putContent(bytes),e=>e.status===503);putStatus=null;assert.equal(objects.get(digest).equals(bytes),true);assert(!seen.some(x=>x.method==='DELETE'));});
 console.log(JSON.stringify({passed:cases.length,cases,network:'fixture only; no external requests or paid services'},null,2));
-

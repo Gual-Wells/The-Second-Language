@@ -56,4 +56,3 @@ export function hfObjectStore({namespace,bucket,accessKeyId,secretAccessKey,fetc
   }
  };return api;
 }
-
