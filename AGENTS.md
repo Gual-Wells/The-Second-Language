@@ -1,6 +1,6 @@
 # 第二语言 Codex 工作约定
 
-2026-10-31用户要求第二系列数据库统一，范围含HF与Kaggle，按protocol/SERIES_STORAGE.md和series-storage.json恢复：第二语言只管理分配、身份路由和汇总容量，不绑定其他项目D1或文件能力。独立second-series-files固定四项目入口，HF在线CAS、Kaggle私有固定版本档案、OneDrive历史兼容；不把各层免费额度和备份副本相加。新增原件完整SHA回读后登记，备份自身不入D1目录，新增不可变表沿既有增量检查点。成功API回执可压缩归档后原子缩为指针，unknown/sending及旧收费结果保护不变；新文件不可读时只恢复，不重复调用模型。日课休息、空音频和第一章固定身份不改。新框架上线状态以research/series-storage-release-2026-10-31.json核验，不能因代码存在宣称已迁移。账单并行建设需协调后接入，不能覆盖其未发布工作。
+2026-10-31用户要求第二系列数据库统一，范围含HF与Kaggle，按protocol/SERIES_STORAGE.md和series-storage.json恢复：第二语言只管理分配、身份路由和汇总容量，不绑定其他项目D1或其他项目新增Files能力；旧OneDrive共享AppFolder授权保留恢复兼容例外，不冒称供应商物理隔离。独立second-series-files固定四项目入口，HF在线CAS、Kaggle私有固定版本档案、OneDrive历史兼容；不把各层免费额度和备份副本相加。新增原件完整SHA回读后登记，备份自身不入D1目录，新增不可变表沿既有增量检查点。成功API回执可压缩归档后原子缩为指针，unknown/sending及旧收费结果保护不变；新文件不可读时只恢复，不重复调用模型。日课休息、空音频和第一章固定身份不改。新框架上线状态以research/series-storage-release-2026-10-31.json核验，不能因代码存在宣称已迁移。账单并行建设需协调后接入，不能覆盖其未发布工作。
 
 2026-10-31用户要求第二系列四项目的共用ChatGPT API任务独立于本机执行。新运行规范见protocol/SERIES_API_CLOUD.md：无数据/无密钥系列时钟仅经固定RPC唤醒各项目；私文、队列与原件仍各项目独立，管理员只接收汇总用量。旧legacy不自动重做，unknown及原成功结果保护继续；新cloud-v1须保护凭据与真实云验证后启用。本次已显式启用生产云入口与受保护密钥；旧API执行器仅在真实云调用和调度核验后停用，不能只因代码存在停用；日课Codex出版、休息、声音与归档独立且不变。
 

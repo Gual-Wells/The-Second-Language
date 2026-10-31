@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "status": "release-validation-awaiting-full-direct-restore",
+  "status": "published-and-verified",
   "baseline": {
     "branch": "codex/continuous-ice-logo",
     "head": "7f92b7505691e22f58a6681520ac6184629d55c9",
@@ -16,8 +16,12 @@
     ],
     "excludedProject": "paper",
     "unifiedBusinessDatabases": false,
-    "administratorHasOtherProjectContentAccess": false,
-    "allHistoricalContentMigrated": false
+    "allHistoricalContentMigrated": false,
+    "administratorOtherProjectContentApi": false,
+    "accessIsolationScope": "New series-manager API and project Files capabilities only",
+    "legacySharedAppFolderRetained": true,
+    "legacyProviderScopeSeparated": false,
+    "legacyCredentialCanReachHistoricalAlgorithmFiles": true
   },
   "resources": {
     "d1": "Six independently owned existing databases; nine total account databases observed, ten Free slots",
@@ -57,10 +61,15 @@
     "credentialsInPublicReport": false,
     "diagnosticS3PairRevokedAndReplaced": true,
     "providerCredentialPhysicallyScopedPerProject": false,
-    "credentialMaterialsExcludedFromOrdinaryArchives": true,
     "recoveryChunksDoNotRegisterThemselvesInD1": true,
     "revokedPairHeadStatus": 403,
-    "replacementPairHeadStatus": 200
+    "replacementPairHeadStatus": 200,
+    "plainS3CopiesRemoved": true,
+    "privateCredentialFilesExcludedFromWorkingArchives": true,
+    "ordinaryKaggleCredentialContainersRejected": true,
+    "legacyPrivateD1RecoveryIncludesEncryptedConnectionState": true,
+    "connectionDecryptionKeyNotInPublicReport": true,
+    "modelCallCountingScope": "This storage integration and delegated verification only; concurrent ledger product-build model tests are separately recorded in its repository"
   },
   "validatedBeforePublication": {
     "privateProviderWriteAndHashReadback": {
@@ -128,9 +137,36 @@
     },
     "productionAfterDeployment": "passed; initial 503 for a 54-byte object subsequently verified 200 without model calls",
     "fullDirectRestore": {
-      "status": "running",
+      "status": "passed-and-independently-sha-verified",
       "snapshotFormat": 3,
-      "publishedBackupStructureAndDataPages": 227
+      "source": "2026-10-31T16:03:27.570Z",
+      "manifestDigest": "af231483da90a9340e756ea19ee12b54fa7ede351d6b73f1ae6c69fb4b27645e",
+      "publishedBackupStructureAndDataPages": 227,
+      "resourceCount": 455,
+      "hfResources": 10,
+      "legacyResources": 445,
+      "databases": {
+        "main": {
+          "tables": 52,
+          "rows": 3003
+        },
+        "practice": {
+          "tables": 25,
+          "rows": 20211
+        }
+      },
+      "integrity": "ok",
+      "foreignKeyViolations": 0,
+      "workGroups": 83,
+      "workChunks": 145,
+      "workingFiles": 5936,
+      "workingBytes": 592867677,
+      "allWorkingHashesMatched": true,
+      "missingFiles": 0,
+      "extraFiles": 0,
+      "productionD1UsedForRestore": false,
+      "liveDatabaseOverwritten": false,
+      "historicalAudioFullyMirrored": false
     }
   },
   "cpuFinding": {
@@ -172,30 +208,42 @@
   "publication": {
     "filesGateway": {
       "status": "durable-object-version-deployed",
-      "deploymentId": "8f5cd880-6831-4e58-b298-96eb80369243"
+      "deploymentId": "49e78909-b5f6-40b5-bc27-a3628a7ff5f5"
     },
     "language": {
       "status": "deployed-and-production-readback-passed",
-      "deploymentId": "34580dc3-dce2-4015-91b1-e042036058ac",
+      "deploymentId": "61fa5707-c799-47b6-86ad-a63476612096",
       "pagesDeploymentPrefix": "2e927adf"
     },
     "algorithm": {
       "status": "api-executor-deployed",
-      "deploymentId": "4c5a98e1-6d4a-46db-af7e-0f167f8d9ba0"
+      "deploymentId": "4c5a98e1-6d4a-46db-af7e-0f167f8d9ba0",
+      "commit": "e20095d"
     },
     "schedule": {
       "status": "api-executor-deployed",
-      "deploymentId": "535fd416-5101-418a-9910-6ef78505576d"
+      "deploymentId": "535fd416-5101-418a-9910-6ef78505576d",
+      "commit": "80b0f23"
     },
     "ledger": {
-      "status": "parallel-product-construction-coordination-authorized",
-      "deploymentId": null
+      "status": "deployed-and-existing-attempt-archive-verified-by-owning-chat",
+      "deploymentId": "173b7ae2-6592-4697-b6e5-58220fa75e7d",
+      "commit": "8400c51efceb88d23c7aa21867a6eec9ea51237e",
+      "storageBinding": "LedgerStorage",
+      "fileBinding": "LedgerFiles",
+      "evidenceBytesBefore": 13455,
+      "streamBytesBefore": 93421,
+      "evidenceBytesAfter": 125,
+      "streamChunksAfter": 0,
+      "originalAttemptPreserved": true,
+      "newModelCallsForArchive": 0,
+      "cashEvents": 0,
+      "diagnosticOwnerDeactivated": true
     },
     "seriesInventory": "published"
   },
   "evidenceDirectory": ".cache/series-storage-20261031",
   "limitations": [
-    "Full 227-page direct restore remains for the release owner to validate and finalize",
     "Production DO test used synthetic evidence and a fixture provider; real provider write/read checks are recorded separately",
     "The complete diagnostic HTTP harness consumed 15/36ms; no claim that all HTTP work is below the Free 10ms budget",
     "Algorithm multi-volume packaging has local fixture acceptance; the existing 20,267,753-byte HF archive was not reuploaded and no cloud multipart upload is claimed",
@@ -203,14 +251,40 @@
     "Inventory totals are not authoritative remaining storage quotas",
     "Compact file-location samples do not prove a bound for every business table or the whole D1 lifetime",
     "Not all historical assets or completed API records are claimed migrated",
-    "Legacy regression scripts with obsolete word-tap and missing source-view fixtures fail at the baseline too; their failures are not reported as passes"
+    "Legacy regression scripts with obsolete word-tap and missing source-view fixtures fail at the baseline too; their failures are not reported as passes",
+    "Legacy OneDrive AppFolder credentials remain shared for historical recovery; new API/capability isolation is not whole-system provider-scope separation",
+    "Independent recovery reconstructed existing main/practice SQLite and work files; no new-D1 import, account-secret restoration, full remote-audio mirror or production cutover was performed"
   ],
-  "updatedAt": "2026-10-31T16:09:14.917021+00:00",
+  "updatedAt": "2026-10-31T16:34:44.290Z",
   "publicCandidateSecretScan": {
     "status": "passed",
     "filesScanned": 57,
     "hits": 0,
     "scope": "Changed and untracked candidate public textual repository files only; excludes runtime work/log/cache data and binaries",
     "historicalTranscriptOrAllFilesClaim": false
+  },
+  "policy": {
+    "revision": 4,
+    "cloudIsolationSmoke": "passed",
+    "fixedPolicyCalls": 3,
+    "modelCalls": 0,
+    "algorithmHfPublicationCurrent": true,
+    "algorithmOneDriveHistoryReadOnly": true
+  },
+  "completedAt": "2026-10-31T16:34:44.286Z",
+  "implementationCommit": "703ebe3d34d61e31eb82ef3e5873272fe9e458be",
+  "validationChecks": {
+    "seriesMetadata": 26,
+    "metadataCollector": 19,
+    "storageUi": 80,
+    "fileGateway": 11,
+    "hfAdapter": 11,
+    "mixedProviderRecovery": 6,
+    "sharedCloudLanguageStorage": 94,
+    "legacyCloudWire": 17,
+    "algorithmCloudQuestionsAndNotifications": 32,
+    "scheduleCloud": 16,
+    "algorithmArchiveAndServices": 14,
+    "physicalIphone": false
   }
 }

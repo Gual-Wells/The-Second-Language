@@ -63,7 +63,7 @@ globalThis.fetch=async(input,options={})=>{
 };
 async function check(name,run){await run();cases.push(name);}
 try{
- await check('no public HTTP, database binding, default route or cross-project gateway binding',async()=>{
+ await check('no public HTTP, business D1 binding, default route or cross-project gateway binding',async()=>{
   const config=JSON.parse(await readFile(new URL('../worker/files/wrangler.jsonc',import.meta.url),'utf8'));
   assert.equal(config.workers_dev,false);assert.equal(config.preview_urls,false);assert.equal(config.d1_databases,undefined);assert.equal(config.services,undefined);assert.equal(config.kv_namespaces,undefined);
   for(const method of ['GET','POST','PUT','DELETE']){assert.equal((await module.default.fetch(new Request('https://private.invalid/?project=ledger',{method}))).status,404);for(const client of clients.values())assert.equal((await client.fetch(new Request('https://private.invalid/'+method,{method}))).status,404);}
