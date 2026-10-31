@@ -11,8 +11,16 @@
     "APP_URL": "https://the-second-language.pages.dev/",
     "VAPID_PUBLIC_KEY": "BPBIS91ui4rCjRFMZJGwXA7conPmE21VkH3irXpFJNdAlsSTg5HBtw7Jc3KVs-PyycW3zScqSHYgKF1NQiVp1Gk",
     "API_QUESTIONS_ENABLED": "true",
-    "API_CLOUD_ENABLED": "true"
+    "API_CLOUD_ENABLED": "true",
+    "FEDERATED_FILES_ENABLED": "true"
   },
+  "services": [
+    {
+      "binding": "FILES",
+      "service": "second-series-files",
+      "entrypoint": "LanguageFiles"
+    }
+  ],
   "secrets_store_secrets": [
     {
       "binding": "SECOND_SERIES_OPENAI_KEY",

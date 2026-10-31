@@ -21,9 +21,9 @@ assert.equal(requiredReaderLayout(quick),3);assert.equal(requiredReaderLayout(mo
 const good=await verifyReaderRelease({root,base:'https://reader.test',required:3,fetchImpl:isolated()});
 assert.ok(good.assets.length>=13);assert.ok(good.assets.some(x=>x.path==='/reader-capability.js?v=62'));
 assert.ok(good.assets.some(x=>x.path==='/usage-context.js')); // Actual unversioned transitive import must also agree.
-assert.ok(good.assets.some(x=>x.path==='/sw.js?v=62'));
+assert.ok(good.assets.some(x=>x.path==='/sw.js?v=64'));
 for(const alter of ['/','/app.js','/teaching-units.js','/styles.css','/sw.js'])await assert.rejects(verifyReaderRelease({root,base:'https://reader.test',required:3,fetchImpl:isolated({alter})}),/资源与本地/);
-await assert.rejects(verifyReaderRelease({root,base:'https://reader.test',required:3,fetchImpl:isolated({alter:'/sw.js',alterQuery:'?v=62'})}),/资源与本地/);
+await assert.rejects(verifyReaderRelease({root,base:'https://reader.test',required:3,fetchImpl:isolated({alter:'/sw.js',alterQuery:'?v=64'})}),/资源与本地/);
 await assert.rejects(verifyReaderRelease({root,base:'https://reader.test',required:3,fetchImpl:isolated({backend:2})}),/线上Worker/);
 await assert.rejects(verifyReaderRelease({root,base:'https://reader.test',required:3,fetchImpl:isolated({backend:null})}),/线上Worker/);
 await assert.rejects(verifyReaderRelease({root,base:'https://reader.test',required:3,fetchImpl:isolated({unavailable:true})}),/HTTP 503/);

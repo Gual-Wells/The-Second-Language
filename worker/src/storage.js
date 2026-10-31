@@ -1,5 +1,6 @@
 import {pointAudioKeys,isPointAudioClip} from '../../web/audio-plan.js';
 import {sha256} from './practice-media.js';
+import {federatedContent,remoteContentMapping} from './federated-content.js';
 const encoder=new TextEncoder(),decoder=new TextDecoder(),json=(v,s=200)=>Response.json(v,{status:s,headers:{'cache-control':'no-store'}});
 const requestStorageState=Symbol('request storage access');
 // Each HTTP invocation gets its own state; never reuse account credentials across requests.
@@ -29,11 +30,31 @@ async function access(env){
  finally{state.pending=null;}
 }
 async function graph(env,route,options={}){
+ try{
  const headers=new Headers(options.headers);headers.set('authorization',`Bearer ${await access(env)}`);
  const r=await fetch(`https://graph.microsoft.com/v1.0${route}`,{...options,headers,redirect:'manual',signal:AbortSignal.timeout(60000)});
  if(!r.ok&&r.status!==302&&r.status!==303){const detail=await r.json().then(v=>v.error).catch(()=>null);throw Error(`OneDrive ${options.method||'GET'} ${route.includes('/content')?'file':route.includes('/children')?'folder':'metadata'} (${r.status}, ${detail?.code||'unknown'}): ${String(detail?.message||'').slice(0,180)}`);}return r;
+ }catch(error){if(error&&typeof error==='object'){error.storageProvider='onedrive';throw error;}throw Object.assign(Error('OneDrive 请求未完成'),{storageProvider:'onedrive'});}
 }
 async function itemResponse(env,itemId,range){
+ if(typeof itemId==='string'&&itemId.startsWith('hf-v1:')){
+  const digest=itemId.slice(6);if(!/^[a-f0-9]{64}$/.test(digest))throw Error('永久文件句柄无效');
+  if(!env.FILES)throw Error('永久文件服务尚未连接');
+  if(range&&typeof env.FILES.readRange==='function'){
+   const value=await env.FILES.readRange(digest,range);
+   if(!value||![200,206,416].includes(value.status)||!value.headers||typeof value.headers!=='object')throw Error('永久文件范围读取未完成');
+   const headers=new Headers();for(const name of ['content-length','content-range','accept-ranges']){const v=new Headers(value.headers).get(name);if(v!==null)headers.set(name,v);}
+   return new Response(value.body,{status:value.status,headers});
+  }
+  const content=await federatedContent(env).getContent(digest);if(!content)throw Error('已存永久文件暂不可读取');
+  const bytes=await content.arrayBuffer();if(range){const m=range.match(/^bytes=(\d*)-(\d*)$/),n=bytes.byteLength;
+   if(!m||!m[1]&&!m[2])return new Response(null,{status:416,headers:{'content-range':`bytes */${n}`}});
+   const first=m[1]?Number(m[1]):Math.max(0,n-Number(m[2])),last=m[1]?(m[2]?Math.min(n-1,Number(m[2])):n-1):n-1;
+   if(!Number.isSafeInteger(first)||!Number.isSafeInteger(last)||first<0||first>last||first>=n)return new Response(null,{status:416,headers:{'content-range':`bytes */${n}`}});
+   return new Response(bytes.slice(first,last+1),{status:206,headers:{'content-length':String(last-first+1),'content-range':`bytes ${first}-${last}/${n}`}});
+  }
+  return new Response(bytes,{headers:{'content-length':String(bytes.byteLength)}});
+ }
  const headers=range?{Range:range}:{},r=await graph(env,`/me/drive/items/${encodeURIComponent(itemId)}/content`,{headers});
  if(r.ok)return r;const location=r.headers.get('location');if(!location||new URL(location).protocol!=='https:')throw Error('存储下载地址无效');
  // Signed URL is used only inside Worker, without Graph authorization or client exposure.
@@ -50,20 +71,38 @@ async function folder(env,name){
  }
  await env.DB.prepare('INSERT OR IGNORE INTO storage_folders VALUES(?,?)').bind(name,item.id).run();return item.id;
 }
+async function legacyContentHead(env,digest){
+ const parent=await folder(env,`objects-${digest.slice(0,2)}`);
+ try{const item=await(await graph(env,`/me/drive/items/${encodeURIComponent(parent)}:/${digest}.bin`)).json();return{digest,item_id:item.id,bytes:item.size};}
+ catch(e){if(e.message.includes('(404,'))return null;throw e;}
+}
 export function permanentBucket(env){return{
  async contentHead(digest){
-  if(!/^[a-f0-9]{64}$/.test(digest||''))throw Error('资产摘要无效');
-  const parent=await folder(env,`objects-${digest.slice(0,2)}`);
-  try{const item=await(await graph(env,`/me/drive/items/${encodeURIComponent(parent)}:/${digest}.bin`)).json();return{digest,item_id:item.id,bytes:item.size};}
-  catch(e){if(e.message.includes('(404,'))return null;throw e;}
+  if(typeof digest!=='string'||!/^[a-f0-9]{64}$/.test(digest))throw Error('资产摘要无效');
+  const remote=await remoteContentMapping(env,digest),files=federatedContent(env);
+  if(remote){if(!files)throw Error('已存永久文件服务尚未连接');return files.contentHead(digest,{onlyRemoteMap:true});}
+  // Keep the old provider authoritative until it actually reports absence. A permission,
+  // quota or network failure cannot turn a previously paid object into a new generation.
+  const legacy=await legacyContentHead(env,digest);if(legacy)return legacy;
+  return files?files.contentHead(digest):null;
  },
- async putContent(value,mime='application/octet-stream'){
+ async putContent(value,mime='application/octet-stream',options={}){
   const bytes=typeof value==='string'?encoder.encode(value):value instanceof Blob?await value.arrayBuffer():value;
   if(!bytes||bytes.byteLength>24*1024*1024)throw Error('单份资产超过 24 MiB，请分批归档');
-  const digest=await sha256(bytes);let row=await this.contentHead(digest);
+  const digest=await sha256(bytes),files=federatedContent(env),newFiles=env.FEDERATED_FILES_ENABLED==='true'&&files;
+  // Recovery snapshots carry typed immutable locators in their own manifests. Registering
+  // every snapshot into the database being backed up would create a growing feedback loop.
+  if(newFiles&&options.register===false)return files.putContent(bytes,mime,options);
+  let row;try{row=await this.contentHead(digest);}catch(error){
+   if(!newFiles||error?.storageProvider!=='onedrive')throw error;
+   // The caller already holds the complete immutable bytes. Save a same-SHA copy;
+   // this is not evidence that the older provider is missing and never reruns a model.
+   return {...await files.putContent(bytes,mime,options),recoveredFromSuppliedBytes:true};
+  }
+  if(newFiles&&(!row||row.item_id?.startsWith('hf-v1:')))return files.putContent(bytes,mime,options);
   if(!row){const parent=await folder(env,`objects-${digest.slice(0,2)}`),item=await(await graph(env,`/me/drive/items/${encodeURIComponent(parent)}:/${digest}.bin:/content`,{method:'PUT',headers:{'content-type':mime},body:bytes})).json();row={digest,item_id:item.id,bytes:item.size};}
   if(row.bytes!==bytes.byteLength||await sha256(await(await itemResponse(env,row.item_id)).arrayBuffer())!==digest)throw Error('存储文件校验失败');
-  return{digest,bytes:row.bytes,itemId:row.item_id};
+  return{digest,bytes:row.bytes,itemId:row.item_id,provider:row.provider||'onedrive',...(row.location?{location:row.location}:{})};
  },
  async getContent(digest){const row=await this.contentHead(digest);if(!row)return null;const bytes=await(await itemResponse(env,row.item_id)).arrayBuffer();if(await sha256(bytes)!==digest)throw Error('存储资产校验失败');return{arrayBuffer:async()=>bytes,text:async()=>decoder.decode(bytes),json:async()=>JSON.parse(decoder.decode(bytes))};},
  async responseContent(digest,request,mime='application/octet-stream'){const row=await this.contentHead(digest);return row?this.respond({...row,mime},request):null;},
@@ -73,11 +112,18 @@ export function permanentBucket(env){return{
   const digest=await sha256(bytes),mime=options.httpMetadata?.contentType||'application/octet-stream';
   let blob=await env.DB.prepare('SELECT * FROM storage_blobs WHERE digest=?').bind(digest).first();
   if(!blob){
+   if(env.FILES){
+    const saved=await this.putContent(bytes,mime);
+    if(saved.digest!==digest||saved.bytes!==bytes.byteLength||typeof saved.itemId!=='string')throw Error('永久文件回执身份不一致');
+    await env.DB.prepare('INSERT OR IGNORE INTO storage_blobs VALUES(?,?,?,?)').bind(digest,saved.itemId,bytes.byteLength,Date.now()).run();
+    blob=await env.DB.prepare('SELECT * FROM storage_blobs WHERE digest=?').bind(digest).first();if(!blob||blob.bytes!==bytes.byteLength)throw Error('永久文件逻辑索引未提交');
+   }else{
    const parent=await folder(env,`objects-${digest.slice(0,2)}`),uploaded=await (await graph(env,`/me/drive/items/${encodeURIComponent(parent)}:/${digest}.bin:/content`,{method:'PUT',headers:{'content-type':mime},body:bytes})).json();
    if(uploaded.size!==bytes.byteLength)throw Error('存储文件长度不一致');
    const verified=await (await itemResponse(env,uploaded.id)).arrayBuffer();if(await sha256(verified)!==digest)throw Error('存储文件校验失败');
    await env.DB.prepare('INSERT OR IGNORE INTO storage_blobs VALUES(?,?,?,?)').bind(digest,uploaded.id,bytes.byteLength,Date.now()).run();
    blob={item_id:uploaded.id,bytes:bytes.byteLength};
+   }
   }
   const now=Date.now();await env.DB.batch([
    env.DB.prepare('INSERT OR IGNORE INTO storage_versions VALUES(?,?,?,?)').bind(key,digest,mime,now),
@@ -121,7 +167,7 @@ async function handleStorage(request,env,{isPublisher,session,sameOrigin}){
   const bytes=encoder.encode(JSON.stringify(index)),uploaded=await(await graph(env,`${route}:/recovery-index.json:/content`,{method:'PUT',headers:{'content-type':'application/json'},body:bytes})).json();if(await sha256(await(await itemResponse(env,uploaded.id)).arrayBuffer())!==await sha256(bytes))throw Error('恢复索引回读失败');return json({ok:true,snapshots:index.snapshots.length});
  }
  if(path==='/content'&&isPublisher){
-  if(request.method==='PUT')return json(await bucket.putContent(await request.arrayBuffer(),request.headers.get('content-type')||'application/octet-stream'));
+  if(request.method==='PUT')return json(await bucket.putContent(await request.arrayBuffer(),request.headers.get('content-type')||'application/octet-stream',request.headers.get('x-storage-purpose')==='recovery'?{register:false}:{}));
   const digest=url.searchParams.get('digest');if(!/^[a-f0-9]{64}$/.test(digest||''))return json({error:'资产摘要无效'},400);
   if(request.method==='GET'||request.method==='HEAD')return(await bucket.responseContent(digest,request))||json({error:'资产不存在'},404);
  }

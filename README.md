@@ -33,15 +33,17 @@
 iPhone PWA → 同源 Pages 网关 → Cloudflare Worker
                                    ├─ D1：认证、工作状态、业务索引
                                    ├─ 近期缓存与兼容副本
-                                   └─ OneDrive 应用目录：永久文件基座
+                                   └─ 项目文件能力 → 文件网关／DO → HF 私有桶
 本机计划任务 → Codex：课程／练习／反馈
 云端系列时钟 → 项目私有执行器 → OpenAI API：章节答疑
 普通后台脚本 → 归档、音频包、独立恢复快照（不调用模型）
+                 ├─ Kaggle：固定版本冷档案
+                 └─ OneDrive：既有原件与独立恢复索引
 ```
 
 这是单人系统。通行密钥保护个人界面；供应商密钥、发布凭据与 Microsoft 授权只留在服务端或本机忽略目录。OpenRouter 推理由 Cloudflare 后端发出，浏览器不持有模型密钥。
 
-正式章节及历史版本、音频、参考答案、答卷、模型返回与反馈永久保存。OneDrive 是文件基座，D1 承担状态和紧凑索引；近期缓存与浏览器下载不代替永久原件。未知计费结果不自动重试，存储故障不视为“尚未生成”。临时页按生命周期清理；个人原声不进入 Service Worker 离线音频缓存。
+正式章节及历史版本、音频、参考答案、答卷、模型返回与反馈永久保存。D1承担状态和紧凑索引，HF承担新永久文件，Kaggle承担固定版本冷档案，OneDrive保留既有原件及恢复索引；近期缓存与浏览器下载不代替永久原件。第二语言只管理系列资源分配和汇总用量，各项目的数据库与文件读取能力独立。未知计费结果不自动重试，存储故障不视为“尚未生成”。临时页按生命周期清理；个人原声不进入 Service Worker 离线音频缓存。当前部署及验证边界见[存储发布回执](research/series-storage-release-2026-10-31.json)。
 
 电脑关闭后，新章节答疑由云端继续处理；新课程、Codex 批改与卷轴制作仍需要本机任务运行。第二系列时钟只唤醒四个固定项目入口，不持有模型密钥或其他项目数据库，管理端只接收汇总用量，见 [SERIES_API_CLOUD](protocol/SERIES_API_CLOUD.md)。正式离线冷启动登录不作完整可用承诺。
 
@@ -55,7 +57,7 @@ iPhone PWA → 同源 Pages 网关 → Cloudflare Worker
 | 发音与原声 | [VOICE_ROUTING](protocol/VOICE_ROUTING.md)、[SPEAKING_PIPELINE](protocol/SPEAKING_PIPELINE.md)、[SPEAKING_RUNTIME](protocol/SPEAKING_RUNTIME.md) |
 | 答疑与界面 | [CHAPTER_QUESTIONS](protocol/CHAPTER_QUESTIONS.md)、[READER_INTERACTION](protocol/READER_INTERACTION.md) |
 | 章节认证与卷轴 | [CHAPTER_TESTS](protocol/CHAPTER_TESTS.md)、[CERTIFICATION_READER](protocol/CERTIFICATION_READER.md)、[CHARTER](protocol/CHARTER.md)、[SCROLL_CRAFT](protocol/SCROLL_CRAFT.md) |
-| 存储与额度 | [STORAGE](protocol/STORAGE.md)、[BALANCES](protocol/BALANCES.md)、[CLOUDFLARE_RESOURCES](protocol/CLOUDFLARE_RESOURCES.md) |
+| 存储与额度 | [STORAGE](protocol/STORAGE.md)、[SERIES_STORAGE](protocol/SERIES_STORAGE.md)、[系列分配策略](protocol/series-storage.json)、[BALANCES](protocol/BALANCES.md)、[CLOUDFLARE_RESOURCES](protocol/CLOUDFLARE_RESOURCES.md) |
 
 `research/` 是历史研究依据；价格、旧方案和试听结论以现行协议及配置为准。
 
@@ -100,7 +102,7 @@ iPhone PWA → 同源 Pages 网关 → Cloudflare Worker
 ## 目录与使用
 
 - `web/`：原生 HTML／CSS／JavaScript PWA，唯一界面样式为 `styles.css`。
-- `worker/`：API Worker、Pages 网关、两库增量迁移。
+- `worker/`：API Worker、Pages网关、独立项目文件网关及数据库增量迁移。
 - `scripts/`：发布、运行控制、VIX、声音采集、归档恢复与验证。
 - `protocol/`：现行协议；`work/` 保存可续作中间文档。
 - `chapters/`：课程产物；`demo/` 仅作演示，不能当正式日课发布。
@@ -124,7 +126,7 @@ node scripts/check-context-reader.mjs
 
 界面检查需要 Playwright 与 Chromium；`BROWSER_EXECUTABLE` 可指定浏览器，旧章检查的`UI_CHAPTER_DIR`可指定本机真实章节。全部请求隔离，不调用付费模型、不写正式数据；旧章UI截图存入忽略的 `.cache/reader-ui/`，新单正文、整块译文、隔离与交互检查结果存入 `.cache/context-reader/`。新格式已检查402×874及320×620触控模拟视口，浏览器模拟不等于 iPhone Safari 真机验收。旧`check-publishing-closure.mjs`与`check-audio-config.mjs`夹具尚未适配当前来源封存/50词流程，不列为现行门槛。
 
-正式发布使用 `node scripts/deploy-app.mjs`，同时部署 API Worker 与带 service binding 的 Pages 网关；不能直接以普通静态 `web/` 部署替代网关。任务结束执行 `node scripts/check-balances.mjs` 更新额度、存储用量并排入归档；归档完成后再次核对存储大小。设置中的“存储空间”显示 OneDrive、三座 D1 与账户共享 KV 的上次用量、上限和核对时间；只核对容量可运行 `node scripts/check-storage-usage.mjs`。额度不足不自动次日恢复，已有产物保留，需用户明确续作；不自动付款。
+正式发布使用 `node scripts/deploy-app.mjs`，同时部署API Worker与带service binding的Pages网关；不能直接以普通静态 `web/` 部署替代网关。独立文件网关的DO迁移与部署顺序另见 [OPERATIONS](OPERATIONS.md)。任务结束执行 `node scripts/check-balances.mjs` 更新额度、存储用量并排入归档；归档完成后再次核对存储大小。设置“存储空间”保留本项目用量，并以“第二系列”显示账户与项目的上次核对及分配；不同层的免费上限不相加，未取得真实剩余额度显示未知。只核对原容量可运行 `node scripts/check-storage-usage.mjs`，系列元数据使用 `node scripts/collect-series-storage.mjs`。额度不足不自动次日恢复，已有产物保留，需用户明确续作；不自动付款。
 
 本机日课北京时间05:00检查安排，使用 `gpt-6.1-sol/ultra`；默认休息，用户关闭休息后仅放行下一次新领取运行，领取后恢复休息。雅思、答疑/测试/质检及卷轴的新主调用也统一ultra，子代理默认max可按需要降低，见[后台执行设置](protocol/BACKGROUND_AUTOMATION.md)。各服务仍用独立队列，安静启动器避免控制台闪窗。任务安装、日志、凭据与恢复命令见 [OPERATIONS.md](OPERATIONS.md)。
 
@@ -148,7 +150,7 @@ Third-party packages, model/provider outputs, voices, APIs, dictionary or textbo
 
 设置 → 认证阅览：目录保留独立“项目纪念”，正常章卷只列本人已领取章号，不显示题名或锁定占位。进入纯享卷轴后保留真实解扣与交互雾染，音乐和v42材质拟音默认开启；“文书”提供同源完整英中、真实首次通过／制作／发布时刻及内容短码／完整SHA，可复制。第一／第五章旧研究样品仍不升格，未来真实新通过须另作正式件。藏馆与取藏转场已取消。见[现行规范](protocol/CERTIFICATION_READER.md)、[工艺主协议](protocol/CHARTER.md)及[风格核对](research/certification-reader-2026-10-23/theme-consistency.json)。
 
-固定项目作品与共享运行器进入静态发布闭包；每份新章卷的身份、艺术方案、六张冻结纸层及原生恢复包经OneDrive内容寻址保存，D1只保留资格／状态和指针。已领取章卷通过同源私有接口动态读取，不加入公开静态作品清单，不需逐章重新部署网站。打开卷轴不调用模型、不刷新身份。实现、发布与真实作品状态分别以执行记录核对；本机隔离测试不产生正式认证，浏览器模拟不冒称实体iPhone验收。
+固定项目作品与共享运行器进入静态发布闭包；每份新章卷的身份、艺术方案、六张冻结纸层及原生恢复包经永久文件内容寻址保存，既有OneDrive原件继续按原身份读取，D1只保留资格／状态和指针。已领取章卷通过同源私有接口动态读取，不加入公开静态作品清单，不需逐章重新部署网站。打开卷轴不调用模型、不刷新身份。实现、发布与真实作品状态分别以执行记录核对；本机隔离测试不产生正式认证，浏览器模拟不冒称实体iPhone验收。
 
 项目启程纪念作品 **The Second Language — A Day in Another Tongue** 已按第一章完整工艺研究重做；无考试通过事件、不杜撰成立日。原版 **The Returning Thread（回返的线）** 已被用户否决撤下，其[记录](research/project-commemorative-2026-10-21/README.md)只作失败复盘。第一章v1—v12源码考究、真实提示词、候选修订、材质与实装证据保存于[制作研究档案](research/project-scroll-redesign-2026-10-21/README.md)，工艺总入口见[CHARTER](protocol/CHARTER.md)，实际制材／墨印／装配／返修按[SCROLL_CRAFT](protocol/SCROLL_CRAFT.md)。目录／文书纠错见[前次记录](research/scroll-reader-correction-2026-10-22/README.md)。2026-10-23用户采用v5纸卷声与A/B皮扣声，正式阅览和试听共用v42声音引擎，正常自动开合末段保留渐弱微声；[实装与发布记录](research/scroll-sound-adoption-2026-10-23/README.md)包含真实播放、生命周期、缓存及许可核对。此前[工艺规程与拟音重制](research/scroll-craft-and-audio-2026-10-22/README.md)的v41声音已被此版取代。
 

@@ -1,0 +1,23 @@
+{
+  "name": "second-series-files",
+  "main": "entry.js",
+  "compatibility_date": "2026-10-31",
+  "workers_dev": false,
+  "preview_urls": false,
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "FILE_PROCESSOR",
+        "class_name": "ProjectFileProcessor"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1-project-file-processor",
+      "new_sqlite_classes": [
+        "ProjectFileProcessor"
+      ]
+    }
+  ]
+}

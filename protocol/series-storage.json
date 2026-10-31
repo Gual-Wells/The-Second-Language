@@ -1,0 +1,275 @@
+{
+  "schemaVersion": 1,
+  "policyRevision": 3,
+  "administrator": "language",
+  "projects": {
+    "language": {
+      "name": "第二语言"
+    },
+    "algorithm": {
+      "name": "第二算法"
+    },
+    "schedule": {
+      "name": "课表"
+    },
+    "ledger": {
+      "name": "账单"
+    }
+  },
+  "excludedProjects": [
+    "paper"
+  ],
+  "resources": [
+    {
+      "id": "cloudflare-d1-account",
+      "name": "Cloudflare D1 账户",
+      "provider": "cloudflare",
+      "kind": "relational",
+      "scope": "account",
+      "owner": null,
+      "quotaGroup": "cloudflare-d1-account",
+      "state": "active",
+      "providerPlanLimitBytes": 5000000000
+    },
+    {
+      "id": "d1-language",
+      "name": "第二语言章节数据库",
+      "provider": "cloudflare",
+      "kind": "relational",
+      "scope": "project",
+      "owner": "language",
+      "quotaGroup": "cloudflare-d1-account",
+      "state": "active",
+      "providerPlanLimitBytes": 500000000
+    },
+    {
+      "id": "d1-language-practice",
+      "name": "第二语言雅思数据库",
+      "provider": "cloudflare",
+      "kind": "relational",
+      "scope": "project",
+      "owner": "language",
+      "quotaGroup": "cloudflare-d1-account",
+      "state": "active",
+      "providerPlanLimitBytes": 500000000
+    },
+    {
+      "id": "d1-language-lab",
+      "name": "第二语言实验数据库",
+      "provider": "cloudflare",
+      "kind": "relational",
+      "scope": "project",
+      "owner": "language",
+      "quotaGroup": "cloudflare-d1-account",
+      "state": "active",
+      "providerPlanLimitBytes": 500000000
+    },
+    {
+      "id": "d1-algorithm",
+      "name": "第二算法数据库",
+      "provider": "cloudflare",
+      "kind": "relational",
+      "scope": "project",
+      "owner": "algorithm",
+      "quotaGroup": "cloudflare-d1-account",
+      "state": "active",
+      "providerPlanLimitBytes": 500000000
+    },
+    {
+      "id": "d1-schedule",
+      "name": "课表数据库",
+      "provider": "cloudflare",
+      "kind": "relational",
+      "scope": "project",
+      "owner": "schedule",
+      "quotaGroup": "cloudflare-d1-account",
+      "state": "active",
+      "providerPlanLimitBytes": 500000000
+    },
+    {
+      "id": "d1-ledger",
+      "name": "账单数据库",
+      "provider": "cloudflare",
+      "kind": "relational",
+      "scope": "project",
+      "owner": "ledger",
+      "quotaGroup": "cloudflare-d1-account",
+      "state": "active",
+      "providerPlanLimitBytes": 500000000
+    },
+    {
+      "id": "cloudflare-kv-account",
+      "name": "Cloudflare KV 账户",
+      "provider": "cloudflare",
+      "kind": "cache",
+      "scope": "account",
+      "owner": null,
+      "quotaGroup": "cloudflare-kv-account",
+      "state": "active",
+      "providerPlanLimitBytes": 1000000000
+    },
+    {
+      "id": "onedrive-account",
+      "name": "OneDrive 永久文件",
+      "provider": "microsoft",
+      "kind": "file",
+      "scope": "account",
+      "owner": null,
+      "quotaGroup": "onedrive-account",
+      "state": "active",
+      "providerPlanLimitBytes": null
+    },
+    {
+      "id": "hf-private-account",
+      "name": "Hugging Face 私有文件",
+      "provider": "huggingface",
+      "kind": "file",
+      "scope": "account",
+      "owner": null,
+      "quotaGroup": "hf-private-account",
+      "state": "active",
+      "providerPlanLimitBytes": 100000000000
+    },
+    {
+      "id": "kaggle-private-account",
+      "name": "Kaggle 私有数据集",
+      "provider": "kaggle",
+      "kind": "archive",
+      "scope": "account",
+      "owner": null,
+      "quotaGroup": "kaggle-private-account",
+      "state": "active",
+      "providerPlanLimitBytes": 200000000000
+    }
+  ],
+  "allocations": {
+    "language": [
+      {
+        "resourceId": "d1-language",
+        "purpose": "state",
+        "mode": "current",
+        "softAllowanceBytes": null
+      },
+      {
+        "resourceId": "d1-language-practice",
+        "purpose": "practice-state",
+        "mode": "current",
+        "softAllowanceBytes": null
+      },
+      {
+        "resourceId": "d1-language-lab",
+        "purpose": "lab-state",
+        "mode": "current",
+        "softAllowanceBytes": null
+      },
+      {
+        "resourceId": "cloudflare-kv-account",
+        "purpose": "recent-cache",
+        "mode": "current",
+        "softAllowanceBytes": null
+      },
+      {
+        "resourceId": "onedrive-account",
+        "purpose": "permanent-files",
+        "mode": "current",
+        "softAllowanceBytes": null
+      },
+      {
+        "resourceId": "hf-private-account",
+        "purpose": "online-large-files",
+        "mode": "current",
+        "softAllowanceBytes": null
+      },
+      {
+        "resourceId": "kaggle-private-account",
+        "purpose": "cold-archive",
+        "mode": "current",
+        "softAllowanceBytes": null
+      }
+    ],
+    "algorithm": [
+      {
+        "resourceId": "d1-algorithm",
+        "purpose": "state",
+        "mode": "current",
+        "softAllowanceBytes": null
+      },
+      {
+        "resourceId": "onedrive-account",
+        "purpose": "publication-archive",
+        "mode": "current",
+        "softAllowanceBytes": null
+      },
+      {
+        "resourceId": "kaggle-private-account",
+        "purpose": "cold-archive",
+        "mode": "current",
+        "softAllowanceBytes": null
+      },
+      {
+        "resourceId": "hf-private-account",
+        "purpose": "api-evidence",
+        "mode": "current",
+        "softAllowanceBytes": null
+      }
+    ],
+    "schedule": [
+      {
+        "resourceId": "d1-schedule",
+        "purpose": "state",
+        "mode": "current",
+        "softAllowanceBytes": null
+      },
+      {
+        "resourceId": "hf-private-account",
+        "purpose": "api-evidence",
+        "mode": "current",
+        "softAllowanceBytes": null
+      },
+      {
+        "resourceId": "kaggle-private-account",
+        "purpose": "cold-archive",
+        "mode": "current",
+        "softAllowanceBytes": null
+      }
+    ],
+    "ledger": [
+      {
+        "resourceId": "d1-ledger",
+        "purpose": "state",
+        "mode": "current",
+        "softAllowanceBytes": null
+      },
+      {
+        "resourceId": "onedrive-account",
+        "purpose": "receipt-archive",
+        "mode": "planned",
+        "softAllowanceBytes": null
+      },
+      {
+        "resourceId": "hf-private-account",
+        "purpose": "api-evidence",
+        "mode": "current",
+        "softAllowanceBytes": null
+      },
+      {
+        "resourceId": "kaggle-private-account",
+        "purpose": "cold-archive",
+        "mode": "current",
+        "softAllowanceBytes": null
+      }
+    ]
+  },
+  "filePools": {
+    "huggingface": {
+      "resourceId": "hf-private-account",
+      "namespace": "Gual-Wells",
+      "buckets": {
+        "language": "second-language-assets",
+        "algorithm": "second-algorithm-assets",
+        "schedule": "second-schedule-archives",
+        "ledger": "second-ledger-archives"
+      }
+    }
+  }
+}

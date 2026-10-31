@@ -15,6 +15,7 @@ import {chapterTestsRoute} from './chapter-tests.js';
 import {certificationsRoute,scrollsRoute} from './scrolls.js';
 import {temporaryTestsRoute} from './temporary-tests.js';
 import {storageUsageRoute} from './storage-usage.js';
+import {seriesStorageRoute} from './series-storage-route.js';
 import {expireTemporaryTests,deleteTemporaryTest} from './temporary-test-store.js';
 import {certificationLabRoute} from './certification-lab.js';
 import {storageRoute,permanentBucket,chapterText,storageRequestEnvironment} from './storage.js';
@@ -96,6 +97,7 @@ async function route(request, env) {
   if(path==='/api/temporary-tests'||path.startsWith('/api/temporary-tests/'))return temporaryTestsRoute(request,env,{isPublisher:publisher(request,env),session:await sessionFor(request,env),sameOrigin:sameOrigin(request,env)});
   if(path==='/api/certification-lab'||path.startsWith('/api/certification-lab/'))return certificationLabRoute(request,env,{isPublisher:publisher(request,env),session:await sessionFor(request,env),sameOrigin:sameOrigin(request,env)});
   if(path==='/api/storage/usage'||path==='/api/storage/usage/report')return storageUsageRoute(request,env,{isPublisher:publisher(request,env),session:await sessionFor(request,env)});
+  if(path==='/api/series/storage'||path==='/api/series/storage/report')return seriesStorageRoute(request,env,{isPublisher:publisher(request,env),session:await sessionFor(request,env)});
   if(path==='/api/storage'||path.startsWith('/api/storage/'))return storageRoute(request,env,{isPublisher:publisher(request,env),session:await sessionFor(request,env),sameOrigin:sameOrigin(request,env)});
   if(path==='/api/audio-config'||path.startsWith('/api/audio-config/'))return audioConfigRoute(request,env,{isPublisher:publisher(request,env),session:await sessionFor(request,env),sameOrigin:sameOrigin(request,env)});
   if (path === '/api/practice' || path.startsWith('/api/practice/')) return practiceRoute(request, env, publisher);

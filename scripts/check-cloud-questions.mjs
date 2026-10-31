@@ -6,6 +6,7 @@ import {createHash} from 'node:crypto';
 import {questionsRoute,questionJobAction} from '../worker/src/questions.js';
 import {runCloudChapterQuestions,heartbeatCloudQuestion,QUESTION_CLOUD_PROJECT} from '../worker/src/cloud-questions.js';
 import {CLOUD_API_SCHEMA,runCloudResponses} from '../worker/src/shared/cloud-responses.mjs';
+import {archiveCloudEvidenceFile,readCloudEvidenceFile} from '../worker/src/shared/cloud-evidence.mjs';
 
 function fixture(){
  const sql=new DatabaseSync(':memory:');
@@ -28,6 +29,18 @@ function completed(answer='固定原文解释'){
  return new Response('data: '+JSON.stringify({type:'response.completed',response})+'\n\n',{headers:{'content-type':'text/event-stream','x-request-id':'offline-fixture'}});
 }
 const noNotify=async()=>({sent:0});
+function evidenceFiles(){const objects=new Map();const api={unavailable:false,objects,async put(bytes){const digest=createHash('sha256').update(bytes).digest('hex');objects.set(digest,new Uint8Array(bytes));return{digest,bytes:bytes.byteLength};},async get(digest){if(api.unavailable)throw Error('fixture file outage');const bytes=objects.get(digest);return bytes?{digest,bytes:new Uint8Array(bytes)}:null;}};api.archiveEvidence=request=>archiveCloudEvidenceFile({filesBinding:api,request});api.readEvidence=request=>readCloudEvidenceFile({filesBinding:api,request});return api;}
+
+test('archived paid replies survive unavailable private files and recover the same attempt without a second POST',async()=>{
+ const f=fixture();try{
+  f.env.FILES=evidenceFiles();const id=await f.enqueue();f.sql.exec("CREATE TRIGGER fail_archived_reply BEFORE INSERT ON chapter_messages WHEN NEW.role='assistant' BEGIN SELECT RAISE(ABORT,'fixture interrupted reply'); END;");
+  let paid=0;const options={fetchImpl:async()=>{paid++;return completed();},notify:noNotify};assert.equal((await runCloudChapterQuestions(f.env,options)).outcomeUnknown,true);
+  assert.equal(JSON.parse(f.sql.prepare('SELECT response_json FROM api_cloud_runs').get().response_json).archiveFormat,'second-series-api-evidence-v1');assert.equal(f.sql.prepare('SELECT COUNT(*) n FROM api_cloud_streams').get().n,0);
+  f.sql.exec('DROP TRIGGER fail_archived_reply');f.env.FILES.unavailable=true;delete f.env.SECOND_SERIES_OPENAI_KEY;
+  const waiting=await runCloudChapterQuestions(f.env,options);assert.equal(waiting.protectedUnavailable,true);assert.equal(waiting.deferred,true);assert.equal(f.job(id).attempts,1);assert.equal((await f.request('/'+id+'/retry',{})).status,409);assert.equal(paid,1);
+  f.env.FILES.unavailable=false;assert.deepEqual(await runCloudChapterQuestions(f.env,options),{completed:true,reused:true});assert.equal(f.job(id).attempts,1);assert.equal(f.job(id).status,'answered');assert.equal(paid,1);
+ }finally{f.sql.close();}
+});
 
 test('runtime schema migration is the unmodified shared SQL',()=>{
  assert.equal(readFileSync('worker/migrations/0024_cloud_api_runtime.sql','utf8'),CLOUD_API_SCHEMA);
@@ -125,15 +138,17 @@ test('cloud heartbeat is one fenced D1 operation and rejects lost claims or arch
  f.sql.prepare('INSERT INTO chapter_withdrawals VALUES(?,?,?,?,?,?,?,?)').run(f.digest,'chapter-1','fixture','a'.repeat(64),'b'.repeat(40),Date.now(),'fixture withdrawal','{}');assert.equal(await heartbeatCloudQuestion(f.env,{id,claim}),false);
  }finally{f.sql.close();}
 });
-test('API executor D1 budget stays below 50 with ten renewals, sixteen wire chunks and usage reporting',async()=>{
- const f=fixture();try{await f.enqueue();const db=f.env.DB,prepare=db.prepare,batch=db.batch;let calls=0,inBatch=false;
- db.prepare=function(query){const statement=prepare(query);for(const method of ['first','all','run']){const original=statement[method];statement[method]=async function(){if(!inBatch)calls++;return original.call(this);};}return statement;};
+test('API executor D1 budget stays below 50 with ten renewals, sixteen network chunks, archival and usage reporting',async()=>{
+ const f=fixture();try{f.env.FILES=evidenceFiles();await f.enqueue();const db=f.env.DB,prepare=db.prepare,batch=db.batch;let calls=0,inBatch=false,wireWrites=0;
+ db.prepare=function(query){const statement=prepare(query);for(const method of ['first','all','run']){const original=statement[method];statement[method]=async function(){if(!inBatch)calls++;if(method==='run'&&query.startsWith('INSERT OR IGNORE INTO api_cloud_streams'))wireWrites++;return original.call(this);};}return statement;};
  db.batch=async items=>{calls++;inBatch=true;try{return await batch(items);}finally{inBatch=false;}};
  const wire=':'+ 'x'.repeat(131069)+'\n\n';const chunks=Array.from({length:15},()=>wire);const final=completed();chunks.push(await final.text());let index=0;
  const result=await runCloudChapterQuestions(f.env,{runResponses:async options=>{for(let n=0;n<10;n++)assert.equal(await options.heartbeat(),true);return runCloudResponses(options);},fetchImpl:async()=>new Response(new ReadableStream({pull(controller){if(index<chunks.length)controller.enqueue(new TextEncoder().encode(chunks[index++]));else controller.close();}}),{headers:{'content-type':'text/event-stream'}})});
  const savedChunks=f.sql.prepare('SELECT count(*) n FROM api_cloud_streams').get().n;
- assert.equal(result.completed,true);assert(savedChunks>0&&savedChunks<=16);const conservative=calls+(16-savedChunks);assert(conservative<50,'API executor conservative budget used '+conservative+' D1 operations');
- console.log('Language API executor mock D1 operations: '+calls+'; conservative 16-chunk allowance: '+conservative+' (notification delivery uses its original separate cron)');
+ // Network chunk boundaries do not become D1 writes. The 2MiB wire limit and
+ // 256Ki-character durable slices permit at most eight writes, including Unicode boundaries.
+ assert.equal(result.completed,true);assert.equal(savedChunks,0);assert(wireWrites>0&&wireWrites<=8);assert.equal(JSON.parse(f.sql.prepare('SELECT response_json FROM api_cloud_runs').get().response_json).archiveFormat,'second-series-api-evidence-v1');const conservative=calls+(8-wireWrites);assert(conservative<50,'API executor conservative budget used '+conservative+' D1 operations');
+ console.log('Language API executor mock D1 operations: '+calls+'; maximum 8 durable-slice allowance: '+conservative+' (16 network chunks; notification delivery uses its original separate cron)');
  }finally{f.sql.close();}
 });
 test('an archived saved result stays preserved without blocking a different eligible chapter',async()=>{

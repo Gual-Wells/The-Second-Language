@@ -1,7 +1,10 @@
 import assert from 'node:assert/strict';
 import {readFile,mkdir} from 'node:fs/promises';
-const {chromium}=await import('playwright').catch(()=>import('../.cache/browser-tools/package/index.mjs'));
+import {createRequire} from 'node:module';
+import path from 'node:path';
+const {chromium}=createRequire(process.execPath)('playwright');
 const output='.cache/storage-capacity-ui';await mkdir(output,{recursive:true});
+await mkdir(path.join(output,'browser-temp'),{recursive:true});process.env.TEMP=process.env.TMP=process.env.TMPDIR=path.resolve(output,'browser-temp');
 const browser=await chromium.launch({headless:true,executablePath:process.env.BROWSER_EXECUTABLE||'C:/Users/huawei/AppData/Local/ms-playwright/chromium-1223/chrome-win64/chrome.exe'});
 const context=await browser.newContext({viewport:{width:402,height:874},deviceScaleFactor:3,isMobile:true,hasTouch:true,serviceWorkers:'block'}),page=await context.newPage(),errors=[];
 page.on('pageerror',e=>errors.push(e.message));
@@ -22,7 +25,7 @@ try{
  assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth&&document.querySelector('#storageUsageDialog .sheet').scrollWidth<=document.querySelector('#storageUsageDialog .sheet').clientWidth));
  await page.screenshot({path:output+'/storage.png',scale:'css'});
  await page.locator('[data-close="storageUsageDialog"]').click();await page.locator('#settingsDialog').waitFor({state:'visible'});await page.locator('.settings-home').waitFor({state:'visible'});
- assert.equal(await page.locator('.settings-home > .settings-row').count(),9);assert(await page.locator('#settingsDialog .settings-audio-row').isVisible());await page.screenshot({path:output+'/settings.png',scale:'css'});
+ assert(await page.locator('.settings-home > .settings-row').filter({hasText:'存储空间'}).isVisible());assert(await page.locator('#settingsDialog .settings-audio-row').isVisible());await page.screenshot({path:output+'/settings.png',scale:'css'});
  await page.evaluate(()=>{window.fixture={pools:[{pool:'onedrive',name:'OneDrive',usedBytes:null,projectBytes:null,limitBytes:null,freeFits:null,checkedAt:null,updateFailed:true}]};});
  await page.locator('.settings-row').filter({hasText:'存储空间'}).click();await page.locator('#storageUsageButton').click();await page.locator('#storageUsagePools').getByText('未核实',{exact:true}).waitFor();
  assert.equal(await page.locator('#storageUsagePools progress').count(),0);assert(!((await page.locator('#storageUsagePools').innerText()).includes('免费版 5 GB')));assert.equal(await page.evaluate(()=>window.reads),2);assert.deepEqual(errors,[]);

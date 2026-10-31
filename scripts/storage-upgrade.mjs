@@ -5,7 +5,8 @@ import {createHash} from 'node:crypto';
 import {gzipSync,gunzipSync} from 'node:zlib';
 import {publisherConfig} from './lib/publisher-config.mjs';
 import {cloudflare,kvKeys,queryDetailed,mainDatabase,practiceDatabase} from './lib/cloudflare-local.mjs';
-import {root,downloadItem} from './lib/onedrive-local.mjs';
+import {root} from './lib/onedrive-local.mjs';
+import {downloadStoredItem as downloadItem} from './lib/series-storage-local.mjs';
 import {archiveWorking} from './lib/work-archives.mjs';
 import {rowidPages,permanentRows,storageTableOrder} from './lib/storage-scan.mjs';
 import {archiveQuery} from './lib/archive-read-budget.mjs';
@@ -22,7 +23,7 @@ let ledger={};try{ledger=JSON.parse(await readFile(path.join(directory,'upload-l
 }
 async function api(route,body=null,method='POST',mime='application/json'){
  const started=Date.now();
- for(;;){const r=await fetch(new URL(`/api/storage${route}`,base),{method,headers:{authorization:`Bearer ${token}`,'content-type':mime},...(body!==null?{body:Buffer.isBuffer(body)?body:JSON.stringify(body)}:{}),signal:AbortSignal.timeout(180000)});if(r.ok)return r;
+ for(;;){const r=await fetch(new URL(`/api/storage${route}`,base),{method,headers:{authorization:`Bearer ${token}`,'content-type':mime,...(mode==='backup'&&route==='/content'?{'x-storage-purpose':'recovery'}:{})},...(body!==null?{body:Buffer.isBuffer(body)?body:JSON.stringify(body)}:{}),signal:AbortSignal.timeout(180000)});if(r.ok)return r;
   const error=await r.json().catch(()=>({}));
   // Only a read that explicitly lost the credential refresh lock may be repeated.
   if(method==='GET'&&r.status===503&&error.error==='存储凭据正在更新，请稍后再试'&&Date.now()-started<65000){await new Promise(resolve=>setTimeout(resolve,1000));continue;}
@@ -31,7 +32,7 @@ async function api(route,body=null,method='POST',mime='application/json'){
 }
 async function put(key,bytes,mime='application/octet-stream'){const hash=digest(bytes);if(ledger[key]?.digest===hash&&(mode!=='backup'||ledger[key].itemId))return ledger[key];const result=await(await api(mode==='backup'?'/content':`/objects?key=${encodeURIComponent(key)}`,bytes,'PUT',mime)).json();if(result.digest!==hash)throw Error('上传摘要不同');ledger[key]={key,...result};await writeFile(path.join(directory,'upload-ledger.json'),JSON.stringify(ledger));return ledger[key];}
 if(mode==='backup'){
- const stamp=new Date().toISOString().replace(/[:.]/g,'-'),manifest={version:2,createdAt:new Date().toISOString(),databases:[],directResources:true,temporaryPolicy:'48-hour temporary content is excluded from permanent exports'};
+ const stamp=new Date().toISOString().replace(/[:.]/g,'-'),manifest={version:3,createdAt:new Date().toISOString(),databases:[],directResources:true,temporaryPolicy:'48-hour temporary content is excluded from permanent exports'};
  let previous={};try{previous=JSON.parse(await readFile(path.join(directory,'last-backup.json'),'utf8'));}catch(e){if(e.code!=='ENOENT')throw e;try{previous=await latestRecoverySnapshot();}catch(error){if(!error.message.includes('Graph HTTP 404')&&!error.message.includes('没有独立恢复快照'))throw error;}}
  const pageCache=path.join(directory,'immutable-pages');await mkdir(pageCache,{recursive:true});
  async function cachedPage(entry){let bytes;try{bytes=await readFile(path.join(pageCache,entry.digest+'.json'));}catch(e){if(e.code!=='ENOENT')throw e;const item=previous.resources?.[entry.digest];if(!item)throw Error('增量检查点缺少恢复定位');bytes=Buffer.from(await(await downloadItem(item)).arrayBuffer());}if(digest(bytes)!==entry.digest)throw Error('增量检查点校验失败');await writeFile(path.join(pageCache,entry.digest+'.json'),bytes);return JSON.parse((entry.compressed?gunzipSync(bytes):bytes).toString('utf8'));}
@@ -50,7 +51,7 @@ if(mode==='backup'){
    const types=Object.fromEntries(validation.prepare(`PRAGMA table_info(${safe})`).all().map(x=>[x.name,x.type]));
    function validateRows(rows){for(const row of rows){const columns=Object.keys(row),insert=`INSERT INTO ${safe} (${columns.map(c=>'"'+c.replaceAll('"','""')+'"').join(',')}) VALUES (${columns.map(()=>'?').join(',')})`;validation.prepare(insert).run(...columns.map(c=>types[c]==='BLOB'&&Array.isArray(row[c])?Buffer.from(row[c]):row[c]));}}
    let scan={};
-   if(name==='practice'&&['pronunciation_results','chapter_audio_clips'].includes(table)){
+   if(name==='practice'&&['pronunciation_results','chapter_audio_clips'].includes(table)||name==='main'&&table==='storage_remote_content'){
     const schemaHash=digest(Buffer.from(preserved.find(x=>x.type==='table'&&x.name===table).sql)),old=previous.immutable?.tables?.[table];
     const end=(await query(id,`SELECT MAX(rowid) AS last FROM ${safe}`))[0].last||0;
     let reusedRows=0;if(old&&old.schema===schemaHash&&old.last<=end){scan={after:old.last,endAt:end};for(const entry of previous.databases.filter(x=>x.database===name&&x.table===table)){validateRows((await cachedPage(entry)).rows);manifest.databases.push(entry);reusedRows+=entry.rows;}}
@@ -60,7 +61,7 @@ if(mode==='backup'){
    for await(const page of rowidPages(query,id,table,scan)){
     const rows=permanentRows(table,page,neededDigests);
     if(!rows.length)continue;const bytes=gzipSync(Buffer.from(JSON.stringify({table,rows})),{level:6});if(bytes.length>20*1024*1024)throw Error(`请为 ${table} 配置更小的分页`);
-    validateRows(rows);if(['pronunciation_results','chapter_audio_clips'].includes(table)){await writeFile(path.join(pageCache,digest(bytes)+'.json'),bytes);manifest.immutable.tables[table].addedRows+=rows.length;}
+    validateRows(rows);if(name==='practice'&&['pronunciation_results','chapter_audio_clips'].includes(table)||name==='main'&&table==='storage_remote_content'){await writeFile(path.join(pageCache,digest(bytes)+'.json'),bytes);manifest.immutable.tables[table].addedRows+=rows.length;}
     const key=`backups/chunks/${name}/${table}/${digest(bytes)}.json.gz`;await put(key,bytes,'application/gzip');manifest.databases.push({database:name,table,key,digest:digest(bytes),rows:rows.length,compressed:true});
    }
   }
@@ -68,7 +69,7 @@ if(mode==='backup'){
   if(validation.prepare('PRAGMA integrity_check').get().integrity_check!=='ok'||validation.prepare('PRAGMA foreign_key_check').all().length)throw Error(`${name} 快照发生并发变化，未发布恢复清单，请稍后重新归档`);validation.close();
  }
  const dependencies=[...manifest.databases.map(x=>({key:x.key||x.schemaKey,digest:x.digest})),...manifest.working.flatMap(x=>[{key:x.key,digest:x.digest},...x.chunks])];manifest.resources={};
- for(const item of dependencies){const location=ledger[item.key]?.digest===item.digest&&ledger[item.key]?.itemId||previous.resources?.[item.digest];if(location)manifest.resources[item.digest]=location;}
+ for(const item of dependencies){const location=ledger[item.key]?.digest===item.digest&&ledger[item.key]?.itemId||previous.resources?.[item.digest];if(location)manifest.resources[item.digest]=typeof location==='string'&&location.startsWith('hf-v1:')?{version:2,provider:'huggingface-s3',project:'language',digest:item.digest}:location;}
  if(dependencies.some(x=>!manifest.resources[x.digest]))throw Error('恢复资产定位不完整，未发布快照');
  const measured=JSON.parse(await readFile(path.join(directory,'read-budget.json'),'utf8')).sizes||{};
  manifest.capacity={main:measured[mainDatabase],practice:measured[practiceDatabase]};

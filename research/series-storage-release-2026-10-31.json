@@ -1,0 +1,216 @@
+{
+  "schemaVersion": 1,
+  "status": "release-validation-awaiting-full-direct-restore",
+  "baseline": {
+    "branch": "codex/continuous-ice-logo",
+    "head": "7f92b7505691e22f58a6681520ac6184629d55c9",
+    "trackedChangesBeforeTask": false
+  },
+  "scope": {
+    "administrator": "language",
+    "projects": [
+      "language",
+      "algorithm",
+      "schedule",
+      "ledger"
+    ],
+    "excludedProject": "paper",
+    "unifiedBusinessDatabases": false,
+    "administratorHasOtherProjectContentAccess": false,
+    "allHistoricalContentMigrated": false
+  },
+  "resources": {
+    "d1": "Six independently owned existing databases; nine total account databases observed, ten Free slots",
+    "kv": "One shared account quota; no new project KV",
+    "huggingface": "Four private project buckets; documented 100 GB shared account plan",
+    "kaggle": "Four private versioned archive datasets; documented 200 GB shared private-dataset plan",
+    "onedrive": "Legacy originals and independent recovery index retained",
+    "durableObjects": "Four fixed project-named SQLite-backed execution objects; no business SQL/KV writes and no additional file-capacity claim"
+  },
+  "capacityEvidence": {
+    "providerRemainingUnknownRemainsNull": true,
+    "differentLayersNotAddedTogether": true,
+    "replicasNotCountedAsUniqueCapacity": true,
+    "physicalD1IndexSample": {
+      "samples": [
+        {
+          "records": 100000,
+          "bytes": 9924608
+        },
+        {
+          "records": 500000,
+          "bytes": 49672192
+        }
+      ],
+      "scope": "Actual SQLite specimens of new immutable file-location tables and indices only; excludes all other business tables and fragmentation",
+      "wholeProductionDatabaseGuarantee": false
+    }
+  },
+  "safety": {
+    "noNewSubscriptions": true,
+    "newPaidModelCalls": 0,
+    "newTtsCalls": 0,
+    "noOldPaidAssetsDeleted": true,
+    "dailyRestPreserved": true,
+    "nextAudioPreserved": true,
+    "temporaryImageAndPageLifetimesPreserved": true,
+    "credentialsInPublicReport": false,
+    "diagnosticS3PairRevokedAndReplaced": true,
+    "providerCredentialPhysicallyScopedPerProject": false,
+    "credentialMaterialsExcludedFromOrdinaryArchives": true,
+    "recoveryChunksDoNotRegisterThemselvesInD1": true,
+    "revokedPairHeadStatus": 403,
+    "replacementPairHeadStatus": 200
+  },
+  "validatedBeforePublication": {
+    "privateProviderWriteAndHashReadback": {
+      "projects": 4,
+      "putGetHeadRangeAndCasReuse": true,
+      "passed": true
+    },
+    "fourProjectCloudRpcAndIsolation": true,
+    "kagglePinnedHistoryRestored": true,
+    "anonymousAccessRejected": true,
+    "oldChapterAndThreePaidClipsReadBack": true,
+    "firstChapterDigest": "11a04f15f43d130d0408332f7a5db9ac96b0c6452d9192bbefffb19690f133ba",
+    "localWorkerdDurableObject": {
+      "passed": true,
+      "projects": 4,
+      "fixtureOrigin": true,
+      "externalRequests": 0,
+      "putGetHeadAndRange": true,
+      "wrongProjectRejected": true,
+      "evidenceWireBytes": 960000,
+      "evidenceGzipBytes": 2655
+    },
+    "firstChapterKaggleIndependentRestore": {
+      "private": true,
+      "version": 4,
+      "recordId": "e8aedfba97252f96c83c7d2ed37228073b48d944b3cc07131a9d0b1b49450764",
+      "files": 4,
+      "restoredBytes": 1242277,
+      "packageBytes": 401217,
+      "packageDigest": "011bb8823d7b0a049ee9c47b97af724338f70251b790fdb29476f509bc630325",
+      "verified": true
+    },
+    "algorithmPublishedCommitIndependentHfRestore": {
+      "commit": "197f96611c09a7448182ab83d3bcb59ab6eaddba",
+      "bytes": 20267753,
+      "digest": "de948b13d00ccc1104444e5af42a53d896f73c7f924ba587b58fdf7584b9d759",
+      "verified": true,
+      "oldOneDriveOriginalPreserved": true,
+      "futurePublicationVolumeSupport": {
+        "status": "local-real-git-fixture-verified",
+        "sourceBytes": 26214400,
+        "compressedAboveBytes": 25165824,
+        "partBytes": 16777216,
+        "partCount": 2,
+        "receiptSchemaVersion": 3,
+        "restoreToNewDFile": true,
+        "partOrderAndDigestsVerified": true,
+        "wholeGzipAndTarDigestsVerified": true,
+        "restoredGitCommitVerified": true,
+        "legacyV2AndOneDriveRestorationVerified": true,
+        "tamperedPartOrderDigestTarAndCommitRejected": true,
+        "cloudMultipartUpload": false,
+        "existingCloudArchiveReuploaded": false
+      }
+    },
+    "kagglePython310SqliteSafety": {
+      "python": "3.10.6",
+      "syntheticOnly": true,
+      "normalSqliteBytes": 8192,
+      "fixedVersion": 3,
+      "archiveAndRestoreVerified": true,
+      "credentialTableRejectedLocally": true,
+      "rejectedSampleDidNotChangeRemoteVersion": true,
+      "temporaryInspectionFilesLeft": 0
+    },
+    "productionAfterDeployment": "passed; initial 503 for a 54-byte object subsequently verified 200 without model calls",
+    "fullDirectRestore": {
+      "status": "running",
+      "snapshotFormat": 3,
+      "publishedBackupStructureAndDataPages": 227
+    }
+  },
+  "cpuFinding": {
+    "ordinaryHttpEvidenceArchival": {
+      "smallCpuMs": 23,
+      "largeCpuMs": 263,
+      "outcome": "ok",
+      "reliableFreeBudgetClaim": false
+    },
+    "decision": "Heavy file and evidence processing moved to the Free SQLite Durable Object execution facility; source Workers use fixed project RPCs",
+    "productionDoVerification": {
+      "passed": true,
+      "fixtureProvider": true,
+      "providerCalls": 0,
+      "ordinaryRpcWrapperCpuMs": [
+        0,
+        0,
+        4,
+        0
+      ],
+      "durableObjectArchiveCpuMs": {
+        "small": 18,
+        "large": 231
+      },
+      "durableObjectReadCpuMs": {
+        "small": 3,
+        "large": null
+      },
+      "largeReadCpuTrace": "not-yet-observed",
+      "completeDiagnosticHttpCpuMs": [
+        15,
+        36
+      ],
+      "completeDiagnosticHttpIncludesFixtureDatabaseHashAndCleanup": true,
+      "allHttpRequestsBelow10msClaim": false,
+      "durableObjectBudgetMs": 30000
+    }
+  },
+  "publication": {
+    "filesGateway": {
+      "status": "durable-object-version-deployed",
+      "deploymentId": "8f5cd880-6831-4e58-b298-96eb80369243"
+    },
+    "language": {
+      "status": "deployed-and-production-readback-passed",
+      "deploymentId": "34580dc3-dce2-4015-91b1-e042036058ac",
+      "pagesDeploymentPrefix": "2e927adf"
+    },
+    "algorithm": {
+      "status": "api-executor-deployed",
+      "deploymentId": "4c5a98e1-6d4a-46db-af7e-0f167f8d9ba0"
+    },
+    "schedule": {
+      "status": "api-executor-deployed",
+      "deploymentId": "535fd416-5101-418a-9910-6ef78505576d"
+    },
+    "ledger": {
+      "status": "parallel-product-construction-coordination-authorized",
+      "deploymentId": null
+    },
+    "seriesInventory": "published"
+  },
+  "evidenceDirectory": ".cache/series-storage-20261031",
+  "limitations": [
+    "Full 227-page direct restore remains for the release owner to validate and finalize",
+    "Production DO test used synthetic evidence and a fixture provider; real provider write/read checks are recorded separately",
+    "The complete diagnostic HTTP harness consumed 15/36ms; no claim that all HTTP work is below the Free 10ms budget",
+    "Algorithm multi-volume packaging has local fixture acceptance; the existing 20,267,753-byte HF archive was not reuploaded and no cloud multipart upload is claimed",
+    "Browser mobile viewport verification is not physical iPhone Safari acceptance",
+    "Inventory totals are not authoritative remaining storage quotas",
+    "Compact file-location samples do not prove a bound for every business table or the whole D1 lifetime",
+    "Not all historical assets or completed API records are claimed migrated",
+    "Legacy regression scripts with obsolete word-tap and missing source-view fixtures fail at the baseline too; their failures are not reported as passes"
+  ],
+  "updatedAt": "2026-10-31T16:09:14.917021+00:00",
+  "publicCandidateSecretScan": {
+    "status": "passed",
+    "filesScanned": 57,
+    "hits": 0,
+    "scope": "Changed and untracked candidate public textual repository files only; excludes runtime work/log/cache data and binaries",
+    "historicalTranscriptOrAllFilesClaim": false
+  }
+}

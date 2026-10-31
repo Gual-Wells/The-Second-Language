@@ -1,18 +1,20 @@
 # 永久存储与章节下载
 
+2026-10-31起采用[第二系列多联存储](SERIES_STORAGE.md)：各项目独立D1保留；新的永久文件与恢复块写入HF项目私有桶，Kaggle保存固定版本冷档案，OneDrive继续保存历史原件和独立恢复索引。管理员只接收容量与管理策略，不能访问其他项目内容。下文旧OneDrive路径按既有版本继续兼容，不能据此把新写入切回唯一云盘基座。
+
 ## 分层权威
 
 2026-10-30起，新单正文的正式采用原文、读取凭据、已有原HTML、教材材料及作者去向保存在chapter-evidence-v1私有内容寻址包。公开来源包仅持evidenceDigest，沿原章级sourceDigest不可变绑定；原文与作者内容不进D1，不向读者下发。约8MiB分组、单对象24MiB上限，发布前上传并回读、commit核实际字节，丢回执以同摘要继续，不重新生成。work/runs/DATE/sources/evidence同时属于既有工作归档范围；不是把整个研究缓存加入永久存储。恢复按包中固定字节与摘要，不依赖原机器绝对路径，也不改写历史receipt。旧章、缺证记录和已有收费资产保持原身份。
 
-个人 Microsoft OneDrive 是所有永久大文件的存储基座，仅授权 Apps/The Second Language 目录。Graph 由 Cloudflare 后端访问，刷新凭据 AES-GCM 加密后保存在 D1，加密密钥为 Worker secret；本机授权副本由 Windows DPAPI 保护。产品不返回预授权下载地址或 Microsoft 凭据。
+个人 Microsoft OneDrive 是既有永久文件基座，仅授权 Apps/The Second Language 目录。Graph 由 Cloudflare 后端访问，刷新凭据 AES-GCM 加密后保存在 D1，加密密钥为 Worker secret；本机授权副本由 Windows DPAPI 保护。新HF写入走独立文件网关，正文、音频及旧摘要的身份不变。产品不返回预授权下载地址或供应商凭据。
 
-D1 保存课程版本、答卷、参考答案、答疑、运行状态、资产位置及完整历史版本索引。OneDrive 对每份文件按 SHA-256 去重存储；同一个逻辑路径改变内容时保留旧摘要版本。点读音频离开 D1 BLOB 进入永久文件存储；相同文本、声音参数复用既有身份，不为迁移、缓存过期或余额不足重新合成。
+D1 保存课程版本、答卷、参考答案、答疑、运行状态、资产位置及完整历史版本索引。永久文件按 SHA-256 去重存储；同一个逻辑路径改变内容时保留旧摘要版本。点读音频离开 D1 BLOB 进入永久文件存储；相同文本、声音参数复用既有身份，不为迁移、缓存过期或余额不足重新合成。
 
-成功点读使用 `pronunciation_results` 的整数 ID 和三个完整 32 字节 SHA-256：生成身份、音频内容、完整请求/返回记录。音频与记录直接按 OneDrive 内容摘要寻址，不再为每段新增 storage_objects/storage_versions/storage_blobs 三份登记。章节版本只在 chapter_audio_scopes 存一次，chapter_audio_clips 用整数关联。有效发音身份仍包含模型、音色、正文、格式和声音策略版本；既有 URL 不变。待调用、失败及未知计费结果留在 pronunciation_audio；原声多路、套卷查询、答卷和参考答案的现有业务关系继续保留，不以存储优化改写教学协议。
+成功点读使用 `pronunciation_results` 的整数 ID 和三个完整 32 字节 SHA-256：生成身份、音频内容、完整请求/返回记录。音频与记录直接按永久文件内容摘要寻址，旧OneDrive原件继续读取，新写入走已启用的HF项目文件池；不再为每段新增 storage_objects/storage_versions/storage_blobs 三份登记。章节版本只在 chapter_audio_scopes 存一次，chapter_audio_clips 用整数关联。有效发音身份仍包含模型、音色、正文、格式和声音策略版本；既有 URL 不变。待调用、失败及未知计费结果留在 pronunciation_audio；原声多路、套卷查询、答卷和参考答案的现有业务关系继续保留，不以存储优化改写教学协议。
 
 永久写入失败时保留已付费音频的 D1 应急副本，随后 migrate 只补存及整理索引，禁止再调用 TTS。应急音频达到 31 MiB 或练习库实际空间达到 200 MiB 时，停止新的收费点读，已有成功身份继续复用。此保护针对点读入口，不宣称其他业务增长已经全面有界；不清除答卷或未知收费记录。成功音频与其章节关联均由数据库触发器禁止修改/删除；修订音色或生成规则采用新的有效身份。
 
-KV 只承接近期章节缓存和存储故障时的兼容副本。新章先存永久文件再写三十天缓存；历史正文缓存失效后从永久文件取回。模型原始返回、原声、练习音频、反馈与中间资料永久保存。OneDrive 写入必须完成回读摘要核验才提交索引。失败时保持原副本与待归档状态，未知收费结果不再生成。临时页及其独有内容仍按四十八小时删除，不进入永久备份。
+KV 只承接近期章节缓存和存储故障时的兼容副本。新章先存永久文件再写三十天缓存；历史正文缓存失效后从永久文件取回。模型原始返回、原声、练习音频、反馈与中间资料永久保存。HF及旧OneDrive永久写入均须完成回读摘要核验才提交索引。失败时保持原副本与待归档状态，未知收费结果不再生成。临时页及其独有内容仍按四十八小时删除，不进入永久备份。
 
 ## 任务结束
 
@@ -24,7 +26,7 @@ work/runs、expression、questions 及既有语音证据按任务目录分组，
 
 ### 章节纪念卷轴与原生工艺恢复（2026-10-23）
 
-正式章节首次满分认证及制作任务、租约、领取和验证指针保留在主D1。艺术方案、完整英中、生成原图、六层纸面、检查与独立审阅及制作源均在OneDrive内容寻址存储；不把PNG、Blend或大型文书写入D1/KV。共享工艺只封存一次，按完整摘要复用，不因每章领取重新制作或重新上传扣具。
+正式章节首次满分认证及制作任务、租约、领取和验证指针保留在主D1。艺术方案、完整英中、生成原图、六层纸面、检查与独立审阅及制作源均在永久文件内容寻址存储；既有OneDrive原件不搬名重写，新写入遵循当前HF文件池。不把PNG、Blend或大型文书写入D1/KV。共享工艺只封存一次，按完整摘要复用，不因每章领取重新制作或重新上传扣具。
 
 `protocol/scroll-base-files.json`明确列共享字体、许可、纸张、声音原件、扣具Blend/烘焙/扫描源和脚本；本机`.cache/local-services.json`的`nativeCraftDirectory`只定位旧原件，不把路径存在当作恢复成功。运行`node scripts/register-scroll-base.mjs freeze`复制选定原字节为本机D盘CAS，`upload`上传并由服务分批回读核验后注册；`restore`在独立D盘目录从云端逐项下载核SHA和大小。再用Blender `--python-exit-code 1 --background --python scripts/verify-scroll-native.py -- RESTORED_ROOT`检查真实几何、骨架和外部材质依赖。Blender默认进程退出0不代表Python检查成功。恢复验证不能偷偷从旧绝对路径读取纹理来填缺。
 
@@ -32,7 +34,7 @@ work/runs、expression、questions 及既有语音证据按任务目录分组，
 
 本机服务配置可复用既有受忽略的publisherCredentialFile、privateCacheDirectory和archiveStateDirectory；凭据不复制、不提交。旧归档上传账本、读取预算及独立恢复索引继续使用，不能因换工作区重置配额保护。`SecondLanguage-PermanentArchive`指向具备新归档逻辑的D盘工作区，保留原调度/主体；独立卷轴制作任务仅消费本人明确申请，空队列不调用模型。
 
-备份数据页、工作块与恢复清单直接进入 OneDrive，不再在 D1 登记每份归档资产；旧登记保留兼容，新增目录量不随备份次数增长。恢复清单携带全部所需 itemId，数据页 gzip 无损压缩，旧未压缩快照仍可恢复。大追加表 pronunciation_results/chapter_audio_clips 首次完整建立检查点，之后仅读取 rowid 截点后的新行；所有旧块仍进入每份独立恢复清单。本机用已验证的块重建全库，不要求重新扫描其历史 D1 行。检查点仅在独立恢复索引发布成功后以原子文件替换推进；本机检查点遗失时从 OneDrive 最新恢复清单重新取得，不能凭空跳过旧行。非追加小表仍完整快照，不引入通用变更捕获系统。
+新备份数据页、工作块与恢复清单直接进入HF，不在D1登记备份自身；旧OneDrive登记保持兼容，新增目录量不随备份次数增长。v3恢复清单同时携带HF类型化定位与旧OneDrive itemId，数据页gzip无损压缩，旧未压缩快照仍可恢复。大追加表 pronunciation_results/chapter_audio_clips 及主库 storage_remote_content 首次完整建立检查点，之后仅读取rowid截点后的新行；所有旧块仍进入每份独立恢复清单。本机用已验证的块重建全库，不要求重新扫描其历史D1行。检查点仅在独立恢复索引发布成功后以原子文件替换推进；本机检查点遗失时从最新恢复清单重新取得，不能凭空跳过旧行。非追加小表仍完整快照，不引入通用变更捕获系统。
 
 数据库导出与本机上传目录重建均按 rowid 索引游标连续分页，每张表先固定本轮最大 rowid，后续新增记录留给下次归档；传输游标不写入恢复数据。文件目录先导出永久对象及完整历史版本，收集其摘要，再一次顺序读取 blob 目录，仅保留被永久版本引用的原件。不得用 OFFSET 或每页重新扫描全版本表的过滤子查询。
 
@@ -46,7 +48,7 @@ work/runs、expression、questions 及既有语音证据按任务目录分组，
 
 恢复使用 `node scripts/storage-restore.mjs [本机清单.json]`，按快照清单读取指定历史摘要，核验全部块；在独立空目录恢复两库结构和数据，检查 integrity_check 与 foreign_key_check，并还原、逐文件核验工作文稿。逻辑文件有新版本时旧快照仍读取自己的摘要，不跟随最新文件漂移。旧连接凭据不能跨 Windows 用户使用；重授权恢复 Microsoft 连接。不要直接用备份覆盖生产库。旧 KV 音频只在逐个核验完成后才可按单独维护计划清除，本次迁移保留兼容副本。
 
-每份恢复快照自带所有数据页、工作清单和分块的 OneDrive itemId；应用目录内独立 `recovery-index.json` 持续保留历次快照的直接定位与摘要。`node scripts/storage-restore.mjs --direct` 仅用 Microsoft 应用目录授权从独立索引读取最新快照，不调用 Cloudflare API、不依赖生产 D1 或发布令牌；也可提供某份本机快照清单并使用 --direct。若本机丢失，只需取回仓库工具并重新完成同一 Microsoft 应用授权后恢复；不以生产库仍健在为恢复前提。
+每份恢复快照自带所有数据页、工作清单和分块的供应商定位；OneDrive应用目录内独立 `recovery-index.json` 持续保留历次快照定位与摘要。`node scripts/storage-restore.mjs --direct` 通过对应供应商授权恢复，不调用Cloudflare API、不依赖生产D1或发布令牌；也可提供某份本机快照清单并使用 --direct。若本机丢失，取回仓库工具、恢复所需的Microsoft/HF授权；DPAPI文件不能跨Windows用户直接使用。不以生产库仍健在为恢复前提。
 
 永久存储启用后，原声采集按每轮一个新主路/补听调用分批推进，全部四路和原包仍完整保留。这样将文件回读校验计入免费 Worker 单轮外部请求上限；分批不是删除证据或降低分析标准。雅思固定历史来源与日课阅读均支持缓存失效后的永久正文读取。
 
@@ -63,6 +65,8 @@ AUDIO_CONFIGURATION.md 的申请沿用紧凑 pronunciation_results 及章节关�
 ## 存储用量记录（v32）
 
 设置 → 存储空间沿用额度窗口的蓝银卡片，显示 OneDrive、章节 D1、雅思 D1、实验 D1 与账户共享 KV。页面只读取上次核对结果，不访问外部管理 API、不定时刷新、不展示凭据、账号标识或文件清单。
+
+第二系列入口扩展为各项目分配及账户资源的上次核对记录，沿用原设置窗口，不替换本项目的五份用量记录。系列表只保存过滤后的数值和测量信息。`scripts/collect-series-storage.mjs` 在既有任务收尾及归档后采集；本机忽略配置 `.cache/series-storage-local.json` 可指定官方SDK元数据辅助器，不新增计时任务或逐音频盘点。HF私有目录盘点及Kaggle最新版本盘点分别注明完整性，不冒称剩余额度；未取得额度保持null。策略、供应商身份边界及独立恢复详见 [SERIES_STORAGE](SERIES_STORAGE.md)。
 
 `scripts/check-storage-usage.mjs` 使用已有本机权限查询 Microsoft Graph drive quota / AppFolder size、Cloudflare 数据库 file_size 和 KV 每日存储高位。OneDrive 同时呈现账户用量与本项目目录大小；两者统计不一致时明示差异，免费 5 GB 的适配判断保守取较大值，不声称异步统计已完全同步。目录统计也不能代替账户其他服务的真实占用。
 

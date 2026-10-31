@@ -489,6 +489,9 @@ textarea.text-input { resize: vertical; }
 .storage-meter::-webkit-progress-bar { background: linear-gradient(#e1e9f1,#f8fbfd); }
 .storage-meter::-webkit-progress-value { background: linear-gradient(#91b4d0,#527d9e); }
 .storage-fit { color: #345d4b; }
+.storage-scope { display: flex; gap: 8px; margin-bottom: 12px; }
+.storage-scope .bevel-button { flex: 1; min-width: 0; }
+.storage-scope .bevel-button[aria-pressed="true"] { color: #164b76; border-color: #6f9cbd; background: linear-gradient(#f9fcff,#d9e8f5); box-shadow: inset 0 1px 2px #aabed0; }
 .balance-card p, .balance-estimate p { margin: 8px 0; line-height: 1.55; }
 .balance-card small, .balance-estimate small { display: block; color: var(--muted); line-height: 1.6; }
 .balance-card .balance-warning { padding: 9px 12px; border: 1px solid #c7ae69; border-radius: 5px; background: linear-gradient(#fff7d2, #efdf9d); color: #5a4924; }

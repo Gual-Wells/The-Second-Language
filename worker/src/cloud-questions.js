@@ -1,6 +1,8 @@
 import {runCloudResponses,withCloudLock,readCloudResult,readCloudUsage} from './shared/cloud-responses.mjs';
 import {claimQuestionJob,expireQuestionJobs,questionJobAction} from './questions.js';
 import {reportSeriesUsage} from './series-usage.js';
+import {reportSeriesStorage,seriesStoragePolicy} from './series-storage.js';
+import {reportProjectStorage} from './shared/project-storage-client.mjs';
 
 export const QUESTION_CLOUD_PROJECT='second-language';
 export const QUESTION_CLOUD_CONFIG=Object.freeze({model:'gpt-6.1-sol',reasoningEffort:'xhigh',maxOutputTokens:16384,timeoutMs:600000});
@@ -34,7 +36,8 @@ async function recoverCompleted(env,{readResult,notify}){
    AND coalesce(j.error,'')<>? AND r.outcome='completed'
   ORDER BY j.updated_at LIMIT 1`).bind(QUESTION_CLOUD_PROJECT,invalidSavedAnswer).first();
  if(!row)return null;
- const result=await readResult({db,project:QUESTION_CLOUD_PROJECT,task:row.id,attempt:String(row.attempts)}).catch(()=>null);
+ let result;try{result=await readResult({db,project:QUESTION_CLOUD_PROJECT,task:row.id,attempt:String(row.attempts),filesBinding:env.FILES});}
+ catch(error){if(error.protectedUnavailable)return{deferred:true,resultSaved:true,protectedUnavailable:true};return null;}
  if(!result)return null;
  let answer;
  try{answer=answerOf(result.value);}
@@ -64,18 +67,20 @@ async function recoverCompleted(env,{readResult,notify}){
 // API execution keeps a separate, bounded D1 budget regardless of subscribed device count.
 export async function runCloudChapterQuestions(env,{runResponses=runCloudResponses,lock=withCloudLock,readResult=readCloudResult,notify=async()=>({deferred:true}),fetchImpl}={}){
  if(env.API_CLOUD_ENABLED!=='true')return {enabled:false};
+ let handled=false;
  try{return await lock({db:env.DB,project:QUESTION_CLOUD_PROJECT,run:async()=>{
   const recovered=await recoverCompleted(env,{readResult,notify});
-  if(recovered)return recovered;
+  if(recovered){handled=true;return recovered;}
   await expireQuestionJobs(env,'cloud-v1');
   const keyBinding=env.SECOND_SERIES_OPENAI_KEY||env.OPENAI_API_KEY;
   if(!keyBinding)return {configured:false};
   const claim=claimToken(),job=await claimQuestionJob(env,{claim,executionRoute:'cloud-v1'});
   if(!job)return {empty:true};
+  handled=true;
   let resultSaved=false;
   try{
    const heartbeat=()=>heartbeatCloudQuestion(env,{id:job.id,claim});
-   const result=await runResponses({db:env.DB,keyBinding,project:QUESTION_CLOUD_PROJECT,task:job.id,attempt:String(job.attempt),
+   const result=await runResponses({db:env.DB,keyBinding,filesBinding:env.FILES,project:QUESTION_CLOUD_PROJECT,task:job.id,attempt:String(job.attempt),
     instructions:QUESTION_CLOUD_INSTRUCTIONS,input:JSON.stringify({chapter:job.chapter,messages:job.messages}),schema:QUESTION_CLOUD_SCHEMA,
     name:'chapter_question',config:QUESTION_CLOUD_CONFIG,heartbeat,...(fetchImpl?{fetchImpl}:{})});
    resultSaved=true;
@@ -85,6 +90,7 @@ export async function runCloudChapterQuestions(env,{runResponses=runCloudRespons
    await notify(env).catch(()=>{});
    return {completed:true,reused:result.reused===true};
   }catch(error){
+   if(error.protectedUnavailable)return{deferred:true,resultSaved:true,protectedUnavailable:true};
    if(error.inProgress)return {inProgress:true};
    // A saved response with a failed DB commit must not expose an ordinary paid retry.
    const outcomeUnknown=resultSaved||error.outcomeUnknown===true;
@@ -94,5 +100,6 @@ export async function runCloudChapterQuestions(env,{runResponses=runCloudRespons
  }});}finally{
   // Only aggregate counters leave the runtime boundary; no raw task material is reported.
   try{await reportSeriesUsage(env,'cloud-language',await readCloudUsage({db:env.DB,project:QUESTION_CLOUD_PROJECT}));}catch{}
+  if(handled)await reportProjectStorage({db:env.DB,projectId:'language',resourceId:'d1-language',policyBinding:{policy:()=>seriesStoragePolicy('language'),report:value=>reportSeriesStorage(env,'language',value)}});
  }
 }
