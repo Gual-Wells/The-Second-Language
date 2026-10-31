@@ -1,5 +1,7 @@
 # 第二语言 Codex 工作约定
 
+2026-10-31用户要求第二系列四项目的共用ChatGPT API任务独立于本机执行。新运行规范见protocol/SERIES_API_CLOUD.md：无数据/无密钥系列时钟仅经固定RPC唤醒各项目；私文、队列与原件仍各项目独立，管理员只接收汇总用量。旧legacy不自动重做，unknown及原成功结果保护继续；新cloud-v1须保护凭据与真实云验证后启用。当前开发提交云开关默认关闭，不因代码存在停用旧API执行器；日课Codex出版、休息、声音与归档独立且不变。
+
 2026-10-31用户明确要求保留第一章选词，完整重新执行逐义语境取优。本轮已发布并回读：正文11a04f15、来源e0702af0、证据347805df；50主词／词族、selection、VIX回执和685USE身份不变，732语境／807句。全部685选择重判，132份英中语境新写或实质改动、600份保留；实际采用110份原件。逐义研究、拒绝候选与交叉复核在work/runs/2026-10-24/revisions/20261031-context-reselection-v1，公开回执research/chapter-one-context-reselection-2026-10-31.json。99ee6268及其来源是本轮前版历史原件，不能重放成当前指针。仅定点修正U00415互生叶排列范围、U05017无充分依据的排他句，不变择词。采用条件不兼容的21份OpenStax候选已实际另选／独立重写，不能把原缩编只改kind规避；原候选研究保留。此为本次授权，不自动启动其他旧章重编、重选／重标或批量音频；相同英文沿原永久Bella缓存，默认休息与下一章空音频不变。
 
 2026-10-27用户正式采用逐义真实语境单正文，权威入口为protocol/AUTHENTIC_CONTEXT.md、DAILY_RUN.md、RECOMMENDATION.md、CONTENT.md、QUALITY_WORKFLOW.md、QUALITY_SCALE.md、ANNOTATIONS.md、TEACHING_AUTHORING.md和CURRENT_AFFAIRS.md。先实际恢复已有输入、协议和研究，不用旧对话摘要替代。

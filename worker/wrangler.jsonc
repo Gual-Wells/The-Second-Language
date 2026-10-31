@@ -1,6 +1,6 @@
 {
   "name": "the-second-language-api",
-  "main": "src/index.js",
+  "main": "src/entry.js",
   "compatibility_date": "2026-09-01",
   "compatibility_flags": [
     "nodejs_compat"
@@ -10,7 +10,8 @@
     "APP_ORIGIN": "https://the-second-language.pages.dev",
     "APP_URL": "https://the-second-language.pages.dev/",
     "VAPID_PUBLIC_KEY": "BPBIS91ui4rCjRFMZJGwXA7conPmE21VkH3irXpFJNdAlsSTg5HBtw7Jc3KVs-PyycW3zScqSHYgKF1NQiVp1Gk",
-    "API_QUESTIONS_ENABLED": "true"
+    "API_QUESTIONS_ENABLED": "true",
+    "API_CLOUD_ENABLED": "false"
   },
   "d1_databases": [
     {

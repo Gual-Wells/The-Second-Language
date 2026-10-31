@@ -1,0 +1,13 @@
+{
+  "name": "second-series-api-clock",
+  "main": "src/index.mjs",
+  "compatibility_date": "2026-10-31",
+  "workers_dev": false,
+  "triggers": {"crons": ["* * * * *"]},
+  "services": [
+    {"binding": "LANGUAGE_API", "service": "the-second-language-api", "entrypoint": "LanguageAPIExecutor"},
+    {"binding": "ALGORITHM_API", "service": "second-algorithm-api", "entrypoint": "AlgorithmAPIExecutor"},
+    {"binding": "SCHEDULE_API", "service": "neu-schedule-push", "entrypoint": "ScheduleAPIExecutor"},
+    {"binding": "LEDGER_API", "service": "second-ledger-api", "entrypoint": "LedgerAPIExecutor"}
+  ]
+}

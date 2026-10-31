@@ -55,3 +55,13 @@ Whisper 为每天 10000 免费 Neurons，按同单位估算/提醒，北京时�
 ## OpenAI 共用 API（2026-10-30）
 
 增加OpenAI独立池，仅接同系列问答与课表识别，不替代章节Codex生产。由本机配置读取已核发放/剩余/有效日证据及实际Responses usage；输入、输出、缓存token和响应次数以原返回登记，不把发放减本机消耗当官方余额，也不拿Codex额度混算。没有可靠剩余接口时显示未核实，不由估计发放推送告急。共用usage记录只有项目、任务身份和用量，不含密钥、问题、截图或答案。任务末尾更新，页面不实时查厂商。
+
+## 云端用量分来源（2026-10-31）
+
+0025将用量完整快照按local-shared、cloud-language、cloud-algorithm、cloud-schedule、cloud-ledger分别保存；查看时汇总，不能让本机下一次上报覆盖云用量。旧余额快照中的本机usage仅作尚未建立新来源记录时的兼容值，不再重复加一次。本机只累积已收到的Responses usage回执，不据此声称覆盖全部账户调用或所有未知计费。
+
+各项目只读自身runtime累计表，通过窄Service Binding RPC上报`inputTokens/outputTokens/cachedInputTokens/responses/unknownCalls/inProgressCalls/revision/checkedAt`，无task、provider请求/响应ID、问题、答案、原始流、章节或图片。本项目内部函数写cloud-language；`AlgorithmUsage/ScheduleUsage/LedgerUsage.report(snapshot)`各硬编码其来源，不接受客户端source，不提供HTTP或读取接口。系列时钟只可调用`LanguageAPIExecutor.run()`，不持跨项目数据库绑定。Cloudflare入口在`worker/src/entry.js`，普通`index.js`保留可独立测试的原fetch/提醒Cron。能力划分依[Cloudflare命名RPC入口](https://developers.cloudflare.com/workers/runtime-apis/bindings/service-bindings/rpc/)实现。
+
+接收端验证完整字段、非负安全整数、缓存token范围、核对时间和累计版本；以CAS按单来源覆盖、幂等接收与拒绝乱序。相同回执revision可在更新checkedAt下改变unknown/inProgress，不得无新回执改变token总量。累计token/回执不能倒退。一次已知incomplete/failed只要有真实usage仍计入累计，未知计费单独显示，不当作零费用或已确认扣款。
+
+本机目录读取失败或任一usage原件损坏时，collector报告usageComplete=false、不发送部分值或零；后端保留本机旧快照并标记本次更新未完成。云RPC仅更新该source用量快照，不能写余额、发放或额度核实字段。余额是否为旧证据只看creditCheckedAt，用量使用usageCheckedAt及各来源时间；云端不断上报不能把旧钱包余额刷成刚核实。无记录不填零，失败保留旧值。已有余额页仍只读本项目保存的记录，不实时查询厂商或其他项目私文。

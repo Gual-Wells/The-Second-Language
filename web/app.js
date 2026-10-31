@@ -10,11 +10,11 @@ import { parseParts, renderPart, updateContextTranslation } from './render.js?v=
 import {createContextTranslationState} from './context-translations.js?v=50';
 import { validateAnnotatedContent } from './annotations.js?v=61';
 import { createPracticeUI } from './practice.js?v=41';
-import {createBalanceUI} from './balances.js?v=56';
+import {createBalanceUI} from './balances.js?v=63';
 import {createStorageUsageUI} from './storage-usage.js?v=41';
 import {createCertificationReader} from './certification-reader.js?v=43';
 import {createChapterTestsUI} from './chapter-tests.js?v=43';
-import {createQuestionsUI} from './questions.js?v=57';
+import {createQuestionsUI} from './questions.js?v=63';
 import {openAudioChapter,clearAudioLibrary,preloadEnabled,setPreload} from './audio-library.js?v=50';
 
 const $ = id => document.getElementById(id);
@@ -832,7 +832,7 @@ $('chapterNav').addEventListener('touchend', event => {
   if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.5) moveChapter(dx < 0 ? 1 : -1);
   swipeStart = null;
 }, { passive: true });
-if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=62', { updateViaCache: 'none' }).catch(() => {});
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=63', { updateViaCache: 'none' }).catch(() => {});
 refreshInstallStatus();
 initialize().then(()=>{if(state.authenticated&&new URLSearchParams(location.search).has('balances'))balances.open();});
 

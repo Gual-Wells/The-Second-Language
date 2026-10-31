@@ -12,11 +12,13 @@ export function createBalanceUI({api,showDialog}){
     const name=document.createElement('strong');name.textContent={openrouter:'OpenRouter',cloudflare:'Whisper · 每日免费额度',tencent:'腾讯云 · 口语专项',openai:'OpenAI · 共用 API'}[p.pool];
     const amount=document.createElement('span');amount.className='balance-amount';amount.textContent=money(p);heading.append(name,amount);
     const note=document.createElement('p');note.textContent=p.note;
-    const time=document.createElement('small');time.textContent=`${p.estimated?'更新':'核对'}：${date(p.checkedAt)}${p.stale?' · 旧记录':''}`;
+    const time=document.createElement('small');time.textContent=`${p.pool==='openai'?'余额证据':p.estimated?'更新':'核对'}：${date(p.pool==='openai'?p.creditCheckedAt:p.checkedAt)}${p.stale?' · 旧记录':''}`;
     card.append(heading,note,time);
     if(p.pool==='openai'){
      if(Number.isFinite(p.issuedAmount)){const issued=document.createElement('small');issued.textContent=`已登记发放：$${p.issuedAmount.toFixed(2)}`;card.append(issued);}
      if(p.usage?.responses){const usage=document.createElement('small');usage.textContent=`已记录 ${p.usage.responses} 次响应 · 输入 ${p.usage.inputTokens.toLocaleString()} / 输出 ${p.usage.outputTokens.toLocaleString()} tokens`;card.append(usage);}
+     for(const source of p.usageSources||[]){const row=document.createElement('small');row.textContent=source.usage?`${source.name}：${source.usage.responses} 次回执 · ${date(source.checkedAt)}${source.stale?' · 旧记录':''}${source.updateFailed?' · 本次更新未完成，保留旧值':''}`:`${source.name}：尚无完整用量记录`;card.append(row);}
+     if(p.usage?.inProgressCalls){const active=document.createElement('small');active.textContent=`${p.usage.inProgressCalls} 次调用处理中`;card.append(active);}
     }
     if(Number.isFinite(p.cashBalanceCny)){const cash=document.createElement('small');cash.textContent=`现金余额（补充）：¥${p.cashBalanceCny.toFixed(2)}`;card.append(cash);}
     if(p.uncertainCalls){const pending=document.createElement('small');pending.textContent=`${p.uncertainCalls} 次调用待核对`;card.append(pending);}

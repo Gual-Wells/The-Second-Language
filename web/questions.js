@@ -77,7 +77,7 @@ export function createQuestionsUI({api,showDialog,toast,getContext}) {
    }
    if(initialPosition){const focused=focusId?[...list.querySelectorAll('[data-question-id]')].find(el=>el.dataset.questionId===focusId):null,divider=focused||list.querySelector('.question-unread-divider');if(divider)list.scrollTop+=divider.getBoundingClientRect().top-list.getBoundingClientRect().top;else list.scrollTop=list.scrollHeight;initialPosition=false;focusId=null;}
    else if(nearBottom)list.scrollTop=list.scrollHeight;else{const next=anchorId?[...list.querySelectorAll('[data-message-id]')].find(el=>el.dataset.messageId===anchorId):null;list.scrollTop=prior;if(next)list.scrollTop+=next.getBoundingClientRect().top-list.getBoundingClientRect().top-anchorOffset;}
-   $('questionStatus').textContent=readOnly?'此版本已封存，历史问答仍可查看。':'回复会保存在本章答疑中。本机服务在线时自动处理。';
+   $('questionStatus').textContent=readOnly?'此版本已封存，历史问答仍可查看。':'提交后可在这里查看处理进度和回复。';
    const seq=Math.max(0,...data.messages.filter(m=>m.role==='assistant').map(m=>m.seq));
    if(data.threadId&&seq&&nearBottom&&document.visibilityState==='visible')await post(`/api/questions/${data.threadId}/seen`,{seq});
  }

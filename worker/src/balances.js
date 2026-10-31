@@ -1,15 +1,18 @@
 import {checkOpenRouterFunds} from '../../scripts/lib/speaking/funding.mjs';
 const json=(value,status=200)=>Response.json(value,{status,headers:{'cache-control':'no-store'}});
 import {estimates,reserves,belowReserve,quotaEstimateVersion} from '../../protocol/task-quotas.mjs';
+import {reportSeriesUsage,markSeriesUsageUnavailable,seriesUsageView} from './series-usage.js';
 export {estimates};
 const empty=pool=>({pool,verified:false,remaining:null,checkedAt:null,note:'尚未核对'});
 export async function balanceView(env){
  const {results}=await env.DB.prepare('SELECT pool,snapshot_json FROM service_balances').all();
  const data=new Map(results.map(r=>[r.pool,JSON.parse(r.snapshot_json)]));
+ const openAIUsage=await seriesUsageView(env,{fallbackLocal:data.get('openai')?.usage});
  const pools=['openrouter','cloudflare','tencent','openai'].map(pool=>{
   const p=data.get(pool)||empty(pool);
-  const stale=!p.checkedAt||Date.now()-Date.parse(p.estimated?p.checkedAt:p.quotaCheckedAt||p.checkedAt)>24*3600000||(pool==='cloudflare'&&p.period!==new Date().toISOString().slice(0,10));
-  return {...p,stale,low:!stale&&(p.verified||p.estimated)&&p.low===true};
+  const evidenceAt=pool==='openai'?p.creditCheckedAt:p.estimated?p.checkedAt:p.quotaCheckedAt||p.checkedAt;
+  const stale=!evidenceAt||!Number.isFinite(Date.parse(evidenceAt))||Date.now()-Date.parse(evidenceAt)>24*3600000||(pool==='cloudflare'&&p.period!==new Date().toISOString().slice(0,10));
+  return {...p,...(pool==='openai'?{...openAIUsage,uncertainCalls:openAIUsage.usage?.unknownCalls||0}:{}),stale,low:!stale&&(p.verified||p.estimated)&&p.low===true};
  });
  return {pools,estimates,reserves,estimateVersion:quotaEstimateVersion};
 }
@@ -41,9 +44,13 @@ export async function checkBalances(env,{reports=[],usage=[],notify=false}={}){
    if(typeof input.verified!=='boolean'||(input.verified&&(!Number.isFinite(input.remaining)||input.remaining<0||input.remaining>1000000)))throw Error('OpenAI额度记录无效');
    if(input.issuedAmount!==null&&(!Number.isFinite(input.issuedAmount)||input.issuedAmount<0||input.issuedAmount>1000000))throw Error('OpenAI发放记录无效');
    if(input.expiresOn!==null&&!/^\d{4}-\d{2}-\d{2}$/.test(input.expiresOn||''))throw Error('OpenAI到期记录无效');
-   const usage=input.usage;if(!usage||['inputTokens','outputTokens','cachedInputTokens','responses'].some(k=>!Number.isSafeInteger(usage[k])||usage[k]<0))throw Error('OpenAI用量记录无效');
+   const usage=input.usageComplete===false?null:input.usage;
+   if(usage&&['inputTokens','outputTokens','cachedInputTokens','responses'].some(k=>!Number.isSafeInteger(usage[k])||usage[k]<0))throw Error('OpenAI用量记录无效');
+   if(!usage&&input.usageComplete!==false)throw Error('OpenAI用量记录无效');
+   if(usage)await reportSeriesUsage(env,'local-shared',{...usage,unknownCalls:0,inProgressCalls:0,checkedAt:input.checkedAt,revision:Date.parse(input.checkedAt)});
+   else await markSeriesUsageUnavailable(env,'local-shared',input.checkedAt);
    const oldRow=await env.DB.prepare('SELECT snapshot_json FROM service_balances WHERE pool=?').bind('openai').first(),old=oldRow?JSON.parse(oldRow.snapshot_json):{};
-   await store(env,{pool:'openai',unit:'USD',verified:input.verified,remaining:input.verified?input.remaining:null,lastKnownRemaining:input.verified?input.remaining:old.verified?old.remaining:old.lastKnownRemaining??null,issuedAmount:input.issuedAmount??old.issuedAmount??null,expiresOn:input.expiresOn||old.expiresOn||null,creditCheckedAt:input.creditCheckedAt||old.creditCheckedAt||null,checkedAt:input.checkedAt,usage,low:false,note:'第二系列共用 API · 问答与日程识别；剩余额度独立核实'},false);continue;
+   await store(env,{pool:'openai',unit:'USD',verified:input.verified,remaining:input.verified?input.remaining:null,lastKnownRemaining:input.verified?input.remaining:old.verified?old.remaining:old.lastKnownRemaining??null,issuedAmount:input.issuedAmount??old.issuedAmount??null,expiresOn:input.expiresOn||old.expiresOn||null,creditCheckedAt:input.creditCheckedAt||old.creditCheckedAt||null,checkedAt:input.checkedAt,usage:usage||old.usage||null,low:false,note:'第二系列共用 API · 本机与四项目云用量分别留存；剩余额度独立核实'},false);continue;
   }
   if(!['cloudflare','tencent'].includes(input.pool)||typeof input.verified!=='boolean')throw Error('额度报告无效');
   if(input.verified&&(!Number.isFinite(input.remaining)||input.remaining<0))throw Error('额度数值无效');
