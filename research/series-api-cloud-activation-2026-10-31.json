@@ -1,0 +1,314 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-31T10:06:03.734Z",
+  "status": "activated-and-cloud-smoke-verified",
+  "baseLanguageCommit": "2256281f8a095ea9a77ed51c6ce2f00c7b4208f1",
+  "sharedRuntimeSha256": "1c8e69b439903689772fdd4d95422508eac366eab93b2f67996ecb88d61929de",
+  "workerVersions": {
+    "language": "2e2859e6-6125-48fb-ae00-c3ba888d83d2",
+    "algorithm": "e644cf8d-3c11-48ae-a688-117849524fb8",
+    "schedule": "bef847fe-08a6-453b-a95a-0e0cf790bd77",
+    "ledger": "908be7e7-7c02-450a-88e2-606f446cd2f3",
+    "clock": "71364056-b9f0-47aa-97f5-0667647aaa0f"
+  },
+  "pagesDeployments": {
+    "language": "5429b930-539a-4e54-af65-e7ccc64f9a8d",
+    "algorithm": "8cc0d358",
+    "schedule": "db824bdb"
+  },
+  "secret": {
+    "configured": true,
+    "name": "SECOND_SERIES_OPENAI_KEY",
+    "scope": "workers",
+    "method": "existing credential imported through official Wrangler stdin under explicit user authorization",
+    "valueRecorded": false,
+    "newKeyCreated": false
+  },
+  "cloudSmoke": {
+    "isolated": true,
+    "productionQuestionOrCashRowsTouched": false,
+    "requests": [
+      {
+        "profile": "LANGUAGE_SMOKE",
+        "project": "series-smoke-language-20261031-v2",
+        "state": "completed",
+        "post_attempts": 1,
+        "key_resolved": 1,
+        "elapsed_ms": 3720,
+        "http_status": 200,
+        "upstream_colo": "LAX",
+        "provider_code": null,
+        "marker_matched": 1,
+        "receipt_hash": "edbd01093d441f8b03e3d4bba9f29909b3ac3b4bf42c32370d5678f60995b8fa",
+        "input_tokens": 81,
+        "output_tokens": 41,
+        "cached_tokens": 0,
+        "finished_at": 1793440578198,
+        "model": "gpt-6.1-sol",
+        "reasoningEffort": "xhigh",
+        "maxOutputTokens": 1024,
+        "timeoutMs": 120000
+      },
+      {
+        "profile": "ALGORITHM_SMOKE",
+        "project": "series-smoke-algorithm-20261031-v2",
+        "state": "completed",
+        "post_attempts": 1,
+        "key_resolved": 1,
+        "elapsed_ms": 3962,
+        "http_status": 200,
+        "upstream_colo": "LAX",
+        "provider_code": null,
+        "marker_matched": 1,
+        "receipt_hash": "32a42e6e81746a6c3b2a0ec126b47a849f02914f6dbc560c74c6cf6dc519108a",
+        "input_tokens": 81,
+        "output_tokens": 63,
+        "cached_tokens": 0,
+        "finished_at": 1793440578403,
+        "model": "gpt-6.1-sol",
+        "reasoningEffort": "xhigh",
+        "maxOutputTokens": 1024,
+        "timeoutMs": 120000
+      },
+      {
+        "profile": "SCHEDULE_SMOKE",
+        "project": "series-smoke-schedule-20261031-v2",
+        "state": "completed",
+        "post_attempts": 1,
+        "key_resolved": 1,
+        "elapsed_ms": 4178,
+        "http_status": 200,
+        "upstream_colo": "LAX",
+        "provider_code": null,
+        "marker_matched": 1,
+        "receipt_hash": "360df6498566743289920d7dc545fb32eccdff9bf76a7640996ddf97f87fca79",
+        "input_tokens": 104,
+        "output_tokens": 98,
+        "cached_tokens": 0,
+        "finished_at": 1793440578634,
+        "model": "gpt-6.1-terra",
+        "reasoningEffort": "xhigh",
+        "maxOutputTokens": 1024,
+        "timeoutMs": 120000
+      },
+      {
+        "profile": "LEDGER_SMOKE",
+        "project": "series-smoke-ledger-20261031-v2",
+        "state": "completed",
+        "post_attempts": 1,
+        "key_resolved": 1,
+        "elapsed_ms": 4209,
+        "http_status": 200,
+        "upstream_colo": "LAX",
+        "provider_code": null,
+        "marker_matched": 1,
+        "receipt_hash": "0ba9061cdc7c314d870e9e3c8a7d3d2f25c78ef63f8b498c965e2ba559064e8b",
+        "input_tokens": 104,
+        "output_tokens": 93,
+        "cached_tokens": 0,
+        "finished_at": 1793440578664,
+        "model": "gpt-6.1-terra",
+        "reasoningEffort": "xhigh",
+        "maxOutputTokens": 1024,
+        "timeoutMs": 120000
+      }
+    ],
+    "cpuEvidence": [
+      {
+        "version": "ea8058d9-f0e3-410e-af8f-0f05ab1fcf1f",
+        "entrypoint": "LanguageSmoke",
+        "wallTime": 4865,
+        "cpuTime": 11,
+        "outcome": "ok",
+        "exceptions": [],
+        "truncated": false
+      },
+      {
+        "version": "ea8058d9-f0e3-410e-af8f-0f05ab1fcf1f",
+        "entrypoint": "AlgorithmSmoke",
+        "wallTime": 5070,
+        "cpuTime": 14,
+        "outcome": "ok",
+        "exceptions": [],
+        "truncated": false
+      },
+      {
+        "version": "ea8058d9-f0e3-410e-af8f-0f05ab1fcf1f",
+        "entrypoint": "ScheduleSmoke",
+        "wallTime": 5294,
+        "cpuTime": 13,
+        "outcome": "ok",
+        "exceptions": [],
+        "truncated": false
+      },
+      {
+        "version": "ea8058d9-f0e3-410e-af8f-0f05ab1fcf1f",
+        "entrypoint": "LedgerSmoke",
+        "wallTime": 5326,
+        "cpuTime": 11,
+        "outcome": "ok",
+        "exceptions": [],
+        "truncated": false
+      }
+    ],
+    "inputTokens": 370,
+    "outputTokens": 295,
+    "totalTokens": 665,
+    "actualGenerationCalls": 4,
+    "initialFailures": {
+      "count": 4,
+      "cause": "workerd rejected redirect:error while constructing fetch; no network dispatch",
+      "originalUnknownEvidencePreserved": true
+    },
+    "cleanup": {
+      "temporaryDriverDeleted": true,
+      "temporaryHttpRemoved": true,
+      "temporaryCronRemoved": true,
+      "tailClosed": true,
+      "privateProbeRetained": false,
+      "privateProbeHTTP": false,
+      "privateProbeCron": false,
+      "privateProbeDeleted": true,
+      "allTemporaryWorkersDeleted": true,
+      "allPublicTriggersRemoved": true,
+      "probeSecretBindingRevoked": true,
+      "probeD1BindingRevoked": true,
+      "d1EvidencePreserved": true,
+      "probeDeleteProof": "Official Wrangler delete --config probe.wrangler.jsonc --force exited 0: Successfully deleted second-series-cloud-smoke-20261031"
+    }
+  },
+  "scheduledExecution": {
+    "version": "71364056-b9f0-47aa-97f5-0667647aaa0f",
+    "realScheduledSamples": [
+      {
+        "eventTimestamp": 1793440454537,
+        "scheduledTime": 1793440453996,
+        "cpuMs": 0,
+        "wallMs": 2078,
+        "at": "2026-10-31T09:54:14.537Z",
+        "outcome": "ok",
+        "exceptionCount": 0,
+        "routes": [
+          {
+            "project": "language",
+            "status": "empty"
+          },
+          {
+            "project": "algorithm",
+            "status": "empty"
+          },
+          {
+            "project": "schedule",
+            "status": "empty"
+          },
+          {
+            "project": "ledger",
+            "status": "empty"
+          }
+        ]
+      },
+      {
+        "eventTimestamp": 1793440514896,
+        "scheduledTime": 1793440513996,
+        "cpuMs": 0,
+        "wallMs": 1742,
+        "at": "2026-10-31T09:55:14.896Z",
+        "outcome": "ok",
+        "exceptionCount": 0,
+        "routes": [
+          {
+            "project": "language",
+            "status": "empty"
+          },
+          {
+            "project": "algorithm",
+            "status": "empty"
+          },
+          {
+            "project": "schedule",
+            "status": "empty"
+          },
+          {
+            "project": "ledger",
+            "status": "empty"
+          }
+        ]
+      },
+      {
+        "eventTimestamp": 1793440574988,
+        "scheduledTime": 1793440573996,
+        "cpuMs": 0,
+        "wallMs": 2240,
+        "at": "2026-10-31T09:56:14.988Z",
+        "outcome": "ok",
+        "exceptionCount": 0,
+        "routes": [
+          {
+            "project": "language",
+            "status": "empty"
+          },
+          {
+            "project": "algorithm",
+            "status": "empty"
+          },
+          {
+            "project": "schedule",
+            "status": "empty"
+          },
+          {
+            "project": "ledger",
+            "status": "empty"
+          }
+        ]
+      }
+    ],
+    "allFourRoutesObserved": true,
+    "noPrivateContentInClock": true
+  },
+  "history": {
+    "languageLegacyAnswered": 22,
+    "publishedPointersUnchanged": 13,
+    "currentChapterSha256": "11a04f15f43d130d0408332f7a5db9ac96b0c6452d9192bbefffb19690f133ba",
+    "scheduleItems": 6,
+    "scheduleApplied": 6,
+    "scheduleCancelled": 4,
+    "priorRecordsAndAuthIdentityUnchanged": true
+  },
+  "localTasks": {
+    "names": [
+      "SecondLanguage-APIQuestions",
+      "SecondAlgorithm-APIQuestions",
+      "NEU-Schedule-Agenda-Runner"
+    ],
+    "state": "Disabled",
+    "lastExitCodes": [
+      0,
+      0,
+      0
+    ],
+    "activeProcessesForciblyTerminated": false,
+    "otherTasksChanged": false
+  },
+  "validation": {
+    "languagePublicAssetsMatched": 15,
+    "algorithmPublicAssetsMatched": 11,
+    "schedulePublicAssetsMatched": 38,
+    "anonymousPrivateBoundariesPreserved": true,
+    "wireMockChecks": 17,
+    "languageCloudAndUsageChecks": 24,
+    "clockMockChecks": 4,
+    "scheduleWorkerChecks": 51,
+    "ledgerWorkerChecks": 18
+  },
+  "cost": {
+    "newSubscriptions": 0,
+    "smallDiagnosticTokensIncludedInUsageReport": true,
+    "openAIWalletRemainingVerified": false
+  },
+  "limits": [
+    "Synthetic cloud text and image generation was tested; full real chapter/large image load and physical iPhone were not exercised by these probes.",
+    "Successful small real Worker samples do not guarantee arbitrary workloads fit free CPU/D1 limits.",
+    "Bills private recognition and candidate foundation is deployed; its formal PWA/auth/upload/real cash ledger is not connected.",
+    "Codex publishing, grading, certification craft and archives retain their original local execution requirements."
+  ]
+}

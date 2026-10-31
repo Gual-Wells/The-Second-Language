@@ -2,6 +2,8 @@
 
 此文件只说明工具如何连接；每天推荐、词典整合与创作判断以 `protocol/` 为准。运行命令均从项目根目录执行。`work/runs/` 可自由存放续作资料，不把密钥放进去。
 
+2026-10-31：普通 ChatGPT API 答疑已迁到项目内云端执行，四项目独立入口由 `worker/api-clock` 每分钟固定 RPC 唤醒，密钥为受保护的 Secrets Store 绑定，见 `protocol/SERIES_API_CLOUD.md`。真实文本/图片小样与定时调度核验通过后，只停用 `SecondLanguage-APIQuestions`、`SecondAlgorithm-APIQuestions`、`NEU-Schedule-Agenda-Runner` 三个旧本机 API 任务；旧在途任务自然结束，不强杀、不重排 unknown。本机 Codex 出版、测试/质检、提醒和归档没有因此停用。后文历史本机答疑描述不能覆盖此现行路由。
+
 2026-10-27后台档位更新见BACKGROUND_AUTOMATION与research/background-ultra-2026-10-27.md：日课、雅思、答疑/测试/质检、卷轴新主调用统一gpt-6.1-sol/ultra，子代理默认max可按需降低；纯归档/音频脚本不新增Codex调用。旧成功结果与未知调用身份保护不变，不因新档位重做；原排期、休息、空音频和现行服务认证保持。
 
 ## 现行逐义真实语境日课（2026-10-27）

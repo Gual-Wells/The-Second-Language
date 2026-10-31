@@ -71,8 +71,8 @@ test('collector distinguishes valid empty directory from missing or partly corru
 });
 test('named RPC capabilities pin their own sources and expose no HTTP or private read method',async()=>{
  const f=fixture();try{const exports={};const source=readFileSync('worker/src/series-usage-rpc.js','utf8').replace(/^import .*$/gm,'').replace(/export class /g,'class ')+'\nObject.assign(exports,{AlgorithmUsage,ScheduleUsage,LedgerUsage,LanguageAPIExecutor});';
- const WorkerEntrypoint=class{constructor(env){this.env=env;}};vm.runInNewContext(source,{WorkerEntrypoint,reportSeriesUsage,runCloudChapterQuestions:async()=>({completed:true}),exports});
+ const WorkerEntrypoint=class{constructor(env){this.env=env;}};let scopeCount=0;vm.runInNewContext(source,{WorkerEntrypoint,reportSeriesUsage,storageRequestEnvironment:env=>{scopeCount++;return {...env};},runCloudChapterQuestions:async env=>{assert.equal(env.DB,f.env.DB);assert.notEqual(env,f.env);return {completed:true};},exports});
  for(const [name,scope] of [['AlgorithmUsage','cloud-algorithm'],['ScheduleUsage','cloud-schedule'],['LedgerUsage','cloud-ledger']]){const instance=new exports[name](f.env);await instance.report(snapshot());assert.equal(f.sql.prepare('SELECT source FROM service_openai_usage_sources WHERE source=?').get(scope).source,scope);assert.deepEqual(Object.getOwnPropertyNames(exports[name].prototype),['constructor','report']);await assert.rejects(instance.report(snapshot(1,0,{source:'cloud-language'})));}
- assert.equal((await new exports.LanguageAPIExecutor(f.env).run()).completed,true);assert.deepEqual(Object.getOwnPropertyNames(exports.LanguageAPIExecutor.prototype),['constructor','run']);
+ assert.equal((await new exports.LanguageAPIExecutor(f.env).run()).completed,true);assert.equal(scopeCount,1);assert.deepEqual(Object.getOwnPropertyNames(exports.LanguageAPIExecutor.prototype),['constructor','run']);
  }finally{f.sql.close();}
 });

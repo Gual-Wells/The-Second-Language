@@ -40,13 +40,13 @@ question-api-worker.mjs仅领取questionsOnly；服务端API_QUESTIONS_ENABLED�
 
 通知携带精确questionId/chapterId/digest；点击从真实匹配的问题打开固定历史会话并定位，不借历史通知恢复封存正文或付费资格。普通入口继续跨章未读优先与打开快照；晚到回复不被旧快照吞掉。手工发送的幂等编号在发请求前持久保存，丢ACK后关窗/重载仍复用；旧草稿保留。明确未知计费及API过期租约状态不显示普通重做、不借retry重新排队，保留原件供核对。
 
-## 云端章节答疑（2026-10-31，先部署代码后切换）
+## 云端章节答疑（2026-10-31）
 
-用户授权章节答疑的ChatGPT API执行迁到项目自身Cloudflare Worker，使电脑关机不影响新问题处理。本节取代前文普通API答疑必须本机在线的限制；日课出版、章节测试、质检、VIX、声音与旧Codex运行器的其他任务不变。默认`API_CLOUD_ENABLED`关闭，不因安装代码自动启用或领取旧任务。先执行0023、0024迁移并配置运行时绑定，再由显式部署步骤打开开关。
+用户授权章节答疑的ChatGPT API执行迁到项目自身Cloudflare Worker，使电脑关机不影响新问题处理。本节取代前文普通API答疑必须本机在线的限制；日课出版、章节测试、质检、VIX、声音与旧Codex运行器的其他任务不变。2026-10-31 已执行0023、0024及0025迁移、绑定受保护的共用密钥并显式打开生产`API_CLOUD_ENABLED`。新环境仍应先完成这些部署步骤，不能因安装代码自动启用或领取旧任务。
 
 0023为原问题加`execution_route`，全部已有行留作`legacy`；只有开关开启后新提交的问题记`cloud-v1`。同ID提交重发保留原路由。本机HTTP领取及其过期检查只处理legacy；云端只处理cloud-v1，保留同会话前序阻挡与固定digest全文、完整会话。旧pending/running/failed、旧本机发送标记与成功答案不自动迁移、不重新生成。唯一显式例外是用户对已知失败点击重新处理：开关开启时这次新请求CAS切为cloud-v1；无开关仍沿legacy。retry守住读取时的attempts、error及route快照，不能由并发旧请求清除后来出现的未知保护。旧未知结果必须继续核对，不借切换清除保护。
 
-独立系列api-clock每分钟通过固定Service Binding调用`LanguageAPIExecutor.run()`；时钟不持项目数据库、私文或模型密钥，入口不接收任务参数、不返回私人内容。项目原提醒/维护Cron保持原逻辑，API RPC有独立D1调用预算。云端直接调用内部领取/续租/完成函数，不模拟发布者请求、不读取发布凭据。使用`worker/src/shared/cloud-responses.mjs`的项目级14分钟持久singleflight；模型、xhigh、16384结果token上限与10分钟时限保持。运行时每60秒通过单条正式版本/claim/lease CAS续业务租约。最坏离线夹具10次续租、16份原始流片段、答案事务与本源用量同步共48次D1操作；这不等于线上CPU或实体设备验收。仅Worker执行时取得`SECOND_SERIES_OPENAI_KEY` Secrets Store绑定，兼容已有`OPENAI_API_KEY` Worker secret。开发工具不读取密钥值，也不复制到代码、D1、日志或前端。
+独立系列api-clock每分钟通过固定Service Binding调用`LanguageAPIExecutor.run()`；时钟不持项目数据库、私文或模型密钥，入口不接收任务参数、不返回私人内容。项目原提醒/维护Cron保持原逻辑，API RPC有独立D1调用预算。云端直接调用内部领取/续租/完成函数，不模拟发布者请求、不读取发布凭据。使用`worker/src/shared/cloud-responses.mjs`的项目级14分钟持久singleflight；模型、xhigh、16384结果token上限与10分钟时限保持。运行时每60秒通过单条正式版本/claim/lease CAS续业务租约。最坏离线夹具10次续租、16份原始流片段、答案事务与本源用量同步共48次D1操作；这不等于线上CPU或实体设备验收。仅Worker执行时取得`SECOND_SERIES_OPENAI_KEY` Secrets Store绑定，兼容已有`OPENAI_API_KEY` Worker secret。本次密钥按用户明确授权经官方Wrangler stdin导入；值不进入命令行参数、代码、D1、日志或前端。
 
 共享runtime先在项目D1持久化不可重复的发送身份`(second-language,question-id,attempt)`和请求摘要，再发送唯一Responses POST。保留store=false、SSE、原始事件、完整终态及usage；未取得完整终态、连接中断与未知计费停止重发。只有用户明确重新处理的已知失败才增加attempt；时钟重入与完成恢复不增加。完整响应已保存而业务提交中断时，后续时钟只恢复同attempt答案、完成状态及通知outbox事务；即使凭据暂不可用也可恢复已保存答案，不再次调用模型。
 

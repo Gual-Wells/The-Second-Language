@@ -10,7 +10,7 @@ const response=()=>new Response('event: response.created\r\ndata: {"type":"respo
 const base=db=>({db,keyBinding:{get:async()=>'sk-fake_test_value'},project:'test',task:'test-only',attempt:'1',instructions:'Test',input:'fake content',schema:{type:'object',properties:{answer:{type:'string'}},required:['answer'],additionalProperties:false},config:{model:'gpt-6.1-sol',reasoningEffort:'xhigh',timeoutMs:1000}});
 const cases=[];async function check(name,run){await run();cases.push(name);}
 await check('complete provider receipt is durable before caller receives answer; same attempt reuses it',async()=>{
- const db=database();let calls=0;const run=()=>runCloudResponses({...base(db),fetchImpl:async(url,init)=>{calls++;assert.equal(url,'https://api.openai.com/v1/responses');const body=JSON.parse(init.body);assert.equal(body.store,false);assert.equal(body.stream,true);assert.equal(body.reasoning.effort,'xhigh');assert(!('tools' in body));return response();}});
+ const db=database();let calls=0;const run=()=>runCloudResponses({...base(db),fetchImpl:async(url,init)=>{calls++;assert.equal(url,'https://api.openai.com/v1/responses');assert.equal(init.redirect,'manual');const body=JSON.parse(init.body);assert.equal(body.store,false);assert.equal(body.stream,true);assert.equal(body.reasoning.effort,'xhigh');assert(!('tools' in body));return response();}});
  assert.equal((await run()).value.answer,'模拟回答');assert.equal(calls,1);assert.equal((await run()).reused,true);assert.equal(calls,1);
  assert.equal(db.sql.prepare('SELECT outcome FROM api_cloud_runs').get().outcome,'completed');
  assert.equal((await readCloudResult({...base(db)})).value.answer,'模拟回答');
@@ -25,6 +25,10 @@ await check('connection loss becomes unknown and same identity never sends a sec
 });
 await check('HTTP 500 remains unknown, while a known HTTP 400 is saved as rejected',async()=>{
  for(const status of [500,400]){const db=database();await assert.rejects(()=>runCloudResponses({...base(db),fetchImpl:async()=>new Response('{}',{status})}),e=>e.outcomeUnknown===(status===500));assert.equal(db.sql.prepare('SELECT outcome FROM api_cloud_runs').get().outcome,status===500?'unknown':'rejected');}
+});
+await check('provider redirects are not followed and cannot forward the bearer to another origin',async()=>{
+ const db=database();let calls=0;const args={...base(db),fetchImpl:async(url,init)=>{calls++;assert.equal(url,'https://api.openai.com/v1/responses');assert.equal(init.redirect,'manual');return new Response('',{status:307,headers:{location:'https://untrusted.invalid/'}});}};
+ await assert.rejects(()=>runCloudResponses(args),e=>e.outcomeUnknown===false);assert.equal(calls,1);assert.equal(db.sql.prepare('SELECT outcome,failure_code FROM api_cloud_runs').get().failure_code,'http_307');await assert.rejects(()=>runCloudResponses(args));assert.equal(calls,1);
 });
 await check('missing or refused key does not create a sending marker',async()=>{
  for(const keyBinding of [null,{get:async()=>{throw Error('unavailable protected store');}}]){const db=database();await assert.rejects(()=>runCloudResponses({...base(db),keyBinding}),e=>e.configurationMissing===true);assert.equal(db.sql.prepare('SELECT count(*) AS n FROM api_cloud_runs').get().n,0);}
