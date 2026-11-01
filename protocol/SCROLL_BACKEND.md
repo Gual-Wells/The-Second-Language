@@ -31,7 +31,7 @@
 
 | POST 路径 | 正文与行为 |
 | --- | --- |
-| `/api/scrolls/jobs/claim` | `{claim}`；最早pending原子领取。返回完整固定章节、认证、当前阶段、最近有效检查点及 `gpt-6.1-sol/ultra` 专用要求。 |
+| `/api/scrolls/jobs/claim` | `{claim}`；最早pending原子领取。返回完整固定章节、认证、当前阶段、最近有效检查点及 `gpt-6.1-sol/high` 专用要求。 |
 | `/api/scrolls/jobs/JOB/heartbeat` | `{claim}`；有效租约续5分钟。 |
 | `/api/scrolls/jobs/JOB/checkpoint` | `{claim,stage,digest}`；digest指永久JSON `{jobId,certificationId,stage,...}`；只可留本阶段或前进一阶段。 |
 | `/api/scrolls/jobs/JOB/revise` | `{claim,stage,digest}`；review/archive可有依据地回art/materials/layout。检查点须 `reason,failedReviewDigest`，真实退稿原件须 `approved:false`。 |

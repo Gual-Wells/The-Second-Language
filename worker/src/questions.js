@@ -4,6 +4,7 @@ import {claimChapterTest,chapterTestsRoute,chapterTestQueueTime} from './chapter
 import {temporaryTestQueueTime,claimTemporaryTest,temporaryTestsRoute} from './temporary-tests.js';
 import {isCurrentAffairsChapter,isCurrentAffairsRevision} from './current-affairs.js';
 import {questionReplyStatement} from './question-notifications.js';
+import {codexFallbackEnabled,questionFallbackStatus} from './codex-fallback.js';
 const projectQuestion="EXISTS(SELECT 1 FROM chapter_messages m JOIN chapter_conversations c ON c.id=m.conversation_id JOIN formal_chapter_sources s ON s.digest=c.chapter_digest AND s.policy='current-affairs-v1' WHERE m.id=chapter_question_jobs.id)";
 const json = (v,s=200) => Response.json(v,{status:s,headers:{'cache-control':'no-store'}});
 const uuid = v => typeof v==='string' && /^[a-f0-9-]{36}$/.test(v);
@@ -12,10 +13,10 @@ async function input(request) {
  const raw=await request.text(); if(raw.length>110000)throw Error('请求过大'); return JSON.parse(raw);
 }
 const jobError=(message,status=409)=>Object.assign(Error(message),{status});
-export async function questionCandidate(env,executionRoute='legacy') {
- return env.DB.prepare(`SELECT j.id,m.created_at FROM chapter_question_jobs j JOIN chapter_messages m ON m.id=j.id
+export async function questionCandidate(env,executionRoute='legacy',{fallbackOnly=false,apiOnly=false}={}) {
+ return env.DB.prepare(`SELECT j.id,j.attempts,m.created_at FROM chapter_question_jobs j JOIN chapter_messages m ON m.id=j.id
   JOIN chapter_conversations c ON c.id=m.conversation_id JOIN formal_chapter_sources s ON s.digest=c.chapter_digest AND s.policy='current-affairs-v1'
-  WHERE j.status='pending' AND j.execution_route=? AND NOT EXISTS(SELECT 1 FROM chapter_messages earlier JOIN chapter_question_jobs ej ON ej.id=earlier.id
+  WHERE j.status='pending' AND j.execution_route=? ${fallbackOnly?'AND j.codex_fallback_json IS NOT NULL':apiOnly?'AND j.codex_fallback_json IS NULL':''} AND NOT EXISTS(SELECT 1 FROM chapter_messages earlier JOIN chapter_question_jobs ej ON ej.id=earlier.id
    WHERE earlier.conversation_id=m.conversation_id AND earlier.seq<m.seq AND ej.status IN ('pending','running','failed'))
   ORDER BY m.seq LIMIT 1`).bind(executionRoute).first();
 }
@@ -33,8 +34,9 @@ export async function claimQuestionJob(env,{claim,executionRoute='legacy',candid
  return readQuestionJob(env,row.id,{attempt:row.attempts});
 }
 export async function readQuestionJob(env,id,extra={}) {
- const db=env.DB,chapter=await db.prepare(`SELECT r.*,m.seq AS message_seq,c.id AS conversation_id FROM chapter_messages m
+ const db=env.DB,chapter=await db.prepare(`SELECT r.*,m.seq AS message_seq,c.id AS conversation_id,j.execution_route,j.codex_fallback_json FROM chapter_messages m
   JOIN chapter_conversations c ON c.id=m.conversation_id JOIN chapter_revisions r ON r.digest=c.chapter_digest AND r.chapter_id=c.chapter_id
+  JOIN chapter_question_jobs j ON j.id=m.id
   WHERE m.id=?`).bind(id).first();
  const markdown=chapter&&(env.ONEDRIVE_ENABLED==='true'?await chapterText(env,chapter.content_key):await env.CHAPTERS.get(chapter.content_key));
  if(!markdown||await sha(markdown)!==chapter.digest) {
@@ -43,7 +45,7 @@ export async function readQuestionJob(env,id,extra={}) {
  }
  const {results:messages}=await db.prepare(`SELECT role,content,seq FROM chapter_messages WHERE conversation_id=? AND
   (seq<=? OR reply_to IN (SELECT id FROM chapter_messages WHERE conversation_id=? AND seq<?)) ORDER BY seq`).bind(chapter.conversation_id,chapter.message_seq,chapter.conversation_id,chapter.message_seq).all();
- return {id,...extra,chapter:{id:chapter.chapter_id,digest:chapter.digest,title:chapter.title,markdown},messages};
+ return {id,...extra,executionRoute:chapter.execution_route,codexFallback:chapter.codex_fallback_json?JSON.parse(chapter.codex_fallback_json):null,chapter:{id:chapter.chapter_id,digest:chapter.digest,title:chapter.title,markdown},messages};
 }
 // Shared by authenticated legacy routes and the internal scheduled adapter.
 // No synthetic publisher request or publishing credential is needed by cron.
@@ -80,17 +82,23 @@ export async function questionsRoute(request,env,{isPublisher,session,sameOrigin
  if(request.method!=='GET'&&!isPublisher&&!sameOrigin)return json({error:'请从阅读器提交'},403);
  if(path.startsWith('/jobs')) {
   if(!isPublisher)return json({error:'发布身份无效'},403);
+  if(path==='/jobs/fallback-status'&&request.method==='GET')return json(await questionFallbackStatus(env));
   const testAction=path.match(/^\/jobs\/([a-f0-9-]{36})\/(heartbeat|complete|fail)$/);
    if(testAction&&await db.prepare('SELECT id FROM temporary_chapter_tests WHERE id=?').bind(testAction[1]).first())return temporaryTestsRoute(new Request(request.url.replace('/api/questions','/api/temporary-tests'),request),env,{isPublisher,session,sameOrigin});
   if(testAction&&await db.prepare('SELECT id FROM chapter_tests WHERE id=?').bind(testAction[1]).first())return chapterTestsRoute(new Request(request.url.replace('/api/questions','/api/chapter-tests'),request),env,{isPublisher,session,sameOrigin});
   if(path==='/jobs/claim'&&request.method==='POST') {
    const b=await input(request);
+   if(b.codexFallbackOnly===true){
+    if(!codexFallbackEnabled(env))return json({job:null});
+    const candidate=await questionCandidate(env,'legacy',{fallbackOnly:true});
+    return json({job:candidate?await claimQuestionJob(env,{claim:b.claim,executionRoute:'legacy',candidateId:candidate.id,now}):null});
+   }
    // An expired worker is stopped for manual retry; never pay for an uncertain run again.
    await expireQuestionJobs(env,'legacy',now);
    if(typeof b.claim!=='string'||!/^[a-f0-9]{64}$/.test(b.claim))return json({error:'领取凭据无效'},400);
    if(b.questionsOnly===true&&env.API_QUESTIONS_ENABLED!=='true')return json({error:'API答疑尚未启用'},503);
    const questionsOnly=b.questionsOnly===true;
-   const candidate=env.API_QUESTIONS_ENABLED==='true'&&!questionsOnly?null:await questionCandidate(env,'legacy');
+   const candidate=env.API_QUESTIONS_ENABLED==='true'&&!questionsOnly?null:await questionCandidate(env,'legacy',{apiOnly:questionsOnly});
    if(!questionsOnly){
    await db.prepare("UPDATE chapter_tests SET status='failed',claim=NULL,error='出题被中断，可重新处理',updated_at=? WHERE status='running' AND lease_until<? AND EXISTS(SELECT 1 FROM formal_chapter_sources s WHERE s.digest=chapter_tests.chapter_digest AND s.policy='current-affairs-v1')").bind(now,now).run();
    const regular=await chapterTestQueueTime(env),temporary=await temporaryTestQueueTime(env),test=temporary&&(!regular||temporary.created_at<regular.created_at)?{...temporary,temporary:true}:regular;
@@ -137,7 +145,7 @@ export async function questionsRoute(request,env,{isPublisher,session,sameOrigin
    db.prepare(`WITH threads AS (${threadSQL}),chosen AS (
     SELECT * FROM threads WHERE (chapterId=? AND digest=?) ${requested?'':'OR unread>0'}
     ORDER BY CASE WHEN chapterId=? AND digest=? AND unread>0 THEN 0 WHEN unread>0 THEN 1 ELSE 2 END,createdAt LIMIT 1)
-    SELECT c.id AS threadId,c.chapterId,c.digest,c.firstUnreadQuestionId,m.id,m.seq,m.role,m.content,m.reply_to AS replyTo,m.created_at AS createdAt,j.status,j.error
+    SELECT c.id AS threadId,c.chapterId,c.digest,c.firstUnreadQuestionId,m.id,m.seq,m.role,m.content,m.reply_to AS replyTo,m.created_at AS createdAt,j.status,j.error,CASE WHEN j.codex_fallback_json IS NOT NULL THEN 1 ELSE 0 END AS codexFallback
     FROM chosen c LEFT JOIN chapter_messages m ON m.conversation_id=c.id LEFT JOIN chapter_question_jobs j ON j.id=m.id ORDER BY m.seq`).bind(...sourceArgs,b.chapterId,b.digest,b.chapterId,b.digest),
    db.prepare(`UPDATE chapter_conversations SET seen_seq=max(seen_seq,coalesce((SELECT max(seq) FROM chapter_messages a
     WHERE a.conversation_id=chapter_conversations.id AND a.role='assistant'),seen_seq))
@@ -150,7 +158,7 @@ export async function questionsRoute(request,env,{isPublisher,session,sameOrigin
  if(path===''&&request.method==='GET') {
   const thread=await db.prepare('SELECT * FROM chapter_conversations WHERE chapter_id=? AND chapter_digest=?').bind(url.searchParams.get('chapter'),url.searchParams.get('digest')).first();
   if(!thread)return json({messages:[],readOnly:!await isCurrentAffairsChapter(db,url.searchParams.get('chapter'),url.searchParams.get('digest'))});
-  const {results:messages}=await db.prepare(`SELECT m.id,m.seq,m.role,m.content,m.reply_to AS replyTo,m.created_at AS createdAt,j.status,j.error FROM chapter_messages m LEFT JOIN chapter_question_jobs j ON j.id=m.id WHERE m.conversation_id=? ORDER BY m.seq`).bind(thread.id).all();
+  const {results:messages}=await db.prepare(`SELECT m.id,m.seq,m.role,m.content,m.reply_to AS replyTo,m.created_at AS createdAt,j.status,j.error,CASE WHEN j.codex_fallback_json IS NOT NULL THEN 1 ELSE 0 END AS codexFallback FROM chapter_messages m LEFT JOIN chapter_question_jobs j ON j.id=m.id WHERE m.conversation_id=? ORDER BY m.seq`).bind(thread.id).all();
   return json({threadId:thread.id,messages,readOnly:!await isCurrentAffairsChapter(db,thread.chapter_id,thread.chapter_digest)});
  }
  if(path===''&&request.method==='POST') {
@@ -174,10 +182,10 @@ export async function questionsRoute(request,env,{isPublisher,session,sameOrigin
    if(!Number.isSafeInteger(b.seq)||b.seq<0)return json({error:'阅读位置无效'},400);
    await db.prepare(`UPDATE chapter_conversations SET seen_seq=max(seen_seq,coalesce((SELECT max(seq) FROM chapter_messages WHERE conversation_id=? AND role='assistant' AND seq<=?),seen_seq)) WHERE id=?`).bind(action[1],b.seq,action[1]).run();
   }else {
-   const job=await db.prepare('SELECT status,error,attempts,execution_route FROM chapter_question_jobs WHERE id=?').bind(action[1]).first();
+   const job=await db.prepare('SELECT status,error,attempts,execution_route,codex_fallback_json FROM chapter_question_jobs WHERE id=?').bind(action[1]).first();
    if(job?.status==='failed'&&(job.error==='outcome_unknown'||/结果待核对/.test(job.error||'')))return json({error:'本次结果待核对，暂不重复生成'},409);
    if(job?.status==='failed'){
-    const route=env.API_CLOUD_ENABLED==='true'?'cloud-v1':job.execution_route;
+    const route=job.codex_fallback_json?'legacy':env.API_CLOUD_ENABLED==='true'?'cloud-v1':job.execution_route;
     const changed=await db.prepare("UPDATE chapter_question_jobs SET status='pending',error=NULL,updated_at=?,execution_route=? WHERE id=? AND status='failed' AND attempts=? AND error IS ? AND execution_route=?").bind(now,route,action[1],job.attempts,job.error,job.execution_route).run();
     if(!changed.meta.changes)return json({error:'任务状态已更新，请重新读取；未重复生成'},409);
    }

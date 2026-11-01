@@ -1,5 +1,6 @@
 import {runCloudResponses,withCloudLock,readCloudResult,readCloudUsage} from './shared/cloud-responses.mjs';
-import {claimQuestionJob,expireQuestionJobs,questionJobAction} from './questions.js';
+import {claimQuestionJob,expireQuestionJobs,questionJobAction,questionCandidate} from './questions.js';
+import {codexFallbackEnabled,queueQuestionCodexFallback,handoffFailedCloudQuestion} from './codex-fallback.js';
 import {reportSeriesUsage} from './series-usage.js';
 import {reportSeriesStorage,seriesStoragePolicy} from './series-storage.js';
 import {reportProjectStorage} from './shared/project-storage-client.mjs';
@@ -44,7 +45,8 @@ async function recoverCompleted(env,{readResult,notify}){
  catch{
   await db.prepare("UPDATE chapter_question_jobs SET status='failed',error=?,claim=NULL WHERE id=? AND execution_route='cloud-v1' AND attempts=? AND status IN ('running','failed')")
    .bind(invalidSavedAnswer,row.id,row.attempts).run();
-  return null;
+  const fallbackQueued=await queueQuestionCodexFallback(env,{id:row.id,apiAttempt:row.attempts,reason:'api-result-invalid'});
+  return fallbackQueued?{failed:true,fallbackQueued:true,outcomeUnknown:false}:null;
  }
  const claim=claimToken(),now=Date.now(),hashed=await sha(claim);
  const owned=await db.prepare(`UPDATE chapter_question_jobs SET status='running',claim=?,lease_until=?,updated_at=?
@@ -65,26 +67,29 @@ async function recoverCompleted(env,{readResult,notify}){
 
 // Existing notification cron drains the atomically committed outbox within its next minute.
 // API execution keeps a separate, bounded D1 budget regardless of subscribed device count.
+export function cloudQuestionFetch(fetcher=fetch,headerTimeoutMs=45000){return async(target,options={})=>{const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),headerTimeoutMs);try{return await fetcher(target,{...options,signal:options.signal?AbortSignal.any([options.signal,controller.signal]):controller.signal});}finally{clearTimeout(timer);}};}
 export async function runCloudChapterQuestions(env,{runResponses=runCloudResponses,lock=withCloudLock,readResult=readCloudResult,notify=async()=>({deferred:true}),fetchImpl}={}){
  if(env.API_CLOUD_ENABLED!=='true')return {enabled:false};
  let handled=false;
  try{return await lock({db:env.DB,project:QUESTION_CLOUD_PROJECT,run:async()=>{
   const recovered=await recoverCompleted(env,{readResult,notify});
   if(recovered){handled=true;return recovered;}
-  await expireQuestionJobs(env,'cloud-v1');
+  const expired=await expireQuestionJobs(env,'cloud-v1');
+  if(expired?.meta?.changes&&codexFallbackEnabled(env)&&await handoffFailedCloudQuestion(env)){handled=true;return{failed:true,fallbackQueued:true,outcomeUnknown:true};}
   const keyBinding=env.SECOND_SERIES_OPENAI_KEY||env.OPENAI_API_KEY;
-  if(!keyBinding)return {configured:false};
+  if(!keyBinding){if(codexFallbackEnabled(env)){const pending=await questionCandidate(env,'cloud-v1');if(pending&&await queueQuestionCodexFallback(env,{id:pending.id,apiAttempt:pending.attempts,reason:'configuration-missing',allowPending:true})){handled=true;return{configured:false,fallbackQueued:true};}}return {configured:false};}
   const claim=claimToken(),job=await claimQuestionJob(env,{claim,executionRoute:'cloud-v1'});
   if(!job)return {empty:true};
   handled=true;
-  let resultSaved=false;
+  let resultSaved=false,validAnswer=false;
   try{
    const heartbeat=()=>heartbeatCloudQuestion(env,{id:job.id,claim});
    const result=await runResponses({db:env.DB,keyBinding,filesBinding:env.FILES,project:QUESTION_CLOUD_PROJECT,task:job.id,attempt:String(job.attempt),
     instructions:QUESTION_CLOUD_INSTRUCTIONS,input:JSON.stringify({chapter:job.chapter,messages:job.messages}),schema:QUESTION_CLOUD_SCHEMA,
-    name:'chapter_question',config:QUESTION_CLOUD_CONFIG,heartbeat,...(fetchImpl?{fetchImpl}:{})});
+    name:'chapter_question',config:QUESTION_CLOUD_CONFIG,heartbeat,fetchImpl:cloudQuestionFetch(fetchImpl||fetch)});
    resultSaved=true;
    const answer=answerOf(result.value);
+   validAnswer=true;
    if(!await heartbeat())throw Error('任务领取已失效，保留已保存答案');
    await questionJobAction(env,{id:job.id,action:'complete',claim,answer});
    await notify(env).catch(()=>{});
@@ -95,7 +100,8 @@ export async function runCloudChapterQuestions(env,{runResponses=runCloudRespons
    // A saved response with a failed DB commit must not expose an ordinary paid retry.
    const outcomeUnknown=resultSaved||error.outcomeUnknown===true;
    await questionJobAction(env,{id:job.id,action:'fail',claim,outcomeUnknown}).catch(()=>{});
-   return {failed:true,outcomeUnknown,...(error.configurationMissing?{configured:false}:{})};
+   const fallbackQueued=!validAnswer&&await queueQuestionCodexFallback(env,{id:job.id,apiAttempt:job.attempt,apiOutcomeUnknown:!resultSaved&&outcomeUnknown,reason:resultSaved?'api-result-invalid':outcomeUnknown?'api-unknown':'api-rejected'});
+   return {failed:true,outcomeUnknown,...(fallbackQueued?{fallbackQueued:true}:{}),...(error.configurationMissing?{configured:false}:{})};
   }
  }});}finally{
   // Only aggregate counters leave the runtime boundary; no raw task material is reported.

@@ -80,28 +80,28 @@ class Recorder { static int Main(string[] args) {
 }
 
 try{
- await test('new default is ultra; only original xhigh and ultra evidence is recognized',async()=>{
-  assert.equal(SCROLL_MODEL.reasoningEffort,'ultra');assert.ok(isScrollModel(oldModel));assert.ok(isScrollModel(SCROLL_MODEL));
-  assert.equal(isScrollModel({...oldModel,reasoningEffort:'high'}),false);assert.equal(isScrollModel({...oldModel,model:'other-model'}),false);
+ await test('new default is high; only original xhigh and high evidence is recognized',async()=>{
+  assert.equal(SCROLL_MODEL.reasoningEffort,'high');assert.ok(isScrollModel(oldModel));assert.ok(isScrollModel(SCROLL_MODEL));
+  assert.equal(isScrollModel({...oldModel,reasoningEffort:'low'}),false);assert.equal(isScrollModel({...oldModel,model:'other-model'}),false);
  });
- await test('ordinary scroll arguments use ultra with max subagents and preserve execution isolation',async()=>{
-  const args=scrollModelArgs(),c=configs(args);assert.equal(c.model_reasoning_effort,'"ultra"');assert.equal(c['agents.default_subagent_reasoning_effort'],'"max"');assert.equal(c['agents.enabled'],'true');assert.equal(feature(args,'multi_agent'),true);
+ await test('ordinary scroll arguments use high with high subagents and preserve execution isolation',async()=>{
+  const args=scrollModelArgs(),c=configs(args);assert.equal(c.model_reasoning_effort,'"high"');assert.equal(c['agents.default_subagent_reasoning_effort'],'"high"');assert.equal(c['agents.enabled'],'true');assert.equal(feature(args,'multi_agent'),true);
   assert.equal(args[args.indexOf('-m')+1],'gpt-6.1-sol');for(const f of ['shell_tool','apps','plugins','browser_use','browser_use_external','computer_use','memories','workspace_dependencies'])assert.equal(feature(args,f),false,f);
  });
- await test('one authorized image remains primary-only while its main reasoning is ultra',async()=>{
-  const args=scrollModelArgs({imageGeneration:true}),c=configs(args);assert.equal(c.model_reasoning_effort,'"ultra"');assert.equal(c['agents.enabled'],'false');assert.equal(feature(args,'multi_agent'),false);assert.match(c.developer_instructions,/primary agent.*exactly once/);
+ await test('one authorized image remains primary-only while its main reasoning is high',async()=>{
+  const args=scrollModelArgs({imageGeneration:true}),c=configs(args);assert.equal(c.model_reasoning_effort,'"high"');assert.equal(c['agents.enabled'],'false');assert.equal(feature(args,'multi_agent'),false);assert.match(c.developer_instructions,/primary agent.*exactly once/);
  });
  const recorder=await createRecorder();process.env.SECOND_LANGUAGE_CODEX_EXECUTABLE=recorder;
- await test('actual subprocess receives ultra/max flags and records truthful completed evidence without Codex',async()=>{
+ await test('actual subprocess receives high/high flags and records truthful completed evidence without Codex',async()=>{
   const dir=await directory('new-recorder'),result=await runScrollModel({directory:dir,name,prompt,schema:{type:'object'},timeoutMS:10000});recorderExecutions++;
-  assert.deepEqual(result.value,{fixture:'fake recorder result'});assert.equal(result.evidence.reasoningEffort,'ultra');assert.equal(result.evidence.subagentReasoningEffort,'max');assert.equal(result.evidence.agentsEnabled,true);assert.equal(result.evidence.state,'complete');assert.equal(result.evidence.sessionId,'offline-recorder-thread');
-  const args=(await fs.readFile(path.join(dir,'recorder-args.txt'),'utf8')).trim().split(/\r?\n/),c=configs(args);assert.equal(c.model_reasoning_effort,'"ultra"');assert.equal(c['agents.default_subagent_reasoning_effort'],'"max"');assert.equal(await fs.readFile(path.join(dir,'recorder-stdin.txt'),'utf8'),prompt);
+  assert.deepEqual(result.value,{fixture:'fake recorder result'});assert.equal(result.evidence.reasoningEffort,'high');assert.equal(result.evidence.subagentReasoningEffort,'high');assert.equal(result.evidence.agentsEnabled,true);assert.equal(result.evidence.state,'complete');assert.equal(result.evidence.sessionId,'offline-recorder-thread');
+  const args=(await fs.readFile(path.join(dir,'recorder-args.txt'),'utf8')).trim().split(/\r?\n/),c=configs(args);assert.equal(c.model_reasoning_effort,'"high"');assert.equal(c['agents.default_subagent_reasoning_effort'],'"high"');assert.equal(await fs.readFile(path.join(dir,'recorder-stdin.txt'),'utf8'),prompt);
  });
- await test('actual primary-only image invocation keeps ultra and disables delegated image submission',async()=>{
+ await test('actual primary-only image invocation keeps high and disables delegated image submission',async()=>{
   const dir=await directory('image-recorder'),result=await runScrollModel({directory:dir,name,prompt,schema:{type:'object'},imageGeneration:true,timeoutMS:10000});recorderExecutions++;
   const args=(await fs.readFile(path.join(dir,'recorder-args.txt'),'utf8')).trim().split(/\r?\n/),c=configs(args);
-  assert.equal(c.model_reasoning_effort,'"ultra"');assert.equal(c['agents.enabled'],'false');assert.equal(feature(args,'multi_agent'),false);assert.equal(feature(args,'image_generation'),true);assert.match(c.developer_instructions,/primary agent.*exactly once/);
-  assert.equal(result.evidence.reasoningEffort,'ultra');assert.equal(result.evidence.agentsEnabled,false);assert.equal(result.evidence.imageGeneration,true);
+  assert.equal(c.model_reasoning_effort,'"high"');assert.equal(c['agents.enabled'],'false');assert.equal(feature(args,'multi_agent'),false);assert.equal(feature(args,'image_generation'),true);assert.match(c.developer_instructions,/primary agent.*exactly once/);
+  assert.equal(result.evidence.reasoningEffort,'high');assert.equal(result.evidence.agentsEnabled,false);assert.equal(result.evidence.imageGeneration,true);
  });
  process.env.SECOND_LANGUAGE_CODEX_EXECUTABLE=path.join(root,'must-never-execute-missing.exe');
  await test('complete local xhigh output is reused without rewriting original model evidence',async()=>{
@@ -118,7 +118,7 @@ try{
  await test('remote complete with lost checkpoint and local attempt reuses original xhigh output',async()=>{
   const s=fixtureService(),bound=s.add(oldInput,resultFor()),state={outputs:{}};const r=await invoke(s,{state});assert.equal(r.evidence.reasoningEffort,'xhigh');assert.deepEqual(state.outputs[name],bound);assert.deepEqual([s.actionCalls,s.begins,s.uploads],[0,0,0]);assert.equal(s.restores,1);
  });
- await test('old unresolved external outcomes cannot be bypassed by the new ultra digest',async()=>{
+ await test('old unresolved external outcomes cannot be bypassed by the new high digest',async()=>{
   for(const state of ['calling','outcome_unknown']){const s=fixtureService();s.add(oldInput,null,state);await assert.rejects(invoke(s),attention);assert.deepEqual([s.actionCalls,s.begins,s.uploads],[0,0,0]);}
  });
  await test('stored input identity and changed checkpoint prompt are verified before restoration',async()=>{
@@ -128,12 +128,12 @@ try{
  await test('a restored output must retain the effort of its original immutable input',async()=>{
   const s=fixtureService();s.add(oldInput,resultFor(SCROLL_MODEL));await assert.rejects(invoke(s),attention);assert.equal(s.actionCalls,0);assert.equal(s.begins,0);
  });
- await test('legacy retry authorization is not silently converted into an ultra submission',async()=>{
+ await test('legacy retry authorization is not silently converted into an high submission',async()=>{
   const s=fixtureService();s.add(oldInput,null,'retry_authorized');await assert.rejects(invoke(s),attention);assert.deepEqual([s.actionCalls,s.begins,s.uploads],[0,0,0]);
  });
- await test('a genuinely new external input captures ultra and max subagents, and then reuses',async()=>{
-  const s=fixtureService(),state={outputs:{}},r=await invoke(s,{state});assert.equal(r.evidence.reasoningEffort,'ultra');assert.deepEqual([s.actionCalls,s.begins],[1,1]);
-  const input=s.assets.get(state.outputs[name].inputDigest);assert.deepEqual(input.model,SCROLL_MODEL);assert.deepEqual(input.execution,{subagentReasoningEffort:'max',agentsEnabled:true});
+ await test('a genuinely new external input captures high and high subagents, and then reuses',async()=>{
+  const s=fixtureService(),state={outputs:{}},r=await invoke(s,{state});assert.equal(r.evidence.reasoningEffort,'high');assert.deepEqual([s.actionCalls,s.begins],[1,1]);
+  const input=s.assets.get(state.outputs[name].inputDigest);assert.deepEqual(input.model,SCROLL_MODEL);assert.deepEqual(input.execution,{subagentReasoningEffort:'high',agentsEnabled:true});
   await invoke(s,{state:{outputs:{}}});assert.deepEqual([s.actionCalls,s.begins],[1,1]);
  });
  await test('an action with an unknown outcome remains blocked on its next invocation',async()=>{

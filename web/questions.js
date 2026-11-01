@@ -65,7 +65,7 @@ export function createQuestionsUI({api,showDialog,toast,getContext}) {
     const text=document.createElement('div');text.className='question-content';if(m.role==='assistant')prose(text,m.content);else text.textContent=m.content;
     box.append(label,text);
     if(m.role==='user'&&m.status!=='answered'){
-     const status=document.createElement('p');status.className='question-status';status.textContent=m.status==='running'?'正在分析…':m.status==='failed'?(m.error||'暂未完成'):'等待处理';box.append(status);
+     const status=document.createElement('p');status.className='question-status';status.textContent=m.status==='running'?(m.codexFallback?'本机正在继续处理…':'正在分析…'):m.status==='failed'?(m.error||'暂未完成'):(m.codexFallback?'等待本机继续处理':'等待处理');box.append(status);
      if(m.status==='failed'&&!unknown(m)&&!readOnly){const retry=document.createElement('button');retry.type='button';retry.className='bevel-button';retry.textContent='重新处理';retry.onclick=async()=>{retry.disabled=true;try{await post(`/api/questions/${m.id}/retry`,{});await refresh();}catch(e){toast(e.message);retry.disabled=false;}};box.append(retry);}
     }
     return box;

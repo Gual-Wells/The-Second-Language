@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "intervalMs": 15000,
+  "statusTimeoutMs": 8000,
+  "lockPort": 49763,
+  "workRoot": "D:/CodexStorage/services/second-series-fallback",
+  "nodeExecutable": "C:/Users/huawei/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node.exe",
+  "codexExecutable": "C:/Users/huawei/AppData/Local/OpenAI/Codex/bin/2993767bd1dfb009/codex.exe",
+  "proxyUrl": "http://127.0.0.1:6987",
+  "projects": [
+    {
+      "id": "language",
+      "cwd": "D:/CodexStorage/workspaces/second-language-certification-reader",
+      "script": "D:/CodexStorage/workspaces/second-language-certification-reader/scripts/question-codex-fallback-worker.mjs",
+      "args": ["--once"],
+      "credential": {"type": "publisher-config", "file": "D:/CodexStorage/workspaces/second-language-certification-reader/.cache/local-services.json"}
+    },
+    {
+      "id": "algorithm",
+      "cwd": "D:/CodexStorage/workspaces/the-second-algorithm",
+      "script": "D:/CodexStorage/workspaces/the-second-algorithm/scripts/question-codex-worker.mjs",
+      "args": [],
+      "credential": {"type": "publisher-config", "file": "D:/CodexStorage/workspaces/the-second-algorithm/.local/services/config.json"}
+    },
+    {
+      "id": "schedule",
+      "cwd": "D:/CodexStorage/services/neu-schedule-agenda/runtime/codex-fallback-7e09bf0375f5bbe5",
+      "script": "D:/CodexStorage/services/neu-schedule-agenda/runtime/codex-fallback-7e09bf0375f5bbe5/scripts/agenda-runner.mjs",
+      "args": ["D:/CodexStorage/services/neu-schedule-agenda/runner.json", "--codex-fallback-only"],
+      "credential": {"type": "json", "file": "D:/CodexStorage/services/neu-schedule-agenda/runner.json", "key": "runnerKey"}
+    },
+    {
+      "id": "ledger",
+      "cwd": "D:/CodexStorage/workspaces/second-ledger",
+      "script": "D:/CodexStorage/workspaces/second-ledger/tools/codex-fallback-worker.mjs",
+      "args": ["--once", "--config", "D:/CodexStorage/private/second-ledger/codex-fallback/config.json"],
+      "credential": {"type": "text", "file": "D:/CodexStorage/private/second-ledger/codex-fallback/worker-token.txt"}
+    }
+  ]
+}

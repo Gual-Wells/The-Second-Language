@@ -51,3 +51,8 @@ question-api-worker.mjs仅领取questionsOnly；服务端API_QUESTIONS_ENABLED�
 共享runtime先在项目D1持久化不可重复的发送身份`(second-language,question-id,attempt)`和请求摘要，再发送唯一Responses POST。保留store=false、SSE、原始事件、完整终态及usage；未取得完整终态、连接中断与未知计费停止重发。只有用户明确重新处理的已知失败才增加attempt；时钟重入与完成恢复不增加。完整响应已保存而业务提交中断时，后续时钟只恢复同attempt答案、完成状态及通知outbox事务；即使凭据暂不可用也可恢复已保存答案，不再次调用模型。
 
 答案与通知outbox继续同事务提交；云端答案正常由下一轮原提醒Cron投递，避免API调用预算随设备数量增加，旧HTTP完成接口仍可尽力立即提醒。推送失败由原有最多四次投递维护处理，不能退回模型队列。云端usage是实际返回token记录，仅以聚合metadata同步给第二语言服务额度页，不冒充官方钱包余额；本次接入不触发本机任务末尾余额/归档脚本，也不改变原日课、休息和永久存储合同。离线验证：`node scripts/check-chapter-questions.mjs`、`node --test scripts/check-question-notifications.mjs scripts/check-cloud-questions.mjs scripts/check-series-usage.mjs`，仅内存SQLite和模拟HTTP，不领取真实任务、不调用收费API。
+
+
+## 2026-11-01 ChatGPT API 失败接手
+
+按 API_CODEX_FALLBACK.md：新API失败由统一15秒隐藏系列泵监测带标记的独立Codex队列；本机执行Sol6.1/high，原API xhigh与unknown回执不改、不重发。完整成功答案先恢复，迟到API不能覆盖新claim；是否已上线以真实发布回执为准。

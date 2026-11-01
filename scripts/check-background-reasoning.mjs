@@ -16,9 +16,9 @@ const results=[];
 function overrides(args){const values={};for(let i=0;i<args.length;i++)if(args[i]==='-c'){const [key,...value]=args[++i].split('=');values[key]=value.join('=').replace(/^"|"$/g,'');}return values;}
 function checkArguments(args,{model,sandbox}={}){
  const values=overrides(args);
- assert.equal(values.model_reasoning_effort,'ultra');
+ assert.equal(values.model_reasoning_effort,'high');
  assert.equal(values['agents.enabled'],'true');
- assert.equal(values['agents.default_subagent_reasoning_effort'],'max');
+ assert.equal(values['agents.default_subagent_reasoning_effort'],'high');
  assert.ok(args.some((v,i)=>v==='--enable'&&args[i+1]==='multi_agent'));
  assert.ok(!args.some((v,i)=>v==='--disable'&&args[i+1]==='multi_agent'));
  assert.equal(values['agents.default_subagent_model'],undefined,'Subagent model must keep the caller inheritance');
@@ -29,8 +29,8 @@ async function check(name,fn){await fn();results.push(name);}
 try{
  const physical=await fs.realpath(root);
  if(process.platform==='win32')assert.match(physical,/^D:[\\/]/i);
- await check('shared background flags request ultra and allow default-max inherited-model agents',async()=>{
-  assert.equal(BACKGROUND_REASONING_EFFORT,'ultra');assert.equal(BACKGROUND_SUBAGENT_EFFORT,'max');
+ await check('shared background flags request high and allow default-high inherited-model agents',async()=>{
+  assert.equal(BACKGROUND_REASONING_EFFORT,'high');assert.equal(BACKGROUND_SUBAGENT_EFFORT,'high');
   checkArguments(backgroundCodexArgs);
  });
  await check('quality reasoning does not reopen execution, network or private provider environment',async()=>{
@@ -99,7 +99,7 @@ $projectRoot=$PSScriptRoot
 $prompt='Self-authored fixture prompt, not a production task.'
 Invoke-Expression $commands[0].Extent.Text
 `);
-  for(const name of ['daily','practice'])await check('PowerShell '+name+' actual command expression renders ultra/max while retaining model and sandbox',async()=>{
+  for(const name of ['daily','practice'])await check('PowerShell '+name+' actual command expression renders high/high while retaining model and sandbox',async()=>{
    const file=path.join(repo,'scripts/run-'+name+'.ps1'),bytes=await fs.readFile(file);
    assert.deepEqual([...bytes.subarray(0,3)],[239,187,191],'Windows PowerShell UTF-8 decoding remains explicit');
    const result=spawnSync('powershell.exe',['-NoProfile','-NonInteractive','-ExecutionPolicy','Bypass','-File',astCapture,'-SourceFile',file],{cwd:root,encoding:'utf8',windowsHide:true,timeout:15000,env:{...process.env,CODEX_HOME:path.join(root,'codex-home'),TEMP:root,TMP:root,WRANGLER_LOG_PATH:path.join(root,'wrangler-logs')}});

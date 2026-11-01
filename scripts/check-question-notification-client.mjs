@@ -58,10 +58,13 @@ try{
  await page.locator('#disablePushButton').click();await page.waitForFunction(()=>!document.getElementById('pushButton').hidden);check('disable removes both browser and server subscription',!registered&&await page.locator('#disablePushButton').isHidden());
  await page.locator('[data-close="settingsDialog"]').click();
  const boot=await page.evaluate(()=>performance.timeOrigin),catalogueRequests=calls.filter(c=>c.path==='/api/chapters').length;
- currentMessages.push({id:'current-question',seq:1,role:'user',content:'保持打开的问题',status:'pending'});
+ currentMessages.push({id:'current-question',seq:1,role:'user',content:'保持打开的问题',status:'pending',codexFallback:true});
  await page.locator('#questionsButton').click();await page.waitForFunction(()=>!document.getElementById('questionChapter').disabled);
  check('in-app entry opens directly in the already running reader',await page.locator('#questionsDialog').evaluate(e=>e.open)&&await page.evaluate(()=>performance.timeOrigin)===boot);
+ check('queued independent Codex fallback uses the existing quiet status line',await page.locator('#questionMessages').textContent().then(text=>text.includes('等待本机继续处理')));
  await page.locator('#questionText').fill('下一问仍保留');
+ currentMessages[0].status='running';await page.evaluate(()=>document.dispatchEvent(new Event('visibilitychange')));await page.waitForFunction(()=>document.getElementById('questionMessages').textContent.includes('本机正在继续处理…'));
+ check('local processing status never reloads the reader or clears the next draft',await page.locator('#questionText').inputValue()==='下一问仍保留'&&await page.evaluate(()=>performance.timeOrigin)===boot);
  currentMessages[0].status='answered';currentMessages.push({id:'current-answer',seq:2,role:'assistant',replyTo:'current-question',content:'保持打开时抵达的新回答。'});
  await page.evaluate(()=>document.dispatchEvent(new Event('visibilitychange')));
  await page.waitForFunction(()=>document.getElementById('questionMessages').textContent.includes('保持打开时抵达的新回答。'));

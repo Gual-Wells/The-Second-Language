@@ -70,12 +70,12 @@ try{
   // Deliberately no formal chapter_sources binding for this separate old scope.
   await status({},publisher,{expected:409,id:archivedJob});
  });
- await test('a newly claimed isolated pending job advertises ultra without reading or issuing assets',async()=>{
+ await test('a newly claimed isolated pending job advertises high without reading or issuing assets',async()=>{
   // Explicit in-memory state reset for this one claim check; it is not a route
   // bypass of unknown generation and it never operates on a real certificate.
   sql.prepare('DELETE FROM scroll_external_calls WHERE job_id=?').run(jobId);sql.prepare("UPDATE scroll_jobs SET status='pending',stage='source',claim=NULL,lease_until=NULL WHERE id=?").run(jobId);
   const response=await scrollsRoute(new Request('https://fixture.invalid/api/scrolls/jobs/claim',{method:'POST',body:JSON.stringify({claim})}),env,publisher,bucket),value=await response.json();
-  assert.equal(response.status,200);assert.equal(value.job.model.model,'gpt-6.1-sol');assert.equal(value.job.model.reasoningEffort,'ultra');assert.equal(value.job.chapter.digest,chapterDigest);assert.equal(value.job.stage,'source');assert.equal(bucketReads,0);
+  assert.equal(response.status,200);assert.equal(value.job.model.model,'gpt-6.1-sol');assert.equal(value.job.model.reasoningEffort,'high');assert.equal(value.job.chapter.digest,chapterDigest);assert.equal(value.job.stage,'source');assert.equal(bucketReads,0);
  });
  console.log(JSON.stringify({ok:true,cases:tests,migrations:migrations.length,sqlite:true,statusLookupsWriteRows:false,fixtureForeignKeys:'disabled only while directly seeding status fixtures; enabled for route calls; not a grading/award test',liveNetworkCalls:0,modelCalls:0,productionWrites:0}));
 }finally{globalThis.fetch=originalFetch;sql.close();}

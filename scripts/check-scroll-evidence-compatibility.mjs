@@ -27,11 +27,11 @@ async function fixture(creatorEffort,reviewerEffort,{reviewerModel='gpt-6.1-sol'
  const review=store({schema:'second-language.scroll-review.v1',candidateDigest:candidate.digest,contentSHA,approved:true,creator,reviewer,checks:Object.fromEntries(['source','translation','theme','material','layout','dynamic','engineering'].map(k=>[k,true])),evidence:[entries[0].digest],notes:'Offline transport fixture; no model or art review performed.'});
  return {manifest:{schema:'second-language.scroll-package.v1',certificationId:cert.id,chapterId:cert.chapterId,chapterDigest:cert.chapterDigest,recipientId:cert.recipientId,passedAt:cert.passedAt,contentSHA,candidateDigest:candidate.digest,reviewDigest:review.digest,files:entries,recovery:{baseManifestDigest:'b'.repeat(64),workArchiveDigest:entries.at(-1).digest},viewer:{schema:'second-language.chapter-scroll-viewer.v1',profile:{base:'scroll-v42',nominalSizeMM:[300,420]},record:{...identity,chapterNumber:cert.chapterNumber,category:'chapter-certified',status:'ready',sha256:contentSHA,artPlanDigest:plan.digest},surface:{schema:'second-language.chapter-scroll-surfaces.v1',width:1000,height:1400,seal:{variant:'oblong',version:'offline-v1'},layout:{contentDigest:contentSHA,artPlanDigest:plan.digest},layers}}},candidate,review};
 }
-assert.equal(SCROLL_MODEL.reasoningEffort,'ultra');
+assert.equal(SCROLL_MODEL.reasoningEffort,'high');
 let accepted=0,rejected=0;
-for(const [creator,reviewer]of [['xhigh','xhigh'],['xhigh','ultra'],['ultra','xhigh'],['ultra','ultra']]){
+for(const creator of ['high','xhigh','ultra'])for(const reviewer of ['high','xhigh','ultra']){
  const f=await fixture(creator,reviewer),before=[Buffer.from(files.get(f.candidate.digest)),Buffer.from(files.get(f.review.digest))];
  await validateScrollPackage(bucket,JSON.parse(canonical(f.manifest)),cert);assert.deepEqual(files.get(f.candidate.digest),before[0]);assert.deepEqual(files.get(f.review.digest),before[1]);accepted++;
 }
-for(const [creator,reviewer,options]of [['high','ultra'],['ultra','max'],['ultra','ultra',{reviewerModel:'another-model'}]]){const f=await fixture(creator,reviewer,options);await assert.rejects(validateScrollPackage(bucket,JSON.parse(canonical(f.manifest)),cert),/独立审阅未覆盖/);rejected++;}
+for(const [creator,reviewer,options]of [['low','ultra'],['ultra','max'],['ultra','ultra',{reviewerModel:'another-model'}]]){const f=await fixture(creator,reviewer,options);await assert.rejects(validateScrollPackage(bucket,JSON.parse(canonical(f.manifest)),cert),/独立审阅未覆盖/);rejected++;}
 console.log(JSON.stringify({ok:true,currentDefault:SCROLL_MODEL,acceptedOriginalCombinations:accepted,rejectedWeakOrWrongModel:rejected,originalEvidenceUnchanged:true,actualAwards:0,networkCalls:0,modelCalls:0}));
