@@ -226,8 +226,18 @@ export async function discoverMaterials(date,{root=repositoryRoot,sourceIds=[],t
 
 export function extractHtml(html,url,encoding=null) {
   const data=extractMatureHtml(html,url,encoding);
+  assertArticlePageRole(data);
   data.pageTimestamps=data.pageTimestamps.map(t=>({...t,parsedAt:iso(t.raw)}));
   return data;
+}
+// A successful HTTP response and mature extractor can still return a soft 404.
+// Reject only explicit error-page titles; a real article discussing HTTP 404
+// remains a candidate, and all other page roles still require an actual read.
+export function assertArticlePageRole(data) {
+  const title=String(data.title||data.readabilityTitle||'').replace(/\s+/g,' ').trim();
+  if(/^(?:404(?:\s*[-:–—]?\s*(?:error|page not found|not found))?|page not found|error\s*404)(?:\s*[|–—]\s*.+)?$/i.test(title)) {
+    throw Error('Explicit error-page title: not an article candidate. Saved HTTP bytes do not establish a usable original.');
+  }
 }
 function readFolder(base,sourceId,canonicalUrl) {
   return path.join(base,'reads',sourceId+'-'+digest(canonicalUrl).slice(0,24));

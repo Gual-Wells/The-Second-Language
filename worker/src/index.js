@@ -21,6 +21,7 @@ import {certificationLabRoute} from './certification-lab.js';
 import {storageRoute,permanentBucket,chapterText,storageRequestEnvironment} from './storage.js';
 import {audioConfigRoute,chapterAudioParts} from './audio-config.js';
 import {CURRENT_AFFAIRS_POLICY,prepareChapterSources,readChapterSources,verifyChapterEvidence} from './current-affairs.js';
+import {readPublicationReview,readPublicationAttestation,assertPublicationReviewBase,PUBLICATION_REVIEW_POLICY} from './publication-review.js';
 
 const encoder = new TextEncoder();
 const MAX_BODY = 5_000_000;
@@ -185,6 +186,23 @@ async function route(request, env) {
     if(!prior&&parsed.format==='usage-context-v1'&&!value.sourcePackage.evidenceDigest)return json({error:'单正文须先永久封存采用原文与作者证据'},400);
     if(!prior&&parsed.format!=='usage-context-v1'&&!parsed.articles.length)return json({error:'新制作版本须采用真实取材文章组或单正文真实语境；已有原件不回写'},400);
     if(prior&&(prior.chapter_id!==value.id||prior.run_id!==value.runId||prior.source_digest!==sources.digest))return json({error:'正文版本与已冻结的来源或运行身份冲突'},409);
+    let publicationReview=null,publicationValidation=null;
+    if(parsed.format==='usage-context-v1'){
+      const alreadyCurrent=prior&&await env.DB.prepare('SELECT 1 FROM published_chapters WHERE chapter_id=? AND digest=?').bind(value.id,digest).first();
+      const reviewBinding=await env.DB.prepare('SELECT * FROM chapter_publication_reviews WHERE chapter_digest=?').bind(digest).first();
+      const reviewDigest=value.publicationReviewDigest||reviewBinding?.review_digest;
+      if(!alreadyCurrent||reviewDigest){
+        const validationDigest=value.publicationAttestationDigest||reviewBinding?.validation_digest;
+        try{
+          const reviewed=await readPublicationReview(env,reviewDigest,{chapter:{...value,digest},parsed,runId:value.runId,checkRefs:false});
+          await assertPublicationReviewBase(env,reviewed,value.id,digest);
+          await readPublicationAttestation(env,validationDigest,{chapterDigest:digest,sourceDigest:sources.digest,evidenceDigest:value.sourcePackage.evidenceDigest,publicationReviewDigest:reviewDigest,runId:value.runId,date:value.date,wordCount:value.wordCount,sourceCount:value.sourcePackage.sources.length});
+        }catch(error){return json({error:'出版审阅或完整证据签名无效：'+error.message},error.code==='PUBLICATION_BASE_CHANGED'?409:/尚未永久保存/.test(error.message)?503:400);}
+        if(reviewBinding&&(reviewBinding.source_digest!==sources.digest||reviewBinding.review_digest!==reviewDigest||reviewBinding.validation_digest!==validationDigest))return json({error:'本版出版审阅已绑定，不能替换'},409);
+        publicationReview=reviewDigest;
+        publicationValidation=validationDigest;
+      }
+    }
     const run=await env.DB.prepare('SELECT selection_digest FROM daily_runs WHERE run_id=?').bind(value.runId).first();
     if(run?.selection_digest&&run.selection_digest!==value.sourcePackage.selectionDigest)return json({error:'来源包与最终选词摘要不一致'},409);
     if(env.ONEDRIVE_ENABLED!=='true')return json({error:'新章及来源包必须先完成永久封存'},503);
@@ -202,9 +220,12 @@ async function route(request, env) {
       .bind(digest,value.id,value.date,number,value.title,value.subtitle,DAILY_WORD_COUNT,key,value.runId,value.vixCommit,value.protocolCommit,Date.now()),
       env.DB.prepare(`INSERT OR IGNORE INTO chapter_sources(digest,source_digest,source_key,policy,created_at)
        SELECT ?,?,?,?,? WHERE EXISTS(SELECT 1 FROM chapter_revisions WHERE digest=? AND chapter_id=? AND run_id=?)`)
-      .bind(digest,sources.digest,sources.key,sources.policy,Date.now(),digest,value.id,value.runId)]);
+      .bind(digest,sources.digest,sources.key,sources.policy,Date.now(),digest,value.id,value.runId),
+      ...(publicationReview?[env.DB.prepare(`INSERT OR IGNORE INTO chapter_publication_reviews(chapter_digest,source_digest,review_digest,validation_digest,policy,created_at)
+       SELECT ?,?,?,?,?,? WHERE EXISTS(SELECT 1 FROM chapter_revisions WHERE digest=? AND chapter_id=? AND run_id=?)`).bind(digest,sources.digest,publicationReview,publicationValidation,PUBLICATION_REVIEW_POLICY,Date.now(),digest,value.id,value.runId)]:[])]);
     const binding=await env.DB.prepare('SELECT source_digest,source_key,policy FROM chapter_sources WHERE digest=?').bind(digest).first();
     if(binding?.source_digest!==sources.digest||binding.source_key!==sources.key||binding.policy!==sources.policy)return json({error:'正文版本的来源绑定已存在且不能替换'},409);
+    if(publicationReview){const actual=await env.DB.prepare('SELECT * FROM chapter_publication_reviews WHERE chapter_digest=?').bind(digest).first();if(actual?.source_digest!==sources.digest||actual.review_digest!==publicationReview||actual.validation_digest!==publicationValidation)return json({error:'本版出版审阅已由另一份原件绑定；保留原件恢复，不重新签发'},409);}
     return json({ok:true,digest,chapterId:value.id,number,sourcePolicy:sources.policy,sourceDigest:sources.digest});
   }
   if (path === '/api/publish/commit' && request.method === 'POST') {
@@ -215,9 +236,24 @@ async function route(request, env) {
     if (!revision) return json({ error: '暂存章节不存在' }, 404);
     const binding=await env.DB.prepare('SELECT * FROM formal_chapter_sources WHERE digest=? AND policy=?').bind(revision.digest,CURRENT_AFFAIRS_POLICY).first();
     if(!binding)return json({error:'章节未完成新流程来源封存，不能加入正式目录'},409);
-    try{const frozen=await readChapterSources(env,{...binding,chapter_id:revision.chapter_id,study_date:revision.study_date});await verifyChapterEvidence(env,frozen.sourcePackage,revision.run_id,{readGroups:true});}catch{return json({error:'来源包或采用证据原件暂不可核对，尚未发布'},503);}
     let publishedText;try{publishedText=await chapterText(env,revision.content_key);}catch{return json({error:'章节原件暂不可核对，尚未发布'},503);}
     if(!publishedText||await sha256(publishedText)!==revision.digest)return json({error:'章节原件暂不可核对，尚未发布'},503);
+    let publicationBaseDigest=null;
+    try{
+      const frozen=await readChapterSources(env,{...binding,chapter_id:revision.chapter_id,study_date:revision.study_date});
+      await verifyChapterEvidence(env,frozen.sourcePackage,revision.run_id);
+      if(publishedText.startsWith('<!-- FORMAT:usage-context-v1 -->')){
+        const review=await env.DB.prepare('SELECT * FROM chapter_publication_reviews WHERE chapter_digest=?').bind(revision.digest).first();
+        const alreadyCurrent=await env.DB.prepare('SELECT 1 FROM published_chapters WHERE chapter_id=? AND digest=?').bind(revision.chapter_id,revision.digest).first();
+        if(!review&&!alreadyCurrent)throw Error('新正文没有出版审阅绑定');
+        if(review){
+          if(review.source_digest!==binding.source_digest||review.policy!==PUBLICATION_REVIEW_POLICY)throw Error('出版审阅绑定与来源不符');
+          const reviewed=await readPublicationReview(env,review.review_digest,{chapter:{date:revision.study_date,digest:revision.digest,sourceDigest:binding.source_digest,markdown:publishedText,sourcePackage:frozen.sourcePackage},parsed:validateAnnotatedContent(publishedText),runId:revision.run_id,checkRefs:false});
+          publicationBaseDigest=await assertPublicationReviewBase(env,reviewed,revision.chapter_id,revision.digest);
+          await readPublicationAttestation(env,review.validation_digest,{chapterDigest:revision.digest,sourceDigest:binding.source_digest,evidenceDigest:frozen.sourcePackage.evidenceDigest,publicationReviewDigest:review.review_digest,runId:revision.run_id,date:revision.study_date,wordCount:revision.word_count,sourceCount:frozen.sourcePackage.sources.length});
+        }
+      }
+    }catch(error){return json({error:'来源包、完整采用证据或本版出版审阅暂不可核对，尚未发布'},error.code==='PUBLICATION_BASE_CHANGED'?409:503);}
     const admittedAudioParts=JSON.stringify(chapterAudioParts(publishedText));
     const upgraded=await env.DB.prepare('SELECT 1 FROM chapter_first_part_upgrades WHERE chapter_id=? LIMIT 1').bind(revision.chapter_id).first();
     if(upgraded){const current=await env.DB.prepare('SELECT digest FROM published_chapters WHERE chapter_id=?').bind(revision.chapter_id).first();return current?.digest===revision.digest?json({ok:true,id:revision.chapter_id,digest:revision.digest,reused:true}):json({error:'此章已有第一部分升级，旧日课请求不能覆盖'},409);}
@@ -225,19 +261,21 @@ async function route(request, env) {
     await env.DB.batch([
       env.DB.prepare(`INSERT OR IGNORE INTO audio_requests(id,chapter_id,chapter_digest,parts,source,state,created_at)
         SELECT 'next-'||revision||'-'||?,?,?,parts,'next','pending',? FROM audio_next_config
-        WHERE id=1 AND parts!='[]' AND NOT EXISTS(SELECT 1 FROM published_chapters WHERE chapter_id=?)
+        WHERE id=1 AND parts!='[]' AND ? IS NULL AND NOT EXISTS(SELECT 1 FROM published_chapters WHERE chapter_id=?)
         AND NOT EXISTS(SELECT 1 FROM json_each(audio_next_config.parts) selected
           WHERE selected.value NOT IN (SELECT value FROM json_each(?)))`)
-        .bind(revision.chapter_id,revision.chapter_id,revision.digest,now,revision.chapter_id,admittedAudioParts),
+        .bind(revision.chapter_id,revision.chapter_id,revision.digest,now,publicationBaseDigest,revision.chapter_id,admittedAudioParts),
       env.DB.prepare(`UPDATE audio_next_config SET parts='[]',revision=revision+1,updated_at=? WHERE id=1
-        AND NOT EXISTS(SELECT 1 FROM published_chapters WHERE chapter_id=?)`)
-        .bind(now,revision.chapter_id),
-      env.DB.prepare(`INSERT INTO published_chapters (chapter_id,study_date,digest,published_at) VALUES (?,?,?,?)
+        AND ? IS NULL AND NOT EXISTS(SELECT 1 FROM published_chapters WHERE chapter_id=?)`)
+        .bind(now,publicationBaseDigest,revision.chapter_id),
+      env.DB.prepare(`INSERT INTO published_chapters (chapter_id,study_date,digest,published_at)
+        SELECT ?,?,?,? WHERE (? IS NULL OR EXISTS(SELECT 1 FROM published_chapters WHERE chapter_id=? AND digest IN (?,?)))
         ON CONFLICT(chapter_id) DO UPDATE SET digest=excluded.digest,
         published_at=CASE WHEN published_chapters.digest=excluded.digest THEN published_chapters.published_at ELSE excluded.published_at END
         WHERE (SELECT rowid FROM chapter_revisions WHERE digest=excluded.digest)>=(SELECT rowid FROM chapter_revisions WHERE digest=published_chapters.digest)
-        AND NOT EXISTS(SELECT 1 FROM chapter_first_part_upgrades WHERE chapter_id=excluded.chapter_id)`)
-        .bind(revision.chapter_id, revision.study_date, revision.digest, now),
+        AND NOT EXISTS(SELECT 1 FROM chapter_first_part_upgrades WHERE chapter_id=excluded.chapter_id)
+        AND (? IS NULL OR published_chapters.digest=? OR published_chapters.digest=excluded.digest)`)
+        .bind(revision.chapter_id,revision.study_date,revision.digest,now,publicationBaseDigest,revision.chapter_id,publicationBaseDigest,revision.digest,publicationBaseDigest,publicationBaseDigest),
       env.DB.prepare(`INSERT INTO daily_runs (run_id,study_date,phase,vix_commit,chapter_digest,updated_at)
         SELECT ?,?,'PUBLISHED',?,?,? WHERE EXISTS(SELECT 1 FROM published_chapters WHERE chapter_id=? AND digest=?)
         ON CONFLICT(run_id) DO UPDATE SET phase='PUBLISHED',vix_commit=excluded.vix_commit,chapter_digest=excluded.chapter_digest,updated_at=excluded.updated_at`)

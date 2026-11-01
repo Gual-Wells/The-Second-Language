@@ -57,7 +57,7 @@ vixMarkLabel为真实YY-MM-DD，由studyDate.slice(2)取得。冻结后prepare-v
 
 assemble-teaching输出同源chapter.md及context-sources.json，采用前实际审阅，正式正文须逐字匹配作者稿装配。meta保留contentPolicy:etymology-fused-v1和sourcePolicy:current-affairs-v1，设置authoringPolicy:authentic-context-v1。source-notes采用contexts数组和实际读件/关键事实/边界，逐采用来源核对用途。
 
-pack-current-affairs→pack-chapter→publish-chapter沿原封存通路，正文与来源分别摘要，OneDrive回读通过再提交/推送；D1存轻量引用，不放新闻全文。旧版本重放不得覆盖新当前指针，同版本重发不刷新发布时间；修订显式新正文/来源，原件和历史绑定保留。新章不放空三PART/ARTICLE壳骗校验。
+pack-current-affairs→pack-chapter之后，按PUBLICATION_REVIEW实际完成本版语义审阅原件并核验，再publish-chapter沿原封存通路完整验包和独立验证器签名；正文与来源分别摘要，永久回读通过再提交/推送。D1只存轻量绑定，不放新闻全文。旧版本重放不得覆盖新当前指针，同版本重发不刷新发布时间；修订显式新正文/来源，原件和历史绑定保留。新章不放空三PART/ARTICLE壳骗校验，也不自动签发未做的审阅。
 
 章号由服务端新正式序列确认；旧流程封存，不从历史数量推算新章。音频默认空；新格式仅contexts选配、只完整英文句可点读，旧two/three不自动转新付费授权。首次发布按同格式一次性设置原子消费并复位，休息/重发不消费；已成功缓存/收费原件/未知计费保护保持。文字发布不等待音频。雅思、答疑、质检、章节测试、首次认证和卷轴继续各自固定全文与独立生命周期，不造通过、不改艺术品。
 

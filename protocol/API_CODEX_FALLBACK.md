@@ -1,5 +1,7 @@
 # ChatGPT API 的独立 Codex 接手
 
+2026-11-02本项目单次数据执行器补充：完整second_series_codex provider显式设置request_max_retries=0和stream_max_retries=0，避免外层started/unknown保护之外仍有CLI默认重连。此项只约束本项目新数据子进程；不改全局provider、模型high、既有请求身份、旧成功结果或未知状态。连接失联仍保unknown，不自动换身份重发。旧实验使用的真实默认重试参数保留在原记录，不倒改成零重试。
+
 2026-11-01 用户决定：第二系列各项目的 ChatGPT API 工作失败后，应有本机 Codex 自动化接手路径。既有 API 模型与档位不变；后台 Codex 的新调用统一 high，文本使用 gpt-6.1-sol、图片理解使用 gpt-6.1-terra。本协议只覆盖 ChatGPT API 适配，不用 Codex 伪造 Kokoro 音频、Whisper 转写或腾讯评分。
 
 ## 任务与原件

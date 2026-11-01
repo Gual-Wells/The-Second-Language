@@ -6,6 +6,7 @@
     "nodejs_compat"
   ],
   "vars": {
+    "PUBLICATION_VALIDATOR_KEYS": "{\"ed25519-6155b053d118f7296d045d87\":\"MCowBQYDK2VwAyEAv6cpMSRAez+8+qgDalTQxE4DxE4mhO209PvDgrXQQTs=\"}",
     "ONEDRIVE_ENABLED": "true",
     "APP_ORIGIN": "https://the-second-language.pages.dev",
     "APP_URL": "https://the-second-language.pages.dev/",

@@ -13,6 +13,8 @@ AudioPreparation和PermanentArchive是纯Node服务，没有Codex推理档位，
 
 ## 参数、代理与权限
 
+手动模型校准须冻结同一内容合同和原始材料，区分语义、成品话语、取材能力和工程可靠性。2026-11-02首轮只有18USE完成high/xhigh配对，另外10USE的xhigh连接失联未恢复终态或用量；不据部分样本宣布等价，不把网络故障判能力下降，也不将实验对照变成每章固定多臂制作。默认high不因校准自动提档，真正未决的具体问题再按已授权范围处理。订阅tokens、缓存和未知消耗分别记录，不能换算成保证可完成的Plus任务数量。
+
 JavaScript共享参数为background-codex.mjs；PowerShell入口使用同样的model_reasoning_effort=high、agents.enabled=true、agents.default_subagent_reasoning_effort=high及multi_agent开关。显式传参覆盖个人配置，防止某个独立调用仍停在旧档位。档位与具体模型能力以当前CLI/模型目录为准，不支持时明确报错，不静默降档。
 
 子代理采用当前主任务模型，统一high；主执行按需要委托，不要求为了high而额外拆分、重复审阅或固定并发数。配置明确请求high，项目协议不允许后台自行改为更高档位；这不是对任意外部CLI调用的系统强制上限。失败接手的纯数据工作关闭子代理，不增并行消耗。

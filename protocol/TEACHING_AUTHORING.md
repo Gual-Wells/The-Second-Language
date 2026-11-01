@@ -54,6 +54,8 @@ partOne只放讲解和每USE唯一CONTEXT_SLOT；禁止夹入已装配CONTEXT、
 
 ## 装配和封存
 
+成稿的词源、标题快释、融合解释、英文语境和译文面向读者；sourceCoverage、exampleCoverage、contextChoices等面向研究和恢复。内部“本包／所附／本次审核”话语留在后者，不随字段齐全一起泄入正文。按CONTENT实际核读者字段，不用简单教材名称匹配器误删合法教学内容。
+
 ```sh
 node scripts/assemble-teaching.mjs DATE
 ```

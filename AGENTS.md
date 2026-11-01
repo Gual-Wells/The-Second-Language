@@ -2,6 +2,8 @@
 
 # 第二语言 Codex 工作约定
 
+2026-11-02质量加固：新质检申请采用chapter-quality-v5-counterevidence，旧v3/v4按原摘要续作；来源相关重大撤回必须有实际送达的必要原件。新单正文出版按protocol/PUBLICATION_REVIEW.md，在原作者/封存通路留下本版实际审阅并经独立完整验证器签名，服务器仅验签和不可变绑定；不补造审阅、不启动收费模型或音频。真实语境发现按AUTHENTIC_CONTEXT新增交叉取材与实际查询留证；不凭软404和工具失败判模型质量。后台默认high、休息及旧资产身份均不变。
+
 2026-10-31用户要求第二系列数据库统一，范围含HF与Kaggle，按protocol/SERIES_STORAGE.md和series-storage.json恢复：第二语言只管理分配、身份路由和汇总容量，不绑定其他项目D1或其他项目新增Files能力；旧OneDrive共享AppFolder授权保留恢复兼容例外，不冒称供应商物理隔离。独立second-series-files固定四项目入口，HF在线CAS、Kaggle私有固定版本档案、OneDrive历史兼容；不把各层免费额度和备份副本相加。新增原件完整SHA回读后登记，备份自身不入D1目录，新增不可变表沿既有增量检查点。成功API回执可压缩归档后原子缩为指针，unknown/sending及旧收费结果保护不变；新文件不可读时只恢复，不重复调用模型。日课休息、空音频和第一章固定身份不改。新框架上线状态以research/series-storage-release-2026-10-31.json核验，不能因代码存在宣称已迁移。账单并行建设需协调后接入，不能覆盖其未发布工作。
 
 2026-10-31用户要求第二系列四项目的共用ChatGPT API任务独立于本机执行。新运行规范见protocol/SERIES_API_CLOUD.md：无数据/无密钥系列时钟仅经固定RPC唤醒各项目；私文、队列与原件仍各项目独立，管理员只接收汇总用量。旧legacy不自动重做，unknown及原成功结果保护继续；新cloud-v1须保护凭据与真实云验证后启用。本次已显式启用生产云入口与受保护密钥；旧API执行器仅在真实云调用和调度核验后停用，不能只因代码存在停用；日课Codex出版、休息、声音与归档独立且不变。
@@ -38,7 +40,7 @@
 
 工具只做原件取得/摘要、确定性装配/身份检查、VIX/封存/发布，语义与候选判断由Codex完成。assemble-teaching输出chapter.md和context-sources.json；实际审阅全义、真用/语域、原事实和语篇功能、多份增量、英中整块译文，再按原pack-current-affairs/pack-chapter/publish-chapter回读交付。不用结构通过、统计/评分或更多知识冒称体验合格，不套每义字数、不例行全章多代压缩。来源索引仍存文件基座，D1只存轻量绑定。
 
-新单正文pack-current-affairs自动封存chapter-evidence-v1私有采用原文/作者/教材包，publish-chapter先永久上传与回读，公开来源包只带evidenceDigest。首次封存核实际作者readRecord同版，后续恢复从固定包读取，不依赖旧绝对缓存路径或换用当前新稿。质检新申请现行为chapter-quality-v4-presentation：按固定作者layoutVersion／quickGlossVersion核快释语义和完整融合解释；精确保留v3策略、检查点和历史报告，旧任务按自身摘要续作。独立教材先行，随后核原例去向与语境增量，允许原例留存不展示，缺证不签passed。新HTML按已验证成熟提取路由读取并保原HTML，配置及D盘依赖见CURRENT_AFFAIRS；提取成功不证明读懂或可采用。旧章、旧来源绑定、检查点与收费原件不倒改。
+新单正文pack-current-affairs自动封存chapter-evidence-v1私有采用原文/作者/教材包，publish-chapter先永久上传与回读，公开来源包只带evidenceDigest。首次封存核实际作者readRecord同版，后续恢复从固定包读取，不依赖旧绝对缓存路径或换用当前新稿。质检新申请现行为chapter-quality-v5-counterevidence：保留v4的固定版式语义并核来源相关重大撤回的实际反证；精确保留v3/v4策略、检查点和历史报告，旧任务按自身摘要续作。独立教材先行，随后核原例去向与语境增量，允许原例留存不展示，缺证不签passed。新HTML按已验证成熟提取路由读取并保原HTML，配置及D盘依赖见CURRENT_AFFAIRS；提取成功不证明读懂或可采用。旧章、旧来源绑定、检查点与收费原件不倒改。
 
 临时页不是正式课，不标VIX；chapters/demo和隔离fixture只演示，不可发布为50词正式章。旧章封存、新正式序列、已撤回原件和收费历史保留；2026-10-24撤回/复原VIX是那次明确例外，不授权今后重选重置。卷轴、雅思、口语分析、章节答疑/质检/认证与永久存储继续独立协议，不因读旧研究恢复纪念币/藏馆或给旧样品补造通过。
 

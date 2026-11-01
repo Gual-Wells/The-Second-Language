@@ -1,3 +1,5 @@
+import {teachingScope,checkMaterialDisposition} from '../../protocol/teaching-disposition.mjs';
+export {teachingScope,checkMaterialDisposition};
 // Deterministic transport of model-authored teaching. No semantic grouping,
 // definition writing, example generation or article-to-example fallback here.
 import fs from 'node:fs/promises';
@@ -29,12 +31,6 @@ export function assertTeachingAuthoringVersions(inputLock={},meta={},words=[]){
   }
   if(required.quickGlossVersion===1&&required.teachingLayoutVersion!==2)throw Error('用法快释合同须同时明确teachingLayoutVersion:2，不能隐式补齐');
   return required;
-}
-export function teachingScope(value) {
-  if(!Array.isArray(value?.mainWords)||!value.mainWords.length)throw Error('材料范围须有 mainWords；冻结前可用相同形状的候选范围');
-  const rows=value.mainWords.map(w=>({text:text(w.text,'主词'),family:(w.family||[]).filter(f=>f.included!==false).map(f=>typeof f==='string'?f:text(f.text,'词族文字')).sort((a,b)=>a.localeCompare(b,'en'))})).sort((a,b)=>a.text.localeCompare(b.text,'en'));
-  if(new Set(rows.map(w=>norm(w.text))).size!==rows.length)throw Error('主词范围重复');
-  return rows;
 }
 export function exampleCandidates(entry) {
   // These are read aids, not a parser of relevance or complete dictionary senses.
@@ -127,24 +123,6 @@ export function assembleTeachingCollection(words,articles,{expectedWordCount}={}
   const markdown=`<!-- PART:one -->\n\n${sorted.map(w=>w.partOne.trim()).join('\n\n')}\n\n<!-- PART:two -->\n\n${sorted.map(w=>w.partTwo.trim()).join('\n\n')}\n\n<!-- PART:three -->\n\n${third.join('\n\n')}\n`;
   const parsed=validateAnnotatedContent(markdown,{expectedWordCount});
   return {markdown,parsed}; // Global union only; no article/word/sense ordering rule.
-}
-export function checkMaterialDisposition(word,packet,parsed){
-  if(word.materialDigest!==packet.materialDigest)throw Error(`${word.text} 仍在使用旧材料稿`);
-  const sourceIds=new Set(packet.entries.filter(e=>['collins','oxford'].includes(e.book)).map(e=>e.id));
-  if(!Array.isArray(word.sourceCoverage))throw Error('缺少教材条目内容与例句去向');
-  for(const s of word.sourceCoverage){if(!sourceIds.has(s.sourceId))throw Error('未知教材条目去向');text(s.disposition,'教材内容去向或明确排除原因');}
-  for(const sourceId of sourceIds)if(!word.sourceCoverage.some(s=>s.sourceId===sourceId))throw Error('教材条目尚未交代内容去向：'+sourceId);
-  const candidates=new Map(packet.exampleCandidates.map(e=>[e.id,e]));
-  const dispositions=word.exampleCoverage||[];
-  if(!Array.isArray(dispositions)||new Set(dispositions.map(e=>e.exampleId)).size!==dispositions.length)throw Error('原例句去向重复或无效');
-  for(const e of dispositions){
-    if(!candidates.has(e.exampleId)||!Array.isArray(e.uses))throw Error('原例句去向包含未知来源');
-    text(e.disposition,'原例句去向、合并或排除的具体说明');
-    if(e.uses.some(u=>!parsed.uses.has(u)||parsed.uses.get(u).wordId!==word.wordId))throw Error('原例句不能映射到其他词族或不存在的用法');
-  }
-  for(const exampleId of candidates.keys())if(!dispositions.some(e=>e.exampleId===exampleId))throw Error('原例句候选尚未交代去向：'+exampleId);
-  // Free-text dispositions are NOT a semantic certificate. Author review still
-  // checks the full source, actual final examples, labels and genuine sense use.
 }
 export async function assembleRun(root,date){
   root=await fs.realpath(root);if(process.platform==='win32'&&!/^D:[\\/]/i.test(root))throw Error('新增课程工作材料须实际存D盘');

@@ -9,6 +9,8 @@ import {publishChapterEvidence} from './lib/publish-chapter-evidence.mjs';
 import {verifyChapterPublication} from './lib/chapter-publication-preflight.mjs';
 import {verifyReaderRelease} from './lib/reader-release.mjs';
 import {requiredReaderLayout} from '../protocol/reader-layout.mjs';
+import {uploadEvidenceObjects} from './lib/publish-chapter-evidence.mjs';
+import {createPublicationAttestation} from './lib/publication-attestation.mjs';
 const date = process.argv[2];
 if (!/^\d{4}-\d{2}-\d{2}$/.test(date || '')) throw new Error('用法: node scripts/publish-chapter.mjs YYYY-MM-DD');
 const { base, token } = await publisherConfig();
@@ -21,8 +23,16 @@ try {vixReceipt=JSON.parse(await readFile(path.resolve('work/runs',date,'vix-pub
 catch(error){if(error.code==='ENOENT')throw new Error('缺少本次VIX发布回执；先核对原标注提交，不重新选词');throw error;}
 validatePublishedVixReceipt(vixReceipt,{studyDate:date,inputCommit:chapter.vixInputCommit,selectionDigest:chapter.sourcePackage?.selectionDigest,vixCommit:meta.vixCommit});
 const runId = meta.runId || date;
+// A live read only permits exact already-current legacy replay. It never turns
+// an archived/staged digest into a publication exemption or backfills a review.
+let alreadyPublished=false;
+if(chapter.markdown.startsWith('<!-- FORMAT:usage-context-v1 -->')){
+ const current=await fetch(new URL(`/api/chapters/${encodeURIComponent(date)}?digest=${chapter.digest}`,base),{headers:{authorization:`Bearer ${token}`},signal:AbortSignal.timeout(45000)});
+ if(current.ok){const value=await current.json();alreadyPublished=value.digest===chapter.digest&&value.markdown===chapter.markdown;}
+ else if(current.status!==404)throw Error('不能核实本版是否已发布；不绕过出版审阅');
+}
 // Complete local, read-only admission before any permanent upload or stage.
-await verifyChapterPublication({root:process.cwd(),date,chapter,meta});
+const admission=await verifyChapterPublication({root:process.cwd(),date,chapter,meta,requireReview:!alreadyPublished});
 await verifyReaderRelease({base,required:requiredReaderLayout(chapter.markdown),root:process.cwd()});
 const hash=text=>createHash('sha256').update(text).digest('hex');
 async function post(route, body) {
@@ -30,7 +40,9 @@ async function post(route, body) {
   const payload = await response.json(); if (!response.ok) throw new Error(`${route}: ${payload.error || response.status}`); return payload;
 }
 await publishChapterEvidence(process.cwd(),date,chapter,{base,token});
-const staged = await post('/api/publish/stage', { ...chapter, runId, vixCommit: meta.vixCommit, protocolCommit: meta.protocolCommit });
+let attestation;
+if(admission.review){attestation=await createPublicationAttestation(process.cwd(),date,{...chapter,runId,publicationReviewDigest:admission.review.digest});await uploadEvidenceObjects([admission.review,attestation],{base,token});}
+const staged = await post('/api/publish/stage', { ...chapter, ...(admission.review?{publicationReviewDigest:admission.review.digest,publicationAttestationDigest:attestation.digest}:{}),runId, vixCommit: meta.vixCommit, protocolCommit: meta.protocolCommit });
 if (staged.digest !== chapter.digest || staged.sourceDigest !== chapter.sourceDigest) throw new Error('后端暂存正文/来源摘要与本地章节不一致');
 if(staged.number && staged.number!==chapter.number){
   chapter.number=meta.number=staged.number;

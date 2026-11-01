@@ -24,6 +24,9 @@ export function codexDataArgs({directory,schemaFile,outputFile,model='gpt-6.1-so
   '-c','model_provider="second_series_codex"','-c','model_providers.second_series_codex.name="Second Series local fallback"',
   '-c','model_providers.second_series_codex.base_url="https://chatgpt.com/backend-api/codex"','-c','model_providers.second_series_codex.wire_api="responses"',
   '-c','model_providers.second_series_codex.requires_openai_auth=true','-c','model_providers.second_series_codex.supports_websockets=false',
+  // One fixed data attempt: disable provider HTTP/SSE retries as well as the
+  // outer started-marker replay guard. Keep the complete provider definition.
+  '-c','model_providers.second_series_codex.request_max_retries=0','-c','model_providers.second_series_codex.stream_max_retries=0',
   ...['shell_tool','unified_exec','unified_exec_tty','code_mode','code_mode_host','apps','plugins','enable_mcp_apps','browser_use','browser_use_external','in_app_browser','computer_use','view_image','image_generation','workspace_dependencies','memories'].flatMap(name=>['--disable',name]),
   '-c','web_search="disabled"','-c','project_doc_max_bytes=0','-s','read-only',...images.flatMap(file=>['-i',file]),'--output-schema',schemaFile,'-o',outputFile,'-'];
 }

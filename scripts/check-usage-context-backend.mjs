@@ -6,6 +6,8 @@ import {readFile,readdir,mkdir} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import worker from '../worker/src/index.js';
 import {readerIdentity} from '../worker/src/auth.js';
+import {permanentBucket} from '../worker/src/storage.js';
+import {verifyChapterEvidence} from '../worker/src/current-affairs.js';
 import {canonicalSourcePackage} from '../protocol/current-affairs.mjs';
 import {validateAnnotatedContent} from '../web/annotations.js';
 import {audioUnits,isChapterAudioRequest,pointAudioKeys,isPointAudioClip} from '../web/audio-plan.js';
@@ -15,11 +17,14 @@ import {qualityTargets,qualityPolicy,qualityPolicyDigest,finalizeQuality,factTar
 import {buildContextReview} from './lib/context-review.mjs';
 import {processQualityJob} from './lib/chapter-quality-runner.mjs';
 import {indexTextbook} from './lib/textbook-sources.mjs';
+import {uploadEvidenceObjects} from './lib/publish-chapter-evidence.mjs';
+import {backendFixtureWords as words,backendFixtureValidatorKeys,usageContextBackendFixture} from './lib/usage-context-backend-fixture.mjs';
 
 const hash=s=>createHash('sha256').update(s).digest('hex'),db=new DatabaseSync(':memory:'),practice=new DatabaseSync(':memory:');
 for(const [sql,dir] of [[db,'worker/migrations'],[practice,'worker/practice_migrations']])for(const name of (await readdir(dir)).filter(n=>n.endsWith('.sql')).sort())sql.exec(await readFile(dir+'/'+name,'utf8'));
 function d1(sql){return{prepare(query){const wrap=(args=[])=>({bind(...values){return wrap(values);},async first(){return sql.prepare(query).get(...args)||null;},async all(){return{results:sql.prepare(query).all(...args)};},async run(){return{meta:{changes:Number(sql.prepare(query).run(...args).changes)}};}});return wrap();},async batch(items){sql.exec('BEGIN');try{const r=[];for(const item of items)r.push(await item.run());sql.exec('COMMIT');return r;}catch(e){sql.exec('ROLLBACK');throw e;}}};}
 const kv=new Map(),objects=new Map(),folders=new Map(),env={DB:d1(db),PRACTICE_DB:d1(practice),APP_ORIGIN:'https://isolated-reader.test',PUBLISH_TOKEN:'fixture-publisher',ONEDRIVE_ENABLED:'true',ONEDRIVE_KEY:Buffer.alloc(32,9).toString('base64'),CHAPTERS:{get:async key=>kv.get(key)??null,put:async(key,value)=>kv.set(key,value)}};
+env.PUBLICATION_VALIDATOR_KEYS=backendFixtureValidatorKeys;
 const key=await crypto.subtle.importKey('raw',Buffer.from(env.ONEDRIVE_KEY,'base64'),'AES-GCM',false,['encrypt']),iv=crypto.getRandomValues(new Uint8Array(12)),encrypted=await crypto.subtle.encrypt({name:'AES-GCM',iv},key,new TextEncoder().encode(JSON.stringify({accessToken:'fixture-drive',expiresAt:Date.now()+3600000})));
 db.prepare('INSERT INTO storage_connection VALUES(1,?,0,?)').run(JSON.stringify({iv:Buffer.from(iv).toString('base64'),data:Buffer.from(encrypted).toString('base64')}),Date.now());db.prepare('INSERT INTO storage_folders VALUES(?,?)').run('@approot','fixture-root');
 db.prepare('INSERT INTO auth_credential VALUES(1,?,?,0,?,0)').run('fixture-passkey','fixture-public-key','[]');
@@ -35,22 +40,8 @@ globalThis.fetch=async(target,options={})=>{
  m=route.match(/^\/me\/drive\/items\/([^/]+)\/content$/);if(m){assert.ok(objects.has(m[1]));return new Response(objects.get(m[1]).bytes);}throw Error('Unexpected fixture request '+route);
 };
 async function call(route,{body,method=body===undefined?'GET':'POST',reader=false,anonymous=false,layout=null,token='a'.repeat(43)}={}){const headers={'content-type':'application/json',origin:env.APP_ORIGIN};if(layout)headers['x-reader-layout']=layout;if(reader)headers.cookie='__Host-second_language='+token;else if(!anonymous)headers.authorization='Bearer '+env.PUBLISH_TOKEN;const response=await worker.fetch(new Request(env.APP_ORIGIN+route,{method,headers,...(body===undefined?{}:{body:JSON.stringify(body)})}),env);return{status:response.status,headers:response.headers,data:await response.json()};}
-const words=Array.from({length:50},(_,i)=>({id:'W'+String(i).padStart(3,'0'),use:'U'+String(i).padStart(3,'0'),text:'word'+String(i).padStart(3,'0')}));
-function fixture(version='one'){
- return '<!-- FORMAT:usage-context-v1 -->\n\n'+words.map((w,i)=>{
-  const intro=`<!-- WORD:${w.id} -->\n# ${w.text}\n\n**词源**：只供隔离接口验证，不是正式教学内容。\n\n<!-- USE:${w.use} -->\n## ${w.text}${version==='layout3'?' /wɝd/ n. · 测试用途':version==='layout2'?' /wɝd/ n.':' · 验证义 /wɝd/'}\n\`隔离验证用法\`\n\n`;
-  if(i===49)return intro+'<!-- CONTEXT_REF:C048 USE:U049 -->\n';
-  const id='C'+String(i).padStart(3,'0'),refs=i===48?'U048,U049':w.use,text=i===48?`We compare word048 with word049 in fixture ${version}.`:`We use ${w.text} in fixture ${version}.`;
-  return intro+`<!-- CONTEXT:${id} USE:${refs} KIND:${i===0?'abridgment':'example'} -->\n<!-- CONTEXT_META:${JSON.stringify({title:'Isolated context',sourceUrls:i===0?['https://example.test/reference']:[],displayContext:'Not real teaching material.'})} -->\n<!-- SENTENCE:S${String(i).padStart(3,'0')} USE:${refs} -->\n${text}\n<!-- TRANSLATION:${id} -->\n本段仅用于独立工程验证，并非正式学习内容。\n\n整块译文不进入英文发音白名单。\n<!-- END_CONTEXT:${id} -->\n`;
- }).join('\n');
-}
 const evidenceFixtures=new Map();
-function payload(date,version){const markdown=fixture(version),digest=hash(markdown),parsed=validateAnnotatedContent(markdown),sourcePackage={schemaVersion:1,format:'usage-context-v1',studyDate:date,chapterDigest:digest,selectionDigest:hash('selection-'+date),vixInputCommit:'a'.repeat(40),context:'Isolated transport fixture, not a real teaching chapter.',contexts:parsed.contexts.map(c=>({id:c.id,kind:c.kind,sourceUrls:c.sourceUrls})),sources:[{sourceId:'fixture-source',url:'https://example.test/reference',title:'Isolated self-written source',publisher:'Fixture',readAt:'2026-10-27T00:00:00.000Z',readDigest:hash('Isolated source original.'),facts:['This is an isolated test source.']}]};
-// Only exercises permanent transport/admission here. Full authoring evidence is
-// validated by check-chapter-evidence and check-context-quality-evidence.
-const group={schemaVersion:1,kind:'chapter-evidence-group-v1',records:[{kind:'control',note:'Self-written transport fixture; not teaching or semantic evidence.'}]},groupText=JSON.stringify(group),manifest={schemaVersion:1,kind:'chapter-evidence-v1',studyDate:date,runId:date,chapterDigest:digest,selectionDigest:sourcePackage.selectionDigest,vixInputCommit:sourcePackage.vixInputCommit,authoringPolicy:'authentic-context-v1',wordCount:50,sourceCount:sourcePackage.sources.length,groups:[{digest:hash(groupText),bytes:Buffer.byteLength(groupText)}]};
-sourcePackage.evidenceDigest=hash(JSON.stringify(manifest));evidenceFixtures.set(sourcePackage.evidenceDigest,[group,manifest]);
-return{id:date,date,runId:date,title:'Isolated context fixture',subtitle:'Not a course',number:'第 99 章',wordCount:50,contentPolicy:'etymology-fused-v1',authoringPolicy:'authentic-context-v1',sourcePolicy:'current-affairs-v1',markdown,digest,vixInputCommit:'a'.repeat(40),vixCommit:'b'.repeat(40),protocolCommit:'c'.repeat(40),sourcePackage,sourceDigest:hash(canonicalSourcePackage(sourcePackage))};}
+function payload(date,version){const fixture=usageContextBackendFixture(date,version);evidenceFixtures.set(fixture.value.sourcePackage.evidenceDigest,fixture.assets);return fixture.value;}
 const stage=async value=>{for(const asset of evidenceFixtures.get(value.sourcePackage?.evidenceDigest)||[])assert.equal((await call('/api/storage/content',{method:'PUT',body:asset})).status,200);return call('/api/publish/stage',{body:value});},commit=value=>call('/api/publish/commit',{body:{runId:value.runId,digest:value.digest}});
 async function claim(date){await call('/api/settings',{method:'PUT',body:{restRequested:false},reader:true});assert.equal((await call('/api/runs/claim',{body:{runId:date,date}})).data.rest,false);}
 try{
@@ -60,21 +51,28 @@ try{
  const a=(await call('/api/session',{reader:true})).data,b=(await call('/api/session',{reader:true,token:'b'.repeat(43)})).data;assert.equal(a.readerUserId,b.readerUserId);assert.equal(a.readerUserId,await readerIdentity(env));assert.notEqual(a.readerUserId,await readerIdentity({...env,APP_ORIGIN:'https://other-install.test'}));assert.ok(!JSON.stringify(a).includes('fixture-passkey'));
  const first=payload('2026-10-27','first');await claim(first.date);
  const noEvidence=structuredClone(first);delete noEvidence.sourcePackage.evidenceDigest;noEvidence.sourceDigest=hash(canonicalSourcePackage(noEvidence.sourcePackage));assert.equal((await call('/api/publish/stage',{body:noEvidence})).status,400,'New integrated publication requires adopted evidence');
- assert.equal((await call('/api/publish/stage',{body:first})).status,503,'Evidence must be saved before stage');
+ const noSavedReview=await call('/api/publish/stage',{body:first});assert.equal(noSavedReview.status,503,'A new integrated version requires the review receipt to be saved first');
+ const firstAssets=evidenceFixtures.get(first.sourcePackage.evidenceDigest);for(const asset of firstAssets.filter(a=>['publication-review-v1','publication-attestation-v1'].includes(a.policy)))assert.equal((await call('/api/storage/content',{method:'PUT',body:asset})).status,200);
+ const unsaved=await call('/api/publish/stage',{body:first});assert.equal(unsaved.status,503,'Evidence must be saved before stage: '+JSON.stringify(unsaved.data));
  assert.equal(db.prepare('SELECT count(*) n FROM chapter_revisions').get().n,0,'Missing evidence cannot leave a staged revision');
 
  assert.equal((await stage({...first,authoringPolicy:undefined})).status,400);
  const missing=structuredClone(first);missing.sourcePackage.contexts.pop();missing.sourceDigest=hash(canonicalSourcePackage(missing.sourcePackage));assert.equal((await stage(missing)).status,400,'Every selected context has immutable source mapping');
  const staged=await stage(first);assert.equal(staged.status,200,JSON.stringify(staged.data));
- // A same-length mutation after stage must not be accepted as permanently saved
- // evidence merely because the content address and metadata still exist.
+ // The resource-bounded commit checks immutable group existence/size, plus the
+ // independent validation signature. Byte-level corruption is checked on full
+ // signer validation and storage GET, not by claiming HEAD reads every group.
  const evidenceGroup=evidenceFixtures.get(first.sourcePackage.evidenceDigest)[0],groupDigest=hash(JSON.stringify(evidenceGroup));
  const savedGroup=[...objects.values()].find(value=>value.location.endsWith('/'+groupDigest+'.bin'));
  assert.ok(savedGroup,'The staged private evidence group exists');
- const savedBytes=Buffer.from(savedGroup.bytes);savedGroup.bytes=Buffer.from(savedBytes);savedGroup.bytes[0]^=1;
- assert.equal((await commit(first)).status,503,'Same-length corrupted private evidence blocks commit');
- assert.equal(db.prepare('SELECT count(*) n FROM published_chapters').get().n,0,'Corrupted evidence cannot publish a chapter');
- savedGroup.bytes=savedBytes;assert.equal((await commit(first)).status,200,'Restoring the original immutable bytes resumes the same staged publication');
+ const intactGroupBytes=Buffer.from(savedGroup.bytes);savedGroup.bytes=Buffer.from(intactGroupBytes);savedGroup.bytes[0]^=1;
+ await verifyChapterEvidence(env,first.sourcePackage,first.runId);
+ await assert.rejects(uploadEvidenceObjects([{digest:groupDigest,text:JSON.stringify(evidenceGroup),bytes:intactGroupBytes.length}],{base:env.APP_ORIGIN,token:env.PUBLISH_TOKEN,fetchImpl:async(url,options)=>worker.fetch(new Request(url,options),env)}),/回读摘要不符/,'The production permanent GET/readback helper rejects the same-length bit flip that group HEAD cannot detect');
+ savedGroup.bytes=intactGroupBytes;
+ objects.delete(savedGroup.id);
+ assert.equal((await commit(first)).status,503,'An unavailable immutable evidence group blocks commit');
+ assert.equal(db.prepare('SELECT count(*) n FROM published_chapters').get().n,0,'Unavailable evidence cannot publish a chapter');
+ objects.set(savedGroup.id,savedGroup);assert.equal((await commit(first)).status,200,'Restoring the original immutable object resumes the same staged publication and signature');
  assert.equal(db.prepare('SELECT count(*) n FROM audio_requests').get().n,0,'Default no audio stays empty');
  const saved=(await call('/api/chapters/'+first.id,{reader:true})).data;assert.equal(saved.markdown,first.markdown);assert.equal(saved.digest,first.digest);
  assert.equal((await call('/api/chapters/'+first.id+'/sources',{reader:true})).data.sourcePackage.contexts.length,49);
@@ -115,6 +113,36 @@ try{
  assert.equal((await call('/api/chapters/'+quick.id,{reader:true,layout:'2'})).status,426,'Old no-gloss parser cannot receive the new tail');
  assert.equal((await call('/api/chapters/'+quick.id,{reader:true,layout:'3'})).data.digest,quick.digest);
  assert.equal((await call('/api/chapters/'+modern.id,{reader:true,layout:'3'})).status,200,'Capability3 continues reading capability2 content');
+ // Simulate migration 0029 on an already-current integrated chapter: absence
+ // of a historical receipt permits only the identical current bytes to retry.
+ const historicalRetry=payload('2026-10-26','pre-review-migration');delete historicalRetry.publicationReviewDigest;delete historicalRetry.publicationAttestationDigest;
+ // Seed a pre-migration row directly in this empty-account fixture; do not
+ // delete or bypass the new immutable review-binding trigger.
+ const legacyAssets=evidenceFixtures.get(historicalRetry.sourcePackage.evidenceDigest);for(const asset of legacyAssets.slice(0,2))assert.equal((await call('/api/storage/content',{method:'PUT',body:asset})).status,200);
+ const historicalContentKey=`chapters/${historicalRetry.date}/${historicalRetry.digest}.md`,historicalSourceKey=`chapter-sources/${historicalRetry.digest}/${historicalRetry.sourceDigest}.json`,store=permanentBucket(env);
+ await store.put(historicalContentKey,historicalRetry.markdown);await store.put(historicalSourceKey,canonicalSourcePackage(historicalRetry.sourcePackage));
+ db.prepare('INSERT INTO chapter_revisions(digest,chapter_id,study_date,number,title,subtitle,word_count,content_key,run_id,vix_commit,protocol_commit,created_at) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)').run(historicalRetry.digest,historicalRetry.id,historicalRetry.date,'第 0 章',historicalRetry.title,historicalRetry.subtitle,50,historicalContentKey,historicalRetry.runId,historicalRetry.vixCommit,historicalRetry.protocolCommit,0);
+ db.prepare('INSERT INTO chapter_sources(digest,source_digest,source_key,policy,created_at) VALUES(?,?,?,?,?)').run(historicalRetry.digest,historicalRetry.sourceDigest,historicalSourceKey,historicalRetry.sourcePolicy,0);
+ db.prepare('INSERT INTO published_chapters(chapter_id,study_date,digest,published_at) VALUES(?,?,?,?)').run(historicalRetry.id,historicalRetry.date,historicalRetry.digest,0);await claim(historicalRetry.date);
+ assert.equal((await stage(historicalRetry)).status,200,'An already-current chapter need not invent a historical review receipt');
+ assert.equal((await commit(historicalRetry)).status,200);assert.equal(db.prepare('SELECT * FROM chapter_publication_reviews WHERE chapter_digest=?').get(historicalRetry.digest),undefined);
+ // The verifier's private key is an independent trust boundary. An ordinary
+ // publisher cannot authorize an incomplete replacement using a previous
+ // signature. A trusted key deliberately signing bad data is not detectable
+ // from the signature alone; production signer rejection is tested separately.
+ const incomplete=payload('2026-11-01','incomplete-evidence'),completeAssets=evidenceFixtures.get(incomplete.sourcePackage.evidenceDigest),emptyGroup={schemaVersion:1,kind:'chapter-evidence-group-v1',records:[completeAssets[0].records[0]]};
+ await claim(incomplete.date);const unsigned={...incomplete};delete unsigned.publicationAttestationDigest;
+ assert.equal((await stage(unsigned)).status,400,'A publisher token and complete review receipt do not replace the independent validation signature');
+ const wrongSignature={...completeAssets[3],signature:Buffer.alloc(64,3).toString('base64')},wrongSignatureText=JSON.stringify(wrongSignature),wrongSignatureValue={...incomplete,publicationAttestationDigest:hash(wrongSignatureText)};
+ assert.equal((await call('/api/storage/content',{method:'PUT',body:wrongSignature})).status,200);assert.equal((await stage(wrongSignatureValue)).status,400,'A stored but incorrectly signed validation record cannot admit a new version');
+ const emptyText=JSON.stringify(emptyGroup),emptyManifest={...completeAssets[1],groups:[{digest:hash(emptyText),bytes:Buffer.byteLength(emptyText)}]};
+ incomplete.sourcePackage.evidenceDigest=hash(JSON.stringify(emptyManifest));incomplete.sourceDigest=hash(canonicalSourcePackage(incomplete.sourcePackage));
+ const incompleteReview={...completeAssets[2],sourceDigest:incomplete.sourceDigest,evidenceDigest:incomplete.sourcePackage.evidenceDigest};
+ incomplete.publicationReviewDigest=hash(JSON.stringify(incompleteReview));evidenceFixtures.set(incomplete.sourcePackage.evidenceDigest,[emptyGroup,emptyManifest,incompleteReview,completeAssets[3]]);
+ const noNewReceipt={...incomplete};delete noNewReceipt.publicationReviewDigest;
+ assert.equal((await stage(noNewReceipt)).status,400,'A new integrated version cannot use the historical receipt exception');
+ assert.equal((await stage(incomplete)).status,400,'A previous valid proof cannot be replayed for a control-only manifest or a changed review/source binding');
+ assert.equal(db.prepare('SELECT digest FROM published_chapters WHERE chapter_id=?').get(incomplete.id),undefined);
  assert.equal(db.prepare('PRAGMA integrity_check').get().integrity_check,'ok');assert.equal(practice.prepare('PRAGMA integrity_check').get().integrity_check,'ok');
- console.log(JSON.stringify({ok:true,format:'usage-context-v1',wordCount:50,contexts:49,sharedContext:true,publicationAndSourceReadback:true,audioDefaultEmpty:true,oldAudioSelectionNotReinterpreted:true,pointAudioWhitelist:true,fixedVersionQuestionAndTest:true,twentyTargetsSevenOral:true,qualityWholeTranslationAndMissingOriginal:true,reviewContextExtraction:true,singleTenantStableReaderIdentity:true,graphFixtureRequests:graphRequests,noProductionWrites:true,noPaidCalls:true}));
+ console.log(JSON.stringify({ok:true,format:'usage-context-v1',wordCount:50,contexts:49,sharedContext:true,canonicalFullEvidenceFixture:true,publicationReviewReceiptRequired:true,independentSignatureRequired:true,wrongSignatureRejected:true,currentReceiptlessRetryPreserved:true,oldProofCannotAuthorizeControlOnlyEvidence:true,headCannotDetectSameLengthCorruption:true,permanentGetShaReadbackRejectsCorruption:true,publicationAndSourceReadback:true,audioDefaultEmpty:true,oldAudioSelectionNotReinterpreted:true,pointAudioWhitelist:true,fixedVersionQuestionAndTest:true,twentyTargetsSevenOral:true,qualityWholeTranslationAndMissingOriginal:true,reviewContextExtraction:true,singleTenantStableReaderIdentity:true,graphFixtureRequests:graphRequests,noProductionWrites:true,noPaidCalls:true}));
 }finally{globalThis.fetch=originalFetch;db.close();practice.close();}

@@ -32,6 +32,10 @@ resources/current-affairs是发布者/渠道发现目录，不是已经读过的
 
 ## 原文取得和冻结
 
+发现链分三种：`current-affairs-pool find`只查发布者目录；`current-affairs discover`只抓已核feed元数据；外部live search由实际搜索工具执行，不能把前两者说成已检索原文全文。`scripts/lib/source-discovery.mjs`可离线构造并核验新搜索请求、保存实际`q`/`domains`和完整返回结果；它不联网、不调用模型、不替代搜索工具或语义判断。保存结果时保真正请求/返回时间与范围，失败同样留证，不把研究总结中的查询描述倒造成旧底层调用。新请求中的`site.domain`笔误会被拒绝，`site:domain`与显式`domains`如实保存，不静默改写后谎称原请求。
+
+原文打开、提取、实际读取和采用各自留边界。HTTP200也可能是软404；read对明确错误页标题拒绝建有效读件索引，原HTML及失败观察仍保留。这个窄检查不保证所有错误页都能识别，也不认证其余页面是所需原文。扫描PDF、附件、短通知或被屏蔽页面沿实际工具取得与import通路处理；记录实际页码/段落与可见范围，不能把目录摘要、局部OCR或搜索片段写成读完全文。已存同版原件可复用并保原readAt，不冒称新取得。
+
 ```sh
 node scripts/current-affairs-pool.mjs find --text 主题
 node scripts/current-affairs.mjs read DATE --source ID --url OFFICIAL_URL

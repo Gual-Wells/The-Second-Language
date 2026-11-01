@@ -1,10 +1,17 @@
 import {chapterText,permanentBucket} from './storage.js';
-import {qualityPolicy,qualityPolicyV3,resolveQualityPolicy,qualityPolicyDigest,digestText,finalizeQuality} from '../../protocol/chapter-quality-contract.mjs';
+import {qualityPolicy,qualityPolicyV3,qualityPolicyV4,resolveQualityPolicy,qualityPolicyDigest,digestText,finalizeQuality} from '../../protocol/chapter-quality-contract.mjs';
 import {isCurrentAffairsChapter,isCurrentAffairsRevision,readChapterSources} from './current-affairs.js';
 import {isUsageContextContent} from '../../protocol/usage-context.mjs';
 const projectQuality="EXISTS(SELECT 1 FROM formal_chapter_sources s WHERE s.digest=chapter_quality_requests.chapter_digest AND s.policy='current-affairs-v1')";
 const json=(v,s=200)=>Response.json(v,{status:s,headers:{'cache-control':'no-store'}}),digest=v=>/^[a-f0-9]{64}$/.test(v||''),uuid=v=>/^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/.test(v||'');
 const view=r=>({id:r.id,chapterId:r.chapter_id,digest:r.chapter_digest,policy:r.policy_id,status:r.status,stage:r.stage,completed:r.completed,expected:r.expected,decision:r.decision,error:r.error,createdAt:r.created_at,updatedAt:r.updated_at});
+async function reuseQualityRequest(row,input){
+ if(row.chapter_id!==input.chapterId||row.chapter_digest!==input.digest)return json({error:'申请编号已被使用'},409);
+ // A lost acknowledgement replays the real frozen identity, even after the
+ // default policy changes. It neither retries a failed job nor creates v5.
+ try{await resolveQualityPolicy({id:row.policy_id,digest:row.policy_digest});}catch{return json({error:'原申请策略身份不可核对；保留原记录'},409);}
+ return json({id:row.id,reused:true,policy:row.policy_id,policyDigest:row.policy_digest});
+}
 async function original(bucket,key){const item=await bucket.getContent(key);if(!item)throw Error('质检原件暂不可用');const text=await item.text();if(await digestText(text)!==key)throw Error('质检原件摘要不一致');return JSON.parse(text);}
 async function source(env,row){const c=await env.DB.prepare('SELECT * FROM chapter_revisions WHERE chapter_id=? AND digest=?').bind(row.chapter_id,row.chapter_digest).first();if(!c)throw Error('原章节版本不存在');const markdown=env.ONEDRIVE_ENABLED==='true'?await chapterText(env,c.content_key):await env.CHAPTERS.get(c.content_key);if(!markdown||await digestText(markdown)!==c.digest)throw Error('原章节暂不可核对');const chapter={id:c.chapter_id,digest:c.digest,title:c.title,markdown,runId:c.run_id||null,vixCommit:c.vix_commit||null,protocolCommit:c.protocol_commit||null};if(isUsageContextContent(markdown)){const binding=await env.DB.prepare('SELECT * FROM formal_chapter_sources WHERE digest=?').bind(c.digest).first();if(!binding)throw Error('固定语境来源包不存在');chapter.sourcePackage=(await readChapterSources(env,{...binding,chapter_id:c.chapter_id,study_date:c.study_date})).sourcePackage;}return chapter;}
 export async function qualityQueueTime(env){const now=Date.now();await env.DB.prepare("UPDATE chapter_quality_requests SET status='failed',claim=NULL,error='审阅被中断，已保存进度',updated_at=? WHERE status='running' AND lease_until<? AND "+projectQuality).bind(now,now).run();return env.DB.prepare("SELECT queued_at AS created_at FROM chapter_quality_requests WHERE status='pending' AND "+projectQuality+" ORDER BY queued_at LIMIT 1").first();}
@@ -18,16 +25,21 @@ export async function chapterQualityRoute(request,env,{isPublisher,session,sameO
  let b={};if(request.method==='POST'){try{const raw=await request.text();if(raw.length>12000)throw Error();b=JSON.parse(raw);if(!b||Array.isArray(b)||typeof b!=='object')throw Error();}catch{return json({error:'申请格式无效'},400);}}
  try{
  // The installed v50-v57 reader accepts only the v2 capability name. Keep that
- // wire aliases during a shell update; every new job records the current v4
+ // wire aliases during a shell update; every new job records the current v5
  // policy and digest, and old checkpoints are never reinterpreted.
- if(p==='/capabilities'&&request.method==='GET')return json({policy:[qualityPolicy.id,qualityPolicyV3.id].includes(url.searchParams.get('client'))?url.searchParams.get('client'):'chapter-quality-v2-contexts',executionPolicy:qualityPolicy.id});
+ if(p==='/capabilities'&&request.method==='GET')return json({policy:[qualityPolicy.id,qualityPolicyV4.id,qualityPolicyV3.id].includes(url.searchParams.get('client'))?url.searchParams.get('client'):'chapter-quality-v2-contexts',executionPolicy:qualityPolicy.id});
  if(p===''&&request.method==='GET'){const {results}=await db.prepare('SELECT * FROM chapter_quality_requests WHERE chapter_id=? ORDER BY created_at DESC LIMIT 100').bind(url.searchParams.get('chapter')).all();return json({requests:results.map(view)});}
  if(p===''&&request.method==='POST'){
-  if(!uuid(b.id)||typeof b.chapterId!=='string'||b.chapterId.length>110||!digest(b.digest)||![qualityPolicy.id,qualityPolicyV3.id,'chapter-quality-v2-contexts'].includes(b.policy))return json({error:'章节或质检标准已更新，请重新打开'},400);
-  const policyDigest=await qualityPolicyDigest(),prior=await db.prepare('SELECT * FROM chapter_quality_requests WHERE id=?').bind(b.id).first();if(prior)return prior.chapter_id===b.chapterId&&prior.chapter_digest===b.digest&&prior.policy_digest===policyDigest?json({id:prior.id,reused:true}):json({error:'申请编号已被使用'},409);
+  if(!uuid(b.id)||typeof b.chapterId!=='string'||b.chapterId.length>110||!digest(b.digest)||![qualityPolicy.id,qualityPolicyV4.id,qualityPolicyV3.id,'chapter-quality-v2-contexts'].includes(b.policy))return json({error:'章节或质检标准已更新，请重新打开'},400);
+  const prior=await db.prepare('SELECT * FROM chapter_quality_requests WHERE id=?').bind(b.id).first();if(prior)return reuseQualityRequest(prior,b);
+  const policyDigest=await qualityPolicyDigest();
   if(!await isCurrentAffairsChapter(db,b.chapterId,b.digest))return json({error:'正式章节版本不存在'},404);
-  const now=Date.now();await db.prepare('INSERT OR IGNORE INTO chapter_quality_requests(id,chapter_id,chapter_digest,policy_id,policy_digest,created_at,queued_at,updated_at) VALUES(?,?,?,?,?,?,?,?)').bind(b.id,b.chapterId,b.digest,qualityPolicy.id,policyDigest,now,now,now).run();
-  const saved=await db.prepare("SELECT * FROM chapter_quality_requests WHERE id=? OR (chapter_digest=? AND policy_digest=? AND status IN ('pending','running')) ORDER BY created_at LIMIT 1").bind(b.id,b.digest,policyDigest).first();if(!saved)return json({error:'申请未保存，请重试'},409);if(saved.chapter_id!==b.chapterId||saved.chapter_digest!==b.digest||saved.policy_digest!==policyDigest)return json({error:'申请编号已被使用'},409);return json({id:saved.id,reused:saved.id!==b.id},201);
+  const now=Date.now(),inserted=await db.prepare('INSERT OR IGNORE INTO chapter_quality_requests(id,chapter_id,chapter_digest,policy_id,policy_digest,created_at,queued_at,updated_at) VALUES(?,?,?,?,?,?,?,?)').bind(b.id,b.chapterId,b.digest,qualityPolicy.id,policyDigest,now,now,now).run();
+  // An older Worker can win the same UUID between our read and INSERT. Prefer
+  // that exact UUID to a different active request under the new default.
+  const exact=await db.prepare('SELECT * FROM chapter_quality_requests WHERE id=?').bind(b.id).first();
+  if(exact&&!inserted.meta?.changes)return reuseQualityRequest(exact,b);
+  const saved=exact||await db.prepare("SELECT * FROM chapter_quality_requests WHERE chapter_digest=? AND policy_digest=? AND status IN ('pending','running') ORDER BY created_at LIMIT 1").bind(b.digest,policyDigest).first();if(!saved)return json({error:'申请未保存，请重试'},409);if(saved.chapter_id!==b.chapterId||saved.chapter_digest!==b.digest||saved.policy_digest!==policyDigest)return json({error:'申请编号已被使用'},409);return json({id:saved.id,reused:saved.id!==b.id},201);
  }
  if(p==='/jobs/claim'&&request.method==='POST'){if(!isPublisher)return json({error:'处理身份无效'},403);if(!digest(b.claim))return json({error:'处理凭据无效'},400);return json({job:await claimQuality(env,b.claim)});}
  const action=p.match(/^\/jobs\/([a-f0-9-]{36})\/(heartbeat|checkpoint|complete|fail)$/);

@@ -1,6 +1,7 @@
 import {CURRENT_AFFAIRS_POLICY,validateSourcePackage,canonicalSourcePackage} from '../../protocol/current-affairs.mjs';
 import {permanentBucket} from './storage.js';
 import {validateEvidenceManifest} from '../../protocol/chapter-evidence.mjs';
+import {verifyEvidenceRecords} from '../../protocol/chapter-evidence-records.mjs';
 import {DAILY_WORD_COUNT} from '../../web/annotations.js';
 
 export {CURRENT_AFFAIRS_POLICY};
@@ -34,15 +35,25 @@ export async function prepareChapterSources(value,chapterDigest,parsed){
 
 // Private evidence stays in the existing content-addressed file store. Reader
 // source responses carry only its digest; normal page reads do not fetch it.
-export async function verifyChapterEvidence(env,sourcePackage,runId,{readGroups=false}={}){
+export async function verifyChapterEvidence(env,sourcePackage,runId,{readGroups=false,markdown}={}){
  const digest=sourcePackage.evidenceDigest;if(!digest)return;
  const bucket=permanentBucket(env),stored=await bucket.getContent(digest);
  if(!stored)throw Error('采用证据清单尚未永久保存');
  const manifest=validateEvidenceManifest(await stored.json(),{chapterDigest:sourcePackage.chapterDigest,studyDate:sourcePackage.studyDate,runId,selectionDigest:sourcePackage.selectionDigest,vixInputCommit:sourcePackage.vixInputCommit});
  if(manifest.wordCount!==DAILY_WORD_COUNT||manifest.sourceCount!==sourcePackage.sources.length)throw Error('采用证据的词条或来源范围不一致');
+ const groups=[];
  for(const group of manifest.groups){
-  if(readGroups){const saved=await bucket.getContent(group.digest);if(!saved||(await saved.arrayBuffer()).byteLength!==group.bytes)throw Error('采用证据分组原件尚不可核对');}
+  if(readGroups){
+   const saved=await bucket.getContent(group.digest);if(!saved)throw Error('采用证据分组原件尚不可核对');
+   const bytes=await saved.arrayBuffer(),text=new TextDecoder('utf-8',{fatal:true}).decode(bytes);
+   if(bytes.byteLength!==group.bytes||await sha(text)!==group.digest)throw Error('采用证据分组原件摘要或长度不符');
+   const value=JSON.parse(text);if(JSON.stringify(value)!==text)throw Error('采用证据分组序列化原件不一致');groups.push(value);
+  }
   else{const saved=await bucket.contentHead(group.digest);if(!saved||saved.bytes!==group.bytes)throw Error('采用证据分组尚未完整封存');}
+ }
+ if(readGroups){
+  if(typeof markdown!=='string'||await sha(markdown)!==sourcePackage.chapterDigest)throw Error('完整采用证据核验须绑定正文原件');
+  return verifyEvidenceRecords(manifest,groups,{markdown,sourcePackage});
  }
 }
 
