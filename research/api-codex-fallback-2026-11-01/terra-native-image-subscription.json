@@ -1,0 +1,13 @@
+{
+  "success": true,
+  "model": "gpt-6.1-terra",
+  "reasoningEffort": "high",
+  "reused": false,
+  "synthetic": true,
+  "paidApiCalls": 0,
+  "nativeImage": true,
+  "value": {
+    "left": "red",
+    "right": "blue"
+  }
+}

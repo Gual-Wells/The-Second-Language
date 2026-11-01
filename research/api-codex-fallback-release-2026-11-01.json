@@ -1,0 +1,203 @@
+{
+  "schema": "second-series-api-codex-fallback-release-v1",
+  "verifiedAt": "2026-11-01T09:52:57.077Z",
+  "status": "deployed-installed-and-verified",
+  "userScope": "Only the shared ChatGPT API services; other speech providers unchanged",
+  "projects": [
+    {
+      "id": "language",
+      "source": "6973064e3c209d8735591c95029765fb880227f5",
+      "workerVersion": "8337add3-d1de-42bd-919e-89602abc7636",
+      "pages": "https://5ec67d48.the-second-language.pages.dev",
+      "migration": "0028_codex_question_fallback.sql",
+      "services": [
+        "chapter questions"
+      ],
+      "validation": {
+        "node": 41,
+        "browser": 18,
+        "liveReaderAssets": 15,
+        "readerCapability": 3
+      }
+    },
+    {
+      "id": "algorithm",
+      "codeSource": "6f09ee0ca6e47a43cdcf30ec2f0772b05c623823",
+      "receiptHead": "31ade9fcb67f618bf9efc3072554f43b6e0161c8",
+      "workerVersion": "b3754987-d822-4d95-9ddb-a950c590fe57",
+      "pages": "https://f6f16733.second-algorithm.pages.dev",
+      "migration": "0006_question_codex_fallback.sql",
+      "services": [
+        "chapter questions"
+      ],
+      "validation": {
+        "carrier": 194,
+        "browserSuites": 6,
+        "cppTargets": 4,
+        "liveChecks": 11,
+        "ci": {
+          "id": 41293571190,
+          "conclusion": "success",
+          "url": "https://github.com/Gual-Wells/The-Second-Algorithm/actions/runs/41293571190"
+        }
+      }
+    },
+    {
+      "id": "schedule",
+      "source": "f33835d8fd04b8485cde6eb3dbd348f76e6dcb0a",
+      "workerVersion": "92dca229-f9ae-4626-8931-0a1e047cc4b2",
+      "pages": "https://2a025458.neu-schedule-push-api.pages.dev",
+      "migration": "0017_codex_fallback.sql",
+      "services": [
+        "agenda image interpretation"
+      ],
+      "runtime": "codex-fallback-7e09bf0375f5bbe5",
+      "validation": {
+        "worker": 65,
+        "scripts": 5,
+        "static": 9,
+        "publicAssetsMatch": true,
+        "noHistoricalTasksReclaimed": true
+      }
+    },
+    {
+      "id": "ledger",
+      "codeSource": "b47e8fb0face10d40107c21caeaad11cf4f62f42",
+      "receiptHead": "af44f77",
+      "workerVersion": "05a64a63-c7fa-494b-8b7c-0809a99e716f",
+      "pages": "https://222f09f1.second-ledger.pages.dev",
+      "migration": "0014_codex_fallback.sql",
+      "services": [
+        "image candidates",
+        "accounting analysis",
+        "place interpretation"
+      ],
+      "validation": {
+        "node": 260,
+        "browser": 218,
+        "motionSequences": 22,
+        "liveAssets": 33,
+        "privateGetBoundaries": 12,
+        "originalFinancialRecordsUnchanged": true,
+        "ci": {
+          "id": 41294354422,
+          "conclusion": "success",
+          "url": "https://github.com/Gual-Wells/The-Second-Ledger/actions/runs/41294354422"
+        }
+      }
+    }
+  ],
+  "execution": {
+    "apiPrimaryUnchanged": true,
+    "failureHandsOffWithoutAnotherApiAttempt": true,
+    "apiUnknownPreserved": true,
+    "lateApiCannotOverwrite": true,
+    "codexModels": {
+      "text": "gpt-6.1-sol",
+      "image": "gpt-6.1-terra"
+    },
+    "reasoningEffort": "high",
+    "allExistingBackgroundOverridesHigh": true,
+    "personalInteractiveConfigurationChanged": false,
+    "existingRestAndPublicationAuthorizationChanged": false,
+    "headerOnlyDeadlineMs": 45000,
+    "bodyDeadlineUnchanged": true,
+    "helperSha256": "6978b97375ac60bc649252da998adf0a22b7ad968d29b6c505ca37ac17e24170",
+    "helperCopiesMatch": 4,
+    "structuredNativeImageOutput": true,
+    "temporaryDataOnD": true
+  },
+  "supervisor": {
+    "task": "Second-Series-Codex-Fallback",
+    "running": true,
+    "windowless": true,
+    "consoleHostsAlsoWindowless": true,
+    "autoStartAtWindowsLogon": true,
+    "intervalMs": 15000,
+    "statusTimeoutMs": 8000,
+    "concurrentFallbackWorkers": 1,
+    "fairRoundRobin": true,
+    "oldSeparateApiTasksDisabled": true,
+    "idleModelWorkersObserved": 0,
+    "idleStatusProbeUpperBoundExternalRequestsPer24h": 23040,
+    "scope": "Only fixed status metadata in supervisor; task data handled by separate project workers"
+  },
+  "verification": {
+    "nativeSolSubscription": {
+      "success": true,
+      "model": "gpt-6.1-sol",
+      "reasoningEffort": "high",
+      "reused": false,
+      "synthetic": true,
+      "apiCalls": 0,
+      "value": {
+        "ok": true,
+        "echo": "synthetic-check"
+      }
+    },
+    "nativeTerraImageSubscription": {
+      "success": true,
+      "model": "gpt-6.1-terra",
+      "reasoningEffort": "high",
+      "reused": false,
+      "synthetic": true,
+      "paidApiCalls": 0,
+      "nativeImage": true,
+      "value": {
+        "left": "red",
+        "right": "blue"
+      }
+    },
+    "pumpUnitChecks": 12,
+    "rootHelperAndPumpChecks": 22,
+    "allFourAuthorizedEndpointsHealthy": true,
+    "allFourQueuesIdleAtVerification": true,
+    "platformApiCallsMadeForThisVerification": 0,
+    "actualSubscriptionGenerationsForSyntheticVerification": 2,
+    "realOwnerFinancialWritesInFallbackPhase": 0,
+    "projectDocZeroFinalOverrideStrictConfigValidated": true,
+    "nativeSmokePrecededOnlyFinalProjectDocByteLimitOverride": true,
+    "physicalIPhoneOrRealPushNotClaimed": true
+  },
+  "recovery": {
+    "backups": [
+      {
+        "project": "language",
+        "bytes": 1010934,
+        "sha256": "a810e79f94a19548f3cbd257390b47a356a6c991595c6f97a5f9118597775a21",
+        "protectedOnD": true
+      },
+      {
+        "project": "algorithm",
+        "bytes": 31823,
+        "sha256": "9f4e05dc0671562292f07641eed6e8239a0f1c88a3b7de8e11ac5ff41c4336e3",
+        "protectedOnD": true
+      },
+      {
+        "project": "schedule",
+        "bytes": 283070,
+        "sha256": "4eb0e90ca311aee0b0575144f48c6560ae1aa29f596dee7dbedf9b61359ef89f",
+        "protectedOnD": true
+      }
+    ],
+    "unknownProviderReceiptAndCurrentEpochFencesPreserved": true,
+    "ledgerConfirmedPhotoRetentionAndQueuedTtlPreserved": true
+  },
+  "cost": {
+    "newSubscriptions": 0,
+    "newPurchases": 0,
+    "apiKeyReused": true,
+    "fallbackConsumesExistingCodexSubscriptionQuota": true,
+    "idleModelCalls": 0
+  },
+  "dependencies": [
+    "Windows signed-in session and computer running",
+    "Saved Codex ChatGPT authentication and available subscription quota/model access",
+    "Project Cloudflare endpoints reachable"
+  ],
+  "evidence": [
+    "research/api-codex-fallback-2026-11-01/sol-native-subscription.json",
+    "research/api-codex-fallback-2026-11-01/terra-native-image-subscription.json",
+    "research/api-codex-fallback-2026-11-01/authorized-status-checks.json"
+  ]
+}

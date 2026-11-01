@@ -1,0 +1,12 @@
+{
+  "success": true,
+  "model": "gpt-6.1-sol",
+  "reasoningEffort": "high",
+  "reused": false,
+  "synthetic": true,
+  "apiCalls": 0,
+  "value": {
+    "ok": true,
+    "echo": "synthetic-check"
+  }
+}
