@@ -700,11 +700,32 @@ async function refreshPushStatus() {
   } catch { $('pushStatus').textContent = '暂时无法读取这台设备的提醒状态。'; }
 }
 
-function refreshInstallStatus() {
-  if (standalone()) { $('installStatus').textContent = '已从主屏幕以独立窗口打开。'; $('installButton').hidden = true; }
-  else if (isIOS) { $('installStatus').textContent = '在 Safari 中添加到主屏幕，再从主屏幕打开，即可使用独立的 PWA 窗口。'; $('installButton').hidden = false; }
-  else { $('installStatus').textContent = '把阅读器安装到设备，保留独立窗口与本机离线缓存。'; $('installButton').hidden = false; }
+function homeScreenContent() {
+  const installed = standalone();
+  const ios = /iPhone|iPad|iPod/.test(navigator.userAgent);
+  const safari = ios && /Safari/.test(navigator.userAgent) && !/CriOS|FxiOS|EdgiOS|OPiOS/.test(navigator.userAgent);
+  const method = installed ? '' : ios
+    ? `<section class="install-method"><h3>${safari ? '在 Safari 中添加' : '在 Safari 中打开本站后添加'}</h3><p class="install-steps"><span>浏览器菜单</span><span class="install-arrow" aria-hidden="true">›</span><span>分享</span><span class="install-arrow" aria-hidden="true">›</span><span>添加到主屏幕</span></p><p class="install-note">若出现“作为网页 App 打开”，保持开启后添加。以后从主屏幕的图标打开。</p></section>`
+    : `<section class="install-method"><h3>安装到设备</h3><p class="install-steps"><span>浏览器菜单</span><span class="install-arrow" aria-hidden="true">›</span><span>安装应用或添加到主屏幕</span></p><p class="install-note">可用名称随浏览器而异；若没有此选项，可继续在浏览器中使用。</p>${state.installPrompt ? '<div class="button-row"><button class="bevel-button" id="confirmInstall" type="button">安装应用</button></div>' : ''}</section>`;
+  return `<div class="install-guide"><div class="install-heading"><img src="/icon-192.png?v=41" alt="" width="32" height="32"><div><strong>第二语言</strong><p class="install-state">${installed ? '已从主屏幕打开' : '当前在浏览器中打开'}</p></div></div>${method}</div>`;
 }
+function refreshInstallStatus() {
+  $('installStatus').textContent = standalone() ? '已从主屏幕打开。' : '当前在浏览器中打开。';
+  $('loginInstallButton').hidden = standalone();
+  if ($('installDialog').open) renderHomeScreen();
+}
+function renderHomeScreen() {
+  $('installContent').innerHTML = homeScreenContent();
+  $('confirmInstall')?.addEventListener('click', async () => {
+    const prompt = state.installPrompt;
+    if (!prompt) return;
+    state.installPrompt = null;
+    try { await prompt.prompt(); await prompt.userChoice; }
+    catch { toast('请从浏览器菜单添加到主屏幕'); }
+    refreshInstallStatus();
+  });
+}
+function showHomeScreen() { renderHomeScreen(); showDialog('installDialog'); }
 
 $('previousChapter').addEventListener('click', () => moveChapter(-1));
 $('nextChapter').addEventListener('click', () => moveChapter(1));
@@ -736,7 +757,7 @@ for (const button of document.querySelectorAll('[data-part]')) button.addEventLi
 $('readingScroll').addEventListener('scroll', () => { updateReadingPosition(); clearTimeout(saveReadingPosition.timer); saveReadingPosition.timer = setTimeout(saveReadingPosition, 250); }, { passive: true });
 
 $('loginButton').addEventListener('click', signIn);
-$('loginInstallButton').addEventListener('click', () => showDialog('installDialog'));
+$('loginInstallButton').addEventListener('click', showHomeScreen);
 $('setupKey').addEventListener('keydown', event => { if (event.key === 'Enter') signIn(); });
 $('saveGoal').addEventListener('click', async () => {
   const rawGoal=$('studyGoal').value,goal = rawGoal.trim();
@@ -809,10 +830,8 @@ $('logoutButton').addEventListener('click', async () => {
     toast('已退出登录');
   } catch (error) { toast(error.message); }
 });
-$('installButton').addEventListener('click', async () => {
-  if (state.installPrompt) { await state.installPrompt.prompt(); state.installPrompt = null; refreshInstallStatus(); }
-  else showDialog('installDialog');
-});
+$('installButton').addEventListener('click', showHomeScreen);
+window.addEventListener('appinstalled', () => { state.installPrompt = null; refreshInstallStatus(); });
 window.addEventListener('beforeinstallprompt', event => { event.preventDefault(); state.installPrompt = event; refreshInstallStatus(); });
 window.addEventListener('online', () => { setSyncStatus('正在同步…'); flushPending(); });
 window.addEventListener('offline', () => setSyncStatus('离线阅读 · 反馈等待同步', true));
@@ -832,7 +851,7 @@ $('chapterNav').addEventListener('touchend', event => {
   if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.5) moveChapter(dx < 0 ? 1 : -1);
   swipeStart = null;
 }, { passive: true });
-if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=64', { updateViaCache: 'none' }).catch(() => {});
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=65', { updateViaCache: 'none' }).catch(() => {});
 refreshInstallStatus();
 initialize().then(()=>{if(state.authenticated&&new URLSearchParams(location.search).has('balances'))balances.open();});
 

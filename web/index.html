@@ -14,7 +14,7 @@
   <link rel="manifest" href="/manifest.webmanifest?v=41">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=41">
   <link rel="icon" href="/icon-192.png?v=41" type="image/png">
-  <link rel="stylesheet" href="/styles.css?v=64">
+  <link rel="stylesheet" href="/styles.css?v=65">
 </head>
 <body>
   <main class="app-shell login-mode" id="app">
@@ -85,7 +85,7 @@
             <label class="field-label" id="setupKeyRow" for="setupKey" hidden>初始化密钥</label>
             <input class="text-input" id="setupKey" type="password" autocomplete="off" placeholder="输入初始化密钥" hidden>
             <button class="primary-button wide-button" id="loginButton" type="button">使用通行密钥登录</button>
-            <button class="bevel-button login-install" id="loginInstallButton" type="button">如何加入 iPhone 主屏幕</button>
+            <button class="bevel-button login-install" id="loginInstallButton" type="button">主屏幕</button>
             <p class="state-message" id="loginMessage" role="status"></p>
           </div>
         </section>
@@ -205,7 +205,7 @@
       <section class="settings-section"><div class="section-band"><strong>音频下载</strong><span>AUDIO</span></div><div class="settings-body"><label class="switch-row" for="audioPreloadToggle"><span>自动下载本章已有音频</span><input id="audioPreloadToggle" type="checkbox" role="switch" checked></label><p>打开章节后在后台下载，方便之后点读。关闭后按需读取；不会自动生成新音频。</p></div></section>
       <section class="settings-section"><div class="section-band"><strong>服务额度</strong><span>BALANCES</span></div><div class="settings-body"><p>余额记录与学习任务的预计用量。</p><button class="bevel-button" id="balanceButton" type="button">查看余额与用量</button></div></section>
       <section class="settings-section"><div class="section-band"><strong>新章与额度提醒</strong><span>NOTIFICATIONS</span></div><div class="settings-body"><p id="pushStatus">从主屏幕打开 PWA 后，可开启新章节通知。</p><div class="button-row"><button class="bevel-button" id="pushButton" type="button">开启提醒</button><button class="bevel-button" id="disablePushButton" type="button" hidden>关闭提醒</button></div></div></section>
-      <section class="settings-section"><div class="section-band"><strong>主屏幕与账户</strong><span>THIS DEVICE</span></div><div class="settings-body"><p id="installStatus">把阅读器加入主屏幕，可获得独立的应用窗口。</p><div class="button-row"><button class="bevel-button" id="installButton" type="button">安装说明</button><button class="bevel-button" id="logoutButton" type="button" hidden>退出登录</button></div></div></section>
+      <section class="settings-section"><div class="section-band"><strong>主屏幕与账户</strong><span>THIS DEVICE</span></div><div class="settings-body"><p id="installStatus">把阅读器加入主屏幕，可获得独立的应用窗口。</p><div class="button-row"><button class="bevel-button" id="installButton" type="button">主屏幕</button><button class="bevel-button" id="logoutButton" type="button" hidden>退出登录</button></div></div></section>
       <section class="settings-section" id="audioConfigSection"><div class="section-band"><strong>音频配置</strong><span>AUDIO LIBRARY</span></div><div class="settings-body">
         <div id="audioConfigChoices"><p>默认不提前生成音频。可为下一新章选配，或申请已有章节；已有声音直接复用。</p><button class="settings-row" id="audioNextChoice" type="button"><span>下一章日课</span><b>›</b></button><button class="settings-row" id="audioExistingChoice" type="button"><span>已有章节</span><b>›</b></button></div>
         <div id="audioConfigDetail" hidden><button class="bevel-button" id="audioConfigBack" type="button">‹ 音频配置</button><h3 id="audioModeTitle"></h3><label id="audioChapterRow" class="field-label">选择章节<select id="audioChapter" class="text-input"></select></label>
@@ -223,7 +223,7 @@
   <dialog class="sheet-dialog" id="chapterQualityDialog" aria-labelledby="chapterQualityTitle"><div class="sheet help-sheet"><div class="sheet-head"><div><small>CHAPTER QUALITY</small><h2 id="chapterQualityTitle">章节质检</h2></div><button class="sheet-close" data-close="chapterQualityDialog" type="button" aria-label="关闭">×</button></div><p id="chapterQualityStatus" class="quality-status" role="status"></p><div id="chapterQualityBody" class="quality-body"></div><div class="quality-footer"><p>固定版本审阅 · 不代表学习者认证</p><div class="button-row"><button class="bevel-button" id="chapterQualityBack" type="button" hidden>返回记录</button><button class="primary-button" id="chapterQualityApply" type="button">申请本版质检</button></div></div></div></dialog>
 
   <dialog class="sheet-dialog" id="installDialog" aria-labelledby="installTitle">
-    <div class="sheet help-sheet"><div class="sheet-head"><div><small>HOME SCREEN</small><h2 id="installTitle">加入主屏幕</h2></div><button class="sheet-close" data-close="installDialog" type="button" aria-label="关闭">×</button></div><div class="install-guide"><img src="/icon-192.png?v=41" alt="第二语言图标"><div><strong>在 iPhone 的 Safari 中</strong><ol><li>打开本站并点按分享按钮（也可能位于浏览器菜单中）。</li><li>选择“添加到主屏幕”。</li><li>从主屏幕启动“第二语言”。</li></ol></div></div></div>
+    <div class="sheet help-sheet"><div class="sheet-head"><div><small>HOME SCREEN</small><h2 id="installTitle">主屏幕</h2></div><button class="sheet-close" data-close="installDialog" type="button" aria-label="关闭">×</button></div><div id="installContent"></div></div>
   </dialog>
 
   <dialog class="sheet-dialog" id="certificationCatalogue" aria-labelledby="certificationCatalogueTitle">
@@ -264,6 +264,6 @@
     </div>
   </dialog>
   <div id="toast" role="status" aria-live="polite"></div>
-  <script type="module" src="/app.js?v=64"></script>
+  <script type="module" src="/app.js?v=65"></script>
 </body>
 </html>
