@@ -12,7 +12,11 @@ export function scopeAppealPacket(packet,requests,records){
  const ids=requests.map(r=>r.contextId),cases=packet.cases.filter(c=>ids.includes(c.contextId)),useIds=new Set(cases.flatMap(c=>c.useIds));
  if(cases.length!==ids.length||new Set(ids).size!==ids.length)throw Error('独立审核范围重复或越界');
  const refs=new Set(requests.flatMap(r=>r.refs.map(e=>e.sourceId)));
- return {...packet,cases,words:packet.words.filter(w=>[...w.authored.partOne.matchAll(/^<!-- USE:([^ ]+) -->/gm)].some(m=>useIds.has(m[1]))),originals:packet.originals.filter(o=>refs.has(o.sourceId)),requests,records:records.filter(r=>refs.has(r.id))};
+ const words=packet.words.filter(w=>[...w.authored.partOne.matchAll(/^<!-- USE:([^ ]+) -->/gm)].some(m=>useIds.has(m[1]))).map(w=>({wordId:w.wordId,authored:{wordId:w.authored.wordId,text:w.authored.text,materialDigest:w.authored.materialDigest,partOne:w.authored.partOne,contexts:w.authored.contexts.filter(c=>ids.includes(c.id))},material:w.material}));
+ // Administrative chapter/source digests stay in the final signed report.
+ // The reviewer sees the exact case, full word definitions/material and its
+ // evidence; unrelated chapter edits must not require the same review again.
+ return {policy:'independent-case-review-v1',runId:packet.runId,studyDate:packet.studyDate,cases:[...cases].sort((a,b)=>a.contextId.localeCompare(b.contextId)),words:words.sort((a,b)=>a.wordId.localeCompare(b.wordId)),originals:packet.originals.filter(o=>refs.has(o.sourceId)).sort((a,b)=>a.sourceId.localeCompare(b.sourceId)),requests:[...requests].sort((a,b)=>a.contextId.localeCompare(b.contextId)),records:records.filter(r=>refs.has(r.id)).sort((a,b)=>a.id.localeCompare(b.id))};
 }
 export async function fallbackReviewPacket(chapter,evidence){
  const parsed=validateTeachingLayout(chapter.markdown,chapter.contentPolicy,{expectedWordCount:chapter.wordCount});
@@ -36,12 +40,17 @@ export async function verifyAppealExecution(directory,value,packet){
  if(receipt.kind!=='isolated-appeal-review-v1'||receipt.exitCode!==0||receipt.model!=='gpt-6.1-sol'||receipt.effort!=='high'||!receipt.threadId)throw Error('没有独立只读Codex审核成功原件');
  const load=async(name,digest)=>{const physical=await fs.realpath(path.join(batchDirectory,name));if(path.dirname(physical)!==batchDirectory)throw Error('审核原件越出本版目录');const text=await fs.readFile(physical,'utf8');if(hash(text)!==digest)throw Error('独立审核原件摘要不符');return text;};
  const prompt=await load('review-prompt.txt',receipt.promptDigest),output=await load('review-response.json',receipt.responseDigest),events=await load('review-events.jsonl',receipt.eventsDigest);
- const expected=appealPrompt(scopeAppealPacket(packet,value.requests.filter(r=>execution.contextIds.includes(r.contextId)),value.records));
- if(prompt!==expected)throw Error('审核没有实际收到当前全部用法、申诉和原件');
+ const marker='\n固定审核资料JSON：\n',start=prompt.indexOf(marker);if(start<0)throw Error('独立审核实际输入缺少固定资料');
+ const originalPacket=JSON.parse(prompt.slice(start+marker.length));
+ if(appealPrompt(originalPacket)!==prompt||hash(prompt)!==execution.id)throw Error('独立审核规则或实际输入摘要不符');
+ for(const id of execution.contextIds){
+  const current=value.requests.find(r=>r.contextId===id),old=originalPacket.requests?.find(r=>r.contextId===id);
+  if(!old||canonical(scopeAppealPacket(packet,[current],value.records))!==canonical(scopeAppealPacket(originalPacket,[old],originalPacket.records||[])))throw Error('审核没有实际收到当前用法、例句、申诉或原件；旧批准已失效 '+id);
+ }
  const result=JSON.parse(output),messages=events.trim().split(/\r?\n/).map(JSON.parse);
  if(!messages.some(e=>e.type==='thread.started'&&e.thread_id===receipt.threadId)||messages.some(e=>['error','turn.failed'].includes(e.type))||!messages.some(e=>e.type==='turn.completed'))throw Error('独立审核轮次未实际成功完成');
  const final=messages.filter(e=>e.type==='item.completed'&&e.item?.type==='agent_message').at(-1)?.item?.text;
- if(!final||canonical(JSON.parse(final))!==canonical(result)||!Array.isArray(result.decisions)||result.decisions.length!==execution.contextIds.length||canonical([...result.decisions].sort((a,b)=>a.contextId.localeCompare(b.contextId)))!==canonical(value.decisions.filter(d=>execution.contextIds.includes(d.contextId)).sort((a,b)=>a.contextId.localeCompare(b.contextId))))throw Error('审批决议不是该独立审核的真实返回');
+ if(!final||canonical(JSON.parse(final))!==canonical(result)||!Array.isArray(result.decisions)||new Set(result.decisions.map(d=>d.contextId)).size!==originalPacket.cases.length||result.decisions.length!==originalPacket.cases.length||result.decisions.some(d=>!originalPacket.cases.some(c=>c.contextId===d.contextId))||canonical(result.decisions.filter(d=>execution.contextIds.includes(d.contextId)).sort((a,b)=>a.contextId.localeCompare(b.contextId)))!==canonical(value.decisions.filter(d=>execution.contextIds.includes(d.contextId)).sort((a,b)=>a.contextId.localeCompare(b.contextId))))throw Error('审批决议不是该独立审核的真实返回');
  // A producer cannot approve its own candidates by relabelling its run.
  const pipeline=path.join(directoryReal,'../../pipeline/invocations');
  try{for(const name of await fs.readdir(pipeline)){const f=path.join(pipeline,name,'thread.json');let r;try{r=JSON.parse(await fs.readFile(f,'utf8'));}catch(e){if(e.code==='ENOENT')continue;throw e;}if(r.threadId===receipt.threadId)throw Error('原作者线程不能充当独立申诉审核');}}catch(e){if(e.code!=='ENOENT')throw e;}

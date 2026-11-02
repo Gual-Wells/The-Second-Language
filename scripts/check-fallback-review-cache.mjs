@@ -1,0 +1,39 @@
+// Simulated isolated receipts test reuse boundaries, not semantic truth.
+import assert from 'node:assert/strict';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import {randomUUID,createHash} from 'node:crypto';
+import {usageContextBackendFixture,fixtureFallbackAdmission} from './lib/usage-context-backend-fixture.mjs';
+import {assembleUsageContextCollection} from './lib/usage-context-authoring.mjs';
+import {verifyEvidenceRecords} from '../protocol/chapter-evidence-records.mjs';
+import {canonicalSourcePackage as canonical} from '../protocol/current-affairs.mjs';
+import {fallbackCases} from '../protocol/fallback-appeals.mjs';
+import {appealFolder,appealPrompt,scopeAppealPacket,fallbackReviewPacket,verifyAppealExecution} from './lib/fallback-appeals.mjs';
+import {cacheApprovedCases,reuseAppealCases,mergeAppealReport} from './lib/fallback-review-cache.mjs';
+const hash=s=>createHash('sha256').update(s).digest('hex'),root=path.resolve('.cache/fallback-review-cache-check',randomUUID()),date='2099-03-02',checks=[];
+const check=async(name,fn)=>{await fn();checks.push(name);};
+const f=await fixtureFallbackAdmission(usageContextBackendFixture(date,'layout3',{wordCount:30,authenticWords:23,contextTag:'cache-fixture'}));
+function rebuilt(words){
+ const {parsed,markdown}=assembleUsageContextCollection(words,{expectedWordCount:30}),digest=hash(markdown),group=structuredClone(f.assets[0]);
+ for(const r of group.records.filter(r=>r.kind==='word')){r.authorText=JSON.stringify(words.find(w=>w.wordId===r.wordId));r.authorDigest=hash(r.authorText);}
+ const groupText=JSON.stringify(group),manifest={...f.manifest,chapterDigest:digest,groups:[{digest:hash(groupText),bytes:Buffer.byteLength(groupText)}]},sourcePackage={...f.value.sourcePackage,chapterDigest:digest,evidenceDigest:hash(JSON.stringify(manifest))},chapter={...f.value,markdown,digest,sourcePackage,sourceDigest:hash(canonical(sourcePackage))};
+ const evidence=verifyEvidenceRecords(manifest,[group],chapter);return {words,parsed,chapter,evidence};
+}
+async function view(state){const {packet,cases}=await fallbackReviewPacket(state.chapter,state.evidence);const requests=cases.map(c=>({...f.appeals.requests.find(r=>r.contextId===c.contextId),...c})),request={...f.appeals,requests};return {...state,packet,request,directory:appealFolder(root,date,state.chapter.digest)};}
+async function seedBatch(v,ids,decision='approved'){
+ const requests=v.request.requests.filter(r=>ids.includes(r.contextId)),prompt=appealPrompt(scopeAppealPacket(v.packet,requests,v.request.records)),id=hash(prompt),directory=path.join(v.directory,'reviews',id);await fs.mkdir(directory,{recursive:true});
+ const decisions=requests.map(r=>({contextId:r.contextId,basisDigest:r.basisDigest,decision,reason:'Simulated fixture verdict '+decision,refs:r.refs})),response=JSON.stringify({decisions,summary:'Test receipt; no model or semantic review occurred.'}),events=[{type:'thread.started',thread_id:'fixture-'+id.slice(0,20)},{type:'item.completed',item:{type:'agent_message',text:response}},{type:'turn.completed'}].map(JSON.stringify).join('\n'),reviewedAt=new Date().toISOString();
+ await fs.writeFile(path.join(directory,'review-prompt.txt'),prompt);await fs.writeFile(path.join(directory,'review-response.json'),response);await fs.writeFile(path.join(directory,'review-events.jsonl'),events);await fs.writeFile(path.join(directory,'review-execution.json'),JSON.stringify({kind:'isolated-appeal-review-v1',exitCode:0,model:'gpt-6.1-sol',effort:'high',threadId:'fixture-'+id.slice(0,20),promptDigest:hash(prompt),responseDigest:hash(response),eventsDigest:hash(events),finishedAt:reviewedAt}));
+ const report=await mergeAppealReport({directory:v.directory,chapter:v.chapter,packet:v.packet,request:v.request,decisions,executions:[{id,contextIds:ids}],reviewedAt});return report;
+}
+const first=await view(rebuilt(f.authors)),ids=first.request.requests.slice(0,2).map(r=>r.contextId);let oldReport;
+await check('two cases are backed by one actual-shaped isolated batch',async()=>{oldReport=await seedBatch(first,ids);await cacheApprovedCases({root,date,chapter:first.chapter,directory:first.directory,packet:first.packet,report:oldReport});assert.equal(oldReport.executions.length,1);assert.equal(oldReport.decisions.length,2);});
+const changedElsewhere=structuredClone(f.authors);changedElsewhere[0].contexts[0].translation+=' 其他真实语境的译文修订。';const second=await view(rebuilt(changedElsewhere));
+await check('unrelated chapter revision reuses genuine case verdicts without a model',async()=>{assert.notEqual(second.chapter.digest,first.chapter.digest);const r=await reuseAppealCases({root,date,...second,ids});assert.deepEqual(r.reused,ids);assert.deepEqual(r.remaining,[]);});
+await check('a subset can reuse an earlier larger batch',async()=>{const report=JSON.parse(await fs.readFile(path.join(second.directory,'review.json'),'utf8'));const subset={...report,requests:report.requests.filter(r=>r.contextId===ids[0]),decisions:report.decisions.filter(d=>d.contextId===ids[0]),executions:report.executions.map(e=>({...e,contextIds:[ids[0]]}))};subset.reviewer={...subset.reviewer,runReference:'independent-set:'+hash(canonical(subset.executions))};await verifyAppealExecution(second.directory,subset,second.packet);});
+await check('replacing one decision preserves the other cases from its old batch',async()=>{const report=await seedBatch(second,[ids[0]],'needs-research');assert.equal(report.decisions.length,2);assert.equal(report.decisions.find(d=>d.contextId===ids[1]).decision,'approved');assert.equal(report.executions.reduce((n,e)=>n+e.contextIds.length,0),2);});
+await check('a newer negative verdict is never replaced by an older cached approval',async()=>{const r=await reuseAppealCases({root,date,...second,ids:[ids[0]]});assert.deepEqual(r.reused,[]);assert.deepEqual(r.remaining,[ids[0]]);});
+const altered=structuredClone(changedElsewhere);altered.flatMap(w=>w.contexts).find(c=>c.id===ids[1]).translation+=' 当前用例译文已实质改变。';const third=await view(rebuilt(altered));
+await check('a changed case misses its approval cache while unchanged cases remain reusable',async()=>{const r=await reuseAppealCases({root,date,...third,ids});assert.deepEqual(r.reused,[ids[0]]);assert.deepEqual(r.remaining,[ids[1]]);});
+await check('a tampered cache cannot manufacture a reviewer verdict',async()=>{const request=first.request.requests.find(r=>r.contextId===ids[1]),key=hash(canonical(scopeAppealPacket(first.packet,[request],first.request.records))),file=path.join(root,'work/runs',date,'teaching/fallback-review-cache',key+'.json'),value=JSON.parse(await fs.readFile(file,'utf8'));value.decision.reason='Forged approval reason';await fs.writeFile(file,JSON.stringify(value));await assert.rejects(reuseAppealCases({root,date,...first,ids:[ids[1]]}),/真实返回/);});
+console.log(JSON.stringify({passed:checks.length,checks,root,realModelCalls:0,networkCalls:0,productionWrites:false,semanticReviewClaimed:false},null,2));

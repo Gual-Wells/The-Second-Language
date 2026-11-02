@@ -3,6 +3,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import {spawnSync} from 'node:child_process';
+import {randomUUID} from 'node:crypto';
 import {canonicalSourcePackage as canonical} from '../../protocol/current-affairs.mjs';
 import {selectedWordCount} from '../../protocol/chapter-size.mjs';
 import {authenticityAlarm} from '../../protocol/fallback-appeals.mjs';
@@ -11,6 +12,7 @@ import {readTeachingMaterials,prepareTeachingMaterials,checkMaterialDisposition,
 import {auditAuthenticity} from './authenticity-audit.mjs';
 import {pipelineRoot,optionalJson,immutableJson,atomicJson,sha256} from './daily-pipeline.mjs';
 import {runNativeGoal,verifyGoalInputs} from './codex-goal-runner.mjs';
+import {publisherConfig} from './publisher-config.mjs';
 export const REFINEMENT_ID='authentic-real-first-20261103';
 const json=file=>fs.readFile(file,'utf8').then(JSON.parse);
 const protocols=['AGENTS.md','protocol/CONTEXT_REFINEMENT.md','protocol/AUTHENTIC_CONTEXT_APPEALS.md','protocol/AUTHENTIC_CONTEXT.md','protocol/VIX_CONTEXT_DISCOVERY.md','protocol/TEACHING_AUTHORING.md','protocol/TEACHING_LAYOUT_V2.md','protocol/CONTENT.md','protocol/CURRENT_AFFAIRS.md','protocol/PUBLICATION_REVIEW.md','protocol/QUALITY_WORKFLOW.md','protocol/ANNOTATIONS.md'];
@@ -79,5 +81,60 @@ async function runProducer(root,date,id,codexExecutable){
  try{const result=await runNativeGoal({root,directory,objective,codexExecutable,deadlineAt:p.manifest.deadlineAt,verifyResult:async()=>{await verifyGoalInputs(root,[...p.manifest.inputs,...snapshots]);const r=await inspectRefinementTask(root,date,id);return {wordIds:r.words.map(w=>w.wordId),coverage:r.coverage,alarm:r.alarm,artifacts:r.artifacts,publicationApproved:false};}});await immutableJson(path.join(directory,'finished.json'),{code:0,threadId:result.threadId,finishedAt:new Date().toISOString()});return result;}
  catch(error){await immutableJson(path.join(directory,'finished.json'),{code:1,outcome:'preserved-not-replayed',message:error.message,finishedAt:new Date().toISOString()});throw error;}
 }
-export async function runRefinement(root,date,codexExecutable){const p=await prepareRefinement(root,date);const results=await Promise.allSettled(p.manifest.tasks.map(t=>runProducer(p.root,date,t.id,codexExecutable)));const summary=results.map((r,i)=>({id:p.manifest.tasks[i].id,state:r.status,...(r.status==='rejected'?{error:r.reason.message}:{threadId:r.value.threadId||null})}));await atomicJson(path.join(p.directory,'producer-results.json'),{recordedAt:new Date().toISOString(),tasks:summary});if(results.some(r=>r.status==='rejected'))throw Error('部分修订未完成，成功组和原线程已保留，不自动重发');return {directory:p.directory,tasks:summary};}
+export async function runRefinement(root,date,codexExecutable){const p=await prepareRefinement(root,date);const results=await Promise.allSettled(p.manifest.tasks.map(t=>runProducer(p.root,date,t.id,codexExecutable)));const summary=results.map((r,i)=>({id:p.manifest.tasks[i].id,state:r.status,...(r.status==='rejected'?{error:r.reason.message}:{threadId:r.value.threadId||null})}));await atomicJson(path.join(p.directory,'producer-results.json'),{recordedAt:new Date().toISOString(),tasks:summary});if(results.some(r=>r.status==='rejected'))throw Error('部分修订未完成，成功组和原线程已保留，不自动重发');const assembly=await runRefinementAssembly(p.root,date,codexExecutable);return {directory:p.directory,tasks:summary,assembly};}
 export async function refinementMaterials(root,date,id,additionalFile){const p=await prepareRefinement(root,date),scope=p.manifest.tasks.find(t=>t.id===id);if(!scope)throw Error('未知修订组');return prepareTeachingMaterials(root,date,{wordTexts:scope.words.map(w=>w.text),manifestFile:path.join(p.task(id),'materials.json'),additionalFile});}
+async function replaceFromBaseline(target,text,baselineText){
+ let old;try{old=await fs.readFile(target,'utf8');}catch(e){if(e.code!=='ENOENT')throw e;old=null;}
+ if(old===text)return;
+ if(old!==baselineText)throw Error('全局稿件已被其他操作修改，不覆盖：'+target);
+ const temp=target+'.refinement.'+randomUUID()+'.tmp';await fs.mkdir(path.dirname(target),{recursive:true});try{await fs.writeFile(temp,text,{flag:'wx'});await fs.rename(temp,target);}finally{await fs.unlink(temp).catch(e=>{if(e.code!=='ENOENT')throw e;});}
+}
+export async function mergeRefinement(root,date){
+ const p=await prepareRefinement(root,date),mergedFile=path.join(p.directory,'merged.json'),prior=await optionalJson(mergedFile);if(prior){await verifyGoalInputs(root,prior.producerArtifacts);return prior;}
+ const results=[];
+ for(const t of p.manifest.tasks){const d=path.join(p.task(t.id),'goal'),finished=await json(path.join(d,'finished.json')),completed=await json(path.join(d,'goal-complete.json'));if(finished.code!==0||completed.goal?.status!=='complete')throw Error('三个修订Goal尚未实际完成');await verifyGoalInputs(root,completed.verified.artifacts);results.push(await inspectRefinementTask(root,date,t.id));}
+ const words=results.flatMap(r=>r.words),baseMaterials=await json(path.join(p.directory,'inputs/materials.json'));
+ const assembled=assembleUsageContextCollection(words,{expectedWordCount:30});if(p.manifest.baseUseIds.some(id=>!assembled.parsed.uses.has(id)))throw Error('整合缺少原用法');
+ if(results.some(r=>canonical(r.materials.books)!==canonical(baseMaterials.books)))throw Error('修订不能静默切换教材版本');
+ const materials={...baseMaterials,additionalTerms:Object.assign({},...results.map(r=>r.materials.additionalTerms)),packets:baseMaterials.scope.map(s=>results.flatMap(r=>r.materials.packets).find(m=>m.word===s.text))};
+ const globalMaterials=path.join(p.run,'teaching/materials.json'),materialText=JSON.stringify(materials,null,2)+'\n';
+ // A crash halfway through copying can resume only the same desired bytes.
+ // Any unrelated global edit is preserved instead of overwritten.
+ const changes=[{target:globalMaterials,text:materialText,baseline:await fs.readFile(path.join(p.directory,'inputs/materials.json'),'utf8')}];
+ for(const r of results)for(const w of r.words){const source=path.join(p.task(r.scope.id),'authored/word-'+w.wordId+'.json');changes.push({target:path.join(p.run,'teaching/authored/word-'+w.wordId+'.json'),text:await fs.readFile(source,'utf8'),baseline:await fs.readFile(path.join(p.directory,'inputs/authored/word-'+w.wordId+'.json'),'utf8')});}
+ for(const c of changes){const old=await fs.readFile(c.target,'utf8');if(old!==c.text&&old!==c.baseline)throw Error('全局稿件已被其他操作修改，不覆盖：'+c.target);}
+ for(const c of changes)await replaceFromBaseline(c.target,c.text,c.baseline);
+ const coverage=await auditAuthenticity(root,words,{strictWitnesses:true}),value={date,revision:REFINEMENT_ID,mergedAt:new Date().toISOString(),wordIds:words.map(w=>w.wordId),useCount:assembled.parsed.uses.size,coverage,alarm:authenticityAlarm(coverage),materialsDigest:sha256(materialText),producerArtifacts:results.flatMap(r=>r.artifacts),published:false};
+ await immutableJson(mergedFile,value);return value;
+}
+async function verifyRefinementPublished(root,date){
+ const chapter=await json(path.join(root,'chapters',date,'chapter.json')),p=await prepareRefinement(root,date),assembled=assembleUsageContextCollection(await Promise.all(p.manifest.baseWordIds.map(id=>json(path.join(p.run,'teaching/authored/word-'+id+'.json')))),{expectedWordCount:30});
+ if(chapter.markdown!==assembled.markdown||sha256(chapter.markdown)!==chapter.digest||p.manifest.baseUseIds.some(id=>!assembled.parsed.uses.has(id)))throw Error('最终章节与完整修订作者稿不一致');
+ const {base,token}=await publisherConfig(),headers={authorization:'Bearer '+token};
+ const catalogue=await fetch(new URL('/api/chapters',base),{headers,signal:AbortSignal.timeout(45000)});if(!catalogue.ok)throw Error('正式目录尚不可核对');const listing=await catalogue.json();if(!listing.chapters?.some(c=>c.id===date&&c.digest===chapter.digest))throw Error('本次修订不是当前正式目录版本，不能仅凭历史原件回读完成');
+ const r=await fetch(new URL('/api/chapters/'+date+'?digest='+chapter.digest,base),{headers,signal:AbortSignal.timeout(45000)});if(!r.ok)throw Error('本次正式章节尚未成功发布/回读');const body=await r.json();
+ const s=await fetch(new URL('/api/chapters/'+date+'/sources?digest='+chapter.digest,base),{headers,signal:AbortSignal.timeout(45000)});if(!s.ok)throw Error('本次正式来源尚未成功回读');const sources=await s.json();
+ if(body.digest!==chapter.digest||sha256(body.markdown)!==chapter.digest||sources.sourceDigest!==chapter.sourceDigest||sha256(canonical(sources.sourcePackage))!==chapter.sourceDigest)throw Error('正式章节或来源回读摘要不符');
+ return {published:true,chapterDigest:chapter.digest,sourceDigest:chapter.sourceDigest,wordCount:30,useCount:assembled.parsed.uses.size,selectionAndVixPreserved:true};
+}
+export async function runRefinementAssembly(root,date,codexExecutable,{waitForProducers=false}={}){
+ const p=await prepareRefinement(root,date),directory=path.join(p.directory,'assembly-goal');
+ if(await optionalJson(path.join(directory,'finished.json'))){const result=await json(path.join(directory,'finished.json'));if(result.code!==0)throw Error('总装修订已有失败原件，不自动建立替代线程');return verifyRefinementPublished(root,date);}
+ if(await optionalJson(path.join(directory,'started.json')))throw Error('总装已有在途/未知调用，先核原线程，不重复启动');
+ for(;;){
+  const finished=await Promise.all(p.manifest.tasks.map(t=>optionalJson(path.join(p.task(t.id),'goal/finished.json'))));
+  if(finished.some(v=>v&&v.code!==0))throw Error('有修订组未完成，保留其余成功结果，不启动总装');
+  if(finished.every(v=>v?.code===0))break;
+  if(!waitForProducers)throw Error('三个修订组尚未交齐');
+  if(Date.now()>=p.manifest.deadlineAt)throw Error('原执行窗口结束，保留候选，不启动总装');
+  await new Promise(resolve=>setTimeout(resolve,5000));
+ }
+ const merged=await mergeRefinement(root,date);await fs.mkdir(directory,{recursive:true});const snapshots=[];
+ for(const file of protocols){snapshots.push({original:file,...await copyFixed(root,path.join(root,file),path.join(directory,'project-contracts',file))});}
+ const packet={date,revision:REFINEMENT_ID,model:'gpt-6.1-sol',effort:'high',protocolSnapshots:snapshots,inputs:[...p.manifest.inputs,...merged.producerArtifacts]};
+ const packetFile=path.join(directory,'goal-packet.json');await immutableJson(packetFile,packet);
+ const objective=`完成第二语言第一章修订的真实总装、逐例独立审核与正式发布回读。先完整读取${path.relative(root,packetFile).replaceAll('\\','/')}及同版protocolSnapshots。三个十词原生Goal已实际完成并经屏障整合，原selection/VIX和完整USE保留；先读${path.relative(root,p.directory).replaceAll('\\','/')}的manifest.json、merged.json、三个handoff.json、appeals.json及全部30词当前全局作者稿/必要完整教材与实际采用原文。逐义实际核语义、词性快释、词源、真实交际功能、候选取舍、全部义项和整块译文；发现问题实质修复，不能把交接、签名、Goal或计数当质量证明。\n本阶段只改work/runs/${date}/teaching/authored及本章必需研究、source-notes、meta/正文/来源/审阅/申诉包，不改原修订组稿、旧回执、选择、VIX、协议、脚本、模型档位或其他项目。不重新选词，不重做成功/unknown收费资产，不生成音频，不另启生产者。完整双教材/词族/现有全部USE不可缩减，必要补查与新增有据分支按现行协议。\n80%只作警报。先补有希望的真实场景缺口，低比例实际检查通道/体裁/读取和模板回退集中问题；所有最终非真实例句都须有实际取材证据、充分申诉及独立审核。按原assemble-teaching、pack-current-affairs、pack-chapter产生本版完整候选；meta wordCount:30、chapterSizePolicy沿原输入，contentPolicy:etymology-fused-v1、authoringPolicy:authentic-context-v1、teachingLayoutVersion:2、quickGlossVersion:1，runId/date保持${date}，第1章；vixCommit沿原vix-publication，不重新标注。source-notes须基于实际采用原文/读件，不能猜测事实或读完声明。\n按PUBLICATION_REVIEW完成本版实际语义审阅。然后node scripts/fallback-appeals.mjs prepare ${date}生成绑定本版申请。把三个appeals.json逐例有据整合到该版requests.json，填真实refs和records而不是代批。独立审核默认为Sol/high：用node scripts/fallback-appeals.mjs review ${date} --codex "${codexExecutable}" --contexts 本批contextIds逐个小范围运行，可按同一词/相关义批量；不得整章超大发送，不伪造/修改审核回执、events或decisions，不自启动审阅模型API。needs-research/rejected必须实际补研究或修复成稿后重新打包；不可删回退、改kind或放宽规则。未变例句可沿已验证的同basis原件复用实际批准；无有效复用时保留原件并仅审受影响范围，不能为了省事自批。确有争议/资源边界向用户即时反馈，保留事实，不假装已发表。\n当每份语境都是真实原文或申诉获准、完整证据/出版审阅/能力和必要移动阅读检查均通过后，执行原publish-chapter ${date}。独立完整验证签名、永久上传和GET摘要回读都要真实成功；真实比例偏低但每项均充分获准时可发并明确报警，不用百分比拒发。不得修改用户默认休息、原空音频。最终在本revision内写release-report.json，列实际前后覆盖、真实改动、申诉批准与退回数、未决、正文/来源/证据身份及线上回读。只有真正发布回读成功、目标成果全交付才把现有Goal标complete；不缩小/替换目标或自设预算，原生Goal自动续作，不用外部continue循环。`;
+ await fs.writeFile(path.join(directory,'objective.txt'),objective,{flag:'wx'});await immutableJson(path.join(directory,'started.json'),{engine:'codex-goal-v1',date,revision:REFINEMENT_ID,objectiveDigest:sha256(objective),startedAt:new Date().toISOString()});
+ try{const result=await runNativeGoal({root,directory,objective,codexExecutable,deadlineAt:p.manifest.deadlineAt,verifyResult:async()=>{await verifyGoalInputs(root,[...packet.inputs,...snapshots]);return verifyRefinementPublished(root,date);}});await immutableJson(path.join(directory,'finished.json'),{code:0,threadId:result.threadId,finishedAt:new Date().toISOString()});return result;}
+ catch(error){await immutableJson(path.join(directory,'finished.json'),{code:1,outcome:'preserved-not-replayed',message:error.message,finishedAt:new Date().toISOString()});throw error;}
+}

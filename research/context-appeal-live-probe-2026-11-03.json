@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-11-02T18:25:01.466693+00:00",
+  "kind": "live-negative-evidence-review-probe",
+  "model": "gpt-6.1-sol",
+  "effort": "high",
+  "threadId": "01a19d6a-9444-7652-b120-97fdd9c72600",
+  "contextId": "C001_02",
+  "decision": "needs-research",
+  "reason": "当前例句能展示安排住宿及 in 地点结构，但教学适切性不能证明回退必要。申诉明确未提供实际搜索返回或被拒候选原文，records 也为空；fallbackReason 所称首轮主要返回词典及所列文件路径不足以核验研究范围。现有词典可支持义项和句法，却不能说明大学访学生住宿等实际场景的研究空间已得到合理调查，也未逐项说明真实候选为何不适用。需补充可核验的取材记录、候选不适用原因及保留自写例句的具体必要性；无需无限检索。",
+  "summary": "本次仅审核 C001_02：资料不足，需补充研究证据，不能批准非真实例句回退。",
+  "productionApproval": false,
+  "limitations": "One intentionally insufficient request was rejected in a real isolated Codex call. This is not a successful production appeal or proof of all-case semantic reliability. Full private prompt/response/events stay in the ignored local cache.",
+  "usage": {
+    "inputTokens": 31153,
+    "cachedInputTokens": 0,
+    "outputTokens": 415,
+    "reasoningOutputTokens": 111,
+    "authentication": "existing ChatGPT Codex login",
+    "paidGenerationApiCalls": 0,
+    "monetaryCost": "not inferred from token counts"
+  },
+  "engineering": {
+    "refinementLifecycleChecks": 6,
+    "integrationBarrierChecks": 4,
+    "isolatedReviewerChecks": 5,
+    "caseReuseChecks": 7,
+    "fallbackAdmissionChecks": 17,
+    "fullWorkerPublicationRegressionPassed": true
+  }
+}
