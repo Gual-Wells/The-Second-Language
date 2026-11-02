@@ -164,6 +164,7 @@ async function route(request, env) {
   if (path === '/api/publish/stage' && request.method === 'POST') {
     if (!publisher(request, env)) return json({ error: '发布身份无效' }, 401);
     const value = await inputJson(request);
+    if(String(env.PUBLICATION_HOLD_RUN_IDS||'').split(',').map(x=>x.trim()).includes(value.runId))return json({code:'AUTHENTICITY_MIN80_PENDING',error:'按用户最新要求，本章暂缓发布：真实语境的用法覆盖率与去重语境占比均须至少80%；保留现有稿件、选择、VIX和成功原件，先补研究，不重复启动或重做整章。'},409);
     let wordCount;try{wordCount=formalChapterWordCount(value);}catch(error){return json({error:error.message},400);}
     if (!safeId(value.runId) || !validDate(value.date) || value.id !== value.date ||
       typeof value.markdown !== 'string' || countMainWords(value.markdown) !== wordCount ||
@@ -236,6 +237,7 @@ async function route(request, env) {
   if (path === '/api/publish/commit' && request.method === 'POST') {
     if (!publisher(request, env)) return json({ error: '发布身份无效' }, 401);
     const value = await inputJson(request);
+    if(String(env.PUBLICATION_HOLD_RUN_IDS||'').split(',').map(x=>x.trim()).includes(value.runId))return json({code:'AUTHENTICITY_MIN80_PENDING',error:'按用户最新要求，本章暂缓发布：真实语境的用法覆盖率与去重语境占比均须至少80%；保留暂存和所有原件，先补研究，不重新选词或标记VIX。'},409);
     if (!safeId(value.runId) || !/^[0-9a-f]{64}$/.test(value.digest || '')) return json({ error: '发布参数无效' }, 400);
     const revision = await env.DB.prepare('SELECT * FROM chapter_revisions WHERE digest=? AND run_id=?').bind(value.digest, value.runId).first();
     if (!revision) return json({ error: '暂存章节不存在' }, 404);
