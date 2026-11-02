@@ -1,6 +1,5 @@
 import {permanentBucket} from './storage.js';
-import {canonicalSourcePackage as canonical} from '../../protocol/current-affairs.mjs';
-import {FALLBACK_VALIDATOR_POLICY,validateFallbackAppeals,fallbackContexts,authenticityAlarm,sha256} from '../../protocol/fallback-appeals.mjs';
+import {FALLBACK_VALIDATOR_POLICY,validateFallbackAppeals,fallbackContexts,fallbackCaseSetText,authenticityAlarm,sha256} from '../../protocol/fallback-appeals.mjs';
 import {verifyFallbackAttestation} from '../../protocol/fallback-attestation.mjs';
 export {FALLBACK_VALIDATOR_POLICY};
 async function storedJson(env,digest){
@@ -13,7 +12,7 @@ export async function readFallbackAdmission(env,{chapter,parsed,publicationRevie
  const [value,attestation]=await Promise.all([storedJson(env,appealsDigest),storedJson(env,validationDigest)]);
  const cases=value.requests?.map(r=>({contextId:r.contextId,useIds:[...r.useIds].sort(),basisDigest:r.basisDigest}));
  const examples=fallbackContexts(parsed),real=parsed.contexts.filter(c=>c.kind!=='example'),realUses=new Set(real.flatMap(c=>c.refs||c.uses));
- await verifyFallbackAttestation(attestation,{chapterDigest:chapter.digest,sourceDigest:chapter.sourceDigest,evidenceDigest:chapter.sourcePackage.evidenceDigest,publicationReviewDigest,appealsDigest,caseSetDigest:await sha256(canonical(cases)),runId:chapter.runId||chapter.date,date:chapter.date,useCount:parsed.uses.size,contextCount:parsed.contexts.length,authenticUseCount:realUses.size,authenticContextCount:real.length,approvedExampleCount:examples.length},env);
+ await verifyFallbackAttestation(attestation,{chapterDigest:chapter.digest,sourceDigest:chapter.sourceDigest,evidenceDigest:chapter.sourcePackage.evidenceDigest,publicationReviewDigest,appealsDigest,caseSetDigest:await sha256(fallbackCaseSetText(cases)),runId:chapter.runId||chapter.date,date:chapter.date,useCount:parsed.uses.size,contextCount:parsed.contexts.length,authenticUseCount:realUses.size,authenticContextCount:real.length,approvedExampleCount:examples.length},env);
  await validateFallbackAppeals(value,{chapter,parsed,checkEvidence:false});
  return {appealsDigest,validationDigest,policy:FALLBACK_VALIDATOR_POLICY,alarm:authenticityAlarm({useCount:parsed.uses.size,authenticUseCount:realUses.size,contextCount:parsed.contexts.length,authenticContextCount:real.length})};
 }

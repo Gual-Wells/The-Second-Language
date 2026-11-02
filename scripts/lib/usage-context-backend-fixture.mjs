@@ -11,7 +11,7 @@ import {assembleUsageContextCollection} from './usage-context-authoring.mjs';
 import {teachingScope} from '../../protocol/teaching-disposition.mjs';
 import {indexTextbook} from './textbook-sources.mjs';
 import {AUTHENTICITY_POLICY,authenticCoverage} from '../../protocol/authentic-context-coverage.mjs';
-import {FALLBACK_APPEALS_POLICY,FALLBACK_VALIDATOR_POLICY,appealBindings,fallbackCases,validateFallbackAppeals} from '../../protocol/fallback-appeals.mjs';
+import {FALLBACK_APPEALS_POLICY,FALLBACK_VALIDATOR_POLICY,appealBindings,fallbackCases,fallbackCaseSetText,validateFallbackAppeals} from '../../protocol/fallback-appeals.mjs';
 import {FALLBACK_ATTESTATION_POLICY,canonicalFallbackAttestation} from '../../protocol/fallback-attestation.mjs';
 
 const hash=value=>createHash('sha256').update(value).digest('hex');
@@ -70,13 +70,14 @@ export function usageContextBackendFixture(date,version,{wordCount=50,authenticW
 }
 // Explicit simulated independent verdicts, only under this ephemeral test key.
 // This function first verifies complete fixture evidence, never arbitrary data.
-export async function fixtureFallbackAdmission(fixture){
+export async function fixtureFallbackAdmission(fixture,{reverseAppealOrder=false}={}){
  const {value,authors,manifest}=fixture,group=fixture.assets[0],evidence=verifyEvidenceRecords(manifest,[group],value),parsed=assembleUsageContextCollection(authors,{expectedWordCount:value.wordCount}).parsed;
  const cases=await fallbackCases(parsed,authors),requests=cases.map(c=>({...c,reason:'Self-written test fallback; simulated exception only.',searchConclusion:'Synthetic search absence, not a real search or quality claim.',teachingBenefit:'Exercise real-or-approved transport separately from numerical alarms.',refs:[{sourceId:evidence.authoring[0].material.entries[0].id,quote:evidence.authoring[0].material.entries[0].text}]}));
  const appeals={schemaVersion:1,policy:FALLBACK_APPEALS_POLICY,...appealBindings(value),requests,decisions:requests.map(c=>({contextId:c.contextId,basisDigest:c.basisDigest,decision:'approved',reason:'Simulated approval in isolated deterministic fixture only.',refs:c.refs})),records:[],reviewer:{kind:'codex',model:'fixture-no-model-executed',effort:'high',runReference:'fixture-independent-simulated-verdict'},reviewedAt:new Date().toISOString()};
+ if(reverseAppealOrder){appeals.requests.reverse();appeals.decisions.reverse();}
  await validateFallbackAppeals(appeals,{chapter:value,parsed,evidence});
  const c=value.sourcePackage.authenticityCoverage;if(!c)throw Error('Admission fixture requires observed witnesses');
- const proof={schemaVersion:1,policy:FALLBACK_ATTESTATION_POLICY,keyId:fixtureKeyId,validatorPolicy:FALLBACK_VALIDATOR_POLICY,chapterDigest:value.digest,sourceDigest:value.sourceDigest,evidenceDigest:value.sourcePackage.evidenceDigest,publicationReviewDigest:value.publicationReviewDigest,appealsDigest:hash(JSON.stringify(appeals)),caseSetDigest:hash(canonical(cases)),runId:value.runId,date:value.date,useCount:c.useCount,contextCount:c.contextCount,authenticUseCount:c.authenticUseCount,authenticContextCount:c.authenticContextCount,approvedExampleCount:cases.length,validatedAt:new Date().toISOString()};
+ const proof={schemaVersion:1,policy:FALLBACK_ATTESTATION_POLICY,keyId:fixtureKeyId,validatorPolicy:FALLBACK_VALIDATOR_POLICY,chapterDigest:value.digest,sourceDigest:value.sourceDigest,evidenceDigest:value.sourcePackage.evidenceDigest,publicationReviewDigest:value.publicationReviewDigest,appealsDigest:hash(JSON.stringify(appeals)),caseSetDigest:hash(fallbackCaseSetText(cases)),runId:value.runId,date:value.date,useCount:c.useCount,contextCount:c.contextCount,authenticUseCount:c.authenticUseCount,authenticContextCount:c.authenticContextCount,approvedExampleCount:cases.length,validatedAt:new Date().toISOString()};
  proof.signature=sign(null,Buffer.from(canonicalFallbackAttestation(proof)),fixtureKeys.privateKey).toString('base64');
  value.fallbackAppealsDigest=proof.appealsDigest;value.fallbackAttestationDigest=hash(JSON.stringify(proof));fixture.assets.push(appeals,proof);return {...fixture,appeals,fallbackAttestation:proof};
 }

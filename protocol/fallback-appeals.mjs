@@ -17,6 +17,7 @@ export function authenticityAlarm(coverage){
  return {state:warning?'below-80-alarm':'at-or-above-80',warning,publicationGate:false,useCount,authenticUseCount,contextCount,authenticContextCount,useCoveragePercent:100*authenticUseCount/useCount,contextSharePercent:100*authenticContextCount/contextCount};
 }
 export function fallbackContexts(parsed){return parsed.contexts.filter(c=>c.kind==='example');}
+export function fallbackCaseSetText(cases){return canonical(cases.map(c=>({contextId:c.contextId,useIds:[...c.useIds].sort(),basisDigest:c.basisDigest})).sort((a,b)=>a.contextId.localeCompare(b.contextId)));}
 export async function fallbackCases(parsed,words){
  const contexts=new Map(words.flatMap(w=>(w.contexts||[]).map(c=>[c.id,c])));
  const owners=new Map(words.flatMap(w=>[...w.partOne.matchAll(/^<!-- USE:([^ ]+) -->/gm)].map(m=>[m[1],w])));
