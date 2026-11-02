@@ -294,7 +294,11 @@ async function loadProgress(id) {
 function updateReadingPosition() {
   if (!state.current) { $('readingPosition').textContent = ''; return; }
   if (state.words.length) {
-    const top = $('readingScroll').getBoundingClientRect().top + 12;
+    const panelTop = $('readingScroll').getBoundingClientRect().top;
+    const tools = $('articleTools');
+    const stickyTools = $('app').classList.contains('context-mode') && !$('app').classList.contains('pure-reading') && tools && !tools.hidden;
+    // Match the 12px jump inset, allowing one pixel of fractional layout rounding.
+    const top = Math.max(panelTop, stickyTools ? tools.getBoundingClientRect().bottom : panelTop) + 12 + 1;
     let active = 0;
     for (let index = 0; index < state.words.length; index++) {
       if (state.words[index].element.getBoundingClientRect().top <= top) active = index;
@@ -851,7 +855,7 @@ $('chapterNav').addEventListener('touchend', event => {
   if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.5) moveChapter(dx < 0 ? 1 : -1);
   swipeStart = null;
 }, { passive: true });
-if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=67', { updateViaCache: 'none' }).catch(() => {});
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=68', { updateViaCache: 'none' }).catch(() => {});
 refreshInstallStatus();
 initialize().then(()=>{if(state.authenticated&&new URLSearchParams(location.search).has('balances'))balances.open();});
 
