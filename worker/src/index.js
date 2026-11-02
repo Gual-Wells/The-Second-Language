@@ -229,7 +229,8 @@ async function route(request, env) {
       const message=String(error?.message||'');
       // Categories only: never log provider URLs, tokens, credentials or bodies.
       const reason=/D1|SQL/i.test(message)&&/quer|subrequest/i.test(message)&&/too many|limit|exceed/i.test(message)?'d1-request-limit':/subrequest/i.test(message)&&/too many|limit|exceed/i.test(message)?'subrequest-limit':/memory.*limit|limit.*memory/i.test(message)?'memory-limit':/RPC|dispose/i.test(message)?'rpc-lifecycle':error?.storageProvider==='onedrive'?'legacy-onedrive':/D1_ERROR|SQLITE_/i.test(message)?'d1-error':'storage-error';
-      console.error(JSON.stringify({event:'publication_storage_failed',phase:publicationStoragePhase,reason}));return json({error:'章节或来源包永久封存未完成，请保留本次产物后重试'},503);
+      const knownMessages=['采用证据清单尚未永久保存','采用证据分组原件尚不可核对','采用证据分组尚未完整封存','已存永久文件暂不可核对','已存永久文件暂不可读取','已存永久文件暂不可读取','永久文件长度与原位置不一致','永久文件长度或摘要回执无效','永久文件摘要回执无效','永久文件长度不一致','永久文件写入尚未核实','永久文件写入回读不一致','永久文件位置未提交或发生冲突，原件已保留','永久文件逻辑索引未提交','存储文件校验失败','存储资产校验失败','存储凭据正在更新，请稍后再试'];
+      console.error(JSON.stringify({event:'publication_storage_failed',phase:publicationStoragePhase,reason,...(knownMessages.includes(message)?{detail:message}:{}),messageDigest:await sha256(message.slice(0,4096)),messageLength:message.length}));return json({error:'章节或来源包永久封存未完成，请保留本次产物后重试'},503);
     }
     await env.CHAPTERS.put(key,value.markdown,{expirationTtl:30*86400});
     await env.DB.batch([env.DB.prepare(`INSERT OR IGNORE INTO chapter_revisions
