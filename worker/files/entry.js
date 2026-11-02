@@ -28,7 +28,15 @@ function scopedStore(env,project){
  if(!projects.has(project))projects.set(project,hfObjectStore({...projectPool(project),accessKeyId:env.HF_S3_ACCESS_KEY_ID,secretAccessKey:env.HF_S3_SECRET_ACCESS_KEY}));
  return projects.get(project);
 }
-async function protectedOperation(operation){try{return await operation();}catch{throw unavailable();}}
+async function protectedOperation(operation){try{return await operation();}catch(error){
+ // Only fixed, bounded diagnostic fields may cross the private failure boundary.
+ // Exception messages/stacks, URLs, content and credentials are never logged.
+ let status=null,kind='unknown';
+ try{const value=error?.status;if(Number.isInteger(value)&&value>=100&&value<=599)status=value;}catch{}
+ try{const value=error?.name;if(['Error','TypeError','AbortError','TimeoutError','RangeError','SyntaxError'].includes(value))kind=value;}catch{}
+ try{console.error(JSON.stringify({event:'series_file_operation_failed',status,kind}));}catch{}
+ throw unavailable();
+}}
 async function head(env,project,digest,extra){
  if(!validDigest(digest)||extra.length)invalid();
  return protectedOperation(async()=>{const value=await scopedStore(env,project).contentHead(digest);return value?{digest,bytes:value.bytes}:null;});

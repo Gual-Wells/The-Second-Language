@@ -26,6 +26,8 @@ let archiveContent,archiveDigest,archiveManifest;
 function archiveFor(project){archiveContent={format:'second-series-kaggle-archive-v1',project,files:[{path:'fixture.txt',bytes:7,sha256:sha(Buffer.from('fixture'))}],totalBytes:7,fileCount:1};archiveDigest=sha(Buffer.from(stable(archiveContent)));archiveManifest={format:archiveContent.format,project,recordId:archiveDigest,content:archiveContent,package:{name:`record-${archiveDigest}.bin`,bytes:packageBytes.length,sha256:sha(packageBytes)}};return archiveDigest;}
 archiveFor('language');
 const priorFetch=globalThis.fetch;
+const priorConsoleError=console.error,diagnostics=[];
+console.error=(...args)=>diagnostics.push(args);
 globalThis.fetch=async(input,options={})=>{
  const request=input instanceof Request?input:new Request(input,options),url=new URL(request.url);
  calls.push({host:url.hostname,path:url.pathname,method:request.method,authorization:request.headers.get('authorization'),range:request.headers.get('range')});
@@ -109,6 +111,27 @@ try{
   hugeHead=true;await assert.rejects(()=>client.head(digest),/暂不可用/);hugeHead=false;hugeBody=true;await assert.rejects(()=>client.get(digest),/暂不可用/);hugeBody=false;
   brokenContent=true;await assert.rejects(()=>client.get(digest),/暂不可用/);brokenContent=false;
  });
+ await check('failure diagnostics allow only bounded HTTP status and kind; secret-bearing exceptions never cross log or RPC boundaries',async()=>{
+  const digest=sha(text.encode('language dedicated fixture')),leak='fixture_PRIVATE_MESSAGE_URL_TOKEN_CONTENT_STACK';let privateReads=0;
+  const matrix=[
+   [100,'Error',100,'Error'],[599,'TypeError',599,'TypeError'],[503,'AbortError',503,'AbortError'],[408,'TimeoutError',408,'TimeoutError'],
+   [99,'Error',null,'Error'],[600,'Error',null,'Error'],[500.5,'Error',null,'Error'],['503','Error',null,'Error'],[NaN,'Error',null,'Error'],[Infinity,'Error',null,'Error'],
+   [undefined,leak,null,'unknown'],[{toString(){throw Error(leak);}},leak,null,'unknown'],[Symbol(leak),null,null,'unknown']
+  ];
+  for(const [status,name,wantStatus,wantKind] of matrix)for(const method of ['head','get','put']){
+   const failure={status,name,stack:leak,url:'https://private.invalid/'+leak,content:leak,authorization:leak,toJSON(){throw Error(leak);}};
+   Object.defineProperty(failure,'message',{get(){privateReads++;throw Error(leak);}});
+   const failedEnv=env();failedEnv.HF_S3_ACCESS_KEY_ID={get:async()=>{throw failure;}};const client=new module.LanguageFiles({},failedEnv),before=diagnostics.length;
+   await assert.rejects(()=>method==='put'?client.put(text.encode('secret-bearing failure fixture')):client[method](digest),error=>error.code==='FILES_UNAVAILABLE'&&error.message==='文件服务暂不可用，原件状态未改变');
+   assert.equal(diagnostics.length,before+1);assert.deepEqual(diagnostics.at(-1),[JSON.stringify({event:'series_file_operation_failed',status:wantStatus,kind:wantKind})]);
+  }
+  const unreadable={get status(){throw Error(leak);},get name(){throw Error(leak);},message:leak},failedEnv=env();failedEnv.HF_S3_ACCESS_KEY_ID={get:async()=>{throw unreadable;}};
+  await assert.rejects(()=>new module.LanguageFiles({},failedEnv).head(digest),error=>error.code==='FILES_UNAVAILABLE');assert.deepEqual(JSON.parse(diagnostics.at(-1)[0]),{event:'series_file_operation_failed',status:null,kind:'unknown'});
+  assert.equal(privateReads,0);assert(!JSON.stringify(diagnostics).includes(leak));
+  originStatus=503;const before=diagnostics.length;await assert.rejects(()=>clients.get('language').head(digest),error=>error.code==='FILES_UNAVAILABLE');originStatus=null;
+  assert.equal(diagnostics.length,before+1);assert.deepEqual(JSON.parse(diagnostics.at(-1)[0]),{event:'series_file_operation_failed',status:503,kind:'Error'});
+  const capture=console.error;console.error=()=>{throw Error('fixture logger unavailable');};try{await assert.rejects(()=>new module.LanguageFiles({},failedEnv).head(digest),error=>error.code==='FILES_UNAVAILABLE');}finally{console.error=capture;}
+ });
  await check('readRange is explicitly buffered SHA-verified then RPC byte-streamed, with exact full/open/suffix ranges',async()=>{
   const client=clients.get('language'),bytes=text.encode('language dedicated fixture'),digest=sha(bytes);
   for(const [range,expected,status] of [[null,bytes,200],['bytes=1-4',bytes.slice(1,5),206],['bytes=8-',bytes.slice(8),206],['bytes=-5',bytes.slice(-5),206]]){
@@ -139,4 +162,4 @@ try{
   hugeManifest=true;await assert.rejects(()=>client.getArchive({version:7,digest}),/暂不可用/);hugeManifest=false;
  });
  console.log(JSON.stringify({passed:cases.length,cases,network:'fixture only',externalRequests:0,paidCalls:0,rpcBoundary:'Official RPC byte streams supported; fixture tests exercise byte-oriented serialization shape, not deployed RPC'},null,2));
-}finally{globalThis.fetch=priorFetch;}
+}finally{globalThis.fetch=priorFetch;console.error=priorConsoleError;}
