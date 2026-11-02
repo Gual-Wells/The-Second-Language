@@ -48,7 +48,8 @@ export async function verifyAppealExecution(directory,value,packet){
   if(!old||canonical(scopeAppealPacket(packet,[current],value.records))!==canonical(scopeAppealPacket(originalPacket,[old],originalPacket.records||[])))throw Error('审核没有实际收到当前用法、例句、申诉或原件；旧批准已失效 '+id);
  }
  const result=JSON.parse(output),messages=events.trim().split(/\r?\n/).map(JSON.parse);
- if(!messages.some(e=>e.type==='thread.started'&&e.thread_id===receipt.threadId)||messages.some(e=>['error','turn.failed'].includes(e.type))||!messages.some(e=>e.type==='turn.completed'))throw Error('独立审核轮次未实际成功完成');
+ const warnings=messages.filter(e=>e.type==='error').length;
+ if(messages.filter(e=>e.type==='thread.started').length!==1||!messages.some(e=>e.type==='thread.started'&&e.thread_id===receipt.threadId)||messages.some(e=>e.type==='turn.failed')||messages.filter(e=>e.type==='turn.completed').length!==1||warnings&&receipt.nativeWarningCount!==warnings)throw Error('独立审核轮次未实际成功完成');
  const final=messages.filter(e=>e.type==='item.completed'&&e.item?.type==='agent_message').at(-1)?.item?.text;
  if(!final||canonical(JSON.parse(final))!==canonical(result)||!Array.isArray(result.decisions)||new Set(result.decisions.map(d=>d.contextId)).size!==originalPacket.cases.length||result.decisions.length!==originalPacket.cases.length||result.decisions.some(d=>!originalPacket.cases.some(c=>c.contextId===d.contextId))||canonical(result.decisions.filter(d=>execution.contextIds.includes(d.contextId)).sort((a,b)=>a.contextId.localeCompare(b.contextId)))!==canonical(value.decisions.filter(d=>execution.contextIds.includes(d.contextId)).sort((a,b)=>a.contextId.localeCompare(b.contextId))))throw Error('审批决议不是该独立审核的真实返回');
  // A producer cannot approve its own candidates by relabelling its run.
