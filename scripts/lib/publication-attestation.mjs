@@ -5,6 +5,7 @@ import {canonicalSourcePackage} from '../../protocol/current-affairs.mjs';
 import {PUBLICATION_ATTESTATION_POLICY,PUBLICATION_VALIDATOR_POLICY,canonicalPublicationAttestationPayload,verifyPublicationAttestation} from '../../protocol/publication-attestation.mjs';
 import {loadChapterEvidence} from './chapter-evidence.mjs';
 import {loadPublicationReview} from './publication-review.mjs';
+import {assertPublicationObjectionsResolved} from './publication-objections.mjs';
 
 export const DEFAULT_PUBLICATION_VALIDATOR_DIRECTORY='D:/CodexStorage/private/second-language-publication-validator';
 const hash=value=>createHash('sha256').update(value).digest('hex');
@@ -20,6 +21,7 @@ export async function saveImmutable(file,text){
 // key bytes are read. A caller-supplied "passed" flag has no input channel.
 export async function createPublicationAttestation(root,date,chapter,{validatorDirectory=DEFAULT_PUBLICATION_VALIDATOR_DIRECTORY}={}){
  root=await dDirectory(root);
+ await assertPublicationObjectionsResolved(root,date);
  if(chapter?.id!==date||chapter.date!==date||chapter.sourcePackage?.studyDate!==date||typeof chapter.markdown!=='string'||hash(chapter.markdown)!==chapter.digest||hash(canonicalSourcePackage(chapter.sourcePackage))!==chapter.sourceDigest)throw Error('出版签发输入的日期或正文/来源摘要不符');
  const evidence=await loadChapterEvidence(root,date,chapter.sourcePackage,{markdown:chapter.markdown});
  const runId=chapter.runId||date;

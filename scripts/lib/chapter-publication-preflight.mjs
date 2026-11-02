@@ -15,12 +15,14 @@ import {authenticityPolicy} from '../../protocol/authentic-context-coverage.mjs'
 import {assertTeachingAuthoringVersions,assembleTeachingCollection,AUTHORING_POLICY} from './teaching-authoring.mjs';
 import {loadPublicationReview} from './publication-review.mjs';
 import {loadFallbackAppeals} from './fallback-appeals.mjs';
+import {assertPublicationObjectionsResolved} from './publication-objections.mjs';
 
 const hash=value=>createHash('sha256').update(value).digest('hex');
 const json=async file=>JSON.parse(await fs.readFile(file,'utf8'));
 export async function verifyChapterPublication({root,date,chapter,meta,requireReview=false,requireAppeals=false}){
   if(!/^20\d{2}-\d{2}-\d{2}$/.test(date||''))throw Error('发布预检日期无效');
   root=await fs.realpath(root);
+  await assertPublicationObjectionsResolved(root,date);
   const folder=path.join(root,'chapters',date),run=path.join(root,'work/runs',date);
   const wordCount=formalChapterWordCount(chapter);if(formalChapterWordCount(meta)!==wordCount)throw Error('发布元数据与章节词数合同不同');
   if(!chapter||!meta||chapter.id!==date||chapter.date!==date||meta.date!==date||typeof chapter.markdown!=='string'||hash(chapter.markdown)!==chapter.digest)throw Error('发布包日期、词数或正文摘要不符');

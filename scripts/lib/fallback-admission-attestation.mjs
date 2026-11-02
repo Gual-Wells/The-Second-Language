@@ -8,6 +8,7 @@ import {loadChapterEvidence} from './chapter-evidence.mjs';
 import {loadPublicationReview} from './publication-review.mjs';
 import {loadFallbackAppeals,appealFolder} from './fallback-appeals.mjs';
 import {DEFAULT_PUBLICATION_VALIDATOR_DIRECTORY,saveImmutable} from './publication-attestation.mjs';
+import {assertPublicationObjectionsResolved} from './publication-objections.mjs';
 const hash=s=>createHash('sha256').update(s).digest('hex');
 const item=(value,text)=>({value,text,digest:hash(text),bytes:Buffer.byteLength(text)});
 async function dPath(file){const p=await fs.realpath(file);if(process.platform==='win32'&&!/^D:[\\/]/i.test(p))throw Error('逐例审核原件与私钥须实际存D盘');return p;}
@@ -15,6 +16,7 @@ async function dPath(file){const p=await fs.realpath(file);if(process.platform==
 // source witnesses, each case basis and actual reviewer output before key access.
 export async function createFallbackAdmission(root,date,chapter,{validatorDirectory=DEFAULT_PUBLICATION_VALIDATOR_DIRECTORY}={}){
  root=await dPath(root);
+ await assertPublicationObjectionsResolved(root,date);
  if(chapter.id!==date||chapter.date!==date||hash(chapter.markdown)!==chapter.digest||hash(canonical(chapter.sourcePackage))!==chapter.sourceDigest)throw Error('逐例准入正文或来源身份不符');
  const evidence=await loadChapterEvidence(root,date,chapter.sourcePackage,{markdown:chapter.markdown});
  const publicationReview=await loadPublicationReview(root,date,chapter,{evidence,required:true});
