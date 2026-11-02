@@ -5,6 +5,7 @@ import {createHash, randomUUID} from 'node:crypto';
 import {createRequire} from 'node:module';
 import {fileURLToPath} from 'node:url';
 import {extractMatureHtml} from './html-extractor.mjs';
+import {admittedSource,validateSourceAdmission} from '../../protocol/source-admission.mjs';
 
 export const repositoryRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const digest = value => createHash('sha256').update(value).digest('hex');
@@ -148,7 +149,12 @@ export function parseFeed(xml, {source,feed,observedAt=stamp()}) {
   return {format:atom?'atom':'rss',title:value(channel,'title'),feedUpdatedRaw:value(channel,'updated'),lastBuildDateRaw:value(channel,'lastBuildDate'),itemCount:entries.length,items};
 }
 function allowedHosts(source,feed) {
-  return new Set([source.home,source.entryUrl].map(host).concat((feed?.articleHosts||[]).map(x=>x.toLowerCase().replace(/^www\./,''))));
+  return new Set([source.home,source.entryUrl].map(host).concat([...(feed?.articleHosts||[]),...(source.articleHosts||[])].map(x=>x.toLowerCase().replace(/^www\./,''))));
+}
+function sourceForRead(sources,sourceId,admission){
+  const known=sources.get(sourceId);if(known){if(admission)throw Error('外部准入不能覆盖已有发布者身份');return known;}
+  if(!admission)throw Error('Unknown registered source; verify and admit the external publisher first');
+  const source=admittedSource(admission);if(source.id!==sourceId)throw Error('准入与请求发布者不一致');return source;
 }
 function assertUrl(raw, allowed) {
   const u=new URL(raw);
@@ -231,13 +237,15 @@ export function extractHtml(html,url,encoding=null) {
   return data;
 }
 // A successful HTTP response and mature extractor can still return a soft 404.
-// Reject only explicit error-page titles; a real article discussing HTTP 404
+// Reject explicit error pages/browser challenges; an actual article about 404
 // remains a candidate, and all other page roles still require an actual read.
 export function assertArticlePageRole(data) {
   const title=String(data.title||data.readabilityTitle||'').replace(/\s+/g,' ').trim();
   if(/^(?:404(?:\s*[-:–—]?\s*(?:error|page not found|not found))?|page not found|error\s*404)(?:\s*[|–—]\s*.+)?$/i.test(title)) {
-    throw Error('Explicit error-page title: not an article candidate. Saved HTTP bytes do not establish a usable original.');
+    throw Object.assign(Error('Explicit error-page title: not an article candidate. Saved HTTP bytes do not establish a usable original.'),{pageRoleRejected:true});
   }
+  const body=String(data.text||'').replace(/\s+/g,' ').trim();
+  if(/^(?:checking your browser|just a moment|verify (?:you are|that you are|your identity)|robot check|security (?:check|verification))(?:\b|\.{1,3})/i.test(title||body)&&body.length<1600&&/(?:checking your browser|recaptcha|captcha|automatically redirected|verify (?:you|that)|enable javascript|security check)/i.test(body+' '+title))throw Object.assign(Error('Explicit browser-verification page: not an article original. Retain the failed bytes; obtain an actual original through another permitted route.'),{pageRoleRejected:true});
 }
 function readFolder(base,sourceId,canonicalUrl) {
   return path.join(base,'reads',sourceId+'-'+digest(canonicalUrl).slice(0,24));
@@ -263,6 +271,7 @@ async function checkedReadRecord(recordPath,{base,source,feed,canonicalUrl}) {
   recordPath=recordFileInFolder(recordPath,folder);
   await assertPrivateLocation(recordPath);
   const record=await readJson(recordPath);
+  if(record.sourceAdmission){validateSourceAdmission(record.sourceAdmission);if(record.sourceAdmission.id!==source.id)throw Error('读件外部准入身份不符');}
   if(record.schemaVersion!==1 || record.kind!=='read-original-text' || record.sourceId!==source.id || record.canonicalUrl!==canonicalUrl || typeof record.recordPath!=='string' || !path.isAbsolute(record.recordPath) || !samePath(record.recordPath,recordPath)) throw Error('Read record source/URL/file identity mismatch');
   if(typeof record.readAt!=='string' || iso(record.readAt)!==record.readAt || Date.parse(record.readAt)>Date.now()+300000) throw Error('Invalid original read timestamp');
   const recordedAt=record.recordedAt??record.readAt;
@@ -285,6 +294,7 @@ async function checkedReadRecord(recordPath,{base,source,feed,canonicalUrl}) {
   await assertPrivateLocation(textPath);
   const text=await fs.readFile(textPath,'utf8');
   if(digest(text)!==record.textDigest || text.length!==record.textChars) throw Error('Previously read original text failed digest verification; refusing to replace it');
+  assertArticlePageRole({title:record.title,text});
   // Historical receipts without raw HTML remain unchanged and valid. New GETs
   // preserve the exact response for body/caption/template checks and recovery.
   if(record.responseBodyPath!=null){
@@ -299,8 +309,8 @@ async function checkedReadRecord(recordPath,{base,source,feed,canonicalUrl}) {
 export async function validateReadRecord(recordPath,{root=repositoryRoot,sourceId,url}={}) {
   const {base}=await researchStore(root,{create:false});
   const {config,sources}=await loadReaderConfig(root);
-  const source=sources.get(sourceId);
-  if(!source) throw Error('Unknown registered source');
+  await assertPrivateLocation(recordPath);
+  const source=sourceForRead(sources,sourceId,sources.has(sourceId)?null:(await readJson(recordPath)).sourceAdmission);
   const feed=config.feeds.find(f=>f.sourceId===sourceId);
   assertUrl(url,allowedHosts(source,feed));
   return checkedReadRecord(recordPath,{base,source,feed,canonicalUrl:canonicalizeUrl(url,feed)});
@@ -311,7 +321,7 @@ async function existingRead(indexFile,context) {
   const folder=readFolder(context.base,context.source.id,context.canonicalUrl);
   if(index.canonicalUrl!==context.canonicalUrl || !Array.isArray(index.revisions) || !index.revisions.includes(index.latest)) throw Error('Read index identity mismatch');
   for(const file of index.revisions) recordFileInFolder(file,folder);
-  const record=await checkedReadRecord(index.latest,context);
+  let record;try{record=await checkedReadRecord(index.latest,context);}catch(error){if(!context.allowRejected||!error.pageRoleRejected)throw error;return {record:null,index,rejected:true};}
   return {record,index};
 }
 // Serialize same-URL writes in this process; the small file lock rejects a competing CLI.
@@ -337,9 +347,10 @@ async function withReadWriteLock(folder,fn) {
   }
 }
 async function saveReadOriginal(paths,{source,feed,record,text,responseBytes=null}) {
+  if(source.sourceAdmission)record={...record,sourceAdmission:source.sourceAdmission};
   const {canonicalUrl}=record,folder=readFolder(paths.base,source.id,canonicalUrl),indexFile=path.join(folder,'index.json');
   return withReadWriteLock(folder,async()=>{
-    const prior=await existingRead(indexFile,{base:paths.base,source,feed,canonicalUrl});
+    const prior=await existingRead(indexFile,{base:paths.base,source,feed,canonicalUrl,allowRejected:true});
     if(responseBytes){
       if(digest(responseBytes)!==record.responseDigest)throw Error('Raw HTML does not match the observed response');
       const responseBodyPath=path.join(folder,record.responseDigest+'.html');await assertPrivateLocation(responseBodyPath);
@@ -353,7 +364,7 @@ async function saveReadOriginal(paths,{source,feed,record,text,responseBytes=nul
     const recordedAt=stamp(),recordPath=path.join(folder,recordedAt.replace(/[:.]/g,'-')+'-'+randomUUID().slice(0,8)+'.json');
     record={...record,recordedAt,textPath,textDigest,textChars:text.length,recordPath};
     await immutableJson(recordPath,record);
-    const latest=prior && Date.parse(prior.record.readAt)>Date.parse(record.readAt) ? prior.record.recordPath : recordPath;
+    const latest=prior?.record && Date.parse(prior.record.readAt)>Date.parse(record.readAt) ? prior.record.recordPath : recordPath;
     await atomicJson(indexFile,{canonicalUrl,latest,revisions:[...(prior?.index.revisions||[]),recordPath]});
     await immutableJson(path.join(paths.day,'read-observations',randomUUID()+'.json'),{sourceId:source.id,url:record.requestedUrl,recordPath,readAt:record.readAt,recordedAt,textDigest,acquisitionMethod:record.acquisitionMethod});
     return record;
@@ -373,17 +384,16 @@ function publicRead(record, extra={}) {
   const notice='Private research text is at textPath; metadata is not verified facts or permission to republish.';
   return {...record,...extra,actualTextIncluded:false,notice:externalMethods.has(record.acquisitionMethod)?notice+' '+externalEvidenceNotice:notice};
 }
-export async function readMaterial(date,{root=repositoryRoot,sourceId,url,offline=false,refresh=false,fetchImpl=fetch}={}) {
+export async function readMaterial(date,{root=repositoryRoot,sourceId,url,offline=false,refresh=false,fetchImpl=fetch,sourceAdmission}={}) {
   const paths=await researchPaths(root,date);
   const {config,sources}=await loadReaderConfig(root);
-  const source=sources.get(sourceId);
-  if(!source) throw Error('Unknown registered source');
+  const source=sourceForRead(sources,sourceId,sourceAdmission);
   const feed=config.feeds.find(f=>f.sourceId===sourceId);
   const allowed=allowedHosts(source,feed);
   assertUrl(url,allowed);
   const canonicalUrl=canonicalizeUrl(url,feed);
   const folder=readFolder(paths.base,source.id,canonicalUrl),indexFile=path.join(folder,'index.json');
-  const prior=await existingRead(indexFile,{base:paths.base,source,feed,canonicalUrl});
+  const prior=await existingRead(indexFile,{base:paths.base,source,feed,canonicalUrl,allowRejected:refresh&&!offline});
   if(prior && (!refresh||offline)) return publicRead(prior.record,{researchDate:date,reused:true,cacheState:offline?'read-offline':'already-read',asOf:prior.record.readAt,networkAttempted:false});
   if(offline) throw Error('No previously read original is available offline for this URL');
   let rawResponse=null;
@@ -408,11 +418,10 @@ export async function readMaterial(date,{root=repositoryRoot,sourceId,url,offlin
     return publicRead(prior.record,{researchDate:date,reused:true,cacheState:'read-after-error',asOf:prior.record.readAt,networkAttempted:true,latestAttemptAt:stamp(),error:e.message,observationPath});
   }
 }
-export async function importReadMaterial(date,{root=repositoryRoot,sourceId,url,textFile,acquisitionMethod,evidenceRef,readAt,readScope}={}) {
+export async function importReadMaterial(date,{root=repositoryRoot,sourceId,url,textFile,acquisitionMethod,evidenceRef,readAt,readScope,sourceAdmission}={}) {
   const paths=await researchPaths(root,date);
   const {config,sources}=await loadReaderConfig(root);
-  const source=sources.get(sourceId);
-  if(!source) throw Error('Unknown registered source');
+  const source=sourceForRead(sources,sourceId,sourceAdmission);
   const feed=config.feeds.find(f=>f.sourceId===sourceId);
   assertUrl(url,allowedHosts(source,feed));
   if(!externalMethods.has(acquisitionMethod)) throw Error('Import method must be codex-web or codex-pdf');
@@ -429,6 +438,7 @@ export async function importReadMaterial(date,{root=repositoryRoot,sourceId,url,
   try {text=new TextDecoder('utf-8',{fatal:true,ignoreBOM:true}).decode(bytes);}
   catch {throw Error('Import accepts actual tool original text encoded as valid UTF-8');}
   if(!text.trim() || text.includes('\0') || text.startsWith('%PDF-')) throw Error('Import requires original tool text, not an empty file, binary data or raw PDF');
+  assertArticlePageRole({text});
   const canonicalUrl=canonicalizeUrl(url,feed);
   const record=await saveReadOriginal(paths,{source,feed,text,record:{schemaVersion:1,kind:'read-original-text',acquisitionMethod,sourceId,sourceName:source.name,sourceRole:source.role,canonicalUrl,requestedUrl:url,finalUrl:null,pageCanonicalUrl:null,title:null,readAt,evidenceRef,readScope,importedFrom:textFile,responseDigest:null,extractionMethod:'external-tool-original-text',pageTimestamps:[],warnings:[externalEvidenceNotice],http:null,rightsMode:feed?.rights.mode||'private-research-only',publicBodyReuseAuthorized:false,factsVerified:false}});
   return publicRead(record,{researchDate:date,reused:false,cacheState:'imported-tool-original',asOf:readAt,networkAttempted:false});

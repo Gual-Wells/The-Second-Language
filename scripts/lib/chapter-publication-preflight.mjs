@@ -10,6 +10,7 @@ import {CONTEXT_AUTHORING_POLICY} from '../../protocol/usage-context.mjs';
 import {loadChapterSources} from './current-affairs-package.mjs';
 import {loadChapterEvidence} from './chapter-evidence.mjs';
 import {loadAuthoringContract} from './chapter-authoring-revision.mjs';
+import {authenticityPolicy} from '../../protocol/authentic-context-coverage.mjs';
 import {assertTeachingAuthoringVersions,assembleTeachingCollection,AUTHORING_POLICY} from './teaching-authoring.mjs';
 import {loadPublicationReview} from './publication-review.mjs';
 
@@ -28,7 +29,9 @@ export async function verifyChapterPublication({root,date,chapter,meta,requireRe
   const [selection,inputLock]=await Promise.all([json(path.join(run,'selection.json')),json(path.join(run,'vix-source.json'))]);
   if(selection.studyDate!==date||selection.vixInputCommit!==inputLock.commit||chapter.vixInputCommit!==inputLock.commit)throw Error('发布包与原冻结选词或VIX输入不一致');
   if(inputLock.authoringPolicy===CONTEXT_AUTHORING_POLICY&&selection.authoringPolicy!==CONTEXT_AUTHORING_POLICY)throw Error('新输入制作策略与冻结selection不一致');
+  const authenticPolicy=authenticityPolicy(selection,inputLock);
   const source=await loadChapterSources(root,date,chapter.markdown,meta,parsed.words.map(word=>word.text));
+  if((chapter.sourcePackage.authenticityPolicy||null)!==authenticPolicy)throw Error('新章不能去掉冻结的真实性观测合同而丢失研究统计');
   for(const field of ['sourcePolicy','sourceDigest','vixInputCommit','sourcePackage'])if(canonical(chapter[field])!==canonical(source[field]))throw Error('发布包已过期：当前来源绑定已改变，须重新核对打包');
   const contract=await loadAuthoringContract(root,date,selection,{meta}),integrated=parsed.format==='usage-context-v1';
   if(meta.authoringPolicy!=null&&![AUTHORING_POLICY,CONTEXT_AUTHORING_POLICY].includes(meta.authoringPolicy))throw Error('未知课程制作协议');

@@ -284,6 +284,8 @@ try{
  assert.ok(graphReads>0&&graphWrites>0,'The actual permanent store performed verified Graph transport through isolated fixtures');
  // A withdrawal differs from a revision: even frozen background work loses
  // eligibility, while originals and unknown billing state remain untouched.
+ const sibling=await payload(second.date,'older-sibling');
+ assert.equal((await stage(sibling)).status,200);
  const audioBefore=sql.prepare('SELECT * FROM audio_requests WHERE chapter_digest=?').get(second.digest);
  insert(sql,'chapter_withdrawals',{digest:second.digest,chapter_id:second.id,run_id:second.runId,selection_digest:second.sourcePackage.selectionDigest,vix_commit:second.vixCommit,withdrawn_at:Date.now(),reason:'Explicit isolated withdrawal',snapshot_json:JSON.stringify({audio:audioBefore})});
  sql.prepare('DELETE FROM published_chapters WHERE digest=?').run(second.digest);
@@ -291,6 +293,10 @@ try{
  assert.equal((await call('/api/chapters/'+second.id)).status,404);
  assert.equal((await call('/api/chapters/'+second.id+'?digest='+second.digest)).status,404);
  assert.equal((await call('/api/chapters/'+second.id+'/sources?digest='+second.digest)).status,404);
+ assert.equal((await call('/api/chapters/'+second.id+'?digest='+sibling.digest)).status,404,'Older revisions sharing withdrawn marks must also leave the formal scope');
+ assert.equal((await call('/api/chapters/'+second.id+'/sources?digest='+sibling.digest)).status,404);
+ const archivedSibling=await call('/api/chapters/'+second.id+'?digest='+sibling.digest+'&archive=1');
+ assert.equal(archivedSibling.data.markdown,sibling.markdown);assert.equal(archivedSibling.data.withdrawn,1);assert.equal(archivedSibling.data.archived,true);
  assert.equal((await call('/api/chapters/'+second.id+'?digest='+second.digest+'&archive=1')).data.markdown,second.markdown);
  assert.equal((await call('/api/chapters/'+second.id+'/sources?digest='+second.digest+'&archive=1')).data.sourceDigest,second.sourceDigest);
  assert.equal((await stage(second)).status,409);
@@ -299,6 +305,7 @@ try{
  await assert.rejects(()=>buildAudioPlan(env,second.id,second.digest,['three']),/封存/);
  assert.deepEqual(sql.prepare('SELECT * FROM audio_requests WHERE chapter_digest=?').get(second.digest),audioBefore);
  assert.throws(()=>sql.prepare('INSERT INTO published_chapters VALUES(?,?,?,?)').run(second.id,second.date,second.digest,Date.now()),/withdrawn/);
+ assert.throws(()=>sql.prepare('INSERT INTO published_chapters VALUES(?,?,?,?)').run(sibling.id,sibling.date,sibling.digest,Date.now()),/withdrawn/);
  const replacement=await payload(second.date,'replacement');replacement.vixCommit='f'.repeat(40);replacement.sourcePackage.selectionDigest=hash('replacement-selection');replacement.sourceDigest=hash(canonicalSourcePackage(replacement.sourcePackage));
  assert.equal((await stage(replacement)).data.number,'第 2 章');
  assert.equal((await commit(replacement)).status,200);

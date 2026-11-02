@@ -10,6 +10,7 @@ import {validateAnnotatedContent} from '../../web/annotations.js';
 import {assembleUsageContextCollection} from './usage-context-authoring.mjs';
 import {CONTEXT_AUTHORING_POLICY} from '../../protocol/usage-context.mjs';
 import {loadAuthoringContract} from './chapter-authoring-revision.mjs';
+import {authenticityPolicy} from '../../protocol/authentic-context-coverage.mjs';
 
 export const AUTHORING_POLICY = 'sourced-collection-v1';
 export const DEFAULT_AUTHORING_POLICY = CONTEXT_AUTHORING_POLICY;
@@ -89,6 +90,7 @@ export async function prepareTeachingMaterials(root,date,{scopeFile,additionalFi
 export async function readTeachingMaterials(root,date,selection,options={}){
   const run=path.join(root,'work/runs',date),view=materialView(run,teachingScope(selection),options),manifest=await readJson(view.manifestFile);
   const lock=await readJson(path.join(run,'vix-source.json'));
+  authenticityPolicy(selection,lock);
   if(lock.authoringPolicy===CONTEXT_AUTHORING_POLICY&&selection.authoringPolicy!==CONTEXT_AUTHORING_POLICY)throw Error('新输入制作策略与冻结selection不一致');
   if(manifest.policy!==AUTHORING_POLICY||manifest.commit!==lock.commit||selection.vixInputCommit!==lock.commit||manifest.scopeDigest!==digest(view.scope)||manifest.scopeDigest!==digest(manifest.scope)||manifest.packets.length!==view.scope.length)throw Error('教材材料包与冻结范围或原输入不一致；按原范围补查，不重选');
   const packets=[];

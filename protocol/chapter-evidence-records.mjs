@@ -7,12 +7,16 @@ import {validateEvidenceGroup} from './chapter-evidence.mjs';
 import {assembleUsageContextCollection} from '../scripts/lib/usage-context-authoring.mjs';
 import {checkMaterialDisposition,teachingScope} from './teaching-disposition.mjs';
 import {validateAuthoringRevision} from './chapter-authoring-revision.mjs';
+import {validateSourceAdmission,sourceHost} from './source-admission.mjs';
+import {authenticityPolicy,authenticCoverage} from './authentic-context-coverage.mjs';
 const hash=value=>createHash('sha256').update(value).digest('hex');
 const key=source=>JSON.stringify([source.sourceId,source.url]);
 const norm=value=>value.normalize('NFKC').trim().toLowerCase().replace(/\s+/g,' ');
 function verifyReceipt(record, source, canonicalUrl, text, html, expectedReadAt) {
   if(typeof record.recordText!=='string'||hash(record.recordText)!==record.recordDigest||typeof text!=='string')throw Error('采用原文或读取凭据摘要不符');
   const receipt=JSON.parse(record.recordText);
+  if(receipt.sourceAdmission){const admission=validateSourceAdmission(receipt.sourceAdmission);if(admission.id!==source.sourceId||admission.name!==source.publisher||!admission.articleHosts.includes(sourceHost(source.url)))throw Error('封存外部发布者准入与来源不一致');}
+  else if(source.sourceId.startsWith('external-'))throw Error('外部来源缺少封存准入，不能靠临时目录续作');
   // The acquisition reader has already checked canonical aliases at sealing.
   // Preserve that binding; tracking/fragment aliases need not equal requestedUrl.
   if (receipt.schemaVersion !== 1 || receipt.kind !== 'read-original-text' || receipt.sourceId !== source.sourceId ||
@@ -97,5 +101,8 @@ export function verifyEvidenceRecords(manifest, groups, chapter) {
     const source = adopted.get(url), evidence = context.sourceEvidence?.find(evidence => evidence.url === url);
     if (!source || !evidence || !resolved.some(original => original.url === url && original.authorReadRecords.some(author=>author.references.includes(evidence.readRecord)&&author.record.textDigest===source.readDigest))) throw Error('作者采用语境没有同版原文证据');
   }
-  return {manifest, authoring, originals:resolved};
+  const authenticity=authenticityPolicy(selection,control.inputLock||{})?authenticCoverage({parsed:assembled.parsed,words:authoring.map(w=>w.authored),originals:resolved}):null;
+  if(authenticity&&chapter.sourcePackage.authenticityPolicy!==authenticity.policy||!authenticity&&chapter.sourcePackage.authenticityPolicy!=null)throw Error('来源包真实语境合同与封存输入不符');
+  if(authenticity&&chapter.sourcePackage.evidenceDigest&&canonicalSourcePackage(chapter.sourcePackage.authenticityCoverage)!==canonicalSourcePackage(authenticity))throw Error('真实语境比例与完整封存原件不一致，不能填写一个通过数字');
+  return {manifest, authoring, originals:resolved,authenticity};
 }

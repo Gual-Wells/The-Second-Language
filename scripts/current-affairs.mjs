@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // Private, on-demand source reading only. Does not create a chapter or publish anything.
 import {repositoryRoot,loadReaderConfig,discoverMaterials,readMaterial,importReadMaterial,listMaterials} from './lib/current-affairs-reader.mjs';
+import fs from 'node:fs/promises';
 
 const help = `Usage:
   node scripts/current-affairs.mjs sources
@@ -8,6 +9,8 @@ const help = `Usage:
   node scripts/current-affairs.mjs read YYYY-MM-DD --source id --url https://official/article [--refresh] [--offline]
   node scripts/current-affairs.mjs import YYYY-MM-DD --source id --url https://official/article --file D:\\task\\original.txt --method codex-web|codex-pdf --evidence "actual tool reference" --read-at ISO_TIMESTAMP --scope "actual sections/pages read"
   node scripts/current-affairs.mjs list YYYY-MM-DD
+  read/import also accept --admission FILE for a verified external publisher;
+  keep --source equal to that admission's immutable publisher id.
 
 New chapters may resume; existing meta must use sourcePolicy=current-affairs-v1.
 Legacy chapters remain archived.
@@ -39,7 +42,7 @@ try {
         if(key==='--json') json=true;
         continue;
       }
-      const valueOptions={'--topic':'topic','--url':'url','--file':'textFile','--method':'acquisitionMethod','--evidence':'evidenceRef','--read-at':'readAt','--scope':'readScope'};
+      const valueOptions={'--topic':'topic','--url':'url','--file':'textFile','--method':'acquisitionMethod','--evidence':'evidenceRef','--read-at':'readAt','--scope':'readScope','--admission':'admissionFile'};
       if(key!=='--source' && !valueOptions[key]) throw Error('Unknown argument: '+key);
       const value=args[++i];
       if(!value||value.startsWith('--')) throw Error('Missing value for '+key);
@@ -47,6 +50,7 @@ try {
       else options[valueOptions[key]]=value;
     }
     const importArguments=['textFile','acquisitionMethod','evidenceRef','readAt','readScope'];
+    if(options.admissionFile){if(!['read','import'].includes(command))throw Error('准入仅用于取得原文，不改变RSS发现');options.sourceAdmission=JSON.parse(await fs.readFile(options.admissionFile,'utf8'));}
     if(command==='discover') {
       if(options.refresh||options.url||importArguments.some(key=>options[key]!==undefined)) throw Error('discover accepts only source/topic/offline/json options');
       const result=await discoverMaterials(date,options);

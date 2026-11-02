@@ -50,7 +50,8 @@ export async function prepareChapterEvidence(root, date, {markdown, selection, s
   const contract=await loadAuthoringContract(root,date,selection);
   if (canonicalSourcePackage(frozen) !== canonicalSourcePackage(selection) || contract.policy !== 'authentic-context-v1') throw Error('只能为原冻结的单正文运行或已明确授权重编保存采用证据');
   const {manifest:materials} = await readTeachingMaterials(root,date,selection), materialsManifestText = await fs.readFile(path.join(run,'teaching/materials.json'),'utf8');
-  const records = [{kind:'control', selection, materialsManifestText, materialsManifestDigest:hash(materialsManifestText),...(contract.revision?{authoringRevision:contract.revision,revisionBaselineText:contract.baselineText}:{})}];
+  const inputLock=await json(path.join(run,'vix-source.json'));
+  const records = [{kind:'control', selection, ...(inputLock.authenticityPolicy?{inputLock}:{}), materialsManifestText, materialsManifestDigest:hash(materialsManifestText),...(contract.revision?{authoringRevision:contract.revision,revisionBaselineText:contract.baselineText}:{})}];
   for (const name of (await fs.readdir(path.join(run,'teaching/authored'))).filter(name => /^word-[A-Za-z0-9_-]+\.json$/.test(name)).sort()) {
     const authorText = await fs.readFile(path.join(run,'teaching/authored',name),'utf8'), authored = JSON.parse(authorText);
     const ref = materials.packets.find(ref => ref.word === authored.text);
@@ -101,10 +102,10 @@ export async function prepareChapterEvidence(root, date, {markdown, selection, s
   if (current.length) groups.push(object({schemaVersion:1,kind:'chapter-evidence-group-v1',records:current}));
   let runId = date; try { runId = (await json(path.join(root,'chapters',date,'meta.json'))).runId || date; } catch(error) { if(error.code!=='ENOENT')throw error; }
   const manifest = validateEvidenceManifest({schemaVersion:1,kind:CHAPTER_EVIDENCE_POLICY,studyDate:date,runId,chapterDigest:hash(markdown),selectionDigest:hash(canonicalSourcePackage(selection)),vixInputCommit:selection.vixInputCommit,authoringPolicy:contract.policy,wordCount:selection.mainWords.length,sourceCount:sources.length,groups:groups.map(({digest,bytes})=>({digest,bytes}))});
-  verifyEvidenceRecords(manifest,groups.map(group=>JSON.parse(group.text)),{markdown,sourcePackage:{sources}});
+  const verified=verifyEvidenceRecords(manifest,groups.map(group=>JSON.parse(group.text)),{markdown,sourcePackage:{sources,...(inputLock.authenticityPolicy?{authenticityPolicy:inputLock.authenticityPolicy}:{})}});
   const manifestObject = object(manifest), objects = [...groups,manifestObject], folder = path.join(run,'sources/evidence');
   for (const item of objects) await immutable(path.join(folder,item.digest+'.json'),item.text);
-  return {digest:manifestObject.digest,manifest,objects};
+  return {digest:manifestObject.digest,manifest,objects,authenticity:verified.authenticity};
 }
 
 export async function readChapterEvidence({chapter, readAsset}) {

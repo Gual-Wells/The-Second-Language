@@ -5,6 +5,7 @@ import {CURRENT_AFFAIRS_POLICY,canonicalSourcePackage,validateSourcePackage} fro
 import {familyRecords} from './vix-index.mjs';
 import {validateReadRecord} from './current-affairs-reader.mjs';
 import {prepareChapterEvidence} from './chapter-evidence.mjs';
+import {authenticityPolicy} from '../../protocol/authentic-context-coverage.mjs';
 
 const hash = text => createHash('sha256').update(text).digest('hex');
 const readJson = async file => JSON.parse(await fs.readFile(file, 'utf8'));
@@ -32,9 +33,10 @@ export async function buildChapterSources(root, date, input) {
   if(!input||!Array.isArray(input.sources)||!input.sources.length)throw Error('先阅读实际原文，再撰写来源事实摘要');
   const sources=[];
   for(const source of input.sources){
-    const registered=sourcesById.get(source.sourceId);
-    if(!registered||typeof source.readRecord!=='string')throw Error('来源必须已登记并指向实际原文读取记录');
+    if(typeof source.readRecord!=='string')throw Error('来源必须指向实际原文读取记录');
     const record=await validateReadRecord(path.resolve(root,source.readRecord),{root,sourceId:source.sourceId,url:source.url});
+    const registered=sourcesById.get(source.sourceId)||record.sourceAdmission;
+    if(!registered)throw Error('来源必须已登记或具有同版原文内的实际外部准入');
     const value={sourceId:source.sourceId,url:source.url,title:source.title||record.title,publisher:registered.name,readAt:record.readAt,readDigest:record.textDigest,acquisitionMethod:record.acquisitionMethod||'native-get',facts:source.facts};
     if(record.readScope)value.readScope=record.readScope;
     for(const field of ['publishedAt','updatedAt','limitations'])if(source[field]!=null)value[field]=source[field];
@@ -42,7 +44,8 @@ export async function buildChapterSources(root, date, input) {
   }
   const chapterDigest=hash(markdown),selectionDigest=hash(canonicalSourcePackage(selection));
   const sourcePackage=validateSourcePackage({schemaVersion:1,studyDate:date,chapterDigest,selectionDigest,vixInputCommit:lock.commit,context:input.context,sources,...(input.articles?{articles:input.articles}:{}),...(input.contexts?{contexts:input.contexts}:{})},{chapterDigest,studyDate:date,vixInputCommit:lock.commit,markdown});
-  if(input.contexts)sourcePackage.evidenceDigest=(await prepareChapterEvidence(root,date,{markdown,selection,sources,inputSources:input.sources})).digest;
+  const authenticPolicy=authenticityPolicy(selection,lock);if(authenticPolicy)sourcePackage.authenticityPolicy=authenticPolicy;
+  if(input.contexts){const evidence=await prepareChapterEvidence(root,date,{markdown,selection,sources,inputSources:input.sources});sourcePackage.evidenceDigest=evidence.digest;if(evidence.authenticity)sourcePackage.authenticityCoverage=evidence.authenticity;}
   const canonical=canonicalSourcePackage(sourcePackage),sourceDigest=hash(canonical);
   await immutable(path.join(run,'sources',sourceDigest+'.json'),canonical);
   // Keep recovery receipts but do not copy third-party full text into a public chapter/Git payload.

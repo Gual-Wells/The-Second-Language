@@ -1,0 +1,62 @@
+{
+  "date": "2026-11-02",
+  "baseCommit": "385e6c2189a7d3c34bb15e294769ce7f0ca00a83",
+  "userDecision": {"eightyPercent":"research target; valid chapters below it may publish", "denominators":["all USEs with at least one original-backed authentic context", "unique final contexts"], "notAQuota":true},
+  "initialGaps": [
+    "Five-task ownership was integrated, but outward discovery was a prose instruction rather than an owned VIX-sense/request/original handoff.",
+    "The publisher catalogue had 416 entries and six RSS adapters; neither guarantees complete coverage of VIX meanings.",
+    "Nineteen later compact publisher registrations made the old catalogue validator reject the entire find command.",
+    "A live PMC browser-verification response with HTTP200 was accepted as an extracted paper original.",
+    "Withdrawing only one digest left sibling revisions using the same VIX marking eligible for explicit ordinary reads."
+  ],
+  "implemented": {
+    "protocol":"protocol/VIX_CONTEXT_DISCOVERY.md",
+    "discovery":"Actual owned WORD/USE/forms/construction/situation -> author-written channel queries -> immutable request -> actual live-tool result -> original read/import -> sense/fidelity/rights review",
+    "routes":["service-actions","technical-work","public-dialogue","reported-events","narrative-history","specialist-use","open-web-crosscheck"],
+    "externalPublishers":"Per-task vetted descriptor; individual HTTPS hosts; identity and evidence travel inside immutable originals and sealed recovery, without concurrent edits to the global catalogue.",
+    "observation":"New prospective input/selection flag authentic-context-observed-v1; distinguish declared kind from actual original passage/form/sense witnesses; recompute final counters from sealed originals.",
+    "publication":"Original semantic/evidence/signature gates retained; no 80-percent publication gate. A real 78-percent fixture seals and passes full immutable evidence recovery.",
+    "challengeRecovery":"Reject explicit challenge responses at new acquisition/import and cached reuse; a later actual tool original appends a valid revision while preserving failed original bytes/history.",
+    "catalogue":"Support actual later roles, unverified status and region notation; report compact registrations honestly, without fabricating observations.",
+    "withdrawalLineage":"Migration 0030 uses immutable chapter/VIX-marking identity for formal views, pointer triggers and archive flags. Different new marking on the same date remains eligible."
+  },
+  "livePilot": {
+    "privateEvidence":"D:/CodexStorage/research/vix-context-routing-20261102",
+    "sampling":"Targeted engineering probes, not random or representative VIX sampling.",
+    "positiveOriginalReads":[
+      {"useId":"U00704","word":"archive","url":"https://docs.github.com/en/repositories/archiving-a-github-repository/archiving-repositories","finding":"Actual repository-archival instructions and consequences, not an archive website name; the extractor omits a lead sentence but retains the operative paragraphs."},
+      {"useId":"U00102","word":"adapt","url":"https://docs.python.org/3/library/sqlite3.html","finding":"Actual instruction adapting custom values to SQLite-supported types."},
+      {"useId":"U04104","word":"restore","url":"https://www.boijmans.nl/en/restitutions-ongoing-and-settled-restitution-claims","finding":"The page contains both restoration and restitution senses; the actual return-to-heirs passage also has an essential payment condition."}
+    ],
+    "rejectedOrUnclosed":[
+      {"useId":"U03706","word":"orbit","finding":"A paper lead was found, but native GET yielded a browser challenge. Its false original was detected and is now rejected, not counted as a successful real context."},
+      {"useId":"U01702","word":"diminish","finding":"An original institutional speech lead was found; the attempted web open returned403. Search excerpts are not promoted to a completed original read."},
+      {"useId":"U05004","word":"yield","finding":"Specialist PDF/code leads require actual page reading and evaluation; not adopted from snippets."},
+      {"useId":"U00402","word":"alternative","finding":"A court opinion lead includes an illustrative scenario; its hypothetical status and actual argument need preserving, not recasting as an observed event."},
+      {"useId":"U01703","word":"diminishable","finding":"This bounded probe did not establish a usable independent discourse original. Dictionary/word-list matches do not justify an authentic-context count."}
+    ],
+    "formalReplacements":0,
+    "rightsOrCompleteSemanticApprovalClaimed":false,
+    "eightyPercentEstablished":false
+  },
+  "checks": [
+    {"script":"check-authentic-context-routing.mjs","passed":18},
+    {"script":"check-daily-pipeline.mjs","passed":20},
+    {"script":"check-usage-context-packaging.mjs","passed":22},
+    {"script":"check-chapter-evidence.mjs","passed":17},
+    {"script":"check-digr-adapter.mjs","passed":21},
+    {"script":"check-background-reasoning.mjs","passed":7},
+    {"script":"check-publication-review.mjs","passed":24},
+    {"script":"check-publication-attestation.mjs","result":"passed"},
+    {"script":"check-vix-publication.mjs","passed":11},
+    {"script":"check-current-affairs-backend.mjs","result":"passed including sibling withdrawal, preserved paid state and fresh-mark replacement"},
+    {"script":"check-current-affairs-reader.mjs","result":"passed"},
+    {"script":"check-source-discovery.mjs","passed":9},
+    {"script":"check-withdrawal-cache.mjs","result":"passed"},
+    {"script":"check-vix-marking.mjs","result":"passed"},
+    {"script":"current-affairs-pool.mjs check/find/channels","result":"passed; original registry bytes retained"},
+    {"check":"Wrangler Worker bundle dry run","result":"passed; no deployment from this check"}
+  ],
+  "limits":["No new full formal chapter or representative VIX-coverage experiment has run.","Witness presence, counters and software checks do not certify target-sense truth or learner benefit.","Real source conditions and original discourse functions still require actual review.","No new subscriptions, model generations, TTS or automatic daily trigger were added by this research."],
+  "withdrawal":"Separately user-authorized after engineering/protocol verification. Exact current pointer and121 ranks inspected and preserved before mutation; final results belong to the actual withdrawal receipt."
+}

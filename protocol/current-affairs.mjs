@@ -1,6 +1,7 @@
 // Shared structural contract. Reading and factual/lexical judgement remain the author's work.
 import {splitParts,sentenceRecords} from '../web/annotations.js';
 import {isUsageContextContent,parseUsageContextContent} from './usage-context.mjs';
+import {AUTHENTICITY_POLICY} from './authentic-context-coverage.mjs';
 export const CURRENT_AFFAIRS_POLICY = 'current-affairs-v1';
 const digest = value => typeof value === 'string' && /^[a-f0-9]{64}$/.test(value);
 const commit = value => typeof value === 'string' && /^[a-f0-9]{40}$/.test(value);
@@ -17,6 +18,7 @@ export function validateSourcePackage(value, { chapterDigest, studyDate, vixInpu
   if (!value || value.schemaVersion !== 1 || !date(value.studyDate) || !digest(value.chapterDigest) || !digest(value.selectionDigest) || !commit(value.vixInputCommit)) throw new Error('实事来源包身份无效');
   if ((chapterDigest && value.chapterDigest !== chapterDigest) || (studyDate && value.studyDate !== studyDate) || (vixInputCommit && value.vixInputCommit !== vixInputCommit)) throw new Error('实事来源包与章节/选词输入不一致');
   text(value.context, 'context（事实与创作边界）');
+  if(value.authenticityPolicy!=null&&value.authenticityPolicy!==AUTHENTICITY_POLICY)throw Error('未知真实语境覆盖合同');
   if (!Array.isArray(value.sources) || !value.sources.length) throw new Error('新章须有实际读取的现实材料');
   const urls = new Set();
   for (const source of value.sources) {

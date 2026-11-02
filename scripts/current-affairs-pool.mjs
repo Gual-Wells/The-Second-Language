@@ -7,10 +7,11 @@ import { fileURLToPath } from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const pool = JSON.parse(fs.readFileSync(path.join(root, 'resources/current-affairs/sources.json'), 'utf8'));
 const discovery = JSON.parse(fs.readFileSync(path.join(root, 'resources/current-affairs/discovery-catalogues.json'), 'utf8'));
+const channels = JSON.parse(fs.readFileSync(path.join(root, 'resources/current-affairs/context-channels.json'), 'utf8'));
 const allowed = {
   verification: ['opened', 'search-confirmed', 'blocked'],
-  access: ['open', 'mixed', 'subscription', 'unknown'],
-  role: ['editorial-reporting', 'primary-announcement', 'research-reporting', 'statistical-release', 'service-notice', 'technical-release', 'advocacy-publication']
+  access: ['open', 'mixed', 'subscription', 'unknown', 'unverified'],
+  role: ['editorial-reporting', 'primary-announcement', 'research-reporting', 'statistical-release', 'service-notice', 'technical-release', 'advocacy-publication', 'archival-description', 'curatorial-description', 'government-educational-primary', 'legal-primary', 'official-driver-handbook', 'official-guidance', 'official-primary', 'primary-government-decisions', 'professional-primary', 'publisher-rights-primary', 'technical-primary', 'treaty-primary']
 };
 const urlKey = value => { const u = new URL(value); u.hash = ''; u.hostname = u.hostname.replace(/^www\./, ''); return u.href.replace(/\/$/, ''); };
 function validate() {
@@ -32,11 +33,15 @@ function validate() {
     }
     try { const key = urlKey(s.entryUrl); if (entries.has(key)) errors.push(`${s.id}: duplicate publishing entry`); entries.add(key); } catch { /* reported above */ }
     for (const field of ['regions', 'topics']) {
-      if (!Array.isArray(s[field]) || !s[field].length || s[field].some(v => typeof v !== 'string' || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(v)) || new Set(s[field]).size !== s[field].length) errors.push(`${s.id}: invalid ${field}`);
+      const pattern=field==='regions'?/^[a-z0-9]+(?:[- ][a-z0-9]+)*$/i:/^[a-z0-9]+(?:-[a-z0-9]+)*$/i;
+      if (!Array.isArray(s[field]) || !s[field].length || s[field].some(v => typeof v !== 'string' || !pattern.test(v)) || new Set(s[field].map(v=>v.toLowerCase())).size !== s[field].length) errors.push(`${s.id}: invalid ${field}`);
     }
     for (const [field, values] of Object.entries(allowed)) if (!values.includes(s[field])) errors.push(`${s.id}: invalid ${field}`);
     if (!/^\d{4}-\d{2}-\d{2}$/.test(s.checkedOn)) errors.push(`${s.id}: invalid checkedOn`);
-    if (!Array.isArray(s.observations) || !s.observations.length) errors.push(`${s.id}: missing observations`);
+    // Later targeted-reading registrations contain dated notes/evidence URLs,
+    // not the earlier full observation array. Keep that lesser evidence level;
+    // do not invent observations, mark them newly opened, or disable the pool.
+    if (s.observations!=null&&!Array.isArray(s.observations)) errors.push(`${s.id}: invalid observations`);
     for (const o of s.observations ?? []) {
       for (const field of ['role', 'access', 'verification']) if (!allowed[field].includes(o[field])) errors.push(`${s.id}: invalid observation ${field}`);
       if (!o.batch || !o.sourceType) errors.push(`${s.id}: incomplete observation origin`);
@@ -50,7 +55,7 @@ function validate() {
   if (errors.length) throw new Error(errors.join('\n'));
 }
 const count = key => Object.fromEntries([...new Set(pool.sources.map(s => s[key]))].sort().map(v => [v, pool.sources.filter(s => s[key] === v).length]));
-const summary = () => ({ checkedOn: pool.checkedOn, runtimeIntegration: pool.runtimeIntegration, sources: pool.sources.length, observations: pool.sources.reduce((n, s) => n + s.observations.length, 0), verification: count('verification'), access: count('access'), sourceType: count('sourceType'), role: count('role'), discoveryCatalogues: discovery.catalogues.length });
+const summary = () => ({ checkedOn: pool.checkedOn, runtimeIntegration: pool.runtimeIntegration, sources: pool.sources.length, observations: pool.sources.reduce((n, s) => n + (s.observations?.length||0), 0), recordedWithoutDetailedObservations:pool.sources.filter(s=>!s.observations?.length).length, verification: count('verification'), access: count('access'), sourceType: count('sourceType'), role: count('role'), discoveryCatalogues: discovery.catalogues.length, contextChannels:channels.channels.length, notice:'Recorded publisher metadata only; compact dated registrations are not fabricated detailed observations, new reads, rights approval or coverage of VIX.' });
 const escape = text => String(text).replace(/\|/g, '\\|').replace(/\r?\n/g, ' ');
 function catalogue() {
   const lines = ['# 实事来源目录', '', `核验批次：${pool.checkedOn}。共 ${pool.sources.length} 个去重来源；由 sources.json 生成。`, '', 'opened 仅表示打开入口页面；页面壳、全文、付费及技术限制见每条 notes。blocked/search-confirmed 保留为待复核候选。地区是检索提示，不是独立性或报道覆盖审计。', '', '完整访问记录和角色见 [sources.json](sources.json)；使用边界见 [README](README.md)。', ''];
@@ -62,10 +67,11 @@ function catalogue() {
   return lines.join('\n').trimEnd() + '\n';
 }
 try {
-  validate();
   const [command = 'stats', ...args] = process.argv.slice(2);
-  if (command === 'check') console.log(`OK: ${pool.sources.length} sources; ${discovery.catalogues.length} external discovery catalogues; unique IDs/entries and registry fields valid. Offline check only.`);
+  if(command!=='channels')validate();
+  if (command === 'check') console.log(`OK: ${pool.sources.length} sources; ${discovery.catalogues.length} external discovery catalogues; unique IDs/entries and registry fields valid. ${pool.sources.filter(s=>!s.observations?.length).length} compact registrations retain only their dated notes/evidence URLs; no detailed observations invented. Offline structural check only.`);
   else if (command === 'stats') console.log(JSON.stringify(summary(), null, 2));
+  else if (command === 'channels') console.log(JSON.stringify(channels,null,2));
   else if (command === 'catalogue') {
     if (args.length && !(args.length === 1 && args[0] === '--write')) throw new Error('catalogue accepts only --write');
     if (args[0] === '--write') { fs.writeFileSync(path.join(root, 'resources/current-affairs/CATALOGUE.md'), catalogue()); console.log('Updated resources/current-affairs/CATALOGUE.md'); }
@@ -83,10 +89,10 @@ try {
       const query = value.toLowerCase();
       const field = fieldMap[name];
       if (field && allowed[field] && !allowed[field].includes(query)) throw new Error(`Invalid --${name}: ${value}`);
-      rows = rows.filter(s => field ? (Array.isArray(s[field]) ? s[field].includes(query) : s[field] === query) : [s.id, s.name, s.notes, ...s.topics, ...s.regions].join(' ').toLowerCase().includes(query));
+      rows = rows.filter(s => field ? (Array.isArray(s[field]) ? s[field].some(v=>v.toLowerCase()===query||field==='regions'&&v.toLowerCase().replace(/\s+/g,'-')===query.replace(/\s+/g,'-')) : s[field] === query) : [s.id, s.name, s.notes, ...s.topics, ...s.regions].join(' ').toLowerCase().includes(query));
     }
     const selected = rows.slice(0, limit);
     if (json) console.log(JSON.stringify({ total: rows.length, returned: selected.length, sources: selected }, null, 2));
     else { console.log(`${rows.length} match(es); showing ${selected.length}. No rank or recommendation implied.`); for (const s of selected) console.log(`${s.id} | ${s.name} | ${s.access}/${s.verification}\n  ${s.entryUrl}`); }
-  } else throw new Error('Use check | stats | find [--topic/--region/--type/--role/--verification/--access/--text value] [--limit n] [--json] | catalogue [--write]');
+  } else throw new Error('Use check | stats | channels | find [--topic/--region/--type/--role/--verification/--access/--text value] [--limit n] [--json] | catalogue [--write]');
 } catch (error) { console.error(error.message); process.exitCode = 1; }

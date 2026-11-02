@@ -369,7 +369,7 @@ async function route(request, env) {
     const archive=url.searchParams.get('archive')==='1';if(archive&&!publisher(request,env))return json({error:'封存读取仅供发布身份'},403);
     const row = await env.DB.prepare(`SELECT r.chapter_id AS id,r.study_date AS date,r.number,r.title,r.subtitle,r.word_count AS wordCount,r.content_key,r.digest,
       CASE WHEN p.digest IS NULL OR r.digest!=p.digest THEN 1 ELSE 0 END AS historical,s.policy AS sourcePolicy,s.source_digest AS sourceDigest,
-      EXISTS(SELECT 1 FROM chapter_withdrawals w WHERE w.digest=r.digest) AS withdrawn
+      EXISTS(SELECT 1 FROM chapter_withdrawals w WHERE w.digest=r.digest OR (w.chapter_id=r.chapter_id AND w.vix_commit=r.vix_commit)) AS withdrawn
       FROM chapter_revisions r ${archive?'LEFT JOIN':'JOIN'} published_chapters p ON p.chapter_id=r.chapter_id${archive?'':' AND p.digest=r.digest'}
       ${archive?'LEFT JOIN chapter_sources':'JOIN formal_chapter_sources'} s ON s.digest=r.digest AND s.policy=?
       WHERE r.chapter_id=? AND r.digest=COALESCE(?,p.digest)`).bind(CURRENT_AFFAIRS_POLICY,id,version).first();

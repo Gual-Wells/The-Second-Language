@@ -8,6 +8,8 @@ import {teachingScope,prepareTeachingMaterials,readTeachingMaterials,checkMateri
 import {assembleUsageContextCollection} from './usage-context-authoring.mjs';
 import {validatePublishedVixReceipt} from './vix-publication.mjs';
 import {studyDate} from './digr-project.mjs';
+import {authenticityPolicy} from '../../protocol/authentic-context-coverage.mjs';
+import {auditAuthenticity} from './authenticity-audit.mjs';
 
 export const PIPELINE_VERSION='five-by-ten-v1';
 export const TASK_IDS=Object.freeze(['task-1','task-2','task-3','task-4','task-5']);
@@ -45,6 +47,7 @@ export async function createPipelinePlan(root,date){
   const selection=await json(path.join(p.run,'selection.json')),lock=await json(path.join(p.run,'vix-source.json')),receipt=await json(path.join(p.run,'vix-publication.json'));
   const scope=teachingScope(selection);
   if(selection.studyDate!==date||selection.authoringPolicy!=='authentic-context-v1'||scope.length!==50||lock.teachingLayoutVersion!==2||lock.quickGlossVersion!==1)throw Error('新流水线须冻结50主词及现行单正文/快释合同');
+  authenticityPolicy(selection,lock);
   validatePublishedVixReceipt(receipt,{studyDate:date,inputCommit:lock.commit,selectionDigest:digest(selection),vixCommit:receipt.vixCommit});
   const {manifest}=await readTeachingMaterials(root,date,selection);
   const materialSnapshot=path.join(p.base,'inputs/materials.json');await immutableJson(materialSnapshot,manifest);
@@ -115,7 +118,8 @@ async function taskArtifacts(p,taskId){
     if(record.responseBodyPath)files.push(await ref(p.root,path.resolve(p.root,record.responseBodyPath)));
   }
   const unique=[...new Map(files.map(f=>[f.path,f])).values()];
-  return {task,words,manifest,result,files:unique,handoff};
+  const authenticity=authenticityPolicy(p.selection,await json(path.join(p.run,'vix-source.json')))?await auditAuthenticity(p.root,words):null;
+  return {task,words,manifest,result,files:unique,handoff,authenticity};
 }
 
 export async function sealPipelineTask(root,date,taskId){
@@ -159,6 +163,7 @@ export async function mergePipelineTasks(root,date){
   const result=await assembleRun(p.root,date);
   await fs.writeFile(path.join(p.run,'teaching/chapter.md'),result.markdown);
   await atomicJson(path.join(p.run,'teaching/context-sources.json'),result.contextSources);
+  if(authenticityPolicy(p.selection,await json(path.join(p.run,'vix-source.json'))))await atomicJson(path.join(p.base,'authenticity-status.json'),await auditAuthenticity(p.root,prospective));
   const merged={version:PIPELINE_VERSION,planDigest:p.planDigest,tasks:tasks.map(t=>({taskId:t.task.taskId,receiptDigest:t.receiptDigest})),words:incoming.map(({wordId,sha256})=>({wordId,sha256}))};
   await atomicJson(path.join(p.base,'merged.json'),merged);return merged;
 }
