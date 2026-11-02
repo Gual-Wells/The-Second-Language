@@ -2,6 +2,8 @@
 
 # 第二语言 Codex 工作约定
 
+2026-11-02 DIGR原生对接：研究与出版可通过protocol/DIGR_ADAPTER.md及scripts/digr-project.mjs准备项目任务；日课在原领取/rest检查后生成DIGR候选调用。先实际取得本轮stable的不可变权威，再用同SHA原生SDK和持久会话工作；本地不复制DIGR语义、不预填执行参数。项目层只绑定教材/来源/选择/候选原件和既有出版预检，DIGR完成不替代真实语义审阅、发布授权或永久回读。默认high、休息、空音频、旧内容合同及收费/unknown身份不变。
+
 2026-11-02质量加固：新质检申请采用chapter-quality-v5-counterevidence，旧v3/v4按原摘要续作；来源相关重大撤回必须有实际送达的必要原件。新单正文出版按protocol/PUBLICATION_REVIEW.md，在原作者/封存通路留下本版实际审阅并经独立完整验证器签名，服务器仅验签和不可变绑定；不补造审阅、不启动收费模型或音频。真实语境发现按AUTHENTIC_CONTEXT新增交叉取材与实际查询留证；不凭软404和工具失败判模型质量。后台默认high、休息及旧资产身份均不变。
 
 2026-10-31用户要求第二系列数据库统一，范围含HF与Kaggle，按protocol/SERIES_STORAGE.md和series-storage.json恢复：第二语言只管理分配、身份路由和汇总容量，不绑定其他项目D1或其他项目新增Files能力；旧OneDrive共享AppFolder授权保留恢复兼容例外，不冒称供应商物理隔离。独立second-series-files固定四项目入口，HF在线CAS、Kaggle私有固定版本档案、OneDrive历史兼容；不把各层免费额度和备份副本相加。新增原件完整SHA回读后登记，备份自身不入D1目录，新增不可变表沿既有增量检查点。成功API回执可压缩归档后原子缩为指针，unknown/sending及旧收费结果保护不变；新文件不可读时只恢复，不重复调用模型。日课休息、空音频和第一章固定身份不改。新框架上线状态以research/series-storage-release-2026-10-31.json核验，不能因代码存在宣称已迁移。账单并行建设需协调后接入，不能覆盖其未发布工作。

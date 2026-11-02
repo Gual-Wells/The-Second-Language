@@ -45,8 +45,13 @@ else {
     Sort-Object LastWriteTime -Descending | Select-Object -First 1 -ExpandProperty FullName
 }
 if (-not $codexExecutable) { throw '未找到 Codex CLI' }
-$promptTemplate = Join-Path $projectRoot 'protocol/daily-prompt.txt'
-$prompt = [System.IO.File]::ReadAllText($promptTemplate, [System.Text.Encoding]::UTF8).Replace('{STUDY_DATE}', $studyDate)
+# Project preparation only; the model loads the current pinned DIGR protocol and
+# uses its native runtime. This layer neither creates a DIGR contract nor runs it.
+$preparedText = & node scripts/digr-project.mjs daily $studyDate
+if ($LASTEXITCODE -ne 0) { throw 'DIGR项目材料准备失败；保留原领取，不启动模型' }
+$prepared = $preparedText | ConvertFrom-Json
+if ($prepared.skipped) { exit 0 }
+$prompt = [System.IO.File]::ReadAllText($prepared.prompt, [System.Text.Encoding]::UTF8)
 # Windows PowerShell 5.1 promotes native stderr to an error record. Codex may write
 # nonfatal warnings there, so judge this command by its actual process exit code.
 $ErrorActionPreference = 'Continue'
