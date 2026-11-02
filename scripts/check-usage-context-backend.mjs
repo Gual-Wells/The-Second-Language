@@ -18,7 +18,7 @@ import {buildContextReview} from './lib/context-review.mjs';
 import {processQualityJob} from './lib/chapter-quality-runner.mjs';
 import {indexTextbook} from './lib/textbook-sources.mjs';
 import {uploadEvidenceObjects} from './lib/publish-chapter-evidence.mjs';
-import {backendFixtureWords as words,backendFixtureValidatorKeys,usageContextBackendFixture} from './lib/usage-context-backend-fixture.mjs';
+import {backendFixtureWords as words,backendFixtureValidatorKeys,usageContextBackendFixture,fixtureFallbackAdmission} from './lib/usage-context-backend-fixture.mjs';
 
 const hash=s=>createHash('sha256').update(s).digest('hex'),db=new DatabaseSync(':memory:'),practice=new DatabaseSync(':memory:');
 for(const [sql,dir] of [[db,'worker/migrations'],[practice,'worker/practice_migrations']])for(const name of (await readdir(dir)).filter(n=>n.endsWith('.sql')).sort())sql.exec(await readFile(dir+'/'+name,'utf8'));
@@ -149,5 +149,24 @@ try{
   const wrongSize={...thirty,wordCount:50};assert.equal((await call('/api/publish/stage',{body:wrongSize})).status,400,'Declared size cannot override the pinned 30-word contract');
   assert.equal((await stage(thirty)).status,200);assert.equal((await commit(thirty)).status,200);const thirtyRead=await call('/api/chapters/'+thirty.date,{reader:true,layout:'3'});assert.equal(thirtyRead.status,200);assert.equal(thirtyRead.data.wordCount,30);assert.equal(thirtyRead.data.chapterSizePolicy,'thirty-main-words-v1');assert.equal(validateAnnotatedContent(thirtyRead.data.markdown).words.length,30);assert.equal(qualityTargets(thirtyRead.data.markdown).words.length,30);assert.equal(sourceWords(thirtyRead.data.markdown).size,30);
   const thirtyList=(await call('/api/chapters',{reader:true})).data.chapters.find(c=>c.id===thirty.id);assert.equal(thirtyList.wordCount,30);assert.equal(thirtyList.chapterSizePolicy,'thirty-main-words-v1');assert.equal(db.prepare('SELECT word_count FROM chapter_revisions WHERE digest=?').get(thirty.digest).word_count,30);
+  // The alarm and the hard admission rule are deliberately independent.
+  env.FALLBACK_APPEALS_REQUIRED='true';
+  const makeAppealFixture=async(date,authenticWords,approved)=>{let f=usageContextBackendFixture(date,'layout3',{wordCount:30,authenticWords,contextTag:date});if(approved)f=await fixtureFallbackAdmission(f);evidenceFixtures.set(f.value.sourcePackage.evidenceDigest,f.assets);await claim(date);return f;};
+  const highMissing=await makeAppealFixture('2026-11-04',27,false);
+  const highDenied=await stage(highMissing.value);assert.equal(highDenied.status,409,JSON.stringify(highDenied.data));assert.equal(highDenied.data.code,'FALLBACK_APPEALS_PENDING','Above80 never authorizes unreviewed examples');
+  assert.equal(db.prepare('SELECT digest FROM chapter_revisions WHERE digest=?').get(highMissing.value.digest),undefined,'Missing per-example decisions cannot leave a staged row');
+  const lowApproved=await makeAppealFixture('2026-11-05',23,true);
+  const lowStage=await stage(lowApproved.value);assert.equal(lowStage.status,200,JSON.stringify(lowStage.data));assert.equal(lowStage.data.authenticityAlarm.warning,true);
+  const lowCommit=await commit(lowApproved.value);assert.equal(lowCommit.status,200,JSON.stringify(lowCommit.data));assert.equal(lowCommit.data.authenticityAlarm.warning,true,'Low ratio alarms but complete individually approved exceptions can publish');
+  assert.ok(db.prepare('SELECT * FROM chapter_fallback_appeals WHERE chapter_digest=?').get(lowApproved.value.digest));
+  assert.throws(()=>db.prepare('UPDATE chapter_fallback_appeals SET appeals_digest=? WHERE chapter_digest=?').run('0'.repeat(64),lowApproved.value.digest),/immutable/);
+  const entirelyReal=await makeAppealFixture('2026-11-06',30,true);assert.equal((await stage(entirelyReal.value)).status,200);assert.equal((await commit(entirelyReal.value)).status,200,'Entirely real material needs no fictional appeal or review call');
+  const mismatched=await makeAppealFixture('2026-11-07',26,true);mismatched.value.fallbackAttestationDigest=lowApproved.value.fallbackAttestationDigest;assert.equal((await stage(mismatched.value)).status,409,'Another body/source/case set cannot reuse an approval signature');
+  // A candidate staged before this deployment is not grandfathered at commit.
+  env.FALLBACK_APPEALS_REQUIRED='false';const preGate=await makeAppealFixture('2026-11-08',27,false);assert.equal((await stage(preGate.value)).status,200);
+  env.FALLBACK_APPEALS_REQUIRED='true';const preCommit=await commit(preGate.value);assert.equal(preCommit.status,409);assert.equal(preCommit.data.code,'FALLBACK_APPEALS_PENDING');
+  assert.equal(db.prepare('SELECT digest FROM published_chapters WHERE chapter_id=?').get(preGate.value.id),undefined);
+  assert.equal((await stage(first)).status,200,'An exact already-current historical version retains idempotent recovery');assert.equal((await commit(first)).status,200);
+  console.log(JSON.stringify({realOrIndividuallyApproved:true,above80UnapprovedRejected:true,below80ApprovedPublishedWithAlarm:true,fullyRealNoFictionalAppeals:true,wrongVersionProofRejected:true,preDeploymentStageCannotBypassCommit:true,immutableApprovalBindings:true,legacyCurrentRetryPreserved:true,noRealModelOrProductionCalls:true}));
   console.log(JSON.stringify({ok:true,format:'usage-context-v1',wordCount:50,contexts:49,sharedContext:true,thirtyWordFullPublicationAndReadback:true,unlabelledThirtyRejected:true,legacyFiftyPreserved:true,canonicalFullEvidenceFixture:true,publicationReviewReceiptRequired:true,independentSignatureRequired:true,wrongSignatureRejected:true,currentReceiptlessRetryPreserved:true,oldProofCannotAuthorizeControlOnlyEvidence:true,headCannotDetectSameLengthCorruption:true,permanentGetShaReadbackRejectsCorruption:true,publicationAndSourceReadback:true,audioDefaultEmpty:true,oldAudioSelectionNotReinterpreted:true,pointAudioWhitelist:true,fixedVersionQuestionAndTest:true,twentyTargetsSevenOral:true,qualityWholeTranslationAndMissingOriginal:true,reviewContextExtraction:true,singleTenantStableReaderIdentity:true,graphFixtureRequests:graphRequests,noProductionWrites:true,noPaidCalls:true}));
 }finally{globalThis.fetch=originalFetch;db.close();practice.close();}

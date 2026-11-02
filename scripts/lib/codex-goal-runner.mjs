@@ -10,7 +10,7 @@ import {pipelinePaths,pipelineRoot,optionalJson,atomicJson,immutableJson,sha256}
 
 export const GOAL_ENGINE='codex-goal-v1';
 export const DIGR_ENGINE='digr-v1';
-const protocols=['AGENTS.md','protocol/CODEX_GOAL_DAILY.md','protocol/DAILY_RUN.md',
+const protocols=['AGENTS.md','protocol/CODEX_GOAL_DAILY.md','protocol/AUTHENTIC_CONTEXT_APPEALS.md','protocol/DAILY_RUN.md',
   'protocol/FIVE_TASK_PIPELINE.md','protocol/AUTHENTIC_CONTEXT.md','protocol/CONTENT.md',
   'protocol/RECOMMENDATION.md','protocol/TEACHING_AUTHORING.md','protocol/VIX_CONTEXT_DISCOVERY.md',
   'protocol/QUALITY_WORKFLOW.md','protocol/PUBLICATION_REVIEW.md','protocol/CURRENT_AFFAIRS.md',
@@ -43,7 +43,7 @@ export async function selectDailyExecution(root,date){
 function objectiveFor(role,task){
   return `完成第二语言本次独立阶段的实际成果，不以一轮答复、文件存在或结构封存代替目标完成。阶段：${role}。\n\n${task}\n\n`
     +'这是原生 Codex Goal，目标由后台宿主设置。不要另建、清除、替换或缩小目标，不修改 token 预算，不将普通最终答复当作目标完成。原生 Goal 会在目标保持 active 时自行续作。\n'
-    +'80%真实语境仍是研究目标，低于仍可发布；可发布资格与研究是否值得继续分别判断。对可用原文尚未核读、常见义只查到词典、单一体裁失败等有希望补齐的缺口，实际改变检索/读取/编辑路线并比较结果，再决定本轮是否回退。不得以“不是硬门槛”“已满足最低投入”或“seal已通过”直接结束研究；也不为比例删义、改标签、堆例句或无限搜索。\n'
+    +'从100%真实场景起步：完整义项骨架后逐义实际找原文，不先填满教学例再替换。每份非真实例句都须有实质取材证据及逐例申诉审核，作者不能自批；只读到词典、一次工具失败、未读已有线索或统一回退模板不构成充分理由。80%左右为全章双口径观察目标，低于触发明确警报和策略复查，不是出版数字闸门。正式出版的每份语境都必须是合格真实场景或申诉获准例句；95%真实加5%未批也不能发，低于80%但每项已充分获准也不按数字拒发。对有希望的缺口改变实际检索、读取或编辑路线并比较结果，不为比例删义、改kind、堆例或无限搜索。\n'
     +'结束前实际检查本阶段完整成品、教材事实和所用原段，修正发现的问题；在既有研究/交接记录中说明仍存在的缺口、已经尝试的不同路线，以及继续研究的实际收益或本次真实边界。缺口不能只用统一模板宣称不存在。需要不同视角时，可委托全新上下文作限定范围的只读挑战，向其提供必要原件，实际评估并吸收结果，不为固定次数额外调用。\n'
     +'只有本阶段职责真正完成且可由既有原件核验时，才将现有 Goal 标为 complete。生产者完成不是全章出版完成；总装如果按原流程提出真实定点返修，保留整合结果并明确交接即可结束本阶段，由原宿主接续，不能冒称已发布。网络/额度/权限或未知结果导致无法继续时保留实际状态和原件，不自行重新发起调用。';
 }

@@ -2,7 +2,7 @@
 
 执行第二语言项目北京时间 {STUDY_DATE} 的正式日课。先完整读取AGENTS.md、protocol/DAILY_RUN.md、protocol/AUTHENTIC_CONTEXT.md、protocol/RECOMMENDATION.md、protocol/CURRENT_AFFAIRS.md、protocol/QUALITY_WORKFLOW.md、protocol/QUALITY_SCALE.md、protocol/CONTENT.md、protocol/USAGE_LABELS.md、protocol/ETYMOLOGY.md、protocol/ANNOTATIONS.md、protocol/TEACHING_AUTHORING.md；领取到临时需求时再读TEMPORARY。新正式默认是逐义真实语境单正文，不生产第二/第三部分。不可用旧对话摘要替代实际协议。先恢复work/runs/{STUDY_DATE}；未完成写具体resume，不把05:00开始生成当发布截止。
 
-主动取材还读VIX_CONTEXT_DISCOVERY。新输入和selection在冻结前同样固定authenticityPolicy:authentic-context-observed-v1；旧冻结不补写。完整义项骨架后从VIX具体词义/构式/场合编写真实live search，经七类通道及开放网补缺，池外来源经本任务准入随实际原文封存。80%双口径是研究目标，低于仍正常发布；统计区分原文见证和仅声明，不能改kind、堆例或削义凑数，未达比例本身不能阻止合格发布。
+主动取材还读VIX_CONTEXT_DISCOVERY。新输入和selection在冻结前同样固定authenticityPolicy:authentic-context-observed-v1；旧冻结不补写。完整义项骨架后从VIX具体词义/构式/场合编写真实live search，经七类通道及开放网补缺，池外来源经本任务准入随实际原文封存。2026-11-03最新要求按AUTHENTIC_CONTEXT_APPEALS：从100%真实场景起步，每个非真实例句均须逐例申诉获准，80%仅作警报，每份教学回退均须实际有据申诉获准；低比例触发取材策略复查，未获准者继续研究或返修，不能靠整体比例放行。统计区分原文见证和仅声明，不能改kind、堆例或削义凑数。
 
 后台新执行档位按protocol/BACKGROUND_AUTOMATION.md：主调用与子代理统一high。子代理只承担有实际独立收益的任务，不强制额外轮次或并发；明确文件/词族所有权，交回教材事实、原件定位、完成内容与疑点，由主实际核对整合，不用单结论/多数票代替。运行领取、选择冻结、VIX标注与最终发布由主顺序控制，子代理不重复领取/并发提交。旧冻结恢复的是内容合同与身份，不把其中旧max/xhigh当作新调用档位；已有成功结果仍按原真实记录复用，未知调用不自动重发，不擅自追加收费任务。
 

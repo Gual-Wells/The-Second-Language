@@ -43,7 +43,7 @@ const packedSources=await buildChapterSources(root,f.date,{context:'Self-authore
 assert.equal(packedSources.sourcePackage.authenticityCoverage.useCount,30);
 assert.equal(packedSources.sourcePackage.authenticityCoverage.targetIsPublicationGate,false);
 assert(packedSources.sourcePackage.authenticityCoverage.useCoveragePercent<80);
-checks.push('actual thirty-use denominators preserve the soft 80-percent research target');
+checks.push('actual thirty-use denominators keep the historical observation schema');
 const repo=path.resolve(import.meta.dirname,'..'),packed=spawnSync(process.execPath,[path.join(repo,'scripts/pack-chapter.mjs'),f.date],{cwd:root,encoding:'utf8',windowsHide:true,env:{...process.env,TEMP:root,TMP:root}});
 assert.equal(packed.status,0,packed.stdout+'\n'+packed.stderr);
 const chapter=await json(path.join(f.folder,'chapter.json')),finalMeta=await json(path.join(f.folder,'meta.json'));
@@ -51,5 +51,5 @@ assert.equal(formalChapterWordCount(chapter),30);assert.equal(chapter.chapterSiz
 const evidence=await loadChapterEvidence(root,f.date,chapter.sourcePackage,{markdown:chapter.markdown});assert.equal(evidence.manifest.wordCount,30);assert.equal(evidence.manifest.chapterSizePolicy,CHAPTER_SIZE_POLICY);
 assert.equal((await verifyChapterPublication({root,date:f.date,chapter,meta:finalMeta})).parsed.words.length,30);
 await assert.rejects(()=>verifyChapterPublication({root,date:f.date,chapter:{...chapter,chapterSizePolicy:undefined},meta:finalMeta}),/50 个主词/);
-checks.push('real pack CLI and full sealed preflight accept thirty words below 80 percent and reject changed size identity');
+checks.push('pack and sealed draft preflight allow below80 measurement and reject size drift; appeals admission tested separately');
 console.log(JSON.stringify({passed:checks.length,checks,root,realModelCalls:0,realNetworkCalls:0,realVixWrites:0,realPublications:0,ttsCalls:0},null,2));

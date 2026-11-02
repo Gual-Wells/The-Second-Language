@@ -14,10 +14,11 @@ import {loadAuthoringContract} from './chapter-authoring-revision.mjs';
 import {authenticityPolicy} from '../../protocol/authentic-context-coverage.mjs';
 import {assertTeachingAuthoringVersions,assembleTeachingCollection,AUTHORING_POLICY} from './teaching-authoring.mjs';
 import {loadPublicationReview} from './publication-review.mjs';
+import {loadFallbackAppeals} from './fallback-appeals.mjs';
 
 const hash=value=>createHash('sha256').update(value).digest('hex');
 const json=async file=>JSON.parse(await fs.readFile(file,'utf8'));
-export async function verifyChapterPublication({root,date,chapter,meta,requireReview=false}){
+export async function verifyChapterPublication({root,date,chapter,meta,requireReview=false,requireAppeals=false}){
   if(!/^20\d{2}-\d{2}-\d{2}$/.test(date||''))throw Error('发布预检日期无效');
   root=await fs.realpath(root);
   const folder=path.join(root,'chapters',date),run=path.join(root,'work/runs',date);
@@ -37,6 +38,7 @@ export async function verifyChapterPublication({root,date,chapter,meta,requireRe
   if((chapter.sourcePackage.authenticityPolicy||null)!==authenticPolicy)throw Error('新章不能去掉冻结的真实性观测合同而丢失研究统计');
   for(const field of ['sourcePolicy','sourceDigest','vixInputCommit','sourcePackage'])if(canonical(chapter[field])!==canonical(source[field]))throw Error('发布包已过期：当前来源绑定已改变，须重新核对打包');
   const contract=await loadAuthoringContract(root,date,selection,{meta}),integrated=parsed.format==='usage-context-v1';
+  if(requireAppeals&&!integrated)throw Error('新出版须使用逐义真实语境格式及逐例申诉准入，不借旧格式绕过');
   if(meta.authoringPolicy!=null&&![AUTHORING_POLICY,CONTEXT_AUTHORING_POLICY].includes(meta.authoringPolicy))throw Error('未知课程制作协议');
   if(![AUTHORING_POLICY,CONTEXT_AUTHORING_POLICY].includes(contract.policy))throw Error('未知冻结制作协议');
   if(integrated!== (contract.policy===CONTEXT_AUTHORING_POLICY)||chapter.authoringPolicy!=null&&chapter.authoringPolicy!==contract.policy)throw Error('发布包与原冻结或明确授权的作者合同不一致');
@@ -62,5 +64,6 @@ export async function verifyChapterPublication({root,date,chapter,meta,requireRe
     if(assembleTeachingCollection(words,articles,{expectedWordCount:selection.mainWords.length}).markdown!==chapter.markdown)throw Error('发布包已过期：当前作者稿已改变，须重新核对打包');
   }
   const review=integrated?await loadPublicationReview(root,date,{...chapter,runId:meta.runId||date},{evidence,required:requireReview}):null;
-  return {parsed,versions,evidence,review};
+  const appeals=requireAppeals?await loadFallbackAppeals(root,date,{...chapter,runId:meta.runId||date},{evidence}):null;
+  return {parsed,versions,evidence,review,appeals};
 }

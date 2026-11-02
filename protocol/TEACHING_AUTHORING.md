@@ -56,7 +56,7 @@ partOne只放讲解和每USE唯一CONTEXT_SLOT；禁止夹入已装配CONTEXT、
 
 ## 装配和封存
 
-新章取境与观测按VIX_CONTEXT_DISCOVERY。sourceEvidence可保存authenticUse原文见证（discourse、passage、communicativeAct、逐义uses的useId/headForm/surface/senseMatch），随原作者稿封存，不进入学习正文。没有实际见证不计为已经核实的真实语境；仅kind声明另列。80%是研究目标，低于不阻塞正常封存和发布；语义正确、实际采用权及现有出版审阅标准保持。
+新章取境与观测按VIX_CONTEXT_DISCOVERY。sourceEvidence可保存authenticUse原文见证（discourse、passage、communicativeAct、逐义uses的useId/headForm/surface/senseMatch），随原作者稿封存，不进入学习正文。没有实际见证不计为已经核实的真实语境；仅kind声明另列。2026-11-03起从100%真实场景起步，每个非真实例句均须逐例申诉获准，80%仅作警报，按AUTHENTIC_CONTEXT_APPEALS执行；过程稿可保留低比例统计，每份教学回退都须充分申诉获准，未获准不能发布；语义正确、实际采用权及现有出版审阅标准保持。
 
 成稿的词源、标题快释、融合解释、英文语境和译文面向读者；sourceCoverage、exampleCoverage、contextChoices等面向研究和恢复。内部“本包／所附／本次审核”话语留在后者，不随字段齐全一起泄入正文。按CONTENT实际核读者字段，不用简单教材名称匹配器误删合法教学内容。
 

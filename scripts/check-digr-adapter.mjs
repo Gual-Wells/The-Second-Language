@@ -9,7 +9,7 @@ import {acquireDigrRuntime} from './lib/digr-transport.mjs';
 const repo=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const scratch=await fs.mkdtemp('D:/CodexStorage/tmp/digr-adapter-check-'),root=path.join(scratch,'project'),date='2026-10-24';
 await fs.mkdir(path.join(root,'protocol'),{recursive:true});
-for(const file of ['AGENTS.md','protocol/DIGR_ADAPTER.md','protocol/DAILY_RUN.md','protocol/AUTHENTIC_CONTEXT.md','protocol/CONTENT.md','protocol/RECOMMENDATION.md','protocol/TEACHING_AUTHORING.md','protocol/QUALITY_WORKFLOW.md','protocol/PUBLICATION_REVIEW.md','protocol/CURRENT_AFFAIRS.md','protocol/BACKGROUND_AUTOMATION.md'])await fs.writeFile(path.join(root,file),'Fixture project guidance; not a real production approval.');
+for(const file of ['AGENTS.md','protocol/DIGR_ADAPTER.md','protocol/AUTHENTIC_CONTEXT_APPEALS.md','protocol/DAILY_RUN.md','protocol/AUTHENTIC_CONTEXT.md','protocol/CONTENT.md','protocol/RECOMMENDATION.md','protocol/TEACHING_AUTHORING.md','protocol/QUALITY_WORKFLOW.md','protocol/PUBLICATION_REVIEW.md','protocol/CURRENT_AFFAIRS.md','protocol/BACKGROUND_AUTOMATION.md'])await fs.writeFile(path.join(root,file),'Fixture project guidance; not a real production approval.');
 const run=path.join(root,'work/runs',date);await fs.mkdir(run,{recursive:true});
 const write=(name,obj)=>fs.writeFile(path.join(run,name),JSON.stringify(obj));
 await write('control.json',{date,runId:date,rest:true});

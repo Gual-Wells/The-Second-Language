@@ -23,6 +23,7 @@ import {storageRoute,permanentBucket,chapterText,storageRequestEnvironment} from
 import {audioConfigRoute,chapterAudioParts} from './audio-config.js';
 import {CURRENT_AFFAIRS_POLICY,prepareChapterSources,readChapterSources,verifyChapterEvidence} from './current-affairs.js';
 import {readPublicationReview,readPublicationAttestation,assertPublicationReviewBase,PUBLICATION_REVIEW_POLICY} from './publication-review.js';
+import {readFallbackAdmission,FALLBACK_VALIDATOR_POLICY} from './fallback-appeals.js';
 
 const encoder = new TextEncoder();
 const MAX_BODY = 5_000_000;
@@ -164,7 +165,7 @@ async function route(request, env) {
   if (path === '/api/publish/stage' && request.method === 'POST') {
     if (!publisher(request, env)) return json({ error: '发布身份无效' }, 401);
     const value = await inputJson(request);
-    if(String(env.PUBLICATION_HOLD_RUN_IDS||'').split(',').map(x=>x.trim()).includes(value.runId))return json({code:'AUTHENTICITY_MIN80_PENDING',error:'按用户最新要求，本章暂缓发布：真实语境的用法覆盖率与去重语境占比均须至少80%；保留现有稿件、选择、VIX和成功原件，先补研究，不重复启动或重做整章。'},409);
+    if(String(env.PUBLICATION_HOLD_RUN_IDS||'').split(',').map(x=>x.trim()).includes(value.runId))return json({code:'FALLBACK_APPEALS_PENDING',error:'本章暂缓发布：每份非真实场景例句须完成有充分证据的逐例申诉并经独立审核通过；80%仅为整体警报，不是数字闸门。保留现有稿件、选择、VIX和成功原件，不重复启动或重做整章。'},409);
     let wordCount;try{wordCount=formalChapterWordCount(value);}catch(error){return json({error:error.message},400);}
     if (!safeId(value.runId) || !validDate(value.date) || value.id !== value.date ||
       typeof value.markdown !== 'string' || countMainWords(value.markdown) !== wordCount ||
@@ -189,9 +190,10 @@ async function route(request, env) {
     if(!prior&&parsed.format==='usage-context-v1'&&!value.sourcePackage.evidenceDigest)return json({error:'单正文须先永久封存采用原文与作者证据'},400);
     if(!prior&&parsed.format!=='usage-context-v1'&&!parsed.articles.length)return json({error:'新制作版本须采用真实取材文章组或单正文真实语境；已有原件不回写'},400);
     if(prior&&(prior.chapter_id!==value.id||prior.run_id!==value.runId||prior.source_digest!==sources.digest))return json({error:'正文版本与已冻结的来源或运行身份冲突'},409);
-    let publicationReview=null,publicationValidation=null;
+    let publicationReview=null,publicationValidation=null,fallbackAdmission=null;
+    const alreadyCurrent=prior&&await env.DB.prepare('SELECT 1 FROM published_chapters WHERE chapter_id=? AND digest=?').bind(value.id,digest).first();
+    if(env.FALLBACK_APPEALS_REQUIRED==='true'&&!alreadyCurrent&&parsed.format!=='usage-context-v1')return json({code:'FALLBACK_APPEALS_PENDING',error:'新出版须使用真实语境与逐例申诉准入，不能借旧格式绕过'},409);
     if(parsed.format==='usage-context-v1'){
-      const alreadyCurrent=prior&&await env.DB.prepare('SELECT 1 FROM published_chapters WHERE chapter_id=? AND digest=?').bind(value.id,digest).first();
       const reviewBinding=await env.DB.prepare('SELECT * FROM chapter_publication_reviews WHERE chapter_digest=?').bind(digest).first();
       const reviewDigest=value.publicationReviewDigest||reviewBinding?.review_digest;
       if(!alreadyCurrent||reviewDigest){
@@ -204,6 +206,12 @@ async function route(request, env) {
         if(reviewBinding&&(reviewBinding.source_digest!==sources.digest||reviewBinding.review_digest!==reviewDigest||reviewBinding.validation_digest!==validationDigest))return json({error:'本版出版审阅已绑定，不能替换'},409);
         publicationReview=reviewDigest;
         publicationValidation=validationDigest;
+      }
+      if(env.FALLBACK_APPEALS_REQUIRED==='true'&&!alreadyCurrent){
+        const old=await env.DB.prepare('SELECT * FROM chapter_fallback_appeals WHERE chapter_digest=?').bind(digest).first();
+        try{fallbackAdmission=await readFallbackAdmission(env,{chapter:{...value,digest,sourceDigest:sources.digest},parsed,publicationReviewDigest:publicationReview,appealsDigest:value.fallbackAppealsDigest||old?.appeals_digest,validationDigest:value.fallbackAttestationDigest||old?.validation_digest});}
+        catch(error){return json({code:error.code||'FALLBACK_APPEALS_INVALID',error:error.message},/尚未永久保存/.test(error.message)?503:409);}
+        if(old&&(old.source_digest!==sources.digest||old.appeals_digest!==fallbackAdmission.appealsDigest||old.validation_digest!==fallbackAdmission.validationDigest||old.policy!==FALLBACK_VALIDATOR_POLICY))return json({error:'逐例申诉准入已绑定，不能替换'},409);
       }
     }
     const run=await env.DB.prepare('SELECT selection_digest FROM daily_runs WHERE run_id=?').bind(value.runId).first();
@@ -228,16 +236,19 @@ async function route(request, env) {
        SELECT ?,?,?,?,? WHERE EXISTS(SELECT 1 FROM chapter_revisions WHERE digest=? AND chapter_id=? AND run_id=?)`)
       .bind(digest,sources.digest,sources.key,sources.policy,Date.now(),digest,value.id,value.runId),
       ...(publicationReview?[env.DB.prepare(`INSERT OR IGNORE INTO chapter_publication_reviews(chapter_digest,source_digest,review_digest,validation_digest,policy,created_at)
-       SELECT ?,?,?,?,?,? WHERE EXISTS(SELECT 1 FROM chapter_revisions WHERE digest=? AND chapter_id=? AND run_id=?)`).bind(digest,sources.digest,publicationReview,publicationValidation,PUBLICATION_REVIEW_POLICY,Date.now(),digest,value.id,value.runId)]:[])]);
+       SELECT ?,?,?,?,?,? WHERE EXISTS(SELECT 1 FROM chapter_revisions WHERE digest=? AND chapter_id=? AND run_id=?)`).bind(digest,sources.digest,publicationReview,publicationValidation,PUBLICATION_REVIEW_POLICY,Date.now(),digest,value.id,value.runId)]:[]),
+      ...(fallbackAdmission?[env.DB.prepare(`INSERT OR IGNORE INTO chapter_fallback_appeals(chapter_digest,source_digest,appeals_digest,validation_digest,policy,created_at)
+       SELECT ?,?,?,?,?,? WHERE EXISTS(SELECT 1 FROM chapter_revisions WHERE digest=? AND chapter_id=? AND run_id=?)`).bind(digest,sources.digest,fallbackAdmission.appealsDigest,fallbackAdmission.validationDigest,FALLBACK_VALIDATOR_POLICY,Date.now(),digest,value.id,value.runId)]:[])]);
     const binding=await env.DB.prepare('SELECT source_digest,source_key,policy FROM chapter_sources WHERE digest=?').bind(digest).first();
     if(binding?.source_digest!==sources.digest||binding.source_key!==sources.key||binding.policy!==sources.policy)return json({error:'正文版本的来源绑定已存在且不能替换'},409);
     if(publicationReview){const actual=await env.DB.prepare('SELECT * FROM chapter_publication_reviews WHERE chapter_digest=?').bind(digest).first();if(actual?.source_digest!==sources.digest||actual.review_digest!==publicationReview||actual.validation_digest!==publicationValidation)return json({error:'本版出版审阅已由另一份原件绑定；保留原件恢复，不重新签发'},409);}
-    return json({ok:true,digest,chapterId:value.id,number,sourcePolicy:sources.policy,sourceDigest:sources.digest});
+    if(fallbackAdmission){const actual=await env.DB.prepare('SELECT * FROM chapter_fallback_appeals WHERE chapter_digest=?').bind(digest).first();if(actual?.source_digest!==sources.digest||actual.appeals_digest!==fallbackAdmission.appealsDigest||actual.validation_digest!==fallbackAdmission.validationDigest)return json({error:'本版逐例申诉已由另一份原件绑定；保留实际版本恢复'},409);}
+    return json({ok:true,digest,chapterId:value.id,number,sourcePolicy:sources.policy,sourceDigest:sources.digest,...(fallbackAdmission?{authenticityAlarm:fallbackAdmission.alarm}:{})});
   }
   if (path === '/api/publish/commit' && request.method === 'POST') {
     if (!publisher(request, env)) return json({ error: '发布身份无效' }, 401);
     const value = await inputJson(request);
-    if(String(env.PUBLICATION_HOLD_RUN_IDS||'').split(',').map(x=>x.trim()).includes(value.runId))return json({code:'AUTHENTICITY_MIN80_PENDING',error:'按用户最新要求，本章暂缓发布：真实语境的用法覆盖率与去重语境占比均须至少80%；保留暂存和所有原件，先补研究，不重新选词或标记VIX。'},409);
+    if(String(env.PUBLICATION_HOLD_RUN_IDS||'').split(',').map(x=>x.trim()).includes(value.runId))return json({code:'FALLBACK_APPEALS_PENDING',error:'本章暂缓发布：仍须逐例核准非真实场景例句的申诉；80%仅为警报，不能据此自动放行或拒绝。保留暂存和所有原件，不重新选词或标记VIX。'},409);
     if (!safeId(value.runId) || !/^[0-9a-f]{64}$/.test(value.digest || '')) return json({ error: '发布参数无效' }, 400);
     const revision = await env.DB.prepare('SELECT * FROM chapter_revisions WHERE digest=? AND run_id=?').bind(value.digest, value.runId).first();
     if (!revision) return json({ error: '暂存章节不存在' }, 404);
@@ -245,10 +256,12 @@ async function route(request, env) {
     if(!binding)return json({error:'章节未完成新流程来源封存，不能加入正式目录'},409);
     let publishedText;try{publishedText=await chapterText(env,revision.content_key);}catch{return json({error:'章节原件暂不可核对，尚未发布'},503);}
     if(!publishedText||await sha256(publishedText)!==revision.digest)return json({error:'章节原件暂不可核对，尚未发布'},503);
-    let publicationBaseDigest=null;
+    let publicationBaseDigest=null,fallbackAlarm=null;
     try{
       const frozen=await readChapterSources(env,{...binding,chapter_id:revision.chapter_id,study_date:revision.study_date});
       await verifyChapterEvidence(env,frozen.sourcePackage,revision.run_id,{wordCount:revision.word_count});
+      const alreadyCurrent=await env.DB.prepare('SELECT 1 FROM published_chapters WHERE chapter_id=? AND digest=?').bind(revision.chapter_id,revision.digest).first();
+      if(env.FALLBACK_APPEALS_REQUIRED==='true'&&!alreadyCurrent&&!publishedText.startsWith('<!-- FORMAT:usage-context-v1 -->')){const e=Error('新正式出版不能借旧格式绕过逐例申诉准入');e.code='FALLBACK_APPEALS_PENDING';throw e;}
       if(publishedText.startsWith('<!-- FORMAT:usage-context-v1 -->')){
         const review=await env.DB.prepare('SELECT * FROM chapter_publication_reviews WHERE chapter_digest=?').bind(revision.digest).first();
         const alreadyCurrent=await env.DB.prepare('SELECT 1 FROM published_chapters WHERE chapter_id=? AND digest=?').bind(revision.chapter_id,revision.digest).first();
@@ -259,8 +272,13 @@ async function route(request, env) {
           publicationBaseDigest=await assertPublicationReviewBase(env,reviewed,revision.chapter_id,revision.digest);
           await readPublicationAttestation(env,review.validation_digest,{chapterDigest:revision.digest,sourceDigest:binding.source_digest,evidenceDigest:frozen.sourcePackage.evidenceDigest,publicationReviewDigest:review.review_digest,runId:revision.run_id,date:revision.study_date,wordCount:revision.word_count,sourceCount:frozen.sourcePackage.sources.length});
         }
+        if(env.FALLBACK_APPEALS_REQUIRED==='true'&&!alreadyCurrent){
+          const appeals=await env.DB.prepare('SELECT * FROM chapter_fallback_appeals WHERE chapter_digest=?').bind(revision.digest).first();
+          if(!appeals||appeals.source_digest!==binding.source_digest||appeals.policy!==FALLBACK_VALIDATOR_POLICY){const e=Error('每份非真实例句须完成逐例申诉审核，暂存成功不能代替；80%仅为警报');e.code='FALLBACK_APPEALS_PENDING';throw e;}
+          fallbackAlarm=(await readFallbackAdmission(env,{chapter:{date:revision.study_date,digest:revision.digest,sourceDigest:binding.source_digest,runId:revision.run_id,sourcePackage:frozen.sourcePackage},parsed:validateAnnotatedContent(publishedText),publicationReviewDigest:review?.review_digest,appealsDigest:appeals.appeals_digest,validationDigest:appeals.validation_digest})).alarm;
+        }
       }
-    }catch(error){return json({error:'来源包、完整采用证据或本版出版审阅暂不可核对，尚未发布'},error.code==='PUBLICATION_BASE_CHANGED'?409:503);}
+    }catch(error){return json({...(error.code?{code:error.code}:{}),error:error.code==='FALLBACK_APPEALS_PENDING'?error.message:'来源包、完整采用证据或本版出版审阅暂不可核对，尚未发布'},['PUBLICATION_BASE_CHANGED','FALLBACK_APPEALS_PENDING'].includes(error.code)?409:503);}
     const admittedAudioParts=JSON.stringify(chapterAudioParts(publishedText));
     const upgraded=await env.DB.prepare('SELECT 1 FROM chapter_first_part_upgrades WHERE chapter_id=? LIMIT 1').bind(revision.chapter_id).first();
     if(upgraded){const current=await env.DB.prepare('SELECT digest FROM published_chapters WHERE chapter_id=?').bind(revision.chapter_id).first();return current?.digest===revision.digest?json({ok:true,id:revision.chapter_id,digest:revision.digest,reused:true}):json({error:'此章已有第一部分升级，旧日课请求不能覆盖'},409);}
@@ -292,7 +310,7 @@ async function route(request, env) {
     ]);
     const current=await env.DB.prepare('SELECT digest FROM published_chapters WHERE chapter_id=?').bind(revision.chapter_id).first();
     if(current?.digest!==revision.digest)return json({error:'已有较新章节版本，旧发布请求不能覆盖当前版本'},409);
-    return json({ok:true,id:revision.chapter_id,digest:revision.digest,sourcePolicy:binding.policy,sourceDigest:binding.source_digest});
+    return json({ok:true,id:revision.chapter_id,digest:revision.digest,sourcePolicy:binding.policy,sourceDigest:binding.source_digest,...(fallbackAlarm?{authenticityAlarm:fallbackAlarm}:{})});
   }
 
   if (path === '/api/temporary' && request.method === 'POST') {

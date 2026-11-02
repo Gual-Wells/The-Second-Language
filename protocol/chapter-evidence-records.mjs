@@ -106,6 +106,7 @@ export function verifyEvidenceRecords(manifest, groups, chapter) {
     if (!source || !evidence || !resolved.some(original => original.url === url && original.authorReadRecords.some(author=>author.references.includes(evidence.readRecord)&&author.record.textDigest===source.readDigest))) throw Error('作者采用语境没有同版原文证据');
   }
   const authenticity=authenticityPolicy(selection,control.inputLock||{})?authenticCoverage({parsed:assembled.parsed,words:authoring.map(w=>w.authored),originals:resolved}):null;
+  if(!authenticity&&chapter.sourcePackage.authenticityCoverage!=null)throw Error('真实语境比例未绑定冻结观测合同，不能独立填写');
   if(authenticity&&chapter.sourcePackage.authenticityPolicy!==authenticity.policy||!authenticity&&chapter.sourcePackage.authenticityPolicy!=null)throw Error('来源包真实语境合同与封存输入不符');
   if(authenticity&&chapter.sourcePackage.evidenceDigest&&canonicalSourcePackage(chapter.sourcePackage.authenticityCoverage)!==canonicalSourcePackage(authenticity))throw Error('真实语境比例与完整封存原件不一致，不能填写一个通过数字');
   return {manifest, authoring, originals:resolved,authenticity};

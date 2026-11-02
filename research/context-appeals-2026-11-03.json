@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-11-02T17:36:14.637577+00:00",
+  "status": "source-verified-deployment-pending",
+  "userRule": {
+    "defaultAuthenticPercent": 100,
+    "observedTargetPercent": 80,
+    "eightyIsAlarmNotGate": true,
+    "hardAdmission": "every context authentic or individually evidence-supported appeal approved",
+    "noPercentageExemption": true
+  },
+  "products": {
+    "oldPipelineDraft": {
+      "runId": "2026-11-02",
+      "engine": "digr-v1",
+      "wordCount": 30,
+      "useCount": 443,
+      "authenticUseCount": 212,
+      "contextCount": 439,
+      "authenticContextCount": 208,
+      "teachingContextCount": 231,
+      "useCoveragePercent": 47.855530474040634,
+      "contextSharePercent": 47.380410022779046,
+      "unverifiedDeclaredContextCount": 0,
+      "measurement": "actual integrated authors and local fixed original witnesses; not a fresh independent semantic review",
+      "newAppealsReviewed": 0,
+      "published": false
+    },
+    "withdrawnFormalChapter": {
+      "chapterId": "2026-10-24",
+      "chapterDigest": "172d98b24cfeebbd2d59bcb5fa9b30569d7ae691c56e36cf496c0fdca5106a58",
+      "wordCount": 50,
+      "useCount": 685,
+      "declaredAuthenticUseCount": 186,
+      "contextCount": 732,
+      "declaredAuthenticContextCount": 184,
+      "teachingContextCount": 548,
+      "declaredUseCoveragePercent": 27.153284671532845,
+      "declaredContextSharePercent": 25.136612021857925,
+      "measurement": "historical abridgment/excerpt labels; no observed-v1 witness records; not certified under current standard"
+    }
+  },
+  "engineering": {
+    "policy": "fallback-appeals-v1",
+    "validator": "real-or-approved-validator-v1",
+    "sourceWitnessesRecomputed": true,
+    "eachFallbackBoundToContextAndUseAndMaterial": true,
+    "actualIsolatedReviewerEventsAndResponseRequired": true,
+    "sourceAndPublicationBindingsPreserved": true,
+    "additionalImmutableBindingTable": "chapter_fallback_appeals",
+    "stageAndCommitBothCheck": true,
+    "legacyCurrentExactRecoveryPreserved": true,
+    "numericFloorExperimentRetired": true,
+    "authorSelfApprovalNotAccepted": true,
+    "existingGoalObjectivesNotMutated": true
+  },
+  "validation": {
+    "fallbackAppealChecks": 17,
+    "nativeGoalChecks": 28,
+    "dailyPipelineChecks": 21,
+    "publicationReviewChecks": 24,
+    "chapterEvidenceChecks": 17,
+    "chapterSizeChecks": 3,
+    "digrAdapterChecks": 21,
+    "publicationAttestationSuitePassed": true,
+    "fullWorkerSqlitePermanentStorePublicationSuitePassed": true,
+    "above80UnapprovedRejected": true,
+    "below80AllApprovedPublishedWithAlarm": true,
+    "stagedBeforeDeploymentCannotBypassCommit": true,
+    "noProductionKeysUsedInFixtures": true,
+    "realModelCalls": 0,
+    "ttsCalls": 0,
+    "newApiCalls": 0
+  },
+  "outstanding": {
+    "reviewerMode": "awaiting user choice from pending asynchronous question; no automatic reviewer enabled",
+    "currentDraft": "preserve selection, VIX, original producer receipts, successful and unknown assets; real-first targeted refinement remains necessary"
+  },
+  "costs": {
+    "newSubscriptions": 0,
+    "thisChangeModelCalls": 0,
+    "futureReview": "bounded isolated Sol/high calls consume existing ChatGPT allowance only when selected and invoked; no unknown automatic retries"
+  }
+}

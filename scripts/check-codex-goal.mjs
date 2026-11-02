@@ -14,7 +14,7 @@ const check=async(name,fn)=>{await fn();checks.push(name);};
 let sequence=0;
 async function project({rest=false}={}){
  const root=path.join(scratch,'project-'+(++sequence));await atomicJson(path.join(root,'work/runs',date,'control.json'),{runId:date,date,rest});
- for(const file of ['AGENTS.md','protocol/CODEX_GOAL_DAILY.md','protocol/DAILY_RUN.md','protocol/FIVE_TASK_PIPELINE.md','protocol/AUTHENTIC_CONTEXT.md','protocol/CONTENT.md','protocol/RECOMMENDATION.md','protocol/TEACHING_AUTHORING.md','protocol/VIX_CONTEXT_DISCOVERY.md','protocol/QUALITY_WORKFLOW.md','protocol/PUBLICATION_REVIEW.md','protocol/CURRENT_AFFAIRS.md','protocol/BACKGROUND_AUTOMATION.md']){
+ for(const file of ['AGENTS.md','protocol/CODEX_GOAL_DAILY.md','protocol/AUTHENTIC_CONTEXT_APPEALS.md','protocol/DAILY_RUN.md','protocol/FIVE_TASK_PIPELINE.md','protocol/AUTHENTIC_CONTEXT.md','protocol/CONTENT.md','protocol/RECOMMENDATION.md','protocol/TEACHING_AUTHORING.md','protocol/VIX_CONTEXT_DISCOVERY.md','protocol/QUALITY_WORKFLOW.md','protocol/PUBLICATION_REVIEW.md','protocol/CURRENT_AFFAIRS.md','protocol/BACKGROUND_AUTOMATION.md']){
   await fs.mkdir(path.dirname(path.join(root,file)),{recursive:true});await fs.copyFile(path.join(repo,file),path.join(root,file));}
  return root;
 }

@@ -11,6 +11,7 @@ import {verifyReaderRelease} from './lib/reader-release.mjs';
 import {requiredReaderLayout} from '../protocol/reader-layout.mjs';
 import {uploadEvidenceObjects} from './lib/publish-chapter-evidence.mjs';
 import {createPublicationAttestation} from './lib/publication-attestation.mjs';
+import {createFallbackAdmission} from './lib/fallback-admission-attestation.mjs';
 const date = process.argv[2];
 if (!/^\d{4}-\d{2}-\d{2}$/.test(date || '')) throw new Error('用法: node scripts/publish-chapter.mjs YYYY-MM-DD');
 const { base, token } = await publisherConfig();
@@ -32,7 +33,8 @@ if(chapter.markdown.startsWith('<!-- FORMAT:usage-context-v1 -->')){
  else if(current.status!==404)throw Error('不能核实本版是否已发布；不绕过出版审阅');
 }
 // Complete local, read-only admission before any permanent upload or stage.
-const admission=await verifyChapterPublication({root:process.cwd(),date,chapter,meta,requireReview:!alreadyPublished});
+const admission=await verifyChapterPublication({root:process.cwd(),date,chapter,meta,requireReview:!alreadyPublished,requireAppeals:!alreadyPublished});
+if(admission.appeals?.admission.alarm.warning)console.warn('真实场景低比例警报：'+JSON.stringify(admission.appeals.admission.alarm)+'；逐例申诉已全部获准，比例本身不拒发。');
 await verifyReaderRelease({base,required:requiredReaderLayout(chapter.markdown),root:process.cwd()});
 const hash=text=>createHash('sha256').update(text).digest('hex');
 async function post(route, body) {
@@ -40,9 +42,10 @@ async function post(route, body) {
   const payload = await response.json(); if (!response.ok) throw new Error(`${route}: ${payload.error || response.status}`); return payload;
 }
 await publishChapterEvidence(process.cwd(),date,chapter,{base,token});
-let attestation;
+let attestation,fallback;
 if(admission.review){attestation=await createPublicationAttestation(process.cwd(),date,{...chapter,runId,publicationReviewDigest:admission.review.digest});await uploadEvidenceObjects([admission.review,attestation],{base,token});}
-const staged = await post('/api/publish/stage', { ...chapter, ...(admission.review?{publicationReviewDigest:admission.review.digest,publicationAttestationDigest:attestation.digest}:{}),runId, vixCommit: meta.vixCommit, protocolCommit: meta.protocolCommit });
+if(!alreadyPublished){fallback=await createFallbackAdmission(process.cwd(),date,{...chapter,runId});await uploadEvidenceObjects([fallback.appeals,fallback.attestation],{base,token});}
+const staged = await post('/api/publish/stage', { ...chapter, ...(admission.review?{publicationReviewDigest:admission.review.digest,publicationAttestationDigest:attestation.digest}:{}),...(fallback?{fallbackAppealsDigest:fallback.appeals.digest,fallbackAttestationDigest:fallback.attestation.digest}:{}),runId, vixCommit: meta.vixCommit, protocolCommit: meta.protocolCommit });
 if (staged.digest !== chapter.digest || staged.sourceDigest !== chapter.sourceDigest) throw new Error('后端暂存正文/来源摘要与本地章节不一致');
 if(staged.number && staged.number!==chapter.number){
   chapter.number=meta.number=staged.number;

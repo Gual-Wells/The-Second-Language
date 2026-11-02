@@ -10,7 +10,7 @@ export const DEFAULT_PUBLICATION_VALIDATOR_DIRECTORY='D:/CodexStorage/private/se
 const hash=value=>createHash('sha256').update(value).digest('hex');
 async function dDirectory(directory){const real=await fs.realpath(directory);if(process.platform==='win32'&&!/^D:[\\/]/i.test(real))throw Error('出版验证器私钥须实际存D盘');return real;}
 function result(value,text,reused){return {value,text,digest:hash(text),bytes:Buffer.byteLength(text),reviewDigest:value.publicationReviewDigest,reused};}
-async function saveImmutable(file,text){
+export async function saveImmutable(file,text){
  await fs.mkdir(path.dirname(file),{recursive:true});await dDirectory(path.dirname(file));const temporary=file+'.'+randomUUID()+'.tmp';let handle;
  try{handle=await fs.open(temporary,'wx');await handle.writeFile(text);await handle.sync();await handle.close();handle=null;try{await fs.link(temporary,file);}catch(error){if(error.code!=='EEXIST')throw error;if(await fs.readFile(file,'utf8')!==text)throw Error('本版出版验证原件冲突');}}
  finally{if(handle)await handle.close();await fs.unlink(temporary).catch(error=>{if(error.code!=='ENOENT')throw error;});}

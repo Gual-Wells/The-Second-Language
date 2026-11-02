@@ -1,6 +1,6 @@
 # 每日课程运行协议
 
-2026-11-02最新执行决定：后续尚未开始的新正式日课采用CODEX_GOAL_DAILY的原生Codex Goal，保留本文件全部内容/出版要求。业务阶段仍为规划、三组制作和总装；每阶段可以原生跨多轮续作，不承诺恰五次模型调用。当前2026-11-02第一章以及已有输入、计划或调用的旧运行沿实际DIGR恢复，不中途切换或重做。80%非发布闸门不等于可以忽略有明显收益的取材优化；发布资格和研究充分性分别判断。
+2026-11-02最新执行决定：后续尚未开始的新正式日课采用CODEX_GOAL_DAILY的原生Codex Goal，保留本文件全部内容/出版要求。业务阶段仍为规划、三组制作和总装；每阶段可以原生跨多轮续作，不承诺恰五次模型调用。当前2026-11-02第一章以及已有输入、计划或调用的旧运行沿实际DIGR恢复，不中途切换或重做。2026-11-03起正式出版要求每个非真实例句申诉获准，80%只作警报，按AUTHENTIC_CONTEXT_APPEALS执行；每份非真实例句实际取材并申诉，未获准须补研究，不得仅凭结构通过发布。
 
 2026-10-27起尚未冻结的新运行执行AUTHENTIC_CONTEXT单正文。旧已冻结selection没有authoringPolicy或为sourced-collection-v1，沿原protocolCommit/作者稿继续旧合同，不静默升级、重选或重标。新默认由本文件、AUTHENTIC_CONTEXT、RECOMMENDATION、CONTENT、QUALITY_WORKFLOW、QUALITY_SCALE、ANNOTATIONS和TEACHING_AUTHORING共同执行；版本化提示词为daily-prompt.txt。
 
@@ -38,7 +38,7 @@ vixMarkLabel为真实YY-MM-DD，由studyDate.slice(2)取得。冻结后prepare-v
 
 ## 逐义制作
 
-新输入在原prepare-vix时固定authenticityPolicy:authentic-context-observed-v1，selection须在冻结前同样记录，旧锁不补写。每组按VIX_CONTEXT_DISCOVERY先完成完整义项骨架，再以实际词形/构式/场合主动搜索和核原文；固定目录不够时走开放网并核池外发布者，不为取材便利改选择。80%仅为研究目标：merge和最终封存按实际原件输出双口径与缺口，未达仍可正常发布，不增加比例闸门或无限返修。
+新输入在原prepare-vix时固定authenticityPolicy:authentic-context-observed-v1，selection须在冻结前同样记录，旧锁不补写。每组按VIX_CONTEXT_DISCOVERY先完成完整义项骨架，再以实际词形/构式/场合主动搜索和核原文；固定目录不够时走开放网并核池外发布者，不为取材便利改选择。以100%真实场景起步，所有非真实例句须逐例申诉获准，80%仅作警报：merge和最终封存按实际原件输出统计与缺口，未获准的教学例须补研究或重新申诉；低比例报警，不另设整章百分比硬闸门，也不无限返修。
 
 主词字典序，词源集中主词层，双教材按真实词性、对象、结构、语域融合，全部独有教学事实保留。每个真正用法独立USE，旧ID多个真实分支在新章按语义区分，不按“或”字机械切。标签/音标/限制准确，原例全部可追索并进入候选判断，但不默认把全部旧原例显示在正文。
 

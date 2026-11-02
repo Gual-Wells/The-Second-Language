@@ -1,0 +1,52 @@
+// Synthetic transport/validator regressions. No production key, real search,
+// model, chapter, publication or semantic-approval claim is involved.
+import assert from 'node:assert/strict';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import {createHash,generateKeyPairSync,randomUUID} from 'node:crypto';
+import {usageContextBackendFixture,fixtureFallbackAdmission} from './lib/usage-context-backend-fixture.mjs';
+import {validateAnnotatedContent} from '../web/annotations.js';
+import {verifyEvidenceRecords} from '../protocol/chapter-evidence-records.mjs';
+import {authenticityAlarm,validateFallbackAppeals} from '../protocol/fallback-appeals.mjs';
+import {verifyFallbackAttestation} from '../protocol/fallback-attestation.mjs';
+import {createFallbackAdmission} from './lib/fallback-admission-attestation.mjs';
+import {appealFolder,loadFallbackAppeals,fallbackReviewPacket,appealPrompt,scopeAppealPacket,verifyAppealExecution} from './lib/fallback-appeals.mjs';
+import {canonicalSourcePackage as canonical} from '../protocol/current-affairs.mjs';
+const hash=x=>createHash('sha256').update(x).digest('hex'),checks=[];
+const check=async(name,fn)=>{await fn();checks.push(name);};
+globalThis.fetch=async()=>{throw Error('No network in appeal QA');};
+const f=await fixtureFallbackAdmission(usageContextBackendFixture('2099-02-03','layout3',{wordCount:30,authenticWords:23,contextTag:'appeal-fixture'})),chapter=f.value,parsed=validateAnnotatedContent(chapter.markdown),evidence=verifyEvidenceRecords(f.manifest,[f.assets[0]],chapter),options={chapter,parsed,evidence};
+await check('below80 with every individual approved passes with alarm',async()=>{const result=await validateFallbackAppeals(f.appeals,options);assert.equal(result.allContextsAdmitted,true);assert.equal(result.alarm.warning,true);});
+await check('spoofed percentage and meetsTarget cannot hide an alarm',async()=>{assert.equal(authenticityAlarm({...evidence.authenticity,useCoveragePercent:100,contextSharePercent:100,meetsTarget:true}).warning,true);});
+await check('warning threshold uses integer counts without rounding',async()=>{assert.equal(authenticityAlarm({useCount:10001,authenticUseCount:8000,contextCount:10001,authenticContextCount:8000}).warning,true);assert.equal(authenticityAlarm({useCount:10,authenticUseCount:8,contextCount:10,authenticContextCount:8}).warning,false);});
+for(const state of ['needs-research','rejected'])await check(state+' is not approval',async()=>{const r=structuredClone(f.appeals);r.decisions[0].decision=state;await assert.rejects(validateFallbackAppeals(r,options),/未获准/);});
+await check('one omitted case fails regardless total percentage',async()=>{const r=structuredClone(f.appeals);r.decisions.pop();await assert.rejects(validateFallbackAppeals(r,options),/遗漏/);});
+await check('duplicate approval cannot cover another case',async()=>{const r=structuredClone(f.appeals);r.decisions[1]=r.decisions[0];await assert.rejects(validateFallbackAppeals(r,options),/遗漏/);});
+await check('author fallbackReason or passed cannot replace actual case reasons',async()=>{const r=structuredClone(f.appeals);r.requests[0].reason='';r.passed=true;await assert.rejects(validateFallbackAppeals(r,options),/具体取材/);});
+await check('quoted evidence must exist in the fixed materials',async()=>{const r=structuredClone(f.appeals);r.decisions[0].refs[0].quote='Absent quotation';await assert.rejects(validateFallbackAppeals(r,options),/引文/);});
+await check('shared context requires all target uses in the same appeal',async()=>{const r=structuredClone(f.appeals),request=r.requests.find(r=>r.useIds.length>1);assert.ok(request);request.useIds.pop();await assert.rejects(validateFallbackAppeals(r,options),/全部用法/);});
+await check('changed translation invalidates prior per-case approval',async()=>{const e=structuredClone(evidence),id=f.appeals.requests[0].contextId;const c=e.authoring.flatMap(w=>w.authored.contexts).find(c=>c.id===id);c.translation+=' Changed fixture translation.';await assert.rejects(validateFallbackAppeals(f.appeals,{...options,evidence:e}),/绑定实际例句/);});
+await check('changed explanation or material identity invalidates prior approval',async()=>{const e=structuredClone(evidence),id=f.appeals.requests[0].useIds[0];e.authoring.find(w=>w.authored.partOne.includes('USE:'+id)).authored.partOne+='\nChanged fixture explanation';await assert.rejects(validateFallbackAppeals(f.appeals,{...options,evidence:e}),/绑定实际例句/);});
+await check('another source version cannot inherit approval',async()=>{await assert.rejects(validateFallbackAppeals(f.appeals,{...options,chapter:{...chapter,sourceDigest:'0'.repeat(64)}}),/sourceDigest/);});
+await check('search plan is not an executed observation',async()=>{const r=structuredClone(f.appeals),text=JSON.stringify({queries:['planned only']});r.records=[{id:'research:'+hash(text),digest:hash(text),kind:'search-observation',text}];await assert.rejects(validateFallbackAppeals(r,options),/实际搜索返回/);});
+const root=path.resolve('.cache/fallback-appeal-fixture',randomUUID());await fs.mkdir(root,{recursive:true});
+async function seed(fixture){const c=fixture.value,run=path.join(root,'work/runs',c.date);await fs.mkdir(path.join(run,'sources/evidence'),{recursive:true});await fs.mkdir(path.join(run,'teaching'),{recursive:true});for(const a of fixture.assets.filter(a=>a.kind==='chapter-evidence-v1'||a.kind==='chapter-evidence-group-v1')){const text=JSON.stringify(a);await fs.writeFile(path.join(run,'sources/evidence',hash(text)+'.json'),text);}await fs.writeFile(path.join(run,'teaching/publication-review.json'),JSON.stringify(fixture.review));}
+await seed(f);const dir=appealFolder(root,chapter.date,chapter.digest);await fs.mkdir(dir,{recursive:true});await fs.writeFile(path.join(dir,'review.json'),JSON.stringify(f.appeals));
+await check('author-written approved metadata without isolated execution cannot sign',async()=>{await assert.rejects(createFallbackAdmission(root,chapter.date,chapter,{validatorDirectory:path.join(root,'nonexistent-key')}),/独立只读Codex审核|审核执行集合/);});
+await check('raw response drift is rejected before the private key',async()=>{
+ const {packet}=await fallbackReviewPacket(chapter,evidence),requests=f.appeals.requests,prompt=appealPrompt(scopeAppealPacket(packet,requests,[])),id=hash(prompt),batch=path.join(dir,'reviews',id);await fs.mkdir(batch,{recursive:true});
+ const value={...f.appeals,executions:[{id,contextIds:requests.map(r=>r.contextId)}]};value.reviewer={kind:'codex',model:'gpt-6.1-sol',effort:'high',runReference:'independent-set:'+hash(canonical(value.executions))};
+ const response={decisions:value.decisions,summary:'Simulated isolated receipt for parser testing only.'},output=JSON.stringify(response),events=[{type:'thread.started',thread_id:'fixture-new-thread'},{type:'turn.started'},{type:'item.completed',item:{type:'agent_message',text:output}},{type:'turn.completed',usage:{input_tokens:0,output_tokens:0}}].map(JSON.stringify).join('\n');
+ await fs.writeFile(path.join(batch,'review-prompt.txt'),prompt);await fs.writeFile(path.join(batch,'review-response.json'),output);await fs.writeFile(path.join(batch,'review-events.jsonl'),events);
+ await fs.writeFile(path.join(batch,'review-execution.json'),JSON.stringify({kind:'isolated-appeal-review-v1',exitCode:0,model:'gpt-6.1-sol',effort:'high',threadId:'fixture-new-thread',promptDigest:hash(prompt),responseDigest:hash(output),eventsDigest:hash(events)}));
+ await verifyAppealExecution(dir,value,packet);
+ value.decisions=structuredClone(value.decisions);value.decisions[0].reason='Author changed the actual reviewer verdict';await assert.rejects(verifyAppealExecution(dir,value,packet),/真实返回/);
+ await fs.writeFile(path.join(batch,'review-response.json'),output+' ');await assert.rejects(verifyAppealExecution(dir,{...value,decisions:response.decisions},packet),/摘要不符/);
+});
+await check('100 percent authentic needs no invented exception and signer reuses exact proof',async()=>{
+ const real=usageContextBackendFixture('2099-02-04','layout3',{wordCount:30,authenticWords:30,contextTag:'all-real-fixture'});await seed(real);
+ const keys=generateKeyPairSync('ed25519'),spki=keys.publicKey.export({format:'der',type:'spki'}),keyId='fixture-'+hash(spki).slice(0,24),validatorDirectory=path.join(root,'private-test-key');await fs.mkdir(validatorDirectory,{mode:0o700});
+ const privateFile=path.join(validatorDirectory,'ed25519-private.pk8'),secret=keys.privateKey.export({format:'der',type:'pkcs8'}),ring=JSON.stringify({[keyId]:spki.toString('base64')});await fs.writeFile(privateFile,secret,{mode:0o600});secret.fill(0);await fs.writeFile(path.join(validatorDirectory,'validator.json'),JSON.stringify({schemaVersion:1,keyId}));await fs.writeFile(path.join(validatorDirectory,'public-keyring.json'),ring);
+ try{const signed=await createFallbackAdmission(root,real.value.date,real.value,{validatorDirectory});assert.equal(signed.appeals.value.requests.length,0);assert.equal(signed.appeals.admission.alarm.warning,false);await verifyFallbackAttestation(signed.attestation.value,{chapterDigest:real.value.digest,approvedExampleCount:0},{PUBLICATION_VALIDATOR_KEYS:ring});await fs.unlink(privateFile);const reused=await createFallbackAdmission(root,real.value.date,real.value,{validatorDirectory});assert.equal(reused.reused,true);assert.equal(reused.attestation.digest,signed.attestation.digest);}finally{await fs.unlink(privateFile).catch(e=>{if(e.code!=='ENOENT')throw e;});}
+});
+console.log(JSON.stringify({passed:checks.length,checks,fixtures:root,realModelCalls:0,networkCalls:0,productionKeysRead:false,realSemanticReviewClaimed:false},null,2));
