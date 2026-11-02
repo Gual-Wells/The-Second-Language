@@ -1,5 +1,5 @@
 // Explicit prepare/review/verify entry. No model call during prepare or verify.
-// Review requires the separately chosen reviewer mode; unknown attempts persist.
+// Independent Codex review is the maintenance default; unknown attempts persist.
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
@@ -26,7 +26,7 @@ if(action==='prepare'){
  const result=await loadFallbackAppeals(root,date,chapter,{evidence});console.log(JSON.stringify({passed:true,appealsDigest:result.digest,admission:result.admission},null,2));
 }else{
  const setting=await optionalJson(path.join(root,'.cache/appeal-reviewer.json'));
- if(setting?.mode!=='codex')throw Error('尚未选择独立Codex申诉审核；不自动替用户选择，不启动模型');
+ if(setting?.mode&&setting.mode!=='codex')throw Error('已明确选择其他审核方式，保留原选择，不自动启动Codex');
  if(!options['--codex'])throw Error('缺少原Codex CLI路径');
  const request=JSON.parse(await fs.readFile(requestFile,'utf8'));
  const draft={...request,reviewedAt:new Date().toISOString(),reviewer:{kind:'codex',model:'gpt-6.1-sol',effort:'high',runReference:'preflight-not-a-real-review'},decisions:request.requests.map(r=>({contextId:r.contextId,basisDigest:r.basisDigest,decision:'needs-research',reason:'Preflight only; no reviewer verdict exists yet.',refs:r.refs}))};

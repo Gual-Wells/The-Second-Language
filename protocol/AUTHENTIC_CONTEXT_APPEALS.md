@@ -16,7 +16,7 @@
 
 一次403/429、只查了单一体裁、词典例句更短、未读已有线索、笼统“罕见/难找”和复用模板，均不能单凭它们通过。也不要求固定搜索次数、固定来源数或无限检索。审核须判断继续取材的真实空间与例外理由，而不是统计投入次数。
 
-作者提交申请不能代表通过。实际审核逐例返回approved、needs-research或rejected及依据；缺失、待补研究、拒绝和跨版旧批准均不能进入正式版。独立Codex或用户人工的具体执行方式须按用户选定方式配置；未经选择不自动替用户作人工决议。不得伪造审核身份、回执或签名。
+作者提交申请不能代表通过。实际审核逐例返回approved、needs-research或rejected及依据；缺失、待补研究、拒绝和跨版旧批准均不能进入正式版。维护默认由独立Codex逐例审核，采用原后台Sol/high；确有争议向用户反馈。用户明确选择人工时遵从，不要求先选审核人才能继续建设，也不由作者代作人工决议。不得伪造审核身份、回执或签名。
 
 ## 80%警报
 
@@ -36,6 +36,6 @@
 
 封存、pack后，`node scripts/fallback-appeals.mjs prepare DATE`生成绑定本版的未批准申请骨架，位置为work/runs/DATE/teaching/fallback-appeals/正文摘要/requests.json。逐项补充reason、searchConclusion、teachingBenefit和实际refs，不能抹去困难用法。records内实际搜索返回以kind:search-observation保存原external-search-observation完整JSON；未采用候选读件或采用条件以source-reading或rights-evidence保存{record:实际读取凭据,originalText:同摘要原文}。每项id为research:SHA256(text)，refs引用真实sourceId及原字节内的quote。实际已采用教材和来源可直接用教材entry id或read:原文textDigest，不重复造读件。
 
-用户选定独立Codex审核后，由维护入口设置本机.cache/appeal-reviewer.json的mode:codex；作者与制作任务不得自行决定或修改该设置。实际运行`node scripts/fallback-appeals.mjs review DATE --codex EXE --contexts C1,C2`；范围按真实词义拆小，传入完整相关教材、例句和取材证据，不发整章超大请求。独立空白上下文、Sol/high、工具关闭，只输出批准/补研究/拒绝。宿主保存真实输入、事件、输出与完成回执；相同成功请求复用，失败或unknown不自动再发。部分审核不能冒充全章通过。
+缺省采用独立Codex审核；.cache/appeal-reviewer.json只用于用户明确另选的覆盖设置，作者和制作任务不得自行改动该设置。实际运行`node scripts/fallback-appeals.mjs review DATE --codex EXE --contexts C1,C2`；范围按真实词义拆小，传入完整相关教材、例句和取材证据，不发整章超大请求。独立空白上下文、Sol/high、工具关闭，只输出批准/补研究/拒绝。宿主保存真实输入、事件、输出与完成回执；相同成功请求复用，失败或unknown不自动再发。部分审核不能冒充全章通过。
 
 `node scripts/fallback-appeals.mjs verify DATE`核每份申请、当前例句摘要、引文和实际审核输出。publish-chapter在任何上传前调用相同预检，并由完整验证器另签real-or-approved-validator-v1准入；在线stage和commit按同版签名及不可变绑定核准。100%真实的章节不需要虚构申诉或启动申诉模型。工程回归用隔离自写资料和临时测试公钥，不把模拟通过记为真实语义审核。

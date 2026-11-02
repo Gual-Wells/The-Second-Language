@@ -52,7 +52,8 @@ function materialView(run,scope,{wordTexts,manifestFile}={}){
   if(wordTexts==null&&manifestFile==null)return {scope,manifestFile:path.join(run,'teaching/materials.json')};
   if(!Array.isArray(wordTexts)||!wordTexts.length||new Set(wordTexts).size!==wordTexts.length||!manifestFile)throw Error('分任务材料须同时指定唯一主词和独立索引');
   const relative=path.relative(run,path.resolve(manifestFile)).replaceAll('\\','/');
-  if(!/^teaching\/pipeline\/tasks\/task-[1-5]\/materials\.json$/.test(relative)||wordTexts.some(w=>!scope.some(s=>s.text===w)))throw Error('分任务材料范围或索引越界');
+  const owned=/^teaching\/pipeline\/tasks\/task-[1-5]\/materials\.json$/.test(relative)||/^revisions\/[A-Za-z0-9][A-Za-z0-9_-]{0,100}\/tasks\/task-[1-3]\/materials\.json$/.test(relative);
+  if(!owned||wordTexts.some(w=>!scope.some(s=>s.text===w)))throw Error('分任务材料范围或索引越界');
   return {scope:scope.filter(w=>wordTexts.includes(w.text)),manifestFile:path.resolve(manifestFile)};
 }
 export async function prepareTeachingMaterials(root,date,{scopeFile,additionalFile,books,wordTexts,manifestFile}={}) {
