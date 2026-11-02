@@ -7,12 +7,27 @@ import {canonicalSourcePackage as canonical} from '../../protocol/current-affair
 import {backgroundCodexArgs} from '../../protocol/background-codex.mjs';
 import {prepareDigrProject,preflightDigrPublication} from './digr-project.mjs';
 import {publisherConfig} from './publisher-config.mjs';
+import {GOAL_ENGINE,selectDailyExecution,invokeDailyGoal} from './codex-goal-runner.mjs';
 import {dailyMode,pipelinePaths,pipelineRoot,optionalJson,atomicJson,immutableJson,sha256,createPipelinePlan,inspectPipelinePlan,inspectPipelineTask,pipelineBarrier,mergePipelineTasks,inspectPipelineRepair,verifyRepairBoundary} from './daily-pipeline.mjs';
 
 export function dailyCodexArgs(root){return ['--search','-a','never','exec','-C',root,'-m','gpt-6.1-sol',...backgroundCodexArgs,'-s','danger-full-access','--json','-'];}
 const planningContextRules='\n新输入和selection在冻结前同时固定chapterSizePolicy:thirty-main-words-v1；新章30主词、三组各10词。旧无此字段的固定输入/selection仍按50主词五组或原恢复入口，不补写字段。meta与发布包必须保同一词数合同。\n还须完整读取protocol/VIX_CONTEXT_DISCOVERY.md。新输入的authenticityPolicy:authentic-context-observed-v1须在selection冻结前同样记录，不给旧锁补字段。80%是研究目标而非发布门槛，不按取材易得性削减词义或选词挑战。';
 function workerContextRules(date,taskId){return `\n按protocol/VIX_CONTEXT_DISCOVERY.md实际制作：先写本组完整教材义项骨架，再用node scripts/context-discovery.mjs targets ${date} ${taskId}绑定VIX词义；按实际义/构式/交际场合选择context-channels路线，作者编写queries，plan后执行真正live search，再observe保存真正请求/返回。已有同版合格原文可直接核用，不强制重搜。遇固定来源或单一体裁缺口，做open-web-crosscheck，不能把目录/RSS/搜索片段当全文。池外来源先核发布者/正文域/条件，admit后read/import --admission保存原件，不并发改全局来源表。真实语境的sourceEvidence可写authenticUse原段/词形/意义/交际行为见证，用于区分已核真实语境与仅kind声明。用coverage读取实际统计和缺口，80%双口径为研究目标，未达仍可正常交付，不改标签、堆重复、缩义或无上限搜索。`;}
-const assemblyContextRules='\n按protocol/VIX_CONTEXT_DISCOVERY.md读取teaching/pipeline/authenticity-status.json，核对真实USE覆盖率、去重语境占比、仅声明而未形成见证的材料及具体缺口。80%是研究目标，低于目标本身不能阻止正常发布；只有实际语义/事实/采用条件等质量问题才定点返修。比例按最终整合作者稿和封存原文重算，不填写通过数字、不把原型样本冒称全VIX覆盖。';
+const assemblyContextRules='\n按protocol/VIX_CONTEXT_DISCOVERY.md读取teaching/pipeline/authenticity-status.json，核对真实USE覆盖率、去重语境占比、仅声明而未形成见证的材料及具体缺口。80%是研究目标，低于目标本身不能阻止正常发布；仍须实际判断研究是否充分，不能因可发布就停止有明显价值的取材优化。对常见义、未核读线索、单一路线失败等有希望的缺口定点核查或返修，改变实际检索/读取/编辑路线并比较收益，不机械凑比例或无限搜索。比例按最终整合作者稿和封存原文重算，不填写通过数字、不把原型样本冒称全VIX覆盖。';
+
+export async function invokeDailyStage(options){
+  const {root,date,role}=options,execution=await selectDailyExecution(root,date);
+  if(execution.engine!==GOAL_ENGINE)return invokeDailyCodex(options);
+  return invokeDailyGoal({...options,verifyResult:()=>verifyDailyStageResult(root,date,role)});
+}
+export async function verifyDailyStageResult(root,date,role){
+    if(role==='task-1-plan'){const p=await createPipelinePlan(root,date);return {scope:'planning-artifacts',planDigest:p.planDigest};}
+    const producer=role.match(/^(task-[1-5])(?:$|-repair-)/)?.[1];
+    if(producer){const result=await inspectPipelineTask(root,date,producer);if(!result)throw Error('Goal声称完成但未交齐完整原件：'+producer);return {scope:'producer-artifacts',receiptDigest:result.receiptDigest};}
+    if(role==='task-1-assemble'){const repair=await inspectPipelineRepair(root,date);if(repair)return {scope:'bounded-repair-handoff',repairDigest:repair.repairDigest};}
+    if(role.startsWith('task-1-assemble'))return verifyDailyPublication(root,date);
+    throw Error('未知Goal阶段：'+role);
+}
 export async function invokeDailyCodex({root,date,role,task,inputFiles=[],codexExecutable,spawnImpl=spawn}){
   const p=pipelinePaths(root,date),directory=path.join(p.base,'invocations',role);await fs.mkdir(directory,{recursive:true});
   // A process exit, a completed draft and a published chapter are separate facts.
@@ -54,7 +69,8 @@ export async function verifyDailyPublication(root,date){
   return {...local,published:true,verifiedAt:new Date().toISOString()};
 }
 
-export async function runDailyPipeline({root,date,codexExecutable,invoke=invokeDailyCodex,verifyPublished=verifyDailyPublication}){
+export async function runDailyPipeline({root,date,codexExecutable,invoke=invokeDailyStage,verifyPublished=verifyDailyPublication,deadlineAt=Date.now()+20*60*60*1000}){
+  const invokeWithinWindow=options=>invoke({...options,deadlineAt});
   root=await pipelineRoot(root);const mode=await dailyMode(root,date);if(mode==='rest')return {skipped:true,reason:'rest',modelCalls:0};if(mode==='legacy')throw Error('此运行须沿原入口恢复，不转换内容合同');
   const paths=pipelinePaths(root,date);await fs.mkdir(paths.base,{recursive:true});
   let lock;try{lock=await fs.open(path.join(paths.base,'runner.lock'),'wx');}catch(e){if(e.code==='EEXIST')throw Error('同日流水线已有运行锁；先核对其进程，不能重复启动。');throw e;}
@@ -62,6 +78,7 @@ export async function runDailyPipeline({root,date,codexExecutable,invoke=invokeD
   try{
     const publishedFile=path.join(paths.base,'published.json');
     if(await optionalJson(publishedFile)){const verified=await verifyPublished(root,date);return {resumed:true,...verified};}
+    await selectDailyExecution(root,date);
     let p;
     if(await optionalJson(paths.plan))p=await inspectPipelinePlan(root,date);
     else{
@@ -69,14 +86,14 @@ export async function runDailyPipeline({root,date,codexExecutable,invoke=invokeD
       // Validate/reuse those artifacts before considering any new model call.
       try{p=await createPipelinePlan(root,date);}catch(error){
         if(error.code!=='ENOENT')throw error;
-        await invoke({root,date,role:'task-1-plan',task:planningTask(date,await planningWordCount(root,date))+planningContextRules,codexExecutable});
+        await invokeWithinWindow({root,date,role:'task-1-plan',task:planningTask(date,await planningWordCount(root,date))+planningContextRules,codexExecutable});
         p=await createPipelinePlan(root,date);
       }
     }
     const planRelative=path.relative(root,paths.plan).replaceAll('\\','/');
     const initial=await Promise.allSettled(p.plan.tasks.map(async({taskId})=>{
       const ready=await inspectPipelineTask(root,date,taskId);if(ready)return;
-      await invoke({root,date,role:taskId,task:workerTask(p,taskId)+workerContextRules(date,taskId),inputFiles:[planRelative],codexExecutable});
+      await invokeWithinWindow({root,date,role:taskId,task:workerTask(p,taskId)+workerContextRules(date,taskId),inputFiles:[planRelative],codexExecutable});
       if(!await inspectPipelineTask(root,date,taskId))throw Error(taskId+'退出但未交齐十词原稿');
     }));
     const failed=initial.filter(r=>r.status==='rejected');if(failed.length)throw Error('部分任务未完成；已完成任务保留：'+failed.map(r=>r.reason.message).join('；'));
@@ -89,19 +106,19 @@ export async function runDailyPipeline({root,date,codexExecutable,invoke=invokeD
       // current fixed result first; never pay for an invented replacement run.
       const verified=await verifyPublished(root,date);await atomicJson(publishedFile,verified);return {resumed:true,...verified};
     }
-    if(!assemblyFinished)await invoke({root,date,role:'task-1-assemble',task:assemblyTask(p)+assemblyContextRules,inputFiles:assemblyInputs,codexExecutable});
+    if(!assemblyFinished)await invokeWithinWindow({root,date,role:'task-1-assemble',task:assemblyTask(p)+assemblyContextRules,inputFiles:assemblyInputs,codexExecutable});
     const repair=await inspectPipelineRepair(root,date);
     if(repair){
       const repaired=await Promise.allSettled(repair.tasks.map(async item=>{
         const current=await inspectPipelineTask(root,date,item.taskId);
         if(current?.receiptDigest!==item.baselineReceipt){await verifyRepairBoundary(root,date,item);return;}
-        await invoke({root,date,role:item.taskId+'-repair-'+repair.repairDigest.slice(0,12),task:workerTask(p,item.taskId,item)+workerContextRules(date,item.taskId),inputFiles:[planRelative],codexExecutable});
+        await invokeWithinWindow({root,date,role:item.taskId+'-repair-'+repair.repairDigest.slice(0,12),task:workerTask(p,item.taskId,item)+workerContextRules(date,item.taskId),inputFiles:[planRelative],codexExecutable});
         await verifyRepairBoundary(root,date,item);if(!await inspectPipelineTask(root,date,item.taskId))throw Error('返修未交齐');
       }));
       if(repaired.some(r=>r.status==='rejected'))throw Error('定点返修未完成；保留其余稿件，不重复全章。');
       await mergePipelineTasks(root,date);
       const finished=await optionalJson(path.join(paths.base,'invocations/task-1-assemble-repaired/finished.json'));
-      if(!finished)await invoke({root,date,role:'task-1-assemble-repaired',task:assemblyTask(p)+assemblyContextRules+'\n本次为已交回的定点返修汇总。继续核原整合修改；若仍需返修保存问题并停止，不再自动开启下一轮。',inputFiles:[planRelative],codexExecutable});
+      if(!finished)await invokeWithinWindow({root,date,role:'task-1-assemble-repaired',task:assemblyTask(p)+assemblyContextRules+'\n本次为已交回的定点返修汇总。继续核原整合修改；若仍需返修保存问题并停止，不再自动开启下一轮。',inputFiles:[planRelative],codexExecutable});
       const latest=await inspectPipelineRepair(root,date);if(latest?.repairDigest!==repair.repairDigest)throw Error('返修后仍有新问题，已保存，不循环消耗模型。');
     }
     const verified=await verifyPublished(root,date);await atomicJson(publishedFile,verified);return verified;

@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-02",
+  "status": "validated-for-installation",
+  "decision": "Native Codex Goals for new daily formal chapters; existing runs keep their actual engine",
+  "engine": "codex-goal-v1",
+  "model": "gpt-6.1-sol",
+  "reasoningEffort": "high",
+  "chapterSize": 30,
+  "productionGroups": 3,
+  "mainWordsPerGroup": 10,
+  "authenticityTarget": {
+    "percent": 80,
+    "hardPublicationGate": false
+  },
+  "nativeRuntime": {
+    "version": "0.166.0-alpha.5.1",
+    "goalFeature": "stable/enabled",
+    "auth": "ChatGPT subscription; no API-key model calls introduced",
+    "firstTurnOwner": "native Codex on thread/goal/set",
+    "continuationOwner": "native Codex",
+    "hostTurnStartRequests": 0
+  },
+  "tests": {
+    "goal": 28,
+    "pipeline": 21,
+    "legacyDigr": 21,
+    "publicationReview": 24,
+    "chapterEvidence": 17,
+    "total": 111
+  },
+  "liveValidation": {
+    "nativeCompletedTurns": 2,
+    "allTurnsCompleted": true,
+    "originalFilesVerified": true,
+    "nativeGoalStatus": "complete",
+    "nativeGoalRecordedTokens": 36920,
+    "nativeGoalRecordedSeconds": 41,
+    "completedRecovery": {
+      "passed": true,
+      "hostTurnStartRequests": 0
+    },
+    "interruptedProbe": "Original interrupted native thread retained; unsafe generation recovery correctly refused; no retry"
+  },
+  "scope": "Engineering and small runtime probes; no new chapter semantic quality or 80-percent outcome claimed",
+  "cost": {
+    "newSubscriptions": 0,
+    "automaticTokenBudget": null,
+    "usesExistingCodexAllowance": true,
+    "realProbeUsageReportedByNativeGoal": true
+  },
+  "preserved": {
+    "currentFirstChapterEngine": "original DIGR",
+    "currentFirstChapterRestarted": false,
+    "defaultRest": true,
+    "audioDefault": "empty",
+    "successfulAndUnknownBillingOriginals": true,
+    "existingPublicationChecks": true,
+    "existingTwentyHourWindow": true,
+    "originalWindowsScheduler": true
+  },
+  "sourceFiles": {
+    "scripts/lib/codex-app-server.mjs": "838f35567e5459e308b6dda781e6dc26c78211a77c821a52fb9d09b18e6982c5",
+    "scripts/lib/codex-goal-runner.mjs": "5d90eb15e158739acb3c5b320a9e62cd3aae2e675a956831cff2f75def9935a3",
+    "scripts/lib/daily-pipeline-runner.mjs": "4fba339ad286fd0db64e0b26224c19133b3f02fed2dd1f501df43eac2173a233",
+    "scripts/daily-goal.mjs": "93cdec9e8ccdaa4a52537fffa2e00b3b94129efff3ee301d08e86a768416568f",
+    "scripts/check-codex-goal.mjs": "583181c070d42425f9ab61027051f695e93ba7e75314c1fed6cca18169790ed5",
+    "protocol/CODEX_GOAL_DAILY.md": "0d1b0ffbe72d6f624b11ac83f35334097184d4babf9a12488382a6115178fcc8",
+    "protocol/DAILY_RUN.md": "7e4bd3021322e82f9f428102ea7e3fb1aaa758c1355b66744ba65af050d18bda",
+    "protocol/FIVE_TASK_PIPELINE.md": "1d6f6415290d1804223aa4e98f799c7c5295ec369dc23f8314da42f5b783b317",
+    "protocol/BACKGROUND_AUTOMATION.md": "d2e55796bc49124cc0cdcce579c427530340e3aa7f65d79349930fdf3cc18cab",
+    "protocol/DIGR_ADAPTER.md": "17a0b0cbb7ea42c3c76c49000ef21c4ecfac974ab3d4584d5d4361e0218b5637",
+    "AGENTS.md": "dd01317fda14073b1aab5bfa153dceb93baf7e26527d289bb1403b9d2fb4890e"
+  },
+  "verifiedAt": "2026-11-02T15:53:38.201Z"
+}
