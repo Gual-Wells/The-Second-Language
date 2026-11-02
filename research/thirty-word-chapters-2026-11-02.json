@@ -1,0 +1,282 @@
+{
+  "date": "2026-11-02",
+  "recordedAt": "2026-11-02T11:40:01.723Z",
+  "engineeringCommit": "1868bd443796de01193fe676d9af255e653d3522",
+  "userDecision": {
+    "newMainWords": 30,
+    "wordsPerTask": 10,
+    "productionTasks": 3,
+    "planningOwner": "task-1",
+    "assemblyOwner": "task-1",
+    "normalMainCalls": 5,
+    "model": "gpt-6.1-sol",
+    "effort": "high",
+    "completeFamiliesAndAllSenses": true,
+    "authenticContextResearchTarget": 0.8,
+    "targetIsPublicationGate": false
+  },
+  "contract": {
+    "canonicalImplementation": "web/chapter-size.js",
+    "domainExport": "protocol/chapter-size.mjs",
+    "newPolicy": "thirty-main-words-v1",
+    "newInputAndSelectionPairedBeforeFreeze": true,
+    "metadataPackageAndEvidenceBound": true,
+    "currentPipeline": "three-by-ten-v1",
+    "legacyPipeline": "five-by-ten-v1",
+    "legacyUnlabelledFrozenSize": 50,
+    "legacyTaskCount": 5,
+    "legacyNormalMainCalls": 7,
+    "oldInputsNotRelabelledOrTruncated": true
+  },
+  "adapted": [
+    "New VIX input locks and paired frozen selections; actual marking CLI for30 and legacy50.",
+    "Dynamic task ownership, complete-artifact barrier, assembly, bounded repairs and frozen five-task recovery.",
+    "Formal assembler CLI, source packages, immutable evidence manifests and controls, packaging, actual semantic review and publication preflight.",
+    "Worker stage/commit validates the declared contract and actual body count, stores the actual word_count and returns the30-word identity.",
+    "Historical correction/re-authoring/quality/footprint helpers use their frozen or original size instead of the new default.",
+    "Reader dependency graph and Service Worker shell67 include the shared size module; normal navigation, contexts, translations, question gestures, quality and audio scopes keep their contracts.",
+    "Active recommendation, teaching, research, daily/background/DIGR, temporary-page and quota protocols; historical first-chapter receipts remain unchanged."
+  ],
+  "quota": {
+    "dailyOptionalAudioPlanningCharacters": [
+      0,
+      45000
+    ],
+    "dailyEstimate": {
+      "id": "daily",
+      "task": "日课",
+      "detail": "30 词 · 默认不提前生成音频，范围含主动选配",
+      "costs": {
+        "openrouter": [
+          0,
+          0.0279
+        ],
+        "cloudflare": [
+          0,
+          0
+        ],
+        "tencent": [
+          0,
+          0
+        ]
+      }
+    },
+    "meaning": "A proportional planning reserve, not a prose limit, observed bill or guarantee. Text-model token savings and pedagogical quality have not been measured by this release."
+  },
+  "checks": [
+    {
+      "script": "check-chapter-size.mjs",
+      "result": 3
+    },
+    {
+      "script": "check-daily-pipeline.mjs",
+      "result": 21
+    },
+    {
+      "script": "check-daily-affairs.mjs",
+      "result": "passed"
+    },
+    {
+      "script": "check-vix-marking.mjs",
+      "result": "passed for new30 and legacy50"
+    },
+    {
+      "script": "check-vix-publication.mjs",
+      "result": 11
+    },
+    {
+      "script": "check-digr-adapter.mjs",
+      "result": 21
+    },
+    {
+      "script": "check-chapter-evidence.mjs",
+      "result": 17
+    },
+    {
+      "script": "check-usage-context-packaging.mjs",
+      "result": 22
+    },
+    {
+      "script": "check-authentic-context-routing.mjs",
+      "result": 18
+    },
+    {
+      "script": "check-publication-review.mjs",
+      "result": 24
+    },
+    {
+      "script": "check-publication-attestation.mjs",
+      "result": "passed"
+    },
+    {
+      "script": "check-current-affairs-backend.mjs",
+      "result": "passed"
+    },
+    {
+      "script": "check-usage-context-backend.mjs",
+      "result": "passed including full signed30 publication and legacy50"
+    },
+    {
+      "script": "check-chapter-quality.mjs",
+      "result": "passed"
+    },
+    {
+      "script": "check-chapter-quality-counterevidence.mjs",
+      "result": "passed"
+    },
+    {
+      "script": "check-authoring-revision.mjs",
+      "result": 17
+    },
+    {
+      "script": "check-usage-context-authoring.mjs",
+      "result": 47
+    },
+    {
+      "script": "check-teaching-authoring.mjs",
+      "result": "passed"
+    },
+    {
+      "script": "check-chapter-footprint.mjs",
+      "result": "passed with exact Git-pinned historical baseline"
+    },
+    {
+      "script": "check-reader-release.mjs",
+      "result": "passed including changed new size module"
+    },
+    {
+      "script": "check-chapter-tests.mjs",
+      "result": "passed"
+    },
+    {
+      "script": "check-chapter-questions.mjs",
+      "result": "passed"
+    }
+  ],
+  "browserChecks": [
+    {
+      "wordCount": 30,
+      "checks": 57,
+      "errors": 0,
+      "browser": "Chromium touch emulation, 402x874 and 320x620; not physical iOS Safari",
+      "paidCalls": 0,
+      "liveApiCalls": 0
+    },
+    {
+      "wordCount": 50,
+      "checks": 57,
+      "errors": 0,
+      "browser": "Chromium touch emulation, 402x874 and 320x620; not physical iOS Safari",
+      "paidCalls": 0,
+      "liveApiCalls": 0
+    }
+  ],
+  "workerDryRun": {
+    "passed": true,
+    "uploadKiB": 1417.78,
+    "gzipKiB": 290.77
+  },
+  "deployment": {
+    "workerVersion": "12e9d7b5-6109-4d84-9a39-f955d971b747",
+    "pagesUrl": "https://23673067.the-second-language.pages.dev",
+    "productionUrl": "https://the-second-language.pages.dev/",
+    "readerShell": 67,
+    "readerCapability": 3,
+    "verifiedAssets": [
+      {
+        "path": "/",
+        "digest": "4cbaf9b2278cb97e1111856e593da1b13b3e49788066784ee2fc9d6b606bbe06"
+      },
+      {
+        "path": "/annotations.js?v=67",
+        "digest": "92e788541e7a10801df6cd518218371fc9c98c5dec258fdd6b69a6662c2400e5"
+      },
+      {
+        "path": "/app.js?v=67",
+        "digest": "909408d0d587261f22009a7e9177fb0268f3803d9f1a95b20dbf640c76f44d71"
+      },
+      {
+        "path": "/chapter-quality.js?v=62",
+        "digest": "3e409fa37213611f07467e836eaf1ca1b668a804a66987c7448a89d9e9cd0e0e"
+      },
+      {
+        "path": "/chapter-size.js?v=67",
+        "digest": "dca265a895072209c0254f5beff0df5be63a8d287e6191152ccde86e4acd7c6d"
+      },
+      {
+        "path": "/context-translations.js?v=50",
+        "digest": "ceb595ccf206fd93a2a4fdd849bce86db421ad1f06ed864dea08d13a645619be"
+      },
+      {
+        "path": "/pure-reader.js?v=61",
+        "digest": "7ec5f65a3421ea65e56bd7da2aca5f4d67bab0072a65cd1f5ebfb459f869c3a5"
+      },
+      {
+        "path": "/reader-capability.js?v=62",
+        "digest": "60383b8018a27ae53e540c733d928231e523d0df9ae5ea9a460449df02c09772"
+      },
+      {
+        "path": "/reader-focus.js?v=50",
+        "digest": "2d1d3c4ce04290e4de72ed2b1149ab487adce110878d8a8fa0046c2d0b9a3925"
+      },
+      {
+        "path": "/reader-focus.js?v=61",
+        "digest": "2d1d3c4ce04290e4de72ed2b1149ab487adce110878d8a8fa0046c2d0b9a3925"
+      },
+      {
+        "path": "/render.js?v=61",
+        "digest": "151356dcf2c52b750b9e5c289814654034a4573aa0e11a4c1d6adf55dcc6232a"
+      },
+      {
+        "path": "/styles.css?v=65",
+        "digest": "2334d311bd7f3c054198ecfad42939164efc0380aef2ee75b10607c68ea151a7"
+      },
+      {
+        "path": "/sw.js?v=67",
+        "digest": "7102978a3a5dfabd498f00927391d4f77f937d3c1f9f1be546c39cf2a4015489"
+      },
+      {
+        "path": "/teaching-units.js?v=61",
+        "digest": "304e3c350fcaaafa629db8940bd588f7a7f87bec2e69ef799dc861298d059017"
+      },
+      {
+        "path": "/usage-context.js",
+        "digest": "6777c3e3a2ba5f7dbfc0b86cabf5b081910c8e9c3c9846892e0b4aeecbed2bac"
+      },
+      {
+        "path": "/usage-context.js?v=61",
+        "digest": "6777c3e3a2ba5f7dbfc0b86cabf5b081910c8e9c3c9846892e0b4aeecbed2bac"
+      }
+    ]
+  },
+  "liveVerification": {
+    "at": "2026-11-02T11:37:54.410Z",
+    "formalChapters": 0,
+    "restRequested": true,
+    "anonymousProtected401": true,
+    "withdrawnChapterOrdinary404": true,
+    "archivedFiftyWordBodyAndSourceHashesPreserved": true,
+    "newDailyEstimateShowsThirty": true
+  },
+  "scheduler": {
+    "name": "SecondLanguage-DailyCodex",
+    "existingEntryRetained": true,
+    "trigger": "05:00 Asia/Shanghai",
+    "newTimedWakeups": 0,
+    "descriptionAlignedWithActualTriggerAndThirtyWordSize": true
+  },
+  "accounting": {
+    "newChapterRequests": 0,
+    "newModelRequests": 0,
+    "newTtsRequests": 0,
+    "newSubscriptions": 0,
+    "databaseSchemaMigrations": 0
+  },
+  "limits": [
+    "Full new30-word chapter production under native DIGR has not been run.",
+    "All publication samples are self-authored engineering fixtures, not a real course or semantic certification.",
+    "The below80-percent30-use sample passes the actual pack CLI and complete evidence preflight; it does not establish authentic-language success rates.",
+    "Browser checks are Chromium touch emulation, not a physical iPhone test.",
+    "No already-frozen chapter, VIX marking, paid audio or unknown request was re-generated."
+  ]
+}
