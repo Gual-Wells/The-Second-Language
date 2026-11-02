@@ -4,6 +4,9 @@ $utf8 = New-Object System.Text.UTF8Encoding($false)
 [Console]::InputEncoding = $utf8
 [Console]::OutputEncoding = $utf8
 $OutputEncoding = $utf8
+$dailyMutex = New-Object System.Threading.Mutex($false, 'Local\TheSecondLanguageDaily')
+if (-not $dailyMutex.WaitOne(0)) { $dailyMutex.Dispose(); exit 0 }
+try {
 $projectRoot = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path
 Set-Location -LiteralPath $projectRoot
 $runtimeTemp = Join-Path $projectRoot '.cache/runtime-temp'
@@ -45,19 +48,29 @@ else {
     Sort-Object LastWriteTime -Descending | Select-Object -First 1 -ExpandProperty FullName
 }
 if (-not $codexExecutable) { throw '未找到 Codex CLI' }
-# Project preparation only; the model loads the current pinned DIGR protocol and
-# uses its native runtime. This layer neither creates a DIGR contract nor runs it.
-$preparedText = & node scripts/digr-project.mjs daily $studyDate
-if ($LASTEXITCODE -ne 0) { throw 'DIGR项目材料准备失败；保留原领取，不启动模型' }
-$prepared = $preparedText | ConvertFrom-Json
-if ($prepared.skipped) { exit 0 }
-$prompt = [System.IO.File]::ReadAllText($prepared.prompt, [System.Text.Encoding]::UTF8)
+$modeText = & node scripts/daily-pipeline.mjs mode $studyDate
+if ($LASTEXITCODE -ne 0) { throw '日课分工检查失败；保留原领取，不启动模型' }
+$mode = ($modeText | ConvertFrom-Json).mode
+if ($mode -eq 'rest') { exit 0 }
+# Existing authored/legacy/temporary runs retain their original recovery path.
+if ($mode -eq 'legacy') {
+  $preparedText = & node scripts/digr-project.mjs daily $studyDate
+  if ($LASTEXITCODE -ne 0) { throw 'DIGR项目材料准备失败；保留原领取，不启动模型' }
+  $prepared = $preparedText | ConvertFrom-Json
+  if ($prepared.skipped) { exit 0 }
+  $prompt = [System.IO.File]::ReadAllText($prepared.prompt, [System.Text.Encoding]::UTF8)
+}
 # Windows PowerShell 5.1 promotes native stderr to an error record. Codex may write
 # nonfatal warnings there, so judge this command by its actual process exit code.
 $ErrorActionPreference = 'Continue'
 try {
-  & $codexExecutable --search -a never exec -C $projectRoot -m gpt-6.1-sol -c model_reasoning_effort=high -c agents.enabled=true -c agents.default_subagent_reasoning_effort=high --enable multi_agent -s danger-full-access $prompt 2>&1 |
-    Out-File -LiteralPath $logFile -Append -Encoding utf8
+  if ($mode -eq 'pipeline') {
+    & node scripts/run-daily-pipeline.mjs $studyDate --codex $codexExecutable 2>&1 |
+      Out-File -LiteralPath $logFile -Append -Encoding utf8
+  } else {
+    & $codexExecutable --search -a never exec -C $projectRoot -m gpt-6.1-sol -c model_reasoning_effort=high -c agents.enabled=true -c agents.default_subagent_reasoning_effort=high --enable multi_agent -s danger-full-access $prompt 2>&1 |
+      Out-File -LiteralPath $logFile -Append -Encoding utf8
+  }
   $codexExitCode = $LASTEXITCODE
 } finally {
   $ErrorActionPreference = 'Stop'
@@ -68,3 +81,4 @@ try {
   '任务已结束，额度核对暂不可用，请查看余额页的核实状态。' | Out-File -LiteralPath $logFile -Append -Encoding utf8
 }
 if ($codexExitCode -ne 0) { throw "Codex 运行失败：退出码 $codexExitCode；日志 $logFile" }
+} finally { $dailyMutex.ReleaseMutex(); $dailyMutex.Dispose() }

@@ -4,6 +4,8 @@
 
 已冻结selection没有authoringPolicy或为sourced-collection-v1，继续其原三部分合同及作者稿，从原protocolCommit或切换前Git版本恢复；不静默升级、重选、重标。以下为新默认。
 
+新日课五任务分工按FIVE_TASK_PIPELINE：各10主词仍教完整词族/全义，使用独立materials.json和authored目录。分任务补查须经daily-pipeline.mjs materials，不能并发改本文件所示的全局材料索引。统一总装后继续下文原装配、审阅和封存，不以分组交接代替真正语义检查。
+
 ## 固定完整教材
 
 prepare-vix固定VIX、教材、词源；feedback-snapshot保存原目标/反馈及learnerBaseline，已有快照只复用。冻结前候选范围仍是`mainWords:[{text,family:[{text}]}]`。

@@ -18,7 +18,7 @@ export async function currentDigrInputs({root,date}){
  if(selection){if(selection.studyDate!==date||inputLock&&selection.vixInputCommit!==inputLock.commit)throw Error('原冻结输入身份不符');const actual=await loadAuthoringContract(root,date,selection,{meta});contentAuthority={policy:actual.policy,protocolCommit:meta?.protocolCommit||null,vixInputCommit:selection.vixInputCommit,revisionBaseline:actual.revision?.baselineFile||null};if(actual.revision){const item=await read(root,actual.revision.baselineFile);refs.push({path:item.path,bytes:item.bytes,sha256:item.sha256});}}
  return {refs,contentAuthority};
 }
-export async function prepareDigrProject({root,kind='research',date,task,id='digr-'+randomUUID()}={}){
+export async function prepareDigrProject({root,kind='research',date,task,id='digr-'+randomUUID(),inputFiles=[]}={}){
  root=await realRoot(root);if(!['daily','research','revision'].includes(kind)||!/^[A-Za-z0-9_-]{1,100}$/.test(id)||typeof task!=='string'||!task.trim())throw Error('项目任务参数无效');
  if(date!=null)studyDate(date);if(kind!=='research'&&!date)throw Error('日课和修订任务需要日期');
  const run=date?'work/runs/'+date:null,control=run?await read(root,run+'/control.json'):null;
@@ -27,6 +27,10 @@ export async function prepareDigrProject({root,kind='research',date,task,id='dig
   if(control.data.rest)return {skipped:true,reason:'rest',date};
  }
  const observed=await currentDigrInputs({root,date}),frozen=observed.refs;let meta,chapter;
+ // Additional domain artifacts (e.g. a five-task plan or completed handoffs)
+ // are immutable inputs, never an extra execution protocol or local DIGR state.
+ if(!Array.isArray(inputFiles))throw Error('项目原件须为路径数组');
+ for(const relative of inputFiles){if(typeof relative!=='string'||path.isAbsolute(relative))throw Error('项目原件须在仓库内');const file=await fs.realpath(path.join(root,relative)),rel=path.relative(root,file);if(rel.startsWith('..')||path.isAbsolute(rel))throw Error('项目原件越出仓库');const bytes=await fs.readFile(file);if(!frozen.some(r=>r.path===relative))frozen.push({path:relative,bytes:bytes.length,sha256:hash(bytes)});}
  if(run){
   meta=(await read(root,'chapters/'+date+'/meta.json'))?.data;chapter=(await read(root,'chapters/'+date+'/chapter.json'))?.data;
   if(kind==='revision'&&(!observed.contentAuthority||!meta))throw Error('修订需现有冻结选择及元数据；不自动重建');

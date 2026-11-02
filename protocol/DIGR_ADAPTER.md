@@ -11,7 +11,7 @@
 
 ## 使用入口
 
-日课启动器先正常领取control，rest=true在模型和DIGR运行前返回。非休息日通过 `node scripts/digr-project.mjs daily DATE` 生成以精确 `DIGR：` 开头的原生产任务；不放行休息、不消费声音选配、不改变high默认。
+日课启动器先正常领取control，rest=true在模型和DIGR运行前返回。新制作按FIVE_TASK_PIPELINE生成规划、五组制作和总装各自的项目任务packet，再调用同一个prepareDigrProject；plan及完整交接可作为额外不可变领域输入。每个以精确 `DIGR：` 开头的独立任务仍须取得自己的真实pin/原生运行，不合并多个时钟或证明。旧已写稿、旧合同及临时需求仍通过 `node scripts/digr-project.mjs daily DATE` 生成原生产任务；不放行休息、不消费声音选配、不改变high默认。
 
 主动研究或修订，将用户实际任务保存为UTF-8文件，然后：
 

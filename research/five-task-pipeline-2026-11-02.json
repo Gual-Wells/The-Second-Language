@@ -1,0 +1,48 @@
+{
+  "date": "2026-11-02",
+  "request": "Five independent ten-main-word production tasks; task one assembles after actual completion; retain the existing Windows background entry.",
+  "baseCommit": "ed92619a05c19baac80710d7059d1ce7e089ce64",
+  "implementation": {
+    "entry": "scripts/run-daily.ps1",
+    "runner": "scripts/run-daily-pipeline.mjs",
+    "protocol": "protocol/FIVE_TASK_PIPELINE.md",
+    "normalMainInvocations": { "globalPlanning": 1, "independentProduction": 5, "firstTaskFreshAssembly": 1 },
+    "model": "gpt-6.1-sol",
+    "reasoningEffort": "high",
+    "ownedMainWordsPerTask": 10,
+    "completeFamiliesAndSensesRequired": true,
+    "readiness": "All five actual author/material/handoff/source-original file closures must match immutable receipts.",
+    "repair": "Only explicit owned-word issues, at most one automatic repair wave, no replay of unknown model calls.",
+    "publication": "Original semantic review, full independent evidence validation/signing, permanent readback and current remote chapter/source hash verification."
+  },
+  "verification": [
+    { "script": "scripts/check-daily-pipeline.mjs", "passed": 20, "includes": "Real orchestrator with stub inference, five simultaneous independent producer callbacks, full 50-word assembler, source tamper rejection, partial failure, targeted repair, lost-final-return recovery and actual Windows dispatcher with stub claims." },
+    { "script": "scripts/check-digr-adapter.mjs", "passed": 21, "includes": "Additional domain-input pinning and unchanged same-SHA original native SDK fixture verification." },
+    { "script": "scripts/check-background-reasoning.mjs", "passed": 7 },
+    { "script": "scripts/check-usage-context-authoring.mjs", "passed": 47 },
+    { "script": "scripts/check-teaching-authoring.mjs", "result": "passed" },
+    { "script": "scripts/check-publication-review.mjs", "passed": 24 },
+    { "script": "scripts/check-publication-attestation.mjs", "result": "passed" },
+    { "check": "Installed Codex exec help accepts JSON events and stdin prompts", "result": "passed without inference" },
+    { "check": "git diff --check", "result": "passed" }
+  ],
+  "protectedDuringVerification": {
+    "realModelCalls": 0,
+    "realDailyClaims": 0,
+    "realVixWrites": 0,
+    "realPublicationCalls": 0,
+    "ttsCalls": 0,
+    "newSubscriptions": 0,
+    "restSettingChanges": 0,
+    "scheduledTaskStarts": 0,
+    "scheduleAndRuntimeLimitChanges": 0,
+    "chapterOneOrSelectionChanges": 0
+  },
+  "limits": [
+    "No new formal chapter has yet been produced through this pipeline; fixtures do not demonstrate teaching quality or an 80 percent authentic-context result.",
+    "Seven normal main calls and repeated startup/review have overhead. Lower token use, lower subscription consumption and faster overall completion are not established.",
+    "The project orchestrator transports scoped tasks and checks artifacts. The model still executes the fetched original DIGR SDK; the orchestrator does not itself award native completion or teaching truth.",
+    "A stale lock, failed incomplete invocation or unknown invocation requires original-result and process inspection, rather than another automatic generation.",
+    "Old authored runs, earlier contracts and temporary requests retain their original recovery entry."
+  ]
+}

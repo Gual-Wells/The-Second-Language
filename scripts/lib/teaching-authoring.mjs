@@ -44,16 +44,26 @@ async function immutable(file,bytes){
   await fs.mkdir(path.dirname(file),{recursive:true});
   try{await fs.writeFile(file,bytes,{flag:'wx'});}catch(e){if(e.code!=='EEXIST')throw e;if(await fs.readFile(file,'utf8')!==bytes)throw Error('材料原件冲突：'+file);}
 }
-export async function prepareTeachingMaterials(root,date,{scopeFile,additionalFile,books}={}) {
+// Pipeline workers retain the FULL frozen selection as authority. A scoped
+// manifest is only an owned view of it, never another selection or VIX input.
+function materialView(run,scope,{wordTexts,manifestFile}={}){
+  if(wordTexts==null&&manifestFile==null)return {scope,manifestFile:path.join(run,'teaching/materials.json')};
+  if(!Array.isArray(wordTexts)||!wordTexts.length||new Set(wordTexts).size!==wordTexts.length||!manifestFile)throw Error('分任务材料须同时指定唯一主词和独立索引');
+  const relative=path.relative(run,path.resolve(manifestFile)).replaceAll('\\','/');
+  if(!/^teaching\/pipeline\/tasks\/task-[1-5]\/materials\.json$/.test(relative)||wordTexts.some(w=>!scope.some(s=>s.text===w)))throw Error('分任务材料范围或索引越界');
+  return {scope:scope.filter(w=>wordTexts.includes(w.text)),manifestFile:path.resolve(manifestFile)};
+}
+export async function prepareTeachingMaterials(root,date,{scopeFile,additionalFile,books,wordTexts,manifestFile}={}) {
   root=await fs.realpath(root);if(process.platform==='win32'&&!/^D:[\\/]/i.test(root))throw Error('新增教材工作材料须实际存D盘');
   const run=path.join(root,'work/runs',date),lock=await readJson(path.join(run,'vix-source.json'));
   const scopeInput=await readJson(scopeFile||path.join(run,'selection.json'));
   if(scopeInput.vixInputCommit&&scopeInput.vixInputCommit!==lock.commit)throw Error('材料范围与原 VIX 输入不一致');
-  const scope=teachingScope(scopeInput);
-  if(scopeFile)try{const frozen=await readJson(path.join(run,'selection.json'));if(digest(teachingScope(frozen))!==digest(scope))throw Error('已有冻结选词；候选材料不能替换原教学范围');}catch(e){if(e.code!=='ENOENT')throw e;}
+  const fullScope=teachingScope(scopeInput),view=materialView(run,fullScope,{wordTexts,manifestFile}),scope=view.scope;
+  if(scopeFile&&wordTexts)throw Error('分任务不能替换原冻结selection');
+  if(scopeFile)try{const frozen=await readJson(path.join(run,'selection.json'));if(digest(teachingScope(frozen))!==digest(fullScope))throw Error('已有冻结选词；候选材料不能替换原教学范围');}catch(e){if(e.code!=='ENOENT')throw e;}
   let additional={};
   if(additionalFile)additional=await readJson(additionalFile);
-  else try{const previous=await readJson(path.join(run,'teaching/materials.json'));if(previous.commit!==lock.commit)throw Error('已有材料输入冲突');additional=Object.fromEntries(Object.entries(previous.additionalTerms||{}).filter(([w])=>scope.some(s=>s.text===w)));}catch(e){if(e.code!=='ENOENT')throw e;}
+  else try{const previous=await readJson(view.manifestFile);if(previous.commit!==lock.commit)throw Error('已有材料输入冲突');additional=Object.fromEntries(Object.entries(previous.additionalTerms||{}).filter(([w])=>scope.some(s=>s.text===w)));}catch(e){if(e.code!=='ENOENT')throw e;}
   if(Object.keys(additional).some(w=>!scope.some(s=>s.text===w)))throw Error('补查词须归属本次主词');
   books ||= await loadTextbooks({root,commit:lock.commit,etymology:true});
   if(!['collins','oxford'].every(name=>books.some(b=>b.book===name)))throw Error('须保留两份完整教材');
@@ -71,17 +81,18 @@ export async function prepareTeachingMaterials(root,date,{scopeFile,additionalFi
   }
   const manifest={schemaVersion:1,policy:AUTHORING_POLICY,commit:lock.commit,scope,scopeDigest:digest(scope),additionalTerms:additional,books:books.map(b=>({book:b.book,digest:b.digest,...(b.gitBlob?{gitBlob:b.gitBlob}:{})})),packets};
   await fs.mkdir(path.join(run,'teaching'),{recursive:true});
-  const manifestFile=path.join(run,'teaching/materials.json'),temporary=manifestFile+'.'+process.pid+'.tmp';
-  await fs.writeFile(temporary,JSON.stringify(manifest,null,2)+'\n');await fs.rename(temporary,manifestFile);
+  const target=view.manifestFile,temporary=target+'.'+process.pid+'.tmp';
+  await fs.mkdir(path.dirname(target),{recursive:true});
+  await fs.writeFile(temporary,JSON.stringify(manifest,null,2)+'\n');await fs.rename(temporary,target);
   return manifest;
 }
-export async function readTeachingMaterials(root,date,selection){
-  const run=path.join(root,'work/runs',date),manifest=await readJson(path.join(run,'teaching/materials.json'));
+export async function readTeachingMaterials(root,date,selection,options={}){
+  const run=path.join(root,'work/runs',date),view=materialView(run,teachingScope(selection),options),manifest=await readJson(view.manifestFile);
   const lock=await readJson(path.join(run,'vix-source.json'));
   if(lock.authoringPolicy===CONTEXT_AUTHORING_POLICY&&selection.authoringPolicy!==CONTEXT_AUTHORING_POLICY)throw Error('新输入制作策略与冻结selection不一致');
-  if(manifest.policy!==AUTHORING_POLICY||manifest.commit!==lock.commit||selection.vixInputCommit!==lock.commit||manifest.scopeDigest!==digest(teachingScope(selection))||manifest.scopeDigest!==digest(manifest.scope)||manifest.packets.length!==selection.mainWords.length)throw Error('教材材料包与冻结范围或原输入不一致；按原范围补查，不重选');
+  if(manifest.policy!==AUTHORING_POLICY||manifest.commit!==lock.commit||selection.vixInputCommit!==lock.commit||manifest.scopeDigest!==digest(view.scope)||manifest.scopeDigest!==digest(manifest.scope)||manifest.packets.length!==view.scope.length)throw Error('教材材料包与冻结范围或原输入不一致；按原范围补查，不重选');
   const packets=[];
-  for(const word of teachingScope(selection)){
+  for(const word of view.scope){
     const ref=manifest.packets.find(p=>p.word===word.text);
     if(!ref||!/^[a-f0-9]{64}$/.test(ref.materialDigest||'')||ref.file!==`teaching/materials/${ref.materialDigest}.json`)throw Error('材料引用无效');
     const bytes=await fs.readFile(path.join(run,ref.file),'utf8');if(hash(Buffer.from(bytes))!==ref.materialDigest)throw Error('材料包原件摘要不符');
