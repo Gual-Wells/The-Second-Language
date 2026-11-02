@@ -11,6 +11,7 @@ import {studyDate} from './digr-project.mjs';
 import {authenticityPolicy} from '../../protocol/authentic-context-coverage.mjs';
 import {auditAuthenticity} from './authenticity-audit.mjs';
 import {DAILY_WORD_COUNT,WORDS_PER_TASK,selectedWordCount} from '../../protocol/chapter-size.mjs';
+import {FALLBACK_APPEALS_POLICY} from '../../protocol/fallback-appeals.mjs';
 
 export const PIPELINE_VERSION='three-by-ten-v1';
 export const TASK_IDS=Object.freeze(['task-1','task-2','task-3']);
@@ -61,7 +62,7 @@ export async function createPipelinePlan(root,date){
   for(const packet of manifest.packets)inputs.push(await ref(root,path.join(p.run,packet.file)));
   const words=scope.map((w,i)=>({...w,wordId:'W'+String(i+1).padStart(3,'0')}));
   const tasks=shape.taskIds.map((taskId,i)=>({taskId,words:words.slice(i*WORDS_PER_TASK,(i+1)*WORDS_PER_TASK)}));
-  const plan={schemaVersion:1,version:shape.version,date,createdAt:new Date().toISOString(),inputs,tasks,assemblyOwner:'task-1',wordCount:shape.wordCount};
+  const plan={schemaVersion:1,version:shape.version,date,createdAt:new Date().toISOString(),inputs,tasks,assemblyOwner:'task-1',wordCount:shape.wordCount,fallbackAppealsPolicy:FALLBACK_APPEALS_POLICY};
   // Each worker owns a manifest, author drafts and handoff. Only immutable
   // content-addressed textbook packets and existing source acquisition are shared.
   for(const task of tasks){
@@ -76,6 +77,7 @@ export async function createPipelinePlan(root,date){
 export async function inspectPipelinePlan(root,date){
   root=await pipelineRoot(root);const p=pipelinePaths(root,date),plan=await json(p.plan);
   if(plan.schemaVersion!==1||!['five-by-ten-v1',PIPELINE_VERSION].includes(plan.version)||plan.date!==date||plan.assemblyOwner!=='task-1')throw Error('分工合同无效');
+  if(plan.fallbackAppealsPolicy!==undefined&&plan.fallbackAppealsPolicy!==FALLBACK_APPEALS_POLICY)throw Error('分工申诉交接版本无效');
   await verifyRefs(root,plan.inputs);
   const initial=await json(path.join(p.base,'inputs/materials.json'));
   const required=['control.json','selection.json','vix-source.json','vix-publication.json'].map(n=>path.relative(root,path.join(p.run,n)).replaceAll('\\','/'));
@@ -111,6 +113,14 @@ async function taskArtifacts(p,taskId){
   if(handoff.planDigest!==p.planDigest||handoff.taskId!==taskId||canonical([...(handoff.wordIds||[])].sort())!==canonical(task.words.map(w=>w.wordId).sort())||!Array.isArray(handoff.unresolved)||typeof handoff.notes!=='string'||!handoff.notes.trim())throw Error('需真实十词交接、事实/原件定位和未决问题；不接收空结论');
   if(handoff.unresolved.length)throw Error(taskId+'仍有未决问题，不进入汇总');
   const files=[await ref(p.root,manifestFile),await ref(p.root,handoffFile)];
+  // New plans seal the evidence handoff as well as the displayed draft.
+  // Frozen older plans/receipts retain their original artifact contract;
+  // final publication still requires actual individual appeal approval.
+  if(p.plan.fallbackAppealsPolicy===FALLBACK_APPEALS_POLICY){
+    const appealFile=path.join(folder,'appeals.json'),appeals=await json(appealFile),examples=words.flatMap(w=>w.contexts.filter(c=>c.kind==='example'));
+    if(!Array.isArray(appeals)||appeals.length!==examples.length||new Set(appeals.map(a=>a?.contextId)).size!==examples.length||examples.some(c=>!appeals.some(a=>a?.contextId===c.id&&typeof a.reason==='string'&&a.reason.trim()&&typeof a.searchConclusion==='string'&&a.searchConclusion.trim()&&typeof a.teachingBenefit==='string'&&a.teachingBenefit.trim()&&Array.isArray(a.refs)&&a.refs.length&&a.refs.every(r=>typeof r?.sourceId==='string'&&r.sourceId.trim()&&typeof r.quote==='string'&&r.quote.trim()))))throw Error('每份教学回退须交齐逐例申诉申请和原件引用；交接不代表批准');
+    files.push(await ref(p.root,appealFile));
+  }
   for(const name of names)files.push(await ref(p.root,path.join(folder,'authored',name)));
   for(const packet of manifest.packets)files.push(await ref(p.root,path.join(p.run,packet.file)));
   // Retain actual used originals, not just URL-shaped evidence. Full publisher

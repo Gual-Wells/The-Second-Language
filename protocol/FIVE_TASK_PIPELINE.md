@@ -28,11 +28,15 @@ Windows原任务仍05:00启动，原领取、默认休息早退、空音频、Ig
 
 `handoff.json`记录planDigest、taskId、全部10个wordIds、notes和unresolved。notes交接实际教材事实去向、来源原件位置、已完成完整稿与疑点，可定位本组研究文件；不交隐藏思维链，不只写“已完成”。未决问题不能为过闸删除。完成后`node scripts/daily-pipeline.mjs seal DATE task-N`校验完整10稿、材料去向/原例、全义结构及采用原文摘要并形成不可变原件回执。它不证明语义正确。
 
+2026-11-03起新建plan固定`fallbackAppealsPolicy:fallback-appeals-v1`：每组另交`appeals.json`，逐份保留的教学example各一项`{contextId,reason,searchConclusion,teachingBenefit,refs:[{sourceId,quote}],records:[{kind,text}]}`；全部真实时交空数组。records与引用沿AUTHENTIC_CONTEXT_APPEALS保存真正研究原件，不能补造检索或自批。seal同时绑定该申请原件，漏项、重复或事后改动均不能沿旧完成回执汇总。这只是申诉资料交齐，不是理由充分或批准证明。已经冻结、没有此字段的旧plan与回执不补写、不改变原交付合同；最终正式发布仍须逐例通过现行申诉准入。
+
 ## 汇总、定点返修与发布
 
 只有三份完整原件仍匹配各自回执，宿主才装配，并在新上下文启动第一条的总装阶段。退出码0、到点、存在文件或写了“完成”均不代替屏障。来源/教材/作者稿在封存后被改动会阻止总装，不带着旧“已完成”状态继续。
 
 总装读取全部30词完整稿、三份实际交接和同源装配正文，处理跨词术语/语域、义项区别、词源尺度、快释、翻译、阅读组织与自然共享。实际研究缺口定点回教材/来源，不能重做整章选词或为统一口吻全量改写；也不能用交接摘要代替原PUBLICATION_REVIEW要求的真实审阅。
+
+总装还须实际读取各组申诉申请和引用原件，封存本版候选后用fallback-appeals prepare整合为该正文摘要的requests.json，再由review入口按实际词义小范围调用独立Sol/high审核。此入口是获准的只读审核，不是另启生产者；保留真实失败/unknown，未变单例沿已验证原件复用。needs-research/rejected须实质补研究或修复成稿并重新绑定后再审，不自批、不靠改标签或百分比绕过。
 
 需要原任务返修时，保存整合修改后写请求`{tasks:[{taskId,wordIds,reason}]}`，运行`node scripts/daily-pipeline.mjs repair DATE REQUEST.json`。请求绑定实际已交回版本和具体问题，宿主仅重开相关任务、仅改指定词，其他词稿保持原字节；不会把三组全推倒。最多自动处理一轮真实定点返修再总装，仍有问题保留并报告，不无限循环消耗。未知或失败模型调用不因这个机制自动重发。
 
