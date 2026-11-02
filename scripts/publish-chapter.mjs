@@ -13,13 +13,15 @@ import {uploadEvidenceObjects} from './lib/publish-chapter-evidence.mjs';
 import {createPublicationAttestation} from './lib/publication-attestation.mjs';
 import {createFallbackAdmission} from './lib/fallback-admission-attestation.mjs';
 import {assertPublicationObjectionsResolved} from './lib/publication-objections.mjs';
+import {assertChapterLabels} from '../protocol/chapter-metadata.mjs';
 const date = process.argv[2];
 if (!/^\d{4}-\d{2}-\d{2}$/.test(date || '')) throw new Error('用法: node scripts/publish-chapter.mjs YYYY-MM-DD');
 await assertPublicationObjectionsResolved(process.cwd(),date);
-const { base, token } = await publisherConfig();
 const folder = path.resolve('chapters', date);
 const chapter = JSON.parse(await readFile(path.join(folder, 'chapter.json'), 'utf8'));
 const meta = JSON.parse(await readFile(path.join(folder, 'meta.json'), 'utf8'));
+assertChapterLabels(chapter);
+const { base, token } = await publisherConfig();
 if (!/^[0-9a-f]{40}$/.test(meta.vixCommit || '') || !/^[0-9a-f]{40}$/.test(meta.protocolCommit || '')) throw new Error('缺少已提交的 VIX 或课程协议 commit');
 let vixReceipt;
 try {vixReceipt=JSON.parse(await readFile(path.resolve('work/runs',date,'vix-publication.json'),'utf8'));}

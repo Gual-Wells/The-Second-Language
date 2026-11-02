@@ -8,6 +8,7 @@ import { practiceRoute } from './practice.js';
 import {balanceRoute} from './balances.js';
 import {chapterQualityRoute} from './chapter-quality.js';
 import {chapterNumber,numberForDate} from './chapter-number.js';
+import {assertChapterLabels} from '../../protocol/chapter-metadata.mjs';
 import {assertTeachingText} from '../../protocol/teaching-text.mjs';
 import {readerLayoutUpgrade,READER_LAYOUT_CAPABILITY} from '../../protocol/reader-layout.mjs';
 import {questionsRoute} from './questions.js';
@@ -167,11 +168,9 @@ async function route(request, env) {
     const value = await inputJson(request);
     if(String(env.PUBLICATION_HOLD_RUN_IDS||'').split(',').map(x=>x.trim()).includes(value.runId))return json({code:'FALLBACK_APPEALS_PENDING',error:'本章暂缓发布：每份非真实场景例句须完成有充分证据的逐例申诉并经独立审核通过；80%仅为整体警报，不是数字闸门。保留现有稿件、选择、VIX和成功原件，不重复启动或重做整章。'},409);
     let wordCount;try{wordCount=formalChapterWordCount(value);}catch(error){return json({error:error.message},400);}
+    try{assertChapterLabels(value);}catch(error){return json({error:error.message},400);}
     if (!safeId(value.runId) || !validDate(value.date) || value.id !== value.date ||
       typeof value.markdown !== 'string' || countMainWords(value.markdown) !== wordCount ||
-      typeof value.title !== 'string' || !value.title.trim() || value.title.length > 180 ||
-      typeof value.subtitle !== 'string' || value.subtitle.length > 300 ||
-      typeof value.number !== 'string' || value.number.length > 80 ||
       value.contentPolicy!=='etymology-fused-v1' || !/^[0-9a-f]{40}$/.test(value.vixCommit || '') || !/^[0-9a-f]{40}$/.test(value.protocolCommit || '')) return json({ error: '章节元数据或结构无效' }, 400);
     let parsed;
     try { parsed=validateTeachingLayout(value.markdown, value.contentPolicy,{expectedWordCount:wordCount});if(value.contentPolicy==='etymology-fused-v1')assertTeachingText(parsed);

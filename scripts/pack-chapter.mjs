@@ -9,12 +9,14 @@ import {AUTHORING_POLICY,assembleRun} from './lib/teaching-authoring.mjs';
 import {CONTEXT_AUTHORING_POLICY} from '../protocol/usage-context.mjs';
 import {loadChapterEvidence} from './lib/chapter-evidence.mjs';
 import {canonicalSourcePackage} from '../protocol/current-affairs.mjs';
+import {assertChapterLabels} from '../protocol/chapter-metadata.mjs';
 
 const date = process.argv[2];
 if (!/^\d{4}-\d{2}-\d{2}$/.test(date || '')) throw new Error('用法: node scripts/pack-chapter.mjs YYYY-MM-DD');
 const folder = path.resolve('chapters', date);
 const markdown = await readFile(path.join(folder, 'chapter.md'), 'utf8');
 const meta = JSON.parse(await readFile(path.join(folder, 'meta.json'), 'utf8'));
+assertChapterLabels({...meta,subtitle:meta.subtitle||''});
 const run=path.resolve('work/runs',date),selection=JSON.parse(await readFile(path.join(run,'selection.json'),'utf8')),inputLock=JSON.parse(await readFile(path.join(run,'vix-source.json'),'utf8'));
 const wordCount=selectedWordCount(selection,inputLock);if(formalChapterWordCount(meta)!==wordCount)throw Error('章节元数据与冻结词数合同不同');
 const parsed=validateTeachingLayout(markdown, meta.contentPolicy,{expectedWordCount:wordCount});if(meta.contentPolicy==='etymology-fused-v1')assertTeachingText(parsed);

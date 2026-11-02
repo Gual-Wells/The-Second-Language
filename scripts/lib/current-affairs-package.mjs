@@ -7,6 +7,7 @@ import {validateReadRecord} from './current-affairs-reader.mjs';
 import {prepareChapterEvidence} from './chapter-evidence.mjs';
 import {selectedWordCount,formalChapterWordCount} from '../../protocol/chapter-size.mjs';
 import {authenticityPolicy} from '../../protocol/authentic-context-coverage.mjs';
+import {assertChapterLabels} from '../../protocol/chapter-metadata.mjs';
 
 const hash = text => createHash('sha256').update(text).digest('hex');
 const readJson = async file => JSON.parse(await fs.readFile(file, 'utf8'));
@@ -26,6 +27,7 @@ export async function buildChapterSources(root, date, input) {
     readJson(path.join(folder,'meta.json')),readJson(path.join(run,'selection.json')),readJson(path.join(run,'vix-source.json')),
     readJson(path.join(run,'control.json')),fs.readFile(path.join(folder,'chapter.md'),'utf8'),readJson(path.join(root,'resources/current-affairs/sources.json'))
   ]);
+  assertChapterLabels({...meta,subtitle:meta.subtitle||''});
   if(meta.sourcePolicy!==CURRENT_AFFAIRS_POLICY)throw Error('此章不属于新流程；旧章封存，不回填来源');
   if(control.rest)throw Error('休息日不能建设来源或发布新章');
   if(meta.date!==date||selection.studyDate!==date||selection.vixInputCommit!==lock.commit||!/^[a-f0-9]{40}$/.test(lock.commit||''))throw Error('来源包必须对应原选词及固定VIX输入');
