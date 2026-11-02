@@ -19,10 +19,11 @@ export async function readPublicationObjections(root,date,{words}={}){
   if(!/^[A-Za-z0-9_-]{1,100}$/.test(item.id||'')||!/^W\d+$/.test(item.wordId||'')||!/^C\d+_\d+$/.test(item.contextId||'')||typeof item.issue!=='string'||!item.issue.trim()||item.issue.length>6000)throw Error('原文异议目标或说明无效');
   const e=item.evidence;
   if(!e||typeof e.recordPath!=='string'||!e.recordPath||!/^[a-f0-9]{64}$/.test(e.sourceDigest||'')||!Number.isSafeInteger(e.start)||!Number.isSafeInteger(e.end)||e.start<0||e.end<=e.start||typeof e.quote!=='string'||e.quote.length>12000)throw Error('原文异议须有具体原件与范围');
+  if(e.originalPath!=null&&(typeof e.originalPath!=='string'||!e.originalPath.trim()))throw Error('原文异议固定原件路径无效');
   const inside=async p=>{const actual=await fs.realpath(path.resolve(root,p));const relative=path.relative(root,actual);if(relative.startsWith('..')||path.isAbsolute(relative))throw Error('原文异议原件须位于本工作区');return actual;};
   const record=JSON.parse(await fs.readFile(await inside(e.recordPath),'utf8'));
   if(record.textDigest!==e.sourceDigest||typeof record.textPath!=='string')throw Error('原文异议读件身份不符');
-  const original=await fs.readFile(await inside(record.textPath),'utf8');
+  const original=await fs.readFile(await inside(e.originalPath??record.textPath),'utf8');
   if(hash(original)!==e.sourceDigest||original.slice(e.start,e.end)!==e.quote)throw Error('原文异议引文或完整原件摘要不符');
   const word=words?.find(w=>w.wordId===item.wordId)??JSON.parse(await fs.readFile(path.join(root,'work/runs',date,'teaching/authored',`word-${item.wordId}.json`),'utf8'));
   const context=word.contexts?.find(c=>c.id===item.contextId);
