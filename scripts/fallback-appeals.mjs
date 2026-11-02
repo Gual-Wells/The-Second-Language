@@ -5,14 +5,16 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {createHash} from 'node:crypto';
 import {loadChapterEvidence} from './lib/chapter-evidence.mjs';
-import {appealFolder,appealPrompt,scopeAppealPacket,fallbackReviewPacket,loadFallbackAppeals} from './lib/fallback-appeals.mjs';
+import {appealFolder,appealPrompt,scopeAppealPacket,fallbackReviewPacket,loadFallbackAppeals,collectAppealHandoffs} from './lib/fallback-appeals.mjs';
 import {executeAppealReview} from './lib/isolated-appeal-review.mjs';
 import {FALLBACK_APPEALS_POLICY,appealBindings,validateFallbackAppeals,authenticityAlarm} from '../protocol/fallback-appeals.mjs';
 import {mergeAppealReport,cacheApprovedCases,reuseAppealCases} from './lib/fallback-review-cache.mjs';
-import {optionalJson,immutableJson} from './lib/daily-pipeline.mjs';
+import {optionalJson,immutableJson,atomicJson} from './lib/daily-pipeline.mjs';
+import {canonicalSourcePackage as canonical} from '../protocol/current-affairs.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..'),[action,date,...argv]=process.argv.slice(2),options={};
-if(!['prepare','verify','review','reuse'].includes(action)||!/^20\d{2}-\d{2}-\d{2}$/.test(date||''))throw Error('fallback-appeals.mjs prepare|verify DATE，或 review DATE --codex EXE [--contexts C1,C2]');
-for(let i=0;i<argv.length;i+=2){if(!['--codex','--contexts'].includes(argv[i])||!argv[i+1]||options[argv[i]])throw Error('申诉参数无效');options[argv[i]]=argv[i+1];}
+if(!['prepare','collect','verify','review','reuse'].includes(action)||!/^20\d{2}-\d{2}-\d{2}$/.test(date||''))throw Error('fallback-appeals.mjs prepare|verify DATE，collect DATE --from FILE1,FILE2，或 review DATE --codex EXE [--contexts C1,C2]');
+for(let i=0;i<argv.length;i+=2){if(!['--codex','--contexts','--from'].includes(argv[i])||!argv[i+1]||options[argv[i]])throw Error('申诉参数无效');options[argv[i]]=argv[i+1];}
+if(action!=='collect'&&options['--from'])throw Error('--from仅用于实际申诉交接收集');
 const hash=s=>createHash('sha256').update(s).digest('hex'),chapter=JSON.parse(await fs.readFile(path.join(root,'chapters',date,'chapter.json'),'utf8'));
 const evidence=await loadChapterEvidence(root,date,chapter.sourcePackage,{markdown:chapter.markdown});
 const {parsed,coverage,cases,packet}=await fallbackReviewPacket(chapter,evidence),directory=appealFolder(root,date,chapter.digest),requestFile=path.join(directory,'requests.json');
@@ -21,6 +23,19 @@ if(action==='prepare'){
  const prior=await optionalJson(requestFile);
  if(!prior)await immutableJson(requestFile,{schemaVersion:1,policy:FALLBACK_APPEALS_POLICY,...appealBindings(chapter),requests:cases.map(c=>({...c,reason:'',searchConclusion:'',teachingBenefit:'',refs:[]})),records:[]});
  console.log(JSON.stringify({requestFile,caseCount:cases.length,alarm:authenticityAlarm(coverage),notice:'这是未获准的申请骨架。作者须逐例填写真实依据；prepare不产生批准或模型调用。'},null,2));
+}else if(action==='collect'){
+ if(!options['--from']||options['--codex']||options['--contexts'])throw Error('collect DATE --from FILE1,FILE2，仅收集原件，不调用模型');
+ const scaffold=JSON.parse(await fs.readFile(requestFile,'utf8')),handoffs=[];
+ for(const name of options['--from'].split(',')){
+  const file=await fs.realpath(path.resolve(root,name)),rel=path.relative(root,file);if(!rel||rel.startsWith('..')||path.isAbsolute(rel))throw Error('申诉交接原件须在本项目内');
+  handoffs.push(JSON.parse(await fs.readFile(file,'utf8')));
+ }
+ const {value,ignoredContextIds}=collectAppealHandoffs(scaffold,handoffs);
+ const draft={...value,reviewedAt:new Date().toISOString(),reviewer:{kind:'codex',model:'gpt-6.1-sol',effort:'high',runReference:'collection-preflight-not-a-review'},decisions:value.requests.map(r=>({contextId:r.contextId,basisDigest:r.basisDigest,decision:'needs-research',reason:'Collection only; no actual reviewer verdict.',refs:r.refs}))};
+ await validateFallbackAppeals(draft,{chapter,parsed,evidence:{...evidence,authenticity:coverage},requireApproved:false});
+ if(scaffold.requests.some(r=>r.reason?.trim())&&canonical(scaffold)!==canonical(value))throw Error('已有申诉修订，不覆盖；保留当前申请并有据定点整合');
+ if(canonical(scaffold)!==canonical(value))await atomicJson(requestFile,value);
+ console.log(JSON.stringify({collected:value.requests.length,researchRecords:value.records.length,ignoredContextIds,modelCalls:0,approved:false},null,2));
 }else if(action==='verify'){
  const result=await loadFallbackAppeals(root,date,chapter,{evidence});console.log(JSON.stringify({passed:true,appealsDigest:result.digest,admission:result.admission},null,2));
 }else{

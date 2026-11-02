@@ -11,12 +11,35 @@ export function appealPrompt(packet){return '你是第二语言的独立例句�
 export function scopeAppealPacket(packet,requests,records){
  const ids=requests.map(r=>r.contextId),cases=packet.cases.filter(c=>ids.includes(c.contextId)),useIds=new Set(cases.flatMap(c=>c.useIds));
  if(cases.length!==ids.length||new Set(ids).size!==ids.length)throw Error('独立审核范围重复或越界');
- const refs=new Set(requests.flatMap(r=>r.refs.map(e=>e.sourceId)));
+ const refs=new Set(requests.flatMap(r=>[...r.refs.map(e=>e.sourceId),...(r.recordIds||[])]));
  const words=packet.words.filter(w=>[...w.authored.partOne.matchAll(/^<!-- USE:([^ ]+) -->/gm)].some(m=>useIds.has(m[1]))).map(w=>({wordId:w.wordId,authored:{wordId:w.authored.wordId,text:w.authored.text,materialDigest:w.authored.materialDigest,partOne:w.authored.partOne,contexts:w.authored.contexts.filter(c=>ids.includes(c.id))},material:w.material}));
  // Administrative chapter/source digests stay in the final signed report.
  // The reviewer sees the exact case, full word definitions/material and its
  // evidence; unrelated chapter edits must not require the same review again.
  return {policy:'independent-case-review-v1',runId:packet.runId,studyDate:packet.studyDate,cases:[...cases].sort((a,b)=>a.contextId.localeCompare(b.contextId)),words:words.sort((a,b)=>a.wordId.localeCompare(b.wordId)),originals:packet.originals.filter(o=>refs.has(o.sourceId)).sort((a,b)=>a.sourceId.localeCompare(b.sourceId)),requests:[...requests].sort((a,b)=>a.contextId.localeCompare(b.contextId)),records:records.filter(r=>refs.has(r.id)).sort((a,b)=>a.id.localeCompare(b.id))};
+}
+// Carry every case-owned research original to its reviewer, including searches
+// which are not themselves the source of a short quotation in refs.
+export function collectAppealHandoffs(scaffold,handoffs){
+ if(!Array.isArray(scaffold?.requests)||!Array.isArray(handoffs)||handoffs.some(a=>!Array.isArray(a)))throw Error('申诉交接须为逐例数组');
+ const byId=new Map(),records=new Map(),current=new Set(scaffold.requests.map(r=>r.contextId));
+ for(const a of handoffs.flat()){
+  if(!a||typeof a.contextId!=='string'||byId.has(a.contextId))throw Error('申诉交接身份缺失或重复');
+  byId.set(a.contextId,a);
+ }
+ const requests=scaffold.requests.map(base=>{
+  const a=byId.get(base.contextId);if(!a)throw Error('本版例句缺少逐例研究交接 '+base.contextId);
+  if(a.records!==undefined&&!Array.isArray(a.records))throw Error('申诉研究原件须为数组');
+  const ids=[];
+  for(const r of a.records||[]){
+   if(!['search-observation','source-reading','rights-evidence'].includes(r?.kind)||typeof r.text!=='string')throw Error('申诉研究原件种类或文本无效');
+   const digest=hash(r.text),id='research:'+digest,record={id,digest,kind:r.kind,text:r.text},prior=records.get(id);
+   if(prior&&canonical(prior)!==canonical(record))throw Error('同一申诉研究原件的种类冲突');
+   records.set(id,record);ids.push(id);
+  }
+  return {...base,reason:a.reason,searchConclusion:a.searchConclusion,teachingBenefit:a.teachingBenefit,refs:structuredClone(a.refs),recordIds:[...new Set(ids)].sort()};
+ });
+ return {value:{...scaffold,requests,records:[...records.values()].sort((a,b)=>a.id.localeCompare(b.id))},ignoredContextIds:[...byId.keys()].filter(id=>!current.has(id))};
 }
 export async function fallbackReviewPacket(chapter,evidence){
  const parsed=validateTeachingLayout(chapter.markdown,chapter.contentPolicy,{expectedWordCount:chapter.wordCount});

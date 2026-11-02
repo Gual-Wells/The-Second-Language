@@ -57,6 +57,7 @@ export async function validateFallbackAppeals(value,{chapter,parsed,evidence,che
   const request=value.requests.find(r=>r.contextId===c.id),decision=value.decisions.find(r=>r.contextId===c.id),basis=cases?.find(r=>r.contextId===c.id);
   if(!sha(request.basisDigest)||basis&&request.basisDigest!==basis.basisDigest||!same(request.useIds,c.refs||c.uses)||!nonempty(request.reason)||!nonempty(request.searchConclusion)||!nonempty(request.teachingBenefit))fail('申诉须绑定实际例句、全部用法和具体取材/教学理由 '+c.id);
   refs(request.refs,'申诉 '+c.id);
+  if(request.recordIds!==undefined&&(!Array.isArray(request.recordIds)||new Set(request.recordIds).size!==request.recordIds.length||request.recordIds.some(id=>!records.has(id))))fail('申诉的逐例研究记录范围缺失、重复或越界 '+c.id);
   if(decision.basisDigest!==request.basisDigest||!['approved','needs-research','rejected'].includes(decision.decision)||!nonempty(decision.reason))fail('逐例决议缺依据或失效 '+c.id);
   refs(decision.refs,'审核 '+c.id);
   if(requireApproved&&decision.decision!=='approved')fail('仍有未获准例句 '+c.id+'：'+decision.reason);
@@ -66,5 +67,6 @@ export async function validateFallbackAppeals(value,{chapter,parsed,evidence,che
   if(!r||!['codex','human'].includes(r.kind)||!nonempty(r.runReference,500)||r.kind==='codex'&&(!nonempty(r.model,100)||r.effort!=='high'))fail('缺少实际审核执行身份');
   if(!nonempty(value.reviewedAt,80)||!Number.isFinite(Date.parse(value.reviewedAt))||Date.parse(value.reviewedAt)>Date.now()+300000)fail('审核时间无效');
  }
- return {policy:FALLBACK_VALIDATOR_POLICY,contextCount:parsed.contexts.length,authenticContextCount:parsed.contexts.length-ids.length,approvedExampleCount:ids.length,allContextsAdmitted:true,alarm:authenticityAlarm(evidence?.authenticity||chapter.sourcePackage.authenticityCoverage)};
+ const approvedExampleCount=value.decisions.filter(d=>d.decision==='approved').length;
+ return {policy:FALLBACK_VALIDATOR_POLICY,contextCount:parsed.contexts.length,authenticContextCount:parsed.contexts.length-ids.length,approvedExampleCount,allContextsAdmitted:approvedExampleCount===ids.length,alarm:authenticityAlarm(evidence?.authenticity||chapter.sourcePackage.authenticityCoverage)};
 }

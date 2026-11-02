@@ -36,6 +36,8 @@
 
 封存、pack后，`node scripts/fallback-appeals.mjs prepare DATE`生成绑定本版的未批准申请骨架，位置为work/runs/DATE/teaching/fallback-appeals/正文摘要/requests.json。逐项补充reason、searchConclusion、teachingBenefit和实际refs，不能抹去困难用法。records内实际搜索返回以kind:search-observation保存原external-search-observation完整JSON；未采用候选读件或采用条件以source-reading或rights-evidence保存{record:实际读取凭据,originalText:同摘要原文}。每项id为research:SHA256(text)，refs引用真实sourceId及原字节内的quote。实际已采用教材和来源可直接用教材entry id或read:原文textDigest，不重复造读件。
 
+三组交接用`node scripts/fallback-appeals.mjs collect DATE --from "本组一/appeals.json,本组二/appeals.json,本组三/appeals.json"`把当前仍保留的逐例申请汇入同版本骨架；路径沿实际plan或revision。该步骤不调用模型、不审批，不覆盖已有不同的申诉修订。它按原字节摘要去重研究原件，并为每份申请写recordIds，使其全部相关搜索返回、拒绝候选和采用条件送达审核器，即使某份记录不是短引文的直接出处。refs仍负责可核引文；recordIds不是引用或批准替代品。手工定点整合也须完整保留该关联，不能把未引用的实际搜索证据静默丢弃。每次审核只送该案例范围的完整原件，不夹带别的案例资料。
+
 缺省采用独立Codex审核；.cache/appeal-reviewer.json只用于用户明确另选的覆盖设置，作者和制作任务不得自行改动该设置。实际运行`node scripts/fallback-appeals.mjs review DATE --codex EXE --contexts C1,C2`；范围按真实词义拆小，传入完整相关教材、例句和取材证据，不发整章超大请求。独立空白上下文、Sol/high、工具关闭，只输出批准/补研究/拒绝。宿主保存真实输入、事件、输出与完成回执；相同成功请求复用，失败或unknown不自动再发。部分审核不能冒充全章通过。
 
 `node scripts/fallback-appeals.mjs verify DATE`核每份申请、当前例句摘要、引文和实际审核输出。publish-chapter在任何上传前调用相同预检，并由完整验证器另签real-or-approved-validator-v1准入；在线stage和commit按同版签名及不可变绑定核准。100%真实的章节不需要虚构申诉或启动申诉模型。工程回归用隔离自写资料和临时测试公钥，不把模拟通过记为真实语义审核。
