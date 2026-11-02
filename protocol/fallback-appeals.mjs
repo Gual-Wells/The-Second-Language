@@ -44,8 +44,12 @@ export async function validateFallbackAppeals(value,{chapter,parsed,evidence,che
   const raw=JSON.parse(r.text);
   if(r.kind==='search-observation'){
    if(raw.kind!=='external-search-observation'||!Array.isArray(raw.actualRequest?.search_query)||!raw.actualRequest.search_query.length||raw.actualResult===undefined||!nonempty(raw.scope)||!Number.isFinite(Date.parse(raw.requestedAt))||!Number.isFinite(Date.parse(raw.receivedAt))||Date.parse(raw.receivedAt)<Date.parse(raw.requestedAt)||await sha256(JSON.stringify(raw.actualResult))!==raw.resultSha256)fail('不能把查询计划或作者概述当实际搜索返回');
+   // Quotes refer to actual returned strings, not JSON escape characters.
+   // Keep individual leaves separate so a quote cannot join unrelated fields.
+   if(checkEvidence){const pending=[raw.actualResult,...raw.actualRequest.search_query.map(q=>q.q)];while(pending.length){const v=pending.pop();if(typeof v==='string')entries.push({id:r.id,text:v});else if(v&&typeof v==='object')for(const child of Object.values(v))pending.push(child);}}
   }else{
    if(!raw.record||raw.record.kind!=='read-original-text'||typeof raw.originalText!=='string'||await sha256(raw.originalText)!==raw.record.textDigest||!nonempty(raw.record.canonicalUrl)||!Number.isFinite(Date.parse(raw.record.readAt)))fail('候选读件或采用条件必须保实际读取凭据及同摘要原文');
+   if(checkEvidence)entries.push({id:r.id,text:raw.originalText});
   }
  }
  const refs=(list,label)=>{if(!Array.isArray(list)||!list.length)fail(label+'须引用实际原件');for(const r of list)if(!nonempty(r?.sourceId,300)||!nonempty(r?.quote,12000)||checkEvidence&&!entries.some(e=>e.id===r.sourceId&&e.text.includes(r.quote)))fail(label+'引文不在固定资料中');};
