@@ -14,7 +14,7 @@ async function fixedJson(file,digest){const text=await fs.readFile(file,'utf8');
 function verifyChapterIdentity(chapter,date){
  if(chapter.date!==date||hash(chapter.markdown)!==chapter.digest||hash(canonicalSourcePackage(chapter.sourcePackage))!==chapter.sourceDigest)fail('基线/候选正文或来源身份不符');
  validateSourcePackage(chapter.sourcePackage,{chapterDigest:chapter.digest,studyDate:date,vixInputCommit:chapter.vixInputCommit||chapter.sourcePackage.vixInputCommit,markdown:chapter.markdown});
- return validateTeachingLayout(chapter.markdown,chapter.contentPolicy);
+ return validateTeachingLayout(chapter.markdown,chapter.contentPolicy,{expectedWordCount:chapter.wordCount});
 }
 function explanationBlocks(partOne){
  const markers=[...partOne.matchAll(/^<!-- USE:([A-Za-z][A-Za-z0-9_-]{0,31}) -->\r?$/gm)];if(!markers.length)fail('没有可界定的USE讲解');
@@ -108,7 +108,7 @@ async function validateTeachingDelta(root,date,chapter,value){
 export async function loadPublicationReview(root,date,chapter,{evidence,required=true}={}){
  const file=path.join(root,'work/runs',date,'teaching/publication-review.json');let text;
  try{text=await fs.readFile(file,'utf8');}catch(e){if(!required&&e.code==='ENOENT')return null;if(e.code==='ENOENT')throw Error('缺少本版实际出版审阅记录；先按QUALITY_WORKFLOW审阅，不能自动签发');throw e;}
- const value=JSON.parse(text),parsed=validateTeachingLayout(chapter.markdown,chapter.contentPolicy);
+ const value=JSON.parse(text),parsed=validateTeachingLayout(chapter.markdown,chapter.contentPolicy,{expectedWordCount:chapter.wordCount});
  // Validate the small public shape first; then perform complete local checks
  // before any independent validator can sign the full candidate identity.
  validatePublicationReview(value,{chapter,parsed,runId:chapter.runId||date,evidence,checkRefs:false});

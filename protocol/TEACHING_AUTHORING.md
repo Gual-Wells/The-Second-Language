@@ -1,6 +1,6 @@
 # 逐词教材与真实语境制作工具
 
-2026-10-27起尚未冻结的新运行采用 AUTHENTIC_CONTEXT：`authoringPolicy=authentic-context-v1`，正文 `FORMAT:usage-context-v1`。50主词、完整双教材/真实词族/全义、gpt-6.1-sol/high、05:00开始、默认休息和音频空选配保持。工具只固定原件、装配和结构检查；候选比较、释义、缩编和语义审阅由Codex完成。
+2026-10-27起尚未冻结的新运行采用 AUTHENTIC_CONTEXT：`authoringPolicy=authentic-context-v1`，正文 `FORMAT:usage-context-v1`。30主词、完整双教材/真实词族/全义、gpt-6.1-sol/high、05:00开始、默认休息和音频空选配保持。工具只固定原件、装配和结构检查；候选比较、释义、缩编和语义审阅由Codex完成。
 
 已冻结selection没有authoringPolicy或为sourced-collection-v1，继续其原三部分合同及作者稿，从原protocolCommit或切换前Git版本恢复；不静默升级、重选、重标。以下为新默认。
 
@@ -23,7 +23,7 @@ additional如`{"compensate":["compensatory"]}`只表示补查意图，不自动�
 
 ## 冻结与作者稿
 
-读清全义后、冻结前将`authoringPolicy:"authentic-context-v1"`同studyDate、vixInputCommit、vixMarkLabel和50主词/实际family一起保存。不能在旧冻结selection追加该字段。原时点prepare-vix-marking/mark-vix/publish-vix，原副本/标签/回执和未知计费保护不变。
+读清全义后、冻结前将`authoringPolicy:"authentic-context-v1"`及`chapterSizePolicy:"thirty-main-words-v1"`同studyDate、vixInputCommit、vixMarkLabel和30主词/实际family一起保存。不能在旧冻结selection追加该字段。原时点prepare-vix-marking/mark-vix/publish-vix，原副本/标签/回执和未知计费保护不变。
 
 每词权威文件仍为`teaching/authored/word-W001.json`，新稿不含partTwo，不以articles.json为权威。新输入锁固定teachingLayoutVersion:2，逐词稿写layoutVersion:2；新增输入锁及逐词稿另写quickGlossVersion:1，要求每USE的词性后快释；旧锁／固定私有证据无该字段仍按原合同可读，不回填。形状示意：
 

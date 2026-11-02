@@ -2,7 +2,8 @@ import {collectNext} from '../speaking/collector.mjs';
 import {speakingEnvironment} from './private-assets.js';
 import { rawPayload, sendPushNotification } from '@mmmike/web-push/send';
 import { authRoute, sessionFor, readerIdentity } from './auth.js';
-import { validateAnnotatedContent, validateTeachingLayout, DAILY_WORD_COUNT } from '../../web/annotations.js';
+import {DAILY_WORD_COUNT,CHAPTER_SIZE_POLICY,formalChapterWordCount} from '../../protocol/chapter-size.mjs';
+import { validateAnnotatedContent, validateTeachingLayout } from '../../web/annotations.js';
 import { practiceRoute } from './practice.js';
 import {balanceRoute} from './balances.js';
 import {chapterQualityRoute} from './chapter-quality.js';
@@ -163,14 +164,15 @@ async function route(request, env) {
   if (path === '/api/publish/stage' && request.method === 'POST') {
     if (!publisher(request, env)) return json({ error: '发布身份无效' }, 401);
     const value = await inputJson(request);
-    if (!safeId(value.runId) || !validDate(value.date) || value.id !== value.date || value.wordCount !== DAILY_WORD_COUNT ||
-      typeof value.markdown !== 'string' || countMainWords(value.markdown) !== DAILY_WORD_COUNT ||
+    let wordCount;try{wordCount=formalChapterWordCount(value);}catch(error){return json({error:error.message},400);}
+    if (!safeId(value.runId) || !validDate(value.date) || value.id !== value.date ||
+      typeof value.markdown !== 'string' || countMainWords(value.markdown) !== wordCount ||
       typeof value.title !== 'string' || !value.title.trim() || value.title.length > 180 ||
       typeof value.subtitle !== 'string' || value.subtitle.length > 300 ||
       typeof value.number !== 'string' || value.number.length > 80 ||
       value.contentPolicy!=='etymology-fused-v1' || !/^[0-9a-f]{40}$/.test(value.vixCommit || '') || !/^[0-9a-f]{40}$/.test(value.protocolCommit || '')) return json({ error: '章节元数据或结构无效' }, 400);
     let parsed;
-    try { parsed=validateTeachingLayout(value.markdown, value.contentPolicy);if(value.contentPolicy==='etymology-fused-v1')assertTeachingText(parsed);
+    try { parsed=validateTeachingLayout(value.markdown, value.contentPolicy,{expectedWordCount:wordCount});if(value.contentPolicy==='etymology-fused-v1')assertTeachingText(parsed);
       if(parsed.format==='usage-context-v1'&&value.authoringPolicy!=='authentic-context-v1')throw Error('单正文须绑定真实语境制作策略');
       if(parsed.format!=='usage-context-v1'&&value.authoringPolicy==='authentic-context-v1')throw Error('制作策略与正文格式不一致'); }
     catch (error) { return json({ error: `章节编码与逐句译文无效：${error.message}` }, 400); }
@@ -209,7 +211,7 @@ async function route(request, env) {
     const number=prior?.number||await numberForDate(env.DB,value.date),bucket=permanentBucket(env);
     let publicationStoragePhase='evidence-head';
     try{
-      await verifyChapterEvidence(env,value.sourcePackage,value.runId);
+      await verifyChapterEvidence(env,value.sourcePackage,value.runId,{wordCount,chapterSizePolicy:value.chapterSizePolicy??null});
       publicationStoragePhase='source-put';
       const saved=await bucket.put(sources.key,sources.text,{httpMetadata:{contentType:'application/json; charset=utf-8'}});
       if(saved.digest!==sources.digest)throw Error('来源包上传摘要不一致');
@@ -220,7 +222,7 @@ async function route(request, env) {
     await env.DB.batch([env.DB.prepare(`INSERT OR IGNORE INTO chapter_revisions
       (digest,chapter_id,study_date,number,title,subtitle,word_count,content_key,run_id,vix_commit,protocol_commit,created_at)
       VALUES (?,?,?,?,?,?,?,?,?,?,?,?)`)
-      .bind(digest,value.id,value.date,number,value.title,value.subtitle,DAILY_WORD_COUNT,key,value.runId,value.vixCommit,value.protocolCommit,Date.now()),
+      .bind(digest,value.id,value.date,number,value.title,value.subtitle,wordCount,key,value.runId,value.vixCommit,value.protocolCommit,Date.now()),
       env.DB.prepare(`INSERT OR IGNORE INTO chapter_sources(digest,source_digest,source_key,policy,created_at)
        SELECT ?,?,?,?,? WHERE EXISTS(SELECT 1 FROM chapter_revisions WHERE digest=? AND chapter_id=? AND run_id=?)`)
       .bind(digest,sources.digest,sources.key,sources.policy,Date.now(),digest,value.id,value.runId),
@@ -244,7 +246,7 @@ async function route(request, env) {
     let publicationBaseDigest=null;
     try{
       const frozen=await readChapterSources(env,{...binding,chapter_id:revision.chapter_id,study_date:revision.study_date});
-      await verifyChapterEvidence(env,frozen.sourcePackage,revision.run_id);
+      await verifyChapterEvidence(env,frozen.sourcePackage,revision.run_id,{wordCount:revision.word_count});
       if(publishedText.startsWith('<!-- FORMAT:usage-context-v1 -->')){
         const review=await env.DB.prepare('SELECT * FROM chapter_publication_reviews WHERE chapter_digest=?').bind(revision.digest).first();
         const alreadyCurrent=await env.DB.prepare('SELECT 1 FROM published_chapters WHERE chapter_id=? AND digest=?').bind(revision.chapter_id,revision.digest).first();
@@ -347,7 +349,7 @@ async function route(request, env) {
       FROM published_chapters p JOIN chapter_revisions r ON r.digest=p.digest
       ${archive?'LEFT JOIN chapter_sources':'JOIN formal_chapter_sources'} s ON s.digest=p.digest AND s.policy=?
       ORDER BY p.study_date DESC`).bind(CURRENT_AFFAIRS_POLICY).all();
-    return json({chapters:archive?results.map(chapter=>({...chapter,archived:chapter.sourcePolicy!==CURRENT_AFFAIRS_POLICY})):results.map((chapter,index)=>({...chapter,number:chapterNumber(results.length-index),sourcePolicy:CURRENT_AFFAIRS_POLICY}))});
+    return json({chapters:archive?results.map(chapter=>({...chapter,...(chapter.wordCount===DAILY_WORD_COUNT?{chapterSizePolicy:CHAPTER_SIZE_POLICY}:{}),archived:chapter.sourcePolicy!==CURRENT_AFFAIRS_POLICY})):results.map((chapter,index)=>({...chapter,...(chapter.wordCount===DAILY_WORD_COUNT?{chapterSizePolicy:CHAPTER_SIZE_POLICY}:{}),number:chapterNumber(results.length-index),sourcePolicy:CURRENT_AFFAIRS_POLICY}))});
   }
   const sourcePath=path.match(/^\/api\/chapters\/([^/]+)\/sources$/);
   if(sourcePath&&request.method==='GET'){
@@ -378,7 +380,7 @@ async function route(request, env) {
     if (markdown === null||await sha256(markdown)!==row.digest) return json({ error: '章节正文暂不可核对' }, 503);
     if(readerLayoutUpgrade(request,markdown,{isPublisher:publisher(request,env)}))return json({error:'章节排版已更新，请重新打开应用后阅读。'},426);
     const { content_key, ...meta } = row;
-    const response=json({...meta,number:archive&&(row.withdrawn||row.sourcePolicy!==CURRENT_AFFAIRS_POLICY)?row.number:await numberForDate(env.DB,row.date),...(archive?{archived:Boolean(row.withdrawn)||row.sourcePolicy!==CURRENT_AFFAIRS_POLICY}:{}),markdown});
+    const response=json({...meta,...(meta.wordCount===DAILY_WORD_COUNT?{chapterSizePolicy:CHAPTER_SIZE_POLICY}:{}),number:archive&&(row.withdrawn||row.sourcePolicy!==CURRENT_AFFAIRS_POLICY)?row.number:await numberForDate(env.DB,row.date),...(archive?{archived:Boolean(row.withdrawn)||row.sourcePolicy!==CURRENT_AFFAIRS_POLICY}:{}),markdown});
     response.headers.set('vary','x-reader-layout');
     return response;
   }

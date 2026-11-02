@@ -11,7 +11,7 @@
 
 ## 使用入口
 
-日课启动器先正常领取control，rest=true在模型和DIGR运行前返回。新制作按FIVE_TASK_PIPELINE生成规划、五组制作和总装各自的项目任务packet，再调用同一个prepareDigrProject；plan及完整交接可作为额外不可变领域输入。每个以精确 `DIGR：` 开头的独立任务仍须取得自己的真实pin/原生运行，不合并多个时钟或证明。旧已写稿、旧合同及临时需求仍通过 `node scripts/digr-project.mjs daily DATE` 生成原生产任务；不放行休息、不消费声音选配、不改变high默认。
+日课启动器先正常领取control，rest=true在模型和DIGR运行前返回。新制作按FIVE_TASK_PIPELINE生成规划、各组制作和总装各自的项目任务packet，再调用同一个prepareDigrProject；plan及完整交接可作为额外不可变领域输入。每个以精确 `DIGR：` 开头的独立任务仍须取得自己的真实pin/原生运行，不合并多个时钟或证明。旧已写稿、旧合同及临时需求仍通过 `node scripts/digr-project.mjs daily DATE` 生成原生产任务；不放行休息、不消费声音选配、不改变high默认。
 
 主动研究或修订，将用户实际任务保存为UTF-8文件，然后：
 
@@ -57,3 +57,5 @@ python -X utf8 -u -i scripts/digr-native-session.py --packet PACKET.json --acqui
 固定身份、路径隔离、rest早退、GitHub pin、原生加载顺序、候选快照、原生重入／恢复失败和现有出版预检分别验证。夹具运行不冒充真实课程生产，适配测试通过也不代表已提高80%覆盖或证明high质量。
 
 给用户展示实际内容变化、判断依据、未决问题、真实用量和发布状态；DIGR proof只由原生运行渲染。开发日志与框架schema留在后台，不进入学习正文。
+
+新正式章采用chapterSizePolicy:thirty-main-words-v1，30主词、三条十词任务；旧冻结50词及five-by-ten-v1原样恢复。词数改变不删词族/义项，不改变80%研究目标和原生DIGR执行语义。

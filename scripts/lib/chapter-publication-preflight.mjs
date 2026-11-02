@@ -3,7 +3,8 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import {createHash} from 'node:crypto';
-import {validateTeachingLayout,DAILY_WORD_COUNT} from '../../web/annotations.js';
+import {validateTeachingLayout} from '../../web/annotations.js';
+import {formalChapterWordCount,selectedWordCount} from '../../protocol/chapter-size.mjs';
 import {assertTeachingText} from '../../protocol/teaching-text.mjs';
 import {canonicalSourcePackage as canonical} from '../../protocol/current-affairs.mjs';
 import {CONTEXT_AUTHORING_POLICY} from '../../protocol/usage-context.mjs';
@@ -20,13 +21,15 @@ export async function verifyChapterPublication({root,date,chapter,meta,requireRe
   if(!/^20\d{2}-\d{2}-\d{2}$/.test(date||''))throw Error('发布预检日期无效');
   root=await fs.realpath(root);
   const folder=path.join(root,'chapters',date),run=path.join(root,'work/runs',date);
-  if(!chapter||!meta||chapter.id!==date||chapter.date!==date||meta.date!==date||chapter.wordCount!==DAILY_WORD_COUNT||meta.wordCount!==DAILY_WORD_COUNT||typeof chapter.markdown!=='string'||hash(chapter.markdown)!==chapter.digest)throw Error('发布包日期、词数或正文摘要不符');
-  for(const field of ['title','number','contentPolicy','authoringPolicy'])if((chapter[field]??null)!==(meta[field]??null))throw Error(`发布包与当前元数据${field}不一致；先重新核对打包`);
+  const wordCount=formalChapterWordCount(chapter);if(formalChapterWordCount(meta)!==wordCount)throw Error('发布元数据与章节词数合同不同');
+  if(!chapter||!meta||chapter.id!==date||chapter.date!==date||meta.date!==date||typeof chapter.markdown!=='string'||hash(chapter.markdown)!==chapter.digest)throw Error('发布包日期、词数或正文摘要不符');
+  for(const field of ['title','number','contentPolicy','authoringPolicy','chapterSizePolicy'])if((chapter[field]??null)!==(meta[field]??null))throw Error(`发布包与当前元数据${field}不一致；先重新核对打包`);
   if(chapter.subtitle!==(meta.subtitle||''))throw Error('发布包与当前副标题不一致；先重新核对打包');
   if(await fs.readFile(path.join(folder,'chapter.md'),'utf8')!==chapter.markdown)throw Error('发布包已过期：当前正文已改变，须重新核对来源并打包');
-  const parsed=validateTeachingLayout(chapter.markdown,chapter.contentPolicy);
+  const parsed=validateTeachingLayout(chapter.markdown,chapter.contentPolicy,{expectedWordCount:wordCount});
   if(chapter.contentPolicy==='etymology-fused-v1')assertTeachingText(parsed);
   const [selection,inputLock]=await Promise.all([json(path.join(run,'selection.json')),json(path.join(run,'vix-source.json'))]);
+  if(selectedWordCount(selection,inputLock)!==wordCount||(selection.chapterSizePolicy??null)!==(chapter.chapterSizePolicy??null))throw Error('发布包与冻结章节词数合同不同');
   if(selection.studyDate!==date||selection.vixInputCommit!==inputLock.commit||chapter.vixInputCommit!==inputLock.commit)throw Error('发布包与原冻结选词或VIX输入不一致');
   if(inputLock.authoringPolicy===CONTEXT_AUTHORING_POLICY&&selection.authoringPolicy!==CONTEXT_AUTHORING_POLICY)throw Error('新输入制作策略与冻结selection不一致');
   const authenticPolicy=authenticityPolicy(selection,inputLock);

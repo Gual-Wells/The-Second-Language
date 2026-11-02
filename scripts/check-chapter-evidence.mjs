@@ -1,3 +1,4 @@
+import {CHAPTER_SIZE_POLICY} from '../protocol/chapter-size.mjs';
 // Self-authored offline publication fixture; never a real chapter or source.
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
@@ -17,9 +18,10 @@ const put = async(file,value) => {await fs.mkdir(path.dirname(file),{recursive:t
 export async function createEvidenceFixture(root,{date='2099-01-29',count=50,adoptedAlias=false}={}) {
   root=await fs.realpath(root);const run=path.join(root,'work/runs',date),folder=path.join(root,'chapters',date),commit='a'.repeat(40),url='https://example.org/evidence-fixture';
   const names=Array.from({length:count},(_,i)=>'fixture'+String(i+1).padStart(3,'0')),adoptedUrl=adoptedAlias?url+'#adopted-fragment':url;
-  const selection={studyDate:date,vixInputCommit:commit,authoringPolicy:'authentic-context-v1',mainWords:names.map((text,i)=>({text,entryId:'e'+i,globalRank:i+1,family:[]}))};
-  await put(path.join(run,'selection.json'),selection);await put(path.join(run,'vix-source.json'),{commit,authoringPolicy:selection.authoringPolicy});
-  await put(path.join(folder,'meta.json'),{date,runId:date,sourcePolicy:'current-affairs-v1'});
+  const size=count===30?{chapterSizePolicy:CHAPTER_SIZE_POLICY}:{};
+  const selection={...size,studyDate:date,vixInputCommit:commit,authoringPolicy:'authentic-context-v1',mainWords:names.map((text,i)=>({text,entryId:'e'+i,globalRank:i+1,family:[]}))};
+  await put(path.join(run,'selection.json'),selection);await put(path.join(run,'vix-source.json'),{...size,commit,authoringPolicy:selection.authoringPolicy});
+  await put(path.join(folder,'meta.json'),{...size,date,runId:date,wordCount:count,sourcePolicy:'current-affairs-v1'});
   await put(path.join(root,'resources/current-affairs/sources.json'),{schemaVersion:1,sources:[{id:'fixture',name:'Self-authored fixture',home:'https://example.org/',entryUrl:'https://example.org/',role:'primary-announcement',topics:['science'],language:'en'}]});
   await put(path.join(root,'resources/current-affairs/feeds.json'),{schemaVersion:1,feeds:[],limits:{maxFeeds:6,concurrency:2,maxRequests:12,maxFeedBytes:100000,maxArticleBytes:100000,maxItemsPerFeed:80,timeoutMs:1000}});
   const sentence=name=>`The self-authored original places ${name} in a test sentence without making a teaching claim.`;
@@ -42,7 +44,7 @@ export async function createEvidenceFixture(root,{date='2099-01-29',count=50,ado
   const {markdown}=await assembleRun(root,date),sources=[{sourceId:'fixture',url:adoptedUrl,title:'Self-authored source',publisher:'Fixture',readAt:original.readAt,readDigest:original.textDigest,facts:['An isolated fixture, not real news.']}];
   const inputSources=[{...sources[0],readRecord:path.relative(root,original.recordPath)}];await put(path.join(run,'source-notes.json'),{sources:inputSources});
   const evidence=await prepareChapterEvidence(root,date,{markdown,selection,sources,inputSources});
-  const chapter={runId:date,markdown,digest:hash(markdown),sourcePackage:{studyDate:date,chapterDigest:hash(markdown),selectionDigest:hash(canonicalSourcePackage(selection)),vixInputCommit:commit,sources,evidenceDigest:evidence.digest}};
+  const chapter={...size,wordCount:count,runId:date,markdown,digest:hash(markdown),sourcePackage:{studyDate:date,chapterDigest:hash(markdown),selectionDigest:hash(canonicalSourcePackage(selection)),vixInputCommit:commit,sources,evidenceDigest:evidence.digest}};
   const objects=new Map(evidence.objects.map(object=>[object.digest,JSON.parse(object.text)]));
   return {root,date,run,folder,selection,sources,markdown,chapter,evidence,objects,original};
 }

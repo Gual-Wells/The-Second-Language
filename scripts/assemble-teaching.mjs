@@ -1,12 +1,13 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import {assembleRun,AUTHORING_POLICY} from './lib/teaching-authoring.mjs';
-import {DAILY_WORD_COUNT} from '../web/annotations.js';
+import {selectedWordCount} from '../protocol/chapter-size.mjs';
 import {chapterFootprint} from './lib/chapter-footprint.mjs';
 const date=process.argv[2];
 if(!/^20\d{2}-\d{2}-\d{2}$/.test(date||''))throw Error('用法：node scripts/assemble-teaching.mjs DATE');
 const result=await assembleRun(process.cwd(),date),run=path.resolve('work/runs',date);
-if(result.words.length!==DAILY_WORD_COUNT)throw Error(`正式日课须有${DAILY_WORD_COUNT}主词；未输出正式候选`);
+const selection=JSON.parse(await fs.readFile(path.join(run,'selection.json'),'utf8')),lock=JSON.parse(await fs.readFile(path.join(run,'vix-source.json'),'utf8')),wordCount=selectedWordCount(selection,lock);
+if(result.words.length!==wordCount)throw Error(`正式日课须有${wordCount}主词；未输出正式候选`);
 await fs.writeFile(path.join(run,'teaching/chapter.md'),result.markdown);
 if(result.parsed.format==='usage-context-v1')await fs.writeFile(path.join(run,'teaching/context-sources.json'),JSON.stringify(result.contextSources,null,2)+'\n');
 else await fs.writeFile(path.join(run,'teaching/article-sources.json'),JSON.stringify(result.articles.map(({id,title,sourceUrls})=>({id,title,sourceUrls})),null,2)+'\n');

@@ -15,7 +15,7 @@ const [selection,oldMeta,markdown,sourcePackage,receipt,currentSelection,meta]=a
   json(path.join(original,'run/selection.json')),json(path.join(original,'chapter/meta.json')),fs.readFile(path.join(original,'chapter/chapter.md'),'utf8'),json(path.join(original,'chapter/sources.json')),
   json(path.join(original,'run/vix-publication.json')),json(path.join(run,'selection.json')),json(path.join(folder,'meta.json'))]);
 if(canonical(selection)!==canonical(currentSelection))throw Error('原冻结selection与当前不同；不得重编或重标');
-const parsed=validateTeachingLayout(markdown,oldMeta.contentPolicy);if(parsed.format==='usage-context-v1')throw Error('原件已是单正文，不能创建旧格式转换授权');
+const parsed=validateTeachingLayout(markdown,oldMeta.contentPolicy,{expectedWordCount:oldMeta.wordCount});if(parsed.format==='usage-context-v1')throw Error('原件已是单正文，不能创建旧格式转换授权');
 validateSourcePackage(sourcePackage,{chapterDigest:hash(markdown),studyDate:date,vixInputCommit:selection.vixInputCommit,markdown});
 validatePublishedVixReceipt(receipt,{studyDate:date,inputCommit:selection.vixInputCommit,selectionDigest:hash(canonical(selection)),vixCommit:oldMeta.vixCommit});
 const baseline={schemaVersion:1,kind:'chapter-revision-baseline-v1',selection,meta:oldMeta,markdown,sourcePackage},baselineText=JSON.stringify(baseline);

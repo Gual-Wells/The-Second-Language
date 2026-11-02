@@ -1,3 +1,4 @@
+import {chapterSizePolicy,formalChapterWordCount} from './chapter-size.mjs';
 // Private publication evidence. Public source packages carry only its digest.
 export const CHAPTER_EVIDENCE_POLICY = 'chapter-evidence-v1';
 export const MAX_EVIDENCE_OBJECT_BYTES = 24 * 1024 * 1024;
@@ -11,6 +12,9 @@ export function validateEvidenceManifest(value, expected = {}) {
       !Number.isSafeInteger(value.wordCount) || value.wordCount < 1 || value.wordCount > 200 ||
       !Number.isSafeInteger(value.sourceCount) || value.sourceCount < 1 ||
       !Array.isArray(value.groups) || !value.groups.length || value.groups.length > 512) throw Error('章节私有证据清单无效');
+  chapterSizePolicy(value);if(value.chapterSizePolicy!=null)formalChapterWordCount(value);
+  if(expected.wordCount!=null&&value.wordCount!==expected.wordCount)throw Error('章节私有证据与固定词数不一致');
+  if(Object.hasOwn(expected,'chapterSizePolicy')&&chapterSizePolicy(value)!==(expected.chapterSizePolicy??null))throw Error('章节私有证据与固定词数合同不一致');
   for (const key of ['studyDate', 'runId', 'chapterDigest', 'selectionDigest', 'vixInputCommit']) {
     if (expected[key] != null && value[key] !== expected[key]) throw Error('章节私有证据与固定' + key + '不一致');
   }

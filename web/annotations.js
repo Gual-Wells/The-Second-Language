@@ -1,5 +1,7 @@
 import {parseTeachingUnits} from './teaching-units.js?v=61';
 import {isUsageContextContent,parseUsageContextContent} from './usage-context.js?v=61';
+import {DAILY_WORD_COUNT} from './chapter-size.js?v=67';
+export {DAILY_WORD_COUNT};
 const ID = '[A-Za-z][A-Za-z0-9_-]{0,31}';
 const WORD = new RegExp(`^<!-- WORD:(${ID}) -->$`);
 const USE = new RegExp(`^<!-- USE:(${ID}) -->$`);
@@ -114,10 +116,9 @@ export function validateAnnotatedContent(markdown, { expectedWordCount, maxWordC
   return { parts, words, uses, sentences, articles };
 }
 
-// Formal production count; archived reads use validateAnnotatedContent separately.
-export const DAILY_WORD_COUNT = 50;
-export function validateTeachingLayout(markdown,policy) {
-  const parsed=validateAnnotatedContent(markdown,{expectedWordCount:DAILY_WORD_COUNT});
+// New production defaults to 30; frozen and archived versions pass their own count.
+export function validateTeachingLayout(markdown,policy,{expectedWordCount=DAILY_WORD_COUNT}={}) {
+  const parsed=validateAnnotatedContent(markdown,{expectedWordCount});
   if(!policy||policy==='legacy')return parsed;
   if(policy!=='etymology-fused-v1')throw Error('未知章节教学协议');
   const blocks=parsed.parts.one.split(/^<!-- WORD:/m).slice(1);

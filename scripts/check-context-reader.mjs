@@ -1,3 +1,4 @@
+import {CHAPTER_SIZE_POLICY} from '../protocol/chapter-size.mjs';
 import assert from 'node:assert/strict';
 import {readFile,writeFile,mkdir,realpath} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
@@ -11,13 +12,14 @@ import {parseTeachingHeading} from '../web/teaching-units.js';
 // Real reader and browser; every API, source link and paid request is isolated.
 const root=await realpath(process.cwd());
 if(process.platform==='win32'&&!/^D:[\\/]/i.test(root))throw Error('界面核验资料须实际存D盘');
-const out=path.resolve('.cache/context-reader'),temporary=path.join(out,'tmp');
+const wordCount=Number(process.env.CONTEXT_READER_WORD_COUNT||30);if(![30,50].includes(wordCount))throw Error('Reader fixture size must be30 or50');
+const out=path.resolve('.cache/context-reader',String(wordCount)),temporary=path.join(out,'tmp');
 await mkdir(temporary,{recursive:true});process.env.TEMP=temporary;process.env.TMP=temporary;
 const {chromium}=createRequire(process.execPath)('playwright');
 const sha=text=>createHash('sha256').update(text).digest('hex');
 const lines=['<!-- FORMAT:usage-context-v1 -->'];
 const secret='整份译文甲：第一段。\n\n第二段包含 <img src=x onerror=alert(1)> 字样。';
-for(let i=1;i<=50;i++){
+for(let i=1;i<=wordCount;i++){
   const n=String(i).padStart(3,'0'),use='U'+n+'01',word='W'+n;
   const heading=i===5?`fixture${n} · 旧版释义 /test/`:i===4?`fixture${n} /test/ n.; fixtures${n} /tests/ n. · 同一用途的不同形式`:i===6?`fixture${n} /test/ n.`:`fixture${n} /test/ n. · 快捷识别记录`;
   lines.push(`<!-- WORD:${word} -->\n# fixture${n}\n\n**词源**：独立自写界面材料。\n\n<!-- USE:${use} -->\n## ${heading}\n\`用于界面核对的用法。\`\n\n`);
@@ -29,8 +31,8 @@ for(let i=1;i<=50;i++){
   if(i===1)lines.push('\n<!-- SENTENCE:S001b -->\nThey compare the notes before making a choice.');
   lines.push(`<!-- TRANSLATION:C${n} -->\n${i===1?secret:'这位读者保留记录，并与同事分享记录。'}\n<!-- END_CONTEXT:C${n} -->`);
 }
-const markdown=lines.join('\n'),parsed=validateAnnotatedContent(markdown,{expectedWordCount:50});
-assert.equal(parsed.contexts.length,49);assert.equal(parsed.format,'usage-context-v1');
+const markdown=lines.join('\n'),parsed=validateAnnotatedContent(markdown,{expectedWordCount:wordCount});
+assert.equal(parsed.contexts.length,wordCount-1);assert.equal(parsed.format,'usage-context-v1');
 assert.equal(parseTeachingHeading('integrate /a/ n./adj.').forms[0].partOfSpeech,'n. / adj.');
 assert.equal(parseTeachingHeading('a /a/ n.; b /b/ n.').forms.length,2);
 assert.equal(parseTeachingHeading('word /test/ nonsense'),null);
@@ -42,7 +44,7 @@ assert.equal(parseTeachingHeading('adapt · 原有短义 /a/').definition,'原�
 assert.equal(parseTeachingHeading('adapt · 原有短义 /a/').quickGloss,'');
 assert.equal(parseTeachingHeading('adapt /a/ v. · <bad>'),null);
 const originalDigest=sha(markdown);
-const chapter={id:'2026-10-27',date:'2026-10-27',number:'第 2 章',title:'语境阅读 · 隔离界面核验',subtitle:'自写材料，不是正式课程',wordCount:50,markdown,digest:originalDigest,sourcePolicy:'current-affairs-v1',sourceDigest:sha('source-fixture')};
+const chapter={id:'2026-10-27',date:'2026-10-27',number:'第 2 章',title:'语境阅读 · 隔离界面核验',subtitle:'自写材料，不是正式课程',wordCount,...(wordCount===30?{chapterSizePolicy:CHAPTER_SIZE_POLICY}:{}),markdown,digest:originalDigest,sourcePolicy:'current-affairs-v1',sourceDigest:sha('source-fixture')};
 const legacyMeta=JSON.parse(await readFile('chapters/history/2026-10-24/4cc6a2f9/meta.json','utf8'));
 const legacyText=await readFile('chapters/history/2026-10-24/4cc6a2f9/chapter.md','utf8');
 const legacy={...legacyMeta,id:legacyMeta.date,markdown:legacyText,digest:sha(legacyText)};
@@ -65,11 +67,11 @@ await context.route('**/*',async route=>{
     else if(p==='/api/temporary')body={pages:[]};
     else if(p==='/api/questions/summary')body={threads:[]};
     else if(p==='/api/questions'&&request.method()==='POST'){questions.push(request.postDataJSON());body={id:questions.at(-1).id};}
-    else if(p==='/api/chapter-quality/capabilities')body={policy:qualityPolicy.id};
+    else if(p==='/api/chapter-quality/capabilities')body={policy:'chapter-quality-v4-presentation',executionPolicy:qualityPolicy.id};
     else if(p==='/api/chapter-quality'&&request.method()==='POST'){qualityRequests.push(request.postDataJSON());body={id:'quality-fixture'};}
     else if(p==='/api/chapter-quality')body={requests:qualityComplete?[{id:'quality-fixture',digest:chapter.digest,status:'completed',decision:'revision_required',createdAt:Date.now()}]:[]};
     else if(p==='/api/chapter-quality/quality-fixture')body={request:{id:'quality-fixture',status:qualityComplete?'completed':'pending'}};
-    else if(p==='/api/chapter-quality/quality-fixture/report')body={chapter:{id:chapter.id,digest:chapter.digest,title:chapter.title},decision:'revision_required',coverage:{completed:1,expected:1,words:50},words:[{id:'W003',text:'fixture003'}],locations:{'context-source:C003':{part:'one',contextId:'C003'}},findings:[{targetId:'context-source:C003',severity:'suggestion',quote:'Only a location fixture.',explanation:'仅核对语境定位，未执行语义质检。',action:'跳转到第三份语境。'}],checks:[],limitations:['独立自写界面样例。']};
+    else if(p==='/api/chapter-quality/quality-fixture/report')body={chapter:{id:chapter.id,digest:chapter.digest,title:chapter.title},decision:'revision_required',coverage:{completed:1,expected:1,words:wordCount},words:[{id:'W003',text:'fixture003'}],locations:{'context-source:C003':{part:'one',contextId:'C003'}},findings:[{targetId:'context-source:C003',severity:'suggestion',quote:'Only a location fixture.',explanation:'仅核对语境定位，未执行语义质检。',action:'跳转到第三份语境。'}],checks:[],limitations:['独立自写界面样例。']};
     else if(p==='/api/practice/pronunciation'){points.push(request.postDataJSON());body={id:'a'.repeat(64),state:'failed'};}
     else if(p==='/api/audio-config')body={next:['two'],supportedParts:['contexts'],revision:1,jobs:[]};
     else if(p==='/api/audio-config/estimate'){const old=request.postDataJSON().chapterId===legacy.id;body={availableParts:old?['two','three']:['contexts'],estimates:(old?['two','three']:['contexts']).map(part=>({part,cost:[0,0]}))};}
@@ -89,7 +91,7 @@ const hold=async locator=>{await locator.scrollIntoViewIfNeeded();await page.wai
 try{
   await open();
   check('new format is one reader stream',await page.locator('#app').evaluate(e=>e.classList.contains('context-mode'))&&await page.locator('.toolbar').isHidden());
-  check('contexts have one translation each, never sentence translations',await page.locator('.context-translation').count()===50&&await page.locator('.story-translation').count()===0);
+  check('contexts have one translation each, never sentence translations',await page.locator('.context-translation').count()===wordCount&&await page.locator('.story-translation').count()===0);
   check('shared context repeats with the same identity',await shared().count()===2);
   check('all contexts default masked',await page.locator('.translation-revealed').count()===0);
   check('hidden translations do not enter copied text',!(await copy()).includes('整份译文甲'));
@@ -148,7 +150,7 @@ try{
   check('word index clears sticky toolbar',await page.locator('.word-entry').nth(20).evaluate(e=>{const b=document.getElementById('readingScroll').getBoundingClientRect(),h=document.getElementById('articleTools').getBoundingClientRect().height;return Math.abs(e.getBoundingClientRect().top-b.top-h-12)<=1;}));
   await click(page.locator('#chapterSourcesButton'));await page.locator('#chapterSourcesDialog[open]').waitFor();check('source evidence remains available outside the learning unit',await page.locator('#chapterSourcesDialog').innerText().then(t=>t.includes('Fixture publisher')));await page.locator('[data-close="chapterSourcesDialog"]').click();
   await page.locator('#chapterQualityButton').click();await page.locator('#chapterQualityApply').waitFor({state:'visible'});await page.waitForFunction(()=>!document.getElementById('chapterQualityApply').disabled);await page.locator('#chapterQualityApply').click();await page.locator('#chapterQualityStatus').getByText('等待质检',{exact:true}).waitFor();
-  check('new quality request uses advertised context policy',qualityRequests.length===1&&qualityRequests[0].policy===qualityPolicy.id);await page.locator('[data-close="chapterQualityDialog"]').click();
+  check('new quality request uses advertised context policy',qualityRequests.length===1&&qualityRequests[0].policy==='chapter-quality-v4-presentation');await page.locator('[data-close="chapterQualityDialog"]').click();
   qualityComplete=true;await page.locator('#chapterQualityButton').click();await page.locator('#chapterQualityBody .chapter-test-record').click();await page.locator('.quality-finding button').click();await page.waitForFunction(()=>{const e=document.querySelector('#article .usage-context[data-context-id="C003"]'),scope=document.getElementById('readingScroll'),tools=document.getElementById('articleTools');return e&&scope&&tools&&Math.abs(e.getBoundingClientRect().top-scope.getBoundingClientRect().top-tools.getBoundingClientRect().height-12)<=1;});await page.locator('.reader-jump-cover').waitFor({state:'hidden'});
   check('context-level quality finding locates its frozen context',await page.locator('.usage-context[data-context-id="C003"]').evaluate(e=>{const scope=document.getElementById('readingScroll').getBoundingClientRect(),h=document.getElementById('articleTools').getBoundingClientRect().height;return Math.abs(e.getBoundingClientRect().top-scope.top-h-12)<=1;}));
   await page.locator('#settingsButton').click();await page.locator('.settings-row').getByText('音频配置',{exact:true}).click();await page.locator('#audioNextChoice').click();await page.waitForFunction(()=>!document.getElementById('audioSave').disabled);
@@ -166,7 +168,7 @@ try{
   readerUserId=null;const anonymous=await context.newPage();await anonymous.goto('https://context-reader.test/?chapter='+chapter.id);const anonymousTranslation=anonymous.locator('.context-translation').first();await anonymousTranslation.waitFor();check('missing user identity defaults to masked',await anonymousTranslation.getAttribute('aria-expanded')==='false');await anonymousTranslation.click();check('missing user identity still supports local toggle',await anonymousTranslation.getAttribute('aria-expanded')==='true');await anonymous.reload();await anonymousTranslation.waitFor();check('missing user identity never persists across reload',await anonymousTranslation.getAttribute('aria-expanded')==='false');await anonymous.close();
   readerUserId='quota-isolated-reader';const quota=await context.newPage();await quota.addInitScript(()=>{Storage.prototype.setItem=function(){throw new DOMException('Isolated quota fixture','QuotaExceededError');};});await quota.goto('https://context-reader.test/?chapter='+chapter.id);const qt=quota.locator('.context-translation').first();await qt.waitFor();await qt.click();assert.equal(await qt.getAttribute('aria-expanded'),'true');await qt.click();check('storage quota failure leaves reversible memory-only translation controls',await qt.getAttribute('aria-expanded')==='false');await quota.close();
   check('no runtime page errors',errors.length===0);
-  const result={format:'usage-context-v1',checks,errors,browser:'Chromium touch emulation, 402x874 and 320x620; not physical iOS Safari',paidCalls:0,liveApiCalls:0};
+  const result={wordCount,format:'usage-context-v1',checks,errors,browser:'Chromium touch emulation, 402x874 and 320x620; not physical iOS Safari',paidCalls:0,liveApiCalls:0};
   await writeFile(path.join(out,'result.json'),JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify(result));
 }catch(error){await page.screenshot({path:path.join(out,'failure.png'),scale:'css'});console.log(JSON.stringify({errors,checks,questions,points:points.length,toast:await page.locator('#toast').textContent(),url:page.url()}));throw error;}
 finally{await browser.close();}

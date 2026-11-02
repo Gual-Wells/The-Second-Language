@@ -1,6 +1,7 @@
 // Counts expose size; they neither grade teaching nor authorize deletion.
 import {readFile,readdir} from 'node:fs/promises';
 import path from 'node:path';
+import {selectedWordCount} from '../../protocol/chapter-size.mjs';
 import {validateAnnotatedContent,sentenceRecords,DAILY_WORD_COUNT} from '../../web/annotations.js';
 
 export const englishWords = value => (value.match(/[A-Za-z]+(?:['-][A-Za-z]+)*/g) || []).length;
@@ -106,12 +107,13 @@ export async function authoredDraftFootprint(root,date){
   if(!/^20\d{2}-\d{2}-\d{2}$/.test(date||'')||new Date(date+'T00:00:00Z').toISOString().slice(0,10)!==date)throw Error('草稿日期无效；用法：chapter-footprint.mjs --draft YYYY-MM-DD');
   const run=path.resolve(root,'work/runs',date),folder=path.join(run,'teaching/authored');
   const selection=JSON.parse(await readFile(path.join(run,'selection.json'),'utf8'));
-  if(selection.studyDate!==date||!Array.isArray(selection.mainWords)||selection.mainWords.length!==DAILY_WORD_COUNT)throw Error('缺少本日期完整50主词selection，不能猜测观察分母');
+  const wordCount=selectedWordCount(selection);
+  if(selection.studyDate!==date)throw Error('缺少本日期完整selection，不能猜测观察分母');
   const names=(await readdir(folder)).filter(name=>/^word-[A-Za-z0-9_-]+\.json$/.test(name));
   const words=await Promise.all(names.map(async name=>{const word=JSON.parse(await readFile(path.join(folder,name),'utf8'));if(name!==`word-${word.wordId}.json`)throw Error('作者文件名与WORD身份不符：'+name);return word;}));
-  if(words.length!==selection.mainWords.length||new Set(selection.mainWords.map(word=>word.text)).size!==DAILY_WORD_COUNT||words.some(word=>!selection.mainWords.some(item=>item.text===word.text)))throw Error('第一部分作者稿未齐或与冻结主词不一致，不能观察完整分母');
+  if(words.length!==selection.mainWords.length||new Set(selection.mainWords.map(word=>word.text)).size!==wordCount||words.some(word=>!selection.mainWords.some(item=>item.text===word.text)))throw Error('第一部分作者稿未齐或与冻结主词不一致，不能观察完整分母');
   if(selection.authoringPolicy==='authentic-context-v1'){
-    const uses=draftUseInventory(words,DAILY_WORD_COUNT),contexts=words.flatMap(w=>w.contexts||[]),sentences=contexts.flatMap(c=>(c.paragraphs||[]).flat());
+    const uses=draftUseInventory(words,wordCount),contexts=words.flatMap(w=>w.contexts||[]),sentences=contexts.flatMap(c=>(c.paragraphs||[]).flat());
     const referenced=new Set(sentences.flatMap(s=>s.uses||[]));
     if(new Set(contexts.map(c=>c.id)).size!==contexts.length||new Set(sentences.map(s=>s.id)).size!==sentences.length||[...referenced].some(id=>!uses.has(id)))throw Error('草稿语境/句子身份重复或指向未知用法');
     return {mode:'draft-observation',format:'usage-context-v1',date,measurement,mainWords:words.length,uses:uses.size,referencedUses:referenced.size,
@@ -119,5 +121,5 @@ export async function authoredDraftFootprint(root,date){
   }
   let articles=[],articlesStatus='not-created';
   try{articles=JSON.parse(await readFile(path.join(folder,'articles.json'),'utf8'));articlesStatus=Array.isArray(articles)&&!articles.length?'empty':'present';}catch(error){if(error.code!=='ENOENT')throw error;}
-  return{...draftChapterFootprint(words,articles),date,articlesStatus};
+  return{...draftChapterFootprint(words,articles,{expectedWordCount:wordCount}),date,articlesStatus};
 }

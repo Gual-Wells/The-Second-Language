@@ -119,7 +119,7 @@ try{
 // An immutable real research baseline guards against metadata/translation
 // counting mistakes without freezing future chapter contents in this test.
 const pin=JSON.parse(await readFile('research/quality-scale-2026-10-25/baseline.json','utf8'));
-const chapter=await readFile(pin.files.chapter,'utf8');
+const chapter=await readFile(pin.files.chapter,'utf8').catch(error=>{if(error.code!=='ENOENT')throw error;const recovered=spawnSync('git',['show',pin.repositoryCommit+':'+pin.files.chapter],{encoding:'utf8',windowsHide:true,maxBuffer:8*1024*1024});if(recovered.status!==0)throw Error('Pinned historical footprint baseline unavailable');assert.equal(createHash('sha256').update(recovered.stdout).digest('hex'),pin.digest);return recovered.stdout;});
 if(createHash('sha256').update(chapter).digest('hex')===pin.digest){
  const real=chapterFootprint(chapter);
  assert.equal(real.partThree.englishWords,20288);assert.equal(real.partTwo.englishWords,8016);

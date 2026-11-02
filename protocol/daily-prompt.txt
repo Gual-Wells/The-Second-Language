@@ -1,10 +1,12 @@
+词数合同优先：新输入/selection为chapterSizePolicy:thirty-main-words-v1、30主词、三组十词；新meta/发布包/证据清单保同一字段。旧无该字段的已固定输入/selection仍为原50主词与原分工/恢复入口，下文新默认不覆盖旧合同，不补字段、不截断、不重选。
+
 执行第二语言项目北京时间 {STUDY_DATE} 的正式日课。先完整读取AGENTS.md、protocol/DAILY_RUN.md、protocol/AUTHENTIC_CONTEXT.md、protocol/RECOMMENDATION.md、protocol/CURRENT_AFFAIRS.md、protocol/QUALITY_WORKFLOW.md、protocol/QUALITY_SCALE.md、protocol/CONTENT.md、protocol/USAGE_LABELS.md、protocol/ETYMOLOGY.md、protocol/ANNOTATIONS.md、protocol/TEACHING_AUTHORING.md；领取到临时需求时再读TEMPORARY。新正式默认是逐义真实语境单正文，不生产第二/第三部分。不可用旧对话摘要替代实际协议。先恢复work/runs/{STUDY_DATE}；未完成写具体resume，不把05:00开始生成当发布截止。
 
 主动取材还读VIX_CONTEXT_DISCOVERY。新输入和selection在冻结前同样固定authenticityPolicy:authentic-context-observed-v1；旧冻结不补写。完整义项骨架后从VIX具体词义/构式/场合编写真实live search，经七类通道及开放网补缺，池外来源经本任务准入随实际原文封存。80%双口径是研究目标，低于仍正常发布；统计区分原文见证和仅声明，不能改kind、堆例或削义凑数，未达比例本身不能阻止合格发布。
 
 后台新执行档位按protocol/BACKGROUND_AUTOMATION.md：主调用与子代理统一high。子代理只承担有实际独立收益的任务，不强制额外轮次或并发；明确文件/词族所有权，交回教材事实、原件定位、完成内容与疑点，由主实际核对整合，不用单结论/多数票代替。运行领取、选择冻结、VIX标注与最终发布由主顺序控制，子代理不重复领取/并发提交。旧冻结恢复的是内容合同与身份，不把其中旧max/xhigh当作新调用档位；已有成功结果仍按原真实记录复用，未知调用不自动重发，不擅自追加收费任务。
 
-入口已领取一次control，幂等读取；rest=true立即结束，本日已发布回读后结束。默认休息与音频空选配不改，不因本次协议建设自动开工。正式50主词、gpt-6.1-sol/high，完整双教材、真实词族与全义不缩减，总体挑战不降。已冻结selection若无authoringPolicy或为sourced-collection-v1，继续其原三部分合同与原作者稿：从冻结meta.protocolCommit/已有材料恢复旧协议，不转换、不重选、不重新标注。只有尚未冻结的新运行采用authentic-context-v1。
+入口已领取一次control，幂等读取；rest=true立即结束，本日已发布回读后结束。默认休息与音频空选配不改，不因本次协议建设自动开工。正式30主词、gpt-6.1-sol/high，完整双教材、真实词族与全义不缩减，总体挑战不降。已冻结selection若无authoringPolicy或为sourced-collection-v1，继续其原三部分合同与原作者稿：从冻结meta.protocolCommit/已有材料恢复旧协议，不转换、不重选、不重新标注。只有尚未冻结的新运行采用authentic-context-v1。
 
 新输入用prepare-vix固定；运行feedback-snapshot并实际读其原目标/反馈及learnerBaseline，已有快照只复用。初始认识先验来自用户自述：阅读接受相对较强，熟悉题能简单表达，陌生题难启动；B2式阅读试配、熟悉题B1式完整行为起步/B2式展开与追问作伸展，均为任务难度非用户已测等级，词数未知。区分构思、词义、搭配句法、声音提取和互动缺口；不以VIX标注表示掌握。
 
@@ -12,7 +14,7 @@
 
 在最终冻结前按TEACHING_AUTHORING，以明确候选主词/真实词族独立prepare-teaching-materials；实际读完整Collins，再完整Oxford，主词、派生独立条目及必要引用补查。选定词就教双教材全部相关义项、标签、搭配与区别，不能只保来源命中义。词源仍在主词层集中。
 
-读清候选完整范围后、冻结selection及标注VIX之前，执行RECOMMENDATION“择词质量边界与冻结前反证复核”。先保持完整教学和原B2/C1实质挑战，再优化互补表达/近期收益。B1口语任务起点、A2拆小、B2阅读支架不是候选词/义/主题的难度上限；未知个人词汇量不触发降级。结合可取得的固定正式首章及真实考虑过的候选，查是否因易开口、取材便利、熟悉单主题、单义短小而挤掉更有价值的选择；不能按owner、词长、USE量、旧章体量或稀有程度代判。表达互补不要求50词同主题或全相连，真实材料不足可定向补材或诚实fallback，不罚有价值的难取材词、不无限扩搜。selection.md简记实际挑战、偏置证据/取舍和必要处理，不造固定反例/备选数、比例、分数或逐词审计。证据支持时冻结前局部修复，材料缺失保持未知，不冒称已量化无损；已冻结选择不因本补丁重选/重标。确认全义、真词族及这次实际内容复核后冻结50主词及authoringPolicy:authentic-context-v1，再按原时点prepare-vix-marking、mark-vix、publish-vix；原输入、副本、标签与回执不可重置。
+读清候选完整范围后、冻结selection及标注VIX之前，执行RECOMMENDATION“择词质量边界与冻结前反证复核”。先保持完整教学和原B2/C1实质挑战，再优化互补表达/近期收益。B1口语任务起点、A2拆小、B2阅读支架不是候选词/义/主题的难度上限；未知个人词汇量不触发降级。结合可取得的固定正式首章及真实考虑过的候选，查是否因易开口、取材便利、熟悉单主题、单义短小而挤掉更有价值的选择；不能按owner、词长、USE量、旧章体量或稀有程度代判。表达互补不要求30词同主题或全相连，真实材料不足可定向补材或诚实fallback，不罚有价值的难取材词、不无限扩搜。selection.md简记实际挑战、偏置证据/取舍和必要处理，不造固定反例/备选数、比例、分数或逐词审计。证据支持时冻结前局部修复，材料缺失保持未知，不冒称已量化无损；已冻结选择不因本补丁重选/重标。确认全义、真词族及这次实际内容复核后冻结30主词及authoringPolicy:authentic-context-v1，再按原时点prepare-vix-marking、mark-vix、publish-vix；原输入、副本、标签与回执不可重置。
 
 每个真正教学用法从已有材料和来源池查实际使用该义的相关原段；发现原文不等于已读，必须read/import并实际读textPath及必要前后文。按需取材，不全池爬取、不设来源配额或逐词新闻分数。不能往原文未使用的义里插词再叫缩编，不能捏造人物/发生过的事。源文中真实的话语、指南、文书、报道、作品简介等保原交际功能，不统一写成知识摘要。全文信息可大量舍弃，只保目标足够的真实对象、条件、指代与语言功能。
 

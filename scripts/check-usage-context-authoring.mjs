@@ -352,7 +352,7 @@ check('persisted fifty-word new run uses the real assembler and retains original
     assert.equal(result.words.length, 50);
     assert.equal(result.parsed.uses.size, 50);
     assert.equal(result.parsed.contexts.length, 50);
-    assert.equal(validateTeachingLayout(result.markdown, 'etymology-fused-v1').words.length, 50);
+    assert.equal(validateTeachingLayout(result.markdown, 'etymology-fused-v1',{expectedWordCount:50}).words.length, 50);
     assert(!/<!-- PART:/.test(result.markdown));
     assert.equal(result.articles.length, 0);
     const metaFile=path.join(root,'chapters',date,'meta.json');

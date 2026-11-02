@@ -1,3 +1,4 @@
+import {selectedWordCount,chapterSizePolicy} from './chapter-size.mjs';
 // Complete deterministic evidence validation shared by CLI and Worker (nodejs_compat).
 // This validates provenance and reconstruction, not the truth of semantic judgments.
 import {createHash} from 'node:crypto';
@@ -55,6 +56,9 @@ export function verifyEvidenceRecords(manifest, groups, chapter) {
   const controls = records.filter(record => record.kind === 'control');
   if (controls.length !== 1) throw Error('章节私有证据须有唯一冻结材料身份');
   const control = controls[0], selection = control.selection;
+  const sizePolicy=chapterSizePolicy(selection,control.inputLock||{});
+  if((sizePolicy?selectedWordCount(selection,control.inputLock||{}):selection?.mainWords?.length)!==manifest.wordCount)throw Error('采用证据与冻结章节词数不同');
+  chapterSizePolicy(manifest,selection);
   const policy=control.authoringRevision?validateAuthoringRevision(control.authoringRevision,{selection,baselineText:control.revisionBaselineText,date:manifest.studyDate,runId:manifest.runId}).policy:selection?.authoringPolicy;
   if (!selection || selection.studyDate !== manifest.studyDate || selection.vixInputCommit !== manifest.vixInputCommit ||
       policy !== manifest.authoringPolicy || hash(canonicalSourcePackage(selection)) !== manifest.selectionDigest ||

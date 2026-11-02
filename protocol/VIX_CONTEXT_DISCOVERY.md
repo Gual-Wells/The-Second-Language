@@ -30,7 +30,7 @@ FILE为作者编写的数组，每项含useId、channelId、situation、senseCon
 
 池外页面先实际核发布者身份、内容角色、正文域名、编辑/证据依据和采用条件。核验记录含schemaVersion:1、name、home、articleHosts、role、publisherEvidence、editorialBasis、rightsBoundary、verifiedAt；publisherEvidence定位真实工具/官方原件。role仅允许原始办事、技术、报道、对话、叙述、研究或机构记录角色。descriptor不是“质量通过”证书，正文仍须逐份判断。
 
-用admit DATE task-N --file FILE保存本任务准入，得到external-身份及不可变描述文件。read/import仍传--source，并加--admission FILE；只允许逐一核验的HTTPS正文域，不能通配或改已有发布者ID。五组不并发改resources/current-affairs/sources.json。准入数据随实际读取凭据进入私有原件和采用证据，封存后不依赖任务目录或当前全球来源表。版权/署名、地区、版本、第三方内容例外仍按实际原文，访问成功和新域准入不等于允许公开复制。
+用admit DATE task-N --file FILE保存本任务准入，得到external-身份及不可变描述文件。read/import仍传--source，并加--admission FILE；只允许逐一核验的HTTPS正文域，不能通配或改已有发布者ID。各组不并发改resources/current-affairs/sources.json。准入数据随实际读取凭据进入私有原件和采用证据，封存后不依赖任务目录或当前全球来源表。版权/署名、地区、版本、第三方内容例外仍按实际原文，访问成功和新域准入不等于允许公开复制。
 
 ## 真实语境观测与成品审阅
 
@@ -41,3 +41,5 @@ FILE为作者编写的数组，每项含useId、channelId、situation、senseCon
 coverage DATE task-N输出本组观测；merge输出teaching/pipeline/authenticity-status.json供第一条总装实际读。数据区分已形成原文见证的真实语境、仅按kind声明的材料、未覆盖USE和未充分核实context。不把未写新见证的旧材料直接判错，也不把仅声明的数量当经过独立审阅的成功率。未达到目标继续有价值的定点研究，或按完整、可靠的现稿正常发布；不得无限返工或为数字阻止合格课程交付。
 
 pack-current-affairs从最终作者稿与采用原文重算，随私有证据绑定原输入并保存公开的轻量比例/缺口观测；完整验证器恢复时重算，伪填数字或引用不在原件会拒绝。目标未达本身不拒绝封存、签名或发布。原PUBLICATION_REVIEW/完整验证/永久GET回读/当前指针保护、全义教学、蓝银阅读与整块译文、默认休息及空音频保持。比例和工具通过不证明学习收益，也不证明已覆盖整个VIX；实际新章与有代表性的缺口样本须分别观察。
+
+新正式章采用chapterSizePolicy:thirty-main-words-v1，30主词、三条十词任务；旧冻结50词及five-by-ten-v1原样恢复。词数改变不删词族/义项，不改变80%研究目标和原生DIGR执行语义。

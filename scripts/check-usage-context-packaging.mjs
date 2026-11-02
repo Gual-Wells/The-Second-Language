@@ -152,7 +152,7 @@ try {
     assert.equal(packed.digest, hash(packed.markdown)); assert.equal(packed.digest, sourcePackage.chapterDigest);
     assert.equal(packed.sourceDigest, sourceDigest); assert.equal(meta.sourceDigest, sourceDigest);
     assert.equal(packed.vixInputCommit, commit); assert.deepEqual(packed.sourcePackage, sourcePackage);
-    const parsed = validateTeachingLayout(packed.markdown, packed.contentPolicy);
+    const parsed = validateTeachingLayout(packed.markdown, packed.contentPolicy,{expectedWordCount:packed.wordCount});
     assert.equal(parsed.contexts.length, 50); assert.equal(parsed.articles.length, 0);
     assert(!/<!-- PART:/.test(packed.markdown));
   });

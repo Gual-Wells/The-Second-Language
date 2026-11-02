@@ -8,7 +8,7 @@ import {createAudioConfig} from './audio-config.js?v=50';
 import {installReaderSpeech} from './reader-speech.js?v=59';
 import { parseParts, renderPart, updateContextTranslation } from './render.js?v=61';
 import {createContextTranslationState} from './context-translations.js?v=50';
-import { validateAnnotatedContent } from './annotations.js?v=61';
+import { validateAnnotatedContent } from './annotations.js?v=67';
 import { createPracticeUI } from './practice.js?v=41';
 import {createBalanceUI} from './balances.js?v=63';
 import {createStorageUsageUI} from './storage-usage.js?v=64';
@@ -851,7 +851,7 @@ $('chapterNav').addEventListener('touchend', event => {
   if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.5) moveChapter(dx < 0 ? 1 : -1);
   swipeStart = null;
 }, { passive: true });
-if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=66', { updateViaCache: 'none' }).catch(() => {});
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=67', { updateViaCache: 'none' }).catch(() => {});
 refreshInstallStatus();
 initialize().then(()=>{if(state.authenticated&&new URLSearchParams(location.search).has('balances'))balances.open();});
 

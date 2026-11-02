@@ -2,11 +2,11 @@
 
 2026-10-27起尚未冻结的新运行执行AUTHENTIC_CONTEXT单正文。旧已冻结selection没有authoringPolicy或为sourced-collection-v1，沿原protocolCommit/作者稿继续旧合同，不静默升级、重选或重标。新默认由本文件、AUTHENTIC_CONTEXT、RECOMMENDATION、CONTENT、QUALITY_WORKFLOW、QUALITY_SCALE、ANNOTATIONS和TEACHING_AUTHORING共同执行；版本化提示词为daily-prompt.txt。
 
-正式50推荐主词，gpt-6.1-sol/high，启用live search，每日北京时间05:00开始生成；没有保证发布截止。完整双教材、真词族、全义、标签/词源和总体不降难保持。默认休息、音频不生成，本次改造不自动触发新章。
+正式新章30推荐主词，gpt-6.1-sol/high，启用live search，每日北京时间05:00开始生成；没有保证发布截止。完整双教材、真词族、全义、标签/词源和总体不降难保持。默认休息、音频不生成，本次改造不自动触发新章。
 
 DIGR宿主对接见DIGR_ADAPTER：启动器先沿本协议领取并处理rest，再由digr-project生成原任务及项目原件定位；实际DIGR协议仍需每轮实时获取并固定，由同SHA原生SDK执行。项目材料、出版审阅和上线回读各自保留原资格边界，不以框架完成替代内容质量。
 
-2026-11-02用户确认沿现有后台将新制作拆成五条各10主词的独立任务，完整规则见FIVE_TASK_PIPELINE。统一规划与冻结/VIX之后五组各写完整词族/全义，原件交齐后第一条新上下文总装并执行原审阅/发布。正常7次主调用（规划1、制作5、总装1），不承诺节省用量；休息不启动任何一条。旧已写稿/旧合同/临时需求沿原入口续作，不为拆分重选或重写旧稿。
+2026-11-02用户确认沿现有后台将新制作拆成三条各10主词的独立任务，完整规则见FIVE_TASK_PIPELINE。统一规划与冻结/VIX之后三组各写完整词族/全义，原件交齐后第一条新上下文总装并执行原审阅/发布。正常5次主调用（规划1、制作3、总装1），不承诺节省用量；休息不启动任何一条。旧已写稿/旧合同/临时需求沿原入口续作，不为拆分重选或重写旧稿。
 
 ## 领取与恢复
 
@@ -22,13 +22,15 @@ DIGR宿主对接见DIGR_ADAPTER：启动器先沿本协议领取并处理rest，
 2. feedback-snapshot首次固定实际目标/反馈以及protocol/learner-baseline.json和摘要。已有快照原样复用，后来的反馈不能重选已冻结范围。
 3. 实际读取RECOMMENDATION及反馈。初始先验：阅读接受较强、熟悉事简单表达、陌生事难启动；一般阅读B2式试配，熟悉题B1式完整表达/B2式展开伸展。此为任务难度范围，不是个人已测等级或词汇量，具体认识词未知。区分构思、词义、搭配句法、声音提取与互动缺口，再决定新词能补什么。
 4. 结合完整VIX未标注候选、真实材料与现有可表达资源，平衡表达覆盖面/深度/多样性/口语支撑。owner仅唯一占有归属，必须结合原始词表成员关系及实际教材内容；不以最高表标签、命中率、图密度、主题数、少义或冷僻打分。总体挑战不降，熟词进阶用法可有价值。
-5. 按CURRENT_AFFAIRS按需取材，read/import后实际读相关原文，真实材料与候选双向启发；不先取前50再装饰新闻。共享只是自然关系中的普通情况，不主动搜索、合并、计划或考核共享，也不把同文出现当表达内聚。
+5. 按CURRENT_AFFAIRS按需取材，read/import后实际读相关原文，真实材料与候选双向启发；不先取前30再装饰新闻。共享只是自然关系中的普通情况，不主动搜索、合并、计划或考核共享，也不把同文出现当表达内聚。
+
+新章词数合同：prepare-vix在首次固定输入时写`chapterSizePolicy:thirty-main-words-v1`，selection在冻结前同样写入，恰30主词；meta/发布包/证据清单必须同合同。旧无此字段的固定输入与selection仍为原50主词，沿原五组或旧稿入口恢复，不补写、不截断、不重选。
 
 ## 全范围确定与VIX原时点标注
 
 冻结前执行RECOMMENDATION的“择词质量边界与冻结前反证复核”：完整教学和原B2/C1实质挑战先保持，再优化互补与近期收益；B1口语起点/A2拆小/B2阅读支架不构成择词上限。实际检查起点变上限、取材便利、熟悉单主题和短小/表面难度偏置，按可得固定正式参照及真实候选内容判断，不凭比例或字段签发质量。selection.md只留真实取舍，发现问题局部修复后再冻结；不新增分数、逐词审计、固定反选量或无限检索。已冻结选择不因本补丁重选/重标。
 
-冻结前按TEACHING_AUTHORING以candidate-scope准备不可变材料，逐主词/真实派生/必要引用独立查两书，先完整Collins后Oxford。父条提名不算读派生条目，缺标题继续查拆行/同名组/引用。全义/真实词族范围读清后，在selection.md写实际取舍；selection.json一次冻结studyDate、vixInputCommit、vixMarkLabel、authoringPolicy:authentic-context-v1、恰50个mainWords及实际family。每有VIX身份的成员留entryId/globalRank/text，无身份派生不造标注；选择完整范围，不是原文命中义子集。
+冻结前按TEACHING_AUTHORING以candidate-scope准备不可变材料，逐主词/真实派生/必要引用独立查两书，先完整Collins后Oxford。父条提名不算读派生条目，缺标题继续查拆行/同名组/引用。全义/真实词族范围读清后，在selection.md写实际取舍；selection.json一次冻结studyDate、vixInputCommit、vixMarkLabel、authoringPolicy:authentic-context-v1、chapterSizePolicy:thirty-main-words-v1、恰30个mainWords及实际family。每有VIX身份的成员留entryId/globalRank/text，无身份派生不造标注；选择完整范围，不是原文命中义子集。
 
 vixMarkLabel为真实YY-MM-DD，由studyDate.slice(2)取得。冻结后prepare-vix-marking建立独立副本，再用同副本mark-vix和publish-vix。原缓存只读；副本绑定原输入与selection摘要，成功或回包丢失先找同一回执/commit，不重复写，不向冻结selection后加策略字段。meta.vixCommit取本次核实回执。时间/标签/输入不符停在原物核对，不重抓main或重选。
 

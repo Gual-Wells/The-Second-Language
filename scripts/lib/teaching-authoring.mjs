@@ -1,3 +1,4 @@
+import {selectedWordCount,chapterSizePolicy} from '../../protocol/chapter-size.mjs';
 import {teachingScope,checkMaterialDisposition} from '../../protocol/teaching-disposition.mjs';
 export {teachingScope,checkMaterialDisposition};
 // Deterministic transport of model-authored teaching. No semantic grouping,
@@ -144,6 +145,7 @@ export async function assembleRun(root,date){
   const names=(await fs.readdir(folder)).filter(n=>/^word-[A-Za-z0-9_-]+\.json$/.test(n));
   const words=await Promise.all(names.map(n=>readJson(path.join(folder,n))));
   const inputLock=await readJson(path.join(run,'vix-source.json'));
+  if(chapterSizePolicy(selection,inputLock))selectedWordCount(selection,inputLock);
   let meta={};try{meta=await readJson(path.join(root,'chapters',date,'meta.json'));}catch(error){if(error.code!=='ENOENT')throw error;}
   const versions=assertTeachingAuthoringVersions(inputLock,meta,words);
   if(words.length!==selection.mainWords.length||new Set(words.map(w=>w.text)).size!==words.length||words.some(w=>!selection.mainWords.some(s=>s.text===w.text)))throw Error('作者词条与冻结主词不一致');
