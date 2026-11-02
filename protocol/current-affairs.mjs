@@ -49,7 +49,10 @@ export function validateSourcePackage(value, { chapterDigest, studyDate, vixInpu
       if(c.sourceUrls.some(url=>!digest(value.sources.find(s=>s.url===url)?.readDigest)))throw Error('新语境采用来源须有实际原文读件摘要');
     }
     const shape=xs=>xs.map(c=>[c.id,c.kind,c.sourceUrls]);
-    if(actualContexts&&JSON.stringify(shape(value.contexts))!==JSON.stringify(shape(actualContexts)))throw Error('语境来源与正文身份、类型或实际引用不一致');
+    if(actualContexts&&JSON.stringify(shape(value.contexts))!==JSON.stringify(shape(actualContexts))){
+      const a=shape(value.contexts),b=shape(actualContexts),index=Array.from({length:Math.max(a.length,b.length)},(_,i)=>i).find(i=>JSON.stringify(a[i])!==JSON.stringify(b[i]));
+      throw Error(`语境来源与正文身份、类型或实际引用不一致；首个差异第${index+1}项，来源包${JSON.stringify(a[index]??null).slice(0,1500)}，正文${JSON.stringify(b[index]??null).slice(0,1500)}；总数${a.length}/${b.length}`);
+    }
   }else if(value.contexts!=null)throw Error('旧篇章不能静默改成语境来源包');
   const actualArticles=integrated?null:articles??(markdown==null?null:sentenceRecords(splitParts(markdown).three).articles);
   if(actualArticles?.length&&!Array.isArray(value.articles))throw Error('文章组须保留逐篇来源定位');
