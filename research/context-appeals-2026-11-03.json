@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "recordedAt": "2026-11-02T17:36:14.637577+00:00",
-  "status": "engineering verified and deployed; three scoped native refinement Goals running, publication still pending",
+  "status": "Engineering committed/pushed and runtime synced; three producers completed; actual independent native assembly and publication remain in progress",
   "userRule": {
     "defaultAuthenticPercent": 100,
     "observedTargetPercent": 80,
@@ -75,12 +75,128 @@
   },
   "outstanding": {
     "reviewerMode": "Maintenance default independent Codex Sol/high; no blocking reviewer-choice gate",
-    "currentDraft": "Three revision Goals active against immutable original 30-word/443-use draft; old daily engine, selection/VIX and original producer receipts preserved."
+    "currentDraft": "Three completed scoped producers merged. Actual assembly Sol/high independently reviewing all 30 words; pending known-source objection, seven example appeals and final publication."
   },
   "costs": {
     "newSubscriptions": 0,
     "futureReview": "bounded isolated Sol/high calls consume existing ChatGPT allowance only when selected and invoked; no unknown automatic retries",
-    "initialGateDeploymentModelCalls": 0
+    "initialGateDeploymentModelCalls": 0,
+    "producerNativeGoalUsage": [
+      {
+        "task": "task-1",
+        "goalTokens": 2385385,
+        "inputTokens": 91471493,
+        "cachedInputTokens": 89448960,
+        "outputTokens": 365647,
+        "nonCachedInputPlusOutput": 2388180
+      },
+      {
+        "task": "task-2",
+        "goalTokens": 1155745,
+        "inputTokens": 53307469,
+        "cachedInputTokens": 52335488,
+        "outputTokens": 187182,
+        "nonCachedInputPlusOutput": 1159163
+      },
+      {
+        "task": "task-3",
+        "goalTokens": 2376679,
+        "inputTokens": 73714924,
+        "cachedInputTokens": 71581696,
+        "outputTokens": 245607,
+        "nonCachedInputPlusOutput": 2378835
+      }
+    ],
+    "producerNonCachedInputPlusOutput": 5926178,
+    "usageLimit": "Actual raw runtime counters. Cached inputs are separate; native Goal counters can exclude the terminal trailing turn. No conversion to money or ChatGPT allowance percentage. Assembly and actual per-case reviewer final usage remain pending; not a controlled high-versus-max experiment.",
+    "initialIndependentReviewActualExecutions": 6,
+    "initialIndependentReviewCaseCount": 7,
+    "initialIndependentReviewCounters": [
+      {
+        "threadId": "01a19e59-8dae-78b0-91c1-167fda11fe14",
+        "model": "gpt-6.1-sol",
+        "effort": "high",
+        "exitCode": 0,
+        "finishedAt": "2026-11-02T22:21:10.962Z",
+        "usage": {
+          "input_tokens": 79092,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1095,
+          "reasoning_output_tokens": 328
+        }
+      },
+      {
+        "threadId": "01a19e57-979e-7b00-afe9-858d86ba8b6b",
+        "model": "gpt-6.1-sol",
+        "effort": "high",
+        "exitCode": 0,
+        "finishedAt": "2026-11-02T22:18:45.508Z",
+        "usage": {
+          "input_tokens": 53275,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 604,
+          "reasoning_output_tokens": 123
+        }
+      },
+      {
+        "threadId": "01a19e56-b684-7602-bd80-3ff15d3d3463",
+        "model": "gpt-6.1-sol",
+        "effort": "high",
+        "exitCode": 0,
+        "finishedAt": "2026-11-02T22:17:56.536Z",
+        "usage": {
+          "input_tokens": 57068,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 798,
+          "reasoning_output_tokens": 304
+        }
+      },
+      {
+        "threadId": "01a19e5c-52a9-7550-a9dd-592cc2aa1dd8",
+        "model": "gpt-6.1-sol",
+        "effort": "high",
+        "exitCode": 0,
+        "finishedAt": "2026-11-02T22:24:19.132Z",
+        "usage": {
+          "input_tokens": 68046,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1489,
+          "reasoning_output_tokens": 516
+        }
+      },
+      {
+        "threadId": "01a19e5d-eade-7e62-9cad-9e0ec7d024b5",
+        "model": "gpt-6.1-sol",
+        "effort": "high",
+        "exitCode": 0,
+        "finishedAt": "2026-11-02T22:25:51.444Z",
+        "usage": {
+          "input_tokens": 41271,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 845,
+          "reasoning_output_tokens": 322
+        }
+      },
+      {
+        "threadId": "01a19e5a-ba28-7583-9a83-b3a8ebe95527",
+        "model": "gpt-6.1-sol",
+        "effort": "high",
+        "exitCode": 0,
+        "finishedAt": "2026-11-02T22:22:16.339Z",
+        "usage": {
+          "input_tokens": 80302,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 931,
+          "reasoning_output_tokens": 209
+        }
+      }
+    ]
   },
   "release": {
     "commit": "d31a8cde07f431a20ebb53457459e591de2aac78",
@@ -127,6 +243,156 @@
     "probeReport": "research/context-appeal-live-probe-2026-11-03.json",
     "probeDecision": "needs-research",
     "assembly": "Native Goal automatically waits for verified three-group outputs and publishes only after actual independent case admission; no percentage waiver",
-    "unchangedCaseReuse": "raw independent inputs/outputs and current case evidence revalidated; newer negative verdict not overridden"
-  }
+    "unchangedCaseReuse": "raw independent inputs/outputs and current case evidence revalidated; newer negative verdict not overridden",
+    "producersCompleted": 3,
+    "assemblyThreadId": "01a19e15-cb0a-72a1-8b57-2acb20169703",
+    "assemblyActuallyStartedAt": "2026-11-02T21:06:30.035Z",
+    "merged": {
+      "words": 30,
+      "uses": 443,
+      "authenticUses": 436,
+      "contexts": 429,
+      "authenticContexts": 422,
+      "pendingAppeals": 7,
+      "published": false
+    },
+    "assemblyContentReviewCompleted": {
+      "words": 30,
+      "uses": 443,
+      "publicationComplete": false
+    }
+  },
+  "followupEngineering": {
+    "recordedAt": "2026-11-02T19:47:25.230Z",
+    "sourceCommit": "bb09528",
+    "runtimeFastForwarded": true,
+    "sourceTextCitationFix": "Validated original/search strings remain citeable in natural decoded form, including quotes and line breaks; unrelated JSON fields cannot be joined into invented quotations",
+    "dailyProductionHandoff": {
+      "newPlanPolicy": "fallback-appeals-v1",
+      "eachRetainedExampleRequestRequired": true,
+      "appealBytesSealedWithProducerReceipt": true,
+      "omittedOrDuplicateRequestsBlockSeal": true,
+      "changedAppealInvalidatesReceipt": true,
+      "explicitIndependentReviewerDispatch": true,
+      "existingPlansAndNativeObjectivesUnchanged": true
+    },
+    "reviewRecovery": "Known successful exit plus exact original events/response can recover a missing receipt without a new model request; unknown remains protected",
+    "caseReuse": "Current case evidence and real reviewer outputs revalidated; unchanged subsets reusable and newer negatives cannot be replaced by old positives",
+    "sourceWindow": "Exact text windows and offsets only after actual original receipt/SHA checks; full source retained and read scope explicit",
+    "tests": {
+      "fallbackAdmission": 20,
+      "dailyPipeline": 23,
+      "nativeGoal": 28,
+      "isolatedReviewer": 8,
+      "caseCache": 9,
+      "sourceWindow": 7,
+      "refinementIntegration": 4,
+      "fixturesAreNotSemanticCertification": true,
+      "appealResearchHandoff": 7,
+      "appealSourceView": 8,
+      "publicationObjections": 10,
+      "publicationAttestationRegressionPassed": true,
+      "permanentEvidenceTransport": 4
+    },
+    "liveWorkerVersion": "799675f1-e7c3-4d81-bb7c-f4da6c966d0d",
+    "workerRedeploymentNeededForLaterLocalOnlyFixes": false,
+    "productionStatus": "Actual native semantic assembly completed all 30 words / 443 uses; source-backed reviewer miscorrection repaired in the same Goal. Seven independent example appeals, packaging, mobile QA and formal publication still pending.",
+    "readerQa": "Prepared actual-chapter-only touch-view QA; will bind to packed candidate digest, not claim self-written fixtures validate this chapter",
+    "newSubscriptions": 0,
+    "newPaidGenerationApiCalls": 0,
+    "newTtsCalls": 0,
+    "caseResearchDelivery": "Actual task3 evidence exposed refs-only source loss. collect assigns every retained case complete recordIds; independent reviewer receives uncited searches and rejected candidates as well as direct quotes, with actual-record transport verification and no approval claim.",
+    "longOriginalTransport": "Actual C008_04 exceeded the single-case prompt limit with its338461-character book. Complete originals remain fixed and archived; exact quoted windows, full digests/lengths and offsets explicitly show partial model reading, all executed search returns stay complete. Actual isolated-case projection246284chars, no model or approval claim.",
+    "sourceCounterevidence": {
+      "normalAssemblyReceivesVerifiedOriginalQuote": true,
+      "bothSignersAndPublishPreflightBlockUnresolvedBeforeKeyOrNetwork": true,
+      "resolutionBoundToExactContextAndOriginal": true,
+      "contextDriftReopens": true,
+      "actualCase": "C011_08-historical-event-time",
+      "actualCaseState": "Resolved by the existing native Sol/high assembly after actual original re-reading; English, translation, continuous witness and both disposition records corrected",
+      "nativeGoalIdentityAndObjectiveUnchanged": true,
+      "actualResolution": {
+        "contextDigest": "2371f1ad1260513e265bfbe63b3a23f67f4d3f3e0ec7ed6cb90a2f8c30d4ad00",
+        "sourceDigest": "91fd37980fe5832e1215ff6c9376b5b61b5e5706597e10113cd20b225ac7dc45",
+        "note": "实际读固定原件[334903,338603)及task-2 handoff；两点至四点/四点半明确支持afternoon gathering/午后聚会。纠正总装近段morning误判，支持上下文纳入authenticUse，英中/changes/choices/exampleCoverage同步，旧判断存revision研究。",
+        "resolvedAt": "2026-11-02T22:09:53.969Z"
+      },
+      "retainedOriginalIndependentOfCache": true
+    },
+    "readerFix": {
+      "commit": "d4e136d",
+      "shellVersion": 68,
+      "issue": "Actual indexed word appeared beneath sticky toolbar while footer still reported previous word",
+      "change": "Current-word boundary includes sticky toolbar and one pixel rounding tolerance; document geometry and jump coordinates unchanged",
+      "actualChapterQa": {
+        "chapterDigest": "4625962b87da83c60138185ec44a4c460b3a96aadef32b37abeba5f3aeb1f476",
+        "sourceDigest": "695c3c6e2ca7b26ecd714e386609a2bf00c185e1c16b2917bd05d4474642c26a",
+        "checks": 30,
+        "viewports": [
+          "402x874",
+          "320x620"
+        ],
+        "indexPositions": [
+          1,
+          15,
+          30
+        ],
+        "screenshotsActuallyInspected": true,
+        "scope": "Actual packed chapter bytes, local reader assets, isolated APIs; Chromium touch simulation, not physical iOS Safari"
+      },
+      "contextReaderRegressionPassed": true,
+      "historicalChapterRegression": {
+        "chapter": "2026-10-23",
+        "interiorCoordinates": 44,
+        "naturalEdges": 20,
+        "staticJumps": 3,
+        "errors": 0
+      },
+      "deployed": true,
+      "liveReaderAssetHashesVerified": 16,
+      "newModelOrPaidCallsFromUiQa": 0
+    },
+    "currentIndependentReview": {
+      "initialReviewed": 7,
+      "initialUniqueExecutions": 6,
+      "initialNeedsResearch": 7,
+      "originalAppealsApproved": 0,
+      "convertedToReal": [
+        "C005_20",
+        "C006_13",
+        "C008_04",
+        "C010_15",
+        "C027_16"
+      ],
+      "remainingExamples": [
+        "C027_05",
+        "C027_08"
+      ],
+      "productionPublished": false
+    },
+    "candidateMobileQa": {
+      "chapterDigest": "9fb229b72c30ab1736169ee4c752a1d3a134aa0c61daa16705958334d9977493",
+      "sourceDigest": "89c220a30cf8dc48c842e7f5db71928554a06c0c454ac0df4ff3d25f2621fe2e",
+      "checks": 74,
+      "allPassed": true,
+      "errors": [],
+      "affectedUseTranslationCount": 7,
+      "indexWordPositions": [
+        1,
+        5,
+        6,
+        8,
+        10,
+        15,
+        27,
+        30
+      ],
+      "viewports": [
+        "402x874",
+        "320x620"
+      ],
+      "scope": "Actual packed chapter bytes in actual local reader; isolated GET APIs and local reading-progress acknowledgment, Chromium touch simulation only, not physical iPhone Safari or live auth proof"
+    }
+  },
+  "updatedAt": "2026-11-02T22:57:24.211Z"
 }
