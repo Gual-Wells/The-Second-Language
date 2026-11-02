@@ -225,7 +225,12 @@ async function route(request, env) {
       if(saved.digest!==sources.digest)throw Error('来源包上传摘要不一致');
       publicationStoragePhase='body-put';
       await bucket.put(key,value.markdown,{httpMetadata:{contentType:'text/markdown; charset=utf-8'}});
-    }catch{console.error(JSON.stringify({event:'publication_storage_failed',phase:publicationStoragePhase}));return json({error:'章节或来源包永久封存未完成，请保留本次产物后重试'},503);}
+    }catch(error){
+      const message=String(error?.message||'');
+      // Categories only: never log provider URLs, tokens, credentials or bodies.
+      const reason=/D1|SQL/i.test(message)&&/quer|subrequest/i.test(message)&&/too many|limit|exceed/i.test(message)?'d1-request-limit':/subrequest/i.test(message)&&/too many|limit|exceed/i.test(message)?'subrequest-limit':/memory.*limit|limit.*memory/i.test(message)?'memory-limit':/RPC|dispose/i.test(message)?'rpc-lifecycle':error?.storageProvider==='onedrive'?'legacy-onedrive':/D1_ERROR|SQLITE_/i.test(message)?'d1-error':'storage-error';
+      console.error(JSON.stringify({event:'publication_storage_failed',phase:publicationStoragePhase,reason}));return json({error:'章节或来源包永久封存未完成，请保留本次产物后重试'},503);
+    }
     await env.CHAPTERS.put(key,value.markdown,{expirationTtl:30*86400});
     await env.DB.batch([env.DB.prepare(`INSERT OR IGNORE INTO chapter_revisions
       (digest,chapter_id,study_date,number,title,subtitle,word_count,content_key,run_id,vix_commit,protocol_commit,created_at)
