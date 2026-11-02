@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "date": "2026-11-02",
-  "status": "validated-for-installation",
+  "status": "installed-for-new-runs",
   "decision": "Native Codex Goals for new daily formal chapters; existing runs keep their actual engine",
   "engine": "codex-goal-v1",
   "model": "gpt-6.1-sol",
@@ -57,7 +57,8 @@
     "successfulAndUnknownBillingOriginals": true,
     "existingPublicationChecks": true,
     "existingTwentyHourWindow": true,
-    "originalWindowsScheduler": true
+    "originalWindowsScheduler": true,
+    "currentFirstChapterObservedPhase": "Original DIGR bounded repair; no Goal migration"
   },
   "sourceFiles": {
     "scripts/lib/codex-app-server.mjs": "838f35567e5459e308b6dda781e6dc26c78211a77c821a52fb9d09b18e6982c5",
@@ -72,5 +73,18 @@
     "protocol/DIGR_ADAPTER.md": "17a0b0cbb7ea42c3c76c49000ef21c4ecfac974ab3d4584d5d4361e0218b5637",
     "AGENTS.md": "dd01317fda14073b1aab5bfa153dceb93baf7e26527d289bb1403b9d2fb4890e"
   },
-  "verifiedAt": "2026-11-02T15:53:38.201Z"
+  "verifiedAt": "2026-11-02T15:53:38.201Z",
+  "installation": {
+    "runtimeRoot": "D:/CodexStorage/workspaces/second-language-certification-reader",
+    "sourceCommit": "7faefe4cd90f0208efa3b9de54e1747b9c9f0c28",
+    "sourceFilesVerified": 11,
+    "originalWindowsEntry": "scripts/run-daily.ps1",
+    "scheduledTaskChanged": false,
+    "currentRunRootProcessUnchanged": true,
+    "nativeGoalCallsInExistingFirstChapter": 0,
+    "defaultRestVerified": true,
+    "audioSelectionVerified": [],
+    "githubMainUpdated": true,
+    "installedAt": "2026-11-02T15:57:37.018Z"
+  }
 }
