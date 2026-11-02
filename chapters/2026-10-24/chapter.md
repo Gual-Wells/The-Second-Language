@@ -2809,7 +2809,7 @@ The intensity is diminishable by adjusting the control.
 <!-- END_CONTEXT:CU01703a -->
 <!-- USE:U01704 -->
 ## diminution /ˌdɪməˈnuʃən/ n. · 减少过程
-`大小、重要性或强度减少的行为或实例，属于正式用语，常用 diminution in/of something。`
+`大小、重要性或强度减少的行为或实例，属于正式用语，一般作不可数名词，常用 diminution in/of something；具体描述时也可用 a diminution，如 a slight diminution 表示轻微的下降。`
 
 <!-- CONTEXT:CU01704a USE:U01704 KIND:example -->
 <!-- CONTEXT_META:{"title":"","sourceUrls":[]} -->

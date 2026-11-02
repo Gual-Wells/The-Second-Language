@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-02",
+  "scope": "formal Chinese reader quality, bounded high/xhigh experiment, authentic-discourse sourcing",
+  "implemented": [
+    "v5 counterreview receives the necessary original sources; unsupported major withdrawal remains needs_evidence",
+    "new publication requires actual digest-bound review and a signature from the independent complete local validator",
+    "delta publication inherits real prior review and cannot overwrite an intervening publication",
+    "old v3/v4 identities, lost acknowledgements and fixed historical artifacts retain their original semantics",
+    "explicit HTTP-200 soft-404 pages cannot become valid article reads",
+    "source discovery retains actual query and domain inputs; directory/RSS discovery is not described as full-text search",
+    "native project Codex data-runner HTTP/stream retries disabled to preserve unknown-work protection",
+    "immutable evidence HEAD/GET may recover from a transient network or gateway failure once; uploads are never blindly resent",
+    "file-service diagnostics expose only bounded status and error-kind fields"
+  ],
+  "admissionTrustBoundary": "A signature proves complete validation of fixed bytes at issuance. The hot server verifies the signature and immutable bindings, not the whole 26MB package again. Permanent GET/SHA readback is still required; HEAD alone cannot detect same-size provider corruption. A compromised local validator or private key is outside this guarantee.",
+  "effortExperiment": {
+    "status": "partial-safely-closed",
+    "plannedUses": 28,
+    "completedPairedUses": 18,
+    "completedPairedFamilies": 4,
+    "high": {
+      "provenSemanticErrorsFound": 0,
+      "readerFieldAdaptationIssues": 5,
+      "totalTokens": 73253,
+      "callMinutes": 10.39
+    },
+    "xhigh": {
+      "provenSemanticErrorsFound": 0,
+      "readerFieldAdaptationIssues": 3,
+      "totalTokens": 91574,
+      "callMinutes": 19.72
+    },
+    "unpairedHighUses": 10,
+    "unpairedXhigh": "stream disconnected; no terminal answer or exact usage recovered; unknown cost, not zero; not resent",
+    "limits": "Purpose sample, two completed packets, once per arm, review from the same model family, not independent human validation; 2 input-token ambient differences per paired packet. Not evidence of model equivalence or whole-chapter quality, and not a subscription-percentage estimate.",
+    "decision": "Keep high. Require demonstrated source-backed semantic benefit on a fixed unresolved scope before a targeted xhigh comparison; no global return to max/ultra."
+  },
+  "authenticPilot": {
+    "baselineContexts": {
+      "authentic": 184,
+      "total": 732,
+      "percent": 25.1366
+    },
+    "baselineUses": {
+      "withAuthenticContext": 186,
+      "total": 685,
+      "percent": 27.1533
+    },
+    "purposeSampleUses": 30,
+    "strata": [
+      "ordinary-available",
+      "construction-or-phrase",
+      "long-tail-derived"
+    ],
+    "drafts": 6,
+    "newSearchQueryObjects": 35,
+    "readAttempts": 13,
+    "successfulReads": 12,
+    "independentReview": "3 drafts may enter normal adoption; 2 needed local fidelity corrections; 1 has adoption conditions unresolved. Separate version/territory rights questions remain open. This is not six publishable replacements.",
+    "repairs": [
+      "restore evolution of strategy USE rather than strategy formation",
+      "preserve that the cap turned out well while the clothes were clumsily made"
+    ],
+    "formalReplacements": 0,
+    "eightyPercentClaim": false,
+    "nextEvidenceNeeded": "Resolve pending originals, sense/form matches and publication conditions across the frozen sample before expanding; report strata and total cost, keep the denominator and all difficult senses. A full chapter would need at least 402 net context replacements at the present denominator."
+  },
+  "c01NarrowCorrection": {
+    "scope": "W017/U01704 fused explanation only: formal register and generally uncountable diminution, while retaining a diminution/a slight diminution",
+    "chapterDigest": "172d98b24cfeebbd2d59bcb5fa9b30569d7ae691c56e36cf496c0fdca5106a58",
+    "sourceDigest": "20fec54083e01452e8b91df6bc44b97969ceed5de5fac36a1884f948a9701e97",
+    "evidenceDigest": "f96442d649aae2a9091715137bb2e40cd495c660fbac445ad5f64f32c71c936a",
+    "reviewDigest": "33366114043412ff3139a431e88e549be8f36ddfa3381975d98e96e1a6d65993",
+    "attestationDigest": "b849ff78ed9f2cc9e621778aa7f41488ab992b7875bb1097423544d8ef7c4fcc",
+    "wordCount": 50,
+    "uses": 685,
+    "contexts": 732,
+    "unchangedAudioUnits": 807,
+    "state": "published-and-live-verified",
+    "liveVerification": {
+      "checkedAt": "2026-11-02T03:47:38.611Z",
+      "chapterDigest": "172d98b24cfeebbd2d59bcb5fa9b30569d7ae691c56e36cf496c0fdca5106a58",
+      "sourceDigest": "20fec54083e01452e8b91df6bc44b97969ceed5de5fac36a1884f948a9701e97",
+      "evidenceDigest": "f96442d649aae2a9091715137bb2e40cd495c660fbac445ad5f64f32c71c936a",
+      "reviewDigest": "33366114043412ff3139a431e88e549be8f36ddfa3381975d98e96e1a6d65993",
+      "attestationDigest": "b849ff78ed9f2cc9e621778aa7f41488ab992b7875bb1097423544d8ef7c4fcc",
+      "signatureVerified": true,
+      "oldChapterAndSourcePreserved": true,
+      "wordCount": 50,
+      "uses": 685,
+      "contexts": 732,
+      "audioUnits": 807,
+      "audioPlanUnchanged": true,
+      "restRequested": true,
+      "anonymousPracticeStatus": 401
+    }
+  },
+  "costAndExecution": {
+    "newPaidApiCalls": 0,
+    "newTtsCalls": 0,
+    "newSubscriptions": 0,
+    "newRecurringServices": 0,
+    "codexSubscriptionExperimentUsed": true,
+    "backgroundDefault": "high",
+    "dailyRestPreserved": true
+  },
+  "privateEvidenceLocation": "D:/CodexStorage/research/second-language-quality-implementation-20261102",
+  "dataBoundary": "Original textbook/source packets, experiment prompts and answers, private review originals and private keys are not included in this repository report.",
+  "deployment": {
+    "apiVersion": "f74f0add-c6f5-4f25-9dcf-26a04bf30891",
+    "filesVersion": "e947cd06-a4b8-4563-87a2-150bb413186b",
+    "migration": "0029_publication_review.sql",
+    "qualityPolicy": "chapter-quality-v5-counterevidence",
+    "filesIncident": "Observed upstream HTTP403, followed by valid 200/404; recovered same immutable objects. Root provider cause remains undetermined; not claimed permanently fixed."
+  }
+}
