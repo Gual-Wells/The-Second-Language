@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "recordedAt": "2026-11-02T17:36:14.637577+00:00",
-  "status": "source-verified-deployment-pending",
+  "status": "deployed-verified; content refinement and actual appeals still pending",
   "userRule": {
     "defaultAuthenticPercent": 100,
     "observedTargetPercent": 80,
@@ -70,7 +70,7 @@
     "noProductionKeysUsedInFixtures": true,
     "realModelCalls": 0,
     "ttsCalls": 0,
-    "newApiCalls": 0
+    "newPaidGenerationApiCalls": 0
   },
   "outstanding": {
     "reviewerMode": "awaiting user choice from pending asynchronous question; no automatic reviewer enabled",
@@ -80,5 +80,38 @@
     "newSubscriptions": 0,
     "thisChangeModelCalls": 0,
     "futureReview": "bounded isolated Sol/high calls consume existing ChatGPT allowance only when selected and invoked; no unknown automatic retries"
-  }
+  },
+  "release": {
+    "commit": "d31a8cde07f431a20ebb53457459e591de2aac78",
+    "workerVersion": "912b94cd-8625-49d9-bc32-45c3f034290d",
+    "migration": "0031_fallback_appeals.sql",
+    "migrationApplied": true,
+    "fallbackAppealsRequired": true,
+    "temporaryRunHoldCleared": true,
+    "mainPushed": true,
+    "runtimeFastForwarded": true,
+    "frontendChanged": false
+  },
+  "liveReadback": {
+    "checkedAt": "2026-11-02T17:38:02.792Z",
+    "catalogueStatus": 200,
+    "formalChapterCount": 0,
+    "settingsStatus": 200,
+    "restRequested": true,
+    "audioNextParts": null,
+    "anonymousChapterStatus": 401,
+    "malformedStage": {
+      "status": 400,
+      "code": null,
+      "error": "正式章节须有 50 个主词，与固定词数合同一致"
+    },
+    "nonexistentCommit": {
+      "status": 404,
+      "code": null,
+      "error": "暂存章节不存在"
+    },
+    "noProductionContentWritten": true,
+    "limit": "Online smoke checks verify access, catalogue, rest and removal of the temporary unconditional hold. Strict admit/reject cases were tested against the real Worker code in isolated SQLite/storage; no artificial production chapter was published."
+  },
+  "comparisonLimit": "The two products use different word selections, chapter sizes and witness standards. Their percentages are not a controlled comparison of pipeline quality."
 }
