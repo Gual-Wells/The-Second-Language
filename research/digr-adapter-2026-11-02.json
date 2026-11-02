@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-02",
+  "scope": "Second Language research/publication domain adapter to the existing native DIGR architecture",
+  "implementationCommit": "9e0356e781bf44949a57f1c43f7178a24149427b",
+  "runtime": {
+    "repository": "Gual-Wells/Deep-Iteration-GPT-Runtime",
+    "requestedRef": "stable",
+    "verifiedCommit": "6fdde982c2c804efe9702fd4cdd2f715b0aaf421",
+    "verifiedVersion": "5.0.0-alpha.5",
+    "authority": "Live direct GitHub ref/branch consensus, manifest/VERSION consistency, same-SHA bytes; subsequent calls resolve stable again",
+    "nativeExecutionEngineCopiedIntoProject": false,
+    "localParameterDefaultsOrScheduler": false
+  },
+  "domainBindings": [
+    "explicit research/daily/revision task packets with actual project protocol snapshots",
+    "frozen content/VIX/revision identities independent of runtime authority",
+    "append-only bindings for fixed inputs created during a fresh daily task",
+    "immutable actual candidate files and source evidence in native stores",
+    "original complete local publication preflight, explicitly separate from semantic truth and actual online publication",
+    "rest-before-model daily launcher with the existing high model configuration"
+  ],
+  "activation": {
+    "activeProjectUpdated": true,
+    "dailyTask": "SecondLanguage-DailyCodex",
+    "taskStateAfterInstall": "Ready",
+    "taskEnabledAfterInstall": true,
+    "dailyTaskStartedByInstallation": false,
+    "restRequested": true
+  },
+  "validation": {
+    "fixtureInteroperabilityChecksPassed": 20,
+    "fixtureExternalRequests": 0,
+    "actualPublicGitHubHostBoot": true,
+    "actualNativeClockSamples": 3,
+    "actualVerifiedProtocolMembers": 18,
+    "bootSmokeTerminalState": "ABORTED deliberately after successful boot, before a task contract; not a course production run",
+    "realExistingChapterFullLocalAdmission": true,
+    "powershellLauncherSyntax": "passed",
+    "liveCurrentChapterAndSourceReadback": "passed",
+    "anonymousProtectedRouteStatus": 401
+  },
+  "preservedChapter": {
+    "date": "2026-10-24",
+    "chapterDigest": "172d98b24cfeebbd2d59bcb5fa9b30569d7ae691c56e36cf496c0fdca5106a58",
+    "sourceDigest": "20fec54083e01452e8b91df6bc44b97969ceed5de5fac36a1884f948a9701e97",
+    "evidenceDigest": "f96442d649aae2a9091715137bb2e40cd495c660fbac445ad5f64f32c71c936a",
+    "contentChangedByAdapter": false
+  },
+  "hostLimit": "The pinned native Windows clock lacks boot_id. Same persistent Python process is supported; cross-process native resume fails closed. Preserve original run evidence and resume project artifacts under a fresh valid invocation without inventing clock continuity.",
+  "boundaries": {
+    "curriculumQualityOrEightyPercentClaim": false,
+    "additionalModelApiCalls": 0,
+    "additionalCodexChildModelCalls": 0,
+    "ttsCalls": 0,
+    "newSubscriptions": 0,
+    "newModelDefault": false,
+    "privateMaterialsAndFullRunStateCommitted": false
+  },
+  "privateEvidence": "D:/CodexStorage/research/digr-language-adapter-20261102",
+  "operatorGuide": "protocol/DIGR_ADAPTER.md"
+}
