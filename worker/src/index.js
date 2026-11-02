@@ -207,12 +207,15 @@ async function route(request, env) {
     if(run?.selection_digest&&run.selection_digest!==value.sourcePackage.selectionDigest)return json({error:'来源包与最终选词摘要不一致'},409);
     if(env.ONEDRIVE_ENABLED!=='true')return json({error:'新章及来源包必须先完成永久封存'},503);
     const number=prior?.number||await numberForDate(env.DB,value.date),bucket=permanentBucket(env);
+    let publicationStoragePhase='evidence-head';
     try{
       await verifyChapterEvidence(env,value.sourcePackage,value.runId);
+      publicationStoragePhase='source-put';
       const saved=await bucket.put(sources.key,sources.text,{httpMetadata:{contentType:'application/json; charset=utf-8'}});
       if(saved.digest!==sources.digest)throw Error('来源包上传摘要不一致');
+      publicationStoragePhase='body-put';
       await bucket.put(key,value.markdown,{httpMetadata:{contentType:'text/markdown; charset=utf-8'}});
-    }catch{return json({error:'章节或来源包永久封存未完成，请保留本次产物后重试'},503);}
+    }catch{console.error(JSON.stringify({event:'publication_storage_failed',phase:publicationStoragePhase}));return json({error:'章节或来源包永久封存未完成，请保留本次产物后重试'},503);}
     await env.CHAPTERS.put(key,value.markdown,{expirationTtl:30*86400});
     await env.DB.batch([env.DB.prepare(`INSERT OR IGNORE INTO chapter_revisions
       (digest,chapter_id,study_date,number,title,subtitle,word_count,content_key,run_id,vix_commit,protocol_commit,created_at)
