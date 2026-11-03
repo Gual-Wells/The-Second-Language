@@ -1,0 +1,146 @@
+{
+  "version": 1,
+  "date": "2026-11-03",
+  "scope": "第一章后台完整例句块音频；近期30词、单正文、真实语境申诉、Goal、音频及存储改造与原成型模块的衔接审计",
+  "conclusion": "核心内容消费者已有新格式适配，但运行入口、音频故障恢复、存储移交、费用观测、回归夹具及教材入口的工程收束并不完整。实际音频阻碍已修补；下列未解决项继续明确保留。",
+  "chapter": {
+    "id": "2026-11-02",
+    "digest": "9fb229b72c30ab1736169ee4c752a1d3a134aa0c61daa16705958334d9977493",
+    "format": "usage-context-v1",
+    "mainWords": 30,
+    "uses": 443,
+    "contexts": 429,
+    "sentences": 809,
+    "multiSentenceContexts": 343,
+    "wholeBlockCharacters": 97914,
+    "contentChangedByAudit": false
+  },
+  "verifiedMappings": [
+    {
+      "module": "章节测试",
+      "result": "真实章提供30份逐词全文，自然共享语境无缺句；20个不重复目标、其中7个口头题。20题是原理解测试合同，独立于每章30主词，保留合理。",
+      "code": ["protocol/chapter-test-contract.mjs:sourceWords", "protocol/chapter-test-contract.mjs:chapterTestTargets"]
+    },
+    {
+      "module": "临时复习",
+      "result": "对本章30个词逐一生成隔离复习正文，语境数和句数均与该词实际关联范围一致；不导入相邻词的无关解释。",
+      "code": ["scripts/lib/context-review.mjs:buildContextReview"]
+    },
+    {
+      "module": "独立质检的目标映射",
+      "result": "2248个唯一目标：30来源、30词源、443用法、457句义绑定、429整块译文、429语境来源、429整块语篇、1全局。目标映射已适配；教材入口另列未解决项。v4前端能力名与v5执行策略是显式兼容别名，并非降级。",
+      "code": ["protocol/chapter-quality-contract.mjs:qualityTargets", "worker/src/chapter-quality.js:capabilities"]
+    },
+    {
+      "module": "答疑、提醒及API恢复",
+      "result": "固定版本全文、追问上下文、去重、未知结果保护、回推与通知提交的隔离检查通过。此次未发真实模型问答。",
+      "checks": ["check-chapter-questions.mjs", "check-cloud-questions.mjs", "check-question-notifications.mjs"]
+    },
+    {
+      "module": "雅思与永久存储原件",
+      "result": "两份原测试因缺少新正式来源登记而失败。在隔离副本中仅补正式来源身份后，原练习全流程与固定正文历史读取通过；生产代码未由此改写。",
+      "originalChecks": ["check-practice-closure.mjs", "check-storage-read.mjs"],
+      "fixtureAdaptation": "只在.cache/module-alignment-audit-20261103中补充formal source登记，不修改正式记录、不调用提供商。"
+    },
+    {
+      "module": "Goal与旧运行生命周期",
+      "result": "原生Goal传输/恢复、high档、休息早退、真实原件校验及旧DIGR身份隔离的28项夹具检查通过。未启动日课，也未证明尚未闭合的教材入口可以正常再生产。",
+      "checks": ["check-codex-goal.mjs"]
+    },
+    {
+      "module": "点读、预下载与音频归档",
+      "result": "共同使用完整例句块身份与白名单，429块无不支持或截句；音频库和打包按同一白名单筛选。已购声音跨章节复用时仍须提交原关联路径，不能只查询ready就跳过本章关联。",
+      "code": ["web/audio-plan.js", "web/audio-library.js", "scripts/storage-upgrade.mjs", "worker/src/storage.js"]
+    }
+  ],
+  "findings": [
+    {
+      "id": "A01",
+      "severity": "high",
+      "status": "unresolved",
+      "module": "教材和VIX边界",
+      "evidence": ["scripts/lib/chapter-quality-runner.mjs:44-49", "scripts/lib/textbook-sources.mjs:19-30", "scripts/prepare-vix.mjs:17"],
+      "finding": "当前运行代码仍由VIX commit加载textbook，备课输入还包含seed5-runtime/textbook；质检先调用旧全书加载器，然后恢复本章出版证据。这超出用户目前仅允许辅助索引的边界。独立资料库加固0797aa8仍在分支上，未进入正式运行。",
+      "impact": "当前已发布正文不因此丢失，但不能宣布下一章生产和独立教材质检已经完全可复现、合规闭合。",
+      "next": "本章先恢复同版封存材料；独立补查须从获准的第二语言资料库取得全书，保持独立检查漏义的能力，不能只用作者摘录冒充全书审阅。本轮未执行禁用资料读取。"
+    },
+    {
+      "id": "A02",
+      "severity": "high",
+      "status": "fixed",
+      "module": "音频后台异常恢复",
+      "finding": "106/429处网关返回HTML，旧执行器直接按JSON解析后退出；终态上传也可能失败，使云端保留running假象。单项异常原本会阻断其余独立语境。",
+      "change": "分类响应，查询原身份；已购复用并维护本章关联，unknown不自动重发；缺项先落原子断点再更新云端游标，保跨进程缺项；独立块继续，连续三项失败停止；末尾只读复核已恢复的缺项。",
+      "checks": ["check-audio-request-runner.mjs"],
+      "originalUnknown": {
+        "context": "C006_29",
+        "generationId": "9574c1b66b6630f736471a6bd2de30ddf9c123451f9706f42d3f4350c561d20b",
+        "originalRecordDigest": "ddd1b6eaae6dc7211f85aa00bdf1c522f19e8deed814e7b8b1a4aaf0636c48cd",
+        "explicitlyAuthorizedRetryPosts": 1,
+        "recoveredState": "ready"
+      }
+    },
+    {
+      "id": "A03",
+      "severity": "high",
+      "status": "partly_fixed",
+      "module": "实际后台入口与仓库版本",
+      "finding": "日课、归档、卷轴在正式运行目录；音频和章节问答在maintenance副本，雅思仍在旧目录。散落入口容易使发布与实际执行错版。逐项内容比较显示：问答执行器仅import顺序不同，两个质检策略均v5，不能据hash不同宣称功能已坏。",
+      "change": "音频任务已在旧进程保存在途结果并退出后，转到second-language-certification-reader；同一个任务的plan/checkpoint/result逐份SHA验证移交，触发周期、互斥及凭据保持。",
+      "remaining": "其他后台入口仍需按模块实际依赖分批核验并收束，未在音频任务里盲目覆盖维护副本。"
+    },
+    {
+      "id": "A04",
+      "severity": "high",
+      "status": "recovery_deployed_under_observation",
+      "module": "新音频和永久文件归档",
+      "finding": "新声音成功后转存/回执发生500，D1故障副本累计到约31MiB保护线；旧归档在首个compact失败即停止整批。本次观察到同一成功资产首次500、之后200，底层首个失败的精确原因未获可靠日志，不能假称已经确定。",
+      "change": "已购声音转存增加最多3次幂等回执恢复，不调用TTS；实际永久索引数量已从6增长到26、D1音频副本从32516040降到30465360字节。对服务端明确的收费前存储保护拒绝，原队列等待归档并五分钟后续领，不扩大容量上限或清理未知账本。",
+      "remaining": "继续以实际转存、预下载清单和整章状态验证结束；未完成前不能称429份全部可离线下载。"
+    },
+    {
+      "id": "A05",
+      "severity": "medium",
+      "status": "unresolved",
+      "module": "规模统计和额度提醒",
+      "finding": "chapterFootprint仍按808份去重单句报告eligibleAudio，而现行合成单元是429个块；task-quotas仍是默认不预生成、0-45000字符的旧预留。本章完整输入97914字符，实际本次新生成报价按97635字符正确计算。",
+      "impact": "实际TTS计划与收费身份正确，但制作报告、余额页流程解释及提前提醒预留不能完整代表新默认。",
+      "next": "统计改用共享audioUnits和实际定稿报价，下一章预算以新格式样本校准；保留零成本缓存复用，不把观测区间变成正文长度限制。"
+    },
+    {
+      "id": "A06",
+      "severity": "medium",
+      "status": "unresolved",
+      "module": "回归验证体系",
+      "finding": "部分成熟检查仍使用没有正式来源登记的旧夹具，会产生假失败；旧publishing-closure也还在仓库，README已将其排除。此次只有隔离副本适配通过，不能说原脚本已全部收束。",
+      "next": "明确当前与历史测试入口并升级夹具；将真实30词、多句块、共享语境和正式来源范围纳入一个持续运行的回归入口。"
+    },
+    {
+      "id": "A07",
+      "severity": "medium",
+      "status": "partly_fixed",
+      "module": "协议文字一致性",
+      "finding": "DAILY_RUN开头仍写音频不生成，后部已写发布后默认生成；AUDIO_CONFIGURATION价格说明仍是旧上界。",
+      "change": "已统一这两处现行音频声明；带日期历史事件保留历史语义。",
+      "remaining": "BALANCES与task-quotas的旧规划说明须与A05一起校准，避免仅改文案而预算仍是旧值。"
+    }
+  ],
+  "evidence": {
+    "privateDirectory": ".cache/module-alignment-audit-20261103",
+    "actualChapterCompatibility": "compatibility.json",
+    "runtimeMap": "runtime-map.json",
+    "audioHandoff": ["audio-task-before.xml", "audio-task-after.xml", "audio-files-handoff.json"],
+    "otherPassingChecks": ["check-chapter-quality.mjs", "check-chapter-quality-counterevidence.mjs", "check-context-quality-evidence.mjs", "check-federated-storage.mjs", "check-project-storage-client.mjs"],
+    "limits": "代码、结构和隔离夹具验证不等于语义质量、真实模型表现、实际iPhone体验或已完成全章归档。审计未启动新的日课/择词/标注，也未改变正文。"
+  },
+  "audioJob": {
+    "id": "e2fbed85-4b1e-40ec-91ac-64b1261951ca",
+    "parts": ["contexts"],
+    "unitPolicy": "context-blocks-v1",
+    "total": 429,
+    "quoteNewCharacters": 97635,
+    "quoteCny": [0.4237359, 2.73378],
+    "budgetExchangeCnyPerUsd": 7,
+    "statusNote": "进度为持续变化的运行状态，应读取/api/audio-config及实际成功索引；本审计不把入队视为完成。无新增订阅。"
+  }
+}
