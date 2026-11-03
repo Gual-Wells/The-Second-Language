@@ -1,28 +1,37 @@
 import {randomBytes} from 'node:crypto';
-import {mkdir,writeFile} from 'node:fs/promises';
+import {mkdir,readFile,writeFile,rename} from 'node:fs/promises';
 import {publisherConfig} from './lib/publisher-config.mjs';
 import {finishTaskBalances} from './check-balances.mjs';
+import {readAudioResponse,retryAudioRead,prepareAudioUnit,recoverAudioBlocked} from './lib/audio-request-runner.mjs';
 const {base,token}=await publisherConfig();
-async function api(path,body){const r=await fetch(new URL(path,base),{method:'POST',headers:{authorization:`Bearer ${token}`,'content-type':'application/json'},body:JSON.stringify(body),signal:AbortSignal.timeout(270000)});const b=await r.json();if(!r.ok)throw Error(b.error||`HTTP ${r.status}`);return b;}
+async function api(path,body,{method='POST',timeoutMs=270000}={}){let r;try{r=await fetch(new URL(path,base),{method,headers:{authorization:`Bearer ${token}`,'content-type':'application/json'},...(method==='GET'?{}:{body:JSON.stringify(body)}),signal:AbortSignal.timeout(timeoutMs)});}catch{throw Object.assign(Error('声音服务连接中断，请求结果需按原身份查询'),{transportUnknown:true});}return readAudioResponse(r);}
 const claim=randomBytes(32).toString('hex'),{job}=await api('/api/audio-config/jobs/claim',{claim});if(!job)process.exit(0);
 const directory=`work/audio-requests/${job.id}`;await mkdir(directory,{recursive:true});await writeFile(directory+'/plan.json',JSON.stringify(job,null,2));
-let cursor=job.cursor,blocked=job.units.filter(u=>u.unsupported).map(({text,ipa})=>({text,ipa})),state='running',failure='';
-const progress=()=>api('/api/audio-config/jobs/progress',{id:job.id,claim,cursor,state,error:failure});
+let cursor=job.cursor,blocked=[],state='running',failure='',consecutiveBlocked=0,progressChain=Promise.resolve();
+const progress=()=>progressChain=progressChain.catch(()=>{}).then(async()=>{
+ const checkpoint={jobId:job.id,digest:job.digest,total:job.units.length,cursor,state,blocked};
+ await writeFile(directory+'/checkpoint.tmp',JSON.stringify(checkpoint));await rename(directory+'/checkpoint.tmp',directory+'/checkpoint.json');
+ return retryAudioRead(()=>api('/api/audio-config/jobs/progress',{id:job.id,claim,cursor,state,error:failure},{timeoutMs:30000}));
+});
 const heartbeat=setInterval(()=>progress().catch(()=>{}),60000);
 try{
+ let checkpoint=null;try{checkpoint=JSON.parse(await readFile(directory+'/checkpoint.json','utf8'));}catch(error){if(error.code!=='ENOENT')throw error;}blocked=recoverAudioBlocked(checkpoint,job);
  for(;cursor<job.units.length;){
-  const u=job.units[cursor];if(u.kind==='word'){cursor++;await progress();continue;}if(u.unsupported){cursor++;await progress();continue;}
+  const u=job.units[cursor];if(u.kind==='word'){cursor++;await progress();continue;}if(u.unsupported){blocked.push({index:cursor,id:u.id,state:'unsupported'});cursor++;await progress();continue;}
   const body={text:u.text,kind:u.kind,...(u.ipa?{ipa:u.ipa}:{}),chapterId:job.chapterId,digest:job.digest};
-  let r=await api('/api/practice/pronunciation',body);
-  for(let wait=0;r.state==='calling'&&wait<240;wait++){
-   await new Promise(resolve=>setTimeout(resolve,1000));const response=await fetch(new URL('/api/practice/pronunciation/'+r.id,base),{headers:{authorization:`Bearer ${token}`},signal:AbortSignal.timeout(30000)});if(!response.ok)throw Error('声音状态暂不可用');r=await response.json();
+  const r=await prepareAudioUnit({unit:u,body,request:api});
+  if(r.state==='waiting_credit'){state='waiting_credit';failure='余额不足，已有音频保留';break;}
+  if(r.state!=='ready'){
+   blocked.push({index:cursor,id:u.id,state:r.state});consecutiveBlocked++;
+   cursor++;await progress();
+   if(consecutiveBlocked>=3){state='needs_review';failure='连续三项声音未就绪，已停止新增请求；原结果保留';break;}
+   continue;
   }
-  if(r.id!==u.id)throw Error('声音身份不一致，停止新增生成');
-  if(r.state!=='ready'){state=r.state==='waiting_credit'?'waiting_credit':'needs_review';failure=r.state==='waiting_credit'?'余额不足，已有音频保留':'声音结果需要核对，未重复生成';break;}
+  consecutiveBlocked=0;
   cursor++;await progress();
  }
- if(state==='running'){state=blocked.length?'needs_review':'completed';failure=blocked.length?`${blocked.length} 项读音需要核对`:'';}
+ if(state==='running'){state=blocked.length?'needs_review':'completed';failure=blocked.length?`${blocked.length} 项声音结果待核对，未重复生成；其余独立例句已处理`:'';}
  await progress();await writeFile(directory+'/result.json',JSON.stringify({state,cursor,blocked},null,2));
  console.log(`音频申请 ${job.id}：${cursor}/${job.units.length}，${state}`);
-}catch(error){state='needs_review';failure=String(error.message);await progress().catch(()=>{});console.error(failure);process.exitCode=1;}
+}catch(error){state='needs_review';failure=String(error.message);await progress().catch(()=>{});await writeFile(directory+'/result.json',JSON.stringify({state,cursor,blocked,error:failure},null,2));console.error(failure);process.exitCode=1;}
 finally{clearInterval(heartbeat);await finishTaskBalances();}
