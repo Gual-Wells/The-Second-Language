@@ -13,6 +13,7 @@ import {archiveQuery} from './lib/archive-read-budget.mjs';
 import {latestRecoverySnapshot} from './lib/recovery-snapshot.mjs';
 import {pointAudioKeys,isPointAudioClip,pointAudioPolicy} from '../web/audio-plan.js';
 import {archiveStateDirectory} from './lib/local-services.mjs';
+import {readAudioResponse,retryAudioRead} from './lib/audio-request-runner.mjs';
 try{
 const {base,token}=await publisherConfig(),mode=process.argv[2]||'migrate',directory=await archiveStateDirectory(root);await mkdir(directory,{recursive:true});
 const query=await archiveQuery(queryDetailed,path.join(directory,'read-budget.json'));
@@ -89,7 +90,13 @@ if(mode==='backup'){
   const fetched=Buffer.from(await(await api(`/objects?key=${encodeURIComponent(key)}`,null,'GET')).arrayBuffer());if(digest(fetched)!==digest(bytes))throw Error('音频迁移回读失败');
   await query(practiceDatabase,`UPDATE pronunciation_audio SET audio_key=?${status.active?',audio=NULL':''} WHERE id=? AND hex(audio)=?`,[key,row.id,row.audio_hex]);report.pronunciation++;
  }
- if(status.active){const ready=await query(practiceDatabase,"SELECT id FROM pronunciation_audio WHERE state='ready'");for(const row of ready){const r=await fetch(new URL('/api/practice/pronunciation/compact',base),{method:'POST',headers:{authorization:`Bearer ${token}`,'content-type':'application/json'},body:JSON.stringify({id:row.id}),signal:AbortSignal.timeout(180000)});if(!r.ok||(await r.json()).ok!==true)throw Error('成功声音索引整理未完成；原件保留');report.compact++;}report.pronunciation=clips.length;}
+if(status.active){const ready=await query(practiceDatabase,"SELECT id FROM pronunciation_audio WHERE state='ready'");for(const row of ready){
+  // This moves already-paid bytes and is idempotent. It never calls synthesis.
+  // A lost upload/readback acknowledgement must not abort the entire archive.
+  try{await retryAudioRead(async()=>{const r=await fetch(new URL('/api/practice/pronunciation/compact',base),{method:'POST',headers:{authorization:`Bearer ${token}`,'content-type':'application/json'},body:JSON.stringify({id:row.id}),signal:AbortSignal.timeout(180000)});const result=await readAudioResponse(r);if(result.ok!==true)throw Object.assign(Error('成功声音索引回执无效'),{status:409});});}
+  catch(error){throw Error(`成功声音索引整理未完成（${error.status||'连接中断'}，${row.id.slice(0,12)}）；原件保留`,{cause:error});}
+  report.compact++;
+ }report.pronunciation=clips.length;}
  await writeFile(path.join(directory,'migration.json'),JSON.stringify(report,null,2));console.log(`已核验迁移 ${report.assets.length} 个文件、${report.pronunciation} 段点读，整理 ${report.compact} 个成功索引；保留旧 KV 副本`);
 }else if(mode==='packs'){
  const chapters=await query(mainDatabase,'SELECT chapter_id,chapter_digest AS digest,requested_at FROM chapter_audio_work');
