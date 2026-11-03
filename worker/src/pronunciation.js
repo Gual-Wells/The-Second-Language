@@ -4,7 +4,7 @@ import {sha256} from './practice-media.js';
 import {permanentBucket,chapterText} from './storage.js';
 import {pronunciationResult,savePronunciationResult,digestHex} from './pronunciation-store.js';
 import {audioDescriptor} from './audio-config.js';
-import {ipaToKokoro,isChapterAudioRequest} from '../../web/audio-plan.js';
+import {ipaToKokoro,isChapterAudioRequest,maxAudioCharacters} from '../../web/audio-plan.js';
 const json=(v,s=200)=>Response.json(v,{status:s,headers:{'cache-control':'no-store'}});
 const view=row=>({id:row.id,state:row.state,nextRetryAt:row.next_retry_at||null,audioUrl:row.state==='ready'?`/api/practice/pronunciation/${row.id}/audio`:null});
 async function associate(env,b,id){
@@ -52,10 +52,10 @@ export async function pronunciationRoute(request,env,{isPublisher,isReader,sessi
  }
  if(path!==prefix||request.method!=='POST')return json({error:'发音接口不存在'},404);
  if(!isPublisher&&(!session||!sameOrigin))return json({error:'请从已登录的阅读器申请发音'},403);
- if(Number(request.headers.get('content-length')||0)>6000)return json({error:'请选择单词或短句'},400);
- let b;try{const raw=await request.text();if(raw.length>6000)throw Error();b=JSON.parse(raw);}catch{return json({error:'发音请求无效'},400);}
+ if(Number(request.headers.get('content-length')||0)>24000)return json({error:'例句块超过单次声音请求范围'},400);
+ let b;try{const raw=await request.text();if(raw.length>24000)throw Error();b=JSON.parse(raw);}catch{return json({error:'发音请求无效'},400);}
  const text=typeof b.text==='string'?b.text.replace(/\s+/g,' ').trim():'';
- if(b.kind!=='sentence'||b.ipa||!/[A-Za-z]/.test(text)||text.length>1200||/[\u3400-\u9fff]/.test(text))return json({error:'词汇点读已停用，请选择完整英文句子'},400);
+ if(b.kind!=='sentence'||b.ipa||!/[A-Za-z]/.test(text)||text.length>maxAudioCharacters||/[\u3400-\u9fff]/.test(text))return json({error:'请选择完整英文例句块；过长块不会被拆句或截断'},400);
  let phonemes='';if(b.ipa){phonemes=ipaToKokoro(String(b.ipa));if(!phonemes||b.kind!=='word')return json({error:'这个读音需要单独核对，未发起收费生成'},422);}
  if(b.chapterId!==undefined||b.digest!==undefined){
   if(typeof b.chapterId!=='string'||!/^[a-f0-9]{64}$/.test(b.digest||''))return json({error:'章节版本无效'},400);
@@ -63,7 +63,7 @@ export async function pronunciationRoute(request,env,{isPublisher,isReader,sessi
   if(!chapter)return json({error:'章节版本不存在'},404);
   let markdown;try{markdown=await chapterText(env,chapter.content_key);}catch{return json({error:'章节原件暂不可用，未发起生成'},503);}
   if(!markdown||await sha256(markdown)!==b.digest)return json({error:'章节原件暂不可核对，未发起生成'},503);
-  if(!isChapterAudioRequest(markdown,text,b.kind,phonemes))return json({error:'请点按正文中可朗读的完整英文语境句或例句'},422);
+  if(!isChapterAudioRequest(markdown,text,b.kind,phonemes))return json({error:'请点按完整英文例句块，不接受其中的单句或片段'},422);
  }
  const descriptor=audioDescriptor(text,phonemes),id=await sha256(JSON.stringify(descriptor));
  await associate(env,b,id);
@@ -93,7 +93,7 @@ export async function pronunciationRoute(request,env,{isPublisher,isReader,sessi
    const state=r.status===402?'waiting_credit':'failed',retry=state==='waiting_credit'?null:null;
    await db.prepare('UPDATE pronunciation_audio SET state=?,response_json=?,next_retry_at=? WHERE id=?').bind(state,JSON.stringify({...metadata,raw:new TextDecoder().decode(bytes).slice(0,16000)}),retry,id).run();return json(view({id,state,next_retry_at:retry}));
   }
-  const head=new Uint8Array(bytes.slice(0,3));if(bytes.byteLength<100||bytes.byteLength>1048576||!(head[0]===73&&head[1]===68&&head[2]===51||head[0]===255&&(head[1]&224)===224))throw Error('声音文件无效或过大');
+  const head=new Uint8Array(bytes.slice(0,3));if(bytes.byteLength<100||bytes.byteLength>8*1048576||!(head[0]===73&&head[1]===68&&head[2]===51||head[0]===255&&(head[1]&224)===224))throw Error('声音文件无效或过大');
   let saved=false;
   if(env.ONEDRIVE_ENABLED==='true')try{await savePronunciationResult(env,id,descriptor,metadata,bytes);saved=true;}catch{saved=false;}
   if(!saved)await db.prepare("UPDATE pronunciation_audio SET state='ready',audio=?,audio_key=NULL,response_json=? WHERE id=?").bind(bytes,JSON.stringify({...metadata,bytes:bytes.byteLength,digest:await sha256(bytes)}),id).run();

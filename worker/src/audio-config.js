@@ -1,4 +1,4 @@
-import {audioUnits,uniqueAudioUnits,audioParts,audioPartsFor,audioCost,audioPrice} from '../../web/audio-plan.js';
+import {audioUnits,uniqueAudioUnits,audioParts,audioPartsFor,audioCost,audioPrice,contextAudioPolicy} from '../../web/audio-plan.js';
 import {ttsModel,defaultVoice,voicePolicyVersion} from '../../protocol/voices.mjs';
 import {chapterText,permanentBucket} from './storage.js';
 import {sha256} from './practice-media.js';
@@ -26,7 +26,7 @@ export async function buildAudioPlan(env,chapterId,digest,parts){
  const selectedKeys=new Set(uniqueAudioUnits(all.filter(u=>parts.includes(u.part))).map(u=>JSON.stringify([u.text,u.phonemes]))),units=indexed.filter(u=>selectedKeys.has(JSON.stringify([u.text,u.phonemes]))).map(u=>({...u,cached:states.get(u.id)==='ready',existingState:states.get(u.id)||null}));
  const estimates=availableParts.map(part=>{const list=uniqueAudioUnits(all.filter(u=>u.part===part)),newUnits=list.filter(u=>!indexed.some(v=>states.get(v.id)==='ready'&&v.text===u.text&&v.phonemes===u.phonemes)),characters=newUnits.reduce((n,u)=>n+audioDescriptor(u.text,u.phonemes).input.length,0);return{part,count:list.length,characters,cost:audioCost(characters)};});
  const characters=units.filter(u=>!u.cached).reduce((n,u)=>n+audioDescriptor(u.text,u.phonemes).input.length,0);
- return{chapterId,digest,title:chapter.title,parts,availableParts,units,estimates,characters,cost:audioCost(characters),price:audioPrice};
+ return{chapterId,digest,title:chapter.title,parts,availableParts,unitPolicy:availableParts.includes('contexts')?contextAudioPolicy:'legacy-sentences-v1',units,estimates,characters,cost:audioCost(characters),price:audioPrice};
 }
 export async function audioConfigRoute(request,env,{isPublisher,session,sameOrigin}){
  const url=new URL(request.url),p=url.pathname.replace('/api/audio-config',''),db=env.DB,now=Date.now();
@@ -35,7 +35,7 @@ export async function audioConfigRoute(request,env,{isPublisher,session,sameOrig
  let b={};if(request.method!=='GET'){try{const raw=await request.text();if(raw.length>6000)throw Error();b=JSON.parse(raw);}catch{return json({error:'申请无效'},400);}}
  if(p===''&&request.method==='GET'){
   const next=await db.prepare('SELECT parts,revision FROM audio_next_config WHERE id=1').first(),jobs=await db.prepare("SELECT id,chapter_id,parts,state,cursor,total,error FROM audio_requests WHERE state!='quoted' AND "+projectAudio+" ORDER BY created_at DESC LIMIT 15").all();
-  const saved=JSON.parse(next.parts);return json({next:saved.filter(p=>p==='contexts'),unsupportedSelection:saved.filter(p=>p!=='contexts'),supportedParts:['contexts'],revision:next.revision,jobs:jobs.results,price:audioPrice});
+  const saved=JSON.parse(next.parts);return json({next:saved.filter(p=>p==='contexts'),defaultParts:['contexts'],unitPolicy:contextAudioPolicy,unsupportedSelection:saved.filter(p=>p!=='contexts'),supportedParts:['contexts'],revision:next.revision,jobs:jobs.results,price:audioPrice});
  }
  if(p==='/next'&&request.method==='PUT'){
   const parts=partsOf(b.parts);if(!parts||parts.some(p=>p!=='contexts'))return json({error:'下一章只支持语境句音频，旧部分选配不转换为新授权'},400);
@@ -84,7 +84,12 @@ export async function audioConfigRoute(request,env,{isPublisher,session,sameOrig
   const row=await db.prepare("UPDATE audio_requests SET state='running',claim=?,lease_until=? WHERE id=? AND (state='pending' OR (state='running' AND lease_until<?)) RETURNING *").bind(b.claim,now+300000,candidate.id,now).first();if(!row)return json({job:null});
   try{let plan;if(row.plan_key)plan=await(await permanentBucket(env).get(row.plan_key)).json();else{
     plan=await buildAudioPlan(env,row.chapter_id,row.chapter_digest,JSON.parse(row.parts));const key=`audio-requests/${row.id}/plan.json`;await permanentBucket(env).put(key,JSON.stringify(plan),{httpMetadata:{contentType:'application/json'}});await db.prepare('UPDATE audio_requests SET plan_key=?,total=? WHERE id=? AND claim=?').bind(key,plan.units.length,row.id,b.claim).run();
-   }return json({job:{id:row.id,cursor:row.cursor,...plan}});
+   }
+   if(plan.parts.includes('contexts')&&plan.unitPolicy!==contextAudioPolicy){
+    await db.prepare("UPDATE audio_requests SET state='needs_review',claim=NULL,lease_until=NULL,error='原逐句音频计划已保留，未转为整块任务或继续合成' WHERE id=? AND claim=?").bind(row.id,b.claim).run();
+    return json({job:null,retainedLegacyPlan:true});
+   }
+   return json({job:{id:row.id,cursor:row.cursor,...plan}});
   }catch{await db.prepare("UPDATE audio_requests SET state='pending',claim=NULL,lease_until=NULL,error='章节资料暂不可用' WHERE id=? AND claim=?").bind(row.id,b.claim).run();return json({error:'章节资料暂不可用'},503);}
  }
  if(p==='/jobs/progress'&&isPublisher&&request.method==='POST'){

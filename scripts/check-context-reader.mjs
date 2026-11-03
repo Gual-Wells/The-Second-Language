@@ -27,7 +27,7 @@ for(let i=1;i<=wordCount;i++){
   const refs=i===1?'U00101,U00201':use;
   const meta={title:i===1?'Working together':'A reading task',sourceUrls:i===3?['https://source.context-reader.test/item']:[],displayContext:'这是独立自写的界面核验材料。',...(i===1?{speakers:{S001:'Reader A',S001b:'Reader B'}}:{})};
   lines.push(`<!-- CONTEXT:C${n} USE:${refs} KIND:${i===3?'abridgment':'example'} -->\n<!-- CONTEXT_META:${JSON.stringify(meta)} -->`);
-  lines.push(`<!-- SENTENCE:S${n} USE:${refs} -->\nA reader keeps a record and shares that **record** with a colleague.`);
+  lines.push(`<!-- SENTENCE:S${n} USE:${refs} -->\nA reader keeps a record and shares that **record** with a colleague${i===1?' before this meeting':''}.`);
   if(i===1)lines.push('\n<!-- SENTENCE:S001b -->\nThey compare the notes before making a choice.');
   lines.push(`<!-- TRANSLATION:C${n} -->\n${i===1?secret:'这位读者保留记录，并与同事分享记录。'}\n<!-- END_CONTEXT:C${n} -->`);
 }
@@ -50,6 +50,7 @@ const legacyText=await readFile('chapters/history/2026-10-24/4cc6a2f9/chapter.md
 const legacy={...legacyMeta,id:legacyMeta.date,markdown:legacyText,digest:sha(legacyText)};
 let readerUserId='isolated-reader-A';
 let qualityComplete=false;
+let pointState='failed';
 const points=[],questions=[],qualityRequests=[],checks=[],errors=[];
 const browser=await chromium.launch({headless:true,executablePath:process.env.BROWSER_EXECUTABLE||'C:/Users/huawei/AppData/Local/ms-playwright/chromium-1223/chrome-win64/chrome.exe'});
 const context=await browser.newContext({viewport:{width:402,height:874},isMobile:true,hasTouch:true,serviceWorkers:'block'});
@@ -72,7 +73,8 @@ await context.route('**/*',async route=>{
     else if(p==='/api/chapter-quality')body={requests:qualityComplete?[{id:'quality-fixture',digest:chapter.digest,status:'completed',decision:'revision_required',createdAt:Date.now()}]:[]};
     else if(p==='/api/chapter-quality/quality-fixture')body={request:{id:'quality-fixture',status:qualityComplete?'completed':'pending'}};
     else if(p==='/api/chapter-quality/quality-fixture/report')body={chapter:{id:chapter.id,digest:chapter.digest,title:chapter.title},decision:'revision_required',coverage:{completed:1,expected:1,words:wordCount},words:[{id:'W003',text:'fixture003'}],locations:{'context-source:C003':{part:'one',contextId:'C003'}},findings:[{targetId:'context-source:C003',severity:'suggestion',quote:'Only a location fixture.',explanation:'仅核对语境定位，未执行语义质检。',action:'跳转到第三份语境。'}],checks:[],limitations:['独立自写界面样例。']};
-    else if(p==='/api/practice/pronunciation'){points.push(request.postDataJSON());body={id:'a'.repeat(64),state:'failed'};}
+    else if(p==='/api/practice/pronunciation'){points.push(request.postDataJSON());body={id:'a'.repeat(64),state:pointState};}
+    else if(p.startsWith('/api/practice/pronunciation/'))body={id:'a'.repeat(64),state:pointState};
     else if(p==='/api/audio-config')body={next:['two'],supportedParts:['contexts'],revision:1,jobs:[]};
     else if(p==='/api/audio-config/estimate'){const old=request.postDataJSON().chapterId===legacy.id;body={availableParts:old?['two','three']:['contexts'],estimates:(old?['two','three']:['contexts']).map(part=>({part,cost:[0,0]}))};}
     else if(p==='/api/practice')body={sets:[]};
@@ -111,9 +113,12 @@ try{
   readerUserId='isolated-reader-A';chapter.markdown=markdown+'\n';chapter.digest=sha(chapter.markdown);await open();check('another digest never inherits revealed translations',await shared().first().getAttribute('aria-expanded')==='false');
   chapter.markdown=markdown;chapter.digest=originalDigest;await open();check('original user and version recover their own preference',await shared().first().getAttribute('aria-expanded')==='true');
   let count=points.length;await click(page.locator('.word-heading h1').first());await click(page.locator('.fused-explanation').first());await click(page.locator('.sense-quick-gloss').first());check('titles, quick glosses and definitions remain silent',points.length===count);
-  const sentence=page.locator('.context-sentence').first(),sentenceText=await sentence.innerText();await click(sentence);
-  check('context tap submits only the complete English sentence',points.length===count+1&&points.at(-1).text===sentenceText&&points.at(-1).kind==='sentence'&&points.at(-1).digest===chapter.digest);
-  check('shared server audio contract accepts rendered English only',isChapterAudioRequest(markdown,sentenceText,'sentence')&&!isChapterAudioRequest(markdown,secret,'sentence'));
+  const sentence=page.locator('.context-sentence').first(),sentenceText=await sentence.innerText(),blockText=await sentence.evaluate(e=>[...e.closest('.usage-context').querySelectorAll('.context-sentence')].map(s=>s.textContent).join(' '));await click(sentence);
+  check('context tap submits all sentences in the complete block without speaker labels',points.length===count+1&&points.at(-1).text===blockText&&points.at(-1).kind==='sentence'&&points.at(-1).digest===chapter.digest&&!points.at(-1).text.includes('Reader A'));
+  check('shared server audio contract rejects individual sentences and hidden translations',isChapterAudioRequest(markdown,blockText,'sentence')&&!isChapterAudioRequest(markdown,sentenceText,'sentence')&&!isChapterAudioRequest(markdown,secret,'sentence'));
+  check('header no longer contains a speech cancel or stop control',await page.locator('#speechStop,.speech-stop').count()===0);
+  pointState='calling';let beforePreparing=points.length;await click(sentence);await click(sentence);
+  check('tapping the same preparing block stops waiting without another generation request',points.length===beforePreparing+1&&await page.locator('#speechStop').count()===0);pointState='failed';
   count=points.length;await click(shared().first());check('translation toggle does not pronounce or submit a question',points.length===count&&questions.length===0);
   await hold(sentence);check('sentence hold carries complete English context and stable identity',questions.length===1&&questions[0].question.includes('C001')&&questions[0].question.includes('S001')&&questions[0].question.includes('They compare the notes')&&points.length===count);
   check('questions carry no hidden translation text',!questions[0].question.includes('整份译文甲'));

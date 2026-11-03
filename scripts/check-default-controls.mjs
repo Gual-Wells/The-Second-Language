@@ -17,6 +17,10 @@ assert.deepEqual({...sql.prepare('SELECT rest_requested,rest_revision FROM study
 assert.deepEqual({...sql.prepare('SELECT parts,revision FROM audio_next_config').get()},{parts:'[]',revision:8});
 assert.deepEqual(sql.prepare('SELECT * FROM run_claims').get(),priorClaim,'Migration preserves the already enabled run');
 assert.deepEqual(sql.prepare('SELECT * FROM audio_requests').get(),priorAudio,'Migration preserves stopped work, progress and billing state');
+sql.exec(await readFile('worker/migrations/0032_default_context_block_audio.sql','utf8'));
+assert.equal(sql.prepare('SELECT parts FROM audio_next_config').get().parts,'["contexts"]');
+assert.deepEqual(sql.prepare('SELECT * FROM run_claims').get(),priorClaim);
+assert.deepEqual(sql.prepare('SELECT * FROM audio_requests').get(),priorAudio);
 
 const db={prepare(query){const wrap=(params=[])=>({bind(...values){return wrap(values);},first:async()=>sql.prepare(query).get(...params)||null,all:async()=>({results:sql.prepare(query).all(...params)}),run:async()=>({meta:{changes:Number(sql.prepare(query).run(...params).changes)}})});return wrap();},async batch(items){sql.exec('BEGIN');try{const result=[];for(const item of items)result.push(await item.run());sql.exec('COMMIT');return result;}catch(error){sql.exec('ROLLBACK');throw error;}}};
 const env={DB:db,PUBLISH_TOKEN:'isolated-controls',APP_ORIGIN:'https://fixture'},originalFetch=globalThis.fetch;
@@ -54,7 +58,7 @@ try{
  assert.equal((await call('/api/runs/claim',{runId:'bad',date:'bad'})).status,400);
  assert.equal(sql.prepare('SELECT count(*) n FROM audio_requests').get().n,1,'Claiming and resting do not enqueue audio');
 
- const audio=(await call('/api/audio-config')).data;assert.deepEqual(audio.next,[]);
+ const audio=(await call('/api/audio-config')).data;assert.deepEqual(audio.next,['contexts']);
  assert.equal((await call('/api/audio-config/next',{parts:['two'],revision:audio.revision},'PUT')).status,400,'Legacy scopes do not authorize a new single-body chapter');
  const selected=await call('/api/audio-config/next',{parts:['contexts'],revision:audio.revision},'PUT');
  assert.equal(selected.status,200);assert.deepEqual(selected.data.next,['contexts']);
@@ -64,5 +68,5 @@ try{
  sql.exec('DELETE FROM study_settings WHERE id=1');
  assert.equal((await call('/api/settings')).data.restRequested,true,'Missing settings never display an implied opt-in');
  assert.equal(externalCalls,0);
- console.log('通过：默认休息与空音频、迁移保留原件、并发单次放行、幂等重领、版本保护、原休息恢复授权和停止任务保留；零外部调用。');
+ console.log('通过：默认休息与完整例句块音频、迁移保留原件、并发单次放行、幂等重领、版本保护、原休息恢复授权和停止任务保留；零外部调用。');
 }finally{globalThis.fetch=originalFetch;sql.close();}

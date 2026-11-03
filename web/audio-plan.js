@@ -2,8 +2,10 @@
 import {isUsageContextContent} from './usage-context.js';
 export const audioParts=['two','three','contexts'];
 export const audioPartsFor=markdown=>isUsageContextContent(markdown)?['contexts']:['two','three'];
-export const pointAudioPolicy='chapter-sentences-only-v3';
-export const audioPrice={usdPerMillion:[.62,.99],usdCny:7,checkedAt:'2026-10-09',exchange:'预算换算，非实时汇率'};
+export const pointAudioPolicy='chapter-context-blocks-only-v4';
+export const contextAudioPolicy='context-blocks-v1';
+export const maxAudioCharacters=4096;
+export const audioPrice={usdPerMillion:[.62,4],usdCny:7,checkedAt:'2026-11-03',source:'https://openrouter.ai/hexgrad/kokoro-82m',exchange:'预算换算，非实时汇率'};
 export const normalizeAudioText=text=>text.replace(/\s+/g,' ').trim();
 export const pronunciationKey=(text,phonemes='')=>JSON.stringify([normalizeAudioText(text),phonemes]);
 export function ipaToKokoro(ipa){
@@ -48,18 +50,19 @@ export function isChapterAudioRequest(markdown,text,kind,phonemes=''){
  return false;
 }
 function contextAudioUnits(markdown){
- const units=[];let contextId='',translation=false,pending='';
+ const units=[];let contextId='',translation=false,pending='',sentences=[],sentenceIds=[];
+ function finish(){if(contextId&&sentences.length){const text=normalizeAudioText(sentences.join(' '));units.push({part:'contexts',kind:'sentence',text,contextId,sentenceIds,unitPolicy:contextAudioPolicy,...(text.length>maxAudioCharacters?{unsupported:true,reason:'完整例句块超过声音服务单次输入范围，未拆句或截断'}:{})});}contextId='';sentences=[];sentenceIds=[];pending='';}
  for(const raw of markdown.replace(/\r/g,'').split('\n')){
   const line=raw.trim();if(!line)continue;
   const context=/^<!-- CONTEXT:([A-Za-z][A-Za-z0-9_-]{0,31}) USE:[^ ]+ KIND:(?:abridgment|excerpt|example) -->$/.exec(line);
-  if(context){contextId=context[1];translation=false;pending='';continue;}
-  if(line.startsWith('<!-- END_CONTEXT:')){contextId='';translation=false;pending='';continue;}
+  if(context){finish();contextId=context[1];translation=false;continue;}
+  if(line.startsWith('<!-- END_CONTEXT:')){finish();translation=false;continue;}
   if(!contextId)continue;
   if(line===`<!-- TRANSLATION:${contextId} -->`){translation=true;pending='';continue;}
   if(translation)continue;
   const sentence=/^<!-- SENTENCE:([A-Za-z][A-Za-z0-9_-]{0,31})(?: USE:[^ ]+)? -->$/.exec(line);
   if(sentence){pending=sentence[1];continue;}
-  if(pending&&!line.startsWith('<!--')){units.push({part:'contexts',kind:'sentence',text:normalizeAudioText(line.replace(/\*|`/g,'')),contextId,sentenceId:pending});pending='';}
+  if(pending&&!line.startsWith('<!--')){sentences.push(line.replace(/\*|`/g,''));sentenceIds.push(pending);pending='';}
  }
  return units.filter(u=>u.text);
 }

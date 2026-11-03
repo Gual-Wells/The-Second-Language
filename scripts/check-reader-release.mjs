@@ -22,7 +22,7 @@ const good=await verifyReaderRelease({root,base:'https://reader.test',required:3
 assert.ok(good.assets.length>=13);assert.ok(good.assets.some(x=>x.path==='/reader-capability.js?v=62'));
 assert.ok(good.assets.some(x=>x.path==='/usage-context.js')); // Actual unversioned transitive import must also agree.
 const appSource=await readFile(path.join(root,'web/app.js'),'utf8'),swRef=appSource.match(/navigator\.serviceWorker\.register\(['"]([^'"]+)['"]/)?.[1];assert.ok(swRef);const actualSw=new URL(swRef,'https://reader.test');assert.ok(good.assets.some(x=>x.path===actualSw.pathname+actualSw.search));assert.ok(good.assets.some(x=>x.path.startsWith('/chapter-size.js')));
-for(const alter of ['/','/app.js','/teaching-units.js','/chapter-size.js','/styles.css','/sw.js'])await assert.rejects(verifyReaderRelease({root,base:'https://reader.test',required:3,fetchImpl:isolated({alter})}),/资源与本地/);
+for(const alter of ['/','/app.js','/teaching-units.js','/chapter-size.js','/styles.css','/sw.js','/reader-speech.js','/audio-plan.js','/audio-library.js','/audio-config.js'])await assert.rejects(verifyReaderRelease({root,base:'https://reader.test',required:3,fetchImpl:isolated({alter})}),/资源与本地/);
 await assert.rejects(verifyReaderRelease({root,base:'https://reader.test',required:3,fetchImpl:isolated({alter:'/sw.js',alterQuery:actualSw.search})}),/资源与本地/);
 await assert.rejects(verifyReaderRelease({root,base:'https://reader.test',required:3,fetchImpl:isolated({backend:2})}),/线上Worker/);
 await assert.rejects(verifyReaderRelease({root,base:'https://reader.test',required:3,fetchImpl:isolated({backend:null})}),/线上Worker/);

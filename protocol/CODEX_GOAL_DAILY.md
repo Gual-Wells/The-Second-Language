@@ -34,6 +34,6 @@ Goal约束本阶段实际可用成果：完整教材事实和真实词族/全义
 
 普通入口遇到started但交付未确认时停止，不新建替代Goal。运维可先用`node scripts/daily-goal.mjs status DATE ROLE`读取上次观测，再显式`resume DATE ROLE --codex EXE`恢复同一个原生线程。恢复前核原宿主/进程已退出、固定输入与原目标；上次模型轮次结果不明时拒绝自动恢复生成，先核原事件。已完成Goal可只回读并验证产物，不新增模型调用。恢复保留初始失败/未知回执，另存恢复结果。
 
-额度查询、归档、空音频、VIX身份及收费/unknown保护沿原协议，Goal不替其他项目/声音服务新增重试。新增加的只是原生目标续作能力，没有新增订阅；持续工作与独立审查仍消耗现有Codex额度。
+额度查询、归档、发布后例句块音频、VIX身份及收费/unknown保护沿原协议，Goal不替其他项目/声音服务新增重试。新增加的只是原生目标续作能力，没有新增订阅；持续工作与独立审查仍消耗现有Codex额度。
 
 官方依据：[Goals](https://developers.openai.com/cookbook/examples/codex/using_goals_in_codex)、[长期任务](https://learn.chatgpt.com/docs/long-running-work)。实际接口以本机生成的当前app-server schema和真实小规模验证为准。

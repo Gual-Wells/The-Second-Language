@@ -210,12 +210,12 @@ try{
  const sourceRow=sql.prepare('SELECT * FROM chapter_sources WHERE digest=?').get(first.digest);
  const sourceBlob=sql.prepare('SELECT b.item_id FROM storage_objects o JOIN storage_blobs b ON b.digest=o.digest WHERE o.object_key=?').get(sourceRow.source_key),sourceItem=items.get(sourceBlob.item_id),correctBytes=sourceItem.bytes;
  sourceItem.bytes=Buffer.from('corrupted fixture source');assert.equal((await commit(first)).status,503);sourceItem.bytes=correctBytes;
- // The new default must publish the complete text without creating audio work.
- assert.deepEqual((await call('/api/audio-config')).data.next,[]);
+ // Context-block default cannot silently authorize this legacy three-part fixture.
+ assert.deepEqual((await call('/api/audio-config')).data.next,['contexts']);
  const published=await commit(first);assert.equal(published.status,200,JSON.stringify(published.data));assert.equal(published.data.sourceDigest,first.sourceDigest);
  const publishedAt=sql.prepare('SELECT published_at FROM published_chapters WHERE chapter_id=?').get(first.id).published_at;
  assert.equal((await commit(first)).status,200);assert.equal(sql.prepare('SELECT published_at FROM published_chapters WHERE chapter_id=?').get(first.id).published_at,publishedAt);
- assert.equal(sql.prepare('SELECT count(*) n FROM audio_requests WHERE chapter_digest=?').get(first.digest).n,0,'Default publication makes no pre-generation request');assert.equal(sql.prepare('SELECT count(*) n FROM push_outbox').get().n,1);
+ assert.equal(sql.prepare('SELECT count(*) n FROM audio_requests WHERE chapter_digest=?').get(first.digest).n,0,'Context default is never converted into legacy two/three authorization');assert.equal(sql.prepare('SELECT count(*) n FROM push_outbox').get().n,1);
  const list=(await call('/api/chapters',{reader:true})).data.chapters;assert.deepEqual(list.map(c=>[c.id,c.number]),[[first.id,'第 1 章']]);assert.equal(list[0].sourcePolicy,CURRENT_AFFAIRS_POLICY);assert.equal(list[0].sourceDigest,first.sourceDigest);
  const detail=await call('/api/chapters/'+first.id,{reader:true});assert.equal(detail.data.markdown,first.markdown);assert.equal(detail.data.digest,first.digest);assert.equal(detail.data.sourceDigest,first.sourceDigest);
  const sources=await call('/api/chapters/'+first.id+'/sources?digest='+first.digest,{reader:true});assert.equal(sources.status,200);assert.equal(sources.data.sourceDigest,first.sourceDigest);assert.deepEqual(sources.data.sourcePackage,first.sourcePackage);
@@ -258,7 +258,7 @@ try{
  assert.deepEqual(sql.prepare('SELECT parts,revision FROM audio_next_config').get(),audioSelection,'Republishing an existing chapter preserves a later audio selection');
  assert.equal((await commit(second)).status,200);
  assert.equal(sql.prepare('SELECT parts FROM audio_requests WHERE chapter_digest=?').get(second.digest).parts,'["three"]','The explicit selection is bound to the first new publication');
- assert.deepEqual((await call('/api/audio-config')).data.next,[],'First publication restores no pre-generation');
+ assert.deepEqual((await call('/api/audio-config')).data.next,['contexts'],'First publication restores the new context-block default');
  const afterAudioRevision=sql.prepare('SELECT revision FROM audio_next_config').get().revision;
  assert.equal((await commit(second)).status,200);
  assert.equal(sql.prepare('SELECT revision FROM audio_next_config').get().revision,afterAudioRevision,'Retry cannot consume the default or create a second job');

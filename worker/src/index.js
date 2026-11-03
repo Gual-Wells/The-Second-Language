@@ -295,7 +295,7 @@ async function route(request, env) {
         AND NOT EXISTS(SELECT 1 FROM json_each(audio_next_config.parts) selected
           WHERE selected.value NOT IN (SELECT value FROM json_each(?)))`)
         .bind(revision.chapter_id,revision.chapter_id,revision.digest,now,publicationBaseDigest,revision.chapter_id,admittedAudioParts),
-      env.DB.prepare(`UPDATE audio_next_config SET parts='[]',revision=revision+1,updated_at=? WHERE id=1
+      env.DB.prepare(`UPDATE audio_next_config SET parts='["contexts"]',revision=revision+1,updated_at=? WHERE id=1
         AND ? IS NULL AND NOT EXISTS(SELECT 1 FROM published_chapters WHERE chapter_id=?)`)
         .bind(now,publicationBaseDigest,revision.chapter_id),
       env.DB.prepare(`INSERT INTO published_chapters (chapter_id,study_date,digest,published_at)

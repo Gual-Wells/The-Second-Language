@@ -59,7 +59,6 @@ input:focus, textarea:focus, select:focus { border-color: #4c8ec3; }
 @media (prefers-reduced-motion: reduce) { .header-logo-ink { animation: none; --header-phase: 0deg; opacity: 1; } .header-logo-reflection { animation: none; --header-phase: 0deg; opacity: 0; } }
 
 
-.speech-stop { min-height: 38px; padding: 4px 7px; border: 1px solid #adc8e0; border-radius: 3px; background: #e1ebf5; color: #244f74; font-size: 10px; text-shadow: none; }
 .header-meta { margin: 0 0 2px; color: #dcecff; font-size: 10px; line-height: 1.1; }
 .app-header h1 { margin: 0; font-size: 20px; line-height: 1.12; letter-spacing: .035em; white-space: nowrap; }
 .app-header h1 small { margin-left: 5px; color: #c8def4; font-size: 9px; font-weight: 400; letter-spacing: .1em; }

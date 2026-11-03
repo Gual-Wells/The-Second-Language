@@ -4,7 +4,7 @@ import {createHash} from 'node:crypto';
 import {READER_LAYOUT_CAPABILITY} from '../../web/reader-capability.js';
 
 const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
-const critical=['app.js','reader-capability.js','render.js','teaching-units.js','usage-context.js','annotations.js','chapter-size.js','pure-reader.js','reader-focus.js','context-translations.js','chapter-quality.js'];
+const critical=['app.js','reader-capability.js','render.js','teaching-units.js','usage-context.js','annotations.js','chapter-size.js','pure-reader.js','reader-focus.js','context-translations.js','chapter-quality.js','reader-speech.js','audio-plan.js','audio-library.js','audio-config.js'];
 
 // Resolve the actual versioned imports in our shipped modules. Capability is a
 // shared constant used by the client and Worker, not guessed from JS text.

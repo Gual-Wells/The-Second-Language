@@ -1,4 +1,4 @@
-import {headingWord} from './audio-plan.js?v=50';
+import {headingWord} from './audio-plan.js?v=69';
 import {parseTeachingHeading} from './teaching-units.js?v=61';
 
 export function sentenceElement(target){

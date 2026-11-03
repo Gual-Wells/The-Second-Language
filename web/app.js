@@ -4,8 +4,8 @@ import {createReaderJump} from './reader-jump.js?v=50';
 import {installPureReader} from './pure-reader.js?v=61';
 import {chapterNumber, createChapterBook} from './chapters.js?v=41';
 import {installSettingsNavigation} from './settings.js?v=41';
-import {createAudioConfig} from './audio-config.js?v=50';
-import {installReaderSpeech} from './reader-speech.js?v=59';
+import {createAudioConfig} from './audio-config.js?v=69';
+import {installReaderSpeech} from './reader-speech.js?v=69';
 import { parseParts, renderPart, updateContextTranslation } from './render.js?v=61';
 import {createContextTranslationState} from './context-translations.js?v=50';
 import { validateAnnotatedContent } from './annotations.js?v=67';
@@ -15,7 +15,7 @@ import {createStorageUsageUI} from './storage-usage.js?v=64';
 import {createCertificationReader} from './certification-reader.js?v=43';
 import {createChapterTestsUI} from './chapter-tests.js?v=43';
 import {createQuestionsUI} from './questions.js?v=66';
-import {openAudioChapter,clearAudioLibrary,preloadEnabled,setPreload} from './audio-library.js?v=50';
+import {openAudioChapter,clearAudioLibrary,preloadEnabled,setPreload} from './audio-library.js?v=69';
 
 const $ = id => document.getElementById(id);
 const todayParts = Object.fromEntries(new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(new Date()).map(part => [part.type, part.value]));
@@ -855,7 +855,7 @@ $('chapterNav').addEventListener('touchend', event => {
   if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.5) moveChapter(dx < 0 ? 1 : -1);
   swipeStart = null;
 }, { passive: true });
-if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=68', { updateViaCache: 'none' }).catch(() => {});
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js?v=69', { updateViaCache: 'none' }).catch(() => {});
 refreshInstallStatus();
 initialize().then(()=>{if(state.authenticated&&new URLSearchParams(location.search).has('balances'))balances.open();});
 

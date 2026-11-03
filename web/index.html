@@ -14,7 +14,7 @@
   <link rel="manifest" href="/manifest.webmanifest?v=41">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=41">
   <link rel="icon" href="/icon-192.png?v=41" type="image/png">
-  <link rel="stylesheet" href="/styles.css?v=65">
+  <link rel="stylesheet" href="/styles.css?v=69">
 </head>
 <body>
   <main class="app-shell login-mode" id="app">
@@ -23,7 +23,6 @@
         <p class="header-meta" id="headerMeta">每日阅读 · 正在连接</p>
         <h1>第二语言 <small>SECOND LANGUAGE</small></h1>
       </div><div class="header-identity">
-        <button class="speech-stop" id="speechStop" type="button" aria-label="停止朗读" hidden>停止</button>
         <span class="header-logo-mark" id="headerLogo" aria-hidden="true">
           <svg class="header-logo" viewBox="0 0 512 512" width="52" height="52" focusable="false">
             <defs><mask id="header-book-cut" maskUnits="userSpaceOnUse" x="0" y="0" width="512" height="512">
@@ -199,7 +198,7 @@
   <dialog class="sheet-dialog" id="settingsDialog" aria-labelledby="settingsTitle">
     <div class="sheet settings-sheet">
       <div class="sheet-head"><div><small>READER SETTINGS</small><h2 id="settingsTitle">阅读器设置</h2></div><button class="sheet-close" data-close="settingsDialog" type="button" aria-label="关闭">×</button></div>
-        <section class="settings-section"><div class="section-band"><strong>正文点读</strong><span>ENGLISH VOICE</span></div><div class="settings-body"><p>第二部分点标题返回对应词汇，点例句读整句；第三部分点句子读整句。词汇标题不再朗读。使用清晰的美式女声，已有声音直接复用。开启“标记用法”时，高亮句单击优先回看用法。释义、补充说明和译文不参与朗读。</p><p>长按第一部分词汇标题，或第二、三部分英文句子，可直接申请详细答疑；双击句中英文词，申请该处用法解析。双击其他正文区域，进入或退出纯净阅读。回复在章节答疑中查看。</p></div></section><section class="settings-section"><div class="section-band"><strong>我的学习目标</strong><span>LEARNING GOAL</span></div><div class="settings-body"><p>这里的目标会进入下一次课程推荐。</p><textarea class="text-input" id="studyGoal" rows="5" placeholder="例如：重点提高雅思阅读和学术写作…"></textarea><button class="bevel-button" id="saveGoal" type="button">保存学习目标</button></div></section>
+        <section class="settings-section"><div class="section-band"><strong>正文点读</strong><span>ENGLISH VOICE</span></div><div class="settings-body"><p>点按英文例句的任一句，播放整个例句块；再点同一块停止，点另一块切换播放。使用美式女声，已有相同声音直接复用。标题、音标、释义和译文不朗读。历史三部分章节仍按原例句、范文句子播放。</p><p>长按词汇或用法标题申请词汇答疑；长按英文句子申请该句答疑，并附完整英文语境。双击句中英文词申请该处用法解析；双击英文句子以外的非交互正文进入或退出纯净阅读。回复在章节答疑中查看。</p></div></section><section class="settings-section"><div class="section-band"><strong>我的学习目标</strong><span>LEARNING GOAL</span></div><div class="settings-body"><p>这里的目标会进入下一次课程推荐。</p><textarea class="text-input" id="studyGoal" rows="5" placeholder="例如：重点提高雅思阅读和学术写作…"></textarea><button class="bevel-button" id="saveGoal" type="button">保存学习目标</button></div></section>
       <section class="settings-section"><div class="section-band"><strong>临时推送需求</strong><span>ONE-TIME REQUEST</span></div><div class="settings-body"><p>开启后填写复习或测试需求。Codex 完成对应临时页推送后，此项自动关闭。</p><label class="switch-row" for="temporaryRequestToggle"><span>申请下一次临时推送</span><input id="temporaryRequestToggle" type="checkbox" role="switch"></label><div id="temporaryRequestBox" hidden><label class="field-label" for="temporaryRequestText">给 Codex 的需求</label><textarea class="text-input" id="temporaryRequestText" rows="4" maxlength="2000" placeholder="例如：复习最近两章中容易混淆的词；或推送已有测试文档…"></textarea></div><button class="bevel-button" id="saveTemporaryRequest" type="button">保存临时需求</button></div></section>
       <section class="settings-section"><div class="section-band"><strong>日课安排</strong><span>NEXT DAILY RUN</span></div><div class="settings-body"><p>默认休息，不生成新章。关闭后仅允许下一次北京时间 05:00 的日课任务；任务领取安排后自动恢复休息，已领取的当次任务按原安排执行。</p><label class="switch-row" for="restToggle"><span>保持休息</span><input id="restToggle" type="checkbox" role="switch" checked></label><button class="bevel-button" id="saveRest" type="button">保存日课安排</button></div></section>
       <section class="settings-section"><div class="section-band"><strong>音频下载</strong><span>AUDIO</span></div><div class="settings-body"><label class="switch-row" for="audioPreloadToggle"><span>自动下载本章已有音频</span><input id="audioPreloadToggle" type="checkbox" role="switch" checked></label><p>打开章节后在后台下载，方便之后点读。关闭后按需读取；不会自动生成新音频。</p></div></section>
@@ -211,7 +210,7 @@
         <div id="audioConfigDetail" hidden><button class="bevel-button" id="audioConfigBack" type="button">‹ 音频配置</button><h3 id="audioModeTitle"></h3><label id="audioChapterRow" class="field-label">选择章节<select id="audioChapter" class="text-input"></select></label>
           <label class="switch-row" for="audioPart-two"><span><strong>第二部分例句</strong><small>每条例句独立点读</small><small id="audioCost-two">正在核对…</small></span><input id="audioPart-two" type="checkbox"></label>
           <label class="switch-row" for="audioPart-three"><span><strong>第三部分逐句</strong><small>范文每句独立点读</small><small id="audioCost-three">正在核对…</small></span><input id="audioPart-three" type="checkbox"></label>
-          <label class="switch-row" for="audioPart-contexts" hidden><span><strong>语境英文整句</strong><small>每份语境中的英文句子；译文不生成</small><small id="audioCost-contexts">正在核对…</small></span><input id="audioPart-contexts" type="checkbox"></label>
+          <label class="switch-row" for="audioPart-contexts" hidden><span><strong>完整英文例句块</strong><small>发布后制作整块英文；译文和释义不生成</small><small id="audioCost-contexts">正在核对…</small></span><input id="audioPart-contexts" type="checkbox"></label>
           <p id="audioConfigStatus" role="status"></p><button class="bevel-button" id="audioSave" type="button">保存选配</button>
           <div id="audioConfirmation" class="audio-confirmation" hidden><p id="audioConfirmSummary"></p><p><strong>确认后即进入生成队列，不能撤销。</strong></p><div class="button-row"><button class="bevel-button" id="audioConfirmBack" type="button">返回修改</button><button class="bevel-button" id="audioConfirm" type="button">确认并生成</button></div></div>
         </div><p>人民币费用为估算，复用不收费；下一章选配在首次发布后恢复不生成。点读与已有音频下载不受此默认选配影响。</p><div id="audioJobs" aria-live="polite"></div>
@@ -264,6 +263,6 @@
     </div>
   </dialog>
   <div id="toast" role="status" aria-live="polite"></div>
-  <script type="module" src="/app.js?v=68"></script>
+  <script type="module" src="/app.js?v=69"></script>
 </body>
 </html>
