@@ -1,0 +1,49 @@
+{
+  "checkedAt": "2026-11-03T00:16:54.192Z",
+  "currentCatalogue": {
+    "id": "2026-11-02",
+    "date": "2026-11-02",
+    "number": "第 1 章",
+    "title": "第一章",
+    "subtitle": "30词与完整词族 · 逐义真实语境",
+    "wordCount": 30,
+    "digest": "9fb229b72c30ab1736169ee4c752a1d3a134aa0c61daa16705958334d9977493",
+    "sourcePolicy": "current-affairs-v1",
+    "sourceDigest": "89c220a30cf8dc48c842e7f5db71928554a06c0c454ac0df4ff3d25f2621fe2e",
+    "chapterSizePolicy": "thirty-main-words-v1"
+  },
+  "body": {
+    "status": 200,
+    "digest": "9fb229b72c30ab1736169ee4c752a1d3a134aa0c61daa16705958334d9977493",
+    "bytes": 454148,
+    "matches": true
+  },
+  "sources": {
+    "status": 200,
+    "digest": "89c220a30cf8dc48c842e7f5db71928554a06c0c454ac0df4ff3d25f2621fe2e",
+    "evidenceDigest": "48f602c68da0beeecdd15ef6b8eac19df95092378bf20b63be13b5613ea8116a",
+    "matches": true
+  },
+  "anonymous": {
+    "chapterStatus": 401,
+    "evidenceStatus": 401
+  },
+  "rest": {
+    "restRequested": true
+  },
+  "nextAudio": [],
+  "canonicalObjects": [
+    {
+      "key": "chapters/2026-11-02/9fb229b72c30ab1736169ee4c752a1d3a134aa0c61daa16705958334d9977493.md",
+      "digest": "9fb229b72c30ab1736169ee4c752a1d3a134aa0c61daa16705958334d9977493",
+      "bytes": 454148,
+      "reused": true
+    },
+    {
+      "key": "chapter-sources/9fb229b72c30ab1736169ee4c752a1d3a134aa0c61daa16705958334d9977493/89c220a30cf8dc48c842e7f5db71928554a06c0c454ac0df4ff3d25f2621fe2e.json",
+      "digest": "89c220a30cf8dc48c842e7f5db71928554a06c0c454ac0df4ff3d25f2621fe2e",
+      "bytes": 611034,
+      "reused": true
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "recordedAt": "2026-11-02T17:36:14.637577+00:00",
-  "status": "Engineering committed/pushed and runtime synced; three producers completed; actual independent native assembly and publication remain in progress",
+  "status": "complete: 30-word chapter published and independently read back; real-first production, independent appeals and engineering closure delivered",
   "userRule": {
     "defaultAuthenticPercent": 100,
     "observedTargetPercent": 80,
@@ -38,6 +38,34 @@
       "declaredUseCoveragePercent": 27.153284671532845,
       "declaredContextSharePercent": 25.136612021857925,
       "measurement": "historical abridgment/excerpt labels; no observed-v1 witness records; not certified under current standard"
+    },
+    "currentFormalChapter": {
+      "wordCount": 30,
+      "useCount": 443,
+      "contextCount": 429,
+      "sentenceCount": 809,
+      "authenticUseCount": 441,
+      "authenticContextCount": 427,
+      "useCoveragePercent": 99.54853273137698,
+      "contextSharePercent": 99.53379953379954,
+      "approvedExampleCount": 2,
+      "approvedContextIds": [
+        "C027_05",
+        "C027_08"
+      ],
+      "unapprovedExampleCount": 0,
+      "unresolved": [],
+      "allContextsAdmitted": true,
+      "percentageIsPublicationGate": false,
+      "chapterId": "2026-11-02",
+      "number": "第 1 章",
+      "chapterDigest": "9fb229b72c30ab1736169ee4c752a1d3a134aa0c61daa16705958334d9977493",
+      "sourceDigest": "89c220a30cf8dc48c842e7f5db71928554a06c0c454ac0df4ff3d25f2621fe2e",
+      "evidenceDigest": "48f602c68da0beeecdd15ef6b8eac19df95092378bf20b63be13b5613ea8116a",
+      "publicationReviewDigest": "ea2eba66efba923540a3521f4be37f78439bb565d04239783c8f12329e263add",
+      "fallbackAppealsDigest": "57e0432c88d7e91051e0a4d20d03cbc114058340e775ddb06e5576e5bd0806f5",
+      "published": true,
+      "checkedAt": "2026-11-03T00:16:54.192Z"
     }
   },
   "engineering": {
@@ -52,7 +80,14 @@
     "legacyCurrentExactRecoveryPreserved": true,
     "numericFloorExperimentRetired": true,
     "authorSelfApprovalNotAccepted": true,
-    "existingGoalObjectivesNotMutated": true
+    "existingGoalObjectivesNotMutated": true,
+    "requestOwnedStorageClients": true,
+    "rpcReceiptsCopiedBeforeDisposal": true,
+    "canonicalBodyAndSourcesSealedBeforeStage": true,
+    "presealDoesNotBypassServerAdmission": true,
+    "finishCollectorIgnoresParentChapterArg": true,
+    "metadataLabelsCheckedBeforeUploads": true,
+    "actualSourceCounterevidenceGate": true
   },
   "validation": {
     "fallbackAppealChecks": 17,
@@ -74,8 +109,12 @@
     "scope": "Initial gate engineering snapshot at recordedAt; continuing live work is recorded separately."
   },
   "outstanding": {
-    "reviewerMode": "Maintenance default independent Codex Sol/high; no blocking reviewer-choice gate",
-    "currentDraft": "Three completed scoped producers merged. Actual assembly Sol/high independently reviewing all 30 words; pending known-source objection, seven example appeals and final publication."
+    "requiredConstructionTasks": [],
+    "limitations": [
+      "High versus max was not a controlled comparison; semantic review and exact source witnesses do not prove zero errors or learner mastery",
+      "Chromium touch validation is not physical iPhone Safari testing",
+      "No reliable Codex plan remaining percentage or conversion from these counters to money"
+    ]
   },
   "costs": {
     "newSubscriptions": 0,
@@ -108,7 +147,7 @@
       }
     ],
     "producerNonCachedInputPlusOutput": 5926178,
-    "usageLimit": "Actual raw runtime counters. Cached inputs are separate; native Goal counters can exclude the terminal trailing turn. No conversion to money or ChatGPT allowance percentage. Assembly and actual per-case reviewer final usage remain pending; not a controlled high-versus-max experiment.",
+    "usageLimit": "Native Goal and terminal raw turn totals are different counters; No controlled high-versus-max comparison; No provider invoice or reliable Codex plan remaining percentage; do not convert tokens to money",
     "initialIndependentReviewActualExecutions": 6,
     "initialIndependentReviewCaseCount": 7,
     "initialIndependentReviewCounters": [
@@ -196,39 +235,314 @@
           "reasoning_output_tokens": 209
         }
       }
-    ]
+    ],
+    "finalRefinementUsage": {
+      "checkedAt": "2026-11-03T00:16:50.356Z",
+      "scope": "Three refinement producers, existing assembly Goal, all deduplicated successful isolated appeal-review executions; excludes earlier DIGR draft, Max maintenance chat and initial negative experimental probe",
+      "producers": [
+        {
+          "task": "task-1",
+          "goalStatus": "complete",
+          "goalTokens": 2385385,
+          "usage": {
+            "totalTokens": 91837140,
+            "inputTokens": 91471493,
+            "cachedInputTokens": 89448960,
+            "cacheWriteInputTokens": 0,
+            "outputTokens": 365647,
+            "reasoningOutputTokens": 166930
+          },
+          "nonCachedInputPlusOutput": 2388180
+        },
+        {
+          "task": "task-2",
+          "goalStatus": "complete",
+          "goalTokens": 1155745,
+          "usage": {
+            "totalTokens": 53494651,
+            "inputTokens": 53307469,
+            "cachedInputTokens": 52335488,
+            "cacheWriteInputTokens": 0,
+            "outputTokens": 187182,
+            "reasoningOutputTokens": 83297
+          },
+          "nonCachedInputPlusOutput": 1159163
+        },
+        {
+          "task": "task-3",
+          "goalStatus": "complete",
+          "goalTokens": 2376679,
+          "usage": {
+            "totalTokens": 73960531,
+            "inputTokens": 73714924,
+            "cachedInputTokens": 71581696,
+            "cacheWriteInputTokens": 0,
+            "outputTokens": 245607,
+            "reasoningOutputTokens": 95076
+          },
+          "nonCachedInputPlusOutput": 2378835
+        }
+      ],
+      "assembly": {
+        "goalStatus": "complete",
+        "goalTokens": 2163958,
+        "usage": {
+          "totalTokens": 127021660,
+          "inputTokens": 126727919,
+          "cachedInputTokens": 124854656,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 293741,
+          "reasoningOutputTokens": 101015
+        },
+        "nonCachedInputPlusOutput": 2167004
+      },
+      "reviews": {
+        "actualUniqueExecutions": 11,
+        "executions": [
+          {
+            "threadId": "01a19e56-b684-7602-bd80-3ff15d3d3463",
+            "model": "gpt-6.1-sol",
+            "effort": "high",
+            "exitCode": 0,
+            "finishedAt": "2026-11-02T22:17:56.536Z",
+            "usage": {
+              "input_tokens": 57068,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 798,
+              "reasoning_output_tokens": 304
+            }
+          },
+          {
+            "threadId": "01a19e57-979e-7b00-afe9-858d86ba8b6b",
+            "model": "gpt-6.1-sol",
+            "effort": "high",
+            "exitCode": 0,
+            "finishedAt": "2026-11-02T22:18:45.508Z",
+            "usage": {
+              "input_tokens": 53275,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 604,
+              "reasoning_output_tokens": 123
+            }
+          },
+          {
+            "threadId": "01a19e59-8dae-78b0-91c1-167fda11fe14",
+            "model": "gpt-6.1-sol",
+            "effort": "high",
+            "exitCode": 0,
+            "finishedAt": "2026-11-02T22:21:10.962Z",
+            "usage": {
+              "input_tokens": 79092,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 1095,
+              "reasoning_output_tokens": 328
+            }
+          },
+          {
+            "threadId": "01a19e5a-ba28-7583-9a83-b3a8ebe95527",
+            "model": "gpt-6.1-sol",
+            "effort": "high",
+            "exitCode": 0,
+            "finishedAt": "2026-11-02T22:22:16.339Z",
+            "usage": {
+              "input_tokens": 80302,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 931,
+              "reasoning_output_tokens": 209
+            }
+          },
+          {
+            "threadId": "01a19e5c-52a9-7550-a9dd-592cc2aa1dd8",
+            "model": "gpt-6.1-sol",
+            "effort": "high",
+            "exitCode": 0,
+            "finishedAt": "2026-11-02T22:24:19.132Z",
+            "usage": {
+              "input_tokens": 68046,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 1489,
+              "reasoning_output_tokens": 516
+            }
+          },
+          {
+            "threadId": "01a19e5d-eade-7e62-9cad-9e0ec7d024b5",
+            "model": "gpt-6.1-sol",
+            "effort": "high",
+            "exitCode": 0,
+            "finishedAt": "2026-11-02T22:25:51.444Z",
+            "usage": {
+              "input_tokens": 41271,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 845,
+              "reasoning_output_tokens": 322
+            }
+          },
+          {
+            "threadId": "01a19e7e-30b7-7cc1-afab-0ffb469fcef9",
+            "model": "gpt-6.1-sol",
+            "effort": "high",
+            "exitCode": 0,
+            "finishedAt": "2026-11-02T23:01:26.403Z",
+            "usage": {
+              "input_tokens": 83065,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 1275,
+              "reasoning_output_tokens": 671
+            }
+          },
+          {
+            "threadId": "01a19e80-4c00-7922-aefc-ee22da07e9cb",
+            "model": "gpt-6.1-sol",
+            "effort": "high",
+            "exitCode": 0,
+            "finishedAt": "2026-11-02T23:03:54.866Z",
+            "usage": {
+              "input_tokens": 52427,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 1361,
+              "reasoning_output_tokens": 831
+            }
+          },
+          {
+            "threadId": "01a19e88-bbb2-7d22-a0c0-8856872b5ec1",
+            "model": "gpt-6.1-sol",
+            "effort": "high",
+            "exitCode": 0,
+            "finishedAt": "2026-11-02T23:12:39.428Z",
+            "usage": {
+              "input_tokens": 92433,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 1134,
+              "reasoning_output_tokens": 516
+            }
+          },
+          {
+            "threadId": "01a19e89-90f4-75c3-9ecb-185390e9b0f5",
+            "model": "gpt-6.1-sol",
+            "effort": "high",
+            "exitCode": 0,
+            "finishedAt": "2026-11-02T23:13:39.823Z",
+            "usage": {
+              "input_tokens": 61006,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 1298,
+              "reasoning_output_tokens": 637
+            }
+          },
+          {
+            "threadId": "01a19e90-89ba-7b53-bf00-4a7f33710efd",
+            "model": "gpt-6.1-sol",
+            "effort": "high",
+            "exitCode": 0,
+            "finishedAt": "2026-11-02T23:21:09.225Z",
+            "usage": {
+              "input_tokens": 93403,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 1247,
+              "reasoning_output_tokens": 433
+            }
+          }
+        ],
+        "totals": {
+          "input_tokens": 761388,
+          "cached_input_tokens": 0,
+          "output_tokens": 12077,
+          "reasoning_output_tokens": 4890
+        },
+        "nonCachedInputPlusOutput": 773465
+      },
+      "newGenerationAPICalls": 0,
+      "newTTS": 0,
+      "newSubscriptions": 0,
+      "limitations": [
+        "Native Goal and terminal raw turn totals are different counters",
+        "No controlled high-versus-max comparison",
+        "No provider invoice or reliable Codex plan remaining percentage; do not convert tokens to money"
+      ],
+      "totalNonCachedInputPlusOutput": 8866647
+    },
+    "newGenerationAPICalls": 0,
+    "newTTS": 0,
+    "newRecurringCost": "No new subscription or persistent service; existing Codex allowance and storage consumed. These counters are not an invoice."
   },
   "release": {
-    "commit": "d31a8cde07f431a20ebb53457459e591de2aac78",
-    "workerVersion": "912b94cd-8625-49d9-bc32-45c3f034290d",
-    "migration": "0031_fallback_appeals.sql",
-    "migrationApplied": true,
-    "fallbackAppealsRequired": true,
-    "temporaryRunHoldCleared": true,
     "mainPushed": true,
     "runtimeFastForwarded": true,
-    "frontendChanged": false
+    "engineeringCommit": "c5d883b",
+    "filesWorkerVersion": "f96fadf9-31dd-4dbe-85a5-0cb881924f0c",
+    "languageWorkerVersion": "b6585577-fb14-4bcc-bb9e-b14429f7b930",
+    "frontendShellVersion": 68,
+    "readerCapability": 3,
+    "chapterPublished": true,
+    "permanentEvidenceGroups": 33,
+    "permanentEvidenceGroupBytes": 250417743,
+    "manifestObjects": 1,
+    "temporaryVerifierDeleted": true,
+    "fallbackAppealsRequired": true
   },
   "liveReadback": {
-    "checkedAt": "2026-11-02T17:38:02.792Z",
-    "catalogueStatus": 200,
-    "formalChapterCount": 0,
-    "settingsStatus": 200,
-    "restRequested": true,
-    "audioNextParts": null,
-    "anonymousChapterStatus": 401,
-    "malformedStage": {
-      "status": 400,
-      "code": null,
-      "error": "正式章节须有 50 个主词，与固定词数合同一致"
+    "checkedAt": "2026-11-03T00:16:54.192Z",
+    "base": "https://the-second-language.pages.dev/",
+    "currentCatalogue": {
+      "id": "2026-11-02",
+      "date": "2026-11-02",
+      "number": "第 1 章",
+      "title": "第一章",
+      "subtitle": "30词与完整词族 · 逐义真实语境",
+      "wordCount": 30,
+      "digest": "9fb229b72c30ab1736169ee4c752a1d3a134aa0c61daa16705958334d9977493",
+      "sourcePolicy": "current-affairs-v1",
+      "sourceDigest": "89c220a30cf8dc48c842e7f5db71928554a06c0c454ac0df4ff3d25f2621fe2e",
+      "chapterSizePolicy": "thirty-main-words-v1"
     },
-    "nonexistentCommit": {
-      "status": 404,
-      "code": null,
-      "error": "暂存章节不存在"
+    "body": {
+      "status": 200,
+      "digest": "9fb229b72c30ab1736169ee4c752a1d3a134aa0c61daa16705958334d9977493",
+      "bytes": 454148,
+      "matches": true
     },
-    "noProductionContentWritten": true,
-    "limit": "Online smoke checks verify access, catalogue, rest and removal of the temporary unconditional hold. Strict admit/reject cases were tested against the real Worker code in isolated SQLite/storage; no artificial production chapter was published."
+    "sources": {
+      "status": 200,
+      "digest": "89c220a30cf8dc48c842e7f5db71928554a06c0c454ac0df4ff3d25f2621fe2e",
+      "evidenceDigest": "48f602c68da0beeecdd15ef6b8eac19df95092378bf20b63be13b5613ea8116a",
+      "matches": true
+    },
+    "anonymous": {
+      "chapterStatus": 401,
+      "evidenceStatus": 401
+    },
+    "rest": {
+      "restRequested": true
+    },
+    "audio": {
+      "next": [],
+      "unsupportedSelection": [],
+      "supportedParts": [
+        "contexts"
+      ],
+      "revision": 13,
+      "jobs": [],
+      "price": {
+        "usdPerMillion": [
+          0.62,
+          0.99
+        ],
+        "usdCny": 7,
+        "checkedAt": "2026-10-09",
+        "exchange": "预算换算，非实时汇率"
+      }
+    }
   },
   "comparisonLimit": "The two products use different word selections, chapter sizes and witness standards. Their percentages are not a controlled comparison of pipeline quality.",
   "continuation": {
@@ -242,9 +556,159 @@
     "isolatedRealReviewerProbeCalls": 1,
     "probeReport": "research/context-appeal-live-probe-2026-11-03.json",
     "probeDecision": "needs-research",
-    "assembly": "Native Goal automatically waits for verified three-group outputs and publishes only after actual independent case admission; no percentage waiver",
+    "assembly": {
+      "0": "N",
+      "1": "a",
+      "2": "t",
+      "3": "i",
+      "4": "v",
+      "5": "e",
+      "6": " ",
+      "7": "G",
+      "8": "o",
+      "9": "a",
+      "10": "l",
+      "11": " ",
+      "12": "a",
+      "13": "u",
+      "14": "t",
+      "15": "o",
+      "16": "m",
+      "17": "a",
+      "18": "t",
+      "19": "i",
+      "20": "c",
+      "21": "a",
+      "22": "l",
+      "23": "l",
+      "24": "y",
+      "25": " ",
+      "26": "w",
+      "27": "a",
+      "28": "i",
+      "29": "t",
+      "30": "s",
+      "31": " ",
+      "32": "f",
+      "33": "o",
+      "34": "r",
+      "35": " ",
+      "36": "v",
+      "37": "e",
+      "38": "r",
+      "39": "i",
+      "40": "f",
+      "41": "i",
+      "42": "e",
+      "43": "d",
+      "44": " ",
+      "45": "t",
+      "46": "h",
+      "47": "r",
+      "48": "e",
+      "49": "e",
+      "50": "-",
+      "51": "g",
+      "52": "r",
+      "53": "o",
+      "54": "u",
+      "55": "p",
+      "56": " ",
+      "57": "o",
+      "58": "u",
+      "59": "t",
+      "60": "p",
+      "61": "u",
+      "62": "t",
+      "63": "s",
+      "64": " ",
+      "65": "a",
+      "66": "n",
+      "67": "d",
+      "68": " ",
+      "69": "p",
+      "70": "u",
+      "71": "b",
+      "72": "l",
+      "73": "i",
+      "74": "s",
+      "75": "h",
+      "76": "e",
+      "77": "s",
+      "78": " ",
+      "79": "o",
+      "80": "n",
+      "81": "l",
+      "82": "y",
+      "83": " ",
+      "84": "a",
+      "85": "f",
+      "86": "t",
+      "87": "e",
+      "88": "r",
+      "89": " ",
+      "90": "a",
+      "91": "c",
+      "92": "t",
+      "93": "u",
+      "94": "a",
+      "95": "l",
+      "96": " ",
+      "97": "i",
+      "98": "n",
+      "99": "d",
+      "100": "e",
+      "101": "p",
+      "102": "e",
+      "103": "n",
+      "104": "d",
+      "105": "e",
+      "106": "n",
+      "107": "t",
+      "108": " ",
+      "109": "c",
+      "110": "a",
+      "111": "s",
+      "112": "e",
+      "113": " ",
+      "114": "a",
+      "115": "d",
+      "116": "m",
+      "117": "i",
+      "118": "s",
+      "119": "s",
+      "120": "i",
+      "121": "o",
+      "122": "n",
+      "123": ";",
+      "124": " ",
+      "125": "n",
+      "126": "o",
+      "127": " ",
+      "128": "p",
+      "129": "e",
+      "130": "r",
+      "131": "c",
+      "132": "e",
+      "133": "n",
+      "134": "t",
+      "135": "a",
+      "136": "g",
+      "137": "e",
+      "138": " ",
+      "139": "w",
+      "140": "a",
+      "141": "i",
+      "142": "v",
+      "143": "e",
+      "144": "r",
+      "status": "complete",
+      "threadId": "01a19e15-cb0a-72a1-8b57-2acb20169703",
+      "goalTokens": 2163958,
+      "published": true
+    },
     "unchangedCaseReuse": "raw independent inputs/outputs and current case evidence revalidated; newer negative verdict not overridden",
-    "producersCompleted": 3,
+    "producersCompleted": true,
     "assemblyThreadId": "01a19e15-cb0a-72a1-8b57-2acb20169703",
     "assemblyActuallyStartedAt": "2026-11-02T21:06:30.035Z",
     "merged": {
@@ -256,11 +720,7 @@
       "pendingAppeals": 7,
       "published": false
     },
-    "assemblyContentReviewCompleted": {
-      "words": 30,
-      "uses": 443,
-      "publicationComplete": false
-    }
+    "assemblyContentReviewCompleted": true
   },
   "followupEngineering": {
     "recordedAt": "2026-11-02T19:47:25.230Z",
@@ -294,9 +754,9 @@
       "publicationAttestationRegressionPassed": true,
       "permanentEvidenceTransport": 4
     },
-    "liveWorkerVersion": "799675f1-e7c3-4d81-bb7c-f4da6c966d0d",
+    "liveWorkerVersion": "b6585577-fb14-4bcc-bb9e-b14429f7b930",
     "workerRedeploymentNeededForLaterLocalOnlyFixes": false,
-    "productionStatus": "Actual native semantic assembly completed all 30 words / 443 uses; source-backed reviewer miscorrection repaired in the same Goal. Seven independent example appeals, packaging, mobile QA and formal publication still pending.",
+    "productionStatus": "published and read back; continuing engineering closure complete",
     "readerQa": "Prepared actual-chapter-only touch-view QA; will bind to packed candidate digest, not claim self-written fixtures validate this chapter",
     "newSubscriptions": 0,
     "newPaidGenerationApiCalls": 0,
@@ -317,7 +777,10 @@
         "note": "实际读固定原件[334903,338603)及task-2 handoff；两点至四点/四点半明确支持afternoon gathering/午后聚会。纠正总装近段morning误判，支持上下文纳入authenticUse，英中/changes/choices/exampleCoverage同步，旧判断存revision研究。",
         "resolvedAt": "2026-11-02T22:09:53.969Z"
       },
-      "retainedOriginalIndependentOfCache": true
+      "retainedOriginalIndependentOfCache": true,
+      "unresolved": 0,
+      "resolved": 1,
+      "currentResolution": "C011_08 source-backed afternoon-reception correction; genuine original anchors and exact backup retained"
     },
     "readerFix": {
       "commit": "d4e136d",
@@ -368,7 +831,10 @@
         "C027_05",
         "C027_08"
       ],
-      "productionPublished": false
+      "productionPublished": true,
+      "finalApproved": 2,
+      "finalNeedsResearch": 0,
+      "actualUniqueExecutions": 11
     },
     "candidateMobileQa": {
       "chapterDigest": "9fb229b72c30ab1736169ee4c752a1d3a134aa0c61daa16705958334d9977493",
@@ -394,5 +860,73 @@
       "scope": "Actual packed chapter bytes in actual local reader; isolated GET APIs and local reading-progress acknowledgment, Chromium touch simulation only, not physical iPhone Safari or live auth proof"
     }
   },
-  "updatedAt": "2026-11-02T22:57:24.211Z"
+  "updatedAt": "2026-11-03T00:18:57.036Z",
+  "initialEngineeringRelease": {
+    "commit": "d31a8cde07f431a20ebb53457459e591de2aac78",
+    "workerVersion": "912b94cd-8625-49d9-bc32-45c3f034290d",
+    "migration": "0031_fallback_appeals.sql",
+    "migrationApplied": true,
+    "fallbackAppealsRequired": true,
+    "temporaryRunHoldCleared": true,
+    "mainPushed": true,
+    "runtimeFastForwarded": true,
+    "frontendChanged": false
+  },
+  "initialLiveReadback": {
+    "checkedAt": "2026-11-02T17:38:02.792Z",
+    "catalogueStatus": 200,
+    "formalChapterCount": 0,
+    "settingsStatus": 200,
+    "restRequested": true,
+    "audioNextParts": null,
+    "anonymousChapterStatus": 401,
+    "malformedStage": {
+      "status": 400,
+      "code": null,
+      "error": "正式章节须有 50 个主词，与固定词数合同一致"
+    },
+    "nonexistentCommit": {
+      "status": 404,
+      "code": null,
+      "error": "暂存章节不存在"
+    },
+    "noProductionContentWritten": true,
+    "limit": "Online smoke checks verify access, catalogue, rest and removal of the temporary unconditional hold. Strict admit/reject cases were tested against the real Worker code in isolated SQLite/storage; no artificial production chapter was published."
+  },
+  "finalValidation": {
+    "checkedAt": "2026-11-03T00:18:57.036Z",
+    "protectedPins": {
+      "manifestInputs": 39,
+      "goalAndHandoffPins": 90,
+      "mismatches": []
+    },
+    "finalCandidateMobileChecks": 74,
+    "viewports": [
+      "402x874",
+      "320x620"
+    ],
+    "noMobileErrors": true,
+    "liveReaderCriticalAssetSHAChecks": 16,
+    "canonicalObjectGETs": 2,
+    "canonicalNewWrites": 0,
+    "filesFixtureChecks": 14,
+    "federatedStorageChecks": 11,
+    "evidenceTransportChecks": 9,
+    "metadataChecks": 7,
+    "storageCollectorChecks": 19,
+    "currentWorkerSqlitePublicationSuitePassed": true,
+    "publicationAttestationSuitePassed": true,
+    "realCloudRequests": 9,
+    "realCloudRequestsPassed": true,
+    "anonymousPrivateContentStatus": 401,
+    "defaultRestRequested": true,
+    "nextAudio": [],
+    "newPaidGenerationAPICalls": 0,
+    "newTTS": 0,
+    "legacyChecker": {
+      "name": "check-publishing-closure.mjs",
+      "passed": false,
+      "scope": "Obsolete pre-current-affairs fixture: forty-word rows without formal source bindings, fake body digests, old automatic two/three audio assumptions. Its assertion fails before the current work and is not evidence of a current production regression; active publication coverage is check-current-affairs-backend.mjs plus appeal/attestation and metadata suites."
+    }
+  }
 }

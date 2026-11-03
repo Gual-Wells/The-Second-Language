@@ -1,0 +1,236 @@
+{
+  "checkedAt": "2026-11-03T00:16:50.356Z",
+  "scope": "Three refinement producers, existing assembly Goal, all deduplicated successful isolated appeal-review executions; excludes earlier DIGR draft, Max maintenance chat and initial negative experimental probe",
+  "producers": [
+    {
+      "task": "task-1",
+      "goalStatus": "complete",
+      "goalTokens": 2385385,
+      "usage": {
+        "totalTokens": 91837140,
+        "inputTokens": 91471493,
+        "cachedInputTokens": 89448960,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 365647,
+        "reasoningOutputTokens": 166930
+      },
+      "nonCachedInputPlusOutput": 2388180
+    },
+    {
+      "task": "task-2",
+      "goalStatus": "complete",
+      "goalTokens": 1155745,
+      "usage": {
+        "totalTokens": 53494651,
+        "inputTokens": 53307469,
+        "cachedInputTokens": 52335488,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 187182,
+        "reasoningOutputTokens": 83297
+      },
+      "nonCachedInputPlusOutput": 1159163
+    },
+    {
+      "task": "task-3",
+      "goalStatus": "complete",
+      "goalTokens": 2376679,
+      "usage": {
+        "totalTokens": 73960531,
+        "inputTokens": 73714924,
+        "cachedInputTokens": 71581696,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 245607,
+        "reasoningOutputTokens": 95076
+      },
+      "nonCachedInputPlusOutput": 2378835
+    }
+  ],
+  "assembly": {
+    "goalStatus": "complete",
+    "goalTokens": 2163958,
+    "usage": {
+      "totalTokens": 127021660,
+      "inputTokens": 126727919,
+      "cachedInputTokens": 124854656,
+      "cacheWriteInputTokens": 0,
+      "outputTokens": 293741,
+      "reasoningOutputTokens": 101015
+    },
+    "nonCachedInputPlusOutput": 2167004
+  },
+  "reviews": {
+    "actualUniqueExecutions": 11,
+    "executions": [
+      {
+        "threadId": "01a19e56-b684-7602-bd80-3ff15d3d3463",
+        "model": "gpt-6.1-sol",
+        "effort": "high",
+        "exitCode": 0,
+        "finishedAt": "2026-11-02T22:17:56.536Z",
+        "usage": {
+          "input_tokens": 57068,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 798,
+          "reasoning_output_tokens": 304
+        }
+      },
+      {
+        "threadId": "01a19e57-979e-7b00-afe9-858d86ba8b6b",
+        "model": "gpt-6.1-sol",
+        "effort": "high",
+        "exitCode": 0,
+        "finishedAt": "2026-11-02T22:18:45.508Z",
+        "usage": {
+          "input_tokens": 53275,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 604,
+          "reasoning_output_tokens": 123
+        }
+      },
+      {
+        "threadId": "01a19e59-8dae-78b0-91c1-167fda11fe14",
+        "model": "gpt-6.1-sol",
+        "effort": "high",
+        "exitCode": 0,
+        "finishedAt": "2026-11-02T22:21:10.962Z",
+        "usage": {
+          "input_tokens": 79092,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1095,
+          "reasoning_output_tokens": 328
+        }
+      },
+      {
+        "threadId": "01a19e5a-ba28-7583-9a83-b3a8ebe95527",
+        "model": "gpt-6.1-sol",
+        "effort": "high",
+        "exitCode": 0,
+        "finishedAt": "2026-11-02T22:22:16.339Z",
+        "usage": {
+          "input_tokens": 80302,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 931,
+          "reasoning_output_tokens": 209
+        }
+      },
+      {
+        "threadId": "01a19e5c-52a9-7550-a9dd-592cc2aa1dd8",
+        "model": "gpt-6.1-sol",
+        "effort": "high",
+        "exitCode": 0,
+        "finishedAt": "2026-11-02T22:24:19.132Z",
+        "usage": {
+          "input_tokens": 68046,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1489,
+          "reasoning_output_tokens": 516
+        }
+      },
+      {
+        "threadId": "01a19e5d-eade-7e62-9cad-9e0ec7d024b5",
+        "model": "gpt-6.1-sol",
+        "effort": "high",
+        "exitCode": 0,
+        "finishedAt": "2026-11-02T22:25:51.444Z",
+        "usage": {
+          "input_tokens": 41271,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 845,
+          "reasoning_output_tokens": 322
+        }
+      },
+      {
+        "threadId": "01a19e7e-30b7-7cc1-afab-0ffb469fcef9",
+        "model": "gpt-6.1-sol",
+        "effort": "high",
+        "exitCode": 0,
+        "finishedAt": "2026-11-02T23:01:26.403Z",
+        "usage": {
+          "input_tokens": 83065,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1275,
+          "reasoning_output_tokens": 671
+        }
+      },
+      {
+        "threadId": "01a19e80-4c00-7922-aefc-ee22da07e9cb",
+        "model": "gpt-6.1-sol",
+        "effort": "high",
+        "exitCode": 0,
+        "finishedAt": "2026-11-02T23:03:54.866Z",
+        "usage": {
+          "input_tokens": 52427,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1361,
+          "reasoning_output_tokens": 831
+        }
+      },
+      {
+        "threadId": "01a19e88-bbb2-7d22-a0c0-8856872b5ec1",
+        "model": "gpt-6.1-sol",
+        "effort": "high",
+        "exitCode": 0,
+        "finishedAt": "2026-11-02T23:12:39.428Z",
+        "usage": {
+          "input_tokens": 92433,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1134,
+          "reasoning_output_tokens": 516
+        }
+      },
+      {
+        "threadId": "01a19e89-90f4-75c3-9ecb-185390e9b0f5",
+        "model": "gpt-6.1-sol",
+        "effort": "high",
+        "exitCode": 0,
+        "finishedAt": "2026-11-02T23:13:39.823Z",
+        "usage": {
+          "input_tokens": 61006,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1298,
+          "reasoning_output_tokens": 637
+        }
+      },
+      {
+        "threadId": "01a19e90-89ba-7b53-bf00-4a7f33710efd",
+        "model": "gpt-6.1-sol",
+        "effort": "high",
+        "exitCode": 0,
+        "finishedAt": "2026-11-02T23:21:09.225Z",
+        "usage": {
+          "input_tokens": 93403,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1247,
+          "reasoning_output_tokens": 433
+        }
+      }
+    ],
+    "totals": {
+      "input_tokens": 761388,
+      "cached_input_tokens": 0,
+      "output_tokens": 12077,
+      "reasoning_output_tokens": 4890
+    },
+    "nonCachedInputPlusOutput": 773465
+  },
+  "newGenerationAPICalls": 0,
+  "newTTS": 0,
+  "newSubscriptions": 0,
+  "limitations": [
+    "Native Goal and terminal raw turn totals are different counters",
+    "No controlled high-versus-max comparison",
+    "No provider invoice or reliable Codex plan remaining percentage; do not convert tokens to money"
+  ],
+  "totalNonCachedInputPlusOutput": 8866647
+}

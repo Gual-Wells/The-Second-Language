@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-02",
+  "runId": "2026-11-02",
+  "number": "第 1 章",
+  "title": "第一章",
+  "subtitle": "30词与完整词族 · 逐义真实语境",
+  "wordCount": 30,
+  "chapterSizePolicy": "thirty-main-words-v1",
+  "contentPolicy": "etymology-fused-v1",
+  "sourcePolicy": "current-affairs-v1",
+  "authoringPolicy": "authentic-context-v1",
+  "authenticityPolicy": "authentic-context-observed-v1",
+  "teachingLayoutVersion": 2,
+  "quickGlossVersion": 1,
+  "protocolCommit": "1749b559319aee08d2418bf8f59e1649833da266",
+  "vixCommit": "3795cc71e5b875401f58445436d368c8ca41d169",
+  "sourceDigest": "89c220a30cf8dc48c842e7f5db71928554a06c0c454ac0df4ff3d25f2621fe2e",
+  "vixInputCommit": "99f98532cc2bb9a06aa344ac2c7fad73dafceade"
+}
