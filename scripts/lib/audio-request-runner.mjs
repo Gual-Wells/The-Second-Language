@@ -32,12 +32,13 @@ export async function prepareAudioUnit({unit,body,request,wait=delay,maxPolls=24
  const statusPath='/api/practice/pronunciation/'+unit.id;
  const read=()=>retryAudioRead(()=>request(statusPath,null,{method:'GET',timeoutMs:30000}),{wait});
  const identify=result=>{if(result.id!==unit.id)throw Error('声音身份不一致，停止新增生成');return result;};
- let result;
+ let result,acknowledged=false;
  try{result=identify(await read());}catch(error){if(error.status!==404)throw error;}
  // An explicitly resumed waiting_credit request may try its original identity.
- // Existing ready/failed/unknown/calling results never receive another POST.
+ // Failed/unknown results never receive another POST. A known ready result
+ // reuses the original endpoint only to attach the saved asset to this chapter.
  if(!result||result.state==='waiting_credit'){
-  try{result=identify(await request('/api/practice/pronunciation',body));}
+  try{result=identify(await request('/api/practice/pronunciation',body));acknowledged=true;}
   catch(error){
    if(!error.transportUnknown)throw error;
    try{result=identify(await read());}catch(readError){
@@ -52,6 +53,11 @@ export async function prepareAudioUnit({unit,body,request,wait=delay,maxPolls=24
    if(error.message==='声音身份不一致，停止新增生成')throw error;
    return {id:unit.id,state:'outcome_unknown',transportUnknown:true};
   }
+ }
+ if(result.state==='ready'&&!acknowledged){
+  // Successful identities are immutable, so this association cannot synthesize.
+  // A GET after a lost response alone does not prove the chapter link committed.
+  result=identify(await retryAudioRead(()=>request('/api/practice/pronunciation',body),{wait}));
  }
  return result.state==='calling'?{...result,state:'outcome_unknown',pollingExpired:true}:result;
 }
