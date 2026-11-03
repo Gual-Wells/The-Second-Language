@@ -3,6 +3,7 @@ import {DatabaseSync} from 'node:sqlite';
 import {readFile} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {permanentBucket,storageRoute,storageRequestEnvironment} from '../worker/src/storage.js';
+import {federatedContent} from '../worker/src/federated-content.js';
 
 const sql=new DatabaseSync(':memory:');
 for(const name of ['0006_permanent_storage.sql','0007_archive_recovery.sql','0027_federated_content.sql'])sql.exec(await readFile(new URL('../worker/migrations/'+name,import.meta.url),'utf8'));
@@ -102,6 +103,22 @@ try{
   const manifest=Buffer.from(JSON.stringify({databases:[],resources:{synthetic:true}})),prior=remoteRows(),saved=await permanentBucket(environment()).putContent(manifest,'application/json',{register:false});
   const response=await storageRoute(new Request('https://fixture.invalid/api/storage/recovery-index',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({key:'backups/fixture/manifest.json',digest:saved.digest,itemId:saved.itemId})}),environment(),{isPublisher:true});
   assert.equal(response.status,200);assert.equal((await response.json()).snapshots,1);assert.equal(remoteRows(),prior);const index=JSON.parse(recoveryIndexBytes);assert.equal(index.snapshots[0].itemId,'hf-v1:'+saved.digest);assert.equal(index.snapshots[0].digest,saved.digest);
+ });
+ await check('RPC results are disposed after copying receipts and bytes, including malformed responses',async()=>{
+  const bytes=Buffer.from('RPC-owned bytes must survive disposal'),digest=sha(bytes);let disposed=0;
+  const owned=value=>Object.defineProperty(value,Symbol.dispose,{value(){disposed++;value.digest='disposed';if(value.bytes instanceof Uint8Array)value.bytes.fill(0);if(value.location)value.location.bucket='disposed';}});
+  const gateway={
+   async head(){return owned({digest,bytes:bytes.length});},
+   async get(){return owned({digest,bytes:new Uint8Array(bytes)});},
+   async put(){return owned({digest,bytes:bytes.length,provider:'huggingface-s3',location:{namespace:'Gual-Wells',bucket:'second-language-assets',key:`objects/${digest.slice(0,2)}/${digest}.bin`},reused:true});}
+  };
+  const client=federatedContent({FILES:gateway,FEDERATED_FILES_ENABLED:'true'});
+  assert.equal((await client.contentHead(digest)).digest,digest);
+  assert.equal(await(await client.getContent(digest)).text(),bytes.toString());
+  const saved=await client.putContent(bytes,'application/octet-stream',{register:false});
+  assert.equal(saved.digest,digest);assert.equal(saved.location.bucket,'second-language-assets');assert.equal(saved.reused,true);assert.equal(disposed,4);
+  gateway.head=async()=>owned({digest:'invalid',bytes:bytes.length});
+  await assert.rejects(()=>client.contentHead(digest),/回执无效/);assert.equal(disposed,5);
  });
  assert.deepEqual(sql.prepare('PRAGMA foreign_key_check').all(),[]);
  console.log(JSON.stringify({passed:cases.length,cases,externalRequests:0,paidGenerationCalls:0,existingPaidAssetsDeleted:0},null,2));

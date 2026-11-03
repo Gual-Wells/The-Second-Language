@@ -161,5 +161,26 @@ try{
   badArchive=true;await assert.rejects(()=>client.getArchive({version:7,digest}),/暂不可用/);badArchive=false;
   hugeManifest=true;await assert.rejects(()=>client.getArchive({version:7,digest}),/暂不可用/);hugeManifest=false;
  });
+ await check('a pending credential operation in an earlier request never blocks a later project request',async()=>{
+  const bytes=text.encode('independent request fixture'),digest=sha(bytes);samples.set('second-language-assets/'+digest,bytes);
+  let release,reads=0;const blocked=new Promise(resolve=>release=resolve),scoped=env();scoped.HF_S3_SECRET_ACCESS_KEY={get:()=>++reads===1?blocked:Promise.resolve(fixtureSecret)};
+  const client=new module.LanguageFiles({},scoped),first=client.head(digest);await Promise.resolve();
+  const second=client.head(digest);let independent;
+  try{independent=await Promise.race([second.then(()=>true),new Promise(resolve=>setTimeout(()=>resolve(false),1000))]);}finally{release(fixtureSecret);await Promise.all([first,second]);}
+  assert.equal(independent,true);assert.equal(reads,2);
+ });
+ await check('metadata and byte results are owned copies and both RPC results and stubs are disposed on success and failure',async()=>{
+  const bytes=text.encode('owned byte fixture'),digest=sha(bytes);let resultDisposed=0,stubDisposed=0,fail=false;
+  const result=value=>Object.defineProperty(value,Symbol.dispose,{value(){resultDisposed++;if(value.bytes instanceof Uint8Array)value.bytes.fill(0);if(value.location)value.location.namespace='revoked';value.digest='revoked';}});
+  const scoped={FILE_PROCESSOR:{getByName(project){assert.equal(project,'language');return{
+   async head(){if(fail)throw Error('fixture failure');return result({digest,bytes:bytes.length});},
+   async get(){return result({digest,bytes:bytes.slice()});},
+   async put(){return result({digest,bytes:bytes.length,provider:'huggingface-s3',location:{namespace:'Gual-Wells',bucket:'second-language-assets',key:`objects/${digest.slice(0,2)}/${digest}.bin`},reused:false});},
+   [Symbol.dispose](){stubDisposed++;}
+  };}}};
+  const client=new module.LanguageFiles({},scoped),head=await client.head(digest),read=await client.get(digest),saved=await client.put(bytes);
+  assert.equal(head.digest,digest);assert.deepEqual(read.bytes,bytes);assert.equal(saved.location.namespace,'Gual-Wells');assert.equal(resultDisposed,3);assert.equal(stubDisposed,3);
+  fail=true;await assert.rejects(()=>client.head(digest),/fixture failure/);assert.equal(stubDisposed,4);
+ });
  console.log(JSON.stringify({passed:cases.length,cases,network:'fixture only',externalRequests:0,paidCalls:0,rpcBoundary:'Official RPC byte streams supported; fixture tests exercise byte-oriented serialization shape, not deployed RPC'},null,2));
 }finally{globalThis.fetch=priorFetch;console.error=priorConsoleError;}

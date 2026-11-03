@@ -13,7 +13,7 @@ const filePool=storagePolicy.filePools?.huggingface;
 const poolName=value=>typeof value==='string'&&/^[A-Za-z0-9][A-Za-z0-9._-]{0,95}$/.test(value)&&!value.includes('..');
 function projectPool(project){if(!['language','algorithm','schedule','ledger'].includes(project)||filePool?.resourceId!=='hf-private-account'||!poolName(filePool.namespace)||!poolName(filePool.buckets?.[project]))throw unavailable();return {namespace:filePool.namespace,bucket:filePool.buckets[project]};}
 function permitNewWrite(project){const resource=storagePolicy.resources?.filter(value=>value.id==='hf-private-account');const allocations=storagePolicy.allocations?.[project];if(resource?.length!==1||resource[0].state!=='active'||resource[0].provider!=='huggingface'||!Array.isArray(allocations)||!allocations.some(value=>value.resourceId==='hf-private-account'&&value.mode==='current'))throw unavailable();}
-const stores=new WeakMap(),encoder=new TextEncoder();
+const encoder=new TextEncoder();
 const plain=value=>value!==null&&typeof value==='object'&&!Array.isArray(value)&&Object.getPrototypeOf(value)===Object.prototype;
 const validDigest=value=>typeof value==='string'&&/^[a-f0-9]{64}$/.test(value);
 const digestOf=async value=>Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',value))).map(byte=>byte.toString(16).padStart(2,'0')).join('');
@@ -24,9 +24,9 @@ const notFound=()=>new Response('Not found',{status:404,headers:{'cache-control'
 function mime(value){if(typeof value!=='string'||value.length>160||! /^[A-Za-z0-9!#$&^_.+-]+\/[A-Za-z0-9!#$&^_.+-]+(?:; ?charset=[A-Za-z0-9-]+)?$/.test(value))invalid();return value;}
 function contentBytes(value){const bytes=value instanceof Uint8Array?value:value instanceof ArrayBuffer?new Uint8Array(value):null;if(!bytes||bytes.byteLength>MAX_BYTES)invalid();return bytes;}
 function scopedStore(env,project){
- let projects=stores.get(env);if(!projects){projects=new Map();stores.set(env,projects);}
- if(!projects.has(project))projects.set(project,hfObjectStore({...projectPool(project),accessKeyId:env.HF_S3_ACCESS_KEY_ID,secretAccessKey:env.HF_S3_SECRET_ACCESS_KEY}));
- return projects.get(project);
+ // A DO survives requests. Its client must not retain an in-flight Secrets
+ // Store/signing promise owned by an earlier, possibly canceled RPC context.
+ return hfObjectStore({...projectPool(project),accessKeyId:env.HF_S3_ACCESS_KEY_ID,secretAccessKey:env.HF_S3_SECRET_ACCESS_KEY});
 }
 async function protectedOperation(operation){try{return await operation();}catch(error){
  // Only fixed, bounded diagnostic fields may cross the private failure boundary.
@@ -125,38 +125,48 @@ export class ProjectFileProcessor extends DurableObject {
 }
 function evidenceStore(env,project){return {put:(bytes,type)=>put(env,project,bytes,type,[]),get:digest=>get(env,project,digest,[])};}
 function processor(env,project){if(typeof env.FILE_PROCESSOR?.getByName!=='function')throw unavailable();return env.FILE_PROCESSOR.getByName(project);}
+const disposeRPC=value=>{if(typeof value?.[Symbol.dispose]==='function')value[Symbol.dispose]();};
+async function processorValue(env,project,method,args){
+ const target=processor(env,project);let value;
+ try{
+  value=await target[method](...args);if(value===null)return null;
+  if(method==='head')return {digest:value.digest,bytes:value.bytes};
+  if(method==='get')return {digest:value.digest,bytes:new Uint8Array(contentBytes(value.bytes))};
+  return {...value,location:{...value.location}};
+ }finally{try{disposeRPC(value);}finally{disposeRPC(target);}}
+}
 class PrivateFiles extends WorkerEntrypoint {fetch(){return notFound();}}
 export class LanguageFiles extends PrivateFiles {
- async head(digest,...extra){return await processor(this.env,'language').head(digest,...extra);}
- async get(digest,...extra){return await processor(this.env,'language').get(digest,...extra);}
- async put(bytes,type='application/octet-stream',...extra){return await processor(this.env,'language').put(bytes,type,...extra);}
+ async head(digest,...extra){return processorValue(this.env,'language','head',[digest,...extra]);}
+ async get(digest,...extra){return processorValue(this.env,'language','get',[digest,...extra]);}
+ async put(bytes,type='application/octet-stream',...extra){return processorValue(this.env,'language','put',[bytes,type,...extra]);}
  async readRange(digest,range=null,type='application/octet-stream',...extra){return await processor(this.env,'language').readRange(digest,range,type,...extra);}
  async getArchive(value,...extra){return await processor(this.env,'language').getArchive(value,...extra);}
  async archiveEvidence(request,...extra){return await processor(this.env,'language').archiveEvidence(request,...extra);}
  async readEvidence(request,...extra){return await processor(this.env,'language').readEvidence(request,...extra);}
 }
 export class AlgorithmFiles extends PrivateFiles {
- async head(digest,...extra){return await processor(this.env,'algorithm').head(digest,...extra);}
- async get(digest,...extra){return await processor(this.env,'algorithm').get(digest,...extra);}
- async put(bytes,type='application/octet-stream',...extra){return await processor(this.env,'algorithm').put(bytes,type,...extra);}
+ async head(digest,...extra){return processorValue(this.env,'algorithm','head',[digest,...extra]);}
+ async get(digest,...extra){return processorValue(this.env,'algorithm','get',[digest,...extra]);}
+ async put(bytes,type='application/octet-stream',...extra){return processorValue(this.env,'algorithm','put',[bytes,type,...extra]);}
  async readRange(digest,range=null,type='application/octet-stream',...extra){return await processor(this.env,'algorithm').readRange(digest,range,type,...extra);}
  async getArchive(value,...extra){return await processor(this.env,'algorithm').getArchive(value,...extra);}
  async archiveEvidence(request,...extra){return await processor(this.env,'algorithm').archiveEvidence(request,...extra);}
  async readEvidence(request,...extra){return await processor(this.env,'algorithm').readEvidence(request,...extra);}
 }
 export class ScheduleFiles extends PrivateFiles {
- async head(digest,...extra){return await processor(this.env,'schedule').head(digest,...extra);}
- async get(digest,...extra){return await processor(this.env,'schedule').get(digest,...extra);}
- async put(bytes,type='application/octet-stream',...extra){return await processor(this.env,'schedule').put(bytes,type,...extra);}
+ async head(digest,...extra){return processorValue(this.env,'schedule','head',[digest,...extra]);}
+ async get(digest,...extra){return processorValue(this.env,'schedule','get',[digest,...extra]);}
+ async put(bytes,type='application/octet-stream',...extra){return processorValue(this.env,'schedule','put',[bytes,type,...extra]);}
  async readRange(digest,range=null,type='application/octet-stream',...extra){return await processor(this.env,'schedule').readRange(digest,range,type,...extra);}
  async getArchive(value,...extra){return await processor(this.env,'schedule').getArchive(value,...extra);}
  async archiveEvidence(request,...extra){return await processor(this.env,'schedule').archiveEvidence(request,...extra);}
  async readEvidence(request,...extra){return await processor(this.env,'schedule').readEvidence(request,...extra);}
 }
 export class LedgerFiles extends PrivateFiles {
- async head(digest,...extra){return await processor(this.env,'ledger').head(digest,...extra);}
- async get(digest,...extra){return await processor(this.env,'ledger').get(digest,...extra);}
- async put(bytes,type='application/octet-stream',...extra){return await processor(this.env,'ledger').put(bytes,type,...extra);}
+ async head(digest,...extra){return processorValue(this.env,'ledger','head',[digest,...extra]);}
+ async get(digest,...extra){return processorValue(this.env,'ledger','get',[digest,...extra]);}
+ async put(bytes,type='application/octet-stream',...extra){return processorValue(this.env,'ledger','put',[bytes,type,...extra]);}
  async readRange(digest,range=null,type='application/octet-stream',...extra){return await processor(this.env,'ledger').readRange(digest,range,type,...extra);}
  async getArchive(value,...extra){return await processor(this.env,'ledger').getArchive(value,...extra);}
  async archiveEvidence(request,...extra){return await processor(this.env,'ledger').archiveEvidence(request,...extra);}
