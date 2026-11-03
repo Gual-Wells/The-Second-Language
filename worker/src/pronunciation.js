@@ -2,7 +2,7 @@ import {checkOpenRouterFunds} from '../../scripts/lib/speaking/funding.mjs';
 import {ttsModel,defaultVoice,voicePolicyVersion} from '../../protocol/voices.mjs';
 import {sha256} from './practice-media.js';
 import {permanentBucket,chapterText} from './storage.js';
-import {pronunciationResult,savePronunciationResult,digestHex} from './pronunciation-store.js';
+import {pronunciationResult,savePronunciationResult,digestHex,audioStorageFailure} from './pronunciation-store.js';
 import {audioDescriptor} from './audio-config.js';
 import {ipaToKokoro,isChapterAudioRequest,maxAudioCharacters} from '../../web/audio-plan.js';
 const json=(v,s=200)=>Response.json(v,{status:s,headers:{'cache-control':'no-store'}});
@@ -37,7 +37,8 @@ export async function pronunciationRoute(request,env,{isPublisher,isReader,sessi
   const descriptor=JSON.parse(old.request_json);if(await sha256(JSON.stringify(descriptor))!==b.id)throw Error('原声音身份不一致');
   const content=old.audio?new Uint8Array(old.audio):await(await permanentBucket(env).get(old.audio_key)).arrayBuffer();
   const metadata=JSON.parse(old.response_json||'{}');if(metadata.digest&&await sha256(content)!==metadata.digest)throw Error('原声音摘要不一致');
-  await savePronunciationResult(env,b.id,descriptor,metadata,content);return json({ok:true,reused:true});
+  try{await savePronunciationResult(env,b.id,descriptor,metadata,content);return json({ok:true,reused:true});}
+  catch(error){const detail=audioStorageFailure(error);console.error(JSON.stringify({event:'audio_compact_deferred',id:b.id,...detail}));return json({error:'声音转存尚未完成，已有原件保留',...detail},503);}
  }
  if(match&&['GET','HEAD'].includes(request.method)){
   const saved=await pronunciationResult(env,match[1]);
