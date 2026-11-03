@@ -2,7 +2,7 @@ import {randomBytes} from 'node:crypto';
 import {mkdir,readFile,writeFile,rename} from 'node:fs/promises';
 import {publisherConfig} from './lib/publisher-config.mjs';
 import {finishTaskBalances} from './check-balances.mjs';
-import {readAudioResponse,retryAudioRead,prepareAudioUnit,recoverAudioBlocked} from './lib/audio-request-runner.mjs';
+import {readAudioResponse,retryAudioRead,prepareAudioUnit,recoverAudioBlocked,reconcileAudioBlocked} from './lib/audio-request-runner.mjs';
 const {base,token}=await publisherConfig();
 async function api(path,body,{method='POST',timeoutMs=270000}={}){let r;try{r=await fetch(new URL(path,base),{method,headers:{authorization:`Bearer ${token}`,'content-type':'application/json'},...(method==='GET'?{}:{body:JSON.stringify(body)}),signal:AbortSignal.timeout(timeoutMs)});}catch{throw Object.assign(Error('声音服务连接中断，请求结果需按原身份查询'),{transportUnknown:true});}return readAudioResponse(r);}
 const claim=randomBytes(32).toString('hex'),{job}=await api('/api/audio-config/jobs/claim',{claim});if(!job)process.exit(0);
@@ -30,7 +30,7 @@ try{
   consecutiveBlocked=0;
   cursor++;await progress();
  }
- if(state==='running'){state=blocked.length?'needs_review':'completed';failure=blocked.length?`${blocked.length} 项声音结果待核对，未重复生成；其余独立例句已处理`:'';}
+ if(state==='running'){blocked=await reconcileAudioBlocked(blocked,api);state=blocked.length?'needs_review':'completed';failure=blocked.length?`${blocked.length} 项声音结果待核对，未重复生成；其余独立例句已处理`:'';}
  await progress();await writeFile(directory+'/result.json',JSON.stringify({state,cursor,blocked},null,2));
  console.log(`音频申请 ${job.id}：${cursor}/${job.units.length}，${state}`);
 }catch(error){state='needs_review';failure=String(error.message);await progress().catch(()=>{});await writeFile(directory+'/result.json',JSON.stringify({state,cursor,blocked,error:failure},null,2));console.error(failure);process.exitCode=1;}

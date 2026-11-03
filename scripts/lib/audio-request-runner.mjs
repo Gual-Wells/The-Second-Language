@@ -14,6 +14,14 @@ export function recoverAudioBlocked(checkpoint,job){
  if(checkpoint.blocked.some(b=>!Number.isInteger(b.index)||b.index<0||b.index>=checkpoint.cursor||(job.units[b.index]?.id??null)!==(b.id??null)))throw Error('音频缺项断点与原计划不符，停止新增生成');
  return checkpoint.blocked.filter(b=>b.index<job.cursor);
 }
+export async function reconcileAudioBlocked(blocked,request){
+ const remaining=[];
+ for(const item of blocked){
+  try{const result=await retryAudioRead(()=>request('/api/practice/pronunciation/'+item.id,null,{method:'GET',timeoutMs:30000}));if(result.id===item.id&&result.state==='ready')continue;}catch{}
+  remaining.push(item);
+ }
+ return remaining;
+}
 export async function retryAudioRead(operation,{wait=delay,attempts=3}={}){
  for(let n=0;;n++)try{return await operation();}catch(error){
   if(n+1>=attempts||error.status&&!error.transportUnknown&&![408,429,500,502,503,504].includes(error.status))throw error;
