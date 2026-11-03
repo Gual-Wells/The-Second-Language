@@ -34,4 +34,10 @@ await check('host injection, insecure/unknown redirects and redirect loops are r
 await check('write redirects are rejected without forwarding keys or retrying writes',async()=>{putStatus=307;const before=seen.length;await assert.rejects(()=>store.putContent(bytes),/重定向/);assert.equal(seen.length,before+1);putStatus=null;});
 await check('24MiB admission bound, digest bounds and missing key fail before network',async()=>{const before=seen.length;await assert.rejects(()=>store.putContent(new Uint8Array(24*1024*1024+1)),/24MiB/);await assert.rejects(()=>store.getContent('../bad'),/摘要/);await assert.rejects(()=>create({secretAccessKey:{get:async()=>null}}).getContent(digest),/凭据/);assert.equal(seen.length,before);});
 await check('failed PUT is not transformed into a missing result or deleted asset',async()=>{putStatus=503;await assert.rejects(()=>store.putContent(bytes),e=>e.status===503);putStatus=null;assert.equal(objects.get(digest).equals(bytes),true);assert(!seen.some(x=>x.method==='DELETE'));});
+await check('S3 failure diagnostics expose only known codes and distinguish denied HEAD from CDN reads',async()=>{
+ const leak='PRIVATE_XML_MESSAGE_AND_SIGNED_URL';const signed=create({fetchImpl:async()=>new Response(`<Error><Code>SignatureDoesNotMatch</Code><Message>${leak}</Message></Error>`,{status:403})});
+ await assert.rejects(()=>signed.putContent(bytes),e=>e.status===403&&e.code==='HF_SIG_INVALID'&&!e.message.includes(leak));
+ const head=create({fetchImpl:async()=>new Response(null,{status:403})});await assert.rejects(()=>head.contentHead(digest),e=>e.code==='HF_HEAD_S3_403');
+ let hop=0;const denied=create({fetchImpl:async()=>++hop===1?new Response(null,{status:302,headers:{location:cdn}}):new Response('Forbidden',{status:403})});await assert.rejects(()=>denied.getContent(digest),e=>e.code==='HF_GET_CDN_403');
+});
 console.log(JSON.stringify({passed:cases.length,cases,network:'fixture only; no external requests or paid services'},null,2));

@@ -111,7 +111,7 @@ try{
   hugeHead=true;await assert.rejects(()=>client.head(digest),/暂不可用/);hugeHead=false;hugeBody=true;await assert.rejects(()=>client.get(digest),/暂不可用/);hugeBody=false;
   brokenContent=true;await assert.rejects(()=>client.get(digest),/暂不可用/);brokenContent=false;
  });
- await check('failure diagnostics allow only bounded HTTP status and kind; secret-bearing exceptions never cross log or RPC boundaries',async()=>{
+ await check('failure diagnostics allow only bounded status, kind and known integrity codes; private exception content never crosses boundaries',async()=>{
   const digest=sha(text.encode('language dedicated fixture')),leak='fixture_PRIVATE_MESSAGE_URL_TOKEN_CONTENT_STACK';let privateReads=0;
   const matrix=[
    [100,'Error',100,'Error'],[599,'TypeError',599,'TypeError'],[503,'AbortError',503,'AbortError'],[408,'TimeoutError',408,'TimeoutError'],
@@ -122,12 +122,18 @@ try{
    const failure={status,name,stack:leak,url:'https://private.invalid/'+leak,content:leak,authorization:leak,toJSON(){throw Error(leak);}};
    Object.defineProperty(failure,'message',{get(){privateReads++;throw Error(leak);}});
    const failedEnv=env();failedEnv.HF_S3_ACCESS_KEY_ID={get:async()=>{throw failure;}};const client=new module.LanguageFiles({},failedEnv),before=diagnostics.length;
-   await assert.rejects(()=>method==='put'?client.put(text.encode('secret-bearing failure fixture')):client[method](digest),error=>error.code==='FILES_UNAVAILABLE'&&error.message==='文件服务暂不可用，原件状态未改变');
+   const suffix=wantStatus!==null||wantKind!=='unknown'?` [${wantStatus??'none'}:${wantKind}:unknown]`:'';
+   await assert.rejects(()=>method==='put'?client.put(text.encode('secret-bearing failure fixture')):client[method](digest),error=>error.code==='FILES_UNAVAILABLE'&&error.message==='文件服务暂不可用，原件状态未改变'+suffix);
    assert.equal(diagnostics.length,before+1);assert.deepEqual(diagnostics.at(-1),[JSON.stringify({event:'series_file_operation_failed',status:wantStatus,kind:wantKind})]);
   }
   const unreadable={get status(){throw Error(leak);},get name(){throw Error(leak);},message:leak},failedEnv=env();failedEnv.HF_S3_ACCESS_KEY_ID={get:async()=>{throw unreadable;}};
   await assert.rejects(()=>new module.LanguageFiles({},failedEnv).head(digest),error=>error.code==='FILES_UNAVAILABLE');assert.deepEqual(JSON.parse(diagnostics.at(-1)[0]),{event:'series_file_operation_failed',status:null,kind:'unknown'});
   assert.equal(privateReads,0);assert(!JSON.stringify(diagnostics).includes(leak));
+  for(const code of ['HF_LENGTH_UNVERIFIED','HF_SIZE_LIMIT','HF_LENGTH_MISMATCH','HF_DIGEST_MISMATCH','HF_WRITE_UNVERIFIED',leak]){
+   const codedEnv=env();codedEnv.HF_S3_ACCESS_KEY_ID={get:async()=>{throw {name:'Error',code,get message(){privateReads++;throw Error(leak);}};}};
+   await assert.rejects(()=>new module.LanguageFiles({},codedEnv).head(digest),error=>error.code==='FILES_UNAVAILABLE'&&error.message.endsWith(`[none:Error:${code===leak?'unknown':code}]`)&&!error.message.includes(leak));
+  }
+  assert.equal(privateReads,0);
   originStatus=503;const before=diagnostics.length;await assert.rejects(()=>clients.get('language').head(digest),error=>error.code==='FILES_UNAVAILABLE');originStatus=null;
   assert.equal(diagnostics.length,before+1);assert.deepEqual(JSON.parse(diagnostics.at(-1)[0]),{event:'series_file_operation_failed',status:503,kind:'Error'});
   const capture=console.error;console.error=()=>{throw Error('fixture logger unavailable');};try{await assert.rejects(()=>new module.LanguageFiles({},failedEnv).head(digest),error=>error.code==='FILES_UNAVAILABLE');}finally{console.error=capture;}

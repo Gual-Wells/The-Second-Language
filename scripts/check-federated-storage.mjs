@@ -49,8 +49,14 @@ try{
  await check('new compact CAS writes use HF only after OneDrive really reports 404, preserve full SHA and avoid generic logical rows',async()=>{
   const bytes=Buffer.from('A new evidence fixture'),digest=sha(bytes),before=events.length;
   const saved=await permanentBucket(environment()).putContent(bytes,'application/json');assert.equal(saved.itemId,'hf-v1:'+digest);assert.equal(saved.provider,'huggingface-s3');assert.equal(saved.location.bucket,'second-language-assets');assert.equal(remoteRows(),1);assert.equal(sql.prepare('SELECT count(*) n FROM storage_blobs').get().n,0);
-  const sequence=events.slice(before),oldLookup=sequence.findIndex(event=>event.startsWith('graph:GET:')&&event.endsWith('/'+digest+'.bin')),newProbe=sequence.findIndex(event=>event==='hf:head:'+digest);assert(oldLookup>=0&&newProbe>oldLookup);assert(!sequence.some(event=>event.startsWith('graph:PUT:')));
+  const sequence=events.slice(before),oldLookup=sequence.findIndex(event=>event.startsWith('graph:GET:')&&event.endsWith('/'+digest+'.bin')),newWrite=sequence.findIndex(event=>event==='hf:put:'+digest);assert(oldLookup>=0&&newWrite>oldLookup);assert(!sequence.some(event=>event.startsWith('graph:PUT:')||event==='hf:head:'+digest));
   const replay=await permanentBucket(environment()).putContent(bytes);assert.equal(replay.reused,true);assert.equal(remoteRows(),1);
+ });
+ await check('supplied immutable bytes can be conditionally written when HF HEAD is denied; reads stay strict',async()=>{
+  const bytes=Buffer.from('Owned complete bytes do not need an absent-key HEAD'),digest=sha(bytes),before=events.length;hfHeadFailure=true;
+  try{const saved=await permanentBucket(environment()).putContent(bytes);assert.equal(saved.digest,digest);assert(!events.slice(before).includes('hf:head:'+digest));assert(events.slice(before).includes('hf:put:'+digest));await assert.rejects(()=>permanentBucket(environment()).contentHead(digest),/authorization or quota/);}
+  finally{hfHeadFailure=false;}
+  assert.deepEqual(Buffer.from(await(await permanentBucket(environment()).getContent(digest)).arrayBuffer()),bytes);
  });
  await check('logical key and historical digest URLs preserve old OneDrive versions while the new version uses an opaque HF handle',async()=>{
   const key='chapters/federated-fixture.md',old=Buffer.from('Pinned original chapter'),current=Buffer.from('New chapter revision'),oldDigest=sha(old),digest=sha(current);legacy.set(oldDigest,old);

@@ -38,7 +38,7 @@ export async function pronunciationRoute(request,env,{isPublisher,isReader,sessi
   const content=old.audio?new Uint8Array(old.audio):await(await permanentBucket(env).get(old.audio_key)).arrayBuffer();
   const metadata=JSON.parse(old.response_json||'{}');if(metadata.digest&&await sha256(content)!==metadata.digest)throw Error('原声音摘要不一致');
   try{await savePronunciationResult(env,b.id,descriptor,metadata,content);return json({ok:true,reused:true});}
-  catch(error){const detail=audioStorageFailure(error);console.error(JSON.stringify({event:'audio_compact_deferred',id:b.id,...detail}));return json({error:'声音转存尚未完成，已有原件保留',...detail},503);}
+  catch(error){const detail=audioStorageFailure(error);console.error(JSON.stringify({event:'audio_compact_deferred',id:b.id,phase:detail.phase,reason:detail.reason}));return json({error:'声音转存尚未完成，已有原件保留',...detail},503);}
  }
  if(match&&['GET','HEAD'].includes(request.method)){
   const saved=await pronunciationResult(env,match[1]);

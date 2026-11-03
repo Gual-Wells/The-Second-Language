@@ -19,7 +19,8 @@ const validDigest=value=>typeof value==='string'&&/^[a-f0-9]{64}$/.test(value);
 const digestOf=async value=>Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',value))).map(byte=>byte.toString(16).padStart(2,'0')).join('');
 const canonical=value=>JSON.stringify(Array.isArray(value)?value.map(item=>JSON.parse(canonical(item))):value&&typeof value==='object'?Object.fromEntries(Object.keys(value).sort().map(key=>[key,JSON.parse(canonical(value[key]))])):value);
 const invalid=()=>{throw Error('文件请求无效');};
-const unavailable=()=>{const error=Error('文件服务暂不可用，原件状态未改变');error.code='FILES_UNAVAILABLE';return error;};
+const hfDiagnosticCodes=new Set(['HF_LENGTH_UNVERIFIED','HF_SIZE_LIMIT','HF_LENGTH_MISMATCH','HF_DIGEST_MISMATCH','HF_WRITE_UNVERIFIED','HF_SIG_INVALID','HF_ACCESS_DENIED','HF_KEY_INVALID','HF_TOKEN_EXPIRED','HF_CLOCK_SKEW','HF_REQ_EXPIRED','HF_SLOW_DOWN','HF_HASH_INVALID','HF_AUTH_INVALID','HF_GET_S3_403','HF_GET_CDN_403','HF_PUT_S3_403','HF_HEAD_S3_403','HF_HEAD_CDN_403']);
+const unavailable=(status=null,kind='unknown',code='unknown')=>{const diagnostic=status!==null||kind!=='unknown'||code!=='unknown'?` [${status??'none'}:${kind}:${code}]`:'';const error=Error('文件服务暂不可用，原件状态未改变'+diagnostic);error.code='FILES_UNAVAILABLE';return error;};
 const notFound=()=>new Response('Not found',{status:404,headers:{'cache-control':'no-store'}});
 function mime(value){if(typeof value!=='string'||value.length>160||! /^[A-Za-z0-9!#$&^_.+-]+\/[A-Za-z0-9!#$&^_.+-]+(?:; ?charset=[A-Za-z0-9-]+)?$/.test(value))invalid();return value;}
 function contentBytes(value){const bytes=value instanceof Uint8Array?value:value instanceof ArrayBuffer?new Uint8Array(value):null;if(!bytes||bytes.byteLength>MAX_BYTES)invalid();return bytes;}
@@ -31,11 +32,12 @@ function scopedStore(env,project){
 async function protectedOperation(operation){try{return await operation();}catch(error){
  // Only fixed, bounded diagnostic fields may cross the private failure boundary.
  // Exception messages/stacks, URLs, content and credentials are never logged.
- let status=null,kind='unknown';
+ let status=null,kind='unknown',code='unknown';
  try{const value=error?.status;if(Number.isInteger(value)&&value>=100&&value<=599)status=value;}catch{}
  try{const value=error?.name;if(['Error','TypeError','AbortError','TimeoutError','RangeError','SyntaxError'].includes(value))kind=value;}catch{}
+ try{const value=error?.code;if(hfDiagnosticCodes.has(value))code=value;}catch{}
  try{console.error(JSON.stringify({event:'series_file_operation_failed',status,kind}));}catch{}
- throw unavailable();
+ throw unavailable(status,kind,code);
 }}
 async function head(env,project,digest,extra){
  if(!validDigest(digest)||extra.length)invalid();

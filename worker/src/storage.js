@@ -93,7 +93,16 @@ export function permanentBucket(env){return{
   // Recovery snapshots carry typed immutable locators in their own manifests. Registering
   // every snapshot into the database being backed up would create a growing feedback loop.
   if(newFiles&&options.register===false)return files.putContent(bytes,mime,options);
-  let row;try{row=await this.contentHead(digest);}catch(error){
+  let row;try{
+   if(newFiles){
+    // This write already owns the complete bytes and their SHA. An absent-key
+    // HEAD may be denied even when conditional PUT is permitted. Do not use
+    // an unregistered HF HEAD to admit this write; preserve legacy authority,
+    // then let the fixed gateway perform If-None-Match PUT + full readback.
+    const known=await remoteContentMapping(env,digest);if(known)return files.putContent(bytes,mime,options);
+    row=await legacyContentHead(env,digest);
+   }else row=await this.contentHead(digest);
+  }catch(error){
    if(!newFiles||error?.storageProvider!=='onedrive')throw error;
    // The caller already holds the complete immutable bytes. Save a same-SHA copy;
    // this is not evidence that the older provider is missing and never reruns a model.
@@ -167,7 +176,10 @@ async function handleStorage(request,env,{isPublisher,session,sameOrigin}){
   const bytes=encoder.encode(JSON.stringify(index)),uploaded=await(await graph(env,`${route}:/recovery-index.json:/content`,{method:'PUT',headers:{'content-type':'application/json'},body:bytes})).json();if(await sha256(await(await itemResponse(env,uploaded.id)).arrayBuffer())!==await sha256(bytes))throw Error('恢复索引回读失败');return json({ok:true,snapshots:index.snapshots.length});
  }
  if(path==='/content'&&isPublisher){
-  if(request.method==='PUT')return json(await bucket.putContent(await request.arrayBuffer(),request.headers.get('content-type')||'application/octet-stream',request.headers.get('x-storage-purpose')==='recovery'?{register:false}:{}));
+  if(request.method==='PUT'){
+   const bytes=await request.arrayBuffer();try{return json(await bucket.putContent(bytes,request.headers.get('content-type')||'application/octet-stream',request.headers.get('x-storage-purpose')==='recovery'?{register:false}:{}));}
+   catch(error){const tag=String(error?.message||'').match(/\[(?:none|\d{3}):(?:unknown|Error|TypeError|AbortError|TimeoutError|RangeError|SyntaxError):(?:unknown|HF_LENGTH_UNVERIFIED|HF_SIZE_LIMIT|HF_LENGTH_MISMATCH|HF_DIGEST_MISMATCH|HF_WRITE_UNVERIFIED|HF_SIG_INVALID|HF_ACCESS_DENIED|HF_KEY_INVALID|HF_TOKEN_EXPIRED|HF_CLOCK_SKEW|HF_REQ_EXPIRED|HF_SLOW_DOWN|HF_HASH_INVALID|HF_AUTH_INVALID|HF_GET_S3_403|HF_GET_CDN_403|HF_PUT_S3_403|HF_HEAD_S3_403|HF_HEAD_CDN_403)\]/)?.[0];return json({error:'永久文件写入尚未完成，原件保留',diagnostic:tag||'unclassified'},503);}
+  }
   const digest=url.searchParams.get('digest');if(!/^[a-f0-9]{64}$/.test(digest||''))return json({error:'资产摘要无效'},400);
   if(request.method==='GET'||request.method==='HEAD')return(await bucket.responseContent(digest,request))||json({error:'资产不存在'},404);
  }

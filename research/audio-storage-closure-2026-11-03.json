@@ -1,0 +1,94 @@
+{
+  "version": 1,
+  "status": "complete-and-live-verified",
+  "at": "2026-11-03T10:00:18.622Z",
+  "job": {
+    "id": "e2fbed85-4b1e-40ec-91ac-64b1261951ca",
+    "chapter_id": "2026-11-02",
+    "parts": "[\"contexts\"]",
+    "state": "completed",
+    "cursor": 429,
+    "total": 429,
+    "error": ""
+  },
+  "chapterId": "2026-11-02",
+  "digest": "9fb229b72c30ab1736169ee4c752a1d3a134aa0c61daa16705958334d9977493",
+  "contexts": 429,
+  "manifestMatched": true,
+  "packs": [
+    {
+      "pack": 0,
+      "bytes": 8244024,
+      "clips": 81,
+      "digest": "d7d361045d42063661e7308f3030312da6c64054ab3b180bf07b0f6331aefcff"
+    },
+    {
+      "pack": 1,
+      "bytes": 8298168,
+      "clips": 66,
+      "digest": "d2cd62e681a17eb7b3cb2dac911895a16d0d26d633fc9f6067a4ee5337f31a9a"
+    },
+    {
+      "pack": 2,
+      "bytes": 8336064,
+      "clips": 75,
+      "digest": "84f7f79fb59dc65fddc490075a4efa8cc2afb93a61a05e9d9ba835d29e343119"
+    },
+    {
+      "pack": 3,
+      "bytes": 8251104,
+      "clips": 73,
+      "digest": "38b593af34fefe5137a523e2ab5e67949e2a9506804f4efe46b06efe9576543c"
+    },
+    {
+      "pack": 4,
+      "bytes": 8326104,
+      "clips": 67,
+      "digest": "29623895597d175ba089f62335bc90929ee08dc3f85374b962c5aa6f2d4efd92"
+    },
+    {
+      "pack": 5,
+      "bytes": 8251632,
+      "clips": 62,
+      "digest": "7d1325c44e77d8248e2abf26a394cd45d2dd9a15db2775d9be46be422e839b92"
+    },
+    {
+      "pack": 6,
+      "bytes": 720120,
+      "clips": 5,
+      "digest": "320691db331885186c827a32b335bb6c0b607e75699589d8f1338c214e611a0c"
+    }
+  ],
+  "totalBytes": 50427216,
+  "everyClipDigestMatched": true,
+  "newSynthesisCalls": 0,
+  "permanentAudioBlocks": 429,
+  "rootCause": {
+    "observed": "New unregistered HF object HEAD returned 403 and blocked a write that owned all source bytes.",
+    "before": "音频与生成记录依次被预检查阻断，落入D1兜底；完成回执和下载包同样受阻。",
+    "fix": "保留旧OneDrive原件权威；完整字节写入通过固定项目桶的If-None-Match条件PUT及完整回读准入，不依赖未知HF对象HEAD；普通读取仍严格处理403。"
+  },
+  "firstWriteProof": {
+    "at": "2026-11-03T09:48:06.873Z",
+    "http": 200,
+    "digest": "806c126c467ee28eef8dd589e9b8790495ae14b18b8b9a8d1f53f1b4f981c059",
+    "readback": true
+  },
+  "liveVersions": {
+    "languageApi": "fef12c67-325a-48b9-b6e1-5a6fbb0c7610",
+    "privateFiles": "43c4d4d3-be4e-4d14-be39-b60660a74d88"
+  },
+  "checks": [
+    "check-hf-object-store.mjs",
+    "check-federated-storage.mjs",
+    "check-series-files.mjs",
+    "check-audio-config.mjs",
+    "check-audio-request-runner.mjs"
+  ],
+  "notes": [
+    "429个完整例句块与原固定计划逐字绑定，7个线上包和每个音频切片均完成完整SHA核验。",
+    "本次收尾没有再次合成音频，没有更改第一章正文或词条。",
+    "仅固定安全错误码跨私有RPC边界；不记录供应商响应正文、签名地址或凭据。",
+    "后台音频入口已经归一至正式运行目录。其他模块的审计未解决项独立保留。"
+  ]
+}
