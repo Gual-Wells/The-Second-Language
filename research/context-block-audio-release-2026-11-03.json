@@ -1,0 +1,148 @@
+{
+  "schemaVersion": 1,
+  "status": "released-and-verified",
+  "at": "2026-11-03T06:20:06.827Z",
+  "implementationCommit": "dd75423",
+  "deployment": {
+    "workerVersion": "acb5c8ad-4c96-4ea9-96c2-65c38ec4986d",
+    "pages": "https://72551c47.the-second-language.pages.dev",
+    "production": "https://the-second-language.pages.dev",
+    "shellVersion": 69,
+    "criticalAssetsVerified": 20,
+    "migration": "0032_default_context_block_audio.sql"
+  },
+  "behavior": {
+    "headerSpeechControl": false,
+    "unit": "complete English context block",
+    "supportSentencesAndAllParagraphs": true,
+    "translationDefinitionsHeadingsAndSpeakerLabelsExcluded": true,
+    "repeatTapStopsPlaybackOrWaiting": true,
+    "differentBlockSwitchesPlayback": true,
+    "defaultAfterPublication": [
+      "contexts"
+    ],
+    "oneTimeSkipResetsToEnabled": true,
+    "publicationQueuesAtomicallyWithoutWaitingForAudio": true,
+    "legacySavedSentencePlansRetainedWithoutNewSynthesis": true,
+    "existingPaidAndUnknownIdentitiesRetained": true,
+    "implicitHistoricalBulkGeneration": false
+  },
+  "currentChapter": {
+    "blocks": 429,
+    "sentences": 809,
+    "multiSentenceBlocks": 343,
+    "maxBlockCharacters": 421,
+    "unsupportedBlocks": 0
+  },
+  "validation": {
+    "wholeBlockContracts": 10,
+    "touchReaderChecks": 60,
+    "touchViewports": [
+      "402x874",
+      "320x620"
+    ],
+    "physicalIphoneValidation": false,
+    "pageErrors": [],
+    "workerSqliteSuites": [
+      "check-default-controls",
+      "check-usage-context-backend",
+      "check-current-affairs-backend",
+      "check-audio-config"
+    ],
+    "releaseGate": true,
+    "online": {
+      "at": "2026-11-03T06:19:19.598Z",
+      "next": [
+        "contexts"
+      ],
+      "unitPolicy": "context-blocks-v1",
+      "revision": 14,
+      "rest": true,
+      "oldJobsUnchanged": true,
+      "jobCount": 0,
+      "chapterDigest": "9fb229b72c30ab1736169ee4c752a1d3a134aa0c61daa16705958334d9977493",
+      "sourceDigest": "89c220a30cf8dc48c842e7f5db71928554a06c0c454ac0df4ff3d25f2621fe2e"
+    },
+    "realSynthesisProbe": {
+      "at": "2026-11-03T06:15:58.989Z",
+      "partialStatus": 422,
+      "requestStatus": 200,
+      "contextId": "C001_04",
+      "sentences": 2,
+      "characters": 279,
+      "expectedId": "5fb31af401fdc794514c60ab1d32701b58066bdcb8a7bb6db252f96ca3c66000",
+      "result": {
+        "id": "5fb31af401fdc794514c60ab1d32701b58066bdcb8a7bb6db252f96ca3c66000",
+        "state": "ready",
+        "nextRetryAt": null,
+        "audioUrl": "/api/practice/pronunciation/5fb31af401fdc794514c60ab1d32701b58066bdcb8a7bb6db252f96ca3c66000/audio"
+      },
+      "elapsedMs": 17562,
+      "paidRequestsSubmitted": 1,
+      "audioBytes": 123960,
+      "audioSha256": "2e130fc3b1261841fb763f0eacfb531392230b254cf09eb3d7d7c47195d77b8b",
+      "decoded": {
+        "durationSeconds": 17.353958333333335,
+        "sampleRate": 24000,
+        "channels": 1,
+        "frames": 416495
+      }
+    },
+    "audioMonitor": {
+      "lastRun": "2026-11-03 14:18:18 Asia/Shanghai",
+      "lastTaskResult": 0,
+      "interval": "1 minute",
+      "requiresComputerOnline": true
+    }
+  },
+  "cost": {
+    "newSubscription": false,
+    "realWholeBlockGenerationRequestsThisTask": 1,
+    "pricingSource": "https://openrouter.ai/hexgrad/kokoro-82m",
+    "estimateUsdPerMillionCharacters": [
+      0.62,
+      4
+    ],
+    "futureAudioUsesExistingService": true
+  },
+  "readerActions": [
+    {
+      "gesture": "single English sentence tap",
+      "effect": "Play its complete context block; tap the same active block to stop, a different block to switch."
+    },
+    {
+      "gesture": "translation tap",
+      "effect": "Toggle whole translation masking without speech or questions."
+    },
+    {
+      "gesture": "hold word or use heading about 650ms",
+      "effect": "Submit vocabulary question."
+    },
+    {
+      "gesture": "hold English sentence about 650ms",
+      "effect": "Submit sentence question with the whole English context."
+    },
+    {
+      "gesture": "double tap an English word",
+      "effect": "Submit an in-context word-use question, without speech."
+    },
+    {
+      "gesture": "double tap other non-interactive reader body",
+      "effect": "Toggle pure reading; sentence whitespace/punctuation does not toggle."
+    },
+    {
+      "gesture": "single blank tap in pure reading",
+      "effect": "Reveal reader controls for three seconds."
+    },
+    {
+      "gesture": "scroll, selection, chapter navigation or backgrounding",
+      "effect": "Cancel pending gestures; chapter/background changes stop speech."
+    }
+  ],
+  "previousPendingResearchPatch": {
+    "branch": "codex/context-appeals-20261103",
+    "commit": "0797aa84614403b63a192cbaad1d6cc5b334a666",
+    "merged": false,
+    "reason": "Separate textbook-source clarification remains pending."
+  }
+}
