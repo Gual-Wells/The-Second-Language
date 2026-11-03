@@ -5,6 +5,8 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {canonicalSourcePackage} from '../protocol/current-affairs.mjs';
 import {publishVix,validatePublishedVixReceipt} from './lib/vix-publication.mjs';
+import {auxiliaryFixture} from './fixtures/vix-auxiliary.mjs';
+import {readAuxiliaryIndex} from './lib/vix-auxiliary.mjs';
 
 const project=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const parent=path.join(project,'.cache/vix-publication-checks');
@@ -22,16 +24,10 @@ globalThis.fetch=async()=>{throw Error('Publication checks cannot call a real se
 async function fixture(name){
   const root=path.join(temp,name),vixDir=path.join(root,'vix-marking'),selectionFile=path.join(root,'selection.json'),receiptFile=path.join(root,'vix-publication.json');
   const selection={studyDate:date,vixInputCommit:input,vixMarkLabel:date.slice(2),mainWords:Array.from({length:50},(_,i)=>({entryId:`fixture-${i+1}`,globalRank:i+1,text:`word${i+1}`,family:[]}))};
-  const manifest={protocol:'vix-seed-access/2',scope:{domainId:'domain_general_english',section:'word',records:50},counts:{records:50},binding:{marks:{labelFormat:'YY-MM-DD',externalDateMeaning:true,yearBase:2000}},recordTuple:['entryId','globalRank','text','markDates'],records:[{path:'data/seed-access/records/fixture.json'}]};
-  const bodies=new Map([
-    ['data/seed-access/manifest.json',JSON.stringify(manifest)],
-    ['data/seed-access/records/fixture.json',JSON.stringify(selection.mainWords.map(item=>[item.entryId,item.globalRank,item.text,[date.slice(2)]]))],
-    [`data/seed-access/dates/${date.slice(2)}.json`,JSON.stringify({date:date.slice(2),globalRanks:selection.mainWords.map(item=>item.globalRank)})],
-    ['data/seed-access/mark-hash.json','{"fixture":"marks"}'],['data/seed-access/structure.json','{"fixture":"structure"}'],
-    ['tools/build-seed-access.mjs',"// Self-written check fixture: no network or production content.\n"],
-    ['vix-marking-workspace.json',JSON.stringify({protocol:'second-language-vix-marking/1',studyDate:date,inputCommit:input,selectionDigest:canonicalDigest(selection)})]
-  ]);
+  const bodies=auxiliaryFixture(selection.mainWords,{label:date.slice(2)});
+  bodies.set('vix-marking-workspace.json',JSON.stringify({protocol:'second-language-vix-marking/1',studyDate:date,inputCommit:input,selectionDigest:canonicalDigest(selection)}));
   for(const [file,text] of bodies){const target=path.join(vixDir,file);await mkdir(path.dirname(target),{recursive:true});await writeFile(target,text);}
+  const markerFile=path.join(vixDir,'vix-marking-workspace.json'),marker=JSON.parse(await readFile(markerFile));marker.indexIdentityDigest=(await readAuxiliaryIndex(vixDir)).identityDigest;await writeFile(markerFile,JSON.stringify(marker));
   await writeFile(selectionFile,JSON.stringify(selection));
   const state={head:input,calls:[],commits:new Map([[input,{sha:input,tree:{sha:inputTree}}]]),trees:new Map(),commitPosts:0,patches:0,patchMode:'normal',descendants:new Set(),tamperTree:false};
   async function api(target,method='GET',body){
@@ -74,11 +70,15 @@ try{
   const diverged=await fixture('unrelated-after-preparation');diverged.state.patchMode='fail-before-update';await assert.rejects(diverged.publish(),/更新结果未确认/);const before=await readFile(diverged.receiptFile,'utf8');diverged.state.head='c'.repeat(40);await assert.rejects(diverged.publish(),/不包含本次精确提交/);assert.equal(diverged.state.commitPosts,1);assert.equal(diverged.state.patches,1);assert.equal(await readFile(diverged.receiptFile,'utf8'),before);cases++;
 
   success.state.head='d'.repeat(40);success.state.descendants.add(first.vixCommit);const descendant=await success.publish();assert.equal(descendant.vixCommit,first.vixCommit);assert.equal(success.state.commitPosts,1);assert.equal(success.state.patches,1);cases++;
-  await writeFile(path.join(success.vixDir,'data/seed-access/structure.json'),'{"fixture":"changed"}');const callsBefore=success.state.calls.length;await assert.rejects(success.publish(),/回执与冻结选词、原输入或拟提交文件不一致/);assert.equal(success.state.calls.length,callsBefore);cases++;
+  await writeFile(path.join(success.vixDir,'data/seed-access/structure.json'),'{"fixture":"changed"}');const callsBefore=success.state.calls.length;await assert.rejects(success.publish(),/导航结构摘要或范围无效/);assert.equal(success.state.calls.length,callsBefore);cases++;
 
   const changed=await fixture('changed-selection');await changed.publish();await writeFile(changed.selectionFile,JSON.stringify({...changed.selection,mainWords:[...changed.selection.mainWords].reverse()}));const previous=changed.state.calls.length;await assert.rejects(changed.publish(),/工作副本与冻结 selection/);assert.equal(changed.state.calls.length,previous);cases++;
 
   const corrupt=await fixture('remote-file-mismatch');corrupt.state.tamperTree=true;await assert.rejects(corrupt.publish(),/远端发布文件与冻结回执不一致/);assert.equal(corrupt.state.patches,0);assert.equal(JSON.parse(await readFile(corrupt.receiptFile,'utf8')).status,'prepared');cases++;
+
+  const legacy=await fixture('legacy-index-only'),legacyMarkerFile=path.join(legacy.vixDir,'vix-marking-workspace.json'),legacyMarker=JSON.parse(await readFile(legacyMarkerFile));delete legacyMarker.indexIdentityDigest;await writeFile(legacyMarkerFile,JSON.stringify(legacyMarker));
+  const baseline=path.join(legacy.root,'immutable-index');for(const [file,body] of auxiliaryFixture(legacy.selection.mainWords)){const target=path.join(baseline,file);await mkdir(path.dirname(target),{recursive:true});await writeFile(target,body);}
+  const inputLock=JSON.stringify({commit:input,localDirectory:baseline});await writeFile(path.join(legacy.root,'vix-source.json'),inputLock);assert.equal((await legacy.publish()).markedRecords,50);assert.equal(await readFile(path.join(legacy.root,'vix-source.json'),'utf8'),inputLock);cases++;
 
   console.log(JSON.stringify({passed:cases,isolatedApiCalls:totalCalls,realNetworkCalls:0,checks:['first publication','chapter receipt identity bound; old or other chapter rejected','same success reused without writes','lost PATCH response reconciled','unconfirmed PATCH resumes exact commit','unrelated main rejected','prepared receipt retained on divergent main','verified descendant reused','changed files rejected','changed selection rejected','remote files verified before PATCH']}));
 }finally{globalThis.fetch=originalFetch;await rm(temp,{recursive:true,force:true});}

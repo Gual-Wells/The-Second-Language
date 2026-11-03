@@ -1,0 +1,209 @@
+{
+  "schemaVersion": 1,
+  "task": "Audit reproducibility of the existing formal research/publication flow; repair concrete gaps",
+  "recordedAt": "2026-11-03T05:36:23.696Z",
+  "status": "implementation-verified-awaiting-textbook-scope-decision",
+  "scope": {
+    "oralCurriculumRedesign": false,
+    "reselectFirstChapter": false,
+    "rewriteFirstChapter": false,
+    "startNewChapter": false,
+    "productionModel": "gpt-6.1-sol/high",
+    "chapterMainWords": 30,
+    "producerGroups": [
+      10,
+      10,
+      10
+    ],
+    "restDefault": true,
+    "audioDefault": []
+  },
+  "conclusion": {
+    "engineering": "The standard path already carries real-first discovery, individual fallback review, counterevidence admission and immutable publication. Identified reproducibility/recovery gaps have been repaired in the development checkout.",
+    "quality": "No new independent chapter was generated. Reproducing chapter one's final 99.5% or learner benefit is not established by these contract tests.",
+    "activation": "Not yet copied to the production runtime or main while independent textbook transfer is awaiting the user's VIX-source boundary decision."
+  },
+  "baseline": {
+    "studyDate": "2026-11-02",
+    "wordCount": 30,
+    "useCount": 443,
+    "uniqueContexts": 429,
+    "authenticUses": 441,
+    "authenticContexts": 427,
+    "approvedExamples": [
+      "C027_05",
+      "C027_08"
+    ],
+    "chapterDigest": "9fb229b72c30ab1736169ee4c752a1d3a134aa0c61daa16705958334d9977493",
+    "sourceDigest": "89c220a30cf8dc48c842e7f5db71928554a06c0c454ac0df4ff3d25f2621fe2e",
+    "evidenceDigest": "48f602c68da0beeecdd15ef6b8eac19df95092378bf20b63be13b5613ea8116a",
+    "publicationReviewDigest": "ea2eba66efba923540a3521f4be37f78439bb565d04239783c8f12329e263add",
+    "localFullPreflightPassed": true,
+    "latestLiveCheck": "2026-11-03T05:26:10.097Z",
+    "liveBodyAndSourceUnchanged": true,
+    "liveRestRequested": true,
+    "productionWritesThisAudit": 0,
+    "finalPreflightQuality": {
+      "useCoveragePercent": 99.54853273137698,
+      "contextSharePercent": 99.53379953379954,
+      "unverifiedContextIds": [],
+      "allContextsAdmitted": true,
+      "approvedExampleCount": 2
+    }
+  },
+  "findings": [
+    {
+      "issue": "Normal VIX input/candidate/mark tools depended on abandoned Seed, memberships, textbook and generator paths.",
+      "fix": "New input access pins only data/seed-access; legacy inventories remain byte-for-byte but out-of-scope files are never read/fetched. Candidates use index navigation honestly without inventing full memberships. Project-owned marks-only derivation preserves identity and can recover interrupted date-derived writes.",
+      "files": [
+        "scripts/prepare-vix.mjs",
+        "scripts/vix-candidates.mjs",
+        "scripts/lib/vix-auxiliary.mjs",
+        "scripts/mark-vix.mjs",
+        "scripts/lib/vix-publication.mjs",
+        "protocol/VIX_ACCESS.md"
+      ]
+    },
+    {
+      "issue": "Dictionary retrieval was coupled to the VIX commit and could automatically read/fetch prohibited textbook paths.",
+      "fix": "Prepared an independently pinned Second Language library with explicit authorized-directory transfer, full hash checks, per-run source locks, plan/material/evidence binding and normal archive inclusion. Actual originals have NOT been transferred pending the scope decision.",
+      "files": [
+        "protocol/textbook-library.json",
+        "scripts/lib/textbook-library.mjs",
+        "scripts/lib/textbook-sources.mjs",
+        "scripts/prepare-textbook-library.mjs",
+        "scripts/lib/work-archives.mjs"
+      ],
+      "pendingSourceBytes": 58067077
+    },
+    {
+      "issue": "Production plan sealed selected IDs and dictionary packets but omitted actual selection reasons and learner feedback.",
+      "fix": "New plans pin original UTF-8 selection.md and feedback.json. Optional rewritten summaries do not replace them. Existing plans/handwritten historical records are not rewritten.",
+      "policy": "planning-evidence-v1"
+    },
+    {
+      "issue": "Lost final return recovery covered initial assembly but missed repaired assembly.",
+      "fix": "Both assembly paths read and verify the same actual publication before considering another generation. Unconfirmed/unknown invocations remain protected."
+    },
+    {
+      "issue": "One automatic repair round was not persisted across a host restart.",
+      "fix": "Persist the exact plan and repair digest in automatic-repair.json; restart cannot grant a second round."
+    },
+    {
+      "issue": "A legacy publication fixture asserted obsolete unbound 40-word/audio behavior.",
+      "fix": "The existing command now executes maintained control, source/evidence and usage-context SQLite/Worker suites, including actual 30-word fixture publication/readback."
+    },
+    {
+      "issue": "Some current prose retained obsolete 50-word and raw-membership requirements.",
+      "fix": "Align active selection/production instructions to 30 words and allowed index scope, retaining frozen historical contracts."
+    },
+    {
+      "issue": "Scheduler completion records were hard to compare with chapter one's quality outcome.",
+      "fix": "Successful publication preflight/results now carry recomputed authenticity coverage, admission/alarm and actual approved example IDs; no model-written percentage and no semantic-truth claim."
+    },
+    {
+      "issue": "Missing independent textbook library could be discovered after starting a planning model.",
+      "fix": "Verify library before any new model invocation; rest and verified-publication recovery need no model."
+    }
+  ],
+  "alreadyClosedAndVerified": [
+    "100% real-first discovery with exact original/sense/function witnesses",
+    "80% alarm and all-context real-or-individually-approved admission",
+    "Independent isolated fallback review with actual records, per-case reuse and negative decisions",
+    "Source counterevidence blocks both signers and publisher before credentials/network",
+    "Metadata contract before expensive uploads",
+    "Canonical body/source preseal, full permanent GET/SHA and lost-ACK recovery",
+    "Native Goal completion verified against real artifacts; no host continue loop or unknown replay"
+  ],
+  "validation": [
+    {
+      "script": "check-daily-pipeline.mjs",
+      "passed": 26
+    },
+    {
+      "script": "check-codex-goal.mjs",
+      "passed": 28
+    },
+    {
+      "script": "check-textbook-library.mjs",
+      "passed": 9
+    },
+    {
+      "script": "check-vix-auxiliary.mjs",
+      "passed": 9
+    },
+    {
+      "script": "check-vix-marking.mjs",
+      "passed": true
+    },
+    {
+      "script": "check-vix-publication.mjs",
+      "passed": 12
+    },
+    {
+      "script": "check-daily-affairs.mjs",
+      "passed": true
+    },
+    {
+      "script": "check-chapter-evidence.mjs",
+      "passed": 18
+    },
+    {
+      "script": "check-teaching-authoring.mjs",
+      "passed": true
+    },
+    {
+      "script": "check-fallback-appeals.mjs",
+      "passed": 20
+    },
+    {
+      "script": "check-publication-objections.mjs",
+      "passed": 10
+    },
+    {
+      "script": "check-evidence-publication.mjs",
+      "passed": 9
+    },
+    {
+      "script": "check-publication-review.mjs",
+      "passed": 24
+    },
+    {
+      "script": "check-digr-adapter.mjs",
+      "passed": 21
+    },
+    {
+      "script": "check-refinement-integration.mjs",
+      "passed": 4
+    },
+    {
+      "script": "check-publishing-closure.mjs",
+      "passed": true,
+      "maintainedSuites": [
+        "check-default-controls.mjs",
+        "check-current-affairs-backend.mjs",
+        "check-usage-context-backend.mjs"
+      ]
+    },
+    {
+      "script": "check-work-archives.mjs",
+      "passed": true
+    }
+  ],
+  "constraints": {
+    "realModelCalls": 0,
+    "ttsCalls": 0,
+    "newSubscriptions": 0,
+    "realVixPublications": 0,
+    "productionPublicationChanges": 0,
+    "rawVixOutsideIndexRead": false,
+    "textbookTransferExecuted": false,
+    "productionOriginalsChanged": false,
+    "existingEngineAndGoalPinsChanged": false
+  },
+  "remaining": [
+    "User decision on retaining the existing full textbooks as an independently sealed Second Language library under the index-only VIX boundary.",
+    "If approved: transfer and verify the exact originals, validate real independent lookups and private recovery, then fast-forward the production runtime and push main.",
+    "A future normally authorized chapter is required to measure repeatability of source quality, correction effort and total Codex usage; this audit does not trigger one."
+  ]
+}

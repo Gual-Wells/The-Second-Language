@@ -10,7 +10,7 @@
 
 ## 资料与讲解尺度
 
-固定VIX中的`textbook/Etymology_Sources.json`与三份`*_Etymology_Chat_Project.md`随教材绑定同批版本，实际读取`Etymology_Chat_Project_Instructions.md`。Chambers可先读，Klein、Onions按需补缺项、构词关系或疑点。用`scripts/lookup-textbooks.mjs`定位后读原文及必要续文；候选命中、推断标题、OCR文字不是校勘结论。
+按TEACHING_AUTHORING从第二语言独立教材资料库固定Etymology_Sources.json与三份词源书，并实际读取Etymology_Chat_Project_Instructions.md；不从VIX仓库取得索引之外的内容。首次原件移交须已有明确来源授权，缺件不能自行绕行。Chambers可先读，Klein、Onions按需补缺项、构词关系或疑点。用`scripts/lookup-textbooks.mjs`定位后读原文及必要续文；候选命中、推断标题、OCR文字不是校勘结论。
 
 一份可靠来源足以支持普通说明，不要求逐词比完三书或穷尽争论。省略无益的古语言细节、年代、音变及全部同源词；影响理解的实质疑点才追加核验，已有可信简明说明即可停止。来源缺失或有不同说法可简述，不编造补齐；不影响主要教学时不以学术不完备阻塞整章。
 

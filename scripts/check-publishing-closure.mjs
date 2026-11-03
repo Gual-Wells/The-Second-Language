@@ -1,77 +1,13 @@
-import assert from 'node:assert/strict';
-import {DatabaseSync} from 'node:sqlite';
-import {readFile,readdir,writeFile} from 'node:fs/promises';
-import worker from '../worker/src/index.js';
-import {checkBalances,balanceView} from '../worker/src/balances.js';
-const sql=new DatabaseSync(':memory:');
-for(const f of (await readdir('worker/migrations')).filter(x=>x.endsWith('.sql')).sort())sql.exec(await readFile('worker/migrations/'+f,'utf8'));
-const db={prepare(q){const wrap=(params=[])=>({bind(...args){return wrap(args)},first:async()=>sql.prepare(q).get(...params)||null,all:async()=>({results:sql.prepare(q).all(...params)}),run:async()=>({meta:{changes:Number(sql.prepare(q).run(...params).changes)}})});return wrap();},async batch(items){sql.exec('BEGIN');try{const out=[];for(const i of items)out.push(await i.run());sql.exec('COMMIT');return out;}catch(e){sql.exec('ROLLBACK');throw e;}}};
-sql.exec("INSERT INTO push_subscriptions(id,endpoint,p256dh,auth,created_at,updated_at) VALUES('phone','https://fixture','x','y',0,0)");
-const env={DB:db,PUBLISH_TOKEN:'fixture',APP_ORIGIN:'https://fixture',OPENROUTER_API_KEY:'fixture'};
-let balance=2,requests=0;const original=globalThis.fetch;
-globalThis.fetch=async url=>{requests++;assert.ok(/\/credits$|\/key$/.test(url));return Response.json({data:url.endsWith('/credits')?{total_credits:balance,total_usage:0}:{limit_remaining:null}});};
-try{
- await checkBalances(env,{notify:true});await checkBalances(env,{notify:true});
- assert.equal(sql.prepare('SELECT COUNT(*) n FROM balance_push_outbox').get().n,1);
- balance=100;await checkBalances(env,{notify:true});balance=2;await new Promise(r=>setTimeout(r,5));await checkBalances(env,{notify:true});
- assert.equal(sql.prepare('SELECT COUNT(*) n FROM balance_push_outbox').get().n,2);
- await checkBalances(env,{reports:[{pool:'cloudflare',verified:false,checkedAt:new Date().toISOString()}]});
- const data=await balanceView(env);assert.equal(data.pools.find(x=>x.pool==='cloudflare').remaining,null);
- const before=requests;const req=new Request('https://fixture/api/balances',{headers:{authorization:'Bearer fixture'}});
- assert.equal((await worker.fetch(req,env)).status,200);assert.equal(requests,before,'Viewing balances performs no account requests');
- assert.equal((await worker.fetch(new Request('https://fixture/api/balances'),env)).status,401);
- const a='a'.repeat(64),b='b'.repeat(64);
- for(const [digest,key]of [[a,'old'],[b,'new']])sql.prepare('INSERT INTO chapter_revisions(digest,chapter_id,study_date,number,title,subtitle,word_count,content_key,run_id,vix_commit,protocol_commit,created_at) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)').run(digest,'2026-10-02','2026-10-02','1',key,'',40,key,'2026-10-02','c'.repeat(40),'d'.repeat(40),0);
- sql.prepare('INSERT INTO published_chapters(chapter_id,study_date,digest,published_at) VALUES(?,?,?,?)').run('2026-10-02','2026-10-02',b,0);
- env.CHAPTERS={get:async key=>key+' chapter'};
- const get=async suffix=>(await worker.fetch(new Request('https://fixture/api/chapters/2026-10-02'+suffix,{headers:{authorization:'Bearer fixture'}}),env)).json();
- assert.equal((await get('')).digest,b);const old=await get('?digest='+a);assert.equal(old.digest,a);assert.equal(old.historical,1);assert.equal(old.markdown,'old chapter');
- const commit=async digest=>worker.fetch(new Request('https://fixture/api/publish/commit',{method:'POST',headers:{authorization:'Bearer fixture','content-type':'application/json'},body:JSON.stringify({runId:'2026-10-02',digest})}),env);
- const stamp=sql.prepare("SELECT published_at FROM published_chapters WHERE chapter_id='2026-10-02'").get().published_at;
- assert.equal(sql.prepare('SELECT parts FROM audio_next_config').get().parts,'["two","three"]','Daily audio is full by default');
- sql.exec("UPDATE audio_next_config SET parts='[\"three\"]',revision=2 WHERE id=1");
- assert.equal((await commit(b)).status,200);
- assert.equal(sql.prepare('SELECT parts FROM audio_next_config').get().parts,'["three"]','Republishing an existing chapter does not consume next-chapter preferences');
- assert.equal(sql.prepare("SELECT published_at FROM published_chapters WHERE chapter_id='2026-10-02'").get().published_at,stamp);
- assert.equal((await commit(a)).status,409);
- assert.equal(sql.prepare("SELECT digest FROM published_chapters WHERE chapter_id='2026-10-02'").get().digest,b);
- assert.equal(sql.prepare("SELECT chapter_digest FROM daily_runs WHERE run_id='2026-10-02'").get().chapter_digest,b);
- assert.equal(sql.prepare('SELECT count(*) n FROM push_outbox WHERE digest=?').get(a).n,0);
- sql.exec('UPDATE study_settings SET rest_requested=1 WHERE id=1');
- const claim=async date=>(await worker.fetch(new Request('https://fixture/api/runs/claim',{method:'POST',headers:{authorization:'Bearer fixture','content-type':'application/json'},body:JSON.stringify({date,runId:date})}),env)).json();
- assert.equal((await claim('2026-10-03')).rest,true);assert.equal((await claim('2026-10-03')).rest,true);assert.equal((await claim('2026-10-04')).rest,false);
- assert.equal(sql.prepare('SELECT count(*) n FROM audio_requests').get().n,0,'Rest/claims do not enqueue audio');
- const nextDigest='e'.repeat(64);
- sql.prepare(`INSERT INTO chapter_revisions(digest,chapter_id,study_date,number,title,subtitle,word_count,content_key,run_id,vix_commit,protocol_commit,created_at) SELECT ?,'2026-10-04','2026-10-04','2','next','',40,'next','2026-10-04',vix_commit,protocol_commit,1 FROM chapter_revisions LIMIT 1`).run(nextDigest);
- const nextCommit=()=>worker.fetch(new Request('https://fixture/api/publish/commit',{method:'POST',headers:{authorization:'Bearer fixture','content-type':'application/json'},body:JSON.stringify({runId:'2026-10-04',digest:nextDigest})}),env);
- assert.equal((await nextCommit()).status,200);assert.equal((await nextCommit()).status,200);
- assert.equal(sql.prepare('SELECT count(*) n FROM audio_requests').get().n,1);
- assert.equal(sql.prepare('SELECT chapter_digest FROM audio_requests').get().chapter_digest,nextDigest);
- assert.equal(sql.prepare('SELECT parts FROM audio_requests').get().parts,'["three"]','A one-time override applies to this chapter');
- assert.equal(sql.prepare('SELECT parts FROM audio_next_config').get().parts,'["two","three"]');
- const publishNext=async(date,digest)=>{sql.prepare(`INSERT INTO chapter_revisions(digest,chapter_id,study_date,number,title,subtitle,word_count,content_key,run_id,vix_commit,protocol_commit,created_at) SELECT ?,?,?,'3','next','',40,'next',?,vix_commit,protocol_commit,2 FROM chapter_revisions LIMIT 1`).run(digest,date,date,date);return worker.fetch(new Request('https://fixture/api/publish/commit',{method:'POST',headers:{authorization:'Bearer fixture','content-type':'application/json'},body:JSON.stringify({runId:date,digest})}),env);};
- assert.equal((await publishNext('2026-10-05','f'.repeat(64))).status,200);
- assert.equal(sql.prepare("SELECT parts FROM audio_requests WHERE chapter_id='2026-10-05'").get().parts,'["two","three"]','The following chapter still receives full audio');
- sql.exec("UPDATE audio_next_config SET parts='[]' WHERE id=1");
- assert.equal((await publishNext('2026-10-06','1'.repeat(64))).status,200);
- assert.equal(sql.prepare("SELECT count(*) n FROM audio_requests WHERE chapter_id='2026-10-06'").get().n,0,'An explicitly disabled next chapter creates no audio job');
- assert.equal(sql.prepare('SELECT parts FROM audio_next_config').get().parts,'["two","three"]','Even an empty override resets to full after first publication');
- assert.equal((await worker.fetch(new Request('https://fixture/api/feedback',{method:'POST',headers:{'content-type':'application/json'},body:'{}'}),env)).status,401);
- // Wrong model-written labels, revision rows and unpublished dates must not
- // affect chapter ordinals. Historical reads share the chapter's identity.
- env.CHAPTERS={get:async()=>await readFile('chapters/2026-10-02/chapter.md','utf8'),put:async()=>{}};
- const readNumber=async path=>(await worker.fetch(new Request('https://fixture'+path,{headers:{authorization:'Bearer fixture'}}),env)).json();
- const listed=(await readNumber('/api/chapters')).chapters;
- assert.deepEqual(listed.map(c=>c.number),['第 4 章','第 3 章','第 2 章','第 1 章']);
- for(const c of listed)assert.equal((await readNumber('/api/chapters/'+c.id)).number,c.number);
- assert.equal((await readNumber('/api/chapters/2026-10-02?digest='+a)).number,'第 1 章');
- const nextDate='2026-10-08';await claim(nextDate);
- const markdown=await readFile('chapters/2026-10-02/chapter.md','utf8');
- const staged=await worker.fetch(new Request('https://fixture/api/publish/stage',{method:'POST',headers:{authorization:'Bearer fixture','content-type':'application/json'},body:JSON.stringify({id:nextDate,date:nextDate,runId:nextDate,wordCount:40,markdown,title:'Number fixture',subtitle:'',number:'第 2 章',vixCommit:'a'.repeat(40),protocolCommit:'b'.repeat(40)})}),env);
- assert.equal(staged.status,200);const stageValue=await staged.json();assert.equal(stageValue.number,'第 5 章');
- assert.equal(sql.prepare('SELECT number FROM chapter_revisions WHERE digest=?').get(stageValue.digest).number,'第 5 章');
- assert.equal((await readNumber('/api/chapters')).chapters.length,4,'Staged material does not count as a published chapter');
- console.log('通过：发布重发保护、休息幂等、章号按正式日期统一且不受错误草稿或修订数量影响；隔离模拟。');
- const result={immutableRevisionRead:true,currentDigestReturned:true,privateBalances:true,viewDoesNotQueryAccounts:true,unknownIsNotZero:true,lowBalanceNotificationDeduplicated:true,noPaidModels:true,noProductionDataWrites:true};
- console.log(JSON.stringify(result));
-}finally{globalThis.fetch=original;sql.close();}
+// Compatibility entry point. The former unbound 40-word fixture predated the
+// source/evidence admission contract and cannot certify today's publication.
+// Run the maintained Worker/SQLite and current-body/control checks instead.
+import {spawnSync} from 'node:child_process';
+import {fileURLToPath} from 'node:url';
+import path from 'node:path';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+for(const file of ['check-default-controls.mjs','check-current-affairs-backend.mjs','check-usage-context-backend.mjs']){
+ const result=spawnSync(process.execPath,[path.join(root,'scripts',file)],{cwd:root,encoding:'utf8',windowsHide:true});
+ process.stdout.write(result.stdout||'');process.stderr.write(result.stderr||'');
+ if(result.status!==0)throw Error('当前出版闭环验证失败：'+file,{cause:result.error});
+}
+console.log('Publication closure: maintained control, source/evidence and usage-context suites passed; offline fixtures only, no live publication or semantic certification.');

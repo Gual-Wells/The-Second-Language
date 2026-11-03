@@ -68,7 +68,7 @@ export async function prepareTeachingMaterials(root,date,{scopeFile,additionalFi
   if(additionalFile)additional=await readJson(additionalFile);
   else try{const previous=await readJson(view.manifestFile);if(previous.commit!==lock.commit)throw Error('已有材料输入冲突');additional=Object.fromEntries(Object.entries(previous.additionalTerms||{}).filter(([w])=>scope.some(s=>s.text===w)));}catch(e){if(e.code!=='ENOENT')throw e;}
   if(Object.keys(additional).some(w=>!scope.some(s=>s.text===w)))throw Error('补查词须归属本次主词');
-  books ||= await loadTextbooks({root,commit:lock.commit,etymology:true});
+  books ||= await loadTextbooks({root,commit:lock.commit,date,etymology:true});
   if(!['collins','oxford'].every(name=>books.some(b=>b.book===name)))throw Error('须保留两份完整教材');
   const packets=[];
   for(const word of scope){
@@ -83,6 +83,7 @@ export async function prepareTeachingMaterials(root,date,{scopeFile,additionalFi
     packets.push({word:word.text,materialDigest,file:relative,unlocatedTerms:queries.filter(q=>q.books.every(b=>!b.entryIds.length)).map(q=>q.term)});
   }
   const manifest={schemaVersion:1,policy:AUTHORING_POLICY,commit:lock.commit,scope,scopeDigest:digest(scope),additionalTerms:additional,books:books.map(b=>({book:b.book,digest:b.digest,...(b.gitBlob?{gitBlob:b.gitBlob}:{})})),packets};
+  try{const bytes=await fs.readFile(path.join(run,'textbook-source.json'));manifest.textbookSource={file:'textbook-source.json',sha256:hash(bytes),bytes:bytes.length};}catch(error){if(error.code!=='ENOENT')throw error;}
   await fs.mkdir(path.join(run,'teaching'),{recursive:true});
   const target=view.manifestFile,temporary=target+'.'+process.pid+'.tmp';
   await fs.mkdir(path.dirname(target),{recursive:true});
@@ -95,6 +96,11 @@ export async function readTeachingMaterials(root,date,selection,options={}){
   authenticityPolicy(selection,lock);
   if(lock.authoringPolicy===CONTEXT_AUTHORING_POLICY&&selection.authoringPolicy!==CONTEXT_AUTHORING_POLICY)throw Error('新输入制作策略与冻结selection不一致');
   if(manifest.policy!==AUTHORING_POLICY||manifest.commit!==lock.commit||selection.vixInputCommit!==lock.commit||manifest.scopeDigest!==digest(view.scope)||manifest.scopeDigest!==digest(manifest.scope)||manifest.packets.length!==view.scope.length)throw Error('教材材料包与冻结范围或原输入不一致；按原范围补查，不重选');
+  if(manifest.textbookSource){
+    if(manifest.textbookSource.file!=='textbook-source.json')throw Error('独立教材引用路径无效');
+    const bytes=await fs.readFile(path.join(run,'textbook-source.json')),source=JSON.parse(bytes);
+    if(hash(bytes)!==manifest.textbookSource.sha256||bytes.length!==manifest.textbookSource.bytes||source.protocol!=='second-language-textbook-source/1'||source.studyDate!==date||source.inputCommit!==lock.commit||!manifest.books.every(b=>source.files.some(f=>f.book===b.book&&f.digest===b.digest&&f.gitBlob===b.gitBlob)))throw Error('独立教材输入已改变或不匹配实际材料');
+  }
   const packets=[];
   for(const word of view.scope){
     const ref=manifest.packets.find(p=>p.word===word.text);

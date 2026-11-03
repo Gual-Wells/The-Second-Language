@@ -1,0 +1,14 @@
+{
+  "protocol": "second-language-textbook-library/1",
+  "id": "formal-textbooks-20261103",
+  "provenance": "Existing Second Language textbook identities from the sealed 2026-11-02 material manifest and original input inventory. Transfer of the existing full originals requires the user's source-scope decision; no VIX network fallback is permitted.",
+  "files": [
+    {"book":"collins","file":"Collins_COBUILD_Chat_Project.md","gitBlob":"6b565901a13f62fa0a1c989a014eedc22ac2e93b","digest":"cf35b72932429ca37060862d409094fee8bbadef8b9e34f3cc3886f19b087634","bytes":14747007},
+    {"book":"oxford","file":"Oxford_English_Chinese_Chat_Project.md","gitBlob":"86ab80076dac48a416de81e48718d1ecbfd12933","digest":"2bb3812361347c869af310843e013ee41af1078317376e34470cf94b8b6f6cd8","bytes":18081731},
+    {"book":"chambers","file":"Chambers_Etymology_Chat_Project.md","gitBlob":"5bdca9ccf0e2fc5bc46cb6552ac062e189374601","digest":"2b4859ff315543ede4aae7f0d367b8c428e4b302a401358773b488d402c8dd97","bytes":8925620},
+    {"book":"onions","file":"Oxford_Etymology_Chat_Project.md","gitBlob":"5366b9ab43a865a21356689a49144fdbf2e506ab","digest":"9f600fc00aeea04d77467c497b83990ecae19900ef2e34a24fd7a2ddeef8fd45","bytes":5830483},
+    {"book":"klein","file":"Klein_Etymology_Chat_Project.md","gitBlob":"27375353bede1be0cddd9289db129ba1e35f96f9","digest":"fe181638f8e617e232d9ec5b1a54b00d287487de80961aaa271f7144b31e3dba","bytes":10473447},
+    {"file":"Etymology_Chat_Project_Instructions.md","gitBlob":"21237d9e220e6d753a6e1e9870785a699c625109","bytes":4110},
+    {"file":"Etymology_Sources.json","gitBlob":"88a7ccb7c96e9800804bf73baad358d5068b60a3","bytes":4679}
+  ]
+}

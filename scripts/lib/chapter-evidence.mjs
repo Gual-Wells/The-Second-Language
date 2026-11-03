@@ -52,6 +52,7 @@ export async function prepareChapterEvidence(root, date, {markdown, selection, s
   const {manifest:materials} = await readTeachingMaterials(root,date,selection), materialsManifestText = await fs.readFile(path.join(run,'teaching/materials.json'),'utf8');
   const inputLock=await json(path.join(run,'vix-source.json'));
   const records = [{kind:'control', selection, ...((inputLock.authenticityPolicy||inputLock.chapterSizePolicy)?{inputLock}:{}), materialsManifestText, materialsManifestDigest:hash(materialsManifestText),...(contract.revision?{authoringRevision:contract.revision,revisionBaselineText:contract.baselineText}:{})}];
+  if(materials.textbookSource)records[0].textbookSourceText=await fs.readFile(path.join(run,materials.textbookSource.file),'utf8');
   for (const name of (await fs.readdir(path.join(run,'teaching/authored'))).filter(name => /^word-[A-Za-z0-9_-]+\.json$/.test(name)).sort()) {
     const authorText = await fs.readFile(path.join(run,'teaching/authored',name),'utf8'), authored = JSON.parse(authorText);
     const ref = materials.packets.find(ref => ref.word === authored.text);

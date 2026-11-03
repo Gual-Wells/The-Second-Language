@@ -6,6 +6,7 @@ import {fileURLToPath} from 'node:url';
 import {spawnSync} from 'node:child_process';
 import {prepareVixMarking} from './prepare-vix-marking.mjs';
 import {familyRecords} from './lib/vix-index.mjs';
+import {auxiliaryFixture} from './fixtures/vix-auxiliary.mjs';
 
 const project=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..'),parent=path.join(project,'.cache/vix-marking-checks');
 await mkdir(parent,{recursive:true});const root=await mkdtemp(path.join(parent,'fixture-'));
@@ -15,20 +16,7 @@ const selection={studyDate:date,vixInputCommit:commit,vixMarkLabel:date.slice(2)
 assert.throws(()=>familyRecords({...selection,mainWords:selection.mainWords.slice(0,40)}),/50 个主词/);
 const duplicate=structuredClone(selection);duplicate.mainWords[1]=duplicate.mainWords[0];
 assert.throws(()=>familyRecords(duplicate),/重复VIX身份/);
-const manifest={protocol:'vix-seed-access/2',scope:{domainId:'domain_general_english',section:'word',records:50},counts:{records:50},binding:{marks:{labelFormat:'YY-MM-DD',externalDateMeaning:true,yearBase:2000}},recordTuple:['entryId','globalRank','text','markDates'],records:[{path:'data/seed-access/records/fixture.json'}]};
-const build=`import {readFile,writeFile} from 'node:fs/promises';
-const label='${date.slice(2)}',file='data/seed-access/records/fixture.json';
-const marked=JSON.parse(await readFile('data/seed-access/dates/'+label+'.json','utf8')).globalRanks;
-const rows=JSON.parse(await readFile(file,'utf8'));for(const row of rows)if(marked.includes(row[1]))row[3]=[label];
-await writeFile(file,JSON.stringify(rows));
-`;
-const bodies=new Map([
- ['data/seed-access/manifest.json',Buffer.from(JSON.stringify(manifest))],
- ['data/seed-access/records/fixture.json',Buffer.from(JSON.stringify(selection.mainWords.map(item=>[item.entryId,item.globalRank,item.text,[]])))],
- ['data/seed5-runtime/fixture.json',Buffer.from('{"note":"isolated marking fixture"}')],
- ['textbook/Collins.md',Buffer.from('Self-written input-only textbook fixture.\n')],
- ['tools/build-seed-access.mjs',Buffer.from(build)]
-]);
+const bodies=auxiliaryFixture(selection.mainWords);
 const blobSha=bytes=>createHash('sha1').update(Buffer.from(`blob ${bytes.length}\0`)).update(bytes).digest('hex');
 const inputs=[...bodies].map(([file,bytes])=>({path:file,sha:blobSha(bytes),size:bytes.length}));
 await mkdir(run,{recursive:true});
@@ -41,7 +29,7 @@ async function unchanged(){for(const [file,bytes] of bodies)assert.deepEqual(awa
 async function snapshot(directory){const values=[];for(const entry of await readdir(directory,{withFileTypes:true})){const file=path.join(directory,entry.name);if(entry.isDirectory())values.push(...(await snapshot(file)).map(([name,bytes])=>[entry.name+'/'+name,bytes]));else values.push([entry.name,(await readFile(file)).toString('base64')]);}return values.sort(([a],[b])=>a.localeCompare(b));}
 try{
  const first=await prepareVixMarking(date,{root,log:()=>{}});assert.equal(first.resumed,false);assert.equal(first.inputCommit,commit);assert.match(first.selectionDigest,/^[a-f0-9]{64}$/);
- assert.deepEqual((await readdir(first.directory)).sort(),['data','tools','vix-marking-workspace.json']);
+ assert.deepEqual((await readdir(first.directory)).sort(),['data','vix-marking-workspace.json']);
  const marker=JSON.parse(await readFile(path.join(first.directory,'vix-marking-workspace.json'),'utf8'));assert.equal(marker.selectionDigest,first.selectionDigest);assert.equal(marker.inputCommit,commit);
  const mark=(directory)=>spawnSync(process.execPath,[path.join(project,'scripts/mark-vix.mjs'),`--vix=${directory}`,`--selection=${path.join(run,'selection.json')}`],{encoding:'utf8'});
  const denied=mark(inputDir);assert.notEqual(denied.status,0);assert.match(denied.stderr,/不可变VIX原输入快照/);assert.match(denied.stderr,/prepare-vix-marking/);await unchanged();
@@ -51,5 +39,5 @@ try{
  await assert.rejects(prepareVixMarking(date,{root,log:()=>{}}),/selection摘要不一致/);assert.deepEqual(await snapshot(first.directory),markedBytes);await unchanged();
  const nextRoot=path.join(root,'thirty-word-project'),nextInput=path.join(nextRoot,'.cache/vix',commit),nextDate=date,nextRun=path.join(nextRoot,'work/runs',nextDate),nextSelection={...selection,studyDate:nextDate,vixMarkLabel:nextDate.slice(2),chapterSizePolicy:'thirty-main-words-v1',mainWords:selection.mainWords.slice(0,30)};await mkdir(nextRun,{recursive:true});await writeFile(path.join(nextRun,'selection.json'),JSON.stringify(nextSelection));for(const [name,bytes] of bodies){const target=path.join(nextInput,name);await mkdir(path.dirname(target),{recursive:true});await writeFile(target,bytes);}const priorLock=JSON.parse(await readFile(path.join(run,'vix-source.json'),'utf8'));await writeFile(path.join(nextRun,'vix-source.json'),JSON.stringify({...priorLock,localDirectory:nextInput,studyDate:nextDate,chapterSizePolicy:'thirty-main-words-v1'}));const thirty=await prepareVixMarking(nextDate,{root:nextRoot,log:()=>{}});const markedThirty=spawnSync(process.execPath,[path.join(project,'scripts/mark-vix.mjs'),`--vix=${thirty.directory}`,`--selection=${path.join(nextRun,'selection.json')}`],{encoding:'utf8'});assert.equal(markedThirty.status,0,markedThirty.stderr);assert.equal(JSON.parse(await readFile(path.join(thirty.directory,'data/seed-access/dates',nextDate.slice(2)+'.json'),'utf8')).globalRanks.length,30);await unchanged();
  assert.equal(requests,0);
- console.log('VIX marking checks passed: thirty-word new contract and fifty-word legacy contract; input snapshot writes refused; independent data/tools copy marked successfully; original bytes unchanged; resume preserves marks; changed selection rejected. Offline D: fixtures only, no publish or production change.');
+ console.log('VIX marking checks passed: thirty-word new contract and fifty-word legacy contract; index-only independent copy; input writes refused; original bytes unchanged; resume preserves marks; changed selection rejected. Offline D: fixtures only, no publish or production change.');
 }finally{globalThis.fetch=originalFetch;await rm(root,{recursive:true,force:true});}

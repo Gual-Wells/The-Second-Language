@@ -20,6 +20,8 @@ Windows原任务仍05:00启动，原领取、默认休息早退、空音频、Ig
 
 同日的`work/runs/DATE/teaching/pipeline/plan.json`固定原control、selection、VIX输入/已发布回执、初始教材包及三组完整范围。每条只写`tasks/task-N`下的作者稿、独立materials.json、研究记录和handoff.json。教材原文仍为同一输入下的不可变内容寻址对象，不复制3套教材、不并发改全局索引。
 
+2026-11-03起新计划另固定`planningEvidencePolicy:planning-evidence-v1`，把实际UTF-8 `selection.md`和`feedback.json`纳入不可变输入。制作和总装回看原始选词依据及反馈，不以可丢失文字或细节的另写摘要代替。选词说明直接保存UTF-8文件，不经旧Windows PowerShell的默认编码stdin转发中文脚本；交接应引用原文件。旧plan不补字段、不补改旧交接或hash。
+
 先`node scripts/daily-pipeline.mjs scope DATE task-N`取分配和planDigest。需要补查时使用`node scripts/daily-pipeline.mjs materials DATE task-N --additional FILE`，补查词JSON只含本组主词及真实待查词；不能从旧不完整lookup筛选当补查，不能调用全局prepare-teaching-materials覆盖别组。该工具仍对每个主词、实际派生和引用独立查询两书，作者实际读完整原条。
 
 每组交10份`authored/word-Wxxx.json`，按TEACHING_AUTHORING现行正式标准，不交提纲或摘要。WORD用原号，USE/CONTEXT/SENTENCE各用Uxxx_/Cxxx_/Sxxx_词号前缀，避免三个上下文从同一ID重新计数。任务内自然共享保持；跨组自然共享在交接指出，由总装核同一原件/话语功能后处理，不主动搜共享或考核复用率。
@@ -40,9 +42,13 @@ Windows原任务仍05:00启动，原领取、默认休息早退、空音频、Ig
 
 需要原任务返修时，保存整合修改后写请求`{tasks:[{taskId,wordIds,reason}]}`，运行`node scripts/daily-pipeline.mjs repair DATE REQUEST.json`。请求绑定实际已交回版本和具体问题，宿主仅重开相关任务、仅改指定词，其他词稿保持原字节；不会把三组全推倒。最多自动处理一轮真实定点返修再总装，仍有问题保留并报告，不无限循环消耗。未知或失败模型调用不因这个机制自动重发。
 
+唯一自动返修轮次在`automatic-repair.json`按完整plan/repair摘要固定，重启不重新获得额度；同一轮中断只沿原件恢复。初次总装和返修后总装若丢最终返回，都先只读核对真实当前发布结果；不能因此新建模型替代调用。未确认发布或原调用时仍停止待核，不把恢复当新一轮生产。
+
 汇入返修时保留未被原任务改动的总装稿；同一词两侧均改动则明确冲突并停止，不能用旧作者回执覆盖整合修改。总装不修改任务原稿或已封回执。跨任务交接/封存是版本和范围约束，不能冒称五次独立审阅或多数票共识。
 
 原assemble→source-notes/meta→pack-current-affairs→pack-chapter→真实本版语义审阅→独立完整验证/签名→永久GET摘要回读→publish通路不变。调度器最后还核线上当前正文、来源包原件及本机出版准入，才记录published。不能因模型声称上线而完成。音频/收费/unknown、旧章节与数据库功能均保持原合同。
+
+正常结束的`published.json`还保留从本版完整证据复算的真实语境双口径、准入结论、警报及实际获准例句ID。用于比较下一章是否复现质量，不由模型填写通过百分比；它仍不证明语义零误或学习收益，也不承诺重现第一章的99.5%。
 
 ## 中断与生效边界
 

@@ -64,6 +64,10 @@ export function verifyEvidenceRecords(manifest, groups, chapter) {
       policy !== manifest.authoringPolicy || hash(canonicalSourcePackage(selection)) !== manifest.selectionDigest ||
       typeof control.materialsManifestText !== 'string' || hash(control.materialsManifestText) !== control.materialsManifestDigest) throw Error('章节私有证据的冻结选择或教材清单摘要不符');
   const materials = JSON.parse(control.materialsManifestText), scope = teachingScope(selection);
+  if(materials.textbookSource){
+    const ref=materials.textbookSource,source=typeof control.textbookSourceText==='string'?JSON.parse(control.textbookSourceText):null;
+    if(ref.file!=='textbook-source.json'||!source||hash(control.textbookSourceText)!==ref.sha256||new TextEncoder().encode(control.textbookSourceText).length!==ref.bytes||source.protocol!=='second-language-textbook-source/1'||source.studyDate!==manifest.studyDate||source.inputCommit!==manifest.vixInputCommit||!Array.isArray(source.files)||!materials.books.every(b=>source.files.some(f=>f.book===b.book&&f.digest===b.digest&&f.gitBlob===b.gitBlob)))throw Error('章节证据缺少同版独立教材输入原件');
+  }
   if (scope.length !== manifest.wordCount || materials.commit !== manifest.vixInputCommit ||
       materials.scopeDigest !== hash(canonicalSourcePackage(scope)) || materials.scopeDigest !== hash(canonicalSourcePackage(materials.scope)) ||
       !Array.isArray(materials.packets) || materials.packets.length !== scope.length) throw Error('章节私有证据的材料范围不一致');

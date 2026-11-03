@@ -2,6 +2,7 @@ import {readdir,readFile,realpath,stat} from 'node:fs/promises';
 import path from 'node:path';
 import {gzipSync} from 'node:zlib';
 import {createHash} from 'node:crypto';
+import {textbookLibrary,readLibraryFile} from './textbook-library.mjs';
 const hash=b=>createHash('sha256').update(b).digest('hex'),LIMIT=8*1024*1024;
 const privateName=name=>/secret|credential|(?:^|[-_.])(?:token|api[-_]?key|auth)(?:[-_.]|$)|\.dpapi$|^\.env|^\.dev\.vars|^speaking-provider\.json$|\.pending$|\.tmp$/i.test(name);
 async function entries(dir){try{return await readdir(dir,{withFileTypes:true});}catch(e){if(e.code==='ENOENT')return[];throw e;}}
@@ -33,6 +34,11 @@ async function archiveSingle(root,put,allowed,artifacts=[]){
   if(items.some(x=>x.isFile()))groups.push({id:`expression/${category.name}/files`,dir,shallow:true});
  }
  for(const category of ['speaking','speaking-detail-test','speaking-schema-test','daily-voices','question-voices','voice-lab','cf-openrouter-probe','quota-calibration']){const dir=await directory(path.join(root,'.cache',category),allowed);if(dir)groups.push({id:`evidence/${category}`,dir,evidence:true});}
+ const textbookDir=await directory(path.join(root,'.cache/textbook-library/blobs'),allowed);
+ if(textbookDir){
+  const library=await textbookLibrary(root);for(const file of library.catalog.files)await readLibraryFile(library,file);
+  groups.push({id:'artifacts/textbook-library/'+library.catalog.id,dir:textbookDir,selected:new Set(library.catalog.files.map(f=>f.gitBlob))});
+ }
  for(const artifact of artifacts){const dir=await directory(artifact.path,allowed,true);if(!dir)throw Error('原生工艺归档源不可用');groups.push({id:`artifacts/${artifact.id}`,dir,selected:new Set(artifact.files)});}
  const manifests=[];
  for(const group of groups){const chunks=[],files=[];let records=[],size=0;

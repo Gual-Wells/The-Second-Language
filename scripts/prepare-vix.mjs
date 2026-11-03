@@ -6,6 +6,7 @@ import { vixDateLabel } from './lib/vix-date.mjs';
 import {CONTEXT_AUTHORING_POLICY} from '../protocol/usage-context.mjs';
 import {AUTHENTICITY_POLICY,authenticityPolicy} from '../protocol/authentic-context-coverage.mjs';
 import {CHAPTER_SIZE_POLICY,chapterSizePolicy,selectedWordCount} from '../protocol/chapter-size.mjs';
+import {VIX_ACCESS_POLICY,auxiliaryPath} from './lib/vix-auxiliary.mjs';
 
 const repo = 'Gual-Wells/IELTS-Vocabulary-Index-List';
 const LOCK_PROTOCOL = 'second-language-vix-inputs/1';
@@ -14,26 +15,29 @@ const headers = { accept: 'application/vnd.github+json', 'x-github-api-version':
 const CHUNK = 1024 * 1024;
 const pause = ms => new Promise(resolve => setTimeout(resolve, ms));
 const gitBlobSha = bytes => createHash('sha1').update(Buffer.from(`blob ${bytes.length}\0`)).update(bytes).digest('hex');
-const wanted = value => /^data\/seed5-runtime\//.test(value) || /^data\/seed-access\//.test(value) || /^textbook\/.*\.md$/.test(value) || value === 'textbook/Etymology_Sources.json' || value === 'tools/build-seed-access.mjs';
+// Legacy locks retain their historical inventory; it is not an access grant.
+const legacyPath = value => auxiliaryPath(value) || /^data\/seed5-runtime\//.test(value) || /^textbook\/.*\.md$/.test(value) || value === 'textbook/Etymology_Sources.json' || value === 'tools/build-seed-access.mjs';
 
 async function readJson(filename) {
   try { return JSON.parse(await readFile(filename, 'utf8')); }
   catch (error) { if (error.code === 'ENOENT') return undefined; throw error; }
 }
 
-function validateInputs(inputs) {
+function validateInputs(inputs,accessPolicy) {
   if (!Array.isArray(inputs) || !inputs.length) throw new Error('VIX 原输入锁缺少可核验 inputs；不得刷新 main 或迁移旧运行');
   const names = new Set();
   for (const item of inputs) {
-    if (!item || typeof item.path !== 'string' || item.path.includes('\\') || item.path.split('/').some(part => !part || part === '.' || part === '..') || !wanted(item.path) || !/^[0-9a-f]{40}$/.test(item.sha || '') || !Number.isSafeInteger(item.size) || item.size < 0 || names.has(item.path)) throw new Error('VIX 原输入锁的文件身份、大小或路径无效');
+    if (!item || typeof item.path !== 'string' || item.path.includes('\\') || item.path.split('/').some(part => !part || part === '.' || part === '..') || !(accessPolicy===VIX_ACCESS_POLICY?auxiliaryPath(item.path):legacyPath(item.path)) || !/^[0-9a-f]{40}$/.test(item.sha || '') || !Number.isSafeInteger(item.size) || item.size < 0 || names.has(item.path)) throw new Error('VIX 原输入锁的文件身份、大小或路径无效');
     names.add(item.path);
   }
-  if (!names.has('data/seed-access/manifest.json') || !names.has('tools/build-seed-access.mjs') || !inputs.some(item => /^textbook\/.*\.md$/.test(item.path))) throw new Error('VIX 原输入锁缺少索引、教材或构建脚本');
+  if (!names.has('data/seed-access/manifest.json')) throw new Error('VIX 原输入锁缺少辅助索引');
+  if(accessPolicy===VIX_ACCESS_POLICY&&(!names.has('data/seed-access/structure.json')||!names.has('data/seed-access/mark-hash.json')||!inputs.some(item=>/^data\/seed-access\/records-\d{3,}\.json$/.test(item.path))))throw Error('VIX 新输入缺少索引内导航、记录或标注');
 }
 
 function validateLock(lock, root, date) {
   if (!lock || lock.protocol !== LOCK_PROTOCOL || lock.repository !== repo || lock.branch !== 'main' || lock.studyDate !== date || !/^[0-9a-f]{40}$/.test(lock.commit || '') || !Number.isFinite(Date.parse(lock.capturedAt))) throw new Error('VIX 原输入锁无效；不得覆盖锁或重新获取 main');
-  validateInputs(lock.inputs);
+  if(lock.vixAccessPolicy!==undefined&&lock.vixAccessPolicy!==VIX_ACCESS_POLICY)throw Error('未知 VIX 访问范围合同');
+  validateInputs(lock.inputs,lock.vixAccessPolicy);
   if(lock.authoringPolicy!=null&&![CONTEXT_AUTHORING_POLICY,'sourced-collection-v1'].includes(lock.authoringPolicy))throw new Error('VIX输入锁制作协议无效');
   if(lock.teachingLayoutVersion!=null&&lock.teachingLayoutVersion!==2)throw new Error('VIX输入锁正文层级版本无效');
   if(lock.quickGlossVersion!=null&&lock.quickGlossVersion!==1)throw new Error('VIX输入锁用法快释版本无效');
@@ -100,13 +104,20 @@ export async function prepareVix(date, { root = process.cwd(), log = console.log
     const branch = await getJson(`https://api.github.com/repos/${repo}/branches/main`);
     const commit = branch.commit?.sha;
     if (!/^[0-9a-f]{40}$/.test(commit || '')) throw new Error('VIX 当前 HEAD 无效');
-    const tree = await getJson(`https://api.github.com/repos/${repo}/git/trees/${commit}?recursive=1`);
+    // Navigate only the index subtree, never fetch abandoned Seed/textbook blobs.
+    let tree = await getJson(`https://api.github.com/repos/${repo}/git/trees/${commit}`);
+    for(const name of ['data','seed-access']){
+      if(tree.truncated||!Array.isArray(tree.tree))throw Error('VIX 索引路径不能完整定位');
+      const entry=tree.tree.find(item=>item.type==='tree'&&item.path===name);
+      if(!/^[a-f0-9]{40}$/.test(entry?.sha||''))throw Error('VIX 辅助索引目录缺失');
+      tree=await getJson(`https://api.github.com/repos/${repo}/git/trees/${entry.sha}${name==='seed-access'?'?recursive=1':''}`);
+    }
     if (tree.truncated || !Array.isArray(tree.tree)) throw new Error('VIX 文件树被截断或无效');
-    const inputs = tree.tree.filter(item => item.type === 'blob' && wanted(item.path)).map(({ path, sha, size }) => ({ path, sha, size })).sort((a, b) => a.path.localeCompare(b.path, 'en'));
-    validateInputs(inputs);
+    const inputs = tree.tree.filter(item => item.type === 'blob' && auxiliaryPath('data/seed-access/'+item.path)).map(({ path, sha, size }) => ({ path:'data/seed-access/'+path, sha, size })).sort((a, b) => a.path.localeCompare(b.path, 'en'));
+    validateInputs(inputs,VIX_ACCESS_POLICY);
     await mkdir(runDir, { recursive: true });
     // Publish the complete manifest before downloading. A competing start cannot overwrite it.
-    lock = await installLock(lockFile, { protocol: LOCK_PROTOCOL, repository: repo, branch: 'main', studyDate: date, chapterSizePolicy:CHAPTER_SIZE_POLICY, authoringPolicy:CONTEXT_AUTHORING_POLICY, teachingLayoutVersion:2, quickGlossVersion:1, authenticityPolicy:AUTHENTICITY_POLICY, commit, files: inputs.length, capturedAt: new Date().toISOString(), localDirectory: path.join(root, '.cache/vix', commit), inputs });
+    lock = await installLock(lockFile, { protocol: LOCK_PROTOCOL, repository: repo, branch: 'main', studyDate: date, vixAccessPolicy:VIX_ACCESS_POLICY, chapterSizePolicy:CHAPTER_SIZE_POLICY, authoringPolicy:CONTEXT_AUTHORING_POLICY, teachingLayoutVersion:2, quickGlossVersion:1, authenticityPolicy:AUTHENTICITY_POLICY, commit, files: inputs.length, capturedAt: new Date().toISOString(), localDirectory: path.join(root, '.cache/vix', commit), inputs });
   }
   const dest = validateLock(lock, root, date);
   if (selection !== undefined && selection.vixInputCommit !== lock.commit) throw new Error('已固定 selection 与 VIX 原输入 commit 不一致；不得刷新输入或重选');
@@ -118,7 +129,8 @@ export async function prepareVix(date, { root = process.cwd(), log = console.log
   const cachedCommits = (await readdir(cacheRoot, { withFileTypes: true })).filter(item => item.isDirectory() && /^[0-9a-f]{40}$/.test(item.name) && item.name !== lock.commit).map(item => item.name);
   let verified = 0, reusedFiles = 0, fetchedFiles = 0;
   // Each file is installed atomically; interruption leaves the original lock recoverable.
-  for (const item of lock.inputs) {
+  const accessibleInputs=lock.inputs.filter(item=>auxiliaryPath(item.path));
+  for (const item of accessibleInputs) {
     const target = path.join(dest, ...item.path.split('/'));
     try {
       const bytes = await readFile(target);
@@ -149,8 +161,9 @@ export async function prepareVix(date, { root = process.cwd(), log = console.log
     await writeVerifiedFile(target, bytes);
     verified++;
   }
-  log(`VIX ${lock.commit} ${resumed ? '原输入已恢复并校验' : '已固定并校验'} ${verified} 个文件；复用 ${reusedFiles}，获取 ${fetchedFiles}。原输入锁未覆盖：${lockFile}`);
-  return { lock, resumed, verified, reusedFiles, fetchedFiles };
+  const skippedOutOfScopeInputs=lock.inputs.length-accessibleInputs.length;
+  log(`VIX ${lock.commit} ${resumed ? '原辅助索引已恢复并校验' : '辅助索引已固定并校验'} ${verified} 个文件；复用 ${reusedFiles}，获取 ${fetchedFiles}；旧锁范围外 ${skippedOutOfScopeInputs} 项不读取。原输入锁未覆盖：${lockFile}`);
+  return { lock, resumed, verified, reusedFiles, fetchedFiles, skippedOutOfScopeInputs };
 }
 
 if (process.argv[1] && pathToFileURL(path.resolve(process.argv[1])).href === import.meta.url) {

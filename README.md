@@ -126,7 +126,7 @@ node scripts/check-reader-ui.mjs
 node scripts/check-context-reader.mjs
 ```
 
-界面检查需要 Playwright 与 Chromium；`BROWSER_EXECUTABLE` 可指定浏览器，旧章检查的`UI_CHAPTER_DIR`可指定本机真实章节。全部请求隔离，不调用付费模型、不写正式数据；旧章UI截图存入忽略的 `.cache/reader-ui/`，新单正文、整块译文、隔离与交互检查结果存入 `.cache/context-reader/`。新格式已检查402×874及320×620触控模拟视口，浏览器模拟不等于 iPhone Safari 真机验收。旧`check-publishing-closure.mjs`与`check-audio-config.mjs`夹具尚未适配当前来源封存/50词流程，不列为现行门槛。
+界面检查需要 Playwright 与 Chromium；`BROWSER_EXECUTABLE` 可指定浏览器，旧章检查的`UI_CHAPTER_DIR`可指定本机真实章节。全部请求隔离，不调用付费模型、不写正式数据；旧章UI截图存入忽略的 `.cache/reader-ui/`，新单正文、整块译文、隔离与交互检查结果存入 `.cache/context-reader/`。新格式已检查402×874及320×620触控模拟视口，浏览器模拟不等于 iPhone Safari 真机验收。`check-publishing-closure.mjs`现为维护中的默认控制、来源/证据及单正文后台测试入口；不再执行失配的旧40词无来源夹具。旧`check-audio-config.mjs`仍须按对应历史音频合同使用，不作为新30词生产的完整验收。
 
 正式发布使用 `node scripts/deploy-app.mjs`，同时部署API Worker与带service binding的Pages网关；不能直接以普通静态 `web/` 部署替代网关。独立文件网关的DO迁移与部署顺序另见 [OPERATIONS](OPERATIONS.md)。任务结束执行 `node scripts/check-balances.mjs` 更新额度、存储用量并排入归档；归档完成后再次核对存储大小。设置“存储空间”保留本项目用量，并以“第二系列”显示账户与项目的上次核对及分配；不同层的免费上限不相加，未取得真实剩余额度显示未知。只核对原容量可运行 `node scripts/check-storage-usage.mjs`，系列元数据使用 `node scripts/collect-series-storage.mjs`。额度不足不自动次日恢复，已有产物保留，需用户明确续作；不自动付款。
 

@@ -14,6 +14,7 @@ import {DAILY_WORD_COUNT,WORDS_PER_TASK,selectedWordCount} from '../../protocol/
 import {FALLBACK_APPEALS_POLICY} from '../../protocol/fallback-appeals.mjs';
 
 export const PIPELINE_VERSION='three-by-ten-v1';
+export const PLANNING_EVIDENCE_POLICY='planning-evidence-v1';
 export const TASK_IDS=Object.freeze(['task-1','task-2','task-3']);
 const LEGACY_TASK_IDS=Object.freeze([...TASK_IDS,'task-4','task-5']);
 function division(selection,lock){const wordCount=selectedWordCount(selection,lock);return {wordCount,version:wordCount===DAILY_WORD_COUNT?PIPELINE_VERSION:'five-by-ten-v1',taskIds:wordCount===DAILY_WORD_COUNT?TASK_IDS:LEGACY_TASK_IDS};}
@@ -54,15 +55,23 @@ export async function createPipelinePlan(root,date){
   if(selection.studyDate!==date||selection.authoringPolicy!=='authentic-context-v1'||scope.length!==shape.wordCount||lock.teachingLayoutVersion!==2||lock.quickGlossVersion!==1)throw Error('新流水线须保冻结词数及现行单正文/快释合同');
   authenticityPolicy(selection,lock);
   validatePublishedVixReceipt(receipt,{studyDate:date,inputCommit:lock.commit,selectionDigest:digest(selection),vixCommit:receipt.vixCommit});
+  // Preserve the actual selection reasons and learner input, not an optional
+  // model-written summary that may omit facts or lose text through shell stdin.
+  const rationaleFile=path.join(p.run,'selection.md'),feedbackFile=path.join(p.run,'feedback.json');
+  const rationale=new TextDecoder('utf-8',{fatal:true}).decode(await fs.readFile(rationaleFile));
+  if(!rationale.trim()||rationale.includes('\uFFFD'))throw Error('缺少可读的 UTF-8 原始选词依据 selection.md');
+  const feedback=await json(feedbackFile);if(!feedback||typeof feedback!=='object'||Array.isArray(feedback)||!feedback.data||typeof feedback.data!=='object')throw Error('缺少本次实际学习反馈快照');
   const {manifest}=await readTeachingMaterials(root,date,selection);
   const materialSnapshot=path.join(p.base,'inputs/materials.json');await immutableJson(materialSnapshot,manifest);
   const inputs=[];
   for(const name of ['control.json','selection.json','vix-source.json','vix-publication.json'])inputs.push(await ref(root,path.join(p.run,name)));
+  inputs.push(await ref(root,rationaleFile),await ref(root,feedbackFile));
   inputs.push(await ref(root,materialSnapshot));
+  if(manifest.textbookSource)inputs.push(await ref(root,path.join(p.run,manifest.textbookSource.file)));
   for(const packet of manifest.packets)inputs.push(await ref(root,path.join(p.run,packet.file)));
   const words=scope.map((w,i)=>({...w,wordId:'W'+String(i+1).padStart(3,'0')}));
   const tasks=shape.taskIds.map((taskId,i)=>({taskId,words:words.slice(i*WORDS_PER_TASK,(i+1)*WORDS_PER_TASK)}));
-  const plan={schemaVersion:1,version:shape.version,date,createdAt:new Date().toISOString(),inputs,tasks,assemblyOwner:'task-1',wordCount:shape.wordCount,fallbackAppealsPolicy:FALLBACK_APPEALS_POLICY};
+  const plan={schemaVersion:1,version:shape.version,date,createdAt:new Date().toISOString(),inputs,tasks,assemblyOwner:'task-1',wordCount:shape.wordCount,fallbackAppealsPolicy:FALLBACK_APPEALS_POLICY,planningEvidencePolicy:PLANNING_EVIDENCE_POLICY};
   // Each worker owns a manifest, author drafts and handoff. Only immutable
   // content-addressed textbook packets and existing source acquisition are shared.
   for(const task of tasks){
@@ -78,10 +87,13 @@ export async function inspectPipelinePlan(root,date){
   root=await pipelineRoot(root);const p=pipelinePaths(root,date),plan=await json(p.plan);
   if(plan.schemaVersion!==1||!['five-by-ten-v1',PIPELINE_VERSION].includes(plan.version)||plan.date!==date||plan.assemblyOwner!=='task-1')throw Error('分工合同无效');
   if(plan.fallbackAppealsPolicy!==undefined&&plan.fallbackAppealsPolicy!==FALLBACK_APPEALS_POLICY)throw Error('分工申诉交接版本无效');
+  if(plan.planningEvidencePolicy!==undefined&&plan.planningEvidencePolicy!==PLANNING_EVIDENCE_POLICY)throw Error('规划依据交接版本无效');
   await verifyRefs(root,plan.inputs);
   const initial=await json(path.join(p.base,'inputs/materials.json'));
   const required=['control.json','selection.json','vix-source.json','vix-publication.json'].map(n=>path.relative(root,path.join(p.run,n)).replaceAll('\\','/'));
+  if(plan.planningEvidencePolicy===PLANNING_EVIDENCE_POLICY)required.push(...['selection.md','feedback.json'].map(n=>path.relative(root,path.join(p.run,n)).replaceAll('\\','/')));
   required.push(path.relative(root,path.join(p.base,'inputs/materials.json')).replaceAll('\\','/'),...initial.packets.map(r=>path.relative(root,path.join(p.run,r.file)).replaceAll('\\','/')));
+  if(initial.textbookSource)required.push(path.relative(root,path.join(p.run,initial.textbookSource.file)).replaceAll('\\','/'));
   if(canonical([...new Set(plan.inputs.map(r=>r.path))].sort())!==canonical([...new Set(required)].sort()))throw Error('分工合同缺少原冻结或教材绑定');
   const control=await json(path.join(p.run,'control.json'));if(control.rest)throw Error('休息运行不能制作');
   const selection=await json(path.join(p.run,'selection.json')),scope=teachingScope(selection),lock=await json(path.join(p.run,'vix-source.json')),shape=division(selection,lock);

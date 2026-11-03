@@ -6,6 +6,7 @@ import {prepareVix} from './prepare-vix.mjs';
 import {familyRecords} from './lib/vix-index.mjs';
 import {validateVixDate} from './lib/vix-date.mjs';
 import {canonicalSourcePackage} from '../protocol/current-affairs.mjs';
+import {auxiliaryPath,readAuxiliaryIndex,VIX_ACCESS_POLICY} from './lib/vix-auxiliary.mjs';
 
 const protocol='second-language-vix-marking/1',markerName='vix-marking-workspace.json';
 const hash=value=>createHash('sha256').update(canonicalSourcePackage(value)).digest('hex');
@@ -19,13 +20,14 @@ export async function prepareVixMarking(date,{root=process.cwd(),log=console.log
   validateVixDate(selection);familyRecords(selection);
   if(selection.studyDate!==date||selection.vixInputCommit!==lock.commit)throw Error('标注工作副本须对应本日已固定选词及原输入commit');
   const identity={protocol,studyDate:date,inputCommit:lock.commit,selectionDigest:hash(selection)};
+  const baseline=await readAuxiliaryIndex(lock.localDirectory);
   async function existing(){
     let stat;try{stat=await lstat(directory);}catch(error){if(error.code==='ENOENT')return null;throw error;}
     if(!stat.isDirectory()||stat.isSymbolicLink()||await realpath(directory)!==directory)throw Error('VIX标注工作副本路径无效；不得覆盖或指向原输入');
     let marker;try{marker=JSON.parse(await readFile(path.join(directory,markerName),'utf8'));}catch{throw Error('已有VIX标注目录缺少合法工作副本标记；不覆盖、不兼容迁移');}
     if(Object.entries(identity).some(([key,value])=>marker[key]!==value))throw Error('VIX标注工作副本与原输入或selection摘要不一致；保留已有标注，不覆盖');
     await readFile(path.join(directory,'data/seed-access/manifest.json'));
-    await readFile(path.join(directory,'tools/build-seed-access.mjs'));
+    if(marker.indexIdentityDigest&&marker.indexIdentityDigest!==baseline.identityDigest)throw Error('VIX 标注副本固定身份不一致');
     return {directory,...identity,resumed:true};
   }
   const prior=await existing();if(prior){log(`复用原VIX标注工作副本，不覆盖已有标注：${directory}`);return prior;}
@@ -34,13 +36,13 @@ export async function prepareVixMarking(date,{root=process.cwd(),log=console.log
   if(!relative||relative.startsWith('..')||path.isAbsolute(relative))throw Error('VIX标注暂存路径无效');
   await mkdir(staging);
   try{
-    for(const input of lock.inputs.filter(item=>/^(data|tools)\//.test(item.path))){
+    for(const input of lock.inputs.filter(item=>auxiliaryPath(item.path))){
       const target=path.join(staging,...input.path.split('/'));await mkdir(path.dirname(target),{recursive:true});
       // Independent file bytes: never hardlink the writable marking copy to its input.
       await copyFile(path.join(lock.localDirectory,...input.path.split('/')),target);
     }
     await mkdir(path.join(staging,'data/seed-access/dates'),{recursive:true});
-    await writeFile(path.join(staging,markerName),JSON.stringify({...identity,createdAt:new Date().toISOString()},null,2)+'\n',{flag:'wx'});
+    await writeFile(path.join(staging,markerName),JSON.stringify({...identity,vixAccessPolicy:VIX_ACCESS_POLICY,indexIdentityDigest:baseline.identityDigest,createdAt:new Date().toISOString()},null,2)+'\n',{flag:'wx'});
     try{await rename(staging,directory);}catch(error){const winner=await existing();if(!winner)throw error;return winner;}
   }finally{await rm(staging,{recursive:true,force:true});}
   log(`VIX标注仅使用此工作副本；原输入保持不可变：${directory}`);

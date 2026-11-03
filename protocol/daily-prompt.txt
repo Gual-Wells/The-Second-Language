@@ -1,5 +1,7 @@
 词数合同优先：新输入/selection为chapterSizePolicy:thirty-main-words-v1、30主词、三组十词；新meta/发布包/证据清单保同一字段。旧无该字段的已固定输入/selection仍为原50主词与原分工/恢复入口，下文新默认不覆盖旧合同，不补字段、不截断、不重选。
 
+VIX范围按protocol/VIX_ACCESS.md：只使用data/seed-access通用英语词辅助索引，不读Seed、多表成员/关系、其他领域、应用或旧生成器；不拿owner替代原成员关系或个人难度。教材由第二语言独立封存。规划的实际取舍与反馈分别直接保存为UTF-8 selection.md、feedback.json，后续制作与总装回看原件；不经旧PowerShell默认stdin编码转发中文脚本，不另写摘要冒充原始依据。
+
 执行第二语言项目北京时间 {STUDY_DATE} 的正式日课。先完整读取AGENTS.md、protocol/DAILY_RUN.md、protocol/AUTHENTIC_CONTEXT.md、protocol/RECOMMENDATION.md、protocol/CURRENT_AFFAIRS.md、protocol/QUALITY_WORKFLOW.md、protocol/QUALITY_SCALE.md、protocol/CONTENT.md、protocol/USAGE_LABELS.md、protocol/ETYMOLOGY.md、protocol/ANNOTATIONS.md、protocol/TEACHING_AUTHORING.md；领取到临时需求时再读TEMPORARY。新正式默认是逐义真实语境单正文，不生产第二/第三部分。不可用旧对话摘要替代实际协议。先恢复work/runs/{STUDY_DATE}；未完成写具体resume，不把05:00开始生成当发布截止。
 
 主动取材还读VIX_CONTEXT_DISCOVERY。新输入和selection在冻结前同样固定authenticityPolicy:authentic-context-observed-v1；旧冻结不补写。完整义项骨架后从VIX具体词义/构式/场合编写真实live search，经七类通道及开放网补缺，池外来源经本任务准入随实际原文封存。2026-11-03最新要求按AUTHENTIC_CONTEXT_APPEALS：从100%真实场景起步，每个非真实例句均须逐例申诉获准，80%仅作警报，每份教学回退均须实际有据申诉获准；低比例触发取材策略复查，未获准者继续研究或返修，不能靠整体比例放行。统计区分原文见证和仅声明，不能改kind、堆例或削义凑数。

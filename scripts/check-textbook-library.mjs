@@ -1,0 +1,42 @@
+import assert from 'node:assert/strict';
+import {mkdir,mkdtemp,readFile,rm,writeFile} from 'node:fs/promises';
+import path from 'node:path';
+import {createHash} from 'node:crypto';
+import {importTextbookLibrary,textbookLibrary} from './lib/textbook-library.mjs';
+import {loadTextbooks,hash} from './lib/textbook-sources.mjs';
+import {prepareTeachingMaterials,readTeachingMaterials} from './lib/teaching-authoring.mjs';
+import {createPipelinePlan,inspectPipelinePlan} from './lib/daily-pipeline.mjs';
+import {canonicalSourcePackage} from '../protocol/current-affairs.mjs';
+import {archiveWorking} from './lib/work-archives.mjs';
+import {gunzipSync} from 'node:zlib';
+const root=await mkdtemp('D:/CodexStorage/tmp/textbook-library-check-'),originals=path.join(root,'authorized-fixture-originals'),date='2099-01-01',commit='a'.repeat(40);
+const gitBlob=bytes=>createHash('sha1').update(Buffer.from(`blob ${bytes.length}\0`)).update(bytes).digest('hex');
+const names=Array.from({length:30},(_,i)=>'term'+i),files=[],bodies=new Map();
+globalThis.fetch=async()=>{throw Error('No network, VIX, keys or inference may be used by textbook-library QA');};
+try{
+ await mkdir(originals,{recursive:true});await mkdir(path.join(root,'protocol'));
+ for(const book of ['collins','oxford','chambers']){const bytes=Buffer.from(names.map(n=>'## '+n+'\n'+(book==='collins'?'□':'◊')+' This is a synthetic '+n+' fixture.\n').join('')),file=book+'.md';files.push({book,file,gitBlob:gitBlob(bytes),digest:hash(bytes),bytes:bytes.length});bodies.set(file,bytes);await writeFile(path.join(originals,file),bytes);}
+ const catalog={protocol:'second-language-textbook-library/1',id:'synthetic-library',files};
+ await writeFile(path.join(root,'protocol/textbook-library.json'),JSON.stringify(catalog));
+ const run=path.join(root,'work/runs',date);await mkdir(run,{recursive:true});
+ const lock={studyDate:date,commit,vixAccessPolicy:'auxiliary-index-only-v1',authoringPolicy:'authentic-context-v1',chapterSizePolicy:'thirty-main-words-v1',teachingLayoutVersion:2,quickGlossVersion:1};
+ const lockBytes=JSON.stringify(lock);await writeFile(path.join(run,'vix-source.json'),lockBytes);
+ const selection={studyDate:date,vixInputCommit:commit,authoringPolicy:'authentic-context-v1',chapterSizePolicy:'thirty-main-words-v1',mainWords:names.map(text=>({text,family:[]}))};await writeFile(path.join(run,'selection.json'),JSON.stringify(selection));
+ await assert.rejects(()=>loadTextbooks({root,commit,date}),/独立教材尚未就绪/);
+ assert.equal((await importTextbookLibrary(root,originals)).imported,new Set(files.map(f=>f.gitBlob)).size);assert.equal((await importTextbookLibrary(root,originals)).reused,3);
+ const books=await loadTextbooks({root,commit,date,etymology:true});assert.equal(books.length,3);assert.equal(books[0].lookup(names[0]).length,1);
+ const sourceFile=path.join(run,'textbook-source.json'),sourceBytes=await readFile(sourceFile);
+ const manifest=await prepareTeachingMaterials(root,date);assert.equal(manifest.packets.length,30);assert.equal(manifest.textbookSource.sha256,hash(sourceBytes));await readTeachingMaterials(root,date,selection);
+ await writeFile(path.join(run,'control.json'),JSON.stringify({runId:date,date,rest:false}));await writeFile(path.join(run,'selection.md'),'Synthetic planning evidence, no semantic or production claim.\n');await writeFile(path.join(run,'feedback.json'),JSON.stringify({data:{fixtureOnly:true}}));
+ const publicationFiles=[{path:'data/seed-access/manifest.json',sha:'b'.repeat(40),size:100}];
+ await writeFile(path.join(run,'vix-publication.json'),JSON.stringify({protocol:'second-language-vix-publication/1',repository:'Gual-Wells/IELTS-Vocabulary-Index-List',status:'published',studyDate:date,inputCommit:commit,selectionDigest:hash(canonicalSourcePackage(selection)),vixCommit:'c'.repeat(40),tree:'d'.repeat(40),verifiedHead:'c'.repeat(40),verifiedAt:date+'T05:00:00Z',vixMarkLabel:date.slice(2),files:publicationFiles,filesDigest:hash(canonicalSourcePackage(publicationFiles))}));
+ const plan=await createPipelinePlan(root,date);assert(plan.plan.inputs.some(ref=>ref.path.endsWith('/textbook-source.json')&&ref.sha256===hash(sourceBytes)));
+ const archived=new Map(),archives=await archiveWorking(root,async(key,bytes)=>{archived.set(key,Buffer.from(bytes));}),libraryArchive=archives.find(a=>a.key.includes('/artifacts/textbook-library/'));assert(libraryArchive);const archiveManifest=JSON.parse(archived.get(libraryArchive.key)),recovered=archiveManifest.chunks.flatMap(c=>JSON.parse(gunzipSync(archived.get(c.key))).files);for(const f of files)assert(recovered.some(r=>r.path===f.gitBlob&&r.digest===f.digest));
+ assert.deepEqual(await readFile(sourceFile),sourceBytes);assert.equal(await readFile(path.join(run,'vix-source.json'),'utf8'),lockBytes);
+ for(const [file,bytes] of bodies)assert.deepEqual(await readFile(path.join(originals,file)),bytes);
+ const changed=JSON.parse(sourceBytes);changed.files[0].digest='0'.repeat(64);await writeFile(sourceFile,JSON.stringify(changed));await assert.rejects(()=>readTeachingMaterials(root,date,selection),/独立教材输入已改变/);await assert.rejects(()=>inspectPipelinePlan(root,date),/原件已改变/);await assert.rejects(()=>loadTextbooks({root,commit,date}),/原独立教材锁身份不符/);await writeFile(sourceFile,sourceBytes);
+ await assert.rejects(()=>loadTextbooks({root,commit:'f'.repeat(40)}),/没有可核对的本项目旧教材身份/);
+ const legacyDate='2099-01-02',legacy=path.join(root,'work/runs',legacyDate),oldCommit='b'.repeat(40),oldLock={commit:oldCommit,inputs:files.map(f=>({path:'textbook/'+f.file,sha:f.gitBlob,size:f.bytes}))};await mkdir(legacy,{recursive:true});const oldBytes=JSON.stringify(oldLock);await writeFile(path.join(legacy,'vix-source.json'),oldBytes);assert.equal((await loadTextbooks({root,commit:oldCommit,etymology:true})).length,3);assert.equal(await readFile(path.join(legacy,'vix-source.json'),'utf8'),oldBytes);
+ const library=await textbookLibrary(root);await writeFile(path.join(library.directory,files[0].gitBlob),'Corrupted fixture');await assert.rejects(()=>loadTextbooks({root,commit,date}),/独立教材原件摘要不符/);
+ console.log(JSON.stringify({passed:9,realNetworkCalls:0,realTextbookReads:0,checks:['missing library fails without VIX fallback','explicit authorized-directory transfer','same blobs reused without overwrites','complete books indexed and queried','new run source frozen and bound in materials and plan','full originals recover from normal archive bundles','source drift rejected','legacy identities retained; unknown source not guessed','content corruption rejected']}));
+}finally{assert(path.dirname(root)==='D:\\CodexStorage\\tmp'||path.dirname(root)==='D:/CodexStorage/tmp');await rm(root,{recursive:true,force:true});}

@@ -8,7 +8,7 @@
 
 ## 固定完整教材
 
-prepare-vix固定VIX、教材、词源；feedback-snapshot保存原目标/反馈及learnerBaseline，已有快照只复用。冻结前候选范围仍是`mainWords:[{text,family:[{text}]}]`。
+prepare-vix按VIX_ACCESS只固定辅助索引。完整教材/词源改由第二语言独立资料库提供，目录为protocol/textbook-library.json，原件实存D盘.cache/textbook-library/blobs/，按摘要只读；没有原件时停止，不回退读取VIX其他目录。原件移交仅用明确授权的目录执行prepare-textbook-library --from；不得自行把被禁止的VIX内容换名复制绕过边界。prepare-teaching-materials及lookup-textbooks为本运行固定textbook-source.json，旧输入的教材Git摘要必须一致，不能升级历史教材。该原件身份随materials、分组计划和最终私有证据封存；全文材料和条目仍须实际读取，不以锁代替内容。feedback-snapshot保存原目标/反馈及learnerBaseline，已有快照只复用。冻结前候选范围仍是`mainWords:[{text,family:[{text}]}]`。
 
 ```sh
 node scripts/prepare-teaching-materials.mjs DATE --scope=work/runs/DATE/candidate-scope.json

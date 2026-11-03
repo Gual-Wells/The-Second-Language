@@ -6,6 +6,7 @@ import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { spawnSync } from 'node:child_process';
 import { prepareVix } from './prepare-vix.mjs';
+import {auxiliaryFixture} from './fixtures/vix-auxiliary.mjs';
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const fixtureParent = path.join(projectRoot, '.cache/daily-affairs-checks');
@@ -15,11 +16,7 @@ const relativeRoot = path.relative(fixtureParent, root);
 assert.ok(relativeRoot && !relativeRoot.startsWith('..') && !path.isAbsolute(relativeRoot), 'Fixture cleanup stays within its explicit cache directory');
 const date = '2099-01-01', originalCommit = 'a'.repeat(40), laterCommit = 'b'.repeat(40);
 const authoringPolicy = 'authentic-context-v1';
-const bodies = new Map([
-  ['data/seed-access/manifest.json', Buffer.from('{"fixture":"isolated input, not a course"}\n')],
-  ['textbook/Collins.md', Buffer.from('Isolated textbook bytes for input recovery.\n')],
-  ['tools/build-seed-access.mjs', Buffer.from('// Isolated build input; never executed.\n')]
-]);
+const bodies=auxiliaryFixture([{entryId:'isolated-entry',text:'isolated'}]);
 const blobSha = bytes => createHash('sha1').update(Buffer.from(`blob ${bytes.length}\0`)).update(bytes).digest('hex');
 const inputs = [...bodies].map(([name, bytes]) => ({ type: 'blob', path: name, sha: blobSha(bytes), size: bytes.length }));
 const bySha = new Map(inputs.map(item => [item.sha, bodies.get(item.path)]));
@@ -31,7 +28,9 @@ const mockFetch = async target => {
   calls.push(url.href);
   assert.equal(url.origin, 'https://api.github.com', 'No real service or fallback may be called by this fixture');
   if (url.pathname.endsWith('/branches/main')) return Response.json({ commit: { sha: remoteCommit } });
-  if (url.pathname.endsWith(`/git/trees/${originalCommit}`)) return Response.json({ truncated: false, tree: inputs });
+  if (url.pathname.endsWith(`/git/trees/${originalCommit}`)) return Response.json({truncated:false,tree:[{type:'tree',path:'data',sha:'e'.repeat(40)}]});
+  if (url.pathname.endsWith('/git/trees/'+'e'.repeat(40))) return Response.json({truncated:false,tree:[{type:'tree',path:'seed-access',sha:'f'.repeat(40)}]});
+  if (url.pathname.endsWith('/git/trees/'+'f'.repeat(40))) return Response.json({ truncated: false, tree: inputs.map(i=>({...i,path:i.path.replace('data/seed-access/','')})) });
   const sha = url.pathname.match(/\/git\/blobs\/([a-f0-9]{40})$/)?.[1];
   assert.ok(bySha.has(sha), 'Only the original manifest blobs may be recovered');
   return Response.json({ encoding: 'base64', content: (corruptDownload ? Buffer.from('invalid bytes') : bySha.get(sha)).toString('base64') });
@@ -45,6 +44,7 @@ try {
   assert.equal(lock.commit, originalCommit, 'A complete original manifest survives an interrupted download');
   assert.equal(lock.authoringPolicy, authoringPolicy, 'A new input fixes the new authoring contract before selection');
   assert.equal(lock.inputs.length, bodies.size);
+  assert.equal(lock.vixAccessPolicy,'auxiliary-index-only-v1');
   remoteCommit = laterCommit;
   corruptDownload = false;
   calls.length = 0;
@@ -61,7 +61,7 @@ try {
   assert.equal(offline.verified, bodies.size);
   assert.equal(calls.length, 0, 'A complete snapshot must validate with no network');
 
-  const textbook = inputs.find(item => item.path.startsWith('textbook/'));
+  const textbook = inputs.find(item => item.path.includes('records-'));
   await rm(path.join(lock.localDirectory, textbook.path));
   globalThis.fetch = mockFetch;
   const repaired = await prepareVix(date, options);
@@ -70,7 +70,7 @@ try {
   assert.deepEqual(await readFile(path.join(lock.localDirectory, textbook.path)), bodies.get(textbook.path));
 
   calls.length = 0;
-  const tool = inputs.find(item => item.path.startsWith('tools/'));
+  const tool = inputs.find(item => item.path.endsWith('structure.json'));
   await writeFile(path.join(lock.localDirectory, tool.path), 'corrupted fixture');
   await prepareVix(date, options);
   assert.deepEqual(calls, [`https://api.github.com/repos/Gual-Wells/IELTS-Vocabulary-Index-List/git/blobs/${tool.sha}`]);
@@ -105,7 +105,10 @@ try {
   await mkdir(legacyDir, { recursive: true });
   const legacyLockFile = path.join(legacyDir, 'vix-source.json'), legacySelectionFile = path.join(legacyDir, 'selection.json');
   const legacyLock = { ...lock, studyDate: legacyDate };
-  delete legacyLock.authoringPolicy;delete legacyLock.authenticityPolicy;delete legacyLock.chapterSizePolicy;
+  delete legacyLock.authoringPolicy;delete legacyLock.authenticityPolicy;delete legacyLock.chapterSizePolicy;delete legacyLock.vixAccessPolicy;
+  // Old inventories are preserved, but these deliberately absent blobs may not
+  // be read or fetched under today's index-only access boundary.
+  legacyLock.inputs=[...lock.inputs,...['data/seed5-runtime/absent.json','textbook/absent.md','tools/build-seed-access.mjs'].map(path=>({path,sha:'0'.repeat(40),size:99}))];legacyLock.files=legacyLock.inputs.length;
   for (const legacyPolicy of [undefined, 'sourced-collection-v1']) {
     const frozen = JSON.stringify({ studyDate: legacyDate, vixInputCommit: originalCommit, mainWords:Array.from({length:50},(_,i)=>({text:'legacy'+i})),...(legacyPolicy ? { authoringPolicy: legacyPolicy } : {}) });
     const frozenLock = JSON.stringify({ ...legacyLock, ...(legacyPolicy ? { authoringPolicy: legacyPolicy } : {}) });
@@ -114,6 +117,7 @@ try {
     const replay = await prepareVix(legacyDate, options);
     assert.equal(replay.resumed, true);
     assert.equal(replay.fetchedFiles, 0);
+    assert.equal(replay.skippedOutOfScopeInputs,3);
     assert.equal(await readFile(legacySelectionFile, 'utf8'), frozen, 'Old frozen selection retains its original contract and bytes');
     assert.equal(await readFile(legacyLockFile, 'utf8'), frozenLock, 'Old input locks are neither upgraded nor overwritten');
   }

@@ -1,10 +1,10 @@
 import {createHash,randomUUID} from 'node:crypto';
 import {link,mkdir,readFile,rename,rm,writeFile} from 'node:fs/promises';
-import {spawnSync} from 'node:child_process';
 import path from 'node:path';
 import {loadVixIndex,familyRecords} from './vix-index.mjs';
 import {validateVixDate} from './vix-date.mjs';
 import {canonicalSourcePackage} from '../../protocol/current-affairs.mjs';
+import {readAuxiliaryIndex} from './vix-auxiliary.mjs';
 
 const protocol='second-language-vix-publication/1';
 const repo='Gual-Wells/IELTS-Vocabulary-Index-List';
@@ -42,8 +42,14 @@ export async function publishVix({vixDir,selectionFile,api,now=()=>new Date().to
   const marker=JSON.parse(await readFile(path.join(root,'vix-marking-workspace.json'),'utf8'));
   if(marker.protocol!=='second-language-vix-marking/1'||marker.studyDate!==selection.studyDate||marker.inputCommit!==selection.vixInputCommit||marker.selectionDigest!==selectionDigest)throw Error('VIX 标注工作副本与冻结 selection/原输入不一致；不得发布');
   for(const item of chosen){const actual=index.byRank.get(item.globalRank);if(!actual||actual.entryId!==item.entryId||actual.text!==item.text||!actual.markDates.includes(selection.vixMarkLabel))throw Error(`VIX 标注尚未生成或身份不匹配: ${item.text}`);}
-  const check=spawnSync(process.execPath,['tools/build-seed-access.mjs','--check'],{cwd:root,encoding:'utf8',windowsHide:true});
-  if(check.status!==0)throw Error(`VIX 索引校验失败:\n${check.stderr||check.stdout}`);
+  const checked=await readAuxiliaryIndex(root);
+  let expectedIdentity=marker.indexIdentityDigest;
+  if(!expectedIdentity){
+    const lock=JSON.parse(await readFile(path.join(path.dirname(path.resolve(selectionFile)),'vix-source.json'),'utf8'));
+    if(lock.commit!==selection.vixInputCommit)throw Error('VIX 旧副本缺少同版不可变输入，不刷新或执行旧生成器');
+    expectedIdentity=(await readAuxiliaryIndex(lock.localDirectory)).identityDigest;
+  }
+  if(expectedIdentity!==checked.identityDigest)throw Error('VIX 待发布词身份或导航偏离原输入');
   const paths=[`data/seed-access/dates/${selection.vixMarkLabel}.json`,'data/seed-access/manifest.json','data/seed-access/mark-hash.json','data/seed-access/structure.json',...index.manifest.records.map(item=>item.path)];
   if(new Set(paths).size!==paths.length||paths.some(file=>!/^data\/seed-access\//.test(file)||file.includes('\\')||file.split('/').some(part=>!part||part==='.'||part==='..')))throw Error('VIX 拟发布文件路径无效或重复');
   const bodies=new Map(),files=[];
