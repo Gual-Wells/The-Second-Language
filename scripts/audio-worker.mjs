@@ -33,5 +33,11 @@ try{
  if(state==='running'){blocked=await reconcileAudioBlocked(blocked,api);state=blocked.length?'needs_review':'completed';failure=blocked.length?`${blocked.length} 项声音结果待核对，未重复生成；其余独立例句已处理`:'';}
  await progress();await writeFile(directory+'/result.json',JSON.stringify({state,cursor,blocked},null,2));
  console.log(`音频申请 ${job.id}：${cursor}/${job.units.length}，${state}`);
-}catch(error){state='needs_review';failure=String(error.message);await progress().catch(()=>{});await writeFile(directory+'/result.json',JSON.stringify({state,cursor,blocked,error:failure},null,2));console.error(failure);process.exitCode=1;}
+}catch(error){
+ // This exact rejection precedes ledger insertion/provider submission. Retain
+ // the original orchestration lease as a bounded wait for archival capacity.
+ // The minute scheduler reclaims it after five minutes, never by clearing TTS.
+ state=error.storageBackpressure?'running':'needs_review';failure=error.storageBackpressure?'等待已购声音转存腾出临时空间；未发起本块合成':String(error.message);
+ await progress().catch(()=>{});await writeFile(directory+'/result.json',JSON.stringify({state,cursor,blocked,error:failure},null,2));console.error(failure);process.exitCode=error.storageBackpressure?0:1;
+}
 finally{clearInterval(heartbeat);await finishTaskBalances();}

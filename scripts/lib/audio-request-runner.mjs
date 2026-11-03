@@ -5,7 +5,7 @@ export async function readAudioResponse(response){
  let value;try{value=await response.json();}catch{
   throw Object.assign(Error(`声音服务返回非 JSON 响应（HTTP ${response.status}），请求结果需按原身份查询`),{transportUnknown:true,status:response.status});
  }
- if(!response.ok&&!(value?.state==='outcome_unknown'&&/^[a-f0-9]{64}$/.test(value.id||'')))throw Object.assign(Error(typeof value?.error==='string'?value.error:`声音服务 HTTP ${response.status}`),{status:response.status});
+ if(!response.ok&&!(value?.state==='outcome_unknown'&&/^[a-f0-9]{64}$/.test(value.id||'')))throw Object.assign(Error(typeof value?.error==='string'?value.error:`声音服务 HTTP ${response.status}`),{status:response.status,storageBackpressure:response.status===503&&value?.error==='声音存储需要维护，已有发音仍可播放'});
  return value;
 }
 export function recoverAudioBlocked(checkpoint,job){
