@@ -1,5 +1,6 @@
 import {createHash} from 'node:crypto';
 import {loadChapterEvidence} from './chapter-evidence.mjs';
+import {canonicalSourcePackage} from '../../protocol/current-affairs.mjs';
 
 const hash=value=>createHash('sha256').update(value).digest('hex');
 const sleep=ms=>new Promise(resolve=>setTimeout(resolve,ms));
@@ -46,4 +47,33 @@ export async function publishChapterEvidence(root,date,chapter,options){
  if(!chapter.sourcePackage?.evidenceDigest)return {objects:0};
  const evidence=await loadChapterEvidence(root,date,chapter.sourcePackage,{markdown:chapter.markdown});
  return uploadEvidenceObjects(evidence.objects,options);
+}
+
+// The large object transfers get their own request contexts before stage. This
+// only seals immutable storage; normal server review, bindings and commit remain
+// mandatory. Resume reads the same keys and never repeats an unknown PUT here.
+export async function sealChapterObjects(chapter,{base,token,fetchImpl=fetch,sleepImpl=sleep}){
+ if(!/^\d{4}-\d{2}-\d{2}$/.test(chapter?.date||'')||chapter.id!==chapter.date||typeof chapter.markdown!=='string')throw Error('本机章节封存身份无效');
+ const sourceText=canonicalSourcePackage(chapter.sourcePackage);
+ const objects=[
+  {key:`chapters/${chapter.date}/${chapter.digest}.md`,text:chapter.markdown,digest:chapter.digest,mime:'text/markdown; charset=utf-8'},
+  {key:`chapter-sources/${chapter.digest}/${chapter.sourceDigest}.json`,text:sourceText,digest:chapter.sourceDigest,mime:'application/json; charset=utf-8'}
+ ];
+ for(const object of objects){if(!/^[a-f0-9]{64}$/.test(object.digest||'')||hash(object.text)!==object.digest)throw Error('本机正文或来源封存摘要不符');object.bytes=Buffer.byteLength(object.text);}
+ const receipts=[];
+ for(const object of objects){
+  const url=new URL('/api/storage/objects',base);url.searchParams.set('key',object.key);const headers={authorization:`Bearer ${token}`};
+  let read=await immutableRead(url,'GET',headers,fetchImpl,sleepImpl);const reused=read.ok;
+  if(read.status===404){
+   const response=await fetchImpl(url,{method:'PUT',headers:{...headers,'content-type':object.mime},body:object.text,signal:AbortSignal.timeout(60000)});
+   if(!response.ok){await discard(response);throw Error(`正文或来源封存尚未完成 (${response.status})`);}
+   let receipt;try{receipt=await response.json();}finally{await discard(response);}
+   if(receipt.key!==object.key||receipt.digest!==object.digest||receipt.bytes!==object.bytes)throw Error('正文或来源封存回执不一致');
+   read=await immutableRead(url,'GET',headers,fetchImpl,sleepImpl);
+  }
+  if(!read.ok)throw Error(`正文或来源永久回读尚未完成 (${read.status})`);
+  if(read.bytes.length!==object.bytes||hash(read.bytes)!==object.digest)throw Error('正文或来源永久回读摘要不符');
+  receipts.push({key:object.key,digest:object.digest,bytes:object.bytes,reused});
+ }
+ return {objects:receipts};
 }

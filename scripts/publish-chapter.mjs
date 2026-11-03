@@ -5,7 +5,7 @@ import path from 'node:path';
 import { publisherConfig } from './lib/publisher-config.mjs';
 import {validatePublishedVixReceipt} from './lib/vix-publication.mjs';
 import {canonicalSourcePackage} from '../protocol/current-affairs.mjs';
-import {publishChapterEvidence} from './lib/publish-chapter-evidence.mjs';
+import {publishChapterEvidence,sealChapterObjects} from './lib/publish-chapter-evidence.mjs';
 import {verifyChapterPublication} from './lib/chapter-publication-preflight.mjs';
 import {verifyReaderRelease} from './lib/reader-release.mjs';
 import {requiredReaderLayout} from '../protocol/reader-layout.mjs';
@@ -49,6 +49,7 @@ await publishChapterEvidence(process.cwd(),date,chapter,{base,token});
 let attestation,fallback;
 if(admission.review){attestation=await createPublicationAttestation(process.cwd(),date,{...chapter,runId,publicationReviewDigest:admission.review.digest});await uploadEvidenceObjects([admission.review,attestation],{base,token});}
 if(!alreadyPublished){fallback=await createFallbackAdmission(process.cwd(),date,{...chapter,runId});await uploadEvidenceObjects([fallback.appeals,fallback.attestation],{base,token});}
+await sealChapterObjects(chapter,{base,token});
 const staged = await post('/api/publish/stage', { ...chapter, ...(admission.review?{publicationReviewDigest:admission.review.digest,publicationAttestationDigest:attestation.digest}:{}),...(fallback?{fallbackAppealsDigest:fallback.appeals.digest,fallbackAttestationDigest:fallback.attestation.digest}:{}),runId, vixCommit: meta.vixCommit, protocolCommit: meta.protocolCommit });
 if (staged.digest !== chapter.digest || staged.sourceDigest !== chapter.sourceDigest) throw new Error('后端暂存正文/来源摘要与本地章节不一致');
 if(staged.number && staged.number!==chapter.number){
